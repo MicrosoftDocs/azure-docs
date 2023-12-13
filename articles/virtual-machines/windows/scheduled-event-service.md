@@ -1,19 +1,18 @@
 ---
-title: Monitor scheduled events for your Windows VMs in Azure 
+title: Monitor scheduled events for your VMs in Azure 
 description: Learn how to monitor your Azure virtual machines for scheduled events.
-services: virtual-machines-windows
-documentationcenter: ''
 author: mysarn
-manager: gwallace
-
-ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.subservice: scheduled-events
 ms.date: 08/20/2019
 ms.author: sarn
-ms.topic: conceptual
+ms.topic: how-to
+# Monitoring Scheduled Events
 ---
 
-# Monitoring Scheduled Events
+# Monitor scheduled events for your Azure VMs
+
+**Applies to:** VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Updates are applied to different parts of Azure every day, to keep the services running on them secure, and up-to-date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance, and enables you to gracefully handle the maintenance. 
 
@@ -24,7 +23,7 @@ In this article, we will show how you can use scheduled events to be notified ab
 
 Scheduled Events is available as part of the [Azure Instance Metadata Service](instance-metadata-service.md), which is available on every Azure virtual machine. Customers can write automation to query the endpoint of their virtual machines to find scheduled maintenance notifications and perform mitigations, like saving the state and taking the virtual machine out of rotation. We recommend building automation to record the Scheduled Events so you can have an auditing log of Azure maintenance events. 
 
-In this article, we will walk you through how to capture maintenance Scheduled Events to Log Analytics. Then, we will trigger some basic notification actions, like sending an email to your team and getting a historical view of all events that have affected your virtual machines. For the event aggregation and automation we will use [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace), but you can use any monitoring solution to collect these logs and trigger automation.
+In this article, we will walk you through how to capture maintenance Scheduled Events to Log Analytics. Then, we will trigger some basic notification actions, like sending an email to your team and getting a historical view of all events that have affected your virtual machines. For the event aggregation and automation we will use [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md), but you can use any monitoring solution to collect these logs and trigger automation.
 
 ![Diagram showing the event lifecycle](./media/notifications/events.png)
 
@@ -34,11 +33,11 @@ For this example, you will need to create a [Windows Virtual Machine in an Avail
 
 Don't delete the group resource group at the end of the tutorial.
 
-You will also need to [create a Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) that we will use to aggregate information from the VMs in the availability set.
+You will also need to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md) that we will use to aggregate information from the VMs in the availability set.
 
 ## Set up the environment
 
-You should now have 2 initial VMs in an availability set. Now we need to create a 3rd VM, called myCollectorVM, in the same availability set. 
+You should now have 2 initial VMs in an availability set. Now we need to create a 3rd VM, called `myCollectorVM`, in the same availability set. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -106,12 +105,12 @@ We now want to connect a Log Analytics Workspace to the collector VM. The Log An
 1. Open the page for the workspace you created.
 1. Under **Connect to a data source** select **Azure virtual machines (VMs)**.
 
-	![Connect to a VM as a data source](./media/notifications/connect-to-data-source.png)
+    ![Connect to a VM as a data source](./media/notifications/connect-to-data-source.png)
 
 1. Search for and select **myCollectorVM**. 
 1. On the new page for **myCollectorVM**, select **Connect**.
 
-This will install the [Microsoft Monitoring agent](/azure/virtual-machines/extensions/oms-windows) in your virtual machine. It will take a few minutes to connect your VM to the workspace and install the extension. 
+This will install the [Microsoft Monitoring agent](../extensions/oms-windows.md) in your virtual machine. It will take a few minutes to connect your VM to the workspace and install the extension. 
 
 ## Configure the workspace
 
@@ -119,7 +118,7 @@ This will install the [Microsoft Monitoring agent](/azure/virtual-machines/exten
 1. Select **Data** from the left menu, then select **Windows Event Logs**.
 1. In **Collect from the following event logs**, start typing *application* and then select **Application** from the list.
 
-	![Select Advanced settings](./media/notifications/advanced.png)
+    ![Select Advanced settings](./media/notifications/advanced.png)
 
 1. Leave **ERROR**, **WARNING**, and **INFORMATION** selected and then select **Save** to save the settings.
 
@@ -130,36 +129,35 @@ This will install the [Microsoft Monitoring agent](/azure/virtual-machines/exten
 
 ## Creating an alert rule with Azure Monitor 
 
-
-Once the events are pushed to Log Analytics, you can run the following [query](/azure/azure-monitor/log-query/get-started-portal) to look for the schedule Events.
+Once the events are pushed to Log Analytics, you can run the following [query](../../azure-monitor/logs/log-analytics-tutorial.md) to look for the schedule Events.
 
 1. At the top of the page, select **Logs** and paste the following into the text box:
 
-	```
-	Event
-	| where EventLog == "Application" and Source contains "AzureScheduledEvents" and RenderedDescription contains "Scheduled" and RenderedDescription contains "EventStatus" 
-	| project TimeGenerated, RenderedDescription
-	| extend ReqJson= parse_json(RenderedDescription)
-	| extend EventId = ReqJson["EventId"]
-	,EventStatus = ReqJson["EventStatus"]
-	,EventType = ReqJson["EventType"]
-	,NotBefore = ReqJson["NotBefore"]
-	,ResourceType = ReqJson["ResourceType"]
-	,Resources = ReqJson["Resources"]
-	| project-away RenderedDescription,ReqJson
-	```
+    ```
+    Event
+    | where EventLog == "Application" and Source contains "AzureScheduledEvents" and RenderedDescription contains "Scheduled" and RenderedDescription contains "EventStatus" 
+    | project TimeGenerated, RenderedDescription
+    | extend ReqJson= parse_json(RenderedDescription)
+    | extend EventId = ReqJson["EventId"]
+    ,EventStatus = ReqJson["EventStatus"]
+    ,EventType = ReqJson["EventType"]
+    ,NotBefore = ReqJson["NotBefore"]
+    ,ResourceType = ReqJson["ResourceType"]
+    ,Resources = ReqJson["Resources"]
+    | project-away RenderedDescription,ReqJson
+    ```
 
-1. Select **Save**, and then type *logQuery* for the name, leave **Query** as the type, type *VMLogs* as the **Category**, and then select **Save**. 
+1. Select **Save**, and then type `ogQuery` for the name, leave **Query** as the type, type `VMLogs` as the **Category**, and then select **Save**. 
 
-	![Save the query](./media/notifications/save-query.png)
+    ![Save the query](./media/notifications/save-query.png)
 
 1. Select **New alert rule**. 
 1. In the **Create rule** page, leave `collectorworkspace` as the **Resource**.
-1. Under **Condition**, select the entry *Whenever the customer log search is <login undefined>*. The **Configure signal logic** page will open.
+1. Under **Condition**, select the entry *Whenever the customer log search is \<login undefined\>*. The **Configure signal logic** page will open.
 1. Under **Threshold value**, enter *0* and then select **Done**.
 1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.
-1. In **Short name**, type **myActionGroup**.
+1. In **Short name**, type *myActionGroup*.
 1. In **Resource group**, select **myResourceGroupAvailability**.
 1. Under Actions, in **ACTION NAME** type **Email**, and then select **Email/SMS/Push/Voice**. The **Email/SMS/Push/Voice** page will open.
 1. Select **Email**, type in your e-mail address, then select **OK**.

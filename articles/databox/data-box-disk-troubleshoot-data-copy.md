@@ -2,13 +2,13 @@
 title: Azure Data Box Disk troubleshooting data copy issues| Microsoft Docs 
 description: Describes how to troubleshoot issues seen during data copy in Azure Data Box Disk using logs.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Troubleshoot data copy issues in Azure Data Box Disk
@@ -28,7 +28,9 @@ This could be due to an unclean file system.
 
 Remounting a drive as read-write does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. You may have successfully remounted the device using the following command:
 
-    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
+```
+# mount -o remount, rw /mnt/DataBoxDisk/mountVol1
+```
 
 Though the remounting was successful, the data will not persist.
 

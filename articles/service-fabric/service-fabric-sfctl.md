@@ -1,15 +1,16 @@
 ---
 title: Azure Service Fabric CLI- sfctl 
 description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands and subgroups.
-author: jeffj6123
-
 ms.topic: reference
-ms.date: 9/17/2019
-ms.author: jejarry
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl
-Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 6.5 runtime.
+Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 7.0 runtime.
 
 Commands follow the noun-verb pattern. See subgroups for more information.
 
@@ -23,7 +24,6 @@ Commands follow the noun-verb pattern. See subgroups for more information.
 | [container](service-fabric-sfctl-container.md) | Run container related commands on a cluster node. |
 | [events](service-fabric-sfctl-events.md) | Retrieve events from the events store (if EventStore service is already installed). |
 | [is](service-fabric-sfctl-is.md) | Query and send commands to the infrastructure service. |
-| [mesh](service-fabric-sfctl-mesh.md) | Delete and manage Service Fabric Mesh applications. |
 | [node](service-fabric-sfctl-node.md) | Manage the nodes that form a cluster. |
 | [partition](service-fabric-sfctl-partition.md) | Query and manage partitions for any service. |
 | [property](service-fabric-sfctl-property.md) | Store and query properties under Service Fabric names. |
@@ -36,4 +36,4 @@ Commands follow the noun-verb pattern. See subgroups for more information.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

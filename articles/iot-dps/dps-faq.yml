@@ -1,0 +1,94 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ) 
+  description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
+  author: kgremban
+  ms.author: kgremban
+  ms.date: 02/06/2023
+  ms.topic: faq
+  ms.service: iot-dps
+  services: iot-dps
+title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
+summary: |
+  This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
+  
+  * [Devices and provisioning](#devices-and-provisioning)
+  * [Management and monitoring](#management-and-monitoring)
+  * [Billing](#billing)
+  
+
+sections:
+  - name: Devices and provisioning
+    questions:
+      - question: |
+         How can I disable or remove a single device within an enrollment group without affecting any other devices? 
+        answer: |
+         You can create a disabled individual enrollment entry for the device. To learn more, see [How to disenroll a device from Azure IoT Hub Device Provisioning Service](how-to-revoke-device-access-portal.md).
+      - question: |
+         Does DPS support provisioning a parent/child topology of IoT Edge gateways and devices?
+        answer: |
+         No.
+      - question: |
+         Can multiple DPS instances provision devices to the same IoT hub? 
+        answer: |
+         Yes; however, built-in allocation policies apply to each DPS instance individually, so load balancing across multiple IoT hubs is not possible when using the built-in DPS policies. Instead, you can use a custom allocation policy to implement load balancing when using multiple DPS instances. To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md).
+      - question: |
+         Why can't I manage enrollments in the Azure portal?
+        answer: |
+         If you created a private endpoint for DPS and disabled public network access, that removes the ability to manage enrollments in the Azure portal. You can still use the Azure CLI, PowerShell, or service APIs from machines that have access to the private endpoint. For more information, see [DPS support for virtual networks](virtual-network-support.md).
+
+  - name: Management and monitoring
+    questions:
+      - question: |
+         What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
+        answer: |
+         The primary key is embedded inside the connection string that DPS uses for authentication. Whenever the primary connection string is modified, the primary key will also be modified, and you'll need to relink the hub to your DPS.
+      - question: |
+         Can I use a WHERE clause to filter results when querying individual enrollments or enrollment groups? 
+        answer: |
+         Filtering results with a `WHERE` clause is not supported at this time. You can use `SELECT *` to return paged results for all the individual enrollments or enrollment groups in a DPS instance.
+      - question: |
+         How does the health of an IoT hub affect device provisioning? 
+        answer: |
+         Currently DPS doesn't check the health of an IoT hub before assigning devices. DPS will continue to try to assign devices to an IoT hub that is down based on its configured allocation policy. For example, if the configured allocation policy is *Lowest latency* and DPS has a linked IoT hub in region A (hub A) and one in region B (hub B), it will assign a device trying to provision from region A to hub A, even if hub A is down. To factor in IoT hub health when provisioning devices, you can implement a custom allocation policy with your own monitoring logic based on [IoT Hub diagnostics](../iot-hub/monitor-iot-hub.md) or your own user-defined metrics. To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md).
+      - question: |
+         How can I recover from an accidental deletion of a DPS instance?
+        answer: |
+         There's no recovery mechanism. Open a support ticket and we can create a new DPS instance with the same scope ID. The provisioning data will be lost but at least with the same scope ID, devices will be able to reconnect once the enrollments are rebuilt.
+      - question: |
+         How can I get an authorization token to use for REST service operations? 
+        answer: |
+         For information about how to get an authorization token for REST service operations like [Create or Update Enrollment Group](/rest/api/iot-dps/service/enrollment-group/create-or-update) and [Get Device Registration State](/rest/api/iot-dps/service/device-registration-state/get), see [Service API authentication](how-to-control-access.md#service-api-authentication).
+      - question: |
+         Where does DPS store customer data?
+        answer: |
+         Device Provisioning Service stores customer data in the region where you deployed the service instance, and replicates data to a secondary region to support disaster recovery scenarios. For more information, see [Data residency considerations](about-iot-dps.md#data-residency-consideration).
+         
+  - name: Billing
+    questions:
+      - question: |
+         Which Device Provisioning Service API operations are billable and what are their prices?” 
+        answer: |
+         For information on which operations are billable and their prices, see [Billable service operations and pricing for Microsoft Device Provisioning Service](about-iot-dps.md#billable-service-operations-and-pricing)
+      - question: |
+         Is it more expensive to deploy DPS in regions that support regional failover versus regions that don't?
+        answer: |
+         No, the availability of regional failover doesn't affect DPS pricing. [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+      - question: |
+         Will I be billed again if my device was successfully provisioned to a hub, then I had to reconnect?
+        answer: |
+         Reprovisioning through DPS is a billable operation but reconnecting to IoT Hub is not. Whenever possible, devices should attempt to reconnect to their assigned IoT hub before going through the reprovisioning process.
+
+
+additionalContent: |
+
+  ## Next steps
+  
+  If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
+
+  * [MSFT Q&A page for Azure DPS](/answers/topics/azure-iot-dps.html?sort=viewCount).
+  * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
+  
+
+  > [!div class="nextstepaction"]
+  > [Troubleshoot DPS](how-to-troubleshoot-dps.md)

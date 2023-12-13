@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 08/15/2023
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -11,42 +11,65 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
+Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md).
 
 ## Microsoft.Automation
 
 * automationAccounts
 
+## Microsoft.AzureArcData
+
+* SqlServerInstances
+
 ## Microsoft.AzureStack
 
+* generateDeploymentLicense
+* linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
 
 ## Microsoft.BotService
 
-* botServices - By default, limited to 800 instances. That limit can be increased by contacting support.
+* botServices - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
+
+## Microsoft.Cdn
+
+* profiles - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
+* profiles/networkpolicies - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
 
 ## Microsoft.Compute
 
+* diskEncryptionSets
 * disks
+* galleries
+* galleries/images
+* galleries/images/versions
+* galleries/serviceArtifacts
 * images
 * snapshots
 * virtualMachines
+* virtualMachines/extensions
+* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
 
 ## Microsoft.ContainerInstance
 
+* containerGroupProfiles
 * containerGroups
+* containerScaleSets
 
 ## Microsoft.ContainerRegistry
 
 * registries/buildTasks
-* registries/buildTasks/listSourceRepositoryProperties
 * registries/buildTasks/steps
-* registries/buildTasks/steps/listBuildArguments
 * registries/eventGridFilters
 * registries/replications
 * registries/tasks
 * registries/webhooks
+
+## Microsoft.D365CustomerInsights
+
+* instances
 
 ## Microsoft.DBforMariaDB
 
@@ -54,39 +77,52 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.DBforMySQL
 
+* flexibleServers
 * servers
 
 ## Microsoft.DBforPostgreSQL
 
-* serverGroups
+* flexibleServers
+* serverGroupsv2
 * servers
-* serversv2
 
-## Microsoft.EnterpriseKnowledgeGraph
+## Microsoft.DevTestLab
 
-* services
+* schedules
+
+## Microsoft.EdgeOrder
+
+* bootstrapConfigurations
+* orderItems
+* orders
 
 ## Microsoft.EventHub
 
 * clusters
 * namespaces
 
-## Microsoft.Experimentation
+## Microsoft.Fabric
 
-* experimentWorkspaces
+* capacities - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Fabric/UnlimitedResourceGroupQuota 
 
 ## Microsoft.GuestConfiguration
 
-* configurationProfileAssignments
 * guestConfigurationAssignments
-* software
-* softwareUpdateProfile
-* softwareUpdates
+
+## Microsoft.HybridCompute
+
+* machines
+* machines/extensions
+* machines/runcommands
 
 ## Microsoft.Logic
 
 * integrationAccounts
 * workflows
+
+## Microsoft.Media
+
+* mediaservices/liveEvents
 
 ## Microsoft.NetApp
 
@@ -95,84 +131,104 @@ For some resource types, you need to contact support to have the 800 instance li
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/capacityPools/volumes/subvolumes
+* netAppAccounts/capacityPools/volumes/volumeQuotaRules
+* netAppAccounts/snapshotPolicies
+* netAppAccounts/volumeGroups
 
 ## Microsoft.Network
 
-* applicationGatewayWebApplicationFirewallPolicies
 * applicationSecurityGroups
-* bastionHosts
+* customIpPrefixes
 * ddosProtectionPlans
-* dnszones
-* dnszones/A
-* dnszones/AAAA
-* dnszones/CAA
-* dnszones/CNAME
-* dnszones/MX
-* dnszones/NS
-* dnszones/PTR
-* dnszones/SOA
-* dnszones/SRV
-* dnszones/TXT
-* dnszones/all
-* dnszones/recordsets
+* loadBalancers - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.Resources/ARMDisableResourcesPerRGLimit 
 * networkIntentPolicies
 * networkInterfaces
-* privateDnsZones
-* privateDnsZones/A
-* privateDnsZones/AAAA
-* privateDnsZones/CNAME
-* privateDnsZones/MX
-* privateDnsZones/PTR
-* privateDnsZones/SOA
-* privateDnsZones/SRV
-* privateDnsZones/TXT
-* privateDnsZones/all
-* privateDnsZones/virtualNetworkLinks
+* networkSecurityGroups
+* privateEndpointRedirectMaps
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - By default, limited to 800 instances. That limit can be increased by contacting support.
+* publicIPAddresses
 * serviceEndpointPolicies
-* trafficmanagerprofiles
 * virtualNetworkTaps
 
-## Microsoft.PortalSdk
+## Microsoft.NetworkCloud
 
-* rootResources
+* volumes
+
+## Microsoft.NetworkFunction
+
+* vpnBranches - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.NetworkFunction/AllowNaasVpnAccess 
+
+## Microsoft.NotificationHubs
+
+* namespaces - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.NotificationHubs/ARMDisableResourcesPerRGLimit 
+* namespaces/notificationHubs - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.NotificationHubs/ARMDisableResourcesPerRGLimit 
 
 ## Microsoft.PowerBI
 
-* workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
+* workspaceCollections - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.PowerBI/UnlimitedQuota 
+
+## Microsoft.PowerBIDedicated
+
+* autoScaleVCores - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.PowerBIDedicated/UnlimitedResourceGroupQuota 
+* capacities - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.PowerBIDedicated/UnlimitedResourceGroupQuota 
 
 ## Microsoft.Relay
 
 * namespaces
 
-## Microsoft.Scheduler
+## Microsoft.Security
 
-* jobcollections
+* assignments
+* securityConnectors
+* securityConnectors/devops
 
 ## Microsoft.ServiceBus
 
 * namespaces
 
-## Microsoft.ServiceFabricMesh
+## Microsoft.Singularity
 
-* applications
-* containerGroups
-* gateways
-* networks
-* secrets
-* volumes
+* accounts
+* accounts/accountQuotaPolicies
+* accounts/groupPolicies
+* accounts/jobs
+* accounts/models
+* accounts/networks
+* accounts/secrets
+* accounts/storageContainers
+
+## Microsoft.Sql
+
+* instancePools
+* managedInstances
+* managedInstances/databases
+* managedInstances/metricDefinitions
+* managedInstances/metrics
+* managedInstances/sqlAgent
+* servers
+* servers/databases
+* servers/databases/databaseState
+* servers/elasticpools
+* servers/jobAccounts
+* servers/jobAgents
+* virtualClusters
 
 ## Microsoft.Storage
 
 * storageAccounts
 
+## Microsoft.StreamAnalytics
+
+* streamingjobs - By default, limited to 800 instances. That limit can be increased by [registering the following features](preview-features.md) - Microsoft.StreamAnalytics/ASADisableARMResourcesPerRGLimit 
+
 ## Microsoft.Web
 
 * apiManagementAccounts/apis
+* certificates
 * sites
 
 ## Next steps
 
-For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).

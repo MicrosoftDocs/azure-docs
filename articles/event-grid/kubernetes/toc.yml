@@ -1,0 +1,49 @@
+- name: Event Grid on Kubernetes documentation
+  href: index.yml
+- name: Switch to Azure Event Grid documentation
+  href: ../overview.md
+- name: Overview
+  items:
+  - name: What is Event Grid on Kubernetes with Azure Arc?
+    href: overview.md  
+  - name: Features
+    href: features.md
+- name: Quickstarts
+  items:
+  - name: Webhook as event handler
+    href: create-topic-subscription.md
+- name: Samples
+  items:
+  - name: Code Samples
+    href: https://devblogs.microsoft.com/azure-sdk/event-grid-ga/
+- name: Concepts
+  items:
+  - name: Event Grid on Kubernetes concepts
+    href: concepts.md
+  - name: Event handlers
+    href: event-handlers.md    
+  - name: Event schemas
+    href: event-schemas.md
+  - name: Batch event delivery
+    href: batch-event-delivery.md
+  - name: Delivery and retry
+    href: delivery-retry.md
+  - name: Event filtering
+    href: filter-events.md    
+- name: How-to guides
+  items:
+  - name: Install Event Grid extension
+    href: install-k8s-extension.md
+
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/eventgrid/controlplane-preview/topics
+  - name: SDKs
+    href: ../sdk-overview.md?toc=%2fazure%2fevent-grid%2fkubernetes%2ftoc.json
+- name: Resources
+  items:
+  - name: Get support
+    href: get-support.md
+  - name: Legal terms
+    href: legal-terms.md

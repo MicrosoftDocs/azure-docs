@@ -1,11 +1,12 @@
 ---
 title: Monitor Linux cluster events in Azure Service Fabric 
 description: Learn how to monitor a Service Fabric Linux cluster events by writing Service Fabric platform events to Syslog.
-author: srrengar
-
-ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: srrengar
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Service Fabric Linux cluster events in Syslog
@@ -24,7 +25,7 @@ Each Syslog event has 4 components
 * Message
 * Severity
 
-The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config  config. The Identity used is `ServiceFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
+The SyslogConsumer writes all platform events using Facility `Local0`. You can update to any valid facility by changing the config. The Identity used is `ServiceFabric`. The Message field contains the whole event serialized in JSON so that it can be queried and consumed by a variety of tools. 
 
 ## Enable SyslogConsumer
 
@@ -83,7 +84,7 @@ Here are the changes to call out
 ```
 
 ## Azure Monitor logs integration
-You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/learn/quick-create-workspace.md)
+You can read these Syslog events in a monitoring tool such as Azure Monitor logs. You can create a Log Analytics workspace by using the Azure Marketplace using these [instructions].(../azure-monitor/logs/quick-create-workspace.md)
 You also need to add the Log Analytics agent to your cluster to collect and send this data to the workspace. This is the same agent used to collect performance counters. 
 
 1. Navigate to the `Advanced Settings` blade
@@ -110,6 +111,6 @@ The example above is of a NodeDown event. You can view the full list of events [
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../log-analytics/log-analytics-view-designer.md)
-* Reference for how to [Azure Monitor logs integration with Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](/previous-versions/azure/azure-monitor/visualize/view-designer)
+* Reference for how to [Azure Monitor logs integration with Syslog](../azure-monitor/agents/data-sources-syslog.md).

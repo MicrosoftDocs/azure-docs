@@ -1,5 +1,5 @@
-﻿---
-title: Add a network security group rule in Powershell
+---
+title: Add a network security group rule in PowerShell
 description: Azure PowerShell Script Sample - Adds a network security group to allow inbound traffic on a specific port.
 services: service-fabric
 documentationcenter: 
@@ -14,7 +14,7 @@ ms.workload: multiple
 ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Add an inbound network security group rule
@@ -23,7 +23,7 @@ This sample script creates a network security group rule to allow inbound traffi
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview). 
+If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/). 
 
 ## Sample script
 
@@ -42,4 +42,4 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

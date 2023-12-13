@@ -1,46 +1,56 @@
 ---
 title: Template functions
-description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.custom: devx-track-arm-template
+ms.date: 08/03/2023
 ---
-# Azure Resource Manager template functions
 
-This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
+# ARM template functions
 
-To create your own functions, see [User-defined functions](template-syntax.md#functions).
+This article describes all the functions you can use in an Azure Resource Manager template (ARM template). For information about using functions in your template, see [template syntax](template-expressions.md).
 
-<a id="array" aria-hidden="true" />
-<a id="coalesce" aria-hidden="true" />
-<a id="concatarray" aria-hidden="true" />
-<a id="contains" aria-hidden="true" />
-<a id="createarray" aria-hidden="true" />
-<a id="empty" aria-hidden="true" />
-<a id="first" aria-hidden="true" />
-<a id="intersection" aria-hidden="true" />
-<a id="json" aria-hidden="true" />
-<a id="last" aria-hidden="true" />
-<a id="length" aria-hidden="true" />
-<a id="min" aria-hidden="true" />
-<a id="max" aria-hidden="true" />
-<a id="range" aria-hidden="true" />
-<a id="skip" aria-hidden="true" />
-<a id="take" aria-hidden="true" />
-<a id="union" aria-hidden="true" />
+To create your own functions, see [User-defined functions](./syntax.md#functions).
 
-## Array and object functions
-Resource Manager provides several functions for working with arrays and objects.
+Most functions work the same when deployed to a resource group, subscription, management group, or tenant. A few functions can't be used in all scopes. They're noted in the lists below.
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [Bicep functions](../bicep/bicep-functions.md) and [Bicep operators](../bicep/operators.md).
+
+<a id="array" aria-hidden="true"></a>
+<a id="concatarray" aria-hidden="true"></a>
+<a id="contains" aria-hidden="true"></a>
+<a id="createarray" aria-hidden="true"></a>
+<a id="empty" aria-hidden="true"></a>
+<a id="first" aria-hidden="true"></a>
+<a id="intersection" aria-hidden="true"></a>
+<a id="last" aria-hidden="true"></a>
+<a id="length" aria-hidden="true"></a>
+<a id="min" aria-hidden="true"></a>
+<a id="max" aria-hidden="true"></a>
+<a id="range" aria-hidden="true"></a>
+<a id="skip" aria-hidden="true"></a>
+<a id="take" aria-hidden="true"></a>
+<a id="union" aria-hidden="true"></a>
+
+## Any function
+
+The [any function](../bicep/bicep-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
+
+## Array functions
+
+Resource Manager provides several functions for working with arrays.
 
 * [array](template-functions-array.md#array)
-* [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
 * [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
+* [indexOf](template-functions-array.md#indexof)
 * [intersection](template-functions-array.md#intersection)
-* [json](template-functions-array.md#json)
 * [last](template-functions-array.md#last)
+* [lastIndexOf](template-functions-array.md#lastindexof)
 * [length](template-functions-array.md#length)
 * [min](template-functions-array.md#min)
 * [max](template-functions-array.md#max)
@@ -49,26 +59,53 @@ Resource Manager provides several functions for working with arrays and objects.
 * [take](template-functions-array.md#take)
 * [union](template-functions-array.md#union)
 
-<a id="equals" aria-hidden="true" />
-<a id="less" aria-hidden="true" />
-<a id="lessorequals" aria-hidden="true" />
-<a id="greater" aria-hidden="true" />
-<a id="greaterorequals" aria-hidden="true" />
+For Bicep files, use the [array](../bicep/bicep-functions-array.md) functions.
+
+<a id="coalesce" aria-hidden="true"></a>
+<a id="equals" aria-hidden="true"></a>
+<a id="less" aria-hidden="true"></a>
+<a id="lessorequals" aria-hidden="true"></a>
+<a id="greater" aria-hidden="true"></a>
+<a id="greaterorequals" aria-hidden="true"></a>
+
+## CIDR functions
+
+The following functions are available for working with CIDR. All of these functions are in the `sys` namespace.
+
+* [parseCidr](./template-functions-cidr.md#parsecidr)
+* [cidrSubnet](./template-functions-cidr.md#cidrsubnet)
+* [cidrHost](./template-functions-cidr.md#cidrhost)
 
 ## Comparison functions
+
 Resource Manager provides several functions for making comparisons in your templates.
 
+* [coalesce](template-functions-comparison.md#coalesce)
 * [equals](template-functions-comparison.md#equals)
 * [less](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
 * [greater](template-functions-comparison.md#greater)
 * [greaterOrEquals](template-functions-comparison.md#greaterorequals)
 
-<a id="deployment" aria-hidden="true" />
-<a id="parameters" aria-hidden="true" />
-<a id="variables" aria-hidden="true" />
+For Bicep files, use the [coalesce](../bicep/operators-logical.md) logical operator. For comparisons, use the [comparison](../bicep/operators-comparison.md) operators.
+
+## Date functions
+
+Resource Manager provides the following functions for working with dates.
+
+* [dateTimeAdd](template-functions-date.md#datetimeadd)
+* [dateTimeFromEpoch](template-functions-date.md#datetimefromepoch)
+* [dateTimeToEpoch](template-functions-date.md#datetimetoepoch)
+* [utcNow](template-functions-date.md#utcnow)
+
+For Bicep files, use the [date](../bicep/bicep-functions-date.md) functions.
+
+<a id="deployment" aria-hidden="true"></a>
+<a id="parameters" aria-hidden="true"></a>
+<a id="variables" aria-hidden="true"></a>
 
 ## Deployment value functions
+
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 * [deployment](template-functions-deployment.md#deployment)
@@ -76,33 +113,41 @@ Resource Manager provides the following functions for getting values from sectio
 * [parameters](template-functions-deployment.md#parameters)
 * [variables](template-functions-deployment.md#variables)
 
-<a id="and" aria-hidden="true" />
-<a id="bool" aria-hidden="true" />
-<a id="if" aria-hidden="true" />
-<a id="not" aria-hidden="true" />
-<a id="or" aria-hidden="true" />
+For Bicep files, use the [deployment](../bicep/bicep-functions-deployment.md) functions.
+
+<a id="and" aria-hidden="true"></a>
+<a id="bool" aria-hidden="true"></a>
+<a id="if" aria-hidden="true"></a>
+<a id="not" aria-hidden="true"></a>
+<a id="or" aria-hidden="true"></a>
 
 ## Logical functions
+
 Resource Manager provides the following functions for working with logical conditions:
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [false](template-functions-logical.md#false)
 * [if](template-functions-logical.md#if)
 * [not](template-functions-logical.md#not)
 * [or](template-functions-logical.md#or)
+* [true](template-functions-logical.md#true)
 
-<a id="add" aria-hidden="true" />
-<a id="copyindex" aria-hidden="true" />
-<a id="div" aria-hidden="true" />
-<a id="float" aria-hidden="true" />
-<a id="int" aria-hidden="true" />
-<a id="minint" aria-hidden="true" />
-<a id="maxint" aria-hidden="true" />
-<a id="mod" aria-hidden="true" />
-<a id="mul" aria-hidden="true" />
-<a id="sub" aria-hidden="true" />
+For Bicep files, use the [bool](../bicep/bicep-functions-logical.md) logical function. For other logical values, use [logical](../bicep/operators-logical.md) operators.
+
+<a id="add" aria-hidden="true"></a>
+<a id="copyindex" aria-hidden="true"></a>
+<a id="div" aria-hidden="true"></a>
+<a id="float" aria-hidden="true"></a>
+<a id="int" aria-hidden="true"></a>
+<a id="minint" aria-hidden="true"></a>
+<a id="maxint" aria-hidden="true"></a>
+<a id="mod" aria-hidden="true"></a>
+<a id="mul" aria-hidden="true"></a>
+<a id="sub" aria-hidden="true"></a>
 
 ## Numeric functions
+
 Resource Manager provides the following functions for working with integers:
 
 * [add](template-functions-numeric.md#add)
@@ -116,18 +161,37 @@ Resource Manager provides the following functions for working with integers:
 * [mul](template-functions-numeric.md#mul)
 * [sub](template-functions-numeric.md#sub)
 
-<a id="extensionResourceId" aria-hidden="true" />
-<a id="listkeys" aria-hidden="true" />
-<a id="list" aria-hidden="true" />
-<a id="providers" aria-hidden="true" />
-<a id="reference" aria-hidden="true" />
-<a id="resourcegroup" aria-hidden="true" />
-<a id="resourceid" aria-hidden="true" />
-<a id="subscription" aria-hidden="true" />
-<a id="subscriptionResourceId" aria-hidden="true" />
-<a id="tenantResourceId" aria-hidden="true" />
+For Bicep files that use `int`, `min`, and `max` use [numeric](../bicep/bicep-functions-numeric.md) functions. For other numeric values, use [numeric](../bicep/operators-numeric.md) operators.
+
+<a id="json" aria-hidden="true"></a>
+
+## Object functions
+
+Resource Manager provides several functions for working with objects.
+
+* [contains](template-functions-object.md#contains)
+* [createObject](template-functions-object.md#createobject)
+* [empty](template-functions-object.md#empty)
+* [intersection](template-functions-object.md#intersection)
+* [items](template-functions-object.md#items)
+* [json](template-functions-object.md#json)
+* [length](template-functions-object.md#length)
+* [null](template-functions-object.md#null)
+* [union](template-functions-object.md#union)
+
+For Bicep files, use the [object](../bicep/bicep-functions-object.md) functions.
+
+<a id="extensionResourceId" aria-hidden="true"></a>
+<a id="listkeys" aria-hidden="true"></a>
+<a id="list" aria-hidden="true"></a>
+<a id="providers" aria-hidden="true"></a>
+<a id="reference" aria-hidden="true"></a>
+<a id="resourceid" aria-hidden="true"></a>
+<a id="subscriptionResourceId" aria-hidden="true"></a>
+<a id="tenantResourceId" aria-hidden="true"></a>
 
 ## Resource functions
+
 Resource Manager provides the following functions for getting resource values:
 
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
@@ -135,46 +199,65 @@ Resource Manager provides the following functions for getting resource values:
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
-* [providers](template-functions-resource.md#providers)
+* [pickZones](template-functions-resource.md#pickzones)
+* [providers (deprecated)](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [resourceId](template-functions-resource.md#resourceid)
-* [subscription](template-functions-resource.md#subscription)
+* [references](template-functions-resource.md#references)
+* [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
-<a id="base64" aria-hidden="true" />
-<a id="base64tojson" aria-hidden="true" />
-<a id="base64tostring" aria-hidden="true" />
-<a id="concat" aria-hidden="true" />
-<a id="containsstring" aria-hidden="true" />
-<a id="datauri" aria-hidden="true" />
-<a id="datauritostring" aria-hidden="true" />
-<a id="emptystring" aria-hidden="true" />
-<a id="endswith" aria-hidden="true" />
-<a id="firststring" aria-hidden="true" />
-<a id="guid" aria-hidden="true" />
-<a id="indexof" aria-hidden="true" />
-<a id="laststring" aria-hidden="true" />
-<a id="lastindexof" aria-hidden="true" />
-<a id="lengthstring" aria-hidden="true" />
-<a id="padleft" aria-hidden="true" />
-<a id="replace" aria-hidden="true" />
-<a id="skipstring" aria-hidden="true" />
-<a id="split" aria-hidden="true" />
-<a id="startswith" aria-hidden="true" />
-<a id="string" aria-hidden="true" />
-<a id="substring" aria-hidden="true" />
-<a id="takestring" aria-hidden="true" />
-<a id="tolower" aria-hidden="true" />
-<a id="toupper" aria-hidden="true" />
-<a id="trim" aria-hidden="true" />
-<a id="uniquestring" aria-hidden="true" />
-<a id="uri" aria-hidden="true" />
-<a id="uricomponent" aria-hidden="true" />
-<a id="uricomponenttostring" aria-hidden="true" />
+For Bicep files, use the [resource](../bicep/bicep-functions-resource.md) functions.
+
+<a id="managementgroup" aria-hidden="true"></a>
+<a id="resourcegroup" aria-hidden="true"></a>
+<a id="subscription" aria-hidden="true"></a>
+<a id="tenant" aria-hidden="true"></a>
+
+## Scope functions
+
+Resource Manager provides the following functions for getting deployment scope values:
+
+* [managementGroup](template-functions-scope.md#managementgroup) - can only be used in deployments to a management group.
+* [resourceGroup](template-functions-scope.md#resourcegroup) - can only be used in deployments to a resource group.
+* [subscription](template-functions-scope.md#subscription) - can only be used in deployments to a resource group or subscription.
+* [tenant](template-functions-scope.md#tenant) - can be used for deployments at any scope.
+
+For Bicep files, use the [scope](../bicep/bicep-functions-scope.md) functions.
+
+<a id="base64" aria-hidden="true"></a>
+<a id="base64tojson" aria-hidden="true"></a>
+<a id="base64tostring" aria-hidden="true"></a>
+<a id="concat" aria-hidden="true"></a>
+<a id="containsstring" aria-hidden="true"></a>
+<a id="datauri" aria-hidden="true"></a>
+<a id="datauritostring" aria-hidden="true"></a>
+<a id="emptystring" aria-hidden="true"></a>
+<a id="endswith" aria-hidden="true"></a>
+<a id="firststring" aria-hidden="true"></a>
+<a id="guid" aria-hidden="true"></a>
+<a id="indexof" aria-hidden="true"></a>
+<a id="laststring" aria-hidden="true"></a>
+<a id="lastindexof" aria-hidden="true"></a>
+<a id="lengthstring" aria-hidden="true"></a>
+<a id="padleft" aria-hidden="true"></a>
+<a id="replace" aria-hidden="true"></a>
+<a id="skipstring" aria-hidden="true"></a>
+<a id="split" aria-hidden="true"></a>
+<a id="startswith" aria-hidden="true"></a>
+<a id="string" aria-hidden="true"></a>
+<a id="substring" aria-hidden="true"></a>
+<a id="takestring" aria-hidden="true"></a>
+<a id="tolower" aria-hidden="true"></a>
+<a id="toupper" aria-hidden="true"></a>
+<a id="trim" aria-hidden="true"></a>
+<a id="uniquestring" aria-hidden="true"></a>
+<a id="uri" aria-hidden="true"></a>
+<a id="uricomponent" aria-hidden="true"></a>
+<a id="uricomponenttostring" aria-hidden="true"></a>
 
 ## String functions
+
 Resource Manager provides the following functions for working with strings:
 
 * [base64](template-functions-string.md#base64)
@@ -190,6 +273,7 @@ Resource Manager provides the following functions for working with strings:
 * [format](template-functions-string.md#format)
 * [guid](template-functions-string.md#guid)
 * [indexOf](template-functions-string.md#indexof)
+* [join](template-functions-string.md#join)
 * [last](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
 * [length](template-functions-string.md#length)
@@ -209,11 +293,12 @@ Resource Manager provides the following functions for working with strings:
 * [uri](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
 * [uriComponentToString](template-functions-string.md#uricomponenttostring)
-* [utcNow](template-functions-string.md#utcnow)
+
+For Bicep files, use the [string](../bicep/bicep-functions-string.md) functions.
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md)
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md)
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md)
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md)
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
+* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+* To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

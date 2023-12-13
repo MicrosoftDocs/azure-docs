@@ -1,21 +1,15 @@
 ---
 title: Azure CLI script sample - Import to an App Configuration store
 titleSuffix: Azure App Configuration
-description: Provides information and sample scripts for importing to an Azure App Configuration store
+description: Use Azure CLI script - Importing configuration to Azure App Configuration
 services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
-
+author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
-ms.author: yegu
-ms.custom: mvc
+ms.date: 02/19/2020
+ms.author: malev 
+ms.custom: devx-track-azurecli
 ---
 
 # Import to an Azure App Configuration store
@@ -24,13 +18,9 @@ This sample script imports key-value settings to an Azure App Configuration stor
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the Azure CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. To install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-You need to install the Azure App Configuration CLI extension first by executing the following command:
-
-        az extension add -n appconfig
+ - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
@@ -38,7 +28,7 @@ You need to install the Azure App Configuration CLI extension first by executing
 #!/bin/bash
 
 # Import key-values from a file
-az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import.json
+az appconfig kv import --name myTestAppConfigStore --source file --format json --path ~/Import.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
@@ -49,7 +39,7 @@ This script uses the following commands to import to an App Configuration store.
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Imports to an App Configuration store resource. |
+| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Imports to an App Configuration store resource. |
 
 ## Next steps
 

@@ -1,21 +1,20 @@
 ---
-title: Incrementally copy data using Change Tracking
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
-services: data-factory
+title: Incrementally copy data using Change Tracking using PowerShell
+description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to Azure SQL Database.
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/22/2018
+ms.custom: devx-track-azurepowershell
+ms.date: 10/20/2023
 ---
 
-# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information
+# Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using PowerShell
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source Azure SQL database to an Azure blob storage.  
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source database in Azure SQL Database to an Azure blob storage.  
 
 You perform the following steps in this tutorial:
 
@@ -37,43 +36,44 @@ In a data integration solution, incrementally loading data after initial data lo
 Here are the typical end-to-end workflow steps to incrementally load data using the Change Tracking technology.
 
 > [!NOTE]
-> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use an on-premises SQL Server.
+> Both Azure SQL Database and SQL Server support the Change Tracking technology. This tutorial uses Azure SQL Database as the source data store. You can also use a SQL Server instance.
 
 1. **Initial loading of historical data** (run once):
-    1. Enable Change Tracking technology in the source Azure SQL database.
-    2. Get the initial value of SYS_CHANGE_VERSION in the Azure SQL database as the baseline to capture changed data.
-    3. Load full data from the Azure SQL database into an Azure blob storage.
+    1. Enable Change Tracking technology in the source database in Azure SQL Database.
+    2. Get the initial value of SYS_CHANGE_VERSION in the database as the baseline to capture changed data.
+    3. Load full data from the source database into an Azure blob storage.
 2. **Incremental loading of delta data on a schedule** (run periodically after the initial loading of data):
     1. Get the old and new SYS_CHANGE_VERSION values.
-    3. Load the delta data by joining the primary keys of changed rows (between two SYS_CHANGE_VERSION values) from **sys.change_tracking_tables** with data in the **source table**, and then move the delta data to destination.
-    4. Update the SYS_CHANGE_VERSION for the delta loading next time.
+    2. Load the delta data by joining the primary keys of changed rows (between two SYS_CHANGE_VERSION values) from **sys.change_tracking_tables** with data in the **source table**, and then move the delta data to destination.
+    3. Update the SYS_CHANGE_VERSION for the delta loading next time.
 
 ## High-level solution
 In this tutorial, you create two pipelines that perform the following two operations:  
 
 1. **Initial load:** you create a pipeline with a copy activity that copies the entire data from the source data store (Azure SQL Database) to the destination data store (Azure Blob Storage).
 
-    ![Full loading of data](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png" alt-text="Full loading of data":::
 1.  **Incremental load:** you create a pipeline with the following activities, and run it periodically.
     1. Create **two lookup activities** to get the old and new SYS_CHANGE_VERSION from Azure SQL Database and pass it to copy activity.
     2. Create **one copy activity** to copy the inserted/updated/deleted data between the two SYS_CHANGE_VERSION values from Azure SQL Database to Azure Blob Storage.
     3. Create **one stored procedure activity** to update the value of SYS_CHANGE_VERSION for the next pipeline run.
 
-    ![Increment load flow diagram](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png" alt-text="Increment load flow diagram":::
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
 
-* Azure PowerShell. Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. You use the database as the **source** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
+* Azure PowerShell. Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
+* **Azure SQL Database**. You use the database as the **source** data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **adftutorial**. 
 
-### Create a data source table in your Azure SQL database
-1. Launch **SQL Server Management Studio**, and connect to your Azure SQL server.
+### Create a data source table in your database
+
+1. Launch **SQL Server Management Studio**, and connect to SQL Database.
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
-3. Run the following SQL command against your Azure SQL database to create a table named `data_source_table` as data source store.  
+3. Run the following SQL command against your database to create a table named `data_source_table` as data source store.  
 
     ```sql
     create table data_source_table
@@ -97,7 +97,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 4. Enable **Change Tracking** mechanism on your database and the source table (data_source_table) by running the following SQL query:
 
     > [!NOTE]
-    > - Replace &lt;your database name&gt; with the name of your Azure SQL database that has the data_source_table.
+    > - Replace &lt;your database name&gt; with the name of your database that has the data_source_table.
     > - The changed data is kept for two days in the current example. If you load the changed data for every three days or more, some changed data is not included.  You need to either change the value of CHANGE_RETENTION to a bigger number. Alternatively, ensure that your period to load the changed data is within two days. For more information, see [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
 
     ```sql
@@ -127,7 +127,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     > [!NOTE]
     > If the data is not changed after you enabled the change tracking for SQL Database, the value of the change tracking version is 0.
-6. Run the following query to create a stored procedure in your Azure SQL database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
+6. Run the following query to create a stored procedure in your database. The pipeline invokes this stored procedure to update the change tracking version in the table you created in the previous step.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -135,24 +135,26 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
     BEGIN
 
-        UPDATE table_store_ChangeTracking_version
-        SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
+    UPDATE table_store_ChangeTracking_version
+    SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
 
     END    
     ```
 
 ### Azure PowerShell
-Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Create a data factory
+
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$resourceGroupName` variable and run the command again
+
 2. Define a variable for the location of the data factory:
 
     ```powershell
@@ -190,7 +192,7 @@ Note the following points:
 
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and Azure SQL database.
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and your database in Azure SQL Database.
 
 ### Create Azure Storage linked service.
 In this step, you link your Azure Storage Account to the data factory.
@@ -217,7 +219,7 @@ In this step, you link your Azure Storage Account to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -225,19 +227,19 @@ In this step, you link your Azure Storage Account to the data factory.
     ```
 
 ### Create Azure SQL Database linked service.
-In this step, you link your Azure SQL database to the data factory.
+In this step, you link your database to the data factory.
 
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your Azure SQL server, name of your database, user ID, and password before saving the file.
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your server, name of your database, user ID, and password before saving the file.
 
     ```json
     {
-    	"name": "AzureSQLDatabaseLinkedService",
-    	"properties": {
-    		"type": "AzureSqlDatabase",
-    		"typeProperties": {
-    			"connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
-    		}
-    	}
+        "name": "AzureSQLDatabaseLinkedService",
+        "properties": {
+            "type": "AzureSqlDatabase",
+            "typeProperties": {
+                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
+            }
+        }
     }
     ```
 2. In **Azure PowerShell**, run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**.
@@ -248,7 +250,7 @@ In this step, you link your Azure SQL database to the data factory.
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -265,17 +267,17 @@ In this step, you create a dataset to represent the source data.
 
     ```json
     {
-    	"name": "SourceDataset",
-    	"properties": {
-    		"type": "AzureSqlTable",
-    		"typeProperties": {
-    			"tableName": "data_source_table"
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureSQLDatabaseLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": "SourceDataset",
+        "properties": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+                "tableName": "data_source_table"
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureSQLDatabaseLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }   
     ```
 
@@ -302,21 +304,21 @@ In this step, you create a dataset to represent the data that is copied from the
 
     ```json
     {
-    	"name": "SinkDataset",
-    	"properties": {
-    		"type": "AzureBlob",
-    		"typeProperties": {
-    			"folderPath": "adftutorial/incchgtracking",
-    			"fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
-    			"format": {
-    				"type": "TextFormat"
-    			}
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureStorageLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": "SinkDataset",
+        "properties": {
+            "type": "AzureBlob",
+            "typeProperties": {
+                "folderPath": "adftutorial/incchgtracking",
+                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
+                "format": {
+                    "type": "TextFormat"
+                }
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }
     ```
 
@@ -344,17 +346,17 @@ In this step, you create a dataset for storing the change tracking version.
 
     ```json
     {
-    	"name": " ChangeTrackingDataset",
-    	"properties": {
-    		"type": "AzureSqlTable",
-    		"typeProperties": {
-    			"tableName": "table_store_ChangeTracking_version"
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureSQLDatabaseLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": " ChangeTrackingDataset",
+        "properties": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+                "tableName": "table_store_ChangeTracking_version"
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureSQLDatabaseLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }
     ```
 
@@ -382,30 +384,30 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 
     ```json
     {
-    	"name": "FullCopyPipeline",
-    	"properties": {
-    		"activities": [{
-    			"name": "FullCopyActivity",
-    			"type": "Copy",
-    			"typeProperties": {
-    				"source": {
-    					"type": "SqlSource"
-    				},
-    				"sink": {
-    					"type": "BlobSink"
-    				}
-    			},
+        "name": "FullCopyPipeline",
+        "properties": {
+            "activities": [{
+                "name": "FullCopyActivity",
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                },
 
-    			"inputs": [{
-    				"referenceName": "SourceDataset",
-    				"type": "DatasetReference"
-    			}],
-    			"outputs": [{
-    				"referenceName": "SinkDataset",
-    				"type": "DatasetReference"
-    			}]
-    		}]
-    	}
+                "inputs": [{
+                    "referenceName": "SourceDataset",
+                    "type": "DatasetReference"
+                }],
+                "outputs": [{
+                    "referenceName": "SinkDataset",
+                    "type": "DatasetReference"
+                }]
+            }]
+        }
     }
     ```
 2. Run the Set-AzDataFactoryV2Pipeline cmdlet to create the pipeline: FullCopyPipeline.
@@ -416,7 +418,7 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 
    Here is the sample output:
 
-   ```json
+   ```console
     PipelineName      : FullCopyPipeline
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -436,28 +438,28 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 1. Log in to [Azure portal](https://portal.azure.com).
 2. Click **All services**, search with the keyword `data factories`, and select **Data factories**.
 
-    ![Data factories menu](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png" alt-text="Data factories menu":::
 3. Search for **your data factory** in the list of data factories, and select it to launch the Data factory page.
 
-    ![Search for your data factory](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png" alt-text="Search for your data factory":::
 4. In the Data factory page, click **Monitor & Manage** tile.
 
-    ![Monitor & Manage tile](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png" alt-text="Monitor & Manage tile":::    
 5. The **Data Integration Application** launches in a separate tab. You can see all the **pipeline runs** and their statuses. Notice that in the following example, the status of the pipeline run is **Succeeded**. You can check parameters passed to the pipeline by clicking link in the **Parameters** column. If there was an error, you see a link in the **Error** column. Click the link in the **Actions** column.
 
-    ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png" alt-text="Screenshot shows pipeline runs for a data factory.":::    
 6. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline.
 
-    ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png" alt-text="Screenshot shows activity runs for a data factory with the Pipelines link called out.":::
 7. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image.
 
 
 ### Review the results
 You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container.
 
-![Output file from full copy](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png" alt-text="Output file from full copy":::
 
-The file should have the data from the Azure SQL database:
+The file should have the data from your database:
 
 ```
 1,aaaa,21
@@ -469,7 +471,7 @@ The file should have the data from the Azure SQL database:
 
 ## Add more data to the source table
 
-Run the following query against the Azure SQL database to add a row and update a row.
+Run the following query against your database to add a row and update a row.
 
 ```sql
 INSERT INTO data_source_table
@@ -490,113 +492,110 @@ In this step, you create a pipeline with the following activities, and run it pe
 
     ```json
     {
-    	    "name": "IncrementalCopyPipeline",
-    	    "properties": {
-    	        "activities": [
+        "name": "IncrementalCopyPipeline",
+        "properties": {
+            "activities": [
                 {
-    	                "name": "LookupLastChangeTrackingVersionActivity",
-    	                "type": "Lookup",
-    	                "typeProperties": {
+                    "name": "LookupLastChangeTrackingVersionActivity",
+                    "type": "Lookup",
+                    "typeProperties": {
                         "source": {
-    	                    "type": "SqlSource",
-    	                    "sqlReaderQuery": "select * from table_store_ChangeTracking_version"
-    	                    },
-
-    	                    "dataset": {
-    	                    "referenceName": "ChangeTrackingDataset",
-    	                    "type": "DatasetReference"
-    	                    }
-    	                }
-    	            },
-    	            {
-    	                "name": "LookupCurrentChangeTrackingVersionActivity",
-    	                "type": "Lookup",
-    	                "typeProperties": {
-    	                    "source": {
-    	                        "type": "SqlSource",
-    	                        "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "select * from table_store_ChangeTracking_version"
                         },
-
-    	                    "dataset": {
-    	                    "referenceName": "SourceDataset",
-    	                    "type": "DatasetReference"
-    	                    }
-    	                }
-    	            },
-
-    	            {
-    	                "name": "IncrementalCopyActivity",
-    	                "type": "Copy",
-    	                "typeProperties": {
-    	                    "source": {
-    	                        "type": "SqlSource",
-    							"sqlReaderQuery": "select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}"
-    	                    },
-    	                    "sink": {
-    	                        "type": "BlobSink"
-    	                    }
-    	                },
-    	                "dependsOn": [
-    	                    {
-    	                        "activity": "LookupLastChangeTrackingVersionActivity",
-    	                        "dependencyConditions": [
-    	                            "Succeeded"
-    	                        ]
-    	                    },
-    	                    {
-    	                        "activity": "LookupCurrentChangeTrackingVersionActivity",
-    	                        "dependencyConditions": [
-    	                            "Succeeded"
-    	                        ]
+                        "dataset": {
+                            "referenceName": "ChangeTrackingDataset",
+                            "type": "DatasetReference"
                         }
-    	                ],
-
-    	                "inputs": [
-    	                    {
-                            "referenceName": "SourceDataset",
-    	                        "type": "DatasetReference"
-                        }
-    	                ],
-    	                "outputs": [
-    	                    {
-    	                        "referenceName": "SinkDataset",
-    	                        "type": "DatasetReference"
-    	                    }
-    	                ]
-    	            },
-
+                    }
+                },
                 {
-    	                "name": "StoredProceduretoUpdateChangeTrackingActivity",
-    	                "type": "SqlServerStoredProcedure",
-    	                "typeProperties": {
-
-    	                    "storedProcedureName": "Update_ChangeTracking_Version",
-    	                    "storedProcedureParameters": {
-                            "CurrentTrackingVersion": {"value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}", "type": "INT64" },
-    	                        "TableName":  { "value":"@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}", "type":"String"}
-    	                    }
+                    "name": "LookupCurrentChangeTrackingVersionActivity",
+                    "type": "Lookup",
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
+                        },
+                        "dataset": {
+                            "referenceName": "SourceDataset",
+                            "type": "DatasetReference"
+                        }
+                    }
+                },
+                {
+                    "name": "IncrementalCopyActivity",
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}"
+                        },
+                        "sink": {
+                            "type": "BlobSink"
+                        }
                     },
-
-    	                "linkedServiceName": {
-                        "referenceName": "AzureSQLDatabaseLinkedService",
-    	                    "type": "LinkedServiceReference"
-    	                },
-
-    	                "dependsOn": [
+                    "dependsOn": [
                         {
-    	                        "activity": "IncrementalCopyActivity",
+                            "activity": "LookupLastChangeTrackingVersionActivity",
                             "dependencyConditions": [
-    	                            "Succeeded"
-    	                        ]
-    	                    }
-    	                ]
-    	            }
-    	        ]
-
-    	    }
+                                "Succeeded"
+                            ]
+                        },
+                        {
+                            "activity": "LookupCurrentChangeTrackingVersionActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        }
+                    ],
+                    "inputs": [
+                        {
+                            "referenceName": "SourceDataset",
+                            "type": "DatasetReference"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "referenceName": "SinkDataset",
+                            "type": "DatasetReference"
+                        }
+                    ]
+                },
+                {
+                    "name": "StoredProceduretoUpdateChangeTrackingActivity",
+                    "type": "SqlServerStoredProcedure",
+                    "typeProperties": {
+                        "storedProcedureName": "Update_ChangeTracking_Version",
+                        "storedProcedureParameters": {
+                            "CurrentTrackingVersion": {
+                                "value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}",
+                                "type": "INT64"
+                            },
+                            "TableName": {
+                                "value": "@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}",
+                                "type": "String"
+                            }
+                        }
+                    },
+                    "linkedServiceName": {
+                        "referenceName": "AzureSQLDatabaseLinkedService",
+                        "type": "LinkedServiceReference"
+                    },
+                    "dependsOn": [
+                        {
+                            "activity": "IncrementalCopyActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     }
-
     ```
+
 2. Run the Set-AzDataFactoryV2Pipeline cmdlet to create the pipeline: FullCopyPipeline.
 
    ```powershell
@@ -605,7 +604,7 @@ In this step, you create a pipeline with the following activities, and run it pe
 
    Here is the sample output:
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -624,18 +623,18 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### Monitor the incremental copy pipeline
 1. In the **Data Integration Application**, refresh the **pipeline runs** view. Confirm that you see the IncrementalCopyPipeline in the list. Click the link in the **Actions** column.  
 
-    ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png" alt-text="Screenshot shows pipeline runs for a data factory including your pipeline.":::    
 2. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline.
 
-    ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    :::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png" alt-text="Screenshot shows pipeline runs for a data factory with several marked as succeeded.":::
 3. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image.
 
 ### Review the results
 You see the second file in the `incchgtracking` folder of the `adftutorial` container.
 
-![Output file from incremental copy](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
+:::image type="content" source="media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png" alt-text="Output file from incremental copy":::
 
-The file should have only the delta data from the Azure SQL database. The record with `U` is the updated row in the database and `I` is the one added row.
+The file should have only the delta data from your database. The record with `U` is the updated row in the database and `I` is the one added row.
 
 ```
 1,update,10,2,U
@@ -647,12 +646,12 @@ The first three columns are changed data from data_source_table. The last two co
 ==================================================================
 PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ==================================================================
-1        update  10		2			          U
-6        new     50		1			          I
+1        update  10            2                                 U
+6        new     50            1                                 I
 ```
 
 
-## Next steps
+## Related content
 Advance to the following tutorial to learn about copying new and changed files only based on their LastModifiedDate:
 
 > [!div class="nextstepaction"]

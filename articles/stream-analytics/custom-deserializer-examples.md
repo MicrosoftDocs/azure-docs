@@ -1,15 +1,15 @@
 ---
 title: Read input in any format using .NET custom deserializers in Azure Stream Analytics
 description: This article explains the serialization format and the interfaces that define custom .NET deserializers for Azure Stream Analytics cloud and edge jobs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 6/16/2021
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
-# Read input in any format using .NET custom deserializers
+# Read input in any format using .NET custom deserializers (Preview)
 
 .NET custom deserializers allow your Azure Stream Analytics job to read data from formats outside of the three [built-in data formats](stream-analytics-parsing-json.md). This article explains the serialization format and the interfaces that define .NET custom deserializers for Azure Stream Analytics cloud and edge jobs. There are also example deserializers for Protocol Buffer and CSV format.
 
@@ -17,7 +17,7 @@ ms.date: 12/30/2019
 
 Following code samples are the interfaces that define the custom deserializer and implement `StreamDeserializer<T>`.
 
-`UserDefinedOperator` is the base class for all custom streaming operators. It initializes `StreamingContext`, which provides context which includes mechanism for publishing diagnostics for which you will need to debug any issues with your deserializer.
+`UserDefinedOperator` is the base class for all custom streaming operators. It initializes `StreamingContext`, which provides context, which includes mechanism for publishing diagnostics for which you'll need to debug any issues with your deserializer.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -28,7 +28,7 @@ Following code samples are the interfaces that define the custom deserializer an
 
 The following code snippet is the deserialization for streaming data. 
 
-Skippable errors should be emitted using `IStreamingDiagnostics` passed through `UserDefinedOperator`'s Initialize method. All exceptions will be treated as errors and the deserializer will be recreated. After a certain number of errors, the job will go to a failed status.
+Skippable errors should be emitted using `IStreamingDiagnostics` passed through `UserDefinedOperator`'s Initialize method. All exceptions will be treated as errors and the deserializer will be recreated. After some errors, the job will go to a failed status.
 
 `StreamDeserializer<T>` deserializes a stream into object of type `T`. The following conditions must be met:
 
@@ -37,8 +37,8 @@ Skippable errors should be emitted using `IStreamingDiagnostics` passed through 
     1. One of [sbyte, byte, short, ushort, int, uint, long, DateTime, string, float, double] or their nullable equivalents.
     1. Another struct or class following the same rules.
     1. Array of type `T2` that follows the same rules.
-    1. IList`T2` where T2 follows the same rules.
-    1. Does not have any recursive types.
+    1. `IListT2` where T2 follows the same rules.
+    1. Doesn't have any recursive types.
 
 The parameter `stream` is the stream containing the serialized object. `Deserialize` returns a collection of `T` instances.
 
@@ -49,7 +49,7 @@ The parameter `stream` is the stream containing the serialized object. `Deserial
     }
 ```
 
-`StreamingContext` provides context which includes mechanism for publishing diagnostics for user operator.
+`StreamingContext` provides context, which includes mechanism for publishing diagnostics for user operator.
 
 ```csharp
     public abstract class StreamingContext
@@ -60,11 +60,11 @@ The parameter `stream` is the stream containing the serialized object. `Deserial
 
 `StreamingDiagnostics` is the diagnostics for user defined operators including serializer, deserializer, and user defined functions.
 
-`WriteError` writes an error message to diagnostic logs and sends the error to diagnostics.
+`WriteError` writes an error message to resource logs and sends the error to diagnostics.
 
-`briefMessage` is a brief error message. This message  shows up in diagnostics and is used by the product team for debugging purposes. Do not include sensitive information, and keep the message less than 200 characters
+`briefMessage` is a brief error message. This message shows up in diagnostics and is used by the product team for debugging purposes. Don't include sensitive information, and keep the message fewer than 200 characters
 
-`detailedMessage` is a detailed error message that is only added to your diagnostic logs in your storage. This message should be less than 2000 characters.
+`detailedMessage` is a detailed error message that is only added to your resource logs in your storage. This message should be less than 2000 characters.
 
 ```csharp
     public abstract class StreamingDiagnostics
@@ -75,7 +75,7 @@ The parameter `stream` is the stream containing the serialized object. `Deserial
 
 ## Deserializer examples
 
-This section shows you how to write custom deserializers for Protobuf and CSV. For additional examples, visit [Azure Stream Analytics on GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+This section shows you how to write custom deserializers for Protobuf and CSV. For more examples, such as AVRO format for Event Hubs Capture, visit [Azure Stream Analytics on GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
 ### Protocol buffer (Protobuf) format
 
@@ -107,7 +107,7 @@ message MessageBodyProto {
 }
 ```
 
-Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file is not shown here.
+Running `protoc.exe` from the **Google.Protobuf.Tools** NuGet generates a .cs file with the definition. The generated file isn't shown here. You must ensure that the version of Protobuf NuGet you use in your Stream Analytics project matches the Protobuf version that was used to generate the input. 
 
 The following code snippet is the deserializer implementation assuming the generated file is included in the project. This implementation is just a thin wrapper over the generated file.
 
@@ -195,9 +195,9 @@ namespace ExampleCustomCode.Serialization
 
 ## Serialization format for REST APIs
 
-Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) documentation.
+Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](/rest/api/streamanalytics/2020-03-01/inputs) documentation.
 
-The following Javascript code is an example of the .NET deserializer serialization format when using the REST API:
+The following JavaScript code is an example of the .NET deserializer serialization format when using the REST API:
 
 ```javascript
 {    
@@ -218,7 +218,7 @@ The following Javascript code is an example of the .NET deserializer serializati
 
 ## Region support
 
-This feature is available in the following regions:
+This feature is available in the following regions when using Standard SKU:
 
 * West Central US
 * North Europe
@@ -227,21 +227,25 @@ This feature is available in the following regions:
 * East US 2
 * West Europe
 
-You can [request support](https://aka.ms/ccodereqregion) for additional regions.
+You can [request support](https://aka.ms/ccodereqregion) for more regions. However, there's no such region restriction when using [Stream Analytics clusters](./cluster-overview.md).
 
 ## Frequently asked questions
 
 ### When will this feature be available in all Azure regions?
 
-This feature is available in [6 regions](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). If you are interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
+This feature is available in [6 regions](#region-support). If you're interested in using this functionality in another region, you can [submit a request](https://aka.ms/ccodereqregion). Support for all Azure regions is on the roadmap.
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
-This functionality is not supported. If you need this capability, you can vote for this request on [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
+This functionality isn't supported. If you need this capability, you can vote for this request on [UserVoice](https://feedback.azure.com/d365community/idea/b4517302-b925-ec11-b6e6-000d3a4f0f1c).
 
 ### Can I share my deserializer implementation with the community so that others can benefit?
 
-Once you have implemented your deserializer, you can help others by sharing it with the community. Submit your code to the [Azure Stream Analytics GitHub repo](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+Once you've implemented your deserializer, you can help others by sharing it with the community. Submit your code to the [Azure Stream Analytics GitHub repo](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+
+### What are the other limitations of using custom deserializers in Stream Analytics?
+
+If your input is of Protobuf format with a schema containing `MapField` type, you won't be able to implement a custom deserializer. Also, custom deserializers don't support sample data or preview data. 
 
 ## Next Steps
 

@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric CLI- sfctl cluster
 description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing clusters.
-author: jeffj6123
-
 ms.topic: reference
-ms.date: 9/17/2019
-ms.author: jejarry
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl cluster
@@ -89,7 +90,7 @@ Use EventsHealthStateFilter to filter the collection of health events reported o
 | --applications-health-state-filter | Allows filtering of the application health state objects returned in the result of cluster health query based on their health state. The possible values for this parameter include integer value obtained from members or bitwise operations on members of HealthStateFilter enumeration. Only applications that match the filter are returned. All applications are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values obtained using bitwise 'OR' operator. For example, if the provided value is 6 then health state of applications with HealthState value of OK (2) and Warning (4) are returned.  <br> - Default - Default value. Matches any HealthState. The value is zero.  <br> - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1.  <br> - Ok - Filter that matches input with HealthState value Ok. The value is 2.  <br> - Warning - Filter that matches input with HealthState value Warning. The value is 4.  <br> - Error - Filter that matches input with HealthState value Error. The value is 8.  <br> - All - Filter that matches input with any HealthState value. The value is 65535. |
 | --events-health-state-filter | Allows filtering the collection of HealthEvent objects returned based on health state. The possible values for this parameter include integer value of one of the following health states. Only events that match the filter are returned. All events are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values, obtained using the bitwise 'OR' operator. For example, If the provided value is 6 then all of the events with HealthState value of OK (2) and Warning (4) are returned.  <br> - Default - Default value. Matches any HealthState. The value is zero.  <br> - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1.  <br> - Ok - Filter that matches input with HealthState value Ok. The value is 2.  <br> - Warning - Filter that matches input with HealthState value Warning. The value is 4.  <br> - Error - Filter that matches input with HealthState value Error. The value is 8.  <br> - All - Filter that matches input with any HealthState value. The value is 65535. |
 | --exclude-health-statistics | Indicates whether the health statistics should be returned as part of the query result. False by default. The statistics show the number of children entities in health state Ok, Warning, and Error. |
-| --include-system-application-health-statistics | Indicates whether the health statistics should include the fabric\: /System application health statistics. False by default. If IncludeSystemApplicationHealthStatistics are set to true, the health statistics include the entities that belong to the fabric\: /System application. Otherwise, the query result includes health statistics only for user applications. The health statistics must be included in the query result for this parameter to be applied. |
+| --include-system-application-health-statistics | Indicates whether the health statistics should include the fabric\:/System application health statistics. False by default. If IncludeSystemApplicationHealthStatistics is set to true, the health statistics include the entities that belong to the fabric\:/System application. Otherwise, the query result includes health statistics only for user applications. The health statistics must be included in the query result for this parameter to be applied. |
 | --nodes-health-state-filter | Allows filtering of the node health state objects returned in the result of cluster health query based on their health state. The possible values for this parameter include integer value of one of the following health states. Only nodes that match the filter are returned. All nodes are used to evaluate the aggregated health state. If not specified, all entries are returned. The state values are flag-based enumeration, so the value could be a combination of these values obtained using bitwise 'OR' operator. For example, if the provided value is 6 then health state of nodes with HealthState value of OK (2) and Warning (4) are returned.  <br> - Default - Default value. Matches any HealthState. The value is zero.  <br> - None - Filter that doesn't match any HealthState value. Used in order to return no results on a given collection of states. The value is 1.  <br> - Ok - Filter that matches input with HealthState value Ok. The value is 2.  <br> - Warning - Filter that matches input with HealthState value Warning. The value is 4.  <br> - Error - Filter that matches input with HealthState value Error. The value is 8.  <br> - All - Filter that matches input with any HealthState value. The value is 65535. |
 | --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 
@@ -156,7 +157,7 @@ Gets the list of user-induced fault operations filtered by provided input.
 
 |Argument|Description|
 | --- | --- |
-| --state-filter | Used to filter on OperationState's for user-induced operations. - 65535 - select All - 1 - select Running - 2 - select RollingBack - 8 - select Completed - 16 - select Faulted - 32 - select Canceled - 64 - select ForceCancelled.  Default\: 65535. |
+| --state-filter | Used to filter on OperationState's for user-induced operations. - 65535 - select All - 1 - select Running - 2 - select RollingBack - 8 - select Completed - 16 - select Faulted - 32 - select Cancelled - 64 - select ForceCancelled.  Default\: 65535. |
 | --timeout -t | The server timeout for performing the operation in seconds. This timeout specifies the time duration that the client is willing to wait for the requested operation to complete. The default value for this parameter is 60 seconds.  Default\: 60. |
 | --type-filter | Used to filter on OperationType for user-induced operations. - 65535 - select all - 1 - select PartitionDataLoss. - 2 - select PartitionQuorumLoss. - 4 - select PartitionRestart. - 8 - select NodeTransition.  Default\: 65535. |
 
@@ -231,7 +232,7 @@ Sends a health report on a Service Fabric cluster. The report must contain the i
 | --remove-when-expired | Value that indicates whether the report is removed from health store when it expires. <br><br> If set to true, the report is removed from the health store after it expires. If set to false, the report is treated as an error when expired. The value of this property is false by default. When clients report periodically, they should set RemoveWhenExpired false (default). This way, is the reporter has issues (e.g. deadlock) and can't report, the entity is evaluated at error when the health report expires. This flags the entity as being in Error health state. |
 | --sequence-number | The sequence number for this health report as a numeric string. <br><br> The report sequence number is used by the health store to detect stale reports. If not specified, a sequence number is auto-generated by the health client when a report is added. |
 | --timeout -t | Default\: 60. |
-| --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time too live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
+| --ttl | The duration for which this health report is valid. This field uses ISO8601 format for specifying the duration. <br><br> When clients report periodically, they should send reports with higher frequency than time to live. If clients report on transition, they can set the time to live to infinite. When time to live expires, the health event that contains the health information is either removed from health store, if RemoveWhenExpired is true, or evaluated at error, if RemoveWhenExpired false. If not specified, time to live defaults to infinite value. |
 
 ### Global Arguments
 
@@ -246,16 +247,16 @@ Sends a health report on a Service Fabric cluster. The report must contain the i
 ## sfctl cluster select
 Connects to a Service Fabric cluster endpoint.
 
-If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, also specify an absolute path to a CA bundle file or directory of trusted CA certs.  There is no connection to a cluster without running this command first, including a connection to localhost. However, no explicit endpoint is required for connecting to a local cluster.
+If connecting to secure cluster, specify an absolute path to a cert (.crt) and key file (.key) or a single file with both (.pem). Do not specify both. Optionally, if connecting to a secure cluster, also specify an absolute path to a CA bundle file or directory of trusted CA certs.  There is no connection to a cluster without running this command first, including a connection to localhost. However, no explicit endpoint is required for connecting to a local cluster.  If using a self signed cert, or other certificate not signed by a well known CA, pass in the --ca parameter to ensure that validation passes. If not on a production cluster, to bypass client side validation (useful for self signed or not well known CA signed), use the --no-verify option. While possible, it is not recommended for production clusters. A certificate verification error may result otherwise.
 
 ### Arguments
 
 |Argument|Description|
 | --- | --- |
-| --aad | Use Azure Active Directory for authentication. |
+| --aad | Use Microsoft Entra ID for authentication. |
 | --ca | Absolute path to CA certs directory to treat as valid or CA bundle file. If using a directory of CA certs, `c_rehash <directory>` provided by OpenSSL must be run first to compute the certificate hashes and create the appropriate symbolics links. This is used to verify that the certificate returned by the cluster is valid. |
 | --cert | Absolute path to a client certificate file. |
-| --endpoint | Cluster endpoint URL, including port and HTTP or HTTPS prefix. Typically, the endpoint will look something like https\://<your-url>\:19080. If no endpoint is given, it will default to http\://localhost\:19080.  Default\: http\://localhost\:19080. |
+| --endpoint | Cluster endpoint URL, including port and HTTP or HTTPS prefix. Typically, the endpoint will look something like `https\://<your-url>\:19080`. If no endpoint is given, it will default to `http\://localhost\:19080`. |
 | --key | Absolute path to client certificate key file. |
 | --no-verify | Disable verification for certificates when using HTTPS, note\: this is an insecure option and should not be used for production environments. |
 | --pem | Absolute path to client certificate, as a .pem file. |
@@ -450,4 +451,4 @@ Update the upgrade parameters of a Service Fabric cluster upgrade.
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

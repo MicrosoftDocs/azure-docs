@@ -1,22 +1,26 @@
 ---
 title: Access slow query logs - Azure portal - Azure Database for MariaDB
 description: This article describes how to configure and access the slow query logs in Azure Database for MariaDB from the Azure portal.
-author: ajlam
-ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 12/02/2019
+author: SudheeshGH
+ms.author: sunaray
+ms.topic: how-to
+ms.date: 06/24/2022
 ---
 
-# Configure and access slow query logs from the Azure portal
+# Configure and access Azure Database for MariaDB slow query logs from the Azure portal
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 You can configure, list, and download the [Azure Database for MariaDB slow query logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
+
 The steps in this article require that you have [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 ## Configure logging
-Configure access to the slow query log. 
+
+Configure access to the slow query log.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -25,18 +29,23 @@ Configure access to the slow query log.
 3. Under the **Monitoring** section in the sidebar, select **Server logs**. 
    ![Screenshot of Server logs options](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
-4. To see the server parameters, select **Click here to enable logs and configure log parameters**.
+4. To see the server parameters, select **Select here to enable logs and configure log parameters**.
 
-5. Change the parameters that you need to adjust, including turning **slow_query_log** to **ON**. All changes you make in this session are highlighted in purple. 
+5. Turn **slow_query_log** to **ON**.
 
-   After you have changed the parameters, select **Save**. Or, you can discard your changes.
+6. Select where to output the logs to using **log_output**. To send logs to both local storage and Azure Monitor Diagnostic Logs, select **File**.
 
-   ![Screenshot of Server Parameters options](./media/howto-configure-server-logs-portal/3-save-discard.png)
+7. Change any other parameters needed.
+
+8. Select **Save**.
+
+   :::image type="content" source="./media/howto-configure-server-logs-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save.":::
 
 From the **Server Parameters** page, you can return to the list of logs by closing the page.
 
 ## View list and download logs
-After logging begins, you can view a list of available slow query logs, and download individual log files. 
+
+After logging begins, you can view a list of available slow query logs, and download individual log files.
 
 1. Open the Azure portal.
 
@@ -74,6 +83,7 @@ After logging begins, you can view a list of available slow query logs, and down
 1. Access the slow query logs by exploring them in the data sinks you configured. It can take up to 10 minutes for the logs to appear.
 
 ## Next steps
+
 - See [Access slow query logs in CLI](howto-configure-server-logs-cli.md) to learn how to download slow query logs programmatically.
 - Learn more about [slow query logs](concepts-server-logs.md) in Azure Database for MariaDB.
 - For more information about the parameter definitions and logging, see the MariaDB documentation on [logs](https://mariadb.com/kb/en/library/slow-query-log-overview/).

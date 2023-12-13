@@ -2,16 +2,17 @@
 title: "Quickstart: Create a hybrid mode instance with Azure portal"
 titleSuffix: Azure Database Migration Service
 description: Use the Azure portal to create an instance of Azure Database Migration Service in hybrid mode.
-services: database-migration
-author: HJToland3
-ms.author: jtoland
-manager: craigg
-ms.reviewer: craigg
+author: abhims14
+ms.author: abhishekum
+ms.reviewer: randolphwest
+ms.date: 03/13/2020
 ms.service: dms
-ms.workload: data-services
-ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 01/21/2019
+ms.custom:
+  - seo-lt-2019
+  - mode-ui
+  - subject-rbac-steps
+  - sql-migration-content
 ---
 
 # Quickstart: Create a hybrid mode instance with Azure portal & Azure Database Migration Service
@@ -21,7 +22,7 @@ Azure Database Migration Service hybrid mode manages database migrations by usin
 >[!NOTE]
 >Currently, Azure Database Migration Service running in hybrid mode supports SQL Server migrations to:
 >
->- Azure SQL Database managed instance with near zero downtime (online).
+>- Azure SQL Managed Instance with near zero downtime (online).
 >- Azure SQL Database single database with some downtime (offline).
 >- MongoDb to Azure CosmosDB with near zero downtime (online).
 >- MongoDb to Azure CosmosDB with some downtime (offline).
@@ -38,7 +39,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Sign in to the Azure portal
 
-Open your web browser, navigate to the [Microsoft Azure portal](https://portal.azure.com/), and then enter your credentials to sign in to the portal.
+From a browser, sign in to the [Azure portal](https://portal.azure.com).
 
 The default view is your service dashboard.
 
@@ -88,7 +89,7 @@ Register the Microsoft.DataMigration resource provider before you create your fi
 
 You need to create an Azure App registration ID that the on-premises hybrid worker can use to communicate with Azure Database Migration Service in the cloud.
 
-1. In the Azure portal, select **Azure Active Directory**, select **App registrations**, and then select **New registration**.
+1. In the Azure portal, select **Microsoft Entra ID**, select **App registrations**, and then select **New registration**.
 2. Specify a name for the application, and then, under **Supported account types**, select the type of accounts to support to specify who can use the application.
 
     ![Azure Database Migration Service hybrid mode register application](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)
@@ -97,15 +98,23 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 
 4. After App ID registration is completed, make a note of the **Application (client) ID**, which you'll use while installing the hybrid worker.
 
-5. In the Azure portal, navigate to Azure Database Migration Service, select **Access control (IAM)**, and then select **Add role assignment** to assign contributor access to the App ID.
+5. In the Azure portal, navigate to Azure Database Migration Service.
 
-    ![Azure Database Migration Service hybrid mode assign contributor role](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-assign-contributor.png)
+6. In the navigation menu, select **Access control (IAM)**.
 
-6. Select **Contributor** as the role, assign access to **Azure AD user, or service principal**, and then select the App ID name.
+7. Select **Add** > **Add role assignment**.
 
-    ![Azure Database Migration Service hybrid mode assign contributor role details](media/quickstart-create-data-migration-service-hybrid-portal/dms-add-role-assignment.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-7. Select **Save** to save the role assignment for the App ID on the Azure Database Migration Service resource.
+8. On the **Role** tab, select the **Contributor** role.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-role-generic.png" alt-text="Screenshot showing Add role assignment page with Role tab selected.":::
+
+9. On the **Members** tab, select **User, group, or service principal**, and then select the App ID name.
+
+10. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Download and install the hybrid worker
 
@@ -141,7 +150,7 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 7. Install the Azure Database Migration Service hybrid worker on your on-premises server by running the following command:
 
     ```
-    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
+    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms -d
     ```
 
     > [!NOTE]
@@ -179,12 +188,12 @@ In addition to installing the Azure Database Migration Service hybrid worker via
 This script is intended for quick prototyping when the user already has all the necessary permissions in the environment. Note that in your production environment, the AdApp and Cert may have different requirements, so the script could fail.
 
 > [!IMPORTANT]
-> This script assumes that there is an existing instance of Azure Database Migration Service in hybrid mode and that the Azure account used has permissions to create AdApps in the tenant and to modify RBAC on the subscription.
+> This script assumes that there is an existing instance of Azure Database Migration Service in hybrid mode and that the Azure account used has permissions to create AdApps in the tenant and to modify Azure RBAC on the subscription.
 
 Fill in the parameters at the top of the script, and then run the script from an Administrator PowerShell instance.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate SQL Server to an Azure SQL Database managed instance online](tutorial-sql-server-managed-instance-online.md)
-> [Migrate SQL Server to a single database or pooled database in Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrate SQL Server to an Azure SQL Managed Instance online](tutorial-sql-server-managed-instance-online.md)
+> [Migrate SQL Server to Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)

@@ -3,14 +3,15 @@ title: Determine which encryption key model is in use for the storage account
 titleSuffix: Azure Storage
 description: Use Azure portal, PowerShell, or Azure CLI to check how encryption keys are being managed for the storage account. Keys may be managed by Microsoft (the default), or by the customer. Customer-managed keys must be stored in Azure Key Vault.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 01/03/2020
-ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: common
+ms.date: 03/13/2020
+ms.author: normesta
+ms.reviewer: ozgun
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurecli
 ---
 
 # Determine which Azure Storage encryption key model is in use for the storage account
@@ -35,7 +36,11 @@ To check the encryption model for the storage account by using the Azure portal,
 1. In the Azure portal, navigate to your storage account.
 1. Select the **Encryption** setting and note the setting.
 
-The following image shows a storage account where customer-managed keys are in use for encryption:
+The following image shows a storage account that is encrypted with Microsoft-managed keys:
+
+![View account encrypted with Microsoft-managed keys](media/storage-encryption-key-model-get/microsoft-managed-encryption-key-setting-portal.png)
+
+And the following image shows a storage account that is encrypted with customer-managed keys:
 
 ![Screenshot showing encryption key setting in Azure portal](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
 
@@ -69,4 +74,5 @@ If the value of the **keySource** property is `Microsoft.Storage`, then the acco
 
 ## Next steps
 
-[Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Azure Storage encryption for data at rest](storage-service-encryption.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)

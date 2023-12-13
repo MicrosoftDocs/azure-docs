@@ -1,0 +1,48 @@
+### YamlMime:Landing
+
+title: Azure Resource Mover documentation
+summary: Move Azure resources between Azure regions in the Azure Resource Mover hub. 
+metadata:
+  title: Azure Resource Mover Documentation
+  description: Find tutorials and information about moving resources across Azure regions. 
+  ms.service: resource-mover
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ankitaduttaMSFT
+  ms.author: ankitadutta
+  ms.date: 08/23/2023
+  keywords: azure resource mover, azure regions, move across regions
+
+landingContent:
+  - title: About Azure Resource Mover
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Resource Mover
+            url: ./overview.md
+          - text: Select a tool to move resources
+            url: ./select-move-tool.md
+          - text: Common questions
+            url: ./common-questions.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Move Azure VMs to another region
+            url: ./tutorial-move-region-virtual-machines.md
+          - text: Move Azure SQL databases and elastic pools to another region
+            url: ./tutorial-move-region-sql.md
+
+
+  - title: Learn more
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Learn about the move process
+            url: ./about-move-process.md
+          - text: Review support matrix for moving Azure VMs
+            url: ./support-matrix-move-region-azure-vm.md
+          - text: Review support matrix for moving Azure SQL resources
+            url: ./support-matrix-move-region-sql.md
+

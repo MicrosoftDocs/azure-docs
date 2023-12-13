@@ -1,34 +1,33 @@
 ---
-title: List deny assignments for Azure resources using the Azure portal | Microsoft Docs
-description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal.
+title: List Azure deny assignments using the Azure portal - Azure RBAC
+description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: amycolannino
 
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/10/2019
+ms.date: 01/24/2022
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List deny assignments for Azure resources using the Azure portal
+# List Azure deny assignments using the Azure portal
 
-[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the Azure portal.
+[Azure deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the Azure portal.
 
 > [!NOTE]
-> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Deny assignments](deny-assignments.md).
+> You can't directly create your own deny assignments. For more information, see [Azure deny assignments](deny-assignments.md).
 
 ## Prerequisites
 
 To get information about a deny assignment, you must have:
 
-- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [Azure built-in roles](built-in-roles.md).
 
 ## List deny assignments
 
@@ -50,7 +49,7 @@ Follow these steps to list deny assignments at the subscription or management gr
 
     ![Deny assignments - Columns](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Column | Description  |
     | --- | --- |
     | **Name** | Name of the deny assignment. |
     | **Principal type** | User, group, system-defined group, or service principal. |
@@ -75,12 +74,12 @@ Follow these steps to list additional details about a deny assignment.
 
     The **Users** blade includes the following two sections.
 
-    |  |  |
+    | Deny setting  | Description |
     | --- | --- |
     | **Deny assignment applies to**  | Security principals that the deny assignment applies to. |
     | **Deny assignment excludes** | Security principals that are excluded from the deny assignment. |
 
-    **System-Defined Principal** represents all users, groups, service principals, and managed identities in an Azure AD directory.
+    **System-Defined Principal** represents all users, groups, service principals, and managed identities in a Microsoft Entra directory.
 
 1. To see a list of the permissions that are denied, click **Denied Permissions**.
 
@@ -88,14 +87,14 @@ Follow these steps to list additional details about a deny assignment.
 
     | Action type | Description |
     | --- | --- |
-    | **Actions**  | Denied management operations. |
-    | **NotActions** | Management operations excluded from denied management operation. |
-    | **DataActions**  | Denied data operations. |
-    | **NotDataActions** | Data operations excluded from denied data operation. |
+    | **Actions**  | Denied control plane actions. |
+    | **NotActions** | Control plane actions excluded from denied control plane actions. |
+    | **DataActions**  | Denied data plane actions. |
+    | **NotDataActions** | Data plane actions excluded from denied data plane actions. |
 
     For the example shown in the previous screenshot, the following are the effective permissions:
 
-    - All storage operations on the data plane are denied except for compute operations.
+    - All storage actions on the data plane are denied except for compute actions.
 
 1. To see the properties for a deny assignment, click **Properties**.
 
@@ -105,5 +104,5 @@ Follow these steps to list additional details about a deny assignment.
 
 ## Next steps
 
-* [Understand deny assignments for Azure resources](deny-assignments.md)
-* [List deny assignments for Azure resources using Azure PowerShell](deny-assignments-powershell.md)
+* [Understand Azure deny assignments](deny-assignments.md)
+* [List Azure deny assignments using Azure PowerShell](deny-assignments-powershell.md)

@@ -1,0 +1,120 @@
+### YamlMime:Landing
+
+title: Azure Virtual Network Manager documentation
+summary: Learn how to use Azure Virtual Network Manager to manage virtual network connectivity and enforce security rules across your Azure subscriptions.
+
+metadata:
+  title: Azure Virtual Network Manager documentation 
+  description: Learn about Azure Virtual Network Manager
+  services: virtual-network-manager
+  ms.service: virtual-network-manager 
+  ms.topic: landing-page 
+  author: mbender-ms 
+  ms.author: mbender 
+  ms.date: 08/15/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Virtual Network Manager
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network Manager?
+            url: overview.md
+          - text: Common use cases for Azure Virtual Network Manager
+            url: concept-use-cases.md
+      - linkListType: concept
+        links:
+          - text: FAQ
+            url: faq.md
+          - text: Use cases
+            url: concept-use-cases.md
+      - linkListType: learn
+        links:
+          - text: Create a hub-spoke network topology with Azure Virtual Network Manager
+            url: /training/modules/hub-and-spoke-network-architecture/4a-create-hub-spoke-virtual-network-manager
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Scope
+            url: concept-network-manager-scope.md
+          - text: Network groups
+            url: concept-network-groups.md
+          - text: Configuration deployment
+            url: concept-deployments.md
+      - linkListType: quickstart
+        links:
+          - text: Create and configure a Virtual Network Manager - Portal
+            url: create-virtual-network-manager-portal.md
+          - text: Create and configure a Virtual Network Manager - Terraform
+            url: create-virtual-network-manager-terraform.md
+      - linkListType: tutorial
+        links:
+          - text: Create a secured hub-and-spoke network
+            url: tutorial-create-secured-hub-and-spoke.md
+           
+  # Card
+  - title: Connectivity
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Connectivity configuration
+            url: concept-connectivity-configuration.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a hub-and-spoke topology
+            url: how-to-create-hub-and-spoke.md
+           
+  # Card
+  - title: Security
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security admin configuration
+            url: concept-security-admins.md
+      - linkListType: how-to-guide
+        links:
+          - text: Block network traffic with security admin rules
+            url: how-to-block-network-traffic-portal.md
+  
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Networking architecture design
+          url: /azure/architecture/guide/networking/networking-start-here
+      - linkListType: learn
+        links:
+        - text: Hub-spoke network topology in Azure
+          url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+
+  # Card
+  - title: Infrastructure as Code
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Create a mesh network topology with Azure Virtual Network Manager using Terraform
+            url: create-virtual-network-manager-terraform.md
+          - text: Deploy Azure Virtual Network Manager - ARM Template
+            url: create-virtual-network-manager-template.md
+          - text: Hub-and-Spoke Deployment with Connected Groups - ARM Template
+            url: /samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/
+        
+  # Card
+  - title: Monitoring
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Event log options for Azure Virtual Network Manager
+            url: concept-event-logs.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure event logs for Azure Virtual Network Manager
+            url: how-to-configure-event-logs.md

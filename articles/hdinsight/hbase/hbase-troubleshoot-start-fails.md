@@ -2,16 +2,41 @@
 title: Apache HBase Master fails to start in Azure HDInsight
 description: Apache HBase Master (HMaster) fails to start in Azure HDInsight
 ms.service: hdinsight
+ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
-ms.date: 08/14/2019
+ms.date: 12/21/2022
 ---
 
 # Apache HBase Master (HMaster) fails to start in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+
+## Scenario: `Master startup cannot progress, in holding-pattern until region comes online`
+
+### Issue
+
+HMaster fails to start due to the following warning:
+```output
+hbase:namespace,,<timestamp_region_create>.<encoded_region_name>.is NOT online; state={<encoded_region_name> state=OPEN, ts=<some_timestamp>, server=<server_name>}; ServerCrashProcedures=true. Master startup cannot progress, in holding-pattern until region onlined. 
+```
+
+For example, the parameter values may vary in the actual message:
+```output
+hbase:namespace,,1546588612000.0000010bc582e331e3080d5913a97000. is NOT online; state={0000010bc582e331e3080d5913a97000 state=OPEN, ts=1633935993000, server=<wn fqdn>,16000,1622012792000}; ServerCrashProcedures=false. Master startup cannot progress, in holding-pattern until region onlined.
+```
+
+### Cause
+
+HMaster checks the WAL directory on the region servers before bringing back the **OPEN** regions online. In this case, if that directory wasn't present, it was not getting started
+
+### Resolution
+
+1. Create this dummy directory using the command:
+`sudo -u hbase hdfs dfs -mkdir /hbase-wals/WALs/<wn fqdn>,16000,1622012792000`
+
+2. Restart the HMaster service from the Ambari UI.
+
+If you're using hbase-2.x, see more information in [how to use hbck2 to assign namespace and meta table](how-to-use-hbck2-tool.md#assign-and-unassign)
 
 ## Scenario: Atomic renaming failure
 
@@ -27,9 +52,9 @@ HMaster does a basic list command on the WAL folders. If at any time, HMaster se
 
 ### Resolution
 
-Check the call stack and try to determine which folder might be causing the problem (for instance, it might be the WAL folder or the .tmp folder). Then, in Cloud Explorer or by using HDFS commands, try to locate the problem file. Usually, this is a `*-renamePending.json` file. (The `*-renamePending.json` file is a journal file that's used to implement the atomic rename operation in the WASB driver. Due to bugs in this implementation, these files can be left over after process crashes, and so on.) Force-delete this file either in Cloud Explorer or by using HDFS commands.
+Check the call stack and try to determine which folder might be causing the problem (for instance, it might be the WAL folder or the .tmp folder). Then, in Azure Storage Explorer or by using HDFS commands, try to locate the problem file. Usually, this file is called `*-renamePending.json`. (The `*-renamePending.json` file is a journal file that's used to implement the atomic rename operation in the WASB driver. Due to bugs in this implementation, these files can be left over after process crashes, and so on.) Force-delete this file either in Cloud Explorer or by using HDFS commands.
 
-Sometimes, there might also be a temporary file named something like `$$$.$$$` at this location. You have to use HDFS `ls` command to see this file; you cannot see the file in Cloud Explorer. To delete this file, use the HDFS command `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.
+Sometimes, there might also be a temporary file named something like `$$$.$$$` at this location. You have to use HDFS `ls` command to see this file; you can't see the file in Azure Storage Explorer. To delete this file, use the HDFS command `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.
 
 After you've run these commands, HMaster should start immediately.
 
@@ -39,11 +64,11 @@ After you've run these commands, HMaster should start immediately.
 
 ### Issue
 
-You might see a message that indicates that the `hbase: meta` table is not online. Running `hbck` might report that `hbase: meta table replicaId 0 is not found on any region.` In the HMaster logs, you might see the message: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
+You might see a message that indicates that the `hbase: meta` table isn't online. Running `hbck` might report that `hbase: meta table replicaId 0 is not found on any region.` In the HMaster logs, you might see the message: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
 
 ### Cause
 
-HMaster could not initialize after restarting HBase.
+HMaster couldn't initialize after restarting HBase.
 
 ### Resolution
 
@@ -66,7 +91,7 @@ HMaster could not initialize after restarting HBase.
 
 ---
 
-## Scenario: java.io.IOException: Timedout
+## Scenario: `java.io.IOException: Timedout`
 
 ### Issue
 
@@ -74,7 +99,7 @@ HMaster times out with fatal exception similar to: `java.io.IOException: Timedou
 
 ### Cause
 
-You might experience this issue if you have many tables and regions that have not been flushed when you restart your HMaster services. The time-out is a known defect with HMaster. General cluster startup tasks can take a long time. HMaster shuts down if the namespace table isn’t yet assigned. The lengthy startup tasks happen where large amount of unflushed data exists and a timeout of five minutes is not sufficient.
+You might experience this issue if you have many tables and regions that haven't been flushed when you restart your HMaster services. The time-out is a known defect with HMaster. General cluster startup tasks can take a long time. HMaster shuts down if the namespace table isn’t yet assigned. The lengthy startup tasks happen where large amount of unflushed data exists and a timeout of five minutes isn't sufficient.
 
 ### Resolution
 
@@ -100,13 +125,13 @@ Nodes reboot periodically. From the region server logs you may see entries simil
 2017-05-09 17:45:07,683 WARN  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 31000ms
 ```
 
-### Cause
+### Cause: zookeeper session timeout
 
-Long `regionserver` JVM GC pause. The pause will cause `regionserver` to be unresponsive and not able to send heart beat to HMaster within the zk session timeout 40s. HMaster will believe `regionserver` is dead and will abort the `regionserver` and restart.
+Long `regionserver` JVM GC pause. The pause causes `regionserver` to be unresponsive and not able to send heart beat to HMaster within the zookeeper session timeout 40s. HMaster believes `regionserver` is dead, aborts the `regionserver` and restarts.
 
-### Resolution
 
-Change the Zookeeper session timeout, not only `hbase-site` setting `zookeeper.session.timeout` but also Zookeeper `zoo.cfg` setting `maxSessionTimeout` need to be changed.
+
+To mitigate, change the Zookeeper session timeout, not only `hbase-site` setting `zookeeper.session.timeout` but also Zookeeper `zoo.cfg` setting `maxSessionTimeout` need to be changed.
 
 1. Access Ambari UI, go to **HBase -> Configs -> Settings**, in Timeouts section, change the value of Zookeeper Session Timeout.
 
@@ -117,6 +142,16 @@ Change the Zookeeper session timeout, not only `hbase-site` setting `zookeeper.s
     ```
 
 1. Restart required services.
+
+
+### Cause: overloaded RegionServer
+
+Follow [Number of regions per RS - upper bound](https://hbase.apache.org/book.html#ops.capacity.regions.count) to calculate upper bound.
+For example: `8000 (Region server Heap -- Xmx in MB) * 0.4 (hbase.regionserver.global.memstore.size) /64 (hbase.regionserver.hlog.blocksize/2) = 50`
+
+To mitigate, scale up your HBase cluster.
+
+
 
 ---
 
@@ -132,16 +167,10 @@ Misconfigured HDFS and HBase settings for a secondary storage account.
 
 ### Resolution
 
-set hbase.rootdir: wasb://@.blob.core.windows.net/hbase and restart services on Ambari.
+`set hbase.rootdir: wasb://@.blob.core.windows.net/hbase` and restart services on Ambari.
 
 ---
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [notes](../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -1,0 +1,38 @@
+### YamlMime:Landing
+
+title: Basic Azure Load Balancer documentation
+summary: Documentation for the basic SKU of Azure Load Balancer.
+
+metadata:
+  title: Basic Azure Load Balancer documentation
+  description: Documentation for the basic SKU of Azure Load Balancer.
+  services: load-balancer
+  ms.service: load-balancer
+  ms.topic: landing-page
+  ms.collection: collection
+  author: mbender-ms
+  ms.author: mbender
+  ms.date: 04/17/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a basic public load balancer to load balance VMs
+            url: quickstart-basic-public-load-balancer-portal.md
+     # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.network/#load_balancer
+          - text: Azure CLI
+            url: /cli/azure/network/lb
+          - text: ARM templates
+            url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates

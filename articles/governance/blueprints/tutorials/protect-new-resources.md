@@ -1,22 +1,24 @@
 ---
 title: "Tutorial: Protect new resources with locks"
 description: In this tutorial, you use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
-ms.date: 11/21/2019
+ms.date: 09/07/2023
 ms.topic: tutorial
 ---
 # Tutorial: Protect new resources with Azure Blueprints resource locks
 
+[!INCLUDE [Blueprints deprecation note](../../../../includes/blueprints-deprecation-note.md)]
+
 With Azure Blueprints [resource locks](../concepts/resource-locking.md), you can protect newly
 deployed resources from being tampered with, even by an account with the _Owner_ role. You can add
-this protection in the blueprint definitions of resources created by a Resource Manager template
-artifact.
+this protection in the blueprint definitions of resources created by an Azure Resource Manager
+template (ARM template) artifact. The Blueprint resource lock is set during blueprint assignment.
 
 In this tutorial, you'll complete these steps:
 
 > [!div class="checklist"]
 > - Create a blueprint definition
 > - Mark your blueprint definition as **Published**
-> - Assign your blueprint definition to an existing subscription
+> - Assign your blueprint definition to an existing subscription (**set resource locks**)
 > - Inspect the new resource group
 > - Unassign the blueprint to remove the locks
 
@@ -61,8 +63,13 @@ First, create the blueprint definition.
    1. Select the **Add artifact** row under the **RGtoLock** entry.
    1. Select **Azure Resource Manager template** under **Artifact type**, set **Artifact display
       name** to **StorageAccount**, and leave **Description** blank.
-   1. On the **Template** tab, paste the following Resource Manager template into the editor box.
-      After you paste in the template, select **Add** to add the artifact to the blueprint.
+   1. On the **Template** tab, paste the following ARM template into the editor box. After you paste
+      in the template, select **Add** to add the artifact to the blueprint.
+
+      > [!NOTE]
+      > This step defines the resources to be deployed that get locked by the Blueprint resource
+      > lock, but doesn't include the Blueprint resource locks. Blueprint resource locks are
+      > set as a parameter of the blueprint assignment.
 
    ```json
    {
@@ -159,7 +166,7 @@ the blueprint definition unique.
      - **Assignment name**: The name is pre-populated based on the name of the blueprint
        definition. We want this assignment to represent locking the new resource group, so change
        the assignment name to **assignment-locked-storageaccount-TestingBPLocks**.
-     - **Location**: Select a region in which to create the managed identity. Azure Blueprint uses
+     - **Location**: Select a region in which to create the managed identity. Azure Blueprints uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md).
        For this tutorial, select **East US 2**.
@@ -170,6 +177,9 @@ the blueprint definition unique.
 
      Select the **Read Only** blueprint lock mode. For more information, see
      [blueprints resource locking](../concepts/resource-locking.md).
+
+     > [!NOTE]
+     > This step configures the Blueprint resource lock on the newly deployed resources.
 
    - **Managed Identity**
 
@@ -187,7 +197,7 @@ the blueprint definition unique.
      |-|-|-|-|-|
      |RGtoLock resource group|Resource group|Name|TestingBPLocks|Defines the name of the new resource group to apply blueprint locks to.|
      |RGtoLock resource group|Resource group|Location|West US 2|Defines the location of the new resource group to apply blueprint locks to.|
-     |StorageAccount|Resource Manager template|storageAccountType (StorageAccount)|Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
+     |StorageAccount|Resource Manager template|storageAccountType (StorageAccount) |Standard_GRS|The storage SKU. The default value is _Standard_LRS_.|
 
 1. After you've entered all parameters, select **Assign** at the bottom of the page.
 
@@ -200,8 +210,8 @@ step.
 ## Inspect resources deployed by the assignment
 
 The assignment creates the resource group _TestingBPLocks_ and the storage account deployed by the
-Resource Manager template artifact. The new resource group and the selected lock state are shown on
-the assignment details page.
+ARM template artifact. The new resource group and the selected lock state are shown on the
+assignment details page.
 
 1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
@@ -210,7 +220,7 @@ the assignment details page.
 
    From this page, we can see that the assignment succeeded and that the resources were deployed
    with the new blueprint lock state. If the assignment is updated, the **Assignment operation**
-   drop-down shows details about the deployment of each definition version. You can select the
+   dropdown list shows details about the deployment of each definition version. You can select the
    resource group to open the property page.
 
 1. Select the **TestingBPLocks** resource group.
@@ -269,7 +279,8 @@ doesn't remove the associated artifacts.
 
 1. Select **Resource groups** from the Azure menu, and then select **TestingBPLocks**.
 
-1. Select the **Access control (IAM)** page on the left and then select the **Role assignments** tab.
+1. Select the **Access control (IAM)** page on the left and then select the **Role assignments**
+   tab.
 
 The security for the resource group shows that the blueprint assignment no longer has _Owner_
 access.

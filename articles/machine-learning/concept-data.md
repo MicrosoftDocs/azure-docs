@@ -1,117 +1,115 @@
 ---
-title: Data in Azure Machine Learning
+title: Data concepts in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning interacts with your data and how it's utilized across your machine learning experiments.
+description: Learn key data concepts in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.reviewer: nibaccam
-author: nibaccam
-ms.author: nibaccam
-ms.date: 12/09/2019
-
+ms.reviewer: franksolomon
+author: samuel100
+ms.author: samkemp
+ms.date: 07/13/2023
+ms.custom: data4ml, event-tier1-build-2022
+#Customer intent: As an experienced Python developer, I need secure access to my data in my Azure storage solutions, and I need to use that data to accomplish my machine learning tasks.
 ---
 
-# Data access in Azure Machine Learning
+# Data concepts in Azure Machine Learning
 
-In this article, you learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article assumes you've already created an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
+With Azure Machine Learning, you can import data from a local machine or an existing cloud-based storage resource. This article describes key Azure Machine Learning data concepts.
 
-When you're ready to use the data in your storage, we recommend you
+## Datastore
 
-1. Create an Azure Machine Learning datastore.
-2. From that datastore, create an Azure Machine Learning dataset. 
-3. Use that dataset in your machine learning experiment by either 
-    1. Mounting it to your experiment's compute target for model training
+An Azure Machine Learning datastore serves as a *reference* to an *existing* Azure storage account. An Azure Machine Learning datastore offers these benefits:
 
-        **OR** 
+- A common, easy-to-use API that interacts with different storage types (Blob/Files/ADLS).
+- Easier discovery of useful datastores in team operations.
+- For credential-based access (service principal/SAS/key), Azure Machine Learning datastore secures connection information. This way, you won't need to place that information in your scripts.
 
-    1. Consuming it directly in Azure Machine Learning solutions like automated machine learning (automated ML) experiment runs, machine learning pipelines, and the [Azure Machine Learning designer](concept-designer.md).
-4. Create dataset monitors for your model output dataset to detect for data drift. 
-5. If data drift is detected, update your input dataset and retrain your model accordingly.
+When you create a datastore with an existing Azure storage account, you can choose between two different authentication methods:
 
-The following diagram provides a visual demonstration of this recommended data access workflow.
+- **Credential-based** - authenticate data access with a service principal, shared access signature (SAS) token, or account key. Users with *Reader* workspace access can access the credentials.
+- **Identity-based** - use your Microsoft Entra identity or managed identity to authenticate data access.
 
-![Data-concept-diagram](./media/concept-data/data-concept-diagram.svg)
+The following table summarizes the Azure cloud-based storage services that an Azure Machine Learning datastore can create. Additionally, the table summarizes the authentication types that can access those services:
 
-## Access data in storage
+Supported storage service | Credential-based authentication | Identity-based authentication
+|---|:----:|:---:|
+Azure Blob Container| ✓ | ✓|
+Azure File Share| ✓ | |
+Azure Data Lake Gen1 | ✓ | ✓|
+Azure Data Lake Gen2| ✓ | ✓|
 
-To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores answer the question: how do I securely connect to my data that's in my Azure Storage? Datastores provide a layer of abstraction over your storage service. This aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. 
+See [Create datastores](how-to-datastore.md) for more information about datastores.
 
-Datasets answer the question: how do I get specific data files in my datastore? Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
+## Data types
 
-### Datastores
+A URI (storage location) can reference a file, a folder, or a data table. A machine learning job input and output definition requires one of the following three data types:
 
-An Azure Machine Learning datastore is a storage abstraction over your Azure storage services. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
+|Type  |V2 API  |V1 API  |Canonical Scenarios | V2/V1 API Difference
+|---------|---------|---------|---------|---------|
+|**File**<br>Reference a single file     |    `uri_file`     |   `FileDataset`      |       Read/write a single file - the file can have any format.   |  A type new to V2 APIs. In V1 APIs, files always mapped to a folder on the compute target filesystem; this mapping required an `os.path.join`. In V2 APIs, the single file is mapped. This way, you can refer to that location in your code.   |
+|**Folder**<br> Reference a single folder     |     `uri_folder`    |   `FileDataset`      |  You must read/write a folder of parquet/CSV files into Pandas/Spark.<br><br>Deep-learning with images, text, audio, video files located in a folder.       | In V1 APIs, `FileDataset` had an associated engine that could take a file sample from a folder. In V2 APIs, a Folder is a simple mapping to the compute target filesystem. |
+|**Table**<br> Reference a data table    |   `mltable`      |     `TabularDataset`    |    You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables.     | In V1 APIs, the Azure Machine Learning back-end stored the data materialization blueprint. As a result, `TabularDataset` only worked if you had an Azure Machine Learning workspace. `mltable` stores the data materialization blueprint in *your* storage. This storage location means you can use it *disconnected to AzureML* - for example, locally and on-premises. In V2 APIs, you'll find it easier to transition from local to remote jobs. See [Working with tables in Azure Machine Learning](how-to-mltable.md) for more information. |
 
-Supported Azure storage services that can be registered as datastores:
-+ Azure Blob Container
-+ Azure File Share
-+ Azure Data Lake
-+ Azure Data Lake Gen2
-+ Azure SQL Database
-+ Azure Database for PostgreSQL
-+ Databricks File System
-+ Azure Database for MySQL
+## URI
+A Uniform Resource Identifier (URI) represents a storage location on your local computer, Azure storage, or a publicly available http(s) location. These examples show URIs for different storage options:
 
-### Datasets
+|Storage location  | URI examples  |
+|---------|---------|
+|Azure Machine Learning [Datastore](#datastore)  |   `azureml://datastores/<data_store_name>/paths/<folder1>/<folder2>/<folder3>/<file>.parquet`      |
+|Local computer     | `./home/username/data/my_data`         |
+|Public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|Blob storage    | `wasbs://<containername>@<accountname>.blob.core.windows.net/<folder>/`|
+|Azure Data Lake (gen2) | `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>.csv`  |
+| Azure Data Lake (gen1) | `adl://<accountname>.azuredatalakestore.net/<folder1>/<folder2>` |
 
-[Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
+An Azure Machine Learning job maps URIs to the compute target filesystem. This mapping means that in a command that consumes or produces a URI, that URI works like a file or a folder. A URI uses **identity-based authentication** to connect to storage services, with either your Microsoft Entra ID (default), or Managed Identity. Azure Machine Learning [Datastore](#datastore) URIs can apply either identity-based authentication, or **credential-based** (for example, Service Principal, SAS token, account key), without exposure of secrets.
 
-Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. To create a dataset from an in memory pandas dataframe, write the data to a local file, like a csv, and create your dataset from that file. Datasets aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
+A URI can serve as either *input* or an *output* to an Azure Machine Learning job, and it can map to the compute target filesystem with one of four different *mode* options:
 
-The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore that was automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
+- **Read-*only* mount (`ro_mount`)**: The URI represents a storage location that is *mounted* to the compute target filesystem. The mounted data location supports read-only output exclusively.
+- **Read-*write* mount (`rw_mount`)**: The URI represents a storage location that is *mounted* to the compute target filesystem. The mounted data location supports both read output from it *and* data writes to it.
+- **Download (`download`)**: The URI represents a storage location containing data that is *downloaded* to the compute target filesystem.
+- **Upload (`upload`)**: All data written to a compute target location is *uploaded* to the storage location represented by the URI.
 
-![Data-concept-diagram](./media/concept-data/dataset-workflow.svg)
+Additionally, you can pass in the URI as a job input string with the **direct** mode. This table summarizes the combination of modes available for inputs and outputs:
 
-Additional datasets capabilities can be found in the following documentation:
+Job<br>Input or Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct` | 
+------ | :---: | :---: | :---: | :---: | :---: | 
+Input  |   | ✓  |  ✓  |   | ✓ |  
+Output  | ✓  |   |    | ✓  |  
 
-+ [Version and track](how-to-version-track-datasets.md) dataset lineage.
-+ [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
-+  See the following for documentation on the two types of datasets:
-    + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
+See [Access data in a job](how-to-read-write-data-v2.md) for more information.
 
-    + [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can download or mount files of your choosing to your compute target as a FileDataset object.
+## Data runtime capability
+Azure Machine Learning uses its own *data runtime* for one of three purposes:
 
-## Work with your data
+- for mounts/uploads/downloads
+- to map storage URIs to the compute target filesystem
+- to materialize tabular data into pandas/spark with Azure Machine Learning tables (`mltable`)
 
-With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
+The Azure Machine Learning data runtime is designed for *high speed and high efficiency* of machine learning tasks. It offers these key benefits:
 
-+ [Train machine learning models](how-to-train-with-datasets.md).
-+ Consume datasets in 
-     + [automated ML experiments](how-to-create-portal-experiments.md)
-     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
-+ Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
-+ Create a [data labeling project](#label).
-+ Set up a dataset monitor for [data drift](#drift) detection.
+> [!div class="checklist"]
+> - [Rust](https://www.rust-lang.org/) language architecture. The Rust language is known for high speed and high memory efficiency.
+> - Light weight; the Azure Machine Learning data runtime has *no* dependencies on other technologies - JVM, for example - so the runtime installs quickly on compute targets.
+> - Multi-process (parallel) data loading.
+> - Data pre-fetches operate as background task on the CPU(s), to enhance utilization of the GPU(s) in deep-learning operations.
+> - Seamless authentication to cloud storage.
 
-<a name="open"></a>
+## Data asset
 
-## Azure Open Datasets
+An Azure Machine Learning data asset resembles web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that point to your most frequently used data, you can create a data asset, and then access that asset with a friendly name.
 
-[Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Open Datasets are in the cloud on Microsoft Azure and are integrated into Azure Machine Learning. You can also access the datasets through APIs and use them in other products, such as Power BI and Azure Data Factory.
+Data asset creation also creates a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and you don't risk data source integrity. You can create Data assets from Azure Machine Learning datastores, Azure Storage, public URLs, or local files.
 
-Azure Open Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. You can also share your public datasets on Azure Open Datasets.
+See [Create data assets](how-to-create-data-assets.md) for more information about data assets.
 
-<a name="label"></a>
+## Next steps
 
-## Data labeling
-
-Labeling large amounts of data has often been a headache in machine learning projects. Those with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
-
-Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
-
-+ Create a [data labeling project](how-to-create-labeling-projects.md), and output a dataset for use in machine learning experiments.
-
-<a name="drift"></a>
-
-## Data drift
-
-In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons model accuracy degrades over time, thus monitoring data drift helps detect model performance issues.
-See the [Create a dataset monitor](how-to-monitor-datasets.md) article, to learn more about how to detect and alert to data drift on new data in a dataset.
-
-## Next steps 
-
-+ Create a dataset in Azure Machine Learning studio or with the Python SDK, [use these steps.](how-to-create-register-datasets.md)
-+ Try out dataset training examples with our [sample notebooks](https://aka.ms/dataset-tutorial).
-+ For data drift examples, see this [data drift tutorial](https://aka.ms/datadrift-notebook).
+- [Access data in a job](how-to-read-write-data-v2.md)
+- [Install and set up the CLI (v2)](how-to-configure-cli.md#install-and-set-up-the-cli-v2)
+- [Create datastores](how-to-datastore.md#create-datastores)
+- [Create data assets](how-to-create-data-assets.md#create-data-assets)
+- [Data administration](how-to-administrate-data-authentication.md#data-administration)

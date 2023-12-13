@@ -1,48 +1,68 @@
 ---
-title: Copy data From PostgreSQL using Azure Data Factory 
-description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+title: Copy data From PostgreSQL
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: jingwang
-
+ms.date: 10/20/2023
+ms.author: jianleishen
 ---
-# Copy data from PostgreSQL by using Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
-> * [Current version](connector-postgresql.md)
+# Copy data from PostgreSQL using Azure Data Factory or Synapse Analytics
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
-This PostgreSQL connector is supported for the following activities:
+This PostgreSQL connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from PostgreSQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
+
+For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and above**.
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
-For Self-hosted IR version lower than 3.7, you need to install the [Ngpsql data provider for PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the Integration Runtime machine.
+The Integration Runtime provides a built-in PostgreSQL driver starting from version 3.7, therefore you don't need to manually install any driver.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to PostgreSQL using UI
+
+Use the following steps to create a linked service to PostgreSQL in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for Postgre and select the PostgreSQL connector.
+
+    :::image type="content" source="media/connector-postgresql/postgresql-connector.png" alt-text="Select the PostgreSQL connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-postgresql/configure-postgresql-linked-service.png" alt-text="Configure a linked service to PostgreSQL.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to PostgreSQL connector.
 
@@ -62,6 +82,13 @@ A typical connection string is `Server=<server>;Database=<database>;Port=<port>;
 |:--- |:--- |:--- |:--- |
 | EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g.,  `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
 | ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g.,  `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
+
+> [!NOTE]
+> In order to have full SSL verification via the ODBC connection when using the Self Hosted Integration Runtime you must use an ODBC type connection instead of the PostgreSQL connector explicitly, and complete the following configuration:
+>
+> 1. Set up the DSN on any SHIR servers.
+> 1. Put the proper certificate for PostgreSQL in C:\Windows\ServiceProfiles\DIAHostService\AppData\Roaming\postgresql\root.crt on the SHIR servers. This is where the ODBC driver looks > for the SSL cert to verify when it connects to the database.
+> 1. In your data factory connection, use an ODBC type connection, with your connection string pointing to the DSN you created on your SHIR servers.
 
 **Example:**
 
@@ -221,5 +248,5 @@ If you were using `RelationalSource` typed source, it is still supported as-is, 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
-## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+## Related content
+For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

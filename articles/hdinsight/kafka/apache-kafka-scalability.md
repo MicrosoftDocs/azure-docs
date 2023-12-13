@@ -1,24 +1,21 @@
 ---
 title: Apache Kafka increase scale - Azure HDInsight 
 description: Learn how to configure managed disks for Apache Kafka cluster on Azure HDInsight to increase scalability.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/09/2019
+ms.date: 05/11/2023
 ---
 
 # Configure storage and scalability for Apache Kafka on HDInsight
 
 Learn how to configure the number of managed disks used by [Apache Kafka](https://kafka.apache.org/) on HDInsight.
 
-Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight cluster. Since Kafka is very I/O heavy, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) is used to provide high throughput and provide more storage per node. If traditional virtual hard drives (VHD) were used for Kafka, each node is limited to 1 TB. With managed disks, you can use multiple disks to achieve 16 TB for each node in the cluster.
+Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight cluster. Since Kafka is very I/O heavy, [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) is used to provide high throughput and provide more storage per node. If traditional virtual hard drives (VHD) were used for Kafka, each node is limited to 1 TB. With managed disks, you can use multiple disks to achieve 16 TB for each node in the cluster.
 
 The following diagram provides a comparison between Kafka on HDInsight before managed disks, and Kafka on HDInsight with managed disks:
 
-![kafka with managed disks architecture](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
+:::image type="content" source="./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png" alt-text="kafka with managed disks architecture" border="false":::
 
 ## Configure managed disks: Azure portal
 
@@ -29,7 +26,7 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
     > [!NOTE]  
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
+    :::image type="content" source="./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png" alt-text="cluster size section with the disks per worker node highlighted" border="true":::
 
 ## Configure managed disks: Resource Manager template
 
@@ -43,14 +40,11 @@ To control the number of disks used by the worker nodes in a Kafka cluster, use 
     ],
 ```
 
-You can find a complete template that demonstrates how to configure managed disks at [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json).
-
 ## Next steps
 
 For more information on working with Apache Kafka on HDInsight, see the following documents:
 
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](apache-kafka-mirroring.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
 * [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
 

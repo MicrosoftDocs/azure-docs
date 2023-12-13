@@ -1,325 +1,277 @@
 ---
-title: Train a neural network with TensorFlow
+title: Train and deploy a TensorFlow model (SDK v2)
 titleSuffix: Azure Machine Learning
-description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
+description: Learn how Azure Machine Learning SDK (v2) enables you to scale out a TensorFlow training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.topic: conceptual
-ms.author: maxluk
-author: maxluk
-ms.date: 08/20/2019
-ms.custom: seodec18
-
-# Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.subservice: training
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
+ms.date: 10/03/2022
+ms.topic: how-to
+ms.custom: sdkv2, event-tier1-build-2022
+#Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
-# Build a TensorFlow deep learning model at scale with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Train TensorFlow models at scale with Azure Machine Learning
 
-This article shows you how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning's [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) class. This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
+In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning Python SDK v2.
 
-Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
+The example code in this article train a TensorFlow model to classify handwritten digits, using a deep neural network (DNN); register the model; and deploy it to an online endpoint.
+
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
 
 ## Prerequisites
 
-Run this code on either of these environments:
+To benefit from this article, you'll need to:
 
- - Azure Machine Learning compute instance - no downloads or installation necessary
+- Access an Azure subscription. If you don't have one already, [create a free account](https://azure.microsoft.com/free/).
+- Run the code in this article using either an Azure Machine Learning compute instance or your own Jupyter notebook.
+    - Azure Machine Learning compute instance—no downloads or installation necessary
+        - Complete the [Create resources to get started](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > python > jobs > single-step > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow**.
+    - Your Jupyter notebook server
+        - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
+- Download the following files:
+    - training script [tf_mnist.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/tf_mnist.py) 
+    - scoring script [score.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/score.py)
+    - sample request file [sample-request.json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/request/sample-request.json)
 
-     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > deployment > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
+You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page.
+
+
+[!INCLUDE [gpu quota](includes/machine-learning-gpu-quota-prereq.md)]
+
+## Set up the job
+
+This section sets up the job for training by loading the required Python packages, connecting to a workspace, creating a compute resource to run a command job, and creating an environment to run the job.
+
+### Connect to the workspace
+
+First, you'll need to connect to your Azure Machine Learning workspace. The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+
+We're using `DefaultAzureCredential` to get access to the workspace. This credential should be capable of handling most Azure SDK authentication scenarios.
+
+If `DefaultAzureCredential` doesn't work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity) or [`Set up authentication`](how-to-setup-authentication.md?tabs=sdk) for more available credentials.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=credential)]
+
+If you prefer to use a browser to sign in and authenticate, you should uncomment the following code and use it instead.
+
+```python
+# Handle to the workspace
+# from azure.ai.ml import MLClient
+
+# Authentication package
+# from azure.identity import InteractiveBrowserCredential
+# credential = InteractiveBrowserCredential()
+```
+
+Next, get a handle to the workspace by providing your Subscription ID, Resource Group name, and workspace name. To find these parameters:
+
+1. Look for your workspace name in the upper-right corner of the Azure Machine Learning studio toolbar.
+2. Select your workspace name to show your Resource Group and Subscription ID.
+3. Copy the values for Resource Group and Subscription ID into the code.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=ml_client)]
+
+The result of running this script is a workspace handle that you'll use to manage other resources and jobs.
+
+> [!NOTE]
+> - Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
+
+### Create a compute resource to run the job
+
+Azure Machine Learning needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
+
+In the following example script, we provision a Linux [`compute cluster`](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Since we need a GPU cluster for this example, let's pick a *STANDARD_NC6* model and create an Azure Machine Learning compute.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=cpu_compute_target)]
+
+### Create a job environment
+
+To run an Azure Machine Learning job, you'll need an environment. An Azure Machine Learning [environment](concept-environments.md) encapsulates the dependencies (such as software runtime and libraries) needed to run your machine learning training script on your compute resource. This environment is similar to a Python environment on your local machine.
+
+Azure Machine Learning allows you to either use a curated (or ready-made) environment—useful for common training and inference scenarios—or create a custom environment using a Docker image or a Conda configuration. 
+
+In this article, you'll reuse the curated Azure Machine Learning environment `AzureML-tensorflow-2.7-ubuntu20.04-py38-cuda11-gpu`. You'll use the latest version of this environment using the `@latest` directive.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=curated_env_name)]
+
+## Configure and submit your training job
+
+In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
+
+### Obtain the training data
+You'll use data from the Modified National Institute of Standards and Technology (MNIST) database of handwritten digits. This data is sourced from Yan LeCun's website and stored in an Azure storage account.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=data_url)]
+
+For more information about the MNIST dataset, visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
+
+### Prepare the training script
+
+In this article, we've provided the training script *tf_mnist.py*. In practice, you should be able to take any custom training script as is and run it with Azure Machine Learning without having to modify your code.
+
+The provided training script does the following:
+- handles the data preprocessing, splitting the data into test and train data;
+- trains a model, using the data; and 
+- returns the output model.
+
+During the pipeline run, you'll use MLFlow to log the parameters and metrics. To learn how to enable MLFlow tracking, see [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
+
+In the training script `tf_mnist.py`, we create a simple deep neural network (DNN). This DNN has:
+
+- An input layer with 28 * 28 = 784 neurons. Each neuron represents an image pixel.
+- Two hidden layers. The first hidden layer has 300 neurons and the second hidden layer has 100 neurons.
+- An output layer with 10 neurons. Each neuron represents a targeted label from 0 to 9.
+
+:::image type="content" source="media/how-to-train-tensorflow/neural-network.png" alt-text="Diagram showing a deep neural network with 784 neurons at the input layer, two hidden layers, and 10 neurons at the output layer.":::
+
+### Build the training job
+
+Now that you have all the assets required to run your job, it's time to build it using the Azure Machine Learning Python SDK v2. For this example, we'll be creating a `command`.
+
+An Azure Machine Learning `command` is a resource that specifies all the details needed to execute your training code in the cloud. These details include the inputs and outputs, type of hardware to use, software to install, and how to run your code. The `command` contains information to execute a single command.
+
+
+#### Configure the command
+
+You'll use the general purpose `command` to run the training script and perform your desired tasks. Create a `Command` object to specify the configuration details of your training job.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=job)]
+
+- The inputs for this command include the data location, batch size, number of neurons in the first and second layer, and learning rate. Notice that we've passed in the web path directly as an input.
+
+- For the parameter values:
+    - provide the compute cluster `gpu_compute_target = "gpu-cluster"` that you created for running this command;
+    - provide the curated environment `curated_env_name` that you declared earlier;
+    - configure the command line action itself—in this case, the command is `python tf_mnist.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
+    - configure metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
  
- - Your own Jupyter Notebook server
+- In this example, you'll use the `UserIdentity` to run the command. Using a user identity means that the command will use your identity to run the job and access the data from the blob.
 
-    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
-     
-    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/deployment/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+### Submit the job
 
-## Set up the experiment
+It's now time to submit the job to run in Azure Machine Learning. This time, you'll use `create_or_update` on `ml_client.jobs`.
 
-This section sets up the training experiment by loading the required Python packages, initializing a workspace, creating an experiment, and uploading the training data and training scripts.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=create_job)]
 
-### Import packages
+Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in Azure Machine Learning studio.
 
-First, import the necessary Python libraries.
+> [!WARNING]
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory.
 
-```Python
-import os
-import urllib
-import shutil
-import azureml
+### What happens during job execution
+As the job is executed, it goes through the following stages:
 
-from azureml.core import Experiment
-from azureml.core import Workspace, Run
+- **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the job history and can be viewed to monitor progress. If a curated environment is specified, the cached image backing that curated environment will be used.
 
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-from azureml.train.dnn import TensorFlow
-```
+- **Scaling**: The cluster attempts to scale up if it requires more nodes to execute the run than are currently available.
 
-### Initialize a workspace
+- **Running**: All scripts in the script folder *src* are uploaded to the compute target, data stores are mounted or copied, and the script is executed. Outputs from *stdout* and the *./logs* folder are streamed to the job history and can be used to monitor the job.
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+## Tune model hyperparameters
 
-Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
+Now that you've seen how to do a TensorFlow training run using the SDK, let's see if you can further improve the accuracy of your model. You can tune and optimize your model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
 
-```Python
-ws = Workspace.from_config()
-```
+To tune the model's hyperparameters, define the parameter space in which to search during training. You'll do this by replacing some of the parameters (`batch_size`, `first_layer_neurons`, `second_layer_neurons`, and `learning_rate`) passed to the training job with special inputs from the `azure.ml.sweep` package.
 
-### Create a deep learning experiment
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=job_for_sweep)]
 
-Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "tf-mnist".
+Then, you'll configure sweep on the command job, using some sweep-specific parameters, such as the primary metric to watch and the sampling algorithm to use.
 
-```Python
-script_folder = './tf-mnist'
-os.makedirs(script_folder, exist_ok=True)
+In the following code, we use random sampling to try different configuration sets of hyperparameters in an attempt to maximize our primary metric, `validation_acc`.
 
-exp = Experiment(workspace=ws, name='tf-mnist')
-```
+We also define an early termination policy—the `BanditPolicy`. This policy operates by checking the job every two iterations. If the primary metric, `validation_acc`, falls outside the top ten percent range, Azure Machine Learning will terminate the job. This saves the model from continuing to explore hyperparameters that show no promise of helping to reach the target metric.
 
-### Create a file dataset
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=sweep_job)]
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they will be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. See the [how-to](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) guide on the `Dataset` package for more information.
+Now, you can submit this job as before. This time, you'll be running a sweep job that sweeps over your train job.
 
-```python
-from azureml.core.dataset import Dataset
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=create_sweep_job)]
 
-web_paths = [
-            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
-            ]
-dataset = Dataset.File.from_files(path=web_paths)
-```
+You can monitor the job by using the studio user interface link that is presented during the job run.
 
-Use the `register()` method to register the data set to your workspace so they can be shared with others, reused across various experiments, and referred to by name in your training script.
+## Find and register the best model
 
-```python
-dataset = dataset.register(workspace=ws,
-                           name='mnist dataset',
-                           description='training and test dataset',
-                           create_new_version=True)
+Once all the runs complete, you can find the run that produced the model with the highest accuracy.
 
-# list the files referenced by dataset
-dataset.to_path()
-```
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=model)]
 
-## Create a compute target
+You can then register this model.
 
-Create a compute target for your TensorFlow job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=register_model)]
 
-```Python
-cluster_name = "gpucluster"
 
-try:
-    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
-    print('Found existing compute target')
-except ComputeTargetException:
-    print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
-                                                           max_nodes=4)
+## Deploy the model as an online endpoint
 
-    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+After you've registered your model, you can deploy it as an [online endpoint](concept-endpoints.md)—that is, as a web service in the Azure cloud.
 
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-```
+To deploy a machine learning service, you'll typically need:
+- The model assets that you want to deploy. These assets include the model's file and metadata that you already registered in your training job.
+- Some code to run as a service. The code executes the model on a given input request (an entry script). This entry script receives data submitted to a deployed web service and passes it to the model. After the model processes the data, the script returns the model's response to the client. The script is specific to your model and must understand the data that the model expects and returns. When you use an MLFlow model, Azure Machine Learning automatically creates this script for you.
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
+For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
-## Create a TensorFlow estimator
+### Create a new online endpoint
 
-The [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) provides a simple way of launching a TensorFlow training job on a compute target.
+As a first step to deploying your model, you need to create your online endpoint. The endpoint name must be unique in the entire Azure region. For this article, you'll create a unique name using a universally unique identifier (UUID).
 
-The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=online_endpoint_name)]
 
-If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting Docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=endpoint)]
 
-```python
-script_params = {
-    '--data-folder': dataset.as_named_input('mnist').as_mount(),
-    '--batch-size': 50,
-    '--first-layer-neurons': 300,
-    '--second-layer-neurons': 100,
-    '--learning-rate': 0.01
-}
+Once you've created the endpoint, you can retrieve it as follows:
 
-est = TensorFlow(source_directory=script_folder,
-                 entry_script='tf_mnist.py',
-                 script_params=script_params,
-                 compute_target=compute_target,
-                 use_gpu=True,
-                 pip_packages=['azureml-dataprep[pandas,fuse]'])
-```
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=get_endpoint)]
 
-> [!TIP]
-> Support for **Tensorflow 2.0** has been added to the Tensorflow estimator class. See the [blog post](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) for more information.
+### Deploy the model to the endpoint
 
-For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
+After you've created the endpoint, you can deploy the model with the entry script. An endpoint can have multiple deployments. Using rules, the endpoint can then direct traffic to these deployments.
 
-## Submit a run
+In the following code, you'll create a single deployment that handles 100% of the incoming traffic. We've specified an arbitrary color name (*tff-blue*) for the deployment. You could also use any other name such as *tff-green* or *tff-red* for the deployment.
+The code to deploy the model to the endpoint does the following:
 
-The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
+- deploys the best version of the model that you registered earlier;
+- scores the model, using the `score.py` file; and
+- uses the same curated environment (that you declared earlier) to perform inferencing.
 
-```Python
-run = exp.submit(est)
-run.wait_for_completion(show_output=True)
-```
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=blue_deployment)]
 
-As the Run is executed, it goes through the following stages:
+> [!NOTE]
+> Expect this deployment to take a bit of time to finish.
 
-- **Preparing**: A Docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
+### Test the deployment with a sample query
 
-- **Scaling**: The cluster attempts to scale up if the Batch AI cluster requires more nodes to execute the run than are currently available.
+Now that you've deployed the model to the endpoint, you can predict the output of the deployed model, using the `invoke` method on the endpoint. To run the inference, use the sample request file `sample-request.json` from the *request* folder.
 
-- **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the entry_script is executed. Outputs from stdout and the ./logs folder are streamed to the run history and can be used to monitor the run.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=invoke)]
 
-- **Post-Processing**: The ./outputs folder of the run is copied over to the run history.
+You can then print the returned predictions and plot them along with the input images. Use red font color and inverted image (white on black) to highlight the misclassified samples.
 
-## Register or download a model
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=test_invoke)]
 
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md). By specifying the parameters `model_framework`, `model_framework_version`, and `resource_configuration`, no-code model deployment becomes available. This allows you to directly deploy your model as a web service from the registered model, and the `ResourceConfiguration` object defines the compute resource for the web service.
+> [!NOTE]
+> Because the model accuracy is high, you might have to run the cell a few times before seeing a misclassified sample.
 
-```Python
-from azureml.core import Model
-from azureml.core.resource_configuration import ResourceConfiguration
+### Clean up resources
 
-model = run.register_model(model_name='tf-dnn-mnist', 
-                           model_path='outputs/model',
-                           model_framework=Model.Framework.TENSORFLOW,
-                           model_framework_version='1.13.0',
-                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
-```
+If you won't be using the endpoint, delete it to stop using the resource. Make sure no other deployments are using the endpoint before you delete it.
 
-You can also download a local copy of the model by using the Run object. In the training script `mnist-tf.py`, a TensorFlow saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=delete_endpoint)]
 
-```Python
-# Create a model folder in the current directory
-os.makedirs('./model', exist_ok=True)
+> [!NOTE]
+> Expect this cleanup to take a bit of time to finish.
 
-for f in run.get_file_names():
-    if f.startswith('outputs/model'):
-        output_file_path = os.path.join('./model', f.split('/')[-1])
-        print('Downloading from {} to {} ...'.format(f, output_file_path))
-        run.download_file(name=f, output_file_path=output_file_path)
-```
-
-## Distributed training
-
-The [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator also supports distributed training across CPU and GPU clusters. You can easily run distributed TensorFlow jobs and Azure Machine Learning will manage the orchestration for you.
-
-Azure Machine Learning supports two methods of distributed training in TensorFlow:
-
-- [MPI-based](https://www.open-mpi.org/) distributed training using the [Horovod](https://github.com/uber/horovod) framework
-- Native [distributed TensorFlow](https://www.tensorflow.org/deploy/distributed) using the parameter server method
-
-### Horovod
-
-[Horovod](https://github.com/uber/horovod) is an open-source framework for distributed training developed by Uber. It offers an easy path to distributed GPU TensorFlow jobs.
-
-To use Horovod, specify an [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) object for the `distributed_training` parameter in the TensorFlow constructor. This  parameter ensures that Horovod library is installed for you to use in your training script.
-
-```Python
-from azureml.core.runconfig import MpiConfiguration
-from azureml.train.dnn import TensorFlow
-
-# Tensorflow constructor
-estimator= TensorFlow(source_directory=project_folder,
-                      compute_target=compute_target,
-                      script_params=script_params,
-                      entry_script='script.py',
-                      node_count=2,
-                      process_count_per_node=1,
-                      distributed_training=MpiConfiguration(),
-                      framework_version='1.13',
-                      use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
-```
-
-### Parameter server
-
-You can also run [native distributed TensorFlow](https://www.tensorflow.org/deploy/distributed), which uses the parameter server model. In this method, you train across a cluster of parameter servers and workers. The workers calculate the gradients during training, while the parameter servers aggregate the gradients.
-
-To use the parameter server method, specify a [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) object for the `distributed_training` parameter in the TensorFlow constructor.
-
-```Python
-from azureml.train.dnn import TensorFlow
-
-distributed_training = TensorflowConfiguration()
-distributed_training.worker_count = 2
-
-# Tensorflow constructor
-estimator= TensorFlow(source_directory=project_folder,
-                      compute_target=compute_target,
-                      script_params=script_params,
-                      entry_script='script.py',
-                      node_count=2,
-                      process_count_per_node=1,
-                      distributed_training=distributed_training,
-                      use_gpu=True,
-                      pip_packages=['azureml-dataprep[pandas,fuse]')
-
-# submit the TensorFlow job
-run = exp.submit(tf_est)
-```
-
-#### Define cluster specifications in 'TF_CONFIG`
-
-You also need the network addresses and ports of the cluster for the [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), so Azure Machine Learning sets the `TF_CONFIG` environment variable for you.
-
-The `TF_CONFIG` environment variable is a JSON string. Here is an example of the variable for a parameter server:
-
-```JSON
-TF_CONFIG='{
-    "cluster": {
-        "ps": ["host0:2222", "host1:2222"],
-        "worker": ["host2:2222", "host3:2222", "host4:2222"],
-    },
-    "task": {"type": "ps", "index": 0},
-    "environment": "cloud"
-}'
-```
-
-For TensorFlow's high level [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow parses the `TF_CONFIG` variable and builds the cluster spec for you.
-
-For TensorFlow's lower-level core APIs for training, parse the `TF_CONFIG` variable and build the `tf.train.ClusterSpec` in your training code.
-
-```Python
-import os, json
-import tensorflow as tf
-
-tf_config = os.environ.get('TF_CONFIG')
-if not tf_config or tf_config == "":
-    raise ValueError("TF_CONFIG not found.")
-tf_config_json = json.loads(tf_config)
-cluster_spec = tf.train.ClusterSpec(cluster)
-
-```
-
-## Deployment
-
-The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning, regardless of which estimator you used for training. The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
-
-### (Preview) No-code model deployment
-
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview)for Tensorflow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
-
-```python
-service = Model.deploy(ws, "tensorflow-web-service", [model])
-```
-
-The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
 
 ## Next steps
 
-In this article, you trained and registered a TensorFlow model, and learned about options for deployment. See these other articles to learn more about Azure Machine Learning.
+In this article, you trained and registered a TensorFlow model. You also deployed the model to an online endpoint. See these other articles to learn more about Azure Machine Learning.
 
-* [Track run metrics during training](how-to-track-experiments.md)
-* [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+- [Track run metrics during training](how-to-log-view-metrics.md)
+- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -1,12 +1,10 @@
 ---
 title: Monitor and manage Azure Stream Analytics jobs programmatically
 description: This article describes how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or PowerShell.
-author: jseb225
-ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2017
+ms.custom: devx-track-csharp
 ---
 
 # Programmatically create a Stream Analytics job monitor
@@ -24,7 +22,7 @@ Before you begin this process, you must have the following prerequisites:
 ## Create a project
 
 1. Create a Visual Studio C# .NET console application.
-2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Monitor SDK that will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
+2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Monitor SDK that will be used to enable monitoring. The last one is the Microsoft Entra client that will be used for authentication.
    
    ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -164,12 +162,12 @@ The following code enables monitoring for an **existing** Stream Analytics job. 
 
 ## Get support
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

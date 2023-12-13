@@ -1,78 +1,78 @@
 ---
 title: Troubleshoot Azure subscription sign-in issues
-description: Helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center.
-services: azure
-author: v-miegge
-manager: dcscontentpm
-editor: na
+description: Helps to resolve the issues in which you can't sign in to the Azure portal.
+services: cost-management-billing
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
-ms.author: v-miegge
+ms.date: 04/05/2023
+ms.author: banders
 ---
 
 # Troubleshoot Azure subscription sign-in issues
 
-This guide helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center.
+This guide helps to resolve the issues in which you can't sign in to the Azure portal.
 
-## Issues
+> [!NOTE]
+> If you are having issues signing up for a new Azure account, see [Troubleshoot Azure subscription sign-up issues](./troubleshoot-azure-sign-up.md).
 
-### Page hangs in the loading status
+## Page hangs in the loading status
 
 If your internet browser page hangs, try each of the following steps until you can get to the Azure portal.
 
 - Refresh the page.
 - Use a different internet browser.
-- Use the private browsing mode for your browser. For Internet Explorer: Click **Tools** > **Safety** > **InPrivate Browsing**, and then browse and sign-in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions).
+- Use the private browsing mode for your browser:
 
-### You are automatically signed in as a different user
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com).
+   - **Chrome:** Choose **Incognito** mode.
+   - **Safari:** Choose **File**, then **New Private Window**.
+
+- Clear the cache and delete Internet cookies:
+
+   - **Edge:** Open **Settings** and select **Privacy and Services**. Follow the steps under **Clear Browsing Data**. Verify that the check boxes for **Browsing history**, **Download history**, and **Cached images and files** are selected, and then select **Delete**.
+   - **Chrome:** Choose **Settings** and select **Clear browsing data** under **Privacy and Security**.
+
+## You are automatically signed in as a different user
 
 This issue can occur if you use more than one user account in an internet browser.
 
 To resolve the issue, try one of the following methods:
 
-- Clear the cache and delete Internet cookies. In Internet Explorer, click **Tools** > **Internet Options** > **Delete**. Make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
-- Reset the Internet Explorer settings to revert any personal settings that you’ve made. Click **Tools** > **Internet Options** > **Advanced** > select the **Delete personal settings** box > **Reset**.
-- Use the private browsing mode for your browser. For Internet Explorer:  Click **Tools** > **Safety** > **InPrivate Browsing**, and then browse and sign-in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions).
+- Clear the cache and delete Internet cookies.
 
-### I can sign-in but I see *No subscriptions found*
+   - **Edge:** Open **Settings** and select **Privacy and Services**. Follow the steps under **Clear Browsing Data**. Verify that the check boxes for **Browsing history**, **Download history**, **Cookies**, and **Cached images and files** are selected, and then select **Delete**.
+   - **Chrome:** Choose **Settings** and select **Clear browsing data** under **Privacy and Security**.
+- Reset your browser settings to defaults.
+- Use the private browsing mode for your browser. 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com).
+   - **Chrome:** Choose **Incognito** mode.
+   - **Safari:** Choose **File**, then **New Private Window**.
 
-This problem occurs if you selected at the wrong directory, or if your account doesn’t have sufficient permissions.
+## I can sign in, but I see the error, No subscriptions found
 
-**Scenario 1:** Error message is received in the [Azure portal](https://portal.azure.com/)
+This problem occurs if you selected at the wrong directory, or if your account doesn't have sufficient permissions.
+
+**Scenario:** You receive the error signing into the [Azure portal](https://portal.azure.com).
 
 To fix this issue:
 
-- Make sure that the correct Azure directory is selected by clicking your account at the top right.
-- If the right Azure directory is selected but you still receive the error message, have your account [added as an Owner](add-change-subscription-administrator.md).
-
-**Scenario 2:** Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
-
-Check whether the account that you used is the Account Administrator. To verify who the Account Administrator is, follow these steps:
-
-1. Sign in to the [Subscriptions view in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-
-2. Select the subscription you want to check, and then look under **Settings**.
-
-3. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
+- Verify that the correct Azure directory is selected by selecting your account at the top-right corner.
+- If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](./add-change-subscription-administrator.md).
 
 ## Additional help resources
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Declined card](troubleshoot-declined-card.md)
-- [Subscription sign-up issues](troubleshoot-azure-sign-up.md)
-- [No subscriptions found](no-subscriptions-found.md)
-- [Enterprise cost view disabled](enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Declined card](./troubleshoot-declined-card.md)
+- [Subscription sign-up issues](./troubleshoot-azure-sign-up.md)
+- [No subscriptions found](./no-subscriptions-found.md)
+- [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Azure Billing documentation](../index.yml)
 
 ## Contact us for help
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-## Next steps
-
-- [Azure Billing documentation](../../billing/index.md)
+If you have questions or need help but can't sign in to the Azure portal, [create a support request](https://support.microsoft.com/oas/?prid=15470).

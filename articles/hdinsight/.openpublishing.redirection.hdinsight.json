@@ -1,0 +1,1353 @@
+{
+    "redirections": [
+    {   "source_path_from_root": "/articles/hdinsight/storm/apache-storm-overview.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-50-component-versioning.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-5x-component-versioning",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-51-component-versioning.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-5x-component-versioning",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-machine-learning-overview.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-quickstart.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-emulator-get-started.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles//hdinsight/hdinsight-36-component-versioning.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/migrate-versions.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles//hdinsight/spark/spark-dotnet-version-update.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-write-data-lake-store.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/migrate-storm-to-spark.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-java-topology.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hortonworks-release-notes.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-release-notes",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-python-topology.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-csharp-visual-studio-topology.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-scp-programming-guide.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-example-topology.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-deploy-monitor-topology-linux.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-troubleshoot-storm.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/data-lake-store/data-lake-storage-use-hdi-cluster.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/documentdb/documentdb-run-hadoop-with-hdinsight.md",
+        "redirect_url": "/azure/hdinsight/hadoop/hdinsight-use-hive",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/apache-kafka-log-analytics-operations-management.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-log-analytics-operations-management",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/domain-joined/apache-domain-joined-configure.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/domain-joined/domain-joined-zeppelin-signin.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/domain-joined/index.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-debug-jobs.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
+        "redirect_url": "/dotnet/api/overview/azure/hdinsight",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-hive-query-console.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-hive-remote-desktop.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-pig-curl.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-pig-dotnet-sdk.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-pig-powershell.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-use-pig-ssh.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hive-analyze-sensor-data.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-analyze-twitter-data-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hive-analyze-website-log.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-analyze-twitter-data-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/hdinsight-use-pig.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/index.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hbase/apache-hbase-monitor-with-oms.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hbase/apache-troubleshoot-hbase.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hbase/index.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-add-acls-at-file-folder-levels.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-administer-use-management-portal.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-administer-use-portal-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-analyze-flight-delay-data-linux.md",
+        "redirect_url": "/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-analyze-flight-delay-data.md",
+        "redirect_url": "/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-analyze-twitter-data.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-analyze-twitter-data-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-kafka-connect-vpn-gateway.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-connect-vpn-gateway",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-kafka-get-started.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-get-started",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-kafka-high-availability.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-high-availability",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-kafka-introduction.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-kafka-mirroring.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-mirroring",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-kafka-scalability.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-scalability",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-create-standalone-application.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-create-standalone-application",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-custom-library-website-log-analysis.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-custom-library-website-log-analysis",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-eventhub-streaming.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-eventhub-streaming",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-intellij-tool-debug-remotely-through-ssh",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-intellij-tool-plugin",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-ipython-notebook-machine-learning.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-job-debugging.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-job-debugging",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-jupyter-notebook-install-locally.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-notebook-install-locally",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-notebook-kernels",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-jupyter-notebook-use-external-packages.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-notebook-use-external-packages",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-known-issues.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-known-issues",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-livy-rest-interface.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-livy-rest-interface",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-load-data-run-query.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-load-data-run-query",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-machine-learning-mllib-ipython.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-microsoft-cognitive-toolkit.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-microsoft-cognitive-toolkit",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-overview.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-python-package-installation.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-python-package-installation",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-resource-manager.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-resource-manager",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-use-bi-tools.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-use-bi-tools",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-use-with-data-lake-store",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-use-zeppelin-notebook.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-apache-spark-zeppelin-notebook",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-spark-zeppelin-notebook.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-zeppelin-notebook",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-storm-tutorial-get-started.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apps-install-cask.md",
+        "redirect_url": "https://docs.cask.co/cdap/4.3.0-SNAPSHOT/en/admin-manual/installation/azure-hdinsight.html",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apps-install-dataiku.md",
+        "redirect_url": "https://doc.dataiku.com/dss/latest/hadoop/distributions/hdinsights.html",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apps-install-datameer.md",
+        "redirect_url": "https://documentation.datameer.com/documentation/display/DAS70/Home",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apps-install-h2o.md",
+        "redirect_url": "https://www.h2o.ai/blog/use-h2o-ai-on-azure-hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apps-install-streamsets.md",
+        "redirect_url": "https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Getting_Started/GettingStarted_Title.html",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-connect-excel-hive-odbc-driver",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-connect-excel-power-query.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-connect-excel-power-query",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-connect-hive-jdbc-driver.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-connect-hive-power-bi.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-connect-hive-power-bi",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-connect-hive-zeppelin.md",
+        "redirect_url": "/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-debug-ambari-tez-view.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-debug-jobs.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-debug-tez-ui.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-debug-ambari-tez-view",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-deep-learning-caffe-spark.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-develop-deploy-java-mapreduce-linux.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-domain-joined-architecture.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-architecture",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-domain-joined-configure-use-powershell.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-domain-joined-configure.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-domain-joined-introduction.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-domain-joined-manage.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-manage",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-domain-joined-run-hive.md",
+        "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-run-hive",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-dotnet-avro-serialization.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-extend-hadoop-virtual-network.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-plan-virtual-network-deployment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-access-yarn-app-logs.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-access-yarn-app-logs-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md",
+        "redirect_url": "/dotnet/api/overview/azure/hdinsight",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-windows-clusters-cli.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md",
+        "redirect_url": "/dotnet/api/overview/azure/hdinsight",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-windows-clusters-portal.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-create-windows-clusters-powershell.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-customize-cluster.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-emulator-get-started.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-emulator-get-started",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-emulator-visual-studio.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-giraph-install-linux.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-giraph-install.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-hue-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-hive-java-udf.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-hive-java-udf",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-install-mono.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-migrate-dotnet-to-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-install-presto.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-introduction.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-introduction",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-mahout-linux-mac.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-mahout-linux-mac",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-mapreduce-scalding.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-use-mapreduce",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-oms-log-analytics-management-solutions.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scripts-linux.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scripts.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-compute-contexts.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-get-started.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-install-r-studio.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-overview.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-server-storage.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-run-samples-linux.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-script-actions.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-script-actions-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-solr-install-linux.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-solr-install.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-spark-install.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-streaming-python.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-data-lake-store.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-ambari-view.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-beeline.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-curl.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-curl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-dotnet-sdk.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-dotnet-sdk",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-powershell.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-powershell",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-query-console.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-query-console",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-remote-desktop.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-remote-desktop",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-ssh.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-hive-beeline",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-hive-visual-studio.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-hive-visual-studio",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-interactive-hive.md",
+        "redirect_url": "/azure/hdinsight/interactive-query/apache-interactive-query-get-started",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-mapreduce-curl.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-curl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-mapreduce-dotnet-sdk.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-dotnet-sdk",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-mapreduce-powershell.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-powershell",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-mapreduce-remote-desktop.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-mapreduce-ssh.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-pig-curl.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-curl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-pig-datafu-udf.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-pig-dotnet-sdk.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-dotnet-sdk",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-pig-powershell.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-powershell",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-pig-remote-desktop.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-pig-ssh.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-sqoop-curl.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-sqoop-curl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-sqoop-dotnet-sdk.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-sqoop-dotnet-sdk",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-use-sqoop-powershell.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-sqoop-powershell",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-analyze-twitter-sentiment.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-build-java-maven-linux.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-build-java-maven-linux",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-build-java-maven.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-build-java-maven-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-geo-replication-configure-dns.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-geo-replication-configure-vnets.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-geo-replication.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-overview.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-phoenix-squirrel-linux.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-provision-vnet.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-provision-vnet",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-replication.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-replication",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-tutorial-get-started-linux.md",
+        "redirect_url": "/azure/hdinsight/hbase/apache-hbase-tutorial-get-started-linux",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hbase-tutorial-get-started.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hbase-tutorial-get-started-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-high-availability-linux.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-business-continuity",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-high-availability.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-high-availability-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hive-analyze-sensor-data.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hive-analyze-sensor-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hive-analyze-website-log.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hive-analyze-website-log",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-learn-hadoop-use-sample-gallery.md",
+        "redirect_url": "https://azure.microsoft.com/resources/samples/?service=hdinsight&sort=0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-mahout.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-mahout-linux-mac",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-migrate-from-windows-to-linux.md",
+        "redirect_url": "/azure/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-monitor-use-ambari-api.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-manage-ambari",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-provision-clusters.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-python.md",
+        "redirect_url": "/azure/hdinsight/hadoop/python-udf-hdinsight",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-run-samples.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-spark-analyze-application-insight-logs.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-analyze-application-insight-logs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-spark-shell.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-shell",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-spark-streaming-overview.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-correlation-topology.md",
+        "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-storm-dotnet-event-correlation/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-deploy-monitor-topology-linux.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-deploy-monitor-topology.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-deploy-monitor-topology",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-csharp-event-hub-topology",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-csharp-visual-studio-topology",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-develop-java-event-hub-topology.md",
+        "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-develop-java-topology.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-java-topology",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-develop-python-topology.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-develop-python-topology",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-example-topology.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-example-topology",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-iot-eventhub-documentdb.md",
+        "redirect_url": "https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-overview.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-power-bi-topology.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-storm-example-topology",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-scp-programming-guide.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-scp-programming-guide",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-sensor-data-analysis.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-sensor-data-analysis",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-twitter-trending.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-storm-example-topology",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-storm-write-data-lake-store.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-write-data-lake-store",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md",
+        "redirect_url": "/azure/hdinsight/hadoop/submit-apache-hadoop-jobs-programmatically",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
+        "redirect_url": "/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-troubleshoot-hbase.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-troubleshoot-spark.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-troubleshoot-spark",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-troubleshoot-storm.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-troubleshoot-storm",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-use-hive.md",
+        "redirect_url": "/azure/hdinsight/hadoop/hdinsight-use-hive",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-use-mapreduce.md",
+        "redirect_url": "/azure/hdinsight/hadoop/hdinsight-use-mapreduce",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-use-oozie-coordinator-time.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-use-oozie-linux-mac",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-use-oozie.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-use-oozie-linux-mac",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-use-pig.md",
+        "redirect_url": "/azure/hdinsight/hadoop/hdinsight-use-pig",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-use-sqoop-mac-linux.md",
+        "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-sqoop-mac-linux",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-use-sqoop.md",
+        "redirect_url": "/azure/hdinsight/hadoop/hdinsight-use-sqoop",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-using-json-in-hive.md",
+        "redirect_url": "/azure/hdinsight/hadoop/using-json-in-hive",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/interactive-query/index.md",
+        "redirect_url": "/azure/hdinsight/interactive-query/apache-interactive-query-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/kafka/apache-kafka-azure-functions.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/kafka/apache-kafka-byok.md",
+        "redirect_url": "/azure/hdinsight/disk-encryption",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/kafka/index.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/kafka/schema-registry.md",
+        "redirect_url": "/azure/hdinsight/kafka/apache-kafka-producer-consumer-api",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/index.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server-get-started.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server-install-r-studio.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-deep-learning-caffe.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-machine-learning-mllib-ipython",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-eventhub-structured-streaming.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-troubleshoot-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap-space.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-native-thread.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/azure-synapse-analytics-job-definition.md",
+        "redirect_url": "/azure/synapse-analytics/spark/apache-spark-job-definitions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/spark/index.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-deploy-monitor-topology.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
+        "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/apache-storm-tutorial-get-started-linux.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/storm/index.md",
+        "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/machine-learning-data-science-customize-hadoop-cluster.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/team-data-science-process/customize-hadoop-cluster.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-jupyter-spark-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/interactive-query/sizing-guidelines.md",
+        "redirect_url": "/azure/hdinsight/interactive-query/hive-llap-sizing-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/machine-learning-services-quickstart-job-rconsole.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/machine-learning-services-quickstart-job-rstudio.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-overview.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/quickstart-resource-manager-template.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/ml-services-tutorial-spark-compute.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-submit-jobs-r-tools-vs.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-compute-contexts.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/hdinsight-hadoop-r-scaler-sparkr.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-hadoop-r-scaler-sparkr.md",
+        "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-hdinsight-manage.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-apache-storm-with-kafka.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-ubuntu-1804-qa.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-operationalize.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/r-server/r-server/r-server-storage.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    }
+  ]
+}

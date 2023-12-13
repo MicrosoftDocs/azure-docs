@@ -1,0 +1,194 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure App Configuration FAQ
+  description: Read answers to frequently asked questions (FAQ) about Azure App Configuration, such as how it's different from Azure Key Vault.
+  services: azure-app-configuration
+  author: maud-lv
+  ms.service: azure-app-configuration
+  ms.topic: faq
+  ms.date: 08/23/2022
+  ms.author: malev
+  ms.custom: references_regions
+title: Azure App Configuration FAQ
+summary: This article answers frequently asked questions about Azure App Configuration.
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: How is App Configuration different from Azure Key Vault?
+        answer: |
+          App Configuration helps developers manage application settings and control feature availability. It aims to simplify many of the tasks of working with complex configuration data.
+          
+          App Configuration supports:
+          
+          - Hierarchical namespaces
+          - Labeling
+          - Extensive queries
+          - Batch retrieval
+          - Specialized management operations
+          - A feature-management user interface
+          
+          App Configuration complements Key Vault, and the two should be used side by side in most application deployments.
+          
+      - question: Should I store secrets in App Configuration?
+        answer: |
+          Although App Configuration provides hardened security, Key Vault is still the best place for storing application secrets. Key Vault provides hardware-level encryption, granular access policies, and management operations such as certificate rotation.
+          
+          You can create App Configuration values that reference secrets stored in Key Vault. For more information, see [Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).
+          
+      - question: Does App Configuration encrypt my data?
+        answer: Yes. App Configuration always encrypts all data in transit and at rest. All network communication is over TLS 1.2 or TLS 1.3. App Configuration supports encryption at rest with either [Microsoft-managed keys or customer-managed keys](./concept-customer-managed-keys.md).
+
+      - question: How is App Configuration different from Azure App Service settings?
+        answer: |
+          Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](../app-service/configure-common.md#configure-app-settings).
+          
+          In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps. This includes apps running in App Service, as well as other platforms. Your application code accesses these settings through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
+          
+          You can add [references to your App Configuration data](../app-service/app-service-configuration-references.md) in the Application settings of your App Service. You can also [import and export settings](./howto-import-export-data.md) between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
+          
+      - question: Are there any size limitations on keys and values stored in App Configuration?
+        answer: |
+          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata.
+
+          This limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
+
+      - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
+        answer: |
+          You control who can access App Configuration at a per-store level. Use a separate store for each environment that requires different permissions. This approach provides the best security isolation.
+          
+          If you don't need security isolation between environments, you can use labels to differentiate between configuration values. [Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
+          
+      - question: What are the recommended ways to use App Configuration?
+        answer: |
+          See [best practices](./howto-best-practices.md).
+          
+      - question: How much does App Configuration cost?
+        answer: |
+          There are two pricing tiers:
+          
+          - Free tier
+          - Standard tier
+          
+          If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier or remain on the Free tier.
+          
+          You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then import configuration data into that store.
+          
+      - question: Which App Configuration tier should I use?
+        answer: |
+          Both App Configuration tiers offer core functionality, including config settings, feature flags, Key Vault references, basic management operations, metrics, and logs.
+          
+          The following are considerations for choosing a tier.
+          
+          - **Resources per subscription**: A resource consists of a single configuration store. Each subscription is limited to one configuration store in the free tier. Subscriptions can have an unlimited number of configuration stores in the standard tier.
+          - **Storage per resource**: In the free tier, each configuration store is limited to 10 MB of storage. In the standard tier, each configuration store can use up to 1 GB of storage.
+          - **Revision history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
+          - **Requests quota**: Free tier stores are limited to 1,000 requests per day. When a store reaches 1,000 requests, it returns HTTP status code 429 for all requests until midnight UTC.
+          
+              Standard tier stores are limited to 30,000 requests per hour. When the hourly quota is exhausted, requests may return HTTP status code 429 indicating too many requests until end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
+          
+          - **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
+          - **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, Azure RBAC support, managed identity, and service tags. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
+          - **Cost**: Standard tier stores have a daily usage charge. The first 200,000 requests each day are included in the daily charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
+          
+      - question: Can I upgrade a store from the Free tier to the Standard tier? Can I downgrade a store from the Standard tier to the Free tier?
+        answer: |
+          You can upgrade from the Free tier to the Standard tier at any time.
+          
+          You can't downgrade a store from the Standard tier to the Free tier. You can create a new store in the Free tier and then [import configuration data into that store](howto-import-export-data.md).
+          
+      - question: Where does data stored in App Configuration reside? 
+        answer: |
+          Customer data stored in App Configuration reside in the region where the customer's App Configuration store was created. Customer data will be replicated to another region only if the customer enables [geo-replication](./concept-geo-replication.md) for that region. This applies to all available regions. Customers may move, copy, or access their data from any location globally.
+
+      - question: How does App Configuration ensure high data availability? 
+        answer: |
+          Azure App Configuration supports [geo-replication](./concept-geo-replication.md) for enhanced resiliency to regional outages.
+
+          Azure App Configuration supports Azure availability zones to protect your application and data from single datacenter failures. All availability zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled availability zone support. For more information, see [Regions and Availability Zones in Azure.](../reliability/availability-zones-service-support.md)
+          
+          [!INCLUDE [Azure App Configuration availability zones table](../../includes/azure-app-configuration-availability-zones.md)]
+
+      - question: Are there any limits on the number of requests made to App Configuration?
+        answer: |
+          Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 30,000 requests per hour.
+          
+          When a store reaches its limit in the standard tier, it may return HTTP status code 429 for some requests made until the end of the hour. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
+          
+          If your application regularly experiences HTTP status code 429 responses, consider redesigning it to reduce the number of requests made. For more information, see [how to reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
+          
+      - question: My application receives HTTP status code 429 responses. Why?
+        answer: |
+          You'll receive an HTTP status code 429 response under these circumstances:
+          
+          * Exceeding the daily request limit for a store in the Free tier.
+          * Exceeding the hourly request limit for a store in the standard tier.
+          * Momentary throttling due to a large burst of requests†.
+          * Momentary throttling due to excessive bandwidth usage†.
+          * Attempting to create or modify a key when the storage quota is exceeded.
+          
+          Check the body of the 429 response for the specific reason why the request failed.
+          
+          †A configuration store may experience momentary throttling if it receives a large burst of requests or transfers an excessive volume of data. App Configuration clients, such as the Azure SDK, configuration provider libraries, and Azure Pipelines tasks, automatically retry on throttled requests. For any applications using one of these clients, or a custom client that retries on throttled requests, this momentary throttling should go unnoticed, should it occur.
+
+      - question: How do I estimate the number of requests my application may send to App Configuration?
+        answer: |
+          Let's take an example and assume you have an application with 1,000 configuration settings. Your application loads all those settings from App Configuration upon startup. After that, it checks for a sentinel key for configuration changes every 30 seconds. Whether you are running on Kubernetes, App Service, or VMs, let's assume you have 50 instances of your application running simultaneously.
+
+          Firstly, let's estimate the requests for configuration monitoring. Each instance of your application will send one request for the sentinel key to App Configuration every 30 seconds, so it will send 120 (=3600/30) requests in an hour. Given you have 50 instances of your application, your application sends 6,000 (=120x50) total requests every hour for configuration monitoring. Note that because the sentinel key requests are frequent and mostly unchanged, the majority of them won't count against the store hourly quota limits†.
+
+          Secondly, let's estimate the requests for configuration loading/reloading. Your application loads all settings at the startup or whenever a sentinel key change is detected. Each request to App Configuration can retrieve up to 100 key-values, so it will take 10 (=1000/100) requests to load all settings. Given you have 50 application instances, you send 500 (=10x50) total requests when your application restarts or reloads its configuration.
+
+          Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests will use the available hourly quota. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly throttling limit. For more information, see [how to reduce requests made to App Configuration](./howto-best-practices.md#reduce-requests-made-to-app-configuration).
+          
+          †Free tier stores do not have frequent, repeated requests excluded from their daily limit.
+
+      - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
+        answer: |
+          All App Configuration stores in the standard tier have automatically enabled the [soft-delete](concept-soft-delete.md) feature. When a standard tier App Configuration store is deleted, its name is reserved for the retention period. To recreate a store with the same name before the retention period expires, you need to [purge the soft-deleted store](howto-recover-deleted-stores-in-azure-app-configuration.md#list-recover-or-purge-a-soft-deleted-app-configuration-store) first, provided the store doesn't have purge protection enabled. If the purge protection is enabled, you must wait for the retention period to elapse. Use the purge function or set a shorter retention period if you often need to recreate a store with the same name. Workflows that require recreating a store with the same name should allow for one hour between purging a configuration store and performing the subsequent create. This recommendation is in place because once a purge is requested the actual cleanup of configuration store resources is performed asynchronously, requiring a bit of extra time to finalize. To avoid any need to wait, workflows that create ephemeral configuration stores are recommended to use unique names.
+
+      - question: How can I restore an App Configuration store that I deleted mistakenly?
+        answer: |
+          All App Configuration stores in the standard tier support the [soft-delete](concept-soft-delete.md) feature, which can't be disabled. You can recover a deleted store within its retention period. Follow these [instructions](howto-recover-deleted-stores-in-azure-app-configuration.md) to recover a mistakenly deleted App Configuration store.
+
+      - question: Can I create and update feature flags or Key Vault references programmatically?
+        answer: |
+          Yes. While you can manage feature flags and Key Vault references in App Configuration through the Azure portal or CLI, you can also create and update them programmatically using App Configuration SDKs. Therefore, you can write your customized management portal or manage them in your CI/CD programmatically. The feature flag and Key Vault reference APIs are available in SDKs of all supported languages. Check out the [sample links](https://github.com/Azure/AppConfiguration#sdks) for examples in each supported language.
+
+          Evaluating and consuming feature flags in your application requires the App Configuration provider and feature management libraries, which are available in .NET and Java Spring. Check out the _Feature management_ section under _Quickstarts_ and _Tutorials_ for more information.
+
+      - question: How to use Java Spring profiles in App Configuration?
+        answer: |
+          Spring profiles provide a way to separate parts of your application, including configuration, and make it only available in certain environments or when specific libraries are used.
+
+          You're recommended to set the label of your key-values to match your Spring profiles. By default, the App Configuration Spring provider library will load the key-values with the label(s) matching the current active Spring profile(s) (`${spring.profiles.active}`) if the label filter isn't set explicitly. If there's no active Spring profile set, key-values with "no label" will be loaded.
+
+          For example, with profiles `dev` and `prod`, you create key-values accordingly with the following labels.
+
+          | Key | Label | Value |
+          | --- | ----- | ----- |
+          | /application/config.message | dev | Hello from dev |
+          | /application/config.message | prod | Hello from prod |
+
+          When the Spring profile is set to `dev`, the value of `config.message` will be `Hello from dev`. When the Spring profile is set to `prod`, the value of `config.message` will be `Hello from prod`.
+
+          This default behavior can be overridden by setting the label filter in your bootstrap file. The Spring provider library will load key-values with the specified label(s) regardless of the active Spring profile.
+
+          ```yaml
+          spring.cloud.azure.appconfiguration.stores[0].selects[0].label-filter: my-label
+          ```
+          
+          To select other labels and your Spring profile(s), you can use a label filter like `',${spring.profiles.active}'`, which will select all keys without a label and the ones matching your Spring profiles. The rightmost label(s) take priority when duplicate keys are found.
+
+      - question: How can I receive announcements on new releases and other information related to App Configuration?
+        answer: |
+          Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).
+          
+      - question: How can I report an issue or give a suggestion?
+        answer: |
+          You can reach us directly on [GitHub](https://github.com/Azure/AppConfiguration/issues).
+          
+      - question: Next steps
+        answer: |
+          * [About Azure App Configuration](./overview.md)

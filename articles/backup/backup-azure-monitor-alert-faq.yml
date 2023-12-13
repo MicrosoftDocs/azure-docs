@@ -1,0 +1,123 @@
+### YamlMime:FAQ
+metadata:
+  title: Monitoring Alert and Reports FAQ
+  description: In this article, discover answers to common questions about the Azure Backup Monitoring Alert and Azure Backup reports.
+  ms.reviewer: srinathv
+  ms.topic: faq
+  ms.service: backup
+  ms.date: 02/14/2022
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
+title: Azure Backup Monitoring Alert - FAQ
+summary: This article answers common questions about Azure Backup monitoring and reporting.
+
+
+sections:
+  - name: Alerting for backup
+    questions:
+      - question: |
+          What're the different alerting solutions that Azure Backup provides?
+        answer: |
+          Azure Backup supports multiple alerting options - built-in Azure Monitor alerts, Azure Monitor metric alerts, custom-log alerts, and classic alerts. If you're currently using classic alerts, we recommend you to start using Azure Monitor based alerts as they provide multiple benefits. [Learn more about the different alerting options provided by Azure Backup](monitoring-and-alerts-overview.md).
+
+      - question: |
+          Are there any costs to use built-in Azure Monitor alerts for Azure Backup?
+        answer: |
+          With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup), *alerts* for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+      - question: |
+          Are there any costs for using metric alerts for Azure Backup?
+        answer: |
+          With [metric alerts](metrics-overview.md), in addition to the notification costs described above, there is also a cost per alert rule. The cost of the alert rule varies in proportion to the number of dimensions selected as part of the alert rule. [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+      - question: |
+          What's the difference between alert rules, alert processing rules (action rules), and action groups?
+        answer: |
+          As per backup alerts:
+
+          - **Alert rule**: Refers to a user-created rule that specifies the condition on which an alert should be fired. [Learn more](../azure-monitor/alerts/alerts-overview.md)
+          - **Alert processing rule (earlier called Action rule)**: Refers to a user-created rule that specifies the notification channels a particular fired alert should be routed to. You can also use alert processing rules to suppress notifications for a period of time. [Learn more](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal)
+          - **Action group**: Refers to the notification channel (such as email, ITSM endpoint, logic app, webhook, and so on) that a fired alert can be routed to. [Learn more](../azure-monitor/alerts/action-groups.md)
+
+          In case of built-in Azure Monitor alerts, as alerts already generate by default, you don't need to create an alert rule. To route these alerts to a notification channel, you should create an alert processing rule and an action group for these alerts. [See example](backup-azure-monitoring-built-in-monitor.md#configuring-notifications-for-alerts)
+
+          In case of metric alerts, as alerts don't generate by default, you need to first create an alert rule to specify the condition for which an alert should be fired. To route these alerts to a notification channel, you can directly link the alert rule to an action group, or use an alert processing rule. [See example](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+
+      - question: |
+          Can I configure alerts for successful backup jobs?
+        answer: |
+          Yes, you can use metric alerts to configure alerts for successful backups. [Learn more](metrics-overview.md#configure-alerts-and-notifications-on-your-metrics)
+
+      - question: |
+          Can I configure notifications programmatically?
+        answer: |
+          If you're using Azure Monitor based alerts, you can configure notifications ([Alert processing rules](../azure-monitor/alerts/alerts-action-rules.md?tabs=azure-cli) and [Action Groups](/cli/azure/monitor/action-group)) programmatically. If you're using classic alerts, programmatic creation of notifications isn't supported.      
+
+
+  - name: Configure Azure Backup reports
+    questions:
+      - question: |
+          How do I check if reporting data has started flowing into a Log Analytics (LA) Workspace?
+        answer: |
+          Navigate to the LA Workspace you've configured. Navigate to the **Logs** menu item, and run the query `CoreAzureBackup | take 1`. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
+
+      - question: |
+          What is the frequency of data push to an LA Workspace?
+        answer: |
+          The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace 20 to 30 minutes after it's pushed from the Recovery Services vault. Here are further details about the lag:
+          
+          * Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
+          * Across all solutions, on-demand backup jobs and restore jobs are pushed as soon as they finish.
+          * For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they finish.
+          * For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
+          * Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least once per day.
+          * A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
+          
+      - question: |
+          How long can I retain reporting data?
+        answer: |
+          After you create an LA Workspace, you can choose to retain data for a maximum of 2 years. By default, an LA Workspace retains data for 31 days.
+
+      - question: |
+          Will I see all my data in reports after I configure the LA Workspace?
+        answer:  All the data generated after you configure diagnostics settings is pushed to the LA Workspace and is available in reports. In-progress jobs aren't pushed for reporting. After the job finishes or fails, it's sent to reports.
+
+      - question: |
+          Can I view reports across vaults and subscriptions?
+        answer: |
+          Yes, you can view reports across vaults and subscriptions as well as regions. Your data may reside in a single LA Workspace or a group of LA Workspaces.
+
+      - question: |
+          Can I view reports across tenants?
+        answer: |
+          If you're an [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) user with delegated access to your customers' subscriptions or LA Workspaces, you can use Backup Reports to view data across all your tenants.
+          
+  - name: Recovery Services vault
+    questions:
+      - question: |
+          How long does it take for the Azure Backup agent job status to reflect in the portal?
+        answer: |
+          The Azure portal can take up to 15 minutes to reflect the Azure Backup agent job status.
+
+      - question: |
+          When a backup job fails, how long does it take to raise an alert?
+        answer: |
+          An alert is raised within 20 minutes of the Azure Backup failure.
+
+      - question: |
+          Is there a case where an email won’t be sent if notifications are configured?
+        answer: |
+          Yes. In the following situations, notifications aren't sent:
+          
+          * If notifications are configured hourly, and an alert is raised and resolved within the hour
+          * When a job is canceled
+          * If a second backup job fails because the original backup job is in progress
+          
+additionalContent: |
+
+  ## Next steps
+  
+  Read the other FAQs:
+
+  * [Common questions](backup-azure-vm-backup-faq.yml) about Azure VM backups.
+  * [Common questions](backup-azure-file-folder-backup-faq.yml) about the Azure Backup agent

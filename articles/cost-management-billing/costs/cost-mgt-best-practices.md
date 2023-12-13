@@ -1,20 +1,20 @@
 ---
-title: Optimize your cloud investment with Azure Cost Management | Microsoft Docs
+title: Optimize your cloud investment with Cost Management
+titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 12/06/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.subservice: cost-management
+ms.reviewer: adwise
 ms.custom: seodec18
 ---
 
-# How to optimize your cloud investment with Azure Cost Management
+# How to optimize your cloud investment with Cost Management
 
-Azure Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization’s cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
+Cost Management gives you the tools to plan for, analyze and reduce your spending to maximize your cloud investment. This document provides you with a methodical approach to cost management and highlights the tools available to you as you address your organization's cost challenges. Azure makes it easy to build and deploy cloud solutions. However, it's important that those solutions are optimized to minimize the cost to your organization. Following the principles outlined in this document and using our tools will help to make sure your organization is prepared for success.
 
 ## Methodology
 
@@ -33,6 +33,10 @@ Three key groups, outlined below, must be aligned in your organization to make s
 ### Key principles
 
 Use the principles outlined below to position your organization for success in cloud cost management.
+
+To learn more, watch the [Cost Management setting up for success](https://www.youtube.com/watch?v=dVuwITdSAZ4) video. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/dVuwITdSAZ4]
 
 #### Planning
 
@@ -83,7 +87,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 #### [Free](https://azure.microsoft.com/free/)
 
 - 12 months of popular free services
-- $200 in credit to explore services for 30 days
+- $200 credit in your billing currency to explore services for 30 days
 - 25+ services are always free
 
 #### [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
@@ -95,8 +99,14 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 #### [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- Options for up-front monetary commitments
+- Options for up-front Azure Prepayment (previously called monetary commitment)
 - Access to reduced Azure pricing
+
+#### [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- CSP partners are the first point of contact for their customers’ needs and the center of the customer relationship
+- CSP partners provision new customers, order subscriptions, manage subscriptions, and perform admin tasks on behalf of their customers
+- CSP partners bundle services with unique solutions or resell Azure while controlling the pricing, terms and billing
 
 ## Estimate the cost of your solution
 
@@ -112,15 +122,45 @@ For more information, see the [Azure pricing calculator](https://azure.microsoft
 
 Azure Migrate is a service that assesses your organization's current workloads in on-premises datacenters. It gives you insight into what you might need from an Azure replacement solution. First, Migrate analyzes your on-premises machines to determine whether migration is feasible. Then, it recommends VM sizing in Azure to maximize performance. Finally, it also creates a cost estimate for an Azure-based solution.
 
-For more information, see [Azure Migrate](../../site-recovery/migrate-overview.md).
+For more information, see [Azure Migrate](../../migrate/migrate-services-overview.md).
 
 ## Analyze and manage your costs
 
 Keep informed about how your organization's costs evolve over time. Use the following techniques to properly understand and manage your spending.
 
-### Organize and tag your resources
+### Organize resources to maximize cost insights and accountability
 
-Organize your resources with cost in mind. As you create subscriptions and resource groups, think about the teams that are responsible for associated costs. Make sure your reporting keeps your organization in mind. Subscriptions and resource groups provide good buckets to organize and attribute spending across your organization. Tags provide a good way to attribute cost. You can use tags as a filter. And you can use them to group by when you analyze data and investigate costs. Enterprise Agreement customers can also create departments and place subscriptions under them. Cost-based organization in Azure helps keep the relevant people in your organization accountable for reducing their team's spending.
+A well-planned organizational structure for your Azure billing and resource hierarchies helps to give you a good understanding and control over costs as you create your cloud infrastructure. Watch the video [Setting up entity hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) to gain a better understanding of the organizational tools that are available and how to take advantage of them. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+As you evaluate and create a hierarchy that meets your needs, ask yourself the following questions.
+
+*Which billing hierarchy is available to me and what are the different scopes that I can use?*
+
+Identify the billing arrangement for your organization by determining your Azure offer type. The available scopes for each Azure billing arrangement are documented at [Understand and work with scopes](understand-work-scopes.md).
+
+*If I have multiple teams, how should I organize my subscriptions and resource groups?*
+
+Creating a subscription or resource group for each team is a common practice. They can help you to differentiate costs and hold teams accountable. However, costs are bound to the subscription or resource group.
+
+If you already have teams with multiple subscriptions, consider grouping the subscriptions into management groups to analyze the costs together. Management groups, subscriptions, and resource groups are all part of the Azure RBAC hierarchy. Use them collectively for access control in your teams.
+
+Resources can span across multiple scopes, especially when they're shared by multiple teams or workloads. Consider identifying resources with tags. Tags are discussed further in the next section.
+
+*Do I have Development and Production environments?*
+
+Consider creating Dev/Test subscriptions for your development environments to take advantage of reduced pricing. If the workloads span multiple teams or Azure scopes, consider using tags to identify them.
+
+### Tag shared resources
+
+Tags are a effective way to understand costs that span across multiple teams and Azure scopes. For example, you might have a resource like an email server that many teams use. You can put a shared resource, like the email server, in a subscription that's dedicated to shared resources or put it in an existing subscription. If you put it in an existing subscription, the subscription owner might not want its cost accruing to their team every month. For this example, you can use a tag to identify the resource as being shared.
+
+Similarly, you might also have web apps or environments, such as Test or Production, that use resources across multiple subscriptions owned by different teams. To better understand the full cost of the workloads, tag the resources that they use. When tags are applied properly, you can apply them as a filter in cost analysis to better understand trends.
+
+After you plan for resource tagging, you can configure an Azure Policy definition to enforce tagging on resources. Watch the [How to review tag policies with Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 
 ### Use cost analysis
 
@@ -141,9 +181,9 @@ For more information about exporting billing data, see [Create and manage export
 
 ### Create budgets
 
-After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Azure budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Azure budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
+After you've identified and analyzed your spending patterns, it's important to begin setting limits for yourself and your teams. Budgets give you the ability to set either a cost or usage-based budget with many thresholds and alerts. Make sure to review the budgets that you create regularly to see your budget burn-down progress and make changes as needed. Budgets also allow you to configure an automation trigger when a given budget threshold is reached. For example, you can configure your service to shut down VMs. Or you can move your infrastructure to a different pricing tier in response to a budget trigger.
 
-For more information, see [Azure Budgets](tutorial-acm-create-budgets.md).
+For more information, see [Create budgets](tutorial-acm-create-budgets.md).
 
 For more information about budget-based automation, see [Budget Based Automation](../manage/cost-management-budget-scenario.md).
 
@@ -169,6 +209,11 @@ For more information, see [Azure IaaS: proper sizing and cost](https://azure.mic
 ### Use purchase discounts
 
 Azure has many discounts that your organization should take advantage of to save money.
+#### Azure savings plan for compute
+
+Azure savings plan for compute is our most flexible savings plan. It lets you save up to 65 percent on pay-as-you-go prices and applies to a broad range of compute services across subscriptions, resource groups, management groups or entire Azure accounts. You select an hourly compute commitment for a one-year or three-year term. The longer the commitment, the more savings you earn. You can pay monthly for no additional cost, and Azure automatically applies the largest savings to your account. 
+
+For more information, see [Azure savings plan for compute](../savings-plan/savings-plan-compute-overview.md).
 
 #### Azure Reservations
 
@@ -187,4 +232,4 @@ For more information, see [Azure Hybrid Benefit savings calculator](https://azur
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../../batch/batch-low-pri-vms.md).
 
 ## Next steps
-- If you're new to Cost Management, read [What is Azure Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.
+- If you're new to Cost Management, read [What is Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.

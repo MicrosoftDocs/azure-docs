@@ -1,14 +1,15 @@
 ---
 title: Azure PowerShell Script Sample - Create WAF custom  rules
 description: Azure PowerShell Script Sample - Create Web Application Firewall custom  rules
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: sample
 ms.date: 6/7/2019
-ms.author: victorh
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Create WAF custom rules with Azure PowerShell
+# Create Web Application Firewall (WAF) custom rules with Azure PowerShell
 
 This script creates an Application Gateway Web Application Firewall that uses custom rules. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
 
@@ -18,7 +19,7 @@ This script creates an Application Gateway Web Application Firewall that uses cu
 
 If you choose to install and use Azure PowerShell locally, this script requires the Azure PowerShell module version 2.1.0 or later.
 
-1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 2. To create a connection with Azure, run `Connect-AzAccount`.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -64,6 +65,6 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-- For more information about WAF custom rules, see [Custom rules for Web Application Firewall](../custom-waf-rules-overview.md)
-- For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+- For more information about WAF custom rules, see [Custom rules for Web Application Firewall](../../web-application-firewall/ag/custom-waf-rules-overview.md)
+- For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 - Additional application gateway PowerShell script samples can be found in the [Azure Application Gateway documentation](../powershell-samples.md).

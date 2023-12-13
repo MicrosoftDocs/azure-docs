@@ -3,10 +3,10 @@ title: Connect to IBM Informix database
 description: Automate tasks and workflows that manage resources stored in IBM Informix by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: gplarsen
-ms.author: plarsen
-ms.reviewer: klam, logicappspm
-ms.topic: article
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 01/07/2020
 tags: connectors
 ---
@@ -112,7 +112,7 @@ This topic shows you how to use the connector in a logic app to process database
 
 1. To view the inputs, under **Inputs Link**, select the URL link. To view the outputs, under **Outputs Link** link, select the URL link. Here are some example outputs:
 
-   * **Get tables** shows a list of tables:
+   * **Get_tables** shows a list of tables:
 
      ![Outputs from "Get tables" action](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 
@@ -142,4 +142,6 @@ For technical details about triggers, actions, and limits, which are described b
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](apis-list.md)
+* [Managed connectors for Azure Logic Apps](managed.md)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

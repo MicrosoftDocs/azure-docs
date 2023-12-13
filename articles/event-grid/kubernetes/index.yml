@@ -1,0 +1,64 @@
+### YamlMime:Landing
+
+title: Event Grid on Kubernetes with Azure Arc (Preview) documentation # < 60 chars
+summary: Learn how to use Event Grid on Kubernetes to react to relevant events generated on Kubernetes clusters connected to Azure Arc in near-real time fashion.  # < 160 chars
+
+metadata:
+  title: Event Grid on Kubernetes with Azure Arc (Preview) documentation
+  description: Learn how to use Event Grid on Kubernetes to react to relevant events generated on Kubernetes clusters connected to Azure Arc in near-real time fashion.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: kubernetes
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 05/25/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: About Event Grid on Kubernetes
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What's Event Grid on Kubernetes?
+            url: overview.md       
+          - text: Features
+            url: features.md            
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Event Grid on Kubernetes concepts
+            url: concepts.md            
+          - text: Event handlers
+            url: event-handlers.md            
+          - text: Event schemas
+            url: event-schemas.md        
+          - text: Event schemas
+            url: event-schemas.md
+          - text: Batch event delivery
+            url: batch-event-delivery.md            
+          - text: Batch event delivery
+            url: delivery-retry.md            
+          - text: Filter events
+            url: filter-events.md                        
+
+  # Card
+  - title: Quickstart and how-to
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a topic and a subscription
+            url: create-topic-subscription.md
+          - text: Install Event Grid extension on Kubernetes cluster
+            url: install-k8s-extension.md     
+          - text: Get support
+            url: get-support.md

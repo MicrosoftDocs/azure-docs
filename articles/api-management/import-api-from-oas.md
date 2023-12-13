@@ -1,83 +1,111 @@
 ---
-title: Import an OpenAPI specification using the Azure portal | Microsoft Docs
-description: Learn how to import an OpenAPI specification with API Management.
+title: Import an OpenAPI specification to Azure API Management | Microsoft Docs
+description: Learn how to import an OpenAPI specification to an API Management instance using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API in the Azure portal.
 services: api-management
-documentationcenter: ''
-author: vladvino
-manager: cfowler
-editor: ''
+author: dlepow
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: tutorial
-ms.date: 07/12/2019
-ms.author: apimpm
-
+ms.topic: how-to
+ms.date: 10/26/2022
+ms.author: danlep
+ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Import an OpenAPI specification
 
-This article shows how to import an "OpenAPI specification" back-end API residing at https://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
-
-> [!IMPORTANT]
-> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
+This article shows how to import an "OpenAPI specification" backend API residing at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API. 
 
 In this article, you learn how to:
-
 > [!div class="checklist"]
-> * Import an "OpenAPI specification" back-end API
+> * Import an OpenAPI specification using the Azure portal, Azure CLI, or Azure PowerShell
 > * Test the API in the Azure portal
-> * Test the API in the Developer portal
+
+> [!NOTE]
+> API import limitations are documented in [API import restrictions and known issues](api-management-api-import-restrictions.md).
 
 ## Prerequisites
 
-Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
+* An API Management instance. If you don't already have one, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+* Azure CLI
+    [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="create-api"> </a>Import and publish a back-end API
 
-1. Select **APIs** from under **API MANAGEMENT**.
-2. Select **OpenAPI specification** from the **Add a new API** list.
+* Azure PowerShell
+    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
 
-    ![OpenAPI specification](./media/import-api-from-oas/oas-api.png)
-3. Enter appropriate settings. You can set all the API values during creation. Alternately, you can set some of them later by going to the **Settings** tab. <br/> If you press **tab** some (or all) of the fields get filled up with the info from the specified back-end service.
+## <a name="create-api"> </a>Import a backend API
 
-    ![Create an API](./media/api-management-get-started/create-api.png)
+#### [Portal](#tab/portal)
 
-    |Setting|Value|Description|
-    |---|---|---|
-    |**OpenAPI Specification**|https://conferenceapi.azurewebsites.net?format=json|References the service implementing the API. API management forwards requests to this address.|
-    |**Display name**|*Demo Conference API*|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json. <br/>This name is displayed in the Developer portal.|
-    |**Name**|*demo-conference-api*|Provides a unique name for the API. <br/>If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
-    |**Description**|Provide an optional description of the API.|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
-    |**API URL suffix**|*conference*|The suffix is appended to the base URL for the API management service. API Management distinguishes APIs by their suffix and therefore the suffix must be unique for every API for a given publisher.|
-    |**URL scheme**|*HTTPS*|Determines which protocols can be used to access the API. |
-    |**Products**|*Unlimited*| Publish the API by associating the API with a product. To optionally add this new API to a product, type the product name. This step can be repeated multiple times to add the API to multiple products.<br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**. |
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, select **APIs** > **+ Add API**.
+1. Under **Create from definition**, select **OpenAPI**.
 
-4. Select **Create**.
+    :::image type="content" source="media/import-api-from-oas/oas-api.png" alt-text="Screenshot of creating an API from an OpenAPI specification in the portal." border="false":::
+1. Enter API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
+1. Select **Create**.
 
-> [!NOTE]
-> The API import limitations are documented in [another article](api-management-api-import-restrictions.md).
+#### [Azure CLI](#tab/cli)
 
-## Test the new API in the Azure portal
+The following example uses the [az apim api import](/cli/azure/apim/api#az-apim-api-import) command to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `--specification-path` parameter.
 
-![Test API map](./media/api-management-get-started/01-import-first-api-01.png)
+```azurecli-interactive
+# API Management service-specific details
+APIMServiceName="apim-hello-world"
+ResourceGroupName="myResourceGroup"
 
-Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
+# API-specific details
+APIId="demo-conference-api"
+APIPath="conference"
+SpecificationFormat="OpenAPI"
+SpecificationURL="https://conferenceapi.azurewebsites.net/?format=json"
 
-1. Select the API you created in the previous step (from the **APIs** tab).
-2. Press the **Test** tab.
-3. Click on **GetSpeakers**. The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. The key is filled in automatically.
-4. Press **Send**.
+# Import API
+az apim api import --path $APIPath --resource-group $ResourceGroupName \
+    --service-name $APIMServiceName --api-id $APIId \
+    --specification-format $SpecificationFormat --specification-url $SpecificationURL
+```
 
-    Backend responds with **200 OK** and some data.
+After importing the API, if needed, you can update the settings by using the [az apim api update](/cli/azure/apim/api#az-apim-api-update) command.
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
+#### [PowerShell](#tab/powershell)
+
+The following example uses the [Import-AzApiManagementApi](/powershell/module/az.apimanagement/import-azapimanagementapi?) Azure PowerShell cmdlet to import an OpenAPI specification from the specified URL to an API Management instance named *apim-hello-world*. To import using a path to a specification instead of a URL, use the `-SpecificationPath` parameter.
+
+```powershell-interactive
+# API Management service-specific details
+$apimServiceName = "apim-hello-world"
+$resourceGroupName = "myResourceGroup"
+
+# API-specific details
+$apiId = "demo-conference-api"
+$apiPath = "conference"
+$specificationFormat = "OpenAPI"
+$specificationUrl = "https://conferenceapi.azurewebsites.net/?format=json"
+
+# Get context of the API Management instance. 
+$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
+
+# Import API
+Import-AzApiManagementApi -Context $context -ApiId $apiId -SpecificationFormat $specificationFormat -SpecificationUrl $specificationUrl -Path $apiPath
+```
+
+After importing the API, if needed, you can update the settings by using the [Set-AzApiManagementApi](/powershell/module/az.apimanagement/set-azapimanagementapi) cmdlet.
+
+---
+
+[!INCLUDE [api-management-test-api-portal](../../includes/api-management-test-api-portal.md)]
+
+[!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
+
+## Validate against an OpenAPI specification
+
+You can configure API Management [validation policies](api-management-policies.md#validation-policies) to validate requests and responses (or elements of them) against the schema in an OpenAPI specification. For example, use the [validate-content](validate-content-policy.md) policy to validate the size or content of a request or response body.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)
+> * [Create and publish a product](api-management-howto-add-products.md)
+> * [Transform and protect a published API](transform-api.md)

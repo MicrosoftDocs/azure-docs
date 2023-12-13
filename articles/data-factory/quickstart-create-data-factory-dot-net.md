@@ -1,49 +1,41 @@
 ---
-title: Create Azure data factory using .NET SDK
-description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location. 
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+title: Create Azure Data Factory using .NET SDK
+description: Create an Azure Data Factory and pipeline using .NET SDK to copy data from one location in Azure Blob storage to another location.
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
-ms.devlang: dotnet
+ms.subservice: data-movement
+ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/24/2019
-ms.author: jingwang
+ms.date: 07/20/2023
+ms.author: jianleishen
+ms.custom: mode-api, devx-track-dotnet
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Current version](quickstart-create-data-factory-dot-net.md)
 
-This quickstart describes how to use .NET SDK to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+This quickstart describes how to use .NET SDK to create an Azure Data Factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
-[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
+[!INCLUDE [data-factory-quickstart-prerequisites](includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Visual Studio
 
 The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 differ slightly.
 
-### Azure .NET SDK
+<a name='create-an-application-in-azure-active-directory'></a>
 
-Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on your machine.
+## Create an application in Microsoft Entra ID
 
-## Create an application in Azure Active Directory
+From the sections in *How to: Use the portal to create a Microsoft Entra application and service principal that can access resources*, follow the instructions to do these tasks:
 
-From the sections in *How to: Use the portal to create an Azure AD application and service principal that can access resources*, follow the instructions to do these tasks:
-
-1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
-2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
-3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets), get the **authentication key**, and note down this value that you use later in this tutorial.
-4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
+1. In [Create a Microsoft Entra application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you're creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
+2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
+3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication), get the **authentication key**, and note down this value that you use later in this tutorial.
+4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
 
 ## Create a Visual Studio project
 
@@ -57,12 +49,12 @@ Next, create a C# .NET console application in Visual Studio:
 ## Install NuGet packages
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.DataFactory NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager -IncludePrerelease
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+    Install-Package Microsoft.Identity.Client
     ```
 
 ## Create a data factory client
@@ -74,10 +66,11 @@ Next, create a C# .NET console application in Visual Studio:
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     ```
 
 2. Add the following code to the **Main** method that sets the variables. Replace the placeholders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, and more) and computes (HDInsight and others) used by data factory can be in other regions.
@@ -107,19 +100,30 @@ Next, create a C# .NET console application in Visual Studio:
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
+>  For example, in US Azure Gov you would use authority of ```https://login.microsoftonline.us``` instead of `https://login.microsoftonline.com`, and use ```https://management.usgovcloudapi.net``` instead of ```https://management.azure.com/```, and then create the data factory management client. 
+>  You can use PowerShell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.
 
 3. Add the following code to the **Main** method that creates an instance of **DataFactoryManagementClient** class. You use this object to create a data factory, a linked service, datasets, and a pipeline. You also use this object to monitor the pipeline run details.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
-   ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
-   AuthenticationResult result = context.AcquireTokenAsync(
-       "https://management.azure.com/", cc).Result;
+   IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create(applicationId)
+    .WithAuthority("https://login.microsoftonline.com/" + tenantID)
+    .WithClientSecret(authenticationKey)
+    .WithLegacyCacheCompatibility(false)
+    .WithCacheOptions(CacheOptions.EnableSharedCacheOptions)
+    .Build();
+
+   AuthenticationResult result = await app.AcquireTokenForClient(
+     new string[]{ "https://management.azure.com//.default"})
+      .ExecuteAsync();
    ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## Create a data factory
 
@@ -311,7 +315,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Build and start the application, then verify the pipeline execution.
 
-The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with the size of the read/write data. Then use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in the variables.
+The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with the size of the read/write data. Then use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in the variables.
 
 ### Sample output
 
@@ -438,6 +442,6 @@ Console.WriteLine("Deleting the data factory");
 client.Factories.Delete(resourceGroup, dataFactoryName);
 ```
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios. 

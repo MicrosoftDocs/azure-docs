@@ -1,16 +1,16 @@
 ---
 title: Deploy Avere vFXT for Azure
-description: Steps to deploy the Avere vFXT cluster in Azure
+description: Learn how to use the deployment wizard available from the Azure Marketplace to deploy a cluster with Avere vFXT for Azure.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ---
 
 # Deploy the vFXT cluster
 
-This procedure walks you through using the deployment wizard available from the Azure Marketplace. The wizard automatically deploys the cluster by using an Azure Resource Manager template. After you enter the parameters in the form and click **Create**, Azure automatically completes these steps:
+This procedure walks you through using the deployment wizard available from the Azure Marketplace. The wizard automatically deploys the cluster by using an Azure Resource Manager template. After you enter the parameters in the form and click **Create**, Azure automatically completes these tasks:
 
 * Creates the cluster controller, which is a basic VM that contains the software needed to deploy and manage the cluster.
 * Sets up resource group and virtual network infrastructure, including creating new elements.
@@ -23,10 +23,10 @@ After following the instructions in this document, you will have a virtual netwo
 
 Before using the creation template, make sure you have addressed these prerequisites:  
 
-1. [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deployments that use an existing virtual network and create blob storage
+* [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deployments that use an existing virtual network and create blob storage
 
 For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md).
 
@@ -59,7 +59,7 @@ Fill in the following information:
 
 * **Controller username** - Set the root username for the cluster controller VM.
 
-* **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.
+* **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](../virtual-machines/linux/ssh-from-windows.md) if you need help.
 
 * **Password** or **SSH public key** - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
 
@@ -80,7 +80,7 @@ The second page of the deployment template allows you to set the cluster size, n
 
 ![Second page of the deployment template](media/avere-vfxt-deploy-2.png)
 
-* **Avere vFXT cluster node count** - Choose the number of nodes in the cluster. The minimum is three nodes and the maximum is twelve.
+* **Avere vFXT cluster node count** - Choose the number of nodes in the cluster. The minimum is three nodes and the maximum is 20.
 
 * **Cluster administration password** - Create the password for cluster administration. This password is used with the username ```admin``` to sign in to the cluster control panel, where you can monitor the cluster and configure cluster settings.
 

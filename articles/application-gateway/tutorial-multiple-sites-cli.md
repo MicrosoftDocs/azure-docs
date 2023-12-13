@@ -3,12 +3,12 @@ title: Host multiple web sites using CLI
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that hosts multiple web sites using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/13/2019
-ms.author: victorh
-ms.custom: mvc
+ms.topic: how-to
+ms.date: 04/27/2023
+ms.author: greglin
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 
@@ -18,23 +18,22 @@ You can use the Azure CLI to [configure the hosting of multiple web sites](multi
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create backend listeners
-> * Create routing rules
-> * Create virtual machine scale sets with the backend pools
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Create backend listeners
+* Create routing rules
+* Create Virtual Machine Scale Sets with the backend pools
+* Create a CNAME record in your domain
 
-![Multi-site routing example](./media/tutorial-multiple-sites-cli/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Multi-site Application Gateway":::
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you're running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -89,7 +88,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 10
 ```
 
 It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features of it:
@@ -115,9 +115,13 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### Add backend listeners
+### Add listeners
 
-Add the backend listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+Add listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
+
+>[!NOTE]
+> With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener) for more information.
+>To use multiple host names and wildcard characters in a listener using Azure CLI, you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to five host names as space-separated values. For example, `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -139,7 +143,7 @@ az network application-gateway http-listener create \
 
 ### Add routing rules
 
-Rules are processed in the order they're listed. Traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
+Rules are processed in the order they're listed if rule priority field is not used. Traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected.
 
 In this example, you create two new rules and delete the default rule created when you deployed the application gateway. You can add the rule using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
@@ -150,6 +154,34 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener contosoListener \
   --rule-type Basic \
+  --address-pool contosoPool \
+  --priority 200
+
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name fabrikamRule \
+  --resource-group myResourceGroupAG \
+  --http-listener fabrikamListener \
+  --rule-type Basic \
+  --address-pool fabrikamPool \
+  --priority 100
+
+az network application-gateway rule delete \
+  --gateway-name myAppGateway \
+  --name rule1 \
+  --resource-group myResourceGroupAG
+```
+### Add priority to routing rules
+
+In order to ensure that more specific rules are processed first, use the rule priority field to ensure they have higher priority. Rule priority field must be set for all the existing request routing rules and any new rule that is created later must also have a rule priority value.
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name contosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener contosoListener \
+  --rule-type Basic \
+  --priority 200 \
   --address-pool contosoPool
 
 az network application-gateway rule create \
@@ -158,17 +190,14 @@ az network application-gateway rule create \
   --resource-group myResourceGroupAG \
   --http-listener fabrikamListener \
   --rule-type Basic \
+  --priority 100 \
   --address-pool fabrikamPool
 
-az network application-gateway rule delete \
-  --gateway-name myAppGateway \
-  --name rule1 \
-  --resource-group myResourceGroupAG
 ```
 
-## Create virtual machine scale sets
+## Create Virtual Machine Scale Sets
 
-In this example, you create three virtual machine scale sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
+In this example, you create three Virtual Machine Scale Sets that support the three backend pools in the application gateway. The scale sets that you create are named *myvmss1*, *myvmss2*, and *myvmss3*. Each scale set contains two virtual machine instances on which you install IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -186,13 +215,13 @@ for i in `seq 1 2`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --admin-password Azure123456! \
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --vm-sku Standard_DS2 \
+    --vm-sku Standard_D1_v2 \
     --upgrade-policy-mode Automatic \
     --app-gateway myAppGateway \
     --backend-pool-name $poolName

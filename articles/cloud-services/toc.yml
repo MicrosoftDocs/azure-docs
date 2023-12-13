@@ -1,8 +1,8 @@
-- name: Cloud Services Documentation
-  href: index.md
+- name: Cloud Services (classic) documentation
+  href: index.yml
 - name: Overview
   items:
-  - name: What is Cloud Services?
+  - name: What is Cloud Services (classic)?
     href: cloud-services-choose-me.md
   - name: Cloud service config files and packaging
     href: cloud-services-model-and-package.md
@@ -12,6 +12,12 @@
     href: cloud-services-dotnet-get-started.md
   - name: Example Python for Visual Studio Cloud Service
     href: cloud-services-python-ptvs.md
+  - name: Troubleshoot LocationNotFoundForRoleSize
+    href: cloud-services-troubleshoot-location-not-found-for-role-size.md
+- name: Concepts
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/cloud-services-security-baseline?toc=/azure/cloud-services/toc.json
 - name: How To
   items:
   - name: Plan
@@ -30,20 +36,14 @@
       href: cloud-services-nodejs-develop-deploy-express-app.md
     - name: Storage and Visual Studio
       items:
-      - name: Blob storage and connected services
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-blobs.md
-      - name: Queue storage and connected services
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-queues.md
-      - name: Table storage and connected services
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-tables.md
-    - name: Configure traffic rules for a role
-      href: cloud-services-enable-communication-role-instances.md
-    - name: Handle Cloud Service lifecycle events
-      href: cloud-services-role-lifecycle-dotnet.md
-    - name: Socket.io (Node.js)
-      href: cloud-services-nodejs-chat-app-socketio.md
-    - name: Use Twilio to make a phone call (.NET)
-      href: ../partner-twilio-cloud-services-dotnet-phone-call-web-role.md
+      - name: Configure traffic rules for a role
+        href: cloud-services-enable-communication-role-instances.md
+      - name: Handle Cloud Service lifecycle events
+        href: cloud-services-role-lifecycle-dotnet.md
+      - name: Socket.io (Node.js)
+        href: cloud-services-nodejs-chat-app-socketio.md
+      - name: Use Twilio to make a phone call (.NET)
+        href: https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp
     - name: Configure start up tasks
       items:
       - name: Create startup tasks
@@ -60,43 +60,65 @@
         href: cloud-services-role-enable-remote-desktop-powershell.md
       - name: Visual Studio
         href: cloud-services-role-enable-remote-desktop-visual-studio.md
-  - name: Deploy
-    items:
-    - name: Create and deploy a cloud service in portal
-      href: cloud-services-how-to-create-deploy-portal.md
-    - name: Create an empty cloud service container in PowerShell
-      href: cloud-services-powershell-create-cloud-container.md
-    - name: Configure a custom domain name
-      href: cloud-services-custom-domain-name-portal.md
-    - name: Connect to a custom Domain Controller
-      href: cloud-services-connect-to-custom-domain.md
-  - name: Manage service
-    items:
-    - name: Common management tasks
-      href: cloud-services-how-to-manage-portal.md
-    - name: Configure Cloud Service
-      href: cloud-services-how-to-configure-portal.md
-    - name: Manage a Cloud Service using Azure Automation
-      href: automation-manage-cloud-services.md
-    - name: Configure automatic scaling
-      href: cloud-services-how-to-scale-portal.md
-    - name: Use Python to manage Azure Resources
-      href: cloud-services-python-how-to-use-service-management.md
-    - name: Mitigating speculative execution
-      href: mitigate-se.md
-    - name: Guest OS patches
-      href: cloud-services-guestos-msrc-releases.md
-    - name: Guest OS retirement
+    - name: Deploy
       items:
-      - name: Retirement policy
-        href: cloud-services-guestos-retirement-policy.md
-      - name: Family 1 retirement notice
-        href: cloud-services-guestos-family1-retirement.md
-    - name: Guest OS release news
-      href: cloud-services-guestos-update-matrix.md
-    - name: Cloud Services Role config XPath cheat sheet
-      href: cloud-services-role-config-xpath.md
-  - name: Manage certificates
+      - name: Create and deploy a cloud service in portal
+        href: cloud-services-how-to-create-deploy-portal.md
+      - name: Create an empty cloud service container in PowerShell
+        href: cloud-services-powershell-create-cloud-container.md
+      - name: Configure a custom domain name
+        href: cloud-services-custom-domain-name-portal.md
+      - name: Connect to a custom Domain Controller
+        href: cloud-services-connect-to-custom-domain.md
+    - name: Manage service
+      items:
+      - name: Common management tasks
+        href: cloud-services-how-to-manage-portal.md
+      - name: Configure Cloud Service
+        href: cloud-services-how-to-configure-portal.md
+      - name: Manage a Cloud Service using Azure Automation
+        href: automation-manage-cloud-services.md
+      - name: Configure automatic scaling
+        href: cloud-services-how-to-scale-portal.md
+      - name: Use Python to manage Azure Resources
+        href: cloud-services-python-how-to-use-service-management.md
+      - name: Mitigating speculative execution
+        href: mitigate-se.md
+      - name: Guest OS patches
+        href: cloud-services-guestos-msrc-releases.md
+      - name: Guest OS retirement
+        items:
+        - name: Retirement policy
+          href: cloud-services-guestos-retirement-policy.md
+        - name: Family 1 retirement notice
+          href: cloud-services-guestos-family1-retirement.md
+      - name: Guest OS release news
+        href: cloud-services-guestos-update-matrix.md
+      - name: Cloud Services Role config XPath cheat sheet
+        href: cloud-services-role-config-xpath.md
+    - name: Manage certificates
+      items:
+      - name: Cloud Services and management certificates
+        href: cloud-services-certs-create.md
+      - name: Configure SSL
+        href: cloud-services-configure-ssl-certificate-portal.md
+    - name: Store and view diagnostic data in Azure Storage
+      href: diagnostics-extension-to-storage.md
+    - name: Trace Cloud Service with Diagnostics
+      href: cloud-services-dotnet-diagnostics-trace-flow.md
+  - name: Migrate
+    items:
+    - name: Migration overview
+      href: ../cloud-services-extended-support/in-place-migration-overview.md?toc=/azure/cloud-services/toc.json
+    - name: Migration technical details
+      href: ../cloud-services-extended-support/in-place-migration-technical-details.md?toc=/azure/cloud-services/toc.json
+    - name: Migrate using the Azure portal
+      href: ../cloud-services-extended-support/in-place-migration-portal.md?toc=/azure/cloud-services/toc.json
+    - name: Migrate using PowerShell
+      href: ../cloud-services-extended-support/in-place-migration-powershell.md?toc=/azure/cloud-services/toc.json
+    - name: Common errors and known issues
+      href: ../cloud-services-extended-support/in-place-migration-common-errors.md?toc=/azure/cloud-services/toc.json
+  - name: Debug
     items:
     - name: Cloud Services and management certificates
       href: cloud-services-certs-create.md
@@ -121,10 +143,10 @@
         href: cloud-services-dotnet-diagnostics.md
       - name: Visual Studio
         href: /visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=/azure/cloud-services/toc.json
-    - name: Store and view diagnostic data in Azure Storage
-      href: ../azure-monitor/platform/diagnostics-extension-to-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json 
-    - name: Trace Cloud Service with Diagnostics
-      href: cloud-services-dotnet-diagnostics-trace-flow.md
+      - name: Store and view diagnostic data in Azure Storage
+        href: diagnostics-extension-to-storage.md
+      - name: Trace Cloud Service with Diagnostics
+        href: cloud-services-dotnet-diagnostics-trace-flow.md
   - name: Troubleshoot
     items:
     - name: Debug
@@ -139,6 +161,8 @@
       href: cloud-services-allocation-failures.md
     - name: Common causes of Cloud Service roles recycling
       href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+    - name: Application does not support TLS 1.2
+      href: applications-dont-support-tls-1-2.md
     - name: Default TEMP folder size too small for role
       href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
     - name: Common deployment problems
@@ -149,18 +173,24 @@
       href: cloud-services-disaster-recovery-guidance.md
     - name: Workflow of classic VM architecture
       href: cloud-services-workflow-process.md
+    - name: Resource health support for Cloud Services
+      href: resource-health-for-cloud-services.md
     - name: Cloud Services FAQ
       items:
       - name: Application and service availability FAQ
-        href: cloud-services-application-and-service-availability-faq.md
+        href: cloud-services-application-and-service-availability-faq.yml
       - name: Configuration and management FAQ
-        href: cloud-services-configuration-and-management-faq.md
+        href: cloud-services-configuration-and-management-faq.yml
       - name: Connectivity and networking FAQ
-        href: cloud-services-connectivity-and-networking-faq.md
+        href: cloud-services-connectivity-and-networking-faq.yml
       - name: Deployment FAQ
-        href: cloud-services-deployment-faq.md
+        href: cloud-services-deployment-faq.yml
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/cloud
+  - name: REST
+    href: /rest/api/compute/cloudservices/
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cloud-services
   - name: .csdef XML Schema
@@ -181,16 +211,14 @@
       href: schema-cscfg-role.md
     - name: NetworkConfiguration Schema
       href: schema-cscfg-networkconfiguration.md
-  - name: REST
-    href: /rest/api/compute/cloudservices/
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/cloud-services/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment
+    href: /training/paths/az-900-describe-cloud-concepts/
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-cloud-services.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cloud-services/
   - name: Pricing calculator

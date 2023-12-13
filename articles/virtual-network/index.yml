@@ -10,9 +10,9 @@ metadata:
   ms.service: virtual-network
   ms.topic: landing-page
   ms.collection: collection
-  author: KumudD
-  ms.author: kumud
-  ms.date: 08/28/2019
+  author: asudbring
+  ms.author: allensu
+  ms.date: 06/29/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,7 +29,21 @@ landingContent:
       - linkListType: concept
         links:
           - text: Virtual network FAQ
-            url: virtual-networks-overview.md
+            url: virtual-networks-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Networks
+            url: /training/modules/introduction-to-azure-virtual-networks
+      - linkListType: deploy
+        links: 
+          - text: Provision a network landing zone
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%201
+          - text: Provision a new application in an existing network
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%202
+          - text: Provision a secondary Azure region infrastructure
+            url: https://mslabs.cloudguides.com/en-us/guides/Azure%20Networking%20Solutions%20-%20Exercise%205
+          - text: Implement Azure network security
+            url: https://mslearn.cloudguides.com/guides/Azure%20network%20security
  
   # Card (optional)
   - title: Get started
@@ -51,13 +65,17 @@ landingContent:
       - linkListType: concept
         links:
           - text: Network security groups
-            url: security-overview.md
+            url: ./network-security-groups-overview.md
           - text: Application security groups
-            url: security-overview.md#application-security-groups 
+            url: ./network-security-groups-overview.md#application-security-groups 
           - text: Virtual network service endpoints
             url: virtual-network-service-endpoints-overview.md
           - text: Virtual network security FAQ
-            url: virtual-networks-faq.md#security            
+            url: virtual-networks-faq.md#security
+          - text: Default outbound access
+            url: ./ip-services/default-outbound-access.md
+          - text: Virtual network encryption
+            url: ./virtual-network-encryption-overview.md
       - linkListType: tutorial
         links:
           - text: Filter network traffic using network security groups
@@ -66,12 +84,15 @@ landingContent:
             url: tutorial-restrict-network-access-to-resources.md
           - text: Work with application security groups
             url: manage-network-security-group.md#work-with-application-security-groups
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual network with encryption
+            url: ./how-to-create-encryption-portal.md
       - linkListType: learn
         links:
           - text: Secure and isolate access to Azure resources
-            url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
-
-         
+            url: /training/modules/secure-and-isolate-with-nsg-and-service-endpoints
+       
   # Card
   - title: Connect virtual networks
     linkLists:
@@ -80,7 +101,7 @@ landingContent:
           - text: Virtual network peering
             url: virtual-network-peering-overview.md
           - text: Virtual network peering FAQ
-            url: virtual-networks-faq.md#vnet-peering            
+            url: virtual-networks-faq.md#virtual-network-peering            
       - linkListType: tutorial
         links:
           - text: Connect VNets with virtual network peering
@@ -98,7 +119,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Communicate across virtual network with peering
-            url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering      
+            url: /training/modules/integrate-vnets-with-vnet-peering
 
   # Card
   - title: Route network traffic
@@ -111,6 +132,10 @@ landingContent:
         links:
           - text: Route network traffic - Portal
             url: tutorial-create-route-table-portal.md
+      - linkListType: learn
+        links:
+          - text: Manage and control traffic flow in your Azure deployment with routes
+            url: /training/modules/control-network-traffic-flow-with-routes/       
 
   # Card
   - title: Create IP addresses 
@@ -118,32 +143,30 @@ landingContent:
       - linkListType: concept
         links:
           - text: IP address types and allocation methods
-            url: virtual-network-ip-addresses-overview-arm.md
+            url: ./ip-services/public-ip-addresses.md
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a public IP address
-            url: virtual-network-public-ip-address.md          
+            url: ./ip-services/virtual-network-public-ip-address.md
           - text: Add a public IP address to a VM
-            url: associate-public-ip-address-vm.md     
+            url: ./ip-services/associate-public-ip-address-vm.md
           - text: Create a VM with static IP address
-            url: virtual-network-deploy-static-pip-arm-portal.md
+            url: ./ip-services/virtual-network-deploy-static-pip-arm-portal.md
           - text: Configure a static private IP address for a VM
-            url: virtual-networks-static-private-ip-arm-pportal.md
+            url: ./ip-services/virtual-networks-static-private-ip-arm-pportal.md
           - text: Assign multiple IP addresses to a VM
-            url: virtual-network-multiple-ip-addresses-powershell.md
+            url: ./ip-services/virtual-network-multiple-ip-addresses-powershell.md
   # Card
   - title: Create IPv6 for virtual networks
     linkLists:
       - linkListType: concept
         links:
           - text: What is IPv6 for Azure virtual network?
-            url: ipv6-overview.md
+            url: ./ip-services/ipv6-overview.md
       - linkListType: deploy
         links:
           - text: Deploy an IPV6 dual stack application - Standard Load Balancer
-            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md          
-          - text: Deploy an IPV6 dual stack application - Basic Load Balancer
-            url: virtual-network-ipv4-ipv6-dual-stack-powershell.md     
+            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
 
   # Card
   - title: Monitor virtual networks
@@ -165,19 +188,42 @@ landingContent:
       - linkListType: concept
         links:
           - text: IP address types and allocation methods
-            url: virtual-network-ip-addresses-overview-arm.md
+            url: ./ip-services/public-ip-addresses.md
           - text: What is IPv6 for Azure virtual network?
-            url: ipv6-overview.md
+            url: ./ip-services/ipv6-overview.md
           - text: Public IP address prefix
-            url: public-ip-address-prefix.md        
+            url: ./ip-services/public-ip-address-prefix.md
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a public IP address
-            url: virtual-network-public-ip-address.md      
+            url: ./ip-services/virtual-network-public-ip-address.md
           - text: Deploy an IPV6 dual stack application
-            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+            url: ../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
           - text: Create, change, or delete a public IP address prefix
-            url: manage-public-ip-address-prefix.md
+            url: ./ip-services/manage-public-ip-address-prefix.md
+  
+  # Card
+  - title: Learn about Virtual Network architecture
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: Networking architecture design
+          url: /azure/architecture/guide/networking/networking-start-here
+      - linkListType: learn
+        links:
+        - text: Architect network infrastructure in Azure
+          url: /training/paths/architect-network-infrastructure/
+      - linkListType: reference
+        links:
+        - text: Connect an on-premises network to Azure
+          url: /azure/architecture/reference-architectures/hybrid-networking/
+        - text: Implement a secure hybrid network
+          url: /azure/architecture/reference-architectures/dmz/secure-vnet-dmz?tabs=portal
+        - text: Hub-spoke network topology in Azure
+          url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli
+        - text: High availability and disaster recovery scenarios for IaaS apps
+          url: /azure/architecture/example-scenario/infrastructure/iaas-high-availability-disaster-recovery/
+
   # Card
   - title: Reference
     linkLists:
@@ -189,14 +235,3 @@ landingContent:
             url: /powershell/module/az.network
           - text: REST
             url: /rest/api/virtual-network      
-          
-    
-
-
-
-
-
-            
-                
-
-

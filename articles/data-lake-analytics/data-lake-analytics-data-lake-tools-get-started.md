@@ -1,19 +1,17 @@
 ---
 title: Query Azure Data Lake Analytics - Visual Studio
 description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
-services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
-ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
-ms.topic: conceptual
-ms.date: 08/30/2019
+ms.reviewer: whhender
+ms.topic: how-to
+ms.date: 11/15/2022
 ---
 
 # Develop U-SQL scripts by using Data Lake Tools for Visual Studio
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
+
+[!INCLUDE [retirement-flag-creation](includes/retirement-flag-creation.md)]
 
 Azure Data Lake and Stream Analytics Tools include functionality related to two Azure services, Azure Data Lake Analytics and Azure Stream Analytics. For more information about the Azure Stream Analytics scenarios, see [Azure Stream Analytics tools for Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
 
@@ -50,7 +48,7 @@ This tutorial requires that Data Lake Tools for Visual Studio is installed. For 
 
 1. Open Visual Studio.
 
-1. Open **Server Explorer** by selecting **View** > **Server Explorer**.
+1. Open **Data Lake Analytics Explorer** by selecting **View** > **Data Lake Analytics Explorer**.
 
 1. Right-click **Azure**, then select **Connect to Microsoft Azure Subscription**. In **Sign in to your account**, follow the instructions.
 
@@ -98,7 +96,7 @@ After the job submission, the **Job view** tab opens to show the job progress.
 * **MetaData Operations** shows all the actions that were taken on the U-SQL catalog.
 * **Data** shows all the inputs and outputs.
 * **State History** shows the timeline and state details.
-* **AU Analysis** shows how many AUs were used in the job and explore simulations of different AU allocation strategies.
+* **AU Analysis** shows how many AUs (analytics units) were used in the job and explore simulations of different AU allocation strategies.
 * **Diagnostics** provides an advanced analysis for job execution and performance optimization.
 
 ![U-SQL Visual Studio Data Lake Analytics job performance graph](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
@@ -107,7 +105,7 @@ To see the latest job status and refresh the screen, select **Refresh**.
 
 ## Check job status
 
-1. In **Server Explorer**, select **Azure** > **Data Lake Analytics**.
+1. In **Data Lake Analytics Explorer**, select **Data Lake Analytics**.
 
 1. Expand the Data Lake Analytics account name.
 
@@ -117,9 +115,9 @@ To see the latest job status and refresh the screen, select **Refresh**.
 
 ## See the job output
 
-1. In **Server Explorer**, browse to the job you submitted.
+1. In **Data Lake Analytics Explorer**, browse to the job you submitted.
 
-1. Click the **Data** tab.
+1. Select the **Data** tab in your job.
 
 1. In the **Job Outputs** tab, select the `"/data.csv"` file.
 

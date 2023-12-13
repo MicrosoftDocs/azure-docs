@@ -1,52 +1,57 @@
 ---
-title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
-description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
-ms.service:  azure-monitor
-ms.subservice: application-insights
+title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
+description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 11/23/2016
-
+ms.date: 11/15/2023
+ms.devlang: csharp, javascript, python
+ms.custom: "devx-track-js, devx-track-csharp"
+ms.reviewer: cithomas
 ---
 
-# Filtering and preprocessing telemetry in the Application Insights SDK
+# Filter and preprocess telemetry in the Application Insights SDK
 
-You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it's sent to the Application Insights service.
+You can write code to filter, modify, or enrich your telemetry before it's sent from the SDK. The processing includes data that's sent from the standard telemetry modules, such as HTTP request collection and dependency collection.
 
-* [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* Filtering with Telemetry Processors lets you filter out telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. Filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
-* [Telemetry Initializers add or modify properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
-* [The SDK API](../../azure-monitor/app/api-custom-events-metrics.md) is used to send custom events and metrics.
+* [Filtering](./api-filtering-sampling.md#filtering) can modify or discard telemetry before it's sent from the SDK by implementing `ITelemetryProcessor`. For example, you could reduce the volume of telemetry by excluding requests from robots. Unlike sampling, You have full control what is sent or discarded, but it will affect any metrics based on aggregated logs. Depending on how you discard items, you might also lose the ability to navigate between related items.
+
+* [Add or Modify properties](./api-filtering-sampling.md#add-properties) to any telemetry sent from your app by implementing an `ITelemetryInitializer`. For example, you could add calculated values or version numbers by which to filter the data in the portal.
+
+* [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when you diagnose a problem. In the portal, the total counts are multiplied to compensate for the sampling.
+
+> [!NOTE]
+> [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) or [JavaScript](javascript.md)
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md).
 
 <a name="filtering"></a>
 
 ## Filtering
 
-This technique gives you direct control over what is included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use it in conjunction with Sampling, or separately.
+This technique gives you direct control over what's included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use filtering with sampling, or separately.
 
-To filter telemetry, you write a telemetry processor and register it with the `TelemetryConfiguration`. All telemetry goes through your processor, and you can choose to drop it from the stream or give it to the next processor in the chain. This includes telemetry from the standard modules such as the HTTP request collector and the dependency collector, and telemetry you have tracked yourself. You can, for example, filter out telemetry about requests from robots, or successful dependency calls.
+To filter telemetry, you write a telemetry processor and register it with `TelemetryConfiguration`. All telemetry goes through your processor. You can choose to drop it from the stream or give it to the next processor in the chain. Telemetry from the standard modules, such as the HTTP request collector and the dependency collector, and telemetry you tracked yourself is included. For example, you can filter out telemetry about requests from robots or successful dependency calls.
 
 > [!WARNING]
-> Filtering the telemetry sent from the SDK using processors can skew the statistics that you see in the portal, and make it difficult to follow related items.
+> Filtering the telemetry sent from the SDK by using processors can skew the statistics that you see in the portal and make it difficult to follow related items.
 >
-> Instead, consider using [sampling](../../azure-monitor/app/sampling.md).
+> Instead, consider using [sampling](./sampling.md).
 >
 >
 
-### Create a telemetry processor (C#)
+### Create a telemetry processor 
+
+### C#
 
 1. To create a filter, implement `ITelemetryProcessor`.
 
-    Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you are given a reference to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls (or not calls) the next Telemetry Processor in the chain.
+    Telemetry processors construct a chain of processing. When you instantiate a telemetry processor, you're given a reference to the next processor in the chain. When a telemetry data point is passed to the process method, it does its work and then calls (or doesn't call) the next telemetry processor in the chain.
 
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.DataContracts;
 
     public class SuccessfulDependencyFilter : ITelemetryProcessor
     {
@@ -79,14 +84,15 @@ To filter telemetry, you write a telemetry processor and register it with the `T
 
 2. Add your processor.
 
-**ASP.NET apps**
+ASP.NET **apps**
+
 Insert this snippet in ApplicationInsights.config:
 
 ```xml
 <TelemetryProcessors>
   <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
-	 <!-- Set public property -->
-	 <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+     <!-- Set public property -->
+     <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
   </Add>
 </TelemetryProcessors>
 ```
@@ -94,10 +100,10 @@ Insert this snippet in ApplicationInsights.config:
 You can pass string values from the .config file by providing public named properties in your class.
 
 > [!WARNING]
-> Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a non-existent type or property, the SDK may silently fail to send any telemetry.
+> Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a nonexistent type or property, the SDK may silently fail to send any telemetry.
 >
 
-**Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in `Global.asax.cs` - insert your processor into the chain:
+Alternatively, you can initialize the filter in code. In a suitable initialization class, for example, AppStart in `Global.asax.cs`, insert your processor into the chain:
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -109,14 +115,14 @@ builder.Use((next) => new AnotherProcessor(next));
 builder.Build();
 ```
 
-TelemetryClients created after this point will use your processors.
+Telemetry clients created after this point will use your processors.
 
-**ASP.NET Core/ Worker Service apps**
+ASP.NET **Core/Worker service apps**
 
 > [!NOTE]
-> Adding processor using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications or if you are using Microsoft.ApplicationInsights.WorkerService SDK.
+> Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) or [WorkerService](worker-service.md#adding-telemetry-processors), adding a new `TelemetryProcessor` is done by using `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown below. This method is called in `ConfigureServices` method of your `Startup.cs` class.
+For apps written by using [ASP.NET Core](asp-net-core.md#add-telemetry-processors) or [WorkerService](worker-service.md#add-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -129,6 +135,8 @@ For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetry-processor
         services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
     }
 ```
+
+To register telemetry processors that need parameters in ASP.NET Core, create a custom class implementing **ITelemetryProcessorFactory**. Call the constructor with the desired parameters in the **Create** method and then use **AddSingleton<ITelemetryProcessorFactory, MyTelemetryProcessorFactory>()**.
 
 ### Example filters
 
@@ -169,10 +177,10 @@ public void Process(ITelemetry item)
 
 #### Filter out fast remote dependency calls
 
-If you only want to diagnose calls that are slow, filter out the fast ones.
+If you want to diagnose only calls that are slow, filter out the fast ones.
 
 > [!NOTE]
-> This will skew the statistics you see on the portal.
+> This filtering will skew the statistics you see on the portal.
 >
 >
 
@@ -195,16 +203,20 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-### JavaScript Web applications
+### Java
 
-**Filtering using ITelemetryInitializer**
+To learn more about telemetry processors and their implementation in Java, reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
 
-1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that is being processed. Returning `false` from this callback results in the telemetry item to be filtered out.  
+### JavaScript web applications
+
+**Filter by using ITelemetryInitializer**
+
+1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that's being processed. Returning `false` from this callback results in the telemetry item to be filtered out.
 
    ```JS
    var filteringFunction = (envelope) => {
      if (envelope.data.someField === 'tobefilteredout') {
-     	return false;
+         return false;
      }
   
      return true;
@@ -219,12 +231,11 @@ public void Process(ITelemetry item)
 
 ## Add/modify properties: ITelemetryInitializer
 
+Use telemetry initializers to enrich telemetry with additional information or to override telemetry properties set by the standard telemetry modules.
 
-Use telemetry initializers to enrich telemetry with additional information and/or to override telemetry properties set by the standard telemetry modules.
+For example, Application Insights for a web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >=400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the success property.
 
-For example, the Application Insights for Web package collect telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.
-
-If you provide a telemetry initializer, it is called whenever any of the Track*() methods are called. This includes `Track()` methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
+If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This initializer includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
 
 **Define your initializer**
 
@@ -245,43 +256,43 @@ namespace MvcWebRole.Telemetry
    */
   public class MyTelemetryInitializer : ITelemetryInitializer
   {
-	public void Initialize(ITelemetry telemetry)
-	{
-		var requestTelemetry = telemetry as RequestTelemetry;
-		// Is this a TrackRequest() ?
-		if (requestTelemetry == null) return;
-		int code;
-		bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-		if (!parsed) return;
-		if (code >= 400 && code < 500)
-		{
-			// If we set the Success property, the SDK won't change it:
-			requestTelemetry.Success = true;
+    public void Initialize(ITelemetry telemetry)
+    {
+        var requestTelemetry = telemetry as RequestTelemetry;
+        // Is this a TrackRequest() ?
+        if (requestTelemetry == null) return;
+        int code;
+        bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+        if (!parsed) return;
+        if (code >= 400 && code < 500)
+        {
+            // If we set the Success property, the SDK won't change it:
+            requestTelemetry.Success = true;
 
-			// Allow us to filter these requests in the portal:
-			requestTelemetry.Properties["Overridden400s"] = "true";
-		}
-		// else leave the SDK to set the Success property
-	}
+            // Allow us to filter these requests in the portal:
+            requestTelemetry.Properties["Overridden400s"] = "true";
+        }
+        // else leave the SDK to set the Success property
+    }
   }
 }
 ```
 
-**ASP.NET apps: Load your initializer**
+ASP.NET **apps: Load your initializer**
 
 In ApplicationInsights.config:
 
 ```xml
 <ApplicationInsights>
   <TelemetryInitializers>
-	<!-- Fully qualified type name, assembly name: -->
-	<Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
-	...
+    <!-- Fully qualified type name, assembly name: -->
+    <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
+    ...
   </TelemetryInitializers>
 </ApplicationInsights>
 ```
 
-*Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
+Alternatively, you can instantiate the initializer in code, for example, in Global.aspx.cs:
 
 ```csharp
 protected void Application_Start()
@@ -291,14 +302,14 @@ protected void Application_Start()
 }
 ```
 
-[See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
-**ASP.NET Core/ Worker Service apps: Load your initializer**
+ASP.NET **Core/Worker service apps: Load your initializer**
 
 > [!NOTE]
-> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications or if you are using Microsoft.ApplicationInsights.WorkerService SDK.
+> Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) or [WorkerService](worker-service.md#adding-telemetryinitializers), adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `Startup.ConfigureServices` method.
+For apps written using [ASP.NET Core](asp-net-core.md#add-telemetryinitializers) or [WorkerService](worker-service.md#add-telemetry-initializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. Accomplish this step in the `Startup.ConfigureServices` method.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -308,77 +319,166 @@ For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetryinitialize
     services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
 }
 ```
-
-### Java telemetry initializers
-
-[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
-
-```Java
-public interface TelemetryInitializer
-{ /** Initializes properties of the specified object. * @param telemetry The {@link com.microsoft.applicationinsights.telemetry.Telemetry} to initialize. */
-
-void initialize(Telemetry telemetry); }
-```
-
-Then register the custom initializer in your applicationinsights.xml file.
-
-```xml
-<Add type="mypackage.MyConfigurableContextInitializer">
-    <Param name="some_config_property" value="some_value" />
-</Add>
-```
-
 ### JavaScript telemetry initializers
-*JavaScript*
 
-Insert a telemetry initializer immediately after the initialization code that you got from the portal:
+Insert a JavaScript telemetry initializer, if needed. For more information on the telemetry initializers for the Application Insights JavaScript SDK, see [Telemetry initializers](https://github.com/microsoft/ApplicationInsights-JS#telemetry-initializers).
 
-```JS
+#### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
+
+Insert a telemetry initializer by adding the onInit callback function in the [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration):
+<!-- IMPORTANT: If you're updating this code example, please remember to also update it in: 1) articles\azure-monitor\app\javascript-sdk.md and 2) articles\azure-monitor\app\javascript-feature-extensions.md -->
+```html
 <script type="text/javascript">
-	// ... initialization code
-	...({
-		instrumentationKey: "your instrumentation key"
-	});
-	window.appInsights = appInsights;
-
-
-	// Adding telemetry initializer.
-	// This is called whenever a new telemetry item
-	// is created.
-
-	appInsights.queue.push(function () {
-		appInsights.context.addTelemetryInitializer(function (envelope) {
-			var telemetryItem = envelope.data.baseData;
-
-			// To check the telemetry items type - for example PageView:
-			if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-				// this statement removes url from all page view documents
-				telemetryItem.url = "URL CENSORED";
-			}
-
-			// To set custom properties:
-			telemetryItem.properties = telemetryItem.properties || {};
-			telemetryItem.properties["globalProperty"] = "boo";
-
-			// To set custom metrics:
-			telemetryItem.measurements = telemetryItem.measurements || {};
-			telemetryItem.measurements["globalMetric"] = 100;
-		});
-	});
-
-	// End of inserted code.
-
-	appInsights.trackPageView();
+!(function (cfg){function e(){cfg.onInit&&cfg.onInit(i)}var S,u,D,t,n,i,C=window,x=document,w=C.location,I="script",b="ingestionendpoint",E="disableExceptionTracking",A="ai.device.";"instrumentationKey"[S="toLowerCase"](),u="crossOrigin",D="POST",t="appInsightsSDK",n=cfg.name||"appInsights",(cfg.name||C[t])&&(C[t]=n),i=C[n]||function(l){var d=!1,g=!1,f={initialize:!0,queue:[],sv:"7",version:2,config:l};function m(e,t){var n={},i="Browser";function a(e){e=""+e;return 1===e.length?"0"+e:e}return n[A+"id"]=i[S](),n[A+"type"]=i,n["ai.operation.name"]=w&&w.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(f.sv||f.version),{time:(i=new Date).getUTCFullYear()+"-"+a(1+i.getUTCMonth())+"-"+a(i.getUTCDate())+"T"+a(i.getUTCHours())+":"+a(i.getUTCMinutes())+":"+a(i.getUTCSeconds())+"."+(i.getUTCMilliseconds()/1e3).toFixed(3).slice(2,5)+"Z",iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}},ver:4,seq:"1",aiDataContract:undefined}}var h=-1,v=0,y=["js.monitor.azure.com","js.cdn.applicationinsights.io","js.cdn.monitor.azure.com","js0.cdn.applicationinsights.io","js0.cdn.monitor.azure.com","js2.cdn.applicationinsights.io","js2.cdn.monitor.azure.com","az416426.vo.msecnd.net"],k=l.url||cfg.src;if(k){if((n=navigator)&&(~(n=(n.userAgent||"").toLowerCase()).indexOf("msie")||~n.indexOf("trident/"))&&~k.indexOf("ai.3")&&(k=k.replace(/(\/)(ai\.3\.)([^\d]*)$/,function(e,t,n){return t+"ai.2"+n})),!1!==cfg.cr)for(var e=0;e<y.length;e++)if(0<k.indexOf(y[e])){h=e;break}var i=function(e){var a,t,n,i,o,r,s,c,p,u;f.queue=[],g||(0<=h&&v+1<y.length?(a=(h+v+1)%y.length,T(k.replace(/^(.*\/\/)([\w\.]*)(\/.*)$/,function(e,t,n,i){return t+y[a]+i})),v+=1):(d=g=!0,o=k,c=(p=function(){var e,t={},n=l.connectionString;if(n)for(var i=n.split(";"),a=0;a<i.length;a++){var o=i[a].split("=");2===o.length&&(t[o[0][S]()]=o[1])}return t[b]||(e=(n=t.endpointsuffix)?t.location:null,t[b]="https://"+(e?e+".":"")+"dc."+(n||"services.visualstudio.com")),t}()).instrumentationkey||l.instrumentationKey||"",p=(p=p[b])?p+"/v2/track":l.endpointUrl,(u=[]).push((t="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",n=o,r=p,(s=(i=m(c,"Exception")).data).baseType="ExceptionData",s.baseData.exceptions=[{typeName:"SDKLoadFailed",message:t.replace(/\./g,"-"),hasFullStack:!1,stack:t+"\nSnippet failed to load ["+n+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(w&&w.pathname||"_unknown_")+"\nEndpoint: "+r,parsedStack:[]}],i)),u.push((s=o,t=p,(r=(n=m(c,"Message")).data).baseType="MessageData",(i=r.baseData).message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+s+")").replace(/\"/g,"")+'"',i.properties={endpoint:t},n)),o=u,c=p,JSON&&((r=C.fetch)&&!cfg.useXhr?r(c,{method:D,body:JSON.stringify(o),mode:"cors"}):XMLHttpRequest&&((s=new XMLHttpRequest).open(D,c),s.setRequestHeader("Content-type","application/json"),s.send(JSON.stringify(o))))))},a=function(e,t){g||setTimeout(function(){!t&&f.core||i()},500),d=!1},T=function(e){var n=x.createElement(I),e=(n.src=e,cfg[u]);return!e&&""!==e||"undefined"==n[u]||(n[u]=e),n.onload=a,n.onerror=i,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||a(0,t)},cfg.ld&&cfg.ld<0?x.getElementsByTagName("head")[0].appendChild(n):setTimeout(function(){x.getElementsByTagName(I)[0].parentNode.appendChild(n)},cfg.ld||0),n};T(k)}try{f.cookie=x.cookie}catch(p){}function t(e){for(;e.length;)!function(t){f[t]=function(){var e=arguments;d||f.queue.push(function(){f[t].apply(f,e)})}}(e.pop())}var r,s,n="track",o="TrackPage",c="TrackEvent",n=(t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+o,"stop"+o,"start"+c,"stop"+c,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),f.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},(l.extensionConfig||{}).ApplicationInsightsAnalytics||{});return!0!==l[E]&&!0!==n[E]&&(t(["_"+(r="onerror")]),s=C[r],C[r]=function(e,t,n,i,a){var o=s&&s(e,t,n,i,a);return!0!==o&&f["_"+r]({message:e,url:t,lineNumber:n,columnNumber:i,error:a,evt:C.event}),o},l.autoExceptionInstrumented=!0),f}(cfg.cfg),(C[n]=i).queue&&0===i.queue.length?(i.queue.push(e),i.trackPageView({})):e();})({
+src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
+crossOrigin: "anonymous",
+onInit: function (sdk) {
+  sdk.addTelemetryInitializer(function (envelope) {
+    envelope.data = envelope.data || {};
+    envelope.data.someField = 'This item passed through my telemetry initializer';
+  });
+}, // Once the application insights instance has loaded and initialized this method will be called
+cfg: { // Application Insights Configuration
+    connectionString: "YOUR_CONNECTION_STRING"
+}});
 </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
+#### [npm package](#tab/npmpackage)
 
-You can add as many initializers as you like, and they are called in the order they are added.
+   ```js
+   import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+   const appInsights = new ApplicationInsights({ config: {
+     connectionString: 'YOUR_CONNECTION_STRING'
+     /* ...Other Configuration Options... */
+   } });
+   appInsights.loadAppInsights();
+   // To insert a telemetry initializer, uncomment the following code.
+   /** var telemetryInitializer = (envelope) => {   envelope.data = envelope.data || {}; envelope.data.someField = 'This item passed through my telemetry initializer'; 
+   };
+   appInsights.addTelemetryInitializer(telemetryInitializer); **/ 
+   appInsights.trackPageView();
+   ```
+
+---
+
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-telemetry.md#application-insights-export-data-model).
+
+You can add as many initializers as you like. They're called in the order that they're added.
+
+### OpenCensus Python telemetry processors
+
+Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they're exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported, make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [on GitHub](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+
+> [!NOTE]
+> You can modify `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
+
+```python
+def callback_function(envelope):
+    envelope.tags['ai.cloud.role'] = 'new_role_name'
+```
+
+```python
+# Example for log exporter
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+
+# Callback function to append '_hello' to each log message telemetry
+def callback_function(envelope):
+    envelope.data.baseData.message += '_hello'
+    return True
+
+handler = AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>')
+handler.add_telemetry_processor(callback_function)
+logger.addHandler(handler)
+logger.warning('Hello, World!')
+```
+```python
+# Example for trace exporter
+import requests
+
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import ProbabilitySampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['requests'])
+
+# Callback function to add os_type: linux to span properties
+def callback_function(envelope):
+    envelope.data.baseData.properties['os_type'] = 'linux'
+    return True
+
+exporter = AzureExporter(
+    connection_string='InstrumentationKey=<your-instrumentation-key-here>'
+)
+exporter.add_telemetry_processor(callback_function)
+tracer = Tracer(exporter=exporter, sampler=ProbabilitySampler(1.0))
+with tracer.span(name='parent'):
+response = requests.get(url='https://www.wikipedia.org/wiki/Rabbit')
+```
+
+```python
+# Example for metrics exporter
+import time
+
+from opencensus.ext.azure import metrics_exporter
+from opencensus.stats import aggregation as aggregation_module
+from opencensus.stats import measure as measure_module
+from opencensus.stats import stats as stats_module
+from opencensus.stats import view as view_module
+from opencensus.tags import tag_map as tag_map_module
+
+stats = stats_module.stats
+view_manager = stats.view_manager
+stats_recorder = stats.stats_recorder
+
+CARROTS_MEASURE = measure_module.MeasureInt("carrots",
+                                            "number of carrots",
+                                            "carrots")
+CARROTS_VIEW = view_module.View("carrots_view",
+                                "number of carrots",
+                                [],
+                                CARROTS_MEASURE,
+                                aggregation_module.CountAggregation())
+
+# Callback function to only export the metric if value is greater than 0
+def callback_function(envelope):
+    return envelope.data.baseData.metrics[0].value > 0
+
+def main():
+    # Enable metrics
+    # Set the interval in seconds in which you want to send metrics
+    exporter = metrics_exporter.new_metrics_exporter(connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+    exporter.add_telemetry_processor(callback_function)
+    view_manager.register_exporter(exporter)
+
+    view_manager.register_view(CARROTS_VIEW)
+    mmap = stats_recorder.new_measurement_map()
+    tmap = tag_map_module.TagMap()
+
+    mmap.measure_int_put(CARROTS_MEASURE, 1000)
+    mmap.record(tmap)
+    # Default export interval is every 15.0s
+    # Your application should run for at least this amount
+    # of time so the exporter will meet this interval
+    # Sleep can fulfill this
+    time.sleep(60)
+
+    print("Done recording metrics")
+
+if __name__ == "__main__":
+    main()
+```
+You can add as many processors as you like. They're called in the order that they're added. If one processor throws an exception, it doesn't impact the following processors.
 
 ### Example TelemetryInitializers
 
-#### Add custom property
+#### Add a custom property
 
 The following sample initializer adds a custom property to every tracked telemetry.
 
@@ -386,24 +486,38 @@ The following sample initializer adds a custom property to every tracked telemet
 public void Initialize(ITelemetry item)
 {
   var itemProperties = item as ISupportProperties;
-  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+  if(itemProperties != null && !itemProperties.Properties.ContainsKey("customProp"))
     {
         itemProperties.Properties["customProp"] = "customValue";
     }
 }
 ```
 
-#### Add cloud role name
+#### Add a cloud role name
 
-The following sample initializer sets cloud role name to every tracked telemetry.
+The following sample initializer sets the cloud role name to every tracked telemetry.
 
 ```csharp
 public void Initialize(ITelemetry telemetry)
 {
-    if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+    if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
     {
         telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
     }
+}
+```
+
+#### Control the client IP address used for geolocation mappings
+
+The following sample initializer sets the client IP which will be used for geolocation mapping, instead of the client socket IP address, during telemetry ingestion. 
+
+```csharp
+public void Initialize(ITelemetry telemetry)
+{
+    var request = telemetry as RequestTelemetry;
+    if (request == null) return true;
+    request.Context.Location.Ip = "{client ip address}"; // Could utilize System.Web.HttpContext.Current.Request.UserHostAddress;   
+    return true;
 }
 ```
 
@@ -411,30 +525,42 @@ public void Initialize(ITelemetry telemetry)
 
 What's the difference between telemetry processors and telemetry initializers?
 
-* There are some overlaps in what you can do with them: both can be used to add or modify properties of telemetry, though it is recommended to use initializers for that purpose.
-* TelemetryInitializers always run before TelemetryProcessors.
-* TelemetryInitializers may be called more than once. By convention, they do not set any property that has already been set.
-* TelemetryProcessors allow you to completely replace or discard a telemetry item.
-* All registered TelemetryInitializers are guaranteed to be called for every telemetry item. For Telemetry processors, SDK guarantees calling the very first telemetry processor. Whether the rest of the processors are called or not, is decided by the preceding telemetry processors.
-* Use TelemetryInitializers to enrich telemetry with additional properties, or override existing one. Use TelemetryProcessor to filter out telemetry.
+* There are some overlaps in what you can do with them. Both can be used to add or modify properties of telemetry, although we recommend that you use initializers for that purpose.
+* Telemetry initializers always run before telemetry processors.
+* Telemetry initializers may be called more than once. By convention, they don't set any property that was already set.
+* Telemetry processors allow you to completely replace or discard a telemetry item.
+* All registered telemetry initializers are called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
+* Use telemetry initializers to enrich telemetry with more properties or override an existing one. Use a telemetry processor to filter out telemetry.
 
-## Troubleshooting ApplicationInsights.config
+> [!NOTE]
+> JavaScript only has telemetry initializers which can [filter out events by using ITelemetryInitializer](#javascript-web-applications)
+
+## Troubleshoot ApplicationInsights.config
 
 * Confirm that the fully qualified type name and assembly name are correct.
 * Confirm that the applicationinsights.config file is in your output directory and contains any recent changes.
 
+## Azure Monitor Telemetry Data Types Reference
+
+ * [ASP.NET Core SDK](/dotnet/api/microsoft.applicationinsights.datacontracts)
+ * [ASP.NET SDK](/dotnet/api/microsoft.applicationinsights.datacontracts)
+ * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes)
+ * [Java SDK (via config)](/azure/azure-monitor/app/java-in-process-agent#modify-telemetry)
+ * [Python SDK](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py)
+ * [JavaScript SDK](https://github.com/microsoft/ApplicationInsights-JS/tree/master/shared/AppInsightsCommon/src/Telemetry)
+
 ## Reference docs
 
-* [API Overview](../../azure-monitor/app/api-custom-events-metrics.md)
-* [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
+* [API overview](./api-custom-events-metrics.md)
+* [ASP.NET reference](/previous-versions/azure/dn817570(v=azure.100))
 
-## SDK Code
+## SDK code
 
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Sampling](../../azure-monitor/app/sampling.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
+* [Search events and logs](./transaction-search-and-diagnostics.md?tabs=transaction-search)
+* [sampling](./sampling.md)
+

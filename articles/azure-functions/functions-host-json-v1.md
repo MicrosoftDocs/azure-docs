@@ -11,14 +11,14 @@ ms.date: 10/19/2018
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available for the v1 runtime. The JSON schema is at http://json.schemastore.org/host.
+The *host.json* metadata file contains configuration options that affect all functions in a function app instance. This article lists the settings that are available for the version 1.x runtime. The JSON schema is at http://json.schemastore.org/host.
 
 > [!NOTE]
 > This article is for Azure Functions 1.x.  For a reference of host.json in Functions 2.x and later, see [host.json reference for Azure Functions 2.x](functions-host-json.md).
 
 Other function app configuration options are managed in your [app settings](functions-app-settings.md).
 
-Some host.json settings are only used when running locally in the [local.settings.json](functions-run-local.md#local-settings-file) file.
+Some host.json settings are only used when running locally in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 ## Sample host.json file
 
@@ -88,7 +88,8 @@ The following sample *host.json* files have all possible options specified.
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -143,9 +144,7 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 ## eventHub
 
-Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md?tabs=functionsv1#hostjson-settings).
 
 ## functions
 
@@ -187,7 +186,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 |---------|---------|---------| 
 |enabled|true|Specifies whether the feature is enabled. | 
 |healthCheckInterval|10 seconds|The time interval between the periodic background health checks. | 
-|healthCheckWindow|2 minutes|A sliding time window used in conjunction with the `healthCheckThreshold` setting.| 
+|healthCheckWindow|2 minutes|A sliding time window used with the `healthCheckThreshold` setting.| 
 |healthCheckThreshold|6|Maximum number of times the health check can fail before a host recycle is initiated.| 
 |counterThreshold|0.80|The threshold at which a performance counter will be considered unhealthy.| 
 
@@ -208,16 +207,16 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|dynamicThrottlesEnabled|false|When enabled, this setting causes the request processing pipeline to periodically check system performance counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return to normal levels.|
+|dynamicThrottlesEnabled|false|When enabled, this setting causes the request processing pipeline to periodically check system performance counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in high threshold (80%), requests are rejected with a 429 "Too Busy" response until the counter(s) return to normal levels.|
 |maxConcurrentRequests|unbounded (`-1`)|The maximum number of HTTP functions that will be executed in parallel. This allows you to control concurrency, which can help manage resource utilization. For example, you might have an HTTP function that uses a lot of system resources (memory/cpu/sockets) such that it causes issues when concurrency is too high. Or you might have a function that makes outbound requests to a third party service, and those calls need to be rate limited. In these cases, applying a throttle here can help.|
-|maxOutstandingRequests|unbounded (`-1`)|The maximum number of outstanding requests that are held at any given time. This limit includes requests that are queued but have not started executing, as well as any in progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. That allows callers to employ time-based retry strategies, and also helps you to control maximum request latencies. This only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting.|
+|maxOutstandingRequests|unbounded (`-1`)|The maximum number of outstanding requests that are held at any given time. This limit includes requests that are queued but have not started executing, and any in progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. That allows callers to employ time-based retry strategies, and also helps you to control maximum request latencies. This only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting.|
 |routePrefix|api|The route prefix that applies to all routes. Use an empty string to remove the default prefix. |
 
 ## id
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure, we recommend that you not set an ID value. An ID is generated automatically in Azure when `id` is omitted. 
 
-If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer runs.
 
 ```json
 {
@@ -227,7 +226,7 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## logger
 
-Controls filtering for logs written by an [ILogger object](functions-monitoring.md#write-logs-in-c-functions) or by [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controls filtering for logs written by an [ILogger](functions-dotnet-class-library.md#ilogger) object or by [context.log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -283,6 +282,7 @@ Configuration setting for the [SendGrind output binding](functions-bindings-send
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |Property  |Default | Description |
@@ -294,11 +294,12 @@ Configuration setting for the [SendGrind output binding](functions-bindings-send
 Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
 ```json
-{
+{ 
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
@@ -306,8 +307,9 @@ Configuration setting for [Service Bus triggers and bindings](functions-bindings
 |Property  |Default | Description |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
-|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
+|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying ServiceBusReceiver.| 
+|autoRenewTimeout|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
+|autoComplete|true|When true, the trigger completes the message processing automatically on successful execution of the operation. When false, it is the responsibility of the function to complete the message before returning.|
 
 ## singleton
 
@@ -330,14 +332,14 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 |lockPeriod|00:00:15|The period that function level locks are taken for. The locks auto-renew.| 
 |listenerLockPeriod|00:01:00|The period that listener locks are taken for.| 
 |listenerLockRecoveryPollingInterval|00:01:00|The time interval used for listener lock recovery if a listener lock couldn't be acquired on startup.| 
-|lockAcquisitionTimeout|00:01:00|The maximum amount of time the runtime will try to acquire a lock.| 
+|lockAcquisitionTimeout|00:01:00|The maximum amount of time the runtime tries to acquire a lock.| 
 |lockAcquisitionPollingInterval|n/a|The interval between lock acquisition attempts.| 
 
 ## tracing
 
 *Version 1.x*
 
-Configuration settings for logs that you create by using a `TraceWriter` object. See [C# Logging](functions-reference-csharp.md#logging) and [Node.js Logging](functions-reference-node.md#writing-trace-output-to-the-console).
+Configuration settings for logs that you create by using a `TraceWriter` object. To learn more, see [C# Logging].
 
 ```json
 {
@@ -369,4 +371,4 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 > [Learn how to update the host.json file](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [See global settings in environment variables](functions-app-settings.md)
+> [Persist settings in environment variables](functions-app-settings.md)

@@ -1,9 +1,13 @@
 ---
 title: Create an Azure Service Fabric container application 
-description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
-
-ms.topic: conceptual
-ms.date: 01/25/2019
+description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, then build and deploy the container to Azure Service Fabric.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-python
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Create your first Service Fabric container application on Windows
@@ -12,7 +16,7 @@ ms.date: 01/25/2019
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster running on your local machine. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to an Azure Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](../container-registry/index.yml). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
@@ -31,20 +35,15 @@ Running an existing application in a Windows container on a Service Fabric clust
 
   For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
-To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
-
-* If the version contains *x.x.14323.x*, then select *WindowsServer 2016-Datacenter-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
-  * If the version contains *x.x.16299.x*, then select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
+    To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine. Refer to [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility) before you [creating a cluster](service-fabric-cluster-creation-via-portal.md).
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
 > [!NOTE]
 > Deploying containers to a Service Fabric cluster running on Windows 10 is supported.  See [this article](service-fabric-how-to-debug-windows-containers.md) for information on how to configure Windows 10 to run Windows containers.
->   
 
 > [!NOTE]
-> Service Fabric versions 6.2 and later support deploying containers to clusters running on Windows Server version 1709.  
-> 
+> Service Fabric versions 6.2 and later support deploying containers to clusters running on Windows Server version 1709.
 
 ## Define the Docker container
 
@@ -104,10 +103,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## Build the image
-Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to the directory containing the Dockerfile. Run the following command:
+
+## Login to Docker and build the image
+
+Next we'll create the image that runs your web application. When pulling public images from Docker (like `python:2.7-windowsservercore` in our Dockerfile), it's a best practice to authenticate with your Docker Hub account instead of making an anonymous pull request.
+
+> [!NOTE]
+> When making frequent anonymous pull requests you might see Docker errors similar to `ERROR: toomanyrequests: Too Many Requests.` or `You have reached your pull rate limit.` Authenticate to Docker Hub to prevent these errors. See [Manage public content with Azure Container Registry](../container-registry/buffer-gate-public-content.md) for more info.
+
+Open a PowerShell window and navigate to the directory containing the Dockerfile. Then run the following commands:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -164,7 +171,7 @@ After you verify that the container runs on your development machine, push the i
 
 Run ``docker login`` to sign in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
+The following example passes the ID and password of a Microsoft Entra [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -285,7 +292,7 @@ Starting with the latest refresh release of v6.4, you have the option to specify
 
 The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
-![HealthCheckHealthy][3]
+![Screenshot shows details of the Deployed Service Package NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 
@@ -330,7 +337,7 @@ Open a browser and navigate to `http://containercluster.westus2.cloudapp.azure.c
 
 ## Clean up
 
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-cluster-delete.md).
+You continue to incur charges while the cluster is running, consider [deleting your cluster](./service-fabric-tutorial-delete-cluster.md).
 
 After you push the image to the container registry, you can delete the local image from your development computer:
 
@@ -347,12 +354,12 @@ Windows Server containers are not compatible across all versions of a host OS. F
 - Windows Server containers built using Windows Server 2016 work in Hyper-V isolation mode only on a host running Windows Server version 1709. 
 - With Windows Server containers built using Windows Server 2016, it might be necessary to ensure that the revision of the container OS and host OS are the same when running in process isolation mode on a host running Windows Server 2016.
  
-To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+To learn more, see [Windows Container Version Compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Consider the compatibility of the host OS and your container OS when building and deploying containers to your Service Fabric cluster. For example:
 
 - Make sure you deploy containers with an OS compatible with the OS on your cluster nodes.
-- Make sure that the isolation mode specified for your container app is consistent with support for the container OS on the node where it is being deployed.
+- Make sure that the isolation mode specified for your container application is consistent with support for the container OS on the node where it is being deployed.
 - Consider how OS upgrades to your cluster nodes or containers may affect their compatibility. 
 
 We recommend the following practices to make sure that containers are deployed correctly on your Service Fabric cluster:
@@ -378,7 +385,7 @@ Windows Server containers may not be compatible across different versions of the
          </ImageOverrides> 
       </ContainerHostPolicies> 
 ```
-The build version for WIndows Server 2016 is 14393, and the build version for Windows Server version 1709 is 16299. The service manifest continues to specify only one image per container service as the following shows:
+The build version for Windows Server 2016 is 14393, and the build version for Windows Server version 1709 is 16299. The service manifest continues to specify only one image per container service as the following shows:
 
 ```xml
 <ContainerHost>
@@ -531,7 +538,7 @@ You can configure the Service Fabric cluster to remove unused container images f
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
@@ -593,6 +600,97 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 	} 
 ]
 ```
+
+## EntryPoint Override
+With 8.2 version of ServiceFabric Runtime, entrypoint for **container** and **exe host** code package can be overridden. This can be used in cases where all the manifest elements remains the same but the container image needs to be changed, then provisioning a different app type version is not required anymore, or different arguments needs to be passed based on test or prod scenario and the entry point remains the same.
+
+Following is an example on how to override container entry point:
+
+### ApplicationManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest ApplicationTypeName="MyFirstContainerType"
+                     ApplicationTypeVersion="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="ImageName" DefaultValue="myregistry.azurecr.io/samples/helloworldapp" />
+    <Parameter Name="Commands" DefaultValue="commandsOverride" />
+    <Parameter Name="FromSource" DefaultValue="sourceOverride" />
+    <Parameter Name="EntryPoint" DefaultValue="entryPointOverride" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <Policies>
+      <CodePackagePolicy CodePackageRef="Code">
+        <EntryPointOverride>
+         <ContainerHostOverride>
+            <ImageOverrides>
+              <Image Name="[ImageName]" />
+            </ImageOverrides>
+            <Commands>[Commands]</Commands>
+            <FromSource>[Source]</FromSource>
+            <EntryPoint>[EntryPoint]</EntryPoint>
+          </ContainerHostOverride>
+        </EntryPointOverride>
+      </CodePackagePolicy>
+    </Policies>
+  </ServiceManifestImport>
+</ApplicationManifest>
+```
+### ServiceManifest.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="Guest1Pkg"
+                 Version="1.0.0"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- This is the name of your ServiceType.
+         The UseImplicitHost attribute indicates this is a guest service. -->
+    <StatelessServiceType ServiceTypeName="Guest1Type" UseImplicitHost="true" />
+  </ServiceTypes>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.0">
+    <EntryPoint>
+      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
+      <ContainerHost>
+        <ImageName>default imagename</ImageName>
+        <Commands>default cmd</Commands>
+        <EntryPoint>default entrypoint</EntryPoint>
+        <FromSource>default source</FromSource>
+      </ContainerHost>
+    </EntryPoint>
+  </CodePackage>
+
+  <ConfigPackage Name="Config" Version="1.0.0" />
+</ServiceManifest>
+```
+After the overrides in application manifest are specified, container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride, and entryPoint entryPointOverride will be started.
+
+Similarly, below is an example on how to override the **ExeHost**:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Policies>
+  <CodePackagePolicy CodePackageRef="Code">
+    <EntryPointOverride>
+      <ExeHostOverride>
+        <Program>[Program]</Program>
+        <Arguments>[Entry]</Arguments>
+      </ExeHostOverride>
+    </EntryPointOverride>
+  </CodePackagePolicy>
+</Policies>
+```
+> [!NOTE]
+> Entry point override is not supported for SetupEntryPoint.
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).

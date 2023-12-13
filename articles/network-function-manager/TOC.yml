@@ -1,0 +1,51 @@
+- name: Network Function Manager documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Network Function Manager
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a device resource
+    href: create-device.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Deploy network functions
+    href: deploy-functions.md
+  - name: Delete network functions
+    href: Delete-functions.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Partners
+    href: partners.md
+  - name: FAQ
+    href: faq.md
+  - name: Prerequisites and requirements
+    href: requirements.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Configure permissions and register resources
+    href: resources-permissions.md
+- name: Reference
+  items:
+  - name: REST
+    href: /rest/api/hybridnetwork
+  - name: SDK for Java
+    href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork/azure-resourcemanager-hybridnetwork
+  - name: SDK for Python
+    href: https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/
+- name: Resources
+  items:
+  - name: Network Function Manager product page
+    href: https://go.microsoft.com/fwlink/?linkid=2166098
+  - name: Azure private MEC documentation
+    href: ../private-multi-access-edge-compute-mec/index.yml
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking

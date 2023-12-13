@@ -1,32 +1,35 @@
 ---
 title: Manage users in Azure FarmBeats
 description: This article describes how to manage users in Azure FarmBeats.
-author: uhabiba04
+author: gourdsay
 ms.topic: article
-ms.date: 12/02/2019
-ms.author: v-umha
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
-
 # Manage users
+Azure FarmBeats includes user management for people who are part of your Microsoft Entra instance. You can add users to your Azure FarmBeats instance to access the APIs, view the generated maps, and access sensor telemetry from the farm.
 
-Azure FarmBeats includes user management for people who are part of your Azure Active Directory (Azure AD) instance. You can add users to your Azure FarmBeats instance to access the APIs, view the generated maps, and access sensor telemetry from the farm.
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 ## Prerequisites
 
-- An Azure FarmBeats installation is required. For more information, see [Install Azure FarmBeats](install-azure-farmbeats.md).
+- Azure FarmBeats installation is required. For more information, see [Install Azure FarmBeats](install-azure-farmbeats.md).
 - The email IDs of the users you want to add or remove from your Azure FarmBeats instance.
 
 ## Manage Azure FarmBeats users
 
-Azure FarmBeats uses Azure AD for authentication, access control, and roles. You can add users in the Azure AD tenant as users in Azure FarmBeats.
+Azure FarmBeats uses Microsoft Entra ID for authentication, access control, and roles. You can add users in the Microsoft Entra tenant as users in Azure FarmBeats.
 
 > [!NOTE]
-> If a user you're trying to add as an Azure FarmBeats user isn't present in the Azure AD tenant, complete the setup by following the instructions in the "Add Azure AD users" section.
+> If a user is not a Microsoft Entra tenant user, follow the instructions in the **Add Microsoft Entra users** section to complete the setup.
 
 Azure FarmBeats supports two types of user roles:
 
- - **Admin**: Full access to Azure FarmBeats Datahub APIs. Users in this role can query all Azure FarmBeats Datahub objects and perform all operations from the FarmBeats Accelerator.
+ - **Admin**: Complete access to Azure FarmBeats Datahub APIs. Users in this role can query all Azure FarmBeats Datahub objects and perform all operations from the FarmBeats Accelerator.
  - **Read-Only**: Read-only access to FarmBeats Datahub APIs. Users can view the Datahub APIs, the Accelerator Dashboards, and the maps. Users with read-only access can't perform operations such as generating maps, associating devices, or creating farms.
 
 ## Add users to Azure FarmBeats
@@ -52,22 +55,24 @@ To remove users from the Azure FarmBeats system:
 2. Select **Access Control**.
 3. Select **Delete**.
 
-   The user is deleted from the system. You will receive the following confirmation message:
+   The user is deleted from the system. You'll receive the following confirmation message:
 
    ![Azure FarmBeats confirmation message](./media/create-farms-in-azure-farmbeats/manage-users-2.png)
 
-## Add Azure AD users
+<a name='add-azure-ad-users'></a>
+
+## Add Microsoft Entra users
 
 > [!NOTE]
-> Azure FarmBeats users need to exist in the Azure AD tenant before you can assign them to applications and roles. If a user that you want to add to Azure FarmBeats doesn't already exist in the Azure AD tenant, follow the instructions in this section. If the user exists in the Azure AD tenant, you can skip these instructions.
+> Azure FarmBeats users need to exist in the Microsoft Entra tenant before you assign them to applications and roles. If a user doesn't exist in the Microsoft Entra tenant, follow the instructions in this section. Skip the instructions, if a user already exists in the Microsoft Entra tenant.
 
-To add users to Azure AD, do the following:
+Follow the steps to add users to Microsoft Entra ID:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. At the top right, select your account, and then switch to the Azure AD tenant that's associated with FarmBeats.
-3. Select **Azure Active Directory** > **Users**.
+2. At the top right, select your account, and then switch to the Microsoft Entra tenant that's associated with FarmBeats.
+3. Select **Microsoft Entra ID** > **Users**.
 
-    A list of Azure AD users is displayed.
+    A list of Microsoft Entra users is displayed.
 
 4. To add a user to the directory, select **New user**. To add an external user, select **New guest user**.
 
@@ -76,7 +81,7 @@ To add users to Azure AD, do the following:
 5. Select the new user's name, and then complete the required fields for that user.
 6. Select **Create**.
 
-For information about managing Azure AD users, see [Add or delete users in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory/).
+For information about managing Microsoft Entra users, see [Add or delete users in Microsoft Entra ID](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## Next steps
 

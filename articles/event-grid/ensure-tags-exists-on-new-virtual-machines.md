@@ -2,16 +2,14 @@
 title: Integrate Azure Automation with Event Grid | Microsoft Docs
 description: Learn how to automatically add a tag when a new VM is created and send a notification to Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
-services: automation
+services: automation,event-grid
 author: eamonoreilly
-manager: 
 
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 07/07/2020
 ms.author: eamono
-
 ---
 
 # Tutorial: Integrate Azure Automation with Event Grid and Microsoft Teams
@@ -31,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-To complete this tutorial, an [Azure Automation account](../automation/automation-offering-get-started.md) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
+To complete this tutorial, an [Azure Automation account](../automation/index.yml) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
 
 * The `AzureRM.Tags` module needs to be loaded in your Automation Account, see [How to import modules in Azure Automation](../automation/automation-update-azure-modules.md) to learn how to import modules into Azure Automation.
 
@@ -45,7 +43,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
 3. Search for **Event Grid**, and select **Integrating Azure Automation with Event grid**.
 
-    ![Import gallery runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
+    ![Import gallery runbook](media/ensure-tags-exists-on-new-virtual-machines/gallery.png)
 
 4. Select **Import** and name it **Watch-VMWrite**.
 
@@ -91,7 +89,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 
 1. On the **Automation Account** overview page, select **Event grid**.
 
-    ![Select Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
+    ![Select Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select.png)
 
 2. Click **+ Event Subscription**.
 

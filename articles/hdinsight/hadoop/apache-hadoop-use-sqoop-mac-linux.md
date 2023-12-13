@@ -1,20 +1,17 @@
 ---
 title: Apache Sqoop with Apache Hadoop - Azure HDInsight 
-description: Learn how to use Apache Sqoop to import and export between Apache Hadoop on HDInsight and an Azure SQL Database.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Learn how to use Apache Sqoop to import and export between Apache Hadoop on HDInsight and Azure SQL Database.
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/28/2019
+ms.date: 08/21/2023
 ---
 
-# Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and SQL Database
+# Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and Azure SQL Database
 
-[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
+[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Apache Sqoop to import and export between an Apache Hadoop cluster in Azure HDInsight and Azure SQL Database or Microsoft SQL Server database. The steps in this document use the `sqoop` command directly from the headnode of the Hadoop cluster. You use SSH to connect to the head node and run the commands in this document. This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+Learn how to use Apache Sqoop to import and export between an Apache Hadoop cluster in Azure HDInsight and Azure SQL Database or Microsoft SQL Server. The steps in this document use the `sqoop` command directly from the headnode of the Hadoop cluster. You use SSH to connect to the head node and run the commands in this document. This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 ## Prerequisites
 
@@ -35,35 +32,35 @@ Learn how to use Apache Sqoop to import and export between an Apache Hadoop clus
 1. For ease of use, set variables. Replace `PASSWORD`, `MYSQLSERVER`, and `MYDATABASE` with the relevant values, and then enter the commands below:
 
     ```bash
-    export password='PASSWORD'
-    export sqlserver="MYSQLSERVER"
-    export database="MYDATABASE"
+    export PASSWORD='PASSWORD'
+    export SQL_SERVER="MYSQLSERVER"
+    export DATABASE="MYDATABASE"
 
 
-    export serverConnect="jdbc:sqlserver://$sqlserver.database.windows.net:1433;user=sqluser;password=$password"
-    export serverDbConnect="jdbc:sqlserver://$sqlserver.database.windows.net:1433;user=sqluser;password=$password;database=$database"
+    export SERVER_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD"
+    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DABATASE"
     ```
 
 ## Sqoop export
 
-From Hive to SQL Server.
+From Hive to SQL.
 
-1. To verify that Sqoop can see your SQL Database, enter the command below in your open SSH connection. This command returns a list of databases.
+1. To verify that Sqoop can see your database, enter the command below in your open SSH connection. This command returns a list of databases.
 
     ```bash
-    sqoop list-databases --connect $serverConnect
+    sqoop list-databases --connect $SERVER_CONNECT
     ```
 
 1. Enter the following command to see a list of tables for the specified database:
 
     ```bash
-    sqoop list-tables --connect $serverDbConnect
+    sqoop list-tables --connect $SERVER_DB_CONNECT
     ```
 
-1. To export data from the Hive `hivesampletable` table to the `mobiledata` table in SQL Database, enter the command below in your open SSH connection:
+1. To export data from the Hive `hivesampletable` table to the `mobiledata` table in your database, enter the command below in your open SSH connection:
 
     ```bash
-    sqoop export --connect $serverDbConnect \
+    sqoop export --connect $SERVER_DB_CONNECT \
     -table mobiledata \
     --hcatalog-table hivesampletable
     ```
@@ -71,22 +68,22 @@ From Hive to SQL Server.
 1. To verify that data was exported, use the following queries from your SSH connection to view the exported data:
 
     ```bash
-    sqoop eval --connect $serverDbConnect \
+    sqoop eval --connect $SERVER_DB_CONNECT \
     --query "SELECT COUNT(*) from dbo.mobiledata WITH (NOLOCK)"
 
 
-    sqoop eval --connect $serverDbConnect \
+    sqoop eval --connect $SERVER_DB_CONNECT \
     --query "SELECT TOP(10) * from dbo.mobiledata WITH (NOLOCK)"
     ```
 
 ## Sqoop import
 
-From SQL Server to Azure storage.
+From SQL to Azure storage.
 
-1. Enter the command below in your open SSH connection to import data from the `mobiledata` table in SQL Database, to the `wasbs:///tutorials/usesqoop/importeddata` directory on HDInsight. The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
+1. Enter the command below in your open SSH connection to import data from the `mobiledata` table in SQL, to the `wasbs:///tutorials/usesqoop/importeddata` directory on HDInsight. The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
 
     ```bash
-    sqoop import --connect $serverDbConnect \
+    sqoop import --connect $SERVER_DB_CONNECT \
     --table mobiledata \
     --target-dir 'wasb:///tutorials/usesqoop/importeddata' \
     --fields-terminated-by '\t' \
@@ -96,7 +93,7 @@ From SQL Server to Azure storage.
 1. Alternatively, you can also specify a Hive table:
 
     ```bash
-    sqoop import --connect $serverDbConnect \
+    sqoop import --connect $SERVER_DB_CONNECT \
     --table mobiledata \
     --target-dir 'wasb:///tutorials/usesqoop/importeddata2' \
     --fields-terminated-by '\t' \
@@ -133,7 +130,7 @@ From SQL Server to Azure storage.
 
 ## Limitations
 
-* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to Microsoft SQL Server or Azure SQL Database doesn't support bulk inserts.
+* Bulk export - With Linux-based HDInsight, the Sqoop connector used to export data to SQL doesn't support bulk inserts.
 
 * Batching - With Linux-based HDInsight, When using the `-batch` switch when performing inserts, Sqoop makes multiple inserts instead of batching the insert operations.
 
@@ -145,7 +142,7 @@ From SQL Server to Azure storage.
 
     For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
 
-* SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](https://msdn.microsoft.com/ms144284.aspx) document.
+* SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) document.
 
 * You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](https://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) document.
 
@@ -154,5 +151,5 @@ From SQL Server to Azure storage.
 Now you've learned how to use Sqoop. To learn more, see:
 
 * [Use Apache Oozie with HDInsight](../hdinsight-use-oozie-linux-mac.md): Use Sqoop action in an Oozie workflow.
-* [Analyze flight delay data using HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): Use Interactive Query to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
+* [Analyze flight delay data using HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): Use Interactive Query to analyze flight delay data, and then use Sqoop to export data to a database in Azure.
 * [Upload data to HDInsight](../hdinsight-upload-data.md): Find other methods for uploading data to HDInsight/Azure Blob storage.

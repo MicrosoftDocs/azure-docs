@@ -1,0 +1,18 @@
+items:
+- name: NGINXaaS – An Azure Native ISV Service Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is NGINXaaS – An Azure Native ISV Service?
+    href: nginx-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create an NGINXaaS deployment
+    href: nginx-create.md
+- name: How to
+  items:
+  - name: Manage your NGINXaaS resource
+    href: nginx-manage.md
+  - name: Troubleshoot NGINXaaS
+    href: nginx-troubleshoot.md

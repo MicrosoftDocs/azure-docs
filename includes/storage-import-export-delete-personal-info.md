@@ -24,7 +24,7 @@ Personal information is relevant to the import/export service (via the portal an
 - City
 - Zip/postal code
 - State
-- Country/Province/Region
+- Country/Region/Province
 - Drive ID
 - Carrier account number
 - Shipping tracking number
@@ -33,7 +33,7 @@ When an import/export job is created, users provide contact information and a sh
 
 Personal contact information may be deleted in the following ways:
 
-- Data saved with the job is deleted with the job. Users can delete jobs manually and completed jobs are automatically deleted after 90 days. You can manually delete the jobs via the REST API or the Azure portal. To delete the job in the Azure portal, go to your import/export job, and click *Delete* from the command bar. For details on how to delete an import/export job via REST API, refer to [Delete an import/export job](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
+- Data saved with the job is deleted with the job. Users can delete jobs manually and completed jobs are automatically deleted after 90 days. You can manually delete the jobs via the REST API or the Azure portal. To delete the job in the Azure portal, go to your import/export job, and click *Delete* from the command bar. For details on how to delete an import/export job via REST API, refer to [Delete an import/export job](/previous-versions/azure/storage/common/storage-import-export-cancelling-and-deleting-jobs).
 
 - Contact information saved in the portal settings may be removed by deleting the portal settings. You can delete portal settings by following these steps:
   - Sign in to the [Azure portal](https://portal.azure.com).
@@ -41,4 +41,4 @@ Personal contact information may be deleted in the following ways:
   - Click *Export all settings* (to save your current settings to a `.json` file).
   - Click *Delete all settings and private dashboards* to delete all settings including saved contact information.
 
-For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trust-center)

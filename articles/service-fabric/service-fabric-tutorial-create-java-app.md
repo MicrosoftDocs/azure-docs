@@ -1,13 +1,15 @@
 ---
 title: 'Tutorial: Create a Java app on Azure Service Fabric'
 description: In this tutorial, learn how to create a reliable service Java application with a front-end, create a reliable services stateful back-end, and deploy the application to a cluster.
-author: suhuruli
-
 ms.topic: tutorial
-ms.date: 09/01/2018
-ms.author: suhuruli
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Create an application with a Java API front-end service and a stateful back-end service on Azure Service Fabric
 
 This tutorial is part one of a series. When you are finished, you have a Voting application with a Java web front end that saves voting results in a stateful back-end service on Azure Service Fabric. This tutorial series requires that you have a working Mac OSX or Linux developer machine. If you don't want to manually create the voting application, you can [download the source code for the completed application](https://github.com/Azure-Samples/service-fabric-java-quickstart) and skip ahead to [Walk through the voting sample application](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Also, consider following the [Quickstart for Java reliable services.](service-fabric-quickstart-java-reliable-services.md).
@@ -71,7 +73,7 @@ The table gives a short description of each item in the package explorer from th
 | build.gradle | Gradle file used to manage the project. |
 | settings.gradle | Contains names of Gradle projects in this folder. |
 
-### Add HTML and Javascript to the VotingWeb service
+### Add HTML and JavaScript to the VotingWeb service
 
 To add a UI that can be rendered by the stateless service, add an HTML file. This HTML file is then rendered by the lightweight HTTP server embedded into the stateless Java service.
 
@@ -884,7 +886,7 @@ At this point, the application is ready to be deployed to a local Service Fabric
     If you are using a Mac, you run the local cluster with the following command: Replace the command passed into the **-v** parameter with the path to your own workspace.
 
     ```bash
-    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
+    docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
     ```
     See more detailed instructions in the [OS X setup guide.](service-fabric-get-started-mac.md)
 

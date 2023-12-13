@@ -7,7 +7,6 @@ author: sachinsbigdata
 manager: mtillman
 
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
@@ -21,23 +20,23 @@ In this article, you learn about best practices and considerations for working w
 
 ## Security considerations
 
-Azure Data Lake Storage Gen1 offers POSIX access controls and detailed auditing for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and folders. The access controls can also be used to create defaults that can be applied to new files or folders. When permissions are set to existing folders and child objects, the permissions need to be propagated recursively on each object. If there are large number of files, propagating the permissions can take a long time. The time taken can range between 30-50 objects processed per second. Hence, plan the folder structure and user groups appropriately. Otherwise, it can cause unanticipated delays and issues when you work with your data.
+Azure Data Lake Storage Gen1 offers POSIX access controls and detailed auditing for Microsoft Entra users, groups, and service principals. These access controls can be set to existing files and folders. The access controls can also be used to create defaults that can be applied to new files or folders. When permissions are set to existing folders and child objects, the permissions need to be propagated recursively on each object. If there are large number of files, propagating the permissions can take a long time. The time taken can range between 30-50 objects processed per second. Hence, plan the folder structure and user groups appropriately. Otherwise, it can cause unanticipated delays and issues when you work with your data.
 
 Assume you have a folder with 100,000 child objects. If you take the lower bound of 30 objects processed per second, to update the permission for the whole folder could take an hour. More details on Data Lake Storage Gen1 ACLs are available at [Access control in Azure Data Lake Storage Gen1](data-lake-store-access-control.md). For improved performance on assigning ACLs recursively, you can use the Azure Data Lake Command-Line Tool. The tool creates multiple threads and recursive navigation logic to quickly apply ACLs to millions of files. The tool is available for Linux and Windows, and the [documentation](https://github.com/Azure/data-lake-adlstool) and [downloads](https://aka.ms/adlstool-download) for this tool can be found on GitHub. These same performance improvements can be enabled by your own tools written with the Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) and [Java](data-lake-store-get-started-java-sdk.md) SDKs.
 
 ### Use security groups versus individual users
 
-When working with big data in Data Lake Storage Gen1, most likely a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files.
+When working with big data in Data Lake Storage Gen1, most likely a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Microsoft Entra ID [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files.
 
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen1. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask), and other).
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen1. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask), and other).
 
 ### Security for groups
 
-As discussed, when users need access to Data Lake Storage Gen1, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the account, and even separate ones for key subfolders. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that later you do not need a long processing time for assigning new permissions to thousands of files.
+As discussed, when users need access to Data Lake Storage Gen1, it’s best to use Microsoft Entra security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the account, and even separate ones for key subfolders. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that later you do not need a long processing time for assigning new permissions to thousands of files.
 
 ### Security for service principals
 
-Azure Active Directory service principals are typically used by services like Azure HDInsight to access data in Data Lake Storage Gen1. Depending on the access requirements across multiple workloads, there might be some considerations to ensure security inside and outside of the organization. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen1 account. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. As with the security groups, you might consider making a service principal for each anticipated scenario (read, write, full) once a Data Lake Storage Gen1 account is created.
+Microsoft Entra service principals are typically used by services like Azure HDInsight to access data in Data Lake Storage Gen1. Depending on the access requirements across multiple workloads, there might be some considerations to ensure security inside and outside of the organization. For many customers, a single Microsoft Entra service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen1 account. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. As with the security groups, you might consider making a service principal for each anticipated scenario (read, write, full) once a Data Lake Storage Gen1 account is created.
 
 ### Enable the Data Lake Storage Gen1 firewall with Azure service access
 
@@ -45,7 +44,7 @@ Data Lake Storage Gen1 supports the option of turning on a firewall and limiting
 
 ![Firewall settings in Data Lake Storage Gen1](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewall settings in Data Lake Storage Gen1")
 
-Once firewall is enabled, only Azure services such as HDInsight, Data Factory, SQL Data Warehouse, etc. have access to Data Lake Storage Gen1. Due to the internal network address translation used by Azure, the Data Lake Storage Gen1 firewall does not support restricting specific services by IP and is only intended for restrictions of endpoints outside of Azure, such as on-premises.
+Once firewall is enabled, only Azure services such as HDInsight, Data Factory, Azure Synapse Analytics, etc. have access to Data Lake Storage Gen1. Due to the internal network address translation used by Azure, the Data Lake Storage Gen1 firewall does not support restricting specific services by IP and is only intended for restrictions of endpoints outside of Azure, such as on-premises.
 
 ## Performance and scale considerations
 
@@ -122,7 +121,9 @@ Like Distcp, the AdlCopy needs to be orchestrated by something like Azure Automa
 
 Data Lake Storage Gen1 provides detailed diagnostic logs and auditing. Data Lake Storage Gen1 provides some basic metrics in the Azure portal under the Data Lake Storage Gen1 account and in Azure Monitor. Availability of Data Lake Storage Gen1 is displayed in the Azure portal. However, this metric is refreshed every seven minutes and cannot be queried through a publicly exposed API. To get the most up-to-date availability of a Data Lake Storage Gen1 account, you must run your own synthetic tests to validate availability. Other metrics such as total storage utilization, read/write requests, and ingress/egress can take up to 24 hours to refresh. So, more up-to-date metrics must be calculated manually through Hadoop command-line tools or aggregating log information. The quickest way to get the most recent storage utilization is running this HDFS command from a Hadoop cluster node (for example, head node):
 
-    hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```console
+hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
+```
 
 ### Export Data Lake Storage Gen1 diagnostics
 
@@ -134,7 +135,7 @@ For more real-time alerting and more control on where to land the logs, consider
 
 If Data Lake Storage Gen1 log shipping is not turned on, Azure HDInsight also provides a way to turn on [client-side logging for Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md) via log4j. You must set the following property in **Ambari** > **YARN** > **Config** > **Advanced yarn-log4j configurations**:
 
-    log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+`log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 
 Once the property is set and the nodes are restarted, Data Lake Storage Gen1 diagnostics is written to the YARN logs on the nodes (/tmp/\<user\>/yarn.log), and important details like errors or throttling (HTTP 429 error code) can be monitored. This same information can also be monitored in Azure Monitor logs or wherever logs are shipped to in the [Diagnostics](data-lake-store-diagnostic-logs.md) blade of the Data Lake Storage Gen1 account. It is recommended to at least have client-side logging turned on or utilize the log shipping option with Data Lake Storage Gen1 for operational visibility and easier debugging.
 
@@ -150,11 +151,15 @@ When landing data into a data lake, it’s important to pre-plan the structure o
 
 In IoT workloads, there can be a great deal of data being landed in the data store that spans across numerous products, devices, organizations, and customers. It’s important to pre-plan the directory layout for organization, security, and efficient processing of the data for down-stream consumers. A general template to consider might be the following layout:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 For example, landing telemetry for an airplane engine within the UK might look like the following structure:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+```console
+UK/Planes/BA1293/Engine1/2017/08/11/12/
+```
 
 There's an important reason to put the date at the end of the folder structure. If you want to lock down certain regions or subject matters to users/groups, then you can easily do so with the POSIX permissions. Otherwise, if there was a need to restrict a certain security group to viewing just the UK data or certain planes, with the date structure in front a separate permission would be required for numerous folders under every hour folder. Additionally, having the date structure in front would exponentially increase the number of folders as time went on.
 
@@ -164,14 +169,18 @@ From a high-level, a commonly used approach in batch processing is to land data 
 
 Sometimes file processing is unsuccessful due to data corruption or unexpected formats. In such cases, directory structure might benefit from a **/bad** folder to move the files to for further inspection. The batch job might also handle the reporting or notification of these *bad* files for manual intervention. Consider the following template structure:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```console
+{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
+{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+```
 
 For example, a marketing firm receives daily data extracts of customer updates from their clients in North America. It might look like the following snippet before and after being processed:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```console
+NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
+NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+```
 
 In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn’t a need for an **/in** or **/out** folder since the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective folders, and orchestration by something like Azure Data Factory, Apache Oozie, or Apache Airflow would trigger a daily Hive or Spark job to process and write the data into a Hive table.
 

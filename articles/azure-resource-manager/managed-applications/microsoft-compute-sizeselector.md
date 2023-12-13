@@ -1,13 +1,10 @@
 ---
 title: SizeSelector UI element
 description: Describes the Microsoft.Compute.SizeSelector UI element for Azure portal. Use for selecting the size of a virtual machine.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: tomfitz
-
 ---
+
 # Microsoft.Compute.SizeSelector UI element
 
 A control for selecting a size for one or more virtual machine instances.
@@ -16,11 +13,11 @@ A control for selecting a size for one or more virtual machine instances.
 
 The user sees a selector with default values from the element definition.
 
-![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft-compute-sizeselector.png)
 
 After selecting the control, the user sees an expanded view of the available sizes.
 
-![Microsoft.Compute.SizeSelector expanded](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
+![Microsoft.Compute.SizeSelector expanded](./media/managed-application-elements/microsoft-compute-sizeselector-expanded.png)
 
 ## Schema
 

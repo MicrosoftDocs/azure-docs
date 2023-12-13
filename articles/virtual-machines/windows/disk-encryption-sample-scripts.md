@@ -1,64 +1,84 @@
 ---
-title: Azure Disk Encryption sample scripts
+title: Azure Disk Encryption sample scripts for Windows VMs
 description: This article is the appendix for Microsoft Azure Disk Encryption for Windows VMs.
 author: msmbaldwin
-ms.service: security
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
+ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 08/06/2019
+ms.date: 01/04/2023
 
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 
-# Azure Disk Encryption sample scripts 
+# Azure Disk Encryption sample scripts
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
- 
+> [!NOTE]
+> All scripts refer to the latest, non-AAD version of ADE, except where noted.
 
-## List VMs and secrets
+## Sample PowerShell scripts for Azure Disk Encryption
 
-List all encrypted VMs in your subscription:
 
-```azurepowershell-interactive
-$osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-$dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
-```
-List all disk encryption secrets used for encrypting VMs in a key vault:
+- **List all encrypted VMs in your subscription**
+
+  You can find all ADE-encrypted VMs and the extension version, in all resource groups present in a subscription, using [this PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VM.ps1).
+
+  Alternatively, these cmdlets will show all ADE-encrypted VMs (but not the extension version):
+
+    ```azurepowershell-interactive
+    $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+    $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+    Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+    ```
+
+- **List all encrypted VMSS instances in your subscription**
+
+    You can find all ADE-encrypted Virtual Machine Scale Sets instances and the extension version, in all resource groups present in a subscription, using [this PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/Find_1passAdeVersion_VMSS.ps1).
+
+- **List all disk encryption secrets used for encrypting VMs in a key vault**
 
 ```azurepowershell-interactive
 Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
 ```
 
-## The Azure Disk Encryption prerequisites scripts
-If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group. 
+### Using the Azure Disk Encryption prerequisites PowerShell script
 
-The following table shows which parameters can be used in the PowerShell script: 
+If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group.
+
+The following table shows which parameters can be used in the PowerShell script:
 
 |Parameter|Description|Mandatory?|
 |------|------|------|
-|$resourceGroupName| Name of the resource group to which the KeyVault belongs to.  A new resource group with this name will be created if one doesn't exist.| True|
+|$resourceGroupName| Name of the resource group to which the KeyVault belongs.  A new resource group with this name will be created if one doesn't exist.| True|
 |$keyVaultName|Name of the KeyVault in which encryption keys are to be placed. A new vault with this name will be created if one doesn't exist.| True|
 |$location|Location of the KeyVault. Make sure the KeyVault and VMs to be encrypted are in the same location. Get a location list with `Get-AzLocation`.|True|
 |$subscriptionId|Identifier of the Azure subscription to be used.  You can get your Subscription ID with `Get-AzSubscription`.|True|
-|$aadAppName|Name of the Azure AD application that will be used to write secrets to KeyVault. A new application with this name will be created if one doesn't exist. If this app already exists, pass aadClientSecret parameter to the script.|False|
-|$aadClientSecret|Client secret of the Azure AD application that was created earlier.|False|
+|$aadAppName|Name of the Microsoft Entra application that will be used to write secrets to KeyVault. A new application with this name will be created if one doesn't exist. If this app already exists, pass aadClientSecret parameter to the script.|False|
+|$aadClientSecret|Client secret of the Microsoft Entra application that was created earlier.|False|
 |$keyEncryptionKeyName|Name of optional key encryption key in KeyVault. A new key with this name will be created if one doesn't exist.|False|
 
 ## Resource Manager templates
 
-### Encrypt or decrypt VMs without an Azure AD app
+<a name='encrypt-or-decrypt-vms-without-an-azure-ad-app'></a>
 
-- [Enable disk encryption on an existing or running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
-- [Disable encryption on a running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
+### Encrypt or decrypt VMs without a Microsoft Entra app
 
-### Encrypt or decrypt VMs with an Azure AD app (previous release) 
- 
-- [Enable disk encryption on an existing or running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
-- [Disable encryption on a running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
-- [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+- [Enable disk encryption on an existing or running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad)
+- [Disable encryption on a running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-windows-vm-without-aad)
+
+<a name='encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release'></a>
+
+### Encrypt or decrypt VMs with a Microsoft Entra app (previous release)
+
+- [Enable disk encryption on an existing or running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm)
+- [Disable encryption on a running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-windows-vm)
+- [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/create-encrypted-managed-disk)
     - Creates a new encrypted managed disk provided a pre-encrypted VHD and its corresponding encryption settings
 
 ## Prepare a pre-encrypted Windows VHD
@@ -72,45 +92,53 @@ Configure the BitLocker Group Policy setting **BitLocker Drive Encryption**, whi
 ### Install BitLocker feature components
 For Windows Server 2012 and later, use the following command:
 
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```console
+dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
+```
 
 For Windows Server 2008 R2, use the following command:
 
-    ServerManagerCmd -install BitLockers
+```console
+ServerManagerCmd -install BitLockers
+```
 
 ### Prepare the OS volume for BitLocker by using `bdehdcfg`
-To compress the OS partition and prepare the machine for BitLocker, execute the [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) if needed:
+To compress the OS partition and prepare the machine for BitLocker, execute the [bdehdcfg](/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) if needed:
 
-    bdehdcfg -target c: shrink -quiet 
+```console
+bdehdcfg -target c: shrink -quiet
+```
 
 ### Protect the OS volume by using BitLocker
-Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) command to enable encryption on the boot volume using an external key protector. Also place the external key (.bek file) on the external drive or volume. Encryption is enabled on the system/boot volume after the next reboot.
+Use the [`manage-bde`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/ff829849(v=ws.11)) command to enable encryption on the boot volume using an external key protector. Also place the external key (.bek file) on the external drive or volume. Encryption is enabled on the system/boot volume after the next reboot.
 
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
+```console
+manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
+reboot
+```
 
 > [!NOTE]
 > Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
 
 ## Upload encrypted VHD to an Azure storage account
-After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+After BitLocker encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 
 ## Upload the secret for the pre-encrypted VM to your key vault
-The disk encryption secret that you obtained previously must be uploaded as a secret in your key vault.  This requires granting the set secret permission and the wrapkey permission to the account that will upload the secrets.
+The disk encryption secret that you obtained previously must be uploaded as a secret in your key vault.  To do so, you must grant the set secret permission and the wrapkey permission to the account that will upload the secrets.
 
-```powershell 
+```powershell
 # Typically, account Id is the user principal name (in user@domain.com format)
 $upn = (Get-AzureRmContext).Account.Id
 Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -PermissionsToKeys wrapKey -PermissionsToSecrets set
 
-# In cloud shell, the account ID is a managed service identity, so specify the username directly 
-# $upn = "user@domain.com" 
+# In cloud shell, the account ID is a managed service identity, so specify the username directly
+# $upn = "user@domain.com"
 # Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -PermissionsToKeys wrapKey -PermissionsToSecrets set
 
-# When running as a service principal, retrieve the service principal ID from the account ID, and set access policy to that 
+# When running as a service principal, retrieve the service principal ID from the account ID, and set access policy to that
 # $acctid = (Get-AzureRmContext).Account.Id
 # $spoid = (Get-AzureRmADServicePrincipal -ServicePrincipalName $acctid).Id
 # Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $spoid -BypassObjectIdValidation -PermissionsToKeys wrapKey -PermissionsToSecrets set
@@ -138,7 +166,7 @@ To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/m
 Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
 
 ### Disk encryption secret encrypted with a KEK
-Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](/rest/api/keyvault/keys/wrap-key) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

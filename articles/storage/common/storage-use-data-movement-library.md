@@ -3,19 +3,25 @@ title: Transfer data with the Data Movement library for .NET
 titleSuffix: Azure Storage
 description: Use the Data Movement library to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: tamram
+author: pauljewellmsft
 
-ms.service: storage
-ms.devlang: dotnet
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/04/2019
-ms.author: tamram
-ms.subservice: common
+ms.date: 11/13/2023
+ms.author: pauljewell
+ms.subservice: storage-common-concepts
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Transfer data with the Data Movement library
 
-The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. This library is the core data movement framework that powers [AzCopy](../storage-use-azcopy.md). The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods provide the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
+> [!NOTE]
+> This article includes guidance for working with version 2.0.XX of the Azure Storage Data Movement library. Version 2.0.XX is currently in maintenance mode, and the library is only receiving fixes for data integrity and security issues. No new functionality or features will be added, and new storage service versions will not be supported by the library.
+>
+> Beta versions of a modern Data Movement library are currently in development. For more information, see [Azure Storage Data Movement Common client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) on GitHub.
+
+The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods provide the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
 
 This library also uses .NET Core, which means you can use it when building .NET apps for Windows, Linux and macOS. To learn more about .NET Core, refer to the [.NET Core documentation](https://dotnet.github.io/). This library also works for traditional .NET Framework apps for Windows.
 
@@ -35,10 +41,10 @@ This document demonstrates how to create a .NET Core console application that ru
 
 ## Setup
 
-1. Visit the [.NET Core Installation Guide](https://www.microsoft.com/net/core) to install .NET Core. When selecting your environment, choose the command-line option.
+1. Visit the [.NET Core Installation Guide](https://dotnet.microsoft.com/download) to install the .NET Core SDK. When selecting your environment, choose the command-line option.
 2. From the command line, create a directory for your project. Navigate into this directory, then type `dotnet new console -o <sample-project-name>` to create a C# console project.
 3. Open this directory in Visual Studio Code. This step can be quickly done via the command line by typing `code .` in Windows.
-4. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the Visual Studio Code Marketplace. Restart Visual Studio Code.
+4. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the Visual Studio Code Marketplace. Restart Visual Studio Code.
 5. At this point, you should see two prompts. One is for adding "required assets to build and debug." Click "yes." Another prompt is for restoring unresolved dependencies. Click "restore."
 6. Modify `launch.json` under `.vscode` to use external terminal as a console. This setting should read as `"console": "externalTerminal"`
 7. Visual Studio Code allows you to debug .NET Core applications. Hit `F5` to run your application and verify that your setup is working. You should see "Hello World!" printed to the console.
@@ -463,7 +469,7 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(uri, blob, true, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(uri, blob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)
@@ -489,7 +495,7 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
         checkpoint = context.LastCheckpoint;
         context = GetSingleTransferContext(checkpoint);
         Console.WriteLine("\nResuming transfer...\n");
-        await TransferManager.CopyAsync(uri, blob, true, null, context, cancellationSource.Token);
+        await TransferManager.CopyAsync(uri, blob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
     }
 
     stopWatch.Stop();
@@ -498,7 +504,13 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
 }
 ```
 
-One important use case for this feature is when you need to move data from another cloud service (e.g. AWS) to Azure. As long as you have a URL that gives you access to the resource, you can easily move that resource into Azure Blobs by using the `TransferManager.CopyAsync` method. This method also introduces a new boolean parameter. Setting this parameter to `true` indicates that we want to do an asynchronous server-side copy. Setting this parameter to `false` indicates a synchronous copy - meaning the resource is downloaded to our local machine first, then uploaded to Azure Blob. However, synchronous copy is currently only available for copying from one Azure Storage resource to another.
+One important use case for this feature is when you need to move data from another cloud service (e.g. AWS) to Azure. As long as you have a URL that gives you access to the resource, you can easily move that resource into Azure Blobs by using the `TransferManager.CopyAsync` method. This method also introduces a **CopyMethod** parameter. The following table shows the available options for this parameter:
+
+| Member name | Value | Description |
+| --- | --- | --- |
+| SyncCopy | 0 | Download data from source to memory, and upload the data from memory to destination. Currently only available for copying from one Azure Storage resource to another. |
+| ServiceSideAsyncCopy | 1 | Send a start copy request to Azure Storage to let it do the copying; monitor the copy operation progress until the copy is completed. |
+| ServiceSideSyncCopy | 2 | Copy content of each chunk with with [Put Block From URL](/rest/api/storageservices/put-block-from-url), [Append Block From URL](/rest/api/storageservices/append-block-from-url), or [Put Page From URL](/rest/api/storageservices/put-page-from-url). |
 
 ## Copy a blob
 
@@ -521,7 +533,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, true, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.SyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)
@@ -547,7 +559,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
         checkpoint = context.LastCheckpoint;
         context = GetSingleTransferContext(checkpoint);
         Console.WriteLine("\nResuming transfer...\n");
-        await TransferManager.CopyAsync(sourceBlob, destinationBlob, false, null, context, cancellationSource.Token);
+        await TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.SyncCopy, null, context, cancellationSource.Token);
     }
 
     stopWatch.Stop();
@@ -556,7 +568,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-In this example, we set the boolean parameter in `TransferManager.CopyAsync` to `false` to indicate that we want to do a synchronous copy. This means that the resource is downloaded to our local machine first, then uploaded to Azure Blob. The synchronous copy option is a great way to ensure that your copy operation has a consistent speed. In contrast, the speed of an asynchronous server-side copy is dependent on the available network bandwidth on the server, which can fluctuate. However, synchronous copy may generate additional egress cost compared to asynchronous copy. The recommended approach is to use synchronous copy in an Azure VM that is in the same region as your source storage account to avoid egress cost.
+In this example, we set the boolean parameter in `TransferManager.CopyAsync` to `CopyMethod.SyncCopy` to indicate that we want to do a synchronous copy. This means that the resource is downloaded to our local machine first, then uploaded to Azure Blob. The synchronous copy option is a great way to ensure that your copy operation has a consistent speed. In contrast, the speed of an asynchronous server-side copy is dependent on the available network bandwidth on the server, which can fluctuate. However, synchronous copy may generate additional egress cost compared to asynchronous copy. The recommended approach is to use synchronous copy in an Azure VM that is in the same region as your source storage account to avoid egress cost.
 
 The data movement application is now complete. [The full code sample is available on GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
 

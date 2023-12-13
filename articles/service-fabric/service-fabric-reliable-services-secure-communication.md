@@ -1,12 +1,14 @@
 ---
 title: Secure service remoting communications with C#
 description: Learn how to secure service remoting based communication for C# reliable services that are running in an Azure Service Fabric cluster.
-author: suchiagicha
-
-ms.topic: conceptual
-ms.date: 04/20/2017
-ms.author: pepogors
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Secure service remoting communications in a C# service
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-secure-communication.md)
@@ -195,4 +197,4 @@ To help secure a service when you're using service remoting with C# services, fo
     ```
 
 
-As a next step, read [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+As a next step, read [Web API with OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md).

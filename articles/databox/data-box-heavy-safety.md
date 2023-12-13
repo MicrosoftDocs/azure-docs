@@ -2,13 +2,13 @@
 title: Safety for your Azure Data Box Heavy | Microsoft Docs
 description: Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your Azure Data Box Heavy.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: alkohli
+ms.author: shaas
 
 ---
 # Safely install and operate your Azure Data Box Heavy
@@ -152,7 +152,7 @@ This device complies with part 15 of the FCC Rules and Industry Canada license-e
 - This device may not cause harmful interference.
 - This device must accept any interference received, including interference that may cause undesired operation of the device.
 
-![Canada](./media/data-box-heavy-safety/canada.png)
+![Screenshot shows a notification required for Canada.](./media/data-box-heavy-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.

@@ -3,18 +3,13 @@ title: Troubleshoot connections - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using PowerShell.
 services: network-watcher
-documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 07/11/2017
-ms.author: kumud
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 01/07/2021
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot connections with Azure Network Watcher using PowerShell
@@ -36,7 +31,7 @@ Learn how to use connection troubleshoot to verify whether a direct TCP connecti
 * Virtual machines to troubleshoot connections with.
 
 > [!IMPORTANT]
-> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Check connectivity to a virtual machine
 

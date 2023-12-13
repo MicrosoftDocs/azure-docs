@@ -1,21 +1,23 @@
 ---
-title: Plan capacity for VMware disaster recovery with Azure Site Recovery 
+title: Plan capacity for VMware disaster recovery with Azure Site Recovery
 description: This article can help you plan capacity and scaling when you set up disaster recovery of VMware VMs to Azure by using Azure Site Recovery.
-author: nsoneji
-manager: garavd
+author: ankitaduttaMSFT
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 4/9/2019
 ms.topic: conceptual
-ms.author: ramamill
+ms.author: ankitadutta
+ms.date: 08/19/2021
 ---
 
 # Plan capacity and scaling for VMware disaster recovery to Azure
 
-Use this article to plan for capacity and scaling when you replicate on-premises VMware VMs and physical servers to Azure by using [Azure Site Recovery](site-recovery-overview.md).
+Use this article to plan for capacity and scaling when you replicate on-premises VMware VMs and physical servers to Azure by using [Azure Site Recovery](site-recovery-overview.md) - Classic.
+
+In modernized, you need to [create and use Azure Site Recovery replication appliance/multiple appliances](deploy-vmware-azure-replication-appliance-modernized.md) to plan capacity.
 
 ## How do I start capacity planning?
 
-To learn about Azure Site Recovery infrastructure requirements, gather information about your replication environment by running [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) for VMware replication. For more information, see [About Site Recovery Deployment Planner for VMware to Azure](site-recovery-deployment-planner.md). 
+To learn about Azure Site Recovery infrastructure requirements, gather information about your replication environment by running [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) for VMware replication. For more information, see [About Site Recovery Deployment Planner for VMware to Azure](site-recovery-deployment-planner.md).
 
 Site Recovery Deployment Planner provides a report that has complete information about compatible and incompatible VMs, disks per VM, and data churn per disk. The tool also summarizes network bandwidth requirements to meet target RPO and the Azure infrastructure that's required for successful replication and test failover.
 
@@ -87,11 +89,13 @@ After you use [Site Recovery Deployment Planner](site-recovery-deployment-planne
 
     ![Screenshot of the Azure Backup Properties dialog box](./media/site-recovery-vmware-to-azure/throttle2.png)
 
-You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet to set throttling. Here's an example:
+You can also use the [Set-OBMachineSetting](/previous-versions/windows/powershell-scripting/hh770409(v=wps.640)) cmdlet to set throttling. Here's an example:
 
-    $mon = [System.DayOfWeek]::Monday
-    $tue = [System.DayOfWeek]::Tuesday
-    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```azurepowershell-interactive
+$mon = [System.DayOfWeek]::Monday
+$tue = [System.DayOfWeek]::Tuesday
+Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```
 
 **Set-OBMachineSetting -NoThrottle** indicates that no throttling is required.
 
@@ -153,7 +157,7 @@ To add a master target server for a Windows-based virtual machine:
 6. To register the master target with the configuration server, select **Proceed To Configuration**.
 
     ![Screenshot that shows the Proceed to Configuration button](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
-7. Enter the IP address of the configuration server, and then enter the passphrase. To learn how to generate a passphrase, see [Generate a configuration server passphrase](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase). 
+7. Enter the IP address of the configuration server, and then enter the passphrase. To learn how to generate a passphrase, see [Generate a configuration server passphrase](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 
     ![Screenshot that shows where to enter the IP address and passphrase for the configuration server](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
 8. Select **Register**. When registration is finished, select **Finish**.

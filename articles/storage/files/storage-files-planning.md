@@ -1,265 +1,184 @@
 ---
-title: Planning for an Azure Files deployment | Microsoft Docs
-description: Learn what to consider when planning for an Azure Files deployment.
-author: roygara
-ms.service: storage
+title: Planning for an Azure Files deployment
+description: Understand how to plan for an Azure Files deployment. You can either direct mount an Azure file share, or cache Azure file shares on-premises with Azure File Sync.
+author: khdownie
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.author: rogarana
-ms.subservice: files
+ms.date: 10/05/2023
+ms.author: kendownie
+ms.custom: references_regions
 ---
 
 # Planning for an Azure Files deployment
+You can deploy [Azure Files](storage-files-introduction.md) in two main ways: by directly mounting the serverless Azure file shares or by caching Azure file shares on-premises using Azure File Sync. Deployment considerations will differ based on which option you choose.
 
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry standard SMB protocol. Because Azure Files is fully managed, deploying it in production scenarios is much easier than deploying and managing a file server or NAS device. This article addresses the topics to consider when deploying an Azure file share for production use within your organization.
+- **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. 
+
+- **Cache Azure file share on-premises with Azure File Sync**: [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share. 
+
+This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. To plan for an Azure File Sync deployment, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
+
+## Available protocols
+Azure Files offers two industry-standard file system protocols for mounting Azure file shares: the [Server Message Block (SMB)](files-smb-protocol.md) protocol and the [Network File System (NFS)](files-nfs-protocol.md) protocol, allowing you to choose the protocol that is the best fit for your workload. Azure file shares don't support both the SMB and NFS protocols on the same file share, although you can create SMB and NFS Azure file shares within the same storage account. NFS 4.1 is currently only supported within new **FileStorage** storage account type (premium file shares only).
+
+With both SMB and NFS file shares, Azure Files offers enterprise-grade file shares that can scale up to meet your storage needs and can be accessed concurrently by thousands of clients.
+
+| Feature | SMB | NFS |
+|---------|-----|---------------|
+| Supported protocol versions | SMB 3.1.1, SMB 3.0, SMB 2.1 | NFS 4.1 |
+| Recommended OS | <ul><li>Windows 11, version 21H2+</li><li>Windows 10, version 21H1+</li><li>Windows Server 2019+</li><li>Linux kernel version 5.3+</li></ul> | Linux kernel version 4.3+ |
+| [Available tiers](storage-files-planning.md#storage-tiers)  | Premium, transaction optimized, hot, and cool | Premium |
+| Billing model | <ul><li>[Provisioned capacity for premium file shares](./understanding-billing.md#provisioned-model)</li><li>[Pay-as-you-go for standard file shares](./understanding-billing.md#pay-as-you-go-model)</li></ul> | [Provisioned capacity](./understanding-billing.md#provisioned-model) |
+| [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | Supported | Supported |
+| [Redundancy](storage-files-planning.md#redundancy) | LRS, ZRS, GRS, GZRS | LRS, ZRS |
+| File system semantics | Win32 | POSIX |
+| Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
+| Authorization | Win32-style access control lists (ACLs) | UNIX-style permissions |
+| Case sensitivity | Case insensitive, case preserving | Case sensitive |
+| Deleting or modifying open files | With lock only | Yes |
+| File sharing | [Windows sharing mode](/windows/win32/fileio/creating-and-opening-files) | Byte-range advisory network lock manager |
+| Hard link support | Not supported | Supported |
+| Symbolic link support | Not supported | Supported |
+| Optionally internet accessible | Yes (SMB 3.0+ only) | No |
+| Supports FileREST | Yes | Subset: <br /><ul><li>[Operations on the `FileService`](/rest/api/storageservices/operations-on-the-account--file-service-)</li><li>[Operations on `FileShares`](/rest/api/storageservices/operations-on-shares--file-service-)</li><li>[Operations on `Directories`](/rest/api/storageservices/operations-on-directories)</li><li>[Operations on `Files`](/rest/api/storageservices/operations-on-files)</li></ul> |
+| Mandatory byte range locks | Supported | Not supported |
+| Advisory byte range locks | Not supported | Supported |
+| Extended/named attributes | Not supported | Not supported |
+| Alternate data streams | Not supported | N/A |
+| Object identifiers | Not supported | N/A |
+| Reparse points | Not supported | N/A |
+| Sparse files | Not supported | N/A |
+| Compression | Not supported | N/A |
+| Named pipes | Not supported | N/A |
+| SMB Direct | Not supported | N/A |
+| SMB Directory Leasing | Not supported | N/A |
+| Volume Shadow Copy | Not supported | N/A |
+| Short file names (8.3 alias ) | Not supported | N/A |
+| Server service | Not supported | N/A |
+| File system transactions (TxF) | Not supported | N/A |
 
 ## Management concepts
+[!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
- The following diagram illustrates the Azure Files management constructs:
+When deploying Azure file shares into storage accounts, we recommend:
 
-![File Structure](./media/storage-files-introduction/files-concepts.png)
+- Only deploying Azure file shares into storage accounts with other Azure file shares. Although GPv2 storage accounts allow you to have mixed purpose storage accounts, because storage resources such as Azure file shares and blob containers share the storage account's limits, mixing resources together may make it more difficult to troubleshoot performance issues later on. 
 
-* **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
+- Paying attention to a storage account's IOPS limitations when deploying Azure file shares. Ideally, you would map file shares 1:1 with storage accounts. However, this may not always be possible due to various limits and restrictions, both from your organization and from Azure. When it is not possible to have only one file share deployed in one storage account, consider which shares will be highly active and which shares will be less active to ensure that the hottest file shares don't get put in the same storage account together.
 
-* **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares and a share can store an unlimited number of files, up to the total capacity of the file share. The total capacity for premium and standard file shares is 100 TiB.
+- Only deploying GPv2 and FileStorage accounts, and upgrading GPv1 and classic storage accounts when you find them in your environment. 
 
-* **Directory**: An optional hierarchy of directories.
+## Identity
+To access an Azure file share, the user of the file share must be authenticated and authorized to access the share. This is done based on the identity of the user accessing the file share. Azure Files supports the following methods of authentication:
 
-* **File**: A file in the share. A file may be up to 1 TiB in size.
+- **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)**: Azure storage accounts can be domain joined to a customer-owned Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
+- **Microsoft Entra Domain Services**: Microsoft Entra Domain Services provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Microsoft Entra Domain Services provides similar benefits to domain joining it to a customer-owned AD DS. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Since Microsoft Entra Domain Services provides AD-based authentication, this option also uses the Kerberos authentication protocol.
+- **Microsoft Entra Kerberos for hybrid identities**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD identities that are synced to the cloud. This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
+- **Active Directory authentication over SMB for Linux clients**: Azure Files supports identity-based authentication over SMB for Linux clients using the Kerberos authentication protocol through either AD DS or Microsoft Entra Domain Services.
+- **Azure storage account key**: Azure file shares may also be mounted with an Azure storage account key. To mount a file share this way, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share will have full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. If you intend to use the storage account key to access your Azure file shares, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
 
-* **URL format**: For requests to an Azure file share made with the File REST protocol, files are addressable using the following URL format:
+For customers migrating from on-premises file servers, or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, domain joining your storage account to **Customer-owned AD DS** is the recommended option. To learn more about domain joining your storage account to a customer-owned AD DS, see [Overview - on-premises Active Directory Domain Services authentication over SMB for Azure file shares](storage-files-identity-auth-active-directory-enable.md).
 
-    ```
-    https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
-    ```
+## Networking
+Directly mounting your Azure file share often requires some thought about networking configuration because:
 
-## Data access method
+- The port that SMB file shares use for communication, port 445, is frequently blocked by many organizations and internet service providers (ISPs) for outbound (internet) traffic.
+- NFS file shares rely on network-level authentication and are therefore only accessible via restricted networks. Using an NFS file share always requires some level of networking configuration.
 
-Azure Files offers two, built-in, convenient data access methods that you can use separately, or in combination with each other, to access your data:
+To configure networking, Azure Files provides an internet accessible public endpoint and integration with Azure networking features like *service endpoints*, which help restrict the public endpoint to specified virtual networks, and *private endpoints*, which give your storage account a private IP address from within a virtual network IP address space. While there's no extra charge for using public endpoints or service endpoints, standard data processing rates apply for private endpoints.
 
-1. **Direct cloud access**: Any Azure file share can be mounted by [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and/or [Linux](storage-how-to-use-files-linux.md) with the industry standard Server Message Block (SMB) protocol or via the File REST API. With SMB, reads and writes to files on the share are made directly on the file share in Azure. To mount by a VM in Azure, the SMB client in the OS must support at least SMB 2.1. To mount on-premises, such as on a user's workstation, the SMB client supported by the workstation must support at least SMB 3.0 (with encryption). In addition to SMB, new applications or services may directly access the file share via File REST, which provides an easy and scalable application programming interface for software development.
-2. **Azure File Sync**: With Azure File Sync, shares can be replicated to Windows Servers on-premises or in Azure. Your users would access the file share through the Windows Server, such as through an SMB or NFS share. This is useful for scenarios in which data will be accessed and modified far away from an Azure datacenter, such as in a branch office scenario. Data may be replicated between multiple Windows Server endpoints, such as between multiple branch offices. Finally, data may be tiered to Azure Files, such that all data is still accessible via the Server, but the Server does not have a full copy of the data. Rather, data is seamlessly recalled when opened by your user.
+From a practical perspective, this means you'll need to consider the following network configurations:
 
-The following table illustrates how your users and applications can access your Azure file share:
+- If the required protocol is SMB and all access over SMB is from clients in Azure, no special networking configuration is required.
+- If the required protocol is SMB and the access is from clients on-premises, then a VPN or ExpressRoute connection from on-premises to your Azure network is required, with Azure Files exposed on your internal network using private endpoints.
+- If the required protocol is NFS, you can use either service endpoints or private endpoints to restrict the network to specified virtual networks. If you need a static IP address and/or your workload requires high availability, use a private endpoint.
 
-| | Direct cloud access | Azure File Sync |
-|------------------------|------------|-----------------|
-| What protocols do you need to use? | Azure Files supports SMB 2.1, SMB 3.0, and File REST API. | Access your Azure file share via any supported protocol on Windows Server (SMB, NFS, FTPS, etc.) |  
-| Where are you running your workload? | **In Azure**: Azure Files offers direct access to your data. | **On-premises with slow network**: Windows, Linux, and macOS clients can mount a local on-premises Windows File share as a fast cache of your Azure file share. |
-| What level of ACLs do you need? | Share and file level. | Share, file, and user level. |
+To learn more about how to configure networking for Azure Files, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
-## Data security
+In addition to directly connecting to the file share using the public endpoint or using a VPN/ExpressRoute connection with a private endpoint, SMB provides an additional client access strategy: SMB over QUIC. SMB over QUIC offers zero-config "SMB VPN" for SMB access over the QUIC transport protocol. Although Azure Files does not directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
 
-Azure Files has several built-in options for ensuring data security:
+## Encryption
+Azure Files supports two different types of encryption: 
 
-* Support for encryption in both over-the-wire protocols: SMB 3.0 encryption and File REST over HTTPS. By default: 
-    * Clients that support SMB 3.0 encryption send and receive data over an encrypted channel.
-    * Clients that do not support SMB 3.0 with encryption can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. SMB clients are not allowed to communicate inter-datacenter over SMB 2.1 or SMB 3.0 without encryption.
-    * Clients can communicate over File REST with either HTTP or HTTPS.
-* Encryption at-rest ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is enabled for all storage accounts. Data at-rest is encrypted with fully-managed keys. Encryption at-rest does not increase storage costs or reduce performance. 
-* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access to the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections are allowed.
+- **Encryption in transit**, which relates to the encryption used when mounting/accessing the Azure file share
+- **Encryption at rest**, which relates to how the data is encrypted when it's stored on disk
 
-    > [!Important]  
-    > Requiring secure transfer of data will cause older SMB clients not capable of communicating with SMB 3.0 with encryption to fail. For more information, see [Mount on Windows](storage-how-to-use-files-windows.md), [Mount on Linux](storage-how-to-use-files-linux.md), and [Mount on macOS](storage-how-to-use-files-mac.md).
-
-For maximum security, we strongly recommend always enabling both encryption at-rest and enabling encryption of data in-transit whenever you are using modern clients to access your data. For example, if you need to mount a share on a Windows Server 2008 R2 VM, which only supports SMB 2.1, you need to allow unencrypted traffic to your storage account since SMB 2.1 does not support encryption.
-
-If you are using Azure File Sync to access your Azure file share, we will always use HTTPS and SMB 3.0 with encryption to sync your data to your Windows Servers, regardless of whether you require encryption of data at-rest.
-
-## File share performance tiers
-
-Azure Files offers two performance tiers: standard and premium.
-
-### Standard file shares
-
-Standard file shares are backed by hard disk drives (HDDs). Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
+### Encryption in transit
 
 > [!IMPORTANT]
-> If you want to use file shares larger than 5 TiB, see the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for steps to onboard, as well as regional availability and restrictions.
+> This section covers encryption in transit details for SMB shares. For details regarding encryption in transit with NFS shares, see [Security and networking](files-nfs-protocol.md#security-and-networking).
 
-### Premium file shares
+By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files will only allow the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that don't support SMB 3.x or clients that support SMB 3.x but not SMB encryption won't be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see our documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.  
 
-Premium file shares are backed by solid-state drives (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, and development environments. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
+You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files will also allow SMB 2.1 and SMB 3.x without encryption, and unencrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, won't be able to access the file share.
 
-Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
+We strongly recommend ensuring encryption of data in-transit is enabled.
 
-If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md).
+For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
 
-Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as Robocopy or AzCopy.
+### Encryption at rest
+[!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-> [!IMPORTANT]
-> Premium file shares are available with LRS in most regions that offer storage accounts and with ZRS in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Support coverage and regional availability](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
->
-> To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
+## Data protection
+Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats. See [Azure Files data protection overview](files-data-protection-overview.md).
 
-#### Provisioned shares
+### Soft delete
+Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
 
-Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
+Soft delete is enabled by default for new storage accounts from January 2021 onward, and we recommend leaving it on for most SMB file shares. If you have a workflow where share deletion is common and expected, you might decide to have a short retention period or not have soft delete enabled at all. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
 
-On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
+For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 
-Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB and so on.
+### Backup
+You can back up your Azure file share via [share snapshots](./storage-snapshots-files.md), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json). 
 
-> [!TIP]
-> Baseline IOPS = 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
->
-> Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
->
-> egress rate = 60 MiB/s + 0.06 * provisioned GiB
->
-> ingress rate = 40 MiB/s + 0.04 * provisioned GiB
+[Azure Backup for Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
 
-Provisioned share size is specified by share quota. Share quota can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+You can perform both item-level and share-level restores in the Azure portal using Azure Backup. All you need to do is choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you wish you restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
 
-It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
+### Protect Azure Files with Microsoft Defender for Storage
+Microsoft Defender for Storage is an Azure-native layer of security intelligence that detects potential threats to your storage accounts. It provides comprehensive security by analyzing the data plane and control plane telemetry generated by Azure Files. It uses advanced threat detection capabilities powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) to provide contextual security alerts, including steps to mitigate the detected threats and prevent future attacks.
 
-The following table illustrates a few examples of these formulae for the provisioned share sizes:
+Defender for Storage continuously analyzes the telemetry stream generated by Azure Files. When potentially malicious activities are detected, security alerts are generated. These alerts are displayed in Microsoft Defender for Cloud, along with the details of the suspicious activity, investigation steps, remediation actions, and security recommendations.
 
-|Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 100     | Up to 300     | 66   | 44   |
-|500         | 500     | Up to 1,500   | 90   | 60   |
-|1,024       | 1,024   | Up to 3,072   | 122   | 81   |
-|5,120       | 5,120   | Up to 15,360  | 368   | 245   |
-|10,240      | 10,240  | Up to 30,720  | 675 | 450   |
-|33,792      | 33,792  | Up to 100,000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Up to 100,000 | 3,132 | 2,088   |
-|102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
+Defender for Storage detects known malware, such as ransomware, viruses, spyware, and other malware uploaded to a storage account based on full file hash (only supported for REST API). This helps prevent malware from entering the organization and spreading to more users and resources. See [Understanding the differences between Malware Scanning and hash reputation analysis](../../defender-for-cloud/defender-for-storage-introduction.md#understanding-the-differences-between-malware-scanning-and-hash-reputation-analysis).
 
-> [!NOTE]
-> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+Defender for Storage doesn't access the storage account data and doesn't impact its performance. You can [enable Microsoft Defender for Storage](../common/azure-defender-storage-configure.md) at the subscription level (recommended) or the resource level.
 
-#### Bursting
+## Storage tiers
+[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
+#### Limitations
+[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
-Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs.
+## Redundancy
+[!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
-> [!TIP]
-> Size of the burst bucket = Baseline IOPS * 2 * 3600.
+For more information about redundancy, see [Azure Files data redundancy](files-redundancy.md).
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 TiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
+### Standard ZRS availability
 
-Share credits have three states:
+ZRS for standard general-purpose v2 storage accounts is available for a [subset of Azure regions](../common/redundancy-regions-zrs.md).
 
-- Accruing, when the file share is using less than the baseline IOPS.
-- Declining, when the file share is bursting.
-- Remaining constant, when there are either no credits or baseline IOPS are in use.
+### Premium ZRS availability
 
-New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
+ZRS for premium file shares is available for a [subset of Azure regions](redundancy-premium-file-shares.md#premium-file-share-accounts).
 
-## File share redundancy
+### Standard GZRS availability
 
-Azure Files standard shares supports four data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
+GZRS is available for a [subset of Azure regions](../common/redundancy-regions-gzrs.md).
 
-Azure Files premium shares support both LRS and ZRS, ZRS is currently available in a smaller subset of regions.
+## Disaster recovery and failover
 
-The following sections describe the differences between the different redundancy options:
+In the case of an unplanned regional service outage, you should have a disaster recovery (DR) plan in place for your Azure file shares. To understand the concepts and processes involved with DR and storage account failover, see [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
 
-### Locally redundant storage
+## Migration
+In many cases, you won't be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 
 
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-### Zone redundant storage
-
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### Geo-redundant storage
-
-> [!Warning]  
-> If you are using your Azure file share as a cloud endpoint in a GRS storage account, you shouldn't initiate storage account failover. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files. In the case of loss of an Azure region, Microsoft will trigger the storage account failover in a way that is compatible with Azure File Sync.
-
-Geo-redundant storage (GRS) is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year by replicating your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
-
-If you opt for read-access geo-redundant storage (RA-GRS), you should know that Azure File does not support read-access geo-redundant storage (RA-GRS) in any region at this time. File shares in the RA-GRS storage account work like they would in GRS accounts and are charged GRS prices.
-
-GRS replicates your data to another data center in a secondary region, but that data is available to be read only if Microsoft initiates a failover from the primary to secondary region.
-
-For a storage account with GRS enabled, all data is first replicated with locally redundant storage (LRS). An update is first committed to the primary location and replicated using LRS. The update is then replicated asynchronously to the secondary region using GRS. When data is written to the secondary location, it's also replicated within that location using LRS.
-
-Both the primary and secondary regions manage replicas across separate fault domains and upgrade domains within a storage scale unit. The storage scale unit is the basic replication unit within the datacenter. Replication at this level is provided by LRS; for more information, see [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../common/storage-redundancy-lrs.md).
-
-Keep these points in mind when deciding which replication option to use:
-
-* Geo-zone-redundant storage (GZRS) (preview) provides high availability together with maximum durability by replicating data synchronously across three Azure availability zones and then replicating data asynchronously to the secondary region. You can also enable read access to the secondary region. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. For more information on GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](../common/storage-redundancy-gzrs.md).
-* Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS. For more information on ZRS, see [ZRS](../common/storage-redundancy-zrs.md).
-* Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
-* With GRS, the replica isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, please see [Disaster recovery guidance](../common/storage-disaster-recovery-guidance.md).
-
-## Onboard to larger file shares (standard tier)
-
-This section only applies to the standard file shares. All premium file shares are available with 100 TiB capacity.
-
-### Restrictions
-
-- LRS/ZRS to GRS/GZRS account conversion will not be possible for any storage account with large file shares enabled.
-
-### Regional availability
-
-Standard file shares are available in all regions up to 5 TiB. In certain regions, they are available with a 100 TiB limit, those regions are listed in the following table:
-
-|Region |Supported redundancy |
-|-------|---------|
-|Australia Central    |LRS     |
-|Australia Central 2    |LRS     |
-|Australia East |LRS     |
-|Australia Southeast|LRS |
-|Brazil South    |LRS     |
-|Canada Central  |LRS     |
-|Canada East     |LRS     |
-|Central India  |LRS     |
-|Central US*   |LRS, ZRS    |
-|East Asia      |LRS     |
-|East US*        |LRS,ZRS|
-|East US 2*      |LRS, ZRS     |
-|France Central |LRS, ZRS|
-|France South   |LRS     |
-|Japan East     |LRS     |
-|Japan West     |LRS     |
-|Korea Central  |LRS     |
-|Korea South    |LRS     |
-|North Central US |LRS   |
-|North Europe   |LRS     |
-|South India    |LRS     |
-|South Central US |LRS     |
-|Southeast Asia |LRS, ZRS|
-|Switzerland North    |LRS     |
-|Switzerland West    |LRS     |
-|UAE Central    |LRS     |
-|UAE North    |LRS     |
-|UK North   |LRS, ZRS    |
-|UK South    |LRS     |
-|UK West    |LRS     |
-|West Central US|LRS     |
-|West Europe*    |LRS, ZRS|
-|West India   |LRS     |
-|West US        |LRS     |
-|West US 2      |LRS, ZRS|
-
-\* Supported for new accounts, not all existing accounts have completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
-
-To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
-
-### Enable and create larger file shares
-
-To begin using larger file shares, see our article [How to enable and create large file shares](storage-files-how-to-create-large-file-share.md).
-
-## Data growth pattern
-
-Today, the maximum size for an Azure file share is 100 TiB. Because of this current limitation, you must consider the expected data growth when deploying an Azure file share.
-
-It is possible to sync multiple Azure file shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, large file shares that you may have on-premises can be brought into Azure File Sync. For more information, see [Planning for an Azure File Sync Deployment](storage-files-planning.md).
-
-## Data transfer method
-
-There are many easy options to bulk transfer data from an existing file share, such as an on-premises file share, into Azure Files. A few popular ones include (non-exhaustive list):
-
-* **[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)**: As part of a first sync between an Azure file share (a "Cloud Endpoint") and a Windows directory namespace (a "Server Endpoint"), Azure File Sync will replicate all data from the existing file share to Azure Files.
-* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: The Azure Import/Export service allows you to securely transfer large amounts of data into an Azure file share by shipping hard disk drives to an Azure datacenter. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is a well known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command.
-* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance.
+The [migration overview article](storage-files-migration-overview.md) briefly covers the basics and contains a table that leads you to migration guides that likely cover your scenario.
 
 ## Next steps
-* [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
-* [Deploying Azure Files](storage-files-deployment-guide.md)
-* [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Planning for an Azure File Sync Deployment](../file-sync/file-sync-planning.md)
+* [Deploying Azure Files](./storage-how-to-create-file-share.md)
+* [Deploying Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)

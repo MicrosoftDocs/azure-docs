@@ -1,9 +1,9 @@
 ---
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 06/05/2019
 ms.topic: include
+ms.date: 06/05/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ---
 > [!IMPORTANT]
 >
@@ -15,5 +15,5 @@ ms.topic: include
 > 1. [Uninstall the Az module](/powershell/azure/uninstall-az-ps) from a PowerShell 5.1 session.
 > 2. [Install the AzureRM module](/powershell/azure/azurerm/install-azurerm-ps) from a PowerShell 5.1 session.
 > 3. [Download and install PowerShell Core 6.x or later](/powershell/scripting/install/installing-powershell-core-on-windows).
-> 4. [Install the Az module](/powershell/azure/install-az-ps) in a PowerShell Core session.
+> 4. [Install the Az module](/powershell/azure/install-azure-powershell) in a PowerShell Core session.
 

@@ -10,9 +10,9 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
-  ms.date: 08/19/2019
+  author: greg-lindsay
+  ms.author: greglin
+  ms.date: 03/31/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,11 +33,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Enhance your service availability and data locality
-            url: https://docs.microsoft.com/learn/modules/distribute-load-with-traffic-manager/
+            url: /training/modules/distribute-load-with-traffic-manager/
           
-         
-
-  # Card (optional)
+  # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -55,6 +53,8 @@ landingContent:
             url: traffic-manager-configure-weighted-routing-method.md
           - text: Configure priority traffic routing method
             url: traffic-manager-configure-priority-routing-method.md
+          - text: Control traffic routing with weighted endpoints
+            url: tutorial-traffic-manager-weighted-endpoint-routing.md
           - text: Direct traffic to specific endpoints based on user subnet
             url: tutorial-traffic-manager-subnet-routing.md
 
@@ -87,7 +87,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostic logging
+          - text: Enable resource logging
             url: traffic-manager-diagnostic-logs.md
           - text: Troubleshoot degraded state
             url: traffic-manager-troubleshooting-degraded.md
@@ -98,6 +98,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.trafficmanager/?view=azps-2.5.0
+            url: /powershell/module/az.trafficmanager/
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/network/traffic-manager?view=azure-cli-latest
+            url: /cli/azure/network/traffic-manager

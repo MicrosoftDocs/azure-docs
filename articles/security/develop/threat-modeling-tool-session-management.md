@@ -1,6 +1,6 @@
 ---
 title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about session management mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -8,61 +8,47 @@ manager: jegeib
 editor: jegeib
 
 ms.assetid: na
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: devx-track-csharp
 ---
 
 # Security Frame: Session Management
 | Product/Service | Article |
 | --------------- | ------- |
-| **Azure AD**    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
-| IoT Device | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
+| **Microsoft Entra ID**    | <ul><li>[Implement proper logout using MSAL methods when using Microsoft Entra ID](#logout-msal)</li></ul> |
+| **IoT Device** | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Use minimum token lifetimes for generated Resource tokens](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implement proper logout using WsFederation methods when using ADFS](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[Implement proper logout when using Identity Server](#proper-logout)</li></ul> |
 | **Web Application** | <ul><li>[Applications available over HTTPS must use secure cookies](#https-secure-cookies)</li><li>[All http based application should specify http only for cookie definition](#cookie-definition)</li><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET web pages](#csrf-asp)</li><li>[Set up session for inactivity lifetime](#inactivity-lifetime)</li><li>[Implement proper logout from the application](#proper-app-logout)</li></ul> |
 | **Web API** | <ul><li>[Mitigate against Cross-Site Request Forgery (CSRF) attacks on ASP.NET Web APIs](#csrf-api)</li></ul> |
 
-## <a id="logout-adal"></a>Implement proper logout using ADAL methods when using Azure AD
+## <a id="logout-msal"></a>Implement proper sign-out using MSAL methods when using Microsoft Entra ID
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
+| **Component**               | Microsoft Entra ID | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | N/A  |
-| **Steps** | If the application relies on access token issued by Azure AD, the logout event handler should call |
+| **References**              | [Enable your Web app to sign-in users using the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) |
+| **Steps** | The ASP.NET Core OpenIdConnect middleware enables your app to intercept the call to the Microsoft identity platform logout endpoint by providing an OpenIdConnect event named `OnRedirectToIdentityProviderForSignOut` |
 
 ### Example
 ```csharp
-HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
-```
-
-### Example
-It should also destroy user's session by calling Session.Abandon() method. Following method shows secure implementation of user logout:
-```csharp
-    [HttpPost]
-        [ValidateAntiForgeryToken]
-        public void LogOff()
-        {
-            string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-            AuthenticationContext authContext = new AuthenticationContext(Authority + TenantId, new NaiveSessionCache(userObjectID));
-            authContext.TokenCache.Clear();
-            Session.Clear();
-            Session.Abandon();
-            Response.SetCookie(new HttpCookie("ASP.NET_SessionId", string.Empty));
-            HttpContext.GetOwinContext().Authentication.SignOut(
-                OpenIdConnectAuthenticationDefaults.AuthenticationType,
-                CookieAuthenticationDefaults.AuthenticationType);
-        } 
+services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
+{
+    options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
+    {
+        //Your logic here
+    };
+});
 ```
 
 ## <a id="finite-tokens"></a>Use finite lifetimes for generated SaS tokens
@@ -155,7 +141,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [httpCookies Element (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure Property](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **References**              | [httpCookies Element (ASP.NET Settings Schema)](/previous-versions/dotnet/netframework-4.0/ms228262(v=vs.100)), [HttpCookie.Secure Property](/dotnet/api/system.web.httpcookie.secure) |
 | **Steps** | Cookies are normally only accessible to the domain for which they were scoped. Unfortunately, the definition of "domain" does not include the protocol so cookies that are created over HTTPS are accessible over HTTP. The "secure" attribute indicates to the browser that the cookie should only be made available over HTTPS. Ensure that all cookies set over HTTPS use the **secure** attribute. The requirement can be enforced in the web.config file by setting the requireSSL attribute to true. It is the preferred approach because it will enforce the **secure** attribute for all current and future cookies without the need to make any additional code changes.|
 
 ### Example
@@ -201,7 +187,7 @@ The setting is enforced even if HTTP is used to access the application. If HTTP 
 
 ### Example
 All HTTP-based applications that use cookies should specify HttpOnly in the cookie definition, by implementing following configuration in web.config:
-```XML
+```xml
 <system.web>
 .
 .
@@ -217,12 +203,12 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
+| **References**              | [FormsAuthentication.RequireSSL Property](/dotnet/api/system.web.security.formsauthentication.requiressl) |
+| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether Transport Layer Security (TLS), previously known as SSL (Secure Sockets Layer), is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
 
 ### Example 
 The following code example sets the requireSSL attribute in the Web.config file.
-```XML
+```xml
 <authentication mode="Forms">
   <forms loginUrl="member_login.aspx" cookieless="UseCookies" requireSSL="true"/>
 </authentication>
@@ -234,12 +220,12 @@ The following code example sets the requireSSL attribute in the Web.config file.
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC5 |
 | **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
+| **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](/archive/blogs/alikl/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler) |
 | **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value should be set to True. |
 
 ### Example
 Following configuration shows the correct configuration:
-```XML
+```xml
 <federatedAuthentication>
 <cookieHandler mode="Custom"
                        hideFromScript="true"
@@ -355,7 +341,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
+| **References**              | [Take Advantage of ASP.NET Built-in Features to Fend Off Web Attacks](/previous-versions/dotnet/articles/ms972969(v=msdn.10)#securitybarriers_topic2) |
 | **Steps** | CSRF attacks in WebForm based applications can be mitigated by setting ViewStateUserKey to a random string that varies for each user - user ID or, better yet, session ID. For a number of technical and social reasons, session ID is a much better fit because a session ID is unpredictable, times out, and varies on a per-user basis.|
 
 ### Example
@@ -375,11 +361,11 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [HttpSessionState.Timeout Property](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
+| **References**              | [HttpSessionState.Timeout Property](/dotnet/api/system.web.sessionstate.httpsessionstate.timeout) |
 | **Steps** | Session timeout represents the event occurring when a user does not perform any action on a web site during an interval (defined by web server). The event, on server side, change the status of the user session to 'invalid' (for example  "not used anymore") and instruct the web server to destroy it (deleting all data contained into it). The following code example sets the timeout session attribute to 15 minutes in the Web.config file.|
 
 ### Example
-```XML 
+```xml
 <configuration>
   <system.web>
     <sessionState mode="InProc" cookieless="true" timeout="15" />
@@ -395,11 +381,11 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [Forms element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **References**              | [Forms element for authentication (ASP.NET Settings Schema)](/previous-versions/dotnet/netframework-4.0/1d3t3c61(v=vs.100)) |
 | **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
-```XML
+```xml
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>
 ```
@@ -414,7 +400,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
 
 ### Example
-```XML
+```xml
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
@@ -552,7 +538,7 @@ Assuming all is well, the request goes through as normal. But if not, then an au
 | **Component**               | Web API | 
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | MVC5, MVC6 |
-| **Attributes**              | Identity Provider - ADFS, Identity Provider - Azure AD |
+| **Attributes**              | Identity Provider - ADFS, Identity Provider - Microsoft Entra ID |
 | **References**              | [Secure a Web API with Individual Accounts and Local Login in ASP.NET Web API 2.2](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **Steps** | If the Web API is secured using OAuth 2.0, then it expects a bearer token in Authorization request header and grants access to the request only if the token is valid. Unlike cookie based authentication, browsers do not attach the bearer tokens to requests. The requesting client needs to explicitly attach the bearer token in the request header. Therefore, for ASP.NET Web APIs protected using OAuth 2.0, bearer tokens are considered as a defense against CSRF attacks. Please note that if the MVC portion of the application uses forms authentication (i.e., uses cookies), anti-forgery tokens have to be used by the MVC web app. |
 

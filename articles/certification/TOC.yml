@@ -1,0 +1,62 @@
+- name: Azure Certified Device documentation
+  href: index.yml
+
+- name: Overview
+  items:
+  - name: What is the Azure Certified Device program?
+    href: overview.md
+
+- name: Tutorials
+  expanded: true
+  items:
+  - name: 1 - Selecting the right certification
+    href: tutorial-00-selecting-your-certification.md
+  - name: 2 - Creating your project
+    href: tutorial-01-creating-your-project.md
+  - name: 3 - Adding device details
+    href: tutorial-02-adding-device-details.md
+  - name: 4 - Testing your device
+    href: tutorial-03-testing-your-device.md
+  - name: 5 - Publishing your device
+    href: tutorial-04-publishing-your-device.md
+
+- name: Program Requirements
+  items:
+  - name: Azure Certified Device
+    href: program-requirements-azure-certified-device.md
+  - name: IoT Plug and Play
+    href: program-requirements-pnp.md
+  - name: Edge Managed
+    href: program-requirements-edge-managed.md
+  - name: Edge Secured-core
+    href: program-requirements-edge-secured-core.md
+
+- name: Concepts
+  items:
+    - name: Legacy devices
+      href: concepts-legacy.md
+    - name: Marketing concepts
+      href: concepts-marketing.md
+    - name: Software levels
+      href: how-to-software-levels.md
+    
+- name: How-to guides
+  items:
+  - name: How to edit a published device
+    href: how-to-edit-published-device.md
+  - name: How to certify an indirectly connected device
+    href: how-to-indirectly-connected-devices.md
+  - name: How to test your IoT Plug and Play device with CLI
+    href: how-to-test-pnp.md
+  - name: How to troubleshoot your IoT Plug and Play device
+    href: how-to-troubleshoot-pnp.md
+  - name: How to test Device Update in Edge Secured-core certification
+    href: how-to-test-device-update.md  
+  - name: How to use the components feature
+    href: how-to-using-the-components-feature.md
+- name: Resources
+  items:
+    - name: Certification Glossary
+      href: resources-glossary.md
+    - name: MPN/Microsoft Partner Network Support
+      href: /partner-center/

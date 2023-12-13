@@ -1,15 +1,18 @@
 ---
-title: Quickstart - Create an Azure Storage table in the Azure portal 
-description: In this quickstart, create an Azure storage Table service table in the Azure portal.
+title: Create a table in the Azure portal
+titleSuffix: Azure Storage
+description: Learn how to use the Azure portal to create a new table in Azure Table storage.
 services: storage
-author: MarkMcGeeAtAquent
-ms.service: storage
+author: akashdubey-ms
+
+ms.author: akashdubey
+ms.date: 01/25/2023
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.author: sngun
-ms.subservice: tables
+ms.service: azure-table-storage
+ms.custom: mode-ui, engagement-fy23
 ---
-# Quickstart: Create an Azure Storage table in the Azure portal 
+
+# Quickstart: Create a table in the Azure portal
 
 This quickstart shows how to create tables and entities in the web-based Azure portal. This quickstart also shows you how to create an Azure storage account.
 
@@ -21,19 +24,32 @@ To complete this quickstart, first create an Azure storage account in the [Azure
 
 ## Add a table
 
-You can now use Table service in the Azure portal to create a table.
+To create a table in the Azure portal:
 
-1. Click Overview > Tables.
+1. Navigate to your storage account in the Azure portal.
+1. Select **Storage Browser** in the left-hand navigation panel.
+1. In the Storage Browser tree, select **Tables**.
+1. Select the **Add table** button to add a new table.
+1. In the **Add table** dialog, provide a name for the new table.
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-01.png)
+    :::image type="content" source="media/table-storage-quickstart-portal/storage-browser-table-create.png" alt-text="Screenshot showing how to create a table in Storage Browser in the Azure portal.":::
 
-2. Click **+ Table**.
+1. Select **Ok** to create the new table.
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-02.png)
+## Add an entity to the table
 
-3. Type a name for your table in the **Table name** box, then click **OK**. 
+To add an entity to your table from the Azure portal:
 
-   ![Azure portal](media/table-storage-quickstart-portal/table-storage-quickstart-03.png)
+1. In the Storage Browser in the Azure portal, select the table you created previously.
+1. Select the **Add entity** button to add a new entity.
+
+   :::image type="content" source="media/table-storage-quickstart-portal/storage-browser-table-add-entity.png" alt-text="Screenshot showing how to add a new entity to a table in Storage Browser in the Azure portal.":::
+
+1. In the **Add entity** dialog, provide a partition key and a row key, then add any additional properties for data that you want to write to the entity.
+
+    :::image type="content" source="media/table-storage-quickstart-portal/storage-browser-table-add-properties.png" alt-text="Screenshot showing how to add properties to an entity in Storage Browser in the Azure portal.":::
+
+For more information on working with entities and properties, see [Understanding the Table service data model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 ## Next steps
 

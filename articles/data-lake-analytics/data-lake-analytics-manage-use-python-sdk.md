@@ -1,18 +1,16 @@
 ---
 title: Manage Azure Data Lake Analytics using Python
 description: This article describes how to use Python to manage Data Lake Analytics accounts, data sources, users, & jobs.
-services: data-lake-analytics
 ms.service: data-lake-analytics
-author: matt1883
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
-ms.topic: conceptual
-ms.date: 06/08/2018
+ms.reviewer: whhender
+ms.topic: how-to
+ms.date: 01/20/2023
+ms.custom: devx-track-python
 ---
 # Manage Azure Data Lake Analytics using Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs by using Python.
 
@@ -34,7 +32,7 @@ Install the following modules:
 
 First, ensure you have the latest `pip` by running the following command:
 
-```
+```console
 python -m pip install --upgrade pip
 ```
 
@@ -42,7 +40,8 @@ This document was written using `pip version 9.0.1`.
 
 Use the following `pip` commands to install the modules from the commandline:
 
-```
+```console
+pip install azure-identity
 pip install azure-mgmt-resource
 pip install azure-datalake-store
 pip install azure-mgmt-datalake-store
@@ -59,6 +58,9 @@ Paste the following code into the script:
 
 # Use this only for Azure AD end-user authentication
 #from azure.common.credentials import UserPassCredentials
+
+# Required for Azure Identity
+from azure.identity import DefaultAzureCredential
 
 # Required for Azure Resource Manager
 from azure.mgmt.resource.resources import ResourceManagementClient
@@ -82,6 +84,9 @@ from azure.mgmt.datalake.analytics.job.models import JobInformation, JobState, U
 # Required for Azure Data Lake Analytics catalog management
 from azure.mgmt.datalake.analytics.catalog import DataLakeAnalyticsCatalogManagementClient
 
+# Required for Azure Data Lake Analytics Model
+from azure.mgmt.datalake.analytics.account.models import CreateOrUpdateComputePolicyParameters
+
 # Use these as needed for your application
 import logging
 import getpass
@@ -96,7 +101,7 @@ Run this script to verify that the modules can be imported.
 
 ### Interactive user authentication with a pop-up
 
-This method is not supported.
+This method isn't supported.
 
 ### Interactive user authentication with a device code
 
@@ -110,13 +115,17 @@ credentials = UserPassCredentials(user, password)
 ### Noninteractive authentication with SPI and a secret
 
 ```python
-credentials = ServicePrincipalCredentials(
-    client_id='FILL-IN-HERE', secret='FILL-IN-HERE', tenant='FILL-IN-HERE')
+# Acquire a credential object for the app identity. When running in the cloud,
+# DefaultAzureCredential uses the app's managed identity (MSI) or user-assigned service principal.
+# When run locally, DefaultAzureCredential relies on environment variables named
+# AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID.
+
+credentials = DefaultAzureCredential()
 ```
 
 ### Noninteractive authentication with API and a certificate
 
-This method is not supported.
+This method isn't supported.
 
 ## Common script variables
 
@@ -151,7 +160,7 @@ armGroupResult = resourceClient.resource_groups.create_or_update(
 First create a store account.
 
 ```python
-adlsAcctResult = adlsAcctClient.account.create(
+adlsAcctResult = adlsAcctClient.account.begin_create(
 	rg,
 	adls,
 	DataLakeStoreAccount(
@@ -236,10 +245,10 @@ The DataLakeAnalyticsAccountManagementClient object provides methods for managin
 The following code retrieves a list of compute policies for a Data Lake Analytics account.
 
 ```python
-policies = adlaAccountClient.computePolicies.listByAccount(rg, adla)
+policies = adlaAcctClient.compute_policies.list_by_account(rg, adla)
 for p in policies:
-    print('Name: ' + p.name + 'Type: ' + p.objectType + 'Max AUs / job: ' +
-          p.maxDegreeOfParallelismPerJob + 'Min priority / job: ' + p.minPriorityPerJob)
+    print('Name: ' + p.name + 'Type: ' + p.object_type + 'Max AUs / job: ' +
+          p.max_degree_of_parallelism_per_job + 'Min priority / job: ' + p.min_priority_per_job)
 ```
 
 ### Create a new compute policy
@@ -248,15 +257,15 @@ The following code creates a new compute policy for a Data Lake Analytics accoun
 
 ```python
 userAadObjectId = "3b097601-4912-4d41-b9d2-78672fc2acde"
-newPolicyParams = ComputePolicyCreateOrUpdateParameters(
+newPolicyParams = CreateOrUpdateComputePolicyParameters(
     userAadObjectId, "User", 50, 250)
-adlaAccountClient.computePolicies.createOrUpdate(
+adlaAcctClient.compute_policies.create_or_update(
     rg, adla, "GaryMcDaniel", newPolicyParams)
 ```
 
 ## Next steps
 
-- To see the same tutorial using other tools, click the tab selectors on the top of the page.
+- To see the same tutorial using other tools, select the tab selectors on the top of the page.
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
 - For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 

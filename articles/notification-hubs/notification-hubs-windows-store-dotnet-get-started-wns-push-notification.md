@@ -9,16 +9,16 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 12/05/2019
+ms.custom: "mvc, ms.custom: devx-track-csharp"
+ms.date: 03/08/2022
 ms.author: sethm
-ms.reviewer: jowargo
-ms.lastreviewed: 12/04/2019
+ms.reviewer: thsomasu
+ms.lastreviewed: 03/08/2022
 ---
 
-# Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs
+# Tutorial: Send notifications to Universal Windows Platform apps using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -39,7 +39,7 @@ You take the following steps:
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Microsoft Visual Studio 2017 or later. The example in this tutorial uses [Visual Studio 2019](https://www.visualstudio.com/products).
-- [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+- [UWP app-development tools installed](/windows/uwp/get-started/get-set-up)
 - An active Windows Store account
 - Confirm that **Get notifications from apps and other senders** setting is enabled. 
     - Launch **Settings** window on your computer.
@@ -51,6 +51,9 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ## Create an app in Windows Store
 
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
+
 To send push notifications to UWP apps, associate your app to the Windows Store. Then, configure your notification hub to integrate with WNS.
 
 1. Navigate to the [Windows Dev Center](https://partner.microsoft.com/dashboard/windows/first-run-experience), sign in with your Microsoft account, and then select **Create a new app**.
@@ -59,13 +62,27 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 2. Type a name for your app, and then select **Reserve product name**. Doing so creates a new Windows Store registration for your app.
 
     ![Store app name](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-3. Expand **Product management**, select **WNS/MPNS**, and then select **Live Services site**. Sign in to your Microsoft account. The application registration page opens in a new tab. Alternatively, you can navigate directly to the [My applications](https://apps.dev.microsoft.com) page, and select your application name to get to this page.
+3. Expand **Product management**, and then select **Product Identity**. Take note of the **Package SID**, **Package/Identity/Name**, **Package/Identity/Publisher**, and **Package/Properties/PublisherDisplayName** values.
 
-    ![WNS MPNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Note the **Application Secrets** password and the **Package security identifier (SID)**.
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/product-identity.png" alt-text="Partner center apps":::
+4. Under **Product management**, select **WNS/MPNS**, and then select **App Registration portal**. Sign in to your Microsoft account. The application registration page opens in a new tab.
 
-    >[!WARNING]
-    >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+    ![WNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-page.png)
+
+5. Under **Essentials**, select **Client credentials: Add a certificate or secret**.
+
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/hub-azure-portal.png" alt-text="Notification Hub settings on Azure portal":::
+
+6. On the **Certificates & secrets** page, under **Client secrets**, select **New client secret**. After you create a client secret (also called an application secret), take note of it before you leave the page.
+
+   > [!WARNING]
+   > You can only view client secret (application secret) values immediately after creating them. Make sure to save the secret before leaving the page.
+
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/new-client-secret.png" alt-text="Client secret on portal":::
+
+   > [!WARNING]
+   > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+
 
 ## Create a Notification Hub
 
@@ -74,7 +91,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 ### Configure WNS settings for the hub
 
 1. In the **NOTIFICATION SETTINGS** category, select **Windows (WNS)**.
-2. Enter values for **Package SID** and **Security Key** you noted from the previous section.
+2. Enter values for **Package SID** (like this "ms-app://`<Your Package SID>`") and **Security Key** (the **Application Secret**) you noted from the previous section.
 3. Click **Save** on the toolbar.
 
     ![The Package SID and Security Key boxes](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
@@ -145,7 +162,9 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
     This action guarantees that the channel URI is registered in your notification hub each time the application launches.
 
-12. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
+12. Right-click `Package.appxmanifest` and select **View Code (F7)**. Locate  `<Identity .../>` and replace the **Name** value with the **Package/Identity/Name**, and replace its **Publisher** value with the **Package/Identity/Publisher** value from the app you created [earlier](#create-an-app-in-windows-store).
+
+13. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
 
     ![Registration successful](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 
@@ -187,6 +206,6 @@ notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 <!-- URLs. -->
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[toast catalog]: https://msdn.microsoft.com/library/windows/apps/hh761494.aspx
-[tile catalog]: https://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[toast catalog]: /previous-versions/windows/apps/hh761494(v=win.10)
+[tile catalog]: /previous-versions/windows/apps/hh761491(v=win.10)
+[badge overview]: /previous-versions/windows/apps/hh779719(v=win.10)

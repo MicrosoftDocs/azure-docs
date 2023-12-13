@@ -1,204 +1,237 @@
-﻿---
-title: Kubernetes on Azure tutorial  - Scale Application
-description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
-services: container-service
-author: mlearned
-
-ms.service: container-service
+---
+title: Kubernetes on Azure tutorial - Scale applications in Azure Kubernetes Service (AKS)
+description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods and implement horizontal pod autoscaling.
 ms.topic: tutorial
-ms.date: 01/14/2019
-ms.author: mlearned
+ms.date: 10/23/2023
 ms.custom: mvc
-
-#Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so that I can provide high availability or respond to customer demand and application load.
+#Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so I can provide high availability or respond to customer demand and application load.
 ---
 
-# Tutorial: Scale applications in Azure Kubernetes Service (AKS)
+# Tutorial - Scale applications in Azure Kubernetes Service (AKS)
 
-If you've followed the tutorials, you have a working Kubernetes cluster in AKS and you deployed the sample Azure Voting app. In this tutorial, part five of seven, you scale out the pods in the app and try pod autoscaling. You also learn how to scale the number of Azure VM nodes to change the cluster's capacity for hosting workloads. You learn how to:
+If you followed the previous tutorials, you have a working Kubernetes cluster and Azure Store Front app.
+
+In this tutorial, part six of seven, you scale out the pods in the app, try pod autoscaling, and scale the number of Azure VM nodes to change the cluster's capacity for hosting workloads. You learn how to:
 
 > [!div class="checklist"]
-> * Scale the Kubernetes nodes
-> * Manually scale Kubernetes pods that run your application
-> * Configure autoscaling pods that run the app front-end
-
-In additional tutorials, the Azure Vote application is updated to a new version.
+>
+> * Scale the Kubernetes nodes.
+> * Manually scale Kubernetes pods that run your application.
+> * Configure autoscaling pods that run the app front end.
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image. This image was uploaded to Azure Container Registry, and you created an AKS cluster. The application was then deployed to the AKS cluster. If you haven't done these steps, and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+In previous tutorials, you packaged an application into a container image, uploaded the image to Azure Container Registry, created an AKS cluster, deployed an application, and used Azure Service Bus to redeploy an updated application. If you haven't completed these steps and want to follow along, start with [Tutorial 1 - Prepare application for AKS][aks-tutorial-prepare-app].
 
-This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+### [Azure CLI](#tab/azure-cli)
+
+This tutorial requires Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+
+---
 
 ## Manually scale pods
 
-When the Azure Vote front-end and Redis instance were deployed in previous tutorials, a single replica was created. To see the number and state of pods in your cluster, use the [kubectl get][kubectl-get] command as follows:
+1. View the pods in your cluster using the [`kubectl get`][kubectl-get] command.
 
-```console
-kubectl get pods
-```
+    ```console
+    kubectl get pods
+    ```
 
-The following example output shows one front-end pod and one back-end pod:
+    The following example output shows the pods running the Azure Store Front app:
 
-```
-NAME                               READY     STATUS    RESTARTS   AGE
-azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
-azure-vote-front-848767080-tf34m   1/1       Running   0          31m
-```
+    ```output
+    NAME                               READY     STATUS     RESTARTS   AGE
+    order-service-848767080-tf34m      1/1       Running    0          31m
+    product-service-4019737227-2q2qz   1/1       Running    0          31m
+    store-front-2606967446-2q2qz       1/1       Running    0          31m
+    ```
 
-To manually change the number of pods in the *azure-vote-front* deployment, use the [kubectl scale][kubectl-scale] command. The following example increases the number of front-end pods to *5*:
+2. Manually change the number of pods in the *store-front* deployment using the [`kubectl scale`][kubectl-scale] command.
 
-```console
-kubectl scale --replicas=5 deployment/azure-vote-front
-```
+    ```console
+    kubectl scale --replicas=5 deployment.apps/store-front
+    ```
 
-Run [kubectl get pods][kubectl-get] again to verify that AKS creates the additional pods. After a minute or so, the additional pods are available in your cluster:
+3. Verify the additional pods were created using the [`kubectl get pods`][kubectl-get] command.
 
-```console
-$ kubectl get pods
+    ```console
+    kubectl get pods
+    ```
 
-                                    READY     STATUS    RESTARTS   AGE
-azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
-azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
-azure-vote-front-3309479140-bzt05   1/1       Running   0          3m
-azure-vote-front-3309479140-fvcvm   1/1       Running   0          3m
-azure-vote-front-3309479140-hrbf2   1/1       Running   0          15m
-azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
-```
+    The following example output shows the additional pods running the Azure Store Front app:
+
+    ```output
+                                      READY     STATUS    RESTARTS   AGE
+    store-front-2606967446-2q2qzc     1/1       Running   0          15m
+    store-front-3309479140-2hfh0      1/1       Running   0          3m
+    store-front-3309479140-bzt05      1/1       Running   0          3m
+    store-front-3309479140-fvcvm      1/1       Running   0          3m
+    store-front-3309479140-hrbf2      1/1       Running   0          15m
+    store-front-3309479140-qphz8      1/1       Running   0          3m
+    ```
 
 ## Autoscale pods
 
-Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] is used to provide resource utilization to Kubernetes, and is automatically deployed in AKS clusters versions 1.10 and higher. To see the version of your AKS cluster, use the [az aks show][az-aks-show] command, as shown in the following example:
+To use the horizontal pod autoscaler, all containers and pods must have defined CPU requests and limits. In the `aks-store-quickstart` deployment, the *front-end* container requests 1m CPU with a limit of 1000m CPU.
 
-```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
+These resource requests and limits are defined for each container, as shown in the following condensed example YAML:
+
+```yaml
+...
+  containers:
+  - name: store-front
+    image: ghcr.io/azure-samples/aks-store-demo/store-front:latest
+    ports:
+    - containerPort: 8080
+      name: store-front
+...
+    resources:
+      requests:
+        cpu: 1m
+...
+      limits:
+        cpu: 1000m
+...
 ```
+
+### Autoscale pods using a manifest file
+
+1. Create a manifest file to define the autoscaler behavior and resource limits, as shown in the following condensed example manifest file `aks-store-quickstart-hpa.yaml`:
+
+    ```yaml
+    apiVersion: autoscaling/v1
+    kind: HorizontalPodAutoscaler
+    metadata:
+      name: store-front-hpa
+    spec:
+      maxReplicas: 10 # define max replica count
+      minReplicas: 3  # define min replica count
+      scaleTargetRef:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: store-front
+      targetCPUUtilizationPercentage: 50 # target CPU utilization
+    ```
+
+2. Apply the autoscaler manifest file using the `kubectl apply` command.
+
+    ```console
+    kubectl apply -f aks-store-quickstart-hpa.yaml
+    ```
+
+3. Check the status of the autoscaler using the `kubectl get hpa` command.
+
+    ```console
+    kubectl get hpa
+    ```
+
+    After a few minutes, with minimal load on the Azure Store Front app, the number of pod replicas decreases to three. You can use `kubectl get pods` again to see the unneeded pods being removed.
 
 > [!NOTE]
-> If your AKS cluster is less than *1.10*, the Metrics Server is not automatically installed. To install, clone the `metrics-server` GitHub repo and install the example resource definitions. To view the contents of these YAML definitions, see [Metrics Server for Kuberenetes 1.8+][metrics-server-github].
-> 
-> ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
-> ```
-
-To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU. These resource requests and limits are defined as shown in the following example snippet:
-
-```yaml
-resources:
-  requests:
-     cpu: 250m
-  limits:
-     cpu: 500m
-```
-
-The following example uses the [kubectl autoscale][kubectl-autoscale] command to autoscale the number of pods in the *azure-vote-front* deployment. If average CPU utilization across all pods exceeds 50% of their requested usage, the autoscaler increases the pods up to a maximum of *10* instances. A minimum of *3* instances is then defined for the deployment:
-
-```console
-kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
-```
-
-Alternatively, you can create a manifest file to define the autoscaler behavior and resource limits. The following is an example of a manifest file named `azure-vote-hpa.yaml`.
-
-```yaml
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: azure-vote-back-hpa
-spec:
-  maxReplicas: 10 # define max replica count
-  minReplicas: 3  # define min replica count
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: azure-vote-back
-  targetCPUUtilizationPercentage: 50 # target CPU utilization
-
-
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: azure-vote-front-hpa
-spec:
-  maxReplicas: 10 # define max replica count
-  minReplicas: 3  # define min replica count
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: azure-vote-front
-  targetCPUUtilizationPercentage: 50 # target CPU utilization
-```
-
-Use `kubectl apply` to apply the autoscaler defined in the `azure-vote-hpa.yaml` manifest file.
-
-```
-$ kubectl apply -f azure-vote-hpa.yaml
-```
-
-To see the status of the autoscaler, use the `kubectl get hpa` command as follows:
-
-```
-$ kubectl get hpa
-
-NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
-azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
-```
-
-After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to three. You can use `kubectl get pods` again to see the unneeded pods being removed.
+> You can enable the Kubernetes-based Event-Driven Autoscaler (KEDA) AKS add-on to your cluster to drive scaling based on the number of events needing to be processed. For more information, see [Enable simplified application autoscaling with the Kubernetes Event-Driven Autoscaling (KEDA) add-on (Preview)][keda-addon].
 
 ## Manually scale AKS nodes
 
-If you created your Kubernetes cluster using the commands in the previous tutorial, it has two nodes. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
+If you created your Kubernetes cluster using the commands in the previous tutorials, your cluster has two nodes. If you want to increase or decrease this amount, you can manually adjust the number of nodes.
 
 The following example increases the number of nodes to three in the Kubernetes cluster named *myAKSCluster*. The command takes a couple of minutes to complete.
 
-```azurecli
-az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
-```
+### [Azure CLI](#tab/azure-cli)
 
-When the cluster has successfully scaled, the output is similar to following example:
+* Scale your cluster nodes using the [`az aks scale`][az-aks-scale] command.
 
-```
-"agentPoolProfiles": [
-  {
-    "count": 3,
-    "dnsPrefix": null,
-    "fqdn": null,
-    "name": "myAKSCluster",
-    "osDiskSizeGb": null,
-    "osType": "Linux",
-    "ports": null,
-    "storageProfile": "ManagedDisks",
-    "vmSize": "Standard_D2_v2",
-    "vnetSubnetId": null
-  }
-```
+    ```azurecli-interactive
+    az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
+    ```
+
+    Once the cluster successfully scales, your output will be similar to following example output:
+
+    ```output
+    "agentPoolProfiles": [
+      {
+        "count": 3,
+        "dnsPrefix": null,
+        "fqdn": null,
+        "name": "myAKSCluster",
+        "osDiskSizeGb": null,
+        "osType": "Linux",
+        "ports": null,
+        "storageProfile": "ManagedDisks",
+        "vmSize": "Standard_D2_v2",
+        "vnetSubnetId": null
+      }
+    ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+* Scale your cluster nodes using the [`Get-AzAksCluster`][get-azakscluster] and [`Set-AzAksCluster`][set-azakscluster] cmdlets.
+
+    ```azurepowershell-interactive
+    Get-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster | Set-AzAksCluster -NodeCount 3
+    ```
+
+    Once the cluster successfully scales, your output will be similar to following example output:
+
+    ```output
+    ProvisioningState       : Succeeded
+    MaxAgentPools           : 100
+    KubernetesVersion       : 1.19.9
+    DnsPrefix               : myAKSCluster
+    Fqdn                    : myakscluster-000a0aa0.hcp.eastus.azmk8s.io
+    PrivateFQDN             :
+    AgentPoolProfiles       : {default}
+    WindowsProfile          : Microsoft.Azure.Commands.Aks.Models.PSManagedClusterWindowsProfile
+    AddonProfiles           : {}
+    NodeResourceGroup       : MC_myresourcegroup_myAKSCluster_eastus
+    EnableRBAC              : True
+    EnablePodSecurityPolicy :
+    NetworkProfile          : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceNetworkProfile
+    AadProfile              :
+    ApiServerAccessProfile  :
+    Identity                :
+    LinuxProfile            : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceLinuxProfile
+    ServicePrincipalProfile : Microsoft.Azure.Commands.Aks.Models.PSContainerServiceServicePrincipalProfile
+    Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myresourcegroup/providers/Micros
+                          oft.ContainerService/managedClusters/myAKSCluster
+    Name                    : myAKSCluster
+    Type                    : Microsoft.ContainerService/ManagedClusters
+    Location                : eastus
+    Tags                    : {}
+    ```
+
+---
+
+You can also autoscale the nodes in your cluster. For more information, see [Use the cluster autoscaler with node pools](./cluster-autoscaler.md#use-the-cluster-autoscaler-with-node-pools).
 
 ## Next steps
 
 In this tutorial, you used different scaling features in your Kubernetes cluster. You learned how to:
 
 > [!div class="checklist"]
-> * Manually scale Kubernetes pods that run your application
-> * Configure autoscaling pods that run the app front-end
-> * Manually scale the Kubernetes nodes
+>
+> * Manually scale Kubernetes pods that run your application.
+> * Configure autoscaling pods that run the app front end.
+> * Manually scale the Kubernetes nodes.
 
-Advance to the next tutorial to learn how to update application in Kubernetes.
+In the next tutorial, you learn how to upgrade Kubernetes in your AKS cluster.
 
 > [!div class="nextstepaction"]
-> [Update an application in Kubernetes][aks-tutorial-update-app]
+> [Upgrade Kubernetes in Azure Kubernetes Service][aks-tutorial-upgrade-kubernetes]
 
 <!-- LINKS - external -->
-[kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
-[kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
-[metrics-server]: https://v1-13.docs.kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azakscluster]: /powershell/module/az.aks/get-azakscluster
+[set-azakscluster]: /powershell/module/az.aks/set-azakscluster
+[aks-tutorial-upgrade-kubernetes]: ./tutorial-kubernetes-upgrade-cluster.md
+[keda-addon]: ./keda-about.md

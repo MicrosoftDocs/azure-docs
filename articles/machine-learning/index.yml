@@ -1,131 +1,140 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Azure Machine Learning offers web interfaces & SDKs so you can quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Azure Machine Learning offers you web interfaces & SDKs to quickly train and deploy your machine learning models and pipelines at scale. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
  
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
-  ms.date: 01/16/2020
-
+  ms.author: sgilley
+  author: sdgilley
+  ms.date: 03/10/2023
+  ms.custom: jordan-changes, event-tier1-build-2022, ignite-2022
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-           
-  # GET STARTED
-  - title: Get started with Azure ML
+  - title: 'Overview'
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Experiment in Python notebooks
-            url: tutorial-1st-experiment-sdk-setup.md
-          - text: Experiment in RStudio
-            url: tutorial-1st-r-experiment.md
-          - text: Experiment using drag & drop designer
-            url: tutorial-designer-automobile-price-train-score.md
-          - text: Experiment with automated ML
-            url: tutorial-first-experiment-automated-ml.md
       - linkListType: overview
-        links:
-          - text: What is Azure ML?
-            url: overview-what-is-azure-ml.md
-          - text: Architecture and concepts
-            url: concept-azure-machine-learning-architecture.md
-      - linkListType: how-to-guide
-        links:
-          - text: Set up your environment
-            url: how-to-configure-environment.md
-          - text: Set up training compute targets
-            url: how-to-set-up-training-targets.md    
-            
-  # PYTHON
-  - title: 'Experiment: Python SDK'
+        links:  
+          - text: "What is Azure Machine Learning?"       
+            url: overview-what-is-azure-machine-learning.md
+  # Card
+  - title: Setup & quickstart
     linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Create your first ML experiment
-            url: tutorial-1st-experiment-sdk-setup.md
-          - text: Classify images 
-            url: tutorial-train-models-with-aml.md                     
-          - text: Predict taxi fares with automated ML
-            url: tutorial-auto-train-models.md 
-      - linkListType: how-to-guide
-        links:
-          - text: Train with Scikit-learn
-            url: how-to-train-scikit-learn.md
-          - text: Train with TensorFlow
-            url: how-to-train-tensorflow.md
-          - text: Train with PyTorch
-            url: how-to-train-pytorch.md
-          - text: Train with Keras
-            url: how-to-train-keras.md
-
-  # Pipelines
-  - title: 'Use ML Pipelines'
+      - linkListType: quickstart
+        links:   
+        - text: Create resources 
+          url: quickstart-create-resources.md
+        - text: Get started with Azure Machine Learning
+          url: tutorial-azure-ml-in-a-day.md
+  # Card
+  - title: "Start with the basics"
     linkLists:
-    - linkListType: overview
-      links:
-      - text: What are ML pipelines?
-        url: concept-ml-pipelines.md   
-      - text: The 'drag-n-drop' designer
-        url: concept-designer.md   
     - linkListType: tutorial
       links:
-      - text: Linear regression to predict prices (designer)
-        url: tutorial-designer-automobile-price-train-score.md
-      - text: Create ML pipelines (Python SDK)
-        url: tutorial-pipeline-batch-scoring-classification.md     
-    - linkListType: how-to-guide
-      links:
-          - text: Scheduling pipelines (Python SDK)
-            url: how-to-schedule-pipelines.md                 
-          - text: Predict delays (designer)
-            url: how-to-designer-sample-classification-flight-delay.md
-          - text: Predict churn (designer)
-            url: how-to-designer-sample-classification-churn.md     
+      - text: Prepare and explore data
+        url: tutorial-explore-data.md
+      - text: Develop on a cloud workstation
+        url: tutorial-cloud-workstation.md
+      - text: Train a model
+        url: tutorial-train-model.md
+      - text: Deploy a model
+        url: tutorial-deploy-model.md
+      - text: Set up a reusable pipeline
+        url: tutorial-pipeline-python-sdk.md
 
-  # MLOps
-  - title: Deploy & manage models
+  # Card
+  - title: Work with data
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is MLOps?
-            url: concept-model-management-and-deployment.md
-          - text: How & where to deploy
-            url: how-to-deploy-and-where.md
-          - text: Authentication
-            url: how-to-setup-authentication.md
-          - text: Realtime prediction
-            url: how-to-consume-web-service.md
-          - text: Batch prediction 
-            url: how-to-use-parallel-run-step.md
-          - text: End-to-end examples (GitHub)
-            url: https://github.com/microsoft/MLOps
+        - text: Use Apache Spark in Azure Machine Learning
+          url: interactive-data-wrangling-with-apache-spark-azure-ml.md
+        - text: Create data assets
+          url: how-to-create-data-assets.md
+        - text: Work with tables
+          url: how-to-mltable.md
 
-  # Reference
-  - title: Go to reference docs
+  # Card
+  - title: Train models
+    linkLists:
+      - linkListType: how-to-guide
+        links:            
+          - text: Run training with CLI, SDK, or REST API
+            url: how-to-train-model.md
+          - text: Tune hyperparameters for model training
+            url: how-to-tune-hyperparameters.md
+          - text: Build pipelines from reuseable components
+            url: tutorial-pipeline-python-sdk.md
+          - text: Use automated ML in studio
+            url: tutorial-first-experiment-automated-ml.md
+          - text: Train with R
+            url: how-to-r-train-model.md
+  # Card
+  - title: Deploy models
+    linkLists:
+      - linkListType: deploy
+        links:
+        - text: Streamline model deployment with endpoints 
+          url: concept-endpoints.md
+        - text: Real-time scoring with online endpoints
+          url: how-to-deploy-online-endpoints.md
+        - text: Batch scoring with batch endpoints 
+          url: batch-inference/how-to-use-batch-endpoint.md
+        - text: Deploy R models
+          url: how-to-r-deploy-r-model.md
+  
+  # Card
+  - title: "Manage the ML lifecycle (MLOps)"
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Track, monitor, analyze training runs
+        url: how-to-track-monitor-analyze-runs.md
+      - text: Model management, deployment & monitoring
+        url: concept-model-management-and-deployment.md
+
+  # Card
+  - title: "Security for ML projects"
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Create a secure workspace
+        url: tutorial-create-secure-workspace.md
+      - text: Connect to data sources 
+        url: how-to-access-data.md
+      - text: Enterprise security & governance
+        url: concept-enterprise-security.md
+  # Card
+  - title: Reference docs     
     linkLists:
       - linkListType: reference
         links:
-          - text: SDK for Python
-            url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-          - text: SDK for R
-            url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-          - text: Machine learning CLI
-            url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: Designer algorithms & modules
-            url: algorithm-module-reference/module-reference.md
-          - text: REST API
-            url: https://docs.microsoft.com/rest/api/azureml/
-          - text: AI reference architectures (GitHub)
-            url: https://github.com/Microsoft/AI
+        - text: Python SDK (v2)
+          url: /python/api/overview/azure/ai-ml-readme
+        - text: CLI (v2)
+          url: /cli/azure/ml/
+        - text: REST API 
+          url: /rest/api/azureml/
+        - text: Algorithm & component reference
+          url: ./algorithm-module-reference/module-reference.md
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Upgrade to v2
+          url: how-to-migrate-from-v1.md 
+        - text: Python SDK (v2) code examples
+          url: https://github.com/Azure/azureml-examples/blob/main/sdk/python/README.md
+        - text: CLI (v2) code examples
+          url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
+        - text: ML Studio (classic) documentation
+          url: ./classic/index.yml

@@ -3,13 +3,14 @@ title: Rotate storage account access keys with PowerShell
 titleSuffix: Azure Storage
 description: Create an Azure Storage account, then retrieve and rotate one of its account access keys.
 services: storage
-author: tamram
+author: stevenmatthew
 
-ms.custom: mvc
-ms.service: storage
+ms.service: azure-storage
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
-ms.author: tamram
+ms.author: shaas 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Rotate storage account access keys with PowerShell
@@ -46,6 +47,6 @@ This script uses the following commands to create the storage account and retrie
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional storage PowerShell script samples can be found in [PowerShell samples for Azure Blob storage](../blobs/storage-samples-blobs-powershell.md).

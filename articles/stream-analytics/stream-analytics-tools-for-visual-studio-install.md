@@ -3,9 +3,9 @@ title: Set up Azure Stream Analytics tools for Visual Studio
 description: This article describes installation requirements and how to set up the Azure Stream Analytics tools for Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/22/2018
 ---
 # Install Azure Stream Analytics tools for Visual Studio
@@ -13,6 +13,9 @@ ms.date: 05/22/2018
 Visual Studio 2019 and Visual Studio 2017 support Azure Data Lake and Stream Analytics Tools. This article describes how to install and uninstall the tools.
 
 For more information on using the tools, see [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md).
+
+> [!NOTE] 
+> We strongly recommend using [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
 
 ## Install
 

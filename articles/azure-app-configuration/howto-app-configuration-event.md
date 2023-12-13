@@ -1,27 +1,23 @@
 ---
-title: "Tutorial: Use Azure App Configuration to send events to a web endpoint"
-titleSuffix: Azure App Configuration
-description: In this tutorial, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint.
+title: Use Event Grid for App Configuration data change notifications
+description: Learn how to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
 services: azure-app-configuration
-documentationcenter: ''
-author: jimmyca
-manager: yegu
-editor: ''
-
+author: maud-lv
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.topic: tutorial
-ms.date: 05/30/2019
-ms.author: yegu
-ms.custom: mvc
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: malev 
+ms.custom: devx-track-azurecli
+
 
 #Customer intent: I want to be notified or trigger a workload when a key-value is modified.
 ---
 
-# Quickstart: Route Azure App Configuration events to a web endpoint with Azure CLI
+# Use Event Grid for App Configuration data change notifications
 
-In this quickstart, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. Azure App Configuration users can subscribe to events that are emitted whenever key-values are modified. These events can trigger webhooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by Azure Event Grid. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+In this article, you learn how to set up Azure App Configuration event subscriptions to send key-value modification events to a web endpoint. Azure App Configuration users can subscribe to events emitted whenever key-values are modified. These events can trigger web hooks, Azure Functions, Azure Storage Queues, or any other event handler that is supported by Azure Event Grid. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
 ## Prerequisites
 
@@ -29,7 +25,7 @@ In this quickstart, you learn how to set up Azure App Configuration event subscr
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you aren't using Cloud Shell, you must first sign in using `az login`.
 
@@ -45,15 +41,16 @@ The following example creates a resource group named `<resource_group_name>` in 
 az group create --name <resource_group_name> --location westus
 ```
 
-## Create an App Configuration
+## Create an App Configuration store
 
-Replace `<appconfig_name>` with a unique name for your App Configuration, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
+Replace `<appconfig_name>` with a unique name for your configuration store, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
 
 ```azurecli-interactive
 az appconfig create \
   --name <appconfig_name> \
   --location westus \
-  --resource-group <resource_group_name>
+  --resource-group <resource_group_name> \
+  --sku free
 ```
 
 ## Create a message endpoint
@@ -65,7 +62,7 @@ Replace `<your-site-name>` with a unique name for your web app. The web app name
 ```azurecli-interactive
 $sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group <resource_group_name> \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
@@ -75,9 +72,9 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
-## Subscribe to your App Configuration
+## Subscribe to your App Configuration store
 
 You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the App Configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<appconfig_name>`, use the values you created earlier.
 
@@ -88,7 +85,7 @@ appconfigId=$(az appconfig show --name <appconfig_name> --resource-group <resour
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  --resource-id $appconfigId \
+  --source-resource-id $appconfigId \
   --name <event_subscription_name> \
   --endpoint $endpoint
 ```
@@ -114,14 +111,14 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
   "subject": "https://{appconfig-name}.azconfig.io/kv/Foo",
   "data": {
     "key": "Foo",
-    "etag": "a1LIDdNEIV6wCnfv3xaip7fMXD3"
+    "etag": "a1LIDdNEIV6wCnfv3xaip7fMXD3",
+    "syncToken":"zAJw6V16=Njo1IzMzMjE3MzA=;sn=3321730"
   },
   "eventType": "Microsoft.AppConfiguration.KeyValueModified",
   "eventTime": "2019-05-31T18:59:54Z",
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
-
 ```
 
 ## Clean up resources

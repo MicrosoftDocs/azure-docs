@@ -1,21 +1,23 @@
 ---
 title: Local cache
-description: Learn how the local cache work in Azure App Service, and how to enable, resize, and query the status of your app's local cache.
+description: Learn how local cache works in Azure App Service, and how to enable, resize, and query the status of your app's local cache.
 tags: optional
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
-ms.date: 03/04/2016
-ms.custom: seodec18
+ms.date: 06/29/2023
+ms.custom: UpdateFrequency3
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Azure App Service Local Cache overview
 
 > [!NOTE]
-> Local cache is not supported in Function apps or containerized App Service apps, such as on [App Service on Linux](containers/app-service-linux-intro.md).
+> Local cache is not supported in function apps or containerized App Service apps, such as in [Windows Containers](quickstart-custom-container.md?pivots=container-windows) or in [App Service on Linux](overview.md#app-service-on-linux). A version of local cache that is available for these app types is [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache).
 
 
-Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
+Azure App Service content is stored on Azure Storage and is surfaced in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 
 * The content is shared across multiple virtual machine (VM) instances of the app.
 * The content is durable and can be modified by running apps.
@@ -27,12 +29,18 @@ While many apps use one or all of these features, some apps just need a high-per
 The Azure App Service Local Cache feature provides a web role view of your content. This content is a write-but-discard cache of your storage content that is created asynchronously on-site startup. When the cache is ready, the site is switched to run against the cached content. Apps that run on Local Cache have the following benefits:
 
 * They are immune to latencies that occur when they access content on Azure Storage.
-* They are immune to the planned upgrades or unplanned downtimes and any other disruptions with Azure Storage that occur on servers that serve the content share.
+* They are not affected by connection issues to the storage, since the read-only copy is cached on the worker. 
 * They have fewer app restarts due to storage share changes.
+
+> [!NOTE]
+> If you are using Java (Java SE, Tomcat, or JBoss EAP), then by default the Java artifacts--.jar, .war, and .ear files--are copied locally to the worker. If your Java application depends on read-only access to other files as well, set `JAVA_COPY_ALL` to `true` for those files to also be copied. If Local Cache is enabled, it takes precedence over this Java-specific enhancement.
 
 ## How the local cache changes the behavior of App Service
 * _D:\home_ points to the local cache, which is created on the VM instance when the app starts up. _D:\local_ continues to point to the temporary VM-specific storage.
-* The local cache contains a one-time copy of the _/site_ and _/siteextensions_ folders of the shared content store, at _D:\home\site_ and _D:\home\siteextensions_, respectively. The files are copied to the local cache when the app starts up. The size of the two folders for each app is limited to 300 MB by default, but you can increase it up to 2 GB. If the copied files exceed the size of the local cache, App Service silently ignores local cache and read from the remote file share.
+* The local cache contains a one-time copy of the _/site_ and _/siteextensions_ folders of the shared content store, at _D:\home\site_ and _D:\home\siteextensions_, respectively. The files are copied to the local cache when the app starts. The size of the two folders for each app is limited to 1 GB by default, but can be increased to 2 GB. Note that as the cache size increases, it will take longer to load the cache. If you've increased local cache limit to 2 GB and the copied files exceed the maximum size of 2 GB, App Service silently ignores local cache and reads from the remote file share.
+> [!IMPORTANT]
+> When the copied files exceed the defined Local Cache size limit or when no limit is defined, deployment and swapping operations may fail with an error. See the [FAQ](#frequently-asked-questions-faq) for more information.
+> 
 * The local cache is read-write. However, any modification is discarded when the app moves virtual machines or gets restarted. Do not use the local cache for apps that store mission-critical data in the content store.
 * _D:\home\LogFiles_ and _D:\home\Data_ contain log files and app data. The two subfolders are stored locally on the VM instance, and are copied to the shared content store periodically. Apps can persist log files and data by writing them to these folders. However, the copy to the shared content store is best-effort, so it is possible for log files and data to be lost due to a sudden crash of a VM instance.
 * [Log streaming](troubleshoot-diagnostic-logs.md#stream-logs) is affected by the best-effort copy. You could observe up to a one-minute delay in the streamed logs.
@@ -41,7 +49,11 @@ The Azure App Service Local Cache feature provides a web role view of your conte
 * App deployment through any supported method publishes directly to the durable shared content store. To refresh the _D:\home\site_ and _D:\home\siteextensions_ folders in the local cache, the app needs to be restarted. To make the lifecycle seamless, see the information later in this article.
 * The default content view of the SCM site continues to be that of the shared content store.
 
-## Enable Local Cache in App Service
+## Enable Local Cache in App Service 
+
+> [!NOTE]
+> Local Cache is not supported in the **F1** or **D1** tier. 
+
 You configure Local Cache by using a combination of reserved app settings. You can configure these app settings by using the following methods:
 
 * [Azure portal](#Configure-Local-Cache-Portal)
@@ -58,8 +70,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 ### Configure Local Cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
 
-```json
-
+```jsonc
 ...
 
 {
@@ -72,7 +83,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 
     "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
-        "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
+        "WEBSITE_LOCAL_CACHE_SIZEINMB": "1000"
     }
 }
 
@@ -80,7 +91,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 ```
 
 ## Change the size setting in Local Cache
-By default, the local cache size is **300 MB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **2 GB** (2000 MB) per app.
+By default, the local cache size is **1 GB**. This includes the /site and /siteextensions folders that are copied from the content store, as well as any locally created logs and data folders. To increase this limit, use the app setting `WEBSITE_LOCAL_CACHE_SIZEINMB`. You can increase the size up to **2 GB** (2000 MB) per app. Note that it will take longer to load local cache as the size increases.
 
 ## Best practices for using App Service Local Cache
 We recommend that you use Local Cache in conjunction with the [Staging Environments](../app-service/deploy-staging-slots.md) feature.
@@ -93,6 +104,14 @@ We recommend that you use Local Cache in conjunction with the [Staging Environme
 
 ## Frequently asked questions (FAQ)
 
+### What if Local Cache size limit is exceeded?
+When the copied files exceed the Local Cache size limit, the app will read from the remote share. However, deployment and swap operations may fail with an error. See the table below for size limits and results.
+
+| **Local Cache size** | **Coped files** | **Result** |
+| --- | --- | --- |
+|≤ 2 GB|≤ Local Cache size|Reads from local cache.|
+|≤ 2 GB|> Local Cache size|Reads from remote share.<br/> **Note:** Deployment and swap operations may fail with an error.|
+
 ### How can I tell if Local Cache applies to my app?
 If your app needs a high-performance, reliable content store, does not use the content store to write critical data at runtime, and is less than 2 GB in total size, then the answer is "yes"! To get the total size of your /site and /siteextensions folders, you can use the site extension "Azure Web Apps Disk Usage."
 
@@ -102,6 +121,9 @@ If you're using the Local Cache feature with Staging Environments, the swap oper
 ### I just published new changes, but my app does not seem to have them. Why?
 If your app uses Local Cache, then you need to restart your site to get the latest changes. Don’t want to publish changes to a production site? See the slot options in the previous best practices section.
 
+> [!NOTE]
+> The [run from package](deploy-run-package.md) deployment option is not compatible with local cache.
+
 ### Where are my logs?
 With Local Cache, your logs and data folders do look a little different. However, the structure of your subfolders remains the same, except that the subfolders are nestled under a subfolder with the format "unique VM identifier" + time stamp.
 
@@ -110,3 +132,13 @@ Local Cache does help prevent storage-related app restarts. However, your app co
 
 ### Does Local Cache exclude any directories from being copied to the faster local drive?
 As part of the step that copies the storage content, any folder that is named repository is excluded. This helps with scenarios where your site content may contain a source control repository that may not be needed in day to day operation of the app. 
+
+### How to flush the local cache logs after a site management operation?
+To flush the local cache logs, stop and restart the app. This action clears the old cache. 
+
+### Why does App Service starts showing previously deployed files after a restart when Local Cache is enabled?
+In case App Service starts showing previously deployed files on a restart, check for the presence of the App Setting - '[WEBSITE_DISABLE_SCM_SEPARATION=true](https://github.com/projectkudu/kudu/wiki/Configurable-settings#use-the-same-process-for-the-user-site-and-the-scm-site)'.  After adding this setting any deployments via KUDU start writing to the local VM instead of the persistent storage. Best practices mentioned above in this article should be leveraged, wherein the deployments should always be done to the staging slot which does not have Local Cache enabled.
+
+## More resources
+
+[Environment variables and app settings reference](reference-app-settings.md)

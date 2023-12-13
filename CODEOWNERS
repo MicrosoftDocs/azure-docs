@@ -1,17 +1,9 @@
 # Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
-# Cognitive Services
-articles/cognitive-services/ @diberry @erhopf, @nitinme
-
-# DevOps
-articles/ansible/ @TomArcherMsft
-articles/chef/ @TomArcherMsft
-articles/jenkins/ @TomArcherMsft
-articles/terraform/ @TomArcherMsft
-
-# Governance
-articles/governance/ @DCtheGeek
+#
+# Help: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# Background: https://github.blog/2017-07-06-introducing-code-owners/
+# NOTE: The people you choose as code owners must have _write_ permissions for the repository. When the code owner is a team, that team must be _visible_ and it must have _write_ permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 # Configuration
-*.json @SyntaxC4 @snoviking @arob98
-.acrolinx-config.edn @MonicaRush @arob98
-articles/zone-pivot-groups.yml @SyntaxC4 @snoviking @arob98
+*.json @SyntaxC4 @snoviking
+articles/zone-pivot-groups.yml @SyntaxC4 @snoviking

@@ -3,22 +3,22 @@ title: Use PowerShell to manage data in Azure independent clouds
 titleSuffix: Azure Storage
 description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell.
 services: storage
-author: tamram
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.author: tamram
-ms.subservice: common
+ms.author: akashdubey
+ms.subservice: storage-common-concepts
+ms.custom: devx-track-azurepowershell
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell
 
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the independent clouds currently available.
 
-* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-* [Azure China 21Vianet Cloud operated by 21Vianet in China](http://www.windowsazure.cn/)
-* [Azure German Cloud](../../germany/germany-welcome.md)
+- [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
+- [Azure German Cloud](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -26,11 +26,11 @@ Most people use Azure Public Cloud for their global Azure deployment. There are 
 
 To use Azure Storage in one of the independent clouds, you connect to that cloud instead of Azure Public. To use one of the independent clouds rather than Azure Public:
 
-* You specify the *environment* to which to connect.
-* You determine and use the available regions.
-* You use the correct endpoint suffix, which is different from Azure Public.
+- You specify the *environment* to which to connect.
+- You determine and use the available regions.
+- You use the correct endpoint suffix, which is different from Azure Public.
 
-The examples require Azure PowerShell module Az version 0.7 or later. In a PowerShell window, run `Get-Module -ListAvailable Az` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+The examples require Azure PowerShell module Az version 0.7 or later. In a PowerShell window, run `Get-Module -ListAvailable Az` to find the version. If nothing is listed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Log in to Azure
 
@@ -40,7 +40,7 @@ Run the [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) cm
 Get-AzEnvironment
 ```
 
-Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to sign into an account that uses the Azure Government Cloud.   
+Sign in to your account that has access to the cloud to which you want to connect and set the environment. This example shows how to sign into an account that uses the Azure Government Cloud.
 
 ```powershell
 Connect-AzAccount –Environment AzureUSGovernment
@@ -60,7 +60,6 @@ The following table shows the locations returned for the German cloud.
 |----|----|
 | `germanycentral` | Germany Central|
 | `germanynortheast` | Germany Northeast |
-
 
 ## Endpoint suffix
 
@@ -108,6 +107,7 @@ The results are similar to the following values:
 | SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
 | **StorageEndpointSuffix** | `core.cloudapi.de` |
 | ... | ... |
+
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
 
 ```powershell
@@ -148,7 +148,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## After setting the environment
 
-From here going forward, you can use the same PowerShell used to manage your storage accounts and access the data plane as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+You can now use PowerShell to manage your storage accounts and access blob, queue, file, and table data. For more information, see [Az.Storage](/powershell/module/az.storage).
 
 ## Clean up resources
 
@@ -160,8 +160,8 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-* [Persisting user logins across PowerShell sessions](/powershell/azure/context-persistence)
-* [Azure Government storage](../../azure-government/documentation-government-services-storage.md)
-* [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
-* [Developer Notes for Azure China 21Vianet Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-* [Azure Germany Documentation](../../germany/germany-welcome.md)
+- [Persisting user logins across PowerShell sessions](/powershell/azure/context-persistence)
+- [Azure Government storage](../../azure-government/compare-azure-government-global-azure.md)
+- [Microsoft Azure Government Developer Guide](../../azure-government/documentation-government-developer-guide.md)
+- [Application Developer Notes for Azure operated by 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+- [Azure Germany Documentation](../../germany/germany-welcome.md)

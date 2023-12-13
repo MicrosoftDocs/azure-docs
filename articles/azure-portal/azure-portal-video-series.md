@@ -1,34 +1,27 @@
 ---
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
-services: azure-portal
-keywords: 
-author: mblythe
-ms.author: mblythe
-ms.date: 12/20/2019
-ms.topic: conceptual
-
-ms.service: azure-portal
-manager: mtillman
+ms.date: 12/06/2023
+ms.topic: how-to
 ---
+
 # Azure portal how-to video series
 
-The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
+The [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) showcases how to work with Azure services in the Azure portal. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
-In this featured video, we explore how to troubleshoot common issues with virtual machines.
+In this featured video, we show you how to create a storage account in the Azure portal.
 
-> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
+> [!VIDEO https://www.youtube.com/embed/AhuNgBafmUo]
 
-[Troubleshoot common problems with virtual machines](https://www.youtube.com/watch?v=MAJrN-2IPY8)
+[How to create a storage account](https://www.youtube.com/watch?v=AhuNgBafmUo)
 
-Catch up on these recent videos you may have missed:
+Catch up on these videos you may have missed:
 
-|   |   |   |
+| [How to use search in the Azure portal](https://www.youtube.com/watch?v=PcHF_DzsETA) | [How to check your subscription's secure score](https://www.youtube.com/watch?v=yqb3qvsjqXY)  | [How to find and use Translator](https://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to create a function app](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![Image of YouTube video about how to use the new Azure home screen](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Image of YouTube video about making the most of Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [How to create a function app](https://www.youtube.com/watch?v=BEIZKCDElMs) | [How to use the new Azure home](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [![Image of YouTube video about how to use search in the Azure portal](https://i.ytimg.com/vi/PcHF_DzsETA/hqdefault.jpg)](http://www.youtube.com/watch?v=PcHF_DzsETA) | [![Image of YouTube video about how to check your subscription's secure score](https://i.ytimg.com/vi/yqb3qvsjqXY/hqdefault.jpg)](https://www.youtube.com/watch?v=yqb3qvsjqXY) | [![Image of YouTube video about how to find and use Translator](https://i.ytimg.com/vi/6xBHkHkFmZ4/hqdefault.jpg)](http://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 
 ## Video playlist
 
@@ -36,4 +29,5 @@ Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=P
 
 ## Next steps
 
-Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
+- Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
+- Get an [overview of the Azure portal](azure-portal-overview.md).

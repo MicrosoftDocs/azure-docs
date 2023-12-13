@@ -1,20 +1,17 @@
 ---
 title: Manage Apache Hadoop clusters in HDInsight using Azure portal 
 description: Learn how to create and manage Azure HDInsight clusters using the Azure portal.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.custom: hdinsightactive
+ms.date: 12/06/2023
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using the Azure portal
 
-[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-portal-management-selector.md)]
 
-Using the [Azure portal](https://portal.azure.com), you can manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight. Use the tab selector above for information on managing Hadoop clusters in HDInsight using other tools.
+Using the [Azure portal](https://portal.azure.com), you can manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight. Use the tab selector for information on managing Hadoop clusters in HDInsight using other tools.
 
 ## Prerequisites
 
@@ -26,15 +23,15 @@ Sign in to [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="showClusters"></a> List and show clusters
 
-The **HDInsight clusters** page will list your existing clusters.  From the portal:
+The **HDInsight clusters** page lists your existing clusters. From the portal:
 1. Select **All services** from the left menu.
 2. Select **HDInsight clusters** under **ANALYTICS**.
 
-## <a name="homePage"></a> Cluster home page 
+## <a name="homePage"></a> Cluster home page
 
-Select your cluster name from the [**HDInsight clusters**](#showClusters) page.  This will open the **Overview** view, which looks similar to the following image:
+Select your cluster name from the [**HDInsight clusters**](#showClusters) page.  This opens the **Overview** view, which looks similar to the following image:
 
-![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
+:::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Azure portal HDInsight cluster essentials":::
 
 **Top menu:**  
 
@@ -52,7 +49,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |---|---|
     |Overview|Provides general information for your cluster.|
     |Activity log|Show and query activity logs.|
-    |Access control (IAM)|Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
+    |Access control (IAM)|Use role assignments.  See [Assign Azure roles to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).|
     |Tags|Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.|
     |Diagnose and solve problems|Display troubleshooting information.|
     |Quickstart|Displays information that helps you get started using HDInsight.|
@@ -65,7 +62,7 @@ Select your cluster name from the [**HDInsight clusters**](#showClusters) page. 
     |Cluster size|Check, increase, and decrease the number of cluster worker nodes. See [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Quota limits|Display the used and available cores for your subscription.|
     |SSH + Cluster login|Shows the instructions to connect to the cluster using Secure Shell (SSH) connection. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
-    |Data Lake Storage Gen1|Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
+    |Data Lake Storage Gen1|Configure access Data Lake Storage Gen1.  See [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).|
     |Storage accounts|View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.|
     |Applications|Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).|
     |Script actions|Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).|
@@ -101,12 +98,13 @@ From the [cluster home page](#homePage),  under **Settings** select **Properties
 |CLUSTER URL|The URL for the Ambari web interface.|
 |Private Endpoint|The private endpoint for the cluster.|
 |Secure shell (SSH)|The username and host name to use in accessing the cluster via SSH.|
-|STATUS|One of: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, or ClusterCustomization.|
+|STATUS|One of: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timeout, DeleteQueued, DeleteTimeout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, or ClusterCustomization.|
 |REGION|Azure location. For a list of supported Azure locations, see the **Region** drop-down list box on [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |DATE CREATED|The date the cluster was deployed.|
 |OPERATING SYSTEM|Either **Windows** or **Linux**.|
-|TYPE|Hadoop, HBase, Storm, Spark.|
+|TYPE|Hadoop, HBase, Spark.|
 |Version|See [HDInsight versions](hdinsight-component-versioning.md).|
+|Minimum TLS version|The TLS version.|
 |SUBSCRIPTION|Subscription name.|
 |DEFAULT DATA SOURCE|The default cluster file system.|
 |Worker nodes sizes|The selected VM size of the worker nodes.|
@@ -170,7 +168,7 @@ From the [cluster home page](#homePage):
 
 1. Select **Cluster dashboards**.
 
-    ![HDInsight Apache Hadoop cluster menu](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png" alt-text="HDInsight Apache Hadoop cluster menu":::
 
 1. Select **Ambari home** from the new page.
 1. Enter the cluster username and password.  The default cluster username is _admin_.
@@ -194,9 +192,9 @@ From the [cluster home page](#homePage):
 
 The password is changed on all nodes in the cluster.
 
-### Change the SSH user password
+### Change the SSH user password or public key
 
-1. Using a text editor, save the following text as a file named **changepassword.sh**.
+1. Using a text editor, save the following text as a file named **changecredentials.sh**.
 
     > [!IMPORTANT]  
     > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script does not work.
@@ -213,28 +211,21 @@ The password is changed on all nodes in the cluster.
 4. From the **Script actions** page, select **Submit new**.
 5. From the **Submit script action** page, enter the following information:
 
+> [!NOTE]
+> SSH passwords cannot contain the following characters:
+>
+> ``` " ' ` / \ < % ~ | $ & ! ```
+
    | Field | Value |
    | --- | --- |
    | Script type | Select **- Custom** from the drop-down list.|
-   | Name |"Change ssh password" |
-   | Bash script URI |The URI to the changepassword.sh file |
-   | Node type(s): (Head, Worker, Nimbus, Supervisor, Zookeeper, etc.) |✓ for all node types listed |
+   | Name |"Change ssh credentials" |
+   | Bash script URI |The URI to the changecredentials.sh file |
+   | Node type(s): (Head, Worker, Nimbus, Supervisor, or Zookeeper.) |✓ for all node types listed |
    | Parameters |Enter the SSH user name and then the new password. There should be one space between the user name and the password. |
    | Persist this script action ... |Leave this field unchecked. |
 
-6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new password.
-
-## Grant/revoke access
-
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-By default, these services are granted for access. You can revoke/grant the access using [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+6. Select **Create** to apply the script. Once the script finishes, you're able to connect to the cluster using SSH with the new credentials.
 
 ## Find the subscription ID
 

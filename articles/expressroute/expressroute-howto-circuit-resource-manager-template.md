@@ -1,15 +1,14 @@
 ---
 title: 'Azure ExpressRoute Template: Create an ExpressRoute circuit'
-description: Create, provision, delete, and deprovision an ExpressRoute circuit.
+description: Learn how to create an Azure ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
-ms.reviewer: ganesr
-
+ms.author: duau 
+ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
 
 # Create an ExpressRoute circuit by using Azure Resource Manager template
@@ -23,7 +22,7 @@ ms.reviewer: ganesr
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
+Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## Before you begin
 
@@ -33,22 +32,21 @@ Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manag
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 
-[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) to create an ExpressRoute circuit.
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/expressroute-circuit-create/) to create an ExpressRoute circuit.
 
-[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
+[!code-json[create-azure-expressroute-circuit](~/quickstart-templates/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json)]
 
 To see more related templates, select [here](https://azure.microsoft.com/resources/templates/?term=expressroute).
 
 To create an ExpressRoute Circuit by deploying a template:
 
-1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${circuitName}rg"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-expressroute-circuit-create/azuredeploy.json"
-
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json"
     $serviceProviderName = "Equinix"
     $peeringLocation = "Silicon Valley"
     $bandwidthInMbps = 500
@@ -61,7 +59,7 @@ To create an ExpressRoute Circuit by deploying a template:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*.
+   * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*.
    * **SKU family** determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
    * **Peering Location** is the physical location where you are peering with Microsoft.
 

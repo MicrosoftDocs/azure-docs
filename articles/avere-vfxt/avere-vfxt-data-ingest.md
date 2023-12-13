@@ -3,7 +3,7 @@ title: Moving data to Avere vFXT for Azure
 description: How to add data to a new storage volume for use with the Avere vFXT for Azure 
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ---
@@ -314,7 +314,7 @@ To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, foll
 
    For example, this command is designed to move 11,000 files in 64 processes from /test/source-repository to /mnt/vfxt/repository:
 
-   ``msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository && msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository``
+   `msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository && msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository`
 
 ## Use the parallel copy script
 

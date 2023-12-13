@@ -1,12 +1,14 @@
 ---
 title: Debug your application in Visual Studio 
 description: Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster.
-author: vturecek
-
-ms.topic: conceptual
-ms.date: 11/02/2017
-ms.author: vturecek
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Debug your Service Fabric application by using Visual Studio
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
@@ -15,12 +17,16 @@ ms.author: vturecek
 
 
 ## Debug a local Service Fabric application
-You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2019 or 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application. Visual Studio's must be run as Administrator to connect the debugger.
+
+> [!IMPORTANT]
+> Remote debugging is not supported on VS 2022
+
+You can save time and money by deploying and debugging your Azure Service Fabric application in a local computer development cluster. Visual Studio 2019 or 2015 can deploy the application to the local cluster and automatically connect the debugger to all instances of your application. Visual Studio must be run as Administrator to connect the debugger.
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started.md).
 2. Press **F5** or click **Debug** > **Start Debugging**.
    
-    ![Start debugging an application][startdebugging]
+    ![Screenshot that shows the Debug menu.][startdebugging]
 3. Set breakpoints in your code and step through the application by clicking commands in the **Debug** menu.
    
    > [!NOTE]

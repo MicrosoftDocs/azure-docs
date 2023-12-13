@@ -1,15 +1,20 @@
 ---
 title: Generate Soil Moisture Heatmap
 description: Describes how to generate Soil Moisture Heatmap in Azure FarmBeats
-author: uhabiba04
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: v-umha
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Generate Soil Moisture Heatmap
 
 Soil moisture is the water that is held in the spaces between soil particles. Soil Moisture Heatmap helps you understand the moisture data at any depth, and at high resolution within your farms. To generate an accurate and usable soil moisture heatmap, a uniform deployment of sensors from the same provider is required. Different providers will have differences in the way soil moisture is measured along with differences in calibration. The Heatmap is generated for a particular depth using the sensors deployed at that depth.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 This article describes the process of generating a Soil Moisture Heatmap for your farm, using the Azure FarmBeats Accelerator. In this article, you will learn how to:
 
@@ -27,11 +32,11 @@ Ensure the following:
 
 ## Create a farm
 
-A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the [Farms API](https://aka.ms/FarmBeatsDatahubSwagger) or in the [FarmsBeats Accelerator UI](manage-farms-in-azure-farmbeats.md#create-farms)
+A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a farm using the Farms API or in the [FarmsBeats Accelerator UI](manage-farms-in-azure-farmbeats.md#create-farms)
 
 ## Deploy sensors
 
-You should physically deploy soil moisture sensors on the farm. You can purchase soil moisture sensors from any of our approved partners - [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) and [Teralytic](https://teralytic.com/). You should coordinate with your sensor provider to do the physical setup on your farm.
+You should physically deploy soil moisture sensors on the farm. You can purchase soil moisture sensors from any of our approved partners - [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte) and [Teralytic](https://teralytic.com/). You should coordinate with your sensor provider to do the physical setup on your farm.
 
 ## Get soil moisture sensor data from partner
 
@@ -49,7 +54,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 2.	Select **MyFarm** > **Add Devices**.
 3.	The **Add Devices** window displays. Select any device that is linked to the soil moisture sensors for your farm.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Screenshot that shows the Add Devices screen.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Select **Add Devices**.     
 
@@ -65,7 +70,7 @@ This step is to create a job or a long running operation that will generate Soil
 6.	In the **Select Soil Moisture** **Sensor Measure**, enter the measure you want to use for the map.
     To find the sensor measure, in **Sensors**, select any soil moisture sensor. In **Sensor Properties**, use the **Measure Name** value.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Screenshot that shows the Soil Moisture screen.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.	Select **Generate Maps**.

@@ -1,35 +1,43 @@
 ---
-title: Update RU/s for a Gremlin database and graph for Azure Cosmos DB
-description: Update RU/s for a Gremlin database and graph for Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+title: Perform throughput (RU/s) operations for Azure Cosmos DB for Gremlin resources
+description: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB for Gremlin resources
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
+ms.custom: ignite-2022, devx-track-azurecli
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 02/21/2022
 ---
 
-# Update RU/s for a Gremlin database and graph for Azure Cosmos DB using Azure CLI
+# Throughput (RU/s) operations with Azure CLI for a database or graph for Azure Cosmos DB - API for Gremlin
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+The script in this article creates a Gremlin database with shared throughput and a Gremlin graph with dedicated throughput, then updates the throughput for both the database and graph. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+
+- This article requires version 2.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
-This script creates a Gremlin database with shared throughput and a Gremlin graph with dedicated throughput, then updates the throughput for both the database and graph.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/gremlin/throughput.sh "Update RU/s for a Gremlin database and graph.")]
+### Run the script
 
-## Clean up deployment
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/throughput.sh" id="FullScript":::
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+## Clean up resources
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
@@ -37,14 +45,14 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) | Creates an Azure Cosmos Gremlin database. |
-| [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Creates an Azure Cosmos Gremlin graph. |
-| [az cosmosdb gremlin database throughput update](/cli/azure/cosmosdb/gremlin/database/throughput#az-cosmosdb-gremlin-database-throughput-update) | Update RU/s for an Azure Cosmos Gremlin database. |
-| [az cosmosdb gremlin graph throughput update](/cli/azure/cosmosdb/gremlin/graph/throughput#az-cosmosdb-gremlin-graph-throughput-update) | Update RU/s for an Azure Cosmos Gremlin graph. |
+| [az cosmosdb gremlin database create](/cli/azure/cosmosdb/gremlin/database#az-cosmosdb-gremlin-database-create) | Creates an Azure Cosmos DB for Gremlin database. |
+| [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Creates an Azure Cosmos DB for Gremlin graph. |
+| [az cosmosdb gremlin database throughput update](/cli/azure/cosmosdb/gremlin/database/throughput#az-cosmosdb-gremlin-database-throughput-update) | Update RU/s for an Azure Cosmos DB for Gremlin database. |
+| [az cosmosdb gremlin graph throughput update](/cli/azure/cosmosdb/gremlin/graph/throughput#az-cosmosdb-gremlin-graph-throughput-update) | Update RU/s for an Azure Cosmos DB for Gremlin graph. |
+| [az cosmosdb gremlin database throughput migrate](/cli/azure/cosmosdb/gremlin/database/throughput#az-cosmosdb-gremlin-database-throughput-migrate) | Migrate throughput for an Azure Cosmos DB for Gremlin database. |
+| [az cosmosdb gremlin graph throughput migrate](/cli/azure/cosmosdb/gremlin/graph/throughput#az-cosmosdb-gremlin-graph-throughput-migrate) | Migrate throughput for an Azure Cosmos DB for Gremlin graph. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
-
-All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).

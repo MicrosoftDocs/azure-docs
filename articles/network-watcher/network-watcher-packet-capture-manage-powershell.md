@@ -1,21 +1,14 @@
 ---
-title: Manage packet captures - Azure PowerShell
-titleSuffix: Azure Network Watcher
-description: This page explains how to manage the packet capture feature of Network Watcher using PowerShell
+title: Manage packet captures in VMs with Azure Network Watcher - Azure PowerShell
+description: Learn how to manage packet captures in virtual machines with the packet capture feature of Network Watcher using PowerShell.
 services: network-watcher
-documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 02/22/2017
-ms.author: kumud
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 02/01/2021
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Manage packet captures with Azure Network Watcher using PowerShell
@@ -24,7 +17,6 @@ ms.author: kumud
 > - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 Network Watcher packet capture allows you to create capture sessions to track traffic to and from a virtual machine. Filters are provided for the capture session to ensure you capture only the traffic you want. Packet capture helps to diagnose network anomalies both reactively and proactively. Other uses include gathering network statistics, gaining information on network intrusions, to debug client-server communications and much more. By being able to remotely trigger packet captures, this capability eases the burden of running a packet capture manually and on the desired machine, which saves valuable time.
 
@@ -47,7 +39,7 @@ This article assumes you have the following resources:
 * A virtual machine with the packet capture extension enabled.
 
 > [!IMPORTANT]
-> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
+> Packet capture requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## Install VM extension
 
@@ -127,7 +119,7 @@ Once the preceding steps are complete, the packet capture agent is installed on 
 The next step is to retrieve the Network Watcher instance. This variable is passed to the `New-AzNetworkWatcherPacketCapture` cmdlet in step 4.
 
 ```powershell
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher  | Where {$_.Location -eq "westcentralus" }
 ```
 
 ### Step 2
@@ -280,17 +272,3 @@ Learn how to automate packet captures with Virtual machine alerts by viewing [Cr
 Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-

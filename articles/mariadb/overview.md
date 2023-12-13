@@ -1,15 +1,17 @@
 ---
 title: Overview - Azure Database for MariaDB
-description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MySQL community edition.
-author: ajlam
-ms.author: andrela
+description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MariaDB community edition.
 ms.service: mariadb
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: overview
 ms.custom: mvc
-ms.date: 12/02/2019
+ms.date: 06/24/2022
 ---
 
 # What is Azure Database for MariaDB?
+
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
 
 Azure Database for MariaDB is a relational database service in the Microsoft cloud. Azure Database for MariaDB is based on the [MariaDB community edition](https://mariadb.org/download/) (available under the GPLv2 license) database engine, version 10.2 and 10.3.
 
@@ -57,7 +59,7 @@ You can send any questions or suggestions you have about working with Azure Data
 You can also use the following points of contact:
 - To contact Azure Support, [open a support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) in the Azure portal.
 - To fix an issue with your account, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry in the [Azure Feedback Forums](https://feedback.azure.com/forums/915439-azure-database-for-mariadb).
+- To provide feedback or to request new features, create an entry in the [Azure Feedback Forums](https://feedback.azure.com/d365community/forum/8f6502f1-ed24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps
 

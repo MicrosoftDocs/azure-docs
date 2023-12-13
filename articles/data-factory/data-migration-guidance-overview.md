@@ -1,19 +1,18 @@
 ---
 title: Migrate data from data lake and data warehouse to Azure
 description: Use Azure Data Factory to migrate data from your data lake and data warehouse to Azure.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer:
-manager:
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 7/30/2019
+ms.date: 07/17/2023
 ---
 
 # Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 If you want to migrate your data lake or enterprise data warehouse (EDW) to Microsoft Azure, consider using Azure Data Factory. Azure Data Factory is well-suited to the following scenarios:
 
@@ -45,14 +44,14 @@ There are three key considerations when you choose between an online and offline
 
 For example, assume you plan to use Azure Data Factory to complete your data migration within two weeks (your *migration window*). Notice the pink/blue cut line in the following table. The lowest pink cell for any given column shows the data size/network bandwidth pairing whose migration window is closest to but less than two weeks. (Any size/bandwidth pairing in a blue cell has an online migration window of more than two weeks.) 
 
-![online vs. offline](media/data-migration-guidance-overview/online-offline.png)
+:::image type="content" source="media/data-migration-guidance-overview/online-offline.png" alt-text="online vs. offline":::
 This table helps you determine whether you can meet your intended migration window through online migration (Azure Data Factory) based on the size of your data and your available network bandwidth. If the online migration window is more than two weeks, you'll want to use offline migration.
 
 > [!NOTE]
 > By using online migration, you can achieve both historical data loading and incremental feeds end-to-end through a single tool.  Through this approach, your data can be kept synchronized between the existing store and the new store during the entire migration window. This means you can rebuild your ETL logic on the new store with refreshed data.
 
 
-## Next steps
+## Related content
 
 - [Migrate data from AWS S3 to Azure](data-migration-guidance-s3-azure-storage.md)
 - [Migrate data from on-premises hadoop cluster to Azure](data-migration-guidance-hdfs-azure-storage.md)

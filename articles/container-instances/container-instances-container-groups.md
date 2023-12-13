@@ -1,8 +1,12 @@
 ---
 title: Introduction to container groups
-description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
-ms.topic: article
-ms.date: 11/01/2019
+description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as CPUs, storage, and network
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.topic: conceptual
+ms.date: 06/17/2022
 ms.custom: mvc
 
 ---
@@ -51,7 +55,10 @@ Each container instance in a group is allocated the resources specified in its r
     
 For example, in a group with two container instances each requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
-In this scenario, you could set a resource limit of 2 CPUs for the container instance. This configuration allows the container instance to use up to the full 2 CPUs if available.
+In this scenario, you could set a resource limit of up to 2 CPUs for the container instance. This configuration allows the container instance to use up to 2 CPUs if available.
+
+> [!NOTE]
+> A small amount of a container group's resources is used by the service's underlying infrastructure. Your containers will be able to access most but not all of the resources allocated to the group. For this reason, plan a small resource buffer when requesting resources for containers in the group.
 
 ### Minimum and maximum allocation
 
@@ -61,7 +68,7 @@ In this scenario, you could set a resource limit of 2 CPUs for the container ins
 
 ## Networking
 
-Container groups can share an external-facing IP address, one or more ports on that IP address, and a DNS label with a fully qualified domain name (FQDN). To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. Because containers within the group share a port namespace, port mapping isn't supported. A container group's IP address and FQDN will be released when the container group is deleted. 
+Container groups can share an external-facing IP address, one or more ports on that IP address, and a DNS label with a fully qualified domain name (FQDN). To enable external clients to reach a container within the group, you must expose the port on the IP address and from the container. A container group's IP address and FQDN are released when the container group is deleted. 
 
 Within a container group, container instances can reach each other via localhost on any port, even if those ports aren't exposed externally on the group's IP address or from the container.
 
@@ -100,19 +107,19 @@ Learn how to deploy a multi-container container group with an Azure Resource Man
 
 <!-- LINKS - External -->
 [dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
-[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/
 
 <!-- LINKS - Internal -->
 [resource-manager template]: container-instances-multi-container-group.md
 [yaml-file]: container-instances-multi-container-yaml.md
 [region-availability]: container-instances-region-availability.md
-[resource-requests]: /rest/api/container-instances/containergroups/createorupdate#resourcerequests
-[resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
-[resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
+[resource-requests]: /rest/api/container-instances/2022-09-01/container-groups/create-or-update#resourcerequests
+[resource-limits]: /rest/api/container-instances/2022-09-01/container-groups/create-or-update#resourcelimits
+[resource-requirements]: /rest/api/container-instances/2022-09-01/container-groups/create-or-update#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
 [empty-directory]: container-instances-volume-emptydir.md
-[az-container-export]: /cli/azure/container#az-container-export
+[az-container-export]: /cli/azure/container#az_container_export

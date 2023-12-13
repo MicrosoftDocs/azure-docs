@@ -2,11 +2,12 @@
 title: Create a DNS zone and record for a domain name - Azure CLI - Azure DNS
 description: This Azure CLI script example shows how to create a DNS zone and record for a domain name
 services: dns
-author: asudbring
+author: greg-lindsay
 ms.service: dns
 ms.topic: sample
-ms.date: 09/20/2019
-ms.author: allensu
+ms.date: 11/30/2023
+ms.author: greglin 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI script example: Create a DNS zone and record
@@ -39,9 +40,8 @@ This script uses the following commands to create a resource group, virtual mach
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Creates an Azure DNS zone. |
 | [az network dns record-set a add-record](/cli/azure/network/dns/record-set) | Adds an *A* record to a DNS zone. |
 | [az network dns record-set list](/cli/azure/network/dns/record-set) | List all *A* record sets in a DNS zone. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
-
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

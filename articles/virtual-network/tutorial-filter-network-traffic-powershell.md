@@ -1,28 +1,22 @@
 ---
-title: Filter network traffic - Azure PowerShell | Microsoft Docs
+title: Filter network traffic - Azure PowerShell
 description: In this article, you learn how to filter network traffic to a subnet, with a network security group, using PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: asudbring
 manager: twooley
-editor: ''
 tags: azure-resource-manager
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
-
-ms.assetid: 
+# Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
-ms.devlang: 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
-ms.author: kumud
-ms.custom: mvc
+ms.author: allensu
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Filter network traffic with a network security group using PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 You can filter network traffic inbound to and outbound from a virtual network subnet with a network security group. Network security groups contain security rules that filter network traffic by IP address, port, and protocol. Security rules are applied to resources deployed in a subnet. In this article, you learn how to:
 
@@ -35,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a network security group
 
@@ -298,6 +292,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-In this article, you created a network security group and associated it to a virtual network subnet. To learn more about network security groups, see [Network security group overview](security-overview.md) and [Manage a network security group](manage-network-security-group.md).
+In this article, you created a network security group and associated it to a virtual network subnet. To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md) and [Manage a network security group](manage-network-security-group.md).
 
 Azure routes traffic between subnets by default. You may instead, choose to route traffic between subnets through a VM, serving as a firewall, for example. To learn how, see [Create a route table](tutorial-create-route-table-powershell.md).

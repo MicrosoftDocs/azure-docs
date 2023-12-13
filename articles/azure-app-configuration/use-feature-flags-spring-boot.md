@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to implement feature flags in Sprin
 services: azure-app-configuration
 documentationcenter: ''
 author: mrm9084
-manager: zhenlwa
+manager: zhenlan
 editor: ''
 
 ms.assetid: 
@@ -12,9 +12,9 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 09/27/2023
 ms.author: mametcal
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 
 #Customer intent: I want to control feature availability in my app by using the Spring Boot Feature Manager library.
 ---
@@ -49,13 +49,49 @@ We recommend that you keep feature flags outside the application and manage them
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
 
+### [Spring Boot 3](#tab/spring-boot-3)
+
 ```xml
 <dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
 </dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>5.5.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 ```
+
+### [Spring Boot 2](#tab/spring-boot-2)
+
+```xml
+<dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+</dependency>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>spring-cloud-azure-dependencies</artifactId>
+        <version>4.11.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+---
 
 ## Feature flag declaration
 
@@ -67,23 +103,21 @@ The feature manager supports *application.yml* as a configuration source for fea
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-a: true
+  feature-b: false
+  feature-c:
+    enabled-for:
+      -
+        name: PercentageFilter
+        parameters:
+          Value: 50
 ```
 
 By convention, the `feature-management` section of this YML document is used for feature flag settings. The prior example shows three feature flags with their filters defined in the `EnabledFor` property:
 
-* `FeatureA` is *on*.
-* `FeatureB` is *off*.
-* `FeatureC` specifies a filter named `Percentage` with a `Parameters` property. `Percentage` is a configurable filter. In this example, `Percentage` specifies a 50-percent probability for the `FeatureC` flag to be *on*.
+* `feature-a` is *on*.
+* `feature-b` is *off*.
+* `feature-c` specifies a filter named `PercentageFilter` with a `parameters` property. `PercentageFilter` is a configurable filter. In this example, `PercentageFilter` specifies a 50-percent probability for the `feature-c` flag to be *on*.
 
 ## Feature flag checks
 
@@ -92,8 +126,7 @@ The basic pattern of feature management is to first check if a feature flag is s
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
-{
+if (featureManager.isEnabledAsync("feature-a").block()) {
     // Run the following code
 }
 ```
@@ -116,21 +149,21 @@ public class HomeController {
 
 ## Controller actions
 
-In MVC controllers, you use the `@FeatureGate` attribute to control whether a specific action is enabled. The following `Index` action requires `FeatureA` to be *on* before it can run:
+In MVC controllers, you use the `@FeatureGate` attribute to control whether a specific action is enabled. The following `Index` action requires `feature-a` to be *on* before it can run:
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
 ```
 
-When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered `IDisabledFeaturesHandler` interface is called. The default `IDisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
+When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered `DisabledFeaturesHandler` interface is called. The default `DisabledFeaturesHandler` interface returns a 404 status code to the client with no response body.
 
 ## MVC filters
 
-You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `FeatureFlagFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled.
+You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `FeatureFlagFilter`. This filter is triggered within the MVC pipeline only if `feature-a` is enabled.
 
 ```java
 @Component
@@ -142,7 +175,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -154,11 +187,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## Routes
 
-You can use feature flags to redirect routes. The following code will redirect a user from `FeatureA` is enabled:
+You can use feature flags to redirect routes. The following code will redirect a user from `feature-a` is enabled:
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }
@@ -171,7 +204,7 @@ public String getOldFeature() {
 
 ## Next steps
 
-In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For more information about feature management support in Spring Boot and App Configuration, see the following resources:
+In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries.  For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works.For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
-* [Spring Boot feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)

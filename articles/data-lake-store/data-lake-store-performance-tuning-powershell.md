@@ -2,12 +2,12 @@
 title: Azure Data Lake Storage Gen1 performance tuning - PowerShell
 description: Tips on how to improve performance when using Azure PowerShell with Azure Data Lake Storage Gen1.
 
-author: stewu
+author: normesta
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
+ms.topic: how-to
 ms.date: 01/09/2018
-ms.author: stewu
-
+ms.author: normesta
 ---
 # Performance tuning guidance for using PowerShell with Azure Data Lake Storage Gen1
 
@@ -98,4 +98,3 @@ You can continue to tune these settings by changing the **PerFileThreadCount** u
 * [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 * [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
-

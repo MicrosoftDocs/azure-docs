@@ -1,143 +1,190 @@
 ---
-title: Kubernetes on Azure tutorial  - Deploy an application
-description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using a custom image stored in Azure Container Registry.
-services: container-service
-author: mlearned
-
-ms.service: container-service
+title: Kubernetes on Azure tutorial - Deploy an application to Azure Kubernetes Service (AKS)
+description: In this Azure Kubernetes Service (AKS) tutorial, you deploy a multi-container application to your cluster using images stored in Azure Container Registry.
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.author: mlearned
+ms.date: 11/02/2023
 ms.custom: mvc
-
 #Customer intent: As a developer, I want to learn how to deploy apps to an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
 ---
 
-# Tutorial: Run applications in Azure Kubernetes Service (AKS)
+# Tutorial - Deploy an application to Azure Kubernetes Service (AKS)
 
-Kubernetes provides a distributed platform for containerized applications. You build and deploy your own applications and services into a Kubernetes cluster, and let the cluster manage the availability and connectivity. In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. You learn how to:
+Kubernetes provides a distributed platform for containerized applications. You build and deploy your own applications and services into a Kubernetes cluster and let the cluster manage the availability and connectivity.
+
+In this tutorial, part four of seven, you deploy a sample application into a Kubernetes cluster. You learn how to:
 
 > [!div class="checklist"]
-> * Update a Kubernetes manifest file
-> * Run an application in Kubernetes
-> * Test the application
+>
+> * Update a Kubernetes manifest file.
+> * Run an application in Kubernetes.
+> * Test the application.
 
-In additional tutorials, this application is scaled out and updated.
-
-This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+> [!TIP]
+>
+> With AKS, you can use the following approaches for configuration management:
+>
+> * **GitOps**: Enables declarations of your cluster's state to automatically apply to the cluster. To learn how to use GitOps to deploy an application with an AKS cluster, see the [prerequisites for Azure Kubernetes Service clusters][gitops-flux-tutorial-aks] in the [GitOps with Flux v2][gitops-flux-tutorial] tutorial.
+>
+> * **DevOps**: Enables you to build, test, and deploy with continuous integration (CI) and continuous delivery (CD). To see examples of how to use DevOps to deploy an application with an AKS cluster, see [Build and deploy to AKS with Azure Pipelines](./devops-pipeline.md) or [GitHub Actions for deploying to Kubernetes](./kubernetes-action.md).
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created.
+In previous tutorials, you packaged an application into a container image, uploaded the image to Azure Container Registry, and created a Kubernetes cluster. To complete this tutorial, you need the pre-created `aks-store-quickstart.yaml` Kubernetes manifest file. This file download was included with the application source code in a previous tutorial. Make sure you cloned the repo and changed directories into the cloned repo. If you haven't completed these steps and want to follow along, start with [Tutorial 1 - Prepare application for AKS][aks-tutorial-prepare-app].
 
-To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yaml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you've cloned the repo, and that you have changed directories into the cloned repo. If you haven't done these steps, and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+### [Azure CLI](#tab/azure-cli)
 
-This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires Azure CLI version 2.34.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+
+---
 
 ## Update the manifest file
 
-In these tutorials, an Azure Container Registry (ACR) instance stores the container image for the sample application. To deploy the application, you must update the image name in the Kubernetes manifest file to include the ACR login server name.
+In these tutorials, your Azure Container Registry (ACR) instance stores the container images for the sample application. To deploy the application, you must update the image names in the Kubernetes manifest file to include your ACR login server name.
 
-Get the ACR login server name using the [az acr list][az-acr-list] command as follows:
+### [Azure CLI](#tab/azure-cli)
 
-```azurecli
-az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
-```
+1. Get your login server address using the [`az acr list`][az-acr-list] command and query for your login server.
 
-The sample manifest file from the git repo cloned in the first tutorial uses the login server name of *microsoft*. Make sure that you're in the cloned *azure-voting-app-redis* directory, then open the manifest file with a text editor, such as `vi`:
+    ```azurecli-interactive
+    az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+    ```
 
-```console
-vi azure-vote-all-in-one-redis.yaml
-```
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`:
 
-Replace *microsoft* with your ACR login server name. The image name is found on line 51 of the manifest file. The following example shows the default image name:
+    ```azurecli-interactive
+    vi aks-store-quickstart.yaml
+    ```
 
-```yaml
-containers:
-- name: azure-vote-front
-  image: microsoft/azure-vote-front:v1
-```
+3. Update the `image` property for the containers by replacing *ghcr.io/azure-samples* with your ACR login server name.
 
-Provide your own ACR login server name so that your manifest file looks like the following example:
+    ```yaml
+    containers:
+    ...
+   - name: order-service
+     image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
+    ...
+   - name: product-service
+     image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
+    ...
+   - name: store-front
+     image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
+    ...
+    ```
 
-```yaml
-containers:
-- name: azure-vote-front
-  image: <acrName>.azurecr.io/azure-vote-front:v1
-```
+4. Save and close the file. In `vi`, use `:wq`.
 
-Save and close the file. In `vi`, use `:wq`.
+### [Azure PowerShell](#tab/azure-powershell)
+
+1. Get your login server address using the [`Get-AzContainerRegistry`][get-azcontainerregistry] cmdlet and query for your login server. Make sure you replace `<acrName>` with the name of your ACR instance.
+
+    ```azurepowershell-interactive
+    (Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+    ```
+
+2. Make sure you're in the cloned *aks-store-demo* directory, and then open the manifest file with a text editor, such as `vi`:
+
+    ```azurepowershell-interactive
+    vi aks-store-quickstart.yaml
+    ```
+
+3. Update the `image` property for the containers by replacing *ghcr.io/azure-samples* with your ACR login server name.
+
+    ```yaml
+    containers:
+    ...
+   - name: order-service
+     image: <acrName>.azurecr.io/aks-store-demo/order-service:latest
+    ...
+   - name: product-service
+     image: <acrName>.azurecr.io/aks-store-demo/product-service:latest
+    ...
+   - name: store-front
+     image: <acrName>.azurecr.io/aks-store-demo/store-front:latest
+    ...
+    ```
+
+4. Save and close the file. In `vi`, use `:wq`.
+
+---
 
 ## Deploy the application
 
-To deploy your application, use the [kubectl apply][kubectl-apply] command. This command parses the manifest file and creates the defined Kubernetes objects. Specify the sample manifest file, as shown in the following example:
+* Deploy the application using the [`kubectl apply`][kubectl-apply] command, which parses the manifest file and creates the defined Kubernetes objects.
 
-```console
-kubectl apply -f azure-vote-all-in-one-redis.yaml
-```
+    ```console
+    kubectl apply -f aks-store-quickstart.yaml
+    ```
 
-The following example output shows the resources successfully created in the AKS cluster:
+    The following example output shows the resources successfully created in the AKS cluster:
 
-```
-$ kubectl apply -f azure-vote-all-in-one-redis.yaml
-
-deployment "azure-vote-back" created
-service "azure-vote-back" created
-deployment "azure-vote-front" created
-service "azure-vote-front" created
-```
+    ```output
+    deployment.apps/rabbitmq created
+    service/rabbitmq created
+    deployment.apps/order-service created
+    service/order-service created
+    deployment.apps/product-service created
+    service/product-service created
+    deployment.apps/store-front created
+    service/store-front created
+    ```
 
 ## Test the application
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
 
-To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
+1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
-```console
-kubectl get service azure-vote-front --watch
-```
+    ```console
+    kubectl get service store-front --watch
+    ```
 
-Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*:
+    Initially, the `EXTERNAL-IP` for the *store-front* service shows as *pending*.
 
-```
-azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
-```
+    ```output
+    store-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
+    ```
 
-When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
+2. When the `EXTERNAL-IP` address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process.
 
-```
-azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
-```
+    The following example output shows a valid public IP address assigned to the service:
 
-To see the application in action, open a web browser to the external IP address of your service:
+    ```output
+    store-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
+    ```
 
-![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
+3. View the application in action by opening a web browser to the external IP address of your service.
 
-If the application didn't load, it might be due to an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If the container images can't be pulled, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
+If the application doesn't load, it might be an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If you can't pull the container images, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
 
 ## Next steps
 
-In this tutorial, a sample Azure vote application was deployed to a Kubernetes cluster in AKS. You learned how to:
+In this tutorial, you deployed a sample Azure application to a Kubernetes cluster in AKS. You learned how to:
 
 > [!div class="checklist"]
-> * Update a Kubernetes manifest files
-> * Run an application in Kubernetes
-> * Test the application
+>
+> * Update a Kubernetes manifest file.
+> * Run an application in Kubernetes.
+> * Test the application.
 
-Advance to the next tutorial to learn how to scale a Kubernetes application and the underlying Kubernetes infrastructure.
+In the next tutorial, you learn how to use PaaS services for stateful workloads in Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Scale Kubernetes application and infrastructure][aks-tutorial-scale]
+> [Use PaaS services for stateful workloads in AKS][aks-tutorial-paas]
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 [az-acr-list]: /cli/azure/acr
 [azure-cli-install]: /cli/azure/install-azure-cli
-[kubernetes-concepts]: concepts-clusters-workloads.md
-[kubernetes-service]: concepts-network.md#services
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
+[gitops-flux-tutorial]: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json
+[gitops-flux-tutorial-aks]: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md?toc=/azure/aks/toc.json#for-azure-kubernetes-service-clusters
+[aks-tutorial-paas]: ./tutorial-kubernetes-paas-services.md

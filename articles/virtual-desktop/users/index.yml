@@ -1,0 +1,67 @@
+### YamlMime:Landing
+
+title: Azure Virtual Desktop documentation for users
+summary: Connecting to Azure Virtual Desktop made easy.
+
+metadata:
+  title: Azure Virtual Desktop user documentation
+  description: Access your Windows desktop and applications from virtually anywhere, fully optimized for Windows 11 and Microsoft 365.
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  author: dknappettmsft
+  ms.author: daknappe
+  ms.date: 09/08/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: Remote Desktop clients
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Remote Desktop clients overview
+            url: remote-desktop-clients-overview.md
+
+  # Card
+  - title: Connect to Azure Virtual Desktop
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Windows Desktop client
+            url: connect-windows.md
+          - text: Azure Virtual Desktop Store app for Windows
+            url: connect-windows-azure-virtual-desktop-app.md
+          - text: Web client
+            url: connect-web.md
+          - text: macOS client
+            url: connect-macos.md
+          - text: iOS/iPadOS client
+            url: connect-ios-ipados.md
+          - text: Android/Chrome OS client
+            url: connect-android-chrome-os.md
+          - text: Remote Desktop app for Windows
+            url: connect-microsoft-store.md
+          - text: Thin clients
+            url: connect-thin-clients.md
+
+  # Card
+  - title: Use client features
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Windows Desktop client
+            url: client-features-windows.md
+          - text: Azure Virtual Desktop Store app for Windows
+            url: client-features-windows-azure-virtual-desktop-app.md
+          - text: Web client
+            url: client-features-web.md
+          - text: macOS client
+            url: client-features-macos.md
+          - text: iOS/iPadOS client
+            url: client-features-ios-ipados.md
+          - text: Android client
+            url: client-features-android-chrome-os.md
+          - text: Remote Desktop app for Windows
+            url: client-features-microsoft-store.md

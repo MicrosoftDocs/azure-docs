@@ -1,100 +1,75 @@
 ---
-title: List blob containers with .NET - Azure Storage 
+title: List blob containers with .NET
+titleSuffix: Azure Storage 
 description: Learn how to list blob containers in your Azure Storage account using the .NET client library.
 services: storage
-author: tamram
+author: pauljewellmsft
+ms.author: pauljewell
 
-ms.service: storage
-ms.topic: conceptual
-ms.date: 01/06/2020
-ms.author: tamram
-ms.subservice: blobs
+ms.service: azure-blob-storage
+ms.topic: how-to
+ms.date: 10/23/2023
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
 # List blob containers with .NET
 
-When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
+[!INCLUDE [storage-dev-guide-selector-list-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-container.md)]
 
-## Understand container listing options
+When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blob containers. To learn more, see the authorization guidance for the following REST API operation:
+    - [List Containers](/rest/api/storageservices/list-containers2#authorization)
+
+## About container listing options
+
+When listing containers from your code, you can specify options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can also filter the results by a prefix, and return container metadata with the results. These options are described in the following sections.
 
 To list containers in your storage account, call one of the following methods:
 
-- [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
-- [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
+- [GetBlobContainers](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainers)
+- [GetBlobContainersAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainersasync)
 
-The overloads for these methods provide additional options for managing how containers are returned by the listing operation. These options are described in the following sections.
+These methods return a list of [BlobContainerItem](/dotnet/api/azure.storage.blobs.models.blobcontaineritem) objects. Containers are ordered lexicographically by name.
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `maxresults` parameter when calling one of the **ListContainerSegmented** methods.
-
-If your storage account contains more than 5000 containers, or if you have specified a value for `maxresults` such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a *continuation token* with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
-
-In your code, check the value of the continuation token to determine whether it is null. When the continuation token is null, then the set of results is complete. If the continuation token is not null, then call **ListContainersSegmented** or **ListContainersSegmentedAsync** again, passing in the continuation token to retrieve the next set of results, until the continuation token is null.
+By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to return results in pages. To learn more about pagination concepts, see [Pagination with the Azure SDK for .NET](/dotnet/azure/sdk/pagination).
 
 ### Filter results with a prefix
 
 To filter the list of containers, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
 
-### Return metadata
+### Include container metadata
 
-To return container metadata with the results, specify the **Metadata** value for the [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
+To include container metadata with the results, specify the `Metadata` value for the [BlobContainerTraits](/dotnet/api/azure.storage.blobs.models.blobcontainertraits) enum. Azure Storage includes metadata with each container returned, so you don't need to fetch the container metadata separately.
 
-## Example: List containers
+### Include deleted containers
 
-The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers in increments of 5 results at a time, and uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
+To include soft-deleted containers with the results, specify the `Deleted` value for the [BlobContainerStates](/dotnet/api/azure.storage.blobs.models.blobcontainerstates) enum.
 
-```csharp
-private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
-                                                        string prefix)
-{
-    Console.WriteLine("List all containers beginning with prefix {0}, plus container metadata:", prefix);
+## Code example: List containers
 
-    try
-    {
-        ContainerResultSegment resultSegment = null;
-        BlobContinuationToken continuationToken = null;
+The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers that begin with the specified prefix and returns the specified number of results per call to the listing operation. It then uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
 
-        do
-        {
-            // List containers beginning with the specified prefix, returning segments of 5 results each.
-            // Passing null for the maxResults parameter returns the max number of results (up to 5000).
-            // Requesting the container's metadata with the listing operation populates the metadata,
-            // so it's not necessary to also call FetchAttributes() to read the metadata.
-            resultSegment = await blobClient.ListContainersSegmentedAsync(
-                prefix, ContainerListingDetails.Metadata, 5, continuationToken, null, null);
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="Snippet_ListContainers":::
 
-            // Enumerate the containers returned.
-            foreach (var container in resultSegment.Results)
-            {
-                Console.WriteLine("\tContainer:" + container.Name);
+## Resources
 
-                // Write the container's metadata keys and values.
-                foreach (var metadataItem in container.Metadata)
-                {
-                    Console.WriteLine("\t\tMetadata key: " + metadataItem.Key);
-                    Console.WriteLine("\t\tMetadata value: " + metadataItem.Value);
-                }
-            }
+To learn more about listing containers using the Azure Blob Storage client library for .NET, see the following resources.
 
-            // Get the continuation token. If not null, get the next segment.
-            continuationToken = resultSegment.ContinuationToken;
+### REST API operations
 
-        } while (continuationToken != null);
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine("HTTP error code {0} : {1}",
-                            e.RequestInformation.HttpStatusCode,
-                            e.RequestInformation.ErrorCode);
-        Console.WriteLine(e.Message);
-    }
-}
-```
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for listing containers use the following REST API operation:
 
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
+- [List Containers](/rest/api/storageservices/list-containers2) (REST API)
+
+[!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 
 ## See also
 
-[List Containers](/rest/api/storageservices/list-containers2)
-[Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+- [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)

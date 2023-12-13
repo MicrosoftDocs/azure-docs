@@ -2,14 +2,17 @@
 title: Troubleshoot System Center Data Protection Manager
 description: In this article, discover solutions for issues that you might encounter while using System Center Data Protection Manager.
 ms.topic: troubleshooting
-ms.date: 01/30/2019
+ms.date: 10/21/2022
+ms.service: backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot System Center Data Protection Manager
 
 This article describes solutions for issues that you might encounter while using Data Protection Manager.
 
-For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in [this matrix](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](/system-center/dpm/dpm-release-notes). You can learn more about support for Data Protection Manager in [this matrix](/system-center/dpm/dpm-protection-matrix).
 
 ## Error: Replica is inconsistent
 
@@ -86,3 +89,11 @@ This error occurs during the encryption process when recovering Data Protection 
 >
 > When you're recovering data, always provide the same encryption passphrase that's associated with the Data Protection Manager/Azure Backup server.
 >
+
+## Error: The server registration status could not be verified with Microsoft Azure Backup. Verify that you are connected to the internet and that the proxy settings are configured correctly.
+
+To resolve this issue:
+
+- Ensure network connectivity and proxy settings.
+- Ensure that you are running the latest MARS agent.
+- [Ensure your server is running on TLS 1.2](transport-layer-security.md).

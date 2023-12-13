@@ -1,9 +1,9 @@
 ---
-author: rayne-wiselman
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: raynew
+ms.author: ankitadutta
 ---
 |Parameter Name| Type | Description| Possible Values|
 |-|-|-|-|
@@ -15,7 +15,7 @@ ms.author: raynew
 |/PSIP|Mandatory|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
 |/CSIP|Mandatory|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
 |/PassphraseFilePath|Mandatory|The full path to location of the passphrase file|Valid file path|
-|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy|To do get this value from Venu|
+|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy||
 |/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the format specified below|
 |DataTransferSecurePort|Optional|Port number on the PSIP to be used for replication data| Valid Port Number (default value is 9433)|
 |/SkipSpaceCheck|Optional|Skip space check for cache disk| |

@@ -1,125 +1,427 @@
 ---
-title: 'Quickstart: Use Azure Service Bus queues with Python'
-description: Learn how to use Azure Service Bus queues with Python.
-services: service-bus-messaging
+title: Get started with Azure Service Bus queues (Python)
+description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Python programming language.
 documentationcenter: python
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: python
+author: spelluru
+ms.author: spelluru
+ms.date: 01/12/2023
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: aschhab
-ms.custom: seo-python-october2019
+ms.devlang: python
+ms.custom: seo-python-october2019, devx-track-python, mode-api, passwordless-python
 ---
-# Quickstart: Use Azure Service Bus queues with Python
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+# Send messages to and receive messages from Azure Service Bus queues (Python)
+> [!div class="op_single_selector" title1="Select the programming language:"]
+> * [C#](service-bus-dotnet-get-started-with-queues.md)
+> * [Java](service-bus-java-how-to-use-queues.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
+> * [Python](service-bus-python-how-to-use-queues.md)
 
-This article shows you how to use Python to create, send messages to, and receive messages from Azure Service Bus queues. 
+In this tutorial, you complete the following steps: 
 
-For more information about the Python Azure Service Bus libraries, see [Service Bus libraries for Python](/python/api/overview/azure/servicebus?view=azure-python).
+1. Create a Service Bus namespace, using the Azure portal.
+1. Create a Service Bus queue, using the Azure portal.
+1. Write Python code to use the [azure-servicebus](https://pypi.org/project/azure-servicebus/) package to:
+    1. Send a set of messages to the queue.
+    1. Receive those messages from the queue.
+
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending messages to a Service Bus queue and receiving them. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples). 
+
 
 ## Prerequisites
-- An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- A Service Bus namespace, created by following the steps at [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md). Copy the primary connection string from the **Shared access policies** screen to use later in this article. 
-- Python 3.4x or above, with the [Python Azure Service Bus][Python Azure Service Bus package] package installed. For more information, see the [Python Installation Guide](/azure/python/python-sdk-azure-install). 
 
-## Create a queue
+If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
-A **ServiceBusClient** object lets you work with queues. To programmatically access Service Bus, add the following line near the top of your Python file:
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 
-```python
-from azure.servicebus import ServiceBusClient
-```
+- [Python 3.7](https://www.python.org/downloads/) or higher.
 
-Add the following code to create a **ServiceBusClient** object. Replace `<connectionstring>` with your Service Bus primary connection string value. You can find this value under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
+### [Passwordless (Recommended)](#tab/passwordless)
 
-```python
-sb_client = ServiceBusClient.from_connection_string('<connectionstring>')
-```
+To use this quickstart with your own Azure account:
+* Install [Azure CLI](/cli/azure/install-azure-cli), which provides the passwordless authentication to your developer machine.
+* Sign in with your Azure account at the terminal or command prompt with `az login`. 
+* Use the same account when you add the appropriate data role to your resource.
+* Run the code in the same terminal or command prompt.
+* Note the **queue** name for your Service Bus namespace. You'll need that in the code.  
 
-The following code uses the `create_queue` method of the **ServiceBusClient** to create a queue named `taskqueue` with default settings:
+### [Connection string](#tab/connection-string)
 
-```python
-sb_client.create_queue("taskqueue")
-```
+Note the following, which you'll use in the code below:
+* Service Bus namespace **connection string** 
+* Service Bus namespace **queue** you created
 
-You can use options to override default queue settings, such as message time to live (TTL) or maximum topic size. The following code creates a queue called `taskqueue` with a maximum queue size of 5 GB and TTL value of 1 minute:
+---
 
-```python
-sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
-                       default_message_time_to_live=datetime.timedelta(minutes=1))
-```
+>[!NOTE]
+> This tutorial works with samples that you can copy and run using Python. For instructions on how to create a Python application, see [Create and deploy a Python application to an Azure Website](../app-service/quickstart-python.md). For more information about installing packages used in this tutorial, see the [Python Installation Guide](/azure/developer/python/sdk/azure-sdk-install).
+
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
+
+[!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
+
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
+
+## Use pip to install packages
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
+
+1. Install the following packages: 
+
+    ```shell
+    pip install azure-servicebus
+    pip install azure-identity
+    pip install aiohttp
+    ```
+
+### [Connection string](#tab/connection-string)
+
+1. To install the required Python packages for this Service Bus tutorial, open a command prompt that has Python in its path, change the directory to the folder where you want to have your samples.
+
+1. Install the following package: 
+
+    ```bash
+    pip install azure-servicebus
+    ```
+
+---
 
 ## Send messages to a queue
 
-To send a message to a Service Bus queue, an application calls the `send` method on the **ServiceBusClient** object. The following code example creates a queue client and sends a test message to the `taskqueue` queue. Replace `<connectionstring>` with your Service Bus primary connection string value. 
+The following sample code shows you how to send a message to a queue. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *send.py*, and add the following code into it.
 
-```python
-from azure.servicebus import QueueClient, Message
+### [Passwordless (Recommended)](#tab/passwordless)
 
-# Create the QueueClient
-queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
+1. Add import statements.
 
-# Send a test message to the queue
-msg = Message(b'Test Message')
-queue_client.send(msg)
-```
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.servicebus import ServiceBusMessage
+    from azure.identity.aio import DefaultAzureCredential
+    ```
+1. Add constants and define a credential.
 
-### Message size limits and quotas
+    ```python
+    FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
+    QUEUE_NAME = "QUEUE_NAME"
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There's no limit on the number of messages a queue can hold, but there's a cap on the total size of the messages the queue holds. You can define queue size at creation time, with an upper limit of 5 GB. 
+    credential = DefaultAzureCredential()
+    ```
 
-For more information about quotas, see [Service Bus quotas][Service Bus quotas].
+    > [!IMPORTANT]
+    > - Replace `FULLY_QUALIFIED_NAMESPACE` with the fully qualified namespace for your Service Bus namespace.
+    > - Replace `QUEUE_NAME` with the name of the queue. 
+
+1. Add a method to send a single message.
+
+    ```python
+    async def send_single_message(sender):
+        # Create a Service Bus message and send it to the queue
+        message = ServiceBusMessage("Single Message")
+        await sender.send_messages(message)
+        print("Sent a single message")
+    ```
+
+    The sender is an object that acts as a client for the queue you created. You'll create it later and send as an argument to this function.
+
+1. Add a method to send a list of messages.
+
+    ```python
+    async def send_a_list_of_messages(sender):
+        # Create a list of messages and send it to the queue
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        await sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+
+1. Add a method to send a batch of messages.
+
+    ```python
+    async def send_batch_message(sender):
+        # Create a batch of messages
+        async with sender:
+            batch_message = await sender.create_message_batch()
+            for _ in range(10):
+                try:
+                    # Add a message to the batch
+                    batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+                except ValueError:
+                    # ServiceBusMessageBatch object reaches max_size.
+                    # New ServiceBusMessageBatch object can be created here to send more data.
+                    break
+            # Send the batch of messages to the queue
+            await sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+
+1. Create a Service Bus client and then a queue sender object to send messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the credential
+        async with ServiceBusClient(
+            fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
+            credential=credential,
+            logging_enable=True) as servicebus_client:
+            # get a Queue Sender object to send messages to the queue
+            sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
+            async with sender:
+                # send one message
+                await send_single_message(sender)
+                # send a list of messages
+                await send_a_list_of_messages(sender)
+                # send a batch of messages
+                await send_batch_message(sender)
+    
+            # Close credential when no longer needed.
+            await credential.close()
+    ```
+
+1. Call the `run` method and print a message.
+
+    ```python
+    asyncio.run(run())
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+
+### [Connection string](#tab/connection-string)
+
+1. Add import statements.
+
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.servicebus import ServiceBusMessage
+    ```
+
+1. Add constants. 
+
+    ```python
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STR"
+    QUEUE_NAME = "QUEUE_NAME"
+    ```
+
+    > [!IMPORTANT]
+    > - Replace `NAMESPACE_CONNECTION_STR` with the connection string for your Service Bus namespace.
+    > - Replace `QUEUE_NAME` with the name of the queue. 
+
+1. Add a method to send a single message.
+
+    ```python
+    async def send_single_message(sender):
+        # Create a Service Bus message and send it to the queue
+        message = ServiceBusMessage("Single Message")
+        await sender.send_messages(message)
+        print("Sent a single message")
+    ```
+
+    The sender is an object that acts as a client for the queue you created. You'll create it later and send as an argument to this function.
+
+1. Add a method to send a list of messages.
+
+    ```python
+    async def send_a_list_of_messages(sender):
+        # Create a list of messages and send it to the queue
+        messages = [ServiceBusMessage("Message in list") for _ in range(5)]
+        await sender.send_messages(messages)
+        print("Sent a list of 5 messages")
+    ```
+
+1. Add a method to send a batch of messages.
+
+    ```python
+    async def send_batch_message(sender):
+        # Create a batch of messages
+        async with sender:
+            batch_message = await sender.create_message_batch()
+            for _ in range(10):
+                try:
+                    # Add a message to the batch
+                    batch_message.add_message(ServiceBusMessage("Message inside a ServiceBusMessageBatch"))
+                except ValueError:
+                    # ServiceBusMessageBatch object reaches max_size.
+                    # New ServiceBusMessageBatch object can be created here to send more data.
+                    break
+            # Send the batch of messages to the queue
+            await sender.send_messages(batch_message)
+        print("Sent a batch of 10 messages")
+    ```
+
+1. Create a Service Bus client and then a queue sender object to send messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient.from_connection_string(
+            conn_str=NAMESPACE_CONNECTION_STR,
+            logging_enable=True) as servicebus_client:
+            # Get a Queue Sender object to send messages to the queue
+            sender = servicebus_client.get_queue_sender(queue_name=QUEUE_NAME)
+            async with sender:
+                # Send one message
+                await send_single_message(sender)
+                # Send a list of messages
+                await send_a_list_of_messages(sender)
+                # Send a batch of messages
+                await send_batch_message(sender)
+    ```
+
+1. Call the `run` method and print a message.
+
+    ```python
+    asyncio.run(run())
+    print("Done sending messages")
+    print("-----------------------")
+    ```
+
+---
 
 ## Receive messages from a queue
 
-The queue client receives messages from a queue by using the `get_receiver` method on the **ServiceBusClient** object. The following code example creates a queue client and receives a message from the `taskqueue` queue. Replace `<connectionstring>` with your Service Bus primary connection string value. 
+The following sample code shows you how to receive messages from a queue. The code shown receives new messages until it doesn't receive any new messages for 5 (`max_wait_time`) seconds.
 
-```python
-from azure.servicebus import QueueClient, Message
+Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/), create a file *recv.py*, and add the following code into it.
 
-# Create the QueueClient
-queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
+### [Passwordless (Recommended)](#tab/passwordless)
 
-# Receive the message from the queue
-with queue_client.get_receiver() as queue_receiver:
-    messages = queue_receiver.fetch_next(timeout=3)
-    for message in messages:
-        print(message)
-        message.complete()
+1. Similar to the send sample, add `import` statements, define constants that you should replace with your own values, and define a credential.
+
+    ```python
+    import asyncio
+    
+    from azure.servicebus.aio import ServiceBusClient
+    from azure.identity.aio import DefaultAzureCredential
+    
+    FULLY_QUALIFIED_NAMESPACE = "FULLY_QUALIFIED_NAMESPACE"
+    QUEUE_NAME = "QUEUE_NAME"
+    
+    credential = DefaultAzureCredential()
+    ```
+
+1. Create a Service Bus client and then a queue receiver object to receive messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient(
+            fully_qualified_namespace=FULLY_QUALIFIED_NAMESPACE,
+            credential=credential,
+            logging_enable=True) as servicebus_client:
+    
+            async with servicebus_client:
+                # get the Queue Receiver object for the queue
+                receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
+                async with receiver:
+                    received_msgs = await receiver.receive_messages(max_wait_time=5, max_message_count=20)
+                    for msg in received_msgs:
+                        print("Received: " + str(msg))
+                        # complete the message so that the message is removed from the queue
+                        await receiver.complete_message(msg)
+    
+            # Close credential when no longer needed.
+            await credential.close()
+    ```
+
+1. Call the `run` method.
+
+    ```python
+    asyncio.run(run())
+    ```
+
+### [Connection string](#tab/connection-string)
+
+1. Similar to the send sample, add `import` statements and define constants that you should replace with your own values.
+
+    ```python
+    import asyncio
+    from azure.servicebus.aio import ServiceBusClient
+
+    NAMESPACE_CONNECTION_STR = "NAMESPACE_CONNECTION_STR"
+    QUEUE_NAME = "QUEUE_NAME"
+    ```
+
+1. Create a Service Bus client and then a queue receiver object to receive messages.
+
+    ```python
+    async def run():
+        # create a Service Bus client using the connection string
+        async with ServiceBusClient.from_connection_string(
+            conn_str=NAMESPACE_CONNECTION_STR,
+            logging_enable=True) as servicebus_client:
+    
+            async with servicebus_client:
+                # get the Queue Receiver object for the queue
+                receiver = servicebus_client.get_queue_receiver(queue_name=QUEUE_NAME)
+                async with receiver:
+                    received_msgs = await receiver.receive_messages(max_wait_time=5, max_message_count=20)
+                    for msg in received_msgs:
+                        print("Received: " + str(msg))
+                        # complete the message so that the message is removed from the queue
+                        await receiver.complete_message(msg)
+    ```
+
+1. Call the `run` method.
+
+    ```python
+    asyncio.run(run())
+    ```
+
+---
+
+## Run the app
+
+Open a command prompt that has Python in its path, and then run the code to send and receive messages from the queue.
+
+```shell
+python send.py; python recv.py
 ```
 
-### Use the peek_lock parameter
+You should see the following output: 
 
-The optional `peek_lock` parameter of `get_receiver` determines whether Service Bus deletes messages from the queue as they're read. The default mode for message receiving is *PeekLock*, or `peek_lock` set to **True**, which reads (peeks) and locks messages without deleting them from the queue. Each message must then be explicitly completed to remove it from the queue.
+```console
+Sent a single message
+Sent a list of 5 messages
+Sent a batch of 10 messages
+Done sending messages
+-----------------------
+Received: Single Message
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message in list
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+Received: Message inside a ServiceBusMessageBatch
+```
 
-To delete messages from the queue as they're read, you can set the `peek_lock` parameter of `get_receiver` to **False**. Deleting messages as part of the receive operation is the simplest model, but only works if the application can tolerate missing messages if there's a failure. To understand this behavior, consider a scenario in which the consumer issues a receive request and then crashes before processing it. If the message was deleted on being received, when the application restarts and begins consuming messages again, it has missed the message it received before the crash.
+In the Azure portal, navigate to your Service Bus namespace. On the **Overview** page, verify that the **incoming** and **outgoing** message counts are 16. If you don't see the counts, refresh the page after waiting for a few minutes. 
 
-If your application can't tolerate missed messages, receive is a two-stage operation. PeekLock finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After processing or storing the message, the application completes the second stage of the receive process by calling the `complete` method on the **Message** object.  The `complete` method marks the message as being consumed and removes it from the queue.
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="Incoming and outgoing message count":::
 
-## Handle application crashes and unreadable messages
+Select the queue on this **Overview** page to navigate to the **Service Bus Queue** page. You can also see the **incoming** and **outgoing** message count on this page. You also see other information such as the **current size** of the queue and **active message count**. 
 
-Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application can't process a message for some reason, it can call the `unlock` method on the **Message** object. Service Bus unlocks the message within the queue and makes it available to be received again, either by the same or another consuming application.
+:::image type="content" source="./media/service-bus-python-how-to-use-queues/queue-details.png" alt-text="Queue details":::
 
-There's also a timeout for messages locked within the queue. If an application fails to process a message before the lock timeout expires, for example if the application crashes, Service Bus unlocks the message automatically and makes it available to be received again.
-
-If an application crashes after processing a message but before calling the `complete` method, the message is redelivered to the application when it restarts. This behavior is often called *At-least-once Processing*. Each message is processed at least once, but in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, you can use the **MessageId** property of the message, which remains constant across delivery attempts, to handle duplicate message delivery. 
-
-> [!TIP]
-> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topics, queues, subscriptions, relay services, notification hubs, and event hubs.
 
 ## Next steps
 
-Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] to learn more.
+See the following documentation and samples: 
 
-[Azure portal]: https://portal.azure.com
-[Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
-[Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Service Bus quotas]: service-bus-quotas.md
+- [Azure Service Bus client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus)
+- [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples). 
+    - The **sync_samples** folder has samples that show you how to interact with Service Bus in a synchronous manner. In this quick start, you used this method. 
+    - The **async_samples** folder has samples that show you how to interact with Service Bus in an asynchronous manner. 
+- [azure-servicebus reference documentation](/python/api/azure-servicebus/azure.servicebus?preserve-view=true)

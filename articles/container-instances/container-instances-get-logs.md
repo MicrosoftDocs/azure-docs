@@ -1,8 +1,12 @@
 ---
 title: Get container instance logs & events
 description: Learn how to retrieve container logs and events in Azure Container Instances to help troubleshoot container issues
-ms.topic: article
-ms.date: 12/30/2019
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: mvc
 ---
 
@@ -16,8 +20,11 @@ To view logs from your application code within a container, you can use the [az 
 
 The following is log output from the example task-based container in [Set the command line in a container instance](container-instances-start-command.md#azure-cli-example), after having provided an invalid URL using a command-line override:
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container logs --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Traceback (most recent call last):
   File "wordcount.py", line 11, in <module>
     urllib.request.urlretrieve (sys.argv[1], "foo.txt")
@@ -44,8 +51,11 @@ The [az container attach][az-container-attach] command provides diagnostic infor
 
 For example, here is output from the task-based container in [Set the command line in a container instance](container-instances-start-command.md#azure-cli-example), after having supplied a valid URL of a large text file to process:
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```azurecli
+az container attach --resource-group myResourceGroup --name mycontainer
+```
+
+```output
 Container 'mycontainer' is in state 'Unknown'...
 Container 'mycontainer' is in state 'Waiting'...
 Container 'mycontainer' is in state 'Running'...
@@ -143,6 +153,6 @@ Learn how to [troubleshoot common container and deployment issues](container-ins
 Learn how to send log and event data for container groups to [Azure Monitor logs](container-instances-log-analytics.md).
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

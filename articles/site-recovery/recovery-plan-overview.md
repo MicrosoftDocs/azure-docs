@@ -2,20 +2,24 @@
 title: About recovery plans in Azure Site Recovery
 description: Learn about recovery plans in Azure Site Recovery. 
 ms.topic: conceptual
-ms.date: 11/12/2019
-
+ms.service: site-recovery
+ms.date: 01/23/2020
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # About recovery plans
 
 This article provides an overview of recovery plans in [Azure Site Recovery](site-recovery-overview.md).
 
-A recovery plan gathers machines into recovery groups. A recovery plan helps you to define a systematic recovery process, by creating small independent units that you can fail over. A unit typically represents an app in your environment.
+A recovery plan gathers machines into recovery groups for the purpose of failover. A recovery plan helps you to define a systematic recovery process, by creating small independent units that you can fail over. A unit typically represents an app in your environment.
 
 - A recovery plan defines how machines fail over, and the sequence in which they start after failover.
+- Recovery plans can be used for both failover to and failback from Azure.
 - Up to 100 protected instances can be added to one recovery plan.
 - You can customize a plan by adding order, instructions, and tasks to it.
 - After a plan is defined, you can run a failover on it.
 - Machines can be referenced in multiple recovery plans, in which subsequent plans skip the deployment/startup of a machine if it was previously deployed using another recovery plan.
+
 
 
 ### Why use a recovery plan?
@@ -78,12 +82,8 @@ You can use a recovery plan to trigger a test failover. Use the following best p
 
 ## Watch a recovery plan video
 
-Watch a quick example video showing an on-click failover for a recovery plan for a two-tier WordPress app.
+Watch a quick example [video](https://youtu.be/1KUVdtvGqw8) showing an on-click failover for a recovery plan for a two-tier WordPress app.
     
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
-
-
-
 ## Next steps
 
 - [Create](site-recovery-create-recovery-plans.md) a recovery plan.

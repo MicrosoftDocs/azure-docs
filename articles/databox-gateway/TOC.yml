@@ -1,0 +1,75 @@
+- name: Azure Data Box Gateway Documentation 
+  href: ./index.yml
+- name: Overview
+  Expanded: True
+  items:
+  - name: What is Data Box Gateway?
+    href: data-box-gateway-overview.md
+- name: Tutorials
+  items:
+  - name: 1 - Prepare 
+    href: data-box-gateway-deploy-prep.md
+  - name: 2A - Provision in Hyper-V
+    href: data-box-gateway-deploy-provision-hyperv.md
+  - name: 2B - Provision in VMware
+    href: data-box-gateway-deploy-provision-vmware.md
+  - name: 3 - Connect, set up, activate
+    href: data-box-gateway-deploy-connect-setup-activate.md
+  - name: 4 - Add, connect to share
+    href: data-box-gateway-deploy-add-shares.md
+- name: Concepts
+  items:
+  - name: Review requirements
+    href: data-box-gateway-system-requirements.md
+  - name: Understand limits
+    href: data-box-gateway-limits.md
+  - name: Security overview
+    href: data-box-gateway-security.md
+  - name: View use cases
+    href: data-box-gateway-use-cases.md
+- name: How to
+  items:
+  - name: Update
+    href: data-box-gateway-apply-updates.md
+  - name: Manage
+    items:
+    - name: Shares
+      href: data-box-gateway-manage-shares.md
+    - name: Users
+      href: data-box-gateway-manage-users.md
+    - name: Bandwidth schedules
+      href: data-box-gateway-manage-bandwidth-schedules.md
+    - name: Access, power, connectivity
+      href: data-box-gateway-manage-access-power-connectivity-mode.md
+    - name: Via PowerShell 
+      href: data-box-gateway-connect-powershell-interface.md
+  - name: Monitor
+    href: data-box-gateway-monitor.md 
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot 
+      href: data-box-gateway-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: ../databox-online/azure-stack-edge-contact-microsoft-support.md
+  - name: Release notes
+    items:
+      - name: 2301 - Current
+        href: data-box-gateway-2301-release-notes.md
+      - name: 2105
+        href: data-box-gateway-2105-release-notes.md
+      - name: 2101
+        href: data-box-gateway-2101-release-notes.md
+      - name: 2007
+        href: data-box-gateway-2007-release-notes.md
+      - name: 1911
+        href: data-box-gateway-1911-release-notes.md
+      - name: 1906
+        href: data-box-gateway-1906-release-notes.md
+      - name: 1905
+        href: data-box-gateway-1905-release-notes.md
+      - name: General availability (GA)
+        href: data-box-gateway-release-notes.md
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/databox/gateway/

@@ -1,0 +1,273 @@
+- name: Azure DevTest Labs documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is DevTest Labs?
+    href: devtest-lab-overview.md
+- name: Quickstart
+  items:
+  - name: Create a lab - Portal
+    href: devtest-lab-create-lab.md
+  - name: Create a lab - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: create-lab-windows-vm-bicep.md
+  - name: Create a lab - ARM template
+    displayName: Resource Manager
+    href: create-lab-windows-vm-template.md
+  - name: Create a lab - Terraform
+    href: quickstarts/create-lab-windows-vm-terraform.md
+  - name: Create a lab - PowerShell with REST API
+    href: quickstarts/create-lab-rest.md
+- name: Tutorials
+  items:
+  - name: Set up a lab (admins)
+    href: tutorial-create-custom-lab.md
+  - name: Access a lab (students)
+    href: tutorial-use-custom-lab.md
+- name: Samples
+  items:
+  - name: ARM quickstart templates
+    href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates
+  - name: Azure PowerShell
+    href: samples-powershell.md
+  - name: Azure PowerShell - Az.DevTestLabs2 module
+    href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
+  - name: Azure CLI
+    href: samples-cli.md
+- name: Concepts
+  items:
+  - name: Key concepts
+    href: devtest-lab-concepts.md
+  - name: Best practices
+    href: best-practices-distributive-collaborative-development-environment.md
+  - name: Integration with Azure DevOps
+    href: devtest-lab-dev-ops.md
+  - name: Popular scenarios
+    href: devtest-lab-guidance-get-started.md
+  - name: Claimable VMs
+    href: devtest-lab-use-claim-capabilities.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/devtest-labs-security-baseline?toc=/azure/devtest-labs/TOC.json
+- name: How-to guides
+  items:
+  - name: Configure a lab
+    items:
+    - name: Create a network isolated lab
+      href: network-isolation.md
+    - name: Create and manage labs by using ARM templates
+      href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+    - name: Specify resource group for lab virtual machines
+      href: resource-group-control.md
+    - name: Add support info to a lab
+      href: devtest-lab-internal-support-message.md
+    - name: Configure lab identity 
+      href: configure-lab-identity.md
+    - name: Configure a lab to use a remote desktop gateway
+      href: configure-lab-remote-desktop-gateway.md
+    - name: Post announcement in a lab
+      href: devtest-lab-announcements.md
+    - name: Connect via browser on VMs with Bastion
+      href: enable-browser-connection-lab-virtual-machines.md
+    - name: Configure cost management
+      href: devtest-lab-configure-cost-management.md
+    - name: Set lab policies and schedules
+      href: devtest-lab-set-lab-policy.md
+    - name: Configure auto-shutdown of lab VMs
+      href: devtest-lab-auto-shutdown.md
+    - name: Set auto startup for lab VMs
+      href: devtest-lab-auto-startup-vm.md
+    - name: Manage lab storage account
+      href: encrypt-storage.md
+    - name: Scale your lab
+      href: devtest-lab-scale-lab.md
+    - name: Manage virtual machine bases
+      items:
+      - name: Configure Azure Marketplace images
+        href: devtest-lab-configure-marketplace-images.md
+      - name: Enable a licensed image
+        href: devtest-lab-enable-licensed-images.md
+      - name: Configure a shared image gallery
+        href: configure-shared-image-gallery.md
+    - name: Configure tags
+      href: devtest-lab-add-tag.md
+    - name: Configure access control
+      items:
+      - name: Add lab owners and users
+        href: devtest-lab-add-devtest-user.md
+      - name: Customize permissions with custom roles
+        href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+      - name: Automate adding a lab user
+        href: automate-add-lab-user.md
+    - name: Manage virtual networks
+      items:
+      - name: Configure virtual networks
+        href: devtest-lab-configure-vnet.md
+      - name: Select IP configuration option
+        href: devtest-lab-shared-ip.md
+    - name: Delete a lab or VM in a lab
+      href: devtest-lab-delete-lab-vm.md
+    - name: Export or delete personal data
+      href: personal-data-delete-export.md
+  - name: Use VMs in a lab
+    items:
+    - name: Create a VM
+      items:
+      - name: Azure portal
+        href: devtest-lab-add-vm.md
+      - name: Azure PowerShell
+        href: devtest-lab-vm-powershell.md
+      - name: Azure CLI
+        href: devtest-lab-vmcli.md
+      - name: ARM template
+        href: devtest-lab-use-resource-manager-template.md
+      - name: Create a VM using an image from shared image gallery
+        href: add-vm-use-shared-image.md
+    - name: Connect to a VM
+      items:
+      - name: Connect to a Windows VM
+        href: connect-windows-virtual-machine.md
+      - name: Connect to a Linux VM
+        href: connect-linux-virtual-machine.md
+      - name: Connect to your VM through a browser
+        href: connect-virtual-machine-through-browser.md
+    - name: Start or stop a VM using PowerShell or CLI
+      href: use-command-line-start-stop-virtual-machines.md
+    - name: Restart a VM
+      href: devtest-lab-restart-vm.md
+    - name: Resize a VM
+      href: devtest-lab-resize-vm.md
+    - name: Redeploy a VM
+      href: devtest-lab-redeploy-vm.md
+    - name: Create and manage claimable VMs
+      href: devtest-lab-add-claimable-vm.md
+    - name: Configure secrets
+      href: devtest-lab-store-secrets-in-key-vault.md
+    - name: Attach and detach data disks
+      href: devtest-lab-attach-detach-data-disk.md
+    - name: Define start order for lab VMs
+      href: start-machines-use-automation-runbooks.md
+    - name: Import virtual machines from another lab
+      href: import-virtual-machines-from-another-lab.md
+    - name: Enable managed identities for lab VMs
+      href: enable-managed-identities-lab-vms.md
+  - name: Use environments in a lab
+    items:
+    - name: Create environments from ARM templates
+      href: devtest-lab-create-environment-from-arm.md
+    - name: Use Platform-as-a-Service (PaaS) services
+      href: use-paas-services.md
+    - name: Create a Service Fabric cluster environment
+      href: create-environment-service-fabric-cluster.md
+    - name: Connect an environment to your lab's virtual network
+      href: connect-environment-lab-virtual-network.md
+    - name: Configure test environments with nested templates
+      href: deploy-nested-template-environments.md
+    - name: Use Azure managed identities to deploy environments
+      href: use-managed-identities-environments.md
+    - name: Security alerts for environments
+      href: environment-security-alerts.md
+  - name: Manage reusable templates
+    items:
+    - name: Custom images vs. formulas
+      href: devtest-lab-comparing-vm-base-image-types.md
+    - name: Manage custom images
+      items:
+      - name: Create custom image from a VM
+        href: devtest-lab-create-custom-image-from-vm-using-portal.md
+      - name: Create custom image from a VHD - Azure portal
+        href: devtest-lab-create-template.md
+      - name: Create custom image from a VHD - PowerShell
+        href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
+      - name: Upload VHD file using AzCopy
+        href: devtest-lab-upload-vhd-using-azcopy.md
+      - name: Upload VHD file using PowerShell
+        href: devtest-lab-upload-vhd-using-powershell.md
+      - name: Upload VHD file using Storage Explorer
+        href: devtest-lab-upload-vhd-using-storage-explorer.md
+    - name: Manage formulas
+      href: devtest-lab-manage-formulas.md
+    - name: Create an image factory
+      href: image-factory-create.md
+      items:
+      - name: Run an image factory from Azure DevOps
+        href: image-factory-set-up-devops-lab.md
+      - name: Save custom images and distribute to multiple labs
+        href: image-factory-save-distribute-custom-images.md
+      - name: Set retention policy and run cleanup scripts
+        href: image-factory-set-retention-policy-cleanup.md
+  - name: Manage artifacts
+    items:
+    - name: Add artifacts to a VM
+      href: add-artifact-vm.md
+    - name: Create custom artifacts
+      href: devtest-lab-artifact-author.md
+    - name: Add an artifact repository to a lab
+      href: add-artifact-repository.md
+    - name: Specify mandatory artifacts
+      href: devtest-lab-mandatory-artifacts.md
+    - name: Troubleshoot issues with applying artifacts
+      href: devtest-lab-troubleshoot-apply-artifacts.md
+  - name: Encrypt OS disks using customer-managed keys
+    href: encrypt-disks-customer-managed-keys.md
+  - name: Integrate with CI/CD
+    items:
+    - name: Integrate labs into your Azure Pipelines CI/CD pipeline
+      href: devtest-lab-integrate-ci-cd.md
+    - name: Integrate environments into your Azure Pipelines CI/CD pipeline
+      href: integrate-environments-devops-pipeline.md
+    - name: Use DevTest Labs in Azure Pipelines build and release pipelines
+      href: use-devtest-labs-build-release-pipelines.md
+  - name: Extend DevTest Labs
+    items:
+    - name: Use Azure Functions to extend DevTest Labs
+      href: extend-devtest-labs-azure-functions.md
+  - name: Report usage of labs
+    href: report-usage-across-multiple-labs-subscriptions.md
+  - name: DevTest Labs in the enterprise
+    items:
+    - name: Reference architecture
+      href: devtest-lab-reference-architecture.md
+    - name: Deliver proof of concept
+      href: deliver-proof-concept.md
+    - name: Scale up your DevTest Labs deployment
+      href: devtest-lab-guidance-scale.md
+    - name: Governance of DevTest Labs
+      href: devtest-lab-guidance-governance-resources.md
+  - name: Publish an app for testing
+    href: test-app-azure.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot VM and environment creation failures
+      href: troubleshoot-vm-environment-creation-failures.md
+    - name: Troubleshoot issues when applying artifacts
+      href: devtest-lab-troubleshoot-apply-artifacts.md
+    - name: Troubleshoot VM deployment failures
+      href: troubleshoot-vm-deployment-failures.md  
+  - name: Monitor
+    items:
+    - name: View activity logs
+      href: activity-logs.md
+    - name: Create activity log alerts
+      href: create-alerts.md
+  - name: Move to new region
+    href: how-to-move-labs.md
+- name: Reference
+  items:
+  - name: CLI
+    href: /cli/azure/lab
+  - name: PowerShell
+    href: /powershell/module/az.devtestlabs
+  - name: PowerShell - sample Az.DevTestLabs2 module
+    href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
+  - name: REST API
+    href: /rest/api/dtl/
+  - name: ARM templates
+    href: /azure/templates/microsoft.devtestlab/allversions
+- name: Resources
+  items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=devtest-lab
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/devtest-lab/
+  - name: DevTest Labs Developer Community
+    href: https://aka.ms/dtl/communityforum  

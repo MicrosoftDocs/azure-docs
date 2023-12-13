@@ -1,0 +1,25 @@
+### YamlMime:Landing
+
+title: Azure Scheduler documentation
+summary: Azure Scheduler was fully retired on January 31, 2022 and is replaced by Azure Logic Apps. Please migrate your Azure Scheduler jobs to Azure Logic Apps.
+
+metadata:
+  title: Azure Scheduler documentation
+  description: Azure Scheduler was fully retired on January 31, 2022 and is replaced by [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Please [migrate your Azure Scheduler jobs to Azure Logic Apps](migrate-from-scheduler-to-logic-apps.md).
+  services: scheduler
+  ms.service: scheduler
+  ms.topic: landing-page
+  author: derek1ee
+  ms.author: estfan
+  ms.date: 02/15/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: Migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migrate Azure Scheduler jobs to Azure Logic Apps
+            url: migrate-from-scheduler-to-logic-apps.md

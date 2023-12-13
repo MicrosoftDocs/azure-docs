@@ -1,28 +1,22 @@
 ---
-title: Manage Azure Blob Storage resources with Storage Explorer | Microsoft Docs
-description: Manage Azure Blob Containers and Blobs with Storage Explorer
+title: Manage Azure Blob Storage resources with Storage Explorer
+description: Manage Azure Blob Storage resources with Storage Explorer. Create a blob container, view blob container contents, delete or copy a blob container, and more.
 services: storage
-documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: ''
-
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
-ms.service: storage
-ms.devlang: multiple
+ms.service: azure-storage
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-
 ---
 
 # Manage Azure Blob Storage resources with Storage Explorer
 
 ## Overview
 
-[Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
+[Azure Blob Storage](./storage/blobs/storage-quickstart-blobs-dotnet.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
 You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer
 to work with blob containers and blobs.
 
@@ -53,7 +47,7 @@ The following steps illustrate how to create a blob container within Storage Exp
 
 ## View a blob container's contents
 
-Blob containers contain blobs and folders (that can also contain blobs).
+Blob containers contain blobs and virtual directories (that can also contain blobs).
 
 The following steps illustrate how to view the contents of a blob container within Storage Explorer:
 
@@ -105,7 +99,7 @@ The following steps illustrate how to copy a blob container from one storage acc
 
 ## Get the SAS for a blob container
 
-A [shared access signature (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
+A [shared access signature (SAS)](./storage/common/storage-sas-overview.md) provides delegated access to resources in your storage account.
 This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to
 share your account access keys.
 
@@ -146,6 +140,9 @@ The following steps illustrate how to manage (add and remove) access policies fo
    * **Edit an access policy** -  Make any desired edits, and select **Save**.
    * **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
 
+> [!NOTE]
+> Modifying immutability policies is not supported from Storage Explorer. 
+
 ## Set the Public Access Level for a blob container
 
 By default, every blob container is set to "No public access".
@@ -168,7 +165,7 @@ The following steps illustrate how to specify a public access level for a blob c
 Once you've created a blob container, you can upload a blob to that blob container, download a blob to your local computer, open a blob on your local computer,
 and much more.
 
-The following steps illustrate how to manage the blobs (and folders) within a blob container.
+The following steps illustrate how to manage the blobs (and virtual directories) within a blob container.
 
 1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container you wish to manage.
@@ -189,7 +186,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 
         ![Upload files options][16]
      3. Specify the type of **Blob type**. See [Create a container](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for more information.
-     4. Optionally, specify a target folder into which the selected file(s) will be uploaded. If the target folder doesn’t exist, it will be created.
+     4. Optionally, specify a target virtual directory into which the selected file(s) will be uploaded. If the target virtual directory doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Upload a folder to a blob container**
 
@@ -200,7 +197,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 
         ![Upload folder options][18]
      3. Specify the type of **Blob type**. See [Create a container](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) for more information.
-     4. Optionally, specify a target folder into which the selected folder's contents will be uploaded. If the target folder doesn’t exist, it will be created.
+     4. Optionally, specify a target virtual directory into which the selected folder's contents will be uploaded. If the target virtual directory doesn’t exist, it will be created.
      5. Select **Upload**.
    * **Download a blob to your local computer**
 
@@ -224,11 +221,20 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      1. Select the blob you wish to delete.
      2. On the main pane's toolbar, select **Delete**.
      3. Select **Yes** to the confirmation dialog.
+   
+   * **Delete a blob along with snapshots**
+   
+     1. Select the blob you wish to delete.
+     2. On the main pane's toolbar, select **Delete**.
+     3. Select **Yes** to the confirmation dialog.
+     4. Under Activities the deletion of the blob will be skipped now click on retry.
+     5. Retry Azcopy window will open and from Snapshot select Delete blobs with snapshots option from dropdown then 
+        select Retry selected.
 
 ## Next steps
 
 * View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
-* Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
+* Learn how to [create applications using Azure blobs, tables, queues, and files](./storage/index.yml).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png

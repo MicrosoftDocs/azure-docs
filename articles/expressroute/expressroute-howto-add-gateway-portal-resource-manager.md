@@ -1,79 +1,116 @@
 ---
-title: 'Azure ExpressRoute: Add a gateway to a VNet: portal'
-description: This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute using the Azure portal.
+title: 'Tutorial: Configure a virtual network gateway for ExpressRoute using Azure portal'
+description: This tutorial walks you through adding a virtual network gateway to a virtual network for ExpressRoute using the Azure portal.
 services: expressroute
-author: cherylmc
-
-
+author: duongau
 ms.service: expressroute
-ms.topic: article
-ms.date: 12/06/2018
-ms.author: cherylmc
-ms.custom: seodec18
-
+ms.topic: tutorial
+ms.date: 10/31/2023
+ms.author: duau
+ms.custom:
+  - reference_regions
+  - ignite-2023
 ---
-# Configure a virtual network gateway for ExpressRoute using the Azure portal
+# Tutorial: Configure a virtual network gateway for ExpressRoute using the Azure portal
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [Classic - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
-> 
 > 
 
-This article walks you through the steps to add a virtual network gateway for a pre-existing VNet. This article walks you through the steps to add, resize, and remove a virtual network (VNet) gateway for a pre-existing VNet. The steps for this configuration are specifically for VNets that were created using the Resource Manager deployment model that will be used in an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md). 
+This tutorial walks you through the steps to add and remove a virtual network gateway for a pre-existing virtual network (virtual network). The steps for this configuration apply to VNets that were created using the Resource Manager deployment model for an ExpressRoute configuration. For more information about virtual network gateways and gateway configuration settings for ExpressRoute, see [About virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing an ExpressRoute gateway connected to the ExpressRoute circuit.":::
 
-## Before beginning
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> - Create a gateway subnet.
+> - Create virtual network gateway.
 
-The steps for this task use a VNet based on the values in the following configuration reference list. We use this list in our example steps. You can copy the list to use as a reference, replacing the values with your own.
+## Prerequisites
+
+The steps for this tutorial use the values in the following configuration reference list. You can copy the list to use as a reference, replacing the values with your own.
 
 **Configuration reference list**
 
-* Virtual Network Name = "TestVNet"
-* Virtual Network address space = 192.168.0.0/16
-* Subnet Name = "FrontEnd" 
-	* Subnet address space = "192.168.1.0/24"
-* Resource Group = "TestRG"
-* Location = "East US"
+* Virtual Network Name = "vnet-1"
+* Virtual Network address space = 10.0.0.0/16
+* Subnet Name = "default" 
+	* Subnet address space = "10.0.0.0/24"
+* Resource Group = "vnetdemo"
+* Location = "West US 2"
 * Gateway Subnet name: "GatewaySubnet" You must always name a gateway subnet *GatewaySubnet*.
-	* Gateway Subnet address space = "192.168.200.0/26"
-* Gateway Name = "ERGW"
-* Gateway Public IP Name = "MyERGWVIP"
+	* Gateway Subnet address space = "10.0.1.0/24"
+* Gateway Name = "myERGwScale"
+* Gateway Public IP Name = "myERGwScaleIP"
 * Gateway type = "ExpressRoute" This type is required for an ExpressRoute configuration.
 
-You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
+    > [!IMPORTANT]
+    > ExpressRoute Virtual Network Gateways no longer support the Basic Public IP SKU. Please associate a Standard IP to create the Virtual Network Gateway.
+    > 
+    > 
 
 ## Create the gateway subnet
 
 1. In the [portal](https://portal.azure.com), navigate to the Resource Manager virtual network for which you want to create a virtual network gateway.
-2. In the **Settings** section of your VNet blade, click **Subnets** to expand the Subnets blade.
-3. On the **Subnets** blade, click **+Gateway subnet** to open the **Add subnet** blade. 
+1. In the **Settings** section of your virtual network, select **Subnets** to expand the Subnet settings.
+1. Select **+ Gateway subnet** to add a gateway subnet. 
    
-    ![Add the gateway subnet](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Add the gateway subnet")
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Screenshot that shows the button to add the gateway subnet.":::
 
+1. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the autofilled **Address range** values to match your configuration requirements. **You need to create the GatewaySubnet with a /27 or larger** (/26, /25, and so on.). /28 or smaller subnets are not supported for new deployments. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger.
 
-4. The **Name** for your subnet is automatically filled in with the value 'GatewaySubnet'. This value is required in order for Azure to recognize the subnet as the gateway subnet. Adjust the auto-filled **Address range** values to match your configuration requirements. We recommend creating a gateway subnet with a /27 or larger (/26, /25, etc.). Then, click **OK** to save the values and create the gateway subnet.
+    If you're using a dual stack virtual network and plan to use IPv6-based private peering over ExpressRoute, select **Add IP6 address space** and enter **IPv6 address range** values.
 
-    ![Adding the subnet](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Adding the subnet")
+    Then, select **OK** to save the values and create the gateway subnet.
+
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Screenshot of the create an ExpressRoute gateway page with ErGwScale SKU selected.":::
 
 ## Create the virtual network gateway
 
-1. In the portal, on the left side, click **+** and type 'Virtual Network Gateway' in search. Locate **Virtual network gateway** in the search return and click the entry. On the **Virtual network gateway** blade, click **Create** at the bottom of the blade. This opens the **Create virtual network gateway** blade.
-2. On the **Create virtual network gateway** blade, fill in the values for your virtual network gateway.
+1. In the portal, on the left side, select **Create a resource**, and type 'Virtual Network Gateway' in search. Locate **Virtual network gateway** in the search return and select the entry. On the **Virtual network gateway** page, select **Create**.
 
-    ![Create virtual network gateway blade fields](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Create virtual network gateway blade fields")
-3. **Name**: Name your gateway. This is not the same as naming a gateway subnet. It's the name of the gateway object you are creating.
-4. **Gateway type**: Select **ExpressRoute**.
-5. **SKU**: Select the gateway SKU from the dropdown.
-6. **Location**: Adjust the **Location** field to point to the location where your virtual network is located. If the location is not pointing to the region where your virtual network resides, the virtual network doesn't appear in the 'Choose a virtual network' dropdown.
-7. Choose the virtual network to which you want to add this gateway. Click **Virtual network** to open the **Choose a virtual network** blade. Select the VNet. If you don't see your VNet, make sure the **Location** field is pointing to the region in which your virtual network is located.
-9. Choose a public IP address. Click **Public IP address** to open the **Choose public IP address** blade. Click **+Create New** to open the **Create public IP address blade**. Input a name for your public IP address. This blade creates a public IP address object to which a public IP address will be dynamically assigned. Click **OK** to save your changes to this blade.
-10. **Subscription**: Verify that the correct subscription is selected.
-11. **Resource group**: This setting is determined by the Virtual Network that you select.
-12. Don't adjust the **Location** after you've specified the previous settings.
-13. Verify the settings. If you want your gateway to appear on the dashboard, you can select **Pin to dashboard** at the bottom of the blade.
-14. Click **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
+1. On the **Create virtual network gateway** page, enter or select these settings:
+
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/create-gateway.png" alt-text="Screenshot that shows the Add subnet page for adding  the gateway subnet.":::
+
+    | Setting | Value |
+    | --------| ----- |
+    | **Project details** |  |
+    | Subscription | Verify that the correct subscription is selected. |
+    | Resource Group | The resource group gets automatically chosen once you select the virtual network. |
+    | **Instance details** |  |
+    | Name | Name your gateway. This name isn't the same as naming a gateway subnet. It's the name of the gateway resource you're creating.|
+    | Region | Change the **Region** field to point to the location where your virtual network is located. If the region isn't pointing to the location where your virtual network is, the virtual network doesn't appear in the **Virtual network** dropdown. |
+    | Gateway type | Select **ExpressRoute**.|
+    | SKU | Select a gateway SKU from the dropdown. For more information, see [About ExpressRoute gateway](expressroute-about-virtual-network-gateways.md). |
+    | Minimum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the minimum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
+    | Maximum Scale Units | This option is only available when you select the **ErGwScale (Preview)** SKU. Enter the maximum number of scale units you want to use. For more information, see [ExpressRoute Gateway Scale Units](expressroute-about-virtual-network-gateways.md#expressroute-scalable-gateway-preview). |
+    | Virtual network | Select *vnet-1*. |
+    | **Public IP address** | |
+    | Public IP address | Select **Create new**.|
+    | Public IP address name | Provide a name for the public IP address. |
+    | Public IP address SKU | Select **Standard**. Scalable gateways only support Standard SKU IP address. |
+    | Assignment | By default, all Standard SKU public IP addresses are assigned statically. |
+    | Availability zone | Select if you want to use availability zones. For more information, see [Zone redundant gateways](../vpn-gateway/about-zone-redundant-vnet-gateways.md).|
+
+    > [!IMPORTANT]
+    > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
+    > 
+
+1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
+
+## Clean up resources
+
+If you no longer need the ExpressRoute gateway, locate the gateway in the virtual network resource group and select **Delete**. Ensure the gateway doesn't have any connections to a circuit.
+
+:::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Screenshot that shows how to delete the virtual network gateway.":::
 
 ## Next steps
-After you have created the VNet gateway, you can link your VNet to an ExpressRoute circuit. See [Link a Virtual Network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md).
+
+In this tutorial, you learned how to create a virtual network gateway. For more information about virtual network gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+
+To learn how to link your virtual network to an ExpressRoute circuit, advance to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Link a Virtual Network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)

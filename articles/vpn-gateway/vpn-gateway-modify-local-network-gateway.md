@@ -1,15 +1,13 @@
 ---
 title: 'Modify gateway IP address settings: PowerShell'
-description: This article walks you through changing IP address prefixes for your local network gateway using PowerShell
-services: vpn-gateway
+description: Learn how to change IP address prefixes for your local network gateway using PowerShell.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 06/19/2017
+ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 10/28/2021
 ms.author: cherylmc
-
 ---
 # Modify local network gateway settings using PowerShell
 
@@ -22,9 +20,13 @@ Sometimes the settings for your local network gateway AddressPrefix or GatewayIP
 >
 >
 
+>[!NOTE]
+> Making changes to a local network gateway that has a connection may cause tunnel disconnects and downtime.
+>
+
 ## <a name="before"></a>Before you begin
 
-Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
+Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 ## <a name="ipaddprefix"></a>Modify IP address prefixes
 

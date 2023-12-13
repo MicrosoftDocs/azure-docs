@@ -1,18 +1,13 @@
 ---
 title: Generate recommendations using Apache Mahout in Azure HDInsight
-description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop).
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight.
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/03/2020
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 11/21/2023
 ---
 
-# Generate movie recommendations using Apache Mahout with Apache Hadoop in HDInsight (SSH)
-
-[!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
+# Generate recommendations using Apache Mahout in Azure HDInsight
 
 Learn how to use the [Apache Mahout](https://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 
@@ -22,17 +17,13 @@ Mahout is a [machine learning](https://en.wikipedia.org/wiki/Machine_learning) l
 
 An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-## Apache Mahout versioning
-
-For more information about the version of Mahout in HDInsight, see [HDInsight versions and Apache Hadoop components](../hdinsight-component-versioning.md).
-
 ## Understanding recommendations
 
 One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the preference for the item). Mahout can then perform co-occurrence analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
 
 The following workflow is a simplified example that uses movie data:
 
-* **Co-occurrence**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the Jedi*. Mahout determines that users who like any one of these movies also like the other two.
+* **Co-occurrence**: Joe, Alice, and Bob all liked *Star Wars*, *The Empire Strikes Back*, and *Return of the `Jedi`*. Mahout determines that users who like any one of these movies also like the other two.
 
 * **Co-occurrence**: Bob and Alice also liked *The Phantom Menace*, *Attack of the Clones*, and *Revenge of the Sith*. Mahout determines that users who liked the previous three movies also like these three movies.
 
@@ -46,15 +37,17 @@ There are two files, `moviedb.txt` and `user-ratings.txt`. The `user-ratings.txt
 
 The data contained in `user-ratings.txt` has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which indicates how highly each user rated a movie. Here is an example of the data:
 
+```output
     196    242    3    881250949
     186    302    3    891717742
     22     377    1    878887116
     244    51     2    880606923
     166    346    1    886397596
+```
 
 ## Run the analysis
 
-1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the following command by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

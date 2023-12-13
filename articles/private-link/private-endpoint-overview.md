@@ -1,146 +1,224 @@
 ---
-title: What is an Azure Private Endpoint?
-description: Learn about Azure Private Endpoint
+title: What is a private endpoint?
+titleSuffix: Azure Private Link
+description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
-author: malopMSFT
-# Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
-
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 10/13/2023
 ms.author: allensu
+ms.custom: references_regions, template-concept, ignite-2022
+#Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
-# What is Azure Private Endpoint?
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, Azure Cosmos DB, SQL, etc. or your own [Private Link Service](private-link-service-overview.md).
+# What is a private endpoint?
+
+A private endpoint is a network interface that uses a private IP address from your virtual network. This network interface connects you privately and securely to a service that's powered by Azure Private Link. By enabling a private endpoint, you're bringing the service into your virtual network.
+
+The service could be an Azure service such as:
+
+* Azure Storage
+* Azure Cosmos DB
+* Azure SQL Database
+* Your own service, using [Private Link service](private-link-service-overview.md).
   
-## Private Endpoint properties 
- A Private Endpoint specifies the following properties: 
+## Private endpoint properties 
 
+A private endpoint specifies the following properties: 
 
 |Property  |Description |
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
-|Subnet    |  The subnet to deploy and allocate private IP addresses from a virtual network. For subnet requirements, see the Limitations section in this article.         |
-|Private Link Resource    |   The private link resource to connect using resource ID or alias, from the list of available types. A unique network identifier will be generated for all traffic sent to this resource.       |
-|Target subresource   |      The subresource to connect. Each private link resource type has different options to select based on preference.    |
-|Connection approval method    |  Automatic or manual. Based on role-based access control (RBAC) permissions, your private endpoint can be approved automatically. If you try to connect to a private link resource without RBAC, use the manual method to allow the owner of the resource to approve the connection.        |
-|Request Message     |  You can specify a message for requested connections to be approved manually. This message can be used to identify a specific request.        |
-|Connection status   |   A read-only property that specifies if the private endpoint is active. Only private endpoints in an approved state can be used to send traffic. Additional states available: <br>-**Approved**: Connection was automatically or manually approved and is ready to be used.</br><br>-**Pending**: Connection was created manually and is pending approval by the private link resource owner.</br><br>-**Rejected**: Connection was rejected by the private link resource owner.</br><br>-**Disconnected**: Connection was removed by the private link resource owner. The private endpoint becomes informative and should be deleted for cleanup. </br>|
+|Subnet    |  The subnet to deploy, where the private IP address is assigned. For subnet requirements, see the [Limitations](#limitations) section later in this article.         |
+|Private-link resource    |   The private-link resource to connect by using a resource ID or alias, from the list of available types. A unique network identifier is generated for all traffic that's sent to this resource.       |
+|Target subresource   |      The subresource to connect. Each private-link resource type has various options to select based on preference.    |
+|Connection approval method    |  Automatic or manual. Depending on the Azure role-based access control permissions, your private endpoint can be approved automatically. If you're connecting to a private-link resource without Azure role based permissions, use the manual method to allow the owner of the resource to approve the connection.        |
+|Request message     |  You can specify a message for requested connections to be approved manually. This message can be used to identify a specific request.        |
+|Connection status   |   A read-only property that specifies whether the private endpoint is active. Only private endpoints in an approved state can be used to send traffic. More available states: <li>*Approved*: The connection was automatically or manually approved and is ready to be used.<li>*Pending*: The connection was created manually and is pending approval by the private-link resource owner.<li>*Rejected*: The connection was rejected by the private-link resource owner.<li>*Disconnected*: The connection was removed by the private-link resource owner. The private endpoint becomes informative and should be deleted for cleanup. </br>|
 
-Here are some key details about private endpoints: 
-- Private endpoint enables connectivity between the consumers from the same VNet, regionally peered VNets, globally peered VNets and on premises using [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/) and services powered by Private Link.
- 
-- When creating a private endpoint, a network interface is also created for the lifecycle of the resource. The interface is assigned a private IP address from the subnet that maps to the Private Link Service.
- 
-- The private endpoint must be deployed in the same region as the virtual network. 
- 
-- The private link resource can be deployed in a different region than the virtual network and private endpoint.
- 
-- Multiple private endpoints can be created using the same private link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a given private link resource to avoid duplicate entries or conflicts in DNS resolution. 
- 
-- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+As you're creating private endpoints, consider the following: 
 
+- Private endpoints enable connectivity between the customers from the same:
+    
+    - Virtual network
+    - Regionally peered virtual networks
+    - Globally peered virtual networks
+    - On-premises environments that use [VPN](https://azure.microsoft.com/services/vpn-gateway/) or [Express Route](https://azure.microsoft.com/services/expressroute/)
+    - Services that are powered by Private Link
+ 
+- Network connections can be initiated only by clients that are connecting to the private endpoint. Service providers don't have a routing configuration to create connections into service customers. Connections can be established in a single direction only.
 
+- A read-only network interface is *automatically created* for the lifecycle of the private endpoint. The interface is assigned a dynamic private IP address from the subnet that maps to the private-link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
  
-## Private link resource 
-A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types: 
+- The private endpoint must be deployed in the same region and subscription as the virtual network. 
  
-|Private link resource name  |Resource type   |Subresources  |
-|---------|---------|---------|
-|**Private Link Service** (Your own service)   |  Microsoft.Network/privateLinkServices       | empty |
-|**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
-|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
-|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts	| Sql, MongoDB, Cassandra, Gremlin, Table|
-|**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers	| postgresqlServer |
-|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers	| mysqlServer |
-|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers	| mariadbServer |
+- The private-link resource can be deployed in a different region than the one for the virtual network and private endpoint.
  
+- Multiple private endpoints can be created with the same private-link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a specified private-link resource. Use this practice to avoid duplicate entries or conflicts in DNS resolution. 
+ 
+- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+
+- The subscription that contains the private link resource must be registered with the Microsoft network resource provider. The subscription that contains the private endpoint must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
+ 
+## Private-link resource 
+A private-link resource is the destination target of a specified private endpoint. The following table lists the available resources that support a private endpoint: 
+ 
+| Private-link resource name | Resource type | Sub-resources |
+| ---------------------------| ------------- | ------------- |
+| Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
+| Azure AI services | Microsoft.CognitiveServices/accounts | account |
+| Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
+| Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
+| Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
+| Azure App Service | Microsoft.Web/sites | sites |
+| Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
+| Azure Backup | Microsoft.RecoveryServices/vaults | AzureBackup, AzureSiteRecovery |
+| Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
+| Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
+| Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
+| Azure AI Search | Microsoft.Search/searchServices | searchService |
+| Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
+| Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
+| Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
+| Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
+| Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
+| Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
+| Azure Database for MySQL - Single Server | Microsoft.DBforMySQL/servers | mysqlServer |
+| Azure Database for MySQL- Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
+| Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
+| Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
+| Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
+| Azure Event Grid | Microsoft.EventGrid/domains | domain |
+| Azure Event Grid | Microsoft.EventGrid/topics  | topic |
+| Azure Event Hub | Microsoft.EventHub/namespaces | namespace |
+| Azure File Sync | Microsoft.StorageSync/storageSyncServices | File Sync Service |
+| Azure HDInsight | Microsoft.HDInsight/clusters | cluster |
+| Azure IoT Central | Microsoft.IoTCentral/IoTApps | IoTApps |
+| Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
+| Azure Key Vault | Microsoft.KeyVault/vaults | vault |
+| Azure Key Vault HSM (hardware security module) | Microsoft.Keyvault/managedHSMs | HSM |
+| Azure Kubernetes Service - Kubernetes API | Microsoft.ContainerService/managedClusters | management |
+| Azure Machine Learning | Microsoft.MachineLearningServices/registries | amlregistry |
+| Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
+| Azure Managed Disks | Microsoft.Compute/diskAccesses | managed disk |
+| Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
+| Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
+| Azure Monitor Private Link Scope | Microsoft.Insights/privatelinkscopes | azuremonitor |
+| Azure Relay | Microsoft.Relay/namespaces | namespace |
+| Azure Service Bus | Microsoft.ServiceBus/namespaces | namespace |
+| Azure SignalR Service | Microsoft.SignalRService/SignalR | signalr |
+| Azure SignalR Service | Microsoft.SignalRService/webPubSub | webpubsub |
+| Azure SQL Database | Microsoft.Sql/servers | SQL Server (sqlServer) |
+| Azure SQL Managed Instance | Microsoft.Sql/managedInstances | managedInstance |
+| Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
+| Azure Storage | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)<BR> Dfs (dfs, dfs_secondary) |
+| Azure Synapse | Microsoft.Synapse/privateLinkHubs | web |
+| Azure Synapse Analytics | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev |
+| Azure Virtual Desktop - host pools | Microsoft.DesktopVirtualization/hostpools | connection |
+| Azure Virtual Desktop - workspaces | Microsoft.DesktopVirtualization/workspaces | feed<br />global |
+| Microsoft Purview | Microsoft.Purview/accounts | account |
+| Microsoft Purview | Microsoft.Purview/accounts | portal |
+| Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
+| Private Link service (your own service) |  Microsoft.Network/privateLinkServices | empty |
+| Resource Management Private Links | Microsoft.Authorization/resourceManagementPrivateLinks | ResourceManagement |
+
+> [!NOTE]
+> You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
+
 ## Network security of private endpoints 
-When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
- 
-You can completely lock down your workloads from accessing public endpoints to connect to a supported Azure service. This control provides an additional network security layer to your resources by providing a built-in exfiltration protection that prevents access to other resources hosted on the same Azure service. 
- 
-## Access to a private link resource using approval workflow 
-You can connect to a private link resource using the following connection approval methods:
-- **Automatically** approved when you own or have permission on the specific private link resource. The permission required is based on the private link resource type in the following format: Microsoft.\<Provider>/<resource_type>/privateEndpointConnectionApproval/action
-- **Manual** request when you don't have the permission required and would like to request access. An approval workflow will be initiated. The private endpoint and subsequent private endpoint connection will be created in a "Pending" state. The private link resource owner is responsible to approve the connection. After it's approved, the private endpoint is enabled to send traffic normally, as shown in the following approval workflow diagram.  
 
-![workflow approval](media/private-endpoint-overview/private-link-paas-workflow.png)
+When you use private endpoints, traffic is secured to a private-link resource. The platform validates network connections, allowing only those that reach the specified private-link resource. To access more subresources within the same Azure service, more private endpoints with corresponding targets are required. In the case of Azure Storage, for instance, you would need separate private endpoints to access the _file_ and _blob_ subresources.
+
+Private endpoints provide a privately accessible IP address for the Azure service, but do not necessarily restrict public network access to it. All other Azure services require additional [access controls](../event-hubs/event-hubs-ip-filtering.md), however. These controls provide an extra network security layer to your resources, providing protection that helps prevent access to the Azure service associated with the private-link resource.
+
+Private endpoints support network policies. Network policies enable support for Network Security Groups (NSG), User Defined Routes (UDR), and Application Security Groups (ASG). For more information about enabling network policies for a private endpoint, see [Manage network policies for private endpoints](disable-private-endpoint-network-policy.md). To use an ASG with a private endpoint, see [Configure an application security group (ASG) with a private endpoint](configure-asg-private-endpoint.md).
+
+## Access to a private-link resource using approval workflow 
+
+You can connect to a private-link resource by using the following connection approval methods:
+
+- **Automatically approve**: Use this method when you own or have permissions for the specific private-link resource. The required permissions are based on the private-link resource type in the following format: 
+
+   `Microsoft.<Provider>/<resource_type>/privateEndpointConnectionsApproval/action`
+
+- **Manually request**: Use this method when you don't have the required permissions and want to request access. An approval workflow is initiated. The private endpoint and later private-endpoint connections are created in a *Pending* state. The private-link resource owner is responsible to approve the connection. After it's approved, the private endpoint is enabled to send traffic normally, as shown in the following approval workflow diagram:  
+
+![Diagram of the workflow approval process.](media/private-endpoint-overview/private-link-paas-workflow.png)
  
-The private link resource owner can perform the following actions over a private endpoint connection: 
-- Review all private endpoint connections details. 
-- Approve a private endpoint connection. The corresponding private endpoint will be enabled to send traffic to the private link resource. 
-- Reject a private endpoint connection. The corresponding private endpoint will be updated to reflect the status.
-- Delete a private endpoint connection in any state. The corresponding private endpoint will be updated with a disconnected state to reflect the action, the private endpoint owner can only delete the resource at this point. 
+Over a private-endpoint connection, a private-link resource owner can: 
+
+- Review all private-endpoint connection details. 
+- Approve a private-endpoint connection. The corresponding private endpoint is enabled to send traffic to the private-link resource. 
+- Reject a private-endpoint connection. The corresponding private endpoint is updated to reflect the status.
+- Delete a private-endpoint connection in any state. The corresponding private endpoint is updated with a disconnected state to reflect the action. The private-endpoint owner can delete only the resource at this point. 
  
 > [!NOTE]
-> Only a private endpoint in an approved state can send traffic to a given private link resource. 
+> Only private endpoints in an *Approved* state can send traffic to a specified private-link resource. 
 
-### Connecting using Alias
-Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) and [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) for details. 
+### Connect by using an alias
 
-## DNS configuration 
-When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint. 
- 
-The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource. 
- 
-You can use the following options to configure your DNS settings for private endpoints: 
-- **Use the Host file (only recommended for testing)**. You can use the host file on a virtual machine to override the DNS.  
-- **Use a private DNS zone**. You can use private DNS zones to override the DNS resolution for a given private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains.
-- **Use your custom DNS server**. You can use your own DNS server to override the DNS resolution for a given private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
- 
-> [!IMPORTANT]
-> It's not recommended to override a zone that is actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
- 
-For Azure services, use the recommended zone names as described in the following table:
+An alias is a unique moniker that's generated when a service owner creates a private-link service behind a standard load balancer. Service owners can share this alias offline with consumers of your service. 
 
-|Private Link resource type   |Subresource  |Zone name  |
-|---------|---------|---------|
-|SQL DB/DW (Microsoft.Sql/servers)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
-|Storage Account (Microsoft.Storage/storageAccounts)    |  Blob (blob, blob_secondary)        |    privatelink.blob.core.windows.net      |
-|Storage Account (Microsoft.Storage/storageAccounts)    |    Table (table, table_secondary)      |   privatelink.table.core.windows.net       |
-|Storage Account (Microsoft.Storage/storageAccounts)    |    Queue (queue, queue_secondary)     |   privatelink.queue.core.windows.net       |
-|Storage Account (Microsoft.Storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |
-|Storage Account (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
-|Data Lake File System Gen2 (Microsoft.Storage/storageAccounts)  |  Data Lake File System Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL	|privatelink.documents.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB	|privatelink.mongo.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin	|privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
-|Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
-|Azure Database for MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
-|Azure Database for MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
+
+The consumers can request a connection to a private-link service by using either the resource URI or the alias. To connect by using the alias, create a private endpoint by using the manual connection approval method. To use the manual connection approval method, set the manual request parameter to *True* during the private-endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create).
+                                     
+> [!NOTE]
+> This manual request can be auto approved if the consumer's subscription is allow-listed on the provider side. To learn more, go to [controlling service access](./private-link-service-overview.md#control-service-access).                                     
+
+## DNS configuration
+
+The DNS settings that you use to connect to a private-link resource are important. Existing Azure services might already have a DNS configuration you can use when you're connecting over a public endpoint. To connect to the same service over private endpoint, separate DNS settings, often configured via private DNS zones, are required. Ensure that your DNS settings are correct when you use the fully qualified domain name (FQDN) for the connection. The settings must resolve to the private IP address of the private endpoint. 
  
-Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
- 
-Your applications don't need to change the connection URL. When attempting to resolve using a public DNS, the DNS server will now resolve to your private endpoints. The process does not impact your applications. 
- 
+The network interface associated with the private endpoint contains the information that's required to configure your DNS. The information includes the FQDN and private IP address for a private-link resource. 
+
+For complete, detailed information about recommendations to configure DNS for private endpoints, see [Private endpoint DNS configuration](private-endpoint-dns.md).
+
 ## Limitations
- 
-The following table includes a list of known limitations when using private endpoints: 
 
+The following information lists the known limitations to the use of private endpoints:
 
-|Limitation |Description |Mitigation  |
-|---------|---------|---------|
-|Network Security Group (NSG) rules and User Defined Routes do not apply to Private Endpoint    |NSG is not supported on private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR  | Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes        |
-|  Peered Virtual Network with Private endpoints only are not supported   |   When connecting to private endpoints on a peered Virtual Network without any other workload is not supported       | Deploy a single VM on the peered Virtual Network to enable the connectivity |
-|Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>App Service Plan</br>Azure Container Instance</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No mitigation during preview.       |
+### Static IP address
 
+| Limitation | Description |
+| --------- | ------------ |
+| Static IP address configuration currently unsupported. | **Azure Kubernetes Service (AKS)** </br> **Azure Application Gateway** </br> **HD Insight** </br> **Recovery Services Vaults** </br> **Third party Private Link services** |
+
+### Network security group
+
+| Limitation | Description |
+| --------- | ------------ |
+| Effective routes and security rules unavailable for private endpoint network interface. | Effective routes and security rules won't be displayed for the private endpoint NIC in the Azure portal. |
+| NSG flow logs unsupported. | NSG flow logs unavailable for inbound traffic destined for a private endpoint. |
+| No more than 50 members in an Application Security Group. | Fifty is the number of IP Configurations that can be tied to each respective ASG that's coupled to the NSG on the private endpoint subnet. Connection failures may occur with more than 50 members. |
+| Destination port ranges supported up to a factor of 250 K. | Destination port ranges are supported as a multiplication SourceAddressPrefixes, DestinationAddressPrefixes, and DestinationPortRanges. </br></br> Example inbound rule: </br> One source * one destination * 4K portRanges = 4K Valid </br>  10 sources * 10 destinations * 10 portRanges = 1 K Valid </br> 50 sources * 50 destinations * 50 portRanges = 125 K Valid </br> 50 sources * 50 destinations * 100 portRanges = 250 K Valid </br> 100 sources * 100 destinations * 100 portRanges = 1M Invalid, NSG has too many sources/destinations/ports. |
+| Source port filtering is interpreted as * | Source port filtering isn't actively used as valid scenario of traffic filtering for traffic destined to a private endpoint. |
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast </br> All Government regions </br> All China regions |
+
+### NSG more considerations
+
+- Outbound traffic denied from a private endpoint isn't a valid scenario, as the service provider can't originate traffic.
+
+- The following services may require all destination ports to be open when using a private endpoint and adding NSG security filters:
+
+    - Azure Cosmos DB - For more information, see [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
+
+### UDR
+
+| Limitation | Description |
+| --------- | --------- | 
+| SNAT is recommended always. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. |
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
+
+### Application security group
+
+| Limitation | Description |
+| --------- | --------- | 
+| Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
 
 ## Next steps
-- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
-- [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
-- [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
-- [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
-- [Create your own Private Link for Azure Database for PostgreSQL - Single server using Portal](../postgresql/howto-configure-privatelink-portal.md)
-- [Create your own Private Link for Azure Database for PostgreSQL - Single server using CLI](../postgresql/howto-configure-privatelink-cli.md)
-- [Create your own Private Link for Azure Database for MySQL using Portal](../mysql/howto-configure-privatelink-portal.md)
-- [Create your own Private Link for Azure Database for MySQL using CLI](../mysql/howto-configure-privatelink-cli.md)
-- [Create your own Private Link for Azure Database for MariaDB using Portal](../mariadb/howto-configure-privatelink-portal.md)
-- [Create your own Private Link for Azure Database for MariaDB using CLI](../mariadb/howto-configure-privatelink-cli.md)
+
+- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md).
+
+- To get started with creating a private endpoint for a web app, see [Quickstart: Create a private endpoint by using the Azure portal](create-private-endpoint-portal.md).

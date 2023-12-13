@@ -1,24 +1,24 @@
 ---
-title: Supported file formats in Azure Data Factory (legacy)
-description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
-author: linda33wj
-manager: shwang
-ms.reviewer: craigg
-
+title: Supported file formats (legacy)
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about file formats and compression codecs supported by file-based connectors in Azure Data Factory and Synapse Analytics.
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.author: jingwang
-
+ms.date: 08/10/2023
 ---
 
-# Supported file formats and compression codecs in Azure Data Factory (legacy)
+# Supported file formats and compression codecs in Azure Data Factory and Synapse Analytics (legacy)
 
-*This article applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+*This article applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
 
 >[!IMPORTANT]
->Data Factory introduced new format-based dataset model, see corresponding format article with details: <br>- [Avro format](format-avro.md)<br>- [Binary format](format-binary.md)<br>- [Delimited text format](format-delimited-text.md)<br>- [JSON format](format-json.md)<br>- [ORC format](format-orc.md)<br>- [Parquet format](format-parquet.md)<br>The rest configurations mentioned in this article are still supported as-is for backward compabitility. You are suggested to use the new model going forward. 
+>The service introduced new format-based dataset model, see corresponding format article with details: <br>- [Avro format](format-avro.md)<br>- [Binary format](format-binary.md)<br>- [Delimited text format](format-delimited-text.md)<br>- [JSON format](format-json.md)<br>- [ORC format](format-orc.md)<br>- [Parquet format](format-parquet.md)<br>The rest configurations mentioned in this article are still supported as-is for backward compabitility. You are suggested to use the new model going forward. 
 
 ## <a name="text-format"></a> Text format (legacy)
 
@@ -31,11 +31,11 @@ If you want to read from a text file or write to a text file, set the `type` pro
 | --- | --- | --- | --- |
 | columnDelimiter |The character used to separate columns in a file. You can consider to use a rare unprintable character that may not  exist in your data. For example, specify "\u0001", which represents Start of Heading (SOH). |Only one character is allowed. The **default** value is **comma (',')**. <br/><br/>To use a Unicode character, refer to [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) to get the corresponding code for it. |No |
 | rowDelimiter |The character used to separate rows in a file. |Only one character is allowed. The **default** value is any of the following values on read: **["\r\n", "\r", "\n"]** and **"\r\n"** on write. |No |
-| escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. |No |
+| escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define '$' as the escape character and use string "Hello$, world" in the source. |No |
 | quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
 | nullValue |One or more characters used to represent a null value. |One or more characters. The **default** values are **"\N" and "NULL"** on read and **"\N"** on write. |No |
-| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
-| firstRowAsHeader |Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |True<br/><b>False (default)</b> |No |
+| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](/dotnet/api/system.text.encoding). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
+| firstRowAsHeader |Specifies whether to consider the first row as a header. For an input dataset, the service reads first row as a header. For an output dataset, the service writes first row as a header. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |True<br/><b>False (default)</b> |No |
 | skipLineCount |Indicates the number of **non-empty** rows to skip when reading data from input files. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |Integer |No |
 | treatEmptyAsNull |Specifies whether to treat null or empty string as a null value when reading data from an input file. |**True (default)**<br/>False |No |
 
@@ -88,7 +88,7 @@ If you want to parse the JSON files or write the data in JSON format, set the `t
 | filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
 | jsonNodeReference | If you want to iterate and extract data from the objects inside an array field with the same pattern, specify the JSON path of that array. This property is supported only when copying data **from** JSON files. | No |
 | jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name (start with lowercase). This property is supported only when copying data **from** JSON files, and you can extract data from object or array. <br/><br/> For fields under root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
-| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
+| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](/dotnet/api/system.text.encoding) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
 | nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
 
 >[!NOTE]
@@ -342,7 +342,7 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
 
 **Note the following points:**
 
-* If the `structure` and `jsonPathDefinition` are not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object.
+* If the `structure` and `jsonPathDefinition` are not defined in the dataset, the Copy Activity detects the schema from the first object and flatten the whole object.
 * If the JSON input has an array, by default the Copy Activity converts the entire array value into a string. You can choose to extract data from it using `jsonNodeReference` and/or `jsonPathDefinition`, or skip it by not specifying it in `jsonPathDefinition`.
 * If there are duplicate names at the same level, the Copy Activity picks the last one.
 * Property names are case-sensitive. Two properties with same name but different casings are treated as two separate properties.
@@ -419,12 +419,12 @@ Note the following points:
 
 * Complex data types are not supported (MAP, LIST).
 * White space in column name is not supported.
-* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from Parquet file in any of these compressed formats except LZO - it uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+* Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. The service supports reading data from Parquet file in any of these compressed formats except LZO - it uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, the service chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
 
 > [!IMPORTANT]
 > For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+For copy running on Self-hosted IR with Parquet file serialization/deserialization, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
@@ -432,13 +432,13 @@ For copy running on Self-hosted IR with Parquet file serialization/deserializati
 >[!TIP]
 >If you copy data to/from Parquet format using Self-hosted Integration Runtime and hit error saying "An error occurred when invoking java, message: **java.lang.OutOfMemoryError:Java heap space**", you can add an environment variable `_JAVA_OPTIONS` in the machine that hosts the Self-hosted IR to adjust the min/max heap size for JVM to empower such copy, then rerun the pipeline.
 
-![Set JVM heap size on Self-hosted IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+:::image type="content" source="./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png" alt-text="Set JVM heap size on Self-hosted IR":::
 
-Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `Xms` specifies the initial memory allocation pool for a Java Virtual Machine (JVM), while `Xmx` specifies the maximum memory allocation pool. This means that JVM will be started with `Xms` amount of memory and will be able to use a maximum of `Xmx` amount of memory. By default, ADF use min 64MB and max 1G.
+Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `Xms` specifies the initial memory allocation pool for a Java Virtual Machine (JVM), while `Xmx` specifies the maximum memory allocation pool. This means that JVM will be started with `Xms` amount of memory and will be able to use a maximum of `Xmx` amount of memory. By default, the service uses min 64MB and max 1G.
 
 ### Data type mapping for Parquet files
 
-| Data factory interim data type | Parquet Primitive Type | Parquet Original Type (Deserialize) | Parquet Original Type (Serialize) |
+| Interim service data type | Parquet Primitive Type | Parquet Original Type (Deserialize) | Parquet Original Type (Serialize) |
 |:--- |:--- |:--- |:--- |
 | Boolean | Boolean | N/A | N/A |
 | SByte | Int32 | Int8 | Int8 |
@@ -479,19 +479,19 @@ Note the following points:
 
 * Complex data types are not supported (STRUCT, MAP, LIST, UNION).
 * White space in column name is not supported.
-* ORC file has three [compression-related options](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
+* ORC file has three [compression-related options](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. The service supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, the service chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
 
 > [!IMPORTANT]
 > For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+For copy running on Self-hosted IR with ORC file serialization/deserialization, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
 
 ### Data type mapping for ORC files
 
-| Data factory interim data type | ORC types |
+| Interim service data type | ORC types |
 |:--- |:--- |
 | Boolean | Boolean |
 | SByte | Byte |
@@ -527,7 +527,7 @@ If you want to parse the Avro files or write the data in Avro format, set the `f
 }
 ```
 
-To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+To use Avro format in a Hive table, you can refer to [Apache Hive's tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
 Note the following points:
 
@@ -535,9 +535,9 @@ Note the following points:
 
 ## <a name="compression-support"></a> Compression support (legacy)
 
-Azure Data Factory supports compress/decompress data during copy. When you specify `compression` property in an input dataset, the copy activity read the compressed data from the source and decompress it; and when you specify the property in an output dataset, the copy activity compress then write data to the sink. Here are a few sample scenarios:
+The service supports compress/decompress data during copy. When you specify `compression` property in an input dataset, the copy activity read the compressed data from the source and decompress it; and when you specify the property in an output dataset, the copy activity compress then write data to the sink. Here are a few sample scenarios:
 
-* Read GZIP compressed data from an Azure blob, decompress it, and write result data to an Azure SQL database. You define the input Azure Blob dataset with the `compression` `type` property as GZIP.
+* Read GZIP compressed data from an Azure blob, decompress it, and write result data to Azure SQL Database. You define the input Azure Blob dataset with the `compression` `type` property as GZIP.
 * Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure blob. You define an output Azure Blob dataset with the `compression` `type` property as GZip.
 * Read .zip file from FTP server, decompress it to get the files inside, and land those files in Azure Data Lake Store. You define an input FTP dataset with the `compression` `type` property as ZipDeflate.
 * Read a GZIP-compressed data from an Azure blob, decompress it, compress it using BZIP2, and write result data to an Azure blob. You define the input Azure Blob dataset with `compression` `type` set to GZIP and the output dataset with `compression` `type` set to BZIP2.
@@ -576,20 +576,20 @@ The **compression** section has two properties:
   * **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.
   * **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete.
 
-    For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic.
+    For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic.
 
 > [!NOTE]
-> Compression settings are not supported for data in the **AvroFormat**, **OrcFormat**, or **ParquetFormat**. When reading files in these formats, Data Factory detects and uses the compression codec in the metadata. When writing to files in these formats, Data Factory chooses the default compression codec for that format. For example, ZLIB for OrcFormat and SNAPPY for ParquetFormat.
+> Compression settings are not supported for data in the **AvroFormat**, **OrcFormat**, or **ParquetFormat**. When reading files in these formats, the service detects and uses the compression codec in the metadata. When writing to files in these formats, the service chooses the default compression codec for that format. For example, ZLIB for OrcFormat and SNAPPY for ParquetFormat.
 
 ## Unsupported file types and compression formats
 
-You can use the extensibility features of Azure Data Factory to transform files that aren't supported.
+You can use the extensibility features to transform files that aren't supported.
 Two options include Azure Functions and custom tasks by using Azure Batch.
 
-You can see a sample that uses an Azure function to [extract the contents of a tar file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). For more information, see [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+You can see a sample that uses an Azure function to [extract the contents of a tar file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). For more information, see [Azure Functions activity](./control-flow-azure-function-activity.md).
 
-You can also build this functionality using a custom dotnet activity. Further information is available [here](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+You can also build this functionality using a custom dotnet activity. Further information is available [here](./transform-data-using-dotnet-custom-activity.md)
 
-## Next steps
+## Related content
 
 Learn the latest supported file formats and compressions from [Supported file formats and compressions](supported-file-formats-and-compression-codecs.md).

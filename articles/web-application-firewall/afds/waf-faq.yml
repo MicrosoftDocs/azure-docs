@@ -1,0 +1,128 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Web Application Firewall on Azure Front Door Service - frequently asked questions
+  description: This article provides answers to frequently asked questions about Web Application Firewall on Azure Front Door
+  services: web-application-firewall
+  author: vhorne
+  ms.service: web-application-firewall
+  ms.topic: faq
+  ms.date: 07/11/2022
+  ms.author: victorh
+title: Frequently asked questions for Azure Web Application Firewall on Azure Front Door Service
+summary: This article answers common questions about Azure Web Application Firewall (WAF) on Azure Front Door Service features and functionality. 
+
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What is Azure WAF?
+        answer: |
+          Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
+          
+          An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
+          
+      - question: |
+          What is WAF on Azure Front Door? 
+        answer: |
+          Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
+
+      - question: |
+          Does Azure WAF support HTTPS?
+        answer: |
+          Front Door offers TLS offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
+
+      - question: |
+          Does Azure WAF support IPv6?
+        answer: |
+          Yes. You can configure IP restriction for IPv4 and IPv6.
+
+      - question: |
+          How up-to-date are the managed rule sets?
+        answer: |
+          We do our best to keep up with changing threat landscape. Once a new rule is updated, it's added to the Default Rule Set with a new version number.
+
+      - question: |
+          What is the propagation time if I make a change to my WAF policy?
+        answer: |
+          Most WAF policy deployments complete under 20 minutes. You can expect the policy to take effect as soon as the update is completed across all edge locations globally.
+
+      - question: |
+          Can WAF policies be different for different regions?
+        answer: |
+          When integrated with Front Door, WAF is a global resource. Same configuration applies across all Front Door locations.
+
+      - question: |
+          How do I limit access to my back-end to be from Front Door only?
+        answer: |
+          You may configure IP Access Control List in your back-end to allow for only Front Door outbound IP address ranges using Azure Front Door service tag and deny any direct access from Internet. Service tags are supported for you to use on your virtual network. Additionally, you can verify that the X-Forwarded-Host HTTP header field is valid for your web application.
+
+      - question: |
+          Which Azure WAF options should I choose?
+        answer: |
+          There are two options when applying WAF policies in Azure. WAF with Azure Front Door is a globally distributed, edge security solution. WAF with Application Gateway is a regional, dedicated solution. We recommend you choose a solution based on your overall performance and security requirements. For more information, see [Load-balancing with Azure’s application delivery suite](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
+          
+      - question: |
+          What's the recommended approach to enabling WAF on Front Door?
+        answer: |
+          When you enable the WAF on an existing application, it's common to have false positive detections where the WAF rules detect legitimate traffic as a threat. To minimize the risk of an impact to your users, we recommend the following process:
+          
+          * Enable the WAF in [**Detection** mode](./waf-front-door-create-portal.md#change-mode) to ensure that the WAF doesn't block requests while you are working through this process. This step is recommended for testing purposes on WAF.
+            > [!IMPORTANT]
+            > This process describes how to enable the WAF on a new or existing solution when your priority is to minimize the disturbance to your application's users. If you are under attack or imminent threat, you may want to instead deploy the WAF in **Prevention** mode immediately, and use the tuning process to monitor and tune the WAF over time. This will probably cause some of your legitimate traffic to be blocked, which is why we only recommend doing this when you are under threat.
+          * Follow our [guidance for tuning the WAF](./waf-front-door-tuning.md). This process requires that you enable diagnostic logging, review the logs regularly, and add rule exclusions and other mitigations.
+          * Repeat this whole process, checking the logs regularly, until you're satisfied that no legitimate traffic is being blocked. The whole process may take several weeks. Ideally you should see fewer false positive detections after each tuning change you make.
+          * Finally, enable the WAF in **Prevention mode**.
+          * Even once you're running the WAF in production, you should keep monitoring the logs to identify any other false-positive detections. Regularly reviewing the logs will also help you to identify any real attack attempts that have been blocked.
+          
+      - question: |
+          Do you support same WAF features in all integrated platforms?
+        answer: |
+          Currently, ModSec CRS 3.0, CRS 3.1 and CRS 3.2 rules are only supported with WAF on Application Gateway. Rate limiting and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
+
+      - question: |
+          Is DDoS protection integrated with Front Door? 
+        answer: |
+          Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Network Protection on the VNet where your back-ends are deployed. Azure DDoS Protection customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. For more information, see [DDoS protection on Front Door](../../frontdoor/front-door-ddos.md).
+          
+      - question: |
+          Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
+        answer: |
+          You might not see requests immediately blocked by the rate limit when requests are processed by different Front Door servers. For more information, see [Rate limiting and Front Door servers](waf-front-door-rate-limit.md#rate-limits-and-azure-front-door-servers).
+
+      - question: |
+          What content types does WAF support?
+        answer: |
+          Front Door WAF supports the following content types:
+          
+          - **DRS 2.0**
+
+             **Managed rules**
+               * application/json
+               * application/xml
+               * application/x-www-form-urlencoded
+               * multipart/form-data
+
+             **Custom rules**
+               * application/x-www-form-urlencoded
+
+          - **DRS 1.x**
+
+             **Managed rules**
+               * application/x-www-form-urlencoded
+               * text/plain
+
+             **Custom rules**
+               * application/x-www-form-urlencoded
+
+      - question: |
+          Can I apply a Front door WAF policy to front-end hosts in different Front Door premium (AFDX) profiles that belong to different subscriptions?
+        answer: |
+          No, you can't. The AFD profile and the WAF policy need to be in the same subscription.
+
+additionalContent: |
+
+  ## Next steps
+  
+  - Learn about [Azure Web Application Firewall](../overview.md).
+  - Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).

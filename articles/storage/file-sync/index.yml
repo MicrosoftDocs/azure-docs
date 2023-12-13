@@ -1,0 +1,91 @@
+### YamlMime:Landing
+
+title: Azure File Sync documentation # < 60 chars
+summary: Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. # < 160 chars
+
+metadata:
+  title: Azure File Sync documentation
+  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.
+  services: storage
+  ms.service: azure-file-storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: khdownie
+  ms.author: kendownie
+  ms.date: 09/08/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure File Sync
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure File Sync planning guide
+            url: file-sync-planning.md
+          - text: What is Azure File Sync?
+            url: file-sync-introduction.md
+          - text: Cloud tiering overview
+            url: file-sync-cloud-tiering-overview.md
+
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Create/use file shares - Windows
+            url: ../files/storage-files-quick-create-use-windows.md?toc=/azure/storage/file-sync/toc.json
+          - text: Manage your server with Azure File Sync
+            url: file-sync-server-registration.md
+      - linkListType: tutorial
+        links:
+          - text: Extend Windows file servers with Azure File Sync
+            url: file-sync-extend-servers.md 
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Files troubleshooting
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/file-sync/toc.json
+          - text: Azure Files performance troubleshooting
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/file-sync/toc.json
+          - text: Azure File Sync troubleshooting
+            url: /troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json
+
+  # Card
+  - title: Migrate
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migration overview
+            url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json
+          - text: Migration guides
+            url: ../files/storage-files-migration-overview.md?toc=/azure/storage/file-sync/toc.json#migration-guides
+
+  # Card
+  - title: Self-paced training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Implement a hybrid file server infrastructure
+            url: /training/modules/implement-hybrid-file-server-infrastructure/
+          - text: Extend your on-premises file share capacity using Azure File Sync
+            url: /training/modules/extend-share-capacity-with-azure-file-sync/
+
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure enterprise cloud file share
+            url: /azure/architecture/hybrid/azure-files-private
+          - text: Hybrid file services
+            url: /azure/architecture/hybrid/hybrid-file-services
+          - text: Hybrid file share with disaster recovery for remote and local branch workers
+            url: /azure/architecture/example-scenario/hybrid/hybrid-file-share-dr-remote-local-branch-workers

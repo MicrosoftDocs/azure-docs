@@ -1,20 +1,17 @@
 ---
 title: PublicIpAddressCombo UI element
 description: Describes the Microsoft.Network.PublicIpAddressCombo UI element for Azure portal.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 06/28/2018
-ms.author: tomfitz
-
 ---
+
 # Microsoft.Network.PublicIpAddressCombo UI element
 
 A group of controls for selecting a new or existing public IP address.
 
 ## UI sample
 
-![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
+![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft-network-publicipaddresscombo.png)
 
 - If the user selects 'None' for public IP address, the domain name label text box is hidden.
 - If the user selects an existing public IP address, the domain name label text box is disabled. Its value is the domain name label of the selected IP address.

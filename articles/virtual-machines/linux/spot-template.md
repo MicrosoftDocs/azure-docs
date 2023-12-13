@@ -1,56 +1,41 @@
 ---
-title: Use a template to deploy Azure Spot VMs (Preview) 
-description: Learn how to use a template to deploy Spot VMs to save costs.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor:
-tags: azure-resource-manager
-
-ms.service: virtual-machines-linux
+title: Use a template to deploy Azure Spot Virtual Machines
+description: Learn how to use a template to deploy Azure Spot Virtual Machines to save costs.
+author: ju-shim
+ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/14/2019
-ms.author: cynthn
+ms.custom: devx-track-linux
+ms.topic: how-to
+ms.date: 05/31/2023
+ms.author: jushiman
+ms.reviewer: cynthn
 ---
 
-# Deploy Spot VMs using a Resource Manager template
+# Deploy Azure Spot Virtual Machines using a Resource Manager template
 
-Using [Spot VMs](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+**Applies to:** :heavy_check_mark: Linux VMs
 
-Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Using [Azure Spot Virtual Machines](../spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Spot VMs. Azure Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for Spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available. For more information about setting the max price, see [Spot VMs - Pricing](spot-vms.md#pricing).
+Pricing for Azure Spot Virtual Machines is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-> [!IMPORTANT]
-> Spot instances are currently in public preview.
-> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
+You have option to set a max price you're willing to pay, per hour, for the VM. The max price for an Azure Spot VM can be set in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VMs eviction is not based on price and it's price will be the current price for Azure Spot VMs or the price for a standard VM, whichever is less, as long as there's capacity and quota available. For more information about setting the max price, see [Azure Spot VMs - Pricing](../spot-vms.md#pricing).
 
 
-## Use a template 
+## Use a template
 
-For Spot template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to in your template: 
+For Azure Spot VM template deployments, use`"apiVersion": "2019-03-01"` or later. Add the `priority`, `evictionPolicy` and `billingProfile` properties to in your template:
 
 ```json
-                "priority": "Spot",
-                "evictionPolicy": "Deallocate",
-                "billingProfile": {
-                    "maxPrice": -1
-                }
+"priority": "Spot",
+"evictionPolicy": "Deallocate",
+"billingProfile": {
+    "maxPrice": -1
+}
 ```
 
-
-> [!IMPORTANT]
-> For the early part of the public preview, you can set a max price, but it will be ignored. Spot VMs will have a fixed price, so there will not be any price-based evictions.
-
-
-Here is a sample template with the added properties for a Spot VM. Replace the resource names with your own and `<password>` with a password for the local administrator account on the VM.
+Here's a sample template with added properties for an Azure Spot VM. Replace the resource names with your own and `<password>` with a password for the local administrator account on the VM.
 
 ```json
 {
@@ -137,7 +122,7 @@ Here is a sample template with the added properties for a Spot VM. Replace the r
                     "imageReference": {
                         "publisher": "Canonical",
                         "offer": "UbuntuServer",
-                        "sku": "18.04-LTS",
+                        "sku": "22.04-LTS",
                         "version": "latest"
                     }
                 },
@@ -163,7 +148,7 @@ Here is a sample template with the added properties for a Spot VM. Replace the r
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
-                }				
+                }
             }
         },
         {
@@ -187,8 +172,23 @@ Here is a sample template with the added properties for a Spot VM. Replace the r
 }
 ```
 
+## Simulate an eviction
+
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot VM, to test your application response to a sudden eviction. 
+
+Replace the below parameters with your information: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 ## Next steps
 
-You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md) or the [Azure CLI](spot-cli.md).
-
-If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* You can also create an Azure Spot VM using [Azure PowerShell](../windows/spot-powershell.md) or the [Azure CLI](spot-cli.md).
+* For more information about Azure Spot VM current pricing, see [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices). Both `meterName` and `skuName` contains `Spot`.
+* To learn more about an error, see [Error codes](../error-codes-spot.md).

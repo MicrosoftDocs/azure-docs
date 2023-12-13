@@ -1,0 +1,294 @@
+{
+  "redirections": [
+  {
+    "source_path": "use-blob-storage-checkpoint-store-azure-stack-hub.md",
+    "redirect_url": "/azure/event-hubs/troubleshoot-checkpoint-store-issues",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-tutorial-visualize-anomalies.md",
+    "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-api-overview.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-samples",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-archive-overview.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-capture-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-archive-python.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-capture-python",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-authentication-and-security-model-overview.md",
+    "redirect_url": "/azure/event-hubs/authenticate-shared-access-signature",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-availability-and-support-faq.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-faq",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-c-ephcs-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-c-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-c-ephjava-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-c-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-c-storm-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-c-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-common-integrations.md",
+    "redirect_url": "/azure/event-hubs/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-create-kafka-enabled.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-create",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-csharp-ephcs-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-csharp-ephjava-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-csharp-storm-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-diagnostic-logs.md",
+    "redirect_url": "/azure/event-hubs/monitor-event-hubs-reference#resource-logs",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-framework-getstarted-send.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-standard-get-started-send-legacy.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-framework-api-overview.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-framework-getstarted-receive-eph.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-standard-api-overview.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-dotnet-standard-getstarted-receive-eph.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-for-kafka-ecosystem-overview.md",
+    "redirect_url": "/azure/event-hubs/azure-event-hubs-kafka-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-go-get-started-receive-eph.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-go-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-handling-errors-retry.md",
+    "redirect_url": "/azure/event-hubs/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-java-ephcs-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-java-ephjava-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-java-get-started-send-legacy.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-java-get-started-receive-eph.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-java-storm-getstarted.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-manage-with-ps.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-quickstart-powershell",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-managed-service-identity.md",
+    "redirect_url": "/azure/event-hubs/authenticate-managed-identity",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-metrics-azure-monitor.md",
+    "redirect_url": "/azure/event-hubs/monitor-event-hubs",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-node-get-started-receive.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-overview.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-about",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-performance-scale.md",
+    "redirect_url": "/azure/event-hubs/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-programming-guide.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventhub/Azure.Messaging.EventHubs/samples",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-pulling-public-data.md",
+    "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-pulling-sql-data.md",
+    "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-python-get-started-receive.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-python.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-quickstart-portal.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-create",
+    "redirect_document_id": true
+  },
+  {
+    "source_path": "event-hubs-resource-manager-namespace-event-hub-enable-archive.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-role-based-access-control.md",
+    "redirect_url": "/azure/event-hubs/authorize-access-azure-active-directory",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-security-attributes.md",
+    "redirect_url": "/azure/event-hubs/security-baseline",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-security-controls.md",
+    "redirect_url": "/azure/event-hubs/security-baseline",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-sensors-notify-users.md",
+    "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-spark-connector.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-kafka-spark-tutorial",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-streaming-azure-diags-data.md",
+    "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-tutorial-virtual-networks-firewalls.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-service-endpoints",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "event-hubs-what-is-event-hubs.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-about",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "get-started-capture-python-v2.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-capture-python",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "get-started-dotnet-standard-send-v2.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "get-started-java-send-v2.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "get-started-node-send-v2.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "get-started-python-send-v2.md",
+    "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "policy-samples.md",
+    "redirect_url": "/azure/event-hubs/policy-reference",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "store-captured-data-data-warehouse.md",
+    "redirect_url": "/azure/stream-analytics/event-hubs-parquet-capture-tutorial",
+    "redirect_document_id": false
+  }
+]
+}

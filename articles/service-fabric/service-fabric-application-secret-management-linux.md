@@ -1,12 +1,14 @@
 ---
 title: Set up an encryption cert on Linux clusters 
 description: Learn how to set up an encryption certificate and encrypt secrets on Linux clusters.
-author: shsha
-
-ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: shsha
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Set up an encryption certificate and encrypt secrets on Linux clusters
 This article shows how to set up an encryption certificate and use it to encrypt secrets on Linux clusters. For Windows clusters, see [Set up an encryption certificate and encrypt secrets on Windows clusters][secret-management-windows-specific-link].
 
@@ -31,7 +33,7 @@ The following snippet can be used to encrypt a secret. This snippet only encrypt
 
 ```console
 user@linux:$ echo "Hello World!" > plaintext.txt
-user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
+user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt | tr -d '\n' > plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 The resulting base-64 encoded string output to encrypted.txt contains both the secret ciphertext as well as information about the certificate that was used to encrypt it. You can verify its validity by decrypting it with OpenSSL.

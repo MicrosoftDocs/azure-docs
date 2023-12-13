@@ -2,27 +2,33 @@
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.custom: ignite-2022
+ms.date: 07/10/2023
 ---
 
 # host.json reference for Azure Functions 2.x and later 
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-host-json-v1.md)
-> * [Version 2](functions-host-json.md)
+> * [Version 2+](functions-host-json.md)
 
-The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available starting with version 2.x of the Azure Functions runtime.  
+The host.json metadata file contains configuration options that affect all functions in a function app instance. This article lists the settings that are available starting with version 2.x of the Azure Functions runtime.  
 
 > [!NOTE]
 > This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md).
+Other function app configuration options are managed depending on where the function app runs:
 
-Some host.json settings are only used when running locally in the [local.settings.json](functions-run-local.md#local-settings-file) file.
++ **Deployed to Azure**: in your [application settings](functions-app-settings.md) 
++ **On your local computer**: in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
+
+Configurations in host.json related to bindings are applied equally to each function in the function app. 
+
+You can also [override or apply settings per environment](#override-hostjson-values) using application settings.
 
 ## Sample host.json file
 
-The following sample *host.json* file has all possible options specified (excluding any that are for internal use only).
+The following sample *host.json* file for version 2.x+ has all possible options specified (excluding any that are for internal use only).
 
 ```json
 {
@@ -31,7 +37,12 @@ The following sample *host.json* file has all possible options specified (exclud
         "batchSize": 1000,
         "flushTimeout": "00:00:30"
     },
+    "concurrency": { 
+            "dynamicConcurrencyEnabled": true, 
+            "snapshotPersistenceEnabled": true 
+        },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -64,15 +75,18 @@ The following sample *host.json* file has all possible options specified (exclud
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
-              "movingAverageRatio": 1.0
+              "maxSamplingPercentage": 100.0,
+              "movingAverageRatio": 1.0,
+              "excludedTypes" : "Dependency;Event",
+              "includedTypes" : "PageView;Trace"
             },
-            "samplingExcludedTypes" : "Dependency;Event",
-            "samplingIncludedTypes" : "PageView;Trace",
+            "dependencyTrackingOptions": {
+                "enableSqlCommandTextInstrumentation": true
+            },
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            
@@ -117,7 +131,8 @@ The following sample *host.json* file has all possible options specified (exclud
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -131,18 +146,17 @@ The following sections of this article explain each top-level property. All are 
 
 This setting is a child of [logging](#logging).
 
-Controls options for Application Insights, including [sampling options](./functions-monitoring.md#configure-sampling).
+Controls options for Application Insights, including [sampling options](./configure-monitoring.md#configure-sampling).
 
 For the complete JSON structure, see the earlier [example host.json file](#sample-hostjson-file).
 
 > [!NOTE]
-> Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `samplingExcludedTypes: "Request"` to the `applicationInsights` value.
+> Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `excludedTypes: "Request"` to the `samplingSettings` value.
 
 | Property | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
-| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
+| dependencyTrackingOptions | n/a | See [applicationInsights.dependencyTrackingOptions](#applicationinsightsdependencytrackingoptions). |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
@@ -152,17 +166,21 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.samplingSettings
 
+For more information about these settings, see [Sampling in Application Insights](../azure-monitor/app/sampling.md). 
+
 |Property | Default | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | Enables or disables sampling. | 
 | maxTelemetryItemsPerSecond | 20 | The target number of telemetry items logged per second on each server host. If your app runs on many hosts, reduce this value to remain within your overall target rate of traffic. | 
 | evaluationInterval | 01:00:00 | The interval at which the current rate of telemetry is reevaluated. Evaluation is performed as a moving average. You might want to shorten this interval if your telemetry is liable to sudden bursts. |
-| initialSamplingPercentage| 1.0 | The initial sampling percentage applied at the start of the sampling process to dynamically vary the percentage. Don't reduce value while you're debugging. |
+| initialSamplingPercentage| 100.0 | The initial sampling percentage applied at the start of the sampling process to dynamically vary the percentage. Don't reduce value while you're debugging. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to raise sampling percentage again to capture more data. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to lower sampling percentage again to capture less data. |
 | minSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the minimum allowed sampling percentage. |
-| maxSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
+| maxSamplingPercentage | 100.0 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
 | movingAverageRatio | 1.0 | In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes. |
+| excludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, and `Trace`. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
+| includedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `excludedTypes` override types listed here. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, and `Trace`. Instances of the specified types are sampled; the types that aren't specified or implied are transmitted without sampling. |
 
 ### applicationInsights.httpAutoCollectionOptions
 
@@ -172,9 +190,15 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | enableW3CDistributedTracing | true | Enables or disables support of W3C distributed tracing protocol (and turns on legacy correlation schema). Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. If `enableHttpTriggerExtendedInfoCollection` is false, this flag applies to outgoing requests only, not incoming requests. |
 | enableResponseHeaderInjection | true | Enables or disables injection of multi-component correlation headers into responses. Enabling injection allows Application Insights to construct an Application Map to  when several instrumentation keys are used. Enabled by default if `enableHttpTriggerExtendedInfoCollection` is true. This setting doesn't apply if `enableHttpTriggerExtendedInfoCollection` is false. |
 
+### applicationInsights.dependencyTrackingOptions
+
+|Property | Default | Description |
+| --------- | --------- | --------- | 
+| enableSqlCommandTextInstrumentation | false | Enables collection of the full text of SQL queries, which is disabled by default. For more information on collecting SQL query text, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query). |
+
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](../azure-monitor/app/snapshot-debugger.md) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -199,15 +223,81 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 | snapshotsPerTenMinutesLimit | 1 | The maximum number of snapshots allowed in 10 minutes. Although there is no upper bound on this value, exercise caution increasing it on production workloads because it could impact the performance of your application. Creating a snapshot is fast, but creating a minidump of the snapshot and uploading it to the Snapshot Debugger service is a much slower operation that will compete with your application for resources (both CPU and I/O). |
 | tempFolder | null | Specifies the folder to write minidumps and uploader log files. If not set, then *%TEMP%\Dumps* is used. |
 | thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
-| uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
+| uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining `System.Net.WebRequest.DefaultWebProxy` and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
 
-## cosmosDb
+## blobs
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
+Configuration settings can be found in [Storage blob triggers and bindings](functions-bindings-storage-blob.md#hostjson-settings).  
+
+## console
+
+This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": false,
+          "DisableColors": true
+        },
+    ...
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|DisableColors|false| Suppresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
+|isEnabled|false|Enables or disables console logging.| 
+
+## Azure Cosmos DB
+
+Configuration settings can be found in [Azure Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#hostjson-settings).
+
+## customHandler
+
+Configuration settings for a custom handler. For more information, see [Azure Functions custom handlers](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Property | Default | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | n/a | The executable to start as the custom handler process. It is a required setting when using custom handlers and its value is relative to the function app root. |
+| workingDirectory | *function app root* | The working directory in which to start the custom handler process. It is an optional setting and its value is relative to the function app root. |
+| arguments | n/a | An array of command line arguments to pass to the custom handler process. |
+| enableForwardingHttpRequest | false | If set, all functions that consist of only an HTTP trigger and HTTP output is forwarded the original HTTP request instead of the custom handler [request payload](functions-custom-handlers.md#request-payload). |
 
 ## durableTask
 
 Configuration setting can be found in [bindings for Durable Functions](durable/durable-functions-bindings.md#host-json).
+
+## concurrency
+
+Enables dynamic concurrency for specific bindings in your function app. For more information, see [Dynamic concurrency](./functions-concurrency.md#dynamic-concurrency). 
+
+```json
+    { 
+        "concurrency": { 
+            "dynamicConcurrencyEnabled": true, 
+            "snapshotPersistenceEnabled": true 
+        } 
+    } 
+```
+
+|Property | Default | Description |
+| --------- | --------- | --------- |
+| dynamicConcurrencyEnabled | false | Enables dynamic concurrency behaviors for all triggers supported by this feature, which is off by default. |
+| snapshotPersistenceEnabled | true | Learned concurrency values are periodically persisted to storage so new instances start from those values instead of starting from 1 and having to redo the learning. |
 
 ## eventHub
 
@@ -235,11 +325,16 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
+Indicates the timeout duration for all function executions. It follows the timespan string format. 
 
-In the Premium plan, the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+| Plan type | Default (min) | Maximum (min) |
+| -- | -- | -- |
+| Consumption | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (unbounded)<sup>2</sup> |
+| Dedicated (App Service) | 30 | -1 (unbounded)<sup>2</sup> |
 
-In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+<sup>1</sup> Premium plan execution is only guaranteed for 60 minutes, but technically unbounded.   
+<sup>2</sup> A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
@@ -281,7 +376,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly"
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
@@ -297,30 +392,10 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
+|fileLoggingMode|debugOnly|Determines the file logging behavior when running in Azure. Options are `never`, `always`, and `debugOnly`. This setting isn't used when running locally. When possible, you should use Application Insights when debugging your functions in Azure. Using `always` negatively impacts your app's cold start behavior and data throughput. The default `debugOnly` setting generates log files when you are debugging using the Azure portal. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. This setting lets you filter logging for specific functions. For more information, see [Configure log levels](configure-monitoring.md#configure-log-levels). |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
-
-## console
-
-This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
-
-```json
-{
-    "logging": {
-    ...
-        "console": {
-          "isEnabled": "false"
-        },
-    ...
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|isEnabled|false|Enables or disables console logging.| 
 
 ## managedDependency
 
@@ -344,7 +419,7 @@ Configuration setting can be found in [SendGrid triggers and bindings](functions
 
 ## serviceBus
 
-Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md#host-json).
+Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md).
 
 ## singleton
 
@@ -372,7 +447,7 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 
 ## version
 
-The version string `"version": "2.0"` is required for a function app that targets the v2 runtime.
+This value indicates the schema version of host.json. The version string `"version": "2.0"` is required for a function app that targets the v2 runtime, or a later version. There are no host.json schema changes between v2 and v3.
 
 ## watchDirectories
 
@@ -383,6 +458,35 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
     "watchDirectories": [ "Shared" ]
 }
 ```
+
+## watchFiles
+
+An array of one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files are changed, the updates are picked up by your functions.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
+}
+```
+
+## Override host.json values
+
+There may be instances where you wish to configure or modify specific settings in a host.json file for a specific environment, without changing the host.json file itself. You can override specific host.json values by creating an equivalent value as an application setting. When the runtime finds an application setting in the format `AzureFunctionsJobHost__path__to__setting`, it overrides the equivalent host.json setting located at `path.to.setting` in the JSON. When expressed as an application setting, the dot (`.`) used to indicate JSON hierarchy is replaced by a double underscore (`__`). 
+
+For example, say that you wanted to disable Application Insight sampling when running locally. If you changed the local host.json file to disable Application Insights, this change might get pushed to your production app during deployment. The safer way to do this is to instead create an application setting as `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` in the `local.settings.json` file. You can see this in the following `local.settings.json` file, which doesn't get published:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
+}
+```
+
+Overriding host.json settings using environment variables follows the ASP.NET Core naming conventions. When the element structure includes an array, the numeric array index should be treated as an additional element name in this path. For more information, see [Naming of environment variables](/aspnet/core/fundamentals/configuration/#naming-of-environment-variables). 
 
 ## Next steps
 

@@ -3,20 +3,20 @@ title: include file
 titleSuffix: Azure
 description: include file
 services: internet-peering
-author: prmitiki
+author: halkazwini
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: halkazwini
 ---
 
-To get the list of peerings, run the `Get-AzPeering` command:
+To get the list of peerings, run the **Get-AzPeering** command.
 
 ```powershell
 Get-AzPeering ResourceGroupName "PeeringResourceGroup" -Name "SeattleExchangePeering"
 ```
 
-Below is an example response when the end-to-end provisioning was successfully completed:
+This example response shows when the end-to-end provisioning was successfully completed.
 
 ```powershell
     Name                     : SeattleExchangePeering

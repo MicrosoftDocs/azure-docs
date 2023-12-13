@@ -1,0 +1,319 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/azure-percept/how-to-select-update-package.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-determine-your-update-strategy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-percept/deepstream/azure-percept-for-deepstream-overview.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-percept/hci/azure-percept-on-azure-stack-hci-overview.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-percept/studio/azure-percept-studio-overview.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-percept/open-source/azure-percept-open-source-project-overview.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/audio-button-led-behavior.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/audio-button-led-behavior",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/azure-percept-audio-datasheet.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/azure-percept-audio-datasheet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/azure-percept-devkit-container-release-notes.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/azure-percept-devkit-container-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/azure-percept-devkit-software-release-notes.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/azure-percept-devkit-software-release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/azure-percept-dk-datasheet.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/azure-percept-dk-datasheet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/azure-percept-vision-datasheet.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/azure-percept-vision-datasheet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/azureeyemodule-overview.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/azureeyemodule-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/concept-security-configuration.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/concept-security-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/connect-over-cellular-gateway.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/connect-over-cellular-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/connect-over-cellular-usb-multitech.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/connect-over-cellular-usb-multitech",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/connect-over-cellular-usb-quectel.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/connect-over-cellular-usb-quectel",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/connect-over-cellular-usb-vodafone.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/connect-over-cellular-usb-vodafone",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/connect-over-cellular-usb.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/connect-over-cellular-usb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/connect-over-cellular.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/connect-over-cellular",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/create-and-deploy-manually-azure-precept-devkit.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/create-and-deploy-manually-azure-precept-devkit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/create-people-counting-solution-with-azure-percept-devkit-vision.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/create-people-counting-solution-with-azure-percept-devkit-vision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/delete-voice-assistant-application.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/delete-voice-assistant-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/dev-tools-installer.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/dev-tools-installer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-capture-images.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-capture-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-configure-voice-assistant.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-configure-voice-assistant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-connect-over-ethernet.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-connect-over-ethernet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-connect-to-percept-dk-over-serial.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-connect-to-percept-dk-over-serial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-deploy-model.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-deploy-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-determine-your-update-strategy.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-determine-your-update-strategy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-get-hardware-support.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-get-hardware-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-manage-voice-assistant.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-manage-voice-assistant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-set-up-advanced-network-settings.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-set-up-advanced-network-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-set-up-over-the-air-updates.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-set-up-over-the-air-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-ssh-into-percept-dk.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-ssh-into-percept-dk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-troubleshoot-setup.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-troubleshoot-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-update-over-the-air.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-update-over-the-air",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-update-via-usb.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-update-via-usb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-view-telemetry.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-view-telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/how-to-view-video-stream.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/how-to-view-video-stream",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/known-issues.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/known-issues",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-8020-integration.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-8020-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-advanced-code.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-advanced-code",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-ai-models.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-ai-models",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-azure-percept-audio.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-azure-percept-audio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-azure-percept-dk.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-azure-percept-dk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-azure-percept-studio.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-azure-percept-studio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-azure-percept.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-azure-percept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-percept-security.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-percept-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/overview-update-experience.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/overview-update-experience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/quickstart-percept-audio-setup.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/quickstart-percept-audio-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/quickstart-percept-dk-set-up.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/quickstart-percept-dk-set-up",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/quickstart-percept-dk-unboxing.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/quickstart-percept-dk-unboxing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/retirement-of-azure-percept-dk.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/retirement-of-azure-percept-dk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/return-to-voice-assistant-application-window.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/return-to-voice-assistant-application-window",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/software-releases-over-the-air-updates.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/software-releases-over-the-air-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/software-releases-usb-cable-updates.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/software-releases-usb-cable-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/speech-module-interface-workflow.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/speech-module-interface-workflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/troubleshoot-audio-accessory-speech-module.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/troubleshoot-audio-accessory-speech-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/troubleshoot-dev-kit.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/troubleshoot-dev-kit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/tutorial-no-code-speech.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/tutorial-no-code-speech",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/tutorial-nocode-vision.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/tutorial-nocode-vision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-percept/vision-solution-troubleshooting.md",
+            "redirect_url": "/previous-versions/azure/azure-percept/vision-solution-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-percept/index.yml",
+            "redirect_url": "/previous-versions/azure/azure-percept/index",
+            "redirect_document_id": false
+        }
+    ]
+}

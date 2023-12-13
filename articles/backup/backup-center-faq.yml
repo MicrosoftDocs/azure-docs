@@ -1,0 +1,55 @@
+### YamlMime:FAQ
+metadata:
+  title: Backup center - FAQ
+  description: This article answers frequently asked questions about Backup center.
+  ms.date: 02/14/2022
+  ms.topic: faq
+  ms.service: backup
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
+title: Backup center - Frequently asked questions
+summary: This article answers frequently asked questions about Backup center.
+sections:
+  - name: Management
+    questions:
+      - question: Can Backup center be used across tenants? 
+        answer: |
+          Yes, if you're using [Azure Lighthouse](../lighthouse/overview.md) and have delegated access to subscriptions across different tenants, you can use Backup Center as a single pane of glass to manage backups across tenants.
+      - question: Can Backup center be used to manage both Recovery Services vaults and Backup vaults? 
+        answer: |
+          Yes, Backup center can manage both [Recovery Services vaults](./backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md).
+      - question: Is there a delay before data surfaces in Backup center? 
+        answer: |
+          Backup center is aimed at providing real-time information. There may be a few seconds lag between the time an entity shows up in an individual vault screen, and the time the same entity shows up in Backup Center.
+
+      - question: |
+          The data shown in Backup center seems to be incorrect. How do I proceed?
+        answer: |
+          1. Ensure that the item you're looking for exists, and that you've access to the item. To determine this, you can search for the item (VM / Storage account / Vault / Backup instance) via the Azure portal. If you're unable to find the item, it might have been deleted, or you might not have access to the item.
+          1. Ensure that you haven't filtered the item in Backup center. To confirm if the item exists, you can set all Backup center filters to _All_ and search for the required item.
+          1. Ensure that you've access to the required subscriptions, and that these subscriptions are selected in the global subscription filter. You can click **Directory+Subscription** at the top of the Azure portal to confirm that these subscriptions are available and selected.
+          
+          If the issue still persists, contact Microsoft Support.
+          
+  - name: Configuration
+    questions:
+      - question: Do I need to configure anything to see data in Backup center? 
+        answer: |
+          No. Backup center comes ready out of the box. However, to view [Backup Reports](./configure-reports.md) under Backup center, you need to configure reporting for your vaults.
+
+      - question: Do I need to have any special permissions to use Backup center? 
+        answer: |
+          Backup center as such doesn't need any new permissions. As long as you have the right level of Azure RBAC access for the resources you're managing, you can use Backup Center for these resources. For example, to view information about your backups, you'll need **Reader** access to your vaults. To configure backup and perform other backup-related actions, you'll need **Backup Contributor** or **Backup Operator** roles. Learn more about [Azure roles for Azure Backup](./backup-rbac-rs-vault.md). Note that if you are using Backup Reports under Backup Center, you would need to have read access to the Log Analytics workspace(s) that your vault(s) are sending data to.
+
+  - name: Pricing
+    questions:
+      - question: Do I need to pay anything extra to use Backup Explorer? 
+        answer: |
+          Currently, there are no additional costs (apart from your backup costs) to use Backup center. However, if you're using [Backup Reports](./configure-reports.md) under Backup Center, there's a [cost involved](https://azure.microsoft.com/pricing/details/monitor/) in using Azure Monitor Logs for Backup Reports.   
+
+additionalContent: |
+  ## Next steps
+  Read the other FAQs:
+
+  - [Common questions about Recovery Services vaults](./backup-azure-backup-faq.yml)
+  - [Common questions about Azure VM backups](./backup-azure-vm-backup-faq.yml)

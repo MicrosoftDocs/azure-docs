@@ -1,36 +1,38 @@
 ---
-title: How reservation discounts apply to Azure SQL Data Warehouse | Microsoft Docs
-description: Learn how reservation discounts apply to Azure SQL Data Warehouse to help save you money.
-services: billing
-author: yashesvi
-manager: yashar
+title: How reservation discounts apply to Azure Synapse Analytics (data warehousing only)
+description: Learn how reservation discounts apply to Azure Synapse Analytics to help you save money.
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 07/06/2023
 ms.author: banders
 ---
 
-# How reservation discounts apply to Azure SQL Data Warehouse
+# How reservation discounts apply to Azure Synapse Analytics (data warehousing only)
 
-After you buy Azure SQL Data Warehouse reserved capacity, the reservation discount is automatically applied to data warehouses that exist in that region. The reservation discount applies to the usage emitted by the SQL Data Warehouse cDWU meter. Storage and networking are charged at pay-as-you-go rates.
+After you buy Azure Synapse Analytics reserved capacity, the reservation discount is automatically applied to your provisioned instances that exist in that region. The reservation discount applies to the usage emitted by the Azure Synapse Analytics cDWU meter. Storage and networking are charged at pay-as-you-go rates.
 
 ## Reservation discount application
 
-The SQL Data Warehouse reserved capacity discount is applied to running warehouses on an hourly basis. If you don't have a warehouse deployed for an hour, then the reserved capacity is wasted for that hour. It doesn't carry over.
+The Azure Synapse Analytics reserved capacity discount is applied to running data warehouses on an hourly basis. If you don't have a warehouse deployed for an hour, then the reserved capacity is wasted for that hour. It doesn't carry over.
 
-After purchase, the reservation that you buy is matched to SQL Data Warehouse usage emitted by running warehouses at any point in time. If you shut down some warehouses, then reservation discounts automatically apply to any other matching warehouses.
+After purchase, the reservation is matched to Azure Synapse Analytics usage emitted by running warehouses at any point in time. If you shut down some warehouses, then reservation discounts automatically apply to any other matching warehouses.
 
 For warehouses that don't run for a full hour, the reservation is automatically applied to other matching instances in that hour.
 
 ## Discount examples
 
-The following examples show how the SQL Data Warehouse reserved capacity discount applies, depending on the deployments.
+The following examples show how the Azure Synapse Analytics reserved capacity discount applies, depending on the deployments.
 
-- **Example 1**: You purchase 5 units of 100 cDWU reserved capacity. You run a DW1500c SQL Data Warehouse instance for an hour. In this case, usage is emitted for 15 units of 100 cDWU usage. The reservation discount applies to the 5 units that you used. You are charged using pay-as-you-go rates for the remaining 10 units of 100 cDWU usage that you used.
+- **Example 1**: You purchase five units of 100 cDWU reserved capacity. You run a DW1500c Azure Synapse Analytics instance for an hour. In this case, usage is emitted for 15 units of 100 cDWU usage. The reservation discount applies to the five units that you used. You're charged using pay-as-you-go rates for the remaining 10 units of 100 cDWU usage that you used. In other words, partial coverage is possible for multiple reservations.
 
-- **Example 2**: You purchase 5 units of 100 cDWU reserved capacity. You run two DW100c SQL Data Warehouse instances for an hour. In this case, two usage events are emitted for 1 unit of 100 cDWU usage. Both usage events get reserved capacity discounts. The remaining 3 units of 100 cDWU reserved capacity are wasted and don't carry over for future use.
+- **Example 2**: You purchase five units of 100 cDWU reserved capacity. You run two DW100c Azure Synapse Analytics instances for an hour. In this case, two usage events are emitted for one unit of 100 cDWU usage. Both usage events get reserved capacity discounts. The remaining three units of 100 cDWU reserved capacity are wasted and don't carry over for future use. In other words, a single reservation can get matched to multiple Azure Synapse Analytics instances.
 
-- **Example 3**: You purchase 1 unit of 100 cDWU reserved capacity. You run two DW100c SQL Data Warehouse instances. Each runs for 30 minutes. In this case, both usage events get reserved capacity discounts. No usage is charged using pay-as-you-go rates.
+- **Example 3**: You purchase one unit of 100 cDWU reserved capacity. You run two DW100c Azure Synapse Analytics instances. Each runs for 30 minutes. In this case, both usage events get reserved capacity discounts. No usage is charged using pay-as-you-go rates.
+
+When you apply a management group scope and have multiple Synapse Dedicated Pools running concurrently, your reservation applies to the usage based on a first come, first served basis. Any usage beyond what's covered by your reservation is charged at pay-as-you-go rates.
 
 ## Need help? Contact us
 

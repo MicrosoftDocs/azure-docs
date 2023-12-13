@@ -1,19 +1,20 @@
 ---
 title: Encrypt disks for Azure scale sets with Azure PowerShell
-description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in a Windows virtual machine scale set
-author: msmbaldwin
-manager: rkarlin
-tags: azure-resource-manager
+description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in a Windows Virtual Machine Scale Set
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 10/15/2019
-ms.author: mbaldwin
+ms.subservice: disks
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
-# Encrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell
+# Encrypt OS and attached data disks in a Virtual Machine Scale Set with Azure PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts.  This article shows you how to use Azure PowerShell to create and encrypt a virtual machine scale set. For more information on applying Azure Disk Encryption to a virtual machine scale set, see [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts.  This article shows you how to use Azure PowerShell to create and encrypt a Virtual Machine Scale Set. For more information on applying Azure Disk Encryption to a Virtual Machine Scale Set, see [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -46,13 +47,16 @@ Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 
 ## Create a scale set
 
-First, set an administrator username and password for the VM instances with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
+First, set an administrator username and password for the VM instances with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
+Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985:
 
 ```azurepowershell-interactive
 $vmssName="myScaleSet"
@@ -65,7 +69,6 @@ New-AzVmss `
     -SubnetName "mySubnet" `
     -PublicIpAddressName "myPublicIPAddress" `
     -LoadBalancerName "myLoadBalancer" `
-    -UpgradePolicy "Automatic" `
     -Credential $cred
 ```
 
@@ -86,7 +89,7 @@ When prompted, type *y* to continue the disk encryption process on the scale set
 
 ### Enable encryption using KEK to wrap the key
 
-You can also use a Key Encryption Key for added security when encrypting the virtual machine scale set.
+You can also use a Key Encryption Key for added security when encrypting the Virtual Machine Scale Set.
 
 ```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
@@ -144,5 +147,5 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 
 ## Next steps
 
-- In this article, you used Azure PowerShell to encrypt a virtual machine scale set. You can also use the [Azure CLI](disk-encryption-cli.md) or [Azure Resource Manager templates](disk-encryption-azure-resource-manager.md).
+- In this article, you used Azure PowerShell to encrypt a Virtual Machine Scale Set. You can also use the [Azure CLI](disk-encryption-cli.md) or [Azure Resource Manager templates](disk-encryption-azure-resource-manager.md).
 - If you wish to have Azure Disk Encryption applied after another extension is provisioned, you can use [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).

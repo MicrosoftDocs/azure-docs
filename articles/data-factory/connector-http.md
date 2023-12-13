@@ -1,43 +1,39 @@
 ---
-title: Copy data from an HTTP source by using Azure Data Factory 
-description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+title: Copy data from an HTTP source
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.author: jingwang
-
+ms.date: 10/20/2023
+ms.author: jianleishen
 ---
-# Copy data from an HTTP endpoint by using Azure Data Factory
+# Copy data from an HTTP endpoint by using Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-http-connector.md)
-> * [Current version](connector-http.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse to copy data from an HTTP endpoint. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:
 
 - **REST connector** specifically support copying data from RESTful APIs; 
-- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before REST connector becomes available, you may happen to use the HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before REST connector becomes available, you may happen to use the HTTP connector to copy data from RESTful APIs, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
 ## Supported capabilities
 
-This HTTP connector is supported for the following activities:
+This HTTP connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from an HTTP source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
+
+For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 You can use this HTTP connector to:
 
@@ -46,17 +42,41 @@ You can use this HTTP connector to:
 - Copy the HTTP response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 > [!TIP]
-> To test an HTTP request for data retrieval before you configure the HTTP connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test an HTTP request for data retrieval before you configure the HTTP connector, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define Data Factory entities that are specific to the HTTP connector.
+## Create a linked service to an HTTP source using UI
+
+Use the following steps to create a linked service to an HTTP source in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for HTTP and select the HTTP connector.
+
+    :::image type="content" source="media/connector-http/http-connector.png" alt-text="Screenshot of the HTTP connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-http/configure-http-linked-service.png" alt-text="Screenshot of configuration for an HTTP linked service.":::
+
+## Connector configuration details
+
+The following sections provide details about properties you can use to define entities that are specific to the HTTP connector.
 
 ## Linked service properties
 
@@ -66,8 +86,9 @@ The following properties are supported for the HTTP linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **HttpServer**. | Yes |
 | url | The base URL to the web server. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
-| authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. <br><br> See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
+| authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. You can additionally configure authentication headers in `authHeader` property. See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
+| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 ### Using Basic, Digest, or Windows authentication
@@ -77,7 +98,7 @@ Set the **authenticationType** property to **Basic**, **Digest**, or **Windows**
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name to use to access the HTTP endpoint. | Yes |
-| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -111,14 +132,18 @@ To use ClientCertificate authentication, set the **authenticationType** property
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-encoded certificate data. | Specify either **embeddedCertData** or **certThumbprint**. |
 | certThumbprint | The thumbprint of the certificate that's installed on your self-hosted Integration Runtime machine's cert store. Applies only when the self-hosted type of Integration Runtime is specified in the **connectVia** property. | Specify either **embeddedCertData** or **certThumbprint**. |
-| password | The password that's associated with the certificate. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password that's associated with the certificate. Mark this field as a **SecureString** type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 If you use **certThumbprint** for authentication and the certificate is installed in the personal store of the local computer, grant read permissions to the self-hosted Integration Runtime:
 
 1. Open the Microsoft Management Console (MMC). Add the **Certificates** snap-in that targets **Local Computer**.
 2. Expand **Certificates** > **Personal**, and then select **Certificates**.
 3. Right-click the certificate from the personal store, and then select **All Tasks** > **Manage Private Keys**.
-3. On the **Security** tab, add the user account under which the Integration Runtime Host Service (DIAHostService) is running, with read access to the certificate.
+4. On the **Security** tab, add the user account under which the Integration Runtime Host Service (DIAHostService) is running, with read access to the certificate.
+5. The HTTP connector loads only trusted certificates. If you're using a self-signed or nonintegrated CA-issued certificate, to enable trust, the certificate must also be installed in one of the following stores:
+   - Trusted People
+   - Third-Party Root Certification Authorities
+   - Trusted Root Certification Authorities
 
 **Example 1: Using certThumbprint**
 
@@ -164,18 +189,47 @@ If you use **certThumbprint** for authentication and the certificate is installe
 }
 ```
 
+### Using authentication headers
+
+In addition, you can configure request headers for authentication along with the built-in authentication types.
+
+**Example: Using API key authentication**
+
+```json
+{
+    "name": "HttpLinkedService",
+    "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
+            "url": "<HTTP endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HTTP under `location` settings in format-based dataset:
 
 | Property    | Description                                                  | Required |
 | ----------- | ------------------------------------------------------------ | -------- |
 | type        | The type property under `location` in dataset must be set to **HttpServerLocation**. | Yes      |
-| relativeUrl | A relative URL to the resource that contains the data. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`.   | No       |
+| relativeUrl | A relative URL to the resource that contains the data. The HTTP connector copies data from the combined URL: `[URL specified in linked service][relative URL specified in dataset]`.   | No       |
 
 > [!NOTE]
 > The supported HTTP request payload size is around 500 KB. If the payload size you want to pass to your web endpoint is larger than 500 KB, consider batching the payload in smaller chunks.
@@ -214,7 +268,7 @@ For a full list of sections and properties that are available for defining activ
 
 ### HTTP as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HTTP under `storeSettings` settings in format-based copy source:
 
@@ -222,10 +276,10 @@ The following properties are supported for HTTP under `storeSettings` settings i
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The type property under `storeSettings` must be set to **HttpReadSettings**. | Yes      |
 | requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
-| addtionalHeaders         | Additional HTTP request headers.                             | No       |
+| additionalHeaders         | Additional HTTP request headers.                             | No       |
 | requestBody              | The body for the HTTP request.                               | No       |
 | httpRequestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 
 **Example:**
 
@@ -275,7 +329,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -370,6 +424,6 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 ]
 ```
 
-## Next steps
+## Related content
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

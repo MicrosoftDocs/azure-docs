@@ -3,11 +3,11 @@ title: Check Azure resource usage against limits | Microsoft Docs
 description: Learn how to check your Azure resource usage against Azure subscription limits.
 services: networking
 documentationcenter: na
-author: KumudD
-ms.author: kumud
+author: mbender-ms
+ms.author: mbender
 tags: azure-resource-manager
+ms.custom: devx-track-azurecli
 ms.service: azure
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -40,9 +40,9 @@ In this article, you learn how to see the number of each network resource type t
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to Azure.
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to Azure.
 
-View your usage against limits with [Get-AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage). The following example gets the usage for resources where at least one resource is deployed in the East US location:
+View your usage against limits with [Get-AzNetworkUsage](/powershell/module/az.network/get-aznetworkusage). The following example gets the usage for resources where at least one resource is deployed in the East US location:
 
 ```azurepowershell-interactive
 Get-AzNetworkUsage `
@@ -53,7 +53,7 @@ Get-AzNetworkUsage `
 
 You receive output formatted the same as the following example output:
 
-```powershell
+```output
 ResourceType            CurrentValue Limit
 ------------            ------------ -----
 Virtual Networks                   1    50
@@ -65,9 +65,9 @@ Network Watchers                   1     1
 
 ## Azure CLI
 
-If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you're running the Azure CLI locally, you also need to run `az login` to log in to Azure.
+If you're using Azure CLI commands to complete tasks in this article, run the commands via either the [Azure Cloud Shell](https://shell.azure.com/bash) or the Azure CLI installed locally. This article requires the Azure CLI version 2.0.32 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you're running the Azure CLI locally, you also need to run `az login` to log in to Azure.
 
-View your usage against limits with [az network list-usages](/cli/azure/network?view=azure-cli-latest#az-network-list-usages). The following example gets the usage for resources in the East US location:
+View your usage against limits with [az network list-usages](/cli/azure/network#az-network-list-usages). The following example gets the usage for resources in the East US location:
 
 ```azurecli-interactive
 az network list-usages \
@@ -77,7 +77,7 @@ az network list-usages \
 
 You receive output formatted the same as the following example output:
 
-```azurecli
+```output
 Name                    CurrentValue Limit
 ------------            ------------ -----
 Virtual Networks                   1    50

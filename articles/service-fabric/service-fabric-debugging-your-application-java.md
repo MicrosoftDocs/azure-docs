@@ -1,12 +1,15 @@
 ---
 title: Debug your application in Eclipse
 description: Improve the reliability and performance of your services by developing and debugging them in Eclipse on a local development cluster.
-author: suhuruli
-
-ms.topic: conceptual
-ms.date: 11/02/2017
-ms.author: suhuruli
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+ms.custom: devx-track-extended-java
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Debug your Java Service Fabric application using Eclipse
 > [!div class="op_single_selector"]
 > * [Visual Studio/CSharp](service-fabric-debugging-your-application.md) 
@@ -15,7 +18,7 @@ ms.author: suhuruli
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started-linux.md).
 
-2. Update entryPoint.sh of the service you wish to debug, so that it starts the java process with remote debug parameters. This file can be found at the following location: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Port 8001 is set for debugging in this example.
+2. Update entryPoint.sh of the service you wish to debug, so that it starts the Java process with remote debug parameters. This file can be found at the following location: `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Port 8001 is set for debugging in this example.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
@@ -36,5 +39,5 @@ If the application is crashing, you may also want to enable coredumps. Execute `
 
 ### Next steps
 
-* [Collect logs using Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Collect logs using Linux Azure Diagnostics](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

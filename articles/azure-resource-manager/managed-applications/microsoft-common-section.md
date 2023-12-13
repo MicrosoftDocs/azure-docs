@@ -1,20 +1,17 @@
 ---
 title: Section UI element
 description: Describes the Microsoft.Common.Section UI element for Azure portal. Use to group elements in the portal for deploying managed applications.
-author: tfitzmac
-
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: tomfitz
-
 ---
+
 # Microsoft.Common.Section UI element
 
 A control that groups one or more elements under a heading.
 
 ## UI sample
 
-![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-section.png" alt-text="Screenshot of Microsoft.Common.Section UI element with a heading and grouped elements.":::
 
 ## Schema
 
@@ -45,7 +42,7 @@ A control that groups one or more elements under a heading.
 - This element doesn't support the `toolTip` property.
 
 ## Sample output
-To access the output values of elements in `elements`, use the [basics()](create-uidefinition-functions.md#basics) or [steps()](create-uidefinition-functions.md#steps) functions and dot notation:
+To access the output values of elements in `elements`, use the [basics()](create-ui-definition-referencing-functions.md#basics) or [steps()](create-ui-definition-referencing-functions.md#steps) functions and dot notation:
 
 ```json
 steps('configuration').section1.text1

@@ -1,21 +1,19 @@
 ---
 title: Incrementally copy multiple tables using Azure portal
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.
-services: data-factory
+description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/20/2018
+ms.date: 08/10/2023
 ---
 
-# Incrementally load data from multiple tables in SQL Server to an Azure SQL database
+# Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL database.    
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.    
 
 You perform the following steps in this tutorial:
 
@@ -55,18 +53,18 @@ Here are the important steps to create this solution:
 
     Here is the high-level solution diagram: 
 
-    ![Incrementally load data](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
+    :::image type="content" source="media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png" alt-text="Incrementally load data":::
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **SQL Server**. You use an on-premises SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one. 
+* **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
-1. Open SQL Server Management Studio, and connect to your on-premises SQL Server database.
+1. Open SQL Server Management Studio, and connect to your SQL Server database.
 
 1. In **Server Explorer**, right-click the database and choose **New Query**.
 
@@ -104,12 +102,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create destination tables in your Azure SQL database
-1. Open SQL Server Management Studio, and connect to your Azure SQL database.
+### Create destination tables in your database
+
+1. Open SQL Server Management Studio, and connect to your database in Azure SQL Database.
 
 1. In **Server Explorer**, right-click the database and choose **New Query**.
 
-1. Run the following SQL command against your Azure SQL database to create tables named `customer_table` and `project_table`:  
+1. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:  
     
     ```sql
     create table customer_table
@@ -125,10 +124,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Creationtime datetime
     );
 
-	```
+    ```
 
-### Create another table in the Azure SQL database to store the high watermark value
-1. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value: 
+### Create another table in your database to store the high watermark value
+
+1. Run the following SQL command against your database to create a table named `watermarktable` to store the watermark value: 
     
     ```sql
     create table watermarktable
@@ -149,9 +149,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create a stored procedure in the Azure SQL database 
+### Create a stored procedure in your database
 
-Run the following command to create a stored procedure in your Azure SQL database. This stored procedure updates the watermark value after every pipeline run. 
+Run the following command to create a stored procedure in your database. This stored procedure updates the watermark value after every pipeline run. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -159,16 +159,17 @@ AS
 
 BEGIN
 
-    UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime 
 WHERE [TableName] = @TableName
 
 END
 
 ```
 
-### Create data types and additional stored procedures in Azure SQL database
-Run the following query to create two stored procedures and two data types in your Azure SQL database. 
+### Create data types and additional stored procedures in your database
+
+Run the following query to create two stored procedures and two data types in your database. 
 They're used to merge the data from source tables into destination tables.
 
 In order to make the journey easy to start with, we directly use these Stored Procedures passing the delta data in via a table variable and then merge them into destination store. Be cautious that it is not expecting a "large" number of delta rows (more than 100) to be stored in the table variable.  
@@ -227,13 +228,13 @@ END
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**: 
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**: 
    
-   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 3. In the **New data factory** page, enter **ADFMultiIncCopyTutorialDF** for the **name**. 
  
-   The name of the Azure data factory must be **globally unique**. If you see a red exclamation mark with the following error, change the name of the data factory (for example, yournameADFIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure Data Factory must be **globally unique**. If you see a red exclamation mark with the following error, change the name of the data factory (for example, yournameADFIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
    `Data factory name "ADFIncCopyTutorialDF" is not available`
 
@@ -248,15 +249,20 @@ END
 8. Click **Create**.      
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-   ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create self-hosted integration runtime
 As you are moving data from a data store in a private network (on-premises) to an Azure data store, install a self-hosted integration runtime (IR) in your on-premises environment. The self-hosted IR moves data between your private network and Azure. 
 
-1. Click **Connections** at the bottom of the left pane, and switch to the **Integration Runtimes** in the **Connections** window. 
+1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
-1. In the **Integration Runtimes** tab, click **+ New**. 
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
+
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
+
+   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Create an integration runtime":::
 
 1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Continue**. 
 
@@ -265,23 +271,24 @@ As you are moving data from a data store in a private network (on-premises) to a
 
 1. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
 
-   ![Click Express setup link](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png" alt-text="Click Express setup link":::
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, click **Close**. 
 
-   ![Integration runtime setup - successful](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png" alt-text="Integration runtime setup - successful":::
 1. In the Web browser, in the **Integration Runtime Setup** window, click **Finish**. 
 
  
 1. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and Azure SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your SQL Server database and your database in Azure SQL Database. 
 
 ### Create the SQL Server linked service
-In this step, you link your on-premises SQL Server database to the data factory.
+In this step, you link your SQL Server database to the data factory.
 
 1. In the **Connections** window, switch from **Integration Runtimes** tab to the **Linked Services** tab, and click **+ New**.
 
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="New linked service.":::
 1. In the **New Linked Service** window, select **SQL Server**, and click **Continue**. 
 
 1. In the **New Linked Service** window, do the following steps:
@@ -297,23 +304,23 @@ In this step, you link your on-premises SQL Server database to the data factory.
     1. To save the linked service, click **Finish**.
 
 ### Create the Azure SQL Database linked service
-In the last step, you create a linked service to link your source SQL Server database to the data factory. In this step, you link your destination/sink Azure SQL database to the data factory. 
+In the last step, you create a linked service to link your source SQL Server database to the data factory. In this step, you link your destination/sink database to the data factory. 
 
 1. In the **Connections** window, switch from **Integration Runtimes** tab to the **Linked Services** tab, and click **+ New**.
 1. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**. 
 1. In the **New Linked Service** window, do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**. 
-    1. For **Server name**, select the name of your Azure SQL server from the drop-down list. 
-    1. For **Database name**, select the Azure SQL database in which you created customer_table and project_table as part of the prerequisites. 
-    1. For **User name**, enter the name of user that has access to the Azure SQL database. 
+    1. For **Server name**, select the name of your server from the drop-down list. 
+    1. For **Database name**, select the database in which you created customer_table and project_table as part of the prerequisites. 
+    1. For **User name**, enter the name of user that has access to the database. 
     1. For **Password**, enter the **password** for the user. 
     1. To test whether Data Factory can connect to your SQL Server database, click **Test connection**. Fix any errors until the connection succeeds. 
     1. To save the linked service, click **Finish**.
 
 1. Confirm that you see two linked services in the list. 
    
-    ![Two linked services](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png" alt-text="Two linked services"::: 
 
 ## Create datasets
 In this step, you create datasets to represent the data source, the data destination, and the place to store the watermark.
@@ -328,7 +335,7 @@ In this step, you create datasets to represent the data source, the data destina
 
 1. Switch to the **Connection** tab in the Properties window, and select **SqlServerLinkedService** for **Linked service**. You do not select a table here. The Copy activity in the pipeline uses a SQL query to load the data rather than load the entire table.
 
-   ![Source dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png" alt-text="Source dataset - connection":::
 
 
 ### Create a sink dataset
@@ -343,14 +350,14 @@ In this step, you create datasets to represent the data source, the data destina
     1. Click **New** in the **Create/update parameters** section. 
     1. Enter **SinkTableName** for the **name**, and **String** for the **type**. This dataset takes **SinkTableName** as a parameter. The SinkTableName parameter is set by the pipeline dynamically at runtime. The ForEach activity in the pipeline iterates through a list of table names and passes the table name to this dataset in each iteration.
    
-    ![Sink Dataset - properties](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png" alt-text="Sink Dataset - properties":::
 1. Switch to the **Connection** tab in the Properties window, and select **AzureSqlDatabaseLinkedService** for **Linked service**. For **Table** property, click **Add dynamic content**.   
 	
 1. In the **Add Dynamic Content** window, select **SinkTableName** in the **Parameters** section. 
  
 1. After clicking **Finish**, you see "@dataset().SinkTableName" as the table name.
 
-   ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
+   :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png" alt-text="Sink Dataset - connection":::
 
 ### Create a dataset for a watermark
 In this step, you create a dataset for storing a high watermark value. 
@@ -365,7 +372,7 @@ In this step, you create a dataset for storing a high watermark value.
     1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
     1. Select **[dbo].[watermarktable]** for **Table**.
 
-    ![Watermark Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png" alt-text="Watermark Dataset - connection":::
 
 ## Create a pipeline
 The pipeline takes a list of table names as a parameter. The ForEach activity iterates through the list of table names and performs the following operations: 
@@ -382,7 +389,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
 
-1. In the **General** tab, enter **IncrementalCopyPipeline** for **Name**. 
+1. In the General panel under **Properties**, specify **IncrementalCopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.  
 
 1. In the **Parameters** tab, do the following steps: 
 
@@ -394,7 +401,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Switch to the **Settings** tab, and enter `@pipeline().parameters.tableList` for **Items**. The ForEach activity iterates through a list of tables and performs the incremental copy operation. 
 
-    ![ForEach activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png" alt-text="ForEach activity - settings":::
 
 1. Select the **ForEach** activity in the pipeline if it isn't already selected. Click the **Edit (Pencil icon)** button.
 
@@ -410,7 +417,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'
         ```
 
-        ![First Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png" alt-text="First Lookup Activity - settings":::
 1. Drag-drop the **Lookup** activity from the **Activities** toolbox, and enter **LookupNewWaterMarkActivity** for **Name**.
         
 1. Switch to the **Settings** tab.
@@ -423,12 +430,12 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
     
-        ![Second Lookup Activity - settings](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png" alt-text="Second Lookup Activity - settings":::
 1. Drag-drop the **Copy** activity from the **Activities** toolbox, and enter **IncrementalCopyActivity** for **Name**. 
 
 1. Connect **Lookup** activities to the **Copy** activity one by one. To connect, start dragging at the **green** box attached to the **Lookup** activity and drop it on the **Copy** activity. Release the mouse button when the border color of the Copy activity changes to **blue**.
 
-    ![Connect Lookup activities to Copy activity](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png" alt-text="Connect Lookup activities to Copy activity":::
 1. Select the **Copy** activity in the pipeline. Switch to the **Source** tab in the **Properties** window. 
 
     1. Select **SourceDataset** for **Source Dataset**. 
@@ -439,7 +446,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
         ```
 
-        ![Copy Activity - source settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png" alt-text="Copy Activity - source settings":::
 1. Switch to the **Sink** tab, and select **SinkDataset** for **Sink Dataset**. 
         
 1. Do the following steps:
@@ -449,14 +456,14 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     1. For **Table type** property, enter `@{item().TableType}`.
     1. For **Table type parameter name**, enter `@{item().TABLE_NAME}`.
 
-    ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png" alt-text="Copy Activity - parameters":::
 1. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Connect the **Copy** activity to the **Stored Procedure** activity. 
 
 1. Select the **Stored Procedure** activity in the pipeline, and enter **StoredProceduretoWriteWatermarkActivity** for **Name** in the **General** tab of the **Properties** window. 
 
 1. Switch to the **SQL Account** tab, and select **AzureSqlDatabaseLinkedService** for **Linked Service**.
 
-    ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png" alt-text="Stored Procedure Activity - SQL Account":::
 1. Switch to the **Stored Procedure** tab, and do the following steps:
 
     1. For **Stored procedure name**, select `[dbo].[usp_write_watermark]`. 
@@ -468,7 +475,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+        :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png" alt-text="Stored Procedure Activity - stored procedure settings":::
 1. Select **Publish All** to publish the entities you created to the Data Factory service. 
 
 1. Wait until you see the **Successfully published** message. To see the notifications, click the **Show Notifications** link. Close the notifications window by clicking **X**.
@@ -497,14 +504,16 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ]
     ```
 
-    ![Pipeline Run arguments](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png)
+    :::image type="content" source="./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-run-arguments.png" alt-text="Pipeline Run arguments":::
 
 ## Monitor the pipeline
 
-1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline. 
+1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-    ![Pipeline runs](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-1. Click **View Activity Runs** link in the **Actions** column. You see all the activity runs associated with the selected pipeline run. 
+1. To see activity runs associated with the pipeline run, select the link under the **PIPELINE NAME** column. For details about the activity runs, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. 
+
+1. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
+
 
 ## Review the results
 In SQL Server Management Studio, run the following queries against the target SQL database to verify that the data was copied from source tables to destination tables: 
@@ -599,9 +608,11 @@ VALUES
 
 ## Monitor the pipeline again
 
-1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline. 
+1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-1. Click **View Activity Runs** link in the **Actions** column. You see all the activity runs associated with the selected pipeline run. 
+1. To see activity runs associated with the pipeline run, select the link under the **PIPELINE NAME** column. For details about the activity runs, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. 
+
+1. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
 ## Review the final results
 In SQL Server Management Studio, run the following queries against the target SQL database to verify that the updated/new data was copied from source tables to destination tables. 
@@ -663,7 +674,7 @@ project_table	2017-10-01 00:00:00.000
 
 Notice that the watermark values for both tables were updated.
      
-## Next steps
+## Related content
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]
@@ -683,5 +694,3 @@ Advance to the following tutorial to learn about transforming data by using a Sp
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-portal.md)
-
-

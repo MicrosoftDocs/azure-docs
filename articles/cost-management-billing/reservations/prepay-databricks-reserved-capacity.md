@@ -1,12 +1,12 @@
 ---
 title: Optimize Azure Databricks costs with a pre-purchase
 description: Learn how you can prepay for Azure Databricks charges with reserved capacity to save money.
-services: billing
-author: yashesvi
-manager: yashar
+author: bandersmsft
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 10/01/2019
+ms.subservice: reservations
+ms.topic: how-to
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -34,20 +34,22 @@ Before you buy, calculate the total DBU quantity consumed for different workload
 
 ## Purchase Databricks commit units
 
-You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). To buy reserved capacity, you must have the owner role for at least one enterprise subscription.
+You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). To buy reserved capacity, you must have the owner role for at least one enterprise or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates subscription, or the required role for CSP subscriptions.
 
 - You must be in an Owner role for at least one Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
-- For EA subscriptions, the Add Reserved Instances option must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin for the subscription.
-- For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription.
+- For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin of the subscription to enable it. Direct EA customers can now update **Reserved Instance** setting on [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Navigate to the Policies menu to change settings.
+- For CSP subscriptions, follow the steps in [Acquire, provision, and manage Azure reserved VM instances (RI) + server subscriptions for customers](/partner-center/azure-ri-server-subscriptions).
+
 
 **To Purchase:**
 
 1. Go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's monetary commitment balance or charged as overage.
+1. Select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
 1. Select a scope. Use the **Scope** list to select a subscription scope:
     - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
     - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
     - **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment.
+    - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select how many Azure Databricks commit units you want to purchase and complete the purchase.
 
 
@@ -58,7 +60,7 @@ You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#bla
 You can make the following types of changes to a reservation after purchase:
 
 - Update reservation scope
-- Role-based access
+- Azure role-based access control (Azure RBAC)
 
 You can't split or merge the Databricks commit unit pre-purchase. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 

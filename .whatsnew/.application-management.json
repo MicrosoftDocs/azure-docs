@@ -1,0 +1,24 @@
+{
+    "$schema": "https://whatsnewapi.azurewebsites.net/schema",
+    "docSetProductName": "Azure Active Directory application management",
+    "rootDirectory": "articles/active-directory/manage-apps/",
+    "docLinkSettings": {
+        "linkFormat": "relative",
+        "relativeLinkPrefix": "/azure/active-directory/manage-apps"
+    },
+    "inclusionCriteria": {
+        "omitPullRequestTitles": false,
+        "minAdditionsToFile": 10,
+        "maxFilesChanged": 50,
+        "labels": [
+            "label:active-directory/svc",
+            "label:app-mgmt/subsvc"
+        ]
+    },
+    "areas": [
+        {
+            "names": [ "."],
+            "heading": "Azure Active Directory application management"
+        }
+    ]
+}

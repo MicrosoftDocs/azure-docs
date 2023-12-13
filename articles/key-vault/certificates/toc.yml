@@ -1,0 +1,111 @@
+items:
+- name: Certificates
+  href: index.yml
+
+- name: Overview 
+  items:
+  - name: About certificates
+    href: about-certificates.md
+  - name: About certificate renewal
+    href: overview-renew-certificate.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quick-create-cli.md
+  - name: PowerShell
+    href: quick-create-powershell.md
+  - name: Portal
+    href: quick-create-portal.md
+  - name: .NET
+    href: quick-create-net.md
+  - name: Node.js
+    href: quick-create-node.md
+    displayName: az ad sp create-for-rbac, az keyvault set-policy    
+  - name: Python
+    href: quick-create-python.md
+  - name: Go
+    href: quick-create-go.md
+  - name: Java
+    href: quick-create-java.md
+  - name: Spring
+    href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
+- name: Samples
+  items:
+  - name: Key Vault Code Samples
+    href: /samples/browse/?expanded=azure&products=azure-key-vault
+
+- name: Concepts 
+  items:
+  - name: Get started with Key Vault certificates
+    href: certificate-scenarios.md
+  - name: Monitor and manage certificate creation
+    href: create-certificate-scenarios.md
+  - name: Certificate creation methods  
+    href: create-certificate.md
+  - name: Certificate access control
+    href: certificate-access-control.md
+    
+- name: How-to guides 
+  items:
+  - name: Import a certificate
+    href: tutorial-import-certificate.md
+  - name: Configure certificate rotation
+    href: tutorial-rotate-certificates.md
+  - name: Create certificate signing requests
+    href: create-certificate-signing-request.md
+  - name: Integrate Key Vault with DigiCert CA
+    href: how-to-integrate-certificate-authority.md
+  - name: Export certificate from key vault
+    href: how-to-export-certificate.md
+- name: Reference
+  items:
+  - name: Frequently asked questions
+    href: faq.yml
+  - name: Multitenancy and Azure Key Vault
+    href: /azure/architecture/guide/multitenant/service/key-vault
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
+  - name: Azure PowerShell
+    href: /powershell/module/az.keyvault/#key_vault
+  - name: Azure CLI
+    href: /cli/azure/keyvault
+  - name: .NET
+    href: /dotnet/api/overview/azure/security.keyvault.certificates-readme
+  - name: Java
+    href: /java/api/overview/azure/keyvault
+  - name: Spring
+    href: /azure/developer/java/spring-framework/spring-cloud-azure-appendix#azure-key-vault-certificates-properties
+  - name: Node.js
+    href: /javascript/api/overview/azure/key-vault-index
+  - name: Python
+    href: /python/api/overview/azure/keyvault-certificates-readme
+  - name: REST
+    href: /rest/api/keyvault
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.keyvault/allversions
+    displayName: ARM
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Service limits
+    href: ../general/service-limits.md
+  - name: Service status
+    href: https://azure.microsoft.com/status/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
+    href: /archive/blogs/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

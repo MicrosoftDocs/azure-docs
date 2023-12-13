@@ -1,37 +1,31 @@
 ---
 title: Azure CLI Script Sample - Work with key-values in App Configuration Store
 titleSuffix: Azure App Configuration
-description: Provides information on working with key-values in an Azure App Configuration store
+description: Use Azure CLI script to create, view, update and delete key values from App Configuration store
 services: azure-app-configuration
-documentationcenter: ''
-author: lisaguthrie
-manager: maiye
-editor: ''
+author: maud-lv
 
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 11/08/2019
-ms.author: lcozzens
-ms.custom: mvc
+ms.date: 02/19/2020
+ms.author: malev 
+ms.custom: devx-track-azurecli
 ---
 
 # Work with key-values in an Azure App Configuration store
 
-This sample script creates a new key-value in an Azure App Configuration store, lists all existing key-values, updates the value of the newly created key, and lastly deletes it.
+This sample script shows how to:
+* Create a new key-value pair
+* List all existing key-value pairs
+* Update the value of a newly created key
+* Delete the new key-value pair
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-You need to install the Azure App Configuration CLI extension first by executing the following command:
-
-        az extension add -n appconfig
-
+ - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 ## Sample script
 
 ```azurecli-interactive
@@ -56,13 +50,13 @@ az appconfig kv set --name $appConfigName --key $newKey --value "Value 2"
 az appconfig kv list --name $appConfigName
 
 # Create a new key-value referencing a value stored in Azure Key Vault
-az appconfig kv set --name $appConfigName --key $refKey --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --value "{\"uri\":\"$uri\"}"
+az appconfig kv set-keyvault  --name $appConfigName --key $refKey --secret-identifier $uri
 
 # List current key-values
 az appconfig kv list --name $appConfigName
 
 # Update Key Vault reference
-az appconfig kv set --name $appConfigName --key $refKey --value "{\"uri\":\"$uri2\"}"
+az appconfig kv set-keyvault --name $appConfigName --key $refKey --secret-identifier $uri2
 
 # List current key-values
 az appconfig kv list --name $appConfigName
@@ -81,13 +75,13 @@ az appconfig kv list --name $appConfigName
 
 ## Script explanation
 
-This script uses the following commands to operate on key-values in an App Configuration store. Each command in the table links to command specific documentation.
+This table lists the commands used in our sample script. 
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Creates or updates a key-value. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lists key-values in an App Configuration store. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Deletes a key-value. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Create or update a key-value pair. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | List key-value pairs in an App Configuration store. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Delete a key-value pair. |
 
 ## Next steps
 

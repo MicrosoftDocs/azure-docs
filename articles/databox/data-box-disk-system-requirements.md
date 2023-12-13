@@ -1,15 +1,14 @@
 ---
 title: Microsoft Azure Data Box Disk system requirements| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Data Box Disk
+description: Learn about the software and networking requirements for your Azure Data Box Disk 
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2019
-ms.author: alkohli
-ms.localizationpriority: high 
+ms.date: 10/11/2022
+ms.author: shaas
 ---
 
 ::: zone target="docs"
@@ -41,7 +40,7 @@ Here is a list of the supported operating systems for the disk unlock and data c
 | **Operating system** | **Tested versions** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows (64-bit) |7, 8, 10 |
+| Windows (64-bit) |7, 8, 10, 11 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## Other required software for Windows clients
@@ -52,7 +51,7 @@ For Windows client, following should also be installed.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## Other required software for Linux clients
@@ -68,17 +67,25 @@ The client computer containing the data must have a USB 3.0 or later port. The d
 
 ## Supported storage accounts
 
+> [!Note]
+> Classic storage accounts will not be supported starting **August 1, 2023**.
+
 Here is a list of the supported storage types for the Data Box Disk.
 
-| **Storage account** | **Notes** |
+| **Storage account** | **Supported access tiers** |
 | --- | --- |
-| Classic | Standard |
-| General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
+| Classic Standard | |
+| General-purpose v1 Standard  | Hot, Cool |
+| General-purpose v1 Premium   |  |
+| General-purpose v2 Standard<sup>*</sup> | Hot, Cool |
+| General-purpose v2 Premium   |  |
 | Blob storage account | |
+| Block Blob storage Premium | |
 
->[!NOTE]
-> Azure Data Lake Storage Gen 2 accounts are not supported.
+<sup>*</sup> *Azure Data Lake Storage Gen2 (ADLS Gen2) is supported.*
 
+> [!IMPORTANT]
+> Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box Disk.
 
 ## Supported storage types for upload
 

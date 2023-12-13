@@ -1,272 +1,242 @@
 ---
-title: Create a search index in the Azure portal
-titleSuffix: Azure Cognitive Search
-description: In this portal quickstart, learn how to use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
-
-author: HeidiSteen
+title: "Quickstart: Create a search index in the Azure portal"
+titleSuffix: Azure AI Search
+description: Learn how to create, load, and query your first search index by using the Import Data wizard in the Azure portal. This quickstart uses a fictitious hotel dataset for sample data.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-
-#Customer intent: As a developer, I want a low-impact introduction to index design.
+ms.date: 11/30/2023
+ms.custom:
+  - mode-ui
+  - ignite-2023
 ---
-# Quickstart: Create an Azure Cognitive Search index in the Azure portal
-> [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
-> * [C#](search-get-started-dotnet.md)
-> * [Java](search-get-started-java.md)
-> * [Node.js](search-get-started-nodejs.md)
-> * [PowerShell](search-get-started-powershell.md)
-> * [Postman](search-get-started-postman.md)
-> * [Python](search-get-started-python.md)
 
-Use the portal's **Import data** wizard and **Search explorer** tools to quickly ramp up on concepts, and write interesting queries against an index within minutes.
+# Quickstart: Create a search index in the Azure portal
 
-If the tools are too limiting, you can consider a [code-based introduction to programming Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md) or use [Postman for making REST API calls](search-get-started-postman.md). 
+In this Azure AI Search quickstart, create your first _search index_ by using the [**Import data** wizard](search-import-data-portal.md) and a built-in sample data source consisting of fictitious hotel data hosted by Microsoft. The wizard guides you through the creation of a no-code search index to help you write interesting queries within minutes. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+The wizard creates multiple objects on your search service - [searchable index](search-what-is-an-index.md) - but also an [indexer](search-indexer-overview.md) and data source connection for automated data retrieval. At the end of this quickstart, we review each object. 
+
+> [!NOTE]
+> The **Import data** wizard includes options for OCR, text translation, and other AI enrichments that aren't covered in this quickstart. For a similar walkthrough that focuses on AI enrichment, see [Quickstart: Create a skillset in the Azure portal](cognitive-search-quickstart-blob.md).
 
 ## Prerequisites
 
-[Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
+- An Azure AI Search service for any tier and any region. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 
-Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object.
+Many customers start with the free service. The free tier is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
 
-Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
+Check the **Overview > Usage** tab for the service to see how many indexes, indexers, and data sources you already have. 
 
-![Lists of indexes, indexers, and datasources](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/overview-quota-usage.png" alt-text="Screenshot of the Overview page for an Azure AI Search service instance in the Azure portal, showing the number of indexes, indexers, and data sources." lightbox="media/search-get-started-portal/overview-quota-usage.png":::
 
-## <a name="create-index"></a> Create an index and load data
+## Start the wizard
 
-Search queries iterate over an [*index*](search-what-is-an-index.md) that contains searchable data, metadata, and additional constructs that optimize certain search behaviors.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure AI Search service.
 
-For this tutorial, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the [**Import data** wizard](search-import-data-portal.md). An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. Normally, indexers are used programmatically, but in the portal, you can access them through the **Import data** wizard. 
+1. On the **Overview** page, select **Import data** to start the wizard.
 
-### Step 1 - Start the Import data wizard and create a data source
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot that shows how to open the Import data wizard in the Azure portal.":::
 
-1. On the Azure Cognitive Search service dashboard, click **Import data** on the command bar to create and populate a search index.
+## Create and load an index
 
-   ![Import data command](media/search-get-started-portal/import-data-cmd.png)
+In this section, create and load an index in four steps.
 
-2. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+### Connect to a data source
 
-   ![Select sample dataset](media/search-get-started-portal/import-datasource-sample.png)
+The wizard creates a data source connection to sample data hosted by Microsoft on Azure Cosmos DB. This sample data is retrieved accessed over an internal connection. You don't need your own Azure Cosmos DB account or source files to run this quickstart.
 
-3. Continue to the next page.
+1. On **Connect to your data**, expand the **Data Source** dropdown list and select **Samples**.
 
-### Step 2 - Skip the "Enrich content" page
+1. In the list of built-in samples, select **hotels-sample**.
 
-The wizard supports the creation of an [AI enrichment pipeline](cognitive-search-concept-intro.md) for incorporating the Cognitive Services AI algorithms into indexing. 
+   :::image type="content" source="media/search-get-started-portal/import-hotels-sample.png" alt-text="Screenshot that shows how to select the hotels-sample data source in the Import data wizard.":::
 
-We'll skip this step for now, and move directly on to **Customize target index**.
+1. Select **Next: Add cognitive skills (Optional)** to continue.
 
-   ![Skip cognitive skill step](media/search-get-started-portal/skip-cog-skill-step.png)
+### Skip configuration for cognitive skills
 
-> [!TIP]
-> You can step through an AI-indexing example in a [quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
+The **Import data** wizard supports the creation of a skillset and [AI-enrichment](cognitive-search-concept-intro.md) into indexing.
 
-### Step 3 - Configure index
+1. For this quickstart, ignore the AI enrichment configuration options on the **Add cognitive skills** tab.
 
-Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
+1. Select **Skip to: Customize target index** to continue.
 
-Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
-
-* **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
-* **Key** is the unique document identifier. It's always a string, and it is required.
-* **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
-* **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
-
-Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
-
-By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
-
-1. Accept the defaults. 
-
-   If you rerun the wizard a second time using an existing hotels data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports. 
-
-   ![Generated hotels index](media/search-get-started-portal/hotelsindex.png)
-
-2. Continue to the next page.
-
-
-### Step 4 - Configure indexer
-
-Still in the **Import data** wizard, click **Indexer** > **Name**, and type a name for the indexer.
-
-This object defines an executable process. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately.
-
-Click **Submit** to create and simultaneously run the indexer.
-
-  ![hotels indexer](media/search-get-started-portal/hotels-indexer.png)
-
-## Monitor progress
-
-The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and click 
-**Indexers**.
-
-It can take a few minutes for the portal to update the page, but you should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
-
-   ![Indexer progress message](media/search-get-started-portal/indexers-inprogress.png)
-
-## View the index
-
-The main service page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
-
-Wait for the portal page to refresh. After a few minutes, you should see the index with a document count and storage size.
-
-   ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
-
-From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
-
-The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Cognitive Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
-
-   ![sample index definition](media/search-get-started-portal/sample-index-def.png)
-
-Other constructs, such as scoring profiles and CORS options, can be added at any time.
-
-To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted. 
-
-## <a name="query-index"></a> Query using Search explorer
-
-Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings.
-
-**Search explorer** is only equipped to handle [REST API requests](https://docs.microsoft.com/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) operations.
+   :::image type="content" source="media/search-get-started-portal/skip-cognitive-skills.png" alt-text="Screenshot that shows how to Skip to the Customize target index tab in the Import data wizard.":::
 
 > [!TIP]
-> The following steps are demonstrated at 6m08s into the [Azure Cognitive Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
->
+> Interested in AI enrichment? Try this [Quickstart: Create a skillset in the Azure portal](cognitive-search-quickstart-blob.md)
 
-1. Click **Search explorer** on the command bar.
+### Configure the index
 
-   ![Search explorer command](media/search-get-started-portal/search-explorer-cmd.png)
+The wizard infers a schema for the built-in hotels-sample index. Follow these steps to configure the index:
 
-2. From the **Index** dropdown, choose  *hotels-sample-index*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
+1. Accept the system-generated values for the **Index name** (_hotels-sample-index_) and **Key** field (_HotelId_).
 
-   ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex.png)
+1. Accept the system-generated values for all field attributes.
 
-3. In the search bar, paste in the query strings below and click **Search**.
+   > [!IMPORTANT]
+   > If you rerun the wizard and use an existing hotels-sample data source, the index isn't configured with default attributes.
+   > You have to manually select attributes on future imports. 
 
-   ![Query string and search button](media/search-get-started-portal/search-explorer-query-string-example.png)
+1. Select **Next: Create an indexer** to continue.
 
-## Example queries
+:::image type="content" source="media/search-get-started-portal/hotels-sample-generated-index.png" alt-text="Screenshot that shows the generated index definition for the hotels-sample data source in the Import data wizard.":::
 
-You can enter terms and phrases, similar to what you might do in a Bing or Google search, or fully-specified query expressions. Results are returned as verbose JSON documents.
+At a minimum, the index requires an **Index name** and a collection of **Fields**. One field must be marked as the _document key_ to uniquely identify each document. The value is always a string. The wizard scans for unique string fields and chooses one for the key.
 
-### Simple query with top N results
+Each field has a name, data type, and _attributes_ that control how to use the field in the search index. Checkboxes enable or disable the following attributes:
 
-#### Example (string query): `search=spa`
+- **Retrievable**: Fields returned in a query response.
+- **Filterable**: Fields that accept a filter expression.
+- **Sortable**: Fields that accept an orderby expression.
+- **Facetable**: Fields used in a faceted navigation structure.
+- **Searchable**: Fields used in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
 
-* The **search** parameter is used to input a keyword search for full text search, in this case, returning hotel data for those containing *spa* in any searchable field in the document.
+Strings are attributed as **Retrievable** and **Searchable**. Integers are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
-* **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility into the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
+Attributes affect storage. **Filterable** fields consume extra storage, but **Retrievable** doesn't. For more information, see [Example demonstrating the storage implications of attributes and suggesters](search-what-is-an-index.md#example-demonstrating-the-storage-implications-of-attributes-and-suggesters).
 
-* Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *hotels-sample* in the **Indexes** list.
+If you want autocomplete or suggested queries, specify language **Analyzers** or **Suggesters**.
 
-#### Example (parameterized query): `search=spa&$count=true&$top=10`
+### Configure and run the indexer
 
-* The **&** symbol is used to append search parameters, which can be specified in any order.
+The last step configures and runs the indexer. This object defines an executable process. The data source, index, and indexer are created in this step.
 
-* The **$count=true** parameter returns the total count of all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
+1. Accept the system-generated value for the **Indexer name** (_hotels-sample-indexer_).
 
-* The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
+1. For this quickstart, use the default option to run the indexer once, immediately. The hosted data is static so there's no change tracking enabled for it.
 
-### <a name="filter-query"></a> Filter the query
+1. Select **Submit** to create and simultaneously run the indexer.
 
-Filters are included in search requests when you append the **$filter** parameter. 
+   :::image type="content" source="media/search-get-started-portal/hotels-sample-indexer.png" alt-text="Screenshot that shows how to configure the indexer for the hotels-sample data source in the Import data wizard.":::
 
-#### Example (filtered): `search=beach&$filter=Rating gt 4`
+## Monitor indexer progress
 
-* The **$filter** parameter returns results matching the criteria you provided. In this case, ratings greater than 4.
+You can monitor creation of the indexer or index in the portal. The service **Overview** page provides links to the resources created in your Azure AI Search service.
 
-* Filter syntax is an OData construction. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+1. On the left, select **Indexers**.
 
-### <a name="facet-query"></a> Facet the query
+   :::image type="content" source="media/search-get-started-portal/indexers-status.png" alt-text="Screenshot that shows the creation of the indexer in progress in the Azure portal.":::
 
-Facet filters are included in search requests. You can use the facet parameter to return an aggregated count of documents that match a facet value you provide.
+   It can take a few minutes for the page results to update in the Azure portal. You should see the newly created indexer in the list with a status of _In progress_ or _Success_. The list also shows the number of documents indexed.
 
-#### Example (faceted with scope reduction): `search=*&facet=Category&$top=2`
+## Check search index results
 
-* **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all hotels in the index.
-* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Cognitive Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
+1. On the left, select **Indexes**.
 
-* **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
+1. Select **hotels-sample-index**. 
 
-#### Example (facet on numeric values): `search=spa&facet=Rating`
+   Wait for the Azure portal page to refresh. You should see the index with a document count and storage size.
 
-* This query is facet for rating, on a text search for *spa*. The term *Rating* can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups.
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Screenshot of the Indexes list on the Azure AI Search service dashboard in the Azure portal.":::
 
-* Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
+1. Select the **Fields** tab to view the index schema.
 
-* The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+   Check to see which fields are **Filterable** or **Sortable** so that you know what queries to write.
 
+   :::image type="content" source="media/search-get-started-portal/index-schema-definition.png" alt-text="Screenshot that shows the schema definition for an index in the Azure AI Search service in the Azure portal.":::
 
-### <a name="highlight-query"></a> Highlight search results
+## Add or change fields
 
-Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot.
+On the **Fields** tab, you can create a new field using **Add field** with a name, [supported data type](/rest/api/searchservice/supported-data-types), and attributions.
 
-#### Example (highlighter): `search=beach&highlight=Description`
+Changing existing fields is harder. Existing fields have a physical representation in the index so they aren't modifiable, not even in code. To fundamentally change an existing field, you need to create a new field that replaces the original. Other constructs, such as scoring profiles and CORS options, can be added to an index at any time.
 
-* In this example, the formatted word *beach* is easier to spot in the description field.
+To clearly understand what you can and can't edit during index design, take a minute to view the index definition options. Grayed options in the field list indicate values that can't be modified or deleted.
 
-#### Example (linguistic analysis): `search=beaches&highlight=Description`
+## Query with Search explorer
 
-* Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
+You now have a search index that can be queried with [**Search explorer**](search-explorer.md). **Search explorer** sends REST calls that conform to the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true). The tool supports [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-* Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer.
+1. On the **Search explorer** tab, enter text to search on.
 
-### <a name="fuzzy-search"></a> Try fuzzy search
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string.png" alt-text="Screenshot that shows how to enter and run a query in the  Search Explorer tool.":::
 
-By default, misspelled query terms, like *seatle* for "Seattle", fail to return matches in typical search. The following example returns no results.
+1. Use the **Mini-map** to jump quickly to nonvisible areas of the output.
 
-#### Example (misspelled term, unhandled): `search=seatle`
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-results.png" alt-text="Screenshot that shows long results for a query in the Search Explorer tool and the mini-map.":::
 
-To handle misspellings, you can use fuzzy search. Fuzzy search is enabled when you use the full Lucene query syntax, which occurs when you do two things: set **queryType=full** on the query, and append the **~** to the search string.
+1. To specify syntax, switch to the JSON view.
 
-#### Example (misspelled term, handled): `search=seatle~&queryType=full`
+   :::image type="content" source="media/search-get-started-portal/search-explorer-change-view.png" alt-text="Screenshot of the JSON view selector.":::
 
-This example now returns documents that include matches on "Seattle".
+## Example queries for hotels sample index
 
-When **queryType** is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax.
+The following examples assume the JSON view and the 2023-11-01 REST API version.
 
-Fuzzy search and wildcard search have implications on search output. Linguistic analysis is not performed on these query formats. Before using fuzzy and wildcard search, review [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) and look for the section about exceptions to lexical analysis.
+### Filter examples
 
-For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Parking, tags, renovation date, rating and location are filterable.
 
-### <a name="geo-search"></a> Try geospatial search
+```json
+{
+    "search": "beach OR spa",
+    "select": "HotelId, HotelName, Description, Rating",
+    "count": true,
+    "top": 10,
+    "filter": "Rating gt 4"
+}
+```
 
-Geospatial search is supported through the [edm.GeographyPoint data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Boolean filters assume "true" by default.
 
-#### Example (geo-coordinate filters): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
+```json
+{
+    "search": "beach OR spa",
+    "select": "HotelId, HotelName, Description, Rating",
+    "count": true,
+    "top": 10,
+    "filter": "ParkingIncluded"
+}
+```
 
-The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates.
+Geospatial search is filter-based. The `geo.distance` function filters all results for positional data based on the specified `Location` and `geography'POINT` coordinates. The query seeks hotels that are within 5 kilometers of the latitude longitude coordinates `-122.12 47.67`, which is "Redmond, Washington, USA." The query displays the total number of matches `&$count=true` with the hotel names and address locations.
 
-Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country/region by name, add fields containing city or country/region names, in addition to coordinates.
+```json
+{
+    "search": "*",
+    "select": "HotelName, Address/City, Address/StateProvince",
+    "count": true,
+    "top": 10,
+    "filter": "geo.distance(Location, geography'POINT(-122.12 47.67)') le 5"
+}
+```
 
-## Takeaways
+### Full Lucene syntax examples
 
-This tutorial provided a quick introduction to Azure Cognitive Search using the Azure portal.
+The default syntax is [simple syntax](query-simple-syntax.md), but if you want fuzzy search or term boosting or regular expressions, specify the [full syntax](query-lucene-syntax.md).
 
-You learned how to create a search index using the **Import data** wizard. You learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](https://docs.microsoft.com/rest/api/searchservice/update-index).
+```json
+{
+    "queryType": "full",
+    "search": "seatle~",
+    "select": "HotelId, HotelName,Address/City, Address/StateProvince",
+    "count": true
+}
+```
 
-Using the **Search explorer** in the Azure portal, you learned some basic query syntax through hands-on examples that demonstrated key capabilities such as filters, hit highlighting, fuzzy search, and geo-search.
+By default, misspelled query terms like `seatle` for `Seattle` fail to return matches in a typical search. The `queryType=full` parameter invokes the full Lucene query parser, which supports the tilde `~` operand. When these parameters are present, the query performs a fuzzy search for the specified keyword. The query seeks matching results along with results that are similar to but not an exact match to the keyword. 
 
-You also learned how to find indexes, indexers, and data sources in the portal. Given any new data source in the future, you can use the portal to quickly check its definitions or field collections with minimal effort.
+Take a minute to try a few of these example queries for your index. To learn more about queries, see [Querying in Azure AI Search](search-query-overview.md).
 
 ## Clean up resources
 
-When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+When you work in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+You can find and manage resources for your service in the Azure portal under **All resources** or **Resource groups** in the left pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you use a free service, remember that the limit is three indexes, indexers, and data sources. You can delete individual items in the Azure portal to stay under the limit. 
 
 ## Next steps
 
-Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try this wizard out on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
+Try an Azure portal wizard to generate a ready-to-use web app that runs in a browser. Use this wizard on the small index you created in this quickstart, or use one of the built-in sample data sets for a richer search experience.
 
 > [!div class="nextstepaction"]
-> [Create a search app in the portal](search-create-app-portal.md)
+> [Create a demo app in the portal](search-create-app-portal.md)

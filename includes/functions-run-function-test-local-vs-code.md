@@ -1,28 +1,28 @@
 ---
-title: include file
-description: include file
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/31/2019
+ms.date: 06/15/2022
+ms.custom: devdivchpfy22
 ms.author: glenga
-ms.custom: include file
 ---
 
 ## Run the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer.
+Visual Studio Code integrates with [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to Azure.
 
-1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar. The **Terminal** panel displays the Output from Core Tools. Your app starts in the **Terminal** panel. You can see the URL endpoint of your HTTP-triggered function running locally.
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function. 
+    :::image type="content" source="./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png" alt-text="Screenshot of the Local function VS Code output.":::
 
-    ![Azure local output](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
+    If you have trouble running on Windows, make sure that the default terminal for Visual Studio Code isn't set to **WSL Bash**.
 
-1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. Execution is paused when the breakpoint is hit.
+1. With Core Tools still running in **Terminal**, choose the Azure icon in the activity bar. In the **Workspace** area, expand **Local Project** > **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the new function and choose **Execute Function Now...**.
 
-1. When you continue the execution, the following shows the response in the browser to the GET request:
+    ![Execute function now from Visual Studio Code](./media/functions-run-function-test-local-vs-code/execute-function-now.png)
 
-    ![Function localhost response in the browser](./media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+2. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.
 
-1. To stop debugging, press Shift + F5.
+3. When the function executes locally and returns a response, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
+
+4. With the **Terminal** panel focused, press <kbd>Ctrl + C</kbd> to stop Core Tools and disconnect the debugger.

@@ -1,24 +1,20 @@
 ---
-title: Delete storage blobs for network security group flow logs in Azure Network Watcher | Microsoft Docs
+title: Delete storage blobs for network security group flow logs in Azure Network Watcher
 description: This article explains how to delete the network security group flow log storage blobs that are outside their retention policy period in Azure Network Watcher.
 services: network-watcher
-documentationcenter: na
-author: damendo
-manager: 
-editor: 
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 08/16/2019
-ms.author: damendo
-
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 01/07/2021
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell
 ---
 
 # Delete network security group flow log storage blobs in Network Watcher
 
-Currently, there’s an issue where [network security group (NSG) flow logs](network-watcher-nsg-flow-logging-overview.md) for Network Watcher are not automatically deleted from Blob storage based on retention policy settings. You must now run a PowerShell script to manually delete the flow logs from your storage account as described in this article.
+In case you ever need to manually delete flow logs from your storage account, you can use the PowerShell script below.
+This script only deletes storage blobs that are older than the existing retention policy specified by the user.
 
 ## Run PowerShell script to delete NSG flow logs
  
@@ -131,6 +127,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## Next steps
-- Customers can automate running the script using [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) or [Azure Automation](https://azure.microsoft.com/services/automation/)
+- Customers can automate running the script by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) or [Azure Automation](https://azure.microsoft.com/services/automation/)
 - To learn more about NSG logging, see [Azure Monitor logs for network security groups (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

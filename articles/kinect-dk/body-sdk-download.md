@@ -3,8 +3,8 @@ title: Azure Kinect Body Tracking SDK download
 description: Understand how to download each version of the Azure Kinect Sensor SDK on Windows or Linux.
 author: qm13
 ms.author: quentinm
-ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.service: azure-kinect-developer-kit
+ms.date: 03/21/2022
 ms.topic: conceptual
 keywords: azure, kinect, sdk, download update, latest, available, install, body, tracking
 ---
@@ -23,85 +23,73 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
-0.9.5 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100636) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.5)
-0.9.4 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100415) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.4)
-0.9.3 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100307) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.3)
-0.9.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100128) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.2)
-0.9.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100063) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.1)
-0.9.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=58402) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.0)
+1.1.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=104221) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.1.2)
+1.1.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=104015) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.1.1)
+1.1.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=102901)
+1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1)
+1.0.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100848) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.0)
 
 ## Linux installation instructions
 
-Currently, the only supported distribution is Ubuntu 18.04. To request support for other distributions, see [this page](https://aka.ms/azurekinectfeedback).
+Currently, the only supported distribution is Ubuntu 18.04 and 20.04. To request support for other distributions, see [this page](https://aka.ms/azurekinectfeedback).
 
-First, you'll need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+First, you'll need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
 The `libk4abt<major>.<minor>-dev` package contains the headers and CMake files to build against `libk4abt`.
 The `libk4abt<major>.<minor>` package contains the shared objects needed to run executables that depend on `libk4abt` as well as the example viewer.
 
 The basic tutorials require the `libk4abt<major>.<minor>-dev` package. To install it, run
 
-`sudo apt install libk4abt0.9-dev`
+`sudo apt install libk4abt<major>.<minor>-dev`
 
 If the command succeeds, the SDK is ready for use.
 
 > [!NOTE]
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 1.0.0". You will find the samples referenced in articles in this path.
 > Body tracking samples are located in the [body-tracking-samples](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples) folder in the Azure-Kinect-Samples repository. You will find the samples referenced in articles here.
 
 ## Change log
 
-### v0.9.5
-* [Feature] C# support. C# wrapper is packed in the nuget package.
-* [Feature] Multi-tracker support. Creating multiple trackers is allowed. Now user can create multiple trackers to track bodies from different Azure Kinect devices.
-* [Feature] Multi-thread processing support for CPU mode. When running on CPU mode, all cores will be used to maximize the speed.
-* [Feature] Add `gpu_device_id` to `k4abt_tracker_configuration_t` struct. Allow users to specify GPU device that is other than the default one to run the body tracking algorithm.
-* [Bug Fix/Breaking Change] Fix typo in a joint name. Change joint name from `K4ABT_JOINT_SPINE_NAVAL` to `K4ABT_JOINT_SPINE_NAVEL`.
+### v1.1.2
+* [Feature] Added C# wrapper support  for Linux [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1207)
+* [Bug Fix] `k4abt_simple_3d_viewer.exe` works with latest NVIDIA drivers [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1696)
 
-### v0.9.4
-* [Feature] Add hand joints support. The SDK will provide information for three additional joints for each hand: HAND, HANDTIP, THUMB.
-* [Feature] Add prediction confidence level for each detected joints.
-* [Feature] Add CPU mode support. By changing the `cpu_only_mode` value in `k4abt_tracker_configuration_t`, now the SDK can run on CPU mode which doesn't require the user to have a powerful graphics card.
+### v1.1.1
+* [Feature] Added cmake support to all body tracking samples
+* [Feature] NuGet package returns. Developed new NuGet package that includes Microsoft developed body tracking dlls and headers, and ONNX runtime dependencies. The package no longer includes the NVIDIA CUDA and TRT dependencies. These continue to be included in the MSI package.
+* [Feature] Upgraded to ONNX Runtime v1.10. Recommended NVIDIA driver version is 472.12 (Game Ready) or 472.84 (Studio). There are OpenGL issues with later drivers.
+* [Bug Fix] CMake missing from offline_processor sample [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/890)
+* [Bug Fix] CPU mode no longer requires NVIDIA CUDA dependencies [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1154)
+* [Bug Fix] Verified samples compile with Visual Studio 2022 and updated samples to use this release [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1250)
+* [Bug Fix] Added const qualifier to APIs [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1365)
+* [Bug Fix] Added check for nullptr handle in shutdown() [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1373)
+* [Bug Fix] Improved dependencies checks [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1510)
+* [Bug Fix] Updated REDIST.TXT file [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1541)
+* [Bug Fix] Improved DirectML performance [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1546)
+* [Bug Fix] Fixed exception declaration in frame::get_body() [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1573)
+* [Bug Fix] Fixed memory leak [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1576)
+* [Bug Fix] Updated dependencies list [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1644)
 
-### v0.9.3
-* [Feature] Publish a new DNN model dnn_model_2_0.onnx, which largely improves the robustness of the body tracking.
-* [Feature] Disable the temporal smoothing by default. The tracked joints will be more responsive.
-* [Feature] Improve the accuracy of the body index map.
-* [Bug Fix] Fix bug that the sensor orientation setting is not effective.
-* [Bug Fix] Change the body_index_map type from K4A_IMAGE_FORMAT_CUSTOM to K4A_IMAGE_FORMAT_CUSTOM8.
-* [Known Issue] Two close bodies may merge to single instance segment.
+### v1.1.0
+* [Feature] Add support for DirectML (Windows only) and TensorRT execution of pose estimation model. See FAQ on new execution environments.
+* [Feature] Add `model_path` to `k4abt_tracker_configuration_t` struct. Allows users to specify the pathname for pose estimation model. Defaults to `dnn_model_2_0_op11.onnx` standard pose estimation model located in the current directory.
+* [Feature] Include `dnn_model_2_0_lite_op11.onnx` lite pose estimation model. This model trades ~2x performance increase for ~5% accuracy decrease.
+* [Feature] Verified samples compile with Visual Studio 2019 and updates samples to use this release.
+* [Breaking Change] Update to ONNX Runtime 1.6 with support for CPU, CUDA 11.1, DirectML (Windows only), and TensorRT 7.2.1 execution environments. Requires NVIDIA driver update to R455 or better.
+* [Breaking Change] No NuGet install.
+* [Bug Fix] Add support for NVIDIA RTX 30xx series GPUs [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1481)
+* [Bug Fix] Add support for AMD and Intel integrated GPUs (Windows only) [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1481)
+* [Bug Fix] Update to CUDA 11.1 [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1125)
+* [Bug Fix] Update to Sensor SDK 1.4.1 [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1248)
 
-### v0.9.2
-* [Breaking Change] Update to depend on the latest Azure Kinect Sensor SDK 1.2.0.
-* [API Change] `k4abt_tracker_create` function will start to take a `k4abt_tracker_configuration_t` input. 
-* [API Change] Change `k4abt_frame_get_timestamp_usec` API to `k4abt_frame_get_device_timestamp_usec` to be more specific and consistent with the Sensor SDK 1.2.0.
-* [Feature] Allow users to specify the sensor mounting orientation when creating the tracker to achieve more accurate body tracking results when mounting at different angles.
-* [Feature] Provide new API `k4abt_tracker_set_temporal_smoothing` to change the amount of temporal smoothing that the user wants to apply.
-* [Feature] Add C++ wrapper k4abt.hpp.
-* [Feature] Add version definition header k4abtversion.h.
-* [Bug Fix] Fix bug that caused extremely high CPU usage.
-* [Bug Fix] Fix logger crashing bug.
+### v1.0.1
+* [Bug Fix] Fix issue that the SDK crashes if loading onnxruntime.dll from path on Windows build 19025 or later: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/932)
 
-### v0.9.1
-* [Bug Fix] Fix memory leak when destroying tracker
-* [Bug Fix] Better error messages for missing dependencies
-* [Bug Fix] Fail without crashing when creating a second tracker instance
-* [Bug Fix] Logger environmental variables now work correctly
-* Linux support
-
-### v0.9.0
-
-* [Breaking Change] Downgraded the SDK dependency to CUDA 10.0 (from CUDA 10.1). ONNX runtime officially only supports up to CUDA 10.0.
-* [Breaking Change] Switched to ONNX runtime instead of Tensorflow runtime. Reduces the first frame launching time and memory usage. It also reduces the SDK binary size.
-* [API Change] Renamed `k4abt_tracker_queue_capture()` to `k4abt_tracker_enqueue_capture()`
-* [API Change] Broke `k4abt_frame_get_body()` into two separate functions: `k4abt_frame_get_body_skeleton()` and `k4abt_frame_get_body_id()`. Now you can query the body ID without always copying the whole skeleton structure.
-* [API Change] Added  `k4abt_frame_get_timestamp_usec()` function to simplify the steps for the users to query body frame timestamp.
-* Further improved the body tracking algorithm accuracy and tracking reliability
-
-### v0.3.0
-
-* [Breaking Change] Added support for NVIDIA RTX GPUs by moving to CUDA 10.1 dependency
-* [API Change] Provide the joint output in millimeters to be consistent with the Kinect for Windows v2 SDK
-* Further improved the body tracking algorithm accuracy and reliability.
+### v1.0.0
+* [Feature] Add C# wrapper to the msi installer.
+* [Bug Fix] Fix issue that the head rotation cannot be detected correctly: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/997)
+* [Bug Fix] Fix issue that the CPU usage goes up to 100% on Linux machine: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1007)
+* [Samples] Add two samples to the sample repo. Sample 1 demonstrates how to transform body tracking results from the depth space to color space [Link](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples/camera_space_transform_sample); sample 2 demonstrates how to detect floor plane [Link](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples/floor_detector_sample)
 
 ## Next steps
 

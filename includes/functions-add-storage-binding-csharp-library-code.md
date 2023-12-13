@@ -2,43 +2,25 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/05/2019
+ms.date: 06/10/2022
 ms.author: glenga
+ms.custom: devdivchpfy22
 ---
+
+# [Isolated worker model](#tab/isolated-process)
+
+Replace the existing `HttpExample` class with the following code:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-32":::
+
+# [In-process model](#tab/in-process)
 
 Add code that uses the `msg` output binding object to create a queue message. Add this code before the method returns.
 
-```cs
-if (!string.IsNullOrEmpty(name))
-{
-    // Add a message to the output collection.
-    msg.Add(string.Format("Name passed to the function: {0}", name));
-}
-```
+:::code language="csharp" range="28-32" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" :::
 
-At this point, your function should look as follows:
+At this point, your function must look as follows:
 
-```cs
-[FunctionName("HttpTrigger")]
-public static async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
-    [Queue("outqueue"),StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-36":::
 
-    string name = req.Query["name"];
-
-    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-    dynamic data = JsonConvert.DeserializeObject(requestBody);
-    name = name ?? data?.name;
-
-    if (!string.IsNullOrEmpty(name))
-    {
-        // Add a message to the output collection.
-        msg.Add(string.Format("Name passed to the function: {0}", name));
-    }
-    return name != null
-        ? (ActionResult)new OkObjectResult($"Hello, {name}")
-        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
-}
-```
+---

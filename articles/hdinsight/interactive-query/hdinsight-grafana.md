@@ -1,25 +1,22 @@
 ---
 title: Use Grafana on Azure HDInsight
 description: Learn how to access the Grafana dashboard with Apache Hadoop clusters in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 12/27/2019
+ms.topic: how-to
+ms.date: 04/28/2023
 ---
 
 # Access Grafana in Azure HDInsight
 
 [Grafana](https://grafana.com/) is a popular, open-source graph and dashboard builder. Grafana is feature rich; not only does it let users create customizable and shareable dashboards, it also offers templated/scripted dashboards, LDAP integration, multiple data sources, and more.
 
-Currently, in Azure HDInsight, Grafana is supported with the HBase, Kafka and Interactive Query cluster types. It is not supported for clusters with Enterprise Security Pack enabled.
+Currently, in Azure HDInsight, Grafana is supported with the Spark, HBase, Kafka and Interactive Query cluster types. It is not supported for clusters with Enterprise Security Pack enabled.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create an Apache Hadoop cluster
 
-See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md). For **Cluster type**, select **Kafka**, **HBase**, or **Interactive Query**.
+See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md). For **Cluster type**, select **Spark**, **Kafka**, **HBase**, or **Interactive Query**.
 
 ## Access the Grafana dashboard
 
@@ -29,7 +26,7 @@ See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-c
 
 1. The Grafana dashboard appears and looks like this example:
 
-    ![HDInsight Grafana web dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
+    :::image type="content" source="./media/hdinsight-grafana/hdinsight-grafana-dashboard.png " alt-text="HDInsight Grafana web dashboard" border="true":::
 
 ## Clean up resources
 

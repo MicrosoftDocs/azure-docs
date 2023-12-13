@@ -5,11 +5,10 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 10/25/2019
-ms.author: victorh
-
+ms.date: 08/24/2023
+ms.author: victorh 
 ---
-# Diagnostic logs for Azure Web Application Firewall
+# Resource logs for Azure Web Application Firewall
 
 You can monitor Web Application Firewall resources using logs. You can save performance, access, and other data or consume it from a resource for monitoring purposes.
 
@@ -17,12 +16,12 @@ You can monitor Web Application Firewall resources using logs. You can save perf
 
 ## Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-resource-manager/management/view-activity-logs.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
-* **Access log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
-* **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](../../application-gateway/application-gateway-metrics.md) for performance data.
-* **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
+* **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Access Resource log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. This log contains individual records for each request and associates that request to the unique Application Gateway that processed the request. Unique Application Gateway instances can be identified by the property instanceId.
+* **Performance Resource log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](../../application-gateway/application-gateway-metrics.md) for performance data.
+* **Firewall Resource log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
 
 > [!NOTE]
 > Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md) article.
@@ -45,14 +44,14 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
     ![Portal: resource ID for application gateway](../media/web-application-firewall-logs/diagnostics2.png)
 
-3. Enable diagnostic logging by using the following PowerShell cmdlet:
+3. Enable resource logging by using the following PowerShell cmdlet:
 
     ```powershell
     Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
 
 > [!TIP]
->Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+>Activity logs do not *require* a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ### Enable logging through the Azure portal
 
@@ -64,21 +63,20 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    * Performance log
    * Firewall log
 
-2. To start collecting data, select **Turn on diagnostics**.
+2. Select **Add diagnostic setting**.
 
-   ![Turning on diagnostics][1]
 
-3. The **Diagnostics settings** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
+3. The **Diagnostic setting** page provides the settings for the resource logs. In this example, Log Analytics stores the logs. You can also use an event hub, a storage account, or a partner solution to save the resource logs.
 
-   ![Starting the configuration process][2]
+   :::image type="content" source="../media/web-application-firewall-logs/figure2.png" alt-text="Screenshot showing Diagnostic settings.":::
 
 5. Type a name for the settings, confirm the settings, and select **Save**.
 
-### Activity log
+## Activity log
 
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-resource-manager/management/view-activity-logs.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-monitor/essentials/activity-log.md) article.
 
-### Access log
+## Access log
 
 The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example for v1:
 
@@ -96,14 +94,14 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
+|sslEnabled| Whether communication to the back-end pools used TLS/SSL. Valid values are on and off.|
 |host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
 |originalHost| The hostname with which the request was received by the Application Gateway from the client.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
     "operationName": "ApplicationGatewayAccess",
-    "time": "2017-04-26T19:27:38Z",
+    "timestamp": "2017-04-26T19:27:38Z",
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",
@@ -139,9 +137,9 @@ For Application Gateway and WAF v2, the logs show a little more information:
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
-|sslCipher| Cipher suite being used for SSL communication (if SSL is enabled).|
-|sslProtocol| SSL protocol being used (if SSL is enabled).|
+|sslEnabled| Whether communication to the back-end pools used TLS. Valid values are on and off.|
+|sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
+|sslProtocol| TLS protocol being used (if TLS is enabled).|
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response from the backend server.|
@@ -175,7 +173,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
 }
 ```
 
-### Performance log
+## Performance log
 
 The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the v1 SKU. For the v2 SKU, use [Metrics](../../application-gateway/application-gateway-metrics.md) for performance data. The following data is logged:
 
@@ -212,9 +210,9 @@ The performance log is generated only if you have enabled it on each Application
 > [!NOTE]
 > Latency is calculated from the time when the first byte of the HTTP request is received to the time when the last byte of the HTTP response is sent. It's the sum of the Application Gateway processing time plus the network cost to the back end, plus the time that the back end takes to process the request.
 
-### Firewall log
+## Firewall log
 
-The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:
+The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the destination that you specified when you enabled the logging. The following data is logged:
 
 
 |Value  |Description  |
@@ -227,7 +225,7 @@ The firewall log is generated only if you have enabled it for each application g
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
 |ruleId     | Rule ID of the triggering event.        |
 |message     | User-friendly message for the triggering event. More details are provided in the details section.        |
-|action     |  Action taken on the request. Available values are Blocked and Allowed.      |
+|action     |  **Policy Mode:** Detection</br>   - **Detected** - This is the only action for the WAF when in detection mode. All the conditions for a given rule were matched and the request was logged then passed to the backend.</br></br>**Policy Mode:** Prevention</br>   - **Allowed** - All conditions were matched for a given rule and the request was passed to the backend.</br>   - **Blocked** - All of the conditions were matched for a given rule and the request was blocked.</br>   - **Matched** - One/more conditions were matched for a given rule, but the decision to block or pass the request will need further evaluation and will be evaluated based on the final anomaly scoring rule.      |
 |site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
 |details     | Details of the triggering event.        |
 |details.message     | Description of the rule.        |
@@ -275,16 +273,16 @@ The firewall log is generated only if you have enabled it for each application g
 
 ```
 
-### View and analyze the activity log
+## View and analyze the activity log
 
 You can view and analyze activity log data by using any of the following methods:
 
-* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md) article.
-* **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](https://docs.microsoft.com/power-bi/service-template-apps-overview), you can analyze your data.
+* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-monitor/essentials/activity-log.md) article.
+* **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](/power-bi/service-template-apps-overview), you can analyze your data.
 
-### View and analyze the access, performance, and firewall logs
+## View and analyze the access, performance, and firewall logs
 
-[Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
+[Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
@@ -295,21 +293,11 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 #### Analyzing Access logs through GoAccess
 
-We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://aka.ms/appgwgoaccessreadme).
+We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 
 ## Next steps
 
-* Visualize counter and event logs by using [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
-* [Visualize your Azure activity log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
+* Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
+* [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
-[1]: ../media/web-application-firewall-logs/figure1.png
-[2]: ../media/web-application-firewall-logs/figure2.png
-[3]: ./media/application-gateway-diagnostics/figure3.png
-[4]: ./media/application-gateway-diagnostics/figure4.png
-[5]: ./media/application-gateway-diagnostics/figure5.png
-[6]: ./media/application-gateway-diagnostics/figure6.png
-[7]: ./media/application-gateway-diagnostics/figure7.png
-[8]: ./media/application-gateway-diagnostics/figure8.png
-[9]: ./media/application-gateway-diagnostics/figure9.png
-[10]: ./media/application-gateway-diagnostics/figure10.png

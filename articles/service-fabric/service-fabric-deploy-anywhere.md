@@ -1,12 +1,14 @@
 ---
 title: Overview of Azure and standalone Service Fabric clusters 
 description: You can create Service Fabric clusters on any VMs or computers running Windows Server or Linux. This means you are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected- on-premises, Microsoft Azure, or with any cloud provider.
-author: dkkapur
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.author: dekapur
-ms.custom: sfrev
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Comparing Azure and standalone Service Fabric clusters on Windows Server and Linux
 
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that is part of a cluster is called a cluster node. Clusters can scale to thousands of nodes. If you add new nodes to the cluster, Service Fabric rebalances the service partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.
@@ -22,7 +24,7 @@ On Azure, we provide integration with other Azure features and services, which m
 * **Service Fabric Cluster as an Azure Resource** A Service Fabric cluster is an Azure resource, so you can model it like you do other resources in Azure.
 * **Integration with Azure Infrastructure** Service Fabric coordinates with the underlying Azure infrastructure for OS, network, and other upgrades to improve availability and reliability of your applications.  
 * **Diagnostics:** On Azure, we provide integration with Azure diagnostics and Azure Monitor logs.
-* **Auto-scaling:** For clusters on Azure, we provide built-in auto-scaling functionality due to Virtual Machine scale-sets. In on-premises and other cloud environments, you have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
+* **Autoscaling:** For clusters on Azure, we provide built-in autoscaling functionality through Virtual Machine scale-sets. In on-premises and other cloud environments, you have to build your own autoscaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
 
 ## Benefits of standalone clusters
 

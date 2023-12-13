@@ -1,0 +1,98 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Edge Hardware Center FAQ | Microsoft Docs in data 
+  description: Contains frequently asked questions and answers for Azure Edge Hardware Center, a service that lets you order hardware devices as per your business need.
+  services: databox
+  author: alkohli
+  
+  ms.service: azure-edge-hardware-center
+  ms.topic: faq
+  ms.date: 06/06/2022
+  ms.author: alkohli
+  ms.custom: references_regions
+title: "Azure Edge Hardware Center: Frequently Asked Questions"
+summary: |
+  Use Azure Edge Hardware Center service to order from a variety of hardware or devices as per your business need. This FAQ contains questions and answers that you may have when you use the Azure Edge Hardware Center in the Azure portal.
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What is Azure Edge Hardware Center? 
+        answer: |
+          Azure Edge Hardware Center is a new Azure service that lets you order a variety of hardware or devices from the Azure hybrid portfolio. 
+
+          For more information, see [What is Azure Edge Hardware Center?](azure-edge-hardware-center-manage-order.md)
+
+      - question: |
+          Can I return the hardware that I ordered through the Edge Hardware Center?
+        answer: |
+          Yes. If you ordered your hardware unit through the Edge Hardware Center, you can initiate the return process from the Azure portal.  
+          
+          In the Azure portal, go to your Azure Edge Hardware Center order item resource. In the **Overview**, go to the top command bar in the right pane and select **Return**. The return option is only enabled after you've received a device. For more information, see the steps in [Return hardware](azure-edge-hardware-center-manage-order.md#return-hardware).
+          
+      - question: |
+          Can I order multiple units of hardware at the same time? If so, how?
+        answer: |
+          Yes. While creating the order, you can input quantity in the **Shipping + quantity** tab. You can order a maximum of up to 20 units per order. To order more than 20 units at one time, you'll need to create multiple orders.  
+
+      - question: |
+          Can I ship different hardware units within a single order to different locations?
+        answer: |
+          Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country. To ship hardware to addresses across different countries/regions, you'll have to create separate orders.            
+
+      - question: |
+          In which regions, can I create Azure Edge Hardware Center orders? 
+        answer: |
+          The Edge Hardware Center service is available in East US, West Europe, and South East Asia for Azure public cloud. However, the region in which the service is created is used to store only the relevant data and this region can be different from the region where the device is shipped.
+
+      - question: |
+          Can I limit the users/groups who can order Azure Stack devices?
+        answer: |
+          There are two methods to limit who can order Azure Stack devices:
+
+          - For individual permissions, device ordering is limited to users with contributor access to the subscription.
+          - Use custom roles to restrict access control. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md) and [Create an Azure Edge Hardware Center](azure-edge-hardware-center-create-order.md#prerequisites).
+
+      - question: |
+          I created an order via the Azure Edge Hardware Center. Can I now cancel the order?
+        answer: |
+          Depends. You can cancel an Edge Hardware Center order after it's placed and before it's in **Confirmed** state. To view the status of your resource, go to [Track Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order).          
+          
+      - question: |
+          Can I cancel an order once it is in the Confirmed state or beyond that?
+        answer: |
+          Depends. If your order is in **Placed** state, you can cancel the order through the steps in [Cancel your order](azure-edge-hardware-center-manage-order.md#cancel-order). If the order is already confirmed or in states that are further ahead, you'll need to reach out to `adbeops@microsoft.com` to request cancellation.                      
+          
+      - question: |
+          What happens to my order if the entire region associated with the order fails?
+        answer: |
+          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. 
+          However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there's a disaster in any of those regions, you will need to create the Edge Hardware Center order again from a different region that is available. For more information, see [Data residency for Azure Stack Edge](../databox-online/azure-stack-edge-gpu-data-residency.md#azure-edge-hardware-center-ordering-and-management-resource).
+
+      - question: |
+          Can I delete my order? I'm not able to do so. 
+        answer: |
+          Depends. You can't delete an active order.
+
+          - You can delete your order after it's canceled. For more information, see [Cancel the order](azure-edge-hardware-center-manage-order.md#cancel-order).
+          - You can delete the order after the hardware is returned to Microsoft and has passed all the inspections. For more information, see [Return your order](azure-edge-hardware-center-manage-order.md#return-hardware).
+
+      - question: |
+          Can I move my Edge Hardware Center order to a different subscription or resource group? Is this supported?
+        answer: |
+          Yes. To move the order item resource across subscriptions and resource groups, follow the steps in [Move the resource across subscriptions](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
+      - question: |
+          Who should I contact if I come across any issues with my Edge Hardware Center order?
+        answer: |
+          If you come across any issues with Edge Hardware Center, [Open a ticket with Microsoft Support](azure-edge-hardware-center-contact-microsoft-support.md). Select your problem type as **Hardware issues** when creating a Support request.
+          
+                    
+additionalContent: |
+
+  ## Next steps
+  
+  - Review [What is Azure Edge Hardware Center](azure-edge-hardware-center-overview.md).
+  - [Manage Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-order.md).
+  - [Troubleshoot Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-order.md) in Azure portal.

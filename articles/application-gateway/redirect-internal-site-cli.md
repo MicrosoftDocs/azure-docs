@@ -3,11 +3,12 @@ title: Internal redirection using CLI
 titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
-ms.author: victorh
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.topic: how-to
+ms.date: 04/27/2023
+ms.author: greglin
 ---
 
 # Create an application gateway with internal redirection using the Azure CLI
@@ -16,18 +17,17 @@ You can use the Azure CLI to configure [web traffic redirection](multiple-site-o
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and redirection rule
-> * Create a virtual machine scale set with the backend pool
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Add listeners and redirection rule
+* Create a virtual machine scale set with the backend pool
+* Create a CNAME record in your domain
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -163,7 +163,7 @@ In this example, you create a virtual machine scale set that supports the backen
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --admin-password Azure123456! \
   --instance-count 2 \

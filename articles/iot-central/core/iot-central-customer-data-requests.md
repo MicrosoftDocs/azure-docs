@@ -1,16 +1,15 @@
 ---
-title: Customer data request features​ in Azure IoT Central | Microsoft Docs
+title: Customer data request features​ in Azure IoT Central
 description: This article describes identifying, deleting, and exporting customer data in Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 06/12/2023
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
 ---
 
-# Summary of customer data request features​
+# Azure IoT Central customer data request features​
 
 Azure IoT Central is a fully managed Internet of Things (IoT) software-as-a-service solution that makes it easy to connect, monitor, and manage your IoT assets at scale, create deep insights from your IoT data, and take informed action.
 
@@ -18,7 +17,7 @@ Azure IoT Central is a fully managed Internet of Things (IoT) software-as-a-serv
 
 ## Identifying customer data
 
-Azure Active Directory Object-IDs are used to identify users and assign roles. The Azure IoT Central portal displays user email addresses for role assignments but only the Azure Active Directory Object-ID is stored, the email address is dynamically queried from Azure Active Directory. Azure IoT Central administrators can view, export, and delete application users in the user administration section of an Azure IoT Central application.
+Microsoft Entra Object-IDs are used to identify users and assign roles. The Azure IoT Central portal displays user email addresses for role assignments but only the Microsoft Entra Object-ID is stored, the email address is dynamically queried from Microsoft Entra ID. Azure IoT Central administrators can view, export, and delete application users in the user administration section of an Azure IoT Central application.
 
 Within the application, email addresses can be configured to receive alerts. In this case, email addresses are stored within IoT Central and must be managed from the in-app account administration page.
 
@@ -31,8 +30,6 @@ When you use Microsoft enterprise services, Microsoft generates some information
 The ability to delete user data is only provided through the IoT Central administration page. Application administrators can select the user to be deleted and select **Delete** in the upper right corner of the application to delete the record. Application administrators can also remove individual accounts that are no longer associated with the application in question.
 
 After a user is deleted, no further alerts are emailed to them. However, their email address must be individually removed from each configured alert.
-
-For more information, see [Configure rules and actions for your device](tutorial-configure-rules.md).
 
 ## Exporting customer data
 

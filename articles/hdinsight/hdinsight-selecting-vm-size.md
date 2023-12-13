@@ -2,13 +2,10 @@
 title: How to select the right VM size for your Azure HDInsight cluster
 description: Learn how to select the right VM size for your HDInsight cluster.
 keywords: vm sizes, cluster sizes, cluster configuration
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 05/03/2023
 ---
 # Selecting the right VM size for your Azure HDInsight cluster
 
@@ -26,7 +23,7 @@ The VM size and type is determined by CPU processing power, RAM size, and networ
 
 - RAM: The VM size also dictates the amount of RAM available in the VM. For workloads that store data in memory for processing, rather than reading from disk, ensure your worker nodes have enough memory to fit the data.
 
-- Network: For most cluster types, the data processed by the cluster isn't on local disk, but rather in an external storage service such as Data Lake Storage or Azure Storage. Consider the network bandwidth and throughput between the node VM and the storage service. The network bandwidth available to a VM typically increases with larger sizes. For details, see [VM sizes overview](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+- Network: For most cluster types, the data processed by the cluster isn't on local disk, but rather in an external storage service such as Data Lake Storage or Azure Storage. Consider the network bandwidth and throughput between the node VM and the storage service. The network bandwidth available to a VM typically increases with larger sizes. For details, see [VM sizes overview](../virtual-machines/sizes.md).
 
 ## Understanding VM optimization
 
@@ -34,10 +31,10 @@ Virtual machine families in Azure are optimized to suit different use cases. In 
 
 | Type                     | Sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Entry-level](../virtual-machines/linux/sizes-general.md)          | A, Av2  | Have CPU performance and memory configurations best suited for entry level workloads like development and test. They are economical and provide a low-cost option to get started with Azure. |
-| [General purpose](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
-| [Compute optimized](../virtual-machines/linux/sizes-compute.md)        | F           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
-| [Memory optimized](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
+| [Entry-level](../virtual-machines/sizes-general.md)          | Av2  | Have CPU performance and memory configurations best suited for entry level workloads like development and test. They are economical and provide a low-cost option to get started with Azure. |
+| [General purpose](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. |
+| [Compute optimized](../virtual-machines/sizes-compute.md)        | F           | High CPU-to-memory ratio. Good for medium traffic web servers, network appliances, batch processes, and application servers.        |
+| [Memory optimized](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | High memory-to-CPU ratio. Great for relational database servers, medium to large caches, and in-memory analytics.                 |
 
 - For information about pricing of available VM instances across HDInsight supported regions, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -54,8 +51,7 @@ The following table describes the cluster types and node types, which can be cre
 | Kafka | All | F4 and above | no | no |
 | HBase | All | F4 and above | no | no |
 | LLAP | disabled | no | no | no |
-| Storm | disabled | no | no | no |
-| ML Service | HDI 3.6 ONLY | F4 and above | no | no |
+
 
 To see the specifications of each F-series SKU, see [F-series VM sizes](https://azure.microsoft.com/blog/f-series-vm-size/).
 
@@ -68,4 +64,4 @@ For more information on benchmarking for VM SKUs and cluster sizes, see [Cluster
 ## Next steps
 
 - [Azure HDInsight supported node configurations](hdinsight-supported-node-configuration.md)
-- [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)
+- [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md)

@@ -1,0 +1,26 @@
+items:
+- name: Elastic Azure Integration Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Elastic?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create Elastic resource
+    href: create.md
+- name: How to
+  items:
+  - name: Manage Elastic resource
+    href: manage.md
+  - name: Troubleshoot
+    href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/elastic
+  - name: Azure PowerShell
+    href: /powershell/module/az.elastic/#elastic
+  - name: REST API
+    href: /rest/api/elastic

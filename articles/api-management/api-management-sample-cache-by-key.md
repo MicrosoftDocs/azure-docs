@@ -1,30 +1,27 @@
 ---
 title: Custom caching in Azure API Management
-description: Learn how to cache items by key in Azure API Management
+description: Learn how to cache items by key in Azure API Management. You can modify the key by using request headers.
 services: api-management
 documentationcenter: ''
-author: vladvino
-manager: erikre
+author: dlepow
 editor: ''
-
-ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
+ms.topic: how-to
 ms.service: api-management
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/15/2016
-ms.author: apimpm
+ms.date: 05/19/2022
+ms.author: danlep
 
 ---
 # Custom caching in Azure API Management
-Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful to just cache a portion of a representation. The new [cache-lookup-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) and [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the previously introduced [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) policy because you can now cache responses from external services.
+Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (also known as representations), but sometimes it's useful to just cache a portion of a representation. The [cache-lookup-value](cache-lookup-value-policy.md) and [cache-store-value](cache-store-value-policy.md) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the [send-request](send-request-policy.md) policy because you can cache responses from external services.
 
 ## Architecture
-API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
+API Management service uses a shared per-tenant internal data cache so that, as you scale up to multiple units, you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It's important to not treat the cache as a data store, where it's the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.
+
+> [!NOTE]
+> The internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. An external cache allows for greater cache control and flexibility for API Management instances in all tiers.
 
 ## Fragment caching
-There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating flight reservations, flight status, etc. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
+There are certain cases where responses being returned contain some portion of data that is expensive to determine and yet remains fresh for a reasonable amount of time. As an example, consider a service built by an airline that provides information relating to flight reservations, flight status, and so on. If the user is a member of the airlines points program, they would also have information relating to their current status and accumulated mileage. This user-related information might be stored in a different system, but it may be desirable to include it in responses returned about flight status and reservations. This can be done using a process called fragment caching. The primary representation can be returned from the origin server using some kind of token to indicate where the user-related information is to be inserted. 
 
 Consider the following JSON response from a backend API.
 
@@ -45,7 +42,7 @@ And secondary resource at `/userprofile/{userid}` that looks like,
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-To determine the appropriate user information to include, API Management needs to identify who the end user is. This mechanism is implementation-dependent. As an example, I am using the `Subject` claim of a `JWT` token. 
+To determine the appropriate user information to include, API Management needs to identify who the end user is. This mechanism is implementation-dependent. The following example uses the `Subject` claim of a `JWT` token. 
 
 ```xml
 <set-variable
@@ -104,9 +101,9 @@ To avoid API Management from making this HTTP request again, when the same user 
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-API Management stores the value in the cache using the exact same key that API Management originally attempted to retrieve it with. The duration that API Management chooses to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
+API Management stores the value in the cache using the same key that API Management originally attempted to retrieve it with. The duration that API Management chooses to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
 
-It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can still add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
+It is important to realize that retrieving from the cache is still an out-of-process network request and potentially can add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
 
 The final step in the process is to update the returned response with the user profile information.
 
@@ -117,9 +114,9 @@ The final step in the process is to update the returned response with the user p
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-You can chose to include the quotation marks as part of the token so that even when the replace doesn’t occur, the response is still a valid JSON.  
+You can choose to include the quotation marks as part of the token so that even when the replacement doesn’t occur, the response is still a valid JSON.  
 
-Once you combine all these steps together, the end result is a policy that looks like the following one.
+Once you combine these steps, the end result is a policy that looks like the following one.
 
 ```xml
 <policies>
@@ -173,14 +170,14 @@ Once you combine all these steps together, the end result is a policy that looks
 </policies>
 ```
 
-This caching approach is primarily used in web sites where HTML is composed on the server side so that it can be rendered as a single page. It can also be useful in APIs where clients cannot do client-side HTTP caching or it is desirable not to put that responsibility on the client.
+This caching approach is primarily used in websites where HTML is composed on the server side so that it can be rendered as a single page. It can also be useful in APIs where clients can't do client-side HTTP caching or it's desirable not to put that responsibility on the client.
 
 This same kind of fragment caching can also be done on the backend web servers using a Redis caching server, however, using the API Management service to perform this work is useful when the cached fragments are coming from different back-ends than the primary responses.
 
 ## Transparent versioning
-It is common practice for multiple different implementation versions of an API to be supported at any one time. For example, to support different environments (dev, test, production, etc.) or to support older versions of the API to give time for API consumers to migrate to newer versions. 
+It's common practice for multiple different implementation versions of an API to be supported at any one time. For example, to support different environments (dev, test, production, etc.) or to support older versions of the API to give time for API consumers to migrate to newer versions. 
 
-One approach to handling this, instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it is necessary to query some configuration data. By caching this configuration data, API Management can minimize the performance penalty of doing this lookup.
+One approach to handling this, instead of requiring client developers to change the URLs from `/v1/customers` to `/v2/customers` is to store in the consumer’s profile data which version of the API they currently wish to use and call the appropriate backend URL. To determine the correct backend URL to call for a particular client, it's necessary to query some configuration data. By caching this configuration data, API Management can minimize the performance penalty of doing this lookup.
 
 The first step is to determine the identifier used to configure the desired version. In this example, I chose to associate the version to the product subscription key. 
 
@@ -196,7 +193,7 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-Then, API Management checks to see if it did not find it in the cache.
+Then, API Management checks to see if it didn't find it in the cache.
 
 ```xml
 <choose>

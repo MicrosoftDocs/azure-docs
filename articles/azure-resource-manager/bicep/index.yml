@@ -1,0 +1,132 @@
+### YamlMime:Landing
+
+title: Bicep documentation
+summary: Bicep is a language for declaratively deploying Azure resources. You can use Bicep instead of JSON for developing your Azure Resource Manager templates (ARM templates).
+
+metadata:
+  title: Bicep documentation
+  description: "Learn how to develop Bicep files and use them to deploy Azure resources"
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: Bicep
+  ms.topic: landing-page
+  ms.collection: na
+  ms.date: 06/23/2023
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: Bicep
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Bicep?
+            url: overview.md
+      - linkListType: video
+        links:
+          - text: Ignite 2021 presentation
+            url: https://www.youtube.com/embed/sc1kJfcRQgY
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create Bicep files - VS Code
+            url: quickstart-create-bicep-use-visual-studio-code.md
+          - text: Create Bicep files - Visual Studio
+            url: quickstart-create-bicep-use-visual-studio.md
+          - text: Create and deploy template specs
+            url: quickstart-create-template-specs.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Bicep
+            url: /training/modules/introduction-to-infrastructure-as-code-using-bicep/
+          - text: Deploy with Bicep
+            url: /training/modules/deploy-azure-resources-by-using-bicep-templates/
+          - text: Deploy child and extension resources
+            url: /training/modules/child-extension-bicep-templates/
+  # Card
+  - title: Author Bicep files
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Bicep file structure & syntax
+            url: ./file.md
+          - text: Define parameters
+            url: ./parameters.md
+          - text: Define variables
+            url: ./variables.md
+          - text: Define resources
+            url: ./resource-declaration.md
+          - text: Define modules
+            url: ./modules.md
+          - text: Define outputs
+            url: outputs.md
+      - linkListType: reference
+        links:
+          - text: Functions
+            url: ./bicep-functions.md
+          - text: Operators
+            url: ./operators.md
+          - text: Data types
+            url: ./data-types.md
+          - text: Azure Quickstart templates
+            url: https://azure.microsoft.com/resources/templates/
+  # Card
+  - title: Deploy Bicep files
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Bicep with pipelines
+            url: add-template-to-azure-pipelines.md
+          - text: Bicep with GitHub Actions
+            url: deploy-github-actions.md
+      - linkListType: how-to-guide
+        links:
+          - text: PowerShell
+            url: deploy-powershell.md
+          - text: Azure CLI
+            url: deploy-cli.md
+          - text: Cloud Shell
+            url: deploy-cloud-shell.md
+          - text: What-if deployment
+            url: deploy-what-if.md
+  # Card
+  - title: Scoped deployments
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Resource group
+            url: deploy-to-resource-group.md
+          - text: Subscription
+            url: deploy-to-subscription.md
+          - text: Management group
+            url: deploy-to-management-group.md
+          - text: Tenant
+            url: deploy-to-tenant.md
+          - text: Scoping extension resource
+            url: scope-extension-resources.md
+  # Card
+  - title: Guidance & patterns
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Best practices
+          url: best-practices.md
+        - text: Configuration set pattern
+          url: patterns-configuration-set.md
+        - text: Shared variable file pattern
+          url: patterns-shared-variable-file.md
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+        - text: Bicep resource reference
+          url: /azure/templates/
+        - text: Azure PowerShell
+          url: /powershell/module/az.resources
+        - text: Azure CLI
+          url: /cli/azure/resource

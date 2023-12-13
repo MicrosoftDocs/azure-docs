@@ -1,276 +1,146 @@
 ---
-title: Integrate Azure NetApp Files with Azure Kubernetes Service
-description: Learn how to integrate Azure NetApp Files with Azure Kubernetes Service
-services: container-service
-author: zr-msft
-
-ms.service: container-service
+title: Configure Azure NetApp Files for Azure Kubernetes Service
+description: Learn how to configure Azure NetApp Files for an Azure Kubernetes Service cluster.
 ms.topic: article
-ms.date: 09/26/2019
-ms.author: zarhoads
-
-#Customer intent: As a cluster operator or developer, I want to learn how to integrate ANF with AKS
+ms.custom: devx-track-azurecli, devx-track-linux
+ms.date: 05/08/2023
 ---
 
-# Integrate Azure NetApp Files with Azure Kubernetes Service
+# Configure Azure NetApp Files for Azure Kubernetes Service
 
-[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. This article shows you how to integrate Azure NetApp Files with Azure Kubernetes Service (AKS).
+A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and it can be statically or dynamically provisioned. This article shows you how to configure [Azure NetApp Files][anf] to be used by pods on an Azure Kubernetes Service (AKS) cluster.
 
-## Before you begin
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure and supports volumes using [NFS](azure-netapp-files-nfs.md) (NFSv3 or NFSv4.1), [SMB](azure-netapp-files-smb.md), and [dual-protocol](azure-netapp-files-dual-protocol.md) (NFSv3 and SMB, or NFSv4.1 and SMB). Kubernetes users have two options for using Azure NetApp Files volumes for Kubernetes workloads:
 
-> [!IMPORTANT]
-> Your AKS cluster must also be [in a region that supports Azure NetApp Files][anf-regions].
-
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-### Limitations
-
-The following limitations apply when you use Azure NetApp Files:
-
-* Azure NetApp Files is only available [in selected Azure regions][anf-regions].
-* Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist]. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
-* Your Azure NetApp Files service must be created in the same virtual network as your AKS cluster.
-* Only static provisioning for Azure NetApp Files is supported on AKS.
-
-## Configure Azure NetApp Files
-
-> [!IMPORTANT]
-> Before you can register the  *Microsoft.NetApp* resource provider, you must complete the [Azure NetApp Files waitlist submission form][anf-waitlist] for your subscription. You can't register the resource provide until you receive the official confirmation email from the Azure NetApp Files team.
-
-Register the *Microsoft.NetApp* resource provider:
-
-```azure-cli
-az provider register --namespace Microsoft.NetApp --wait
-```
+* Create Azure NetApp Files volumes **statically**. In this scenario, the creation of volumes is external to AKS. Volumes are created using the Azure CLI or from the Azure portal, and are then exposed to Kubernetes by the creation of a `PersistentVolume`. Statically created Azure NetApp Files volumes have many limitations (for example, inability to be expanded, needing to be over-provisioned, and so on). Statically created volumes aren't recommended for most use cases.
+* Create Azure NetApp Files volumes **dynamically**, orchestrating through Kubernetes. This method is the **preferred** way to create multiple volumes directly through Kubernetes, and is achieved using [Astra Trident][astra-trident]. Astra Trident is a CSI-compliant dynamic storage orchestrator that helps provision volumes natively through Kubernetes.
 
 > [!NOTE]
-> This can take some time to complete.
+> Dual-protocol volumes can only be created **statically**. For more information on using dual-protocol volumes with Azure Kubernetes Service, see [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md).
 
-When you create an Azure NetApp account for use with AKS, you need to create the account in the **node** resource group. First, get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named *myAKSCluster* in the resource group name *myResourceGroup*:
+Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workloads is the recommended configuration for most use cases. This requirement is accomplished using Astra Trident, an open-source dynamic storage orchestrator for Kubernetes. Astra Trident is an enterprise-grade storage orchestrator purpose-built for Kubernetes, and fully supported by NetApp. It simplifies access to storage from Kubernetes clusters by automating storage provisioning.
 
-```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+You can take advantage of Astra Trident's Container Storage Interface (CSI) driver for Azure NetApp Files to abstract underlying details and create, expand, and snapshot volumes on-demand. Also, using Astra Trident enables you to use [Astra Control Service][astra-control-service] built on top of Astra Trident. Using the Astra Control Service, you can backup, recover, move, and manage the application-data lifecycle of your AKS workloads across clusters within and across Azure regions to meet your business and service continuity needs.
 
-MC_myResourceGroup_myAKSCluster_eastus
-```
+## Before you begin
 
-Create an Azure NetApp Files account in the **node** resource group and same region as your AKS cluster using [az netappfiles account create][az-netappfiles-account-create]. The following example creates an account named *myaccount1* in the *MC_myResourceGroup_myAKSCluster_eastus* resource group and *eastus* region:
+The following considerations apply when you use Azure NetApp Files:
 
-```azure-cli
-az netappfiles account create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-    --location eastus \
-    --account-name myaccount1
-```
+* Your AKS cluster must be [in a region that supports Azure NetApp Files][anf-regions].
+* The Azure CLI version 2.0.59 or higher installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* After the initial deployment of an AKS cluster, you can choose to provision Azure NetApp Files volumes statically or dynamically.
+* To use dynamic provisioning with Azure NetApp Files with Network File System (NFS), install and configure [Astra Trident][astra-trident] version 19.07 or higher. To use dynamic provisioning with Azure NetApp Files with Secure Message Block (SMB), install and configure Astra Trident version 22.10 or higher. Dynamic provisioning for SMB shares is only supported on windows worker nodes.
+* Before you deploy Azure NetApp Files SMB volumes, you must identify the AD DS integration requirements for Azure NetApp Files to ensure that Azure NetApp Files is well connected to AD DS. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md). Both the AKS cluster and Azure NetApp Files must have connectivity to the same AD. 
 
-Create a new capacity pool by using [az netappfiles pool create][az-netappfiles-pool-create]. The following example creates a new capacity pool named *mypool1* with 4 TB in size and *Premium* service level:
+## Configure Azure NetApp Files for AKS workloads
 
-```azure-cli
-az netappfiles pool create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
-    --location eastus \
-    --account-name myaccount1 \
-    --pool-name mypool1 \
-    --size 4 \
-    --service-level Premium
-```
+This section describes how to set up Azure NetApp Files for AKS workloads. It's applicable for all scenarios within this article. 
 
-Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create]. *This subnet must be in the same virtual network as your AKS cluster.*
+1. Define variables for later usage. Replace *myresourcegroup*, *mylocation*, *myaccountname*, *mypool1*, *poolsize*, *premium*, *myvnet*, *myANFSubnet*, and *myprefix* with appropriate values for your environment.
 
-```azure-cli
-RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
-VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
-VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-SUBNET_NAME=MyNetAppSubnet
-az network vnet subnet create \
-    --resource-group $RESOURCE_GROUP \
-    --vnet-name $VNET_NAME \
-    --name $SUBNET_NAME \
-    --delegations "Microsoft.NetApp/volumes" \
-    --address-prefixes 10.0.0.0/28
-```
+    ```azurecli-interactive
+    RESOURCE_GROUP="myresourcegroup"
+    LOCATION="mylocation"
+    ANF_ACCOUNT_NAME="myaccountname"
+    POOL_NAME="mypool1"
+    SIZE="poolsize" # size in TiB
+    SERVICE_LEVEL="Premium" # valid values are Standard, Premium and Ultra
+    VNET_NAME="myvnet"
+    SUBNET_NAME="myANFSubnet"
+    ADDRESS_PREFIX="myprefix"
+    ```
+    
+2. Register the *Microsoft.NetApp* resource provider by running the following command:
 
-Create a volume by using [az netappfiles volume create][az-netappfiles-volume-create].
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.NetApp --wait
+    ```
 
-```azure-cli
-RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
-LOCATION=eastus
-ANF_ACCOUNT_NAME=myaccount1
-POOL_NAME=mypool1
-SERVICE_LEVEL=Premium
-VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
-VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
-SUBNET_NAME=MyNetAppSubnet
-SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
-VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+    > [!NOTE]
+    > This operation can take several minutes to complete.
 
-az netappfiles volume create \
-    --resource-group $RESOURCE_GROUP \
-    --location $LOCATION \
-    --account-name $ANF_ACCOUNT_NAME \
-    --pool-name $POOL_NAME \
-    --name "myvol1" \
-    --service-level $SERVICE_LEVEL \
-    --vnet $VNET_ID \
-    --subnet $SUBNET_ID \
-    --usage-threshold $VOLUME_SIZE_GiB \
-    --creation-token $UNIQUE_FILE_PATH \
-    --protocol-types "NFSv3"
-```
+3. Create a new account by using the command [`az netappfiles account create`](/cli/azure/netappfiles/account#az-netappfiles-account-create). When you create an Azure NetApp account for use with AKS, you can create the account in an existing resource group or create a new one in the same region as the AKS cluster.
 
-## Create the PersistentVolume
+    ```azurecli-interactive
+    az netappfiles account create \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --account-name $ANF_ACCOUNT_NAME
+    ```
 
-List the details of your volume using [az netappfiles volume show][az-netappfiles-volume-show]
-```azure-cli
-$ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
+4. Create a new capacity pool by using the command [`az netappfiles pool create`][az-netappfiles-pool-create]. Replace the variables shown in the command with your Azure NetApp Files information. The `account_name` should be the same as created in Step 3.
 
-{
-  ...
-  "creationToken": "myfilepath2",
-  ...
-  "mountTargets": [
-    {
-      ...
-      "ipAddress": "10.0.0.4",
-      ...
-    }
-  ],
-  ...
-}
-```
+    ```azurecli-interactive
+    az netappfiles pool create \
+        --resource-group $RESOURCE_GROUP \
+        --location $LOCATION \
+        --account-name $ANF_ACCOUNT_NAME \
+        --pool-name $POOL_NAME \
+        --size $SIZE \
+        --service-level $SERVICE_LEVEL
+    ```
 
-Create a `pv-nfs.yaml` defining a PersistentVolume. Replace `path` with the *creationToken* and `server` with *ipAddress* from the previous command. For example:
+5. Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using the command [`az network vnet subnet create`][az-network-vnet-subnet-create]. Specify the resource group hosting the existing virtual network for your AKS cluster. Replace the variables shown in the command with your Azure NetApp Files information. 
 
-```yaml
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: pv-nfs
-spec:
-  capacity:
-    storage: 100Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: 10.0.0.4
-    path: /myfilepath2
-```
+    > [!NOTE]
+    > This subnet must be in the same virtual network as your AKS cluster.
 
-Update the *server* and *path* to the values of your NFS (Network File System) volume you created in the previous step. Create the PersistentVolume with the [kubectl apply][kubectl-apply] command:
+    ```azurecli-interactive
+    az network vnet subnet create \
+        --resource-group $RESOURCE_GROUP \
+        --vnet-name $VNET_NAME \
+        --name $SUBNET_NAME \
+        --delegations "Microsoft.Netapp/volumes" \
+        --address-prefixes $ADDRESS_PREFIX
+    ```
 
-```console
-kubectl apply -f pv-nfs.yaml
-```
+## Statically or dynamically provision Azure NetApp Files volumes for NFS or SMB
 
-Verify the *Status* of the PersistentVolume is *Available* using the [kubectl describe][kubectl-describe] command:
-
-```console
-kubectl describe pv pv-nfs
-```
-
-## Create the PersistentVolumeClaim
-
-Create a `pvc-nfs.yaml` defining a PersistentVolume. For example:
-
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pvc-nfs
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: ""
-  resources:
-    requests:
-      storage: 1Gi
-```
-
-Create the PersistentVolumeClaim with the [kubectl apply][kubectl-apply] command:
-
-```console
-kubectl apply -f pvc-nfs.yaml
-```
-
-Verify the *Status* of the PersistentVolumeClaim is *Bound* using the [kubectl describe][kubectl-describe] command:
-
-```console
-kubectl describe pvc pvc-nfs
-```
-
-## Mount with a pod
-
-Create a `nginx-nfs.yaml` defining a pod that uses the PersistentVolumeClaim. For example:
-
-```yaml
-kind: Pod
-apiVersion: v1
-metadata:
-  name: nginx-nfs
-spec:
-  containers:
-  - image: nginx
-    name: nginx-nfs
-    command:
-    - "/bin/sh"
-    - "-c"
-    - while true; do echo $(date) >> /mnt/azure/outfile; sleep 1; done
-    volumeMounts:
-    - name: disk01
-      mountPath: /mnt/azure
-  volumes:
-  - name: disk01
-    persistentVolumeClaim:
-      claimName: pvc-nfs
-```
-
-Create the pod with the [kubectl apply][kubectl-apply] command:
-
-```console
-kubectl apply -f nginx-nfs.yaml
-```
-
-Verify the pod is *Running* using the [kubectl describe][kubectl-describe] command:
-
-```console
-kubectl describe pod nginx-nfs
-```
-
-Verify your volume has been mounted in the pod by using [kubectl exec][kubectl-exec] to connect to the pod then `df -h` to check if the volume is mounted.
-
-```console
-$ kubectl exec -it nginx-nfs -- bash
-
-root@nginx-nfs:/# df -h
-Filesystem             Size  Used Avail Use% Mounted on
-...
-10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure
-...
-```
+After you [configure Azure NetApp Files for AKS workloads](#configure-azure-netapp-files-for-aks-workloads), you can statically or dynamically provision Azure NetApp Files using NFS, SMB, or dual-protocol volumes within the capacity pool. Follow instructions in:
+* [Provision Azure NetApp Files NFS volumes for Azure Kubernetes Service](azure-netapp-files-nfs.md) 
+* [Provision Azure NetApp Files SMB volumes for Azure Kubernetes Service](azure-netapp-files-smb.md)
+* [Provision Azure NetApp Files dual-protocol volumes for Azure Kubernetes Service](azure-netapp-files-dual-protocol.md)
 
 ## Next steps
 
-For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf]. For more information on using NFS with AKS, see [Manually create and use an NFS (Network File System) Linux Server volume with Azure Kubernetes Service (AKS)][aks-nfs].
+Astra Trident supports many features with Azure NetApp Files. For more information, see:
 
+* [Expanding volumes][expand-trident-volumes]
+* [On-demand volume snapshots][on-demand-trident-volume-snapshots]
+* [Importing volumes][importing-trident-volumes]
 
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-nfs]: azure-nfs-volume.md
-[anf]: ../azure-netapp-files/azure-netapp-files-introduction.md
-[anf-delegate-subnet]: ../azure-netapp-files/azure-netapp-files-delegate-subnet.md
-[anf-quickstart]: ../azure-netapp-files/
-[anf-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all
-[anf-waitlist]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-netappfiles-account-create]: /cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-create
-[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-create
-[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-create
-[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create
-[install-azure-cli]: /cli/azure/install-azure-cli
+<!-- EXTERNAL LINKS -->
+[astra-trident]: https://docs.netapp.com/us-en/trident/index.html
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+[astra-control-service]: https://cloud.netapp.com/astra-control
+[kubernetes-csi-driver]: https://kubernetes-csi.github.io/docs/
+[trident-install-guide]: https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html
+[trident-helm-chart]: https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html
+[tridentctl]: https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html
+[trident-backend-install-guide]: https://docs.netapp.com/us-en/trident/trident-use/backends.html
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[expand-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html
+[on-demand-trident-volume-snapshots]: https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html
+[importing-trident-volumes]: https://docs.netapp.com/us-en/trident/trident-use/vol-import.html
+[backend-anf.yaml]: https://raw.githubusercontent.com/NetApp/trident/v23.01.1/trident-installer/sample-input/backends-samples/azure-netapp-files/backend-anf.yaml
+
+<!-- INTERNAL LINKS -->
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[anf]: ../azure-netapp-files/azure-netapp-files-introduction.md
+[anf-delegate-subnet]: ../azure-netapp-files/azure-netapp-files-delegate-subnet.md
+[anf-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
+[az-netapp-files-dynamic]: azure-netapp-files-dynamic.md
+[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
+[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
+[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
+[install-azure-cli]: /cli/azure/install-azure-cli
+[use-tags]: use-tags.md
+[azure-ad-app-registration]: ../active-directory/develop/howto-create-service-principal-portal.md

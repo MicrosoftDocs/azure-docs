@@ -1,124 +1,140 @@
 ---
-title: How to create an Azure support request | Microsoft Docs
+title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
-services: Azure Supportability
-author: ganganarayanan
-manager: scotthit
-ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
-ms.service: azure-supportability
-ms.topic: article
-ms.date: 11/13/2019
-ms.author: kfollis
+ms.topic: how-to
+ms.custom: support-help-page
+ms.date: 12/07/2023
 ---
-# How to create an Azure support request
 
-## Overview
+# Create an Azure support request
 
-Azure customers can create and manage support requests in the [Azure portal](https://portal.azure.com).
+Azure enables you to create and manage support requests, also known as support tickets. You can create and manage requests in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
 
 > [!NOTE]
-> The Azure portal URL is specific to the Azure cloud where your organization is deployed. 
->* Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
->* Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
->* Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
+> The Azure portal URL is specific to the Azure cloud where your organization is deployed.
 >
->
+>- Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
+>- Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
 
-Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
-
-* **Streamlined**: Make support and troubleshooting easy to find and simplify how you submit a support request.
-* **Integrated**: You can easily open a support request when you’re troubleshooting an issue with an Azure resource, without switching context.
-* **Efficient**: Gather the key information your support agent needs to efficiently resolve your issue.
+Azure provides unlimited support for subscription management, which includes billing, [quota adjustments](../../quotas/quotas-overview.md), and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
 
 ## Getting started
 
-You can get to **Help + support** in the Azure portal. It's available from the global header or from the resource menu for a service. Before you can file a support request, you must have appropriate permissions.
+You can get to **Help + support** in the Azure portal. It's available from the Azure portal menu, the global header, or the resource menu for a service. Before you can file a support request, you must have appropriate permissions.
 
-### Role based access control
+### Azure role-based access control
 
-To create a support request, you must be an admin or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role.
+You must have the appropriate access to a subscription before you can create a support request for it. This means you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](../../role-based-access-control/resource-provider-operations.md#microsoftsupport), at the subscription level.
+
+To create a support request without a subscription, for example a Microsoft Entra scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
+
+> [!IMPORTANT]
+> If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor), or a custom role with the [Microsoft.Support/supportTickets/read](../../role-based-access-control/resource-provider-operations.md#microsoftsupport) permission).
 
 ### Go to Help + support from the global header
 
 To start a support request from anywhere in the Azure portal:
 
-1. Select the **?** in the global header. Then select **Help + support**.
+1. Select the **?** in the global header, then select **Help + support**.
 
-   ![Help and Support](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
+   :::image type="content" source="media/how-to-create-azure-support-request/helpandsupportnewlower.png" alt-text="Screenshot of the Help menu in the Azure portal.":::
 
-2. Select **+ New support request**. Follow the prompts to provide us with information about your problem. We'll suggest some possible solutions, gather details about the issue, and help you submit and track the support request.
+1. Select **Create a support request**.
 
-   ![New Support Request](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
+   :::image type="content" source="media/how-to-create-azure-support-request/newsupportrequest2lower.png" alt-text="Screenshot of the Help + support page with Create a support request link.":::
 
 ### Go to Help + support from a resource menu
 
-To start a support request in the context of the resource, you're currently working with:
+To start a support request in the context of the resource you're currently working with:
 
-1. From the resource menu, in the **Support + Troubleshooting** section, select **New support request**.
+1. From the resource menu, in the **Support + troubleshooting** section, select **New Support Request**.
 
-   ![In context](./media/how-to-create-azure-support-request/incontext2lower.png)
+   :::image type="content" source="media/how-to-create-azure-support-request/incontext2lower.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
 
-2. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from the resource, some options are pre-selected for you.
+   When you start the support request process from a resource, some options are preselected for you, based on that resource.
 
 ## Create a support request
 
-We'll walk you through some steps to gather information about your problem and help you solve it. Each step is described in the following sections.
+After you create a new support request, you'll need to provide some information to help us understand the problem. This information is gathered in a few separate sections.
 
-### Basics
+### Problem description
 
-The first step of the support request process gathers basic information about your issue and your support plan.
+The first step of the support request process is to select an issue type. You'll be prompted for more information, which can vary depending on what type of issue you selected. If you select **Technical**, specify the service that your issue relates to. Depending on the service, you might see options for **Problem type** and **Problem subtype**. Be sure to select the service (and problem type/subtype if applicable) that is most related to your issue. Selecting an unrelated service may result in delays in addressing your support request.
 
-On the **Basics** tab of **New support request**, use the selectors to start to tell us about the problem. First, you'll identify some general categories for the issue type and choose the related subscription. Selecting the service (for example, "Virtual Machine running Windows") and the resource (the name of your virtual machine) is the next step to get help. Briefly describe the problem in your own words, then **Select problem type** to get more specific.
-
-![Basics blade](./media/how-to-create-azure-support-request/basics2lower.png)
-
-> [!NOTE]
-> Azure provides unlimited support for subscription management (things like billing, quota adjustments, and account transfers). For technical support, you need a support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+> [!IMPORTANT]
+> In most cases, you'll need to specify a subscription. Be sure to choose the subscription where you are experiencing the problem. The support engineer assigned to your case will only be able to access resources in the subscription you specify. The access requirement serves as a point of confirmation that the support engineer is sharing information to the right audience, which is a key factor for ensuring the security and privacy of customer data. For details on how Azure treats customer data, see [Data Privacy in the Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/privacy/).
 >
->
+> If the issue applies to multiple subscriptions, you can mention additional subscriptions in your description, or by [sending a message](how-to-manage-azure-support-request.md#send-a-message) later. However, the support engineer will only be able to work on [subscriptions to which you have access](#azure-role-based-access-control). If you don't have the required access for a subscription, we won't be able to work on it as part of your request.
 
-### Solutions
+:::image type="content" source="media/how-to-create-azure-support-request/basics2lower.png" alt-text="Screenshot of the Problem description step of the support request process.":::
 
-After gathering basic information, we next show you solutions to try on your own. In some cases, we may even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
+After you provide all of the requested information, select **Next**.
 
-### Details
+### Recommended solution
 
-Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right agent and lets them begin diagnosing the issue.
+Based on the information you provided, we provide some recommended solutions that you can use to try and resolve the problem. In some cases, we may even run a quick diagnostic check. These solutions are written by Azure engineers and will solve most common problems.
 
-It's a good idea to let us know when the problem started and any steps to reproduce it. You may also choose to upload a file, such as a log file or output from diagnostics.
+If you're still unable to resolve the issue, continue creating your support request by selecting **Return to support request**, then selecting **Next**.
 
-After we have all the information about the problem you're having, you can choose how to get support. In the **Support method** section of the **Details** tab, select the severity of impact. Provide your preferred contact method, a good time to contact you, and your support language.
+### Additional details
 
-Next, complete the **Contact info** section so we know how to contact you.
+Next, we collect more details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
+
+1. Complete the **Problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can optionally upload one file (or a compressed file such as .zip that contains multiple files), such as a log file or [browser trace](../capture-browser-trace.md). For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
+
+1. In the **Advanced diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. For details about the types of files we might collect, see [Advanced diagnostic information logs](#advanced-diagnostic-information-logs).
+
+   In some cases, you may see additional options. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
+
+1. In the **Support method** section, select the **Severity** level, depending on the business impact. The [maximum available severity level and time to respond](https://azure.microsoft.com/support/plans/response/) depends on your [support plan](https://azure.microsoft.com/support/plans) and the country/region in which you're located, including the timing of business hours in that country/region.
+
+1. Provide your preferred contact method, your availability, and your preferred support language. Confirm that your country/region setting is accurate, as this affects the business hours in which a support engineer can work on your request.
+
+1. Complete the **Contact info** section so that we know how to reach you.
+
+Select **Next** after you finish entering this information.
 
 ### Review + create
 
-Complete all required information on each tab, then select **Review + create**. Check the details that you'll send to Support. Go back to any tab to make a change if needed. When you're satisfied the support request is complete, select **Create**.
+Before you create your request, review all of the details that you'll send to support. You can select **Previous** to return to any tab if you want to make changes. When you're satisfied that the support request is complete, select **Create**.
 
-A support agent will contact you using the method you indicated. Consult [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/) for information about initial response time.
+A support engineer will contact you using the method you indicated. For information about initial response times, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
-## All support requests
+### Advanced diagnostic information logs
 
-You can view the details and status of support requests by going to **Help + support** >  **All support requests**.
+When you allow collection of [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/), Microsoft support can collect information that can help solve your problem more quickly. Files commonly collected for different services or environments include:
 
-![All support requests](./media/how-to-create-azure-support-request/allrequestslower.png)
+- [Microsoft Azure PaaS VM logs](/troubleshoot/azure/virtual-machines/sdp352ef8720-e3ee-4a12-a37e-cc3b0870f359-windows-vm)
+- [Microsoft Azure IaaS VM logs](https://github.com/azure/azure-diskinspect-service/blob/master/docs/manifest_by_file.md)
+- [Microsoft Azure Service Fabric logs](/troubleshoot/azure/general/fabric-logs)
+- [StorSimple support packages and device logs](https://support.microsoft.com/topic/storsimple-support-packages-and-device-logs-cb0a1c7e-6125-a5a7-f212-51439781f646)
+- [SQL Server on Azure Virtual Machines logs](/troubleshoot/azure/general/sql-vm-logs)
+- [Microsoft Entra logs](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs)
+- [Azure Stack Edge support package and device logs](/troubleshoot/azure/general/azure-stack-edge-support-package-device-logs)
+- [Azure Synapse Analytics logs](/troubleshoot/azure/general/synapse-analytics-apache-spark-pools-diagnostic-logs)
 
-On this page, you can filter support requests by Subscription, created date (UTC), and status. Additionally, you can sort and search for support requests on this page.
+Depending on your issue or environment type, we may collect other files in addition to the ones listed here. For more information, see [Data we use to deliver Azure support](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/).
 
-Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
+### Memory dump collection
 
-If you want to change the severity of the request, select  **Business impact**. A list of severities available to assign is shown.
+When you create a support case for certain Virtual Machine (VM) problem types, you choose whether to allow us to access your virtual machine's memory. If you do so, we may collect a memory dump to help diagnose the problem.
 
-> [!NOTE]
-> The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
->
->
+A complete memory dump is the largest kernel-mode dump file. This file includes all of the physical memory that is used by Windows. A complete memory dump does not, by default, include physical memory that is used by the platform firmware.
+
+The dump is copied from the compute node (Azure host) to another server for debugging within the same datacenter. Customer data is protected, since the data doesn't leave Azure's secure boundary.
+
+The dump file is created by generating a Hyper-V save state of the VM. During this process, the VM will be paused for up to 10 minutes, after which time the VM is resumed. The VM isn't restarted as part of this process.
+
+## Next steps
+
 To learn more about self-help support options in Azure, watch this video:
 
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
-## Next steps
-* [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
-* Engage with us on [Twitter](https://twitter.com/azuresupport)
-* Get help from your peers in the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure)
-* Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
+Follow these links to learn more:
+
+- [How to manage an Azure support request](how-to-manage-azure-support-request.md)
+- [Azure support ticket REST API](/rest/api/support)
+- Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)
+- Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
+- [Azure Quotas overview](../../quotas/quotas-overview.md)

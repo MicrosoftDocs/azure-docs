@@ -1,40 +1,31 @@
 ---
 title: OData expression syntax reference
-titleSuffix: Azure Cognitive Search
-description: Formal grammar and syntax specification for OData expressions in Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Formal grammar and syntax specification for OData expressions in Azure AI Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.custom:
+  - ignite-2023
+ms.topic: reference
+ms.date: 07/18/2022
 ---
-# OData expression syntax reference for Azure Cognitive Search
+# OData expression syntax reference for Azure AI Search
 
-Azure Cognitive Search uses [OData expressions](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) as parameters throughout the API. Most commonly, OData expressions are used for the `$orderby` and `$filter` parameters. These expressions can be complex, containing multiple clauses, functions, and operators. However, even simple OData expressions like property paths are used in many parts of the Azure Cognitive Search REST API. For example, path expressions are used to refer to sub-fields of complex fields everywhere in the API, such as when listing sub-fields in a [suggester](index-add-suggesters.md), a [scoring function](index-add-scoring-profiles.md), the `$select` parameter, or even [fielded search in Lucene queries](query-lucene-syntax.md).
+Azure AI Search uses [OData expressions](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) as parameters throughout the API. Most commonly, OData expressions are used for the `$orderby` and `$filter` parameters. These expressions can be complex, containing multiple clauses, functions, and operators. However, even simple OData expressions like property paths are used in many parts of the Azure AI Search REST API. For example, path expressions are used to refer to subfields of complex fields everywhere in the API, such as when listing subfields in a [suggester](index-add-suggesters.md), a [scoring function](index-add-scoring-profiles.md), the `$select` parameter, or even [fielded search in Lucene queries](query-lucene-syntax.md).
 
 This article describes all these forms of OData expressions using a formal grammar. There is also an [interactive diagram](#syntax-diagram) to help visually explore the grammar.
 
 ## Formal grammar
 
-We can describe the subset of the OData language supported by Azure Cognitive Search using an EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar. Rules are listed "top-down", starting with the most complex expressions, and breaking them down into more primitive expressions. At the top are the grammar rules that correspond to specific parameters of the Azure Cognitive Search REST API:
+We can describe the subset of the OData language supported by Azure AI Search using an EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar. Rules are listed "top-down", starting with the most complex expressions, and breaking them down into more primitive expressions. At the top are the grammar rules that correspond to specific parameters of the Azure AI Search REST API:
 
 - [`$filter`](search-query-odata-filter.md), defined by the `filter_expression` rule.
 - [`$orderby`](search-query-odata-orderby.md), defined by the `order_by_expression` rule.
 - [`$select`](search-query-odata-select.md), defined by the `select_expression` rule.
-- Field paths, defined by the `field_path` rule. Field paths are used throughout the API. They can refer to either top-level fields of an index, or sub-fields with one or more [complex field](search-howto-complex-data-types.md) ancestors.
+- Field paths, defined by the `field_path` rule. Field paths are used throughout the API. They can refer to either top-level fields of an index, or subfields with one or more [complex field](search-howto-complex-data-types.md) ancestors.
 
 After the EBNF is a browsable [syntax diagram](https://en.wikipedia.org/wiki/Syntax_diagram) that allows you to interactively explore the grammar and the relationships between its rules.
 
@@ -140,7 +131,7 @@ sign ::= '+' | '-'
 
 /* In practice integer literals are limited in length to the precision of
 the corresponding EDM data type. */
-integer_literal ::= digit+
+integer_literal ::= sign? digit+
 
 float_literal ::=
     sign? whole_part fractional_part? exponent?
@@ -204,14 +195,14 @@ search_mode ::= "'any'" | "'all'"
 
 ## Syntax diagram
 
-To visually explore the OData language grammar supported by Azure Cognitive Search, try the interactive syntax diagram:
+To visually explore the OData language grammar supported by Azure AI Search, try the interactive syntax diagram:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/)
 
 ## See also  
 
-- [Filters in Azure Cognitive Search](search-filters.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filters in Azure AI Search](search-filters.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)
 - [Lucene query syntax](query-lucene-syntax.md)
-- [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)
+- [Simple query syntax in Azure AI Search](query-simple-syntax.md)

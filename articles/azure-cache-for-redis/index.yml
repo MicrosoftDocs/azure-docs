@@ -3,12 +3,12 @@ title: Azure Cache for Redis Documentation
 summary: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that provides high throughput and low-latency access to data for applications. Tutorials, API references, and other documentation show you how to use Azure Cache for Redis from any application on Azure.
 metadata:
   title: Azure Cache for Redis Documentation
-  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to use Azure Cache for Redis, a secure data cache and messaging broker that gives applications fast access to data. Tutorials, API references, and more.
   ms.service: cache
   ms.topic: landing-page
-  author: yegu-ms
-  ms.author: yegu
-  ms.date: 12/16/2019
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 08/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -20,26 +20,20 @@ landingContent:
         links:
           - text: What is Azure Cache for Redis?
             url: cache-overview.md
-          - text: Learn about Azure Cache for Redis Premium tier
-            url: cache-premium-tier-intro.md
       - linkListType: video
         links:
-          - text: Administration options 
-            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
-          - text: Security caching
-            url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
-          - text: Best practices
-            url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
-          - text: Improve performance
-            url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
+          - text: Azure Friday - Scale your cloud app 
+            url: /shows/azure-friday/scale-your-cloud-app-with-azure-cache-for-redis
+          - text: Ask the Expert - The latest news
+            url: /shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
       - linkListType: whats-new
         links:
-          - text: Frequently asked questions
-            url: cache-faq.md
-          - text: Best practices for Azure Cache for Redis
-            url: cache-best-practices.md
-          - text: ASP.NET Session State Provider for Azure Cache for Redis
-            url: cache-aspnet-session-state-provider.md
+          - text: What's new?
+            url: cache-whats-new.md
+          - text: Configure disk encryption
+            url: cache-how-to-encryption.md
+          - text: Change the size and tier of a cache
+            url: cache-how-to-scale.md
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart
@@ -50,6 +44,8 @@ landingContent:
             url: cache-dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
             url: cache-web-app-howto.md
+          - text: Code an ASP.NET Core web app
+            url: cache-web-app-aspnet-core-howto.md
           - text: Code a Java app
             url: cache-java-get-started.md
           - text: Code a Node.js app
@@ -58,12 +54,38 @@ landingContent:
             url: cache-python-get-started.md
       - linkListType: tutorial
         links:
-          - text: Create a cache-aside leaderboard on ASP.NET
-            url: cache-web-app-cache-aside-leaderboard.md
+          - text: Use session state provider
+            url: cache-aspnet-session-state-provider.md
+          - text: Use output cache provider
+            url: cache-aspnet-output-cache-provider.md
+          - text: Use Spring Boot Initializer
+            url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
       - linkListType: get-started
         links:
           - text: Samples
             url: cache-redis-samples.md
+  - title: Best Practices
+    linkLists:
+      - linkListType: learn
+        links:
+         - text: Client libraries
+           url: cache-best-practices-client-libraries.md
+         - text: Connection resilience
+           url: cache-best-practices-connection.md
+         - text: Development
+           url: cache-best-practices-development.md
+         - text: Enterprise and Enterprise Flash
+           url: cache-best-practices-enterprise-tiers.md
+         - text: Kubernetes-hosted client applications
+           url: cache-best-practices-kubernetes.md
+         - text: Memory management
+           url: cache-best-practices-memory-management.md
+         - text:  Performance testing
+           url: cache-best-practices-performance.md
+         - text: Scaling
+           url: cache-best-practices-scale.md
+         - text: Server load management
+           url: cache-best-practices-server-load.md
   - title: SDKs and command-lines
     linkLists:
       - linkListType: reference
@@ -88,11 +110,15 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot client-side issues
-            url: cache-troubleshoot-client.md
-          - text: Troubleshoot server-side issues
-            url: cache-troubleshoot-server.md
-          - text: Troubleshoot timeouts
+          - text: Troubleshoot connectivity issues
+            url: cache-troubleshoot-connectivity.md
+          - text: Troubleshoot latency and timeouts
             url: cache-troubleshoot-timeouts.md
+          - text: Troubleshoot client issues
+            url: cache-troubleshoot-client.md
+          - text: Troubleshoot Redis server issues
+            url: cache-troubleshoot-server.md
           - text: Troubleshoot data loss issues
-            url: cache-troubleshoot-data-loss.md            
+            url: cache-troubleshoot-data-loss.md
+          - text: Troubleshooting FAQs
+            url: cache-monitor-troubleshoot-faq.yml

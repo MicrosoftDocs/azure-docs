@@ -1,18 +1,19 @@
 ---
-title: Trace the flow in Cloud Services Application with Azure Diagnostics
-titleSuffix: Azure Cloud Services
+title: Trace the flow in Cloud Services (classic) Application with Azure Diagnostics
 description: Add tracing messages to an Azure application to help debugging, measuring performance, monitoring, traffic analysis, and more.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/20/2016
-ms.author: tagore
-
+ms.service: cloud-services
+ms.date: 02/21/2023
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: compute-evergreen
 ---
-# Trace the flow of a Cloud Services application with Azure Diagnostics
+
+# Trace the flow of a Cloud Services (classic) application with Azure Diagnostics
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 Tracing is a way for you to monitor the execution of your application while it is running. You can use the [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), and [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) classes to record information about errors and application execution in logs, text files, or other devices for later analysis. For more information about tracing, see [Tracing and Instrumenting Applications](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
 
 ## Use trace statements and trace switches
@@ -30,29 +31,31 @@ Before you complete the following procedure, you must initialize the Azure diagn
 Note that if you use the templates that are provided by Visual Studio, the configuration of the listener is added automatically for you.
 
 ### Add a trace listener
+
 1. Open the web.config or app.config file for your role.
+
 2. Add the following code to the file. Change the Version attribute to use the version number of the assembly you are referencing. The assembly version does not necessarily change with each Azure SDK release unless there are updates to it.
-   
-    ```
-    <system.diagnostics>
-        <trace>
-            <listeners>
-                <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
-                  Microsoft.WindowsAzure.Diagnostics,
-                  Version=2.8.0.0,
-                  Culture=neutral,
-                  PublicKeyToken=31bf3856ad364e35"
-                  name="AzureDiagnostics">
-                    <filter type="" />
-                </add>
-            </listeners>
-        </trace>
-    </system.diagnostics>
-    ```
+
+   ```xml
+   <system.diagnostics>
+       <trace>
+           <listeners>
+               <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
+                 Microsoft.WindowsAzure.Diagnostics,
+                 Version=2.8.0.0,
+                 Culture=neutral,
+                 PublicKeyToken=31bf3856ad364e35"
+                 name="AzureDiagnostics">
+                   <filter type="" />
+               </add>
+           </listeners>
+       </trace>
+   </system.diagnostics>
+   ```
+
    > [!IMPORTANT]
    > Make sure you have a project reference to the Microsoft.WindowsAzure.Diagnostics assembly. Update the version number in the xml above to match the version of the referenced Microsoft.WindowsAzure.Diagnostics assembly.
-   > 
-   > 
+
 3. Save the config file.
 
 For more information about listeners, see [Trace Listeners](/dotnet/framework/debug-trace-profile/trace-listeners).

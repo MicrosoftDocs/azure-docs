@@ -1,11 +1,12 @@
 ---
 title: Performance monitoring with Windows Azure Diagnostics
 description: Use Windows Azure Diagnostics to collect performance counters for your Azure Service Fabric clusters.
-author: srrengar
-
-ms.topic: conceptual
-ms.date: 11/21/2018
-ms.author: srrengar
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Performance monitoring with the Windows Azure Diagnostics extension
@@ -98,7 +99,7 @@ Here is an example of a configuration with the counter for the *Total Processor 
 
  You can also use variables in your ARM template to collect an array of performance counters, which can come in handy when you collect performance counters per process. In the below example, we are collecting processor time and garbage collector time per process and then 2 performance counters on the nodes themselves all using variables. 
 
- ```json
+```json
 "variables": {
   "copy": [
       {
@@ -189,5 +190,5 @@ Here is an example of a configuration with the counter for the *Total Processor 
 
 ## Next steps
 * Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
-* [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
+* [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/extensions/diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
 * Visit the [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.(https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.

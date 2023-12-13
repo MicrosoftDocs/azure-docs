@@ -1,4 +1,4 @@
-- name: Azure Web Application Firewall Documentation
+- name: Azure Web Application Firewall documentation
   href: index.yml
 - name: Overview
   items:
@@ -9,11 +9,27 @@
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
     - name: What's new
-      href: ./ag/whats-new.md
+      href: ./ag/ag-overview.md#whats-new
   - name: Front Door
     items:
     - name: Web Application Firewall on Azure Front Door
       href: ./afds/afds-overview.md
+  - name: Content Delivery Network
+    items:
+    - name: Web Application Firewall on Azure CDN
+      href: ./cdn/cdn-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Application Gateway
+    expanded: true
+    items:
+     - name: Deploy WAF v2 - Bicep
+       displayName: ARM, Template, Resource Manager
+       href: ./ag/quick-create-bicep.md
+     - name: Deploy WAF v2 - ARM template
+       displayName: Resource Manager
+       href: ./ag/quick-create-template.md
 - name: Tutorials
   items:
   - name: Application Gateway
@@ -24,32 +40,62 @@
     items:
     - name: Configure WAF policy - portal
       href: ./afds/waf-front-door-create-portal.md
-- name: Samples
-  items:
-  - name: Azure PowerShell
-    href: ./ag/powershell-samples.md
-  - name: Resource Manager templates
-    href: ./ag/resource-manager-template-samples.md  
 - name: Concepts
   items:
   - name: Application Gateway
     items:
-    - name: Managed Rules
+    - name: Managed rules
       href: ./ag/application-gateway-crs-rulegroups-rules.md
     - name: Custom rules overview
       href: ./ag/custom-waf-rules-overview.md
-    - name: Request size limits and exclusion lists
+    - name: Geomatch custom rules
+      href: ./ag/geomatch-custom-rules.md
+    - name: Exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
+    - name: Request size limits
+      href: ./ag/application-gateway-waf-request-size-limits.md
+    - name: WAF Policy overview
+      href: ./ag/policy-overview.md
+    - name: Bot protection overview
+      href: ./ag/bot-protection-overview.md
+    - name: WAF engine
+      href: ./ag/waf-engine.md
+    - name: Sensitive Data Protection
+      href: ./ag/waf-sensitive-data-protection.md
+    - name: Rate limiting
+      href: ./ag/rate-limiting-overview.md
+    - name: Best practices
+      href: ./ag/best-practices.md
+    - name: FAQ
+      href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
     items:
+    - name: Tuning
+      href: ./afds/waf-front-door-tuning.md
+    - name: Managed rules
+      href: ./afds/waf-front-door-drs.md
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
+    - name: Exclusion lists
+      href: ./afds/waf-front-door-exclusion.md
     - name: Policy settings
       href: ./afds/waf-front-door-policy-settings.md
+    - name: Rate limiting
+      href: ./afds/waf-front-door-rate-limit.md
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
+    - name: Best practices
+      href: ./afds/waf-front-door-best-practices.md
     - name: FAQ
-      href: ./afds/waf-faq.md
+      href: ./afds/waf-faq.yml
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
+    - name: Application DDoS protection
+      href: ./shared/application-ddos-protection.md
+  - name: WAF and Azure Policy
+    href: ./shared/waf-azure-policy.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -62,8 +108,14 @@
          href: ./ag/tutorial-restrict-web-traffic-powershell.md
        - name: Azure CLI
          href: ./ag/tutorial-restrict-web-traffic-cli.md
-     - name: Migrate WAF policy
-       href: ./ag/migrate-policy.md
+     - name: Upgrade WAF
+       items:
+       - name: Upgrade to WAF policy
+         href: ./ag/upgrade-ag-waf-policy.md
+       - name: Upgrade using PowerShell
+         href: ./ag/migrate-policy.md
+     - name: Per-site policies
+       href: ./ag/per-site-policies.md
      - name: Customize WAF rules
        items:
        - name: Azure portal
@@ -80,8 +132,14 @@
        href: ./ag/bot-protection.md
      - name: Associate a policy with an existing Application Gateway
        href: ./ag/associate-waf-policy-existing-gateway.md
-     - name: Diagnostic logs
+     - name: Resource logs
        href: ./ag/web-application-firewall-logs.md
+     - name: Monitoring and logging
+       href: ./ag/application-gateway-waf-metrics.md
+     - name: Mask sensitive data
+       href: ./ag/waf-sensitive-data-protection-configure.md
+     - name: Create rate limiting rules
+       href: ./ag/rate-limiting-configure.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
@@ -90,32 +148,66 @@
       href: ./afds/waf-front-door-custom-rules-powershell.md
     - name: Configure bot protection
       href: ./afds/waf-front-door-policy-configure-bot-protection.md
+    - name: Configure exclusion lists
+      href: ./afds/waf-front-door-exclusion-configure.md
     - name: Configure custom response code
       href: ./afds/waf-front-door-configure-custom-response-code.md
     - name: Configure IP restrictions
       href: ./afds/waf-front-door-configure-ip-restriction.md
-    - name: Configure rate limit - PowerShell
-      href: ./afds/waf-front-door-rate-limit-powershell.md
+    - name: Configure rate limit
+      href: ./afds/waf-front-door-rate-limit-configure.md
     - name: Configure a geo-filtering WAF policy
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
-    - name: Monitor and logging
+    - name: Monitoring and logging
       href: ./afds/waf-front-door-monitor.md
-- name: Troubleshoot
-  items:
-  - name: Application Gateway
+  - name: Configure policies using Firewall Manager
+    href: ./shared/manage-policies.md
+  - name: Protect APIs hosted in APIM using Web Application Firewall
+    href: ./afds/protect-api-hosted-apim-by-waf.md
+  - name: Protect Azure OpenAI using Azure Web Application Firewall
+    href: ./afds/protect-azure-open-ai.md
+  - name: Using Microsoft Sentinel with Web Application Firewall
+    href: waf-sentinel.md
+  - name: Automated detection and response
+    href: ./afds/automated-detection-response-with-sentinel.md
+  - name: Troubleshoot
     items:
-     - name: Troubleshoot WAF
-       href: ./ag/web-application-firewall-troubleshoot.md
-     - name: Log analytics
-       href: ./ag/log-analytics.md
+     - name: Application Gateway
+       items:
+        - name: Troubleshoot WAF
+          href: ./ag/web-application-firewall-troubleshoot.md
+        - name: Log analytics
+          href: ./ag/log-analytics.md
 - name: Reference
   items:
-  - name: CRS rules
-    href: ./ag/application-gateway-crs-rulegroups-rules.md
+  - name: Managed rules
+    items:
+     - name: Front Door
+       href: ./afds/waf-front-door-drs.md
+     - name: Application Gateway
+       href: ./ag/application-gateway-crs-rulegroups-rules.md
   - name: Azure CLI
-    href: /cli/azure/ext/azure-firewall/network/firewall
+    items:
+    - name: Front Door
+      href: /cli/azure/network/front-door/waf-policy
+    - name: Application Gateway
+      href: /cli/azure/network/application-gateway
+    - name: CDN
+      href: /cli/azure/cdn/waf
   - name: Azure PowerShell
-    href: /powershell/module/az.network/new-azfirewall
+    items:
+    - name: Front Door
+      href: /powershell/module/az.frontdoor/
+    - name: Application Gateway
+      href: /powershell/module/az.network/#application_gateway
+    - name: CDN
+      href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
+  - name: REST API
+    items:
+    - name: Front Door
+      href: /rest/api/frontdoorservice/webapplicationfirewall/policies
+    - name: Application Gateway
+      href: /rest/api/application-gateway
   - name: .NET
     href: /dotnet/api
   - name: Java
@@ -124,14 +216,10 @@
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
-  - name: REST
-    href: /rest/api/firewall
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/management/overview.md
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

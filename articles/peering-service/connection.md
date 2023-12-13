@@ -1,52 +1,39 @@
 ---
-title: Azure Peering Service Preview connection 
-description: Learn about Microsoft Azure Peering Service connection
-services: peering-service
-author: ypitsch
+title: Azure Peering Service connection 
+description: Learn about Microsoft Azure Peering Service connection.
+author: halkazwini
+ms.author: halkazwini
 ms.service: peering-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: v-meravi
+ms.topic: concept-article
+ms.date: 07/23/2023
 ---
 
-# Peering Service Preview connection
+# Peering Service connection
 
-A connection typically refers to a logical information set, identifying a Peering Service. It is defined by specifying the following attributes:
+A connection typically refers to a logical information set, identifying a Peering Service. It's defined by specifying the following attributes:
 
 - Logical Name
 - Connectivity partner
-- Customer’s physical location
+- Connectivity partner Primary service location
+- Connectivity partner Backup service location
 - IP prefixes
 
 Customer can establish a single connection or multiple connections as per the requirement. A connection is also used as a unit of telemetry collection. For instance, to opt for telemetry alerts, customer must define the connection that will be monitored.
 
-> [!Note]
-> When you sign up for Peering Service, we analyze your Windows and Office 365 telemetry in order to provide you with latency measurements for your selected prefixes.
->For more information about connection telemetry, refer to the [Peering Service connection telemetry](connection-telemetry.md).
->
+> [!NOTE]
+> When you sign up for Peering Service, we analyze your Windows and Microsoft 365 telemetry in order to provide you with latency measurements for your selected prefixes.
+> For more information about connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).
 
-> [!IMPORTANT]
-> "Peering Service” is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## How to create a peering service connection?
 
-## How to register a connection?
+**Scenario** - Let's say a branch office is spread across different geographic locations as shown in the figure. Here, the customer is required to provide a logical name, Service Provider (SP) name, customer's physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection.  The primary and backup service locations with partner help defining the preferred service location for customer. This process must be repeated to create Peering Service for other locations.
 
-**Scenario** - Let’s say a branch office is spread across different geographic locations as shown in the figure below. Here, the customer is required to provide a logical name, Service Provider(SP) name, customer’s physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection. This process must be repeated to register Peering Service for separate Geo-redundant connections.
+:::image type="content" source="./media/connection/peering-service-connections.png" alt-text="Diagram shows geo redundant connections.":::
 
-![Geo Redundant connections](./media/peering-service-connection/peering-service-connections.png)
-
-> [!Note]
->For a preview, State level-filtration is considered for the customer’s physical location when the connection is geo-located in the United States.
->
+> [!NOTE]
+> State level-filtration is considered for the customer's physical location when the connection is geo-located in the United States.
 
 ## Next steps
 
-To learn step by step process on how to register Peering Service connection, see [Register Peering Service using the Azure portal](azure-portal.md).
-
-To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-
-To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn how to register Peering Service connection, see [Create Peering Service using the Azure portal](azure-portal.md).
+- To learn about Peering Service connection telemetry, see [Access Peering Service connection telemetry](connection-telemetry.md).

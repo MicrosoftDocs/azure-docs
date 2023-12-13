@@ -1,0 +1,60 @@
+- name: Azure Resource Mover Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Resource Mover
+    href: overview.md
+  - name: Select a tool to move resources
+    href: select-move-tool.md
+  - name: Common questions
+    href: common-questions.md
+  - name: What's new
+    href: whats-new.md
+- name: Tutorials
+  items:
+  - name: Move Azure VMs to another region
+    href: tutorial-move-region-virtual-machines.md
+  - name: Move encrypted Azure VMs to another region
+    href: tutorial-move-region-encrypted-virtual-machines.md
+  - name: Move resources across regions with PowerShell
+    href: tutorial-move-region-powershell.md
+  - name: Move SQL resources to another region
+    href: tutorial-move-region-sql.md
+- name: Concepts
+  items:
+  - name: Move overview
+    href: about-move-process.md
+  - name: Support-Move Azure VMs across regions
+    href: support-matrix-move-region-azure-vm.md
+  - name: Support-Move Azure SQL across regions
+    href: support-matrix-move-region-sql.md
+  - name: Support-Move Extension resource types
+    href: support-matrix-extension-resource-types.md
+- name: How-to Guides
+  items:
+  - name: Move across regions
+    items:
+    - name: Move Azure VMs to availability zones
+      href: move-region-availability-zone.md
+    - name: Move across regions (from resource group)
+      href: move-region-within-resource-group.md
+  - name: Manage region moves
+    items:
+    - name: Modify destination settings
+      href: modify-target-settings.md
+    - name: Remove resources from a move collection
+      href: remove-move-resources.md
+    - name: Manage resources created during move
+      href: manage-resources-created-move-process.md
+- name: Resources
+  items:
+  - name: Migration in the Cloud Adoption Framework
+    href: /azure/cloud-adoption-framework/migrate/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.migrate/allversions
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+- name: Monitoring
+  items:
+  - name: Monitor Move across region
+    href: move-across-region-dashboard.md

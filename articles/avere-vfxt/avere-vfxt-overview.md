@@ -1,6 +1,6 @@
 ---
 title: Avere vFXT for Azure
-description: Introduction to Avere vFXT for Azure, a cloud cache layer for HPC
+description: Learn about Avere vFXT for Azure, a cloud-based filesystem caching solution for data-intensive high-performance computing tasks.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: overview
@@ -27,7 +27,7 @@ Avere vFXT for Azure is best suited for these situations:
 * Compute farms of 1000 to 40,000 CPU cores
 * Integration with on-premises hardware NAS, Azure Blob storage, or both
 
-For more information, visit <https://azure.microsoft.com/services/storage/avere-vfxt/>
+For more information, see [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).
 
 ## Who uses Avere vFXT for Azure?
 
@@ -61,7 +61,7 @@ The Avere vFXT cluster caches files as they are requested. Repeated requests can
 
 Avere vFXT for Azure uses the following Azure resources:
 
-|Azure component|   |
+|Azure component| Resource |
 |----------|-----------|
 |Virtual machines|3 or more E32s_v3|
 |Premium SSD storage|200 GB OS space plus 1 TB to 4 TB cache space per node |

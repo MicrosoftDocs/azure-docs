@@ -1,65 +1,156 @@
-### YamlMime:Landing
+### YamlMime:Hub
 
-title: Azure API for FHIR Documentation
-summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+title: Azure Health Data Services documentation # < 60 chars
+summary: Collect, transform, and analyze health data that meets privacy and compliance requirements. # < 160 chars
+brand: azure # brand: aspnet | azure | bash | bizapps | bot-framework | dotnet | dynamics | education | enterprise-mobility | gaming | graph | m365 | nuget | office | powershell | playfab | power-apps | power-automate | power-bi | power-platform | power-virtual-agents | project | sharepoint | sql | surface | system-center | teams | visual-studio | windows | workplace-analytics | xamarin
 
 metadata:
-  title: Azure API for FHIR Documentation - tutorials, how-to guides
-  description: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
-  services: healthcare-apis
-  ms.service: healthcare-apis
-  ms.subservice: fhir
-  ms.topic: landing-page 
-  ms.collection: collection
-  author: hansenms
-  ms.author: mihansen
-  ms.date: 11/06/2019
+  title: Azure Health Data Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure Health Data Services to collect, transform, and analyze health data that meets privacy and compliance requirements for the healthcare industry. # Required; article description that is displayed in search results. < 159/160 chars.
+  ms.service: healthcare-apis #Required; use either service or product per approved list. 
+  ms.topic: hub-page # Required
+  author: msjasteppe #Required; your GitHub user alias, with correct capitalization.
+  ms.author: jasteppe #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/27/2023 #Required; mm/dd/yyyy format.
 
-# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+highlightedContent:
+  items:
+       - title: What is Azure Health Data Services?
+         itemType: overview
+         url: ./healthcare-apis-overview.md
+       - title: Release notes
+         itemType: whats-new
+         url: ./release-notes.md          
+       - title: Get an access token
+         itemType: how-to-guide
+         url: ./get-access-token.md
+       - title: Migrate your data from Azure API for FHIR
+         itemType: how-to-guide
+         url: ./fhir/migration-strategies.md    
+       - title: Azure Health Data Services 
+         itemType: learn
+         url: /training/browse/?term=iot&terms=health%20data%20services
 
-landingContent:
+conceptualContent:
+  items: 
+        # Card
+        - title: Get started with Azure Health Data Services
+          links:
+            - url: ./get-started-with-health-data-services.md
+              itemType: how-to-guide
+              text: Set up a workspace
+            - url: ./healthcare-apis-quickstart.md 
+              itemType: how-to-guide
+              text: Deploy Azure Health Data Services
+            - url: ./register-application.md
+              itemType: how-to-guide
+              text: Register your application
+            - url: ./authentication-authorization.md
+              itemType: how-to-guide
+              text: Set up user access and permissions 
+            - url: ./authentication-authorization.md
+              itemType: how-to-guide
+              text: Grant permissions to a managed identity  
+                   
+        # Card
+        - title: FHIR data
+          links:
+            - url: ./fhir/overview.md
+              itemType: overview
+              text: FHIR service overview
+            - url: ./fhir/get-started-with-fhir.md
+              itemType: how-to-guide
+              text: Deploy the FHIR service
+            - url: ./fhir/configure-cross-origin-resource-sharing.md
+              itemType: how-to-guide
+              text: Configure cross-origin resource sharing (CORS)
+            - url: ./fhir/configure-customer-managed-keys.md
+              itemType: how-to-guide
+              text: Configure customer-managed keys (CMK) 
+            - url: ./fhir/centers-for-medicare-tutorial-introduction.md
+              itemType: how-to-guide
+              text: CMS operability and patient access 
 
-  - title: Start with Azure API for FHIR
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure API for FHIR?
-            url: overview.md
-          - text: What is FHIR Server for Azure?
-            url: overview-open-source-server.md
-      - linkListType: quickstart
-        links:
-          - text: Deploy API Server for FHIR
-            url: fhir-paas-portal-quickstart.md 
-          - text: Deploy open source FHIR Server
-            url: fhir-oss-portal-quickstart.md
+        # Card
+        - title: Imaging data
+          links:
+            - url: ./dicom/dicom-services-overview.md
+              itemType: overview
+              text: DICOM service overview
+            - url: ./dicom/deploy-dicom-services-in-azure.md
+              itemType: how-to-guide
+              text: Deploy the DICOM service
+            - url: ./dicom/configure-customer-managed-keys.md
+              itemType: how-to-guide
+              text: Configure customer-managed keys (CMK) 
+            - url: ./dicom/get-started-with-analytics-dicom.md
+              itemType: how-to-guide
+              text: Use image data for analytics
+            - url: ./dicom/dicom-digital-pathology.md
+              itemType: how-to-guide
+              text: Use image data for digital pathology  
+            
+        # Card
+        - title: Device data
+          links:
+            - url: ./iot/overview.md
+              itemType: overview
+              text: MedTech service overview
+            - url: ./iot/deploy-choose-method.md          
+              itemType: how-to-guide
+              text: Choose a deployment method
+            - url: ./iot/how-to-use-monitoring-and-health-checks-tabs.md
+              itemType: how-to-guide
+              text: Monitor service health in Azure portal 
+            - url: ./iot/how-to-use-mapping-debugger.md
+              itemType: how-to-guide
+              text: Troubleshoot with the Mapping debugger 
+            - url: ./iot/troubleshoot-errors-logs.md
+              itemType: how-to-guide
+              text: Troubleshoot service log errors   
 
-  - title: Set-up tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Active Directory configuration
-            url: tutorial-1-decision-flow.md
-          - text: Set up a dev environment & create a sample app
-            url: tutorial-2-setup-environment.md
-          - text: Connect to an Azure API for FHIR endpoint
-            url: tutorial-2-setup-environment.md
-      - linkListType: tutorial
-        links:
-          - text: Access FHIR API with Postman
-            url: access-fhir-postman-tutorial.md
-          - text: SMART integration for third-party apps & medical records
-            url: use-smart-on-fhir-proxy.md
-
-  - title: Register apps for AD authentication
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Register a resource app
-            url: register-resource-azure-ad-client-app.md
-          - text: Register a confidential client app
-            url: register-confidential-azure-ad-client-app.md
-          - text: Register a public client app
-            url: register-public-azure-ad-client-app.md
-          - text: Register a service client app
-            url: register-service-azure-ad-client-app.md       
+        # Card
+        - title: Automate and optimize data workflows
+          links:
+            - url: ./events/events-overview.md
+              itemType: overview
+              text: Events overview
+            - url: ./events/events-deploy-portal.md
+              itemType: how-to-guide
+              text: Deploy events in Azure portal
+            - url: ./events/events-use-metrics.md
+              itemType: how-to-guide
+              text: Use event metrics
+            - url: ./events/events-disable-delete-workspace.md
+              itemType: how-to-guide
+              text: Disable events 
+            - url: ./events/events-troubleshooting-guide.md
+              itemType: how-to-guide
+              text: Troubleshoot events
+             
+additionalContent:
+  sections:
+    - title: Tools & resources 
+      items:
+        # Card
+        - title: Azure Health Data & AI workflows
+          summary: Sample apps and code
+          url: https://github.com/Azure-Samples/azure-health-data-services-samples
+        # Card
+        - title: REST API for Azure Health Data Services
+          summary: REST API reference for Healthcare APIs
+          url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/?view=rest-healthcareapis-2022-06-01
+        # Card
+        - title: Quickstart templates
+          summary: Sample Azure Resource Manager (ARM) templates
+          url: https://learn.microsoft.com/samples/browse/?terms=azure%20health%20data%20services
+        # Card
+        - title: Healthcare & Life Sciences blog
+          summary: Insights, best practices, and innovations
+          url: https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/bg-p/HealthcareAndLifeSciencesBlog 
+    - title: Other services 
+      items:
+        # Card
+        - title: Azure API for FHIR
+          summary: This service is being retired on September 30, 2026.
+          url: ./azure-api-for-fhir/overview.md

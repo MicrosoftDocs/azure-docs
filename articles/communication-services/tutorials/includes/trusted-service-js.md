@@ -1,0 +1,147 @@
+---
+title: Trusted Service JavaScript
+description: This is the JavaScript version of creating a Trusted Service for Communication Services.
+author: tophpalmer
+manager: nimag
+services: azure-communication-services
+ms.author: chpalm
+ms.date: 06/30/2021
+ms.topic: include
+ms.service: azure-communication-services
+---
+
+## Download Code
+
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/trusted-authentication-service)
+
+## Prerequisites
+
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
+- [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
+- The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code.
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+
+## Overview
+
+:::image type="content" source="../media/trusted-service-architecture.png" alt-text="Diagram for trusted service architecture":::
+
+For this tutorial we'll be creating an Azure Function that will serve as a trusted token provisioning service. You can use this tutorial to bootstrap your own token provisioning service.
+
+This service is responsible for authenticating users to Azure Communication Services. Users of your Communication Services applications will require an `Access Token` in order to participate in chat threads and VoIP calls. The Azure Function will work as a trusted middleman between the user and the Communication Services. This allows you to provision access tokens without exposing your resource connection string to your users.
+
+For more information, see the [client-server architecture](../../concepts/client-and-server-architecture.md) and [authentication and authorization](../../concepts/authentication.md) conceptual documentation.
+
+## Setting up
+
+### Azure Functions set up
+
+Let's first set up the basic structure for our Azure function. Step by step instructions on the set up can be found here: [Create a function using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript)
+
+Our Azure Function requires the following configuration:
+
+- Language: JavaScript
+- Template: HTTP Trigger
+- Authorization Level: Anonymous (This can be switched later if you prefer a different authorization model)
+- Function Name: User defined
+
+After following the [Azure Functions instructions](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript) with the above configuration, you should have a project in Visual Studio Code for the Azure Function with an `index.js` file that contains the function itself. The code inside of this file should be as follows:
+
+```javascript
+
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    const name = (req.query.name || (req.body && req.body.name));
+    const responseMessage = name
+        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
+        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: responseMessage
+    };
+}
+
+```
+
+We'll now proceed to install Azure Communication Services libraries.
+
+### Install communication services libraries
+
+We'll use the `Identity` library to generate `User Access Tokens`.
+
+Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
+
+```console
+
+npm install @azure/communication-identity --save
+
+```
+
+The `--save` option lists the library as a dependency in your **package.json** file.
+
+At the top of the `index.js` file, import the interface for the `CommunicationIdentityClient`
+
+```javascript
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
+```
+
+## Access token generation
+
+To allow our Azure Function to generate `User Access Tokens`, we'll first need use the connection string for our Communication Services resource.
+
+Visit the [resource provisioning quickstart](../../quickstarts/create-communication-resource.md) for more information on retrieving your connection string.
+
+``` javascript
+const connectionString = 'INSERT YOUR RESOURCE CONNECTION STRING'
+```
+
+Next, we'll modify our original function to generate `User Access Tokens`.
+
+`User Access Tokens` are generated by creating a user from the `createUser` method. Once the user is created we can use the `getToken` method to generate a token for that user which the Azure Function returns.
+
+For this example, we will configure the token scope to `voip`. Other scopes might be necessary for your application. Learn more about [scopes](../../quickstarts/identity/access-tokens.md)
+
+```javascript
+module.exports = async function (context, req) {
+    let tokenClient = new CommunicationIdentityClient(connectionString);
+
+    const user = await tokenClient.createUser();
+
+    const userToken = await tokenClient.getToken(user, ["voip"]);
+
+    context.res = {
+        body: userToken
+    };
+}
+```
+
+For existing Communication Services `CommunicationUser`, you can skip the creation step and just generate an access token. More details found in the [Create user access tokens quickstart](../../quickstarts/identity/access-tokens.md).
+
+## Test the Azure Function
+
+Run the Azure Function locally using `F5`. This will initialize the Azure Function locally and make it accessible through: `http://localhost:7071/api/FUNCTION_NAME`. Check out additional documentation on [running locally](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-locally)
+
+Open the URL on your browser and you should see a response body with the Communication User ID, token and expiration for the token.
+
+:::image type="content" source="../media/trusted-service-sample-response.png" alt-text="Screenshot showing a Response example for the created Azure Function.":::
+
+## Deploy the Function to Azure
+
+To deploy your Azure Function, you can follow [step by step instructions](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
+
+In summary, you will need to:
+1. Sign in to Azure from Visual Studio
+2. Publish your project to your Azure account. Here you will need to choose an existing subscription.
+3. Create a new Azure Function resource using the Visual Studio wizard or use an existing resource. For a new resource, you will need to configure it to your desired region, runtime and unique identifier.
+4. Wait for deployment to finalize
+5. Run the function 🎉
+
+## Run Azure Function
+
+Run the Azure function using the url `http://<function-appn-ame>.azurewebsites.net/api/<function-name>`
+
+You can find the URL by right clicking the function on Visual Studio Code and copying the Function URL.
+
+For more information on [running your Azure function](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#run-the-function-in-azure)

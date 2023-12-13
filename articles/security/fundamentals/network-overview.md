@@ -3,20 +3,18 @@ title: Network security concepts and requirements in Azure | Microsoft Docs
 description: This article provides basic explanations about core network security concepts and requirements, and information on what Azure offers in each of these areas.
 services: security
 documentationcenter: na
-author: TomShinder
-manager: barbkess
-editor: TomSh
+author: TerryLanfear
+manager: rkarlin
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 03/31/2023
 ms.author: terrylan
-#Customer intent: As an IT Pro or decision maker I am looking for information on the network security controls available in Azure.
+#Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
 ---
 # Azure network security overview
@@ -36,6 +34,9 @@ This article covers some of the options that Azure offers in the area of network
 * Azure Front Door
 * Traffic manager
 * Monitoring and threat detection
+
+> [!NOTE]
+> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../../frontdoor/front-door-ddos.md).
 
 ## Azure networking
 
@@ -60,7 +61,7 @@ Azure supports several types of network access control, such as:
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
 
 > [!NOTE]
-> Storage Firewalls are covered in the [Azure storage security overview](storage-overview.md) article
+> Storage Firewalls are covered in the [Azure storage security overview](../../storage/blobs/security-recommendations.md) article
 
 #### Network security rules (NSGs)
 
@@ -74,15 +75,15 @@ NSGs do not provide application layer inspection or authenticated access control
 
 Learn more:
 
-* [Network Security Groups](../../virtual-network/security-overview.md)
+* [Network Security Groups](../../virtual-network/network-security-groups-overview.md)
 
-#### ASC just in time VM access
+#### Defender for Cloud just in time VM access
 
-[Azure security center](../../security-center/security-center-intro.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate role-based access control [RBAC](/azure/role-based-access-control/overview) permissions requests access. When the user is successfully authorized ASC makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
+[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) can manage the NSGs on VMs and lock access to the VM until a user with the appropriate Azure role-based access control [Azure RBAC](../../role-based-access-control/overview.md) permissions requests access. When the user is successfully authorized Defender for Cloud makes modifications to the NSGs to allow access to selected ports for the time specified. When the time expires the NSGs are restored to their previous secured state.
 
 Learn more:
 
-* [Azure Security Center Just in Time Access](../../security-center/security-center-just-in-time.md)
+* [Microsoft Defender for Cloud Just in Time Access](../../security-center/security-center-just-in-time.md)
 
 #### Service endpoints
 
@@ -98,9 +99,9 @@ The ability to control routing behavior on your virtual networks is critical. If
 
 Azure networking supports the ability to customize the routing behavior for network traffic on your virtual networks. This enables you to alter the default routing table entries in your virtual network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your virtual network through a specific location.
 
-For example, you might have a virtual network security appliance on your virtual network. You want to make sure that all traffic to and from your virtual network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../../virtual-network/virtual-networks-udr-overview.md) (UDRs) in Azure.
+For example, you might have a virtual network security appliance on your virtual network. You want to make sure that all traffic to and from your virtual network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDRs) in Azure.
 
-[Forced tunneling](https://www.petri.com/azure-forced-tunneling) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to requests from internet hosts, and so internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
+[Forced tunneling](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to requests from internet hosts, and so internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
 
 What you don't want to allow is a front-end web server to initiate an outbound request. Such requests might represent a security risk because these connections can be used to download malware. Even if you do want these front-end servers to initiate outbound requests to the internet, you might want to force them to go through your on-premises web proxies. This enables you to take advantage of URL filtering and logging.
 
@@ -129,16 +130,13 @@ You can access these enhanced network security features by using an Azure partne
 
 ## Azure Firewall
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Some features include:
+Azure Firewall is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-* High availability
-* Cloud scalability
-* Application FQDN filtering rules
-* Network traffic filtering rules
+Azure Firewall is offered in three SKUs: Standard, Premium, and Basic. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns. [Azure Firewall Basic](../../firewall/basic-features.md) is a simplified SKU that provides the same level of security as the Standard SKU but without the advanced capabilities.
 
 Learn more:
 
-* [Azure Firewall overview](/azure/firewall/overview)
+* [What is Azure Firewall](../../firewall/overview.md)
 
 ## Secure remote access and cross-premises connectivity
 
@@ -157,7 +155,7 @@ You might want to enable individual developers or operations personnel to manage
 
 The point-to-site VPN connection enables you to set up a private and secure connection between the user and the virtual network. When the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the virtual network. (This assumes that the user can authenticate and is authorized.) Point-to-site VPN supports:
 
-* Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
+* Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which TLS/SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
@@ -169,13 +167,13 @@ Learn more:
 
 ### Connect your on-premises network to a virtual network with a VPN
 
-You might want to connect your entire corporate network, or portions of it, to a virtual network. This is common in hybrid IT scenarios, where organizations [extend their on-premises datacenter into Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In many cases, organizations host parts of a service in Azure, and parts on-premises. For example,they might do so when a solution includes front-end web servers in Azure and back-end databases on-premises. These types of "cross-premises" connections also make management of Azure located resources more secure, and enable scenarios such as extending Active Directory domain controllers into Azure.
+You might want to connect your entire corporate network, or portions of it, to a virtual network. This is common in hybrid IT scenarios, where organizations extend their on-premises datacenter into Azure. In many cases, organizations host parts of a service in Azure, and parts on-premises. For example,they might do so when a solution includes front-end web servers in Azure and back-end databases on-premises. These types of "cross-premises" connections also make management of Azure located resources more secure, and enable scenarios such as extending Active Directory domain controllers into Azure.
 
-One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). The difference between a site-to-site VPN and a point-to-site VPN is that the latter connects a single device to a virtual network. A site-to-site VPN connects an entire network (such as your on-premises network) to a virtual network. Site-to-site VPNs to a virtual network use the highly secure IPsec tunnel mode VPN protocol.
+One way to accomplish this is to use a site-to-site VPN. The difference between a site-to-site VPN and a point-to-site VPN is that the latter connects a single device to a virtual network. A site-to-site VPN connects an entire network (such as your on-premises network) to a virtual network. Site-to-site VPNs to a virtual network use the highly secure IPsec tunnel mode VPN protocol.
 
 Learn more:
 
-* [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [About VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### Connect your on-premises network to a virtual network with a dedicated WAN link
@@ -199,7 +197,7 @@ It is possible to use many virtual networks for your deployments. There are vari
 
 One option is for services on one virtual network to connect to services on another virtual network, by "looping back" through the internet. The connection starts on one virtual network, goes through the internet, and then comes back to the destination virtual network. This option exposes the connection to the security issues inherent in any internet-based communication.
 
-A better option might be to create a site-to-site VPN that connects between two virtual networks. This method uses the same [IPSec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
+A better option might be to create a site-to-site VPN that connects between two virtual networks. This method uses the same IPSec tunnel mode protocol as the cross-premises site-to-site VPN connection mentioned above.
 
 The advantage of this approach is that the VPN connection is established over the Azure network fabric, instead of connecting over the internet. This provides you an extra layer of security, compared to site-to-site VPNs that connect over the internet.
 
@@ -229,12 +227,12 @@ Organizations that run web-based services often desire to have an HTTP-based loa
 Azure Application Gateway provides HTTP-based load balancing for your web-based services. Application Gateway supports:
 
 * Cookie-based session affinity. This capability makes sure that connections established to one of the servers behind that load balancer stays intact between the client and server. This ensures stability of transactions.
-* SSL offload. When a client connects with the load balancer, that session is encrypted by using the HTTPS (SSL) protocol. However, in order to increase performance, you can use the HTTP (unencrypted) protocol to connect between the load balancer and the web server behind the load balancer. This is referred to as "SSL offload," because the web servers behind the load balancer don't experience the processor overhead involved with encryption. The web servers can therefore service requests more quickly.
+* TLS offload. When a client connects with the load balancer, that session is encrypted by using the HTTPS (TLS) protocol. However, in order to increase performance, you can use the HTTP (unencrypted) protocol to connect between the load balancer and the web server behind the load balancer. This is referred to as "TLS offload," because the web servers behind the load balancer don't experience the processor overhead involved with encryption. The web servers can therefore service requests more quickly.
 * URL-based content routing. This feature makes it possible for the load balancer to make decisions about where to forward connections based on the target URL. This provides a lot more flexibility than solutions that make load balancing decisions based on IP addresses.
 
 Learn more:
 
-* [Application Gateway overview](/azure/application-gateway/application-gateway-introduction)
+* [Application Gateway overview](../../application-gateway/overview.md)
 
 ### Network level load balancing
 
@@ -249,8 +247,7 @@ You can gain the benefits of network level load balancing in Azure by using Azur
 
 Learn more:
 
-* [Internet-facing load balancer between multiple virtual machines or services](/azure/load-balancer/load-balancer-internet-overview)
-* [Internal load balancer overview](/azure/load-balancer/load-balancer-internal-overview)
+* [Internal load balancer overview](../../load-balancer/load-balancer-overview.md)
 
 ### Global load balancing
 
@@ -297,7 +294,7 @@ Azure provides you with a highly available and high-performing external DNS solu
 Learn more:
 
 * [Azure DNS overview](../../dns/dns-overview.md)
-* [Azure DNS private zones](../../dns/private-dns-overview.md) allows you to configure private DNS names for Azure resources rather than the automatically assigned names without the need to add a custom DNS solution.
+* [Azure DNS private zones](../../dns/private-dns-privatednszone.md) allows you to configure private DNS names for Azure resources rather than the automatically assigned names without the need to add a custom DNS solution.
 
 ## Perimeter network architecture
 
@@ -307,15 +304,16 @@ You can design perimeter networks in a number of different ways. The decision to
 
 Learn more:
 
-* [Microsoft Cloud Services and Network Security](network-best-practices.md)
+* [Perimeter networks for security zones](network-best-practices.md#deploy-perimeter-networks-for-security-zones)
 
 ## Azure DDoS protection
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
-Microsoft provides DDoS protection known as **Basic** as part of the Azure Platform. This comes at no charge and includes always on monitoring and real-time mitigation of common network level attacks. In addition to the protections included with DDoS protection **Basic** you can enable the **Standard** option. DDoS Protection Standard features include:
 
-* **Native platform integration:** Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.
-* **Turn-key protection:** Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Protection Standard is enabled. No intervention or user definition is required. DDoS Protection Standard instantly and automatically mitigates the attack, once it is detected.
+DDoS Protection features include:
+
+* **Native platform integration:** Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection understands your resources and resource configuration.
+* **Turn-key protection:** Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Protection is enabled. No intervention or user definition is required. DDoS Protection instantly and automatically mitigates the attack, once it is detected.
 * **Always-on traffic monitoring:** Your application traffic patterns are monitored 24 hour a day, 7 days a week, looking for indicators of DDoS attacks. Mitigation is performed when protection policies are exceeded.
 * **Attack Mitigation Reports** Attack Mitigation Reports use aggregated network flow data to provide detailed information about attacks targeted at your resources.
 * **Attack Mitigation Flow Logs** Attack Mitigation Flow Logs allow you to review the dropped traffic, forwarded traffic and other attack data in near real-time during an active DDoS attack.
@@ -324,18 +322,21 @@ Microsoft provides DDoS protection known as **Basic** as part of the Azure Platf
 * **Attack metrics:** Summarized metrics from each attack are accessible through Azure Monitor.
 * **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
 * **Cost guarantee:**  Data-transfer and application scale-out service credits for documented DDoS attacks.
-* **DDoS Rapid responsive** DDoS Protection Standard customers now have access to Rapid Response team during an active attack. DRR can help with attack investigation, custom mitigations during an attack and post-attack analysis.
+* **DDoS Rapid responsive** DDoS Protection customers now have access to Rapid Response team during an active attack. DRR can help with attack investigation, custom mitigations during an attack and post-attack analysis.
 
 
 Learn more:
 
-* [DDOS protection overview](../../virtual-network/ddos-protection-overview.md)
+* [DDOS protection overview](../../ddos-protection/ddos-protection-overview.md)
 
 ## Azure Front Door
 
-Azure Front Door Service enables you to define, manage, and monitor the global routing of your web traffic. It optimizes your traffic's routing for best performance and high availability. Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic, it includes SSL offloading and per-HTTP/HTTPS request, application-layer processing.
+Azure Front Door Service enables you to define, manage, and monitor the global routing of your web traffic. It optimizes your traffic's routing for best performance and high availability. Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic, it includes TLS offloading and per-HTTP/HTTPS request, application-layer processing.
 
-Front Door platform itself is protected by Azure DDoS Protection Basic. For further protection, Azure DDoS Protection Standard may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
+Front Door platform itself is protected by an Azure infrastructure-level DDoS protection. For further protection, Azure DDoS Network Protection may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
+
+> [!NOTE]
+> For web workloads, we highly recommend utilizing [**Azure DDoS protection**](../../ddos-protection/ddos-protection-overview.md) and a [**web application firewall**](../../web-application-firewall/overview.md) to safeguard against emerging DDoS attacks. Another option is to deploy [**Azure Front Door**](../../frontdoor/web-application-firewall.md) along with a web application firewall. Azure Front Door offers platform-level [**protection against network-level DDoS attacks**](../../frontdoor/front-door-ddos.md).
 
 Learn more:
 
@@ -366,11 +367,11 @@ For more information on Network Watcher and how to start testing some of the fun
 > [!NOTE]
 > For the most up-to-date notifications on availability and status of this service, check the [Azure updates page](https://azure.microsoft.com/updates/?product=network-watcher).
 
-### Azure Security Center
+### Microsoft Defender for Cloud
 
-Azure Security Center helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.
+Microsoft Defender for Cloud helps you prevent, detect, and respond to threats, and provides you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a large set of security solutions.
 
-Security Center helps you optimize and monitor network security by:
+Defender for Cloud helps you optimize and monitor network security by:
 
 * Providing network security recommendations.
 * Monitoring the state of your network security configuration.
@@ -378,7 +379,7 @@ Security Center helps you optimize and monitor network security by:
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-intro.md)
+* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 
 ### Virtual Network TAP
 
@@ -392,11 +393,11 @@ Learn more:
 
 Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for NSGs to get network level logging information. With NSG logging, you get information from:
 
-* [Activity logs](../../azure-monitor/platform/platform-logs-overview.md). Use these logs to view all operations submitted to your Azure subscriptions. These logs are enabled by default, and can be used within the Azure portal. They were previously known as audit or operational logs.
+* [Activity logs](../../azure-monitor/essentials/platform-logs-overview.md). Use these logs to view all operations submitted to your Azure subscriptions. These logs are enabled by default, and can be used within the Azure portal. They were previously known as audit or operational logs.
 * Event logs. These logs provide information about what NSG rules were applied.
 * Counter logs. These logs let you know how many times each NSG rule was applied to deny or allow traffic.
 
-You can also use [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), a powerful data visualization tool, to view and analyze these logs.
+You can also use Microsoft Power BI, a powerful data visualization tool, to view and analyze these logs.
 Learn more:
 
 * [Azure Monitor logs for Network Security Groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md)

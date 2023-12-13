@@ -1,176 +1,101 @@
 ---
-title: Azure Arc for servers Overview
-description: Learn how to use Azure Arc for servers to automate the lifecycle of infrastructure and applications.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: bobbytreed
-ms.author: robreed
-keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 11/04/2019
-ms.custom: mvc
+title: Azure Arc-enabled servers Overview
+description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
+ms.date: 05/11/2023
 ms.topic: overview
 ---
 
-# What is Azure Arc for servers
+# What is Azure Arc-enabled servers?
 
-Azure Arc for servers allows you to manage machines which are outside of Azure.
-When a non-Azure machine is connected to Azure, it becomes a **Connected Machine** and is treated as a resource in Azure. Each **Connected Machine**
-has a Resource ID, is managed as part of a Resource Group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and tagging.
+Azure Arc-enabled servers lets you manage Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or other cloud provider. For the purposes of Azure Arc, these machines hosted outside of Azure are considered hybrid machines. The management of hybrid machines in Azure Arc is designed to be consistent with how you manage native Azure virtual machines, using standard Azure constructs such as Azure Policy and applying tags. (For additional information about hybrid environments, see [What is a hybrid cloud?](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-hybrid-cloud-computing))
 
-An agent package needs to be installed on each machine to connect it to Azure. The rest of this document explains the process in more detail.
+When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
-Machines will have a status of **Connected** or **Disconnected** based on how recently the agent has checked in. Each check-in is called a heartbeat. If a machine has not checked-in within the past 5 minutes, it will show as offline until connectivity is restored.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for servers](troubleshoot/arc-for-servers.md). -->
+To connect hybrid machines to Azure, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
 
-![Connected servers](./media/overview/arc-for-servers-onboarded-servers.png)
+* Proactively monitor the OS and workloads running on the machine
+* Manage it using Automation runbooks or solutions like Update Management
+* Use other Azure services like [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 
-## Clients
+You can install the Connected Machine agent manually, or on multiple machines at scale, using the [deployment method](deployment-options.md) that works best for your scenario.
 
-### Supported Operating Systems
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
-In Public Preview, we support:
+## Supported cloud operations
 
-- Windows Server 2012 R2 and newer
-- Ubuntu 16.04 and 18.04
+When you connect your machine to Azure Arc-enabled servers, you can perform many operational functions, just as you would with native Azure virtual machines. Below are some of the key supported actions for connected machines.
 
-The Public Preview release is designed for evaluation purposes and should not be used to manage critical production resources.
+* **Govern**:
+  * Assign [Azure Automanage machine configurations](../../governance/machine-configuration/overview.md) to audit settings inside the machine. To understand the cost of using Azure Automanage Machine Configuration policies with Arc-enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/).
+* **Protect**:
+  * Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint), included through [Microsoft Defender for Cloud](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Microsoft Defender for Cloud presents the alerts and remediation suggestions from the threats detected.
+  * Use [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources.
+* **Configure**:
+  * Use [Azure Automation](../../automation/extension-based-hybrid-runbook-worker-install.md?tabs=windows) for frequent and time-consuming management tasks using PowerShell and Python [runbooks](../../automation/automation-runbook-execution.md). Assess configuration changes for installed software, Microsoft services, Windows registry and files, and Linux daemons using [Change Tracking and Inventory](../../automation/change-tracking/overview.md)
+  * Use [Update Management](../../automation/update-management/overview.md) to manage operating system updates for your Windows and Linux servers. Automate onboarding and configuration of a set of Azure services when you use [Azure Automanage (preview)](../../automanage/automanage-arc.md).
+  * Perform post-deployment configuration and automation tasks using supported [Arc-enabled servers VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine.
+* **Monitor**:
+  * Monitor operating system performance and discover application components to monitor processes and dependencies with other resources using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
+  * Collect other log data, such as performance data and events, from the operating system or workloads running on the machine with the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
-## Azure Subscription and Service Limits
+> [!NOTE]
+> At this time, enabling Azure Automation Update Management directly from an Azure Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and [how to enable Update Management for non-Azure VMs](../../automation/update-management/enable-from-automation-account.md#enable-non-azure-vms).
 
-Please make sure you read the Azure Resource Manager limits, and plan for the number of the machines to be connected according to the guideline listed for the [subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager), and for the [resource groups](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). In particular, by default there is a limit of 800 servers per resource group.
+Log data collected and stored in a Log Analytics workspace from the hybrid machine contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/manage-access.md#access-mode) log access.
 
-## Networking Configuration
+Watch this video to learn more about Azure monitoring, security, and update services across hybrid and multicloud environments.
 
-During installation and runtime, the agent requires connectivity to **Azure Arc service endpoints**. If outbound connectivity is blocked by Firewalls, make sure that the following URLs are not blocked by default. All connections are outbound from the agent to Azure, and are secured with **SSL**. All traffic can be routed via an **HTTPS** proxy. If you allow the IP ranges or domain names that the servers are allowed to connect to, you must allow port 443 access to the following Service Tags and DNS Names.
+> [!VIDEO https://www.youtube.com/embed/mJnmXBrU1ao]
 
-Service Tags:
+## Supported regions
 
-* AzureActiveDirectory
-* AzureTrafficManager
+For a list of supported regions with Azure Arc-enabled servers, see the [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) page.
 
-For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. See [Service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags), for more details.
+In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. Data at rest is stored within the Azure geography containing the region you specify, which may also affect your choice of region if you have data residency requirements. If the Azure region your machine connects to has an outage, the connected machine isn't affected, but management operations using Azure may be unable to complete. If there's a regional outage, and if you have multiple locations that support a geographically redundant service, it's best to connect the machines in each location to a different Azure region.
 
-These DNS Names are provided in addition to the Service Tag IP range information because the majority of services do not currently have a Service Tag registration and, as such, the IPs are subject to change. If IP ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, but allow them as you would other internet traffic.
+[Instance metadata information about the connected machine](agent-overview.md#instance-metadata) is collected and stored in the region where the Azure Arc machine resource is configured, including the following:
 
-| Domain Environment | Required Azure service endpoints |
-|---------|---------|
-|management.azure.com|Azure Resource Manager|
-|login.windows.net|Azure Active Directory|
-|dc.services.visualstudio.com|Application Insights|
-|agentserviceapi.azure-automation.net|Guest Configuration|
-|*-agentservice-prod-1.azure-automation.net|Guest Configuration|
-|*.his.hybridcompute.azure-automation.net|Hybrid Identity Service|
+* Operating system name and version
+* Computer name
+* Computers fully qualified domain name (FQDN)
+* Connected Machine agent version
 
-### Installation Network Requirements
+For example, if the machine is registered with Azure Arc in the East US region, the metadata is stored in the US region.
 
-Download the [Azure Connected Machine Agent package](https://aka.ms/AzureConnectedMachineAgent) from our official distribution servers the below sites must be accessible from your environment. You may choose to download the package to a file share and have the agent installed from there. In this case, the onboarding script generated from the Azure portal may need to be modified.
+## Supported environments
 
-Windows:
+Azure Arc-enabled servers support the management of physical servers and virtual machines hosted *outside* of Azure. For specific details about supported hybrid cloud environments hosting VMs, see [Connected Machine agent prerequisites](prerequisites.md#supported-environments).
 
-* `aka.ms`
-* `download.microsoft.com`
+> [!NOTE]
+> Azure Arc-enabled servers is not designed or supported to enable management of virtual machines running in Azure.
 
-Linux:
+## Agent status
 
-* `aka.ms`
-* `packages.microsoft.com`
+The status for a connected machine can be viewed in the Azure portal under **Azure Arc > Servers**.
 
-See the section [Proxy server configuration](quickstart-onboard-powershell.md#proxy-server-configuration), for information on how to configure the agent to use your proxy.
+The Connected Machine agent sends a regular heartbeat message to the service every five minutes. If the service stops receiving these heartbeat messages from a machine, that machine is considered offline, and its status will automatically be changed to **Disconnected** within 15 to 30 minutes. Upon receiving a subsequent heartbeat message from the Connected Machine agent, its status will automatically be changed back to **Connected**.
 
-## Register the required Resource Providers
+If a machine remains disconnected for 45 days, its status may change to **Expired**. An expired machine can no longer connect to Azure and requires a server administrator to disconnect and then reconnect it to Azure to continue managing it with Azure Arc. The exact date upon which a machine expires is determined by the expiration date of the managed identity's credential, which is valid up to 90 days and renewed every 45 days.
 
-In order to use Azure Arc for Servers, you must register the required Resource Providers.
+## Service limits
 
-* **Microsoft.HybridCompute**
-* **Microsoft.GuestConfiguration**
+There's no limit to how many Arc-enabled servers and VM extensions you can deploy in a resource group or subscription. The standard 800 resource limit per resource group applies to the Azure Arc Private Link Scope resource type.
 
-You can register the resource providers with the following commands:
+To learn more about resource type limits, see the [Resource instance limit](../../azure-resource-manager/management/resources-without-resource-group-limit.md#microsofthybridcompute) article.
 
-Azure PowerShell:
+## Data residency
 
-```azurepowershell-interactive
-Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
-```
+Azure Arc-enabled servers stores customer data. By default, customer data stays within the region the customer deploys the service instance in. For region with data residency requirements, customer data is always kept within the same region.
 
-Azure CLI:
+## Disaster Recovery
 
-```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
-```
+There are no customer-enabled disaster recovery options for Arc-enabled servers. In the event of an outage in an Azure region, the system will failover to another region in the same [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/) (if one exists). While this failover procedure is automatic, it does take some time. The Connected Machine agent will be disconnected during this period and will show a status of **Disconnected** until the failover is complete. The system will failback to its original region once the outage has been restored.
 
-You can also register the Resource Providers using the portal by following the steps under [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+An outage of Azure Arc won't affect the customer workload itself; only management of the applicable servers via Arc will be impaired.
 
-## Machine changes after installing the agent
+## Next steps
 
-If you have a change tracking solution deployed in your environment, you can use the list below to track, identify, and allow the changes made by the **Azure Connected Machine Agent (AzCMAgent)** installation package.
-
-After you install the agent you see the following changes made to your servers.
-
-### Windows
-
-Services installed:
-
-* `Himds` - The **Azure Connected Machine Agent** service.
-* `Dscservice` or `gcd` - The **Guest Configuration** service.
-
-Files added to the server:
-
-* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` - Location of **Azure Connected Machine Agent** files.
-* `%ProgramData%\GuestConfig\*.*` - **Guest Configuration** logs.
-
-Registry key locations:
-
-* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent` - Registry keys for **Azure Connected Machine Agent**.
-
-### Linux
-
-Services installed:
-
-* `Himdsd` - The **Azure Connected Machine Agent** service.
-* `dscd` or `gcd` - The **Guest Configuration** service.
-
-Files added to the server:
-
-* `/var/opt/azcmagent/**` - Location of **Azure Connected Machine Agent** files.
-* `/var/lib/GuestConfig/**` - **Guest Configuration** logs.
-
-## Supported Scenarios
-
-After you register a node you can start managing your nodes using other Azure services.
-
-In Public Preview, the following scenarios are supported for **Connected Machines**.
-
-## Guest Configuration
-
-After connect the machine to Azure, you can assign Azure policies to **Connected Machines** using the same experience as policy assignment to Azure virtual machines.
-
-For more information, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md).
-
-The Guest Configuration Agent logs for a **Connected Machine** are in the following locations:
-
-* Windows - `%ProgramFiles%\AzureConnectedMachineAgent\logs\dsc.log`
-* Linux: - `/opt/logs/dsc.log`
-
-## Log Analytics
-
-Log data collected by the [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) and stored in Log Analytics workspace will now contain properties specific to the machine such as **ResourceId**, which can be used for the Resource centric log access.
-
-- Machines that already have the MMA agent installed, will have **Azure Arc** functionality enabled via updated Management Packs.
-- [MMA agent version 10.20.18011 or above](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) is required for Azure Arc for servers integration.
-- When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
-
-For more information, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
-
-<!-- MMA agent version 10.20.18011 and later -->
-
-## Next Steps
-
-There are two methods to connect machines using Azure Arc for servers.
-
-* **Interactively** - Follow the [Portal Quickstart](quickstart-onboard-portal.md) to generate a script from the portal and execute it on the machine. This is the best option if you are connecting one machine at a time.
-* **At Scale** - Follow the [PowerShell Quickstart](quickstart-onboard-powershell.md) to create a Service Principal to connect machines non-interactively.
+* Before evaluating or enabling Azure Arc-enabled servers across multiple hybrid machines, review the [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+* Try out Arc-enabled servers by using the [Azure Arc Jumpstart](https://azurearcjumpstart.com/azure_arc_jumpstart/azure_arc_servers).
+* Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
+* Explore the [Azure Arc landing zone accelerator for hybrid and multicloud](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management).

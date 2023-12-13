@@ -1,97 +1,75 @@
 ---
-title: Upgrade an Azure Kubernetes Service (AKS) cluster
-description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster
-services: container-service
-author: mlearned
-
-ms.service: container-service
+title: Upgrade options for Azure Kubernetes Service (AKS) clusters
+description: Learn the different ways to upgrade an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: mlearned
+ms.custom: event-tier1-build-2022
+ms.date: 10/19/2023
 ---
 
-# Upgrade an Azure Kubernetes Service (AKS) cluster
+# Upgrade options for Azure Kubernetes Service (AKS) clusters
 
-As part of the lifecycle of an AKS cluster, you often need to upgrade to the latest Kubernetes version. It is important you apply the latest Kubernetes security releases, or upgrade to get the latest features. This article shows you how to upgrade the master components or a single, default node pool in an AKS cluster.
+This article shares different upgrade options for AKS clusters. To perform a basic Kubernetes version upgrade, see [Upgrade an AKS cluster](./upgrade-aks-cluster.md).
 
-For AKS clusters that use multiple node pools or Windows Server nodes (currently in preview in AKS), see [Upgrade a node pool in AKS][nodepool-upgrade].
+For AKS clusters that use multiple node pools or Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade]. To upgrade a specific node pool without performing a Kubernetes cluster upgrade, see [Upgrade a specific node pool][specific-nodepool].
 
-## Before you begin
+## Perform manual upgrades
 
-This article requires that you are running the Azure CLI version 2.0.65 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+You can perform manual upgrades to control when your cluster upgrades to a new Kubernetes version. Manual upgrades are useful when you want to test a new Kubernetes version before upgrading your production cluster. You can also use manual upgrades to upgrade your cluster to a specific Kubernetes version that isn't the latest available version.
 
-> [!WARNING]
-> An AKS cluster upgrade triggers a cordon and drain of your nodes. If you have a low compute quota available, the upgrade may fail.  See [increase quotas](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) for more information.
-> If you are running your own cluster autoscaler deployment please disable it (you can scale it to zero replicas) during the upgrade as there is a chance it will interfere with the upgrade process. Managed autoscaler automatically handles this. 
+To perform manual upgrades, see the following articles:
 
-## Check for available AKS cluster upgrades
+* [Upgrade an AKS cluster](./upgrade-aks-cluster.md)
+* [Upgrade the node image](./node-image-upgrade.md)
+* [Customize node surge upgrade](./upgrade-aks-cluster.md#customize-node-surge-upgrade)
+* [Process node OS updates](./node-updates-kured.md)
 
-To check which Kubernetes releases are available for your cluster, use the [az aks get-upgrades][az-aks-get-upgrades] command. The following example checks for available upgrades to the cluster named *myAKSCluster* in the resource group named *myResourceGroup*:
+## Configure automatic upgrades
 
-```azurecli-interactive
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
-```
+You can configure automatic upgrades to automatically upgrade your cluster to the latest available Kubernetes version. Automatic upgrades are useful when you want to ensure your cluster is always running the latest Kubernetes version. You can also use automatic upgrades to ensure your cluster is always running a supported Kubernetes version.
 
-> [!NOTE]
-> When you upgrade an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between *1.12.x* -> *1.13.x* or *1.13.x* -> *1.14.x* are allowed, however *1.12.x* -> *1.14.x* is not.
->
-> To upgrade, from *1.12.x* -> *1.14.x*, first upgrade from *1.12.x* -> *1.13.x*, then upgrade from *1.13.x* -> *1.14.x*.
+To configure automatic upgrades, see the following articles:
 
-The following example output shows that the cluster can be upgraded to versions *1.13.9* and *1.13.10*:
+* [Automatically upgrade an AKS cluster](./auto-upgrade-cluster.md)
+* [Use Planned Maintenance to schedule and control upgrades for your AKS cluster](./planned-maintenance.md)
+* [Stop AKS cluster upgrades automatically on API breaking changes (Preview)](./stop-cluster-upgrade-api-breaking-changes.md)
+* [Automatically upgrade AKS cluster node operating system images](./auto-upgrade-node-image.md)
+* [Apply security updates to AKS nodes automatically using GitHub Actions](./node-upgrade-github-actions.md)
 
-```console
-Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
--------  ----------------  ---------------  -----------------  ---------------
-default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
-```
-If no upgrade is available, you will get:
-```console
-ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
-```
+## Special considerations for node pools that span multiple availability zones
 
-## Upgrade an AKS cluster
+AKS uses best-effort zone balancing in node groups. During an upgrade surge, the zones for the surge nodes in Virtual Machine Scale Sets are unknown ahead of time, which can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes surge nodes once the upgrade completes and preserves the original zone balance. If you want to keep your zones balanced during upgrades, you can increase the surge to a multiple of *three nodes*, and Virtual Machine Scale Sets balances your nodes across availability zones with best-effort zone balancing.
 
-With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] one of the old nodes to minimize disruption to running applications. When the new node is confirmed as running application pods, the old node is deleted. This process repeats until all nodes in the cluster have been upgraded.
+Persistent volume claims (PVCs) backed by Azure locally redundant storage (LRS) Disks are bound to a particular zone and might fail to recover immediately if the surge node doesn't match the zone of the PVC. If the zones don't match, it can cause downtime on your application when the upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application to allow Kubernetes to respect your availability requirements during the drain operation.
 
-The following example upgrades a cluster to version *1.13.10*:
+## Optimize upgrades to improve performance and minimize disruptions
 
-```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
-```
+The combination of [Planned Maintenance Window][planned-maintenance], [Max Surge](./upgrade-aks-cluster.md#customize-node-surge-upgrade), [Pod Disruption Budget][pdb-spec], [node drain timeout][drain-timeout], and [node soak time][soak-time] (preview) can significantly increase the likelihood of node upgrades completing successfully by the end of the maintenance window while also minimizing disruptions.
 
-It takes a few minutes to upgrade the cluster, depending on how many nodes you have. 
+* [Planned Maintenance Window][planned-maintenance] enables service teams to schedule auto-upgrade during a pre-defined window, typically a low-traffic period, to minimize workload impact. We recommend a window duration of at least *four hours*.
+* [Max Surge](./upgrade-aks-cluster.md#customize-node-surge-upgrade) on the node pool allows requesting extra quota during the upgrade process and limits the number of nodes selected for upgrade simultaneously. A higher max surge results in a faster upgrade process. We don't recommend setting it at 100%, as it upgrades all nodes simultaneously, which can cause disruptions to running applications. We recommend a max surge quota of *33%* for production node pools.
+* [Pod Disruption Budget][pdb-spec] is set for service applications and limits the number of pods that can be down during voluntary disruptions, such as AKS-controlled node upgrades. It can be configured as `minAvailable` replicas, indicating the minimum number of application pods that need to be active, or `maxUnavailable` replicas, indicating the maximum number of application pods that can be terminated, ensuring high availability for the application. Refer to the guidance provided for configuring [Pod Disruption Budgets (PDBs)][pdb-concepts]. PDB values should be validated to determine the settings that work best for your specific service.
+* [Node drain timeout][drain-timeout] on the node pool allows you to configure the wait duration for eviction of pods and graceful termination per node during an upgrade. This option is useful when dealing with long running workloads. When the node drain timeout is specified (in minutes), AKS respects waiting on pod disruption budgets. If not specified, the default timeout is 30 minutes.
+* [Node soak time][soak-time] (preview) helps stagger node upgrades in a controlled manner and can minimize application downtime during an upgrade. You can specify a wait time, preferably as reasonably close to 0 minutes as possible, to check application readiness between node upgrades. If not specified, the default value is 0 minutes. Node soak time works together with the max surge and node drain timeout properties available in the node pool to deliver the right outcomes in terms of upgrade speed and application availability.
 
-> [!NOTE]
-> There is a total allowed time for a cluster upgrade to complete. This time is calculated by taking the product of `10 minutes * total number of nodes in the cluster`. For example in a 20 node cluster, upgrade operations must succeed in 200 minutes or AKS will fail the operation to avoid an unrecoverable cluster state. To recover on upgrade failure,  retry the upgrade operation after the timeout has been hit.
+    > [!NOTE] 
+    > To use node soak duration (preview), you must have the aks-preview Azure CLI extension version 0.5.173 or later installed.
 
-To confirm that the upgrade was successful, use the [az aks show][az-aks-show] command:
-
-```azurecli-interactive
-az aks show --resource-group myResourceGroup --name myAKSCluster --output table
-```
-
-The following example output shows that the cluster now runs *1.13.10*:
-
-```json
-Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
-------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
-```
 
 ## Next steps
 
-This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the set of tutorials.
+This article listed different upgrade options for AKS clusters. To learn more about deploying and managing AKS clusters, see the following tutorial:
 
 > [!div class="nextstepaction"]
 > [AKS tutorials][aks-tutorial-prepare-app]
 
 <!-- LINKS - external -->
-[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+[pdb-spec]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+[pdb-concepts]:https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[drain-timeout]: ./upgrade-aks-cluster.md#set-node-drain-timeout-value
+[soak-time]: ./upgrade-aks-cluster.md#set-node-soak-time-value-preview
+[nodepool-upgrade]: manage-node-pools.md#upgrade-a-single-node-pool
+[planned-maintenance]: planned-maintenance.md
+[specific-nodepool]: node-image-upgrade.md#upgrade-a-specific-node-pool

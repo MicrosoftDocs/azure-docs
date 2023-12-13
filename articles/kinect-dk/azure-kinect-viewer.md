@@ -3,7 +3,7 @@ title: Azure Kinect Viewer
 description: Understand how to visualize all device data streams using the Azure Kinect viewer.
 author: tesych
 ms.author: tesych
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sensor, viewer, visualization, depth, rgb, color, imu, audio, microphone, point cloud
@@ -31,7 +31,7 @@ The viewer can operate in two modes: with live data from the sensor or from reco
 
 Launch the application by running `k4aviewer.exe`.
 
-![Checking device firmware version using viewer](./media/how-to-guides/open-viewer.png)
+![Screenshot that shows the launched viewer application.](./media/how-to-guides/open-viewer.png)
 
 ### Use the viewer with live data
 

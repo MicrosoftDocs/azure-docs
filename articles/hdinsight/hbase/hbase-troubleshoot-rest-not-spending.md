@@ -3,10 +3,7 @@ title: Apache HBase REST not responding to requests in Azure HDInsight
 description: Resolve issue with Apache HBase REST not responding to requests in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
-ms.date: 08/01/2019
+ms.date: 11/21/2023
 ---
 
 # Scenario: Apache HBase REST not responding to requests in Azure HDInsight
@@ -31,10 +28,8 @@ System.Net.Sockets.SocketException : A connection attempt failed because the con
 Restart HBase REST using the below command after SSHing to the host. You can also use script actions to restart this service on all worker nodes:
 
 ```bash
-sudo service hdinsight-hbrest restart
+sudo /usr/hdp/current/hbase-master/bin/hbase-daemon.sh restart rest
 ```
-
-This command will stop HBase Region Server on the same host. You can either manually start HBase Region Server through Ambari, or let Ambari auto restart functionality recover HBase Region Server automatically.
 
 If the issue still persists, you can install the following mitigation script as a CRON job that runs every 5 minutes on every worker node. This mitigation script pings the REST service and restarts it in case the REST service does not respond.
 
@@ -50,10 +45,4 @@ fi
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

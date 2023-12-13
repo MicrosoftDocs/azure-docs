@@ -1,26 +1,20 @@
 ---
 title: Tutorial - Customize a Linux VM with cloud-init in Azure 
 description: In this tutorial, you learn how to use cloud-init and Key Vault to customize Linux VMs the first time they boot in Azure 
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 09/12/2019
+ms.date: 04/06/2023
 ms.author: cynthn
-ms.custom: mvc
-
+ms.reviewer: mattmcinnes
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator or developer, I want learn about cloud-init so that I customize and configure Linux VMs in Azure on first boot to minimize the number of post-deployment configuration tasks required.
 ---
 
 # Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boot
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 In a previous tutorial, you learned how to SSH to a virtual machine (VM) and manually install NGINX. To create VMs in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). In this tutorial you learn how to:
 
@@ -38,17 +32,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
-We are working with our partners to get cloud-init included and working in the images that they provide to Azure. The following table outlines the current cloud-init availability on Azure platform images:
-
-| Publisher | Offer | SKU | Version | cloud-init ready |
-|:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |latest |yes | 
-|Canonical |UbuntuServer |16.04-LTS |latest |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
-|CoreOS |CoreOS |Stable |latest |yes |
-|OpenLogic 7.6 |CentOS |7-CI |latest |preview |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |yes |
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
+We are working with our partners to get cloud-init included and working in the images that they provide to Azure. For detailed information cloud-init support for each distribution, see [Cloud-init support for VMs in Azure](using-cloud-init.md).
 
 
 ## Create cloud-init config file
@@ -56,7 +40,7 @@ To see cloud-init in action, create a VM that installs NGINX and runs a simple '
 
 At your bash prompt or in the Cloud Shell, create a file named *cloud-init.txt* and paste the following configuration. For example, type `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
-```azurecli-interactive
+```yaml
 #cloud-config
 package_upgrade: true
 packages:
@@ -113,7 +97,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--cust
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myAutomatedVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
@@ -146,7 +130,7 @@ The following steps show how you can:
 - Create a VM and inject the certificate
 
 ### Create an Azure Key Vault
-First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace *mykeyvault* in the following example with your own unique Key Vault name:
+First, create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create) and enable it for use when you deploy a VM. Each Key Vault requires a unique name, and should be all lower case. Replace `mykeyvault` in the following example with your own unique Key Vault name:
 
 ```azurecli-interactive
 keyvault_name=mykeyvault
@@ -168,7 +152,7 @@ az keyvault certificate create \
 
 
 ### Prepare certificate for use with VM
-To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm). The following example assigns the output of these commands to variables for ease of use in the next steps:
+To use the certificate during the VM create process, obtain the ID of your certificate with [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with [az vm secret format](/cli/azure/vm/secret#az-vm-secret-format). The following example assigns the output of these commands to variables for ease of use in the next steps:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \
@@ -240,7 +224,7 @@ Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The certificate
 az vm create \
     --resource-group myResourceGroupAutomate \
     --name myVMWithCerts \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init-secured.txt \

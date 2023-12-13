@@ -1,11 +1,12 @@
 ---
 title: Diagnose common code package errors by using Service Fabric 
 description: Learn how to troubleshoot common code package errors with Azure Service Fabric
-author: grzuber
-
-ms.topic: article
-ms.date: 05/09/2019
-ms.author: grzuber
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Diagnose common code package errors by using Service Fabric
@@ -53,6 +54,6 @@ Exit code | Hexadecimal value | Short description | Root cause | Potential fix
 ## Next steps
 
 * Learn more about [diagnosing other common scenarios](service-fabric-diagnostics-common-scenarios.md).
-* Get a more detailed overview of Azure Monitor logs and what they offer by reading [Azure Monitor overview](../operations-management-suite/operations-management-suite-overview.md).
-* Learn more about Azure Monitor logs [alerting](../log-analytics/log-analytics-alerts.md) for aid in detection and diagnostics.
-* Get familiar with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs.
+* Get a more detailed overview of Azure Monitor logs and what they offer by reading [Azure Monitor overview](../azure-monitor/overview.md).
+* Learn more about Azure Monitor logs [alerting](../azure-monitor/alerts/alerts-overview.md) for aid in detection and diagnostics.
+* Get familiar with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs.

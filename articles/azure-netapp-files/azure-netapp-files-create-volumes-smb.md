@@ -1,9 +1,9 @@
 ---
 title: Create an SMB volume for Azure NetApp Files | Microsoft Docs
-description: Describes how to create an SMB volume for Azure NetApp Files.
+description: This article shows you how to create an SMB3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -11,119 +11,58 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/10/2020
-ms.author: b-juche
+ms.topic: how-to
+ms.date: 05/31/2023
+ms.author: anfdocs
 ---
 # Create an SMB volume for Azure NetApp Files
 
-Azure NetApp Files supports NFS and SMBv3 volumes. A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an SMBv3 volume. If you want to create an NFS volume, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md). 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
+
+This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
 ## Before you begin 
-You must have already set up a capacity pool.   
-[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)   
-A subnet must be delegated to Azure NetApp Files.  
-[Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## Requirements for Active Directory connections
+* You must have already set up a capacity pool. See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).     
+* A subnet must be delegated to Azure NetApp Files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+* The [non-browsable shares](#non-browsable-share) and [access-based enumeration](#access-based-enumeration) features are currently in preview. You must register each feature before you can use it:
 
- You need to create Active Directory connections before creating an SMB volume. The requirements for Active Directory connections are as follows: 
+1. Register the feature: 
 
-* The admin account you use must be able to create machine accounts in the organizational unit (OU) path that you will specify.  
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration
+    ```
 
-* Proper ports must be open on the applicable Windows Active Directory (AD) server.  
-    The required ports are as follows: 
+2. Check the status of the feature registration: 
 
-    |     Service           |     Port     |     Protocol     |
-    |-----------------------|--------------|------------------|
-    |    AD Web Services    |    9389      |    TCP           |
-    |    DNS                |    53        |    TCP           |
-    |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    N/A       |    Echo Reply    |
-    |    Kerberos           |    464       |    TCP           |
-    |    Kerberos           |    464       |    UDP           |
-    |    Kerberos           |    88        |    TCP           |
-    |    Kerberos           |    88        |    UDP           |
-    |    LDAP               |    389       |    TCP           |
-    |    LDAP               |    389       |    UDP           |
-    |    LDAP               |    3268      |    TCP           |
-    |    NetBIOS name       |    138       |    UDP           |
-    |    SAM/LSA            |    445       |    TCP           |
-    |    SAM/LSA            |    445       |    UDP           |
-    |    w32time            |    123       |    UDP           |
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
 
-* The site topology for the targeted Active Directory Domain Services must adhere to best practices, in particular the Azure VNet where Azure NetApp Files is deployed.  
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSmbNonBrowsable
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBAccessBasedEnumeration   
+    ```
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
-    The address space for the virtual network where Azure NetApp Files is deployed must be added to a new or existing Active Directory site (where a domain controller reachable by Azure NetApp Files resides). 
+## Configure Active Directory connections 
 
-* The specified DNS servers must be reachable from the [delegated subnet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) of Azure NetApp Files.  
-
-    See [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) for supported network topologies.
-
-    The Network Security Groups (NSGs) and firewalls must have appropriately configured rules to allow for Active Directory and DNS traffic requests. 
-
-* The Azure NetApp Files delegated subnet must be able to reach all Active Directory Domain Services (ADDS) domain controllers in the domain, including all local and remote domain controllers. Otherwise, service interruption can occur.  
-
-    If you have domain controllers that are unreachable via the Azure NetApp Files delegated subnet, you can submit an Azure support request to alter the scope from **global** (default) to **site**.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space resides.
-
-    See [Designing the site topology](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
-
-## Create an Active Directory connection
-
-1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
-
-    ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
-
-2. In the Join Active Directory window, provide the following information:
-
-    * **Primary DNS**  
-        This is the DNS that is required for the Active Directory domain join and SMB authentication operations. 
-    * **Secondary DNS**   
-        This is the secondary DNS server for ensuring redundant name services. 
-    * **Domain**  
-        This is the domain name of your Active Directory Domain Services that you want to join.
-    * **SMB server (computer account) prefix**  
-        This is the naming prefix for the machine account in Active Directory that Azure NetApp Files will use for creation of new accounts.
-
-        For example, if the naming standard that your organization uses for file servers is NAS-01, NAS-02..., NAS-045, then you would enter “NAS” for the prefix. 
-
-        The service will create additional machine accounts in Active Directory as needed.
-
-    * **Organizational unit path**  
-        This is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. 
-
-        If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
-        
-    * Credentials, including your **username** and **password**
-
-    ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
-
-3. Click **Join**.  
-
-    The Active Directory connection you created appears.
-
-    ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
-
-> [!NOTE] 
-> You can edit the username and password fields after saving the Active Directory connection. No other values can be edited after saving the connection. If you need to change any other values, you must first delete any deployed SMB volumes, then delete and re-create the Active Directory connection.
+Before creating an SMB volume, you need to create an Active Directory connection. If you haven't configured Active Directory connections for Azure NetApp files, follow instructions described in [Create and manage Active Directory connections](create-active-directory-connections.md).
 
 ## Add an SMB volume
 
-1. Click the **Volumes** blade from the Capacity Pools blade. 
+1. Select the **Volumes** blade from the Capacity Pools blade. 
 
     ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
-2. Click **+ Add volume** to create a volume.  
+2. Select **+ Add volume** to create a volume.  
     The Create a Volume window appears.
 
-3. In the Create a Volume window, click **Create** and provide information for the following fields:   
+3. In the Create a Volume window, select **Create** and provide information for the following fields under the Basics tab:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
-
-        You cannot use `default` as the volume name.
+        Refer to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetapp) for naming conventions on volumes. Additionally, you cannot use `default` or `bin` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -132,6 +71,18 @@ A subnet must be delegated to Azure NetApp Files.
         Specify the amount of logical storage that is allocated to the volume.  
 
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
+
+    * **Large Volume**
+        If the quota of your volume is less than 100 TiB, select **No**. If the quota of your volume is greater than 100 TiB, select **Yes**.  
+        [!INCLUDE [Large volumes warning](includes/large-volumes-notice.md)]
+
+    * **Throughput (MiB/S)**   
+        If the volume is created in a manual QoS capacity pool, specify the throughput you want for the volume.   
+
+        If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
+
+    * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
+        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
@@ -142,29 +93,99 @@ A subnet must be delegated to Azure NetApp Files.
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
- 
-        ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        If you haven't delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. Click **Protocol** and complete the following information:  
-    * Select **SMB** as the protocol type for the volume. 
-    * Select your **Active Directory** connection from the drop-down list.
-    * Specify the name of the shared volume in  **Share name**.
+    * **Network features**  
+        In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
-    ![Specify SMB protocol](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+    * **Encryption key source** 
+        You can select `Microsoft Managed Key` or `Customer Managed Key`.  See [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) and [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) about using this field. 
 
-5. Click **Review + Create** to review the volume details.  Then click **Create** to create the SMB volume.
+    * **Availability zone**   
+        This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+
+    * If you want to apply an existing snapshot policy to the volume, select **Show advanced section** to expand it, specify whether you want to hide the snapshot path, and select a snapshot policy in the pull-down menu. 
+
+        For information about creating a snapshot policy, see [Manage snapshot policies](snapshots-manage-policy.md).
+
+        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+
+4. Select **Protocol** and complete the following information:  
+    * Select **SMB** as the protocol type for the volume.  
+
+    * Select your **Active Directory** connection from the drop-down list.  
+    
+    * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
+        - It must be unique within each subnet in the region. 
+        - It must start with an alphabetical character.
+        - It can contain only letters, numbers, or dashes (`-`). 
+        - The length must not exceed 80 characters.   
+
+    * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
+
+        This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.   
+        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information.
+
+    * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
+
+        This feature will hide directories and files created under a share from users who do not have access permissions to the files or folders under the share. Users will still be able to view the share.
+
+    * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
+
+        This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
+
+    > [!IMPORTANT]
+    > Both the access-based enumeration and non-browsable shares features are currently in preview. If this is your first time using either, refer to the steps in [Before you begin](#before-you-begin) to register either feature.
+
+    * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
+      
+        [!INCLUDE [SMB Continuous Availability warning](includes/smb-continuous-availability.md)]
+
+        **Custom applications are not supported with SMB Continuous Availability.**
+
+    :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="../media/azure-netapp-files/azure-netapp-files-protocol-smb.png":::
+
+5. Select **Review + Create** to review the volume details. Then select **Create** to create the SMB volume.
 
     The volume you created appears in the Volumes page. 
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
 
+## Control access to an SMB volume  
+
+Access to an SMB volume is managed through permissions. 
+
+### NTFS file and folder permissions  
+
+You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
+ 
+![Set file and folder permissions](../media/azure-netapp-files/set-file-folder-permissions.png) 
+
+### Modify SMB share permissions
+
+You can modify SMB share permissions using Microsoft Management Console (MMC).
+
+>[!IMPORTANT]
+>Modifying SMB share permissions poses a risk. If the users or groups assigned to the share properties are removed from the Active Directory, or if the permissions for the share become unusable, then the entire share will become inaccessible.
+
+1. To open Computer Management MMC on any Windows server, in the Control Panel, select **Administrative Tools > Computer Management**.
+1. Select **Action > Connect to another computer**.
+1. In the **Select Computer** dialog box, enter the name of the Azure NetApp Files FQDN or IP address or select **Browse** to locate the storage system.
+1. Select **OK** to connect the MMC to the remote server.
+1. When the MMC connects to the remote server, in the navigation pane, select **Shared Folders > Shares**.
+1. In the display pane that lists the shares, double-click a share to display its properties. In the **Properties** dialog box, modify the properties as needed.
+
 ## Next steps  
 
-* [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md)
+* [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md)
+* [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
-* [Learn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-* [Install a new Active Directory forest using Azure CLI](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
+* [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
+* [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
+* [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
+* [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
+* [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
+* [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

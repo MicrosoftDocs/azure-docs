@@ -1,16 +1,20 @@
 ---
 title: Unit testing stateful services in Azure Service Fabric 
 description: Learn about the concepts and practices of unit testing Service Fabric Stateful Services.
-
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Unit testing stateful services in Service Fabric
 
 This article covers the concepts and practices of unit testing Service Fabric Stateful Services. Unit testing within Service Fabric deserves its own considerations due to the fact that the application code actively runs under multiple different contexts. This article describes the practices used to ensure application code is covered under each of the different contexts it can run.
 
 ## Unit testing and mocking
-Unit testing in the context of this article is automated testing that can be executed within the context of a test runner such as MSTest or NUnit. The unit tests within this article do not perform operations against a remote resource such as a database or RESTFul API. These remote resources should be mocked. Mocking in the context of this article will fake, record, and control the return values for remote resources.
+Unit testing in the context of this article is automated testing that can be executed within the context of a test runner such as MSTest or NUnit. The unit tests within this article do not perform operations against a remote resource such as a database or RESTful. These remote resources should be mocked. Mocking in the context of this article will fake, record, and control the return values for remote resources.
 
 ### Service Fabric considerations
 Unit testing a Service Fabric stateful service has several considerations. Firstly, the service code executes on multiple nodes but under different roles. Unit tests should evaluate the code under each role to achieve complete coverage. The different roles would be Primary, Active Secondary, Idle Secondary, and Unknown. The None role does not typically need any special coverage as Service Fabric considers this role to be void or null service. Secondly, each node will change its role at any given point. To achieve complete coverage, code execution path's should be tested with role changes occurring.
@@ -60,7 +64,7 @@ Unit tests should execute as much of the application code that can modify the st
 	When a request is made to add the an employee "John Smith"
     And the active secondary replica "222" is promoted to primary
     And a request is made to get all employees
-	Then the request should should return the "John Smith" employee
+	Then the request should return the "John Smith" employee
 ```
 
 This test asserts that the data being captured on one replica is available to a secondary replica when it is promoted to primary. Assuming that a reliable collection is the backing store for the employee data, Aa potential failure that could be caught with this test is if the application code did not execute `CommitAsync` on the transaction to save the new employee. In that case, the second request to get employees would not return employee added by the first request.

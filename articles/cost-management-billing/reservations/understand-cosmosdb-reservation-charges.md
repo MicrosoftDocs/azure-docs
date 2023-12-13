@@ -1,16 +1,14 @@
 ---
-title: Understand how the reservation discount is applied to Azure Cosmos DB | Microsoft Docs
+title: Understand reservation discount in Azure Cosmos DB
 description: Learn how reservation discount is applied to provisioned throughput (RU/s) in Azure Cosmos DB.
-services: cosmos-db
 author: bandersmsft
-manager: kfile
-ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 09/30/2019
 ms.author: banders
 ms.reviewer: sngun
+ms.service: cosmos-db
+ms.custom: ignite-2022
+ms.topic: conceptual
+ms.date: 11/17/2023
 ---
-
 # Understand how the reservation discount is applied to Azure Cosmos DB
 
 After you buy an Azure Cosmos DB reserved capacity, the reservation discount is automatically applied to Azure Cosmos DB resources that match the attributes and quantity of the reservation. A reservation covers the throughput provisioned for Azure Cosmos DB resources. It doesn’t cover software, networking, storage, or predefined container charges.
@@ -21,9 +19,11 @@ A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching 
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
+Stopped resources are billed and continue to use reservation hours. Deallocate or delete resources or scale-in other resources to use your available reservation hours with other workloads. 
+
 ## Reservation discount applied to Azure Cosmos DB accounts
 
-A reservation discount is applied to [provisioned throughput](../../cosmos-db/request-units.md) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
+A reservation discount is applied to [provisioned throughput](../../cosmos-db/request-units.md) in terms of request units per second (RU/s) on an hour-by-hour basis. For Azure Cosmos DB resources that don't run the full hour, the reservation discount is automatically applied to other Azure Cosmos DB resources that match the reservation attributes. The discount can apply to Azure Cosmos DB resources that are running concurrently. If you don't have Azure Cosmos DB resources that run for the full hour and that match the reservation attributes, you don't get the full benefit of the reservation discount for that hour.
 
 The discounts are tiered. Reservations with higher request units provide higher discounts.
 
@@ -96,9 +96,15 @@ For example, assume that you need Azure Cosmos DB deployments in the AU Central 
 |Azure Cosmos DB - 100 RU/s/Hour - AU Central 2  |  AU Central 2   |  50,000  |  50,000   |
 |Azure Cosmos DB - 100 RU/s/Hour - FR South  |  FR South   |  50,000 |  15,384  |
 
-A usage of 50,000 units in the AU Central 2 region corresponds to 75,000 RU/s of billable usage (or normalized usage). This value is computed as: throughput consumption * reservation_discount_ratio_for_that_region. The computation equals 75,000 RU/s of billable or normalized usage. This value is computed as: 50,000 * 1.5 = 75,000 RU/s.
+*  A usage of 50,000 units in the AU Central 2 region corresponds to 75,000 RU/s of billable reservation usage (or normalized usage). This value is computed as: throughput consumption * reservation_discount_ratio_for_that_region. The computation equals 75,000 RU/s of billable or normalized usage. This value is computed as: 50,000 * 1.5 = 75,000 RU/s.
 
-The 100,000 RU/s of reservation purchase would offset the 75,000 RU/s in AU Central 2. It leaves 25,000 RU/s to the FR South region. From the remaining 25,000 RU/s, a reservation discount of 15,384 RU/s is applied to the FR South region. The discount value is computed as: 25,000 / 1.625 = 15,384 RU/s. The remaining 34,616 RU/s in the FR South region are charged at the normal pay-as-you-go rates.
+* A usage of 50,000 units in the FR South region corresponds to  50,000 * 1.625 = 81,250 RU/s reservation is needed.
+
+* Total reservation purchase is 100,000. Because AU central2 region uses 75,000 RU/s which leaves 25,000 RU/s for the other region.
+
+* For FR south region 25,000 RU/s reservation purchase is used and it leaves 56,250 reservation RU/s (81,250 – 25,000 = 56,250 Ru/s).
+
+* 56,250 RU/s are required when using reservation. To pay for these RU/s with regular pricing, you need to convert it into regular RU/s by dividing with the reservation ratio 56,250 / 1.625 = 34,616 RU/s. Regular RU/s are charged at the normal pay-as-you-go rates.
 
 The Azure billing system will assign the reservation billing benefit to the first instance that is processed and that matches the reservation configuration. For example, it's AU Central 2 in this case.
 
@@ -114,8 +120,8 @@ To learn more about Azure reservations, see the following articles:
 
 * [What are reservations for Azure](save-compute-costs-reservations.md)  
 * [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)  
+* [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)  
 * [Manage reservations for Azure](manage-reserved-vm-instance.md)  
 * [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)  
 * [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-* [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)

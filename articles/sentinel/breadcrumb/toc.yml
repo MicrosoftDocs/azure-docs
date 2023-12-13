@@ -1,0 +1,23 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Security
+    tocHref: /azure/security/
+    topicHref: /azure/security/index
+    items:
+    - name: Microsoft Sentinel
+      tocHref: /security/zero-trust/
+      topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /security/benchmark/
+      topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /azure/data-explorer/
+      topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /azure/data-explorer/kusto/
+      topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /azure/defender-for-iot/organizations/
+      topicHref: /azure/sentinel/index

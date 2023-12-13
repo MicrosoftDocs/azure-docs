@@ -2,7 +2,9 @@
 title: View repositories in portal
 description: Use the Azure portal to view Azure Container Registry repositories, which host Docker container images and other supported artifacts.
 ms.topic: article
-ms.date: 01/05/2018
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # View container registry repositories in the Azure portal
@@ -29,10 +31,10 @@ docker push myregistry.azurecr.io/samples/nginx
 
 To view a repository:
 
-1. Sign in to the [Azure portal][portal]
-1. Select the **Azure Container Registry** to which you pushed the Nginx image
-1. Select **Repositories** to see a list of the repositories that contain the images in the registry
-1. Select a repository to see the image tags within that repository
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Azure Container Registry** to which you pushed the Nginx image.
+1. Select **Repositories** to see a list of the repositories that contain the images in the registry.
+1. Select a repository to see the image tags within that repository.
 
 For example, if you pushed the Nginx image as instructed in [Push and pull an image](container-registry-get-started-docker-cli.md), you should see something similar to:
 
@@ -45,4 +47,3 @@ Now that you know the basics of viewing and working with repositories in the por
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
-[portal]: https://portal.azure.com

@@ -1,14 +1,15 @@
 ---
-title: Move an Azure Storage account to another region | Microsoft Docs
+title: Move an Azure Storage account to another region
 description: Shows you how to move an Azure Storage account to another region.
 services: storage
-author: normesta
-ms.service: storage
-ms.subservice: common
-ms.topic: article
-ms.date: 09/27/2019
-ms.author: normesta 
-ms.reviewer: dineshm
+author: akashdubey-ms
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
+ms.topic: how-to
+ms.date: 06/15/2022
+ms.author: akashdubey
+ms.reviewer: dineshm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move an Azure Storage account to another region
@@ -18,29 +19,29 @@ To move a storage account, create a copy of your storage account in another regi
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> 
-> * Export a template.
-> * Modify the template by adding the target region and storage account name.
-> * Deploy the template to create the new storage account.
-> * Configure the new storage account.
-> * Move data to the new storage account.
-> * Delete the resources in the source region.
+>
+> - Export a template.
+> - Modify the template by adding the target region and storage account name.
+> - Deploy the template to create the new storage account.
+> - Configure the new storage account.
+> - Move data to the new storage account.
+> - Delete the resources in the source region.
 
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
 
-- For preview features, ensure that your subscription is whitelisted for the target region.
+- For preview features, ensure that your subscription is allowlisted for the target region.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## Prepare
 
-To get started, export, and then modify a Resource Manager template. 
+To get started, export, and then modify a Resource Manager template.
 
 ### Export a template
 
-This template contains settings that describe your storage account. 
+This template contains settings that describe your storage account.
 
 # [Portal](#tab/azure-portal)
 
@@ -50,7 +51,7 @@ To export a template by using Azure portal:
 
 2. Select **All resources** and then select your storage account.
 
-3. Select > **Settings** > **Export template**.
+3. Select > **Automation** > **Export template**.
 
 4. Choose **Download** in the **Export template** blade.
 
@@ -62,11 +63,12 @@ To export a template by using Azure portal:
 
 To export a template by using PowerShell:
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
 
    ```azurepowershell-interactive
    Connect-AzAccount
    ```
+
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to move.
 
    ```azurepowershell-interactive
@@ -88,7 +90,7 @@ To export a template by using PowerShell:
 
 ---
 
-### Modify the template 
+### Modify the template
 
 Modify the template by changing the storage account name and region.
 
@@ -111,7 +113,7 @@ To deploy the template by using Azure portal:
 6. Select **Load file**, and then follow the instructions to load the **template.json** file that you downloaded in the last section.
 
 7. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
-    
+
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -121,7 +123,7 @@ To deploy the template by using Azure portal:
             "type": "String"
         }
     },
- 
+
 8. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `centralus`.
 
     ```json
@@ -132,6 +134,7 @@ To deploy the template by using Azure portal:
          "location": "centralus"
          }]          
     ```
+
     To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
 # [PowerShell](#tab/azure-powershell)
@@ -139,7 +142,7 @@ To deploy the template by using Azure portal:
 To deploy the template by using PowerShell:
 
 1. In the **template.json** file, name the target storage account by setting the default value of the storage account name. This example sets the default value of the storage account name to `mytargetaccount`.
-    
+
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -149,7 +152,7 @@ To deploy the template by using PowerShell:
             "type": "String"
         }
     },
-    ``` 
+    ```
 
 2. Edit the **location** property in the **template.json** file to the target region. This example sets the target region to `eastus`.
 
@@ -162,18 +165,19 @@ To deploy the template by using PowerShell:
          }]          
     ```
 
-    You can obtain region codes by running the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) command.
+    You can obtain region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
     ```
+
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## Move
 
-Deploy the template to create a new storage account in the target region. 
+Deploy the template to create a new storage account in the target region.
 
 # [Portal](#tab/azure-portal)
 
@@ -181,17 +185,17 @@ Deploy the template to create a new storage account in the target region.
 
 2. Enter or select the property values:
 
-- **Subscription**: Select an Azure subscription.
+   - **Subscription**: Select an Azure subscription.
 
-- **Resource group**: Select **Create new** and give the resource group a name.
+   - **Resource group**: Select **Create new** and give the resource group a name.
 
-- **Location**: Select an Azure location.
+   - **Location**: Select an Azure location.
 
 3. Click the **I agree to the terms and conditions stated above** checkbox, and then click the **Select Purchase** button.
 
 # [PowerShell](#tab/azure-powershell)
 
-1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -206,11 +210,15 @@ Deploy the template to create a new storage account in the target region.
    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "<name of your local template file>"  
    ```
+
 ---
+
+> [!TIP]
+> If you receive an error which states that the XML specified is not syntactically valid, compare the JSON in your template with the schemas described in the [Azure Resource Manager documentation](/azure/templates/microsoft.storage/allversions).
 
 ### Configure the new storage account
 
-Some features won't export to a template, so you'll have to add them to the new storage account. 
+Some features won't export to a template, so you'll have to add them to the new storage account.
 
 The following table lists these features along with guidance for adding them to your new storage account.
 
@@ -219,37 +227,22 @@ The following table lists these features along with guidance for adding them to 
 | **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../blobs/storage-lifecycle-management-concepts.md) |
 | **Static websites** | [Host a static website in Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
 | **Event subscriptions** | [Reacting to Blob storage events](../blobs/storage-blob-event-overview.md) |
-| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md) |
 | **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
-> [!NOTE] 
-> If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account. 
+> [!NOTE]
+> If you set up a CDN for the source storage account, just change the origin of your existing CDN to the primary blob service endpoint (or the primary static website endpoint) of your new account.
 
 ### Move data to the new storage account
 
-Here's some ways to move your data over.
+AzCopy is the preferred tool to move your data over. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script. See [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=/azure/storage/blobs/toc.json).
 
-:heavy_check_mark: **Azure Storage Explorer**
+You can also use Azure Data Factory to move your data over. It provides an intuitive user interface. To use Azure Data Factory, see any of these links:.
 
-  It's easy-to-use, and suitable for small data sets. You can copy containers and file shares, and then paste them into the target account.
-
-  See [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
-
-:heavy_check_mark: **AzCopy**
-
-  This is the preferred approach. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script.
-
-  See [Get started with AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-:heavy_check_mark: **Azure Data Factory** 
-
-  Use this tool only if you need functionality that isn't supported in the current release of AzCopy. For example, in the current release of AzCopy, you can't copy blobs between accounts that have a hierarchical namespace. Also AzCopy doesn't preserve file access control lists or file timestamps (For example: create and modified time stamps). 
-
-  See these links:
-  - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Copy data to and from Azure Table storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Copy data to or from Azure Blob storage by using Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copy data from or to Azure Files by using Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Copy data to and from Azure Table storage by using Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -271,17 +264,17 @@ To remove a storage account by using the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.resources/remove-azstorageaccount) command:
+To remove the resource group and its associated resources, including the new storage account, use the [Remove-AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) command:
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storageAccount
 ```
+
 ---
 
 ## Next steps
 
 In this tutorial, you moved an Azure storage account from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
-
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)

@@ -1,19 +1,15 @@
 ---
 title: How to test your Azure Data Lake Analytics code
 description: 'Learn how to add test cases for U-SQL and extended C# code for Azure Data Lake Analytics.'
-services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
-ms.workload: big-data
-ms.date: 08/30/2019
+ms.topic: how-to
+ms.date: 01/20/2023
 ---
 # Test your Azure Data Lake Analytics code
 
 Azure Data Lake provides the [U-SQL](data-lake-analytics-u-sql-get-started.md) language. U-SQL combines declarative SQL with imperative C# to process data at any scale. In this document, you learn how to create test cases for U-SQL and extended C# user-defined operator (UDO) code.
+
+[!INCLUDE [retirement-flag](includes/retirement-flag.md)]
 
 ## Test U-SQL scripts
 
@@ -106,7 +102,7 @@ After you build the project, select **Test** > **Windows** > **Test Explorer**. 
 
 ## Run test cases in Azure Pipelines<a name="run-test-cases-in-azure-devops"></a>
 
-Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure Pipelines can run these test cases.
+Both **U-SQL script test projects** and **C# UDO test projects** inherit C# unit test projects. The [Visual Studio test task](/azure/devops/pipelines/test/getting-started-with-continuous-testing) in Azure Pipelines can run these test cases.
 
 ### Run U-SQL test cases in Azure Pipelines
 
@@ -140,7 +136,7 @@ For a C# UDO test, make sure to reference the following assemblies, which are ne
 - Microsoft.Analytics.Types
 - Microsoft.Analytics.UnitTest
 
-If you reference them through [the Nuget package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
+If you reference them through [the NuGet package Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), make sure you add a NuGet Restore task in your build pipeline.
 
 ## Next steps
 

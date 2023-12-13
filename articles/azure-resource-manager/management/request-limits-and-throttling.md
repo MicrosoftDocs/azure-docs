@@ -2,16 +2,18 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.custom: seodec18
+ms.date: 10/05/2023
+ms.custom: seodec18, devx-track-arm-template
 ---
 # Throttling Resource Manager requests
 
 This article describes how Azure Resource Manager throttles requests. It shows you how to track the number of requests that remain before reaching the limit, and how to respond when you've reached the limit.
 
-Throttling happens at two levels. Azure Resource Manager throttles requests for the subscription and tenant. If the request is under the throttling limits for the subscription and tenant, Resource Manager routes the request to the resource provider. The resource provider applies throttling limits that are tailored to its operations. The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.
+Throttling happens at two levels. Azure Resource Manager throttles requests for the subscription and tenant. If the request is under the throttling limits for the subscription and tenant, Resource Manager routes the request to the resource provider. The resource provider applies throttling limits that are tailored to its operations.
 
-![Request throttling](./media/request-limits-and-throttling/request-throttling.svg)
+The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider. The image shows that requests are initially throttled per principal ID and per Azure Resource Manager instance in the region of the user sending the request. The requests are throttled per hour. When the request is forwarded to the resource provider, requests are throttled per region of the resource rather than per Azure Resource Manager instance in region of the user. The resource provider requests are also throttled per principal user ID and per hour.
+
+:::image type="content" source="./media/request-limits-and-throttling/request-throttling.svg" alt-text="Diagram that shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.":::
 
 ## Subscription and tenant limits
 
@@ -31,9 +33,11 @@ These limits are scoped to the security principal (user or application) making t
 
 These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, the limits are higher than these limits. The requests from a user are usually handled by different instances of Azure Resource Manager.
 
+The remaining requests are returned in the [response header values](#remaining-requests).
+
 ## Resource provider limits
 
-Resource providers apply their own throttling limits. Because Resource Manager throttles by principal ID and by instance of Resource Manager, the resource provider might receive more requests than the default limits in the previous section.
+Resource providers apply their own throttling limits. Within each subscription, the resource provider throttles per region of the resource in the request. Because Resource Manager throttles by instance of Resource Manager, and there are several instances of Resource Manager in each region, the resource provider might receive more requests than the default limits in the previous section.
 
 This section discusses the throttling limits of some widely used resource providers.
 
@@ -50,19 +54,43 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
+In addition to those general limits, the following limits apply to DNS operations:
+
+| DNS Zone Operation | Limit (per zone) |
+| --------- | ----- |
+| Create or Update | 40 per minute |
+| Delete | 40 per minute |
+| Get | 1000 per minute |
+| List | 60 per minute |
+| List By Resource Group | 60 per minute |
+| Update | 40 per minute |
+
+| DNS Record Set Operation | Limit (per zone) |
+| --------- | ----- |
+| Create or Update | 200 per minute |
+| Delete | 200 per minute |
+| Get | 1000 per minute |
+| List By DNS Zone | 60 per minute |
+| List By Type | 60 per minute |
+| Update | 200 per minute |
+
 ### Compute throttling
 
-For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
-For checking virtual machine instances within a virtual machine scale set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
+For checking virtual machine instances within a Virtual Machine Scale Set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
 
 ### Azure Resource Graph throttling
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Resource Graph throttling headers](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
 
-## Request increase
+### Other resource providers
 
-Sometimes, throttle limits can be increased. To see if the throttling limits for your scenario can be increased, create a support request. The details of your calling pattern will be evaluated.
+For information about throttling in other resource providers, see:
+
+* [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md)
+* [AKS troubleshooting](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
+* [Managed identities](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#are-there-any-rate-limits-that-apply-to-managed-identities)
 
 ## Error code
 
@@ -80,6 +108,7 @@ You can determine the number of remaining requests by examining response headers
 
 | Response header | Description |
 | --- | --- |
+| x-ms-ratelimit-remaining-subscription-deletes |Subscription scoped deletes remaining. This value is returned on delete operations. |
 | x-ms-ratelimit-remaining-subscription-reads |Subscription scoped reads remaining. This value is returned on read operations. |
 | x-ms-ratelimit-remaining-subscription-writes |Subscription scoped writes remaining. This value is returned on write operations. |
 | x-ms-ratelimit-remaining-tenant-reads |Tenant scoped reads remaining |
@@ -89,7 +118,7 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-tenant-resource-requests |Tenant scoped resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. |
 
-The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## Retrieving the header values
 
@@ -118,7 +147,7 @@ Get-AzResourceGroup -Debug
 
 Which returns many values, including the following response value:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -137,7 +166,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 
 Which returns many values, including the following values:
 
-```powershell
+```output
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -156,7 +185,7 @@ az group list --verbose --debug
 
 Which returns many values, including the following values:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -176,7 +205,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Which returns many values, including the following values:
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'

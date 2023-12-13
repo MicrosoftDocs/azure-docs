@@ -3,7 +3,7 @@ title: About Azure Kinect DK
 description: Overview of the Azure Kinect developer kit (DK) tools and integrated services.
 author: tesych
 ms.author: tesych
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.topic: overview 
 ms.date: 06/26/2019
 keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, speech, cognitive services, SDKs, SDK, firmware
@@ -11,13 +11,15 @@ keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, sp
 
 # About Azure Kinect DK
 
+ ![Azure Kinect DK](./media/index/device-image.jpg)
+
 Azure Kinect DK is a developer kit with advanced AI sensors that provide sophisticated computer vision and speech models.  Kinect contains a depth sensor, spatial microphone array with a video camera, and orientation sensor as an all in-one small device with multiple modes, options, and software development kits (SDKs). It is available for purchase in [Microsoft online store](https://www.microsoft.com/p/azure-kinect-dk/8pp5vxmd9nhq).
 
 The Azure Kinect DK development environment consists of the following multiple SDKs:
 
 - Sensor SDK for low-level sensor and device access.
 - Body Tracking SDK for tracking bodies in 3D.
-- Speech Cognitive Services SDK for enabling microphone access and Azure cloud-based speech services.
+- Azure AI Speech SDK for enabling microphone access and Azure cloud-based speech services.
 
 In addition, Cognitive Vision services can be used with the device RGB camera.
 
@@ -66,7 +68,9 @@ The following body-tracking features are available on the accompanying SDK:
 
 - Body Tracker has a viewer tool to track bodies in 3D.
 
-## Speech Cognitive services SDK
+<a name='speech-cognitive-services-sdk'></a>
+
+## Azure AI Speech SDK
 
 The Speech SDK enables Azure-connected speech services.
 
@@ -79,19 +83,19 @@ The Speech SDK enables Azure-connected speech services.
 >[!NOTE]
 >The Azure Kinect DK does not have speakers.
 
-For additional details and information, visit [Speech Service documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+For additional details and information, visit [Speech Service documentation](../ai-services/speech-service/index.yml).
 
 ## Vision services
 
-The following [Azure Cognitive Vision Services](https://azure.microsoft.com/services/cognitive-services/directory/vision/) provide Azure services that can identify and analyze content within images and videos.
+The following [Azure Cognitive Vision Services](https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab) provide Azure services that can identify and analyze content within images and videos.
 
-- [Computer vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)
-- [Face](https://azure.microsoft.com/services/cognitive-services/face/)
-- [Video indexer](https://azure.microsoft.com/services/media-services/video-indexer/)
+- [Computer vision](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-computer-vision/)
+- [Face](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-face-recognition/)
+- [Video indexer](https://azure.microsoft.com/products/ai-video-indexer/)
 - [Content moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/)
 - [Custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)
 
-Services evolve and improve constantly, so remember to check regularly for new or additional [Cognitive services](https://azure.microsoft.com/services/cognitive-services/) to improve your application. For an early look on emerging new services, check out the [Cognitive services labs](https://labs.cognitive.microsoft.com/).
+Services evolve and improve constantly, so remember to check regularly for new or additional [Azure AI services](https://azure.microsoft.com/services/cognitive-services/) to improve your application. For an early look on emerging new services, check out the [Azure AI services labs](https://labs.cognitive.microsoft.com/).
 
 ## Azure Kinect hardware requirements
 

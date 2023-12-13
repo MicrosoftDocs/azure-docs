@@ -1,19 +1,19 @@
 ---
-title: Azure CLI samples - Azure App Configuration | Microsoft Docs
-description: Provides information about available sample scripts for Azure App Configuration
-author: yegu-ms
-ms.author: yegu
+title: Azure CLI samples - Azure App Configuration
+description: Information about sample scripts provided for Azure App Configuration
+author: maud-lv
+ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/24/2019
-ms.custom: mvc
+ms.date: 08/09/2022 
+ms.custom: devx-track-azurecli, devdivchpfy22
 ---
 
 # Azure CLI samples
 
-The following table includes links to bash scripts for Azure App Configuration by using the Azure CLI.
+The following table includes links to bash scripts for Azure App Configuration by using the [az appconfig](/cli/azure/appconfig) commands in the Azure CLI:
 
-| | |
+| Script | Description |
 |-|-|
 |**Create**||
 | [Create an App Configuration store](./scripts/cli-create-service.md) | Creates a resource group and an App Configuration store instance.  |

@@ -1,12 +1,14 @@
 ---
 title: Azure Service Fabric image store connection string 
 description: Learn about the image store connection string, including its uses and applications to a Service Fabric cluster.
-author: alexwun
-
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: alexwun
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Understand the ImageStoreConnectionString setting
 
 In some of our documentation, we briefly mention the existence of an "ImageStoreConnectionString" parameter without describing what it really means. And after going through an article like [Deploy and remove applications using PowerShell][10], it looks like all you do is copy/paste the value as shown in the cluster manifest of the target cluster. So the setting must be configurable per cluster, but when you create a cluster through the [Azure portal][11], there's no option to configure this setting and it's always "fabric:ImageStore". What's the purpose of this setting then?
@@ -33,7 +35,7 @@ The File System provider is used instead of the Image Store Service for local on
 
 Furthermore, not the File System provider or the Azure Storage provider should be used as a method of sharing an Image Store between multiple clusters - this will result in corruption of cluster configuration data as each cluster can write conflicting data to the Image Store. To share provisioned application packages between multiple clusters, use [sfpkg][12] files instead, which can be uploaded to any external store with a download URI.
 
-So while the ImageStoreConnectionString is configurable, you just use the default setting. When publishing to Azure through Visual Studio, the parameter is automatically set for you accordingly. For programmatic deployment to clusters hosted in Azure, the connection string is always "fabric:ImageStore". Though when in doubt, its value can always be verified by retrieving the cluster manifest by [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), or [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Both on-premises test and production clusters should always be configured to use the Image Store Service provider as well.
+So while the ImageStoreConnectionString is configurable, you just use the default setting. When publishing to Azure through Visual Studio, the parameter is automatically set for you accordingly. For programmatic deployment to clusters hosted in Azure, the connection string is always "fabric:ImageStore". Though when in doubt, its value can always be verified by retrieving the cluster manifest by [PowerShell](/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](/previous-versions/azure/reference/mt161375(v=azure.100)), or [REST](/rest/api/servicefabric/get-a-cluster-manifest). Both on-premises test and production clusters should always be configured to use the Image Store Service provider as well.
 
 ### Next steps
 [Deploy and remove applications using PowerShell][10]

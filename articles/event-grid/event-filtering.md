@@ -1,13 +1,11 @@
 ---
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
-ms.author: spelluru
+ms.custom:
+  - devx-track-arm-template
+  - ignite-2023
+ms.date: 11/15/2023
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -18,143 +16,72 @@ This article describes the different ways to filter which events are sent to you
 * Subject begins with or ends with
 * Advanced fields and operators
 
-## Event type filtering
+## Azure Resource Manager template
 
-By default, all [event types](event-schema.md) for the event source are sent to the endpoint. You can decide to send only certain event types to your endpoint. For example, you can get notified of updates to your resources, but not notified for other operations like deletions. In that case, filter by the `Microsoft.Resources.ResourceWriteSuccess` event type. Provide an array with the event types, or specify `All` to get all event types for the event source.
+The examples shown in this article are JSON snippets for defining filters in Azure Resource Manager (ARM) templates. For an example of a complete ARM template and deploying an ARM template, see [Quickstart: Route Blob storage events to web endpoint by using an ARM template](blob-event-quickstart-template.md). Here's some more sections around the `filter` section from the example in the quickstart. The ARM template defines the following resources.
 
-The JSON syntax for filtering by event type is:
+- Azure storage account
+- System topic for the storage account
+- Event subscription for the system topic. You'll see the `filter` subsection in the event subscription section.
+
+In the following example, the event subscription filters for `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted` events.
 
 ```json
-"filter": {
-  "includedEventTypes": [
-    "Microsoft.Resources.ResourceWriteFailure",
-    "Microsoft.Resources.ResourceWriteSuccess"
+{
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-08-01",
+      "name": "[parameters('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "accessTier": "Hot"
+      }
+    },
+    {
+      "type": "Microsoft.EventGrid/systemTopics",
+      "apiVersion": "2021-12-01",
+      "name": "[parameters('systemTopicName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "source": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "topicType": "Microsoft.Storage.StorageAccounts"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.EventGrid/systemTopics/eventSubscriptions",
+      "apiVersion": "2021-12-01",
+      "name": "[format('{0}/{1}', parameters('systemTopicName'), parameters('eventSubName'))]",
+      "properties": {
+        "destination": {
+          "properties": {
+            "endpointUrl": "[parameters('endpoint')]"
+          },
+          "endpointType": "WebHook"
+        },
+        "filter": {
+          "includedEventTypes": [
+            "Microsoft.Storage.BlobCreated",
+            "Microsoft.Storage.BlobDeleted"
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.EventGrid/systemTopics', parameters('systemTopicName'))]"
+      ]
+    }
   ]
 }
 ```
 
-## Subject filtering
-
-For simple filtering by subject, specify a starting or ending value for the subject. For example, you can specify the subject ends with `.txt` to only get events related to uploading a text file to storage account. Or, you can filter the subject begins with `/blobServices/default/containers/testcontainer` to get all events for that container but not other containers in the storage account.
-
-When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the subject property to filter and route events. Consider adding the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
-
-The JSON syntax for filtering by subject is:
-
-```json
-"filter": {
-  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
-  "subjectEndsWith": ".jpg"
-}
-
-```
-
-## Advanced filtering
-
-To filter by values in the data fields and specify the comparison operator, use the advanced filtering option. In advanced filtering, you specify the:
-
-* operator type - The type of comparison.
-* key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
-* value or values - The value or values to compare to the key.
-
-If you specify a single filter with multiple values, an **OR** operation is performed, so the value of the key field must be one of these values. Here is an example:
-
-```json
-"advancedFilters": [
-    {
-        "operatorType": "StringContains",
-        "key": "Subject",
-        "values": [
-            "/providers/microsoft.devtestlab/",
-            "/providers/Microsoft.Compute/virtualMachines/"
-        ]
-    }
-]
-```
-
-If you specify multiple different filters, an **AND** operation is performed, so each filter condition must be met. Here is an example: 
-
-```json
-"advancedFilters": [
-    {
-        "operatorType": "StringContains",
-        "key": "Subject",
-        "values": [
-            "/providers/microsoft.devtestlab/"
-        ]
-    },
-    {
-        "operatorType": "StringContains",
-        "key": "Subject",
-        "values": [
-            "/providers/Microsoft.Compute/virtualMachines/"
-        ]
-    }
-]
-```
-
-### Operator
-
-The available operators for numbers are:
-
-* NumberGreaterThan
-* NumberGreaterThanOrEquals
-* NumberLessThan
-* NumberLessThanOrEquals
-* NumberIn
-* NumberNotIn
-
-The available operator for booleans is: BoolEquals
-
-The available operators for strings are:
-
-* StringContains
-* StringBeginsWith
-* StringEndsWith
-* StringIn
-* StringNotIn
-
-All string comparisons are case-insensitve.
-
-### Key
-
-For events in the Event Grid schema, use the following values for the key:
-
-* ID
-* Topic
-* Subject
-* EventType
-* DataVersion
-* Event data (like Data.key1)
-
-For events in Cloud Events schema, use the following values for the key:
-
-* EventId
-* Source
-* EventType
-* EventTypeVersion
-* Event data (like Data.key1)
-
-For custom input schema, use the event data fields (like Data.key1).
-
-### Values
-
-The values can be:
-
-* number
-* string
-* boolean
-* array
-
-### Limitations
-
-Advanced filtering has the following limitations:
-
-* Five advanced filters per event grid subscription
-* 512 characters per string value
-* Five values for **in** and **not in** operators
-
-The same key can be used in more than one filter.
+[!INCLUDE [event-filtering](./includes/event-filtering.md)]
 
 ## Next steps
 

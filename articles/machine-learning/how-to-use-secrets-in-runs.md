@@ -1,69 +1,81 @@
 ---
-title: Use secrets in training runs
+title: Authentication secrets
 titleSuffix: Azure Machine Learning
-description: Pass secrets to training runs in secure fashion using Workspace Key Vault
+description: Learn how to pass secrets to training jobs in secure fashion using Azure Key Vault.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.reviewer: larryfr
 ms.service: machine-learning
-ms.subservice: core
-ms.topic: conceptual
-ms.date: 11/08/2019
-ms.custom: seodec18
-
+ms.subservice: enterprise-readiness
+ms.date: 09/16/2022
+ms.topic: how-to
+ms.custom: sdkv2, ignite-2022
 ---
 
-# Use secrets in training runs
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Use authentication credential secrets in Azure Machine Learning jobs
 
-In this article, you learn how to use secrets in training runs securely. For example, to connect to an external database to query training data, you would need to pass your username and password to the remote run context. Coding such values into training scripts in cleartext is insecure as it would expose the secret. 
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-Instead, your Azure Machine Learning Workspace has [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) as associated resource. This Key Vault can be used for passing secrets to remote runs securely through a set of APIs in Azure Machine Learning Python SDK.
+Authentication information such as your user name and password are secrets. For example, if you connect to an external database in order to query training data, you would need to pass your username and password to the remote job context. Coding such values into training scripts in clear text is insecure as it would potentially expose the secret.
 
-The basic flow for using secrets is:
- 1. On local computer, log in to Azure and connect to your Workspace.
- 2. On local computer, set a secret in Workspace Key Vault.
- 3. Submit a remote run.
- 4. Within the remote run, get the secret from Key Value and use it.
+The Azure Key Vault allows you to securely store and retrieve secrets. In this article, learn how you can retrieve secrets stored in a key vault from a training job running on a compute cluster.
 
-## Set secrets
+> [!IMPORTANT]
+> The Azure Machine Learning Python SDK v2 and Azure CLI extension v2 for machine learning do not provide the capability to set or get secrets. Instead, the information in this article uses the [Azure Key Vault Secrets client library for Python](/python/api/overview/azure/keyvault-secrets-readme).
 
-In the Azure Machine Learning Python SDK, the [Keyvault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py) class contains methods for setting secrets. In your local Python session, first obtain a reference to Workspace Key Vault, and then use [set_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secret-name--value-) method to set a secret by name and value.
+## Prerequisites
 
-```python
-from azureml.core import Workspace
-import os
+Before following the steps in this article, make sure you have the following prerequisites:
 
-ws = Workspace.from_config()
-my_secret = os.environ.get("MY_SECRET")
-keyvault = ws.get_default_keyvault()
-keyvault.set_secret(name="mysecret", value = my_secret)
-```
+> [!TIP]
+> Many of the prerequisites in this section require __Contributor__, __Owner__, or equivalent access to your Azure subscription, or the Azure Resource Group that contains the resources. You may need to contact your Azure administrator and have them perform these actions.
 
-Do not put the secret value in your Python code as it is insecure to store it in file as cleartext. Instead, obtain the secret value from an environment variable, for example Azure DevOps build secret, or from interactive user input.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+ 
+* An Azure Machine Learning workspace. If you don't have one, use the steps in the [Create resources to get started](quickstart-create-resources.md) article to create one.
 
-You can list secret names using the [list_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#list-secrets--) method. The __set_secret__ method updates the secret value if the name already exists.
+* An Azure Key Vault. If you used the [Create resources to get started](quickstart-create-resources.md) article to create your workspace, a key vault was created for you. You can also create a separate key vault instance using the information in the [Quickstart: Create a key vault](../key-vault/general/quick-create-portal.md) article.
 
-## Get secrets
+    > [!TIP]
+    > You do not have to use same key vault as the workspace.
 
-In your local code, you can use the[Keyvault.get_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) method to get the secret value by name.
+* An Azure Machine Learning compute cluster configured to use a [managed identity](how-to-create-attach-compute-cluster.md?tabs=azure-studio#set-up-managed-identity). The cluster can be configured for either a system-assigned or user-assigned managed identity.
 
-In runs submitted using  [Experiment.submit](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-), use the [Run.get_secret](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-) method. Because a submitted run is aware of its Workspace, this method shortcuts the Workspace instantiation and returns the secret value directly.
+* Grant the managed identity for the compute cluster access to the secrets stored in key vault. The method used to grant access depends on how your key vault is configured:
 
-```python
-# Code in submitted run
-from azureml.core import Run
+    * [Azure role-based access control (Azure RBAC)](../key-vault/general/rbac-guide.md): When configured for Azure RBAC, add the managed identity to the __Key Vault Secrets User__ role on your key vault.
+    * [Azure Key Vault access policy](../key-vault/general/assign-access-policy.md): When configured to use access policies, add a new policy that grants the __get__ operation for secrets and assign it to the managed identity.
 
-run = Run.get_context()
-secret_value = run.get_secret(name="mysecret")
-```
+* A stored secret value in the key vault. This value can then be retrieved using a key. For more information, see [Quickstart: Set and retrieve a secret from Azure Key Vault](../key-vault/secrets/quick-create-python.md).
 
-Be careful not to expose the secret value by writing or printing it out.
+    > [!TIP]
+    > The quickstart link is to the steps for using the Azure Key Vault Python SDK. In the table of contents in the left navigation area are links to other ways to set a key.
 
-The set and get methods also have batch versions [set_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#set-secrets-secrets-batch-) and [get_secrets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secrets-secrets-) for accessing multiple secrets at once.
+## Getting secrets
+
+1. Add the `azure-keyvault-secrets` and `azure-identity` packages to the [Azure Machine Learning environment](concept-environments.md) used when training the model. For example, by adding them to the conda file used to build the environment.
+
+    The environment is used to build the Docker image that the training job runs in on the compute cluster.
+
+1. From your training code, use the [Azure Identity SDK](/python/api/overview/azure/identity-readme) and [Key Vault client library](/python/api/overview/azure/keyvault-secrets-readme) to get the managed identity credentials and authenticate to key vault:
+
+    ```python
+    from azure.identity import DefaultAzureCredential
+    from azure.keyvault.secrets import SecretClient
+
+    credential = DefaultAzureCredential()
+
+    secret_client = SecretClient(vault_url="https://my-key-vault.vault.azure.net/", credential=credential)
+    ```
+
+1. After authenticating, use the Key Vault client library to retrieve a secret by providing the associated key:
+
+    ```python
+    secret = secret_client.get_secret("secret-name")
+    print(secret.value)
+    ```
 
 ## Next steps
 
- * [View example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
- * [Learn about enterprise security with Azure Machine Learning](concept-enterprise-security.md)
+For an example of submitting a training job using the Azure Machine Learning Python SDK v2, see [Train models with the Python SDK v2](how-to-train-sdk.md).

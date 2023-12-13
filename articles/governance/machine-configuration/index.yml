@@ -1,0 +1,40 @@
+### YamlMime:Landing
+
+title: Azure Automanage Machine Configuration documentation
+summary: Azure Automanage Machine Configuration (formerly called Azure Policy Guest Configuration) provides native capability to audit or configure operating system settings as code, both for machines running in Azure and hybrid Arc-enabled machines.
+
+metadata:
+  title: Azure Automanage Machine Configuration documentation
+  description: Landing page for the new Azure Automanage Machine Configuration service (formerly called Azure Policy Guest Configuration)
+  ms.service: machine-configuration
+  ms.topic: landing-page
+  ms.collection: collection
+  author: michaeltlombardi
+  ms.author: mlombardi
+  ms.date: 08/01/2022
+
+landingContent:
+  - title: About Azure Automanage Machine Configuration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Automanage Machine Configuration?
+            url: ./overview.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a machine configuration assignment using templates
+            url: ./how-to-create-assignment.md
+          - text: How to create custom machine configuration policy definitions
+            url: ./how-to-create-policy-definition.md
+
+  - title: Migration from PowerShell DSC
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Changes in behavior in PowerShell DSC for machine configuration
+            url: ./dsc-in-machine-configuration.md
+          - text: Migration planning
+            url: ./migrate-from-azure-automation.md

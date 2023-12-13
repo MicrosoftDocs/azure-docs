@@ -1,13 +1,12 @@
 ---
 title: Use a rules engine to enforce HTTPS in Standard Azure CDN | Microsoft Docs
-description: Use the rules engine for Microsoft Standard Azure Content Delivery Network (Azure CDN) to customize how Azure CDN handles HTTP requests, including blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. In this article, learn how to create a rule to redirect users to HTTPS.
+description: Use the rules engine for Microsoft Standard Azure Content Delivery Network (Azure CDN) to customize how Azure CDN handles HTTP requests. Including blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. In this article, learn how to create a rule to redirect users to HTTPS.
 services: cdn
-author: mdgattuso
-
+author: duongau
 ms.service: azure-cdn
-ms.topic: article
-ms.date: 11/01/2019
-ms.author: magattus
+ms.topic: how-to
+ms.date: 02/27/2023
+ms.author: duau
 
 ---
 

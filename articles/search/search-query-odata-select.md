@@ -1,29 +1,23 @@
 ---
 title: OData select reference
-titleSuffix: Azure Cognitive Search
-description: Syntax and language reference for explicit selection of fields to return in the search results of Azure Cognitive Search queries.
+titleSuffix: Azure AI Search
+description: Syntax and language reference for explicit selection of fields to return in the search results of Azure AI Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.custom:
+  - ignite-2023
+ms.topic: reference
+ms.date: 07/18/2022
 ---
-# OData $select syntax in Azure Cognitive Search
 
- You can use the [OData **$select** parameter](query-odata-filter-orderby-syntax.md) to choose which fields to include in search results from Azure Cognitive Search. This article describes the syntax of **$select** in detail. For more general information about how to use **$select** when presenting search results, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
+# OData $select syntax in Azure AI Search
+
+In Azure AI Search, the **$select** parameter specifies which fields to include in search results. This article describes the OData syntax of **$select** and provides examples.
+
+Field path construction and constants are described in the [OData language overview in Azure AI Search](query-odata-filter-orderby-syntax.md). For more information about search result composition, see [How to work with search results in Azure AI Search](search-pagination-page-layout.md).
 
 ## Syntax
 
@@ -40,10 +34,10 @@ field_path ::= identifier('/'identifier)*
 An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [OData syntax diagram for Azure AI Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
+> See [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
 The **$select** parameter comes in two forms:
 
@@ -52,13 +46,15 @@ The **$select** parameter comes in two forms:
 
 When using the second form, you may only specify retrievable fields in the list.
 
-If you list a complex field without specifying its sub-fields explicitly, all retrievable sub-fields will be included in the query result set. For example, assume your index has an `Address` field with `Street`, `City`, and `Country` sub-fields that are all retrievable. If you specify `Address` in **$select**, the query results will include all three sub-fields.
+If you list a complex field without specifying its subfields explicitly, all retrievable subfields will be included in the query result set. For example, assume your index has an `Address` field with `Street`, `City`, and `Country` subfields that are all retrievable. If you specify `Address` in **$select**, the query results will include all three subfields.
 
 ## Examples
 
-Include the `HotelId`, `HotelName`, and `Rating` top-level fields in the results, as well as the `City` sub-field of `Address`:
+Include the `HotelId`, `HotelName`, and `Rating` top-level fields in the results, and include the `City` subfield of `Address`:
 
+```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
+```
 
 An example result might look like this:
 
@@ -73,9 +69,11 @@ An example result might look like this:
 }
 ```
 
-Include the `HotelName` top-level field in the results, as well as all sub-fields of `Address`, and the `Type` and `BaseRate` sub-fields of each object in the `Rooms` collection:
+Include the `HotelName` top-level field in the results. Include all subfields of `Address`. Include the `Type` and `BaseRate` subfields of each object in the `Rooms` collection:
 
+```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+```
 
 An example result might look like this:
 
@@ -105,7 +103,7 @@ An example result might look like this:
 
 ## Next steps  
 
-- [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md)
-- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [How to work with search results in Azure AI Search](search-pagination-page-layout.md)
+- [OData expression language overview for Azure AI Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure AI Search](search-query-odata-syntax-reference.md)
+- [Search Documents &#40;Azure AI Search REST API&#41;](/rest/api/searchservice/Search-Documents)

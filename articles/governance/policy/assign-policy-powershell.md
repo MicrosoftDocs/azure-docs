@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: New policy assignment with PowerShell"
 description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 11/25/2019
+ms.date: 08/17/2021
 ms.topic: quickstart
+ms.custom: devx-track-azurepowershell
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 
@@ -19,7 +20,7 @@ This guide explains how to use Az module to create a policy assignment.
   account before you begin.
 
 - Before you start, make sure that the latest version of Azure PowerShell is installed. See
-  [Install Azure PowerShell module](/powershell/azure/install-az-ps) for detailed information.
+  [Install Azure PowerShell module](/powershell/azure/install-azure-powershell) for detailed information.
 
 - Register the Azure Policy Insights resource provider using Azure PowerShell. Registering the
   resource provider makes sure that your subscription works with it. To register a resource
@@ -45,10 +46,10 @@ definition. This policy definition identifies virtual machines not using managed
 Run the following commands to create a new policy assignment:
 
 ```azurepowershell-interactive
-# Get a reference to the resource group that will be the scope of the assignment
+# Get a reference to the resource group that is the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
 
-# Get a reference to the built-in policy definition that will be assigned
+# Get a reference to the built-in policy definition to assign
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
 
 # Create the policy assignment with the built-in definition against your resource group
@@ -60,7 +61,7 @@ The preceding commands use the following information:
 - **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
 - **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **Definition** – The policy definition, based on which you're using to create the assignment. In
+- **Definition** - The policy definition, based on which you're using to create the assignment. In
   this case, it's the ID of policy definition _Audit VMs that do not use managed disks_.
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
   enforced on. It could range from a subscription to resource groups. Be sure to replace

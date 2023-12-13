@@ -1,10 +1,10 @@
 ---
 title: Plan your Avere vFXT system - Azure
-description: Explains planning to do before deploying Avere vFXT for Azure
+description: Plan an Avere vFXT for Azure cluster that is right for your needs. Learn questions to ask before going to the Azure Marketplace or creating virtual machines.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
 ---
 
@@ -104,7 +104,7 @@ Each vFXT node will be identical. That is, if you create a three-node cluster yo
 
 Disk cache per node is configurable and can rage from 1000 GB to 8000 GB. 4 TB per node is the recommended cache size for Standard_E32s_v3 nodes.
 
-For additional information about these VMs, read the Microsoft Azure documentation: [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+For additional information about these VMs, read the Microsoft Azure documentation: [Memory optimized virtual machine sizes](../virtual-machines/sizes-memory.md)
 
 ## Account quota
 
@@ -137,7 +137,7 @@ The Avere vFXT for Azure cluster is located in a private subnet, and the cluster
 
 Access options include:
 
-* Jump host - Assign a public IP address to a separate VM within the private network, and use it to create an SSL tunnel to the cluster nodes.
+* Jump host - Assign a public IP address to a separate VM within the private network, and use it to create a TLS tunnel to the cluster nodes.
 
   > [!TIP]
   > If you set a public IP address on the cluster controller, you can use it as the jump host. Read [Cluster controller as jump host](#cluster-controller-as-jump-host) for more information.
@@ -161,7 +161,7 @@ When creating the cluster, you can choose whether or not to create a public IP a
 
 ## VM access roles
 
-Azure uses [role-based access control](../role-based-access-control/index.yml) (RBAC) to authorize the cluster VMs to perform certain tasks. For example, the cluster controller needs authorization to create and configure the cluster node VMs. Cluster nodes need to be able to assign or reassign IP addresses to other cluster nodes.
+Azure uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to authorize the cluster VMs to perform certain tasks. For example, the cluster controller needs authorization to create and configure the cluster node VMs. Cluster nodes need to be able to assign or reassign IP addresses to other cluster nodes.
 
 Two built-in Azure roles are used for the Avere vFXT virtual machines:
 
@@ -170,6 +170,6 @@ Two built-in Azure roles are used for the Avere vFXT virtual machines:
 
 If you need to customize access roles for Avere vFXT components, you must define your own role and then assign it to the VMs at the time they are created. You cannot use the deployment template in the Azure Marketplace. Consult Microsoft Customer Service and Support by opening a ticket in the Azure portal as described in [Get help with your system](avere-vfxt-open-ticket.md).
 
-## Next step: Understand the deployment process
+## Next steps
 
 [Deployment overview](avere-vfxt-deploy-overview.md) gives the big-picture view of the steps needed to create an Avere vFXT for Azure system and get it ready to serve data.

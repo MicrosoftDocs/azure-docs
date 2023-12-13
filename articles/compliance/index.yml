@@ -1,0 +1,531 @@
+### YamlMime:Hub
+
+title: Azure compliance documentation
+summary: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
+brand: azure
+
+metadata:
+  title: Azure compliance documentation
+  description: If your organization needs to comply with legal or regulatory standards, start here to learn about compliance in Azure.
+  services: security
+  ms.service: security
+  ms.subservice: na
+  ms.topic: hub-page
+  ms.collection: na
+  author: TerryLanfear
+  ms.author: terrylan
+  manager: rkarlin
+  ms.date: 06/12/2022
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  title: Compliance offerings # < 60 chars (optional)
+  items:
+    # Card
+    - title: Global
+      links:
+        - url: /compliance/regulatory/offering-cis-benchmark
+          itemType: concept
+          text: CIS benchmark
+        - url: /azure/compliance/offerings/offering-csa-star-attestation
+          itemType: concept
+          text: CSA STAR Attestation
+        - url: /azure/compliance/offerings/offering-csa-star-certification
+          itemType: concept
+          text: CSA STAR Certification
+        - url: /azure/compliance/offerings/offering-csa-star-self-assessment
+          itemType: concept
+          text: CSA STAR self-assessment
+        - url: /azure/compliance/offerings/offering-soc-1
+          itemType: concept
+          text: SOC 1
+        - url: /azure/compliance/offerings/offering-soc-2
+          itemType: concept
+          text: SOC 2
+        - url: /azure/compliance/offerings/offering-soc-3
+          itemType: concept
+          text: SOC 3
+
+    # Card
+    - title: Global
+      links:
+        - url: /azure/compliance/offerings/offering-iso-20000-1
+          itemType: concept
+          text: ISO 20000-1
+        - url: /azure/compliance/offerings/offering-iso-22301
+          itemType: concept
+          text: ISO 22301
+        - url: /azure/compliance/offerings/offering-iso-27001
+          itemType: concept
+          text: ISO 27001
+        - url: /azure/compliance/offerings/offering-iso-27017
+          itemType: concept
+          text: ISO 27017
+        - url: /azure/compliance/offerings/offering-iso-27018
+          itemType: concept
+          text: ISO 27018
+        - url: /azure/compliance/offerings/offering-iso-27701
+          itemType: concept
+          text: ISO 27701
+        - url: /azure/compliance/offerings/offering-iso-9001
+          itemType: concept
+          text: ISO 9001
+        - url: /compliance/regulatory/offering-wcag-2-1
+          itemType: concept
+          text: WCAG
+
+    # Card
+    - title: US government
+      links:
+        - url: /azure/compliance/offerings/offering-cjis
+          itemType: concept
+          text: CJIS
+        - url: /azure/compliance/offerings/offering-cmmc
+          itemType: concept
+          text: CMMC
+        - url: /azure/compliance/offerings/offering-cnssi-1253
+          itemType: concept
+          text: CNSSI 1253
+        - url: /azure/compliance/offerings/offering-dfars
+          itemType: concept
+          text: DFARS
+        - url: /azure/compliance/offerings/offering-dod-il2
+          itemType: concept
+          text: DoD IL2
+        - url: /azure/compliance/offerings/offering-dod-il4
+          itemType: concept
+          text: DoD IL4
+        - url: /azure/compliance/offerings/offering-dod-il5
+          itemType: concept
+          text: DoD IL5
+        - url: /azure/compliance/offerings/offering-dod-il6
+          itemType: concept
+          text: DoD IL6
+        - url: /azure/compliance/offerings/offering-doe-10-cfr-part-810
+          itemType: concept
+          text: DoE 10 CFR Part 810
+        - url: /azure/compliance/offerings/offering-ear
+          itemType: concept
+          text: EAR
+        - url: /azure/compliance/offerings/offering-fedramp
+          itemType: concept
+          text: FedRAMP
+        - url: /azure/compliance/offerings/offering-fips-140-2
+          itemType: concept
+          text: FIPS 140
+
+    # Card
+    - title: US government
+      links:
+        - url: /azure/compliance/offerings/offering-icd-503
+          itemType: concept
+          text: ICD 503
+        - url: /azure/compliance/offerings/offering-irs-1075
+          itemType: concept
+          text: IRS 1075
+        - url: /azure/compliance/offerings/offering-itar
+          itemType: concept
+          text: ITAR
+        - url: /azure/compliance/offerings/offering-jsig
+          itemType: concept
+          text: JSIG
+        - url: /azure/compliance/offerings/offering-ndaa-section-889
+          itemType: concept
+          text: NDAA
+        - url: /azure/compliance/offerings/offering-nist-800-161
+          itemType: concept
+          text: NIST 800-161
+        - url: /azure/compliance/offerings/offering-nist-800-171
+          itemType: concept
+          text: NIST 800-171
+        - url: /azure/compliance/offerings/offering-nist-800-53
+          itemType: concept
+          text: NIST 800-53
+        - url: /azure/compliance/offerings/offering-nist-800-63
+          itemType: concept
+          text: NIST 800-63
+        - url: /azure/compliance/offerings/offering-nist-csf
+          itemType: concept
+          text: NIST CSF
+        - url: /compliance/regulatory/offering-section-508-vpats
+          itemType: concept
+          text: Section 508 VPATs
+        - url: /azure/compliance/offerings/offering-stateramp
+          itemType: concept
+          text: StateRAMP
+
+    # Card
+    - title: Financial services
+      links:
+        - url: /compliance/regulatory/offering-23-nycrr-part-500
+          itemType: concept
+          text: 23 NYCRR Part 500 (US)
+        - url: /compliance/regulatory/offering-afm-dnb-netherlands
+          itemType: concept
+          text: AFM and DNB (Netherlands)
+        - url: /compliance/regulatory/offering-amf-acpr-france
+          itemType: concept
+          text: AMF and ACPR (France)
+        - url: /compliance/regulatory/offering-apra-australia
+          itemType: concept
+          text: APRA (Australia)
+        - url: /compliance/regulatory/offering-cftc-1-31-us
+          itemType: concept
+          text: CFTC 1.31 (US)
+        - url: /compliance/regulatory/offering-eba-eu
+          itemType: concept
+          text: EBA (EU)
+        - url: /azure/compliance/offerings/offering-fca-pra-uk
+          itemType: concept
+          text: FCA and PRA (UK)
+        - url: /compliance/regulatory/offering-ffiec-us
+          itemType: concept
+          text: FFIEC (US)
+        - url: /compliance/regulatory/offering-finma-switzerland
+          itemType: concept
+          text: FINMA (Switzerland)
+
+    # Card
+    - title: Financial services
+      links:
+        - url: /compliance/regulatory/offering-finra-4511
+          itemType: concept
+          text: FINRA 4511 (US)
+        - url: /compliance/regulatory/offering-fisc-japan
+          itemType: concept
+          text: FISC (Japan)
+        - url: /compliance/regulatory/offering-fsa-denmark
+          itemType: concept
+          text: FSA (Denmark)
+        - url: /compliance/regulatory/offering-glba
+          itemType: concept
+          text: GLBA (US)
+        - url: /compliance/regulatory/offering-knf-poland
+          itemType: concept
+          text: KNF (Poland)
+        - url: /compliance/regulatory/offering-mas-abs-singapore
+          itemType: concept
+          text: MAS and ABS (Singapore)
+        - url: /compliance/regulatory/offering-nbb-fsma-belgium
+          itemType: concept
+          text: NBB and FSMA (Belgium)
+        - url: /compliance/regulatory/offering-osfi-canada
+          itemType: concept
+          text: OSFI (Canada)
+
+    # Card
+    - title: Financial services
+      links:
+        - url: /azure/compliance/offerings/offering-ospar-singapore
+          itemType: concept
+          text: OSPAR (Singapore)
+        - url: /azure/compliance/offerings/offering-pci-3ds
+          itemType: concept
+          text: PCI 3DS
+        - url: /azure/compliance/offerings/offering-pci-dss
+          itemType: concept
+          text: PCI DSS
+        - url: /compliance/regulatory/offering-rbi-irdai-india
+          itemType: concept
+          text: RBI and IRDAI (India)
+        - url: /compliance/regulatory/offering-sec-17a-4
+          itemType: concept
+          text: SEC 17a-4 (US)
+        - url: /azure/compliance/offerings/offering-sec-reg-sci-us
+          itemType: concept
+          text: SEC Regulation SCI (US)
+        - url: /compliance/regulatory/offering-sox
+          itemType: concept
+          text: SOX (US)
+        - url: /compliance/regulatory/offering-trusight
+          itemType: concept
+          text: TruSight
+
+    # Card
+    - title: Healthcare and life sciences
+      links:
+        - url: /compliance/regulatory/offering-hds-france
+          itemType: concept
+          text: ASIP HDS (France)
+        - url: /azure/compliance/offerings/offering-epcs-us
+          itemType: concept
+          text: EPCS (US)
+        - url: /azure/compliance/offerings/offering-gxp
+          itemType: concept
+          text: GxP (FDA 21 CFR Part 11)
+        - url: /azure/compliance/offerings/offering-hipaa-us
+          itemType: concept
+          text: HIPAA (US)
+        - url: /azure/compliance/offerings/offering-hitrust
+          itemType: concept
+          text: HITRUST
+        - url: /azure/compliance/offerings/offering-mars-e-us
+          itemType: concept
+          text: MARS-E (US)
+        - url: /compliance/regulatory/offering-nen-7510-netherlands
+          itemType: concept
+          text: NEN 7510 (Netherlands)
+
+    # Card
+    - title: Automotive, education, energy, media, and telecommunication
+      links:
+        - url: /azure/compliance/offerings/offering-cdsa
+          itemType: concept
+          text: CDSA
+        - url: /azure/compliance/offerings/offering-dpp-uk
+          itemType: concept
+          text: DPP (UK)
+        - url: /azure/compliance/offerings/offering-fact-uk
+          itemType: concept
+          text: FACT (UK)
+        - url: /compliance/regulatory/offering-ferpa
+          itemType: concept
+          text: FERPA (US)
+        - url: /azure/compliance/offerings/offering-mpa
+          itemType: concept
+          text: MPA
+        - url: /azure/compliance/offerings/offering-gsma
+          itemType: concept
+          text: GSMA
+        - url: /azure/compliance/offerings/offering-nerc
+          itemType: concept
+          text: NERC (US)
+        - url: /azure/compliance/offerings/offering-tisax
+          itemType: concept
+          text: TISAX
+
+    # Card
+    - title: Regional - Americas
+      links:
+        - url: /compliance/regulatory/offering-pdpa-argentina
+          itemType: concept
+          text: Argentina PDPA
+        - url: /azure/compliance/offerings/offering-canada-privacy-laws
+          itemType: concept
+          text: Canada privacy laws
+        - url: /azure/compliance/offerings/offering-canada-protected-b
+          itemType: concept
+          text: Canada Protected B
+        - url: /compliance/regulatory/offering-ccpa
+          itemType: concept
+          text: US CCPA
+
+    # Card
+    - title: Regional - Asia Pacific
+      links:
+        - url: /azure/compliance/offerings/offering-australia-irap
+          itemType: concept
+          text: Australia IRAP
+        - url: /azure/compliance/offerings/offering-china-gb-18030
+          itemType: concept
+          text: China GB 18030
+        - url: /azure/compliance/offerings/offering-china-djcp
+          itemType: concept
+          text: China DJCP (MLPS)
+        - url: /azure/compliance/offerings/offering-china-tcs
+          itemType: concept
+          text: China TCS
+        - url: /compliance/regulatory/offering-meity-india
+          itemType: concept
+          text: India MeitY
+        - url: /compliance/regulatory/offering-cs-mark-gold-japan
+          itemType: concept
+          text: Japan CS Gold Mark
+        - url: /compliance/regulatory/offering-ismap
+          itemType: concept
+          text: Japan ISMAP
+        - url: /compliance/regulatory/offering-my-number-act-japan
+          itemType: concept
+          text: Japan My Number Act
+        - url: /azure/compliance/offerings/offering-korea-k-isms
+          itemType: concept
+          text: Korea K-ISMS
+        - url: /compliance/regulatory/offering-nz-cc-framework-nz
+          itemType: concept
+          text: New Zealand ISPC
+        - url: /azure/compliance/offerings/offering-singapore-mtcs
+          itemType: concept
+          text: Singapore MTCS
+
+    # Card
+    - title: Regional - EMEA
+      links:
+        - url: /azure/compliance/offerings/offering-eu-cloud-coc
+          itemType: concept
+          text: EU Cloud CoC
+        - url: /compliance/regulatory/offering-en-301-549-eu
+          itemType: concept
+          text: EU EN 301 549
+        - url: /azure/compliance/offerings/offering-eu-enisa-iaf
+          itemType: concept
+          text: ENISA IAF
+        - url: /compliance/regulatory/gdpr
+          itemType: concept
+          text: EU GDPR
+        - url: /compliance/regulatory/offering-eu-model-clauses
+          itemType: concept
+          text: EU Model Clauses
+        - url: /azure/compliance/offerings/offering-germany-c5
+          itemType: concept
+          text: Germany C5
+        - url: /azure/compliance/offerings/offering-germany-it-grundschutz-workbook
+          itemType: concept
+          text: Germany IT-Grundschutz workbook
+        - url: /compliance/regulatory/offering-bir-2012-netherlands
+          itemType: concept
+          text: Netherlands BIR 2012
+        - url: /azure/compliance/offerings/offering-qatar-nia
+          itemType: concept
+          text: Qatar NIA
+
+    # Card
+    - title: Regional - EMEA
+      links:
+        - url: /compliance/regulatory/offering-russia-data-localization
+          itemType: concept
+          text: Russia personal data law
+        - url: /compliance/regulatory/offering-ens-spain
+          itemType: concept
+          text: Spain ENS High
+        - url: /compliance/regulatory/offering-lopd-spain
+          itemType: concept
+          text: Spain LOPD
+        - url: /azure/compliance/offerings/offering-uae-desc
+          itemType: concept
+          text: UAE DESC
+        - url: /azure/compliance/offerings/offering-uk-cyber-essentials-plus
+          itemType: concept
+          text: UK Cyber Essentials Plus
+        - url: /azure/compliance/offerings/offering-uk-g-cloud
+          itemType: concept
+          text: UK G-Cloud
+        - url: /azure/compliance/offerings/offering-uk-pasf
+          itemType: concept
+          text: UK PASF
+
+
+additionalContent:
+#  Maximum of 3 sections
+  sections:
+
+#  Section 1
+    - title: Additional compliance resources
+      summary: To access a resource you may need to be signed into your cloud service 
+      items:
+
+        - title: Privacy and GDPR
+          links:
+            - text: Checklists
+              url: /compliance/regulatory/gdpr-arc-azure-dynamics-windows
+            - text: Data subject requests
+              url: /compliance/regulatory/gdpr-dsr-Azure
+            - text: Breach notification
+              url: /compliance/regulatory/gdpr-breach-azure-dynamics-windows
+            - text: Data protection impact assessments
+              url: /microsoft-365/compliance/gdpr-dpia-azure
+            - text: Data residency in Azure
+              url: https://azure.microsoft.com/global-infrastructure/data-residency/
+
+        - title: Azure Policy regulatory compliance built-in initiatives
+          links:
+            - text: Australian Government ISM PROTECTED
+              url: ../governance/policy/samples/australia-ism.md
+            - text: Canada Federal PBMM
+              url: ../governance/policy/samples/canada-federal-pbmm.md
+            - text: CIS Azure Foundations Benchmark
+              url: ../governance/policy/samples/cis-azure-1-3-0.md
+            - text: FedRAMP High
+              url: ../governance/policy/samples/fedramp-high.md
+            - text: HIPAA HITRUST
+              url: ../governance/policy/samples/hipaa-hitrust-9-2.md
+            - text: IRS 1075
+              url: ../governance/policy/samples/irs-1075-sept2016.md
+            - text: ISO 27001
+              url: ../governance/policy/samples/iso-27001.md
+            - text: PCI DSS
+              url: ../governance/policy/samples/pci-dss-3-2-1.md
+            - text: NIST SP 800-171
+              url: ../governance/policy/samples/nist-sp-800-171-r2.md
+            - text: UK OFFICIAL and UK NHS
+              url: ../governance/policy/samples/ukofficial-uknhs.md
+
+        # Card
+        - title: Country/Region privacy and compliance guides
+          links:
+            - text: Australian security and privacy requirements
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-australian-security-and-privacy-requirements/
+            - text: Singapore security and privacy requirements
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-singapore/
+            - text: Japan security and privacy requirements
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-and-the-japan-security-and-privacy-requirements/
+            - text: New Zealand security and privacy requirements
+              url: https://azure.microsoft.com/resources/microsoft-azure-compliance-in-the-context-of-new-zealand/
+            - text: Navigating your way to the cloud in Europe 
+              url: https://www.microsoft.com/en-ie/lcc_cloud/default.aspx
+            - text: Navigating to the cloud in Middle East and Africa
+              url: https://msmea-staging.azurewebsites.net/mea/trustedcloud/default.aspx
+            - text: Cloud compliance guides for financial services
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3
+
+        - title: Implementation and mappings
+          links:
+            - text: Azure Policy Regulatory Compliance (preview)
+              url: ../governance/policy/concepts/regulatory-compliance.md
+            - text: CIS Azure Foundations Benchmark
+              url: https://www.cisecurity.org/benchmark/azure/
+            - text: CSA CAIQ
+              url: https://cloudsecurityalliance.org/star/registry/microsoft/
+            - text: FERPA implementation guide
+              url: https://azure.microsoft.com/resources/microsoft-azure-ferpa-implementation-guide/
+            - text: GDPR control mapping
+              url: https://servicetrust.microsoft.com/ViewPage/TrustDocumentsV3?command=Download&downloadType=Document&downloadId=62d400be-b281-48a2-b40a-eb1a89e087cf&tab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913&docTab=7f51cb60-3d6c-11e9-b2af-7bb9f5d2d913_AuditedControls
+            - text: GxP guidelines
+              url: https://azure.microsoft.com/resources/microsoft-azure-gxp-guidelines-april/
+            - text: HITRUST customer responsibility matrix
+              url: https://go.hitrustalliance.net/SR-Custom-Matrix-Microsoft-Azure
+
+        # Card
+        - title: Implementation and mappings
+          links:
+            - text: ISO 27001 security controls
+              url: https://azure.microsoft.com/resources/13-effective-security-controls-for-iso-27001-compliance-when-using-microsoft-azure/
+            - text: IT-Grundschutz workbook (German)
+              url: /azure/compliance/offerings/offering-germany-it-grundschutz-workbook
+            - text: NERC CIP standards and cloud computing
+              url: ../azure-government/documentation-government-overview-nerc.md
+            - text: NZ GCIO cloud computing considerations
+              url: https://azure.microsoft.com/resources/microsoft-azure-response-to-nz-gcio-cloud-computing-information-security-privacy-considerations
+            - text: PCI 3DS attestation documents
+              url: https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3
+            - text: SEC Regulation SCI guidance
+              url: https://azure.microsoft.com/resources/microsoft-azure-regulation-systems-compliance-and-integrity-sci-cloud-implementation-guide/
+            - text: SOX guidance
+              url: https://azure.microsoft.com/resources/microsoft-azure-guidance-for-sarbanes-oxley-sox/
+            - text: UK OFFICIAL cloud security controls
+              url: https://azure.microsoft.com/resources/14-cloud-security-controls-for-uk-cloud-using-microsoft-azure
+ 
+        # Card
+        - title: White papers and analyst reports
+          links:
+            - text: Overview of Azure compliance
+              url: /azure/compliance/offerings/
+            - text: Enabling data residency and protection
+              url: https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/
+            - text: Azure for worldwide public sector
+              url: ../azure-government/documentation-government-overview-wwps.md
+            - text: Azure Internet of Things compliance
+              url: https://azure.microsoft.com/resources/microsoft-azure-and-data-compliance-in-the-internet-of-things-iot-context/
+            - text: IDC - Azure manages regulatory challenges 
+              url: https://azure.microsoft.com/resources/azure-is-helping-organizations-manage-regulatory-challenges/
+            - text: Azure risk compliance guide
+              url: https://azure.microsoft.com/resources/risk-assessment-and-compliance-guide-for-financial-institutions-in-the-microsoft-cloud-/
+            - text: Shared responsibilities for cloud computing
+              url: https://azure.microsoft.com/resources/shared-responsibilities-for-cloud-computing/
+            - text: Azure export controls
+              url: https://azure.microsoft.com/resources/microsoft-azure-cloud-services-us-uk-and-eu-export-controls/
+            - text: Azure enables a world of compliance
+              url: https://azure.microsoft.com/resources/azure-enables-a-world-of-compliance/
+            - text: Azure cloud platform for PCI 3DS
+              url: https://azure.microsoft.com/resources/azure-cloud-platform-for-pci-3ds/
+            - text: A practical guide to designing secure health solutions
+              url: https://azure.microsoft.com/resources/a-practical-guide-to-designing-secure-health-solutions-using-microsoft-azure/

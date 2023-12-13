@@ -1,20 +1,19 @@
 ---
-title: Security features used with Azure virtual machines - Azure security | Microsoft Docs
+title: Security features used with Azure VMs
+titleSuffix: Azure security
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
 documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2019
+ms.date: 12/05/2022
 ms.author: terrylan
 
 ---
@@ -46,47 +45,43 @@ Learn more about [Microsoft Antimalware for Azure](antimalware.md) and the core 
 Learn more about antimalware software to help protect your virtual machines:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/azure/virtual-machines/windows/classic/install-trend)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](/azure/virtual-machines/windows/classic/install-symantec)
+* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). With Windows Defender ATP, you get:
+For even more powerful protection, consider using [Microsoft Defender for Endpoint](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). With Defender for Endpoint, you get:
 
 * [Attack surface reduction](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint protection and response](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Automated investigation and remediation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Secure score](/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Secure score](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
 * [Advanced hunting](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Management and APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Learn more:
-
-* [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Overview of WDATP capabilities](/windows/security/threat-protection/windows-defender-atp/overview)  
+Learn more: [Get Started with Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
 
 ## Hardware security module
 
 Improving key security can enhance encryption and authentication protections. You can simplify the management and security of your critical secrets and keys by storing them in Azure Key Vault.
 
-Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault provides the option to store your keys in hardware security modules (HSMs) certified to FIPS 140-2 Level 2 standards. Your SQL Server encryption keys for backup or [transparent data encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) can all be stored in Key Vault with any keys or secrets from your applications. Permissions and access to these protected items are managed through [Microsoft Entra ID](../../active-directory/index.yml).
 
 Learn more:
 
-* [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [Azure Key Vault blog](https://blogs.technet.microsoft.com/kv/)
+* [What is Azure Key Vault?](../../key-vault/general/overview.md)
+* [Azure Key Vault blog](/archive/blogs/kv/)
 
 ## Virtual machine disk encryption
 
-Azure Disk Encryption is a new capability for encrypting your Windows and Linux virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks.
+Azure Disk Encryption is a new capability for encrypting your Windows and Linux virtual machine disks. Azure Disk Encryption uses the industry-standard [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) feature of Windows and the [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks.
 
 The solution is integrated with Azure Key Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription. It ensures that all data in the virtual machine disks are encrypted at rest in Azure Storage.
 
 Learn more:
 
-* [Azure Disk Encryption for IaaS VMs](/azure/security/azure-security-disk-encryption-overview)
-* [Quickstart: Encrypt a Windows IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md) and [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md)
+* [Quickstart: Encrypt a Linux IaaS VM with Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## Virtual machine backup
 
@@ -94,8 +89,8 @@ Azure Backup is a scalable solution that helps protect your application data wit
 
 Learn more:
 
-* [What is Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
-* [Azure Backup service FAQ](/azure/backup/backup-azure-backup-faq)
+* [What is Azure Backup?](../../backup/backup-overview.md)
+* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.yml)
 
 ## Azure Site Recovery
 
@@ -105,42 +100,42 @@ Site Recovery:
 
 * **Simplifies your BCDR strategy**: Site Recovery makes it easy to handle replication, failover, and recovery of multiple business workloads and apps from a single location. Site Recovery orchestrates replication and failover but doesn't intercept your application data or have any information about it.
 * **Provides flexible replication**: By using Site Recovery, you can replicate workloads running on Hyper-V virtual machines, VMware virtual machines, and Windows/Linux physical servers.
-* **Supports failover and recovery**: Site Recovery provides test failovers to support disaster recovery drills without affecting production environments. You can also run planned failovers with a zero-data loss for expected outages, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. After failover, you can fail back to your primary sites. Site Recovery provides recovery plans that can include scripts and Azure automation workbooks so that you can customize failover and recovery of multi-tier applications.
+* **Supports failover and recovery**: Site Recovery provides test failovers to support disaster recovery drills without affecting production environments. You can also run planned failovers with a zero-data loss for expected outages, or unplanned failovers with minimal data loss (depending on replication frequency) for unexpected disasters. After failover, you can fail back to your primary sites. Site Recovery provides recovery plans that can include scripts and Azure Automation workbooks so that you can customize failover and recovery of multi-tier applications.
 * **Eliminates secondary datacenters**: You can replicate to a secondary on-premises site, or to Azure. Using Azure as a destination for disaster recovery eliminates the cost and complexity of maintaining a secondary site. Replicated data is stored in Azure Storage.
 * **Integrates with existing BCDR technologies**: Site Recovery partners with other applications' BCDR features. For example, you can use Site Recovery to help protect the SQL Server back end of corporate workloads. This includes native support for SQL Server Always On to manage the failover of availability groups.
 
 Learn more:
 
-* [What is Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [How does Azure Site Recovery work?](/azure/site-recovery/site-recovery-components)
-* [What workloads are protected by Azure Site Recovery?](/azure/site-recovery/site-recovery-workload)
+* [What is Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [How does Azure Site Recovery work?](../../site-recovery/azure-to-azure-architecture.md)
+* [What workloads are protected by Azure Site Recovery?](../../site-recovery/site-recovery-workload.md)
 
 ## Virtual networking
 
 Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure virtual network.
 
-An Azure virtual network is a logical construct built on top of the physical Azure network fabric. Each logical Azure virtual network is isolated from all other Azure virtual networks. This isolation helps insure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
+An Azure virtual network is a logical construct built on top of the physical Azure network fabric. Each logical Azure virtual network is isolated from all other Azure virtual networks. This isolation helps ensure that network traffic in your deployments is not accessible to other Microsoft Azure customers.
 
 Learn more:
 
 * [Azure network security overview](network-overview.md)
-* [Virtual Network overview](/azure/virtual-network/virtual-networks-overview)
+* [Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
 * [Networking features and partnerships for enterprise scenarios](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## Security policy management and reporting
 
-Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center helps you optimize and monitor the security of your virtual machines by:
+Defender for Cloud helps you optimize and monitor the security of your virtual machines by:
 
-* Providing [security recommendations](/azure/security-center/security-center-recommendations) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
+* Providing [security recommendations](../../security-center/security-center-recommendations.md) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
 * Monitoring the state of your virtual machines.
 
 Learn more:
 
-* [Introduction to Azure Security Center](/azure/security-center/security-center-intro)
-* [Azure Security Center frequently asked questions](/azure/security-center/security-center-faq)
-* [Azure Security Center planning and operations](/azure/security-center/security-center-planning-and-operations-guide)
+* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
+* [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
+* [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
 
 ## Compliance
 
@@ -153,9 +148,9 @@ Learn more:
 
 ## Confidential Computing
 
-While confidential computing is not technically part of virtual machine security, the topic of virtual machine security belongs to the higher-level subject of “compute” security. Confidential computing belongs within the category of “compute” security.
+While confidential computing is not technically part of virtual machine security, the topic of virtual machine security belongs to the higher-level subject of "compute" security. Confidential computing belongs within the category of "compute" security.
 
-Confidential computing ensures that when data is “in the clear,” which is required for efficient processing, the data is protected inside a Trusted Execution Environment  https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - also known as an enclave), an example of which is shown in the figure below.  
+Confidential computing ensures that when data is "in the clear," which is required for efficient processing, the data is protected inside a Trusted Execution Environment  https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - also known as an enclave), an example of which is shown in the figure below.  
 
 TEEs ensure there is no way to view data or the operations inside from the outside, even with a debugger. They even ensure that only authorized code is permitted to access data. If the code is altered or tampered, the operations are denied and the environment disabled. The TEE enforces these protections throughout the execution of code within it.
 

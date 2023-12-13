@@ -1,19 +1,13 @@
 ---
-title: Understand your Azure invoice | Microsoft Docs
+title: Understand your Azure invoice
 description: Learn how to read and understand the usage and bill for your Azure subscription
-services: ''
-documentationcenter: ''
 author: bandersmsft
-manager: jureid
-editor: ''
+ms.reviewer: lishepar
 tags: billing
-
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/02/2019
+ms.date: 04/05/2023
 ms.author: banders
 
 ---
@@ -54,10 +48,10 @@ first page and shows information about your profile and subscription.
 | Customer PO No. |An optional purchase order number, assigned by you for tracking |
 | Invoice No. |A unique, Microsoft generated invoice number used for tracking purposes |
 | Billing cycle |Date range that this invoice covers |
-| Invoice date |Date that the invoice was generated, typically a day after end of the Billing cycle |
+| Invoice date |Date that the invoice was generated, typically on the same day of the month that the Azure account was created. However, they sometimes get generated a day or two later than day of the month that the Azure account was created.|
 | Payment method |Type of payment used on the account (invoice or credit card) |
 | Bill to |Billing address that is listed for the account |
-| Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |
+| Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased, such as Pay-As-You-Go and Azure Pass. For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |
 | Account owner email | The account email address that the Microsoft Azure account is registered under. <br /><br />To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.md). |
 
 ### Understand the invoice summary

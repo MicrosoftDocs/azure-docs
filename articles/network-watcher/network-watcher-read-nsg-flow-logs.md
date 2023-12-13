@@ -1,26 +1,21 @@
 ---
-title: Read NSG flow logs | Microsoft Docs
-description: This article shows how to parse NSG flow logs
+title: Read NSG flow logs
+description: Learn how to use Azure PowerShell to parse network security group flow logs, which are created hourly and updated every few minutes in Azure Network Watcher.
 services: network-watcher
-documentationcenter: na
-author: KumudD
-manager: twooley
-editor:
-
+author: halkazwini
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
-ms.date: 12/13/2017
-ms.author: kumud
+ms.topic: how-to
+ms.workload: infrastructure-services
+ms.date: 02/09/2021
+ms.author: halkazwini
+ms.custom: devx-track-azurepowershell, engagement-fy23
 ---
 
 # Read NSG flow logs
 
 Learn how to read NSG flow logs entries with PowerShell.
 
-NSG flow logs are stored in a storage account in [block blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data. In this article you learn how to read portions of the flow logs.
+NSG flow logs are stored in a storage account in [block blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobs are made up of smaller blocks. Each log is a separate block blob that is generated every hour. New logs are generated every hour, the logs are updated with new entries every few minutes with the latest data. In this article you learn how to read portions of the flow logs.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -35,7 +30,7 @@ Before you begin, you must have Network Security Group Flow Logging enabled on o
 
 ## Retrieve the block list
 
-The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell sets up the variables needed to query the NSG flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -184,6 +179,9 @@ This scenario is an example of how to read entries in NSG flow logs without havi
 
 ## Next steps
 
+
 Visit [Use Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Use Grafana](network-watcher-nsg-grafana.md), and [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) to learn more about ways to view NSG flow logs. An Open Source Azure Function approach to consuming the blobs directly and emitting to various log analytics consumers may be found here: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+
+You can use [Azure Traffic Analytics](./traffic-analytics.md) to get insights on your traffic flows. Traffic Analytics uses [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) to make your traffic flow queryable.
 
 To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md)

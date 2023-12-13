@@ -1,13 +1,10 @@
 ---
 title: Apache Phoenix in HDInsight - Azure HDInsight 
 description: Overview of Apache Phoenix
-author: ashishthaps
-ms.author: ashishth
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/17/2019
+ms.date: 04/26/2023
 ---
 
 # Apache Phoenix in Azure HDInsight
@@ -44,10 +41,10 @@ For example, here is a physical table named `product_metrics` with the following
 
 ```sql
 CREATE  TABLE product_metrics (
-    metric_type CHAR(1),
+    metric_type CHAR(1)  NOT NULL,
     created_by VARCHAR,
-    created_date DATE,
-    metric_id INTEGER
+    created_date DATE  NOT NULL,
+    metric_id INTEGER  NOT NULL
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
 
@@ -69,7 +66,7 @@ A skip scan uses the `SEEK_NEXT_USING_HINT` enumeration of the HBase filter. Usi
 
 ### Transactions
 
-While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.io/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
+While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.apache.org/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
 
 As with traditional SQL transactions, transactions provided through the Phoenix transaction manager allow you to ensure an atomic unit of data is successfully upserted, rolling back the transaction if the upsert operation fails on any transaction-enabled table.
 
@@ -123,11 +120,11 @@ An HDInsight HBase cluster includes the [Ambari UI](hdinsight-hadoop-manage-amba
 
 2. Select **HBase** from the list of services in the left-hand menu, then select the **Configs** tab.
 
-    ![Apache Ambari HBase configurations](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png" alt-text="Apache Ambari HBase configurations":::
 
 3. Find the **Phoenix SQL** configuration section to enable or disable phoenix, and set the query timeout.
 
-    ![Ambari Phoenix SQL configuration section](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png" alt-text="Ambari Phoenix SQL configuration section":::
 
 ## See also
 

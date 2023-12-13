@@ -1,15 +1,20 @@
 ---
 title: Get drone imagery
 description: This article describes how to get drone imagery from partners.
-author: uhabiba04
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: v-umha
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Get drone imagery from drone partners
 
 This article describes how you can bring in orthomosaic data from your drone imagery partners to Azure FarmBeats Datahub. An orthomosaic is an aerial illustration or image that's geometrically corrected and stitched from data collected by a drone.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 Currently, the following imagery partners are supported.
 
@@ -32,7 +37,7 @@ Provide the following information to your device provider to enable integration 
 
 Follow these steps.
 
-1. Download this [script](https://aka.ms/farmbeatspartnerscript), and extract it to your local drive. Two files are inside the zip file.
+1. Download this script, and extract it to your local drive. Two files are inside the zip file.
 2. Sign in to the [Azure portal](https://portal.azure.com/) and open Azure Cloud Shell. This option is available on the toolbar in the upper-right corner of the portal.
 
     ![Open Azure Cloud Shell on upper-right bar of the portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
@@ -48,9 +53,9 @@ Follow these steps.
 5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username.
 6. Run the following script:
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generateCredentials.ps1   
+    ./generateCredentials.ps1
 
     ```
 
@@ -86,4 +91,4 @@ Files and images uploaded by the drone provider appear in the **Maps** section. 
 
 ## Next steps
 
-Learn how to use FarmBeats Datahub [APIs](references-for-azure-farmbeats.md#rest-api) to get your drone imagery.
+Learn how to use FarmBeats Datahub [APIs](rest-api-in-azure-farmbeats.md) to get your drone imagery.

@@ -1,0 +1,194 @@
+### YamlMime:FAQ
+metadata:
+  title: Frequently asked questions about classic to Azure Resource Manager migration 
+  description: Frequently asked questions about migrating from classic to Azure Resource Manager.
+  author: tanmaygore
+  manager: vashan
+  ms.service: virtual-machines
+  ms.subservice: classic-to-arm-migration
+  ms.workload: infrastructure-services
+  ms.topic: faq
+  ms.date: 03/08/2023
+  ms.author: tagore
+  ms.custom: compute-evergreen, devx-track-arm-template
+title: Frequently asked questions about classic to Azure Resource Manager migration
+summary: |
+  > [!IMPORTANT]
+  > Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on September 6, 2023. [Learn more](https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](./classic-vm-deprecation.md#how-does-this-affect-me).
+  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          What is Azure Service Manager and what does it mean by classic?
+        answer: |
+          The word "classic" in IaaS VMs (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+
+      - question: |
+          What is Azure Resource Manager?
+        answer: |
+          [Azure Resource Manager](../azure-resource-manager/management/overview.md) is the latest control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+          
+      - question: |
+          What is the time required for migration?
+        answer: |
+          Planning and execution of migration greatly depends on the complexity of the architecture and could take couple of months.  
+
+      - question: |
+          What is the definition of a new customer on IaaS VMs (classic)?
+        answer: |
+          Customers who did not have IaaS VMs (classic) in their subscriptions in the month of February 2020 (a month before deprecation started) are considered as new customers. 
+
+      - question: |
+          What is the definition of an existing customer on IaaS Virtual Machines (classic)?
+        answer: |
+          Customers who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered existing customers. Only these customers get until September 6, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
+
+      - question: |
+          Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
+        answer: |
+          As part of the retirement process, IaaS VMs (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using Azure Resource Manager. If you cannot use Azure VMs using Azure Resource Manager, contact support to add your subscription to the allowlist.
+
+      - question: |
+          Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
+        answer: |
+          Not until September 1st, 2023 for IaaS VMs (classic). The IaaS VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure. On September 1st, 2023, these VMs will be fully retired and any active or allocated VMs will be stopped & deallocated.
+          
+          There will be no impact to other classic resources like Cloud Services (Classic), Storage Accounts (Classic), etc.
+          
+      - question: |
+          What happens to my VMs if I don’t plan on migrating in the near future? 
+        answer: |
+          On September 1st, 2023, the IaaS VMs (Classic) will be fully retired and any active or allocated VMs will be stopped & deallocated. To prevent business impact, we highly recommend to start planning your migration today and complete it before September 1st, 2023. 
+          We are not deprecating the existing classic APIs, Cloud Services and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We recommend that you start planning to migrate these resources to Azure Resource Manager. 
+          
+      - question: |
+          What does this migration plan mean for my existing tooling? 
+        answer: |
+          Updating your tooling to the Resource Manager deployment model is one of the most important changes that you have to account for in your migration plans.
+
+      - question: |
+          How long will the management-plane downtime be? 
+        answer: |
+          It depends on the number of resources that are being migrated. For smaller deployments (a few tens of VMs), the whole migration should take less than an hour. For large-scale deployments (hundreds of VMs), the migration can take a few hours.
+
+      - question: |
+          Can I roll back after my migrating resources are committed in Resource Manager? 
+        answer: |
+          You can abort your migration as long as the resources are in the prepared state. Rollback is not supported after the resources have been successfully migrated through the commit operation.
+
+      - question: |
+          Can I roll back my migration if the commit operation fails? 
+        answer: |
+          You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket.
+
+      - question: |
+          Do I have to buy another express route circuit if I have to use IaaS under Resource Manager? 
+        answer: |
+          No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
+          
+      - question: |
+          What if I had configured Azure role-based access control policies for my classic IaaS resources? 
+        answer: |
+          During migration, the resources transform from classic to Resource Manager. So we recommend that you plan the Azure RBAC policy updates that need to happen after migration.
+
+      - question: |
+          I backed up my classic VMs in a vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
+        answer: |
+          When you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
+          
+          1. In the Recovery Services vault, go to the **Backup Items** blade and select the VM. 
+          2. Click Stop Backup. Select **Retain Backup Data** in the dropdown menu.
+          
+          > [!NOTE]
+          > This option will stop all future backup jobs from protecting your VM. However, Azure Backup service will retain the recovery points that have been backed up.  You'll need to pay to keep the recovery points in the vault (see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) for details). You'll be able to restore the VM if needed. If you decide to resume VM protection, then you can use *Resume backup* option.
+          
+          
+          To migrate the virtual machine to Resource Manager mode, 
+          
+          1. Delete the backup/snapshot extension from the VM.
+          2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
+          
+          Additionally, if you want to back up the migrated VM, go to Virtual Machine management blade to [enable backup](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+          
+      - question: |
+          How can I restore backups of classic VMs once Classic VMs and Classic Storage Accounts are retired?
+        answer: |
+          Once classic VMs have been retired, restoring backups of classic VMs require using the `restore disks` restoration type. Classic VM disks may be restored to ARM storage accounts. After restoring the disks, you can [convert them to managed disks](scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md) and [create a new ARM VM with them attached](scripts/create-vm-from-managed-os-disks.md). Alternatively, you can [attach them as data disks to an existing VM](windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).  
+
+      - question: |
+          Can I validate my subscription or resources to see if they're capable of migration? 
+        answer: |
+          Yes. In the platform-supported migration option, the first step in preparing for migration is to validate that the resources are capable of migration. In case the validate operation fails, you receive messages for all the reasons the migration cannot be completed.
+
+      - question: |
+          What happens if I run into a quota error while preparing the IaaS resources for migration? 
+        answer: |
+          We recommend that you abort your migration and then log a support request to increase the quotas in the region where you are migrating the VMs. After the quota request is approved, you can start executing the migration steps again.
+
+      - question: |
+          How do I report an issue? 
+        answer: |
+          Post your issues and questions about migration to our [Microsoft Q&A question page for VM](/answers/topics/azure-virtual-machines.html), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+          
+      - question: |
+          What if I don't like the names of the resources that the platform chose during migration? 
+        answer: |
+          All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](https://feedback.azure.com).
+          
+      - question: |
+          Can I migrate ExpressRoute circuits used across subscriptions with authorization links? 
+        answer: |
+          ExpressRoute circuits which use cross-subscription authorization links cannot be migrated automatically without downtime. We have guidance on how these can be migrated using manual steps. See [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md) for steps and more information.
+          
+      - question: |
+          I got the message "VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready" or "VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated."
+        answer: |
+          This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes.
+      
+      - question: |
+          How do I migrate my classic storage accounts to Resource Manager?
+        answer: |
+          If you have a classic VM attached to your account, migrate the classic VMs first. Classic storage accounts must be migrated after classic VM is migrated. Migration can be done either using the Azure portal, with PowerShell or with Azure CLI.
+          1. [Migrate using PowerShell](./migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account)
+          2. [Migrate using Azure CLI](./migration-classic-resource-manager-cli.md#step-5-migrate-a-storage-account)
+          3. [Migrate using Azure portal](./migration-classic-resource-manager-overview.md#migration-of-storage-accounts)
+        
+      - question: |
+          What is the official date classic storage accounts will be cut off from creation?
+        answer: |
+          Subscriptions created after August 2022 will no longer be able to create classic storage accounts. However, any existing subscription before August 2022 can continue to create and manage classic storage resources until the retirement date of 31 August 2024.
+
+      - question: |
+          What happens to existing classic storage accounts after 31 August 2024?
+        answer: |
+          Once the deadline arrives you will no longer be able to access your classic storage accounts.
+
+      - question: |
+          How do I identify my classic storage accounts in my subscription?
+        answer: |
+          In Azure portal, search for Storage Account to get the list of all storage accounts. Look at the Type column to identify the classic ones. If Type is microsoft.classicstorage/storageaccounts then the account is classic.
+
+      - question : |
+          Can Microsoft migrate this data for me?
+        answer: |
+          No, Microsoft cannot migrate user's data on their behalf. Users will have to use the self-serve options listed above.
+      
+      - question: |
+          What is the downtime when migrating my storage account from Classic to Resource Manager?
+        answer: |
+          There is no downtime to migrate classic storage account to Resource Manager. However, there is downtime for other scenarios linked to classic VM Migration.
+          
+
+additionalContent: |
+
+  ## Next steps
+  
+  * [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](./migration-classic-resource-manager-overview.md)
+  * [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)
+  * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md)
+  * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md)
+  * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-cli.md)
+  * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md)
+  * [Review most common migration errors](migration-classic-resource-manager-errors.md)

@@ -1,12 +1,14 @@
 ---
 title: Resource Manager Architecture 
 description: An overview of and architectural information about the Azure Service Fabric Cluster Resource Manager service.
-author: masnider
-
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: masnider
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Cluster resource manager architecture overview
 The Service Fabric Cluster Resource Manager is a central service that runs in the cluster. It manages the desired state of the services in the cluster, particularly with respect to resource consumption and any placement rules. 
 
@@ -38,7 +40,7 @@ Let’s look at the following diagram:
 
 <center>
 
-![Resource Balancer Architecture][Image1]
+![Diagram that shows the Cluster Resource Manager service aggregates all the information from the local agents and reacts based on its current configuration.][Image1]
 </center>
 
 During runtime, there are many changes that could happen. For example, let’s say the amount of resources some services consume changes, some services fail, and some nodes join and leave the cluster. All the changes on a node are aggregated and periodically sent to the Cluster Resource Manager service (1,2) where they are aggregated again, analyzed, and stored. Every few seconds that service looks at the changes and determines if any actions are necessary (3). For example, it could notice that some empty nodes have been added to the cluster. As a result, it decides to move some services to those nodes. The Cluster Resource Manager could also notice that a particular node is overloaded, or that certain services have failed or been deleted, freeing up resources elsewhere.

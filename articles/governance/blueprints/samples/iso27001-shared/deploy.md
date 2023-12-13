@@ -1,10 +1,12 @@
 ---
 title: Deploy ISO 27001 Shared Services blueprint sample
 description: Deploy steps for the ISO 27001 Shared Services blueprint sample including blueprint artifact parameter details.
-ms.date: 01/13/2020
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Deploy the ISO 27001 Shared Services blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 To deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample, the following steps must
 be taken:
@@ -83,7 +85,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
        assignment will be created for each using the parameters entered.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
+     - **Location**: Select a region for the managed identity to be created in. Azure Blueprints uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
@@ -144,7 +146,7 @@ The following table provides a list of the blueprint artifact parameters:
 |Allowed resource types|Policy assignment|Allowed resource types|List of resource types allowed to be deployed. This list is composed of all the resource types deployed in Shared Services.|
 |Allowed storage account SKUs|Policy assignment|Allowed storage SKUs|List of diagnostic logs storage account SKUs allowed. Default value is _["Standard_LRS"]_.|
 |Allowed virtual machine SKUs|Policy assignment|List of virtual machine SKUs allowed to be deployed. Default value is _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
-|Blueprint initiative for ISO 27001|Policy assignment|Resource types to audit diagnostic logs|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|Blueprint initiative for ISO 27001|Policy assignment|Resource types to audit diagnostic logs|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Log Analytics resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-sharedsvsc-log-rg` to make the resource group unique.|
 |Log Analytics resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
 |Log Analytics template|Resource Manager template|Service tier|Sets the tier of the Log Analytics workspace. Default value is _PerNode_.|

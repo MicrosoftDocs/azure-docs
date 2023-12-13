@@ -1,238 +1,256 @@
 ---
-title: Train deep learning PyTorch models
+title: Train deep learning PyTorch models (SDK v2)
 titleSuffix: Azure Machine Learning
-description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's PyTorch estimator class.  The example scripts classify chicken and turkey images to build a deep learning neural network based on PyTorch's transfer learning tutorial. 
+description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning SDK (v2).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.topic: conceptual
-ms.author: peterlu
-author: peterclu
-ms.reviewer: peterlu
-ms.date: 08/01/2019
-ms.custom: seodec18
-
-#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.subservice: training
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
+ms.date: 10/05/2022
+ms.topic: how-to
+ms.custom: sdkv2, event-tier1-build-2022
+#Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
-# Train Pytorch deep learning models at scale with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Train PyTorch models at scale with Azure Machine Learning
 
-In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning's [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class.  
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network based on PyTorch's transfer learning [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). 
+In this article, you'll learn to train, hyperparameter tune, and deploy a [PyTorch](https://pytorch.org/) model using the Azure Machine Learning Python SDK v2.
 
-Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning. 
+You'll use the example scripts in this article to classify chicken and turkey images to build a deep learning neural network (DNN) based on [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. Transfer learning shortens the training  process by requiring less data, time, and compute resources than training from scratch. To learn more about transfer learning, see the [deep learning vs machine learning](./concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) article.
 
-Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
+Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
 
 ## Prerequisites
 
-Run this code on either of these environments:
+To benefit from this article, you'll need to:
 
-- Azure Machine Learning compute instance - no downloads or installation necessary
+- Access an Azure subscription. If you don't have one already, [create a free account](https://azure.microsoft.com/free/).
+- Run the code in this article using either an Azure Machine Learning compute instance or your own Jupyter notebook.
+    - Azure Machine Learning compute instance—no downloads or installation necessary
+        - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+        - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > python > jobs > single-step > pytorch > train-hyperparameter-tune-deploy-with-pytorch**.
+    - Your Jupyter notebook server
+        - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
+        - Download the training script file [pytorch_train.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/src/pytorch_train.py).
 
-    - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-pytorch** folder. 
- 
- - Your own Jupyter Notebook server
+You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page.
 
-    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
-     
-    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/deployment/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+[!INCLUDE [gpu quota](includes/machine-learning-gpu-quota-prereq.md)]
 
-## Set up the experiment
+## Set up the job
 
-This section sets up the training experiment by loading the required python packages, initializing a workspace, creating an experiment, and uploading the training data and training scripts.
+This section sets up the job for training by loading the required Python packages, connecting to a workspace, creating a compute resource to run a command job, and creating an environment to run the job.
 
-### Import packages
+### Connect to the workspace
 
-First, import the necessary Python libraries.
+First, you'll need to connect to your Azure Machine Learning workspace. The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
-```Python
-import os
-import shutil
+We're using `DefaultAzureCredential` to get access to the workspace. This credential should be capable of handling most Azure SDK authentication scenarios.
 
-from azureml.core.workspace import Workspace
-from azureml.core import Experiment
+If `DefaultAzureCredential` doesn't work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity) or [`Set up authentication`](how-to-setup-authentication.md?tabs=sdk) for more available credentials.
 
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-from azureml.train.dnn import PyTorch
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=credential)]
+
+If you prefer to use a browser to sign in and authenticate, you should uncomment the following code and use it instead.
+
+```python
+# Handle to the workspace
+# from azure.ai.ml import MLClient
+
+# Authentication package
+# from azure.identity import InteractiveBrowserCredential
+# credential = InteractiveBrowserCredential()
 ```
 
-### Initialize a workspace
+Next, get a handle to the workspace by providing your Subscription ID, Resource Group name, and workspace name. To find these parameters:
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+1. Look for your workspace name in the upper-right corner of the Azure Machine Learning studio toolbar.
+2. Select your workspace name to show your Resource Group and Subscription ID.
+3. Copy the values for Resource Group and Subscription ID into the code.
 
-Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=ml_client)]
 
-```Python
-ws = Workspace.from_config()
-```
+The result of running this script is a workspace handle that you'll use to manage other resources and jobs.
 
-### Create a deep learning experiment
+> [!NOTE]
+> - Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
 
-Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "pytorch-birds".
+### Create a compute resource to run the job
 
-```Python
-project_folder = './pytorch-birds'
-os.makedirs(project_folder, exist_ok=True)
+Azure Machine Learning needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
-experiment_name = 'pytorch-birds'
-experiment = Experiment(ws, name=experiment_name)
-```
+In the following example script, we provision a Linux [`compute cluster`](./how-to-create-attach-compute-cluster.md?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Since we need a GPU cluster for this example, let's pick a *STANDARD_NC6* model and create an Azure Machine Learning compute.
 
-### Get the data
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=gpu_compute_target)]
 
-The dataset consists of about 120 training images each for turkeys and chickens, with 100 validation images for each class. We will download and extract the dataset as part of our training script `pytorch_train.py`. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html).
+### Create a job environment
 
-### Prepare training scripts
+To run an Azure Machine Learning job, you'll need an environment. An Azure Machine Learning [environment](concept-environments.md) encapsulates the dependencies (such as software runtime and libraries) needed to run your machine learning training script on your compute resource. This environment is similar to a Python environment on your local machine.
 
-In this tutorial, the training script, `pytorch_train.py`, is already provided. In practice, you can take any custom training script, as is, and run it with Azure Machine Learning.
+Azure Machine Learning allows you to either use a curated (or ready-made) environment or create a custom environment using a Docker image or a Conda configuration. In this article, you'll reuse the curated Azure Machine Learning environment `AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu`. You'll use the latest version of this environment using the `@latest` directive.
 
-Upload the Pytorch training script, `pytorch_train.py`.
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=curated_env_name)]
 
-```Python
-shutil.copy('pytorch_train.py', project_folder)
-```
+## Configure and submit your training job
 
-However, if you would like to use Azure Machine Learning tracking and metrics capabilities, you will have to add a small amount code inside your training script. Examples of metrics tracking can be found in `pytorch_train.py`.
+In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in Azure Machine Learning.
 
-## Create a compute target
+### Obtain the training data
+You'll use data that is stored on a public blob as a [zip file](https://azuremlexamples.blob.core.windows.net/datasets/fowl_data.zip). This dataset consists of about 120 training images each for two classes (turkeys and chickens), with 100 validation images for each class. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html). We'll download and extract the dataset as part of our training script `pytorch_train.py`.
 
-Create a compute target for your PyTorch job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster.
+### Prepare the training script
 
-```Python
-cluster_name = "gpucluster"
+In this article, we've provided the training script *pytorch_train.py*. In practice, you should be able to take any custom training script as is and run it with Azure Machine Learning without having to modify your code.
 
-try:
-    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
-    print('Found existing compute target')
-except ComputeTargetException:
-    print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
-                                                           max_nodes=4)
+The provided training script downloads the data, trains a model, and registers the model.
 
-    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
+### Build the training job
 
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-```
+Now that you have all the assets required to run your job, it's time to build it using the Azure Machine Learning Python SDK v2. For this example, we'll be creating a `command`.
 
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
-
-## Create a PyTorch estimator
-
-The [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) provides a simple way of launching a PyTorch training job on a compute target.
-
-The PyTorch estimator is implemented through the generic [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
-
-If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
-
-```Python
-script_params = {
-    '--num_epochs': 30,
-    '--output_dir': './outputs'
-}
-
-estimator = PyTorch(source_directory=project_folder, 
-                    script_params=script_params,
-                    compute_target=compute_target,
-                    entry_script='pytorch_train.py',
-                    use_gpu=True,
-                    pip_packages=['pillow==5.4.1'])
-```
-
-For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md).
-
-## Submit a run
-
-The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
-
-```Python
-run = experiment.submit(estimator)
-run.wait_for_completion(show_output=True)
-```
-
-As the Run is executed, it goes through the following stages:
-
-- **Preparing**: A docker image is created according to the PyTorch estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
-
-- **Scaling**: The cluster attempts to scale up if the Batch AI cluster requires more nodes to execute the run than are currently available.
-
-- **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the entry_script is executed. Outputs from stdout and the ./logs folder are streamed to the run history and can be used to monitor the run.
-
-- **Post-Processing**: The ./outputs folder of the run is copied over to the run history.
-
-## Register or download a model
-
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
-
-```Python
-model = run.register_model(model_name='pt-dnn', model_path='outputs/')
-```
-
-> [!TIP]
-> The model you just registered is deployed the exact same way as any other registered model in Azure 
-Machine Learning, regardless of which estimator you used for training. The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
-
-You can also download a local copy of the model by using the Run object. In the training script `pytorch_train.py`, a PyTorch save object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
-
-```Python
-# Create a model folder in the current directory
-os.makedirs('./model', exist_ok=True)
-
-for f in run.get_file_names():
-    if f.startswith('outputs/model'):
-        output_file_path = os.path.join('./model', f.split('/')[-1])
-        print('Downloading from {} to {} ...'.format(f, output_file_path))
-        run.download_file(name=f, output_file_path=output_file_path)
-```
-
-## Distributed training
-
-The [`PyTorch`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) estimator also supports distributed training across CPU and GPU clusters. You can easily run distributed PyTorch jobs and Azure Machine Learning will manage the orchestration for you.
-
-### Horovod
-[Horovod](https://github.com/uber/horovod) is an open-source, all reduce framework for distributed training developed by Uber. It offers an easy path to distributed GPU PyTorch jobs.
-
-To use Horovod, specify an [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) object for the `distributed_training` parameter in the PyTorch constructor. This  parameter ensures that Horovod library is installed for you to use in your training script.
+An Azure Machine Learning `command` is a resource that specifies all the details needed to execute your training code in the cloud. These details include the inputs and outputs, type of hardware to use, software to install, and how to run your code. The `command` contains information to execute a single command.
 
 
-```Python
-from azureml.train.dnn import PyTorch
+#### Configure the command
 
-estimator= PyTorch(source_directory=project_folder,
-                      compute_target=compute_target,
-                      script_params=script_params,
-                      entry_script='script.py',
-                      node_count=2,
-                      process_count_per_node=1,
-                      distributed_training=MpiConfiguration(),
-                      framework_version='1.13',
-                      use_gpu=True)
-```
-Horovod and its dependencies will be installed for you, so you can import it in your training script `train.py` as follows:
+You'll use the general purpose `command` to run the training script and perform your desired tasks. Create a `Command` object to specify the configuration details of your training job.
 
-```Python
-import torch
-import horovod
-```
-## Export to ONNX
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=job)]
 
-To optimize inference with the [ONNX Runtime](concept-onnx.md), convert your trained PyTorch model to the ONNX format. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. See the [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) for an example.
+- The inputs for this command include the number of epochs, learning rate, momentum, and output directory.
+- For the parameter values:
+    - provide the compute cluster `gpu_compute_target = "gpu-cluster"` that you created for running this command;
+    - provide the curated environment `AzureML-pytorch-1.9-ubuntu18.04-py37-cuda11-gpu` that you initialized earlier;
+    - configure the command line action itself—in this case, the command is `python pytorch_train.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
+    - configure metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in Azure Machine Learning studio.
+
+### Submit the job
+
+It's now time to submit the job to run in Azure Machine Learning. This time, you'll use `create_or_update` on `ml_client.jobs`.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=create_job)]
+
+Once completed, the job will register a model in your workspace (as a result of training) and output a link for viewing the job in Azure Machine Learning studio.
+
+> [!WARNING]
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use a [.ignore file](concept-train-machine-learning-model.md#understand-what-happens-when-you-submit-a-training-job) or don't include it in the source directory.
+
+### What happens during job execution
+As the job is executed, it goes through the following stages:
+
+- **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the job history and can be viewed to monitor progress. If a curated environment is specified, the cached image backing that curated environment will be used.
+
+- **Scaling**: The cluster attempts to scale up if it requires more nodes to execute the run than are currently available.
+
+- **Running**: All scripts in the script folder *src* are uploaded to the compute target, data stores are mounted or copied, and the script is executed. Outputs from *stdout* and the *./logs* folder are streamed to the job history and can be used to monitor the job.
+
+## Tune model hyperparameters
+
+You've trained the model with one set of parameters, let's now see if you can further improve the accuracy of your model. You can tune and optimize your model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
+
+To tune the model's hyperparameters, define the parameter space in which to search during training. You'll do this by replacing some of the parameters passed to the training job with special inputs from the `azure.ml.sweep` package.
+
+Since the training script uses a learning rate schedule to decay the learning rate every several epochs, you can tune the initial learning rate and the momentum parameters.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=job_for_sweep)]
+
+Then, you'll configure sweep on the command job, using some sweep-specific parameters, such as the primary metric to watch and the sampling algorithm to use.
+
+In the following code, we use random sampling to try different configuration sets of hyperparameters in an attempt to maximize our primary metric, `best_val_acc`.
+
+We also define an early termination policy, the `BanditPolicy`, to terminate poorly performing runs early.
+The `BanditPolicy` will terminate any run that doesn't fall within the slack factor of our primary evaluation metric. You will apply this policy every epoch (since we report our `best_val_acc` metric every epoch and `evaluation_interval`=1). Notice we will delay the first policy evaluation until after the first 10 epochs (`delay_evaluation`=10).
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=sweep_job)]
+
+Now, you can submit this job as before. This time, you'll be running a sweep job that sweeps over your train job.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=create_sweep_job)]
+
+You can monitor the job by using the studio user interface link that is presented during the job run.
+
+## Find the best model
+
+Once all the runs complete, you can find the run that produced the model with the highest accuracy.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=model)]
+
+## Deploy the model as an online endpoint
+
+You can now deploy your model as an [online endpoint](concept-endpoints.md)—that is, as a web service in the Azure cloud.
+
+To deploy a machine learning service, you'll typically need:
+- The model assets that you want to deploy. These assets include the model's file and metadata that you already registered in your training job.
+- Some code to run as a service. The code executes the model on a given input request (an entry script). This entry script receives data submitted to a deployed web service and passes it to the model. After the model processes the data, the script returns the model's response to the client. The script is specific to your model and must understand the data that the model expects and returns. When you use an MLFlow model, Azure Machine Learning automatically creates this script for you.
+
+For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+
+### Create a new online endpoint
+
+As a first step to deploying your model, you need to create your online endpoint. The endpoint name must be unique in the entire Azure region. For this article, you'll create a unique name using a universally unique identifier (UUID).
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=online_endpoint_name)]
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=endpoint)]
+
+Once you've created the endpoint, you can retrieve it as follows:
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=get_endpoint)]
+
+### Deploy the model to the endpoint
+
+After you've created the endpoint, you can deploy the model with the entry script. An endpoint can have multiple deployments. Using rules, the endpoint can then direct traffic to these deployments.
+
+In the following code, you'll create a single deployment that handles 100% of the incoming traffic. We've specified an arbitrary color name (*aci-blue*) for the deployment. You could also use any other name such as *aci-green* or *aci-red* for the deployment.
+The code to deploy the model to the endpoint does the following:
+
+- deploys the best version of the model that you registered earlier;
+- scores the model, using the `score.py` file; and
+- uses the curated environment (that you specified earlier) to perform inferencing.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=blue_deployment)]
+
+> [!NOTE]
+> Expect this deployment to take a bit of time to finish.
+
+### Test the deployed model
+
+Now that you've deployed the model to the endpoint, you can predict the output of the deployed model, using the `invoke` method on the endpoint.
+
+To test the endpoint, let's use a sample image for prediction. First, let's display the image.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=display_image)]
+
+Create a function to format and resize the image.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=process_image)]
+
+Format the image and convert it to a JSON file.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=test_json)]
+
+You can then invoke the endpoint with this JSON and print the result.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=test_deployment)]
+
+### Clean up resources
+
+If you won't be using the endpoint, delete it to stop using the resource. Make sure no other deployments are using the endpoint before you delete it.
+
+[!notebook-python[](~/azureml-examples-main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb?name=delete_endpoint)]
+
+> [!NOTE]
+> Expect this cleanup to take a bit of time to finish.
+
 
 ## Next steps
 
-In this article, you trained and registered a deep learning, neural network using PyTorch on Azure Machine Learning. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a deep learning neural network using PyTorch on Azure Machine Learning. You also deployed the model to an online endpoint. See these other articles to learn more about Azure Machine Learning.
 
-> [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
-* [Track run metrics during training](how-to-track-experiments.md)
-* [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Deploy a trained model](how-to-deploy-and-where.md)
-* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
-
+- [Track run metrics during training](how-to-log-view-metrics.md)
+- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

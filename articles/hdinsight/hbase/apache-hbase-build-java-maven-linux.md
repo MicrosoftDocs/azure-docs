@@ -1,13 +1,10 @@
 ---
 title: Use Apache Maven to build a Java HBase client for Azure HDInsight
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18
-ms.date: 12/24/2019
+ms.topic: how-to
+ms.custom: hdinsightactive, seodec18, devx-track-java, devx-track-azurepowershell, devx-track-extended-java
+ms.date: 10/17/2023
 ---
 
 # Build Java applications for Apache HBase
@@ -20,13 +17,13 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * An Apache HBase cluster on HDInsight. See [Get started with Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you need the [AZ Module](/powershell/azure/).
 
 * A text editor. This article uses Microsoft Notepad.
 
@@ -34,7 +31,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 The environment used for this article was a computer running Windows 10.  The commands were executed in a command prompt, and the various files were edited with Notepad. Modify accordingly for your environment.
 
-From a command prompt, enter the commands below to create a working environment:
+From a command prompt, enter the following commands to create a working environment:
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -52,13 +49,13 @@ cd C:\HDI
     mkdir conf
     ```
 
-    This command creates a directory named `hbaseapp` at the current location, which contains a basic Maven project. The second command changes the working directory to `hbaseapp`. The third command creates a new directory, `conf`, which will be used later. The `hbaseapp` directory contains the following items:
+    This command creates a directory named `hbaseapp` at the current location, which contains a basic Maven project. The second command changes the working directory to `hbaseapp`. The third command creates a new directory, `conf`, which can be used later. The `hbaseapp` directory contains the following items:
 
     * `pom.xml`:  The Project Object Model ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contains information and configuration details used to build the project.
     * `src\main\java\com\microsoft\examples`: Contains your application code.
     * `src\test\java\com\microsoft\examples`: Contains tests for your application.
 
-2. Remove the generated example code. Delete the generated test and application files `AppTest.java`, and `App.java` by entering the commands below:
+2. Remove the generated example code. Delete the generated test and application files `AppTest.java`, and `App.java` by entering the following commands:
 
     ```cmd
     DEL src\main\java\com\microsoft\examples\App.java
@@ -67,7 +64,7 @@ cd C:\HDI
 
 ## Update the Project Object Model
 
-For a full reference of the pom.xml file, see https://maven.apache.org/pom.html.  Open `pom.xml` by entering the command below:
+For a full reference of the pom.xml file, see https://maven.apache.org/pom.html.  Open `pom.xml` by entering the following command:
 
 ```cmd
 notepad pom.xml
@@ -174,13 +171,13 @@ scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./
 
 ### Implement a CreateTable class
 
-Enter the command below to create and open a new file `CreateTable.java`. Select **Yes** at the prompt to create a new file.
+Enter the following command to create and open a new file `CreateTable.java`. Select **Yes** at the prompt to create a new file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\CreateTable.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the following Java code into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -256,13 +253,13 @@ This code is the `CreateTable` class, which creates a table named `people` and p
 
 ### Implement a SearchByEmail class
 
-Enter the command below to create and open a new file `SearchByEmail.java`. Select **Yes** at the prompt to create a new file.
+Enter the following command to create and open a new file `SearchByEmail.java`. Select **Yes** at the prompt to create a new file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\SearchByEmail.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the following Java code into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -341,13 +338,13 @@ The `SearchByEmail` class can be used to query for rows by email address. Becaus
 
 ### Implement a DeleteTable class
 
-Enter the command below to create and open a new file `DeleteTable.java`. Select **Yes** at the prompt to create a new file.
+Enter the following command to create and open a new file `DeleteTable.java`. Select **Yes** at the prompt to create a new file.
 
 ```cmd
 notepad src\main\java\com\microsoft\examples\DeleteTable.java
 ```
 
-Then copy and paste the java code below into the new file. Then close the file.
+Then copy and paste the following Java code into the new file. Then close the file.
 
 ```java
 package com.microsoft.examples;
@@ -420,12 +417,14 @@ The following steps use `scp` to copy the JAR to the primary head node of your A
 
     You receive the following results:
 
-        Franklin Holtz - ID: 2
-        Franklin Holtz - franklin@contoso.com - ID: 2
-        Rae Schroeder - ID: 4
-        Rae Schroeder - rae@contoso.com - ID: 4
-        Gabriela Ingram - ID: 6
-        Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```console
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
 5. To delete the table, use the following command:
 
@@ -435,7 +434,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your A
 
 ## Upload the JAR and run jobs (PowerShell)
 
-The following steps use the Azure PowerShell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) to upload the JAR to the default storage for your Apache HBase cluster. HDInsight cmdlets are then used to run the examples remotely.
+The following steps use the Azure PowerShell [AZ module](/powershell/azure/new-azureps-module-az) to upload the JAR to the default storage for your Apache HBase cluster. HDInsight cmdlets are then used to run the examples remotely.
 
 1. After installing and configuring the AZ module, create a file named `hbase-runner.psm1`. Use the following text as the contents of this file:
 
@@ -643,7 +642,7 @@ The following steps use the Azure PowerShell [AZ module](https://docs.microsoft.
 
 2. Save the `hbase-runner.psm1` file in the `hbaseapp` directory.
 
-3. Register the modules with Azure PowerShell. Open a new Azure PowerShell window and edit the command below by replacing `CLUSTERNAME` with the name of your cluster. Then enter the following commands:
+3. Register the modules with Azure PowerShell. Open a new Azure PowerShell window and edit the following command by replacing `CLUSTERNAME` with the name of your cluster. Then enter the following commands:
 
     ```powershell
     cd C:\HDI\hbaseapp
@@ -679,12 +678,14 @@ The following steps use the Azure PowerShell [AZ module](https://docs.microsoft.
 
     This command uses the `SearchByEmail` class to search for any rows where the `contactinformation` column family and the `email` column, contains the string `contoso.com`. You should receive the following results:
 
-          Franklin Holtz - ID: 2
-          Franklin Holtz - franklin@contoso.com - ID: 2
-          Rae Schroeder - ID: 4
-          Rae Schroeder - rae@contoso.com - ID: 4
-          Gabriela Ingram - ID: 6
-          Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```output
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
     Using **fabrikam.com** for the `-emailRegex` value returns the users that have **fabrikam.com** in the email field. You can also use regular expressions as the search term. For example, **^r** returns email addresses that begin with the letter 'r'.
 

@@ -1,134 +1,104 @@
 ---
 title: Mapping data flow performance and tuning guide
-description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.custom: seo-lt-2019
-ms.date: 12/19/2019
+ms.subservice: data-flows
+ms.custom: synapse
+ms.date: 10/20/2023
 ---
 
 # Mapping data flows performance and tuning guide
 
-Mapping Data Flows in Azure Data Factory provide a code-free interface to design, deploy, and orchestrate data transformations at scale. If you're not familiar with mapping data flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md).
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-When designing and testing Data Flows from the ADF UX, make sure to switch on debug mode to execute your data flows in real time without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+Mapping data flows in Azure Data Factory and Synapse pipelines provide a code-free interface to design and run data transformations at scale. If you're not familiar with mapping data flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md). This article highlights various ways to tune and optimize your data flows so that they meet your performance benchmarks.
+
+Watch the following video to see shows some sample timings transforming data with data flows.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
 
 ## Monitoring data flow performance
 
-While designing mapping data flows, you can unit test each transformation by clicking on the data preview tab in the configuration panel. Once you verify your logic, test your data flow end-to-end as an activity in a pipeline. Add an Execute Data Flow activity and use the Debug button to test the performance of your data flow. To open the execution plan and performance profile of your data flow, click on the eyeglasses icon under 'actions' in the output tab of your pipeline.
+Once you verify your transformation logic using debug mode, run your data flow end-to-end as an activity in a pipeline. Data flows are operationalized in a pipeline using the [execute data flow activity](control-flow-execute-data-flow-activity.md). The data flow activity has a unique monitoring experience compared to other activities that displays a detailed execution plan and performance profile of the transformation logic. To view detailed monitoring information of a data flow, select the eyeglasses icon in the activity run output of a pipeline. For more information, see [Monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
-![Data Flow Monitor](media/data-flow/mon002.png "Data Flow Monitor 2")
+:::image type="content" source="media/data-flow/monitoring-details.png" alt-text="Data Flow Monitor":::
 
- You can use this information to estimate the performance of your data flow against different-sized data sources. For more information, see [Monitoring mapping data flows](concepts-data-flow-monitoring.md).
+When you're monitoring data flow performance, there are four possible bottlenecks to look out for:
 
-![Data Flow Monitoring](media/data-flow/mon003.png "Data Flow Monitor 3")
+* Cluster start-up time
+* Reading from a source
+* Transformation time
+* Writing to a sink 
 
- For pipeline debug runs, about one minute of cluster set-up time in your overall performance calculations is required for a warm cluster. If you're initializing the default Azure Integration Runtime, the spin up time may take about 5 minutes.
+:::image type="content" source="media/data-flow/monitoring-performance.png" alt-text="Data Flow Monitoring":::
 
-## Increasing compute size in Azure Integration Runtime
+Cluster start-up time is the time it takes to spin up an Apache Spark cluster. This value is located in the top-right corner of the monitoring screen. Data flows run on a just-in-time model where each job uses an isolated cluster. This startup time generally takes 3-5 minutes. For sequential jobs, startup time can be reduced by enabling a time to live value. For more information, see the **Time to live** section in [Integration Runtime performance](concepts-integration-runtime-performance.md#time-to-live).
 
-An Integration Runtime with more cores increases the number of nodes in the Spark compute environments and provides more processing power to read, write, and transform your data.
-* Try a **Compute Optimized** cluster if you want your processing rate to be higher than your input rate
-* Try a **Memory Optimized** cluster if you want to cache more data in memory.
+Data flows utilize a Spark optimizer that reorders and runs your business logic in 'stages' to perform as quickly as possible. For each sink that your data flow writes to, the monitoring output lists the duration of each transformation stage, along with the time it takes to write data into the sink. The time that is the largest is likely the bottleneck of your data flow. If the transformation stage that takes the largest contains a source, then you might want to look at further optimizing your read time. If a transformation is taking a long time, then you might need to repartition or increase the size of your integration runtime. If the sink processing time is large, you might need to scale up your database or verify you aren't outputting to a single file.
 
-![New IR](media/data-flow/ir-new.png "New IR")
+Once you have identified the bottleneck of your data flow, use the below optimizations strategies to improve performance.
 
-For more information how to create an Integration Runtime, see [Integration Runtime in Azure Data Factory](concepts-integration-runtime.md).
+## Testing data flow logic
 
-### Increase the size of your debug cluster
+When you're designing and testing data flows from UI, debug mode allows you to interactively test against a live Spark cluster, which allows you to preview data and execute your data flows without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
-By default, turning on debug will use the default Azure Integration runtime that is created automatically for each data factory. This default Azure IR is set for eight cores, four for a driver node and four for a worker node, using General Compute properties. As you test with larger data, you can increase the size of your debug cluster by creating an Azure IR with larger configurations and choose this new Azure IR when you switch on debug. This will instruct ADF to use this Azure IR for data preview and pipeline debug with data flows.
+## Optimize tab
 
-## Optimizing for Azure SQL Database and Azure SQL Data Warehouse
+The **Optimize** tab contains settings to configure the partitioning scheme of the Spark cluster. This tab exists in every transformation of data flow and specifies whether you want to repartition the data **after** the transformation has completed. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance.
 
-### Partitioning on source
+:::image type="content" source="media/data-flow/optimize.png" alt-text="Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.":::
 
-1. Go to the **Optimize** tab and select **Set Partitioning**
-1. Select **Source**.
-1. Under **Number of partitions**, set the maximum number of connections to your Azure SQL DB. You can try a higher setting to gain parallel connections to your database. However, some cases may result in faster performance with a limited number of connections.
-1. Select whether to partition by a specific table column or a query.
-1. If you selected **Column**, pick the partition column.
-1. If you selected **Query**, enter a query that matches the partitioning scheme of your database table. This query allows the source database engine to leverage partition elimination. Your source database tables don't need to be partitioned. If your source isn't already partitioned, ADF will still use data partitioning in the Spark transformation environment based on the key that you select in the Source transformation.
+By default, *Use current partitioning* is selected which instructs the service keep the current output partitioning of the transformation. As repartitioning data takes time, *Use current partitioning* is recommended in most scenarios. Scenarios where you might want to repartition your data include after aggregates and joins that significantly skew your data or when using Source partitioning on a SQL database.
 
-![Source Part](media/data-flow/sourcepart3.png "Source Part")
+To change the partitioning on any transformation, select the **Optimize** tab and select the **Set Partitioning** radio button. You're presented with a series of options for partitioning. The best method of partitioning differs based on your data volumes, candidate keys, null values, and cardinality. 
 
-### Source batch size, input, and isolation level
+> [!IMPORTANT]
+> Single partition combines all the distributed data into a single partition. This is a very slow operation that also significantly affects all downstream transformation and writes. This option is strongly discouraged unless there is an explicit business reason to use it.
 
-Under **Source Options** in the source transformation, the following settings can affect performance:
+The following partitioning options are available in every transformation:
 
-* Batch size instructs ADF to store data in sets in memory instead of row-by-row. Batch size is an optional setting and you may run out of resources on the compute nodes if they aren't sized properly.
-* Setting a query can allow you to filter rows at the source before they arrive in Data Flow for processing. This can make the initial data acquisition faster. If you use a query, you can add optional query hints for your Azure SQL DB such as READ UNCOMMITTED.
-* Read uncommitted will provide faster query results on Source transformation
+### Round robin 
 
-![Source](media/data-flow/source4.png "Source")
+Round robin distributes data equally across partitions. Use round-robin when you don't have good key candidates to implement a solid, smart partitioning strategy. You can set the number of physical partitions.
 
-### Sink batch size
+### Hash
 
-To avoid row-by-row processing of your data flows, set **Batch size** in the Settings tab for Azure SQL DB and Azure SQL DW sinks. If batch size is set, ADF processes database writes in batches based on the size provided.
+The service produces a hash of columns to produce uniform partitions such that rows with similar values fall in the same partition. When you use the Hash option, test for possible partition skew. You can set the number of physical partitions.
 
-![Sink](media/data-flow/sink4.png "Sink")
+### Dynamic range
 
-### Partitioning on sink
+The dynamic range uses Spark dynamic ranges based on the columns or expressions that you provide. You can set the number of physical partitions. 
 
-Even if you don't have your data partitioned in your destination tables, its recommended to have your data partitioned in the sink transformation. Partitioned data often results in much faster loading over forcing all connections to use a single node/partition. Go to the Optimize tab of your sink and select *Round Robin* partitioning to select the ideal number of partitions to write to your sink.
+### Fixed range
 
-### Disable indexes on write
+Build an expression that provides a fixed range for values within your partitioned data columns. To avoid partition skew, you should have a good understanding of your data before you use this option. The values you enter for the expression are used as part of a partition function. You can set the number of physical partitions.
 
-In your pipeline, add a [Stored Procedure activity](transform-data-using-stored-procedure.md) before your Data Flow activity that disables indexes on your target tables written from your Sink. After your Data Flow activity, add another Stored Procedure activity that enables those indexes. Or utilize the pre-processing and post-processing scripts in a database sink.
+### Key
 
-### Increase the size of your Azure SQL DB and DW
+If you have a good understanding of the cardinality of your data, key partitioning might be a good strategy. Key partitioning creates partitions for each unique value in your column. You can't set the number of partitions because the number is based on unique values in the data.
 
-Schedule a resizing of your source and sink Azure SQL DB and DW before your pipeline run to increase the throughput and minimize Azure throttling once you reach DTU limits. After your pipeline execution is complete, resize your databases back to their normal run rate.
+> [!TIP]
+> Manually setting the partitioning scheme reshuffles the data and can offset the benefits of the Spark optimizer. A best practice is to not manually set the partitioning unless you need to.
 
-### [Azure SQL DW only] Use staging to load data in bulk via Polybase
+## Logging level
 
-To avoid row-by-row inserts into your DW, check **Enable staging** in your Sink settings so that ADF can use [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). PolyBase allows ADF to load the data in bulk.
-* When you execute your data flow activity from a pipeline, you'll need to select a Blob or ADLS Gen2 storage location to stage your data during bulk loading.
+If you don't require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you're requesting the service to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode only logs transformation durations while "None" will only provide a summary of durations.
 
-## Optimizing for files
+:::image type="content" source="media/data-flow/logging.png" alt-text="Logging level":::
 
-At each transformation, you can set the partitioning scheme you wish data factory to use in the Optimize tab.
-* For smaller files, you may find selecting *Single Partition* can sometimes work better and faster than asking Spark to partition your small files.
-* If you don't have enough information about your source data, choose *Round Robin* partitioning and set the number of partitions.
-* If your data has columns that can be good hash keys, choose *Hash partitioning*.
+## Related content
 
-When debugging in data preview and pipeline debug, the limit and sampling sizes for file-based source datasets only apply to the number of rows returned, not the number of rows read. This can affect the performance of your debug executions and possibly cause the flow to fail.
-* Debug clusters are small single-node clusters by default and we recommend using sample small files for debugging. Go to Debug Settings and point to a small subset of your data using a temporary file.
-
-    ![Debug Settings](media/data-flow/debugsettings3.png "Debug Settings")
-
-### File naming options
-
-The most common way to write transformed data in mapping data flows writing Blob or ADLS file store. In your sink, you must select a dataset that points to a container or folder, not a named file. As mapping data flow uses Spark for execution, your output is split over multiple files based on your partitioning scheme.
-
-A common partitioning scheme is to choose _Output to single file_, which merges all output PART files into a single file in your sink. This operation requires the output reduces to a single partition on a single cluster node. You can run out of cluster node resources if you're combining many large source files into a single output file.
-
-To avoid exhausting compute node resources, keep the default, optimized scheme in data flow, and add a Copy Activity in your pipeline that merges all of the PART files from the output folder to a new single file. This technique separates the action of transformation from file merging and achieves the same result as setting _Output to single file_.
-
-### Looping through file lists
-
-A mapping data flow will execute better when the Source transformation iterates over multiple files instead of looping via the For Each activity. We recommend using wildcards or file lists in your source transformation. The Data Flow process will execute faster by allowing the looping to occur inside the Spark cluster. For more information, see [Wildcarding in Source Transformation](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
-
-For example, if you have a list of data files from July 2019 that you wish to process in a folder in Blob Storage, below is a wildcard you can use in your Source transformation.
-
-```DateFiles/*_201907*.txt```
-
-By using wildcarding, your pipeline will only contain one Data Flow activity. This will perform better than a Lookup against the Blob Store that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
-
-### Optimizing for CosmosDB
-
-Setting throughput and batch properties on CosmosDB sinks only take effect during the execution of that data flow from a pipeline data flow activity. The original collection settings will be honored by CosmosDB after your data flow execution.
-
-* Batch size: Calculate the rough row size of your data, and make sure that rowSize * batch size is less than two million. If it is, increase the batch size to get better throughput
-* Throughput: Set a higher throughput setting here to allow documents to write faster to CosmosDB. Please keep in mind the higher RU costs based upon a high throughput setting.
-*	Write Throughput Budget: Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a a budget throughput will allow more balance across those partitions.
-
-## Next steps
+- [Optimizing sources](concepts-data-flow-performance-sources.md)
+- [Optimizing sinks](concepts-data-flow-performance-sinks.md)
+- [Optimizing transformations](concepts-data-flow-performance-transformations.md)
+- [Using data flows in pipelines](concepts-data-flow-performance-pipelines.md)
 
 See other Data Flow articles related to performance:
 
-- [Data Flow Optimize Tab](concepts-data-flow-overview.md#optimize)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
 - [Monitor Data Flow performance](concepts-data-flow-monitoring.md)
+- [Integration Runtime performance](concepts-integration-runtime-performance.md)

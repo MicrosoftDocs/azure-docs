@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/internet-peering/service-faqs.md",
+            "redirect_url": "/azure/internet-peering/faqs",
+            "redirect_document_id": false
+        }
+    ]
+}

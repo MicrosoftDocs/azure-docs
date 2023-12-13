@@ -2,6 +2,7 @@
 title: Personal data
 description: Learn how to manage personal data associated with Azure Resource Manager operations.
 ms.topic: conceptual
+ms.custom: devx-track-arm-template
 ms.date: 05/14/2018
 ---
 # Manage personal data associated with Azure Resource Manager
@@ -9,8 +10,6 @@ ms.date: 05/14/2018
 To avoid exposing sensitive information, delete any personal information you may have provided in deployments, resource groups, or tags. Azure Resource Manager provides operations that let you manage personal data you may have provided in deployments, resource groups, or tags.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Delete personal data in deployment history
 
@@ -20,13 +19,13 @@ To list **deployments** in the history, use:
 
 * [List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup)
 * [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment)
-* [az group deployment list](/cli/azure/group/deployment#az-group-deployment-list)
+* [az deployment group list](/cli/azure/deployment/group#az-deployment-group-list)
 
 To delete **deployments** from the history, use:
 
 * [Delete](/rest/api/resources/deployments/delete)
 * [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/Remove-AzResourceGroupDeployment)
-* [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete)
+* [az deployment group delete](/cli/azure/deployment/group#az-deployment-group-delete)
 
 ## Delete personal data in resource group names
 

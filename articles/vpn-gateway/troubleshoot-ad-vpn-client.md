@@ -1,18 +1,17 @@
 ---
-title: 'VPN Gateway: Troubleshoot VPN client - Azure AD authentication'
-description: Troubleshoot VPN Gateway P2S Azure AD authentication clients
-services: vpn-gateway
+title: 'Troubleshoot Point-to-Site VPN clients - Microsoft Entra authentication'
+titleSuffix: Azure VPN Gateway
+description: Learn how to troubleshoot VPN Gateway Point-to-Site clients that use Microsoft Entra authentication.
 author: cherylmc
-
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: troubleshooting
+ms.date: 04/29/2021
 ms.author: cherylmc
 
 ---
-# Troubleshoot an Azure AD authentication VPN client
+# Troubleshoot a Microsoft Entra authentication VPN client
 
-This article helps you troubleshoot a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication.
+This article helps you troubleshoot a VPN client to connect to a virtual network using Point-to-Site VPN and Microsoft Entra authentication.
 
 ## <a name="status"></a>View Status Log
 
@@ -45,7 +44,7 @@ Run diagnostics on the VPN client.
 2. The client will run a series of tests and display the result of the test
 
    * Internet Access – Checks to see if the client has Internet connectivity
-   * Client Credentials – Check to see if the Azure Active Directory authentication endpoint is reachable
+   * Client Credentials – Check to see if the Microsoft Entra authentication endpoint is reachable
    * Server Resolvable – Contacts the DNS server to resolve the IP address of the configured VPN server
    * Server Reachable – Checks to see if the VPN server is responding or not
 3. If any of the tests fail, contact your network administrator to resolve the issue.
@@ -64,4 +63,4 @@ Collect the VPN client log files. The log files can be sent to support/administr
 
 ## Next steps
 
-For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
+For more information, see [Create a Microsoft Entra tenant for P2S Open VPN connections that use Microsoft Entra authentication](openvpn-azure-ad-tenant.md).

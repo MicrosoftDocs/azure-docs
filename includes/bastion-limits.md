@@ -5,15 +5,17 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 10/16/2019
+ ms.date: 03/25/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
+An instance is an optimized Azure VM that is created when you configure Azure Bastion. When you configure Azure Bastion using the Basic SKU, 2 instances are created. If you use the Standard SKU, you can specify the number of instances between 2-50.
 
-| Resource | Default limit |
+| Workload Type* | Session Limit per Instance** |
 | --- | --- |
-| Concurrent RDP connections |25* |
-| Concurrent SSH connections |More than 50** |
+| Light |25 |
+| Medium |20 |
+| Heavy |2 |
 
-*May vary due to other on-going RDP sessions or other on-going SSH sessions.<br>
-**May vary if there are existing RDP connections or usage from other on-going SSH sessions.
+*These workload types are defined here: [Remote Desktop workloads](/windows-server/remote/remote-desktop-services/remote-desktop-workloads)<br>
+**These limits are based on RDP performance tests for Azure Bastion. The numbers may vary due to other on-going RDP sessions or other on-going SSH sessions.

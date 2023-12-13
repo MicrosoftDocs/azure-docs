@@ -1,13 +1,14 @@
 ---
 title: Configure v2 custom rules using PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Learn how to configure WAF v2 custom rules using Azure PowerShell. You can create your own rules evaluated for each request that passes through the firewall.
+description: Learn how to configure Web Application Firewall (WAF) v2 custom rules using Azure PowerShell. You can create your own rules evaluated for each request that passes through the firewall.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/16/2019
-ms.author: victorh
+ms.date: 05/21/2020
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure Web Application Firewall v2 on Application Gateway with a custom rule using Azure PowerShell
@@ -28,7 +29,7 @@ If you want run the Azure PowerShell in this article in one continuous script th
 
 If you choose to install and use Azure PowerShell locally, this script requires the Azure PowerShell module version 2.1.0 or later.
 
-1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).
 2. To create a connection with Azure, run `Connect-AzAccount`.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -94,7 +95,7 @@ $poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting1" -P
   -Protocol Http -CookieBasedAffinity Disabled
 
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType basic `
-  -BackendHttpSettings $poolSetting01 -HttpListener $listener01 -BackendAddressPool $pool
+  -BackendHttpSettings $poolSetting01 -HttpListener $listener01 -BackendAddressPool $pool -Priority 1000
 
 $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 
@@ -107,15 +108,16 @@ $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 # Create a User-Agent header custom rule 
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestHeaders -Selector User-Agent
 $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator Contains -MatchValue "evilbot" -Transform Lowercase -NegationCondition $False  
-$rule = New-AzApplicationGatewayFirewallCustomRule -Name blockEvilBot -Priority 2 -RuleType MatchRule -MatchCondition $condition -Action Block
+$rule = New-AzApplicationGatewayFirewallCustomRule -Name blockEvilBot -Priority 2 -RuleType MatchRule -MatchCondition $condition -Action Block -State Enabled
  
 # Create a geo-match custom rule
-$var2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
+$var2 = New-AzApplicationGatewayFirewallMatchVariable -VariableName RemoteAddr
 $condition2 = New-AzApplicationGatewayFirewallCondition -MatchVariable $var2 -Operator GeoMatch -MatchValue "US"  -NegationCondition $False
-$rule2 = New-AzApplicationGatewayFirewallCustomRule -Name allowUS -Priority 14 -RuleType MatchRule -MatchCondition $condition2 -Action Allow
+$rule2 = New-AzApplicationGatewayFirewallCustomRule -Name allowUS -Priority 14 -RuleType MatchRule -MatchCondition $condition2 -Action Allow -State Enabled
 
 # Create a firewall policy
-$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup $rgname -Location $location -CustomRule $rule,$rule2
+$policySetting = New-AzApplicationGatewayFirewallPolicySetting -Mode Prevention -State Enabled
+$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup $rgname -Location $location -PolicySetting $PolicySetting -CustomRule $rule,$rule2
 ```
 
 ### Create the Application Gateway
@@ -127,8 +129,20 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -GatewayIpConfigurations $gipconfig -FrontendIpConfigurations $fipconfig01 `
   -FrontendPorts $fp01 -HttpListeners $listener01 `
   -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig `
-  -WebApplicationFirewallConfig $wafConfig `
   -FirewallPolicy $wafPolicy
+```
+
+## Update your WAF
+
+After you create your WAF, you can update it using a procedure similar to the following code:
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
 ## Next steps
