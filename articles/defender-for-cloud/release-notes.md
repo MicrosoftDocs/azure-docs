@@ -36,7 +36,7 @@ We're announcing the general availability (GA) release of PostgreSQL Flexible Se
 
 Learn how to [Enable Microsoft Defender for open-source relational databases](defender-for-databases-usage.md).
 
-### Container vulnerability assessmentowered by MDVM now supports Google Distroless
+### Container vulnerability assessment powered by MDVM now supports Google Distroless
 
 Container vulnerability assessment powered by MDVM have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
 
