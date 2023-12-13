@@ -6,7 +6,7 @@ author: roygara
 
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 12/13/2023
 ms.author: rogarana
 ms.reviewer: jaylansdaal
 ms.custom: references_regions

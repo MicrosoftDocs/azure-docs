@@ -8,7 +8,7 @@ author: roygara
 ms.author: rogarana
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 12/13/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, references_regions
 ---
 
@@ -32,7 +32,7 @@ To perform the operations described in this article, you must prepare your Azure
 To perform the operations described in this article using PowerShell:
 
 1. Install [the latest version of Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
-
+1. Once Azure PowerShell is installed, install version 0.1.2 or later, of the Elastic SAN extension with `Install-Module -Name Az.ElasticSan -Repository PSGallery`.
 1. Sign in to Azure.
 
     ```azurepowershell
