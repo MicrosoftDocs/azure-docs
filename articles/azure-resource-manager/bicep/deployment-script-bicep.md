@@ -219,7 +219,7 @@ Select **Outputs** to display outputs of the script:
 
 Go back to the resource group, select the storage account, select **File shares**, select the file share with **azscripts** appended to the share name, you shall see two folders - **azscriptinput** and **azscriptoutput**. The output folder contains a _executionresult.json_ and the script output file. You can see the script execution error message in _executionresult.json_. The output file is created only when the script is executed successfully. The input folder contains a system script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
 
-:::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-azscriptoutput.png" alt-text="Screenshot of deployment script azscriptoutput.":::
+:::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-az-script-output.png" alt-text="Screenshot of deployment script azscriptoutput.":::
 
 ### Azure CLI
 
@@ -327,7 +327,7 @@ You can get the deployment script resource deployment information at the resourc
 /subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2020-10-01
 ```
 
-The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). Note ARMClient is not a supported Microsoft tool.
+The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). ARMClient is not a supported Microsoft tool.
 
 ```azurepowershell
 armclient login
