@@ -30,7 +30,7 @@ Azure Communication Services Call Diagnostics (CD) is a new feature that helps d
 
 
 
-[Read the documentation.](./concepts/voice-video-calling/call-diagnostics)
+[Read the documentation.](./concepts/voice-video-calling/call-diagnostics.md)
 
 
 <br>
