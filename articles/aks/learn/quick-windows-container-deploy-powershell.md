@@ -24,18 +24,6 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 * If you choose to use PowerShell locally, you need to install the [`Az PowerShell`](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [`Connect-AzAccount`](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information, see [Install Azure PowerShell][install-azure-powershell].
 * If you have multiple Azure subscriptions, select and set the appropriate subscription ID in which the resources should be billed using the [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
-## Limitations
-
-The following limitations apply when you create and manage AKS clusters that support multiple node pools:
-
-* You can't delete the first node pool.
-
-The following limitations apply to *Windows Server node pools*:
-
-* The AKS cluster can have a maximum of 10 node pools.
-* The AKS cluster can have a maximum of 100 nodes in each node pool.
-* The Windows Server node pool name has a limit of six characters.
-
 ## Create a resource group
 
 An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored and where your resources run in Azure if you don't specify another region during resource creation.

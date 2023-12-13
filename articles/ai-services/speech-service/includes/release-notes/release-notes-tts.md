@@ -12,6 +12,10 @@ ms.author: eur
 
 The custom voice API is available for creating and managing [professional](../../professional-voice-create-project.md) and [personal](../../personal-voice-create-project.md) custom neural voice models. 
 
+#### Custom neural voice
+
+The newly trained voice models now support 48 kHz sample rate, irrespective of the model version. For previously trained voice models, it's necessary to [upgrade the engine version](../../how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model) to at least **2023.11.13.0** version to enhance the sample rate to 48 kHz.
+
 ### November 2023 release
 
 #### Personal voice

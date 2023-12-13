@@ -25,6 +25,8 @@ items:
     - name: Chat
       href: chatgpt-quickstart.md  
       displayName: ChatGPT, chatgpt
+    - name: GPT-4 Turbo with Vision
+      href: gpt-v-quickstart.md
     - name: DALL-E (preview)
       href: dall-e-quickstart.md
     - name: Use your data (preview)
@@ -43,7 +45,7 @@ items:
       href: ./concepts/fine-tuning-considerations.md
     - name: Red teaming large language models (LLMs)
       href: ./concepts/red-teaming.md
-    - name: Image provenance
+    - name: Content credentials
       href: ./concepts/content-credentials.md
     - name: Intro to prompt engineering
       href: ./concepts/prompt-engineering.md
@@ -55,8 +57,10 @@ items:
       href: ./concepts/provisioned-throughput.md
     - name: System message templates
       href: ./concepts/system-message.md
-    - name: Using your data (preview)
+    - name: Using your data - text (preview)
       href: ./concepts/use-your-data.md
+    - name: Using your data - image (preview)
+      href: ./concepts/use-your-image-data.md
 - name: How-to 
   items:
   - name: Completions & chat completions
@@ -64,6 +68,8 @@ items:
     - name: GPT-35-Turbo & GPT-4 
       href: ./how-to/chatgpt.md
       displayName: ChatGPT, chatgpt
+    - name: GPT-4 Turbo with Vision
+      href: ./how-to/gpt-with-vision.md
     - name: Function calling
       href: ./how-to/function-calling.md
     - name: Completions

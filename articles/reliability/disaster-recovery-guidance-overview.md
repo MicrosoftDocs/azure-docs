@@ -88,3 +88,5 @@ The tables below lists each product that offers disaster recovery guidance and/o
 | [Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md) |
 | [Azure SignalR Service](../azure-signalr/signalr-concept-disaster-recovery.md) |
 | [Azure VMware Solution](../azure-vmware/disaster-recovery-for-virtual-machines.md) |
+|[Microsoft Defender for Cloud DevOps security](./reliability-defender-devops.md)|
+| [Microsoft Fabric](reliability-fabric.md) |

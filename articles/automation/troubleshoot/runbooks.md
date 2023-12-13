@@ -179,6 +179,10 @@ To determine what's wrong, follow these steps:
        #Logging in to Azure...
        $connectionResult = Connect-AzAccount `
        Start-Sleep -Seconds 30
+       if($connectionResult)
+       {
+          $logonResult = $True 
+       }
    }
    ```
 
