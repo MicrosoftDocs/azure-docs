@@ -381,12 +381,14 @@
       href: concept-top-level-entities-in-managed-feature-store.md
     - name: Manage access to managed feature store
       href: how-to-setup-access-control-feature-store.md
-    - name: Develop and register a feature set
-      href: tutorial-get-started-with-feature-store.md
-    - name: Experiment and train models using features
-      href: tutorial-experiment-train-models-using-features.md
-    - name: Enable recurrent materialization
-      href: tutorial-enable-recurrent-materialization-run-batch-inference.md
+    - name: Feature transformation and best practices
+      href: feature-set-specification-transformation-concepts.md
+    - name: Offline feature retrieval and point-in-time join
+      href: offline-retrieval-point-in-time-join-concepts.md
+    - name: Feature retrieval specification
+      href: feature-retrieval-concepts.md
+    - name: Feature set materialization
+      href: feature-set-materialization-concepts.md
     - name: Troubleshoot managed feature store errors
       href: troubleshooting-managed-feature-store.md
   - name: Compliance
