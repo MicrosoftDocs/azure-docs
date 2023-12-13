@@ -19,8 +19,6 @@
     href: data-catalog-common-scenarios.md
   - name: Supported data sources
     href: data-catalog-dsr.md
-  - name: Adopting Azure Data Catalog
-    href: data-catalog-adopting-data-catalog.md
   - name: FAQ
     href: data-catalog-frequently-asked-questions.yml
 - name: How-to guides
