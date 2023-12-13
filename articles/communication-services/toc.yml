@@ -187,7 +187,12 @@ items:
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with Azure Communication Services Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
-    
+    - name: Sending emails using SMTP 
+      items:
+        - name: Setting up SMTP Authentication
+          href: quickstarts/email/send-email-smtp/smtp-authentication.md
+        - name: Smtp Send Mail Examples
+          href: quickstarts/email/send-email-smtp/send-email-smtp.md
   - name: Job Router
     items: 
       - name: Submit a job for queuing and routing
@@ -888,6 +893,8 @@ items:
       href: concepts/email/email-overview.md
     - name: SDK features
       href: concepts/email/sdk-features.md
+    - name: SMTP
+      href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
     - name: Understanding sender reputation
@@ -1050,6 +1057,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+  - name: Job Router 
+    items:
+    - name: Job Router (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationjobrouter
+    - name: Job Router (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-7
+    - name: Job Router (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-jobrouter
+    - name: Job Router (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-jobrouter
   - name: Advanced Messaging
     items:
     - name: Advanced Messaging (.NET)

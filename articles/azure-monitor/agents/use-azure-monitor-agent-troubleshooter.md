@@ -37,9 +37,19 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 
 ## Windows Troubleshooter
 ### Run Windows Troubleshooter
-1. Log in to the machine to be diagnosed
-2. Go to the location where the troubleshooter is automatically installed: C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter
-3. Run the Troubleshooter: > AgentTroubleshooter --ama
+1. Log in to the machine to be diagnosed as Administator
+2. Run script in PowerShell
+   
+   ```PowerShell
+   $currentVersion = ((Get-ChildItem -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\HandlerState\" `
+    | where Name -like "*AzureMonitorWindowsAgent*" `
+    | ForEach-Object {$_ | Get-ItemProperty} `
+    | where InstallState -eq "Enabled").PSChildName -split('_'))[1]
+   $troubleshooterPath = "C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\$currentVersion\Troubleshooter"
+   Start-Process -FilePath $troubleshooterPath\AgentTroubleshooter.exe -ArgumentList "--ama"
+   Invoke-Item $troubleshooterPath
+   ```
+
 
 ### Evaluate the Windows Results
 The Troubleshooter runs two tests and collects several diagnostic logs.

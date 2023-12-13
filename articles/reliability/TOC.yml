@@ -158,6 +158,8 @@
       href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure VPN Gateway
       href: ../vpn-gateway/about-zone-redundant-vnet-gateways.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+    - name: Community Training
+      href: reliability-community-training.md
 - name: Disaster recovery
   items:
   - name: What is disaster recovery?
@@ -286,6 +288,10 @@
           href: ../azure-signalr/signalr-concept-disaster-recovery.md
         - name: Azure VMware Solution
           href: ../azure-vmware/deploy-disaster-recovery-using-vmware-hcx.md
+        - name: Microsoft Defender for Cloud DevOps security
+          href: reliability-defender-devops.md 
+        - name: Microsoft Fabric
+          href: reliability-fabric.md
 - name: Reliability Guidance
   items:
   - name: Reliability by service
@@ -416,6 +422,12 @@
         href: reliability-spring-apps.md
       - name: Azure Storage Mover
         href: reliability-azure-storage-mover.md
+      - name: Community Training
+        href: reliability-community-training.md
+      - name: Microsoft Defender for Cloud DevOps security
+        href: reliability-defender-devops.md
+      - name: Microsoft Fabric
+        href: reliability-fabric.md  
   - name: Test reliability
     items: 
     - name: Chaos engineering
