@@ -228,3 +228,17 @@ In earlier versions, `rttInMs` existed as `pairRttInMs` in the stats for audio, 
 | `rttInMs` | Round-trip time (milliseconds) | The value is calculated from the STUN connectivity check. We recommend a round-trip time of 200 ms or less. |
 | `availableIncomingBitrate` | Bandwidth estimation (bits per second) | The value may not be available depending on the bandwidth estimation algorithm used in the WebRTC session |
 | `availableOutgoingBitrate` | Bandwidth estimation (bits per second) | The value may not be available depending on the bandwidth estimation algorithm used in the WebRTC session |
+
+## What are changed in SDK version 1.20.1 (GA)
+
+We now support MediaStats feature API in 1.20.1 (GA).
+Compared to the previous beta versions, we have also made some minor changes to the API interface in this GA version.
+
+In the previous beta versions, `pairRttInMs`, `availableBitrate` were included in audio, video, and screenShare statistics.
+Now, these metrics have been separated into transport metrics.
+
+We introduced `packets`, `packetsLost` metric fields in audio, video, screenShare statistics. These metrics are useful for calculating the total number of packets sent or recieved between two different time points.
+
+The `frameRateOutput` in video and screenShare statistics is removed. You can use `frameRateDecoded` instead.
+
+The metric field `jitterBufferInMs` has been renamed to `jitterBufferDelayInMs` to provide a clearer description, as this metric indicates the duration of a packet stay in the jitter buffer.
