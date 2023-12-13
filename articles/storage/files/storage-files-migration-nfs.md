@@ -4,7 +4,7 @@ description: Learn how to migrate from Linux file servers to NFS Azure file shar
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/12/2023
+ms.date: 12/13/2023
 ms.author: kendownie
 ---
 
@@ -22,7 +22,7 @@ This article covers the basic aspects of migrating from Linux file servers to NF
 
 ## Prerequisites
 
-You'll need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an NFS Azure file share and mount it on a Linux VM](storage-files-quick-create-use-linux.md). We recommend mounting the share with nconnect to use multiple TCP connections. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nconnect).
+You'll need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an NFS Azure file share and mount it on a Linux VM](storage-files-quick-create-use-linux.md). We recommend mounting the share with nconnect to use multiple TCP connections. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nconnect).
 
 ## Migration tools
 
@@ -34,7 +34,7 @@ Despite being single-threaded, [rsync](https://linux.die.net/man/1/rsync) is a v
 
 In this article, we'll use fpsync to move data from a Linux file server to NFS Azure file shares.
 
-To copy the data, fpsync uses either rsync (default), [cpio](https://linux.die.net/man/1/cpio), or tar tools. It computes subsets of the source directory `src_dir/` and spawns synchronization jobs to synchronize them to the destination directory `dst_dir/`. It executes synchronization jobs on-the-fly while simultaneously crawling the file system, making it a useful tool for efficiently migrating large file systems and copying large datasets with multiple files.
+To copy the data, fpsync uses either rsync (default), [cpio](https://linux.die.net/man/1/cpio), or tar tools. It computes subsets of the source directory `src_dir/` and spawns synchronization jobs to synchronize them to the destination directory `dst_dir/`. It executes synchronization jobs on-the-fly while simultaneously crawling the file system, making it a useful tool for efficiently migrating large file systems and copying large datasets with multiple files.
 
 > [!NOTE]
 > Fpsync only synchronizes directory contents, not the source directory itself. Unlike rsync, fpsync enforces the final '/' on the source directory, which means that you won't get a subdirectory with the name of the source directory in the target directory after synchronization.
@@ -45,7 +45,7 @@ To use fpsync, you'll need to install the fpart filesystem partitioner. Install 
 
 # [Ubuntu](#tab/ubuntu)
 
-On Ubuntu, use the apt package manager to install fpart.
+On Ubuntu, use the apt package manager to install fpart.
 
 ```bash
 sudo apt-get install fpart
@@ -53,26 +53,26 @@ sudo apt-get install fpart
 
 # [RHEL](#tab/rhel)
 
-On Red Hat Enterprise Linux, use the yum package manager to install fpart.
+On Red Hat Enterprise Linux, use the yum package manager to install fpart.
 
 **Red Hat Enterprise Linux 7:**
 
 ```bash
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install fpart -y
 ```
 
 **Red Hat Enterprise Linux 8:**
 
 ```bash
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 sudo yum install fpart -y
 ```
 
 **Red Hat Enterprise Linux 9:**
 
 ```bash
-sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 sudo yum install fpart -y
 ```
 
@@ -103,7 +103,7 @@ fpsync -m <specify copy tool - rsync/cpio/tar> -n <parallel transfers> <absolute
 For baseline copy, we recommend using fpsync with cpio as the copy tool.
 
 ```bash
-fpsync -m cpio –n <parallel transfers> <absolute source path> <absolute destination path>    
+fpsync -m cpio –n <parallel transfers> <absolute source path> <absolute destination path>
 ```
 
 For more information, see [Cpio and Tar support](http://www.fpart.org/fpsync/#cpio-and-tar-support).
@@ -122,7 +122,7 @@ By default, fpsync will specify the following rsync options: `-lptgoD -v --numer
 
 After several incremental syncs, you need to do a final pass to delete any files on that destination that don't exist at source. You can either do this manually with `rsync --delete` to delete extra files from the `/data/dst/` directory, or you can use fpsync with the -E option. For details, see [The Final Pass](http://www.fpart.org/fpsync/#the-final-pass).  
 
-## Comparing rsync and fpsync with different datasets  
+## Comparing rsync and fpsync with different datasets
 
 This section compares the performance of rsync and fpsync with different datasets.
 
