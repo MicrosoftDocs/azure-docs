@@ -44,7 +44,7 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 
 ### Prerequisites\Setup
 1. `Powershell version 7.1.3` or higher is recommended (minimum version 5.1)
-2. Uses `Az Powershell module` to pull workspace agent configuration information [Az Powershell module](https://learn.microsoft.com/powershell/azure/install-azps-windows?view=azps-11.0.0&tabs=powershell&pivots=windows-psgallery)
+2. Uses `Az Powershell module` to pull workspace agent configuration information [Az PowerShell module](https://learn.microsoft.com/powershell/azure/install-azps-windows?view=azps-11.0.0&tabs=powershell&pivots=windows-psgallery)
 3. User will need Read/Write access to the specified workspace resource
 4. Connect-AzAccount and Select-AzSubscription will be used to set the context for the script to run so proper Azure credentials will be needed
 
@@ -72,7 +72,7 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
  	 - **Windows** contains `WindowsPerfCounters` and `WindowsEventLogs` data sources only
 	  - **Linux** contains `LinuxPerfCounters` and `Syslog` data sources only
 	  - **Custom Logs** contains `logFiles` data sources only:
-  		- Each custom log gets its own dcr arm template
+  		- Each custom log gets its own DCR ARM template
 	  - **IIS Logs** contains `iisLogs` data sources only
 	  - **Extensions** contains `extensions` data sources only along with any associated perfCounters data sources
 	    - `VMInsights` 
