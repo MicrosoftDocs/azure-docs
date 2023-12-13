@@ -1,25 +1,21 @@
 ---
-title: "How to prepare data for Custom Voice - Speech service"
-titleSuffix: Azure AI services
-description: "Learn how to provide studio recordings and the associated scripts that will be used to train your Custom Neural Voice."
-#services: cognitive-services
-author: eric-urban
-manager: nitinme
-ms.service: azure-ai-speech
-ms.topic: how-to
-ms.date: 10/27/2022
-ms.author: eur
+ title: include file
+ description: include file
+ author: eur
+ ms.author: eric-urban
+ ms.service: azure-ai-services
+ ms.topic: include
+ ms.date: 12/1/2023
+ ms.custom: include
 ---
 
-# Prepare training data for Custom Neural Voice
+When you're ready to create a custom text to speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. For details on recording voice samples, see [the tutorial](../../../../record-custom-voice-samples.md). The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
-When you're ready to create a custom Text to speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. For details on recording voice samples, see [the tutorial](record-custom-voice-samples.md). The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
-
-All data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Speech service. To confirm that your data is correctly formatted, see [Training data types](how-to-custom-voice-training-data.md).
+All data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Speech service. To confirm that your data is correctly formatted, see [Training data types](../../../../how-to-custom-voice-training-data.md).
 
 > [!NOTE]
 > - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
-> - The maximum number of data files allowed to be imported per subscription is 500 .zip files for standard subscription (S0) users. Please see out [Speech service quotas and limits](speech-services-quotas-and-limits.md#custom-neural-voice) for more details.
+> - The maximum number of data files allowed to be imported per subscription is 500 .zip files for standard subscription (S0) users. Please see out [Speech service quotas and limits](../../../../speech-services-quotas-and-limits.md#custom-neural-voice---professional) for more details.
 
 ## Upload your data
 
@@ -28,8 +24,8 @@ When you're ready to upload your data, go to the **Prepare training data** tab t
 To upload training data, follow these steps:
 
 1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customvoice).
-1. Select **Custom Voice** > Your project name > **Prepare training data** > **Upload data**. 
-1. In the **Upload data** wizard, choose a [data type](how-to-custom-voice-training-data.md) and then select **Next**.
+1. Select **Custom voice** > Your project name > **Prepare training data** > **Upload data**. 
+1. In the **Upload data** wizard, choose a [data type](../../../../how-to-custom-voice-training-data.md) and then select **Next**.
 1. Select local files from your computer or enter the Azure Blob storage URL to upload data.
 1. Under **Specify the target training set**, select an existing training set or create a new one. If you created a new training set, make sure it's selected in the drop-down list before you continue.
 1. Select **Next**.
@@ -47,37 +43,37 @@ After you upload the data, you can check the details in the training set detail 
 
 ## Resolve data issues online
 
-After upload, you can check the data details of the training set. Before continuing to [train your voice model](how-to-custom-voice-create-voice.md), you should try to resolve any data issues.
+After upload, you can check the data details of the training set. Before continuing to [train your voice model](../../../../professional-voice-train-voice.md), you should try to resolve any data issues.
 
-You can resolve data issues per utterance in Speech Studio. 
+You can identify and resolve data issues per utterance in [Speech Studio](https://aka.ms/custom-voice-portal). 
 
 1. On the detail page, go to the **Accepted data** or **Rejected data** page. Select individual utterances you want to change, then select **Edit**.
 
-   :::image type="content" source="media/custom-voice/cnv-edit-trainingset.png" alt-text="Screenshot of selecting edit button on the accepted data or rejected data details page.":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-edit-trainingset.png" alt-text="Screenshot of selecting edit button on the accepted data or rejected data details page.":::
 
    You can choose which data issues to be displayed based on your criteria.
    
-    :::image type="content" source="media/custom-voice/cnv-issues-display-criteria.png" alt-text="Screenshot of choosing which data issues to be displayed":::
+    :::image type="content" source="../../../../media/custom-voice/cnv-issues-display-criteria.png" alt-text="Screenshot of choosing which data issues to be displayed.":::
 
 1. Edit window will be displayed.
 
-   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-editscript.png" alt-text="Screenshot of displaying Edit transcript and recording file window.":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-edit-trainingset-editscript.png" alt-text="Screenshot of displaying Edit transcript and recording file window.":::
 
 1. Update transcript or recording file according to issue description on the edit window.
 
    You can edit transcript in the text box, then select **Done**
 
-   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-scriptedit-done.png" alt-text="Screenshot of selecting Done button on the Edit transcript and recording file window.":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-edit-trainingset-scriptedit-done.png" alt-text="Screenshot of selecting Done button on the Edit transcript and recording file window.":::
 
    If you need to update recording file, select **Update recording file**, then upload the fixed recording file (.wav).
  
-   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-upload-recording.png" alt-text="Screenshot that shows how to upload recording file on the Edit transcript and recording file window.":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-edit-trainingset-upload-recording.png" alt-text="Screenshot that shows how to upload recording file on the Edit transcript and recording file window.":::
 
 1. After you've made changes to your data, you need to check the data quality by clicking **Analyze data** before using this dataset for training.
 
    You can't select this training set for training model before the analysis is complete. 
 
-   :::image type="content" source="media/custom-voice/cnv-edit-trainingset-analyze.png" alt-text="Screenshot of selecting Analyze data on Data details page.":::
+   :::image type="content" source="../../../../media/custom-voice/cnv-edit-trainingset-analyze.png" alt-text="Screenshot of selecting Analyze data on Data details page.":::
 
    You can also delete utterances with issues by selecting them and clicking **Delete**.
 
@@ -137,6 +133,6 @@ Unresolved errors listed in the next table affect the quality of training, but d
 
 ## Next steps
 
-- [Train your voice model](how-to-custom-voice-create-voice.md)
-- [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
-- [How to record voice samples](record-custom-voice-samples.md)
+> [!div class="nextstepaction"]
+> [Train the professional voice](../../../../professional-voice-train-voice.md)
+
