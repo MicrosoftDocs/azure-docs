@@ -18,11 +18,11 @@ When **cloud admin** credentials are updated, use the following steps to upd
 
 1. Sign in to the Management VM from where the onboard process was performed. Change the directory to **onboarding directory**.
 1. Run the following command:
-	For Windows-based jumpbox VM.
+	For Windows-based Management VM.
     
 	`./.temp/.env/Scripts/activate`
 
-	For Linux-based jumpbox VM
+	For Linux-based Management VM
 
 	`./.temp/.env/bin/activate
 
