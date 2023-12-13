@@ -12,17 +12,17 @@ ms.topic: how-to
 
 ## Overview
 
-Azure Resource Graph (ARG) provides a REST API that can be used to pragmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
+Azure Resource Graph (ARG) provides a REST API that can be used to programmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
 Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
 
-Azure, Aws and Gcp container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
+Azure, AWS, and GCP container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
 
 ## ARG query examples
 
 To pull specific sub assessments, you need the assessment key.
-* For Azure Container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
-* For Aws Container vulnerability assessment powered by MDVM the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
-* For Gcp Container vulnerability assessment powered by MDVM the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
+* For Azure container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
+* For AWS container vulnerability assessment powered by MDVM the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
+* For GCP container vulnerability assessment powered by MDVM the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
 
 The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 ```kql
@@ -33,7 +33,7 @@ securityresources
 | extend timeGenerated = properties.timeGenerated
 | where timeGenerated > ago(1h)
 ```
-### Query result - Azure Sub Assessment
+### Query result - Azure sub-assessment
 ```json
 [
   {
@@ -166,7 +166,7 @@ securityresources
 ]
 ```
 
-### Query result - Aws Sub Assessment
+### Query result - AWS sub-assessment
 ```json
 [
   {
@@ -315,7 +315,7 @@ securityresources
 ]
 ```
 
-### Query result - Gcp Sub Assessment
+### Query result - GCP sub-assessment
 ```json
 [
   {
@@ -475,7 +475,7 @@ securityresources
 | Name                        | Description                                                  |
 | --------------------------- | ------------------------------------------------------------ |
 | ResourceDetails             | Details of  the Azure resource that was assessed             |
-| ContainerRegistryVulnerability      | More  context fields for container registry Vulnerability assessment |
+| ContainerRegistryVulnerability      | More  context fields for container registry vulnerability assessment |
 | CVE                         | CVE Details                                                  |
 | CVSS                        | CVSS Details                                                 |
 | SecuritySubAssessment       | Security  subassessment on a resource                       |
@@ -630,9 +630,9 @@ Details of the Azure resource that was assessed
 | ID       | string         | Azure resource ID of the assessed resource       |
 | source   | string:  Azure | The platform where the assessed resource resides |
 
-### ResourceDetails - Aws / Gcp
+### ResourceDetails - AWS / GCP
 
-Details of the Aws/Gcp resource that was assessed
+Details of the AWS/GCP resource that was assessed
 
 | **Name**                    | **Type**        | **Description**                                  |
 | --------------------------- | --------------- | ------------------------------------------------ |
