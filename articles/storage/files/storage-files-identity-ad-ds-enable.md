@@ -4,7 +4,7 @@ description: Learn how to enable Active Directory Domain Services authentication
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 12/12/2023
 ms.author: kendownie 
 ms.custom: engagement-fy23, devx-track-azurepowershell
 recommendations: false
@@ -113,7 +113,7 @@ Join-AzStorageAccount `
         -StorageAccountName $StorageAccountName `
         -SamAccountName $SamAccountName `
         -DomainAccountType $DomainAccountType `
-        -OrganizationalUnitDistinguishedName $OuDistinguishedName `
+        -OrganizationalUnitDistinguishedName $OuDistinguishedName
 
 # You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration 
 # with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on 
