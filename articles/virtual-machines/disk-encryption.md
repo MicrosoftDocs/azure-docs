@@ -58,7 +58,7 @@ You must grant access to managed disks in your Key Vault or managed HSM to use y
 
 The following diagram shows how managed disks use Microsoft Entra ID and Azure Key Vault to make requests using the customer-managed key:
 
-:::image type="content" source="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.png" alt-text="Managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The set is associated to a VM, which allows the disk to make use of Microsoft Entra ID to authenticate" lightbox="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.png":::
+:::image type="content" source="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.png" alt-text="Diagram of managed disk and customer-managed keys workflow. An admin creates an Azure Key Vault, then creates a disk encryption set, and sets up the disk encryption set. The set is associated to a VM, which allows the disk to make use of Microsoft Entra ID to authenticate" lightbox="media/disk-encryption/customer-managed-keys-sse-managed-disks-workflow.png":::
 
 The following list explains the diagram in more detail:
 
