@@ -363,7 +363,7 @@ To try the [**Select** action example](../logic-apps/logic-apps-perform-data-ope
 },
 ```
 
-The following action definitions create a string array from a JSON object array:
+The following example shows action definitions that create a string array from a JSON object array, but for this task, next to the **Map** box, switch to text mode (![Icon for text mode.](media/logic-apps-perform-data-operations/text-mode.png)) in the designer, or use the code view editor instead:
 
 ```json
 "actions": {

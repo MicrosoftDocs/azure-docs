@@ -1209,7 +1209,9 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 > [!TIP]
 >
-> To create an array that contains strings or integers built from the values in a JSON object array, you must use the code view editor. See [Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example).
+> For an example that creates create an array with strings or integers built from the values in a JSON object array, 
+> see the **Select** and **Initliaze variable** action definitions in 
+> [Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example).
 
 ### [Consumption](#tab/consumption)
 
