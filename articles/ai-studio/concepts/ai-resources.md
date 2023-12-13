@@ -18,9 +18,12 @@ ms.author: eur
 
 In Azure, resources enable access to Azure services for individuals and teams. Access to many Azure AI capabilities is available via a unified resource called Azure AI. 
 
-An Azure AI resource can be used to access multiple Azure AI services. The Azure AI resource provides a hosted environment for teams to organize their [Azure AI project](#project-assets) work in, and is configurable with enterprise-grade security controls, which are passed down to each project environment. The Azure AI resource doesn't directly contain the keys and endpoints needed to authenticate your requests to Azure AI services. Instead, the Azure AI resource contains an [Azure AI services](#azure-ai-services-resource-keys) resource with keys and endpoints that you use to access Azure AI services.
+The preview 'Azure AI' resource used in AI studio can be used to access multiple Azure AI services with a single setup. Previously, different Azure AI services including [Azure OpenAI](), [Azure Machine Learning](), [Azure Speech](), required their individual setup. The AI resource provides the working environment for a team to build and manage AI applications, catering to two main user persona:
 
-In this article, you learn more about its capabilities, and how to set up Azure AI for your organization. You can see the resources that have created in the [Azure portal](https://portal.azure.com/) and in [Azure AI Studio](https://ai.azure.com).
+* To AI developers, the Azure AI resource provides the working environment for building AI applications granting access to various tools for AI model building. Tools can be used together, and lets you use and produce shareable components including datasets, indexes, models. AI resources allows you to configure connections to external resources, provide compute resources used by tools and [endpoints and access keys to pre-built AI models]((#azure-ai-services-resource-keys).
+* To IT administrators and team leads, the Azure AI resource provides a single pane of glass on projects created by a team, audit connections that are in use to external resources, and governance controls to help meet compliance requirements. Security settings are configured on the Azure AI resource, and once set up apply to all projects created under it.
+
+In this article, you learn more about Azure AI resource's capabilities, and how to set up Azure AI for your organization. You can see the resources that have created in the [Azure portal](https://portal.azure.com/) and in [Azure AI Studio](https://ai.azure.com).
 
 ## Unified assets across projects
 
