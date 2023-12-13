@@ -1,5 +1,5 @@
 ---
-title: "Azure Operator Nexus: Enable Node Down Cleaner"
+title: "Azure Operator Nexus: Enable node down cleaner"
 description: Learn how to enable node down cleaner.
 author: neilverse
 ms.author: soumyamaitra
@@ -9,22 +9,22 @@ ms.date: 12/12/2023
 ms.custom: template-how-to
 ---
 
-# Post-Deployment Enable Node Down Cleaner
+# Enable node down cleaner
 
 Release _2312.x_ introduces a new feature called Node down cleaner, which is disabled by default.
 It helps in moving NFS server pods from a failed node to a new node when a Bare Metal Host is powers off through AZ CLI.
 The following procedure enables node down cleaner and is applicable for both green field and brown field environments.
 
-## Pre-requisites
+## Prerequisites
 
 - This article assumes that you've installed the Azure command line interface & the `networkcloud` command line interface extension. For more information, see [How to Install CLI Extensions](./howto-install-cli-extensions.md).
 - Logged in to Azure CLI with the correct subscription
 - The target bare metal machine power state is on and has readyState set to True
 - User must have the appropriate permission assigned to execute the `networkcloud baremetalmachine run-command`
 
-## Steps to Enable Node Down Cleaner in Under Cloud
+## Steps to enable node down cleaner in undercloud
 
-> The procedure need to be run against control plane nodes. To determine which nodes are control plane nodes, you can run the following azure CLI `baremetalmachine run-read-command`.
+The procedure needs to be run against control plane nodes. To determine which nodes are control plane nodes, you can run the following azure CLI `baremetalmachine run-read-command`.
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name <any-ready-baremetal-machine> \
