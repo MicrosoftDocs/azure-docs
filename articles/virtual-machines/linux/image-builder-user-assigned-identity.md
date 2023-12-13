@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows how to create a customized image by using Azure VM Image Builder. The service uses a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in an Azure storage account, without your having to make the files publicly accessible.
+This article shows how to create a customized image by using Azure VM Image Builder. The service uses a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in an Azure storage account, and it can achieve blocking unauthenticated access to the storage account.
 
 Azure VM Image Builder supports using scripts and copying files from GitHub, Azure storage accounts, and other locations. If you want to use the locations, they must be externally accessible to VM Image Builder.
 
