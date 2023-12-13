@@ -20,9 +20,9 @@ Use the following groups in your Azure account.
 
 |Group name|Azure role assigned|description|
 |----------|-------------------|-----------|
-|odbaa-exa-infra-administrators|odbaa-exa-infra-administrator |This group is for administrators who need to manage all Oracle Exadata Database Service resources in Azure |
+|odbaa-exa-infra-administrators| odbaa-exa-infra-administrator |This group is for administrators who need to manage all Oracle Exadata Database Service resources in Azure |
 |odbaa-vm-cluster-administrators |odbaa-vm-cluster-administrator |User in this group can administer VM cluster resources in Azure |
-|odbaa-db-family-administrators |*not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
+|odbaa-db-family-administrators |*not applicable* | This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
 |odbaa-db-family-readers |*not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
 |odbaa-exa-cdb-administrators |*not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
 |odbaa-exa-pdb-administrators |*not applicable* |This group is replicated in OCI during the optional identity federation process. OCI policies are defined for this group in the Oracle Cloud environment. |
@@ -33,10 +33,10 @@ Use the following groups in your Oracle Cloud Infrastructure (OCI) tenancy.
 
 |Group name|Description|
 |----------|-----------|
-|odbaa-db-family-administrators |Group to manage DB family actions |
-|odbaa-db-family-readers |Group to read DB family actions |
-|odbaa-exa-cdb-administrators |Group to manage Oracle Container Database (CDB) actions |
-|odbaa-exa-pdb-administrators |Group to manage Oracle Pluggable Database (PDB) actions|
+|odbaa-db-family-administrators | Users this group are administrators who manage database family actions. |
+|odbaa-db-family-readers |Users this group are administrators who  read database family actions. |
+|odbaa-exa-cdb-administrators |Users this group are administrators who manage Oracle Container Database (CDB) actions. |
+|odbaa-exa-pdb-administrators | Users this group are administrators who manage Oracle Pluggable Database (PDB) actions.|
 
 ## Next steps
 - [Overview - Oracle Database@Azure](database-overview.md)
