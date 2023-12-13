@@ -77,7 +77,6 @@ sections:
 
           - [Use JMS 2.0 API with Azure Service Bus Premium](how-to-use-java-message-service-20.md)
           - [JMS developer guide](jms-developer-guide.md)
-          - 
 
       - question: |
           What IP addresses do I need to add to allowlist?
