@@ -78,4 +78,4 @@ Azure Operator Insights uses multiple schemas for logs.
 ## See Also
 
 - See [Monitoring Azure Operator Insights](monitor-operator-insights.md) for a description of monitoring Azure Operator Insights.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
