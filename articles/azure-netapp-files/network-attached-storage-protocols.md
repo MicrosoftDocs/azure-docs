@@ -72,9 +72,6 @@ NFSv3 currently supports the following versions of each ancillary protocol in Az
 
 \* NFS supported versions display based on the version selected for the Azure NetApp Files volume. 
 
->[!NOTE]
-> Rquotad v2 support is planned for a future release of Azure NetApp Files.
-
 This information can be gathered from your Azure NetApp Files volume with the following command:
 
 `# rpcinfo -s <Azure NetApp Files IP address>`
