@@ -174,6 +174,7 @@ internal class Program
                 Console.WriteLine(string.Format("Result ID: {0}", result.ResultId.ToString()));
                 Console.WriteLine(string.Format("Result summary: {0}", result.Summary.ToString()));
                 Console.WriteLine(string.Format("Result length: {0}", result.Results.Count));
+                Console.WriteLine(string.Format("Anomalies found: {0}", result.Results.Where(r => r.Value.IsAnomaly).Count()));
             }
 
             // delete
