@@ -15,28 +15,28 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-Azure Database for PostgreSQL Flexible Server supports PostgreSQL versions 11, 12, 13, 14 and 15. Postgres community releases a new major version containing new features about once a year. Additionally, major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward-compatible with existing applications. Azure Database for PostgreSQL Flexible Server periodically updates the minor versions during customer’s maintenance window. Major version upgrades are more complicated than minor version upgrades as they can include internal changes and new features that may not be backward-compatible with existing applications. 
+Azure Database for PostgreSQL flexible server supports PostgreSQL versions 11, 12, 13, 14 and 15. Postgres community releases a new major version containing new features about once a year. Additionally, major version receives periodic bug fixes in the form of minor releases. Minor version upgrades include changes that are backward-compatible with existing applications. Azure Database for PostgreSQL flexible server periodically updates the minor versions during customer’s maintenance window. Major version upgrades are more complicated than minor version upgrades as they can include internal changes and new features that may not be backward-compatible with existing applications. 
 
 ## Overview 
 
-Azure Database for PostgreSQL Flexible Server Postgres has now introduced in-place major version upgrade feature that performs an in-place upgrade of the server with just a click. In-place major version upgrade simplifies the upgrade process minimizing the disruption to users and applications accessing the server. In-place upgrades are a simpler way to upgrade the major version of the instance, as they retain the server name and other settings of the current server after the upgrade, and don't require data migration or changes to the application connection strings. In-place upgrades are faster and involve shorter downtime than data migration. 
+Azure Database for PostgreSQL flexible server has now introduced an in-place major version upgrade feature that performs an in-place upgrade of the server with just a click. In-place major version upgrade simplifies the upgrade process minimizing the disruption to users and applications accessing the server. In-place upgrades are a simpler way to upgrade the major version of the instance, as they retain the server name and other settings of the current server after the upgrade, and don't require data migration or changes to the application connection strings. In-place upgrades are faster and involve shorter downtime than data migration. 
 
 
 ## Process
 
 Here are some of the important considerations with in-place major version upgrade. 
 
-- During in-place major version upgrade process,  Flexible Server runs a pre-check procedure to identify any potential issues that might cause the upgrade to fail. If the pre-check finds any incompatibilities, it creates a log event showing that the upgrade pre-check failed, along with an error message. 
+- During in-place major version upgrade process, Azure Database for PostgreSQL flexible server runs a pre-check procedure to identify any potential issues that might cause the upgrade to fail. If the pre-check finds any incompatibilities, it creates a log event showing that the upgrade pre-check failed, along with an error message. 
 
-- If the pre-check is successful, then Flexible Server stops the service and takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there's an upgrade error. 
+- If the pre-check is successful, then Azure Database for PostgreSQL flexible server stops the service and takes an implicit backup just before starting the upgrade. This backup can be used to restore the database instance to its previous version if there's an upgrade error. 
 
-- Flexible Server uses  **pg_upgrade** utility to perform in-place major version upgrades and  provides the flexibility to skip versions and upgrade directly to higher versions. 
+- Azure Database for PostgreSQL flexible server uses  **pg_upgrade** utility to perform in-place major version upgrades and  provides the flexibility to skip versions and upgrade directly to higher versions. 
 
 -	During an in-place major version upgrade of a High Availability (HA) enabled server, the service disables HA, performs the upgrade on the primary server, and then re-enables HA after the upgrade is complete. 
 
 -	Most extensions are automatically upgraded to higher versions during an in-place major version upgrade, with some exceptions. Refer **limitations** section for more details. 
 
--	In-place major version upgrade process for Flexible Server automatically deploys the latest supported minor version. 
+-	In-place major version upgrade process for Azure Database for PostgreSQL flexible server automatically deploys the latest supported minor version. 
 
 -	The process of performing an in-place major version upgrade is an offline operation that results in a brief period of downtime. Typically, the downtime is under 15 minutes, although the duration may vary depending on the number of system tables involved
 
@@ -88,7 +88,7 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
 ## Post upgrade
 
-Run the **ANALYZE** operation to refresh the `pg_statistic` table. You should do this for every database on all your Flexible Server. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows:
+Run the **ANALYZE** operation to refresh the `pg_statistic` table. You should do this for every database on all your Azure Database for PostgreSQL flexible server instances. Optimizer statistics aren't transferred during a major version upgrade, so you need to regenerate all statistics to avoid performance issues. Run the command without any parameters to generate statistics for all regular tables in the current database, as follows:
 
 
 ```

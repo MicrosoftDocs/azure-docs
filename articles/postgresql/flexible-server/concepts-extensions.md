@@ -13,19 +13,19 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects in a single package that can be loaded or removed from your database with a command. After being loaded into the database, extensions function like built-in features.
+Azure Database for PostgreSQL flexible server provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects in a single package that can be loaded or removed from your database with a command. After being loaded into the database, extensions function like built-in features.
 
 ## How to use PostgreSQL extensions
 
-Before installing extensions in Azure Database for PostgreSQL - Flexible Server, you'll need to allowlist these extensions for use.
+Before installing extensions in Azure Database for PostgreSQL flexible server, you need to allowlist these extensions for use.
 
 Using the [Azure portal](https://portal.azure.com):
 
-   1. Select your Azure Database for PostgreSQL - Flexible Server.
+   1. Select your Azure Database for PostgreSQL flexible server instance.
    1. On the sidebar, select **Server Parameters**.
    1. Search for the `azure.extensions` parameter.
    1. Select extensions you wish to allowlist.
-     :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text="Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation." lightbox="./media/concepts-extensions/allow-list.png":::
+     :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text="Screenshot showing Azure Database for PostgreSQL flexible server - allow-listing extensions for installation." lightbox="./media/concepts-extensions/allow-list.png":::
 
 Using [Azure CLI](/cli/azure/):
 
@@ -92,11 +92,11 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 }
   ```
 
-`shared_preload_libraries` is a server configuration parameter determining which libraries are to be loaded when PostgreSQL starts. Any libraries, which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this action can be done:
+`shared_preload_libraries` is a server configuration parameter determining which libraries are to be loaded when Azure Database for PostgreSQL flexible server starts. Any libraries, which use shared memory must be loaded via this parameter. If your extension needs to be added to shared preload libraries this action can be done:
 
 Using the [Azure portal](https://portal.azure.com):
 
-   1. Select your Azure Database for PostgreSQL - Flexible Server.
+   1. Select your Azure Database for PostgreSQL flexible server instance.
    1. On the sidebar, select **Server Parameters**.
    1. Search for the `shared_preload_libraries` parameter.
    1. Select extensions you wish to add.
@@ -113,13 +113,13 @@ az postgres flexible-server parameter set --resource-group <your resource group>
 After extensions are allow-listed and loaded, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
 > [!NOTE]  
-> Third party extensions offered in Azure Database for PostgreSQL - Flexible Server are open source licensed code. Currently, we don't offer any third party extensions or extension versions with premium or proprietary licensing models.
+> Third party extensions offered in Azure Database for PostgreSQL flexible server are open source licensed code. Currently, we don't offer any third party extensions or extension versions with premium or proprietary licensing models.
 
-Azure Database for PostgreSQL supports a subset of key PostgreSQL extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL - Flexible Server. You can't create or load your own extension in Azure Database for PostgreSQL.
+Azure Database for PostgreSQL flexible server instance supports a subset of key PostgreSQL extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document aren't supported on Azure Database for PostgreSQL flexible server. You can't create or load your own extension in Azure Database for PostgreSQL flexible server.
 
 ## Extension versions
 
-The following extensions are available in Azure Database for PostgreSQL - Flexible Servers
+The following extensions are available in Azure Database for PostgreSQL flexible server:
 
 |**Extenssion Name**                                                                         |**Descrption**                                                                                                                                                             |**Postgres 16**|**Postgres 15**|**Postgres 14**|**Postgres 13**|**Postgres 12**|**Postgres 11**|
 |--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-----------|------------|------------|------------|------------|
@@ -145,7 +145,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 |[isn](https://www.postgresql.org/docs/13/isn.html)                                          |data types for international product numbering standards                                                                                                                   |1.2        |1.2        |1.2         |1.2         |1.2         |1.2         |
 |[lo](https://www.postgresql.org/docs/13/lo.html)                                            |large object maintenance                                                                                                                                                   |1.1        |1.1        |1.1         |1.1         |1.1         |1.1         |
 |[ltree](https://www.postgresql.org/docs/13/ltree.html)                                      |data type for hierarchical tree-like structures                                                                                                                            |1.2        |1.2        |1.2         |1.2         |1.1         |1.1         |
-|[orafce](https://github.com/orafce/orafce)                                                  |implements in Postgres some of the functions from the Oracle database that are missing                                                                                     |4.4        |3.24       |3.18        |3.18        |3.18        |3.18        |
+|[orafce](https://github.com/orafce/orafce)                                                  |implements in Azure Database for PostgreSQL flexible server some of the functions from the Oracle database that are missing                                                                                     |4.4        |3.24       |3.18        |3.18        |3.18        |3.18        |
 |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                          |inspect the contents of database pages at a low level                                                                                                                      |1.12       |1.8        |1.8         |1.8         |1.7         |1.7         |
 |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)                     |examine the shared buffer cache                                                                                                                                            |1.4        |1.3        |1.3         |1.3         |1.3         |1.3         |
 |[pg_cron](https://github.com/citusdata/pg_cron)                                             |Job scheduler for PostgreSQL                                                                                                                                               |1.5        |1.4        |1.4         |1.4         |1.4         |1.4         |
@@ -187,13 +187,13 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 
 ## dblink and postgres_fdw
 
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. Flexible server supports both incoming and outgoing connections to any PostgreSQL server. The sending server needs to allow outbound connections to the receiving server. Similarly, the receiving server needs to allow connections from the sending server.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one Azure Database for PostgreSQL flexible server instance to another, or to another database in the same server. Azure Database for PostgreSQL flexible server supports both incoming and outgoing connections to any PostgreSQL server. The sending server needs to allow outbound connections to the receiving server. Similarly, the receiving server needs to allow connections from the sending server.
 
 We recommend deploying your servers with [virtual network integration](concepts-networking.md) if you plan to use these two extensions. By default virtual network integration allows connections between servers in the virtual network. You can also choose to use [virtual network network security groups](../../virtual-network/manage-network-security-group.md) to customize access.
 
 ## pg_prewarm
 
-The pg_prewarm extension loads relational data into cache. Prewarming your caches means that your queries have better response times on their first run after a restart. The auto-prewarm functionality isn't currently available in Azure Database for PostgreSQL - Flexible Server.
+The pg_prewarm extension loads relational data into cache. Prewarming your caches means that your queries have better response times on their first run after a restart. The auto-prewarm functionality isn't currently available in Azure Database for PostgreSQL flexible server.
 
 ## pg_cron
 
@@ -234,7 +234,7 @@ SELECT cron.schedule_in_database('VACUUM','0 10 * * * ','VACUUM','testcron',null
 ```
 
 > [!NOTE]  
-> pg_cron extension is preloaded in shared_preload_libraries for every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
+> pg_cron extension is preloaded in shared_preload_libraries for every Azure Database for PostgreSQL flexible server instance inside postgres database to provide you with ability to schedule jobs to run in other databases within your Azure Database for PostgreSQL flexible server DB instance without compromising security. However, for security reasons, you still have to [allow list](#how-to-use-postgresql-extensions) pg_cron extension and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 
 Starting with pg_cron version 1.4, you can use the cron.schedule_in_database and cron.alter_job functions to schedule your job in a specific database and update an existing schedule respectively.
 
@@ -246,7 +246,7 @@ To delete old data on Saturday at 3:30am (GMT) on database DBName
 SELECT cron.schedule_in_database('JobName', '30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$,'DBName');
 ```
 > [!NOTE]  
-> cron_schedule_in_database function allows for user name as optional parameter. Setting the username to a non-null value requires PostgreSQL superuser privilege and is not supported in Azure Database for PostgreSQL - Flexible Server. Above examples show running this function with optional user name parameter ommitted or set to null, which runs the job in context of user scheduling the job, which should have azure_pg_admin role priviledges.
+> cron_schedule_in_database function allows for user name as optional parameter. Setting the username to a non-null value requires PostgreSQL superuser privilege and is not supported in Azure Database for PostgreSQL flexible server. Preceding examples show running this function with optional user name parameter ommitted or set to null, which runs the job in context of user scheduling the job, which should have azure_pg_admin role privileges.
 
 To update or change the database name for the existing schedule
 
@@ -256,7 +256,7 @@ select cron.alter_job(job_id:=MyJobID,database:='NewDBName');
 
 ## pg_failover_slots (preview)
 
-The PG Failover Slots extension enhances Azure Database for PostgreSQL when operating with both logical replication and high availability enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that doesn't preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
+The PG Failover Slots extension enhances Azure Database for PostgreSQL flexible server when operating with both logical replication and high availability enabled servers. It effectively addresses the challenge within the standard PostgreSQL engine that doesn't preserve logical replication slots after a failover. Maintaining these slots is critical to prevent replication pauses or data mismatches during primary server role changes, ensuring operational continuity and data integrity.
 
 The extension streamlines the failover process by managing the necessary transfer, cleanup, and synchronization of replication slots, thus providing a seamless transition during server role changes.
 The extension is supported for PostgreSQL versions 11 to 15.
@@ -265,7 +265,7 @@ You can find more information and how to use the PG Failover Slots extension on 
 
 ### Enable pg_failover_slots
 
-To enable the PG Failover Slots extension for your Azure Database for PostgreSQL server, you'll need to modify the server's configuration by including the extension in the server's shared preload libraries and adjusting a specific server parameter. Here's the process:
+To enable the PG Failover Slots extension for your Azure Database for PostgreSQL flexible server instance, you need to modify the server's configuration by including the extension in the server's shared preload libraries and adjusting a specific server parameter. Here's the process:
 
 1. Add `pg_failover_slots` to the server's shared preload libraries by updating the `shared_preload_libraries` parameter.
 1. Change the server parameter `hot_standby_feedback` to `on`.
@@ -274,19 +274,19 @@ Any changes to the `shared_preload_libraries` parameter require a server restart
 
 Follow these steps in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your Azure Database for PostgreSQL server's page.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your Azure Database for PostgreSQL flexible server instance's page.
 1. In the menu on the left, select **Server parameters**.
 1. Find the `shared_preload_libraries` parameter in the list and edit its value to include `pg_failover_slots`.
 1. Search for the `hot_standby_feedback` parameter and set its value to `on`.
 1. Select on **Save** to preserve your changes. Now, you'll have the option to **Save and restart**. Choose this to ensure that the changes take effect since modifying `shared_preload_libraries` requires a server restart.
 
-By selecting **Save and restart**, your server will automatically reboot, applying the changes you've made. Once the server is back online, the PG Failover Slots extension is enabled and operational on your primary PostgreSQL server, ready to handle logical replication slots during failovers.
+By selecting **Save and restart**, your server will automatically reboot, applying the changes you've made. Once the server is back online, the PG Failover Slots extension is enabled and operational on your primary Azure Database for PostgreSQL flexible server instance, ready to handle logical replication slots during failovers.
 
 ## pg_stat_statements
 
 The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) gives you a view of all the queries that have run on your database. That is useful to get an understanding of what your query workload performance looks like on a production system.
 
-The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded in shared_preload_libraries on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded in shared_preload_libraries on every Azure Database for PostgreSQL flexible server instance to provide you a means of tracking execution statistics of SQL statements.
 However, for security reasons, you still have to [allowlist](#how-to-use-postgresql-extensions)  [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) and install it using [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter.
 
@@ -295,14 +295,14 @@ There's a tradeoff between the query execution information pg_stat_statements pr
 ## TimescaleDB
 
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
-[Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of Timescale, Inc.. Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
+[Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of Timescale, Inc.. Azure Database for PostgreSQL flexible server provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 ### Install TimescaleDB
 
-To install TimescaleDB, in addition, to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+To install TimescaleDB, in addition, to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to the Azure Database for PostgreSQL flexible server `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Using the [Azure portal](https://portal.azure.com/):
 
-1. Select your Azure Database for PostgreSQL server.
+1. Select your Azure Database for PostgreSQL flexible server instance.
 
 1. On the sidebar, select **Server Parameters**.
 
@@ -314,7 +314,7 @@ Using the [Azure portal](https://portal.azure.com/):
 
 1. After the notification, **restart** the server to apply these changes.
 
-You can now enable TimescaleDB in your Postgres database. Connect to the database and issue the following command:
+You can now enable TimescaleDB in your Azure Database for PostgreSQL flexible server database. Connect to the database and issue the following command:
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
@@ -352,14 +352,14 @@ For more details on restore method with Timescale enabled database, see [Timesca
 While running `SELECT timescaledb_post_restore()` procedure listed above you might get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant.  
 To do so, you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
-   1. Create target Azure Database for PostgreSQL server and database
+   1. Create a target Azure Database for PostgreSQL flexible server instance and database
    1. Enable Timescale extension as shown above
    1. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    1. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
 More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup).  
 > [!NOTE]  
-> When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding.
+> When using `timescale-backup` utilities to restore to Azure, since database user names for Azure Database for PostgreSQL single server must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding.
 
 ## pg_hint_plan
 
@@ -385,11 +385,11 @@ Example:
 The above example causes the planner to use the results of a `seq scan` on the table a to be combined with table b as a `hash join`.
 
 
-To install pg_hint_plan, in addition, to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
+To install pg_hint_plan, in addition, to allow listing it, as shown [above](#how-to-use-postgresql-extensions), you need to include it in the server's shared preload libraries. A change to the Azure Database for PostgreSQL flexible server `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](howto-configure-server-parameters-using-portal.md) or the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Using the [Azure portal](https://portal.azure.com/):
 
-1. Select your Azure Database for the PostgreSQL server.
+1. Select your Azure Database for PostgreSQL flexible server instance.
 
 1. On the sidebar, select **Server Parameters**.
 
@@ -401,7 +401,7 @@ Using the [Azure portal](https://portal.azure.com/):
 
 1. After the notification, **restart** the server to apply these changes.
 
-You can now enable pg_hint_plan your Postgres database. Connect to the database and issue the following command:
+You can now enable pg_hint_plan your Azure Database for PostgreSQL flexible server database. Connect to the database and issue the following command:
 
 ```sql
 CREATE EXTENSION  pg_hint_plan ;
@@ -419,7 +419,7 @@ CREATE EXTENSION pg_buffercache;
 
 ## Extensions and Major Version Upgrade
 
-Azure Database for PostgreSQL Flexible Server Postgres has introduced [in-place major version upgrade](./concepts-major-version-upgrade.md#overview) feature that performs an in-place upgrade of the Postgres server with just a click. In-place major version upgrade simplifies the Postgres upgrade process, minimizing the disruption to users and applications accessing the server. In-place major version upgrade doesn't support specific extensions, and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce**, and **postgres_fdw** are unsupported for all PostgreSQL versions when using [in-place major version update feature](./concepts-major-version-upgrade.md#overview).
+Azure Database for PostgreSQL flexible server has introduced an [in-place major version upgrade](./concepts-major-version-upgrade.md#overview) feature that performs an in-place upgrade of the Azure Database for PostgreSQL flexible server instance with just a click. In-place major version upgrade simplifies the Azure Database for PostgreSQL flexible server upgrade process, minimizing the disruption to users and applications accessing the server. In-place major version upgrade doesn't support specific extensions, and there are some limitations to upgrading certain extensions. The extensions **Timescaledb**, **pgaudit**, **dblink**, **orafce**, and **postgres_fdw** are unsupported for all Azure Database for PostgreSQL flexible server versions when using [in-place major version update feature](./concepts-major-version-upgrade.md#overview).
 
 ## Related content
 

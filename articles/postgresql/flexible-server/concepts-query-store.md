@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
+The Query Store feature in Azure Database for PostgreSQL flexible server provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL flexible server instance.
 
 > [!IMPORTANT]  
 > Do not modify the **azure_sys** database or its schema. Doing so will prevent Query Store and related performance features from functioning correctly.
@@ -25,7 +25,7 @@ Query Store is an opt-in feature, so it isn't enabled by default on a server. Qu
 
 ### Enable Query Store
 
-1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
+1. Sign in to the Azure portal and select your Azure Database for PostgreSQL flexible server instance.
 1. Select **Server Parameters** in the **Settings** section of the menu.
 1. Search for the `pg_qs.query_capture_mode` parameter.
 1. Set the value to `TOP` or `ALL` and **Save**.
@@ -52,7 +52,7 @@ To minimize space usage, the runtime execution statistics in the runtime stats s
 
 ## Access Query Store information
 
-Query Store data is stored in the azure_sys database on your Postgres server.
+Query Store data is stored in the azure_sys database on your Azure Database for PostgreSQL flexible server instance.
 The following query returns information about queries in Query Store:
 
 ```sql
@@ -105,7 +105,7 @@ Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get
 
 ## Views and functions
 
-View and manage Query Store using the following views and functions. Anyone in the PostgreSQL public role can use these views to see the data in Query Store. These views are only available in the **azure_sys** database.
+View and manage Query Store using the following views and functions. Anyone in the Azure Database for PostgreSQL flexible server public role can use these views to see the data in Query Store. These views are only available in the **azure_sys** database.
 Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they'll have the same queryId.
 
 ### query_store.qs_view
@@ -183,7 +183,7 @@ This view returns the query plan that was used to execute a query. There's one r
 
 ## Limitations and known issues
 
-- If a PostgreSQL server has the parameter `default_transaction_read_only` on, Query Store won't capture any data.
+- If an Azure Database for PostgreSQL flexible server instance has the parameter `default_transaction_read_only` on, Query Store won't capture any data.
 
 ## Related content
 

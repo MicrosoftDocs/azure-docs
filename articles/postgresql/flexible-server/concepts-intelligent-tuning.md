@@ -13,8 +13,8 @@ ms.date: 06/02/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL - Flexible Server has an intelligent tuning feature that's designed to enhance
-performance automatically and help prevent problems. Intelligent tuning continuously monitors the PostgreSQL database's
+Azure Database for PostgreSQL flexible server has an intelligent tuning feature that's designed to enhance
+performance automatically and help prevent problems. Intelligent tuning continuously monitors the Azure Database for PostgreSQL flexible server database's
 status and dynamically adapts the database to your workload.
 
 This feature comprises two
@@ -30,7 +30,7 @@ You can enable intelligent tuning by using the [Azure portal](how-to-enable-inte
 
 ## Why intelligent tuning?
 
-The autovacuum process is a critical part of maintaining the health and performance of a PostgreSQL database. It helps
+The autovacuum process is a critical part of maintaining the health and performance of an Azure Database for PostgreSQL flexible server database. It helps
 reclaim storage occupied by "dead" rows, freeing up space and keeping the database running smoothly.
 
 Equally important is the tuning of write operations within the database. This task typically falls to database
@@ -45,8 +45,7 @@ The autovacuum tuning function in intelligent tuning monitors the bloat ratio an
 
 The writes tuning function observes the quantity and transactional patterns of write operations. It intelligently adjusts parameters such as `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`. By doing so, it enhances system performance and reliability, even under high write loads.
 
-When you use intelligent tuning, you can save valuable time and resources by relying on Azure Database for
-PostgreSQL - Flexible Server to maintain the optimal performance of your databases.
+When you use intelligent tuning, you can save valuable time and resources by relying on Azure Database for PostgreSQL flexible server to maintain the optimal performance of your databases.
 
 ## How does intelligent tuning work?
 
@@ -76,7 +75,7 @@ updated or dead tuples needed to start a `VACUUM` process.
 > Intelligent tuning modifies autovacuum-related parameters at the server level, not at individual table levels. Also, if autovacuum is turned off, intelligent tuning can't operate correctly. For intelligent tuning to optimize the process, the autovacuum feature must be enabled.
 
 Although the autovacuum daemon triggers two operations (`VACUUM` and `ANALYZE`), intelligent tuning fine-tunes only the `VACUUM`
-process. This feature currently doesn't adjust the `ANALYZE` process, which gathers statistics on table contents to help the PostgreSQL query planner choose the
+process. This feature currently doesn't adjust the `ANALYZE` process, which gathers statistics on table contents to help the Azure Database for PostgreSQL flexible server query planner choose the
 most suitable query execution plan.
 
 Intelligent tuning includes safeguards to measure resource utilization like CPU and IOPS.
@@ -95,14 +94,14 @@ scale factor, and naptime. This balance minimizes bloat and helps ensure that th
 Intelligent tuning adjusts four parameters related to writes
 tuning: `bgwriter_delay`, `checkpoint_completion_target`, `max_wal_size`, and `min_wal_size`.
 
-The `bgwriter_delay` parameter determines the frequency at which the background writer process is awakened to clean "dirty" buffers (buffers that are new or modified). The background writer process is one of three processes in PostgreSQL
+The `bgwriter_delay` parameter determines the frequency at which the background writer process is awakened to clean "dirty" buffers (buffers that are new or modified). The background writer process is one of three processes in Azure Database for PostgreSQL flexible server
 that handle write operations. The other are the checkpointer process and back-end writes (standard client processes, such
 as application connections).
 
 The background writer process's primary role is to alleviate the load from the main
 checkpointer process and decrease the strain of back-end writes. The `bgwriter_delay` parameter governs the frequency of background writer rounds. By adjusting this parameter, you can also optimize the performance of Data Manipulation Language (DML) queries.
 
-The `checkpoint_completion_target` parameter is part of the second write mechanism that PostgreSQL supports, specifically
+The `checkpoint_completion_target` parameter is part of the second write mechanism that Azure Database for PostgreSQL flexible server supports, specifically
 the checkpointer process. Checkpoints occur at constant intervals that `checkpoint_timeout` defines (unless forced by
 exceeding the configured space). To avoid overloading the I/O system with a surge of page writes, writing dirty buffers
 during a checkpoint is spread out over a period of time. The `checkpoint_completion_target` parameter controls this duration by using `checkpoint_timeout` to specify the duration as a fraction of the checkpoint interval.

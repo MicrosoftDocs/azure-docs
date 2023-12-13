@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can create an Azure Database for PostgreSQL server in one of three pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tier is calculated based on the compute, memory, and storage you provision.  A server can have one or many databases.
+You can create an Azure Database for PostgreSQL flexible server instance in one of three pricing tiers: Burstable, General Purpose, and Memory Optimized. The pricing tier is calculated based on the compute, memory, and storage you provision.  A server can have one or many databases.
 
 | Resource/Tier | Burstable | General Purpose | Memory Optimized |
 | :--- | :--- | :--- | :--- |
@@ -207,7 +207,7 @@ For servers with more than 1 TiB of provisioned storage, the storage autogrow me
 
 As an illustration, take a server with a storage capacity of 2 TiB (greater than 1 TiB). In this case, the autogrow limit is set at 64 GiB. This choice is made because 64 GiB is the smaller value when compared to 10% of 2 TiB, which is roughly 204.8 GiB. In contrast, for a server with a storage size of 128 GiB (less than 1 TiB), the autogrow feature activates when there's only 25.8 GiB of space left. This activation is based on the 20% threshold of the total allocated storage (128 GiB), which is smaller than 64 GiB.
 
-Azure Database for PostgreSQL - Flexible Server uses [Azure managed disks](/azure/virtual-machines/disks-types). The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you're managing unpredictable workloads because it automatically detects low-storage conditions and scales up the storage accordingly.
+Azure Database for PostgreSQL flexible server uses [Azure managed disks](/azure/virtual-machines/disks-types). The default behavior is to increase the disk size to the next premium tier. This increase is always double in both size and cost, regardless of whether you start the storage scaling operation manually or through storage autogrow. Enabling storage autogrow is valuable when you're managing unpredictable workloads because it automatically detects low-storage conditions and scales up the storage accordingly.
 
 The process of scaling storage is performed online without causing any downtime, except when the disk is provisioned at 4,096 GiB. This exception is a limitation of Azure Managed disks. If a disk is already 4,096 GiB, the storage scaling activity will not be triggered, even if storage auto-grow is turned on. In such cases, you need to manually scale your storage. Manual scaling is an offline operation that you should plan according to your business requirements.
 
@@ -230,7 +230,7 @@ Remember that storage can only be scaled up, not down.
 
 ## Premium SSD v2 (preview)
 
-Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database might need a large amount of IOPS at a small size, or a gaming application might need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL Flexible servers with Premium SSD v2 disk in limited regions.
+Premium SSD v2 offers higher performance than Premium SSDs while also generally being less costly. You can individually tweak the performance (capacity, throughput, and IOPS) of Premium SSD v2 disks at any time, allowing workloads to be cost efficient while meeting shifting performance needs. For example, a transaction-intensive database might need a large amount of IOPS at a small size, or a gaming application might need a large amount of IOPS but only during peak hours. Because of this, for most general purpose workloads, Premium SSD v2 can provide the best price performance. You can now deploy Azure Database for PostgreSQL flexible server instances with Premium SSD v2 disk in limited regions.
 
 ### Differences between Premium SSD and Premium SSD v2
 
@@ -258,12 +258,12 @@ All Premium SSD v2 disks have a baseline IOPS of 3000 that is free of charge. Af
 All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of charge. After 6 GiB, the maximum throughput that can be set increases by 0.25 MB/s per set IOPS. If a disk has 3,000 IOPS, the max throughput it can set is 750 MB/s. To raise the throughput for this disk beyond 750 MB/s, its IOPS must be increased. For example, if you increased the IOPS to 4,000, then the max throughput that can be set is 1,000. 1,200 MB/s is the maximum throughput supported for disks that have 5,000 IOPS or more. Increasing your throughput beyond 125 increases the price of your disk.
 
 > [!NOTE]
-> Premium SSD v2 is currently in preview for Azure Database for PostgreSQL Flexible Server.
+> Premium SSD v2 is currently in preview for Azure Database for PostgreSQL flexible server.
 
 
 #### Premium SSD v2 early preview limitations
 
-- Azure Database for PostgreSQL Flexible Server with Premium SSD V2 disk can be deployed only in West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
+- Azure Database for PostgreSQL flexible server with Premium SSD V2 disk can be deployed only in West Europe, East US, Switzerland North regions during early preview. Support for more regions is coming soon.
 
 - During early preview, SSD V2 disk won't have support for High Availability, Read Replicas, Geo Redundant Backups, Customer Managed Keys, Storage Auto-grow features. These features will be supported soon on Premium SSD V2.
 
@@ -273,7 +273,7 @@ All Premium SSD v2 disks have a baseline throughput of 125 MB/s that is free of 
 
 ## IOPS (preview)
 
-Azure Database for PostgreSQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time.
+Azure Database for PostgreSQL flexible server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time.
 
 The minimum and maximum IOPS are determined by the selected compute size. To learn more about the minimum and maximum IOPS per compute size refer to the [table](#maximum-iops-for-your-configuration).
 
@@ -284,11 +284,11 @@ Learn how to [scale up or down IOPS](how-to-scale-compute-storage-portal.md).
 
 ## Price
 
-For the most up-to-date pricing information, see the [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/) page. The [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) shows the monthly cost on the **Pricing tier** tab, based on the options that you select.
+For the most up-to-date pricing information, see the [Azure Database for PostgreSQL flexible server pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/) page. The [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) shows the monthly cost on the **Pricing tier** tab, based on the options that you select.
 
 If you don't have an Azure subscription, you can use the Azure pricing calculator to get an estimated price. On the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) website, select **Add items**, expand the **Databases** category, and then select **Azure Database for PostgreSQL** to customize the options.
 
 ## Related content
 
-- [create a PostgreSQL server in the portal](how-to-manage-server-portal.md)
-- [service limits](concepts-limits.md)
+- [Create an Azure Database for PostgreSQL - Flexible Server in the portal](how-to-manage-server-portal.md)
+- [Service limits](concepts-limits.md)
