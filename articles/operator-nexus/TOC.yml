@@ -139,6 +139,8 @@
 
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
+    - name: Enable Node Down Cleaner
+      href: howto-enable-node-down-cleaner.md
 - name: Troubleshooting
   items:
     - name: Troubleshoot Bare Metal Machine
