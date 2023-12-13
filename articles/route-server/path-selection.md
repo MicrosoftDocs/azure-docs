@@ -28,7 +28,7 @@ As a way to optimize for cost, you can use the *Internet* routing preference to 
 
 ## How to enable internet routing preference?
 
-To enable internet routing preference for your NVA, create a new zone-redundant standard SKU Public IP address and select **Internet** as the **Routing preference**. Then, assign the public IP address to the NVA.
+To enable internet routing preference for your NVA, create a new standard SKU Public IP address and select **Internet** as the **Routing preference**. Then, assign the public IP address to the NVA.
 
 :::image type="content" source="./media/path-selection/ip-routing-preference-internet.png" alt-text="Screenshot of the internet routing preference of a public IP address in the Azure portal.":::
 
