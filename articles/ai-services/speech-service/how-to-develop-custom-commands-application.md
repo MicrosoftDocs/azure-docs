@@ -25,7 +25,7 @@ In this article, you create an application that can turn a TV on and off, set th
 * Adding configurations to command parameters
 * Building interaction rules
 * Creating language-generation templates for speech responses
-* Using Custom Voice tools
+* Using custom voice tools
 
 ## Create an application by using simple commands
 
@@ -618,7 +618,7 @@ Train and test your application by using the following input and output. Notice 
 Another way to customize Custom Commands responses is to select an output voice. Use the following steps to switch the default voice to a custom voice:
 
 1. In your Custom Commands application, in the pane on the left, select **Settings**.
-1. In the middle pane, select **Custom Voice**.
+1. In the middle pane, select **Custom voice**.
 1. In the table, select a custom voice or public voice.
 1. Select **Save**.
 
@@ -628,7 +628,7 @@ Another way to customize Custom Commands responses is to select an output voice.
 > [!NOTE]
 > For public voices, neural types are available only for specific regions. For more information, see [Speech service supported regions](./regions.md#speech-service).
 >
-> You can create custom voices on the **Custom Voice** project page. For more information, see [Get started with Custom Voice](./how-to-custom-voice.md).
+> You can create custom voices on the **Custom voice** project page. For more information, see [Get started with custom voice](./professional-voice-create-project.md).
 
 Now the application will respond in the selected voice, instead of the default voice.
 
