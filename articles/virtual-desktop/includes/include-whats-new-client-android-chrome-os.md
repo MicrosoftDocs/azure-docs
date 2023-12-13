@@ -16,7 +16,7 @@ The following table lists the current versions available for the public and beta
 
 ## Updates for version 10.0.16.1237 
 
-*Date published: August 14, 2023*
+*Published: August 14, 2023*
 
 In this release, we've made the following changes: 
 
@@ -31,7 +31,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.15.1207
 
-*Date published: October 31, 2022*
+*Published: October 31, 2022*
 
 In this release, we've made the following changes:
 
@@ -40,7 +40,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.14.1182
 
-*Date published: June 13, 2022*
+*Published: June 13, 2022*
 
 In this release, we've made the following changes:
 
@@ -49,7 +49,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.13.1174
 
-*Date published: February 22, 2022*
+*Published: February 22, 2022*
 
 In this release, we've made the following changes:
 
@@ -67,7 +67,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.12.1148
 
-*Date published: December 15, 2021*
+*Published: December 15, 2021*
 
 In this release, we've made the following changes:
 
@@ -81,7 +81,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.11
 
-*Date published: July 13, 2021*
+*Published: July 13, 2021*
 
 In this release, we've made the following changes:
 
@@ -89,7 +89,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.10
 
-*Date published: 3/24/2021*
+*Published: 3/24/2021*
 
 In this release, we've made the following changes:
 
@@ -100,7 +100,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.9
 
-*Date published: 2/2/2021*
+*Published: 2/2/2021*
 
 In this release, we've made the following changes:
 
@@ -114,7 +114,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.8
 
-*Date published: 12/04/2020*
+*Published: 12/04/2020*
 
 In this release, we've made the following changes:
 
@@ -153,7 +153,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 8.1.79
 
-*Date published: 03/24/2020*
+*Published: 03/24/2020*
 
 In this release, we've made the following change:
 
@@ -161,7 +161,7 @@ In this release, we've made the following change:
 
 ## Updates for version 8.1.77
 
-*Date published: 02/11/2020*
+*Published: 02/11/2020*
 
 In this release, we've made the following change:
 

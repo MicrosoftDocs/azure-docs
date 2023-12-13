@@ -34,7 +34,7 @@ The agent is automatically installed when adding session hosts in most scenarios
 
 ## Version 1.0.7909.1200 (validation) 
 
-*Date published: November 2023*
+*Published: November 2023*
 
 In this release, we've made the following change:
 
@@ -42,7 +42,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.7755.1800
 
-*Date published: November 2023*
+*Published: November 2023*
 
 In this release, we've made the following change:
 
@@ -50,7 +50,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.7755.1100
 
-*Date published: September 2023*
+*Published: September 2023*
 
 In this release, we've made the following change:
 
@@ -58,7 +58,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.7539.8300
 
-*Date published: September 2023*
+*Published: September 2023*
 
 In this release, we've made the following change:
 
@@ -66,7 +66,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.7539.5800
 
-*Date published: September 2023*
+*Published: September 2023*
 
 In this release, we've made the following change:
 
@@ -74,7 +74,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.7255.1400
 
-*Date published: August 2023*
+*Published: August 2023*
 
 In this release, we've made the following change:
 
@@ -82,7 +82,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.7255.800
 
-*Date published: July 2023*
+*Published: July 2023*
 
 In this release, we've made the following changes:
 
@@ -91,7 +91,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.7033.1401
 
-*Date published: July 2023*
+*Published: July 2023*
 
 In this release, we've made the following change:
 
@@ -99,7 +99,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.6713.1603
 
-*Date published: July 2023*
+*Published: July 2023*
 
 In this release, we've made the following change:
 
@@ -107,7 +107,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.7033.900
 
-*Date published: July 2023*
+*Published: July 2023*
 
 In this release, we've made the following change:
 
@@ -115,7 +115,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.6713.1300/1.0.6713.1600
 
-*Date published: June 2023*
+*Published: June 2023*
 
 In this release, we've made the following change:
 
@@ -123,7 +123,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.6713.400
 
-*Date published: May 2023*
+*Published: May 2023*
 
 In this release, we've made the following changes:
 
@@ -132,7 +132,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.6425.1200
 
-*Date published: May 2023*
+*Published: May 2023*
 
 In this release, we've made the following change:
 
@@ -140,7 +140,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.6425.300
 
-*Date published: April 2023*
+*Published: April 2023*
 
 In this release, we've made the following change:
 
@@ -148,7 +148,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.6298.2100
 
-*Date published: March 2023*
+*Published: March 2023*
 
 In this release, we've made the following changes:
 
@@ -158,7 +158,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.6129.9100
 
-*Date published: March 2023*
+*Published: March 2023*
 
 In this release, we've made the following change:
 
@@ -166,7 +166,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.6028.2200
 
-*Date published: February 2023*
+*Published: February 2023*
 
 In this release, we've made the following changes:
 
@@ -175,7 +175,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.5739.9000/1.0.5739.9800
 
-*Date published: January 2023*
+*Published: January 2023*
 
 >[!NOTE]
 >You may see version 1.0.5739.9000 or 1.0.5739.9800 installed on session hosts depending on whether the host pool is configured to be a [validation environment](create-validation-host-pool.md). Version 1.0.5739.9000 was released to validation environments and version 1.0.5739.9800 was released to all other environments.
@@ -190,13 +190,13 @@ In this release, we've made the following changes:
 
 ## Version 1.0.5555.1010
 
-*Date published: December 2022*
+*Published: December 2022*
 
 This release didn't include any major changes to the agent.
 
 ## Version 1.0.5555.1008
 
-*Date published: November 2022*
+*Published: November 2022*
 
 In this release, we've made the following changes:
 
@@ -207,7 +207,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.5388.1701
 
-*Date published: August 2022*
+*Published: August 2022*
 
 In this release, we've made the following changes:
 
@@ -219,7 +219,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.5100.1100
 
-*Date published: August 2022*
+*Published: August 2022*
 
 In this release, we've made the following changes:
 
@@ -231,7 +231,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.4739.1000
 
-*Date published: July 2022*
+*Published: July 2022*
 
 In this release, we've made the following changes:
 
@@ -241,7 +241,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.4574.1600
 
-*Date published: June 2022*
+*Published: June 2022*
 
 In this release, we've made the following changes:
 
@@ -252,7 +252,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.4230.1600
 
-*Date published: March 2022*
+*Published: March 2022*
 
 In this release, we've made the following changes:
 
@@ -262,7 +262,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.4119.1500
 
-*Date published: February 2022*
+*Published: February 2022*
 
 In this release, we've made the following changes:
 
@@ -273,7 +273,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.4009.1500
 
-*Date published: January 2022*
+*Published: January 2022*
 
 In this release, we've made the following changes:
 
@@ -282,7 +282,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.3855.1400
 
-*Date published: December 2021*
+*Published: December 2021*
 
 In this release, we've made the following changes:
 
@@ -293,7 +293,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.3719.1700
 
-*Date published: November 2021*
+*Published: November 2021*
 
 In this release, we've made the following changes:
 
@@ -303,7 +303,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.3583.2600
 
-*Date published: October 2021*
+*Published: October 2021*
 
 In this release, we've made the following change:
 
@@ -311,7 +311,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.3373.2605
 
-*Date published: September 2021*
+*Published: September 2021*
 
 In this release, we've made the following change:
 
@@ -319,7 +319,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.3373.2600
 
-*Date published: September 2021*
+*Published: September 2021*
 
 In this release, we've made the following changes:
 
@@ -329,7 +329,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.3130.2900
 
-*Date published: July 2021*
+*Published: July 2021*
 
 In this release, we've made the following changes:
 
@@ -340,7 +340,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.3050.2500
 
-*Date published: July 2021*
+*Published: July 2021*
 
 In this release, we've made the following changes:
 
@@ -349,7 +349,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.2990.1500
 
-*Date published: April 2021*
+*Published: April 2021*
 
 In this release, we've made the following changes:
 
@@ -359,7 +359,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.2944.1400
 
-*Date published: April 2021*
+*Published: April 2021*
 
 In this release, we've made the following changes:
 
@@ -369,7 +369,7 @@ In this release, we've made the following changes:
 
 ## Version 1.0.2866.1500
 
-*Date published: March 2021*
+*Published: March 2021*
 
 In this release, we've made the following change:
 
@@ -377,7 +377,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.2800.2802
 
-*Date published: March 2021*
+*Published: March 2021*
 
 In this release, we've made the following change:
 
@@ -385,7 +385,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.2800.2800
 
-*Date published: March 2021*
+*Published: March 2021*
 
 In this release, we've made the following change:
 
@@ -393,7 +393,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.2800.2700
 
-*Date published: February 2021*
+*Published: February 2021*
 
 In this release, we've made the following change:
 

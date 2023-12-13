@@ -23,7 +23,7 @@ The following table shows the latest available version of the Remote Desktop Web
 
 ## Updates for version 1.45.2310.13001
 
-*Date published: November 15, 2023*
+*Published: November 15, 2023*
 
 Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1eNhm)
 
@@ -33,9 +33,9 @@ In this release, we've made the following change:
 
 ## Updates for version 1.43.2306.30001
 
-*Date published: September 7, 2023*
+*Published: September 7, 2023*
 
-Download: [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi)
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1bg9v)
 
 In this release, we've made the following changes:
 
@@ -46,7 +46,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.33.2302.07001
 
-*Date published: March 1, 2023*
+*Published: March 1, 2023*
 
 Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWWDIg)
 
@@ -56,7 +56,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.31.2211.15001 
 
-*Date published: January 19, 2023*
+*Published: January 19, 2023*
 
 Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE5c8Kk)
 
@@ -69,7 +69,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.17.2205.23001
 
-*Date published: June 20, 2022*
+*Published: June 20, 2022*
 
 In this release, we've made the following changes:
 
@@ -79,7 +79,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.4.2111.18001
 
-*Date published: December 2, 2021*
+*Published: December 2, 2021*
 
 In this release, we've made the following changes:
 
@@ -90,7 +90,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.1.2110.16001
 
-*Date published: October 15, 2021*
+*Published: October 15, 2021*
 
 In this release, we've made the following changes:
 
@@ -101,7 +101,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.0.2106.14001
 
-*Date published: July 29, 2021*
+*Published: July 29, 2021*
 
 In this release, we've made the following change:
 
@@ -109,7 +109,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.0.2006.11001
 
-*Date published: July 28, 2020*
+*Published: July 28, 2020*
 
 In this release, we've made the following changes:
 

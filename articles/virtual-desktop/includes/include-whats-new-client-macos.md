@@ -16,7 +16,7 @@ The following table lists the current versions available for the public and beta
 
 ## Updates for version 10.9.3
 
-*Date published: October 2, 2023*
+*Published: October 2, 2023*
 
 In this release, we've made the following changes:
 
@@ -27,7 +27,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.9.2
 
-*Date published: September 11, 2023*
+*Published: September 11, 2023*
 
 In this release, we've made the following changes:
 
@@ -35,7 +35,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.9.1
 
-*Date published: September 5, 2023*
+*Published: September 5, 2023*
 
 In this release, we've made the following changes:
 
@@ -43,7 +43,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.9.0
 
-*Date published: August 16, 2023*
+*Published: August 16, 2023*
 
 In this release,  we added two new features for Azure Virtual Desktop and addressed a number of reported bugs and incidents. 
 
@@ -57,7 +57,7 @@ In this release,  we added two new features for Azure Virtual Desktop and addres
 
 ## Updates for Version 10.8.4
 
-*Date published: June 16, 2023*
+*Published: June 16, 2023*
 
 In this release, we've made the following changes:
 
@@ -70,7 +70,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.3
 
-*Date published: May 20, 2023*
+*Published: May 20, 2023*
 
 In this release, we've made the following changes:
 
@@ -79,7 +79,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.2
 
-*Date published: April 25, 2023*
+*Published: April 25, 2023*
 
 In this release, we've made the following changes:
 
@@ -95,7 +95,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.1
 
-*Date published: January 25, 2023*
+*Published: January 25, 2023*
 
 In this release, we've made the following changes:
 
@@ -107,7 +107,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.0
 
-*Date published: December 14, 2022*
+*Published: December 14, 2022*
 
 In this release, we've made the following changes:
 
@@ -116,7 +116,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.7.10
 
-*Date published: October 24, 2022*
+*Published: October 24, 2022*
 
 In this release, we've added some new features to Teams redirection for Azure Virtual Desktop and Windows 365 scenarios:
 
@@ -183,7 +183,7 @@ In this release, we made some changes to improve connection reliability for Azur
 
 ## Updates for version 10.7.5
 
-*Date published: January 25, 2022*
+*Published: January 25, 2022*
 
 In this release, we've made the following changes:
 
@@ -193,7 +193,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.4
 
-*Date published: January 13, 2022*
+*Published: January 13, 2022*
 
 In this release, we've made the following changes:
 
@@ -202,13 +202,13 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.3
 
-*Date published: December 17, 2021*
+*Published: December 17, 2021*
 
 Unfortunately, the 10.7.2 update disabled smart card redirection for some users when they'd try to reconnect to their sessions. As a result, we've released this update to address the issue.
 
 ## Updates for version 10.7.2
 
-*Date published: December 13, 2021*
+*Published: December 13, 2021*
 
 In this release, we've made the following changes:
 
@@ -225,7 +225,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.1
 
-*Date published: November 4, 2021*
+*Published: November 4, 2021*
 
 In this release, we've made the following changes:
 
@@ -233,7 +233,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.0
 
-*Date published: October 21, 2021*
+*Published: October 21, 2021*
 
 In this release, we've made the following changes:
 
@@ -250,7 +250,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.8
 
-*Date published: August 16, 2021*
+*Published: August 16, 2021*
 
 In this release, we've made the following changes:
 
@@ -276,7 +276,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.7
 
-*Date published: June 21, 2021*
+*Published: June 21, 2021*
 
 In this release, we've made the following changes:
 
@@ -294,7 +294,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.6
 
-*Date published: May 4, 2021*
+*Published: May 4, 2021*
 
 In this release, we've made the following changes:
 
@@ -303,7 +303,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.5
 
-*Date published: April 29, 2021*
+*Published: April 29, 2021*
 
 In this release, we've made the following changes:
 
@@ -312,7 +312,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.4
 
-*Date published: April 22, 2021*
+*Published: April 22, 2021*
 
 In this release, we've made the following changes:
 
@@ -320,7 +320,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.3
 
-*Date published: April 20, 2021*
+*Published: April 20, 2021*
 
 In this release, we've made the following changes:
 
@@ -330,7 +330,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.2
 
-*Date published: April 20, 2021*
+*Published: April 20, 2021*
 
 In this release, we've made the following changes:
 
@@ -338,13 +338,13 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.1
 
-*Date published: April 20, 2021*
+*Published: April 20, 2021*
 
 In this update, we fixed an issue that caused the client to stop responding when connecting to a Remote Desktop Gateway.
 
 ## Updates for version 10.6.0
 
-*Date published: April 19, 2021*
+*Published: April 19, 2021*
 
 In this release we've made some significant updates to the shared underlying code that powers the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reports.
 
@@ -361,7 +361,7 @@ In this release we've made some significant updates to the shared underlying cod
 
 ## Updates for version 10.5.2
 
-*Date published: February 15, 2021*
+*Published: February 15, 2021*
 
 In this release, we've made the following changes:
 
@@ -375,7 +375,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.5.1
 
-*Date published: January 29, 2021*
+*Published: January 29, 2021*
 
 In this release, we've made the following changes:
 
@@ -385,7 +385,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.5.0
 
-*Date published: December 2, 2020*
+*Published: December 2, 2020*
 
 In this release, we've made the following changes:
 
@@ -403,7 +403,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.4.1
 
-*Date published: November 6, 2020*
+*Published: November 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -420,7 +420,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.4.0
 
-*Date published: August 20, 2020*
+*Published: August 20, 2020*
 
 In this release, we've made substantial updates to the underlying code for the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reporting. Here are some changes you may notice:
 
@@ -461,7 +461,7 @@ In this release, we've made substantial updates to the underlying code for the R
 
 ## Updates for version 10.3.9
 
-*Date published: April 6, 2020*
+*Published: April 6, 2020*
 
 In this release, we've made some changes to improve interoperability with the [Azure Virtual Desktop service](https://azure.microsoft.com/services/virtual-desktop/). In addition, we've included the following updates:
 
@@ -474,7 +474,7 @@ In this release, we've made some changes to improve interoperability with the [A
 
 ## Updates for version 10.3.8
 
-*Date published: February 12, 2020*
+*Published: February 12, 2020*
 
 With this update, you can switch between Scancode (Ctrl+Command+K) and Unicode (Ctrl+Command+U) modes when entering keyboard input. Unicode mode allows extended characters to be typed using the Option key on a Mac keyboard. For example, on a US Mac keyboard, Option+2 will enter the trademark (&trade;) symbol. You can also enter accented characters in Unicode mode. For example, on a US Mac keyboard, entering Option+E and the "A" key at the same time will enter the character "á" on your remote session.
 
@@ -489,7 +489,7 @@ Other updates in this release include:
 
 ## Updates for version 10.3.7
 
-*Date published: January 6, 2020*
+*Published: January 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -498,7 +498,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.6
 
-*Date published: January 6, 2020*
+*Published: January 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -506,7 +506,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.5
 
-*Date published: January 6, 2020*
+*Published: January 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -521,7 +521,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.4
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we've made the following changes:
 
@@ -540,7 +540,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.3
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we've made the following changes:
 
@@ -563,13 +563,13 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.2
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we fixed a bug that made the display low resolution while connecting to a session
 
 ## Updates for version 10.3.1
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we've made the following changes:
 
@@ -580,7 +580,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.0
 
-*Date published: August 27, 2019*
+*Published: August 27, 2019*
 
 In this release, we've made the following changes:
 
@@ -599,7 +599,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.13
 
-*Date published: May 8, 2019*
+*Published: May 8, 2019*
 
 In this release, we've made the following changes:
 
@@ -608,7 +608,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.12
 
-*Date published: April 16, 2019*
+*Published: April 16, 2019*
 
 In this release, we've made the following changes:
 
@@ -619,7 +619,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.10
 
-*Date published: March 30, 2019*
+*Published: March 30, 2019*
 
 In this release, we've made the following changes:
 
@@ -628,7 +628,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.9
 
-*Date published: March 6, 2019*
+*Published: March 6, 2019*
 
 In this release, we've made the following changes:
 
@@ -637,7 +637,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.8
 
-*Date published: March 1, 2019*
+*Published: March 1, 2019*
 
 In this release, we've made the following changes:
 
@@ -649,13 +649,13 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.7
 
-*Date published: February 6, 2019*
+*Published: February 6, 2019*
 
 In this release, we addressed graphics mis-paints (caused by a server encoding bug) that appeared when using AVC444 mode.
 
 ## Updates for version 10.2.6
 
-*Date published: January 28, 2019*
+*Published: January 28, 2019*
 
 In this release, we've made the following changes:
 
@@ -671,7 +671,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.4
 
-*Date published: December 18, 2018*
+*Published: December 18, 2018*
 
 In this release, we've made the following changes:
 
@@ -685,7 +685,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.3
 
-*Date published: November 6, 2018*
+*Published: November 6, 2018*
 
 In this release, we've made the following changes:
 
@@ -703,7 +703,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.2
 
-*Date published: October 9, 2018*
+*Published: October 9, 2018*
 
 In this release, we've made the following changes:
 
@@ -734,7 +734,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.1
 
-*Date published: August 6, 2018*
+*Published: August 6, 2018*
 
 In this release, we've made the following changes:
 
@@ -743,7 +743,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.0
 
-*Date published: July 24, 2018*
+*Published: July 24, 2018*
 
 In this release, we've made the following changes:
 
@@ -774,7 +774,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.1.8
 
-*Date published: May 4, 2018*
+*Published: May 4, 2018*
 
 In this release, we've made the following changes:
 
@@ -784,7 +784,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.1.7
 
-*Date published: April 5, 2018*
+*Published: April 5, 2018*
 
 In this release, we've made the following changes:
 
@@ -800,7 +800,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.1.6
 
-*Date published: March 26, 2018*
+*Published: March 26, 2018*
 
 In this release, we've made the following changes:
 

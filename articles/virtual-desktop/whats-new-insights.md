@@ -36,9 +36,84 @@ For example, a release with a version number of 1.2.31 is on the first major rel
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
 
+## Version 3.2.0
+
+*Published: October 9, 2023*
+
+In this update, we've made the following changes:
+
+- Updated support for session hosts with multiple Data Collection Rules.
+- Added additional error impact reporting.
+
+## Version 3.1.0
+
+*Published: October 2, 2023*
+
+In this update, we've made the following change:
+
+- Updated configuration workbook to allow users to use existing resource groups for Azure Monitor Agent configuration.
+
+## Version 3.0.0
+
+*Published: September 18, 2023*
+
+In this update, we've made the following changes:
+
+- Azure Monitor Agent based Insights now generally available.
+- Introduced Insights (Legacy) for support of Log Analytics Agent until end of life.
+
+## Version 2.3.4
+
+*Published: September 5, 2023*
+
+In this update, we've made the following changes:
+
+- Fixed configuration workbook experience for Azure Monitor Agent deployment preview.
+- Updated connection time reporting for connected time only.
+
+## Version 2.3.0
+
+*Published: June 5, 2023*
+
+In this update, we've made the following change:
+
+- Added HCI support and updated diagnostic threshold descriptions.
+
+## Version 2.2.0
+
+*Published: May 22, 2023*
+
+In this update, we've made the following change:
+
+- Added reporting support for Shutdown state.
+
+## Version 2.1.0
+
+*Published: May 1, 2023*
+
+In this update, we've made the following change:
+
+- Introduced Azure Monitor Agent support for public preview.
+
+## Version 2.0.2
+
+*Published: April 3, 2023*
+
+In this update, we've made the following change:
+
+- Fixed reporting inconsistencies with Overview and User tabs.
+
+## Version 2.0.1
+
+*Published: March 20, 2023*
+
+In this update, we've made the following change:
+
+- Improved visualization for the Connection Time graph in the Utilization tab.
+
 ## Version 2.0.0
 
-*Date published: March 6, 2023*
+*Published: March 6, 2023*
 
 In this release, we've made the following change:
 
@@ -46,7 +121,7 @@ In this release, we've made the following change:
 
 ## Version 1.6.1
 
-*Date published: February 27, 2023*
+*Published: February 27, 2023*
 
 In this release, we've made the following changes:
 
@@ -56,7 +131,7 @@ In this release, we've made the following changes:
 
 ## Version 1.6.0
 
-*Date published: January 30, 2023*
+*Published: January 30, 2023*
 
 In this release, we've made the following change:
 
@@ -64,7 +139,7 @@ In this release, we've made the following change:
 
 ## Version 1.5.0
 
-*Date published: January 9, 2023*
+*Published: January 9, 2023*
 
 In this release, we've made the following change:
 
@@ -72,7 +147,7 @@ In this release, we've made the following change:
 
 ## Version 1.4.0
 
-*Date published: October 2022*
+*Published: October 2022*
 
 In this release, we've made the following change:
 
@@ -80,7 +155,7 @@ In this release, we've made the following change:
 
 ## Version 1.3.0
 
-*Date published: September 2022*
+*Published: September 2022*
 
 In this release, we've made the following changes:
 
@@ -88,7 +163,7 @@ In this release, we've made the following changes:
 
 ## Version 1.2.2
 
-*Date published: July 2022*
+*Published: July 2022*
 
 In this release, we've made the following change:
 
@@ -96,7 +171,7 @@ In this release, we've made the following change:
 
 ## Version 1.2.1
 
-*Date published: June 2022*
+*Published: June 2022*
 
 In this release, we've made the following change:
 
@@ -104,7 +179,7 @@ In this release, we've made the following change:
 
 ## Version 1.2.0
 
-*Date published: May 2022*
+*Published: May 2022*
 
 In this release, we've made the following changes:
 
@@ -116,7 +191,7 @@ In this release, we've made the following changes:
 
 ## Version 1.1.10
 
-*Date published: February 2022*
+*Published: February 2022*
 
 In this release, we've made the following change:
 
@@ -124,7 +199,7 @@ In this release, we've made the following change:
 
 ## Version 1.1.8
 
-*Date published: November 2021*
+*Published: November 2021*
 
 In this release, we've made the following changes:
 
@@ -134,7 +209,7 @@ In this release, we've made the following changes:
 
 ## Version 1.1.7
 
-*Date published: November 2021*
+*Published: November 2021*
 
 In this release, we've made the following change:
 
@@ -142,7 +217,7 @@ In this release, we've made the following change:
 
 ## Version 1.1.6
 
-*Date published: October 2021*
+*Published: October 2021*
 
 In this release, we've made the following change:
 
@@ -150,7 +225,7 @@ In this release, we've made the following change:
 
 ## Version 1.1.4
 
-*Date published: October 2021*
+*Published: October 2021*
 
 In this release, we've made the following change:
 
@@ -158,7 +233,7 @@ In this release, we've made the following change:
 
 ## Version 1.1.3
 
-*Date published: September 2021*
+*Published: September 2021*
 
 In this release, we've made the following change:
 
@@ -166,7 +241,7 @@ In this release, we've made the following change:
 
 ## Version 1.1.2
 
-*Date published: August 2021*
+*Published: August 2021*
 
 In this release, we've made the following change:
 
@@ -174,7 +249,7 @@ In this release, we've made the following change:
 
 ## Version 1.1.1
 
-*Date published: July 2021*
+*Published: July 2021*
 
 In this release, we've made the following change:
 
@@ -182,7 +257,7 @@ In this release, we've made the following change:
 
 ## Version 1.1.0
 
-*Date published: July 2021*
+*Published: July 2021*
 
 In this release, we've made the following change:
 
@@ -190,7 +265,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.4
 
-*Date published: June 2021*
+*Published: June 2021*
 
 In this release, we've made the following change:
 
@@ -200,7 +275,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.3
 
-*Date published: May 2021*
+*Published: May 2021*
 
 In this release, we've made the following change:
 
@@ -208,7 +283,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.2
 
-*Date published: May 2021*
+*Published: May 2021*
 
 In this release, we've made the following change:
 
@@ -216,7 +291,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.1
 
-*Date published: April 2021*
+*Published: April 2021*
 
 In this release, we've made the following change:
 
@@ -224,7 +299,7 @@ In this release, we've made the following change:
 
 ## Version 1.0.0
 
-*Date published: March 2021*
+*Published: March 2021*
 
 In this release, we've made the following changes:
 
