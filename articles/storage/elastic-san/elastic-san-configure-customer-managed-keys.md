@@ -414,10 +414,13 @@ az role assignment create --assignee-object-id $PrincipalId \
 
 ## Configure customer-managed keys for a volume group
 
-Select the Azure PowerShell module or the Azure CLI tab for instructions on how to configure customer-managed encryption keys using your preferred management tool. Then select the tab that corresponds to whether you want to configure the settings during creation of a new volume group, or update the settings for an existing one. Each set of tabs includes instructions for how to configure customer-managed encryption keys for automatic and manual updating of the key version.
+Select the Azure PowerShell module or the Azure CLI tab for instructions on how to configure customer-managed encryption keys using your preferred management tool.
 
 ### [PowerShell](#tab/azure-powershell)
+Now that you've selected PowerShell, select the tab that corresponds to whether you want to configure the settings during creation of a new volume group, or update the settings for an existing one.
+
 ### [Azure CLI](#tab/azure-cli)
+Now that you've selected CLI, select the tab that corresponds to whether you want to configure the settings during creation of a new volume group, or update the settings for an existing one.
 
 ---
 
