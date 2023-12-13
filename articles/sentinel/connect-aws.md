@@ -193,8 +193,7 @@ The manual setup consists of the following steps:
 
    :::image type="content" source="media/connect-aws/aws-add-tags.png" alt-text="Screenshot of tags screen.":::
 
-1. [Apply IAM permissions policies](?branch=main&tabs=s3). For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](?tabs=s3) in our GitHub repo.
-
+1. [Apply IAM permissions policies](?branch=main&tabs=s3). For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in our GitHub repo.
 1. In the **Roles** list, select the new role you created.
 
    :::image type="content" source="media/connect-aws/aws-select-role.png" alt-text="Screenshot of roles list screen.":::
