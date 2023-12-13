@@ -39,7 +39,7 @@ The migration procedure described in this article assumes you have:
 | Create or modify a data collection rule. | `Microsoft.Insights/DataCollectionRules/Write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
 | Convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API. | `Microsoft.OperationalInsights/workspaces/tables/migrate/action` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 | Create new tables or modify table schemas. | `microsoft.operationalinsights/workspaces/tables/write` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
-| Call the Log Ingestion API. | <ul><li>`Microsoft.Insights/DataCollectionEndpoints/Write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example.</li><li>`Microsoft.Insights/DataCollectionRules/Read` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor)</li> <li>`microsoft.operationalinsights/workspaces/tables/write` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.</li></ul> |
+| Call the Log Ingestion API. | See [Assign permissions to a DCR](./tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr). |
 
 ## Create new resources required for the Log ingestion API
 
