@@ -661,7 +661,7 @@ These instructions show you how to convert C# script functions (which run in-pro
 
    ---
     
-1. If your original C# script code includes an `extensions.csproj` file or any `function.proj` files, copy the package references from these file and add them to the new project's `.csproj` file in the same `ItemGroup` with the Functions core dependencies.
+2. If your original C# script code includes an `extensions.csproj` file or any `function.proj` files, copy the package references from these file and add them to the new project's `.csproj` file in the same `ItemGroup` with the Functions core dependencies.
 
     >[!TIP]
     >Conversion provides a good opportunity to update to the latest versions of your dependencies. Doing so may require additional code changes in a later step.
@@ -1173,7 +1173,7 @@ The following table explains the binding configuration properties for C# script 
 |**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
 |**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](./functions-bindings-storage-table-input.md#connections). |
 
-he following example shows a table input binding in a *function.json* file and C# script code that uses the binding. The function uses a queue trigger to read a single table row. 
+The following example shows a table input binding in a *function.json* file and C# script code that uses the binding. The function uses a queue trigger to read a single table row. 
 
 The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value `{queueTrigger}` indicates that the row key comes from the queue message string.
 
