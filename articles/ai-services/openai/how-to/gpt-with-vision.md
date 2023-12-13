@@ -347,18 +347,18 @@ Every response includes a `"finish_details"` field. The subfield `"type"` has th
 
 If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
-## Low or high fidelity image understanding
+## Detail parameter settings in image processing: Low, High, Auto  
 
-By controlling the _detail_ parameter, which has two options, `low` or `high`, you can control how the model processes the image and generates its textual understanding.
-- `low` disables the "high res" mode. The model receives a low-res 512x512 version of the image and represents the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that don't require high detail.
-- `high` enables "high res" mode, which first allows the model to see the low res image and then creates detailed crops of input images as 512x512 squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens.
+The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input.  
+- `low` setting: the model does not activate the "high res" mode, instead processing a lower resolution 512x512 version of the image using 65 tokens, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.  
+- `high` setting activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, amounting to 129 tokens per segment, allowing for a more detailed interpretation of the image.
 
 ## Limitations
 
 ### Image support
 
 - **Limitation on image enhancements per chat session**: Enhancements cannot be applied to multiple images within a single chat call.
-- **Maximum input image size**: The maximum size for input images is restricted to 4 MB.
+- **Maximum input image size**: The maximum size for input images is restricted to 20 MB.
 - **Object grounding in enhancement API**: When the enhancement API is used for object grounding, and the model detects duplicates of an object, it will generate one bounding box and label for all the duplicates instead of separate ones for each.
 - **Low resolution accuracy**: When images are analyzed using the "low resolution" setting, it allows for faster responses and uses fewer input tokens for certain use cases. However, this could impact the accuracy of object and text recognition within the image.
 - **Image chat restriction**: When uploading images in the chat playground or the API, there is a limit of 10 images per chat call.
