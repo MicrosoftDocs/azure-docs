@@ -27,6 +27,14 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in November 2023:
 
+### Add Community images and Direct Shared images
+
+You can now add Community images and Direct Shared images when you [create a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool). Community images and associated publisher information aren't verified or tested by Microsoft. 
+
+### Administrative template for Watermarking and Screen Capture Protection now available
+
+The administrative template for [watermarking](watermarking.md) and [screen capture protection](screen-capture-protection.md) is now available in [the Intune settings catalog](/mem/intune/configuration/administrative-templates-windows). This template lets you configure these security settings centrally for [session hosts enrolled in Intune](management.md#microsoft-intune).
+
 ### Autoscale for personal host pools is now generally available
 
 Autoscale for personal host pools is now generally available. Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule to optimize deployment costs. It also now supports hibernate (preview), that pauses virtual machines that aren't being used. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
