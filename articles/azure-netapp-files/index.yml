@@ -54,7 +54,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: NAS volumes a s service
+          - text: NAS volumes as a service
             url: network-attached-storage-concept.md 
           - text: Azure NetApp Files essentials
             url: azure-netapp-files-understand-storage-hierarchy.md
@@ -90,7 +90,7 @@ landingContent:
             url: azure-netapp-files-set-up-capacity-pool.md
           - text: Manage volumes 
             url: azure-netapp-files-create-volumes.md
-          - text: Manage application volume grouops 
+          - text: Manage application volume groups 
             url: application-volume-group-deploy-first-host.md
           - text: Develop
             url: azure-netapp-files-develop-with-rest-api.md
