@@ -25,7 +25,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | Date | Update |
 |--|--|
 | December 15 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
-| December 13 | [Deprecation of container vulnerability assessment recommendation powered by Trivy](#deprecation-of-container-vulnerability-assessment-recommendation-powered-by-trivy) |
+| December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
 | December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview) |
 | December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
@@ -38,11 +38,11 @@ We're announcing the general availability (GA) release of PostgreSQL Flexible Se
 
 Learn how to [Enable Microsoft Defender for open-source relational databases](defender-for-databases-usage.md).
 
-### Deprecation of container vulnerability assessment recommendation powered by Trivy
+### Retirement of AWS container vulnerability assessment powered by Trivy
 
 December 13, 2023
 
-The container vulnerability assessment recommendation powered by Trivy was deprecated on December 13. After this date, it will only be available to customers who onboarded to the public preview powered by Trivy before December 6. We encourage you to transition to the new Microsoft Defender Vulnerability Management powered offering as soon as it's released, and complete the migration by February 6, as the container vulnerability assessment powered by Trivy for AWS will be fully retired by then.
+The [container vulnerability assessment powered by Trivy](defender-for-containers-vulnerability-assessment-elastic.md) is now on a retirement path to be completed by February 13. This capability is now deprecated and will continue to be available to existing customers using this capability until February 13. We encourage customers using this capability to upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) by February 13.
 
 ### Agentless Container Posture in Defender AWS (Preview)
 
