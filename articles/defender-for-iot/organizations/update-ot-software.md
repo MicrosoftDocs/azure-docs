@@ -38,6 +38,11 @@ To perform the procedures described in this article, make sure that you have:
 
     For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
+> [!IMPORTANT]
+> We recommend verifying that you have sensor backups running regularly, and especially before updating sensor software.
+>
+> For more information, see [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md).
+
 ## Verify network requirements
 
 - Make sure that your sensors can reach the Azure data center address ranges and set up any extra resources required for the connectivity method your organization is using.
