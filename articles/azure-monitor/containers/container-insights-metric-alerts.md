@@ -20,7 +20,7 @@ There are two types of metric rules used by Container insights based on either P
 | Alert rule type | Description |
 |:---|:---|
 | [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
-| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on March 14, 2026. |
+| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on May 31, 2024. |
 
 ## Prometheus alert rules
 
@@ -49,6 +49,7 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 ### [Bicep template](#tab/bicep)
 
 1. To deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
+
 
 
 
@@ -163,8 +164,14 @@ To disable custom alert rules, use the same ARM template to create the rule, but
 
 
 
+
+
+
+
+
+
 ## Migrate from metric rules to Prometheus rules (preview)
-If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before March 14, 2026 when metric alerts are retired.
+If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before May 31, 2024 when metric alerts are retired.
 
 1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview).
 2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters.
