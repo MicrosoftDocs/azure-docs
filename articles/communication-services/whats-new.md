@@ -22,8 +22,23 @@ We're combining the November and December updates into one. **Have a terrific ho
 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
+
+### Call Diagnostics now available in Public Preview
+:::image type="content" source="./media/whats-new-images/11-23/call-diagnostics.png" alt-text="A graphic showing icons that represent the ways that call diagnostics helps developers.":::
+
+Azure Communication Services Call Diagnostics (CD) is a new feature that helps developers troubleshoot and improve their voice & video calling applications. It's an Azure Monitor experience that offers specialized telemetry and diagnostic pages in the Azure portal. With Call Diagnostics, developers can easily access and analyze data, visualizations, and insights for each call, and identify and resolve issues that affect the end-user experience. Call Diagnostics works with other ACS features, such as noise suppression and pre-call troubleshooting, to deliver beautiful, reliable video calling experiences that are easy to develop and operate. Call Diagnostics is now available in Public Preview. Try it today and see how Azure can help you make every call a success. 🚀
+
+
+
+[Read the documentation.](./concepts/voice-video-calling/call-diagnostics)
+
+
+<br>
+<br>
+
+
 ### Email Simple Mail Transfer Protocol (SMTP) as Service
-:::image type="content" source="./media/whats-new-images/11-23/eaas.png" alt-text="A graphic showing the Azure logo for email and the Azure Communication Services logo.":::
+:::image type="content" source="./media/whats-new-images/11-23/email-as-a-service.png" alt-text="A graphic showing the Azure logo for email and the Azure Communication Services logo.":::
 
 Azure Communication Services Email Simple Mail Transfer Protocol (SMTP) as a Service is now in public preview. This service allows you to send emails from your line of business applications using a cloud-based SMTP relay that is secure, reliable, and compliant. You can use Microsoft Entra Application ID to authenticate your SMTP requests and apply the power of Exchange as a transport. Whether you need to send high-volume B2C communications or occasional notifications, this service can meet your needs and expectations.
 
