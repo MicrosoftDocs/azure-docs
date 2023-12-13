@@ -209,24 +209,33 @@ Customer feedback is invaluable, the End of Call Survey provides you with a tool
 
 
 ## After a call
-**Monitor and troubleshoot call quality and reliability** - Before you release and scale your Azure Communication Services calling
-solution, implement these quality and reliability monitoring capabilities
-to ensure you collecting available logs and metrics. These call data aren't stored unless you implement them.
-### Call Summary and Call Diagnostics Logs
-
-After a call ends, call logs are created to help you investigate individual calls and monitor your overall call quality and reliability. The following fields provide useful insight on user's call quality and reliability. 
-
+**Monitor and troubleshoot call quality and reliability** - Before you release and scale your Azure Communication Services calling solution, implement these quality and reliability monitoring capabilities
+to ensure you collecting available logs and metrics. These call data aren't stored until you implement them so you won't be able to monitor and debug your call quality and reliability without them. 
 
 - For more information, see: [Azure Communication Services Voice Calling and Video Calling logs](../analytics/logs/voice-and-video-logs.md). 
 
+### Start collecting call logs
+
+Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
+
+- We recommend you choose the category group "allLogs" and choose the destination detail of “Send to Log Analytics workspace" in order to view and analyze the data in Azure Monitor.
+- If you don't have a Log Analytics workspace, you will need to [create one.](../analytics/enable-logging.md#next-steps)
+- We recomment you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
+
+
+## Diagnose call issues with Call Diagnostics
+Call Diagnostics is an Azure Monitor experience that delivers tailored insight through specialized telemetry and diagnostic pages in the Azure portal. 
+
+Once you begin storing log data in your log analytics workspace you can visualize your search for individual calls and visualize the data in Call Diagnostics. Within your Azure Monitor account you simply need to navigate to your Azure Communication Services resource and locate the Call Diagnostics blade in your side pane. 
+- See [Call Diagnostics](call-diagnostics.md) to learn how to best use this capability.
 
 <!-- #### sdkVersion 
 
 - Allows you to monitor the deployment of client versions. See our guidance <u>on **Client Versions**</u> to learn how old client versions can impact quality -->
 
-#### Call errors
+<!-- #### Call errors
 
-- The `participantEndReason` is the reason a participant ends a connection. This data helps you identify common trends leading to unplanned call ends (when relevant). See our guidance on [Calling SDK error codes](../troubleshooting-info.md#calling-sdk-error-codes) 
+- The `participantEndReason` is the reason a participant ends a connection. This data helps you identify common trends leading to unplanned call ends (when relevant). See our guidance on [Calling SDK error codes](../troubleshooting-info.md#calling-sdk-error-codes)  -->
 
 
 <!-- #### transportType 
@@ -235,27 +244,17 @@ After a call ends, call logs are created to help you investigate individual call
 
 <!-- #### <span class="mark">DRAFT UIHint later – what is added quality value with Device, skd, custom tag?</span> -->
 
-#### Summarized Media Quality logs
+
+<!-- #### Summarized Media Quality logs
 
 - These three logs give you insight on the average media quality during the call.
-  <!-- See our guidance on **<u>Media Quality</u>** to learn more. -->
 
   - `roundTripTimeAvg`
 
   - `jitterAvg`
 
-  - `packetLossRateAvg`
+  - `packetLossRateAvg` -->
 
-
-### Start collecting call logs
-
-Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md)
-
-- Choose the category group "allLogs" and choose the destination detail of “Send to Log Analytics workspace" in order to view and analyze the data in Azure Monitor.
-- If you don't have a Log Analytics workspace, you will need to create one. https://learn.microsoft.com/en-us/azure/communication-services/concepts/analytics/enable-logging#next-steps
-
-<!-- To enable call logs review this documentation
- [Enable and Access Call Summary and Call Diagnostic Logs](../call-logs-azure-monitor-access.md). Then follow these steps: [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md) -->
 
 ### Examine call quality with Voice and Video Insights Preview
 
@@ -268,10 +267,10 @@ Once you have enabled logs, you can view call insights in your Azure Resource us
 <!-- #### Detailed Media Statistics -->
 
 
-#### End of Call Survey
+#### Analyze end user sentiment with the End of Call Survey
 Once you enable diagnostic settings to capture your survey data you can use our sample [call log queries](../analytics/query-call-logs.md) in Azure Log Analytics to analyze your user's perceived quality experience. User feedback can show you call issues you didn't know you had and help you prioritize your quality improvements. 
 
-### Analyze your call data
+### Analyze your call data directly from the client
 By collecting call data such as Media Statistics, User Facing Diagnostics, and pre-call API information you can review calls with
   poor quality to conduct root cause analysis when troubleshooting issues. For example, a user may have an hour long call and report poor audio at one point in the call. 
 
@@ -292,11 +291,14 @@ The call may have fired a User Facing Diagnostic indicating a severe problem wit
 
 - Continue to learn other best practices, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
 
--	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+- Explore known issues, see: [Known issues in the SDKs and APIs](../known-issues.md)
+
+- Learn how to debug calls, see: [Call Diagnostics](call-diagnostics.md)
+
+- Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
 
 -	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
 
-- Explore known issues, see: [Known issues in the SDKs and APIs](../known-issues.md)
 
 <!-- Comment this out - add to the toc.yml file at row 583.
 
