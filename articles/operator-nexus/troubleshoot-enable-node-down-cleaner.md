@@ -4,14 +4,14 @@ description: Learn how to enable node down cleaner.
 author: neilverse
 ms.author: soumyamaitra
 ms.service: azure-operator-nexus
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 12/12/2023
-ms.custom: template-how-to
+ms.custom: troubleshooting
 ---
 
 # Enable node down cleaner
 
-Release _2312.x_ introduces a new feature called Node down cleaner, which is disabled by default.
+Azure Operator Nexus introduces a new feature called Node down cleaner, which is disabled by default.
 It helps in moving NFS server pods from a failed node to a new node when a Bare Metal Host is powers off through AZ CLI.
 The following procedure enables node down cleaner and is applicable for both green field and brown field environments.
 
@@ -22,9 +22,9 @@ The following procedure enables node down cleaner and is applicable for both gre
 - The target bare metal machine power state is on and has readyState set to True
 - User must have the appropriate permission assigned to execute the `networkcloud baremetalmachine run-command`
 
-## Steps to enable node down cleaner in undercloud
+## Steps to enable node down cleaner on cluster
 
-The procedure needs to be run against control plane nodes. To determine which nodes are control plane nodes, you can run the following azure CLI `baremetalmachine run-read-command`.
+The procedure needs to be run against management nodes. To determine which nodes are management nodes, you can run the following azure CLI `baremetalmachine run-read-command`.
 
 ```azurecli
 az networkcloud baremetalmachine run-read-command --name <any-ready-baremetal-machine> \
@@ -37,7 +37,7 @@ az networkcloud baremetalmachine run-read-command --name <any-ready-baremetal-ma
 Run the following command to enable node down cleaner
 
 ```azurecli
-az networkcloud baremetalmachine run-command --bare-metal-machine-name <control-plane-baremetal-machine> \
+az networkcloud baremetalmachine run-command --bare-metal-machine-name <management-node-baremetal-machine> \
 --subscription <subscription> \
 --resource-group <cluster-managed-resource-group> \
 --limit-time-seconds 60 \
