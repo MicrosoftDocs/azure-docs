@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Route MQTT messages to Event Hubs using portal'
+title: 'Tutorial: Route MQTT messages to Event Hubs by using the portal'
 description: 'Tutorial: Use Azure Event Grid to route MQTT messages to Azure Event Hubs.'
 ms.topic: tutorial
 ms.custom:
@@ -11,78 +11,85 @@ ms.author: geguirgu
 ms.subservice: mqtt
 ---
 
-# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with Azure portal
+# Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with the Azure portal
 
-Use message routing in Azure Event Grid to send data from your MQTT clients to Azure services such as storage queues, and Event Hubs.
-In this tutorial, you perform the following tasks:
-- Create Event Subscription in your Event Grid topic.
-- Configure routing in your Event Grid Namespace.
-- View the MQTT messages in the Event Hubs using Azure Stream Analytics.
+Use message routing in Azure Event Grid to send data from your MQTT clients to Azure services, such as storage queues and Azure Event Hubs.
 
+In this tutorial, you learn how to:
+
+- Create an event subscription in your Event Grid topic.
+- Configure routing in your Event Grid namespace.
+- View the MQTT messages in the event hubs by using Azure Stream Analytics.
+
+If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Prerequisites
 
-- If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- If you're new to Azure Event Grid, read through [Event Grid overview](/azure/event-grid/overview) before starting this tutorial.
-- Register the Event Grid resource provider as per [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
-- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environment.
-- An Event Grid Namespace in your Azure subscription. If you don't have a namespace yet, you can follow the steps in [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-portal.md).
-- This tutorial uses Event Hubs, Event Grid custom topic, and Event Subscriptions.  You can find more information here:
-- Creating an Event Grid topic:  [Create a custom topic using portal](/azure/event-grid/custom-event-quickstart-portal).  While creating the Event Grid topic, ensure to create with Event Schema as Cloud Event Schema v1.0 in the Advanced tab.
+- If you're new to Event Grid, read the [Event Grid overview](/azure/event-grid/overview) before you start this tutorial.
+- Register the Event Grid resource provider according to the steps in [Register the Event Grid resource provider](/azure/event-grid/custom-event-quickstart-portal#register-the-event-grid-resource-provider).
+- Make sure that port 8883 is open in your firewall. The sample in this tutorial uses the MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments.
+- You need an Event Grid namespace in your Azure subscription. If you don't have a namespace yet, you can follow the steps in [Publish and subscribe on a MQTT topic](./mqtt-publish-and-subscribe-portal.md).
+- This tutorial uses event hubs, Event Grid custom topics, and event subscriptions. You can find more information here:
+   - Create an Event Grid topic. See [Create a custom topic using the portal](/azure/event-grid/custom-event-quickstart-portal). When you create the Event Grid topic, on the **Advanced** tab, for **Event Schema**, select **Cloud Event Schema v1.0**.
 
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/create-event-grid-topic-advanced-tab.png" alt-text="Screenshot showing Event Grid topic create flow Advanced tab.":::
+   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/create-event-grid-topic-advanced-tab.png" alt-text="Screenshot that shows the Advanced tab on the Event Grid Create Topic page.":::
 
-- Creating an Event Hubs:  [Quickstart - Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create).
+   - Create an event hub. See [Quickstart: Create an event hub using the Azure portal](/azure/event-hubs/event-hubs-create).
 
-- You can view the Event Hubs data using Stream Analytics:  [Process data from Event Hubs Azure using Stream Analytics](/azure/event-hubs/process-data-azure-stream-analytics).
+- View the Event Hubs data by using Stream Analytics. For more information, see [Process data from Azure Event Hubs using Stream Analytics](/azure/event-hubs/process-data-azure-stream-analytics).
 
-## Create Event Subscription with Event Hubs as endpoint
-1. In your Event Grid topic, go to Event Subscriptions page under Entities in left rail.
-2. Select **+ Event Subscription** to add new subscription.
+## Create an event subscription with Event Hubs as the endpoint
 
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/add-event-subscription-to-event-grid-topic.png" alt-text="Screenshot showing the Add Subscription button in the Event Grid topic overview page.":::
+1. On your Event Grid topic, go to the **Event Subscription** page under **Entities** in the left pane.
+1. Select **+ Event Subscription** to add a new subscription.
 
-3. For Event Schema, select Cloud Event Schema v1.0.
-4. Add Event Hubs as Endpoint Type, and provide your event hub information for endpoint, and select **Confirm Selection** button.
+   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/add-event-subscription-to-event-grid-topic.png" alt-text="Screenshot that shows the Add Subscription button on the Event Grid topic overview page.":::
 
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-subscription-create-flow.png" alt-text="Screenshot showing the event subscription create flow and configuration.":::
+1. For **Event Schema**, select **Cloud Event Schema v1.0**.
+1. For **Endpoint Type**, select **Event Hubs**, enter your event hub information for the endpoint, and select **Confirm Selection**.
 
-5. Then **Create** the Event subscription.
+   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-subscription-create-flow.png" alt-text="Screenshot that shows the event subscription creation flow and configuration.":::
 
-## Configure routing in the Event Grid Namespace
+1. Create the event subscription.
 
-1. Navigate to Routing page in your Event Grid Namespace.
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png" alt-text="Screenshot showing the Event Grid routing configuration page to enable routing for the namespace." lightbox="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png":::
+## Configure routing in the Event Grid namespace
 
-2. Select **Enable routing**
-3. Select 'Custom topic' option for Topic type
-1. Under Topic, select the Event Grid topic that you have created where all MQTT messages will be routed.
+1. Go to the **Routing** page in your Event Grid namespace.
 
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/routing-portal-configuration.png" alt-text="Screenshot showing the routing configuration through the portal." lightbox="./media/mqtt-routing-to-event-hubs-portal/routing-portal-configuration.png":::
+   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png" alt-text="Screenshot that shows the Event Grid routing configuration page to enable routing for the namespace." lightbox="./media/mqtt-routing-to-event-hubs-portal/event-grid-namespace-routing-configuration.png":::
 
-4. Select **Apply**
+1. Select **Enable routing**.
+1. For **Topic type**, select **Custom topic**.
+1. For **Topic**, select the Event Grid topic that you created where all MQTT messages will be routed.
 
-> [!NOTE]
-> **Routing Event Grid topic considerations:**
-> The Event Grid topic that is used for routing has to fulfill following requirements:
-> - It needs to be set to use the Cloud Event Schema v1.0.
-> - It needs to be in the same region as the namespace.
-> - You need to assign "EventGrid Data Sender" role to yourself on the Event Grid Topic.
-> 
-> **Configuration** 
-> - Go to the Event Grid topic resource.
-> - In the "Access control (IAM)" menu item, select **Add role assignment**.
-> - In the "Role" tab, select "EventGrid Data Sender", then select **Next**.
-> - In the "Members" tab, click on **+ Select members**, then type your AD user name in the "Select" box that will appear (e.g. user@contoso.com).
-> - Select your AD user name, then select **Review + assign**.
+   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/routing-portal-configuration.png" alt-text="Screenshot that shows the routing configuration through the portal." lightbox="./media/mqtt-routing-to-event-hubs-portal/routing-portal-configuration.png":::
 
-## Viewing the routed MQTT messages in Azure Event Hubs using Azure Stream Analytics query
+1. Select **Apply**.
 
-1. After configuring the routing for the namespace, publish MQTT messages among the clients (as described in the article [Publish and subscribe on an MQTT topic](./mqtt-publish-and-subscribe-portal.md).)
+### Routing Event Grid topic considerations
 
-2. Navigate to the Event Hubs instance within your Event Subscription on Azure portal.  Process data from your event hub using Azure Stream Analytics.  ([Process data from Event Hubs Azure using Stream Analytics - Azure Event Hubs | Microsoft Learn](/azure/event-hubs/process-data-azure-stream-analytics))  You can see the MQTT messages in the query.
+The Event Grid topic used for routing must fulfill the following requirements:
 
-:::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/view-data-in-event-hub-instance-using-azure-stream-analytics-query.png" alt-text="Screenshot showing the MQTT messages data in Event Hubs using Azure Stream Analytics query tool.":::
+- It must be set to use the Cloud Event Schema v1.0.
+- It must be in the same region as the namespace.
+- You need to assign the Event Grid Data Sender role to yourself on the Event Grid topic.
+
+### Configuration
+
+1. Go to the Event Grid topic resource.
+1. On the **Access control (IAM)** menu, select **Add role assignment**.
+1. On the **Role** tab, select **Event Grid Data Sender**. Then select **Next**.
+1. On the **Members** tab, click **+ Select members**. Then enter your Microsoft Entra username in the **Select** box that appears (for example, user@contoso.com).
+1. Select your Microsoft Entra username, and then select **Review + assign**.
+
+## View the routed MQTT messages in Event Hubs by using a Stream Analytics query
+
+1. After you configure the routing for the namespace, publish MQTT messages among the clients. For more information, see [Publish and subscribe on an MQTT topic](./mqtt-publish-and-subscribe-portal.md).
+
+1. Go to the Event Hubs instance within your event subscription in the Azure portal. Process data from your event hub by using Stream Analytics. For more information, see [Process data from Azure Event Hubs using Stream Analytics - Azure Event Hubs | Microsoft Learn](/azure/event-hubs/process-data-azure-stream-analytics). You can see the MQTT messages in the query.
+
+   :::image type="content" source="./media/mqtt-routing-to-event-hubs-portal/view-data-in-event-hub-instance-using-azure-stream-analytics-query.png" alt-text="Screenshot that shows the MQTT messages data in Event Hubs by using the Stream Analytics query tool.":::
 
 ## Next steps
-- For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)
+
+For code samples, go to [this GitHub repository](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main).
