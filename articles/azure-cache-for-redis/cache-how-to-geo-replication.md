@@ -228,15 +228,15 @@ Yes, as long as both caches have the same number of shards.
 
 ### Can I use geo-replication with my caches in a VNet?
 
-We recommend using using Azure Private Link over VNet injection. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
+We recommend using using Azure Private Link over VNet injection in most cases. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
 
-While it is still technically possible to use VNet injection with your caches, we recommend Azure Private Link.
+While it is still technically possible to use VNet injection when geo-replicating your caches, we recommend Azure Private Link.
 
 > [!IMPORTANT]
 > Azure Cache for Redis recommends using Azure Private Link, which simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Azure Private Links is offered on all our tiers, includes Azure Policy support, and simplified NSG rule management. To learn more, see [Private Link Documentation](cache-private-link.md). To migrate your VNet injected caches to Private Link, see [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
 >
 
-For more information about support for VNets, see [Support for VNet injection with Premium caches](cache-troubleshoot-connectivity.md#support-for-vnet-injection-with-premium-caches).
+For more information about support for geo-replication with VNets, see [Geo-replication using VNet injection with Premium caches](cache-troubleshoot-connectivity.md#geo-replication-using-vnet-injection-with-premium-caches).
 
 ### What is the replication schedule for Redis geo-replication?
 

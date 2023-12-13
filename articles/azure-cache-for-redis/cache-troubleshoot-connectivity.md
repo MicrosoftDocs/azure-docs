@@ -27,7 +27,7 @@ In this article, we provide troubleshooting help for connecting your client appl
   - [Private endpoint configuration](#private-endpoint-configuration)
   - [Firewall rules](#third-party-firewall-or-external-proxy)
   - [Public IP address change](#public-ip-address-change)
-- []
+- [Geo-replication using VNet injection with Premium caches](#geo-replication-using-vnet-injection-with-premium-caches)
 
 ## Intermittent connectivity issues
 
@@ -101,14 +101,14 @@ When you use a third-party firewall or proxy in your network, check that the end
 
 If you've configured any networking or security resource to use your cache's public IP address, check to see if your cache's public IP address changed. For more information, see [Rely on hostname not public IP address for your cache](cache-best-practices-development.md#rely-on-hostname-not-public-ip-address).
 
-## Support for VNet injection with Premium caches
+## Geo-replication using VNet injection with Premium caches
 
 While it is possible to use VNet injection with your Premium caches, we recommend Azure Private Link.
 
 For more information, see:
 
 - [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md)
-- [Configure virtual network support for a Premium Azure Cache for Redis instance](cache-how-to-premium-vnet.md)
+- [What is Azure Cache for Redis with Azure Private Link?](cache-private-link.md)
 
 Geo-replication of caches in VNets is supported with caveats:
 
