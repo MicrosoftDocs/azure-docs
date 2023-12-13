@@ -25,7 +25,7 @@ In this section, you will enable resource pools, networks, and other non-VM reso
 >Enabling Azure Arc on a VMware vSphere resource is a read-only operation on vCenter. That is, it doesn't make changes to your resource in vCenter.
 
 >[!NOTE]
-> To enable VM templates, VMware tools must be installed on them. The **Enable in Azure** option is grayed out if VMware tools aren't installed.
+> To enable VM templates, VMware tools must be installed on them. If not installed, the **Enable in Azure** option will be grayed out.
 
 1. From your browser, go to the vCenters blade on [Azure Arc Center](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/overview) and navigate to your inventory resources blade.
 
