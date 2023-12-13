@@ -32,6 +32,26 @@ A rollout may take several weeks before the agent is available in all environmen
 
 The agent is automatically installed when adding session hosts in most scenarios. If you need to download the agent, you find it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
+## Version 1.0.8132.800 (validation)
+
+*Published: December 2023*
+
+In this update, we've made the following changes: 
+
+- Windows 7 VMs will no longer get side-by-side stack updates 
+
+- General improvements and bug fixes. 
+
+## Version 1.0.7909.2600  
+
+*Published: December 2023*
+
+In this update, we've made the following changes: 
+
+- Windows 7 VMs will no longer get side-by-side stack updates 
+
+- General improvements and bug fixes. 
+
 ## Version 1.0.7909.1200 
 
 This update was released in November 2023 and includes the following changes: 
