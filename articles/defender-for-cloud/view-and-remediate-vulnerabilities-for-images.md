@@ -1,13 +1,13 @@
 ---
-title: How-to view and remediate runtime threat findings
-description: Learn how to view and remediate runtime threat findings
+title: Assess vulnerabilities for images running on your Kubernetes clusters
+description: Learn how to view and remediate runtime threat findings for images running on your Kubernetes clusters
 ms.service: defender-for-cloud
 ms.custom: build-2023
 ms.topic: how-to
 ms.date: 09/06/2023
 ---
 
-# View and remediate vulnerabilities for images running on your AKS clusters
+# View and remediate vulnerabilities for images running on your Kubernetes clusters
 
 Defender for Cloud gives its customers the ability to prioritize the remediation of vulnerabilities in images that are currently being used within their environment using the [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462ce) recommendation.
 
@@ -66,7 +66,7 @@ Use these steps to remediate each of the affected images found either in a speci
 1. Follow the steps in the remediation section of the recommendation pane.
 1. When you've completed the steps required to remediate the security issue, replace each affected image in your cluster, or replace each affected image for a specific vulnerability:
     1. Build a new image (including updates for each of the packages) that resolves the vulnerability according to the remediation details.
-    1. Push the updated image to trigger a scan and delete the old image. It might take up to 24 hours for the previous image to be removed from the results, and for the new image to be included in the results.
+    1. Push the updated image and delete the old image. It might take up to 24 hours for the previous image to be removed from the results, and for the new image to be included in the results.
     1. Use the new image across all vulnerable workloads.
 1. Check the recommendations page for the recommendation [Running container images should have vulnerability findings resolved](https://portal.azure.com/#view/Microsoft_Azure_Security_CloudNativeCompute/KubernetesRuntimeVisibilityRecommendationDetailsBlade/assessmentKey/41503391-efa5-47ee-9282-4eff6131462c).
 1. If the recommendation still appears and the image you've handled still appears in the list of vulnerable images, check the remediation steps again.
