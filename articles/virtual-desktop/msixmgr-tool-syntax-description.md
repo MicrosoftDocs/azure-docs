@@ -71,7 +71,7 @@ msixmgr.exe -FindPackage myapp_0.0.0.1_x64__8wekyb3d8bbwe
 
 ## ApplyACLs
 
-Apply ACLs to a package folder (an unpacked package). You also need to specify the following required sub-parameters:
+Apply ACLs to a package folder (an unpacked package). You also need to specify the following required subparameters:
 
 | Required parameter | Description |
 |--|--|
@@ -89,14 +89,14 @@ msixmgr.exe -ApplyACLs -packagePath "C:\MSIX\myapp_0.0.0.1_x64__8wekyb3d8bbwe"
 
 ## Unpack
 
-Unpack a package in one of the file formats `.appx`, `.msix`, `.appxbundle`, or `.msixbundle`, and extract its contents to a folder. You also need to specify the following required sub-parameters:
+Unpack a package in one of the file formats `.appx`, `.msix`, `.appxbundle`, or `.msixbundle`, and extract its contents to a folder. You also need to specify the following required subparameters:
 
 | Required parameter | Description |
 |--|--|
 | `-destination` | The directory to place the resulting package folder(s) in. |
-| `-fileType` | The type of file to unpack packages to. Valid file types include `.vhd`, `.vhdx`, `.cim`. This is only a required parameter when unpacking to CIM files. |
+| `-fileType` | The type of file to unpack packages to. Valid file types include `.vhd`, `.vhdx`, `.cim`. This parameter is only required when unpacking to CIM files. |
 | `-packagePath` | The path to the package to unpack OR the path to a directory containing multiple packages to unpack. |
-| `-rootDirectory` | Specifies root directory on image to unpack packages to. This is only a required parameter when unpacking to new and existing CIM files. |
+| `-rootDirectory` | Specifies root directory on image to unpack packages to. This parameter is only required when unpacking to new and existing CIM files. |
 
 ```
 -Unpack -packagePath [Path to package to unpack OR path to a directory containing multiple packages to unpack] -destination [Directory to place the resulting package folder(s) in] -fileType [VHD | VHDX | CIM] -rootDirectory [Root directory on image to unpack packages to]
@@ -126,14 +126,14 @@ Here's some examples of using the `-Unpack` parameter:
 |--|--|--|
 | `-applyACLs` | Applies ACLs to the resulting package folder(s) and their parent folder. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs` |
 | `-create` | Creates a new image with the specified file type and unpacks the packages to that image. Requires the `-filetype` parameter. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType VHDX` |
-| `-fileType` | The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. This is a required parameter when unpacking to CIM files. Requires the `-create` parameter. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType CIM -rootDirectory apps` |
-| `-rootDirectory` | Specifies the root directory on image to unpack packages to. This is a required parameter when unpacking to new and existing CIM files. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps` |
-| `-validateSignature` | Validates a package's signature file before unpacking package. This parameter will require that the package's certificate is installed on the machine.<br /><br />For more information, see [Certificate Stores](/windows-hardware/drivers/install/certificate-stores). | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\Myapp" -validateSignature -applyACLs` |
-| `-vhdSize` | The desired size of the `.vhd` or `.vhdx` file in MB. Must be between 5 and 2040000 MB. Use only for `.vhd` or `.vhdx` files. Requires the `-create` and `-filetype` parameters. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -create -fileType VHDX -vhdSize 500` |
+| `-fileType` | The type of file to unpack packages to. Valid file types include `VHD`, `VHDX`, `CIM`. This parameter is required when unpacking to CIM files. Requires the `-create` parameter. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -fileType CIM -rootDirectory apps` |
+| `-rootDirectory` | Specifies the root directory on image to unpack packages to. This parameter is required when unpacking to new and existing CIM files. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -applyACLs -create -filetype CIM -rootDirectory apps` |
+| `-validateSignature` | Validates a package's signature file before unpacking package. This parameter requires that the package's certificate is installed on the machine.<br /><br />For more information, see [Certificate Stores](/windows-hardware/drivers/install/certificate-stores). | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\Myapp" -validateSignature -applyACLs` |
+| `-vhdSize` | The desired size of the `.vhd` or `.vhdx` file in MB. Must be between 5 MB and 2040000 MB. Use only for `.vhd` or `.vhdx` files. Requires the `-create` and `-filetype` parameters. | `msixmgr.exe -Unpack -packagePath "C:\MSIX\myapp.msix" -destination "C:\Apps\myapp" -create -fileType VHDX -vhdSize 500` |
 
 ## MountImage
 
-Mount a VHD, VHDX, or CIM image. You also need to specify the following required sub-parameters:
+Mount a VHD, VHDX, or CIM image. You also need to specify the following required subparameters:
 
 | Required parameter | Description |
 |--|--|
@@ -156,7 +156,7 @@ msixmgr.exe -MountImage -imagePath "C:\MSIX\myapp.cim" -fileType CIM
 
 ## UnmountImage
 
-Unmount a VHD, VHDX, or CIM image. You also need to specify the following required sub-parameters:
+Unmount a VHD, VHDX, or CIM image. You also need to specify the following required subparameters:
 
 | Required parameter | Description |
 |--|--|
@@ -175,7 +175,7 @@ msixmgr.exe -UnmountImage -imagePath "C:\MSIX\myapp.vhdx" -fileType VHDX
 
 | Optional parameter | Description | Example |
 |--|--|--|
-| `-volumeId` | The GUID of the volume (specified without curly braces) associated with the image to unmount. This is an optional parameter only for CIM files. You can find volume ID by running the PowerShell cmdlet [Get-Volume](/powershell/module/storage/get-volume). | `msixmgr.exe -UnmountImage -volumeId 199a2f93-99a8-11ee-9b0d-4c445b63adac -filetype CIM` |
+| `-volumeId` | The GUID of the volume (specified without curly braces) associated with the image to unmount. This parameter is optional only for CIM files. You can find volume ID by running the PowerShell cmdlet [Get-Volume](/powershell/module/storage/get-volume). | `msixmgr.exe -UnmountImage -volumeId 199a2f93-99a8-11ee-9b0d-4c445b63adac -filetype CIM` |
 
 ## quietUX
 
