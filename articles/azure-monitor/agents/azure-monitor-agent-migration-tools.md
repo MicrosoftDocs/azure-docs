@@ -4,8 +4,8 @@ description: This article describes various migration tools and helpers availabl
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.reviewer: shseth
-ms.date: 1/18/2023 
+ms.reviewer: jeffwo
+ms.date: 12/12/2023 
 ms.custom:
 # Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.
 ---
@@ -48,59 +48,61 @@ Use the DCR Config Generator tool to parse Log Analytics Agent configuration fro
 3. User will need Read/Write access to the specified workspace resource
 4. Connect-AzAccount and Select-AzSubscription will be used to set the context for the script to run so proper Azure credentials will be needed
 
-To install DCR Config Generator:
+### To install DCR Config Generator:
 
 1. [Download the PowerShell script](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Azure%20Services/Azure%20Monitor/Agents/Migration%20Tools/DCR%20Config%20Generator).
 1. Run the script using the sample parameters below:
 
-```powershell
+	```powershell
 	.\WorkspaceConfigToDCRMigrationTool.ps1 -SubscriptionId $subId -ResourceGroupName $rgName -WorkspaceName $workspaceName -DCRName $dcrName -OutputFolder $outputFolderPath
-```
+	```
+	---
 
-| Name                    | Required  | Description                                                                   |
-| ----------------------- |:---------:|:-----------------------------------------------------------------------------:|
-| `SubscriptionId`        | YES       | This is the subscription ID of the workspace                                  |
-| `ResourceGroupName`     | YES       | This is the resource Group of the workspace                                   |
-| `WorkspaceName`         | YES       | This is the name of the workspace (Azure resource ids are case insensitive)   |
-| `DCRName`               | YES       | The base name that will be used for each one the outputs DCRs                 |
-| `OutputFolder`          | NO        | The output folder path. If not provided, the working directory path is used   |
+	| Name                    | Required  | Description                                                                   |
+	|:----------------------- |:---------|:-----------------------------------------------------------------------------|
+	| `SubscriptionId`        | YES       | This is the subscription ID of the workspace                                  |
+	| `ResourceGroupName`     | YES       | This is the resource Group of the workspace                                   |
+	| `WorkspaceName`         | YES       | This is the name of the workspace (Azure resource IDs are case insensitive)   |
+	| `DCRName`               | YES       | The base name that will be used for each one the outputs DCRs                 |
+	| `OutputFolder`          | NO        | The output folder path. If not provided, the working directory path is used   |
 
 3. Outputs:
 
-For each supported `DCR type`, the script produces a DCR ARM template (ready to be deployed) and a DCR payload (for users that don't need the arm template). This is the list of currently supported DCR types:
-  - **Windows** contains `WindowsPerfCounters` and `WindowsEventLogs` data sources only
-  - **Linux** contains `LinuxPerfCounters` and `Syslog` data sources only
-  - **Custom Logs** contains `logFiles` data sources only:
-  	- Each custom log get their own dcr arm template
-  - **IIS Logs** contains `iisLogs` data sources only
-  - **Extensions** contains `extensions` data sources only along with any associated perfCounters data sources
-    - `VMInsights` 
-    - If you would like to add support for a new extension type, please reach out to us.
+	For each supported `DCR type`, the script produces a DCR ARM template (ready to be deployed) and a DCR payload (for users that don't need the ARM template). This is the list of currently supported DCR types:
+ 	 - **Windows** contains `WindowsPerfCounters` and `WindowsEventLogs` data sources only
+	  - **Linux** contains `LinuxPerfCounters` and `Syslog` data sources only
+	  - **Custom Logs** contains `logFiles` data sources only:
+  		- Each custom log gets its own dcr arm template
+	  - **IIS Logs** contains `iisLogs` data sources only
+	  - **Extensions** contains `extensions` data sources only along with any associated perfCounters data sources
+	    - `VMInsights` 
+ 	   - If you would like to add support for a new extension type, please reach out to us.
 
 
 4. **Deploy the generated ARM templates:**
-    ### [Portal](#tab/portal-1)
-    1. In the portal's search box, type in *template* and then select **Deploy a custom template**.
+
+	[Portal](#tab/portal-1)
+   
+	- In the portal's search box, type in *template* and then select **Deploy a custom template**.
     
         :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot of the Deploy custom template screen.":::
     
-    1. Select **Build your own template in the editor**.
+	- Select **Build your own template in the editor**.
     
         :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot of the template editor.":::
     
-    1. Paste the generated template into the editor and select **Save**. 
-    1. On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
-    1. Select **Review + create** > **Create**.
+	- Paste the generated template into the editor and select **Save**. 
+	- On the **Custom deployment** screen, specify a **Subscription**, **Resource group**, and **Region**.    
+	- Select **Review + create** > **Create**.
 
-    ### [PowerShell](#tab/azure-powershell)
+   	[PowerShell](#tab/azure-powershell)
+   
+	```powershell-interactive
+   	New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+   	```
 
-    ```powershell-interactive
-    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
-    ```
-    ---
-
-    > [!NOTE]
-    > You can include up to 100 'counterSpecifiers' in a data collection rule. 'samplingFrequencyInSeconds' must be between 1 and 300, inclusive.
+	> [!NOTE]
+	> You can include up to 100 'counterSpecifiers' in a data collection rule. 'samplingFrequencyInSeconds' must be between 1 and 300, inclusive.
 
 1. Associate machines to your data collection rules:
 
