@@ -1,6 +1,6 @@
 ---
 title: Create Resource Health Alerts using Azure portal
-description: Create alert using Azure portal that notify you when your Azure resources become unavailable.
+description: Create alert using Azure portal that notifies you when your Azure resources become unavailable.
 ms.topic: conceptual
 ms.date: 6/23/2020
 
@@ -26,21 +26,21 @@ You can receive an alert when Azure resource sends resource health notifications
 You also can configure who the alert should be sent to:
 
 * Select an existing action group.
-* Create a new action group (that can be used for future alerts).
+*  a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
+To learn more about action groups, see [ and manage action groups](../azure-monitor/alerts/action-groups.md).
 
 For information on how to configure resource health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](./resource-health-alert-arm-template-guide.md).
 Resource Health Alert using Azure portal
 
-## Create a Resource Health alert rule in the Azure portal
+##  a Resource Health alert rule in the Azure portal
 
 1. In the Azure [portal](https://portal.azure.com/), select **Service Health**.
 
     ![Service Health Selection](./media/resource-health-alert-monitor-guide/service-health-selection.png)
 1. In the **Resource Health** section, select **Service Health**.
 1. Select **Add resource health alert**.
-1. The **Create an alert rule wizard** opens to the **Conditions** tab, with the **Scope** tab already populated. Follow the steps for Resource Health alerts, starting from the **Conditions** tab, in the [create a new alert rule wizard](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
+1. The ** an alert rule wizard** opens to the **Conditions** tab, with the **Scope** tab already populated. Follow the steps for Resource Health alerts, starting from the **Conditions** tab, in the [ a new alert rule wizard](../azure-monitor/alerts/alerts--new-alert-rule.md).
 
 ## Next steps
 
