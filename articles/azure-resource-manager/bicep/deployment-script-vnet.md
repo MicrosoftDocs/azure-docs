@@ -3,7 +3,7 @@ title: Access private virtual network | Microsoft Docs
 description: Access private virtual network from Bicep deployment script.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/13/2023
 ---
 
 # Access private virtual network
@@ -174,7 +174,7 @@ resource dsTest 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a Learn module:
+In this article, you learned how to access private virtual network. To learn more:
 
 > [!div class="nextstepaction"]
-> [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
+> [Use deployment scripts in Bicep](./deployment-script-bicep.md)

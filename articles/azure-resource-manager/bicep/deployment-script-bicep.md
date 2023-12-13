@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep | Microsoft Docs
 description: use deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/13/2023
 ---
 
 # Use deployment scripts in Bicep
@@ -72,7 +72,7 @@ For deployment script API version `2020-10-01` or later, there are two principal
 
   If a managed identity is used, the deployment principle needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
-Currently, there is a not a built-in role for deployment script.
+Currently, there isn't a built-in role specifically tailored for configuring deployment script permissions.
 
 ## Create deployment scripts
 
@@ -145,7 +145,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Monitor and troubleshoot deployment script
 
-When you deploy a deployment script resource, a storage account is required for storing the user script, the execution results, adn the stdout file. You can specify your own storage account. See [Use existing storage account](./deployment-script-develop.md#use-existing-storage-account). An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed. For more information, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
+When you deploy a deployment script resource, a storage account is required for storing the user script, the execution results, and the stdout file. You can specify your own storage account. See [Use existing storage account](./deployment-script-develop.md#use-existing-storage-account). An alternative solution, without specifying your own storage account, involves setting `cleanupPreference` to `OnExpiration`and configuring `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed. For more information, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
 
 Add the `cleanupPreference` property to the preceding Bicep file, and set the value to `OnExpiration`. The default value is `Always`. Also, set `rentalInterval` to `PT1H` (one hour), or shorter.
 
@@ -201,11 +201,11 @@ output text string = deploymentScript.properties.outputs.text
 
 ---
 
-After the Bicep file is deployed successfully, use the Azure portal, Azure CLI, Azure PowerShell and REST API to checkout the results.
+After the Bicep file is deployed successfully, use the Azure portal, Azure CLI, Azure PowerShell and REST API to check out the results.
 
 ### Azure portal
 
-After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires. Notice both resources have the `azscripts` suffix in the resource names because these resources are created automatically. The other way to identify the the supporting resources is by using `tags`. For more information, see [tags](./deployment-script-develop.md#syntax).
+After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires. Notice both resources have the `azscripts` suffix in the resource names because these resources are created automatically. The other way to identify the supporting resources is by using `tags`. For more information, see [tags](./deployment-script-develop.md#syntax).
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource-group.png" alt-text="Screenshot of deployment script resource group.":::
 
@@ -327,7 +327,7 @@ You can get the deployment script resource deployment information at the resourc
 /subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2020-10-01
 ```
 
-The following example uses [ARMClient](https://github.com/projectkudu/ARMClient):
+The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). Not ARMClient is not a supported Microsoft tool.
 
 ```azurepowershell
 armclient login
@@ -425,7 +425,9 @@ You can run deployment scripts in private networks with some additional configur
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a Learn module:
+In this article, you learned how to use deployment scripts. To learn more, see:
 
-> [!div class="nextstepaction"]
-> [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
+- [Learn module - Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
+- [Develop deployment script resources](./deployment-script-develop.md)
+- [Access private virtual network](./deployment-script-vnet.md)
+- [Create script development environments](./deployment-script-bicep-configure-dev.md)

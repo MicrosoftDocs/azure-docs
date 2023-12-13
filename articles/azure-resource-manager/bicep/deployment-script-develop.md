@@ -3,7 +3,7 @@ title: Develop deployment script | Microsoft Docs
 description: Develop deployment script.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
-ms.date: 12/07/2023
+ms.date: 12/13/2023
 ---
 
 # Develop deployment script
@@ -17,7 +17,7 @@ The following Bicep file is an example of the deployment script resource. For mo
 # [CLI](#tab/CLI)
 
 ```bicep
-resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   name: '<resource-name>'
   location: resourceGroup().location
   tags: {}
@@ -57,7 +57,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 # [PowerShell](#tab/PowerShell)
 
 ```bicep
-resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   name: '<resource-name>'
   location: resourceGroup().location
   tags: {}
@@ -99,7 +99,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 Property value details:
 
 - `tags`: Deployment script tags. If the deployment script service creates the two supporting resources - a storage account and a container instance, the tags are passed to both resources, which can be used to identify them. Another way to identify these supporting resources is through their suffixes, which contain `azscripts`. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-bicep.md#monitor-and-troubleshoot-deployment-script).
-- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script ( See [Access Azure resources](#access-azure-resources) or running deployment script in private network (See [Access private virtual network](./deployment-script-vnet.md)). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
+- <a id='identity'></a>`identity`: For deployment script API version *2020-10-01* or later, a user-assigned managed identity is optional unless you need to perform any Azure-specific actions in the script (See [Access Azure resources](#access-azure-resources)) or running deployment script in private network (See [Access private virtual network](./deployment-script-vnet.md)). For the API version 2019-10-01-preview, a managed identity is required as the deployment script service uses it to execute the scripts. When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only user-assigned managed identity is supported. To log in with a different identity in deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
 - `kind`: Specify the type of script, either **AzurePowerShell** or **AzureCLI**. In addition to `kind`. You also need to specify the `azPowerShellVersion` or `azCliVersion` property.
 - `storageAccountSettings`: Specify the settings to use an existing storage account. If `storageAccountName` is not specified, a storage account is automatically created. For more information, see [Use an existing storage account](#use-existing-storage-account).
 - `containerSettings`: Customize the name of Azure Container Instance. For configuring the container group name, see [Configure container instance](#configure-container-instance). For configuring `subnetIds` to run deployment script in a private network, see [Access private virtual network](./deployment-script-vnet.md).
@@ -146,7 +146,7 @@ Property value details:
 - `supportingScriptUris`: Specify an array of publicly accessible URLs to supporting files that are called in either `scriptContent` or `primaryScriptUri`. see [Inline vs external file](#inline-vs-external-file).
 - `timeout`: Specify the maximum allowed script execution time specified in the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). Default value is **P1D**.
 - `forceUpdateTag`: Changing this value between Bicep file deployments forces the deployment script to re-execute. If you use the `newGuid()` or the `utcNow()` functions, both functions can only be used in the default value for a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
-- `cleanupPreference`. Specify the preference of cleaning up the two supporting deployment resources, the storage account and the container instance, when the script execution gets in a terminal state. Default setting is **Always**, which means deleting the supporting resources despite the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
+- `cleanupPreference`. Specify the preference of cleaning up the two supporting deployment resources, the storage account and the container instance, when the script execution gets in a terminal state. The default setting is **Always**, indicating the deletion of supporting resources regardless the terminal state (Succeeded, Failed, Canceled). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 - `retentionInterval`: Specify the interval for which the service retains the deployment script resource after the deployment script execution reaches a terminal state. The deployment script resource is deleted when this duration expires. Duration is based on the [ISO 8601 pattern](https://en.wikipedia.org/wiki/ISO_8601). The retention interval is between 1 and 26 hours (PT26H). This property is used when `cleanupPreference` is set to **OnExpiration**. To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 
 ### More samples
@@ -178,11 +178,13 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   properties: {
     azCliVersion: '2.52.0'
     arguments: name
-    scriptContent: 'output="Hello $1"; echo $output'
+    scriptContent: 'set -e; output="Hello $1"; echo $output'
     retentionInterval: 'P1D'
   }
 }
 ```
+
+Include `set -e`` in your script to enable immediate exit if a command returns a non-zero status. This practice streamlines error debugging processes.
 
 # [PowerShell](#tab/PowerShell)
 
@@ -199,7 +201,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
     arguments: '-name ${name}'
     scriptContent: '''
       param([string] $name)
-      $ErrorActionPreference = 'Continue'
+      $ErrorActionPreference = 'Stop'
       $output = "Hello {0}" -f $name
       Write-Output "Output is: '$output'."
     '''
@@ -208,7 +210,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 ```
 
-You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable in your deployment script. If the variable isn't set in your deployment script, the script service uses the default value **Continue**.
+You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable in your script. If the variable isn't set in your deployment script, the script service uses the default value `Continue`. Setting the value to `Stop` makes errors a lot easier to debug.
 
 The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of `$ErrorActionPreference`.
 
@@ -718,7 +720,7 @@ When an existing storage account is used, the script service creates a file shar
 
 ## Configure container instance
 
-Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. Additional configuration are required for creating this container instance. For more informaiton, see [configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
+Deployment script requires a new Azure Container Instance. You can't specify an existing Azure Container Instance. However, you can customize the container group name by using `containerGroupName`. If not specified, the group name is automatically generated. Additional configurations are required for creating this container instance. For more information, see [configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
 
 You can also specify subnetIds for running the deployment script in a private network. For more information, see [Access private virtual network](./deployment-script-vnet.md).
 
@@ -726,7 +728,7 @@ You can also specify subnetIds for running the deployment script in a private ne
 param containerGroupName string = 'mycustomaci'
 param subnetId string = '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet'
 
-resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
   ...
   properties: {
     ...
@@ -791,10 +793,7 @@ The two automatically created supporting resources can never outlive the `deploy
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a Learn module:
+In this article, you learned how to create deployment script resources. To learn more:
 
 > [!div class="nextstepaction"]
-> [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)
-> [Create script development environments](./deployment-script-bicep-configure-dev.md)
-> [Create deployment scripts](./deployment-script-develop.md)
-> [Access private virtual network](./deployment-script-vnet.md)
+> [Use deployment scripts in Bicep](./deployment-script-bicep.md)

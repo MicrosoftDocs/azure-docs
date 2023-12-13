@@ -2,7 +2,7 @@
 title: Configure development environment for deployment scripts in Bicep | Microsoft Docs
 description: Configure development environment for deployment scripts in Bicep.
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/13/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.devlang: azurecli
 ---
@@ -366,13 +366,13 @@ You also can upload the file by using the Azure portal or the Azure CLI.
 
 ## Use Docker
 
-You can use a pre-configured Docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
+You can use a preconfigured Docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
 You also need to configure file sharing to mount the directory, which contains the deployment scripts into Docker container.
 
 1. Pull the deployment script container image to the local computer:
 
     ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
+    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az10.0
     ```
 
     The example uses version PowerShell 4.3.0.
@@ -380,21 +380,21 @@ You also need to configure file sharing to mount the directory, which contains t
     To pull a CLI image from an MCR:
 
     ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
+    docker pull mcr.microsoft.com/azure-cli:2.52.0
     ```
 
-    This example uses version CLI 2.0.80. Deployment script uses the default CLI containers images found [here](https://hub.docker.com/_/microsoft-azure-cli).
+    This example uses version CLI 2.52.0. Deployment script uses the default CLI containers images.
 
 1. Run the Docker image locally.
 
     ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
+    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az10.0
     ```
 
     Replace **&lt;host driver letter>** and **&lt;host directory name>** with an existing folder on the shared drive. It maps the folder to the _/data_ folder in the container. For example, to map _D:\docker_:
 
     ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
+    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az10.0
     ```
 
     **-it** means keeping the container image alive.
@@ -402,7 +402,7 @@ You also need to configure file sharing to mount the directory, which contains t
     A CLI example:
 
     ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
+    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.52.0
     ```
 
 1. The following screenshot shows how to run a PowerShell script, given that you have a *helloworld.ps1* file in the shared drive.
@@ -413,7 +413,7 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a deployment script tutorial:
+In this article, you learned how to create script development environments. To learn more:
 
 > [!div class="nextstepaction"]
 > [Use deployment scripts in Bicep](./deployment-script-bicep.md)
