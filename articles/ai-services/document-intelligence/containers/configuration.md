@@ -14,13 +14,20 @@ ms.author: lajanuar
 
 
 
-:::moniker range="doc-intel-2.0.0 || doc-intel-3.1.0||doc-intel-4.0.0 "
-    Document Intelligence containers are currently only supported by REST API 2022-08-31 (GA) and the SDKs that target REST API 2022-08-31 (GA). See [Configure Document Intelligence v3.0 containers](configuration.md#configure-document-intelligence-v30-containers?view=doc-intel-3.0.0&preserve-view=true)
+# Configure Document Intelligence containers
+
+:::moniker range="doc-intel-2.1.0 || doc-intel-3.1.0||doc-intel-4.0.0"
+
+Current Document Intelligence version container support:
+
+* [REST API `2022-08-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+* [SDKs targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0?view=doc-intel-3.0.0&tabs=csharp)
+
+See [Configure Document Intelligence v3.0 containers](configuration.md#configure-document-intelligence-containers?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-
-# Configure Document Intelligence v3.0 containers
 
 **This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)**
 
