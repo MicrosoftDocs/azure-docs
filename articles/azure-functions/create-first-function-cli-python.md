@@ -16,7 +16,7 @@ In this article, you use command-line tools to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->The v2 programming model provides a decorator based approach to create functions. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
+>The Python v2 programming model for Azure Functions provides a decorator-based approach for creating functions. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md?pivots=python-mode-decorators).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -43,9 +43,9 @@ Before you begin, you must have the following requirements in place:
 
 ## <a name="create-venv"></a>Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using Python 3.9, 3.8, or 3.7, which are supported by Azure Functions.
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using a [version of Python that is supported by Azure Functions](supported-languages.md?pivots=programming-language-python#languages-by-runtime-version).
 
-# [bash](#tab/bash)
+### [bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -61,7 +61,7 @@ If Python didn't install the venv package on your Linux distribution, run the fo
 sudo apt-get install python3-venv
 ```
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -71,7 +71,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# [Cmd](#tab/cmd)
+### [Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -112,6 +112,13 @@ In this section, you create a function project that contains a single function.
     ```
 
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
+
+1. Run this command to make sure that Azure Functions library is installed in the environment.
+
+    ```console
+    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
+    ```
+ 
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"  
 In this section, you create a function project and add an HTTP triggered function.
@@ -130,38 +137,35 @@ In this section, you create a function project and add an HTTP triggered functio
     
     This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
-1. The file `function_app.py` can include all functions within your project. Open this file and replace the existing contents with the following code that adds an HTTP triggered function named `HttpExample`:  
+1. The file `function_app.py` can include all functions within your project. Open this file and replace the existing contents with the following code that defines an HTTP triggered function endpoint named `HttpExample`:  
 
-   ```python
-   import azure.functions as func
-   import datetime
-   import json
-   import logging
-  
-   app = func.FunctionApp()
-  
-   @app.function_name(name="HttpExample", auth_level=func.AuthLevel.ANONYMOUS)
-   @app.route(route="hello")
-   def test_function(req: func.HttpRequest) -> func.HttpResponse:
-       logging.info('Python HTTP trigger function processed a request.')
-
-       name = req.params.get('name')
-       if not name:
-           try:
-               req_body = req.get_json()
-           except ValueError:
-               pass
-       else:
-           name = req_body.get('name')
-
-       if name:
-           return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
-       else:
-           return func.HttpResponse(
-               "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-               status_code=200
-           )
-   ```
+    ```python
+    import azure.functions as func
+    import logging
+    
+    app = func.FunctionApp()
+    
+    @app.route(route="HttpExample", auth_level=func.AuthLevel.ANONYMOUS)
+    def test_function(req: func.HttpRequest) -> func.HttpResponse:
+        logging.info('Python HTTP trigger function processed a request.')
+    
+        name = req.params.get('name')
+        if not name:
+            try:
+                req_body = req.get_json()
+            except ValueError:
+                pass
+        else:
+            name = req_body.get('name')
+    
+        if name:
+            return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+        else:
+            return func.HttpResponse(
+                "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+                status_code=200
+            )
+    ```
    
 1. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
 
@@ -173,6 +177,8 @@ In this section, you create a function project and add an HTTP triggered functio
 
     This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you'll need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.   
 ::: zone-end  
+
+
 ::: zone pivot="python-mode-decorators"  
 ## Start the storage emulator
 
