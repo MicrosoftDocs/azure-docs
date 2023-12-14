@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 12/14/2023
 ms.author: victorh
 ---
 
@@ -34,7 +34,7 @@ In order to identify a specific AVD Host Pool as "Source" in the tables below, [
 
 ### Create network rules
 
-Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/safe-url-list.md), these are the ***mandatory*** rules to allow outbound access to the control plane and core dependent services: 
+The following table lists the ***mandatory*** rules to allow outbound access to the control plane and core dependent services. For more information, see [Required FQDNs and endpoints for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md).
 
 # [Azure cloud](#tab/azure)
 
@@ -67,9 +67,9 @@ Based on the Azure Virtual Desktop (AVD) [reference article](../virtual-desktop/
 ---
 
 > [!NOTE]
-> Some deployments might not need DNS rules. For example, Azure Active Directory Domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
+> Some deployments might not need DNS rules. For example, Microsoft Entra Domain Services domain controllers forward DNS queries to Azure DNS at 168.63.129.16.
 
-Azure Virtual Desktop (AVD) official documentation reports the following Network rules as **optional** depending on the usage and scenario: 
+Depending on usage and scenario, **optional** Network rules can be used: 
 
 | Name      | Source type          | Source                                | Protocol | Destination ports | Destination type | Destination                       |
 | ----------| -------------------- | ------------------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
@@ -80,7 +80,7 @@ Azure Virtual Desktop (AVD) official documentation reports the following Network
 
 ### Create application rules
 
-Azure Virtual Desktop (AVD) official documentation reports the following Application rules as **optional** depending on the usage and scenario: 
+Depending on usage and scenario, **optional** Application rules can be used: 
 
 | Name      | Source type          | Source                    | Protocol   | Destination type | Destination                                                                                 |
 | --------- | -------------------- | --------------------------| ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
