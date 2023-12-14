@@ -477,7 +477,7 @@ If warnings listed by the ASIM testing tools are considered valid for a parser, 
 Exceptions:
 - Field: DnsQuery 
   Warning: Invalid value
-  Exception: May have values such as "1164-ms-7.1440-9fdc2aab.3b2bd806-978e-11ec-8bb3-aad815b5cd42" which are not valid domains names. Those are are related to TKEY RR requests.
+  Exception: May have values such as "1164-ms-7.1440-9fdc2aab.3b2bd806-978e-11ec-8bb3-aad815b5cd42" which are not valid domains names. Those are related to TKEY RR requests.
 - Field: DnsQuery
   Warning: Empty value in mandatory field
   Exception: May be empty for requests for root servers and for requests for RR type DNSKEY

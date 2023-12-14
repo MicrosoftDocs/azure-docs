@@ -2,13 +2,13 @@
 title: Manage versions - LUIS
 titleSuffix: Azure AI services
 description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme
 ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 10/25/2021
 ---

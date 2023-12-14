@@ -24,7 +24,7 @@ Before you can use multimedia redirection on Azure Virtual Desktop, you'll need 
 - Windows Desktop client:
    - To use video playback redirection, you must install [Windows Desktop client, version 1.2.3916 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). This feature is only compatible with version 1.2.3916 or later of the Windows Desktop client.
 
-   - To use call redirection, you must install the Windows Desktop client, version 1.2.4237 or later with [Insider releases enabled](./users/client-features-windows.md#enable-insider-releases).
+   - To use call redirection, you must install the Windows Desktop client, version 1.2.4337 or later with [Insider releases enabled](./users/client-features-windows.md#enable-insider-releases).
 
 - Microsoft Visual C++ Redistributable 2015-2022, version 14.32.31332.0 or later installed on your session hosts and Windows client devices. You can download the latest version from [Microsoft Visual C++ Redistributable latest supported downloads](/cpp/windows/latest-supported-vc-redist).
 

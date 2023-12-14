@@ -2,13 +2,13 @@
 title: Tutorial to ship Azure Data Box Disk back| Microsoft Docs
 description: In this tutorial, learn how to return your Azure Data Box Disk. The pickup instructions depend on where you are returning the device.
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.date: 01/23/2023
-ms.author: alkohli
+ms.author: shaas
 ms.custom: references_regions
 zone_pivot_groups: data-box-shipping
 

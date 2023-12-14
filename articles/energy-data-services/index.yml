@@ -82,6 +82,8 @@ landingContent:
         links:
           - text: How to manage users
             url: how-to-manage-users.md
+          - text: How to manage ACLs
+            url: how-to-manage-acls.md  
           - text: How to manage legal tags
             url: how-to-manage-legal-tags.md
           - text: How to add more data partitions
@@ -92,6 +94,8 @@ landingContent:
         links:
           - text: Entitlement concepts
             url: concepts-entitlements.md
+          - text: Authentication concepts
+            url: concepts-authentication.md
   - title: Monitoring
     linkLists:
       - linkListType: how-to-guide

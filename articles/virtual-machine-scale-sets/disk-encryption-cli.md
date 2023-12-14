@@ -37,9 +37,7 @@ Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). T
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode Flexible \
   --image <SKU Linux Image> \
-  --upgrade-policy-mode automatic \
   --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 32
@@ -86,6 +84,9 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## Enable encryption
 
+> [!NOTE]
+>  If using Virtual Machine Scale Sets in Flexible Orchestration Mode, only new instances will be encrypted. Existing instances in the scale set will need to be encrypted individually or removed and replaced. 
+
 To encrypt VM instances in a scale set, first get some information on the Key Vault resource ID with [az keyvault show](/cli/azure/keyvault#az-keyvault-show). These variables are used to then start the encryption process with [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable):
 
 ```azurecli-interactive
@@ -100,7 +101,7 @@ az vmss encryption enable \
     --volume-type DATA
 ```
 
-It may take a minute or two for the encryption process to start.
+It might take a minute or two for the encryption process to start.
 
 As the scale set is upgrade policy on the scale set created in an earlier step is set to *automatic*, the VM instances automatically start the encryption process. On scale sets where the upgrade policy is to manual, start the encryption policy on the VM instances with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 

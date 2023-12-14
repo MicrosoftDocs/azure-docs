@@ -1,11 +1,11 @@
 ---
 title: Configure authentication in a sample iOS Swift application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an iOS Swift application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/06/2023
 ms.author: kengaderdus

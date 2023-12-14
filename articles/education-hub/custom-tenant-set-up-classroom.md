@@ -21,7 +21,7 @@ This article is meant for IT Admins utilizing Azure for Classroom. When signing 
 
 This section walks you through how to create a new tenant and associate it with your university tenant using multi-tenant
 
-1. Go to the Azure portal and search for "Azure Active Directory"
+1. Go to the Azure portal and search for "Microsoft Entra ID"
 2. Create a new tenant in the "Manage tenants" tab
 3. Fill in and Finalize Tenant information
 4. After the tenant has been created copy the Tenant ID of the new tenant

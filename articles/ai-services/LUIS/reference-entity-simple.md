@@ -2,12 +2,12 @@
 title: Simple entity type - LUIS
 titleSuffix: Azure AI services
 description: A simple entity describes a single concept from the machine-learning context. Add a phrase list when using a simple entity to improve results.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 ms.author: aahi
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+ms.service: azure-ai-language
+ms.subservice: azure-ai-luis
 ms.topic: reference
 ms.date: 01/07/2022
 ---

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/11/2023
+ms.date: 11/14/2023
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Deploy and configure Azure Firewall using the Azure portal
 
-Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
+Controlling outbound network access is an important part of an overall network security plan. For example, you might want to limit access to web sites. Or, you might want to limit the outbound IP addresses and ports that can be accessed.
 
 One way you can control outbound network access from an Azure subnet is with Azure Firewall. With Azure Firewall, you can configure:
 
@@ -22,9 +22,9 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this article, you create a simplified single VNet with two subnets for easy deployment.
+For this article, you create a simplified single virtual network with two subnets for easy deployment.
 
-For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
+For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own virtual network. The workload servers are in peered virtual networks in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up the network
 
-First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and a test server.
+First, create a resource group to contain the resources needed to deploy the firewall. Then create a virtual network, subnets, and a test server.
 
 ### Create a resource group
 
@@ -67,9 +67,9 @@ The resource group contains all the resources used in this procedure.
 1. Select **Review + create**.
 1. Select **Create**.
 
-### Create a VNet
+### Create a virtual network
 
-This VNet will have two subnets.
+This virtual network has two subnets.
 
 > [!NOTE]
 > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
@@ -79,20 +79,18 @@ This VNet will have two subnets.
 1. Select **Create**.
 1. For **Subscription**, select your subscription.
 1. For **Resource group**, select **Test-FW-RG**.
-1. For **Name**, type **Test-FW-VN**.
-1. Select **Next: IP addresses**.
+1. For **Virtual network name**, type **Test-FW-VN**.
+1. For **Region**, select the same region that you used previously.
+1. Select **Next**.
+1. On the **Security** tab, select **Enable Azure Firewall**.
+1. For **Azure Firewall name**, type **Test-FW01**.
+1. For **Azure Firewall public IP address**, select **Create a public IP address**.
+1. For **Name**, type **fw-pip** and select **OK**.
+1. Select **Next**.
 1. For **Address space**, accept the default **10.0.0.0/16**.
-1. Under **Subnet name**, select **default** and change it to **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-1. For **Subnet address range**, change it to **10.0.1.0/26**.
+1. Under **Subnet**, select **default** and change the **Name** to **Workload-SN**.
+1. For **Starting address**, change it to **10.0.2.0/24**.
 1. Select **Save**.
-
-
-   Next, create a subnet for the workload server.
-
-1. Select **Add subnet**.
-1. For **Subnet name**, type **Workload-SN**.
-1. For **Subnet address range**, type **10.0.2.0/24**.
-1. Select **Add**.
 1. Select **Review + create**.
 1. Select **Create**.
 
@@ -127,38 +125,16 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 
-## Deploy the firewall
+## Examine the firewall
 
-Deploy the firewall into the VNet.
-
-1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-2. Type **firewall** in the search box and press **Enter**.
-3. Select **Firewall** and then select **Create**.
-4. On the **Create a Firewall** page, use the following table to configure the firewall:
-
-   |Setting  |Value  |
-   |---------|---------|
-   |Subscription     |\<your subscription\>|
-   |Resource group     |**Test-FW-RG** |
-   |Name     |**Test-FW01**|
-   |Region     |Select the same location that you used previously|
-   |Firewall SKU|**Standard**|
-   |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
-   |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
-   |Public IP address     |**Add new**<br>**Name**:  **fw-pip**|
-
-5. Accept the other default values, then select **Review + create**.
-6. Review the summary, and then select **Create** to create the firewall.
-
-   This will take a few minutes to deploy.
-7. After deployment completes, select the **Go to resource**.
-8. Note the firewall private and public IP addresses. You'll use these addresses later.
+7. Go to the resource group and select the firewall.
+8. Note the firewall private and public IP addresses. You use these addresses later.
 
 ## Create a default route
 
-When creating a route for outbound and inbound connectivity through the firewall, a default route to 0.0.0.0/0 with the virtual appliance private IP as a next hop is sufficient. This will take care of any outgoing and incoming connections to go through the firewall. As an example, if the firewall is fulfilling a TCP-handshake and responding to an incoming request, then the response is directed to the IP address who sent the traffic. This is by design. 
+When you create a route for outbound and inbound connectivity through the firewall, a default route to 0.0.0.0/0 with the virtual appliance private IP as a next hop is sufficient. This directs any outgoing and incoming connections through the firewall. As an example, if the firewall is fulfilling a TCP-handshake and responding to an incoming request, then the response is directed to the IP address who sent the traffic. This is by design. 
 
-As a result, there is no need create an additional user defined route to include the AzureFirewallSubnet IP range. This may result in dropped connections. The original default route is sufficient.
+As a result, there's no need create another user defined route to include the AzureFirewallSubnet IP range. This might result in dropped connections. The original default route is sufficient.
 
 For the **Workload-SN** subnet, configure the outbound default route to go through the firewall.
 
@@ -181,7 +157,7 @@ After deployment completes, select **Go to resource**.
 13. Select **OK**.
 14. Select **Routes** and then select **Add**.
 15. For **Route name**, type **fw-dg**.
-1. For **Address prefix destination**, select **IP Addresses**.
+1. For **Destination type**, select **IP Addresses**.
 1. For **Destination IP addresses/CIDR ranges**, type **0.0.0.0/0**.
 1. For **Next hop type**, select **Virtual appliance**.
 
@@ -272,9 +248,9 @@ Now, test the firewall to confirm that it works as expected.
 
 5. Browse to `https://www.microsoft.com`.
 
-   You should be blocked by the firewall.
+   The firewall should block you.
 
-So now you've verified that the firewall rules are working:
+So now you verified that the firewall rules are working:
 
 * You can connect to the virtual machine using RDP.
 * You can browse to the one allowed FQDN, but not to any others.

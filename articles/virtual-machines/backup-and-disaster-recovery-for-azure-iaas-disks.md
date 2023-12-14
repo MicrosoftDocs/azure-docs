@@ -58,7 +58,7 @@ IaaS application data issues are another possibility. Consider an application th
 
 ### Comparison Overview
 
-This section cover's some of Azures for backup and disaster recovery. You can refer to the following comparison table for a high level overview.
+This section covers some of Azure's options for backup and disaster recovery. You can refer to the following comparison table for a high level overview.
 
 |Solution |Snapshot |Restore Points |Azure Backup|Azure Site Recovery|
 |----------|-----------|------------|------------|------------|

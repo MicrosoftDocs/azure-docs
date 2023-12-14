@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 04/11/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -111,11 +111,13 @@ Some features of conditions are still in preview. The following table lists the 
 | Add conditions using the [condition editor in the Azure portal](conditions-role-assignments-portal.md) | GA | October 2022 |
 | Add conditions using [Azure PowerShell](conditions-role-assignments-powershell.md), [Azure CLI](conditions-role-assignments-cli.md), or [REST API](conditions-role-assignments-rest.md) | GA | October 2022 |
 | Use [resource and request attributes](conditions-format.md#attributes) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers. For more information, see [Status of condition features in Azure Storage](../storage/blobs/storage-auth-abac.md#status-of-condition-features-in-azure-storage). | GA | October 2022 |
-| Use [custom security attributes on a principal](conditions-format.md#principal-attributes) in a condition | Preview | November 2021 |
+| Use [custom security attributes on a principal](conditions-format.md#principal-attributes) in a condition | GA | November 2023 |
 
-## Conditions and Azure AD PIM
+<a name='conditions-and-azure-ad-pim'></a>
 
-You can also add conditions to eligible role assignments using Azure AD Privileged Identity Management (Azure AD PIM) for Azure resources. With Azure AD PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in Azure AD PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use Azure AD PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+## Conditions and Microsoft Entra PIM
+
+You can also add conditions to eligible role assignments using Microsoft Entra Privileged Identity Management (Microsoft Entra PIM) for Azure resources. With Microsoft Entra PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in Microsoft Entra PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use Microsoft Entra PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ## Terminology
 
@@ -141,7 +143,7 @@ Here are some of the limits for conditions.
 
 Here are the known issues with conditions:
 
-- If you are using Azure AD Privileged Identity Management (PIM) and [custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md), **Principal** does not appear in **Attribute source** when adding a condition.
+- If you are using Microsoft Entra Privileged Identity Management (PIM) and [custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md), **Principal** does not appear in **Attribute source** when adding a condition.
 
 ## Next steps
 

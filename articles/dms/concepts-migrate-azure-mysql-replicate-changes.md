@@ -7,7 +7,9 @@ ms.reviewer: maghan
 ms.date: 07/24/2023
 ms.service: dms
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - sql-migration-content
 ---
 
 # MySQL to Azure Database for MySQL Data Migration - MySQL Replicate Changes
@@ -25,13 +27,14 @@ You must run an offline migration scenario with "Enable Transactional Consistenc
 
 While running the replicate changes migration, when your target is almost caught up with the source server, stop all incoming transactions to the source database and wait until all pending transactions have been applied to the target database. To confirm that the target database is up-to-date on the source server, run the query 'SHOW MASTER STATUS;', then compare that position to the last committed binlog event (displayed under Migration Progress). When the two positions are the same, the target has caught up with all changes, and you can start the cutover.
 
+
 ### How Replicate Changes works
 
 The current implementation is based on streaming binlog changes from the source server and applying them to the target server. Like Data-in replication, this is easier to set up and doesn't require a physical connection between the source and the target servers.
 
 The server can send Binlog as a stream that contains binary data as documented [here](https://dev.mysql.com/doc/dev/mysql-server/latest/page_protocol_replication.html). The client can specify the initial log position to start the stream with. The log file name describes the log position, the position within that file, and optionally GTID (Global Transaction ID) if gtid mode is enabled at the source.
 
-The data changes are sent as "row" events, which contain data for individual rows (prior and/or after the change depending on the operation type, which is insert, delete, or update). The row events are then applied in their raw format using a BINLOG statement: [MySQL 8.0 Reference Manual :: 13.7.8.1 BINLOG Statement](https://dev.mysql.com/doc/refman/8.0/en/binlog.html).
+The data changes are sent as "row" events, which contain data for individual rows (prior and/or after the change depending on the operation type, which is insert, delete, or update). The row events are then applied in their raw format using a BINLOG statement: [MySQL 8.0 Reference Manual :: 13.7.8.1 BINLOG Statement](https://dev.mysql.com/doc/refman/8.0/en/binlog.html). But for a DMS migration to a 5.7 server, DMS doesn’t apply changes as BINLOG statements (since DMS doesn’t have necessary privileges to do so) and instead translates the row events into INSERT, UPDATE, or DELETE statements.
 
 ## Prerequisites
 
@@ -48,7 +51,8 @@ To complete the replicate changes migration successfully, ensure that the follow
 
 - When performing a replicate changes migration, the name of the database on the target server must be the same as the name on the source server.
 - Support is limited to the ROW binlog format.
-- DDL changes replication is supported only when you have selected the option for migrating entire server on DMS UI.
+- DDL changes replication is supported only when migrating to a v8.0 Azure Database for MySQL Flexible Server target server and when you have selected the option for **Replicate data definition and administration statements for selected objects** on DMS UI. The replication feature supports replicating data definition and administration statements that occur after the initial load and are logged in the binary log to the target.
+- Renaming databases or tables is not supported when replicating changes.
 
 ## Next steps
 

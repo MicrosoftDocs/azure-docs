@@ -1,11 +1,11 @@
 ---
 title: Sign in to the LUIS portal and create an app
 description:  Learn how to sign in to LUIS and create application.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 ms.author: aahi
 author: aahill
 ms.manager: nitinme
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 07/19/2022
 ---
@@ -38,7 +38,7 @@ Use this article to get started with the LUIS portal, and create an authoring re
 * **Azure Resource group name**  - a custom resource group name you choose in your subscription. Resource groups allow you to group Azure resources for access and management. If you currently do not have a resource group in your subscription, you will not be allowed to create one in the LUIS portal. Go to [Azure portal](https://portal.azure.com/#create/Microsoft.ResourceGroup) to create one then go to LUIS to continue the sign-in process.
 * **Azure Resource name**  - a custom name you choose, used as part of the URL for your authoring transactions. Your resource name can only include alphanumeric characters, `-`, and can't start or end with `-`. If any other symbols are included in the name, creating a resource will fail.
 * **Location**  - Choose to author your applications in one of the [three authoring locations](../luis-reference-regions.md) that are currently supported by LUIS including: West US, West Europe and East Australia
-* **Pricing tier**  - By default, F0 authoring pricing tier is selected as it is the recommended. Create a [customer managed key](../encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) from the Azure portal if you are looking for an extra layer of security.
+* **Pricing tier**  - By default, F0 authoring pricing tier is selected as it is the recommended. Create a [customer managed key](../encrypt-data-at-rest.md) from the Azure portal if you are looking for an extra layer of security.
 
 8. Now you have successfully signed in to LUIS. You can now start creating applications. 
 

@@ -28,7 +28,7 @@ You can create C# functions by using one of the following tools:
 ::: zone pivot="programming-language-java"  
 You can create Java functions by using one of the following tools:
 
-+ [Eclipse](functions-create-maven-eclipse.md )
++ [Eclipse](functions-create-maven-eclipse.md)
 + [Gradle](functions-create-first-java-gradle.md)
 + [IntelliJ IDEA](functions-create-maven-intellij.md) 
 + [Maven](create-first-function-cli-java.md)

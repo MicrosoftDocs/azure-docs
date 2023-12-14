@@ -2,12 +2,11 @@
 title: Get supported document formats method
 titleSuffix: Azure AI services
 description: The get supported document formats method returns a list of supported document formats.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: reference
 ms.date: 07/18/2023
 ---

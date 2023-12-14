@@ -2,6 +2,7 @@
 title: Lock images
 description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
 ms.topic: article
+ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
@@ -37,6 +38,7 @@ See the following sections for examples.
 ## Lock an image or repository 
 
 ### Show the current repository attributes
+
 To see the current attributes of a repository, run the following [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
@@ -85,6 +87,27 @@ az acr repository update \
     --write-enabled false
 ```
 
+### List the current repository attributes
+
+To update the repository attributes to indicate image lock listing, run the [az acr repository update][az-acr-repository-update] command.
+
+```azurecli
+az acr repository update \
+    --name myregistry --repository myrepo \ 
+    --list-enabled false
+```
+
+### Show the image attributes on image lock 
+ 
+To query the tags on a image lock with `--list-enabled false` enabled on the attribute, run the [az acr repository show][az-acr-repository-show] command.
+
+```azurecli
+az acr repository show-manifests \
+    --name myregistry --repository myrepo \
+    --query "[?listEnabled==null].tags" 
+    --output table
+```
+
 ## Check image attributes for tag and its corresponding manifest.
 
 > [!NOTE]
@@ -103,6 +126,9 @@ az acr manifest show-metadata -r $registry -n "$repo:$tag"
 digest=$(az acr manifest show-metadata -r $registry -n "$repo:$tag" --query digest -o tsv)
 az acr manifest show-metadata -r $registry -n "$repo@$digest"
 ```
+
+> [!NOTE]
+> If the image attributes are set with `writeEnabled=false` or `deleteEnabled=false`, then it will block image deletion.
 
 ## Protect an image or repository from deletion
 

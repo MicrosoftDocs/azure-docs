@@ -2,7 +2,7 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 04/06/2023
+ms.date: 08/24/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
@@ -55,7 +55,7 @@ The distinction means locks protect a resource from changes, but they don't rest
 
 Applying locks can lead to unexpected results. Some operations, which don't seem to modify a resource, require blocked actions. Locks prevent the POST method from sending data to the Azure Resource Manager (ARM) API. Some common examples of blocked operations are:
 
-- A read-only lock on a **storage account** prevents users from listing the account keys. A POST request handles the Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation to protect access to the account keys. The account keys provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys need to use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue). 
+- A read-only lock on a **storage account** prevents users from listing the account keys. A POST request handles the Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation to protect access to the account keys. The account keys provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys need to use Microsoft Entra credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue). 
 
 - A read-only lock on a **storage account** protects RBAC assignments scoped for a storage account or a data container (blob container or queue).
 
@@ -67,7 +67,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
   For example, if a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), which is a control plane operation, the deletion fails. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use a control plane operation.
   
-- A read-only lock or cannot-delete lock on a **network security group (NSG)** prevents the creation of a traffic flow log for the NSG.
+- A read-only lock on a **network security group (NSG)** prevents the creation of the corresponding NSG flow log. A cannot-delete lock on a **network security group (NSG)** doesn't prevent the creation or modification of the corresponding NSG flow log.
 
 - A read-only lock on an **App Service** resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 

@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+* **Microsoft Entra ID**: Your subscription must be associated with a Microsoft Entra tenant. And, you need to be signed in to Azure with an account in that Microsoft Entra ID. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
 ## Review the template
 

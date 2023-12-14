@@ -3,8 +3,8 @@ title: Set up MLOps with GitHub
 titleSuffix: Azure Machine Learning
 description: Learn how to set up a sample MLOps environment in Azure Machine Learning with GitHub Actions
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+author: fkriti
+ms.author: kritifaujdar
 ms.service: machine-learning
 ms.reviewer: larryfr
 ms.subservice: mlops
@@ -71,11 +71,14 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
     environment="<Prod>" #First letter should be capitalized
     servicePrincipalName="Azure-ARM-${environment}-${projectName}"
     # Verify the ID of the active subscription
-    echo "Using subscription ID $subscriptionID"
+    echo "Using subscription ID $subscriptionId"
     echo "Creating SP for RBAC with name $servicePrincipalName, with role $roleName and in scopes     /subscriptions/$subscriptionId"
-    az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionId --sdk-auth 
+    az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionId --json-auth 
     echo "Please ensure that the information created here is properly save for future use."
     ```
+
+    > [!NOTE]
+    > The parameter `--json-auth` of the `az ad sp create-for-rbac` command is available in Azure CLI versions >= 2.51.0. Versions prior to this use `--sdk-auth`.
 
 1. Copy your edited commands into the Azure Shell and run them (**Ctrl** + **Shift** + **v**).
 
@@ -110,7 +113,7 @@ Before you can set up an MLOps project with Machine Learning, you need to set up
 
     :::image type="content" source="./media/how-to-setup-mlops-azureml/SP-setup-ownership-tab.png" alt-text="Screenshot of service principal setup.":::
 
-1. Go through the process of creating a Service Principal (SP) selecting **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** and name it  **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
+1. Go through the process of creating a Service Principal (SP) selecting **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant)** and name it  **Azure-ARM-Prod-ProjectName**. Replace **ProjectName** with the name of your project so that the service principal can be uniquely identified. 
 
 1. Go to **Certificates & Secrets** and add for each SP **New client secret**, then store the value and secret separately.
 
@@ -301,7 +304,7 @@ The sample training and deployment Machine Learning pipelines and GitHub workflo
 * [Install and set up Python SDK v2](https://aka.ms/sdk-v2-install)
 * [Install and set up Python CLI v2](how-to-configure-cli.md)
 * [Azure MLOps (v2) solution accelerator](https://github.com/Azure/mlops-v2) on GitHub
-* Training course on [MLOps with Machine Learning](https://learn.microsoft.com/training/paths/introduction-machine-learn-operations/)
+* Training course on [MLOps with Machine Learning](/training/paths/introduction-machine-learn-operations/)
 * Learn more about [Azure Pipelines with Machine Learning](how-to-devops-machine-learning.md)
 * Learn more about [GitHub Actions with Machine Learning](how-to-github-actions-machine-learning.md)
 * Deploy MLOps on Azure in Less Than an Hour - [Community MLOps V2 Accelerator video](https://www.youtube.com/watch?v=5yPDkWCMmtk)

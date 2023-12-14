@@ -29,7 +29,7 @@ This usually means one of the following two things:
 
 To fix this:
 
-1. Make sure the user you created for the Azure Active Directory User Principal Name has the "Contributor" subscription level.
+1. Make sure the user you created for the Microsoft Entra user Principal Name has the "Contributor" subscription level.
 2. Sign in to <portal.azure.com> with the UPN account to check the account settings and make sure multi-factor authentication isn't on. If it's turned on, turn it off.
 3. Visit the Azure Virtual Desktop Consent page and make sure the server and client apps have consent.
 4. Review the [Deploy a management tool](manage-resources-using-ui.md) tutorial if the issue continues and redeploy the tool.

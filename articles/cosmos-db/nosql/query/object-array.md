@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -140,7 +140,7 @@ The results are:
 > [!NOTE]
 > When using the ``IN`` keyword for iteration, you cannot filter or project any properties outside of the array. Instead, you should use [self-joins](join.md).
 
-## Next steps
+## Related content
 
 - [Self-joins](join.md)
 - [Keywords](keywords.md)

@@ -8,6 +8,6 @@ ms.author: xiaofanzhou
 
 Install the Service Connector passwordless extension for the Azure CLI:
 
-```azurecli
+```azurecli-interactive
 az extension add --name serviceconnector-passwordless --upgrade
 ```

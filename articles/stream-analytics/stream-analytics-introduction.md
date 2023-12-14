@@ -77,9 +77,6 @@ As a managed service, Stream Analytics guarantees event processing with a 99.9% 
 In terms of security, Azure Stream Analytics encrypts all incoming and outgoing communications and supports TLS 1.2. Built-in checkpoints are also encrypted. Stream Analytics doesn't store the incoming data since all processing is done in-memory. 
 Stream Analytics also supports Azure Virtual Networks (VNET) when running a job in a [Stream Analytics Cluster](./cluster-overview.md).
 
-### Compliance
-
-Azure Stream Analytics follows multiple compliance certifications as described in the [overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## Performance
 

@@ -4,7 +4,7 @@ description: Use Azure PowerShell or Azure CLI command lines and scripts to star
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 04/24/2023
+ms.date: 09/30/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, UpdateFrequency2 
 ms.devlang: azurecli
 ---

@@ -2,11 +2,10 @@
 title: How to install and run the Spatial Analysis container - Azure AI Vision
 titleSuffix: Azure AI services
 description: The Spatial Analysis container lets you can detect people and distances.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 12/27/2022
 ms.author: pafarley
@@ -555,7 +554,7 @@ If you encounter issues when starting or running the container, see [Telemetry a
 
 The Spatial Analysis container sends billing information to Azure, using a Vision resource on your Azure account. The use of Spatial Analysis in public preview is currently free. 
 
-Azure AI services containers aren't licensed to run without being connected to the metering / billing endpoint. You must always enable the containers to communicate billing information with the billing endpoint. Azure AI services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
+Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. You must always enable the containers to communicate billing information with the billing endpoint. Azure AI containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
 
 ## Summary

@@ -14,6 +14,8 @@ ms.custom: template-tutorial
 
 You can connect virtual networks to each other with virtual network peering. These virtual networks can be in the same region or different regions (also known as global virtual network peering). Once virtual networks are peered, resources in both virtual networks can communicate with each other over a low-latency, high-bandwidth connection using Microsoft backbone network.
 
+:::image type="content" source="./media/tutorial-connect-virtual-networks-portal/resources-diagram.png" alt-text="Diagram of Azure resources created in tutorial." lightbox="./media/tutorial-connect-virtual-networks-portal/resources-diagram.png":::
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]

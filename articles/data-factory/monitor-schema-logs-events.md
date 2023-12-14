@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 10/20/2023
 ---
 
 # Schema of logs and events
@@ -467,6 +467,6 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
     | $.properties.SystemParameters | SystemParameters | Dynamic |
     | $.properties.Tags | Tags | Dynamic |
 
-## Next steps
+## Related content
 
 [Monitor programmatically using SDKs](monitor-programmatically.md)

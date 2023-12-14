@@ -4,7 +4,7 @@ description: Troubleshoot issues with applying artifacts on an Azure DevTest Lab
 ms.topic: troubleshooting
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/15/2023
+ms.date: 09/30/2023
 ms.custom: UpdateFrequency2
 ---
 

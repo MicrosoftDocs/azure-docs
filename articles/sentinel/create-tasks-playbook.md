@@ -50,7 +50,7 @@ There are two ways to work with playbooks to generate tasks:
 
 ### Use a playbook to add a task and perform it
 
-In this example we're going to add a playbook action that adds a task to the incident to reset a compromised user's password, and we'll add another playbook action that sends a signal to Azure Active Directory Identity Protection (AADIP) to actually reset the password. Then we'll add a final playbook action to mark the task in the incident complete.
+In this example we're going to add a playbook action that adds a task to the incident to reset a compromised user's password, and we'll add another playbook action that sends a signal to Microsoft Entra ID Protection (AADIP) to actually reset the password. Then we'll add a final playbook action to mark the task in the incident complete.
 
 To add and configure these actions, take the following steps:
 
@@ -70,13 +70,13 @@ To add and configure these actions, take the following steps:
     :::image type="content" source="media/create-tasks-playbook/for-each-accounts.png" alt-text="Screenshot shows how to add a for-each loop action to a playbook in order to perform an action on each discovered account.":::
 
 1. Inside the **For each** loop, select **Add an action**.  
-    Search for and select the  **Azure AD Identity Protection** connector, and select the **Confirm a risky user as compromised (Preview)** action.  
-    Add the **Accounts AAD user ID** dynamic content item to the **userIds Item - 1** field.
+    Search for and select the  **Microsoft Entra ID Protection** connector, and select the **Confirm a risky user as compromised (Preview)** action.  
+    Add the **Accounts Microsoft Entra user ID** dynamic content item to the **userIds Item - 1** field.
 
     > [!NOTE]
-    > This field (Accounts AAD user ID) is one way to identify a user in AADIP. It might not necessarily be the best way in every scenario, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Azure AD Identity Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
+    > This field (Accounts Microsoft Entra user ID) is one way to identify a user in AADIP. It might not necessarily be the best way in every scenario, but is brought here just as an example. For assistance, consult other playbooks that handle compromised users, or the [Microsoft Entra ID Protection documentation](../active-directory/identity-protection/overview-identity-protection.md).
 
-    This action sets in motion processes inside Azure AD Identity Protection that will reset the user's password.
+    This action sets in motion processes inside Microsoft Entra ID Protection that will reset the user's password.
 
     :::image type="content" source="media/create-tasks-playbook/confirm-compromised.png" alt-text="Screenshot shows sending entities to AADIP to confirm compromise.":::
 

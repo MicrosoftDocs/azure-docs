@@ -4,7 +4,7 @@ description: Create watchlist in  Microsoft Sentinel for allowlists or blocklist
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.date: 02/22/2022
+ms.date: 12/06/2023
 ---
 
 # Create watchlists in Microsoft Sentinel
@@ -134,9 +134,22 @@ Create a shared access signature URL for Microsoft Sentinel to retrieve the watc
 
 1. Follow the steps in [Create SAS tokens for blobs in the Azure portal](../ai-services/translator/document-translation/how-to-guides/create-sas-tokens.md?tabs=blobs#create-sas-tokens-in-the-azure-portal).
 1. Set the shared access signature token expiry time to be at minimum 6 hours.
+1. Keep the default value for **Allowed IP addresses** as blank.
 1. Copy the value for **Blob SAS URL**.
 
-### Step 3: Add the watchlist to a workspace
+### Step 3: Add Azure to the CORS tab
+
+Before using a SAS URI, add the azure portal to the Cross Origin Resource Sharing (CORS).
+
+1. Go to the storage account settings, **Resource sharing** page.
+1. Select the **Blob service** tab.
+1. Add `https://*.portal.azure.net` to the allowed origins table.
+1. Select the appropriate **Allowed methods** of `GET` and `OPTIONS`.
+1. Save the configuration.
+
+For more information, see [CORS support for Azure Storage](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+
+### Step 4: Add the watchlist to a workspace
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 

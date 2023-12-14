@@ -11,7 +11,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 07/11/2023
+ms.date: 09/15/2023
 ms.author: ampatel
 ---
 
@@ -49,7 +49,7 @@ Read the following SAP Notes and papers first:
 - General SLES documentation
   - [Setting up SAP HANA Cluster](https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-cluster.html).
   - [SLES High Availability Extension 15 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/15-SP3/index.html)
-  - [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15](https://documentation.suse.com/sbp/all/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html).
+  - [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15_SP2_and_later/index.html).
   - [SUSE Linux Enterprise Server for SAP Applications 15 SP3 Guide](https://documentation.suse.com/sles/15-SP3/)
   - [SUSE Linux Enterprise Server for SAP Applications 15 SP3 SAP Automation](https://documentation.suse.com/sles-sap/15-SP3/html/SLES-SAP-automation/article-sap-automation.html)
   - [SUSE Linux Enterprise Server for SAP Applications 15 SP3 SAP Monitoring](https://documentation.suse.com/sles-sap/15-SP3/html/SLES-SAP-monitoring/article-sap-monitoring.html)
@@ -473,7 +473,7 @@ Create a dummy file system cluster resource, which monitors and reports failures
    ```bash
    sudo crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
        device="/hana/shared/HN1/check/" \
-       directory="/hana/shared/check/" fstype=nfs4  \
+       directory="/hana/shared/check/" fstype=nfs  \
        options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
        op monitor interval=120 timeout=120 on-fail=fence \
        op_params OCF_CHECK_LEVEL=20 \

@@ -2,11 +2,10 @@
 title: Conversational language understanding language support
 titleSuffix: Azure AI services
 description: This article explains which natural languages are supported by the conversational language understanding feature of Azure AI Language.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 05/12/2022
 ms.author: aahi
@@ -75,7 +74,7 @@ Conversational language understanding supports utterances in the following langu
 | Spanish | `es` |
 | Estonian | `et` |
 | Basque | `eu` |
-| Persian (Farsi) | `fa` |
+| Persian | `fa` |
 | Finnish | `fi` |
 | French | `fr` |
 | Western Frisian | `fy` |
@@ -114,7 +113,7 @@ Conversational language understanding supports utterances in the following langu
 | Nepali | `ne` |
 | Dutch | `nl` |
 | Norwegian (Bokmal) | `nb` |
-| Oriya | `or` |
+| Odia | `or` |
 | Punjabi | `pa` |
 | Polish | `pl` |
 | Pashto | `ps` |

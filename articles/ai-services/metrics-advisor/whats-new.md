@@ -4,14 +4,15 @@ titleSuffix: Azure AI services
 description: Learn about what is new with Metrics Advisor
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: whats-new
 ms.date: 12/16/2022
 ms.author: mbullwin
 ---
 
 # Metrics Advisor: what's new in the docs
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 Welcome! This page covers what's new in the Metrics Advisor docs. Check back every month for information on service changes, doc additions and updates this month.
 

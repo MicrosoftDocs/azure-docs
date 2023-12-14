@@ -179,6 +179,9 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 > [!NOTE]
 > The RU/s cost of reads for Local Minority reads are twice that of weaker consistency levels because reads are made from two replicas to provide consistency guarantees for Strong and Bounded Staleness.
 
+> [!NOTE]
+> The RU/s cost of reads for the strong and bounded staleness consistency levels consume approximately two times more RUs while performing read operations when compared to that of other relaxed consistency levels.
+
 ## <a id="rto"></a>Consistency levels and data durability
 
 Within a globally distributed database environment, there's a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as **recovery point objective** (**RPO**).

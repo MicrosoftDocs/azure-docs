@@ -34,7 +34,7 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 
 ## Creating containerized function apps
 
-Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.
+Functions makes it easy to deploy and run your function apps as Linux containers, which you create and maintain. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use when creating containerized function apps.
 
 [!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
@@ -193,6 +193,9 @@ Azure Functions lets you work with application settings for containerized functi
 
 :::zone pivot="azure-functions"
 ## Enable continuous deployment to Azure
+
+> [!IMPORTANT]
+> Webhook-based deployment isn't currently supported when running your container in an [Elastic Premium plan](functions-premium-plan.md). If you need to use the continuous deployment method described in this section, instead deploy your container in an [App Service plan](dedicated-plan.md). When running in an Elastic Premium plan, you need to manually restart your app whenever you make updates to your container in the repository.
 
 You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
 
