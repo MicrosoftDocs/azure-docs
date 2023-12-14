@@ -106,7 +106,7 @@ The following services support data loss prevention configuration:
 
 ## Limitations
 
-[Azure OpenAI on your data - text](/azure/ai-services/openai/concepts/use-your-data) features don't support data loss prevention yet. When `restrictOutboundNetworkAccess` is set as true, all requests to the following APIs will fail immediately to prevent potential data loss.
+[Azure OpenAI on your data - text](openai/concepts/use-your-data) features don't support data loss prevention yet. When `restrictOutboundNetworkAccess` is set as true, all requests to the following APIs will fail immediately to prevent potential data loss.
 
 * /extensions/chat/completions (with text models)
 * /extensions/on-your-data/ingestion-jobs
