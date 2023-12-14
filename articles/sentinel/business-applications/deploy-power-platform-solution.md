@@ -31,19 +31,20 @@ The Microsoft Sentinel solution for Power Platform allows you to monitor and det
 - For the Power Platform inventory connector, have the following resources and configurations set up.
    - Storage account to use with Azure Data Lake Storage Gen2. For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
    - Blob service endpoint URL for the storage account. For more information, see [Get service endpoints for the storage account](/azure/storage/common/storage-account-get-info?tabs=portal#get-service-endpoints-for-the-storage-account).
-   - Power Platform self-service analytics configured to use the Azure Data Lake Storage Gen2 storage account. This process can take up to 48 hours to activate. For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics).
-   - **Important:** Please review the Power Platform self-service analytics feature [storage account prerequisites](/power-platform/admin/self-service-analytics#prerequisites) (specifically the requierment to enable public access to it) and the [first-time setup of a data export requierments](/power-platform/admin/self-service-analytics#first-time-setup-of-a-data-expor) (Specifically the requiered permissions of the person who sets up the data export).
-   - Enabling this data connector is recommeded but not required to fully deploy the Microsoft Power Platform solution. See more details in the Power Platform inventory data connector section below.
+   - Power Platform self-service analytics configured to use the Azure Data Lake Storage Gen2 storage account. This process can take up to 48 hours to activate. For more information, see [Set up Microsoft Power Platform self-service analytics to export Power Platform inventory and usage data](/power-platform/admin/self-service-analytics). Review the prerequisites and requirements for the Power Platform self-service analytics feature that include the requirement to enable public access to the storage account and the permissions required to set up the data export.
+
+
+Enabling the Power Platform inventory data connector is recommended but not required to fully deploy the Microsoft Power Platform solution. For more information, see [Power Platform inventory data connector](#power-platform-inventory-data-connector).
 
 ## Install the Power Platform solution in Microsoft Sentinel
 
 Install the solution from the content hub in Microsoft Sentinel by using the following steps.
 
 1. In the Azure portal, search for and select **Microsoft Sentinel**.
-2. Select the Microsoft Sentinel workspace in which you are planning to deploy the solution.
+1. Select the Microsoft Sentinel workspace where you're planning to deploy the solution.
 1. Under **Content management**, select **Content hub**.
 1. Search for and select **Power Platform**.
-1. Select **Install**
+1. Select **Install**.
 1. On the solution details page, select **Create**.
 1. On the **Basics** tab, enter the subscription, resource group, and workspace to deploy the solution.
 1. Select **Review + create** > **Create** to deploy the solution.
@@ -54,7 +55,7 @@ In Microsoft Sentinel, enable the six data connectors to collect activity logs a
 
 ### Power Platform inventory data connector
 
-The Power Platform inventory data connector enables resolving the GUIDs for Power Platform and PowerApps environments in the incident details to the human readable names that appear in Power Platform admin center and the Power Apps maker portal. We recommend enabling this data connector but it's not required to fully deploy the Microsoft Power Platform solution.
+The Power Platform inventory data connector allows you to resolve the GUIDs for Power Platform and PowerApps environments in the incident details to the human readable names that appear in Power Platform admin center and the Power Apps maker portal. We recommend enabling this data connector but it's not required to fully deploy the Microsoft Power Platform solution.
 
 To collect Power Apps and Power Automate inventory data, deploy the Azure Resource Manager template to create a function app. To complete the deployment, you need the blob service URL for your Azure Data Lake Storage Gen2 storage account. After you create the function app, grant the managed identity for the function app access to the storage account.
 
@@ -62,10 +63,10 @@ To collect Power Apps and Power Automate inventory data, deploy the Azure Resour
 1. In Microsoft Sentinel, under **Configuration**, select **Data connectors**.
 1. Search for and select **Power Platform Inventory (using Azure Functions)**.
 1. Select **Open connector page**.
-1. If you still didn't enable Power Platform self-service analytics feature, under **Configuration** follow steps 1 and 2.
+1. If you didn't enable Power Platform self-service analytics feature, under **Configuration** follow steps 1 and 2.
 1. Under **Configuration** > **Step 3 - Azure Resource Manager (ARM) Template**, select **Deploy to Azure**.
-1. Follow all the steps in the ARM template deployment wizard and select  **Review + create** > **Create**.
-1. If you were missing required permissions for role assignments during the ARM template deployment, under **Configuration** follow also steps 4 and 5.
+1. Follow all the steps in the Azure Resource Manager template deployment wizard and select  **Review + create** > **Create**.
+1. If you don't have the required permissions for role assignments during the Resource Manager template deployment, under **Configuration**, follow steps 4 and 5.
 
 ### Other data connectors
 
@@ -114,9 +115,13 @@ To automatically enable entity auditing, complete the following steps.
 
 #### Manually enable entity auditing
 
-To enable auditing on each Dataverse entity manually including custom entities, follow the steps in the section **Enable or disable entities and fields for auditing** in [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#enable-or-disable-entities-and-fields-for-auditing).
+To enable auditing on each Dataverse entity manually, including custom entities, follow the steps in the section **Enable or disable entities and fields for auditing** in [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#enable-or-disable-entities-and-fields-for-auditing).
 
-To get the full incident detection value of the solution, it is recommended to enable, for each Dataverse entity you want to audit, both the **Auditing** check box under the **Data Services** section as well as both **Single record auditing** and **Multiple record auditing** under the **Auditing** section. Both Sections are in the **General** tab of the Dataverse entity settings page. Don't forget to save and publish your customizations.
+To get the full incident detection value of the solution, we recommend that you enable, for each Dataverse entity you want to audit, the following options in the **General** tab of the Dataverse entity settings page:
+-  Under the **Data Services** section, select **Auditing**.
+-  Under the **Auditing** section, select **Single record auditing** and **Multiple record auditing**. 
+
+Save and publish your customizations.
 
 ## Verify that the data connector is ingesting logs to Microsoft Sentinel
 
@@ -144,7 +149,7 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
 
    |Log Analytics tables |Data collected |
    |---------|---------|
-   |PowerPlatrformEnvironments_CL, PowerApps_CL, PowerAutomateFlows_CL, PowerAppsConnections_CL |Power Platfrom Environments, Power Apps and Power Automate inventory data     |
+   |PowerPlatrformEnvironments_CL, PowerApps_CL, PowerAutomateFlows_CL, PowerAppsConnections_CL |Power Platform Environments, Power Apps and Power Automate inventory data     |
    |PowerAppsActivity |Power Apps activity logs |  
    |PowerAutomateActivity |Power Automate activity logs  |
    |PowerPlatformConnectorActivity |Power Platform connector activity logs |
