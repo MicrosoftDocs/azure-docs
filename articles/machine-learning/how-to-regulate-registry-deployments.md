@@ -69,8 +69,7 @@ You can remove the policy assignment in the Azure portal using the following ste
 ### Limitations 
 
 * Any change in the policy (including updating the policy definition, assignments, exemptions or policy set) takes 10 mins for those changes to become effective in the evaluation process.
-* Complaince is reported for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned will not report compliance.
-* This built-in policy supports only Greenfield operations currently. You can’t trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
+* Complaince is reported for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned will not report compliance. You also can’t trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
 * You can’t allowlist more than one registry in a policy assignment.
 
 ## Next Steps
