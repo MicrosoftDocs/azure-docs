@@ -14,7 +14,7 @@ ms.date: 12/14/2023
 
 # Regulate deployments in Model Catalog using policies
 
-The Model Catalog in Azure Machine Learning studio provides access to many open-source foundation models, and regulating the deployments of these models by enforcing organization standards can be of paramount importance to meet your security and compliance requirements. In this article, you learn how you can restrict the deployments from the Model Catalog using a built-in Azure Policy.
+The Model Catalog in Azure Machine Learning Studio provides access to many open-source foundation models, and regulating the deployments of these models by enforcing organization standards can be of paramount importance to meet your security and compliance requirements. In this article, you learn how you can restrict the deployments from the Model Catalog using a built-in Azure Policy.
 
 [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/) is a governance tool that gives users the ability to audit, perform real-time enforcement and manage their Azure environment at scale. For more information, see the [Overview of the Azure Policy service](https://learn.microsoft.com/en-us/azure/governance/policy/overview).
 
