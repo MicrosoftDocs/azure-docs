@@ -11,7 +11,12 @@ ms.subservice: training
 ms.topic: how-to
 ---
 
-# Use Azure OpenAI models in Azure Machine Learning
+# Use Azure OpenAI models in Azure Machine Learning (preview)
+
+> [!IMPORTANT]
+> Items marked (preview) in this article are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article, you learn how to discover, fine-tune, and deploy Azure OpenAI models at scale by using Azure Machine Learning.
 
@@ -21,8 +26,6 @@ In this article, you learn how to discover, fine-tune, and deploy Azure OpenAI m
 - You must be in an Azure OpenAI [supported region](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability).
 
 ## What are OpenAI models in Azure Machine Learning?
-
-In recent years, advancements in AI have led to the rise of large foundation models that are trained on a vast quantity of data. These models can be easily adapted to many applications across various industries. This emerging trend gives rise to a unique opportunity for enterprises to build and use these foundation models in their deep learning workloads.
 
 OpenAI models in Machine Learning provide Machine Learning native capabilities that enable customers to build and use Azure OpenAI models at scale by:
 
@@ -135,6 +138,7 @@ You might receive any of the following errors when you try to deploy an Azure Op
 - **Fine-tuning job failed**
     - **Fix:** Currently, only a maximum of 10 workspaces can be designated for a particular subscription for new fine-tunable models. If a user creates more workspaces, they get access to the models, but their jobs fail. Try to limit the number of workspaces per subscription to 10.
 
-## Next steps
+## Learn more
 
-[Use foundation models](how-to-use-foundation-models.md)
+* Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
+* [Evaluate, fine-tune and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
