@@ -194,7 +194,7 @@ az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=HybridDeployment&
 Run the following command to check the status of your migration. The status shows as "Migrating" while in progress.
 
 ```azurecli
-az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.status
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
 ```
 
 Once you get a status of "Ready", migration is done, and you have an App Service Environment v3. Your apps are now running in your new environment as well as in your old environment.
