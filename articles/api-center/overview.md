@@ -26,7 +26,7 @@ With API Center, stakeholders throughout your organization - including API progr
 
 * **Create and maintain an organizational inventory​** - Organizations can build a **complete inventory of APIs** available in their organization. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
 
-*  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata and build workflows** around this metadata to enforce governance.​
+*  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** to enforce governance.​
 
 * **Easy API discovery** - Organizations want to promote API reuse to maximize developer productivity and ensure developers are using the right APIs. API Center helps program managers and developers  discover the API inventory and filter using built-in and custom metadata properties. ​
 
@@ -46,18 +46,19 @@ For more information about the information you can manage and the capabilities i
 
 ## Available regions
 
-* API Center is currently available in the following Azure regions:
-   * Australia East
-   * Central India
-   * East US
-   * UK South
-   * West Europe 
+API Center is currently available in the following Azure regions:
+
+* Australia East
+* Central India
+* East US
+* UK South
+* West Europe 
              
 ## API Center and the API ecosystem
 
 API Center can serve a key role in an organization's API ecosystem. Consider the hypothetical Contoso organization, which has adopted an API-first strategy, emphasizing the importance of APIs in their software development and integration. 
 
-Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to ensure the effective development and integration of APIs into their applications. See the following diagram and explanation.
+Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to develop and use the organization's API inventory. See the following diagram and explanation.
 
 :::image type="content" source="media/overview/api-ecosystem-example.png" alt-text="Diagram showing API Center in an example API ecosystem.":::
 
