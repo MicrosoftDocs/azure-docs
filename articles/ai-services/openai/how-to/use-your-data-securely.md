@@ -14,7 +14,7 @@ recommendations: false
 
 # Securely use Azure OpenAI on your data
 
-Use this article to learn how to use Azure OpenAI on Your Data securely by protecting data with virtual networks and private endpoints.
+Use this article to learn how to use Azure OpenAI on Your Data securely by protecting data and resources with virtual networks and private endpoints.
 
 ## Data ingestion architecture 
 
