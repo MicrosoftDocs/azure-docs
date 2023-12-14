@@ -3,7 +3,7 @@ metadata:
   title: Speech service containers frequently asked questions (FAQ)
   titleSuffix: Azure AI services
   description: Install and run containers for speech to text and text to speech.
-    author: eric-urban
+  author: eric-urban
   manager: nitinme
   ms.service: azure-ai-speech
   ms.topic: faq

@@ -7,7 +7,7 @@ brand: azure
 metadata:
   title: Speech service documentation - Tutorials, API Reference - Azure AI services | Microsoft Docs
   titleSuffix: Azure AI services
-    description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
+  description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
   author: eric-urban
   manager: nitinme
   ms.service: speech-service
