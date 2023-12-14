@@ -2,26 +2,29 @@
 title: Vector database
 titleSuffix: Azure Cosmos DB
 description: Vector database extension and retrieval augmented generation (RAG) implementation.
-author: jacodel
-ms.author: sidandrews
+author: wmwxwa
+ms.author: wangwilliam
+ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/11/2023
 ---
 
 # Vector database
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-You have likely considered augmenting your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG). This approach allows you to
+You can augment your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG).
+
+This approach allows you to:
 
 - Generate contextually relevant and accurate responses to user prompts from AI models
 - Overcome ChatGPT, GPT-3.5, or GPT-4’s token limits
 - Reduce the costs from frequent fine-tuning on updated data
 
-Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional relational and non-relational databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using the vector database extensions for Azure Cosmos DB when working with multi-modal data. By doing so, you can keep your vector embeddings and original data together to achieve data consistency, scale, and performance while avoiding the extra cost of moving data to a separate vector database. 
+Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional relational and nonrelational databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using the vector database extensions for Azure Cosmos DB when working with multi-modal data. By doing so, you can keep your vector embeddings and original data together to achieve data consistency, scale, and performance while avoiding the extra cost of moving data to a separate vector database.
 
-Here is how:
+Here's how:
 
 | | Description |
 | --- | --- |
@@ -29,11 +32,13 @@ Here is how:
 | **[Azure Cosmos DB for PostgreSQL](#implement-vector-database-functionalities-using-our-api-for-postgresql)** | Store your data and vectors together in a scalable PostgreSQL offering with native support for vector search. |
 | **[Azure Cosmos DB for NoSQL with Azure AI Search](#implement-vector-database-functionalities-using-our-nosql-api-and-ai-search)** | Augment your Azure Cosmos DB data with semantic and vector search capabilities of Azure AI Search. |
 
-## What does a vector database do?
+## What is a vector database?
 
-The vector search feature in a vector database enables retrieval-augmented generation to harness LLMs and custom data or domain-specific information. This process involves extracting pertinent information from a custom data source and integrating it into the model request through prompt engineering.
+A vector database is a database designed to store and manage vector embeddings, which are mathematical representations of data in a high-dimensional space. In this space, each dimension corresponds to a feature of the data, and tens of thousands of dimensions might be used to represent sophisticated data. A vector's position in this space represents its characteristics. Words, phrases, or entire documents, and images, audio, and other types of data can all be vectorized. These vector embeddings are used in similarity search, multi-modal search, recommendations engines, large languages models (LLMs), etc.
 
-A robust mechanism is necessary to identify the most relevant data from the custom source that can be passed to the LLM. Our vector search features convert the data in your database into embeddings and store them as vectors for future use, thus capturing the semantic meaning of the text and going beyond mere keywords to comprehend the context. Moreover, this mechanism allows you to optimize for the LLM’s limit on the number of tokens per request.
+It's increasingly popular to use the vector search feature in a vector database to enable retrieval-augmented generation that harnesses LLMs and custom data or domain-specific information. This process involves extracting pertinent information from a custom data source and integrating it into the model request through prompt engineering.
+
+A robust mechanism is necessary to identify the most relevant data from the custom source that can be passed to the LLM. Our vector search features convert the data in your database into embeddings and store them as vectors for future use. The vector search feature captures the semantic meaning of the text and going beyond mere keywords to comprehend the context. Moreover, this mechanism allows you to optimize for the LLM’s limit on the number of tokens per request.
 
 Prior to sending a request to the LLM, the user input/query/request is also transformed into an embedding, and vector search techniques are employed to locate the most similar embeddings within the database. This technique enables the identification of the most relevant data records in the database. These retrieved records are then supplied as input to the LLM request using prompt engineering.
 
@@ -75,3 +80,12 @@ Implement RAG patterns with Azure Cosmos DB for NoSQL and Azure AI Search. This 
 - [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
 - Learn more about [Azure OpenAI embeddings](../ai-services/openai/concepts/understand-embeddings.md)
 - Learn how to [generate embeddings using Azure OpenAI](../ai-services/openai/tutorials/embeddings.md)
+  
+## Next step
+
+[30-day Free Trial without Azure subscription](https://azure.microsoft.com/try/cosmosdb/)
+
+[90-day Free Trial with Azure AI Advantage](ai-advantage.md)
+
+> [!div class="nextstepaction"]
+> [Use the Azure Cosmos DB lifetime free tier](free-tier.md)

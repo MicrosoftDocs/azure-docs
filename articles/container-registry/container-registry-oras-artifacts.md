@@ -6,6 +6,7 @@ manager: gwallace
 ms.topic: article
 ms.date: 01/04/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.custom: references_regions
 ---
 

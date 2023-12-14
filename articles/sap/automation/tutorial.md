@@ -4,7 +4,7 @@ description: Learn how to use SAP Deployment Automation Framework.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
-ms.date: 12/14/2021
+ms.date: 12/13/2023
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -210,7 +210,9 @@ When you choose a name for your service principal, make sure that the name is un
       --scope /subscriptions/${ARM_SUBSCRIPTION_ID}
     ```
 
-If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
 ## View configuration files
 

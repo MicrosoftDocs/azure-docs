@@ -109,6 +109,6 @@ To learn more about Azure Database for MySQL flexible server security features, 
 
 - To configure a firewall for Azure Database for MySQL flexible server, see [firewall support](concepts-networking-public.md)
 
-- For an overview of Azure Database for MySQL flexible server connectivity, see [Azure Database for MySQL Connectivity Architecture](../single-server/concepts-connectivity-architecture.md)
+- For an overview of Azure Database for MySQL flexible server connectivity, see [Azure Database for MySQL Connectivity Architecture](concepts-networking.md)
 
 

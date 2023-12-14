@@ -143,8 +143,8 @@
       href: ./linux/openshift-azure-stack.md
   - name: SAP on Azure
     href: ../sap/index.yml
-  - name: Oracle
-    href: ./workloads/oracle/index.yml
+  - name: Oracle on Azure
+    href: ../oracle/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch
@@ -1658,9 +1658,7 @@
       href: ./windows/multiple-nics.md
   - name: Assign public DNS name
     href: create-fqdn.md
-  - name: Assign public DNS name
-    href: create-fqdn.md
-  - name: DNS resolution
+  - name: DNS resolution for Linux Azure VMs
     href: ./linux/azure-dns.md
   - name: Use internal DNS
     href: ./linux/static-dns-name-resolution-for-linux-on-azure.md

@@ -179,6 +179,8 @@ After noting the IP address, you need to open the "hosts" file on your host VM a
 
 > [!NOTE]
 > **Path of hosts file on Windows:** C:\Windows\System32\drivers\etc
+>
+> 
 > **Path of hosts file on Linux:** /etc/hosts
 
 Example of what the "hosts" file should look like. The IP address and Azure region change for your scenario:
