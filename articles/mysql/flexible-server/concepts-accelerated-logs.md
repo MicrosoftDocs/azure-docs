@@ -42,7 +42,6 @@ Database servers with mission-critical workloads demand robust performance, requ
     - [High Availability](./concepts-high-availability.md) (HA) servers.
     - Servers enabled with [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK).
     - Servers enabled with [Microsoft Entra ID](./concepts-azure-ad-authentication.md) authentication.
-    - [Read-replicas](concepts-read-replicas.md) servers.
 
 - Performing a [major version upgrade](./how-to-upgrade.md) on your Azure Database for MySQL flexible server with the accelerated logs feature enabled is **not supported**. Suppose you wish to proceed with a major version upgrade. In that case, you should temporarily [disable](#disable-accelerated-logs-feature-preview) the accelerated logs feature, carry out the upgrade, and re-enable the accelerated logs feature once the upgrade is complete.
 

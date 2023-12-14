@@ -75,7 +75,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | OpenLogic | CentOS 8.4 | 8_4 | OpenLogic:CentOS:8_4:latest | OS and data disk |
 | OpenLogic | CentOS 8.3 | 8_3 | OpenLogic:CentOS:8_3:latest | OS and data disk |
 | OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS and data disk |
-| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS and data disk |
 | OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | OS and data disk |
 | OpenLogic | CentOS 7.9 | 7_9 | OpenLogic:CentOS:7_9:latest | OS and data disk |
 | OpenLogic | CentOS 7.8 | 7_8 | OpenLogic:CentOS:7_8:latest | OS and data disk |

@@ -16,7 +16,7 @@ ms.author: allensu
 Outbound email messages that are sent directly to external domains (such as outlook.com and gmail.com) from a virtual machine (VM) are made available only to certain subscription types in Microsoft Azure. 
 
 > [!IMPORTANT]
-> For the following examples, the process applies mainly to Virtual Machines & VM Scale Sets resources (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). It's possible to use port 25 for outbound communication on [Azure App Service](https://azure.microsoft.com/services/app-service) and [Azure Functions](https://azure.microsoft.com/services/functions) through the [virtual network integration feature](/azure/app-service/overview-vnet-integration#application-routing) or when using [App Service Environment v3](../app-service/environment/networking.md#network-routing). However, the following subscription limitations described still apply. Sending email on Port 25 is unsupported for all other Azure Platform-as-a-Service (PaaS) resources. 
+> For the following examples, the process applies mainly to Virtual Machines & VM Scale Sets resources (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). It's possible to use port 25 for outbound communication on [Azure App Service](https://azure.microsoft.com/services/app-service) and [Azure Functions](https://azure.microsoft.com/services/functions) through the [virtual network integration feature](/azure/app-service/overview-vnet-integration#application-routing) or when using [App Service Environment v3](../app-service/environment/networking.md#network-routing). It's also possible to send port 25 outbound communication through Azure Firewall. However, the following subscription limitations described still apply. Sending email on Port 25 is unsupported for all other Azure Platform-as-a-Service (PaaS) resources. 
 
 ## Recommended method of sending email
 
@@ -26,7 +26,7 @@ Using these email delivery services isn't restricted in Azure, regardless of the
 
 ## Enterprise Agreement
 
-For VMs that are deployed in standard Enterprise Agreement subscriptions, the outbound SMTP connections on TCP port 25 aren't blocked. However, there's no guarantee that external domains accept the incoming emails from the VMs. For emails rejected or filtered by the external domains, contact the email service providers of the external domains to resolve the problems. These problems aren't covered by Azure support.
+For VMs and Azure Firewall that are deployed in standard Enterprise Agreement subscriptions, the outbound SMTP connections on TCP port 25 aren't blocked. However, there's no guarantee that external domains accept the incoming emails from the VMs and Azure Firewall. For emails rejected or filtered by the external domains, contact the email service providers of the external domains to resolve the problems. These problems aren't covered by Azure support.
 
 For Enterprise Dev/Test subscriptions, port 25 is blocked by default.
 

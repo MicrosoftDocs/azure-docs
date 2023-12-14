@@ -684,7 +684,7 @@ The following entities are grouped and listed by country/region:
 :::row:::
     :::column span="":::
 
-        EU GPU coordinates
+        EU GPS coordinates
 
     :::column-end:::
     :::column span="2":::

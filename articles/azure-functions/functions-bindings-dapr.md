@@ -3,7 +3,7 @@ title: Dapr Extension for Azure Functions
 description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 10/11/2023
+ms.date: 11/15/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -61,9 +61,6 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr --prerelease
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"
 
 ## Install bundle
-
-> [!NOTE]  
-> The [Node.js v4 model for Azure Functions](functions-reference-node.md?pivots=nodejs-model-v4) isn't currently available for use with the Dapr extension during the preview.  
 
 # [Preview Bundle v4.x](#tab/preview-bundle-v4x)
 

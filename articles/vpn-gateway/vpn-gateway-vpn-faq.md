@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for VPN Gateway cross-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 11/29/2023
 ms.author: cherylmc
 ---
 
@@ -109,7 +109,7 @@ We recommend that you use a Standard SKU public IP address for your VPN gateway.
 
 For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
-### How does the retirement of the public IP address Basic SKU affect my VPN gateways?
+### How does Public IP address Basic SKU retirement affect my VPN gateways?
 
 We're taking action to ensure the continued operation of deployed VPN gateways that utilize Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there is no need for you to take any action.
 
@@ -156,9 +156,60 @@ A virtual network gateway is fundamentally a multi-homed device with one NIC tap
 
 No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway using Azure CLI or PowerShell.
 
-### More information about gateway types, requirements, and throughput
+### Where can I find information about gateway types, requirements, and throughput?
 
-For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+See the following articles:
+* [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
+* [About gateway SKUs](about-gateway-skus.md)
+
+## <a name="sku-deprecate"></a>SKU deprecation for legacy SKUs
+
+Standard and High Performance VPN Gateway legacy SKUs are being deprecated September 30, 2025. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article.
+
+### Can I create a new Standard/High Performance SKU after the deprecation announcement on November 30, 2023?
+  
+No. Starting December 1, 2023 you can't create new gateways with Standard or High Performance SKUs. You can create new gateways using VpnGw1 and VpnGw2 for the same price as the Standard and High Performance SKUs, listed respectively on our [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+
+### How long will my existing gateways be supported on Standard/High Performance SKUs?
+
+All existing gateways using Standard or High Performance SKUs will be supported until September 30, 2025.
+
+### Do I need to migrate my Standard/High Performance gateway SKUs right now?
+  
+No, there's no action required right now. You'll be able to migrate your SKUs starting December 2024. We'll send communication with detailed documentation about the migration steps.
+
+### Which SKU can I migrate my gateway to?
+
+When gateway SKU migration becomes available, SKUs can be migrated as follows:
+
+* Standard -> VpnGw1
+* High Performance -> VpnGw2
+
+### What if I want to migrate to an AZ SKU?
+
+You can't migrate your legacy SKU to an AZ SKU. However, note that all gateways that are still using Standard or High Performance SKUs after September 30, 2025 will be migrated and upgraded automatically to the following SKUs:
+
+* Standard -> VpnGw1AZ
+* High Performance -> VpnGw2AZ
+
+You can use this strategy to have your SKUs automatically migrated and upgraded to an AZ SKU. You can then resize your SKU within that SKU family if necessary. See our [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for AZ SKU pricing.
+
+### Will there be any pricing difference for my gateways after migration?
+
+If you migrate your SKUs by September 30, 2025 there will be no pricing difference. VpnGw1 and VpnGw2 SKUs are offered at the same price as Standard and High Performance SKUs, respectively. If you don't migrate by that date, your SKUs will automatically be migrated and upgraded to AZ SKUs. In that case, there is a pricing difference.
+
+### Will there be any performance impact on my gateways with this migration?
+
+Yes, you get better performance with VpnGw1 and VpnGw2. Currently, VpnGw1 at 650 Mbps provides a 6.5x and VpnGw2 at 1 Gbps provides a 5x performance improvement at the same price as the legacy Standard and High Performance gateways, respectively. For more information, see [Gateway SKUs](about-gateway-skus.md).
+
+### What happens if I don't migrate SKUs by September 30, 2025?
+
+All gateways that are still using Standard or High Performance SKUs will be migrated automatically and upgraded to the following AZ SKUs:
+
+* Standard -> VpnGw1AZ
+* High Performance -> VpnGw2AZ
+
+Final communication will be sent before initiating migration on any gateways.  
 
 ## <a name="s2s"></a>Site-to-site connections and VPN devices
 

@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 11/06/2023
+ms.date: 11/28/2023
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: mvc, mode-ui
@@ -158,7 +158,7 @@ To do this, you'll:
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
 6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
-7. Select **Next: Monitoring** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
+7. Select **Next: Monitoring** and set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.
 

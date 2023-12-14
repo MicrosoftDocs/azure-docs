@@ -46,7 +46,7 @@ var baseAkriValues = loadYamlContent('base.yml')
 var overlayAkriValues = loadYamlContent('overlay.yml')
 var akriValues = union(baseAkriValues, overlayAkriValues)
 
-resource helmChart 'Microsoft.iotoperationsorchestrator/targets@2023-05-22-preview' = {
+resource helmChart 'Microsoft.iotoperationsorchestrator/targets@2023-10-04-preview' = {
   name: 'akri-helm-chart-override'
   location: clusterLocation
   extendedLocation: {

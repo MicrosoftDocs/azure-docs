@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Explore various strategies for addressing the challenges posed by large language models and mitigating potential harms.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual

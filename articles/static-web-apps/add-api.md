@@ -57,7 +57,7 @@ You create an Azure Functions project for your static web app's API. By default,
     | Provide a function name | **message** |
 
     > [!TIP]
-    > You can learn more about the differences between programming models in the [Azure Functions developer guide](/articles/azure-functions/functions-reference-node.md)
+    > You can learn more about the differences between programming models in the [Azure Functions developer guide](/azure/azure-functions/functions-reference)
     
     An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
 

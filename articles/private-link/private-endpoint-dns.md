@@ -56,8 +56,8 @@ For Azure services, use the recommended zone names as described in the following
 >|---|---|---|---|
 >| Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.azureml.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 >| Azure AI services (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com |
->| Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com </br> europe.directline.botframework.com |
->| Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com </br> europe.token.botframework.com |
+>| Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com |
+>| Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com |
 
 ### Analytics
 
@@ -65,6 +65,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Sql | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
+>| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | SqlOnDemand | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
 >| Azure Synapse Analytics (Microsoft.Synapse/workspaces) | Dev | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
 >| Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) | Web | privatelink.azuresynapse.net | azuresynapse.net |
 >| Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
@@ -72,7 +73,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Data Factory (Microsoft.DataFactory/factories) | dataFactory | privatelink.datafactory.azure.net | datafactory.azure.net |
 >| Azure Data Factory (Microsoft.DataFactory/factories) | portal | privatelink.adf.azure.com | adf.azure.com |
 >| Azure HDInsight (Microsoft.HDInsight/clusters) | N/A | privatelink.azurehdinsight.net | azurehdinsight.net |
->| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net | {regionName}.kusto.windows.net |
+>| Azure Data Explorer (Microsoft.Kusto/Clusters) | cluster | privatelink.{regionName}.kusto.windows.net </br> privatelink.blob.core.windows.net </br> privatelink.queue.core.windows.net </br> privatelink.table.core.windows.net | {regionName}.kusto.windows.net </br> blob.core.windows.net </br> queue.core.windows.net </br> table.core.windows.net |
 >| Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.windows.net </br> privatelink.pbidedicated.windows.net </br> privatelink.tip1.powerquery.microsoft.com | analysis.windows.net </br> pbidedicated.windows.net </br> tip1.powerquery.microsoft.com |
 >| Azure Databricks (Microsoft.Databricks/workspaces) | databricks_ui_api </br> browser_authentication | privatelink.azuredatabricks.net | azuredatabricks.net |
 
@@ -84,7 +85,8 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Batch (Microsoft.Batch/batchAccounts) | batchAccount | {regionName}.privatelink.batch.azure.com | {regionName}.batch.azure.com |
 >| Azure Batch (Microsoft.Batch/batchAccounts) | nodeManagement | {regionName}.service.privatelink.batch.azure.com | {regionName}.service.batch.azure.com |
 >| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | global | privatelink-global.wvd.microsoft.com | wvd.microsoft.com |
->| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces </br> Microsoft.DesktopVirtualization/hostpools) | feed <br> connection | privatelink.wvd.microsoft.com | wvd.microsoft.com |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/workspaces) | feed | privatelink.wvd.microsoft.com | wvd.microsoft.com |
+>| Azure Virtual Desktop (Microsoft.DesktopVirtualization/hostpools) | connection | privatelink.wvd.microsoft.com | wvd.microsoft.com |
 
 ### Containers
 
@@ -92,7 +94,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
->| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.privatelink.azurecr.io | azurecr.io </br> {regionName}.azurecr.io |
+>| Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.io </br> {regionName}.data.privatelink.azurecr.io | azurecr.io </br> {regionName}.data.azurecr.io |
 
 ### Databases
 
@@ -101,11 +103,11 @@ For Azure services, use the recommended zone names as described in the following
 >|---|---|---|---|
 >| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
 >| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
 >| Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
 >| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 >| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
@@ -129,6 +131,8 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.windows.net | servicebus.windows.net |
 >| Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+>| Azure Event Grid (Microsoft.EventGrid/namespaces) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+>| Azure Event Grid (Microsoft.EventGrid/partnerNamespaces) | partnernamespace | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure API Management (Microsoft.ApiManagement/service) | gateway | privatelink.azure-api.net | azure-api.net |
 >| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 
@@ -139,7 +143,9 @@ For Azure services, use the recommended zone names as described in the following
 >|---|---|---|---|
 >| Azure IoT Hub (Microsoft.Devices/IotHubs) | iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
 >| Azure IoT Hub Device Provisioning Service (Microsoft.Devices/ProvisioningServices) | iotDps | privatelink.azure-devices-provisioning.net | azure-devices-provisioning.net |
->| Azure Digital Twins (Microsoft.DigitalTwins/digitalTwinsInstances) | digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
+>| Device Update for IoT Hubs (Microsoft.DeviceUpdate/accounts) | DeviceUpdate | privatelink.api.adu.microsoft.com | api.adu.microsoft.com |
+>| Azure IoT Central (Microsoft.IoTCentral/IoTApps) | iotApp | privatelink.azureiotcentral.com | azureiotcentral.com |
+>| Azure Digital Twins (Microsoft.DigitalTwins/digitalTwinsInstances) | API | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 
 ### Media
 
@@ -158,10 +164,11 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Site Recovery (Microsoft.RecoveryServices/vaults) | AzureSiteRecovery | privatelink.siterecovery.windowsazure.com | {regionCode}.siterecovery.windowsazure.com |
 >| Azure Monitor (Microsoft.Insights/privateLinkScopes) | azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net <br/> privatelink.blob.core.windows.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net <br/> blob.core.windows.net |
 >| Microsoft Purview (Microsoft.Purview/accounts) | account | privatelink.purview.azure.com | purview.azure.com |
->| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purview.azure.com </br> purviewstudio.azure.com |
+>| Microsoft Purview (Microsoft.Purview/accounts) | portal | privatelink.purviewstudio.azure.com | purviewstudio.azure.com |
 >| Azure Migrate (Microsoft.Migrate/migrateProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 >| Azure Migrate (Microsoft.Migrate/assessmentProjects) | Default | privatelink.prod.migration.windowsazure.com | prod.migration.windowsazure.com |
 >| Azure Resource Manager (Microsoft.Authorization/resourceManagementPrivateLinks) | ResourceManagement | privatelink.azure.com | azure.com |
+>| Azure Managed Grafana (Microsoft.Dashboard/grafana) | grafana | privatelink.grafana.azure.com | grafana.azure.com |
 
 ### Security
 
@@ -171,6 +178,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Key Vault (Microsoft.KeyVault/vaults) | vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 >| Azure Key Vault (Microsoft.KeyVault/managedHSMs) | managedhsm | privatelink.managedhsm.azure.net | managedhsm.azure.net 
 >| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) | configurationStores | privatelink.azconfig.io | azconfig.io |
+>| Azure Attestation (Microsoft.Attestation/attestationProviders) | standard | privatelink.attest.azure.net | attest.azure.net |
 
 ### Storage
 
@@ -184,6 +192,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Storage account (Microsoft.Storage/storageAccounts) | web </br> web_secondary | privatelink.web.core.windows.net | web.core.windows.net |
 >| Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) | dfs </br> dfs_secondary | privatelink.dfs.core.windows.net | dfs.core.windows.net |
 >| Azure File Sync (Microsoft.StorageSync/storageSyncServices) | afs | privatelink.afs.azure.net | afs.azure.net |
+>| Azure Managed Disks (Microsoft.Compute/diskAccesses) | disks | privatelink.blob.core.windows.net | privatelink.blob.core.windows.net |
 
 ### Web
 
@@ -256,8 +265,8 @@ For Azure services, use the recommended zone names as described in the following
 >|---|---|---|---|
 >| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.usgovcloudapi.net | database.usgovcloudapi.net |
 >| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.usgovcloudapi.net | {instanceName}.{dnsPrefix}.database.usgovcloudapi.net |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
 >| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 >| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
 >| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
@@ -384,11 +393,11 @@ For Azure services, use the recommended zone names as described in the following
 >| Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 >|---|---|---|---|
 >| Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.cn | documents.azure.cn |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
->| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.cn | documents.azure.cn |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
+>| Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
 >| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 >| Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |
 >| Azure Database for MySQL - Flexible Server (Microsoft.DBforMySQL/flexibleServers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |

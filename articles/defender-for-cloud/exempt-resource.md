@@ -74,9 +74,6 @@ After creating the exemption it can take up to 30 minutes to take effect. After 
 - If you've exempted specific resources, they'll be listed in the **Not applicable** tab of the recommendation details page.
 - If you've exempted a recommendation, it will be hidden by default on Defender for Cloud's recommendations page. This is because the default options of the **Recommendation status** filter on that page are to exclude **Not applicable** recommendations. The same is true if you exempt all recommendations in a security control.
 
-
-
-
 ## Next steps
 
 [Review exempted resources](review-exemptions.md) in Defender for Cloud. 

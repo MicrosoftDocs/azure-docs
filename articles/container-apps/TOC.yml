@@ -8,7 +8,7 @@
       href: overview.md
     - name: Introduction to containers
       href: start-containers.md
-    - name: Introduction to serverless containers
+    - name: Use serverless containers
       href: start-serverless-containers.md
     - name: Quickstarts
       items: 
