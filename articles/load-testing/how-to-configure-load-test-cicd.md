@@ -1,7 +1,7 @@
 ---
 title: 'Manually configure CI/CD for load tests'
 titleSuffix: Azure Load Testing
-description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions or Azure Pipelines.'
+description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions, Azure Pipelines or other CI tools.'
 author: ntrogh
 ms.author: nicktrog
 ms.service: load-testing
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/05/2023
 ---
 
-# Manually configure CI/CD for load tests in GitHub Actions or Azure Pipelines
+# Manually configure your CI/CD workflow for running load tests
 
-You can automate a load test in Azure Load Testing by creating a CI/CD pipeline. In this article, you learn how to manually configure GitHub Actions or Azure Pipelines to invoke an existing test in Azure Load Testing. Automate a load test to continuously validate your application performance and stability under load. 
+You can automate a load test in Azure Load Testing by creating a CI/CD pipeline. In this article, you learn how to manually configure GitHub Actions, Azure Pipelines, or other CI tools to invoke an existing test in Azure Load Testing. Automate a load test to continuously validate your application performance and stability under load. 
 
 To add an existing load test to a CI/CD pipeline:
 
-- Configure service authentication to allow GitHub Actions or Azure Pipelines to connect to your Azure load testing resource.
+- Configure service authentication to allow the CI tool to connect to your Azure load testing resource.
 - Export the load test configuration files, such as the JMeter file and load test YAML configuration.
 - Update the CI/CD pipeline definition to invoke Azure Load Testing.
 
@@ -30,6 +30,10 @@ To add an existing load test to a CI/CD pipeline:
 # [GitHub Actions](#tab/github)
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository to store the load test input files and create a GitHub Actions workflow. To create one, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+
+# [Other](#tab/otherci)
+- Permission to create or modify a CI pipeline.
+- A source code repository to store the load test input files.
 
 ---
 
@@ -214,7 +218,11 @@ Perform the following steps to configure the service authorization for your CI t
 
 ## Export load test input files
 
-To run a load test with Azure Load Testing in a CI/CD workflow, you need to add the load test configuration settings and any input files in your source control repository. If you have an existing load test, you can download the configuration settings and all input files from the Azure portal.
+To run a load test with Azure Load Testing in a CI/CD workflow, you need to add the load test configuration settings, test plan, and any input files in your source control repository.
+
+If you don't have an existing load test, learn how you can create a [load test configuration YAML file](./reference-test-config-yaml.md).
+
+If you have an existing load test, you can download the configuration settings and all input files from the Azure portal.
 
 Perform the following steps to download the input files for an existing load testing in the Azure portal:
 
