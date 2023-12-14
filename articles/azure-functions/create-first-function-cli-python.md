@@ -140,7 +140,8 @@ In this section, you create a function project and add an HTTP triggered functio
    @app.function_name(name="HttpExample")
    @app.route(route="hello")
    def test_function(req: func.HttpRequest) -> func.HttpResponse:
-       return func.HttpResponse("HttpExample function processed a request!")
+       name = req.params.get('name', 'anonymous')
+       return func.HttpResponse(f"HttpExample function processed a request! Hello, {name}.")
    ```
    
 1. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
