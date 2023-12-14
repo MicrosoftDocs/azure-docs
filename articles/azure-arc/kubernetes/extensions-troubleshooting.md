@@ -55,25 +55,23 @@ After that, you can either [recreate a flux configuration](./tutorial-use-gitops
 
 ### Errors installing the `microsoft.flux` extension in a cluster with Microsoft Entra Pod Identity enabled
 
-If you attempt to install the Flux extension in a cluster that has Microsoft Entra Pod Identity enabled, an error may occur in the extension-agent pod, similar to the following:
+If you attempt to install the Flux extension in a cluster that has Microsoft Entra Pod Identity enabled, an error may occur in the extension-agent pod:
 
 ```console
 {"Message":"2021/12/02 10:24:56 Error: in getting auth header : error {adal: Refresh request failed. Status Code = '404'. Response body: no azure identity found for request clientID <REDACTED>\n}","LogType":"ConfigAgentTrace","LogLevel":"Information","Environment":"prod","Role":"ClusterConfigAgent","Location":"westeurope","ArmId":"/subscriptions/<REDACTED>/resourceGroups/<REDACTED>/providers/Microsoft.Kubernetes/managedclusters/<REDACTED>","CorrelationId":"","AgentName":"FluxConfigAgent","AgentVersion":"0.4.2","AgentTimestamp":"2021/12/02 10:24:56"}
 ```
 
-The extension status also returns as "Failed".
+The extension status also returns as `Failed`.
 
 ```console
 "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceOperationFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"ExtensionCreationFailed\",\"message\":\" error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}\"}]}}",
 ```
 
-In this case, the extension-agent pod tries to get its token from IMDS on the cluster so that it talk to the extension service in Azure; however, the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
-
-To fix this issue, [upgrade to the latest version](extensions.md#upgrade-extension-instance) of the `microsoft.flux` extension.
+In this case, the extension-agent pod tries to get its token from IMDS on the cluster. but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)). To fix this issue, [upgrade to the latest version](extensions.md#upgrade-extension-instance) of the `microsoft.flux` extension.
 
 ### Issues with kubelet identity when installing the `microsoft.flux` extension in an AKS cluster
 
-When working with AKD clusters, one of the authentication options is *kubelet identity* using a user-assigned managed identity. Using kubelet identity can reduce operational overhead and increases security when connecting to Azure resources such as Azure Container Registry.
+With AKs clusters, one of the authentication options is *kubelet identity* using a user-assigned managed identity. Using kubelet identity can reduce operational overhead and increases security when connecting to Azure resources such as Azure Container Registry.
 
 To let Flux use kubelet identity, add the parameter `--config useKubeletIdentity=true` when installing the Flux extension.
 
@@ -97,7 +95,7 @@ The controllers installed in your Kubernetes cluster with the `microsoft.flux `e
 | image-automation-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 | image-reflector-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 
-If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown here, or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
+If you enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown here, or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
 
 ### Flux v1
 
@@ -129,7 +127,7 @@ This section provides commands that you can use to validate and troubleshoot the
 kubectl get deployment -n arc-osm-system --selector app=osm-controller
 ```
 
-If the OSM controller is healthy, you'll see output similar to the following:
+If the OSM controller is healthy, you see output similar to:
 
 ```output
 NAME             READY   UP-TO-DATE   AVAILABLE   AGE
@@ -142,7 +140,7 @@ osm-controller   1/1     1            1           59m
 kubectl get pods -n arc-osm-system --selector app=osm-controller
 ```
 
-If the OSM controller is healthy, you'll see output similar to the following:
+If the OSM controller is healthy, you see output similar to:
 
 ```output
 NAME                            READY   STATUS    RESTARTS   AGE
@@ -150,7 +148,7 @@ osm-controller-b5bd66db-wglzl   0/1     Evicted   0          61m
 osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 ```
 
-Even though one controller was *Evicted* at some point, there's another which is `READY 1/1` and `Running` with 0 restarts. If the column `READY` is anything other than `1/1`, the service mesh is in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing.
+Even though one controller was *Evicted* at some point, there's another which is `READY 1/1` and `Running` with `0` restarts. If the column `READY` is anything other than `1/1`, the service mesh is in a broken state. Column `READY` with `0/1` indicates the control plane container is crashing.
 
 Use the following command to inspect controller logs:
 
@@ -158,7 +156,7 @@ Use the following command to inspect controller logs:
 kubectl logs -n arc-osm-system -l app=osm-controller
 ```
 
-Column `READY` with a number higher than 1 after the `/` indicates that there are sidecars installed. OSM Controller generally won't work properly with sidecars attached.
+Column `READY` with a number higher than `1` after the `/` indicates that there are sidecars installed. OSM Controller generally won't work properly with sidecars attached.
 
 ### Check OSM controller service
 
@@ -166,7 +164,7 @@ Column `READY` with a number higher than 1 after the `/` indicates that there ar
 kubectl get service -n arc-osm-system osm-controller
 ```
 
-If the OSM controller is healthy, you'll see the following output:
+If the OSM controller is healthy, you see the following output:
 
 ```output
 NAME             TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)              AGE
@@ -182,14 +180,14 @@ osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67
 kubectl get endpoints -n arc-osm-system osm-controller
 ```
 
-If the OSM controller is healthy, you'll see output similar to the following:
+If the OSM controller is healthy, you see output similar to:
 
 ```output
 NAME             ENDPOINTS                              AGE
 osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
 ```
 
-If the cluster has no `ENDPOINTS` for `osm-controller`, the control plane is unhealthy. This unhealthy state means that the controller pod has crashed or that it was never deployed correctly.
+If the cluster has no `ENDPOINTS` for `osm-controller`, the control plane is unhealthy. This unhealthy state means that the controller pod crashed or that it was never deployed correctly.
 
 ### Check OSM injector deployment
 
@@ -197,7 +195,7 @@ If the cluster has no `ENDPOINTS` for `osm-controller`, the control plane is unh
 kubectl get deployments -n arc-osm-system osm-injector
 ```
 
-If the OSM injector is healthy, you'll see output similar to the following:
+If the OSM injector is healthy, you see output similar to:
 
 ```output
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
@@ -210,7 +208,7 @@ osm-injector   1/1     1            1           73m
 kubectl get pod -n arc-osm-system --selector app=osm-injector
 ```
 
-If the OSM injector is healthy, you'll see output similar to the following:
+If the OSM injector is healthy, you see output similar to:
 
 ```output
 NAME                            READY   STATUS    RESTARTS   AGE
@@ -225,7 +223,7 @@ The `READY` column must be `1/1`. Any other value indicates an unhealthy OSM inj
 kubectl get service -n arc-osm-system osm-injector
 ```
 
-If the OSM injector is healthy, you'll see output similar to the following:
+If the OSM injector is healthy, you see output similar to:
 
 ```output
 NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
@@ -240,14 +238,14 @@ Ensure the IP address listed for `osm-injector` service is `9090`. There should 
 kubectl get endpoints -n arc-osm-system osm-injector
 ```
 
-If the OSM injector is healthy, you'll see output similar to the following:
+If the OSM injector is healthy, you see output similar to:
 
 ```output
 NAME           ENDPOINTS           AGE
 osm-injector   10.240.1.172:9090   75m
 ```
 
-For OSM to function, there must be at least one endpoint for `osm-injector`. The IP address of your OSM injector endpoints will be different. The port `9090` must be the same.
+For OSM to function, there must be at least one endpoint for `osm-injector`. The IP address of your OSM injector endpoints will vary, but the port `9090` must be the same.
 
 ### Check **Validating** and **Mutating** webhooks
 
@@ -255,7 +253,7 @@ For OSM to function, there must be at least one endpoint for `osm-injector`. The
 kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
 ```
 
-If the **Validating** webhook is healthy, you'll see output similar to the following:
+If the **Validating** webhook is healthy, you see output similar to:
 
 ```output
 NAME                     WEBHOOKS   AGE
@@ -266,20 +264,20 @@ osm-validator-mesh-osm   1          81m
 kubectl get MutatingWebhookConfiguration --selector app=osm-injector
 ```
 
-If the **Mutating** webhook is healthy, you'll see output similar to the following:
+If the **Mutating** webhook is healthy, you see output similar to:
 
 ```output
 NAME                  WEBHOOKS   AGE
 arc-osm-webhook-osm   1          102m
 ```
 
-Check for the service and the CA bundle of the **Validating** webhook by using the following command:
+Check for the service and the CA bundle of the **Validating** webhook by using this command:
 
 ```bash
 kubectl get ValidatingWebhookConfiguration osm-validator-mesh-osm -o json | jq '.webhooks[0].clientConfig.service'
 ```
 
-A well configured **Validating** webhook configuration will have output similar to the following:
+A well configured **Validating** webhook configuration will have output similar to:
 
 ```json
 {
@@ -296,7 +294,7 @@ Check for the service and the CA bundle of the **Mutating** webhook by using the
 kubectl get MutatingWebhookConfiguration arc-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
 ```
 
-A well configured **Mutating** webhook configuration will have output similar to the following:
+A well configured **Mutating** webhook configuration will have output similar to the:
 
 ```output
 {
@@ -339,7 +337,7 @@ Check the content of the OSM MeshConfig:
 kubectl get meshconfig osm-mesh-config -n arc-osm-system -o yaml
 ```
 
-You should see output similar to the following:
+You should see output similar to:
 
 ```yaml
 apiVersion: config.openservicemesh.io/v1alpha1
@@ -419,7 +417,7 @@ metadata:
 >[!Note]
 >The arc-osm-system namespace will never participate in a service mesh and will never be labeled or annotated with the key/values shown here.
 
-We use the `osm namespace add` command to join namespaces to a given service mesh. When a Kubernetes namespace is part of the mesh, confirm the following:
+We use the `osm namespace add` command to join namespaces to a given service mesh. When a Kubernetes namespace is part of the mesh, follow these steps to confirm requirements are met.
 
 View the annotations of the namespace `bookbuyer`:
 
