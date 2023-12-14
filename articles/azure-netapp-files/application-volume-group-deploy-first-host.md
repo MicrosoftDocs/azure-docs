@@ -69,7 +69,7 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
-    Click **Next: Tag**. 
+    Click **Next: Tags**. 
 
     [ ![Screenshot that shows the Volume Group tag.](../media/azure-netapp-files/application-volume-group-tag.png) ](../media/azure-netapp-files/application-volume-group-tag.png#lightbox)
 
@@ -125,7 +125,7 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
     If you want to remove the optional volumes (marked with a `*`) such as data-backup volume or log-backup volume from the volume group, select the volume and click **Remove volume**. Confirm the removal in the dialog box that appears.
 
     > [!IMPORTANT]
-    > You cannot add a removed volume back to the volume group again.
+    > You cannot add a removed volume back to the volume group again. You need to stop and restart the Application volume group configuration.
 
     [ ![Screenshot that shows how to remove a volume.](../media/azure-netapp-files/application-volume-remove.png) ](../media/azure-netapp-files/application-volume-remove.png#lightbox)
 
