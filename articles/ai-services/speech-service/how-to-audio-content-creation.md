@@ -2,7 +2,6 @@
 title: Audio Content Creation - Speech service
 titleSuffix: Azure AI services
 description: Audio Content Creation is an online tool that allows you to run Text to speech synthesis without writing any code.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
