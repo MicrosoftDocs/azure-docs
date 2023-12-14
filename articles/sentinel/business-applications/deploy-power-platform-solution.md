@@ -116,7 +116,7 @@ To automatically enable entity auditing, complete the following steps.
 
 To enable auditing on each Dataverse entity manually including custom entities, follow the steps in the section **Enable or disable entities and fields for auditing** in [Manage Dataverse auditing](/power-platform/admin/manage-dataverse-auditing#enable-or-disable-entities-and-fields-for-auditing).
 
-To get the full incident detection value of the solution, it is recommended to enable, for each Dataverse entity you want to audit, both the Auditing check box under the Data Services section as well as both Single record auditing and Multiple record auditing under the Auditing section. Both Sections are in the General tab of the Dataverse entity settings page. Don't forget to save and publish the customizations.
+To get the full incident detection value of the solution, it is recommended to enable, for each Dataverse entity you want to audit, both the **Auditing** check box under the **Data Services** section as well as both **Single record auditing** and **Multiple record auditing** under the **Auditing** section. Both Sections are in the **General** tab of the Dataverse entity settings page. Don't forget to save and publish your customizations.
 
 ## Verify that the data connector is ingesting logs to Microsoft Sentinel
 
