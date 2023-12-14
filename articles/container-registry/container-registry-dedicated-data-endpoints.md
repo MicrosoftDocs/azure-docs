@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: container-registry
-ms.date: 12/22/2022
+ms.date: 10/31/2023
 
 ---
 # Azure Container Registry mitigating data exfiltration with dedicated data endpoints
