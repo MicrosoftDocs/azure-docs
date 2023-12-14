@@ -123,7 +123,7 @@ To add an API definition to your version:
         | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
         |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
 
-        :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png lightbox="media/register-apis/add-definition.png":::
+        :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png :::
 
     1. Select **Create**. The definition is added.
 
