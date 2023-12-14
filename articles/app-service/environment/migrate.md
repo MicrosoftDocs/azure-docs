@@ -121,7 +121,7 @@ Virtual network locks block platform operations during migration. If your virtua
 
 ### Ensure there are no Azure Policies blocking migration
 
-Azure Policy can be used to deny resource creation and modification to certain principals. If you have a policy that blocks the creation of App Service Environments or the modification of subnets, you need to remove it before migrating. The policy can be readded if needed once migration is complete. For more information on Azure Policy, see [Azure Policy overview](../../azure-policy/overview.md).
+Azure Policy can be used to deny resource creation and modification to certain principals. If you have a policy that blocks the creation of App Service Environments or the modification of subnets, you need to remove it before migrating. The policy can be readded if needed once migration is complete. For more information on Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md).
 
 ### Choose your App Service Environment v3 configurations
 
