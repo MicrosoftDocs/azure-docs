@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 08/07/2023
+ms.date: 12/14/2023
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -113,11 +113,7 @@ In this section, you create a function project that contains a single function.
 
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
 
-1. Run this command to make sure that Azure Functions library is installed in the environment.
-
-    ```console
-    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-    ```
+[!INCLUDE [functions-install-python-requirements](../../includes/functions-install-python-requirements.md)]
  
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"  
@@ -176,10 +172,9 @@ In this section, you create a function project and add an HTTP triggered functio
     ```
 
     This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you'll need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.   
-::: zone-end  
 
+[!INCLUDE [functions-install-python-requirements](../../includes/functions-install-python-requirements.md)]
 
-::: zone pivot="python-mode-decorators"  
 ## Start the storage emulator
 
 By default, local development uses the Azurite storage emulator. This emulator is used when the `AzureWebJobsStorage` setting in the *local.settings.json* project file is set to `UseDevelopmentStorage=true`. When using the emulator, you must start the local Azurite storage emulator before running the function. 
