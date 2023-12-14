@@ -129,7 +129,7 @@ This Cloud shell PowerShell script initializes the variables `$resourceGroup`, `
 ```azurepowershell-interactive
 # Set variables
 $resourceGroup = 'myResourceGroup'
-$vmName = 'myVM
+$vmName = 'myVM'
 $size = 'Standard_DS3_v2'
 # Get the VM
 $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
