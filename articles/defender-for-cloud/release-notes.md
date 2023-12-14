@@ -25,7 +25,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | Date | Update |
 |--|--|
 | December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
-| December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview) |
+| December 13 | [Agentless Container Posture for AWS in Defender for Containers and Defender CSPM(Preview)](#agentless-container-posture-in-defender-aws-preview) |
 | December 13 | [Deny effect - replacing deprecated policies](#deny-effect---replacing-deprecated-policies) |
 | December 13 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
 | December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
