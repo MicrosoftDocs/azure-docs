@@ -24,7 +24,9 @@ An App Service Environment v2 can be automatically migrated to an [App Service E
 
 Ensure you understand how migrating to an App Service Environment v3 affects your applications. Review the [migration process](side-by-side-migrate.md#overview-of-the-migration-process-using-the-side-by-side-migration-feature) to understand the process timeline and where and when you need to get involved. Also review the [FAQs](side-by-side-migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration.
+Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration. 
+
+Ensure there are no Azure Policies that block actions required for the migration including subnet modifications and App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
 Since your App Service Environment v3 will be created in a different subnet in your virtual network, you need to ensure that you have an available subnet in your virtual network that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). The subnet you select must also be able to communicate with the subnet your existing App Service Environment is in. Ensure there's nothing blocking communication between the two subnets. If you don't have an available subnet, you need to create one before migrating. Creating a new subnet might involve increasing your virtual network address space. For more information, see [Create a virtual network and subnet](../../virtual-network/manage-virtual-network.md).
 
