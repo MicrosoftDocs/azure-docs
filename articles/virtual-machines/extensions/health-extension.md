@@ -97,7 +97,7 @@ Rich Health States reporting contains four Health States, *Initializing*, *Healt
 | Protocol | Health State | Description |
 | -------- | ------------ | ----------- |
 | TCP | Healthy | To send a *Healthy* signal, a successful handshake must be made with the provided application endpoint. |
-| TCP | Unhealthy | The instance will be marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
+| TCP | Unhealthy | The instance is marked as *Unhealthy* if a failed or incomplete handshake occurred with the provided application endpoint. |
 | TCP | Initializing | The instance automatically enters an *Initializing* state at extension start time. For more information, see [Initializing state](#initializing-state). |
 
 ## Initializing state
@@ -176,7 +176,7 @@ The following JSON shows the schema for the Application Health extension. The ex
 
 ## Extension schema for Rich Health States
 
-The following JSON shows the schema for the Rich Health States extension. The extension requires at a minimum either an "http" or "https" request with an associated port or request path respectively. TCP probes are also supported, but won't be able to set the `ApplicationHealthState` through the probe response body and won't have access to the *Unknown* state.
+The following JSON shows the schema for the Rich Health States extension. The extension requires at a minimum either an "http" or "https" request with an associated port or request path respectively. TCP probes are also supported, but cannot set the `ApplicationHealthState` through the probe response body and do not have access to the *Unknown* state.
 
 ```json
 {
