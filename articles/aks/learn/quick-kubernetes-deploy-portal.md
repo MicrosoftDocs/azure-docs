@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal'
+title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using the Azure portal'
 titleSuffix: Azure Kubernetes Service
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure portal.
 ms.topic: quickstart
@@ -8,15 +8,18 @@ ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-ui, devx-track
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure portal
+# Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Azure portal
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly create and manage clusters. In this quickstart, you:
 
-- Deploy an AKS cluster using the Azure portal.
+- Create an AKS cluster using the Azure portal.
 - Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
+
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to create a cluster with default settings for evaluation purposes only. Before creating a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -455,17 +458,14 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-documentation]: https://kubernetes.io/docs/home/
 
 <!-- LINKS - internal -->
 [azure-portal]: https://portal.azure.com
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[az-group-delete]: /cli/azure/group#az-group-delete
-[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks

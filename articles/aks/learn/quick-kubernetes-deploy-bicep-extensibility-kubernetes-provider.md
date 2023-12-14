@@ -3,15 +3,15 @@ title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using the B
 description: Learn how to quickly create a Kubernetes cluster using the Bicep extensibility Kubernetes provider and deploy an application in Azure Kubernetes Service (AKS). 
 ms.topic: quickstart
 ms.custom: devx-track-bicep
-ms.date: 10/23/2023
+ms.date: 12/14/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Bicep extensibility Kubernetes provider (Preview)
+# Quickstart: Create an Azure Kubernetes Service (AKS) cluster using the Bicep extensibility Kubernetes provider (preview)
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly create and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using the Bicep extensibility Kubernetes provider (preview).
+* Create an AKS cluster using the Bicep extensibility Kubernetes provider (preview).
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
@@ -29,6 +29,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 >  }
 > }
 > ```
+
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to create a cluster with default settings for evaluation purposes only. Before creating a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -421,35 +424,18 @@ To learn more about AKS and walk through a complete code to deployment example, 
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
-[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
-[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks#az_aks_browse
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[azure-cli-install]: /cli/azure/install-azure-cli
-[install-azure-powershell]: /powershell/azure/install-az-ps
-[connect-azaccount]: /powershell/module/az.accounts/Connect-AzAccount
-[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
 [az-deployment-group-create]: /cli/azure/group/deployment#az_deployment_group_create
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [new-azresourcegroupdeployment]: /powershell/module/az.resources/new-azresourcegroupdeployment
 [az-sshkey-create]: /cli/azure/sshkey#az_sshkey_create
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks

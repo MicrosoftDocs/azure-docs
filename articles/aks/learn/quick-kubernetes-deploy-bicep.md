@@ -7,17 +7,20 @@ ms.custom: mvc, subject-armbicep, devx-track-bicep, devx-track-azurecli, devx-tr
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Bicep
+# Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Bicep
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly create and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using Bicep.
+* Create an AKS cluster using Bicep.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 :::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
+
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to create a cluster with default settings for evaluation purposes only. Before creating a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -43,7 +46,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * To create an AKS cluster using a Bicep file, you provide an SSH public key. If you need this resource, see the following section. Otherwise, skip to [Review the Bicep file](#review-the-bicep-file).
 * Make sure the identity you use to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-* To deploy a Bicep file, you need write access on the resources you deploy and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to deploy a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+* To deploy a Bicep file, you need write access on the resources you create and access to all operations on the `Microsoft.Resources/deployments` resource type. For example, to create a virtual machine, you need `Microsoft.Compute/virtualMachines/write` and `Microsoft.Resources/deployments/*` permissions. For a list of roles and permissions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ### Create an SSH key pair
 
@@ -522,3 +525,4 @@ To learn more about AKS and walk through a complete code to deployment example, 
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
 [new-az-aks-cluster]: /powershell/module/az.aks/new-azakscluster
 [az-sshkey-create]: /cli/azure/sshkey#az_sshkey_create
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks

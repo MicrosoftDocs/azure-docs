@@ -1,23 +1,26 @@
 ---
-title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure PowerShell'
+title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Azure PowerShell'
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 12/14/2023
 ms.custom: devx-track-azurepowershell, mode-api, devx-track-linux
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure PowerShell
+# Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Azure PowerShell
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly create and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using Azure PowerShell.
+* Create an AKS cluster using Azure PowerShell.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 :::image type="content" source="media/quick-kubernetes-deploy-powershell/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-powershell/aks-store-application.png":::
+
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to create a cluster with default settings for evaluation purposes only. Before creating a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -441,3 +444,4 @@ To learn more about AKS and walk through a complete code to deployment example, 
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [azure-resource-group]: ../../azure-resource-manager/management/overview.md
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks

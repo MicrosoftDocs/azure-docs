@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI'
+title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Azure CLI'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: quickstart
 ms.date: 10/23/2023
@@ -7,17 +7,20 @@ ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-ja
 #Customer intent: As a developer or cluster operator, I want to create an AKS cluster and deploy an application so I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI
+# Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Azure CLI
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly create and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using the Azure CLI.
+* Create an AKS cluster using the Azure CLI.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 :::image type="content" source="media/quick-kubernetes-deploy-portal/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-portal/aks-store-application.png":::
+
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to create a cluster with default settings for evaluation purposes only. Before creating a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -460,3 +463,4 @@ This quickstart is for introductory purposes. For guidance on creating full solu
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks

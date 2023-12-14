@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Terraform'
 description: Learn how to quickly create a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 12/14/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -11,15 +11,18 @@ content_well_notification:
 
 # Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Terraform
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you:
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly create and manage clusters. In this quickstart, you:
 
-* Deploy an AKS cluster using Terraform.
+* Create an AKS cluster using Terraform.
 * Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
 
 > [!NOTE]
 > This sample application is just for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of browsing to Azure Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
+
+> [!NOTE]
+> To get started with quickly provisioning an AKS cluster, this article includes steps to create a cluster with default settings for evaluation purposes only. Before creating a production-ready cluster, we recommend that you familiarize yourself with our [baseline reference architecture][baseline-reference-architecture] to consider how it aligns with your business requirements.
 
 ## Before you begin
 
@@ -466,3 +469,4 @@ When the application runs, a Kubernetes service exposes the application front en
 
 <!-- LINKS - Internal -->
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
+[baseline-reference-architecture]: /azure/architecture/reference-architectures/containers/aks/baseline-aks
