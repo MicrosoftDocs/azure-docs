@@ -28,13 +28,15 @@ This section lists the types of resource logs you can collect for Azure Operator
 |-------|-----|
 | DataProducts| [Microsoft.NetworkAnalytics/DataProducts](/azure/azure-monitor/reference/supported-logs/microsoft-networkanalytics-dataproducts-logs) |
 
-The DataProducts logs have information about:
+The DataProducts logs have the following categories:
 
-- `Ingestion` (for adding or changing data in the input storage account for a Data Product)
-- `IngestionDelete` (for deleting data from the input storage account for a Data Product)
-- `Digestion` (for processing the data available to a Data Product)
-- `ReadStorage` (for read access to the output storage account for a Data Product)
-- `DatabaseQuery` (for query operations performed on the database of a Data Product)
+- Ingestion (`Ingestion`): adding or changing data in the input storage account for a Data Product
+- Delete Ingested File (`IngestionDelete`): deleting data from the input storage account for a Data Product
+- Digestion (`Digestion`): processing the data available to a Data Product
+- Output Storage Read (`ReadStorage`): read access to the output storage account for a Data Product
+- Database Query (`DatabaseQuery`): query operations performed on the database of a Data Product
+
+When you configure a diagnostic setting, you can select these categories individually, or select the Audit group. The Audit group contains all the categories except the Digestion category.
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
@@ -42,11 +44,12 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 This section lists all of the Azure Monitor Logs Kusto tables relevant to Azure Operator Insights and available for query by Log Analytics.
 
-|Log type|Table name|
-|--------|----------|
-|Digestion logs|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)|
-|Storage logs|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
-|Database query logs|[AOIDatabaseQuery](/azure/azure-monitor/reference/tables/aoidatabasequery)|
+|Log type|Table name|Details|
+|--------|----------|-------|
+|Digestion|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)| Contains `Digestion` logs|
+|Ingestion and storage |[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)| Contains `Ingestion`, `IngestionDelete` and `ReadStorage` |
+|Database queries|[AOIDatabaseQuery](/azure/azure-monitor/reference/tables/aoidatabasequery)| Contains `DatabaseQuery` |
+
 
 ### Diagnostics tables
 
