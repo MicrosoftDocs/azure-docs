@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to use Zeppelin notebooks with Apa
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/26/2023
+ms.date: 12/14/2023
 ---
 
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
@@ -148,21 +148,21 @@ This action saves the notebook as a JSON file in your download location.
 > [!NOTE]
 > 1. In HDI 4.0 , the zeppelin notebook directory path is, `/usr/hdp/<version>/zeppelin/notebook/<notebook_session_id>/`
 > 
-> Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
-> 
-> Where as in HDI 5.0 and above this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
-> 
-> Eg. /usr/hdp/5.1.4.5/zeppelin/notebook/Scala/
+   > Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
+   > 
+   > Where as in HDI 5.0 and above this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
+   > 
+   > Eg. /usr/hdp/5.1.4.5/zeppelin/notebook/Scala/
 > 
 > 1. The file name stored is different in HDI 5.0.
 >    
-> It is stored as `<notebook_name>_<sessionid>.zpln`
-> 
-> Eg. testzeppelin_2JJK53XQA.zpln
-> 
-> In HDI 4.0, the file name is just note.json stored under session_id directory.
-> 
-> Eg. /2JMC9BZ8X/note.json
+   > It is stored as `<notebook_name>_<sessionid>.zpln`
+   > 
+   > Eg. testzeppelin_2JJK53XQA.zpln
+   > 
+   > In HDI 4.0, the file name is just note.json stored under session_id directory.
+   > 
+   > Eg. /2JMC9BZ8X/note.json
 > 
 > 1. HDI Zeppelin always saves the notebook in the path `/usr/hdp/<version>/zeppelin/notebook/` in hn0 local disk.
 >    
