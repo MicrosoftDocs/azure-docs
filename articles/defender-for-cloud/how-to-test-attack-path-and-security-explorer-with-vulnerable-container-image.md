@@ -42,23 +42,30 @@ If there are no entries in the list of attack paths, you can still test this fea
 
         ```
         az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
+        ```
 
 1. Authenticate your Cloud Shell session to work with the cluster:
     
     ```
-    az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>
+    az aks get-credentials  --subscription <cluster-suid> --resource-group <your-rg> --name <your-cluster-name>    
+    ```
+
+1. Install [ngnix ingress Controller](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/) :
     
+    ```
+    helm install ingress-controller oci://ghcr.io/nginxinc/charts/nginx-ingress --version 1.0.1
+    ```
+
+1. Deploy the mock vulnerable image to expose the vulnerable container to the internet by running the following command:
+    ```
+    helm install dcspmcharts  oci://mcr.microsoft.com/mdc/stable/dcspmcharts --version 1.0.0 --namespace mdc-dcspm-demo --create-namespace --set image=<your-image-uri> --set distribution=AZURE
+    ```
+
 1. Verify success by doing the following steps:
 
    - Look for an entry with **mdc-dcspm-demo** as namespace
    - In the **Workloads-> Deployments** tab, verify “pod” created 3/3 and **dcspmcharts-ingress-nginx-controller** 1/1.
    - In services and ingresses look for-> services **service**, **dcspmcharts-ingress-nginx-controller and dcspmcharts-ingress-nginx-controller-admission**. In the ingress tab, verify one **ingress** is created with an IP address and nginx class.
-
-1. Deploy the mock vulnerable image to expose the vulnerable container to the internet by running the following command:
-
- ```
- helm install dcspmcharts oci://dcspmtesting.azurecr.io/dcspmcharts --version 1.0.0  --namespace mdc-dcspm-demo --create-namespace --set registry=<your-registry>
-```
 
 > [!NOTE]
 > After completing the above flow, it can take up to 24 hours to see results in the cloud security explorer and attack path.
@@ -108,4 +115,4 @@ The results are listed below the query.
 
 ## Next steps 
 
- - Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
+- Learn more about the Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
