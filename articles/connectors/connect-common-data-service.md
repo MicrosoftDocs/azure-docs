@@ -329,7 +329,7 @@ To stop unwanted notifications, delete the `callbackregistrations` entity from t
 
 ### Duplicate 'callbackregistrations' entity
 
-In Standard logic app workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger runs duplicately, which results in creating a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
+In Standard logic app workflows, under specific conditions such as instance reallocation or application restart, the Microsoft Dataverse trigger duplicately runs, which results in creating a duplicate `callbackregistrations` entity in your Dataverse database. If you edit a Standard workflow that starts with a Dataverse trigger, check whether this `callbackregistrations` entity is duplicated. If the duplicate exists, manually delete the duplicate `callbackregistrations` entity.
 
 ## Next steps
 
