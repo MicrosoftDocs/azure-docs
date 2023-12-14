@@ -31,13 +31,13 @@ Model Catalog collections are made available to users using the underlying regis
 
 ### Create a Policy Assignment
 
-1. On the Azure home page, type Policy in the search bar and select the Azure Policy icon.
+1. On the Azure home page, type Policy in the search bar and select the Azure **Policy** icon.
 
-2. On the Azure Policy service, under *Authoring*, select *Assignments*.
+2. On the Azure Policy service, under **Authoring**, select *Assignments*.
 
 :::image type="content" source="../media/waf-azure-policy/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy.":::
 
-3. On the Assignments page, select the *Assign Policy* icon at the top. 
+3. On the Assignments page, select the **Assign Policy** icon at the top. 
 
 :::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
 
@@ -57,8 +57,8 @@ If no asset IDs are set in 'allowedModels' during assignment, this policy restri
 You can remove the policy assignment in the Azure portal using the following steps:
 
   1. Navigate to the Policy pane on the Azure portal.
-  2. Select Assignments.
-  3. Select on the ... button next to your policy assignment and Select Delete assignment.
+  2. Select **Assignments**.
+  3. Select on the ... button next to your policy assignment and select **Delete** assignment.
 
 ### Limitations 
 
