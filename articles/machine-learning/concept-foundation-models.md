@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
-ms.author: swatig
-author: swatig007
+ms.author: tinaem
+author: tinaem
 ms.reviewer: ssalgado
 ms.date: 12/12/2023
 #Customer intent: As a data scientist, I want to learn about machine learning foundation models and how to integrate popular models into azure machine learning.
@@ -15,7 +15,7 @@ ms.date: 12/12/2023
 
 # Model Catalog 
 
-The Model Catalog is the hub for a wide-variety of third-party open source as well as Microsoft developed foundation models pre-trained for various language, speech and vision use-cases. You can evaluate, customize and deploy these models with the native capabilities to build and operationalize open-source foundation Models at scale to easily integrate these pretrained models into your applications with enterprise-grade security and data governance.  
+The Model Catalog in Azure Machine Learning Studio is the hub for a wide-variety of third-party open source as well as Microsoft developed foundation models pre-trained for various language, speech and vision use-cases. You can evaluate, customize and deploy these models with the native capabilities to build and operationalize open-source foundation Models at scale to easily integrate these pretrained models into your applications with enterprise-grade security and data governance.  
 
 * **Discover:** Review model descriptions, try sample inference and browse code samples to evaluate, finetune or deploy the model.
 * **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario.
