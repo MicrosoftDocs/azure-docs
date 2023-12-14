@@ -199,6 +199,6 @@ Community registries are Azure Machine Learning registries created by trusted Az
 **Where can users submit questions and concerns regarding Hugging Face within Azure Machine Learning?**
 Submit your questions in the [Azure Machine Learning discussion forum.](https://discuss.huggingface.co/t/about-the-azure-machine-learning-category/40677) 
 
-## Learn more
+## Next Steps
 
 Learn [how to use foundation models in Azure Machine Learning.](./how-to-use-foundation-models.md)
