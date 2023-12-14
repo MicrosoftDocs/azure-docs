@@ -45,7 +45,7 @@ Start off by creating a Run Command script to provide endpoint access to the `mi
 To directly provide the script in line, use the following operation:
 
 ```
-PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
+PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 
 {
   "location": "eastus2",
@@ -85,7 +85,7 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa
 To instead link to the script file, you can use the Run Command operation’s ScriptURI option. For this it's assumed you have prepared a `newnetfirewallrule.ps1` file containing the in-line script and uploaded this script to blob storage.
 
 ```
-PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
+PUT https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 
 {
   "location": "eastus2",
@@ -131,7 +131,7 @@ Output and error blobs must be the AppendBlob type and their SAS URLs must provi
 To verify that you've correctly provisioned the Run Command, use the GET command to retrieve details on the provisioned Run Command:
 
 ```
-GET https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
+GET https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 ```
 
 ### Example 3: Update the Run Command
@@ -140,7 +140,7 @@ Let’s suppose you want to open up access to an additional endpoint `*.waconazu
 
 
 ```
-PATCH https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
+PATCH https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 
 {
   "location": "eastus2",
@@ -190,6 +190,6 @@ LIST https://management.azure.com/subscriptions/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa
 If you no longer need the Run Command extension, you can delete it using the following command:
 
 ```
-DELETE https://management.azure.com/subscriptions/ aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand
+DELETE https://management.azure.com/subscriptions/ aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 ```
 
