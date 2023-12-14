@@ -47,7 +47,6 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **A
 | DocumentQuota (Document Quota) | Bytes (Total) | Total storage quota reported at 5-minutes granularity per region.| DatabaseName, CollectionName, Region| 5M |Storage Capacity| Used to monitor total quota at container and region, minimum granularity should be 5 minutes.|
 | DocumentCount (Document Count) | Count (Total) |Total document count reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Document Count|Used to monitor document count at container and region, minimum granularity should be 5 minutes.|
 | PhysicalPartitionSizeInfo (Physical Partition Size Info) | Count (Maximum) | Storage at physical partition granularity| DatabaseName, ContainerName, PhysicalPartitionId, Region| 5M | |Used to monitor physical partition size (bytes) at physical partition granularity. To see storage for all physical partitions, split by dimension Physical Partition Id.|
-| PhysicalPartitionCount (Physical Partition Count) | Count (Count) | Number of physical partitions at container granularity | DatabaseName, ContainerName, Region| 5M | |Used to monitor physical partition count.|
 
 ### Latency metrics
 

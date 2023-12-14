@@ -187,8 +187,6 @@ While partition merge is running on your container, it isn't possible to change 
 
 You can track whether merge is still in progress by checking the **Activity Log** and filtering for the events **Merge the physical partitions of a MongoDB collection** or **Merge the physical partitions of a SQL container**.
 
-You can also use the **Physical Partition Count** metric to monitor how many physical partitions your container has. From your Cosmos account, navigate to **Metrics**. Select the metric **Physical Partition Count** and filter to your database and container.
-
 ## Limitations
 
 The following are limitations of the merge feature at this time.
