@@ -20,7 +20,7 @@ This article walks you through the process of migrating your function app to run
 
 ## Update the extension version
 
-.NET Functions use bindings that are installed in the project as NuGet packages. Depending on your Functions process model, the NuGet package to update varies.
+.NET Functions uses extensions that are installed in the project as NuGet packages. Depending on your Functions process model, the NuGet package to update varies.
 
 |Functions process model |Azure Service Bus extension |Recommended version |
 |------------------------|--------------------------|--------------------|
@@ -90,9 +90,9 @@ The underlying SDK used by extension changed to use the [Azure.Messaging.Service
 
 ## Update the extension bundle
 
-By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by non-.NET function apps to install binding extensions. The Azure Service Bus version 5 extension is part of the Microsoft Azure Functions version 4 extension bundle.
+By default, [extension bundles](./functions-bindings-register.md#extension-bundles) are used by non-.NET function apps to install binding extensions. The Azure Service Bus version 5 extension is part of extension bundle version 4.
 
-To update your application to use the latest extension bundle, update your `host.json`. The following `host.json` file uses version 4 of the Microsoft Azure Functions extension bundle.
+To update your application to use the latest extension bundle, update your `host.json`. The following `host.json` file uses version 4 of the extension bundle.
 
 ```json
 {
@@ -110,7 +110,7 @@ To update your application to use the latest extension bundle, update your `host
 
 ## Modify your function code
 
-The Azure Functions extension version 5 is built on top of the Azure.Messaging.ServiceBus SDK version 3, which removed support for the `Message` class. Instead, use the `ServiceBusReceivedMessage` type to receive message metadata from Service Bus Queues and Subscriptions.
+The Azure Functions Azure Service Bus extension version 5 is built on top of the Azure.Messaging.ServiceBus SDK version 3, which removed support for the `Message` class. Instead, use the `ServiceBusReceivedMessage` type to receive message metadata from Service Bus Queues and Subscriptions.
 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
