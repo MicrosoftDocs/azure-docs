@@ -19,7 +19,7 @@ The following table shows the latest available version of the Remote Desktop Web
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public | 1.45.2310.13001 | [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1eNhm) |
+| Public | 1.45.2310.13001 | [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi) |
 
 ## Updates for version 1.45.2310.13001
 
