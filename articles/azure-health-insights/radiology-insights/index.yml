@@ -23,22 +23,22 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Radiology Insights?
-            url: RI_AboutDoc.md.md
+            url: overview.md
       - linkListType: concept
         links:
           - text: Model configuration
-            url: RI_ModelConfiguration.md
+            url: modelconfiguration.md
           - text: Inference information
-            url: RI_inferences.md
+            url: inferences.md
   - title: Use the Radiology Insights model
     linkLists:
       - linkListType: quickstart
         links:
           - text: Using the Portal
-            url: RI_QuickStart.md   
+            url: quickstart.md   
   - title: Help and feedback
     linkLists:
       - linkListType: reference
         links:
           - text: Support and help options
-            url: RI_support-and-help.md
+            url: support-and-help.md
