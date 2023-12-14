@@ -121,7 +121,6 @@ In this section, you create a function project that contains a single function.
     .venv\Scripts\python -m pip install -r requirements.txt
     ```
     
-    
     ### [Cmd](#tab/cmd)
     
     ```cmd
@@ -195,7 +194,6 @@ In this section, you create a function project and add an HTTP triggered functio
     ```powershell
     .venv\Scripts\python -m pip install -r requirements.txt
     ```
-    
     
     ### [Cmd](#tab/cmd)
     
