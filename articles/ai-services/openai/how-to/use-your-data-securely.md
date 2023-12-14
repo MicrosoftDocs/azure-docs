@@ -177,6 +177,8 @@ So far you have already setup each resource work independently. Next you will ne
 | `Cognitive Services OpenAI Contributor` | Azure AI Search | Azure OpenAI | Custom skill |
 | `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Reads blob and writes knowledge store |
 | `Cognitive Services OpenAI Contributor` | Signed-in User | Azure OpenAI | Calls public ingestion or inference API from Azure OpenAI Studio.|
+| `Contributor` | Signed-in User | Azure AI Search | List API-Keys to list indexes from Azure OpenAI Studio.|
+| `Contributor` | Signed-in User | Storage Account | List Account SAS to upload files from Azure OpenAI Studio.|
 
 See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignments-portal) for instructions on setting these roles in the Azure portal. You can use the [available script on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/role_assignment.sh) to add the role assignments programmatically. You need to have the `Owner` role on these resources to do role assignments.
 
