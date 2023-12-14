@@ -88,7 +88,7 @@ This procedure describes how to send a software version update to one or more OT
 
 1. In the **Send package** pane that appears, check to make sure that you're sending the software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, which includes an update progress bar and estimated time remaining message, indicating that the process has started and lets you track its progress. For example:
+1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage complete automatically updating in the progress bar, showing that the process has started and lets you track its progress. For example:
 
     :::image type="content" source="media/update-ot-software/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-update-bar.png":::
 
@@ -108,7 +108,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
 1. In the **Update sensor** pane that appears, verify your update details.
 
-    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, an update progress bar and estimated time remaining message appear, indicating that the process has started and lets you track progress until the update is complete.
+    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, and an update progress bar appears showing you the percentage complete. The bar automatically updates, so that you can track the progress until the installation is complete.
 
     :::image type="content" source="media/update-ot-software/sensor-version-install-bar.png" alt-text="Screenshot of the install bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-install-bar.png":::
 
@@ -131,7 +131,7 @@ This procedure describes how to manually download the new sensor software versio
 
 1. In the **Available versions** area of the **Local update** pane, select the version you want to download for your software update.
 
-    The **Available versions** area lists all update packages available for your specific update scenario. You may have multiple options, but there will always be one specific version marked as **Recommended** for you. For example:
+    The **Available versions** area lists all update packages available for your specific update scenario. You might have multiple options, but one specific version is marked as **Recommended** for you. For example:
 
     :::image type="content" source="media/update-ot-software/recommended-version.png" alt-text="Screenshot highlighting the recommended update version for the selected update scenario." lightbox="media/update-ot-software/recommended-version.png":::
 
@@ -149,7 +149,7 @@ This procedure describes how to manually download the new sensor software versio
 
     :::image type="content" source="media/update-ot-software/sensor-upload-file.png" alt-text="Screenshot of the Software update pane on the OT sensor." lightbox="media/update-ot-software/sensor-upload-file.png":::
 
-    The update process starts, and may take about 30 minutes and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
+    The update process starts, and might take about 30 minutes and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
 
 # [On-premises management console](#tab/onprem)
 

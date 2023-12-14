@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Live statuses for cloud-based sensor updates
 
-When running a sensor update from the Azure portal, a new progress bar and estimated time remaining message now show in the **Sensor version** column during the update process. As the update progresses the bar shows the percent of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
+When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
 
 :::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/whats-new/sensor-version-update-bar.png":::
 
