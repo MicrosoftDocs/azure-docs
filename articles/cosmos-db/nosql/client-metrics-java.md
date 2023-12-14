@@ -19,17 +19,17 @@ The [Java SDK for Azure Cosmos DB](samples-java.md) implements client metrics us
 You can download prometheus from [here](https://prometheus.io/download/). To consume Micrometer metrics in the Java SDK for Azure Cosmos DB using Prometheus, first ensure you have imported the required libraries for registry and client:
 
 ```xml
-    <dependency>
-        <groupId>io.micrometer</groupId>
-        <artifactId>micrometer-registry-prometheus</artifactId>
-        <version>1.6.6</version>
-    </dependency>
-    
-    <dependency>
-        <groupId>io.prometheus</groupId>
-        <artifactId>simpleclient_httpserver</artifactId>
-        <version>0.5.0</version>
-    </dependency>
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+    <version>1.6.6</version>
+</dependency>
+
+<dependency>
+    <groupId>io.prometheus</groupId>
+    <artifactId>simpleclient_httpserver</artifactId>
+    <version>0.5.0</version>
+</dependency>
 ```
 
 In your application, provide the prometheus registry to the telemetry config. Notice that you can set various diagnostic thresholds, which will help to limit metrics consumed to the ones you are most interested in:
