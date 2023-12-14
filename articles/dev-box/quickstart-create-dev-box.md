@@ -13,12 +13,6 @@ ms.date: 12/13/2023
 
 # Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal
 
-<!-- Rose: One note for your review regarding the quickstart topic pattern.
-
-   -- The pattern says not to use links that send the user to another article for details or instructions.
-      On line 31, the topic sends the user to another topic for instructions.
-      How would you like to address these issues?
--->
 
 In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it with a Remote Desktop session through a browser or through a Remote Desktop app.
 
@@ -64,11 +58,11 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 1. Use the dev box tile in the developer portal to track the progress of creation.
 
+   The developer portal displays a notification that the dev box creation process can take 25 minutes. After the process completes, the dev box status changes to *Running*.
+   
+
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
 
-<!-- Rose: The creation process took 20 minutes for me. Should we add a note that the process can take some time to complete?
-     The next include file also adds an Important alert into the topic.
-     Adding a Note alert here would result in back-to-back alerts, which isn't ideal. -->
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 
