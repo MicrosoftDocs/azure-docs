@@ -147,7 +147,7 @@ from openai import AzureOpenAI
     
 client = AzureOpenAI(
     api_key=os.getenv("AZURE_OPENAI_KEY"),  
-    api_version="2023-10-01-preview",
+    api_version="2023-12-01-preview",
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 )
     
@@ -218,7 +218,7 @@ from openai import AsyncAzureOpenAI
 async def main():
     client = AsyncAzureOpenAI(  
       api_key = os.getenv("AZURE_OPENAI_KEY"),  
-      api_version = "2023-10-01-preview",
+      api_version = "2023-12-01-preview",
       azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
     response = await client.chat.completions.create(model="gpt-35-turbo", messages=[{"role": "user", "content": "Hello world"}])
@@ -236,7 +236,7 @@ from openai import AzureOpenAI
 
 token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
 
-api_version = "2023-10-01-preview"
+api_version = "2023-12-01-preview"
 endpoint = "https://my-resource.openai.azure.com"
 
 client = AzureOpenAI(

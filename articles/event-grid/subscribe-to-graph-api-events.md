@@ -54,7 +54,7 @@ You should meet these general prerequisites before implementing your application
 
   - [Register the Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with your Azure subscription.
 
-  - [Authorize partner](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
+  - [Authorize Microsoft Graph API (partner)](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 
 - Have a working knowledge of [Microsoft Graph API notifications](/graph/api/resources/webhooks). As part of your learning, you could use the [Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to create Graph API subscriptions.
 - Understand [Partner Events concepts](partner-events-overview.md).
@@ -213,8 +213,8 @@ Microsoft Graph API documentation provides code samples with instructions to:
 
 Web application samples are available for the following languages:
 
-- [C# sample](https://github.com/microsoftgraph/aspnetcore-webhooks-sample)
-- [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample) 
+- [C# sample](https://github.com/microsoftgraph/msgraph-sample-eventgrid-notifications-dotnet). This is an up-to-date sample that includes how to create and renew Graph API subscriptions and walks you through some of the steps to enable the flow of events.
+- [Java sample](https://github.com/microsoftgraph/java-spring-webhooks-sample)
   - [GraphAPIController](https://github.com/jfggdl/event-grid-ms-graph-api-java-snippet) contains sample code to create, delete, and renew a Graph API subscription. It must be used along with the Java sample application above.
 - [NodeJS sample](https://github.com/microsoftgraph/nodejs-webhooks-sample).
 

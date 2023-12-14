@@ -6,13 +6,17 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.date: 09/28/2023
+ms.date: 12/07/2023
 ms.custom: mvc, engagement-fy24
 ---
 
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (December 2023)
+
+- Envision cost savings from Azure Management Services (Azure Backup, Azure Monitor and Azure Update Manager) using Azure Migrate Business case. 
 
 ## Update (November 2023)
 - Public Preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). Using this feature, you get insights such as app readiness, cluster rightsizing and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).

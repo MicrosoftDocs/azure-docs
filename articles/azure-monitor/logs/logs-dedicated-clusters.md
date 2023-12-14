@@ -3,7 +3,7 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 07/01/2023
+ms.date: 12/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -203,24 +203,24 @@ The managed identity service generates the *principalId* GUID when you create th
 
 ## Link a workspace to a cluster
 
-When a Log Analytics workspace is linked to a dedicated cluster, the workspace billing plan in workspace is changed to cluster plan, new data ingested to the workspace is routed to your dedicated cluster, and existing data remains in Log Analytics cluster. Linking a workspace has no effect on data ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete and accurate. 
- 
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
-
-A cluster can be linked to up to 1,000 workspaces located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
-
-Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged after the link.
-
-The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
+> [!NOTE]
+> - Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
+> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
+> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
+> - Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:
 
 - In the workspace: *Microsoft.OperationalInsights/workspaces/write*
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
-> [!NOTE]
-> Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-> Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
+Once Log Analytics workspace linked to a dedicated cluster, new data sent to workspace is ingested to your dedicated cluster, while previously ingested data remains in Log Analytics cluster. Linking a workspace has no effect on workspace operation, including ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete. 
+ 
+When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
+
+A cluster can be linked to up to 1,000 workspaces located in the same region with cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
+
+The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
 Use the following steps to link a workspace to a cluster. You can automated for linking multiple workspaces:
 

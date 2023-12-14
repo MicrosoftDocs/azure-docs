@@ -2,7 +2,7 @@
 title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 11/20/2023
+ms.date: 12/09/2023
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -13,6 +13,17 @@ author: SnehaSudhirG
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 Pre and post events allows you to execute user-defined actions before and after the schedule patch installation. This article describes on how to create, view, and cancel the pre and post events in Azure Update Manager.
+
+## Register your subscription for public preview
+
+To self-register your subscription for public preview in Azure portal:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
+1. On the **All services** page, search for **Preview features**.
+1. On the **Preview Features** page, search and select **Pre and Post Events**.
+1. Select the feature and then select **Register** to register the subscription.
+   
+   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
 
 ## Timeline of schedules for pre and post events
 

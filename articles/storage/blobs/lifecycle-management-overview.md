@@ -130,7 +130,7 @@ The following sample rule filters the account to run the actions on objects that
 
 ### Rule filters
 
-Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters.
+Filters limit rule actions to a subset of blobs within the storage account. If more than one filter is defined, a logical `AND` runs on all filters. You can use a filter to specify which blobs to include. A filter provides no means to specify which blobs to exclude. 
 
 Filters include:
 

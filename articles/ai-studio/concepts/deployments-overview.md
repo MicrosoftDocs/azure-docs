@@ -8,11 +8,13 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 12/7/2023
 ms.author: eur
 ---
 
 # Overview: Deploy models, flows, and web apps with Azure AI Studio
+
+[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
 Azure AI Studio supports deploying large language models (LLMs), flows, and web apps. Deploying an LLM or flow makes it available for use in a website, an application, or other production environments. This typically involves hosting the model on a server or in the cloud, and creating an API or other interface for users to interact with the model. 
 
@@ -25,7 +27,38 @@ First you might ask:
 - "How do I choose the right model?" Azure AI Studio provides a [model catalog](../how-to/model-catalog.md) that allows you to search and filter models based on your use case. You can also test a model on a sample playground before deploying it to your project.
 - "From where in Azure AI Studio can I deploy a model?" You can deploy a model from the model catalog or from your project's deployment page.
 
-Azure AI Studio simplifies deployments. A simple select or a line of code deploys a model and generate an API endpoint for your applications to consume. For a how-to guide, see [Deploying models with Azure AI Studio](../how-to/deploy-models.md).
+Azure AI Studio simplifies deployments. A simple select or a line of code deploys a model and generate an API endpoint for your applications to consume. 
+
+### Azure OpenAI models
+
+Azure OpenAI allows you to get access to the latest OpenAI models with the enterprise features from Azure. Learn more about [how to deploy OpenAI models in AI studio](../how-to/deploy-models-openai.md).
+
+### Open models
+
+The model catalog offers access to a large variety of models across different modalities. Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need.
+
+#### Deploy models with model as a service
+
+This deployment option doesn't require quota from your subscription. You're billed per token in a pay-as-you-go fashion. Learn how to deploy and consume [Llama 2 model family](../how-to/deploy-models-llama.md) with model as a service.
+
+#### Deploy models with hosted managed infrastructure
+
+You can also host open models in your own subscription with managed infrastructure, virtual machines, and number of instances for capacity management. Currently offering a wide range of models from Azure AI, HuggingFace, and Nvidia. Learn more about [how to deploy open models to real-time endpoints](../how-to/deploy-models-open.md).
+
+### Billing for deploying and inferencing LLMs in Azure AI Studio 
+
+The following table describes how you're billed for deploying and inferencing LLMs in Azure AI Studio. See [monitor costs for models offered throughout the Azure Marketplace](../how-to/costs-plan-manage.md#monitor-costs-for-models-offered-through-the-azure-marketplace) to learn more about how to track costs.
+
+| Use case | Azure OpenAI models | Models deployed with pay-as-you-go | Models deployed to real-time endpoints |
+| --- | --- | --- | --- |
+| Deploying a model from the model catalog to your project | No, you aren't billed for deploying an Azure OpenAI model to your project. | Yes, you're billed per the infrastructure of the endpoint<sup>1</sup> | Yes, you're billed for the infrastructure hosting the model<sup>2</sup> |
+| Testing chat mode on Playground after deploying a model to your project | Yes, you're billed based on your token usage | Yes, you're billed based on your token usage | None. |
+| Testing a model on a sample playground on the model catalog (if applicable) | Not applicable | None. | None. |
+| Testing a model in playground under your project (if applicable) or in the test tab in the deployment details page under your project. | Yes, you're billed based on your token usage | Yes, you're billed based on your token usage | None. | 
+
+<sup>1</sup> A minimal endpoint infrastructure is billed per minute. You aren't billed for the infrastructure hosting the model itself in pay-as-you-go. After the endpoint is deleted, no further charges are made.
+
+<sup>2</sup> Billing is done in a minute-basis depending on the SKU and the number of instances used in the deployment since the moment of creation. After the endpoint is deleted, no further charges are made.
 
 ## Deploying flows
 
@@ -48,38 +81,9 @@ For Azure OpenAI models such as GPT-4, Azure AI Studio provides AI safety filter
 
 Optimizing LLMs requires a careful consideration of several factors, including operational metrics (ex. latency), quality metrics (ex. accuracy), and cost. It's important to work with experienced data scientists and engineers to ensure your model is optimized for your specific use case.   
 
-
-## Regional availability and quota limits of a model
-
-For Azure OpenAI models, the default quota for models varies by model and region. Certain models might only be available in some regions. For more information, see [Azure OpenAI Service quotas and limits](/azure/ai-services/openai/quotas-limits).
-
-## Quota for deploying and inferencing a model
-
-For Azure OpenAI models, deploying and inferencing consumes quota that is assigned to your subscription on a per-region, per-model basis in units of Tokens-per-Minutes (TPM). When you sign up for Azure AI Studio, you receive default quota for most available models. Then, you assign TPM to each deployment as it is created, and the available quota for that model will be reduced by that amount. You can continue to create deployments and assign them TPM until you reach your quota limit. 
-
-Once that happens, you can only create new deployments of that model by:
-
-- Request more quota by submitting a [quota increase form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4xPXO648sJKt4GoXAed-0pURVJWRU4yRTMxRkszU0NXRFFTTEhaT1g1NyQlQCN0PWcu).
-- Adjust the allocated quota on other model deployments to free up tokens for new deployments on [Azure OpenAI Portal](https://oai.azure.com/portal).
-
-To learn more, see [Manage Azure OpenAI Service quota documentation](../../ai-services/openai/how-to/quota.md?tabs=rest).
-
-For other models such as Llama and Falcon models, deploying and inferencing can be done by consuming Virtual Machine (VM) core quota that is assigned to your subscription a per-region basis. When you sign up for Azure AI Studio, you receive a default VM quota for several VM families available in the region. You can continue to create deployments until you reach your quota limit. Once that happens, you can request for quota increase.  
-
-## Billing for deploying and inferencing LLMs in Azure AI Studio 
-
-The following table describes how you're billed for deploying and inferencing LLMs in Azure AI Studio.
-
-| Use case | Azure OpenAI models | Open source and Meta models |
-| --- | --- | --- |
-| Deploying a model from the model catalog to your project | No, you aren't billed for deploying an Azure OpenAI model to your project. | Yes, you're billed for deploying (hosting) an open source or a Meta model |
-| Testing chat mode on Playground after deploying a model to your project | Yes, you're billed based on your token usage | Not applicable |
-| Consuming a deployed model inside your application | Yes, you're billed based on your token usage | Yes, you're billed for scoring your hosted open source or Meta model |
-| Testing a model on a sample playground on the model catalog (if applicable) | Not applicable | No, you aren't billed without deploying (hosting) an open source or a Meta model |
-| Testing a model in playground under your project (if applicable) or in the test tab in the deployment details page under your project. | Not applicable | Yes, you're billed for scoring your hosted open source or Meta model. |
-
-
 ## Next steps
 
-- Learn how you can build generative AI applications in the [Azure AI Studio](../what-is-ai-studio.md).
+- Learn [how to deploy OpenAI models with Azure AI Studio](../how-to/deploy-models-openai.md).
+- Learn [how to deploy Llama 2 family of large language models with Azure AI Studio](../how-to/deploy-models-llama.md).
+- Learn [how to deploy how to deploy large language models with Azure AI Studio](../how-to/deploy-models-open.md).
 - Get answers to frequently asked questions in the [Azure AI FAQ article](../faq.yml).

@@ -113,6 +113,7 @@ marketplacedataprovider.azure.com (Azure Marketplace)
 marketplaceemail.azure.com (Azure Marketplace)
 media.azure.net (Azure Media Services)
 monitor.azure.com (Azure Monitor Service)
+*.msidentity.com (Microsoft Entra)
 mspim.azure.com (Azure AD)
 network.azure.com (Azure Network)
 purview.azure.com (Azure Purview)
@@ -139,6 +140,7 @@ ux.console.azure.com (Azure Cloud Shell)
 *.microsoft.us
 *.microsoftonline.us
 *.msauth.net
+*.msidentity.us
 *.usgovcloudapi.net
 *.usgovtrafficmanager.net
 *.windowsazure.us
@@ -156,6 +158,7 @@ store-images.s-microsoft.com
 *.azure.cn
 *.microsoft.cn
 *.microsoftonline.cn
+*.msidentity.cn
 *.chinacloudapi.cn
 *.trafficmanager.cn
 *.windowsazure.cn

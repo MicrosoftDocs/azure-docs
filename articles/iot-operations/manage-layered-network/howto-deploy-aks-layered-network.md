@@ -48,7 +48,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the installation was successful, run:
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     You should see an output that looks like the following example:
@@ -131,7 +131,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To validate the instance, run:
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     The output should look like:
@@ -145,7 +145,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To view the service, run:
 
     ```bash
-    kubectl get services
+    kubectl get services -n azure-iot-operations
     ```
 
     The output should look like the following example:
@@ -157,7 +157,7 @@ These steps deploy Layered Network Management to the AKS cluster. The cluster is
 1. To view the config maps, run:
 
     ```bash
-    kubectl get cm
+    kubectl get cm -n azure-iot-operations
     ```
     The output should look like the following example:
     ```
