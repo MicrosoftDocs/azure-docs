@@ -73,17 +73,6 @@ For example, if your growing company has factories and offices in Paris, Lagos, 
 |**Dubai office**     |     - Ground floor (Convention center) <br>- Floor 1 (Sales)<br>- Floor 2 (Offices)     |
 |**Tianjin office**     |   - Ground floor (Offices) <br>- Floors 1-2 (Factory)        |
 
-<!-- how to update this?
-### Zero Trust and air-gapped environments
-
-If you're working with a large, air-gapped environment, we recommend that you [deploy an on-premises management console](legacy-central-management/install-software-on-premises-management-console.md) for central maintenance and security monitoring. Use the on-premises management console to create sites and zones across all connected OT sensors.
-
-> [!NOTE]
-> Sites and zones configured on the Azure portal are not synchronized with sites and zones configured on an on-premises management console. 
->
-> If you're working with a large deployment, we recommend that you use the Azure portal to manage cloud-connected sensors, and the on-premises management console to manage locally-managed sensors.
-
--->
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.topic: how-to
 
 [!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
 
-Increase the resiliency of your Defender for IoT deployment by configuring [high availability](legacy-central-management/legacy-air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+Increase the resiliency of your Defender for IoT deployment by configuring [high availability](legacy-air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with an on-premises management console pair that includes a primary and secondary appliance.
 
@@ -19,14 +19,14 @@ This deployment is implemented with an on-premises management console pair that 
 
 Before you perform the procedures in this article, verify that you've met the following prerequisites:
 
-- Make sure that you have an [on-premises management console installed](./legacy-central-management/install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
+- Make sure that you have an [on-premises management console installed](install-software-on-premises-management-console.md) on both a primary appliance and a secondary appliance.
 
     - Both your primary and secondary on-premises management console appliances must be running identical hardware models and software versions.
-    - You must be able to access both the primary and secondary on-premises management consoles as a [privileged user](references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](roles-on-premises.md).
+    - You must be able to access both the primary and secondary on-premises management consoles as a [privileged user](../references-work-with-defender-for-iot-cli-commands.md), for running CLI commands. For more information, see [On-premises users and roles for OT monitoring](../roles-on-premises.md).
 
-- Make sure that the primary on-premises management console is fully [configured](legacy-central-management/how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](legacy-central-management/connect-sensors-to-management.md) and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
+- Make sure that the primary on-premises management console is fully [configured](how-to-manage-the-on-premises-management-console.md), including at least two [OT network sensors connected](connect-sensors-to-management.md) and visible in the console UI, as well as the scheduled backups or VLAN settings. All settings are applied to the secondary appliance automatically after pairing.
 
-- Make sure that your SSL/TLS certificates meet required criteria. For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md).
+- Make sure that your SSL/TLS certificates meet required criteria. For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md).
 
 - Make sure that your organizational security policy grants you access to the following services, on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
@@ -47,11 +47,11 @@ Before you perform the procedures in this article, verify that you've met the fo
 
     1. Sign in to the secondary on-premises management console, and select **System Settings**.
 
-    1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
+    1. In the **Sensor Setup - Connection String** area, under **Copy Connection String**, select the :::image type="icon" source="../media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the full connection string.
 
     1.  The connection string is composed of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
 
-        :::image type="content" source="media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Screenshot showing to copy each part of the connection string to use in the following command." lightbox="media/how-to-set-up-high-availability/copy-connection-string-second-part.png":::
+        :::image type="content" source="../media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Screenshot showing to copy each part of the connection string to use in the following command." lightbox="media/how-to-set-up-high-availability/copy-connection-string-second-part.png":::
 
 1. **On the primary appliance**, use the following steps to connect the secondary appliance to the primary via CLI:
 
@@ -106,7 +106,7 @@ The core application logs can be exported to the Defender for IoT support team t
 
 **To access the core logs**:
 
-1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
+1. Sign into the on-premises management console and select **System Settings** > **Export**. For more information on exporting logs to send to the support team, see [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
 
 ## Update the on-premises management console with high availability
 
@@ -132,7 +132,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
 
-        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Screenshot showing the domain associated with the secondary appliance." lightbox="media/how-to-set-up-high-availability/update-high-availability-domain.jpg":::
+        :::image type="content" source="../media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Screenshot showing the domain associated with the secondary appliance." lightbox="../media/how-to-set-up-high-availability/update-high-availability-domain.jpg":::
 
     1. Remove the secondary domain from the list of trusted hosts. Run:
     
@@ -168,7 +168,7 @@ Perform the update in the following order. Make sure each step is complete befor
         sudo cyberx-management-trusted-hosts-apply
         ```
 
-1. Update both the primary and secondary appliances to the new version. For more information, see [Update an on-premises management console](update-ot-software.md#update-an-on-premises-management-console).
+1. Update both the primary and secondary appliances to the new version. For more information, see [Update an on-premises management console](../update-ot-software.md#update-an-on-premises-management-console).
 
 1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 
@@ -181,7 +181,7 @@ When failover occurs, the primary on-premises management console freezes and you
 
 During failover, sensors continue attempts to communicate with the primary appliance. When more than half the managed sensors succeed in communicating with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
 
-:::image type="content" source="media/how-to-set-up-high-availability/secondary-console-message.png" alt-text="Screenshot of a message that appears at the secondary console when the primary is restored.":::
+:::image type="content" source="../media/how-to-set-up-high-availability/secondary-console-message.png" alt-text="Screenshot of a message that appears at the secondary console when the primary is restored.":::
 
 Sign back in to the primary appliance after redirection.
 
@@ -191,8 +191,8 @@ Activation files can only be updated on the primary on-premises management conso
 
 Before the activation file expires on the secondary machine, define it as the primary machine so that you can update the license.
 
-For more information, see [Upload a new activation file](legacy-central-management/how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
+For more information, see [Upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 ## Next steps
 
-For more information, see [Activate and set up an on-premises management console](legacy-central-management/activate-deploy-management.md).
+For more information, see [Activate and set up an on-premises management console](activate-deploy-management.md).

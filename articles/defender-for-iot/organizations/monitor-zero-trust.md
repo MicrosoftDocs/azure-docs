@@ -1,7 +1,7 @@
 ---
 title: Monitor OT networks with Zero Trust principles - Microsoft Defender for IoT
 description: Learn how to use Microsoft Defender for IoT to monitor your operational technology (OT) networks with Zero Trust principles.
-ms.date: 02/15/2023
+ms.date: 12/14/2023
 ms.topic: tutorial
 ms.collection:
   -       zerotrust-services
@@ -11,7 +11,6 @@ ms.collection:
 
 [!INCLUDE [zero-trust-principles](../../../includes/security/zero-trust-principles.md)]
 
-<!--need to update this to remove the cm?-->
 Defender for IoT uses site and zone definitions across your OT network to ensure that you're maintaining network hygiene and keeping each subsystem separate and secure.
 
 This tutorial describes how to monitor your OT network with Defender for IoT and Zero Trust principles.
@@ -179,26 +178,6 @@ In the Azure portal, view Defender for IoT data by site and zone from the follow
 - **Workbooks**: Open the Defender for IoT [**Vulnerabilities** workbook](workbooks.md#view-workbooks) to view detected vulnerabilities per site. You may also want to [create custom workbooks](workbooks.md#create-custom-workbooks) for your own organization to view more data by site and zone.
 
 - **Sites and sensors**: [Filter the sensors](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal) listed by site or zone.
-
-<!-- remove this?
-### View data in air-gapped environments
-
-Use the following procedure to view more data for each site and zone on an on-premises management console. We recommend using an on-premises management console in air-gapped environments to centrally manage and monitor OT devices across your network.
-
-1. Sign into your on-premises management console and select **Site Management**.
-
-1. Locate the site and zone you want to view, using the filtering options at the top as needed:
-
-    - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
-    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](update-ot-software.md#update-an-on-premises-management-console).
-    - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](legacy-on-premises-management/sites-and-zones-on-premises.md#create-business-units).
-    - **Region**: Select to view all OT sensors, or only those from a [specific region](legacy-on-premises-management/sites-and-zones-on-premises.md#create-regions).
-
-Each site and zone lists operational details about the sensor, such as details about its last software update, as well as the number of devices, alerts, and sensors aggregated for each zone.
-
-Select **View device inventory**, **View zone map**, the :::image type="icon" source="media/sites-and-zones/sensor-icon.png" border="false"::: sensor icon, or the :::image type="icon" source="media/legacy-central-management/how-to-work-with-alerts-on-premises-management-console/alerts-icon.png" border="false"::: alerts button to jump to more specific data.
-
--->
 
 ## Sample alerts to watch for
 
