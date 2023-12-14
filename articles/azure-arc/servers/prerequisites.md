@@ -92,7 +92,7 @@ Computer Configuration > Windows Settings > Security Settings > Local Policies >
 
 Check if any of `NT SERVICE\ALL SERVICES`, `NT SERVICE\himds`, or `S-1-5-80-4215458991-2034252225-2287069555-1155419622-2701885083` (the static security identifier for NT SERVICE\\himds) are in the list. If none are in the list, you'll need to work with your Group Policy administrator to add `NT SERVICE\himds` to any policies that configure user rights assignments on your servers. The Group Policy administrator will need to make the change on a computer with the Azure Connected Machine agent installed so the object picker resolves the identity correctly. The agent doesn't need to be configured or connected to Azure to make this change.
 
-:::image type="content" source="media/prerequisites/arc-server-user-rights-assignment.png" alt-text="Local Group Policy Editor showing which users have permissions to log on as a service." border="false":::
+:::image type="content" source="media/prerequisites/arc-server-user-rights-assignment.png" alt-text="Screen capture of the Local Group Policy Editor showing which users have permissions to log on as a service." border="false":::
 
 ## Required permissions
 
