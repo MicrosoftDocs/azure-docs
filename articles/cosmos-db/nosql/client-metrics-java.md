@@ -12,7 +12,7 @@ ms.date: 12/14/2023
 # Micrometer metrics for Java
 [!INCLUDE[NoSQL](../includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
-The [Java SDK for Azure Cosmos DB](samples-java.md) implements client metrics using [Micrometer](https://micrometer.io/), for the instrumentation of clients in the popular observability systems like [Prometheus](https://prometheus.io/).
+The [Java SDK for Azure Cosmos DB](samples-java.md) implements client metrics using [Micrometer](https://micrometer.io/), for the instrumentation of clients in popular observability systems like [Prometheus](https://prometheus.io/).
 
 ## Consume metrics from Prometheus
 
