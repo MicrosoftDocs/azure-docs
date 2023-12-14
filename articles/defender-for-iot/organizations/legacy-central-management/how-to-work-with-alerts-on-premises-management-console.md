@@ -86,7 +86,7 @@ To view alerts from connected OT sensors for a specific zone, use the **Site Man
 1. Locate the site and zone you want to view, using the filtering options at the top as needed:
 
     - **Connectivity**: Select to view only all OT sensors, or only connected / disconnected sensors only.
-    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](../update-ot-software.md#update-an-on-premises-management-console).
+    - **Upgrade Status**: Select to view all OT sensors, or only those with a specific [software update status](how-to-manage-sensors-from-the-on-premises-management-console.md#update-an-on-premises-management-console).
     - **Business Unit**: Select to view all OT sensors, or only those from a [specific business unit](../best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
     - **Region**: Select to view all OT sensors, or only those from a [specific region](../best-practices/plan-corporate-monitoring.md#plan-ot-sites-and-zones).
 

@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 # About high availability (Legacy)
 
-[!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 Increase the resiliency of your Defender for IoT deployment by configuring [high availability](legacy-air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
@@ -51,7 +51,7 @@ Before you perform the procedures in this article, verify that you've met the fo
 
     1.  The connection string is composed of the IP address and the token. The IP address is before the colon, and the token is after the colon. Copy the IP address and token separately. For example, if your connection string is ```172.10.246.232:a2c4gv9de23f56n078a44e12gf2ce77f```, copy the IP address ```172.10.246.232``` and the token ```a2c4gv9de23f56n078a44e12gf2ce77f``` separately.
 
-        :::image type="content" source="../media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Screenshot showing to copy each part of the connection string to use in the following command." lightbox="media/how-to-set-up-high-availability/copy-connection-string-second-part.png":::
+        :::image type="content" source="../media/how-to-set-up-high-availability/copy-connection-string-second-part.png" alt-text="Screenshot showing to copy each part of the connection string to use in the following command." lightbox="../media/how-to-set-up-high-availability/copy-connection-string-second-part.png":::
 
 1. **On the primary appliance**, use the following steps to connect the secondary appliance to the primary via CLI:
 
@@ -168,7 +168,7 @@ Perform the update in the following order. Make sure each step is complete befor
         sudo cyberx-management-trusted-hosts-apply
         ```
 
-1. Update both the primary and secondary appliances to the new version. For more information, see [Update an on-premises management console](../update-ot-software.md#update-an-on-premises-management-console).
+1. Update both the primary and secondary appliances to the new version. For more information, see [Update an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#update-an-on-premises-management-console).
 
 1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 

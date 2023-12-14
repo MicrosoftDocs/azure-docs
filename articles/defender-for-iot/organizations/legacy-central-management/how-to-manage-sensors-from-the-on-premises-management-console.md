@@ -21,7 +21,7 @@ To perform the procedures in this article, make sure you have:
 
 - Access to the on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
-# Update sensors from an on-premises management console
+## Update sensors from an on-premises management console
 
 This procedure describes how to update several OT sensors simultaneously from a legacy on-premises management console.
 
@@ -44,13 +44,13 @@ The software version on your on-premises management console must be equal to tha
 
     The **Available versions** area lists all update packages available for your specific update scenario. You may have multiple options, but there will always be one specific version marked as **Recommended** for you. For example:
 
-    :::image type="content" source="media/update-ot-software/recommended-version.png" alt-text="Screenshot highlighting the recommended update version for the selected update scenario." lightbox="media/update-ot-software/recommended-version.png":::
+    :::image type="content" source="../media/update-ot-software/recommended-version.png" alt-text="Screenshot highlighting the recommended update version for the selected update scenario." lightbox="../media/update-ot-software/recommended-version.png":::
 
 1. Scroll down further in the **Local update** pane and select **Download** to download the software file.
 
     If you'd selected the **Are you updating through a local manager** option, files will be listed for both the on-premises management console and the sensor. For example:
 
-    :::image type="content" source="media/update-ot-software/download-update-package.png" alt-text="Screenshot of the Local update pane with two download files showing, for an on-premises management console and a sensor." lightbox="media/update-ot-software/download-update-package.png":::
+    :::image type="content" source="../media/update-ot-software/download-update-package.png" alt-text="Screenshot of the Local update pane with two download files showing, for an on-premises management console and a sensor." lightbox="../media/update-ot-software/download-update-package.png":::
 
     The update packages are downloaded with the following file syntax names:
 
@@ -59,7 +59,7 @@ The software version on your on-premises management console must be equal to tha
 
     Where `<version number>` is the software version number you're updating to.
 
-[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+[!INCLUDE [root-of-trust](../includes/root-of-trust.md)]
 
 ### Update an on-premises management console
 
@@ -81,7 +81,7 @@ The software version on your on-premises management console must be equal to tha
 
     Save your changes when you're finished selecting sensors to update. For example:
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
+   :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png" alt-text="Screenshot of on-premises management console with Automatic Version Updates selected." lightbox="../media/how-to-manage-sensors-from-the-on-premises-management-console/automatic-updates.png":::
 
     > [!IMPORTANT]
     > If your **Automatic Version Updates** option is red, you have an update conflict. An update conflict might occur if you have multiple sensors marked for automatic updates but the sensors currently have different software versions installed. Select the **Automatic Version Updates** option to resolve the conflict.
