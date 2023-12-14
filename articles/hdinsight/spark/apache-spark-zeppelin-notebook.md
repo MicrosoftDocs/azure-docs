@@ -146,25 +146,22 @@ The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the
 This action saves the notebook as a JSON file in your download location.
 
 > [!NOTE]
-> 1. In HDI 4.0 , the zeppelin notebook directory path is, `/usr/hdp/<version>/zeppelin/notebook/<notebook_session_id>/`
+> * In HDI 4.0 , the zeppelin notebook directory path is, `/usr/hdp/<version>/zeppelin/notebook/<notebook_session_id>/`
+   >    Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
+   > 
+   >    Where as in HDI 5.0 and above this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
+   > 
+   >    Eg. /usr/hdp/5.1.4.5/zeppelin/notebook/Scala/
+> * The file name stored is different in HDI 5.0.
+   >    It is stored as `<notebook_name>_<sessionid>.zpln`
+   > 
+   >    Eg. testzeppelin_2JJK53XQA.zpln
+   > 
+   >    In HDI 4.0, the file name is just note.json stored under session_id directory.
+   > 
+   >    Eg. /2JMC9BZ8X/note.json
 > 
-   > Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
-   > 
-   > Where as in HDI 5.0 and above this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
-   > 
-   > Eg. /usr/hdp/5.1.4.5/zeppelin/notebook/Scala/
-> 
-> 1. The file name stored is different in HDI 5.0.
->    
-   > It is stored as `<notebook_name>_<sessionid>.zpln`
-   > 
-   > Eg. testzeppelin_2JJK53XQA.zpln
-   > 
-   > In HDI 4.0, the file name is just note.json stored under session_id directory.
-   > 
-   > Eg. /2JMC9BZ8X/note.json
-> 
-> 1. HDI Zeppelin always saves the notebook in the path `/usr/hdp/<version>/zeppelin/notebook/` in hn0 local disk.
+> * HDI Zeppelin always saves the notebook in the path `/usr/hdp/<version>/zeppelin/notebook/` in hn0 local disk.
 >    
 > If you want the notebook to be available even after cluster deletion , you can try to use azure file storage (Using SMB protocol ) and link it to local path. Please refer the link below for more details, [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
 > 
