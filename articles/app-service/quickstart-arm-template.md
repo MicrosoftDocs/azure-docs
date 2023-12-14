@@ -5,9 +5,9 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 03/10/2022
+ms.date: 12/20/2023
 ms.custom: subject-armqs, mode-arm, devdivchpfy22, devx-track-arm-template
-zone_pivot_groups: app-service-platform-windows-linux
+zone_pivot_groups: app-service-platform-windows-linux-windows-container
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -22,13 +22,18 @@ Get started with [Azure App Service](overview.md) by deploying an app to the clo
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-Use the following button to deploy on **Linux**:
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
-
+::: zone pivot="platform-windows"
 Use the following button to deploy on **Windows**:
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-windows%2Fazuredeploy.json)
+::: zone-end
+::: zone pivot="platform-linux"
+Use the following button to deploy on **Linux**:
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fapp-service-docs-linux%2Fazuredeploy.json)
+::: zone-end
+::: zone pivot="platform-windows-container"
+::: zone-end
 
 ## Prerequisites
 
@@ -79,7 +84,31 @@ This template contains several parameters that are predefined for your convenien
 
 ---
 ::: zone-end
+::: zone pivot="platform-windows-container"
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md).
 
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
+
+Two Azure resources are defined in the template:
+
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): create an App Service plan.
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): create an App Service app.
+
+This template contains several parameters that are predefined for your convenience. See the table below for parameter defaults and their descriptions:
+
+| Parameters | Type    | Default value                | Description |
+|------------|---------|------------------------------|-------------|
+| webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
+| location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
+| sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
+| language   | string  | ".net"                       | Programming language stack (.NET, php, node, html) |
+| helloWorld | boolean | False                        | True = Deploy "Hello World" app |
+| repoUrl    | string  | " "                          | External Git repo (optional) |
+| kind       | string  | "windows"                          | External Git repo (optional) |
+| hyperv     | string  | "true"                          | External Git repo (optional) |
+| windowsFxVersion | string  | "DOCKER|mcr.microsoft.com/dotnet/samples:aspnetapp"                          | External Git repo (optional) |
+
+::: zone-end
 ## Deploy the template
 
 Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
@@ -116,6 +145,15 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 | **Ruby**    | linuxFxVersion="RUBY&#124;2.6"                       |
 
 ---
+::: zone-end
+::: zone pivot="platform-windows-container"
+Run the code below to deploy a .NET framework app on Windows.
+
+```azurecli-interactive
+az group create --name myResourceGroup --location "southcentralus" &&
+az deployment group create --resource-group myResourceGroup \
+--parameters language=".net" helloWorld="true" webAppName="<app-name>" \
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 
 > [!NOTE]
