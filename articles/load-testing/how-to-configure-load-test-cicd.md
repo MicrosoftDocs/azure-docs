@@ -106,9 +106,11 @@ Create a service principal in the Azure subscription and assign the Load Test Co
 1. Create a service principal and assign the `Load Test Contributor` role:
 
     ```azurecli-interactive
+    # Get the resource ID for the load testing resource - replace the text place holders.
     loadtest=$(az resource show -g <resource-group-name> -n <load-testing-resource-name> --resource-type "Microsoft.LoadTestService/loadtests" --query "id" -o tsv)
     echo $loadtest
 
+    # Create a service principal and assign the Load Test Contributor role - the scope is limited to the load testing resource.
     az ad sp create-for-rbac --name "my-load-test-cicd" --role "Load Test Contributor" \
                              --scopes $loadtest \
                              --json-auth
@@ -160,6 +162,53 @@ To create a GitHub Actions secret:
     | **Secret** | Paste the JSON output from the service principal creation command you copied earlier. |
 
 You can now access your Azure subscription and load testing resource from your GitHub Actions workflow by using the stored credentials.
+
+# [Other](#tab/otherci)
+
+If you're using another CI/CD tool, you use the Azure CLI to interact with your Azure resources. Perform the following steps to authorize the CI tool access to your load testing resource:
+
+1. Create a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) to connect to your Azure subscription and access your Azure load testing resource. 
+1. Grant the service principal permissions to create and run a load test by assigning the Load Test Contributor role. 
+1. Store the Azure credentials securely in the CI tool.
+
+Perform the following steps to configure the service authorization for your CI tool:
+
+1. Create a service principal and assign the Load Test Contributor role:
+
+    Replace the `<resource-group-name>` and `<load-testing-resource-name>` text placeholders.
+
+    ```azurecli-interactive
+    # Get the resource ID for the load testing resource - replace the text place holders.
+    loadtest=$(az resource show -g <resource-group-name> -n <load-testing-resource-name> --resource-type "Microsoft.LoadTestService/loadtests" --query "id" -o tsv)
+    echo $loadtest
+
+    # Create a service principal and assign the Load Test Contributor role - the scope is limited to the load testing resource.
+    az ad sp create-for-rbac --name "my-load-test-cicd" --role "Load Test Contributor" \
+                             --scopes $loadtest \
+                             --json-auth
+    ```
+
+    The output is a JSON object that represents the service principal.
+
+    ```output
+    Creating 'Load Test Contributor' role assignment under scope
+    {
+      "clientId": "00000000-0000-0000-0000-000000000000",
+      "clientSecret": "00000000-0000-0000-0000-000000000000",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "tenantId": "00000000-0000-0000-0000-000000000000",
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"    
+    }
+    ```
+
+1. Copy the `clientId`, `clientSecret`, and `tenantId` values and securely store them as secrets in your CI tool.
+
+    You use these values to sign into your Azure subscription with the Azure CLI `az login` command.
 
 ---
 
@@ -298,6 +347,42 @@ Update your GitHub Actions workflow to run a load test for your Azure load testi
             path: ${{ github.workspace }}/loadTest
     ```
 
+# [Other](#tab/otherci)
+
+Update your CI workflow to run a load test for your Azure load testing resource by using the Azure CLI. Use the specifics of your CI tool to add the following commands to your CI workflow:
+
+1. Sign into the Azure subscription by using the service principal.
+
+    Use the `clientId`, `clientSecret`, and `tenandId` values you stored previously.
+
+    ```azurecli    
+    az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
+    az account set -s $AZURE_SUBSCRIPTION_ID
+    ```
+
+1. Create a load test by using the load test configuration YAML file.
+
+    Replace the *`<load-testing-resource>`*, *`<load-testing-resource-group>`*, and *`<load-test-config-yaml>`* text placeholders with the name of the load testing resource, the resource group name, and the file name of the load test configuration YAML file you added to the repository previously.
+
+    ```azurecli
+    az load test create --load-test-resource <load-testing-resource> --resource-group <load-testing-resource-group> --test-id sample-test-id --load-test-config-file <load-test-config-yaml>
+    ```
+
+1. Run the load test.
+
+    ```azurecli
+    testRunId="run_"`date +"%Y%m%d%_H%M%S"`
+    displayName="Run"`date +"%Y/%m/%d_%H:%M:%S"`
+
+    az load test-run create --load-test-resource <load-testing-resource> --test-id sample-test-id --test-run-id $testRunId --display-name $displayName --description "Test run from CLI"
+    ```
+
+1. Retrieve and display the client-side metrics for the load test run.
+
+    ```azurecli
+    az load test-run metrics list --load-test-resource <load-testing-resource> --test-run-id $testRunId --metric-namespace LoadTestRunMetrics
+    ```
+
 ---
 
 ## View load test results
@@ -343,6 +428,10 @@ If you don't plan to use any of the resources that you created, delete them so y
     ```azurecli-interactive
     az ad sp delete --id $(az ad sp show --display-name "my-load-test-cicd" -o tsv)
     ```
+
+# [Other](#tab/otherci)
+
+Use the specifics of your CI tool to display the output logs of the CI workflow run. The logs contain the results of the load test run and the summary client-side metrics. You can view the load testing dashboard in the Azure portal to view more details.
 
 ---
 
