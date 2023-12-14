@@ -291,7 +291,7 @@ The Display Format file should have an .md extension. The maximum file size is 1
 |#ITN|A list of invert-text-normalization rules to define certain display patterns such as numbers, addresses, and dates.|Maximum of 200 lines|
 |#rewrite|A list of rewrite pairs to replace certain words for reasons such as capitalization and spelling correction.|Maximum of 1,000 lines|
 |#profanity|A list of unwanted words that will be masked as `******` from Display and Masked output, on top of Microsoft built-in profanity lists.|Maximum of 1,000 lines|
-|#test|A list of unit test cases to validate if the display rules work as expected, including the lexical format input and the expected display format output.|Maximum file size of 200MB|
+|#test|A list of unit test cases to validate if the display rules work as expected, including the lexical format input and the expected display format output.|Maximum file size of 10MB|
 
 Here's an example display format file:
 
