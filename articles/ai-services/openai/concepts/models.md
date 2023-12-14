@@ -155,7 +155,7 @@ These models can only be used with Embedding API requests.
 | dalle2 | East US | 1000 |
 | dalle3 | Sweden Central | 4000 |
 
-### Fine-tuning models (Preview)
+### Fine-tuning models
 
 `babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
 
