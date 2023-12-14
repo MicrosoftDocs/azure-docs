@@ -35,6 +35,10 @@ To complete the procedures in this article, you need:
 > [!NOTE]
 > The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).
 
+## Native connector plan requirements
+
+Each plan has its own requirements for the native connector.
+
 ### Defender for Containers
 
 If you choose the Microsoft Defender for Containers plan, you need:

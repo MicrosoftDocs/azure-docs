@@ -132,3 +132,7 @@ landingContent:
             url: provision-user-roles.md
           - text: Plan and manage costs
             url: plan-and-manage-costs.md
+      - linkListType: reference
+        links:
+          - text: Provisioning API Reference
+            url: /rest/api/voiceservices

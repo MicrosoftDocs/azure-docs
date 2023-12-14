@@ -216,9 +216,9 @@ The request body consists of a series of messages. The model will generate a res
 |--|--|--|--|--|
 | `messages` | array | Yes | N/A | The series of messages associated with this chat completion request. It should include previous messages in the conversation. Each message has a `role` and `content`. |
 | `role`| string | Yes | N/A | Indicates who is giving the current message. Can be `system`,`user`,`assistant`,`tool`, or `function`.|
-| `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario: If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then it can be an array of `contentPart` structures. |
-| `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. <!--If text, it will be a text string. If image, it will be a `contentPartImage` object.--> |
-<!--| `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|-->
+| `content` | string or array | Yes | N/A | The content of the message. It must be a string, unless in a Vision-enabled scenario. If it's part of the `user` message, using the GPT-4 Turbo with Vision model, with the latest API version, then `content` must be an array of structures, where each item represents either text or an image: <ul><li> `text`: input text is represented as a structure with the following properties: </li> <ul> <li> `type` = "text" </li> <li> `text` = the input text </li> </ul> <li> `images`: an input image is represented as a structure with the following properties: </li><ul> <li> `type` = "image_url" </li> <li> `image_url` = a structure with the following properties: </li> <ul> <li> `url` = the image URL </li> <li>(optional) `detail` = "high", "low", or "auto" </li> </ul> </ul> </ul>|
+| `contentPart` | object | No | N/A | Part of a user's multi-modal message. It can be either text type or image type. If text, it will be a text string. If image, it will be a `contentPartImage` object. |
+| `contentPartImage` | object | No | N/A | Represents a user-uploaded image. It has a `url` property, which is either a URL of the image or the base 64 encoded image data. It also has a `detail` property which can be `auto`, `low`, or `high`.|
 | `enhancements` | object | No | N/A | Represents the Vision enhancement features requested for the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service.|
 | `dataSources` | object | No | N/A | Represents additional resource data. Computer Vision resource data is needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property which has an `endpoint` and `key` property. These strings should be set to the endpoint URL and access key of your Computer Vision resource.|
 
@@ -660,7 +660,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 
 | Parameter | Type | Required? | Default | Description |
 |--|--|--|--|--|
-| `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 1000 characters. |
+| `prompt` | string | Required |  | A text description of the desired image(s). The maximum length is 4000 characters. |
 | `n` | integer | Optional | 1 | The number of images to generate. Only `n=1` is supported for DALL-E 3. |
 | `size` | string | Optional | `1024x1024` | The size of the generated images. Must be one of `1792x1024`, `1024x1024`, or `1024x1792`. |
 | `quality` | string | Optional | `standard` | The quality of the generated images. Must be `hd` or `standard`. |
