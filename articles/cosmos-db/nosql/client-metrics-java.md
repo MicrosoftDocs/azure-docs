@@ -59,7 +59,7 @@ scrape_configs:
       - targets: ["localhost:9090", "localhost:8080"]
 ```
 
-Now you can consume metrics from Prometheus. If your clients are deployed on Azure Kubernetes Service (AKS), you can also used the Azure Monitor managed service for Prometheus with custom scraping, see documentation [here](../azure-monitor/containers/prometheus-metrics-scrape-configuration.md). 
+Now you can consume metrics from Prometheus. If your clients are deployed on Azure Kubernetes Service (AKS), you can also used the Azure Monitor managed service for Prometheus with custom scraping, see documentation [here](../../azure-monitor/containers/prometheus-metrics-scrape-configuration-minimal.md). 
 
 The full list of metrics provided is documented [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/docs/Metrics.md#what-metrics-are-emitted).
 
@@ -67,5 +67,5 @@ The full list of metrics provided is documented [here](https://github.com/Azure/
 
 ## Next steps
 
-- [Monitoring Azure Cosmos DB data reference](monitor-reference.md)
-- [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)
+- [Monitoring Azure Cosmos DB data reference](../monitor-reference.md)
+- [Monitoring Azure resources with Azure Monitor](../../azure-monitor//essentials//monitor-azure-resource.md)
