@@ -55,7 +55,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 ## Publish files to registry
 
-After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry.
+After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry. The publish command will create an ARM template which will be stored in the registry. This means if publishing a bicep file that references other local modules, these modules will be fully expanded as one JSON file and published to the registry.
 
 # [PowerShell](#tab/azure-powershell)
 
