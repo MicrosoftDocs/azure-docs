@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 10/19/2022
+ms.date: 11/23/2023
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -71,7 +71,7 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
     Select the **Security + networking** tab.
 
-1. For this Quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Customer-managed key disk encryption](../disk-encryption.md)
+1. For this Quickstart, leave the default security settings. To learn more about Enterprise Security package, visit [Configure a HDInsight cluster with Enterprise Security Package by using Microsoft Entra Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). To learn how to use your own key for Apache Kafka Disk Encryption, visit [Customer-managed key disk encryption](../disk-encryption.md)
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 

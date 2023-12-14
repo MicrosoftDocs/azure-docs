@@ -10,14 +10,16 @@
         href: classic-overview.md
       - name: Choosing the right load balancer
         href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
-      - name: Tier comparison
-        href: standard-premium/tier-comparison.md
+      - name: Front Door and CDN comparison
+        href: front-door-cdn-comparison.md
   - name: CDN
     items: 
         - name: What is Azure Content Delivery Network (Azure CDN)?
           href: ../cdn/cdn-overview.md?toc=/azure/frontdoor/TOC.json
         - name: Compare product features
           href: ../cdn/cdn-features.md?toc=/azure/frontdoor/TOC.json
+  - name: Front Door and CDN comparison
+    href: front-door-cdn-comparison.md
 - name: Quickstarts
   expanded: true
   items:
@@ -240,7 +242,7 @@
       href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/TOC.json
     - name: Retrieve POP IP's
       href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/TOC.json
-    - name: Migrate from Standard Verizon to Premium Verizon
+    - name: Migrate from Standard Edgio to Premium Edgio
       href: ../cdn/cdn-migrate.md?toc=/azure/frontdoor/TOC.json
     - name: China content delivery
       href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/TOC.json
@@ -316,6 +318,14 @@
         items:
         - name: Azure Storage Account
           href: integrate-storage-account.md
+        - name: Azure API Management
+          href: ../api-management/front-door-api-management.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Open AI
+          href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Static Web Apps
+          href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
+        - name: Azure Spring Apps
+          href: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy?toc=/azure/frontdoor/toc.json
     - name : Classic
       items:
       - name: Migrate to Standard or Premium tier
@@ -354,6 +364,8 @@
       items:
       - name: Troubleshooting Front Door issues
         href: troubleshoot-issues.md
+      - name: Troubleshooting Front Door performance issues
+        href: troubleshoot-performance-issues.md
       - name: Allowed certificate authorities
         href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
       - name: File compression
@@ -467,7 +479,7 @@
           href: ../cdn/cdn-app-dev-net.md?toc=/azure/frontdoor/TOC.json
         - name: Node.js
           href: ../cdn/cdn-app-dev-node.md?toc=/azure/frontdoor/TOC.json
-    - name: Verizon
+    - name: Edgio
       items:
       - name: Standard
         items:
@@ -523,7 +535,7 @@
           items:
           - name: Azure diagnostics logs
             href: ../cdn/cdn-azure-diagnostic-logs.md?toc=/azure/frontdoor/TOC.json
-          - name: Analytics tools for Azure CDN from Verizon
+          - name: Analytics tools for Azure CDN from Edgio
             items:
             - name: Core reports
               href: ../cdn/cdn-analyze-usage-patterns.md?toc=/azure/frontdoor/TOC.json
@@ -673,7 +685,7 @@
         items:
         - name: Microsoft (classic)
           href: ../cdn/microsoft-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
-        - name: Verizon
+        - name: Edgio
           href: ../cdn/cdn-pop-abbreviations.md?toc=/azure/frontdoor/TOC.json
     - name: Standard rules engine
       href: ../cdn/cdn-standard-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
@@ -684,9 +696,9 @@
         href: ../cdn/cdn-standard-rules-engine-actions.md?toc=/azure/frontdoor/TOC.json
     - name: Microsoft-specific HTTP headers
       href: ../cdn/cdn-msft-http-debug-headers.md?toc=/azure/frontdoor/TOC.json
-    - name: Verizon
+    - name: Edgio
       items:
-      - name: Verizon Premium rules engine reference
+      - name: Edgio Premium rules engine reference
         href: ../cdn/cdn-verizon-premium-rules-engine-reference.md?toc=/azure/frontdoor/TOC.json
         items:
         - name: Rules engine conditional expressions
@@ -697,7 +709,7 @@
           href: ../cdn/cdn-verizon-premium-rules-engine-reference-features.md?toc=/azure/frontdoor/TOC.json
         - name: HTTP variables
           href: ../cdn/cdn-http-variables.md?toc=/azure/frontdoor/TOC.json
-      - name: Verizon-specific HTTP headers
+      - name: Edgio-specific HTTP headers
         href: ../cdn/cdn-verizon-http-headers.md?toc=/azure/frontdoor/TOC.json
         items:
         - name: X-EC-Debug headers
@@ -731,7 +743,7 @@
       - name: Azure Roadmap
         href: https://azure.microsoft.com/roadmap/
       - name: Microsoft Q&A question page
-        href: /answers/topics/azure-cdn.html
+        href: /answers/tags/155/azure-cdn.html
       - name: Pricing
         href: https://azure.microsoft.com/pricing/details/cdn/
       - name: Pricing calculator

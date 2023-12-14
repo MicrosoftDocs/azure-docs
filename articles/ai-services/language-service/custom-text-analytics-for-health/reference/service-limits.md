@@ -2,13 +2,12 @@
 title: Custom Text Analytics for health service limits
 titleSuffix: Azure AI services
 description: Learn about the data and service limits when using Custom Text Analytics for health.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 04/14/2023
+ms.date: 08/23/2023
 ms.author: aahi
 ms.custom: language-service-custom-ta4h, references_regions
 ---
@@ -36,13 +35,7 @@ Use this article to learn about the data and service limits when using custom Te
 
 ## Regional availability 
 
-Custom Text Analytics for health is only available in some Azure regions since it is a preview service. Some regions may be available for **both authoring and prediction**, while other regions may be for **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get predictions from a deployment.
-
-| Region             | Authoring | Prediction  |
-|--------------------|-----------|-------------|
-| East US            | ✓         | ✓           |
-| UK South           | ✓         | ✓           |
-| North Europe       | ✓         | ✓           |
+See [Language service regional availability](../../concepts/regional-support.md#custom-text-analytics-for-health).
 
 ## API limits
 

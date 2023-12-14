@@ -36,11 +36,7 @@ To integrate with API portal for VMware Tanzu, VMware Spring Cloud Gateway autom
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan service instance with VMware Spring Cloud Gateway enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > You must enable VMware Spring Cloud Gateway when you provision your Azure Spring Apps service instance. You can't enable VMware Spring Cloud Gateway after provisioning.
-
-- Azure CLI version 2.0.67 or later. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`.
 
 ## Enable or disable VMware Spring Cloud Gateway
 
@@ -63,13 +59,13 @@ You can now view the state of the Spring Cloud Gateway on the **Spring Cloud Gat
 Use the following Azure CLI commands to enable or disable VMware Spring Cloud Gateway:
 
 ```azurecli
-az spring spring-cloud-gateway create \
+az spring gateway create \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
 ```azurecli
-az spring spring-cloud-gateway delete \
+az spring gateway delete \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name>
 ```
@@ -95,7 +91,7 @@ Use the following steps to restart VMware Spring Cloud Gateway by using the Azur
 Use the following Azure CLI command to restart the gateway:
 
 ```azurecli
-az spring spring-cloud-gateway restart \
+az spring gateway restart \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
@@ -181,12 +177,12 @@ VMware Spring Cloud Gateway supports authentication and authorization through si
 
 | Property       | Required? | Description                                                                                                                                                                                                                                                                                  |
 |----------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `issuerUri`    | Yes       | The URI that's asserted as its issuer identifier. For example, if `issuer-uri` is `https://example.com`, an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
+| `issuerUri`    | Yes       | The URI that is asserted as its issuer identifier. For example, if `issuerUri` is `https://example.com`, an OpenID Provider Configuration Request is made to `https://example.com/.well-known/openid-configuration`. The result is expected to be an OpenID Provider Configuration Response. |
 | `clientId`     | Yes       | The OpenID Connect client ID from your identity provider.                                                                                                                                                                                                                                    |
 | `clientSecret` | Yes       | The OpenID Connect client secret from your identity provider.                                                                                                                                                                                                                                |
 | `scope`        | Yes       | A list of scopes to include in JWT identity tokens. This list should be based on the scopes that your identity provider allows.                                                                                                                                                              |
 
-To set up SSO with Azure Active Directory, see [Set up single sign-on using Azure Active Directory for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
+To set up SSO with Microsoft Entra ID, see [Set up single sign-on using Microsoft Entra ID for Spring Cloud Gateway and API Portal](./how-to-set-up-sso-with-azure-ad.md).
 
 You can use the Azure portal or the Azure CLI to edit SSO properties.
 
@@ -383,7 +379,20 @@ az spring gateway restart \
 
 ### Set up autoscale settings
 
-You can set autoscale modes for VMware Spring Cloud Gateway by using the Azure CLI.
+You can set autoscale modes for VMware Spring Cloud Gateway.
+
+#### [Azure portal](#tab/Azure-portal)
+
+The following list shows the options available for Autoscale demand management:
+
+* The **Manual scale** option maintains a fixed instance count. You can scale out to a maximum of 10 instances. This value changes the number of separate running instances of the Spring Cloud Gateway.
+* The **Custom autoscale** option scales on any schedule, based on any metrics.
+
+On the Azure portal, choose how you want to scale. The following screenshot shows the **Custom autoscale** option and mode settings:
+
+:::image type="content" source="media/spring-cloud-autoscale/custom-autoscale.png" alt-text="Screenshot of the Azure portal that shows the Autoscale setting page with the Custom autoscale option highlighted.":::
+
+#### [Azure CLI](#tab/Azure-CLI) 
 
 Use the following command to create an autoscale setting:
 
@@ -408,9 +417,161 @@ az monitor autoscale rule create \
     --condition "GatewayHttpServerRequestsSecondsCount > 100 avg 1m"
 ```
 
-For information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
+---
+
+For more information on the available metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](./concept-metrics.md).
+
+## Configure the response cache
+
+Response cache configuration provides a way to define an HTTP response cache that you can apply globally or at the route level.
+
+### Enable the response cache globally
+
+After you enable the response cache globally, the response cache is automatically enabled for all applicable routes.
+
+#### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to enable the response cache globally:
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Configuration**.
+1. In the **Response Cache** section, select **Enable response cache** and then set **Scope** to **Instance**.
+1. Set **Size** and **Time to live** for the response cache.
+1. Select **Save**.
+
+Use the following steps to disable the response cache:
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Configuration**.
+1. In the **Response Cache** section, clear **Enable response cache**.
+1. Select **Save**.
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to enable the response cache globally:
+
+```azurecli
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name>
+    --enable-response-cache \
+    --response-cache-scope Instance \
+    --response-cache-size {Examples are 1GB, 100MB, 100KB} \
+    --response-cache-ttl {Examples are 1h, 30m, 50s}
+```
+
+Use the following command to disable the response cache:
+
+```azurecli
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --enable-response-cache false
+```
 
 ---
+
+### Enable the response cache at the route level
+
+To enable the response cache for any route, use the `LocalResponseCache` filter. The following example shows you how to use the `LocalResponseCache` filter in the routing rule configuration:
+
+```json
+{
+   "filters": [
+      "<other-app-level-filter-of-route>",
+   ],
+   "routes": [
+      {
+        "predicates": [
+            "Path=/api/**",
+            "Method=GET"
+         ],
+         "filters": [
+            "<other-filter-of-route>",
+            "LocalResponseCache=3m, 1MB"
+         ],
+      }
+   ]
+}
+```
+
+For more information, see the [LocalResponseCache](./how-to-configure-enterprise-spring-cloud-gateway-filters.md#localresponsecache) section of [How to use VMware Spring Cloud Gateway route filters with the Azure Spring Apps Enterprise plan](./how-to-configure-enterprise-spring-cloud-gateway-filters.md) and [LocalResponseCache](https://aka.ms/vmware/scg/filters/localresponsecache) in the VMware documentation.
+
+Instead of configuring `size` and `timeToLive` for each `LocalResponseCache` filter individually, you can set these parameters at the Spring Cloud Gateway level. This option enables you to use the `LocalResponseCache` filter without specifying these values initially, while retaining the flexibility to override them later.
+
+#### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to enable the response cache at the route level and set `size` and `timeToLive`:
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Configuration**.
+1. In the **Response Cache** section, select **Enable response cache** and then set **Scope** to **Route**.
+1. Set **Size** and **Time to live** for the response cache.
+1. Select **Save**.
+
+Use the following steps to disable the response cache at the route level, which clears `size` and `timeToLive`:
+
+1. In your Azure Spring Apps instance, select **Spring Cloud Gateway** on the navigation pane.
+1. On the **Spring Cloud Gateway** page, select **Configuration**.
+1. In the **Response Cache** section, clear **Enable response cache**.
+1. Select **Save**.
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to enable the response cache at the route level and set `size` and `timeToLive`:
+
+```azurecli
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --enable-response-cache \
+    --response-cache-scope Route \
+    --response-cache-size {Examples are 1GB, 100MB, 100KB} \
+    --response-cache-ttl {Examples are 1h, 30m, 50s}
+```
+
+Use the following command to disable the response cache at the route level, which clears `size` and `timeToLive`:
+
+```azurecli
+az spring gateway update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --enable-response-cache false
+```
+
+---
+
+The following example shows you how to use the `LocalResponseCache` filter when `size` and `timeToLive` are set at the Spring Cloud Gateway level:
+
+```json
+{
+   "filters": [
+      "<other-app-level-filter-of-route>",
+   ],
+   "routes": [
+      {
+        "predicates": [
+            "Path=/api/path1/**",
+            "Method=GET"
+         ],
+         "filters": [
+            "<other-filter-of-route>",
+            "LocalResponseCache"
+         ],
+      },
+      {
+        "predicates": [
+            "Path=/api/path2/**",
+            "Method=GET"
+         ],
+         "filters": [
+            "<other-filter-of-route>",
+            "LocalResponseCache=3m, 1MB"
+         ],
+      }
+   ]
+}
+```
 
 ## Configure environment variables
 
@@ -462,7 +623,47 @@ For other supported environment variables, see the following sources:
 - [AppDynamics environment variables](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 - [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
 
-#### Manage APM in VMware Spring Cloud Gateway
+#### Configure APM integration on the service instance level (recommended)
+
+To enable APM monitoring in your VMware Spring Cloud Gateway, you can create APM configuration on the service instance level and bind it to Spring Cloud Gateway. In this way, you can conveniently configure the APM only once and bind the same APM to Spring Cloud Gateway and to your apps.
+
+##### [Azure portal](#tab/Azure-portal)
+
+Use the following steps to set up APM by using the Azure portal:
+
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+
+   :::image type="content" source="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png" alt-text="Screenshot of Azure portal that shows the Azure Spring Apps APM editor page." lightbox="media/how-to-configure-enterprise-spring-cloud-gateway/service-level-apm-configure.png":::
+
+1. Select **Spring Cloud Gateway** on the navigation pane, then select **APM**.
+
+1. Choose the APM name in the **APM reference names** list. The list includes all the APM names configured in step 1.
+
+1. Select **Save** to bind APM reference names to Spring Cloud Gateway. Your gateway restarts to enable APM monitoring.
+
+##### [Azure CLI](#tab/Azure-CLI)
+
+Use the following steps to set up APM in Spring Cloud Gateway by using the Azure CLI:
+
+1. Configure APM on the service instance level with the APM name, type, and properties. For more information, see the [Manage APMs on the service instance level (recommended)](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md#manage-apms-on-the-service-instance-level-recommended) section of [How to configure APM integration and CA certificates](./how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+
+1. Use the following command to update gateway with APM reference names:
+
+   ```azurecli
+   az spring gateway update \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Apps-instance-name> \
+       --apms <APM-reference-name>
+   ```
+
+   The value for `--apms` is a space-separated list of APM reference names, which you created in step 1.
+
+   > [!NOTE]
+   > Spring Cloud Gateway is deprecating APM types. Use APM reference names to configure APM in a gateway.
+
+---
+
+#### Manage APM in VMware Spring Cloud Gateway (deprecated)
 
 You can use the Azure portal or the Azure CLI to set up APM in VMware Spring Cloud Gateway. You can also specify the types of APM Java agents to use and the corresponding APM environment variables that they support.
 

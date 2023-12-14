@@ -1,14 +1,16 @@
 ---
 title: Manage firewall rules - Azure CLI - Azure Database for PostgreSQL - Flexible Server
 description: Create and manage firewall rules for Azure Database for PostgreSQL - Flexible Server using Azure CLI command line.
-author: sunilagarwal 
+author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/30/2021
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2023
 ---
 
 # Create and manage Azure Database for PostgreSQL - Flexible Server firewall rules using the Azure CLI
@@ -17,7 +19,7 @@ ms.custom: devx-track-azurecli
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
-* Public access (allowed IP addresses)
+* Public access (allowed IP addresses). That method can be further secured by using [Private Link](./concepts-networking-private-link.md) based networking with Azure Database for PostgreSQL - Flexible Server in Preview. 
 * Private access (VNet Integration)
 
 In this article, we will focus on creation of PostgreSQL server with **Public access (allowed IP addresses)** using Azure CLI and will provide an overview on Azure CLI commands you can use to create, update, delete, list, and show firewall rules after creation of server. With *Public access (allowed IP addresses)*, the connections to the PostgreSQL server are restricted to allowed IP addresses only. The client IP addresses need to be allowed in firewall rules. To learn more about it, refer to [Public access (allowed IP addresses)](./concepts-networking.md#public-access-allowed-ip-addresses). The firewall rules can be defined at the time of server creation (recommended) but can be added later as well.

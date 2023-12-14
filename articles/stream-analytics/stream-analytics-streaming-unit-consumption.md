@@ -5,7 +5,7 @@ author: ahartoon
 ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 11/14/2023
 ---
 # Understand and adjust Stream Analytics streaming units
 
@@ -38,7 +38,7 @@ There's an automatic conversion of Streaming Units which occurs from REST API la
 | ...  | ...  | ... |
 
 
-## Understanding consumption and memory utilization
+## Understand consumption and memory utilization
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory.  When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.
 
 The SU % utilization metric, which ranges from 0% to 100%, describes the memory consumption of your workload. For a streaming job with minimal footprint, this metric is usually between 10% to 20%. If SU% utilization is high (above 80%), or if input events get backlogged (even with a low SU% utilization since it doesn't show CPU usage), your workload likely requires more compute resources, which requires you to increase the number of streaming units. It's best to keep the SU metric below 80% to account for occasional spikes. To react to increased workloads and increase streaming units, consider setting an alert of 80% on the SU Utilization metric. Also, you can use watermark delay and backlogged events metrics to see if there's an impact.
@@ -156,7 +156,7 @@ User can configure the out of order buffer size in the Event Ordering configurat
 To remediate overflow of the out of order buffer, scale out query using **PARTITION BY**. Once the query is partitioned out, it's spread out over multiple nodes. As a result, the number of events coming into each node is reduced thereby reducing the number of events in each reorder buffer. 
 
 ## Input partition count 
-Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each streaming unit, Azure Stream Analytics can process roughly 1 MB/s of input. Therefore, you can optimize by matching the number of Stream Analytics streaming units with the number of partitions in your event hub. 
+Each input partition of a job input has a buffer. The larger number of input partitions, the more resource the job consumes. For each streaming unit, Azure Stream Analytics can process roughly 7 MB/s of input. Therefore, you can optimize by matching the number of Stream Analytics streaming units with the number of partitions in your event hub. 
 
 Typically, a job configured with 1/3 streaming unit is sufficient for an event hub with two partitions (which is the minimum for event hub). If the event hub has more partitions, your Stream Analytics job consumes more resources, but not necessarily uses the extra throughput provided by Event Hubs. 
 

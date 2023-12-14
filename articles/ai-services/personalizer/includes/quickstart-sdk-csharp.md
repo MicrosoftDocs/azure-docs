@@ -1,12 +1,11 @@
 ---
 title: include file
 description: include file
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jacodel
 author: jcodella
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 02/02/2023

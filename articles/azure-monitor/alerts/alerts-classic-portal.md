@@ -20,11 +20,11 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 2. In the **MONITORING** section, select **Alerts (Classic)**. The text and icon might vary slightly for different resources. If you don't find **Alerts (Classic)** here, you might find it in **Alerts** or **Alert Rules**.
 
-    ![Monitoring](media/alerts-classic-portal/AlertRulesButton.png)
+    :::image type="content" source="media/alerts-classic-portal/AlertRulesButton.png" lightbox="media/alerts-classic-portal/AlertRulesButton.png" alt-text="Monitoring":::
 
 3. Select the **Add metric alert (classic)** command, and then fill in the fields.
 
-    ![Add Alert](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
+    :::image type="content" source="media/alerts-classic-portal/AddAlertOnlyParamsPage.png" lightbox="media/alerts-classic-portal/AddAlertOnlyParamsPage.png" alt-text="Add Alert":::
 
 4. **Name** your alert rule. Then choose a **Description**, which also appears in notification emails.
 

@@ -69,10 +69,10 @@ The **Manage Access** dialog box allows you to manage permissions for owner and 
 > [!div class="mx-imgBorder"]
 > ![Manage Access dialog box](./media/data-lake-storage-explorer-acl/manage-access-dialog-box.png)
 
-To add a new user or group to the access control list, select the **Add** button. Then, enter the corresponding Azure Active Directory (Azure AD) entry you wish to add to the list and then select **Add**.  The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
+To add a new user or group to the access control list, select the **Add** button. Then, enter the corresponding Microsoft Entra entry you wish to add to the list and then select **Add**.  The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
 > [!NOTE]
-> It is a best practice, and recommended, to create a security group in Azure AD and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md).
+> It is a best practice, and recommended, to create a security group in Microsoft Entra ID and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md).
 
 Use the check box controls to set access and default ACLs. To learn more about the difference between these types of ACLs, see [Types of ACLs](data-lake-storage-access-control.md#types-of-acls).
 

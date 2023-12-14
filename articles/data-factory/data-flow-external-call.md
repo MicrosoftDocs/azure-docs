@@ -111,7 +111,7 @@ ExternalCall1 sink(allowSchemaDrift: true,
 	saveOrder: 1) ~> sink1
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.

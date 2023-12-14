@@ -2,12 +2,11 @@
 title: Power automate batch transcription - Speech service
 titleSuffix: Azure AI services
 description: Transcribe audio files from an Azure Storage container using the Power Automate batch transcription connector.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: eric-urban
 ms.author: eur
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 03/09/2023
 ---
@@ -128,7 +127,7 @@ To trigger the test flow, upload an audio file to the Azure Blob Storage contain
 
 ## Upload files to the container
 
-Follow these steps to upload [wav, mp3, or ogg](batch-transcription-audio-data.md#supported-audio-formats) files from your local directory to the Azure Storage container that you [created previously](#create-the-azure-blob-storage-container). 
+Follow these steps to upload [wav, mp3, or ogg](batch-transcription-audio-data.md#supported-audio-formats-and-codecs) files from your local directory to the Azure Storage container that you [created previously](#create-the-azure-blob-storage-container). 
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. <a href="https://portal.azure.com/#create/Microsoft.StorageAccount-ARM"  title="Create a Storage account resource"  target="_blank">Create a Storage account resource</a> in the Azure portal. Use the same subscription and resource group as your Speech resource.

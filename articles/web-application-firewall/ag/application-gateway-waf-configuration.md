@@ -37,7 +37,7 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
-- **Equals any**: This operator matches all request fields. * will be the selector value.
+- **Equals any**: This operator matches all request fields. * will be the selector value. For example, you would use this operator when you don't know the exact values for a given match variable but want to make sure that the request traffic still gets excluded from rules evaluation.
 
 When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
 
@@ -82,29 +82,32 @@ The below table shows some examples of how you might structure your exclusion fo
 | Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request | What gets excluded |
 |-|-|-|-|-|-|
 | Query string | RequestArgKeys | Equals | `/etc/passwd` | Uri: `http://localhost:8080/?/etc/passwd=test` | `/etc/passwd` |
-| Query string | RequestArgKeys | EqualsAny | "" | Uri: `http://localhost:8080/?/etc/passwd=test&.htaccess=test2` | `/etc/passwd` and `.htaccess` |
+| Query string | RequestArgKeys | EqualsAny | N/A | Uri: `http://localhost:8080/?/etc/passwd=test&.htaccess=test2` | `/etc/passwd` and `.htaccess` |
 | Query string | RequestArgNames | Equals | `text` | Uri: `http://localhost:8080/?text=/etc/passwd` | `/etc/passwd` |
-| Query string | RequestArgNames | EqualsAny | "" | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
+| Query string | RequestArgNames | EqualsAny | N/A | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
 | Query string | RequestArgValues | Equals | `text` | Uri: `http://localhost:8080/?text=/etc/passwd` | `/etc/passwd` |
-| Query string | RequestArgValues | EqualsAny | "" | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
+| Query string | RequestArgValues | EqualsAny | N/A | Uri: `http://localhost:8080/?text=/etc/passwd&text2=.cshrc` | `/etc/passwd` and `.cshrc` |
 | Request body | RequestArgKeys | Contains | `sleep` | Request body: `{"sleep(5)": "test"}` | `sleep(5)` |
-| Request body | RequestArgKeys | EqualsAny | "" | Request body: `{".zshrc": "value", "sleep(5)":"value2"}` | `.zshrc` and `sleep(5)` |
+| Request body | RequestArgKeys | EqualsAny | N/A | Request body: `{".zshrc": "value", "sleep(5)":"value2"}` | `.zshrc` and `sleep(5)` |
 | Request body | RequestArgNames | Equals | `test` | Request body: `{"test": ".zshrc"}` | `.zshrc` |
-| Request body | RequestArgNames | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
+| Request body | RequestArgNames | EqualsAny | N/A | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
 | Request body | RequestArgValues | Equals | `test` | Request body: `{"test": ".zshrc"}` | `.zshrc` |
-| Request body | RequestArgValues | EqualsAny | "" | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
-| Header | RequestHeaderKeys | Equals | `X-Scanner` | Header: `{k: "X-Scanner", v: "test"}` | `X-scanner` |
-| Header | RequestHeaderKeys | EqualsAny | "" | Header: `{k: "X-Scanner", v: "test"},{k: "x-ratproxy-loop", v: "value"}` | `X-Scanner` and `x-ratproxy-loop` |
-| Header | RequestHeaderNames | Equals | `head1` | Header: `{k: "head1", v: "X-Scanner"}` | `X-scanner` |
-| Header | RequestHeaderNames | EqualsAny | "" | Header: `{k: "head1", v: "myvar=1234"},{k: "User-Agent", v: "(hydra)"}` | `myvar=1234` and `(hydra)` |
-| Header | RequestHeaderValues | Equals | `head1` | Header: `{k: "head1", v: "X-Scanner"}` | `X-scanner` |
-| Header | RequestHeaderValues | EqualsAny | "" | Header: `{k: "head1", v: "myvar=1234"},{k: "User-Agent", v: "(hydra)"}` | `myvar=1234` and `(hydra)` |
-| Cookie | RequestCookieKeys | Contains | `/etc/passwd` | Header: `{k: "Cookie", v: "/etc/passwdtest=hello1"}` | `/etc/passwdtest` |
-| Cookie | RequestCookieKeys | EqualsAny | "" | Header: `{k: "Cookie", v: "/etc/passwdtest=hello1"},{k: "Cookie", v: ".htaccess=test1}` | `/etc/passwdtest` and `.htaccess` |
-| Cookie | RequestCookieNames | Equals | `arg1` | Header: `{k: "Cookie", v: "arg1=/etc/passwd"}` | `/etc/passwd` |
-| Cookie | RequestCookieNames | EqualsAny | "" | Header: `{k: "Cookie", v: "arg1=/etc/passwd"},{k: "Cookie", v: "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
-| Cookie | RequestCookieValues | Equals | `arg1` | Header: `{k: "Cookie", v: "arg1=/etc/passwd"}` | `/etc/passwd` |
-| Cookie | RequestCookieValues | EqualsAny | "" | Header: `{k: "Cookie", v: "arg1=/etc/passwd"},{k: "Cookie", v: "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+| Request body | RequestArgValues | EqualsAny | N/A | Request body: `{"key1": ".zshrc", "key2":"sleep(5)"}` | `.zshrc` and `sleep(5)` |
+| Header | RequestHeaderKeys | Equals | `X-Scanner` | Header: `{"X-Scanner": "test"}` | `X-scanner` |
+| Header | RequestHeaderKeys | EqualsAny | N/A | Header: `{"X-Scanner": "test", "x-ratproxy-loop": "value"}` | `X-Scanner` and `x-ratproxy-loop` |
+| Header | RequestHeaderNames | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderNames | EqualsAny | N/A | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Header | RequestHeaderValues | Equals | `head1` | Header: `{"head1": "X-Scanner"}` | `X-scanner` |
+| Header | RequestHeaderValues | EqualsAny | N/A | Header: `{"head1": "myvar=1234", "User-Agent": "(hydra)"}` | `myvar=1234` and `(hydra)` |
+| Cookie | RequestCookieKeys | Contains | `/etc/passwd` | Header: `{"Cookie": "/etc/passwdtest=hello1"}` | `/etc/passwdtest` |
+| Cookie | RequestCookieKeys | EqualsAny | N/A | Header: `{"Cookie": "/etc/passwdtest=hello1", "Cookie": ".htaccess=test1"}` | `/etc/passwdtest` and `.htaccess` |
+| Cookie | RequestCookieNames | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieNames | EqualsAny | N/A | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+| Cookie | RequestCookieValues | Equals | `arg1` | Header: `{"Cookie": "arg1=/etc/passwd"}` | `/etc/passwd` |
+| Cookie | RequestCookieValues | EqualsAny | N/A | Header: `{"Cookie": "arg1=/etc/passwd", "Cookie": "arg1=.cshrc"}` | `/etc/passwd` and `.cshrc` |
+
+> [!NOTE]
+> If you create an exclusion using the selectorMatchOperator `EqualsAny`, anything you put in the selector field gets converted to "*" by the backend when the exclusion is created.
 
 ## Exclusion scopes
 

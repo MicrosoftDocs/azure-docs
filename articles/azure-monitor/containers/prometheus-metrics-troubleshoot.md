@@ -13,6 +13,10 @@ Follow the steps in this article to determine the cause of Prometheus metrics no
 
 Replica pod scrapes metrics from `kube-state-metrics` and custom scrape targets in the `ama-metrics-prometheus-config` configmap. DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you want to view the logs and the Prometheus UI for it depends on which scrape target you're investigating.
 
+## Troubleshoot using powershell script
+
+If you encounter an error while you attempt to enable monitoring for your AKS cluster, please follow the instructions mentioned [here](https://github.com/Azure/prometheus-collector/tree/main/internal/scripts/troubleshoot) to run the troubleshooting script. This script is designed to do a basic diagnosis of for any configuration issues on your cluster and you can ch the generated files while creating a support request for faster resolution for your support case.
+
 ## Metrics Throttling
 
 In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
@@ -147,7 +151,6 @@ If you see metrics missed, you can first check if the ingestion limits are being
 - Events Per Minute Ingested % Utilization - The percentage of current metric ingestion rate limit being util
 
 Refer to [service quotas and limits](../service-limits.md#prometheus-metrics) for default quotas and also to understand what can be increased based on your usage. You can request quota increase for Azure Monitor workspaces using the `Support Request` menu for the Azure Monitor workspace. Ensure you include the ID, internal ID and Location/Region for the Azure Monitor workspace in the support request, which you can find in the `Properties' menu for the Azure Monitor workspace in the Azure portal.
-
 
 ## Next steps
 

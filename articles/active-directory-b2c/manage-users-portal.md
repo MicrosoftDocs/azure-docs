@@ -1,12 +1,12 @@
 ---
 title: Create & delete Azure AD B2C consumer user accounts in the Azure portal
 description: Learn how to use the Azure portal to create and delete consumer users in your Azure AD B2C directory.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 05/26/2023
 ms.author: godonnell
@@ -28,14 +28,13 @@ As described in [Overview of user accounts in Azure AD B2C](user-overview.md), t
 * Guest
 * Consumer
 
-This article focuses on working with **consumer accounts** in the Azure portal. For information about creating and deleting Work and Guest accounts, see [Add or delete users using Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
+This article focuses on working with **consumer accounts** in the Azure portal. For information about creating and deleting Work and Guest accounts, see [Add or delete users using Microsoft Entra ID](../active-directory/fundamentals/add-users.md).
 
 ## Create a consumer user
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
+1. In the left menu, select **Microsoft Entra ID**. Or, select **All services** and search for and select **Microsoft Entra ID**.
 1. Under **Manage**, select **Users**.
 1. Select **New user**.
 1. Select **Create Azure AD B2C user**.
@@ -71,12 +70,12 @@ To reset a user's password:
 1. In your Azure AD B2C directory, select **Users**, and then select the user you want to delete.
 1. Select **Delete**, and then **Yes** to confirm the deletion.
 
-For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
+For details about restoring a user within the first 30 days after deletion, or for permanently deleting a user, see [Restore or remove a recently deleted user using Microsoft Entra ID](../active-directory/fundamentals/users-restore.md).
 
 
 ## Export consumer users
 
-1. In your Azure AD B2C directory, search for **Azure Active Directory**. 
+1. In your Azure AD B2C directory, search for **Microsoft Entra ID**. 
 1. Select **Users**, and then select **Bulk Operations** and **Download Users**.
 1. Select **Start**, and then select **File is ready! Click here to download**.
  

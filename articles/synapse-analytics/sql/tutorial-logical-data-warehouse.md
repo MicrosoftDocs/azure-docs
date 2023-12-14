@@ -45,7 +45,7 @@ CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
 );
 ```
 
-A caller may access data source without credential if an owner of data source allowed anonymous access or give explicit access to Azure AD identity of the caller.
+A caller may access data source without credential if an owner of data source allowed anonymous access or give explicit access to Microsoft Entra identity of the caller.
 
 You can explicitly define a custom credential that will be used while accessing data on external data source.
 - [Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) of the Synapse workspace
@@ -192,14 +192,14 @@ To optimize performance, you should use the smallest possible types in the `WITH
 ## Access and permissions
 
 As a final step, you should create database users that should be able to access your LDW, and give them permissions to select data from the external tables and views.
-In the following script you can see how to add a new user that will be authenticated using Azure AD identity:
+In the following script you can see how to add a new user that will be authenticated using Microsoft Entra identity:
 
 ```sql
 CREATE USER [jovan@contoso.com] FROM EXTERNAL PROVIDER;
 GO
 ```
 
-Instead of Azure AD principals, you can create SQL principals that authenticate with the login name and password.
+Instead of Microsoft Entra principals, you can create SQL principals that authenticate with the login name and password.
 
 ```sql
 CREATE LOGIN [jovan] WITH PASSWORD = 'My Very strong Password ! 1234';

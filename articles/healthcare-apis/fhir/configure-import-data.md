@@ -10,20 +10,9 @@ ms.author: kesheth
 ---
 
 # Configure bulk-import settings
+In this document we go over the steps to configure settings on the FHIR service for $import operation. To learn about import capabilties FHIR service offers, see [$import operation](import-data.md).
 
-The FHIR service supports $import operation that allows you to import data into FHIR service from a storage account. Import splits input files in several data streams for optimal performance and doesn't guarantee order in which resources are processed. There are two modes of $import supported today- 
-
-* Initial mode is intended to load FHIR resources into an empty FHIR server. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
-  
-* Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API. It also allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON). 
-
-> [!IMPORTANT]
-> Incremental mode capability is currently in preview and offered free of charge. With General Availability, use of Incremental import will incur charges.
-> Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities.
-> For more information, review [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-In this document we go over the three steps used in configuring import settings on the FHIR service:
-
+To configure settings you will need to - 
  1. Enable managed identity on the FHIR service.
  1. Create an Azure storage account or use an existing storage account, and then grant permissions to the FHIR service to access it.
  1. Set the import configuration in the FHIR service.
@@ -73,7 +62,7 @@ To specify the Azure Storage account in JSON view, you need to use [REST API](/r
 
 Below steps walk through setting configurations for initial and incremental import mode. Choose the right import mode for your use case. 
 
-### Step 3.1: Set import configuration for Initial import mode.
+### Step 3a: Set import configuration for Initial import mode.
 Do following changes to JSON:
 1. Set enabled in importConfiguration to **true**.
 2. Update the integrationDataStore with target storage account name.
@@ -84,7 +73,7 @@ Do following changes to JSON:
 
 After you've completed this final step, you're ready to perform **Initial mode** import using $import.
 
-### Step 3.2: Set import configuration for Incremental import mode.
+### Step 3b: Set import configuration for Incremental import mode.
 
 Do following changes to JSON:
 1. Set enabled in importConfiguration to **true**.
@@ -103,7 +92,6 @@ Note that you can also use the **Deploy to Azure** button to open custom Resourc
 For you to securely import FHIR data into the FHIR service from an ADLS Gen2 account, there are two options:
 
 * Option 1: Enabling FHIR service as a Microsoft Trusted Service.
-
 * Option 2: Allowing specific IP addresses associated with the FHIR service to access the storage account. 
 This option permits two different configurations depending on whether or not the storage account is in the same Azure region as the FHIR service.
 

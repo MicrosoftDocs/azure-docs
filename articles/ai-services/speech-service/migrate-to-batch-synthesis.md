@@ -2,11 +2,10 @@
 title: Migrate to Batch synthesis API - Speech service
 titleSuffix: Azure AI services
 description: This document helps developers migrate code from Long Audio REST API to Batch synthesis REST API.
-services: cognitive-services
+#services: cognitive-services
 author: heikora
 manager: dongli
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: reference
 ms.date: 09/01/2022
 ms.author: heikora

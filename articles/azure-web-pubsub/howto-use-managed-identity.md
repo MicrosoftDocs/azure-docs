@@ -51,20 +51,38 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
 
 1. Add a system-assigned identity or user-assigned identity.
 
-2. Navigate to the rule and switch on the **Authentication**.
+2. Navigate to **Configure Hub Settings** and add or edit an event handler upstream.
 
    :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
 
-3. Select application. The application ID will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
+3. In the **Authentication** section, select **Use Authentication** and check **Specify the issued token audience**. The audience will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
 
-   - Use default Microsoft Entra application.
    - Select from existing Microsoft Entra applications. The application ID of the one you choose will be used.
-   - Specify a Microsoft Entra application. The value should be [Resource ID of an Azure service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+   - The Application ID URI of the service principal.
 
-   > [!NOTE]
-   > If you validate an access token by yourself in your service, you can choose any one of the resource formats. If you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource that the service provider requests.
+   > [!IMPORTANT]
+   > Using empty resource actully acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
+
+#### Authentication in a function app
+
+You can easily set access validation for a function app without code changes by using the Azure portal:
+
+1. In the Azure portal, go to the function app.
+1. Select **Authentication** from the menu.
+1. Select **Add identity provider**.
+1. On the **Basics** tab, in the **Identity provider** dropdown list, select **Microsoft**.
+1. In **Action to take when request is not authenticated**, select **Log in with Microsoft Entra ID**.
+1. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling a Microsoft Entra provider, see [Configure your App Service or Azure Functions app to use a Microsoft Entra ID sign-in](../app-service/configure-authentication-provider-aad.md).
+
+   :::image type="content" source="media/howto-use-managed-identity/function-entra.png" alt-text="Screenshot that shows basic information for adding an identity provider.":::
+1. Go to Azure SignalR Service and follow the [steps](howto-use-managed-identity.md#add-a-system-assigned-identity) to add a system-assigned identity or user-assigned identity.
+1. In Azure SignalR Service, go to **Upstream settings**, and then select **Use Managed Identity** and **Select from existing Applications**. Select the application that you created previously.
+
+After you configure these settings, the function app will reject requests without an access token in the header.
 
 ### Validate access tokens
+
+If you're not using WebApp or Azure Function, you can also validate the token.
 
 The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
 

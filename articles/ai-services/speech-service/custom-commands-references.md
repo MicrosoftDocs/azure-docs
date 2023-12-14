@@ -2,11 +2,10 @@
 title: 'Custom Commands concepts and definitions - Speech service'
 titleSuffix: Azure AI services
 description: In this article, you learn about concepts and definitions for Custom Commands applications.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: eur

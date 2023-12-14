@@ -10,7 +10,7 @@ ms.date: 07/19/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [provision-event-driven](../../includes/quickstart-deploy-event-driven-app/provision-event-driven.md)]
+[!INCLUDE [provision-event-driven](provision-event-driven.md)]
 
 -->
 
@@ -18,13 +18,27 @@ The main resources you need to run this sample are an Azure Spring Apps instance
 
 ### [Azure portal](#tab/Azure-portal)
 
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-environment-standard-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
+
 ### 3.1. Sign in to the Azure portal
 
 Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create a Service Bus instance
 
-[!INCLUDE [provision-service-bus](../../includes/quickstart-deploy-event-driven-app/provision-service-bus.md)]
+[!INCLUDE [provision-service-bus](provision-service-bus.md)]
+
+8. Select **Shared access policies** on the navigation menu and then select **RootManageSharedAccessKey**.
+
+1. On the **SAS Policy: RootManageSharedAccessKey** page, copy and save the **Primary Connection String** value, which is used to set up connections from the Spring app.
+
+1. Select **Queues** on the navigation menu and then select **Queue**.
+
+1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+
+1. Create another queue by repeating the previous step using *upper-case* for **Name**.
 
 ### 3.3. Create an Azure Spring Apps instance
 
@@ -33,8 +47,6 @@ Use the following steps to create an Azure Spring Apps instance:
 1. Select **Create a resource** in the corner of the Azure portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
-
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal showing the Create a resource page with Azure Spring Apps highlighted." lightbox="../../media/quickstart-deploy-event-driven-app/create-azure-spring-apps.png":::
 
 1. Fill out the **Basics** form with the following information:
 
@@ -49,15 +61,13 @@ Use the following steps to create an Azure Spring Apps instance:
    | **Region**         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | **Zone Redundant** | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
 
-   :::image type="content" source="../../media/quickstart-deploy-event-driven-app/create-basics.png" alt-text="Screenshot of the Azure portal showing the Basics tab of the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-event-driven-app/create-basics.png":::
-
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 
 1. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this service on your Azure portal dashboard as a shortcut to the service's **Overview** page. Selecting **Go to resource** opens the service's **Overview** page.
 
    :::image type="content" source="../../media/quickstart-deploy-event-driven-app/notifications.png" alt-text="Screenshot of the Azure portal showing the Notifications pane of the Deployment page." lightbox="../../media/quickstart-deploy-event-driven-app/notifications.png":::
 
-### 3.4 Connect app instance to Service Bus instance
+### 3.4. Connect app instance to Service Bus instance
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
@@ -75,16 +85,16 @@ Use the following steps to create an Azure Spring Apps instance:
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you've already logged in.
+1. Use the following command to sign in to Azure with OAuth2. Ignore this step if you already logged in.
 
    ```bash
    azd auth login
    ```
 
-1. Use the following command to enable the Azure Spring Apps features:
+   The console outputs messages similar to the following example:
 
-   ```bash
-   azd config set alpha.springapp on
+   ```text
+   Logged in to Azure.
    ```
 
 1. Use the following command to set the template using the **standard** plan:
@@ -109,7 +119,7 @@ Use the following steps to create an Azure Spring Apps instance:
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
    You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
-   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>/overview
+   https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
    > [!NOTE]

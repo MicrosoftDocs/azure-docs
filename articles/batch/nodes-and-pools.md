@@ -179,7 +179,7 @@ For more information about using application packages to deploy your application
 
 ## Virtual network (VNet) and firewall configuration
 
-When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+When you provision a pool of compute nodes in Batch, you can associate the pool with a subnet of an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md). To use an Azure VNet, the Batch client API must use Microsoft Entra authentication. Azure Batch support for Microsoft Entra ID is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 ### VNet requirements
 
@@ -215,4 +215,4 @@ If you add a certificate to an existing pool, you must reboot its compute nodes 
 ## Next steps
 
 - Learn about [jobs and tasks](jobs-and-tasks.md).
-- Learn how to to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).
+- Learn how to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).

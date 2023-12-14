@@ -1,12 +1,12 @@
 ---
 title: Manage user access in Azure Active Directory B2C  
 description: Learn how to identify minors, collect date of birth and country/region data, and get acceptance of terms of use in your application by using Azure AD B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/13/2022
 ms.author: kengaderdus

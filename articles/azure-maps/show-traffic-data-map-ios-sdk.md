@@ -2,8 +2,8 @@
 title: Show traffic data on iOS maps
 titleSuffix: Microsoft Azure Maps
 description: This article describes how to display traffic data on a map using the Microsoft Azure Maps iOS SDK.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 07/21/2023
 ms.topic: how-to
 ms.service: azure-maps

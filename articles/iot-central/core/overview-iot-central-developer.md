@@ -14,7 +14,7 @@ ms.custom: [mvc, device-developer, iot-central-frontdoor]
 
 # IoT Central device connectivity guide
 
-An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for device developers who implement the code to run on devices that connect to IoT Central.
+An IoT Central application lets you monitor and manage hundreds of thousands of devices throughout their life cycle. This guide is for device developers who implement the code to run on devices that connect to IoT Central.
 
 Devices interact with an IoT Central application by using the following primitives:
 
@@ -50,7 +50,9 @@ A gateway device manages one or more downstream devices that connect to your IoT
 
 As you connect a device to IoT Central, it goes through the following stages: _registered_, _provisioned_, and _connected_.
 
-To learn how to monitor the status of a device, see [Monitor your devices](howto-manage-devices-individually.md#monitor-your-devices).
+- To learn why devices should always use the Device Provisioning Service to connect to IoT Central, see [Device implementation and best practices for IoT central](concepts-device-implementation.md).
+
+- To learn how to monitor the status of a device, see [Monitor your devices](howto-manage-devices-individually.md#monitor-your-devices).
 
 ### Register a device
 

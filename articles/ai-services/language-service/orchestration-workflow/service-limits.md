@@ -2,13 +2,12 @@
 title: Orchestration workflow limits
 titleSuffix: Azure AI services
 description: Learn about the data, region, and throughput limits for Orchestration workflow
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 08/23/2023
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021, mentions_regions
 ---
@@ -37,41 +36,7 @@ See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/lan
 
 ## Regional availability
 
-Orchestration workflow is only available in some Azure regions. Some regions are available for **both authoring and prediction**, while other regions are **prediction only**. Language resources in authoring regions allow you to create, edit, train, and deploy your projects. Language resources in prediction regions allow you to get [predictions from a deployment](../concepts/custom-features/multi-region-deployment.md). 
-
-| Region             | Authoring | Prediction  |
-|--------------------|-----------|-------------|
-| Australia East     | ✓         | ✓           |
-| Brazil South       |           | ✓           |
-| Canada Central     |           | ✓           |
-| Central India      | ✓         | ✓           |
-| Central US         |           | ✓           |
-| China East 2       | ✓         | ✓           |
-| China North 2      |           | ✓           |
-| East Asia          |           | ✓           |
-| East US            | ✓         | ✓           |
-| East US 2          | ✓         | ✓           |
-| France Central     |           | ✓           |
-| Japan East         |           | ✓           |
-| Japan West         |           | ✓           |
-| Jio India West     |           | ✓           |
-| Korea Central      |           | ✓           |
-| North Central US   |           | ✓           |
-| North Europe       | ✓         | ✓           |
-| Norway East        |           | ✓           |
-| Qatar Central      |           | ✓           |
-| South Africa North |           | ✓           |
-| South Central US   | ✓         | ✓           |
-| Southeast Asia     |           | ✓           |
-| Sweden Central     |           | ✓           |
-| Switzerland North  | ✓         | ✓           |
-| UAE North          |           | ✓           |
-| UK South           | ✓         | ✓           |
-| West Central US    |           | ✓           |
-| West Europe        | ✓         | ✓           |
-| West US            |            | ✓           |
-| West US 2          | ✓         | ✓           |
-| West US 3          | ✓         | ✓           |
+See [Language service regional availability](../concepts/regional-support.md#conversational-language-understanding-and-orchestration-workflow).
 
 ## API limits
 

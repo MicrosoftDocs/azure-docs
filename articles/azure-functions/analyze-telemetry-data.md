@@ -14,7 +14,7 @@ By default, the data collected from your function app is stored in Application I
 
 To be able to view Application Insights data from a function app, you must have at least Contributor role permissions on the function app. You also need to have the [Monitoring Reader permission](../azure-monitor/roles-permissions-security.md#monitoring-reader) on the Application Insights instance. You have these permissions by default for any function app and Application Insights instance that you create.   
 
-To learn more about data retention and potential storage costs, see [Data collection, retention, and storage in Application Insights](../azure-monitor/app/data-retention-privacy.md).   
+To learn more about data retention and potential storage costs, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).   
 
 ## Viewing telemetry in Monitor tab
 

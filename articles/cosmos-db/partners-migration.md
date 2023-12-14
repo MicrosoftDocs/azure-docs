@@ -30,7 +30,6 @@ From NoSQL migration to application development, you can choose from a variety o
 | [Cognizant](https://www.cognizant.com/) | IoT, Personalization, Retail (inventory), Operational Analytics (Spark), App development | USA, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan |
 | [Infosys](https://www.infosys.com/) | App development | USA |
 | [Lambda3 Informatics](https://www.lambda3.com.br/) | Real-time personalization, Retail inventory, App development | Brazil |
-| [Neal Analytics](https://www.nealanalytics.com/) | Personalization, Retail (inventory), Operational Analytics (Spark), App development | USA |
 | [Pragmatic Works Software Inc](https://www.pragmaticworks.com/) | NoSQL migration | USA |
 | [Ricoh Digital Experience](https://www.ricoh-europe.com/contact-us) | IoT, Real-time personalization, Retail inventory, NoSQL migration | UK, Europe |
 | [SNP Technologies](https://www.snp.com/) | NoSQL migration | USA |

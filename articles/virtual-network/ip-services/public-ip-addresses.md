@@ -137,7 +137,7 @@ If a custom domain is desired for services that use a public IP, you can use [Az
 
 Public IP addresses with a standard SKU can be created as nonzonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). 
 
-A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "nonzonal" public IP addresses are placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
+A zone-redundant IP is created in all zones for a region and can survive any single zone failure. A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "nonzonal" public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy.
 
 In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain nonzonal.  A public IP's availability zone can't be changed after the public IP's creation.
 

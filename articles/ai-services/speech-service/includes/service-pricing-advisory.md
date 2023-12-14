@@ -1,11 +1,10 @@
 ---
 title: Speech service
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 12/02/2019
 ms.author: eur

@@ -3,7 +3,7 @@ title: Upload and analyze a file with Azure Functions and Blob Storage
 description: Learn how to upload an image to Azure Blob Storage and analyze its content using Azure Functions and Azure AI services
 author: alexwolfmsft
 ms.author: alexwolf
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 3/11/2022
 ms.devlang: csharp

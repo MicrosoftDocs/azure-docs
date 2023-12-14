@@ -1,6 +1,6 @@
 ---
-title: Run and manage a chaos experiment in Azure Chaos Studio Preview
-description: Learn how to start, stop, view details, and view history for a chaos experiment in Azure Chaos Studio Preview.
+title: Run and manage a chaos experiment in Azure Chaos Studio
+description: Learn how to start, stop, view details, and view history for a chaos experiment in Azure Chaos Studio.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
@@ -10,15 +10,15 @@ ms.service: chaos-studio
 ms.custom: ignite-fall-2021
 ---
 
-# Run and manage an experiment in Azure Chaos Studio Preview
+# Run and manage an experiment in Azure Chaos Studio
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. This article provides an overview of how to use Azure Chaos Studio Preview with a chaos experiment that you've previously created.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. This article provides an overview of how to use Azure Chaos Studio with a chaos experiment that you've previously created.
 
 ## Start an experiment
 
 1. Open the [Azure portal](https://portal.azure.com).
 
-1. Search for **Chaos Studio (preview)** in the search bar.
+1. Search for **Chaos Studio** in the search bar.
 
 1. Select **Experiments**. This experiment list view is where you can start, stop, or delete experiments in bulk. You can also create a new experiment.
 

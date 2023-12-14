@@ -100,7 +100,7 @@ You can select any item in the grid view. Select the icon in the **Flowlog Confi
 The **Alert** box on the right side of the page provides a view of all Traffic Analytics workspace-based alerts across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ## <a name="diagnostictoolkit"></a> Diagnostic Toolkit
-Diagnostic Toolkit provides access to all the diagnostic features available for troubleshooting the network. You can use this drop-down list to access features like [packet capture](../network-watcher/network-watcher-packet-capture-overview.md), [VPN troubleshooting](../network-watcher/network-watcher-troubleshoot-overview.md), [connection troubleshooting](../network-watcher/network-watcher-connectivity-overview.md), [next hop](../network-watcher/network-watcher-next-hop-overview.md), and [IP flow verify](../network-watcher/network-watcher-ip-flow-verify-overview.md):
+Diagnostic Toolkit provides access to all the diagnostic features available for troubleshooting the network. You can use this drop-down list to access features like [packet capture](../network-watcher/network-watcher-packet-capture-overview.md), [VPN troubleshooting](../network-watcher/vpn-troubleshoot-overview.md), [connection troubleshooting](../network-watcher/network-watcher-connectivity-overview.md), [next hop](../network-watcher/network-watcher-next-hop-overview.md), and [IP flow verify](../network-watcher/network-watcher-ip-flow-verify-overview.md):
 
 :::image type="content" source="./media/network-insights-overview/diagnostic-toolkit.png" alt-text="Screenshot shows the Diagnostic Toolkit tab in Azure Monitor network insights." lightbox="./media/network-insights-overview/diagnostic-toolkit.png":::
 

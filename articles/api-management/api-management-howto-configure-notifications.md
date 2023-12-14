@@ -32,9 +32,7 @@ If you don't have an API Management service instance, complete the following qui
 
     -   **Subscription requests (requiring approval)** - The specified email recipients and users will receive email notifications about subscription requests for products requiring approval.
     -   **New subscriptions** - The specified email recipients and users will receive email notifications about new product subscriptions.
-    -   **Application gallery requests** (deprecated) - The specified email recipients and users will receive email notifications when new applications are submitted to the application gallery on the legacy developer portal.
     -   **BCC** - The specified email recipients and users will receive email blind carbon copies of all emails sent to developers.
-    -   **New issue or comment** (deprecated) - The specified email recipients and users will receive email notifications when a new issue or comment is submitted on the legacy developer portal.
     -   **Close account message** - The specified email recipients and users will receive email notifications when an account is closed.
     -   **Approaching subscription quota limit** - The specified email recipients and users will receive email notifications when subscription usage gets close to usage quota.
 

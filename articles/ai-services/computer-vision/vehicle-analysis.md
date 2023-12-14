@@ -2,11 +2,10 @@
 title: Configure vehicle analysis containers
 titleSuffix: Azure AI services
 description: Vehicle analysis provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, and security settings.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 11/07/2022
@@ -15,7 +14,7 @@ ms.author: pafarley
 
 # Install and run vehicle analysis (preview)
 
-Vehicle analysis is a set of capabilities that, when used with the Spatial Analysis container, enable you to analyze real-time streaming video to understand vehicle characteristics and placement. In this article, you'll learn how to use the capabilities of the spatial analysis container to deploy vehicle analysis operations.
+Vehicle analysis is a set of capabilities that, when used with the Spatial Analysis container, enable you to analyze real-time streaming video to understand vehicle characteristics and placement. In this article, you learn how to use the capabilities of the spatial analysis container to deploy vehicle analysis operations.
 
 ## Prerequisites
 
@@ -30,9 +29,9 @@ Vehicle analysis is a set of capabilities that, when used with the Spatial Analy
 
 ## Vehicle analysis operations
 
-Similar to Spatial Analysis, vehicle analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for vehicle analysis will generate an output stream of JSON messages that are being sent to your instance of Azure IoT Hub.
+Similar to Spatial Analysis, vehicle analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for vehicle analysis generates an output stream of JSON messages that are being sent to your instance of Azure IoT Hub.
 
-The following operations for vehicle analysis are available in the current Spatial Analysis container. Vehicle analysis offers operations optimized for both GPU and CPU (CPU operations include the *.cpu* distinction).
+The following operations for vehicle analysis are available in the current Spatial Analysis container. Vehicle analysis offers operations optimized for both GPU and CPU (CPU operations include the ".cpu" distinction).
 
 | Operation identifier | Description |  
 | -------------------- | ---------------------------------------- |  
@@ -50,14 +49,14 @@ The following table shows the parameters required by each of the vehicle analysi
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
 | VIDEO_URL| The RTSP URL for the camera device (for example: `rtsp://username:password@url`). Spatial Analysis supports H.264 encoded streams either through RTSP, HTTP, or MP4. |
-| VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
+| VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This is returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
-| VIDEO_DECODE_GPU_INDEX| Index specifying which GPU will decode the video frame. By default it is 0. This should be the same as the `gpu_index` in other node configurations like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
+| VIDEO_DECODE_GPU_INDEX| Index specifying which GPU will decode the video frame. By default it's 0. This should be the same as the `gpu_index` in other node configurations like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
 | PARKING_REGIONS | JSON configuration for zone and line as outlined below. </br> PARKING_REGIONS must contain four points in normalized coordinates ([0, 1]) that define a convex region (the points follow a clockwise or counterclockwise order).|
 | EVENT_OUTPUT_MODE | Can be ON_INPUT_RATE or ON_CHANGE. ON_INPUT_RATE will generate an output on every single frame received (one FPS). ON_CHANGE will generate an output when something changes (number of vehicles or parking spot occupancy). |
-| PARKING_SPOT_METHOD | Can be BOX or PROJECTION. BOX will use an overlap between the detected bounding box and a reference bounding box. PROJECTIONS will project the centroid point into the parking spot polygon drawn on the floor. This is only used for Parking Spot and can be suppressed.|
+| PARKING_SPOT_METHOD | Can be BOX or PROJECTION. BOX uses an overlap between the detected bounding box and a reference bounding box. PROJECTIONS projects the centroid point into the parking spot polygon drawn on the floor. This is only used for Parking Spot and can be suppressed.|
 
-This is an example of a valid `PARKING_REGIONS` configuration:
+Here is an example of a valid `PARKING_REGIONS` configuration:
 
 ```json
 "{\"parking_slot1\": {\"type\": \"SingleSpot\", \"region\": [[0.20833333, 0.46203704], [0.3015625 , 0.66203704], [0.13229167, 0.7287037 ], [0.07395833, 0.51574074]]}}"
@@ -65,7 +64,7 @@ This is an example of a valid `PARKING_REGIONS` configuration:
 
 ### Zone configuration for cognitiveservices.vision.vehicleanalysis-vehiclecount-preview and cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview
 
-This is an example of a JSON input for the `PARKING_REGIONS` parameter that configures a zone. You may configure multiple zones for this operation.
+Here is an example of a JSON input for the `PARKING_REGIONS` parameter that configures a zone. You may configure multiple zones for this operation.
 
 ```json
 {
@@ -86,7 +85,7 @@ This is an example of a JSON input for the `PARKING_REGIONS` parameter that conf
 
 ### Zone configuration for cognitiveservices.vision.vehicleanalysis-vehicleinpolygon-preview and cognitiveservices.vision.vehicleanalysis-vehicleinpolygon.cpu-preview
 
-This is an example of a JSON input for the `PARKING_REGIONS` parameter that configures a zone. You may configure multiple zones for this operation.
+Here is an example of a JSON input for the `PARKING_REGIONS` parameter that configures a zone. You may configure multiple zones for this operation.
 
 ```json
 {
@@ -446,8 +445,8 @@ The JSON below demonstrates an example of the vehicle count operation graph outp
 
 | Attribute | Type | Description |
 |---------|---------|---------|
-| `VehicleType` | float | Detected vehicle types. Possible detections include  "VehicleType_Bicycle", "VehicleType_Bus", "VehicleType_Car", "VehicleType_Motorcycle", "VehicleType_Pickup_Truck", "VehicleType_SUV",  "VehicleType_Truck", "VehicleType_Van/Minivan", "VehicleType_type_other" |
-| `VehicleColor` | float | Detected vehicle colors. Possible detections include "VehicleColor_Black", "VehicleColor_Blue", "VehicleColor_Brown/Beige", "VehicleColor_Green", "VehicleColor_Grey", "VehicleColor_Red", "VehicleColor_Silver", "VehicleColor_White", "VehicleColor_Yellow/Gold", "VehicleColor_color_other" |
+| `VehicleType` | float | Detected vehicle types. Possible detections include  VehicleType_Bicycle, VehicleType_Bus, VehicleType_Car, VehicleType_Motorcycle, VehicleType_Pickup_Truck, VehicleType_SUV, VehicleType_Truck, VehicleType_Van/Minivan, VehicleType_type_other |
+| `VehicleColor` | float | Detected vehicle colors. Possible detections include VehicleColor_Black, VehicleColor_Blue, VehicleColor_Brown/Beige, VehicleColor_Green, VehicleColor_Grey, VehicleColor_Red, VehicleColor_Silver, VehicleColor_White, VehicleColor_Yellow/Gold, VehicleColor_color_other |
 | `confidence` | float| Algorithm confidence|
 
 | SourceInfo Field Name | Type| Description|
@@ -637,8 +636,8 @@ The JSON below demonstrates an example of the vehicle in polygon operation graph
 
 | Attribute | Type | Description |
 |---------|---------|---------|
-| `VehicleType` | float | Detected vehicle types. Possible detections include  "VehicleType_Bicycle", "VehicleType_Bus", "VehicleType_Car", "VehicleType_Motorcycle", "VehicleType_Pickup_Truck", "VehicleType_SUV",  "VehicleType_Truck", "VehicleType_Van/Minivan", "VehicleType_type_other" |
-| `VehicleColor` | float | Detected vehicle colors. Possible detections include "VehicleColor_Black", "VehicleColor_Blue", "VehicleColor_Brown/Beige", "VehicleColor_Green", "VehicleColor_Grey", "VehicleColor_Red", "VehicleColor_Silver", "VehicleColor_White", "VehicleColor_Yellow/Gold", "VehicleColor_color_other" |
+| `VehicleType` | float | Detected vehicle types. Possible detections include  VehicleType_Bicycle, VehicleType_Bus, VehicleType_Car, VehicleType_Motorcycle, VehicleType_Pickup_Truck, VehicleType_SUV, VehicleType_Truck, VehicleType_Van/Minivan, VehicleType_type_other |
+| `VehicleColor` | float | Detected vehicle colors. Possible detections include VehicleColor_Black, VehicleColor_Blue, VehicleColor_Brown/Beige, VehicleColor_Green, VehicleColor_Grey, VehicleColor_Red, VehicleColor_Silver, VehicleColor_White, VehicleColor_Yellow/Gold, VehicleColor_color_other |
 | `confidence` | float| Algorithm confidence|
 
 | SourceInfo Field Name | Type| Description|
@@ -651,7 +650,7 @@ The JSON below demonstrates an example of the vehicle in polygon operation graph
 
 ## Zone and line configuration for vehicle analysis
 
-For guidelines on where to place your zones for vehicle analysis, you can refer to the [zone and line placement](spatial-analysis-zone-line-placement.md) guide for spatial analysis. Configuring zones for vehicle analysis can be more straightforward than zones for spatial analysis if the parking spaces are already defined in the zone which you're analyzing.
+For guidelines on where to place your zones for vehicle analysis, you can refer to the [zone and line placement](spatial-analysis-zone-line-placement.md) guide for spatial analysis. Configuring zones for vehicle analysis can be more straightforward than zones for spatial analysis if the parking spaces are already defined in the zone that you're analyzing.
 
 ## Camera placement for vehicle analysis
 
@@ -661,7 +660,7 @@ For guidelines on where and how to place your camera for vehicle analysis, refer
 
 The vehicle analysis container sends billing information to Azure, using a Vision resource on your Azure account. The use of vehicle analysis in public preview is currently free.
 
-Azure AI services containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Azure AI services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
+Azure AI containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint always. Azure AI containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
 ## Next steps
 

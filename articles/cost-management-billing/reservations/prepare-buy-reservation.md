@@ -2,12 +2,14 @@
 title: Buy an Azure reservation
 description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2022
+  - ignite-2023
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 10/31/2023
 ms.author: banders
 ---
 
@@ -88,6 +90,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
+- [Microsoft Fabric](fabric-capacity.md)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
@@ -100,7 +103,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 
 You can pay for reservations with monthly payments. Unlike an up-front purchase where you pay the full amount, the monthly payment option divides the total cost of the reservation evenly over each month of the term. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly.
 
-If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
+If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount might vary, depending on the current month's market exchange rate for your local currency.
 
 Monthly payments aren't available for: Databricks, Synapse Analytics - Prepurchase, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
@@ -140,7 +143,7 @@ Notifications are sent to the following users:
 - Customers with Microsoft Customer Agreement (Azure Plan)
     - Notifications are sent to the reservation owners and the reservation administrator.
 - Cloud Solution Provider and new commerce partners
-    - Emails are sent to the partner notification contact. 
+    - Partner Center Action Center emails are sent to partners. For more information about how partners can update their transactional notifications, see [Action Center preferences](/partner-center/action-center-overview#preferences).
 - Individual subscription customers with pay-as-you-go rates
     - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
 

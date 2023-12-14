@@ -3,7 +3,7 @@ title: hbase hbck returns inconsistencies in Azure HDInsight
 description: hbase hbck returns inconsistencies in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 08/28/2022
+ms.date: 09/19/2023
 ---
 
 # Scenario: `hbase hbck` command returns inconsistencies in Azure HDInsight
@@ -35,7 +35,7 @@ Varies.
 
 ## Issue: Region is offline
 
-Region xxx not deployed on any RegionServer. This means the region is in `hbase:meta`, but offline.
+Region xxx not deployed on any RegionServer. It means the region is in `hbase:meta`, but offline.
 
 ### Cause
 
@@ -49,7 +49,7 @@ Bring regions online by running:
 hbase hbck -ignorePreCheckPermission –fixAssignment
 ```
 
-Alternatively, run `assign <region-hash>` on hbase-shell to force to assign this region
+Alternatively, run `assign <region-hash>` on hbase-shell to force assign this region
 
 ---
 
@@ -61,7 +61,7 @@ Varies.
 
 ### Resolution
 
-Manually merge those overlapped regions. Go to HBase HMaster Web UI table section, select the table link, which has the issue. You will see start key/end key of each region belonging to that table. Then merge those overlapped regions. In HBase shell, do `merge_region 'xxxxxxxx','yyyyyyy', true`. For example:
+Manually merge those overlapped regions. Go to HBase HMaster Web UI table section, select the table link, which has the issue. You see start key/end key of each region belonging to that table. Then merge those overlapped regions. In HBase shell, do `merge_region 'xxxxxxxx','yyyyyyy', true`. For example:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -81,7 +81,7 @@ Can't load `.regioninfo` for region `/hbase/data/default/tablex/regiony`.
 
 ### Cause
 
-This is most likely due to region partial deletion when RegionServer crashes or VM reboots. Currently, the Azure Storage is a flat blob file system and some file operations are not atomic.
+It is most likely due to region partial deletion when RegionServer crashes or VM reboots. Currently, the Azure Storage is a flat blob file system and some file operations are not atomic.
 
 ### Resolution
 

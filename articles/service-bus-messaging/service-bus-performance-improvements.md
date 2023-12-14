@@ -80,9 +80,11 @@ AMQP is the most efficient, because it maintains the connection to Service Bus. 
 > [!IMPORTANT]
 > The SBMP protocol is only available for .NET Framework. AMQP is the default for .NET Standard.
 
+[!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
+
 ## Choosing the appropriate Service Bus .NET SDK
 
-The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SDK available as of November 2020. There are two older .NET SDKs that will continue to receive critical bug fixes, but we strongly encourage you to use the latest SDK instead. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for details on how to move from the older SDKs.
+The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SDK available as of November 2020. There are two older .NET SDKs that will continue to receive critical bug fixes until 30 September 2026, but we strongly encourage you to use the latest SDK instead. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for details on how to move from the older SDKs.
 
 | NuGet Package | Primary Namespace(s) | Minimum Platform(s) | Protocol(s) |
 |---------------|----------------------|---------------------|-------------|
@@ -90,6 +92,8 @@ The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SD
 | [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Universal Windows Platform 10.0.16299 | AMQP<br>HTTP |
 
 For more information on minimum .NET Standard platform support, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Reusing factories and clients
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
@@ -101,9 +105,9 @@ This guidance doesn't apply to the [ServiceBusSessionReceiver](/dotnet/api/azure
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-> Please note, a newer package Azure.Messaging.ServiceBus is available as of November 2020. While the Microsoft.Azure.ServiceBus package will continue to receive critical bug fixes, we strongly encourage you to upgrade. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
+> Please note, a newer package Azure.Messaging.ServiceBus is available as of November 2020. While the Microsoft.Azure.ServiceBus package will continue to receive critical bug fixes until 30 September 2026, we strongly encourage you to upgrade. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
 
-Service Bus client objects, such as implementations of [`IQueueClient`][QueueClient] or [`IMessageSender`][MessageSender], should be registered for dependency injection as singletons (or instantiated once and shared). We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service. A new connection is established when recreating the factory. 
+Service Bus client objects, such as implementations of [`IQueueClient`](/dotnet/api/microsoft.azure.servicebus.queueclient) or [`IMessageSender`](/dotnet/api/microsoft.azure.servicebus.core.messagesender), should be registered for dependency injection as singletons (or instantiated once and shared). We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service. A new connection is established when recreating the factory. 
 
 ---
 
@@ -282,7 +286,7 @@ Batched store access doesn't affect the number of billable messaging operations.
 
 ## Prefetching
 
-[Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it receives messages. The client stores these messages in a local cache. The size of the cache is determined by the `QueueClient.PrefetchCount` or `SubscriptionClient.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache isn't shared across clients. If the client starts a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256 KB, whichever is smaller. If the client starts a receive operation and the cache contains a message, the message is taken from the cache.
+[Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it receives messages. The client stores these messages in a local cache. The size of the cache is determined by the `ServiceBusReceiver.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache isn't shared across clients. If the client starts a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256 KB, whichever is smaller. If the client starts a receive operation and the cache contains a message, the message is taken from the cache.
 
 When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message can't be received by a different receiver. If the receiver can't complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy receives an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, set the cache size smaller than the number of messages that a client can consume within the lock timeout interval.
 
@@ -311,14 +315,14 @@ For more information, see the following `PrefetchCount` properties:
 
 ---
 
-## Prefetching and ReceiveBatch
-While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (`ReceiveBatch`), there are some minor differences that must be kept in mind when using these approaches together.
+## Prefetching and ReceiveMessagesAsync
+While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (`ReceiveMessagesAsync`), there are some minor differences that must be kept in mind when using these approaches together.
 
-Prefetch is a configuration (or mode) on the client (`QueueClient` and `SubscriptionClient`) and `ReceiveBatch` is an operation (that has request-response semantics).
+Prefetch is a configuration (or mode) on the ServiceBusReceiver and `ReceiveMessagesAsync` is an operation (that has request-response semantics).
 
 While using these approaches together, consider the following cases -
 
-* Prefetch should be greater than or equal to the number of messages you're expecting to receive from `ReceiveBatch`.
+* Prefetch should be greater than or equal to the number of messages you're expecting to receive from `ReceiveMessagesAsync`.
 * Prefetch can be up to n/3 times the number of messages processed per second, where n is the default lock duration.
 
 There are some challenges with having a greedy approach, that is, keeping the prefetch count high, because it implies that the message is locked to a particular receiver. We recommend that you try out prefetch values that are between the thresholds mentioned above, and identify what fits.
@@ -412,17 +416,3 @@ To maximize throughput, try the following steps:
 * Use asynchronous operations to take advantage of client-side batching.
 * Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
 * Set the prefetch count to 20 times the expected receive rate in seconds. This count reduces the number of Service Bus client protocol transmissions.
-
-<!-- .NET Standard SDK, Microsoft.Azure.ServiceBus -->
-[QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
-[MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender
-
-<!-- .NET Framework SDK, Microsoft.Azure.ServiceBus -->
-[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[BatchFlushInterval]: /dotnet/api/microsoft.servicebus.messaging.messagesender.batchflushinterval
-[ForcePersistence]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.forcepersistence
-[EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
-[TopicDescription.EnableFiltering]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing
-
-<!-- Local links -->
-[Partitioned messaging entities]: service-bus-partitioning.md

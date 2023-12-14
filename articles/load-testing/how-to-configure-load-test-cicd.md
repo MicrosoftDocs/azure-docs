@@ -41,7 +41,7 @@ To run a load test in your CI/CD workflow, you need to grant permission to the C
 
 ### Create a service connection in Azure Pipelines
 
-In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates an Azure Active Directory service principal object.
+In Azure Pipelines, you create a *service connection* in your Azure DevOps project to access resources in your Azure subscription. When you create the service connection, Azure DevOps creates a Microsoft Entra service principal object.
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
     
@@ -95,7 +95,7 @@ You can now use the service connection in your Azure Pipelines workflow definiti
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
+To access your Azure Load Testing resource from the GitHub Actions workflow, you first create a Microsoft Entra [service principal](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Microsoft Entra ID. 
 
 Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
 
@@ -111,7 +111,7 @@ Create a service principal in the Azure subscription and assign the Load Test Co
 
     az ad sp create-for-rbac --name "my-load-test-cicd" --role "Load Test Contributor" \
                              --scopes $loadtest \
-                             --sdk-auth
+                             --json-auth
     ```
 
     The output is a JSON object that represents the service principal. You use this information to authenticate with Azure in the GitHub Actions workflow.
@@ -350,6 +350,6 @@ If you don't plan to use any of the resources that you created, delete them so y
 
 Advance to the next article to learn how to identify performance regressions by defining test fail criteria and comparing test runs.
 
-- [Tutorial: automate regression tests](./tutorial-identify-performance-regression-with-cicd.md)
+- [Tutorial: automate regression tests](./quickstart-add-load-test-cicd.md)
 - [Define test fail criteria](./how-to-define-test-criteria.md)
 - [View performance trends over time](./how-to-compare-multiple-test-runs.md)

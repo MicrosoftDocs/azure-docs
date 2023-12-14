@@ -1,17 +1,16 @@
 ---
 title: What is Service Connector?
 description: Understand typical use case scenarios for Service Connector, and learn the key benefits of Service Connector.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: overview
-ms.date: 06/14/2022
+ms.date: 10/19/2023
 ---
-
 # What is Service Connector?
 
-Service Connector helps you connect Azure compute services to other backing services. This service configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane. Developers use their preferred SDK or library that consumes the connection information to do data plane operations against the target backing service.
+Service Connector helps you connect Azure compute services to other backing services. Service Connector configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane. Developers use their preferred SDK or library that consumes the connection information to do data plane operations against the target backing service.
 
 This article provides an overview of Service Connector.
 
@@ -23,23 +22,24 @@ Any application that runs on Azure compute services and requires a backing servi
 * **WebApp/Container Apps/Spring Apps + Storage:** Use Service Connector to connect to Azure Storage accounts and use your preferred storage products easily for any of your apps.
 * **WebApp/Container Apps/Spring Apps + Messaging Services:** Service Connector can help you connect your cloud apps to Service Bus, Event Hubs, and Apache Kafka on Confluent Cloud.
 
-See [what services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
+See [what services are supported in Service Connector](#what-services-are-supported-by-service-connector) to see more supported services and application patterns.
 
 ## What are the benefits to using Service Connector?
 
 **Connect to a target backing service with just a single command or a few clicks:**
 
-Service Connector is designed for your ease of use. To create a connection, you'll need three required parameters: a target service instance, an authentication type between the compute service and the target service, and your application client type. Developers can use the Azure CLI or the guided Azure portal experience to create connections.
+Service Connector is designed for your ease of use. To create a connection, you need three required parameters: a target service instance, an authentication type between the compute service and the target service, and your application client type. Developers can use the Azure CLI or the guided Azure portal experience to create connections.
 
 **Use Connection Status to monitor or identify connection issue:**
 
 Once a service connection is created, developers can validate and check the health status of their connections. Service Connector can suggest some actions to take to fix broken connections.
 
-## What services are supported in Service Connector?
+## What services are supported by Service Connector?
 
 **Compute Services:**
 
 * Azure App Service
+* Azure Functions
 * Azure Spring Apps
 * Azure Container Apps
 
@@ -65,6 +65,15 @@ There are two major ways to use Service Connector for your Azure application:
 
 * **Azure CLI:** Create, list, validate and delete service-to-service connections with connection commands in the Azure CLI.
 * **Azure portal:** Use the guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
+
+What's more, Service Connector is also supported in the following client tools with its most fundamental features:
+
+* **Azure Powershell:** manage connections with commands in Azure PowerShell.
+* **Terraform:** create and delete connections with infrastructure as code tool (be aware of the [limitations](known-limitations.md)).
+* **Visual Studio:** manage connections of a project by integrating with [Connected Services](/visualstudio/azure/overview-connected-services) feature in Visual Studio.
+* **Intellij:** list connections of Azure compute services in [Azure Toolkit for Intellij](/azure/developer/java/toolkit-for-intellij/install-toolkit).
+
+Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 
 ## Next steps
 

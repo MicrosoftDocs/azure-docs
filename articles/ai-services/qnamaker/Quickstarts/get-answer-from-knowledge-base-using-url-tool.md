@@ -2,12 +2,12 @@
 title: Use URL tool to get answer from knowledge base - QnA Maker
 titleSuffix: Azure AI services
 description: This article walks you through getting an answer from your knowledge base using a URL test tool such as cURL or Postman.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: how-to
 ms.date: 07/16/2020
