@@ -54,7 +54,6 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
         kubectl get pods -n aks-istio-ingress
         ```
 
-
         Example output:
 
         ```
