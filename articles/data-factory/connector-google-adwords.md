@@ -235,16 +235,16 @@ You can follow the guidance below to convert the SQL statement to the correspond
 
 Here are two very useful tools offered by Google and they are highly recommended when building the corresponding GAQL query statements:
 
-1. [Interactive GAQL query builder](https://developers.google.com/google-ads/api/fields/v14/overview_query_builder) 
-2. [GAQL query validator](https://developers.google.com/google-ads/api/fields/v14/query_validator) 
+- [Interactive GAQL query builder](https://developers.google.com/google-ads/api/fields/v14/overview_query_builder) 
+- [GAQL query validator](https://developers.google.com/google-ads/api/fields/v14/query_validator) 
 
 ### Field name
 
 The field name used in SQL is not aligned with GAQL. You also need to learn the conversion rules from field names in SQL to field names in GAQL. The conversion rule can be summarized as follows:
 
-1. If the field name belongs to a resource, the underscore (`_`) in SQL will be changed to dot (`.`) in GAQL. And for the words between the dot, the camelCase type statement used in SQL will be changed to standalone words with added underscores in between. The first string of type PascalCase in SQL will be changed to the corresponding resource name in GAQL.
+- If the field name belongs to a resource, the underscore (`_`) in SQL will be changed to dot (`.`) in GAQL. And for the words between the dot, the camelCase type statement used in SQL will be changed to standalone words with added underscores in between. The first string of type PascalCase in SQL will be changed to the corresponding resource name in GAQL.
 
-2. If the field name belongs to segments or metrics, the prefix `segments.` or `metrics.` should be added in GAQL, then follow the same rule as described in the first point to convert the name.
+- If the field name belongs to segments or metrics, the prefix `segments.` or `metrics.` should be added in GAQL, then follow the same rule as described in the first point to convert the name.
 
 Here are the concrete examples of the field name conversion:
 
