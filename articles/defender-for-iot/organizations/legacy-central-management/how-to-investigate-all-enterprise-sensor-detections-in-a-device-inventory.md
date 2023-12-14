@@ -6,7 +6,7 @@ ms.date: 08/07/2023
 
 ---
 
-# Manage your OT device inventory from an on-premises management console
+# Manage your OT device inventory from an on-premises management console (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 

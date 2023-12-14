@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 08/07/2023
 ---
 
-# Deploy air-gapped OT sensor management
+# Deploy air-gapped OT sensor management (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 

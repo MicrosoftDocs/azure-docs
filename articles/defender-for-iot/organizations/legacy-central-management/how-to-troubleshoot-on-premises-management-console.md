@@ -4,7 +4,7 @@ description: Troubleshoot your sensor and on-premises management console to elim
 ms.date: 08/07/2023
 ms.topic: troubleshooting
 ---
-# Troubleshoot the on-premises management console
+# Troubleshoot the on-premises management console (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 

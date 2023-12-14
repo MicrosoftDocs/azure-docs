@@ -302,7 +302,7 @@
           - name: Air-gapped management deployment path
             href: legacy-central-management/legacy-air-gapped-deploy.md
           - name: Prepare an appliance
-            href: legacy-central-management/install-software-on-premises-management-console.md
+            href: legacy-central-management/prepare-management-appliance.md
           - name: Install an on-premises management console
             href: legacy-central-management/install-software-on-premises-management-console.md
           - name: Activate and set up an on-premises management console

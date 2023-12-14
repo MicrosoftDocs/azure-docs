@@ -6,7 +6,7 @@ ms.date: 08/07/2023
 ---
 
 
-# Prepare an on-premises management console appliance
+# Prepare an on-premises management console appliance  (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 

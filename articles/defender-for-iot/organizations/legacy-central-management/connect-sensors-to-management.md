@@ -5,7 +5,7 @@ ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
-# Connect OT network sensors to the on-premises management console
+# Connect OT network sensors to the on-premises management console (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 

@@ -7,7 +7,9 @@ ms.collection:
   -       zerotrust-extra
 ---
 
-# Create OT sites and zones on an on-premises management console
+# Create OT sites and zones on an on-premises management console  (Legacy)
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article is one in a series of articles describing the [deployment path](legacy-air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 

@@ -5,7 +5,7 @@ ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
-# Install Microsoft Defender for IoT on-premises management console software
+# Install Microsoft Defender for IoT on-premises management console software (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 

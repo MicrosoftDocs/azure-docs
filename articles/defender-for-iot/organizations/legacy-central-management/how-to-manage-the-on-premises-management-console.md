@@ -5,7 +5,7 @@ ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
-# Maintain the on-premises management console
+# Maintain the on-premises management console (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 

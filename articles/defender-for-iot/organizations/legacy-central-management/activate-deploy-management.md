@@ -5,7 +5,7 @@ ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
-# Activate and set up an on-premises management console
+# Activate and set up an on-premises management console (Legacy)
 
 [!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
