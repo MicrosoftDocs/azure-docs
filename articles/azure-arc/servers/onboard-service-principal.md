@@ -22,7 +22,7 @@ Before you start connecting your machines, review the following requirements:
     * Microsoft.HybridCompute
     * Microsoft.GuestConfiguration
     * Microsoft.HybridConnectivity
-    * Microsoft.AzureArcData (if you plan to Arc-enable SQL Servers)
+    * Microsoft.AzureArcData (if you plan to Arc-enable SQL Server instances)
 
     See detailed how to here: [Azure resource providers prerequisites](prerequisites.md#azure-resource-providers)
 

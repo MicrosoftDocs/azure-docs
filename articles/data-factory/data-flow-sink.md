@@ -177,6 +177,6 @@ sink(input(
 	errorHandlingOption: 'stopOnFirstError') ~> sink1
 ```
 
-## Next steps
+## Related content
 
 Now that you've created your data flow, add a [data flow activity to your pipeline](concepts-data-flow-overview.md).

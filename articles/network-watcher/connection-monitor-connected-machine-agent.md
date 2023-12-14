@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 11/15/2023
 
 #CustomerIntent: As an Azure administrator, I need to install the Azure Connected Machine agent so I can monitor a connection using the Connection Monitor.
 ---

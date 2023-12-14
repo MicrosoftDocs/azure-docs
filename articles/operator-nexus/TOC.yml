@@ -103,7 +103,7 @@
           href: howto-kubernetes-service-load-balancer.md
         - name: Disable cgroupsv2 in Nexus Kubernetes 1.27+
           href: howto-disable-cgroupsv2.md
-        - name: Restart Azure Operator Nexus Kubernetes cluster node
+        - name: Restart cluster node
           href: howto-kubernetes-cluster-action-restart.md
         - name: Customize cluster DNS
           href: how-to-customize-kubernetes-cluster-dns.md
@@ -132,11 +132,10 @@
       items:
         - name: Set up Defender for Cloud security
           href: howto-set-up-defender-for-cloud-security.md
-        - name: Use Azure Policy for AKS Clusters
-          href: howto-use-azure-policy-for-aks-cluster-security.md
+        - name: Use Azure Policy with Operator Nexus resources
+          href: howto-use-azure-policy.md
         - name: MDE Runtime Protection
           href: howto-use-mde-runtime-protection.md
-
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
@@ -151,6 +150,8 @@
       href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
+    - name: Enable node down cleaner
+      href: troubleshoot-enable-node-down-cleaner.md
     - name: BareMetal Actions
       expanded: false
       items:

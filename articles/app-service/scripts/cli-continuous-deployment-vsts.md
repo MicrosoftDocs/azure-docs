@@ -30,9 +30,9 @@ This sample script creates an app in App Service with its related resources, and
 
 :::code language="azurecli" source="~/azure_cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous-webapp-only.sh" id="FullScript":::
 
-### To configure continuous deployment from GitHub
+### To configure continuous deployment from Azure DevOps
 
-Create the following variables containing your GitHub information.
+Create the following variables containing your Azure DevOps information.
 
 ```azurecli
 gitrepo=<Replace with your Azure DevOps Services (formerly Visual Studio Team Services, or VSTS) repo URL>

@@ -47,7 +47,7 @@ The following file formats are supported. Refer to each article for format-based
 - [Parquet format](format-parquet.md)
 - [XML format](format-xml.md)
 
-## Next steps
+## Related content
 
 - [Copy activity](copy-activity-overview.md)
 - [Mapping Data Flow](concepts-data-flow-overview.md)

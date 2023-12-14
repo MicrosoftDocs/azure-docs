@@ -70,6 +70,8 @@
       - name: Application deployment with GitOps
         displayName: flux, deploy, configuration
         href: conceptual-gitops-flux2.md
+      - name: GitOps (Flux v2) parameters
+        href: gitops-flux2-parameters.md
       - name: CI/CD workflow using GitOps
         displayName: flux, pipeline
         href: conceptual-gitops-flux2-ci-cd.md
@@ -172,7 +174,7 @@
 - name: Resources
   items:
   - name: Azure Arc Jumpstart
-    href: https://azurearcjumpstart.io
+    href: https://aka.ms/AzureArcJumpstart
   - name: Microsoft Q&A for Azure Arc
     href: /answers/tags/146/azure-arc
   - name: Azure updates

@@ -10,7 +10,12 @@ ms.author: vijetaj
 author: vijetajo
 ms.reviewer: sgilley
 ms.date: 10/19/2022
-ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2, build-2023
+ms.custom:
+  - ignite-fall-2021
+  - event-tier1-build-2022
+  - cliv2
+  - build-2023
+  - ignite-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
@@ -38,7 +43,24 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in a compute target.
 
-[!INCLUDE [aml-deploy-target](includes/aml-compute-target-deploy.md)]
+The compute target you use to host your model will affect the cost and availability of your deployed endpoint. Use this table to choose an appropriate compute target.
+
+:::moniker range="azureml-api-2"
+| Compute target | Used for | GPU support | Description |
+| ----- | ----- | ----- | ----- | 
+| [Azure Machine Learning endpoints](~/articles/machine-learning/concept-endpoints.md) | Real-time inference <br/><br/>Batch&nbsp;inference | Yes | Fully managed computes for real-time (managed online endpoints) and batch scoring (batch endpoints) on serverless compute. |
+| [Azure Machine Learning Kubernetes](~/articles/machine-learning/how-to-attach-kubernetes-anywhere.md) | Real-time inference <br/><br/> Batch inference | Yes | Run inferencing workloads on on-premises, cloud, and edge Kubernetes clusters. |  
+:::moniker-end
+:::moniker range="azureml-api-1"
+| Compute target | Used for | GPU support | Description |
+| ----- | ----- | ----- | ----- | 
+| [Local&nbsp;web&nbsp;service](~/articles/machine-learning/v1/how-to-deploy-local-container-notebook-vm.md) | Testing/debugging |  &nbsp; | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system. |
+| [Azure Machine Learning Kubernetes](~/articles/machine-learning/v1/how-to-deploy-azure-kubernetes-service.md) | Real-time inference | Yes | Run inferencing workloads in the cloud. | 
+| [Azure Container Instances](~/articles/machine-learning/v1/how-to-deploy-azure-container-instance.md) | Real-time inference <br/><br/> Recommended for dev/test purposes only.| &nbsp;  | Use for low-scale CPU-based workloads that require less than 48 GB of RAM. Doesn't require you to manage a cluster.<br/><br/> Only suitable for models less than 1 GB in size.<br/><br/> Supported in the designer. |
+:::moniker-end
+
+> [!NOTE]
+> When choosing a cluster SKU, first scale up and then scale out. Start with a machine that has 150% of the RAM your model requires, profile the result and find a machine that has the performance you need. Once you've learned that, increase the number of machines to fit your need for concurrent inference.
 
 :::moniker range="azureml-api-2"
 Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
@@ -49,9 +71,9 @@ Learn [where and how to deploy your model to a compute target](./v1/how-to-deplo
 
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters, [serverless compute (preview)](how-to-use-serverless-compute.md), and [compute instances](concept-compute-instance.md) are the only managed computes.
+Azure Machine Learning creates and manages the managed compute resources. This type of compute is optimized for machine learning workloads. Azure Machine Learning compute clusters, [serverless compute](how-to-use-serverless-compute.md), and [compute instances](concept-compute-instance.md) are the only managed computes.
 
-There is no need to create serverless compute. You can create Azure Machine Learning compute instances or compute clusters from:
+There's no need to create serverless compute. You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
 * The Python SDK and the Azure CLI:
@@ -74,7 +96,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 > [!NOTE]
 > To avoid charges when the compute is idle:
-> * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md) (preview).
+> * For compute *cluster* make sure the minimum number of nodes is set to 0, or use [serverless compute](./how-to-use-serverless-compute.md).
 > * For a compute *instance*, [enable idle shutdown](how-to-create-compute-instance.md#configure-idle-shutdown).
 
 ### Supported VM series and sizes
@@ -87,7 +109,7 @@ When you select a node size for a managed compute resource in Azure Machine Lear
 There are a few exceptions and limitations to choosing a VM size:
 
 * Some VM series aren't supported in Azure Machine Learning.
-* There are some VM series, such as GPUs and other special SKUs, which may not initially appear in your list of available VMs.  But you can still use them, once you request a quota change. For more information about requesting quotas, see [Request quota increases](how-to-manage-quotas.md#request-quota-increases).
+* Some VM series, such as GPUs and other special SKUs, might not initially appear in your list of available VMs.  But you can still use them, once you request a quota change. For more information about requesting quotas, see [Request quota and limit increases](how-to-manage-quotas.md#request-quota-and-limit-increases).
 See the following table to learn more about supported series.
 
 | **Supported VM series** | **Category** | **Supported by** |

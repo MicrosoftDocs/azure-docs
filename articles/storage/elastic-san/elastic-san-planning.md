@@ -6,7 +6,9 @@ ms.service: azure-elastic-san-storage
 ms.topic: conceptual
 ms.date: 06/09/2023
 ms.author: rogarana
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2022
+  - ignite-2023-elastic-SAN
 ---
 
 # Plan for deploying an Elastic SAN Preview

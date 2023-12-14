@@ -57,11 +57,8 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
 1. In the dialog, you can [stick the setting to the current slot](deploy-staging-slots.md#which-settings-are-swapped).
 
-    App setting names can't contain periods (`.`). If an app setting contains a period, the period is replaced with an underscore in the container.
-
     > [!NOTE]
-    > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore).
-    >
+    > In a default Linux app service or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore). Any periods in the app setting name will be replaced with a `_` (single underscore).
 
 1. When finished, select **Update**. Don't forget to select **Save** back in the **Configuration** page.
 

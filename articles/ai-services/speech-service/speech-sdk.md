@@ -2,7 +2,6 @@
 title: About the Speech SDK - Speech service
 titleSuffix: Azure AI services
 description: The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

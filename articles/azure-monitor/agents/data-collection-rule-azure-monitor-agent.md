@@ -17,7 +17,7 @@ This article describes how to collect events and performance counters from virtu
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-create-edit.md#permissions) in the workspace.
 - Associate the data collection rule to specific virtual machines.
 
 ## Create a data collection rule
@@ -166,10 +166,10 @@ Examples of using a custom XPath to filter events:
 
 This section provides answers to common questions.
 
-### How can I collect Windows security events by using the new Azure Monitor Agent?
+### How can I collect Windows security events by using Azure Monitor Agent?
 
 There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
-- You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. If you want Security Events to flow into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead, you can [create the required DCR with PowerShell or with Azure Policy](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-configure-security-events-collection-with-azure-monitor/ba-p/3770719).
+- You can use Azure Monitor Agent to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace. 
 - If you have Microsoft Sentinel enabled on the workspace, the security events flow via Azure Monitor Agent into the [`SecurityEvent`](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (the same as using the Log Analytics agent). This scenario always requires the solution to be enabled first.
 
 ### Will I duplicate events if I use Azure Monitor Agent and the Log Analytics agent on the same machine? 
@@ -178,11 +178,11 @@ If you're collecting the same events with both agents, duplication occurs. This 
           
 Limit duplication events to only the time when you transition from one agent to the other. After you've fully tested the data collection rule and verified its data collection, disable collection for the workspace and disconnect any Microsoft Monitoring Agent data connectors.
 
-### Besides Xpath queries and specifying performance counters, is other more granular event filtering possible by using the new Azure Monitor Agent?
+### Does Azure Monitor Agent offer more granular event filtering options other than Xpath queries and specifying performance counters?
 
-For Syslog on Linux, you can choose facilities and the log level for each facility to collect.
+For Syslog events on Linux, you can select facilities and the log level for each facility.
 
-### If I create data collection rules that contain the same event ID and associate it to the same VM, will the events be duplicated?
+### If I create data collection rules that contain the same event ID and associate them to the same VM, will events be duplicated?
 
 Yes. To avoid duplication, make sure the event selection you make in your data collection rules doesn't contain duplicate events.
 

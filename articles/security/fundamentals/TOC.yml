@@ -137,6 +137,8 @@
 
 - name: Data security, encryption, and storage
   items: 
+  - name: Best practices for protecting secrets
+    href: secrets-best-practices.md
   - name: Data security and encryption
     href: encryption-overview.md
   - name: Key management in Azure

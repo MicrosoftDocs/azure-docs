@@ -142,7 +142,7 @@ For details about monitoring options, see [Observability in Azure API Management
 
 | Feature  | Managed (Dedicated)  | Managed (Consumption) | Self-hosted  |
 | --- | ----- | ----- | ---------- |
-| [Authorizations](authorizations-overview.md) |  ✔️ | ✔️ | ❌ |
+| [API credentials](credentials-overview.md) |  ✔️ | ✔️ | ❌ |
 
 
 ## Gateway throughput and scaling

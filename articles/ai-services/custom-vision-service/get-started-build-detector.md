@@ -2,7 +2,7 @@
 title: "Quickstart: Build an object detector with the Custom Vision website"
 titleSuffix: Azure AI services
 description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an object detector model.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-custom-vision

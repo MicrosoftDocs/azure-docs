@@ -2,7 +2,7 @@
 title: Custom text classification FAQ
 titleSuffix: Azure AI services
 description: Learn about Frequently asked questions when using the custom text classification API.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

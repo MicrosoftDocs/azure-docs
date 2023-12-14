@@ -19,7 +19,7 @@ This article provides troubleshooting steps and fixes for MedTech service deploy
 >  
 > [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md) 
 >
-> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
+> [How to configure the MedTech service metrics](configure-metrics.md)
 >
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 

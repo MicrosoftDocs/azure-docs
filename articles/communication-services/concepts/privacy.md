@@ -86,6 +86,8 @@ Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, a
 - `Delete Thread`
 - `Delete Message`
 
+For customers that use Virtual appointments, refer to our Teams Interoperability [user privacy](interop/guest/privacy.md#chat-storage) for storage of chat messages in Teams meetings.
+
 ### SMS
 
 Sent and received SMS messages are ephemerally processed by the service and not retained.

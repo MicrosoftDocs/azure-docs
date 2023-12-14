@@ -1,15 +1,17 @@
 ---
 title: Custom Web API skill in skillsets
-titleSuffix: Azure Cognitive Search
-description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
+titleSuffix: Azure AI Search
+description: Extend capabilities of Azure AI Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
 author: gmndrg
 ms.author: gimondra
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/20/2022
 ---
 
-# Custom Web API skill in an Azure Cognitive Search enrichment pipeline
+# Custom Web API skill in an Azure AI Search enrichment pipeline
 
 The **Custom Web API** skill allows you to extend AI enrichment by calling out to a Web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your Web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
 
@@ -32,7 +34,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | `uri` | The URI of the Web API to which the JSON payload will be sent. Only the **https** URI scheme is allowed. |
-| `authResourceId` | (Optional) A string that if set, indicates that this skill should use a managed identity on the connection to the function or app hosting the code. The value of this property is the application (client) ID of the function or app's registration in Microsoft Entra ID. This value will be used to scope the authentication token retrieved by the indexer, and will be sent along with the custom Web skill API request to the function or app. Setting this property requires that your search service is [configured for managed identity](search-howto-managed-identities-data-sources.md) and your Azure function app is [configured for a Microsoft Entra login](../app-service/configure-authentication-provider-aad.md). |
+| `authResourceId` | (Optional) A string that if set, indicates that this skill should use a managed identity on the connection to the function or app hosting the code. This property takes an application (client) ID or app's registration in Microsoft Entra ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri): `api://<appId>`. This value will be used to scope the authentication token retrieved by the indexer, and will be sent along with the custom Web skill API request to the function or app. Setting this property requires that your search service is [configured for managed identity](search-howto-managed-identities-data-sources.md) and your Azure function app is [configured for a Microsoft Entra login](../app-service/configure-authentication-provider-aad.md). To use this parameter, call the API with `api-version=2023-10-01-Preview`. |
 | `httpMethod` | The method to use while sending the payload. Allowed methods are `PUT` or `POST` |
 | `httpHeaders` | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`. |
 | `timeout` | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
