@@ -146,7 +146,7 @@ The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the
 This action saves the notebook as a JSON file in your download location.
 
 > [!NOTE]
-> * In HDI 4.0 , the zeppelin notebook directory path is, `/usr/hdp/<version>/zeppelin/notebook/<notebook_session_id>/`
+> * In HDI 4.0, the zeppelin notebook directory path is, `/usr/hdp/<version>/zeppelin/notebook/<notebook_session_id>/`
    > 
    >    Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
    > 
