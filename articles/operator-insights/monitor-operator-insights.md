@@ -40,7 +40,7 @@ The Activity log is collected and stored automatically by Azure. You can:
 
 ## Resource logs for Data Products: overview, collection and analysis
 
-Resource logs provide an insight into operations that were performed within an Azure resource. This is know as the *data plane*. For Data Products, resource logs include ingestion (activity on files uploaded to Azure Operator Insights), digestion (processing the data in those files), and management of the processed data. 
+Resource logs provide an insight into operations that were performed within an Azure resource. This is known as the *data plane*. For Data Products, resource logs include ingestion (activity on files uploaded to Azure Operator Insights), digestion (processing the data in those files), and management of the processed data. 
 
 Resource logs aren't collected and stored until you create a *diagnostic setting* that routes them to one or more locations. We recommend routing them to a Log Analytics workspace, which stores the logs in [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md). Log Analytics allows you to analyze the logs of all your Azure resources together in Azure Monitor Logs and take advantage of all the features available to Azure Monitor Logs including [log queries](../azure-monitor/logs/log-query-overview.md) and [log alerts](../azure-monitor/alerts/alerts-log.md).
 
@@ -133,11 +133,11 @@ For a list of common queries for Azure Operator Insights, see the [Log Analytics
 
 Azure Operator Insights also requires ingestion agents deployed in your network.
 
-Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored on the VM on which you have installed the agent, and aren't uploaded to Azure Monitor. For details, see the troubleshooting guidance for [MCC EDR Ingestion Agents](troubleshoot-mcc-edr-agent.md) or [SFTP Ingestion Agents](troubleshoot-sftp-agent.md).
+Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored on the VM on which you installed the agent, and aren't uploaded to Azure Monitor. For details, see the troubleshooting guidance for [MCC EDR Ingestion Agents](troubleshoot-mcc-edr-agent.md) or [SFTP Ingestion Agents](troubleshoot-sftp-agent.md).
 
 ## Next steps
 
-- See [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md) for a reference of the Azure Monitor data created by Azure Operator Insights.
-- See [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md) for more information about metrics and logs for MCC EDR ingestion agents.
-- See [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md) for more information about metrics and logs for SFTP ingestion agents.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for background on Azure Monitor.
+- For a reference of the Azure Monitor data created by Azure Operator Insights [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md).
+- For more information about metrics and logs for MCC EDR ingestion agents, see [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md).
+- For more information about metrics and logs for SFTP ingestion agents, see [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md).
+- For background on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) .
