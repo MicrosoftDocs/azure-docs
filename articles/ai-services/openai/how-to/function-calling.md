@@ -24,19 +24,18 @@ At a high level you can break down working with functions into three steps:
 > [!IMPORTANT]
 > The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the [`tools`](../reference.md#chat-completions) parameter. The replacement for `function_call` is the [`tool_choice`](../reference.md#chat-completions) parameter.
 
-## Supported models
-
-* `gpt-35-turbo` (0613)
-* `gpt-25-turbo-16k` (0613)
-* `gpt-4` (0613)
-* `gpt-4-32k` (0613)
+## Parallel function calling
 
 Parallel function calls are supported with:
+
+### Supported models
 
 * `gpt-35-turbo` (1106)
 * `gpt-4` (1106-preview)
 
-## Parallel function calling
+### Supported API versions
+
+* [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json)
 
 Parallel function calls allow you to perform multiple function calls together, allowing for parallel execution and retrieval of results. This reduces the number of calls to the API that need to be made and can improve overall performance.
 
@@ -144,9 +143,6 @@ print(run_conversation())
 ```
 
 ## Using function in the chat completions API (Deprecated)
-
-> [!IMPORTANT]
-> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the [`tools`](../reference.md#chat-completions) parameter. The replacement for `function_call` is the [`tool_choice`](../reference.md#chat-completions) parameter. 
 
 Function calling is available in the `2023-07-01-preview` API version and works with version 0613 of gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k.
 
