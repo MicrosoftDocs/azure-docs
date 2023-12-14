@@ -38,7 +38,7 @@ NFDG represents the smallest component that you plan to reuse independently acro
 
 For Containerized Network Function Definition Versions (CNF NFDVs), the networkFunctionApplications list can only contain helm packages. It's reasonable to include multiple helm packages if they're always deployed and deleted together.
 
-For Virtualized Network Function Definition Versions (VNF NFDVs), the networkFunctionApplications list must contain atleast one VhdImageFile and one ARM template. The ARM template should deploy a single VM. To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM. 
+For Virtualized Network Function Definition Versions (VNF NFDVs), the networkFunctionApplications list must contain at least one VhdImageFile and one ARM template. The ARM template should deploy a single VM. To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM. 
 
 The ARM template can only deploy ARM resources from the following Resource Providers:
 
