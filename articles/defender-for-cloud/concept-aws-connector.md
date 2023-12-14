@@ -37,15 +37,15 @@ The architecture of the authentication process across clouds is as follows:
 
 1. The Microsoft Entra token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
 
-1. Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
+1. Since the principal of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
 
     - audience validation
-    - signing of the token
+    - digital signature validation of the token
     - certificate thumbprint
 
  1.  The Microsoft Defender for Cloud CSPM role is assumed only after the validation conditions defined at the trust relationship have been met. The conditions defined for the role level are used for validation within AWS and allows only the Microsoft Defender for Cloud CSPM application (validated audience) access to the specific role (and not any other Microsoft token).
 
-1. After the Microsoft Entra token validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
+1. After the Microsoft Entra token is validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
 
 ## Native connector plan requirements
 
@@ -66,7 +66,7 @@ Each plan has its own requirements for the native connector.
 - Azure Arc for servers installed on your EC2 instances/RDS Custom for SQL Server.
      - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
 
-        Auto provisioning managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If you already have the SSM agent preinstalled, the AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either of the following relevant instructions from Amazon:
+        Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If you already have the SSM agent preinstalled, the AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either one of the following relevant instructions from Amazon:
             
         - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
 
@@ -91,14 +91,14 @@ Each plan has its own requirements for the native connector.
 - Azure Arc for servers installed on your EC2 instances. 
     - (Recommended) Use the auto provisioning process to install Azure Arc on all of your existing and future EC2 instances.
             
-        Auto provisioning managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If that is the case, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either of the following relevant instructions from Amazon:
+        Auto provisioning is managed by AWS Systems Manager (SSM) using the SSM agent. Some Amazon Machine Images (AMIs) already have the SSM agent preinstalled. If that is the case, their AMIs are listed in [AMIs with SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent). If your EC2 instances don't have the SSM Agent, you need to install it using either one of the following relevant instructions from Amazon:
 
         - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
         
         - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
         
         > [!NOTE]
-        > To enable the Azure Arc auto-provisioning, you'll need an **Owner** permission on the relevant Azure subscription.
+        > To enable the Azure Arc auto-provisioning, you'll need the **Owner** built-in role permission on the relevant Azure subscription.
         
         - If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
         
@@ -107,7 +107,7 @@ Each plan has its own requirements for the native connector.
     - VA solution (TVM/Qualys)
     - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA)
 
-        Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription inherit the subscription settings for the LA agent and AMA.
+        Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured at the subscription level. All of your AWS accounts and GCP projects under the same subscription inherit the subscription settings for the LA agent and AMA.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
