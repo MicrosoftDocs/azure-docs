@@ -47,7 +47,7 @@ There are three places in a user flow where you can enable an API connector:
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, and Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step isn't invoked if a user is registering with a local account. The following are examples of API connector scenarios you might enable at this step:
 
-- Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
+- Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, prefill the attribute collection page, and make them available to return in the token.
 - Implement an allow or blocklist based on social identity.
 
 ### Before creating the user
@@ -245,7 +245,7 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 Your REST API can be developed on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
 
-The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API calls arrives from an Azure data center IP address.
+The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API call arrives from an Azure data center IP address.
 
 You can use serverless cloud functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md) for ease of development.
 
