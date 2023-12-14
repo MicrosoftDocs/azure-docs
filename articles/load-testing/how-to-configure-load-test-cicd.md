@@ -216,15 +216,18 @@ Perform the following steps to configure the service authorization for your CI t
 
 ---
 
-## Export load test input files
+## Add load test files in your repository
 
-To run a load test with Azure Load Testing in a CI/CD workflow, you need to add the load test configuration settings, test plan, and any input files in your source control repository.
+To run a load test with Azure Load Testing in a CI/CD workflow, you need to add all load test input files in your source control repository.
 
-If you don't have an existing load test, learn how you can create a [load test configuration YAML file](./reference-test-config-yaml.md).
+If you don't have an existing load test, add the following files to your source code repository:
 
-If you have an existing load test, you can download the configuration settings and all input files from the Azure portal.
+- Load test configuration YAML file. Learn how you can create a [load test configuration YAML file](./reference-test-config-yaml.md).
+- Test plan file. For JMeter-based tests, add a JMeter test script (`JMX` file). For URL-based tests, add a [requests JSON file](./reference-test-config-yaml.md#requests-json-file).
+- Any [JMeter user properties files](./how-to-configure-user-properties.md).
+- Any input data files that your test plan uses. For example, CSV data files.
 
-Perform the following steps to download the input files for an existing load testing in the Azure portal:
+If you have an existing load test, you can download the configuration settings and all input files directly from the Azure portal. Perform the following steps to download the input files for an existing load testing in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), go to your Azure Load Testing resource.
 
