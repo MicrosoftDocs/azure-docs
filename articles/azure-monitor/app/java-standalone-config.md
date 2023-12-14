@@ -214,7 +214,7 @@ In the preceding configuration example:
 
 Numeric and Boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false and `1` for true.
 
-See the [JMX metrics](./java-jmx-metrics-configuration.md) documentation.
+See the [JMX metrics](./java-jmx-metrics-configuration.md) documentation for more details.
 
 ## Custom dimensions
 
