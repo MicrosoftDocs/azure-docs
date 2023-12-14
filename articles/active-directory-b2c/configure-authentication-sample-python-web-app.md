@@ -82,24 +82,21 @@ Extract the sample file to a folder where the total length of the path is 260 or
 
 In the project's root directory, follow these steps:
 
-1. Rename the *app_config.py* file to *app_config.py.OLD*.
-1. Rename the *app_config_b2c.py* file to *app_config.py*. This file contains information about your Azure AD B2C identity provider. 
-
-1. Create an `.env` file in the root folder of the project using `.env.sample.b2c` as a guide.
+1. Create an `.env` file in the root folder of the project using `.env.sample` as a guide.
 
     ```shell
     FLASK_DEBUG=True
-    TENANT_NAME=<tenant name>
+    B2C_TENANT_NAME=<tenant name>
     CLIENT_ID=<client id>
     CLIENT_SECRET=<client secret>
-    SIGNUPSIGNIN_USER_FLOW=B2C_1_profile_editing
-    EDITPROFILE_USER_FLOW=B2C_1_reset_password
-    RESETPASSWORD_USER_FLOW=B2C_1_signupsignin1
+    SIGNUPSIGNIN_USER_FLOW=B2C_1_signupsignin1
+    EDITPROFILE_USER_FLOW=B2C_1_profile_editing
+    RESETPASSWORD_USER_FLOW=B2C_1_reset_password
     ```
 
     |Key  |Value  |
     |---------|---------|
-    |`TENANT_NAME`| The first part of your Azure AD B2C [tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso`). |
+    |`B2C_TENANT_NAME`| The first part of your Azure AD B2C [tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso`). |
     |`CLIENT_ID`| The web API application ID from [step 2.1](#step-21-register-the-app).|
     |`CLIENT_SECRET`| The client secret value you created in [step 2.2](#step-22-create-a-web-app-client-secret). |
     |`*_USER_FLOW`|The user flows you created in [step 1](#step-1-configure-your-user-flow).|
