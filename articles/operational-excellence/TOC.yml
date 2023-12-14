@@ -6,16 +6,6 @@
   items:
   - name: Overview
     href: relocation-overview.md
-  - name: Relocation methods
-    items:
-    - name: Resource Mover
-      href: relocation-strategy-resource-mover.md
-    - name: Redeployment
-      href: not-yet.md
-    - name: Redeployment with data migration
-      href: not-yet.md
-  - name: Relocation workload architectures
-    href: relocation-workload-architectures.md
   - name: Relocation guides by service
     items:
     - name: Overview
@@ -40,4 +30,5 @@
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework
     href: /azure/well-architected/operational-excellence/principles
+  
 

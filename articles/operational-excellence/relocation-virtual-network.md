@@ -15,20 +15,28 @@ ms.custom:
 
 # Relocation guidance for Azure Virtual Network
 
-This article covers relocation guidance for Azure Virtual Network.
-
-## Supported relocation methods
-
-To move Azure Virtual Network from one region to another, you can use one of two approaches:
+This article covers the recommended approaches, guidelines and practices for Azure Virtual Network.
 
 
-| Relocation Approach Selection                                                                                                            |                                                                                                                                                                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p style="color:darkblue;"><strong>Azure Resource Mover</strong></p>                                                                     | <p style="color:darkblue;"><strong>ReDeploy</strong></p>                                                                                                              |
-| No IP Address Range Change.                                                                                                              | New IP Address ranges in target region are required.                                                                                                                  |
-| All workloads in a virtual network must relocated together.                                                                              | Workload relocation without considering dependencies or partial relocation is possible.                                                                               |
-| Virtual Network in the source region needs to be disconnect or removed before the Virtual Network in the target region can be connected. | Source region and target region can exit side by side.                                                                                                                |
-|                                                                                                                                          | Enables data migration scenarios where communication between source and target region is needed by establishing a network peering for the duration of the relocation. |
+## Prepare for relocation
+
+Before you begin relocation planning, make sure that you include the following considerations and recommended guidance:
+
+- **Create a separate export template for virtual networking peering**. [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. 
+
+It's recommended that you:
+
+  1. Remove the peering before you export the template.
+  1. Copy the details of the peering to create a separate template.
+  1. Use the peering template to reestablish the peering after the relocation of the network.
+    
+Architecture: Identify the source networking layout and all the resources that are currently used. This layout includes but isn’t
+limited to load balancers, network security groups (NSGs), Route Tables, and reserved IPs.
+Collect/List all virtual network resources & configurations.
+Associated DDoS plan.
+Azure Firewall
+Private endpoint connections
+Diagnostic setting configuration
 
 ![Virtual Network Relocation Pattern](/relocation/patterns/az-services/virtualnetwork/virtual_network_relocation_pattern.png)
 
