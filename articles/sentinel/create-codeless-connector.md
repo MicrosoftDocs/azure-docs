@@ -343,7 +343,7 @@ This example is located in the [Data connectors reference](restapipoller-data-co
 
 ### Example ARM template
 
-This example guides you through the creation of the ARM deployment template with the following structure:
+Build the ARM deployment template with the following structure, which includes the 4 sections of JSON components required to build the CCP data connector:
 
 ```json
 {
@@ -354,7 +354,8 @@ This example guides you through the creation of the ARM deployment template with
     "resources": [],
 }
 ```
-Stitch the JSON sections together to create the deployment template for your CCP data connector.
+
+Stitch the sections together with a JSON-aware editor like Visual Code to minimize syntax errors like commas and closing brackets and parentheses.
 
 To guide the template building process, comments appear in the **metadata** `description` or inline with `//` comment notation. For more information, see [ARM template best practices - comments](../azure-resource-manager/templates/best-practices.md#comments).
 
@@ -430,13 +431,13 @@ These recommended variables help simplify the template. Use more or less as need
         "_dataConnectorContentIdConnections": "MySolutionTemplateConnections", // Enter a name for the connections this connector makes
         "dataConnectorTemplateNameConnections": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnections')))]",
         "_logAnalyticsTableId1": "ExampleConnectorAlerts_CL" // Enter the custom table name - not needed if you are ingesting data into standard tables
-		//Enter more variables as needed "":""
+		// Enter more variables as needed "":""
     },
     // Next is the resources sections here
 ```
 #### Example ARM template - resources
 
-There are 5 resources in this template guide. 
+There are 5 ARM deployment resources in this template guide which house the 4 CCP data connector building components. 
 
 1. **contentTemplates** (a parent resource)
     - metadata
