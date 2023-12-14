@@ -155,10 +155,7 @@ docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 
 For other versions of the official Microsoft-supported Java base images, see:
 
-* [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk)
-* [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre)
-* [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless)
-* [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven)
+* [Install the Microsoft Build of OpenJDK](/java/openjdk/install)
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
