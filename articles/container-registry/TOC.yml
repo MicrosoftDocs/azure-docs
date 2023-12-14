@@ -98,6 +98,8 @@
       href: container-registry-image-formats.md
     - name: Tag and version images
       href: container-registry-image-tag-version.md
+    - name: Artifact Streaming
+      href: container-registry-artifact-streaming.md
     - name: Geo-replication
       href: container-registry-geo-replication.md
     - name: Zone redundancy
@@ -110,6 +112,7 @@
       displayName: multi-architecture
     - name: Manage public images
       href: buffer-gate-public-content.md
+   
   - name: How-to guides
     expanded: false
     items:
@@ -372,6 +375,8 @@
     href: container-registry-faq.yml
   - name: API Deprecation
     href: container-registry-api-deprecation.md
+  - name: Troubleshoot Artifact Streaming
+    href: troubleshoot-artifact-streaming.md
 - name: Resources
   expanded: false
   items:
