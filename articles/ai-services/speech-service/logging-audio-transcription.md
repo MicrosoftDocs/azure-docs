@@ -2,7 +2,7 @@
 title: How to log audio and transcriptions for speech recognition
 titleSuffix: Azure AI services
 description: Learn how to use audio and transcription logging for speech to text and speech translation.
-services: cognitive-services
+#services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech
@@ -394,7 +394,7 @@ Here's a sample output of [Endpoints_ListLogs](https://eastus.dev.cognitive.micr
       },
       "createdDateTime": "2023-03-13T16:37:15Z",
       "links": {
-        "contentUrl": "<Link to to download log file>"
+        "contentUrl": "<Link to download log file>"
       }
     }
   ]

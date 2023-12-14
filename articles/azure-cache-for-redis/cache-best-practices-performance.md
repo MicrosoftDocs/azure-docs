@@ -101,6 +101,10 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 >These numbers might change as we post newer results periodically.
 >
 
+>[!IMPORTANT]
+>Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect older generation cache hardware in a single region. You may see better or different results in practice.
+>
+
 ### Standard tier
 
 | Instance | Size | vCPUs | Expected network bandwidth (Mbps)| GET requests per second without SSL (1-kB value size) | GET requests per second with SSL (1-kB value size) |

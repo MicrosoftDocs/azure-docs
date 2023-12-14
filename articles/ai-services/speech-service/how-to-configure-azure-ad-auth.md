@@ -2,7 +2,7 @@
 title: How to configure Microsoft Entra authentication
 titleSuffix: Azure AI services
 description: Learn how to authenticate using Microsoft Entra authentication
-services: cognitive-services
+#services: cognitive-services
 author: rhurey
 manager: nitinme
 ms.service: azure-ai-speech

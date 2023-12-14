@@ -11,6 +11,16 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-preview-version.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version-vmware",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-arc/vmware-vsphere/switch-to-new-version-vmware.md",
+        "redirect_url": "/azure/azure-arc/vmware-vsphere/switch-to-new-version",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/azuread-dev/active-directory-authentication-libraries.md",
       "redirect_url": "/previous-versions/azure/active-directory/azuread-dev/active-directory-authentication-libraries",
       "redirect_document_id": false
@@ -146,6 +156,11 @@
           "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version.md",
+            "redirect_URL": "/azure/azure-arc/system-center-virtual-machine-manager/switch-to-the-new-preview-version-scvmm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/migrate/tutorial-assess-webapps-physical.md",
             "redirect_URL": "tutorial-assess-webapps",
             "redirect_document_id": false
@@ -158,856 +173,6 @@
         {
             "source_path": "articles/cloud-services-extended-support/deploy-visual-studio.md",
             "redirect_url": "/visualstudio/azure/cloud-services-extended-support?context=%2Fazure%2Fcloud-services-extended-support%2Fcontext%2Fcontext",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-configure-backup-target-using-backup-exec.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-partner-csp-faq.yml",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-install-update-11.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-11-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-ova-overview.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-ova-system-requirements.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-ova-limits.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-ova-best-practices.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-deploy1-portal-prep.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manage-service.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-aad-registration-key.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-deploy2-provision-hyperv.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-deploy2-provision-vmware.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-deploy3-fs-setup.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-deploy3-iscsi-setup.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manager-service-administration.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-install-update-1.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-install-update-06.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-install-update-05.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-install-update-04.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-install-update.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-backup.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-clone.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-failover-dr.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-deactivate-and-delete-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manage-shares.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manage-volumes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-service-summary.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-device-summary.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manage-storage-accounts.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manage-acrs.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manage-jobs.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-change-device-admin-password.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-manage-alerts.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-diagnose-problems.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-log-support-ticket.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-ova-web-ui-admin.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-13-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-12-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-1-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-06-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-05-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-virtual-array-update-04-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-ova-update-03-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-ova-update-01-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-choose-storage-solution.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "azure.microsoft.com/documentation/learning-paths/storsimple-typical/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-security.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-regions.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-system-requirements.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-technical-specifications-and-compliance.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-limits.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_BestPractices_V1.1.pdf",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-safety.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8100-hardware-installation.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8600-hardware-installation.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-supported-hardware-for-10-gbe-network-interfaces.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-service.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-aad-registration-key.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-cloud-appliance-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-deployment.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-adapter-for-sharepoint.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manager-service-administration.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-restore-from-backup-set-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-clone-volume-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-remote-connect.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-deactivate-and-delete-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-device-failover-disaster-recovery.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-device-failover-physical-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-device-failover-same-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-backup-catalog.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-backup-policies-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-storage-accounts.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-volume-containers.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-volumes-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-local-volume-faq.yml",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-role-based-access-control.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-acrs.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-bandwidth-templates.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-jobs-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-device-modes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-change-passwords.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-modify-device-config.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-turn-device-on-or-off.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-configure-mpio-windows-server.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-configure-mpio-on-linux.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-configure-chap.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-windows-powershell-administration.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-device-controller.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-configure-web-proxy.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-modify-data-0.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-admin.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-what-is-snapshot-manager.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-use-snapshot-manager.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-manage-devices.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-manage-backup-policies.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-manage-volume-groups.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-manage-backup-catalog.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-manage-backup-jobs.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-manage-volumes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-snapshot-manager-mmc-menu.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-automation-azurerm-scripts.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-automation-azurerm-runbook.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-configure-backup-target-veeam.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-configure-backuptarget-netbackup.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-disaster-recovery-using-azure-site-recovery.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_HyperVDeployment_v1.0.pdf",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_VMware_v10.pdf",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-service-dashboard.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-device-dashboard.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-monitor-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-manage-alerts.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-monitor-hardware-status.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-monitoring-indicators.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-troubleshoot-deployment.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-diagnostics.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-troubleshoot-operational-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-           "source_path": "articles/storsimple/storsimple-8000-hardware-component-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-controller-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-ebod-controller-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-power-cooling-module-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-disk-drive-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-battery-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-chassis-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-contact-microsoft-support.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-create-manage-support-package.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-migrate-classic-azure-portal.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-migration-from-8000-options.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-migration-options.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-migrate-from-5000-7000.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-install-update-51.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-install-update-5.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-install-update-4.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update52-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update51-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update5-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update4-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update3-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update21-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update2-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-update1-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "./index.yml",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "rest/api/storsimple",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "powershell/module/hcs/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "azure-docs-pr/articles/templates/microsoft.storsimple/allversions",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-data-manager-overview.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-data-manager-ui.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-data-manager-dotnet-jobs.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-data-manager-job-using-automation.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-data-manager-change-default-blob-path.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-partner-csp-overview.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-partner-csp-deploy.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "storsimple-partner-csp-faq.yml",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "onlinehelp.storsimple.com",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "azure.microsoft.com/roadmap/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "archive/blogs/cis/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "azure.microsoft.com/services/storsimple/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/storsimple/storsimple-8000-support-options.md",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "answers/topics/azure-storsimple.html",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "azure.microsoft.com/pricing/details/storsimple/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "azure.microsoft.com/pricing/calculator/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "azure.microsoft.com/updates/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "archive/blogs/storsimple/",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip",
-            "redirect_url": "/azure/storsimple/storsimple-overview",
             "redirect_document_id": false
         },
         {
@@ -1901,6 +1066,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/container-registry/container-registry-enable-conditional-access-policy.md",
+            "redirect_url": "/azure/container-registry/container-registry-configure-conditional-access.md",
+            "redirect_document_id": false 
+        },
+        {
             "source_path": "articles/site-recovery/vmware-physical-secondary-disaster-recovery.md",
             "redirect_url": "/azure/site-recovery/vmware-physical-secondary-architecture",
             "redirect_document_id": false
@@ -2231,8 +1401,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "active-directory/authentication/concept-mfa-plan.md",
-            "redirect_url": "active-directory/authentication/howto-mfa-getstarted",
+            "source_path": "articles/active-directory/authentication/concept-mfa-plan.md",
+            "redirect_url": "/entra/identity/authentication/howto-mfa-getstarted",
             "redirect_document_id": false
         },
         {
@@ -4681,6 +3851,11 @@
         {
             "source_path_from_root": "/articles/application-gateway/application-gateway-create-gateway-cli.md",
             "redirect_url": "/azure/application-gateway/quick-create-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/nodejs-use-node-modules-azure-apps.md",
+            "redirect_url": "/training/modules/create-nodejs-project-dependencies/",
             "redirect_document_id": false
         },
         {
@@ -7929,11 +7104,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-arc/vmware-vsphere/azure-arc-agent.md",
-            "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/azure-arc/vmware-vsphere/azure-arc-resource-bridge.md",
             "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
             "redirect_document_id": false
@@ -7941,11 +7111,6 @@
         {
             "source_path_from_root": "/articles/azure-arc/vmware-vsphere/custom-locations.md",
             "redirect_url": "/azure/azure-arc/vmware-vsphere/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-arc/system-center-virtual-machine-manager/agent-overview-scvmm.md",
-            "redirect_url": "/azure/azure-arc/system-center-virtual-machine-manager/overview",
             "redirect_document_id": false
         },
         {
@@ -8207,6 +7372,16 @@
             "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
             "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-premium-clustering.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-scale",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/azure-cache-for-redis/cache-how-to-version.md",
+          "redirect_url": "/azure/azure-cache-for-redis/-how-to-upgrade",
+          "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service/app-service-export-api-to-powerapps-and-flow.md",
@@ -8752,6 +7927,31 @@
             "redirect_url": "/azure/azure-functions/functions-reference-python?pivots=python-mode-decorators#triggers-and-inputs",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/azure-functions/update-java-versions.md",
+            "redirect_url": "/azure/azure-functions/update-language-versions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/functions/",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-student-starter.md",
+            "redirect_url": "/azure/azure-functions/functions-create-function-app-portal",
+            "redirect_document_id": false
+        },         
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-reference-fsharp.md",
+            "redirect_url": "/azure/azure-functions/functions-reference-csharp#convert-a-c-script-app-to-a-c-project",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-functions/functions-create-first-kotlin-maven.md",
+            "redirect_url": "/azure/azure-functions/functions-create-maven-kotlin-intellij",
+            "redirect_document_id": false
+        }, 
         {
             "source_path_from_root": "/articles/azure-government/documentation-government-k8.md",
             "redirect_url": "/azure/azure-government",
@@ -9373,6 +8573,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
+            "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
             "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
             "redirect_document_id": false
@@ -9674,6 +8879,11 @@
         },
         {
             "source_path_from_root": "/articles/bastion/bastion-create-host-portal.md",
+            "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/bastion/tutorial-protect-bastion-host-ddos.md",
             "redirect_url": "/azure/bastion/tutorial-create-host-portal",
             "redirect_document_id": false
         },
@@ -14513,6 +13723,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/ai-studio/how-to/deploy-models.md",
+            "redirect_URL": "/azure/ai-studio/concepts/deployments-overview",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
             "redirect_url": "/azure/machine-learning/samples-notebooks",
             "redirect_document_id": false
@@ -17780,446 +16995,6 @@
         {
             "source_path_from_root": "/articles/visual-studio/vs-storage-webjobs-what-happened.md",
             "redirect_url": "/azure/storage",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-virtual-array-configure-mpio-windows-server.md",
-            "redirect_url": "/azure/storsimple",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-8000-move-azure-portal-faq.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-clone-volume.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-deployment-walkthrough.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-deployment-walkthrough-gov.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-deployment-walkthrough-u1.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-february-2015-release-notes.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-install-update-3.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-january-2015-release-notes.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-july-2014-release-notes.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-backup-policies.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-jobs.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-volumes.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-october-2014-release-notes.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-restore-from-backup-set.md",
-            "redirect_url": "/azure/storsimple/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-battery-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-battery-replacement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-change-passwords.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-change-passwords",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-chassis-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-chassis-replacement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-clone-volume-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-clone-volume-u2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-virtual-device-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-cloud-appliance-u2",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-configure-chap.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-configure-chap",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-configure-mpio-windows-server.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-configure-mpio-windows-server",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-configure-web-proxy.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-configure-web-proxy",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-contact-microsoft-support.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-contact-microsoft-support",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-controller-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-controller-replacement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-create-manage-support-package.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-create-manage-support-package",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-deactivate-and-delete-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-deactivate-and-delete-device",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-deployment-walkthrough-gov-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-deployment-walkthrough-gov-u2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-deployment-walkthrough-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-deployment-walkthrough-u2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-device-dashboard.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-device-dashboard",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-device-failover-disaster-recovery.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-device-failover-disaster-recovery",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-device-modes.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-device-modes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-disk-drive-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-disk-drive-replacement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ebod-controller-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-ebod-controller-replacement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-hardware-component-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-hardware-component-replacement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-install-update-4.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-install-update-4",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-install-update-5.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-install-update-5",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-limits.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-limits",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-local-volume-faq.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-local-volume-faq",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-acrs.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-acrs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-alerts.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-alerts",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-backup-catalog.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-backup-catalog",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-backup-policies-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-backup-policies-u2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-bandwidth-templates.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-bandwidth-templates",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-device-controller.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-device-controller",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-jobs-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-jobs-u2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manager-service-administration.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manager-service-administration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-service.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-storage-accounts.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-storage-accounts",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-volume-containers.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-volume-containers",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-manage-volumes-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-manage-volumes-u2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-modify-data-0.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-modify-data-0",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-modify-device-config.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-modify-device-config",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-monitor-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-monitor-device",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-monitor-hardware-status.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-monitor-hardware-status",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-power-cooling-module-replacement.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-power-cooling-module-replacement",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-remote-connect.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-remote-connect",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-restore-from-backup-set-u2.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-restore-from-backup-set-u2",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-safety.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-safety",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-security.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-security",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-service-dashboard.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-service-dashboard",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-system-requirements.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-system-requirements",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-technical-specifications-and-compliance.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-technical-specifications-and-compliance",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-troubleshoot-deployment.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-troubleshoot-deployment",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-windows-powershell-administration.md",
-            "redirect_url": "/azure/storsimple/storsimple-8000-windows-powershell-administration",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-install-update-1.md",
-            "redirect_url": "/azure/storsimple/storsimple-install-update-5",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-install-update-2.md",
-            "redirect_url": "/azure/storsimple/storsimple-install-update-5",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-install-update-21.md",
-            "redirect_url": "/azure/storsimple/storsimple-install-update-5",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-backup.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-backup",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-change-device-admin-password.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-change-device-admin-password",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-restore.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-clone",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-configure-mpio-windows-server.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-configure-mpio-windows-server",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-deactivate-and-delete-device.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-deactivate-and-delete-device",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-deploy1-portal-prep.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-deploy1-portal-prep",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-deploy2-provision-hyperv.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-deploy2-provision-hyperv",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-deploy2-provision-vmware.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-deploy2-provision-vmware",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-deploy3-fs-setup.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-deploy3-fs-setup",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-deploy3-iscsi-setup.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-deploy3-iscsi-setup",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-failover-dr.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-failover-dr",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-install-update-01.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-install-update-06",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-manage-acrs.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-manage-acrs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-manage-alerts.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-manage-alerts",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-manage-jobs.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-manage-jobs",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-manager-service-administration.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-manager-service-administration",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-manage-service.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-manage-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-manage-storage-accounts.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-manage-storage-accounts",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-service-dashboard.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-service-summary",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/storsimple/storsimple-ova-pp-release-notes.md",
-            "redirect_url": "/azure/storsimple/storsimple-virtual-array-update-06-release-notes",
             "redirect_document_id": false
         },
         {
@@ -22568,6 +21343,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/lighthouse/how-to/partner-earned-credit.md",
+            "redirect_url": "/azure/cost-management-billing/manage/link-partner-id",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/service-fabric-mesh/index.yml",
             "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-overview",
             "redirect_document_id": false
@@ -23711,7 +22491,13 @@
             "source_path_from_root": "/articles/devtest-labs/devtest-lab-guidance-governance-application-migration-integration.md",
             "redirect_url": "/azure/devtest-labs/devtest-lab-guidance-governance-resources",
             "redirect_document_id": false
-        },        {
+        },        
+        {
+            "source_path_from_root": "/articles/devtest-labs/lab-services-overview.md",
+            "redirect_url": "/azure/devtest-labs/devtest-lab-overview",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
             "redirect_url": "/azure/advisor/advisor-overview",
             "redirect_document_id": false
@@ -24513,7 +23299,17 @@
         },
         {
             "source_path_from_root": "/articles/operator-nexus/template-virtualized-network-function-deployment.md",
-            "redirect_url": "/azure/operator-nexus/quickstarts-tenant-workload-deployment",
+            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/quickstarts-tenant-workload-deployment-ps.md",
+            "redirect_url": "/azure/operator-nexus/quickstarts-virtual-machine-deployment-ps",
             "redirect_document_id": false
         },
         {
@@ -24659,6 +23455,16 @@
         {
             "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
             "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/energy-data-services/reliability-energy-data-services.md",
+            "redirect_url": "/azure/reliability/reliability-energy-data-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/deployment-environments/concept-environments-reliability-availability.md",
+            "redirect_url": "/azure/reliability/reliability-deployment-environments",
             "redirect_document_id": false
         },
         {
@@ -24832,9 +23638,47 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/orbital/delete-contact.md",
-	    "redirect_url": "/azure/orbital/spacecraft-object",
+            "source_path": "articles/update-manager/whats-upcoming.md",
+            "redirect_url": "/azure/update-manager/whats-new",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/orbital/delete-contact.md",
+	        "redirect_url": "/azure/orbital/spacecraft-object",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-service-manager/overview.md",
+	        "redirect_url": "azure/operator-service-manager/azure-operator-service-manager-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
+            "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
+        },
+        {
+            "source_path_from_root": "/articles/automation/dsc-linux-powershell.md",
+            "redirect_url": "/azure/automation/automation-dsc-overview"
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/extensions/dsc-linux.md",
+            "redirect_url": "/azure/virtual-machines/extensions/dsc-overview"
+        },
+        {
+            "source_path_from_root": "/articles/orbital/license-spacecraft.md",
+            "redirect_url": "/azure/orbital/initiate-licensing",
+            "redirect_document_id": false
+        },
+	    {
+            "source_path_from_root": "/articles/orbital/partner-network-integration.md",
+            "redirect_url": "/azure/orbital/about-ground-stations#partner-ground-stations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/ai-toolchain-operator.md",
+            "redirect_url": "https://azure.microsoft.com/updates/preview-ai-toolchain-operator-addon-for-aks/",
+            "redirect_document_id": false  
+        }
+        
     ]
 }

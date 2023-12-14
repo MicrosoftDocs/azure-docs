@@ -86,6 +86,6 @@ MoviesYear derive(
             ) ~> CleanData
 ```
 
-## Next steps
+## Related content
 
 - Learn more about the [Mapping Data Flow expression language](data-transformation-functions.md).

@@ -16,57 +16,75 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container Apps environment at the subscription level.
 
-In the workload profiles environment, user-defined routes (UDRs) and securing outbound traffic with a firewall are supported. When using an external workload profiles environment, inbound traffic to Container Apps that use external ingress routes through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-1) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment is not supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
+In the workload profiles environment, user-defined routes (UDRs) and [securing outbound traffic with a firewall](./networking.md#configuring-udr-with-azure-firewall) are supported. When using an external workload profiles environment, inbound traffic to Azure Container Apps is routed through the public IP that exists in the [managed resource group](./networking.md#workload-profiles-environment-2) rather than through your subnet. This means that locking down inbound traffic via NSG or Firewall on an external workload profiles environment isn't supported. For more information, see [Networking in Azure Container Apps environments](./networking.md#user-defined-routes-udr).
 
 In the Consumption only environment, custom user-defined routes (UDRs) and ExpressRoutes aren't supported.
 
 ## NSG allow rules
 
-The following tables describe how to configure a collection of NSG allow rules.
->[!NOTE]
-> The subnet associated with a Container App Environment on the Consumption only environment requires a CIDR prefix of `/23` or larger. On the workload profiles environment (preview), a `/27` or larger is required.
+The following tables describe how to configure a collection of NSG allow rules. The specific rules required depend on your [environment type](./environment.md#types).
 
 ### Inbound
 
-| Protocol | Port | ServiceTag | Description |
-|--|--|--|--|
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
-| Any | \* | AzureLoadBalancer | Allow the Azure infrastructure load balancer to communicate with your environment. |
-
-### Outbound with service tags
-
-The following service tags are required when using NSGs on the Consumption only environment:
-
-| Protocol | Port | ServiceTag | Description
-|--|--|--|--|
-| UDP | `1194` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
-| TCP | `9000` | `AzureCloud.<REGION>` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
-| TCP | `443` | `AzureMonitor` | Allows outbound calls to Azure Monitor. |
-
-The following service tags are required when using NSGs on the workload profiles environment:
+# [Workload profiles environment](#tab/workload-profiles)
 
 >[!Note]
-> If you are using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Container Apps to pull images through the virtual network.
+> When using workload profiles, inbound NSG rules only apply for traffic going through your virtual network. If your container apps are set to accept traffic from the public internet, incoming traffic goes through the public endpoint instead of the virtual network.
 
-| Protocol | Port | Service Tag | Description
-|--|--|--|--|
-| TCP | `443` | `MicrosoftContainerRegistry` | This is the service tag for container registry for microsoft containers. |
-| TCP | `443` | `AzureFrontDoor.FirstParty` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
+|--|--|--|--|--|--|
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `31080` | Allow your Client IPs to access Azure Container Apps when using HTTP. |
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `443`, `31443` | Allow your Client IPs to access Azure Container Apps when using HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
 
-### Outbound with wild card IP rules
+# [Consumption only environment](#tab/consumption-only)
 
-The following IP rules are required when using NSGs on both the Consumption only environment and the workload profiles environment:
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
+|--|--|--|--|--|--|
+| TCP | Your client IPs | \* | Your container app's subnet<sup>1</sup> | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | Your client IPs | \* | The `staticIP` of your container app environment | `80`, `443` | Allow your Client IPs to access Azure Container Apps. Use port `80` for HTTP and `443` for HTTPS. |
+| TCP | AzureLoadBalancer | \* | Your container app's subnet | `30000-32676`<sup>2</sup> | Allow Azure Load Balancer to probe backend pools. | 
+| TCP | Your container app's subnet | \* | Your container app's subnet | \* | Required to allow the container app envoy sidecar to connect to envoy service. |
 
-| Protocol | Port | IP | Description |
-|--|--|--|--|
-| TCP | `443` | \* | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. |
-| UDP | `123` | \* | NTP server. |
-| TCP | `5671` | \* | Container Apps control plane. |
-| TCP | `5672` | \* | Container Apps control plane. |
-| Any | \* | Infrastructure subnet address space | Allow communication between IPs in the infrastructure subnet. This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`. |
+---
+
+<sup>1</sup> This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.   
+<sup>2</sup> The full range is required when creating your Azure Container Apps as a port within the range will by dynamically allocated. Once created, the required ports are two immutable, static values, and you can update your NSG rules.
+
+
+### Outbound 
+
+# [Workload profiles environment](#tab/workload-profiles)
+
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
+|--|--|--|--|--|--|
+| TCP | Your container app's subnet<sup>1</sup> | \* | Your Container Registry | Your container registry's port | This is required to communicate with your container registry. For example, when using ACR, you need `AzureContainerRegistry` and `AzureActiveDirectory` for the destination, and the port will be your container registry's port unless using private endpoints.<sup>2</sup> |
+| TCP | Your container app's subnet | \* | `MicrosoftContainerRegistry` | `443` | This is the service tag for Microsoft container registry for system containers. |
+| TCP | Your container app's subnet | \* | `AzureFrontDoor.FirstParty` | `443` | This is a dependency of the `MicrosoftContainerRegistry` service tag. |
+| Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet.  |
+| TCP | Your container app's subnet | \* | `AzureActiveDirectory` | `443` | If you're using managed identity, this is required. | 
+| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
+
+# [Consumption only environment](#tab/consumption-only)
+
+| Protocol | Source | Source ports | Destination | Destination ports | Description |
+|--|--|--|--|--|--|
+| TCP | Your container app's subnet<sup>1</sup> | \* | Your Container Registry | Your container registry's port | This is required to communicate with your container registry. For example, when using ACR, you need `AzureContainerRegistry` and `AzureActiveDirectory` for the destination, and the port will be your container registry's port unless using private endpoints.<sup>2</sup> |
+| UDP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `1194` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
+| TCP | Your container app's subnet | \* | `AzureCloud.<REGION>` | `9000` | Required for internal AKS secure connection between underlying nodes and control plane. Replace `<REGION>` with the region where your container app is deployed. |
+| TCP | Your container app's subnet | \* | `AzureCloud` | `443` | Allowing all outbound on port `443` provides a way to allow all FQDN based outbound dependencies that don't have a static IP. | 
+| UDP | Your container app's subnet | \* | \* | `123` | NTP server. |
+| Any | Your container app's subnet | \* | Your container app's subnet | \* |  Allow communication between IPs in your container app's subnet. |
+| TCP | Your container app's subnet | \* | `AzureMonitor` | `443` | Only required when using Azure Monitor. Allows outbound calls to Azure Monitor. |
+
+---
+
+<sup>1</sup> This address is passed as a parameter when you create an environment. For example, `10.0.0.0/21`.  
+<sup>2</sup> If you're using Azure Container Registry (ACR) with NSGs configured on your virtual network, create a private endpoint on your ACR to allow Azure Container Apps to pull images through the virtual network. You don't need to add an NSG rule for ACR when configured with private endpoints.
+
 
 #### Considerations
 
 - If you're running HTTP servers, you might need to add ports `80` and `443`.
-- Adding deny rules for some ports and protocols with lower priority than `65000` may cause service interruption and unexpected behavior.
+- Adding deny rules for some ports and protocols with lower priority than `65000` might cause service interruption and unexpected behavior.
 - Don't explicitly deny the Azure DNS address `168.63.128.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.

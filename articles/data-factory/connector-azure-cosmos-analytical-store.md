@@ -29,7 +29,7 @@ This Azure Cosmos DB for NoSQL connector is supported for the following capabili
 |[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
 
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 
 ## Mapping data flow properties
@@ -89,5 +89,5 @@ In the monitoring section, you always have the chance to rerun a pipeline. When 
 
 In addition, Azure Cosmos DB analytical store now supports Change Data Capture (CDC) for Azure Cosmos DB API for NoSQL and Azure Cosmos DB API for Mongo DB (public preview). Azure Cosmos DB analytical store allows you to efficiently consume a continuous and incremental feed of changed (inserted, updated, and deleted) data from analytical store.
 
-## Next steps
+## Related content
 Get started with [change data capture in Azure Cosmos DB analytical store ](../cosmos-db/get-started-change-data-capture.md).

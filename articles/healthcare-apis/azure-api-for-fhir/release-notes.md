@@ -17,10 +17,15 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
-## **August 2023**
-**Decimal value precision in FHIR service is updated per FHIR specification**
+## **November 2023**
+**Bulk delete capability now available**
+`$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](../../healthcare-apis/azure-api-for-fhir/bulk-delete-operation.md).
 
-Prior to the fix, FHIR service allowed precision value of [18,6]. The service is updated to support decimal value precision of [36,18] per FHIR specification. For details, visit [FHIR specification Data Types](https://www.hl7.org/fhir/datatypes.html)
+Bulk delete operation is currently in public preview. Review disclaimer for details. [!INCLUDE public preview disclaimer]
+
+**Bug Fix: FHIR queries using pagination and revinclude resulted in an error on using next link**
+
+Issue is now addressed and FHIR queries using continuation token with include/ revinclude, no longer report an exception. For details on fix, visit [#3525](https://github.com/microsoft/fhir-server/pull/3525).
 
 ## **July 2023**
 **Feature enhancement: Change to the exported file name format**

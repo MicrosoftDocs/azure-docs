@@ -69,6 +69,6 @@ yyy.yyy.yyy.yyy sapbw01
 zzz.zzz.zzz.zzz sapnw01 
 ```
 
-## Next steps
+## Related content
 
 [Set up an SAP CDC linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)

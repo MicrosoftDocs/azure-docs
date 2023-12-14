@@ -6,14 +6,17 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 10/06/2023
+ms.date: 10/31/2023
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet connection (classic)
 
 This article helps you create a VPN gateway connection between virtual networks. The virtual networks can be in the same or different regions, and from the same or different subscriptions.
 
-The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. **Unless you want to work in the classic deployment model specifically, we recommend that you use the [Resource Manager version of this article](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).**
+The steps in this article apply to the classic (legacy) deployment model and don't apply to the current deployment model, Resource Manager. You can no longer create a gateway using the classic deployment model. See the [Resource Manager version of this article](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) instead.
+
+> [!IMPORTANT]
+> [!INCLUDE [classic gateway restrictions](../../includes/vpn-gateway-classic-gateway-restrict-create.md)]
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/classic-diagram.png" alt-text="Diagram showing classic VNet-to-VNet architecture.":::
 
@@ -29,7 +32,7 @@ The VNets you connect can be in different subscriptions and different regions. Y
 
 ### <a name="why"></a>Why connect virtual networks?
 
-You may want to connect virtual networks for the following reasons:
+You might want to connect virtual networks for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
 
@@ -147,7 +150,7 @@ The local site typically refers to your on-premises location. It contains the IP
 
    * **Size:** This is the gateway SKU that you use to create your virtual network gateway. Classic VPN gateways use the old (legacy) gateway SKUs. For more information about the legacy gateway SKUs, see [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md). You can select **Standard** for this exercise.
 
-   * **Gateway subnet:** The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you use /27 or /28. This creates a larger subnet that includes more addresses. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
+   * **Gateway subnet:** The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it's possible to create a gateway subnet as small as /29, we recommend that you use /27 or /28. This creates a larger subnet that includes more addresses. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
 
 1. Select **Review + create** at the bottom of the page to validate your settings. Select **Create** to deploy. It can take up to 45 minutes to create a virtual network gateway, depending on the gateway SKU that you selected.
 1. You can start proceed to the next step while this gateway is creating.

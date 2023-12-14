@@ -2,7 +2,7 @@
 title: Privacy guidelines for voice assistants on Windows
 titleSuffix: Azure AI services
 description:  The instructions to enable voice activation for a voice agent by default.
-services: cognitive-services
+#services: cognitive-services
 author: cfogg6
 manager: trrwilson
 ms.service: azure-ai-speech

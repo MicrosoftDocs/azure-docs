@@ -1,6 +1,6 @@
 ---
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
@@ -26,7 +26,7 @@ Create a Language resource with following details.
 |Pricing tier     | The pricing tier of your Language resource.        |
 
 > [!IMPORTANT]
-> * Make sure to to enable **Managed Identity** when you create a Language resource. 
+> * Make sure to enable **Managed Identity** when you create a Language resource. 
 > * Read and confirm Responsible AI notice
 
 To use this service, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 

@@ -1,15 +1,12 @@
 ---
 title: Configure tokens - Azure Active Directory B2C  
 description: Learn how to configure the token lifetime and compatibility settings in Azure Active Directory B2C.
-services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 12/16/2022
-ms.custom: project-no-code
+ms.date: 11/20/2023
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -31,7 +28,7 @@ You can configure the token lifetime, including:
 
 - **Access and ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token and ID tokens. The default is 60 minutes (1 hour). The minimum (inclusive) is 5 minutes. The maximum (inclusive) is 1,440 minutes (24 hours).
 - **Refresh token lifetime (days)** - The maximum time period before which a refresh token can be used to acquire a new access token, if your application had been granted the `offline_access` scope. The default is 14 days. The minimum (inclusive) is one day. The maximum (inclusive) 90 days.
-- **Refresh token sliding window lifetime** - The refresh token sliding window type. `Bounded` indicates that the refresh token can be extended as specify in the **Lifetime length (days)**. `No expiry` indicates that the refresh token sliding window lifetime never expires.
+- **Refresh token sliding window lifetime** - The refresh token sliding window type. `Bounded` indicates that the refresh token can be extended as specified in the **Lifetime length (days)**. `No expiry` indicates that the refresh token sliding window lifetime never expires.
 - **Lifetime length (days)** - After this time period elapses the user is forced to reauthenticate, irrespective of the validity period of the most recent refresh token acquired by the application. The value must be greater than or equal to the **Refresh token lifetime** value.
 
 The following diagram shows the refresh token sliding window lifetime behavior.
@@ -49,8 +46,7 @@ The following diagram shows the refresh token sliding window lifetime behavior.
 To configure your user flow token lifetime:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows (policies)**.
 1. Open the user flow that you previously created.

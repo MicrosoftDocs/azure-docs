@@ -156,5 +156,5 @@ To cancel package execution from a SQL Managed Instance Agent job, take the foll
 
 1. Stop the corresponding operation based on **executionId**.
 
-## Next steps
+## Related content
 You can also schedule SSIS packages by using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory event trigger](how-to-create-event-trigger.md).

@@ -66,9 +66,7 @@ Managed Airflow in Azure Data Factory offers a range of powerful features, inclu
 
 ## Supported Apache Airflow versions
 
-* 1.10.14
-* 2.2.2
-* 2.4.3
+* 2.6.3
 
 > [!NOTE]
 > Changing the Airflow version within an existing IR is not supported. Instead, the recommended solution is to create a new Airflow IR with the desired version
@@ -84,13 +82,11 @@ You can install any provider package by editing the airflow environment from the
 ## Limitations
 
 * Managed Airflow in other regions is available by GA.
-* Data Sources connecting through airflow should be publicly accessible. 
-* Blob Storage behind VNet is not supported during the public preview.
+* Data Sources connecting through airflow should be accessible through public endpoint (network).
 * DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported.
 * Azure Key Vault isn't supported in LinkedServices to import dags.
-* Airflow supports officially Blob Storage and ADLS with some limitations.
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)

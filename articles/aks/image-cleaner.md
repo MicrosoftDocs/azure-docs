@@ -48,16 +48,12 @@ Once `eraser-controller-manager` is deployed,
   - inside each worker pod, there are 3 containers:
     - collector: collect unused images
     - trivy-scanner: leverage [trivy](https://github.com/aquasecurity/trivy) to scan image vulnerabilities
-    - remover: remove used images with vulnerabilities 
+    - remover: remove unused images with vulnerabilities 
   - after clean up, worker pod will be deleted and its next schedule up is after the `--image-cleaner-interval-hours` you have set
 
 ### Manual mode
 
 You can also manually trigger the clean up by defining a CRD object `ImageList`. Then `eraser-contoller-manager` will create worker pod per node as well to finish manual removal.
-
-:::image type="content" source="./media/image-cleaner/Image-cleaner-1015.png" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
-
-
 
 > [!NOTE]
 > After disabling Image Cleaner, the old configuration still exists. This means if you enable the feature again without explicitly passing configuration, the existing value is used instead of the default.

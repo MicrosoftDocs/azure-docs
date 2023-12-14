@@ -1183,7 +1183,7 @@ Then our pipeline will succeed. And we can see in the input box that the paramet
 
 :::image type="content" source="media/data-factory-troubleshoot-guide/input-type-array.png" alt-text="Screenshot showing input type array.":::
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

@@ -1,17 +1,17 @@
 ---
-title: Configuration management in HDInsight on AKS Spark
-description: Learn how to perform Configuration management in HDInsight on AKS Spark
+title: Configuration management in HDInsight on AKS with Apache Spark™
+description: Learn how to perform Configuration management in HDInsight on AKS with Apache Spark™ cluster
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
-# Configuration management in HDInsight on AKS Spark
+# Configuration management in HDInsight on AKS with Apache Spark™ cluster
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-Azure HDInsight on AKS is a managed cloud-based service for big data analytics that helps organizations process large amounts data. This tutorial shows how to use configuration management in Azure HDInsight on AKS Spark cluster.
+Azure HDInsight on AKS is a managed cloud-based service for big data analytics that helps organizations process large amounts data. This tutorial shows how to use configuration management in Azure HDInsight on AKS with Apache Spark™ cluster.
 
-Configuration management is used to add specific configurations into the spark cluster.
+Configuration management is used to add specific configurations into the Apache Spark cluster.
 
 When user updates a configuration in the management portal the corresponding service is restarted in rolling manner.
 
@@ -62,5 +62,9 @@ When user updates a configuration in the management portal the corresponding ser
     > Selecting **Save** will restart the clusters.
     > It is advisable not to have any active jobs while making configuration changes, since restarting the cluster may impact the active jobs.
 
+## Reference
+
+* Apache, Apache Spark, Spark, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
+  
 ## Next steps
 * [Library management in Spark](./library-management.md)

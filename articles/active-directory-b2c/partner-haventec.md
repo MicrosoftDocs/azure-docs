@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 03/10/2023
 ms.author: gasinh

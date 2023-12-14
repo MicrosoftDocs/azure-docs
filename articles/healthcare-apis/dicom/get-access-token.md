@@ -3,7 +3,8 @@ title: Get an access token for the DICOM service in Azure Health Data Services
 description: Find out how to secure your access to the DICOM service with a token. Use the Azure command-line tool and unique identifiers to manage your medical images.
 author: mmitrik
 ms.service: healthcare-apis
-ms.custom: devx-track-azurecli
+ms.subservice: dicom
+ms.custom:
 ms.topic: how-to
 ms.date: 10/13/2023
 ms.author: mmitrik

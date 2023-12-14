@@ -36,7 +36,7 @@ az login
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID> \
-    --sdk-auth
+    --json-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
@@ -45,7 +45,7 @@ To access to a specific resource group, you can reduce the scope:
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
-    --sdk-auth
+    --json-auth
 ```
 
 The command should output a JSON object:
@@ -179,7 +179,7 @@ az login
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID> \
-    --sdk-auth
+    --json-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
@@ -188,7 +188,7 @@ To access to a specific resource group, you can reduce the scope:
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
-    --sdk-auth
+    --json-auth
 ```
 
 The command should output a JSON object:

@@ -233,7 +233,7 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 
 ### Debugging
 
-If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
+If needed, you can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet is only applicable for AD DS authentication. It doesn't work for Microsoft Entra Domain Services or Microsoft Entra Kerberos enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose

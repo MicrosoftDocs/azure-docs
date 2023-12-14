@@ -2,7 +2,7 @@
 title: 'Sample code to send data to Azure Monitor using Logs ingestion API'
 description: Sample code using REST API and client libraries for Logs ingestion API in Azure Monitor.
 ms.topic: tutorial
-ms.date: 09/14/2023
+ms.date: 10/27/2023
 ---
 
 # Sample code to send data to Azure Monitor using Logs ingestion API
@@ -12,7 +12,7 @@ This article provides sample code using the [Logs ingestion API](logs-ingestion-
 - Custom table in a Log Analytics workspace
 - Data collection endpoint (DCE) to receive data
 - Data collection rule (DCR) to direct the data to the target table
-- AD application with access to the DCR
+- Microsoft Entra application with access to the DCR
 
 ## Sample code
 

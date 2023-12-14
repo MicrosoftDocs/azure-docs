@@ -18,7 +18,7 @@ This overview describes concepts for **contact center** applications. After comp
 
 Contact center applications are focused on unscheduled communication between **consumers** and **agents**. The **organizational boundary** between consumers and agents, and the **unscheduled** nature of the interaction, are key attributes of contact center applications.
 
-This article focuses on *inbound* engagement, where the consumer initiates communication. Developers interested in scheduled business-to-consumer interactions should read our [Virtual Visits](/azure/communication-services/tutorials/virtual-visits) tutorial. Many businesses also have *outbound* communication needs, for which we recommend the outbound [customer engagement](/learn.microsoft.com/dynamics365/customer-insights/journeys/portal-optional) tutorial.
+This article focuses on *inbound* engagement, where the consumer initiates communication. Developers interested in scheduled business-to-consumer interactions should read our [Virtual Visits](/azure/communication-services/tutorials/virtual-visits) tutorial.
 
 
 The term “contact center” captures a large family of applications diverse across scale, channels, and organizational approach:
@@ -87,7 +87,7 @@ The following list presents the set of features that are currently available for
 
 | Group of features          | Capability                             | Public preview | General availability |
 |----------------------------|----------------------------------------|----------------|----------------------|
-| DTMF Support in ACS UI SDK | Allows touch tone entry                | ❌             | ✔️                    |
+| DTMF Support in Azure Communication Services UI SDK | Allows touch tone entry                | ❌             | ✔️                    |
 | Teams Capabilities         | Audio and video                        | ✔️              | ✔️                    |
 |                            | Screen sharing                         | ✔️              | ✔️                    |
 |                            | Record the call                        | ✔️              | ✔️                    |
@@ -130,7 +130,6 @@ The following list presents the set of features that are currently available for
 
 -   [Quickstart: Join your calling app to a Teams call queue](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-call-queue)
 -   [Quickstart - Teams Auto Attendant on Azure Communication Services](/azure/communication-services/quickstarts/voice-video-calling/get-started-teams-auto-attendant)
--   [Get started with a click to call experience using Azure Communication Services - An Azure Communication Services tutorial](/azure/communication-services/tutorials/calling-widget/calling-widget-overview)
 
 ## Extend your contact center voice solution to Teams users
 

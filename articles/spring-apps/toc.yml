@@ -35,12 +35,14 @@ items:
 - name: Tutorials
   expanded: true
   items:
-  - name: "Run polyglot apps on Enterprise plan (ACME Fitness Store)"
+  - name: Run polyglot apps on Enterprise plan
     items:
     - name: Introduction to Fitness Store sample
       href: quickstart-sample-app-acme-fitness-store-introduction.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
+    - name: Integrate Azure OpenAI
+      href: quickstart-fitness-store-azure-openai.md
     - name: Configure single sign-on
       href: quickstart-configure-single-sign-on-enterprise.md
     - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
@@ -116,7 +118,7 @@ items:
   - name: Security controls
     href: concept-security-controls.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/spring-cloud-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /security/benchmark/azure/baselines/azure-spring-apps-security-baseline?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure Policy Security controls
     href: security-controls-policy.md
 - name: How-to guides
@@ -201,6 +203,8 @@ items:
         href: how-to-outbound-public-ip.md
       - name: Move across regions
         href: how-to-move-across-regions.md
+      - name: Configure planned maintenance
+        href: how-to-configure-planned-maintenance.md
     - name: Scale
       items:
       - name: Manually scale an app
@@ -333,36 +337,6 @@ items:
         href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
       - name: Tomcat
         href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-  - name: Standard consumption and dedicated plan
-    items:
-    - name: Provision a service instance
-      href: quickstart-provision-standard-consumption-service-instance.md
-    - name: Provision in an Azure Container Apps environment with VNet
-      href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
-    - name: Access apps in a VNet
-      href: quickstart-access-standard-consumption-within-virtual-network.md
-    - name: Set up autoscale
-      href: quickstart-apps-autoscale-standard-consumption.md
-    - name: Map a custom domain to Azure Spring Apps
-      href: quickstart-standard-consumption-custom-domain.md
-    - name: Analyze logs and metrics
-      href: quickstart-analyze-logs-and-metrics-standard-consumption.md
-    - name: Enable and disable Spring Cloud Config Server
-      href: quickstart-standard-consumption-config-server.md
-    - name: Enable and disable Eureka Server
-      href: quickstart-standard-consumption-eureka-server.md
-    - name: Use custom persistent storage with the Standard consumption and dedicated plan
-      href: how-to-custom-persistent-storage-with-standard-consumption.md
-    - name: Application Insights using Java In-Process Agent
-      href: how-to-application-insights.md
-    - name: Use Dynatrace Java OneAgent
-      href: how-to-dynatrace-one-agent-monitor.md
-    - name: New Relic Java in-process agent
-      href: how-to-new-relic-monitor.md
-    - name: AppDynamics in-process agent
-      href: how-to-appdynamics-java-agent-monitor.md
-    - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
-      href: standard-consumption-customer-responsibilities.md
   - name: Basic/Standard plan
     items:
     - name: Provisioning
@@ -413,6 +387,8 @@ items:
         href: how-to-outbound-public-ip.md
       - name: Move across regions
         href: how-to-move-across-regions.md
+      - name: Configure planned maintenance
+        href: how-to-configure-planned-maintenance.md
     - name: Scale
       items:
       - name: Manually scale an app
@@ -555,6 +531,36 @@ items:
         href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
       - name: Tomcat
         href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Standard consumption and dedicated plan
+    items:
+    - name: Provision a service instance
+      href: quickstart-provision-standard-consumption-service-instance.md
+    - name: Provision in an Azure Container Apps environment with VNet
+      href: quickstart-provision-standard-consumption-app-environment-with-virtual-network.md
+    - name: Access apps in a VNet
+      href: quickstart-access-standard-consumption-within-virtual-network.md
+    - name: Set up autoscale
+      href: quickstart-apps-autoscale-standard-consumption.md
+    - name: Map a custom domain to Azure Spring Apps
+      href: quickstart-standard-consumption-custom-domain.md
+    - name: Analyze logs and metrics
+      href: quickstart-analyze-logs-and-metrics-standard-consumption.md
+    - name: Enable and disable Spring Cloud Config Server
+      href: quickstart-standard-consumption-config-server.md
+    - name: Enable and disable Eureka Server
+      href: quickstart-standard-consumption-eureka-server.md
+    - name: Use custom persistent storage with the Standard consumption and dedicated plan
+      href: how-to-custom-persistent-storage-with-standard-consumption.md
+    - name: Application Insights using Java In-Process Agent
+      href: how-to-application-insights.md
+    - name: Use Dynatrace Java OneAgent
+      href: how-to-dynatrace-one-agent-monitor.md
+    - name: New Relic Java in-process agent
+      href: how-to-new-relic-monitor.md
+    - name: AppDynamics in-process agent
+      href: how-to-appdynamics-java-agent-monitor.md
+    - name: Customer responsibilities for Standard consumption and dedicated plan in a virtual network
+      href: standard-consumption-customer-responsibilities.md
 - name: Architecture
   items:
   - name: Architecture design
@@ -562,7 +568,7 @@ items:
   - name: Landing zone accelerator
     href: /azure/cloud-adoption-framework/scenarios/app-platform/spring-apps/landing-zone-accelerator?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Deploy to multiple regions
-    href: /azure/architecture/reference-architectures/microservices/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+    href: /azure/architecture/web-apps/spring-apps/architectures/spring-apps-multi-region?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
 - name: Reference
   items:
   - name: API breaking changes
@@ -573,12 +579,15 @@ items:
     href: /powershell/module/az.springcloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
   - name: Azure Pipelines task
     href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
+  - name: Azure Policy built-in definitions
+    href: policy-reference.md
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/spring-apps/
   - name: Resources
     href: resources.md
   - name: Frequently asked questions
     href: faq.md
-  - name: REST API reference
-    href: /rest/api/azurespringcloud/?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: policy-reference.md

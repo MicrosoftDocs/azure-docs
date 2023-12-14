@@ -8,7 +8,7 @@ content_well_notification:
   - AI-contribution
 ---
 
-# Move resources to a new resource group or subscription
+# Move Azure resources to a new resource group or subscription
 
 This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
