@@ -14,7 +14,7 @@ ms.date: 12/14/2023
 
 # Regulate deployments in Model Catalog using policies
 
-The Model Catalog in Azure Machine Learning Studio provides access to many open-source foundation models, and regulating the deployments of these models by enforcing organization standards can be of paramount importance to meet your security and compliance requirements. In this article, you learn how you can restrict the deployments from the Model Catalog using a built-in Azure Policy.
+The Model Catalog in Azure Machine Learning studio provides access to many open-source foundation models, and regulating the deployments of these models by enforcing organization standards can be of paramount importance to meet your security and compliance requirements. In this article, you learn how you can restrict the deployments from the Model Catalog using a built-in Azure Policy.
 
 [Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit, perform real-time enforcement and manage their Azure environment at scale. For more information, see the [Overview of the Azure Policy service](/azure/governance/policy/overview).
 
@@ -50,7 +50,7 @@ Model Catalog collections are made available to users using the underlying regis
     2. Exclusions: Select any resources from the scope to exclude from the policy assignment.
     3. Policy Definition: Select the policy definition to apply to the scope with exclusions. Type "Azure Machine Learning" in the search bar and locate the policy '[Preview] Azure Machine Learning Model Registry Deployments are restricted except for allowed registry'. Select the policy and select **Add**.
 
-:::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab tab within Azure Policy home page.":::
+:::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab within Azure Policy home page.":::
 
 5. Select the **Parameters** tab and update the Effect and policy assignment parameters. Make sure to uncheck the 'Only show parameters that need input or review' so all the parameters show up. To further clarify what the parameter does, hover over the info icon next to the parameter name.
 
@@ -69,7 +69,7 @@ You can remove the policy assignment in the Azure portal using the following ste
 ### Limitations 
 
 * Any change in the policy (including updating the policy definition, assignments, exemptions or policy set) takes 10 mins for those changes to become effective in the evaluation process.
-* Complaince is reported for newly created and updated deployments. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned will not report compliance. You also can’t trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
+* Compliance is reported for newly created and updated deployments. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned won't report compliance. You also can’t trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
 * You can’t allowlist more than one registry in a policy assignment.
 
 ## Next Steps
