@@ -34,15 +34,15 @@ You can download prometheus from [here](https://prometheus.io/download/). To con
 
 In your application, provide the prometheus registry to the telemetry config. Notice that you can set various diagnostic thresholds, which will help to limit metrics consumed to the ones you are most interested in:
 
-[!code-java[](~/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/prometheus/async/CosmosClientMetricsQuickStartAsync.java?name=ClientMetricsConfig)]
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/prometheus/async/CosmosClientMetricsQuickStartAsync.java?name=ClientMetricsConfig)]
 
 Start local HttpServer server to expose the meter registry metrics to Prometheus:
 
-[!code-java[](~/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/prometheus/async/CosmosClientMetricsQuickStartAsync.java?name=PrometheusTargetServer)]
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/prometheus/async/CosmosClientMetricsQuickStartAsync.java?name=PrometheusTargetServer)]
 
 Ensure you pass `clientTelemetryConfig` when creating your `CosmosClient`:
 
-[!code-java[](~/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/prometheus/async/CosmosClientMetricsQuickStartAsync.java?name=CosmosClient)]
+[!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/prometheus/async/CosmosClientMetricsQuickStartAsync.java?name=CosmosClient)]
 
 
 When adding the endpoint for your application client to `prometheus.yml`, add the domain name and port to "targets". For example, if prometheus is running on the same server as your app client, you can add `localhost:8080` to `targets` as below:
@@ -59,7 +59,7 @@ scrape_configs:
       - targets: ["localhost:9090", "localhost:8080"]
 ```
 
-Now you can consume metrics from Prometheus. If your clients are deployed on Azure Kubernetes Service (AKS), you can also used the Azure Monitor managed service for Prometheus with custom scraping, see documentation [here](../../azure-monitor/containers/prometheus-metrics-scrape-configuration.md). 
+Now you can consume metrics from Prometheus. If your clients are deployed on Azure Kubernetes Service (AKS), you can also used the Azure Monitor managed service for Prometheus with custom scraping, see documentation [here](~/azure/azure-monitor/containers/prometheus-metrics-scrape-configuration.md). 
 
 The full list of metrics provided is documented [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/docs/Metrics.md#what-metrics-are-emitted).
 
