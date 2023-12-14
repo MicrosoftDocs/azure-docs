@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 ms.topic: article
 ms.custom: devx-track-linux
-ms.date: 08/16/2023
+ms.date: 11/28/2023
 ---
 
 # Create and use a volume with Azure Blob storage in Azure Kubernetes Service (AKS)
@@ -28,6 +28,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
    - To create an ADLS account using the driver in dynamic provisioning, specify `isHnsEnabled: "true"` in the storage class parameters.
    - To enable blobfuse access to an ADLS account in static provisioning, specify the mount option `--use-adls=true` in the persistent volume.
+   - If you are going to enable a storage account with Hierarchical Namespace, existing persistent volumes should be remounted with `--use-adls=true` mount option.
 
 ## Dynamically provision a volume
 
@@ -72,12 +73,10 @@ A persistent volume claim (PVC) uses the storage class object to dynamically pro
     kind: PersistentVolumeClaim
     metadata:
       name: azure-blob-storage
-      annotations:
-            volume.beta.kubernetes.io/storage-class: azureblob-nfs-premium
     spec:
       accessModes:
       - ReadWriteMany
-      storageClassName: my-blobstorage
+      storageClassName: azureblob-nfs-premium
       resources:
         requests:
           storage: 5Gi
@@ -127,6 +126,7 @@ The following YAML creates a pod that uses the persistent volume claim **azure-b
         volumeMounts:
         - mountPath: "/mnt/blob"
           name: volume
+          readOnly: false
       volumes:
         - name: volume
           persistentVolumeClaim:
@@ -177,6 +177,9 @@ In this example, the following manifest configures mounting a Blob storage conta
       protocol: nfs
       tags: environment=Development
     volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    mountOptions:
+      - nconnect=4
     ```
 
 2. Create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -240,7 +243,7 @@ This section provides guidance for cluster administrators who want to create one
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
-|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`.<br> Note: The `#` character is reserved for internal use and can't be used in a volume handle. | Yes ||
+|volumeHandle | Specify a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`.<br> Note: The `#`, `/` character are reserved for internal use and can't be used in a volume handle. | Yes ||
 |volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver uses the same resource group name as current cluster.|
 |volumeAttributes.storageAccount | Specify an existing Azure storage account name. | storageAccountName | Yes ||
 |volumeAttributes.containerName | Specify existing container name. | container | Yes ||
@@ -264,7 +267,7 @@ This section provides guidance for cluster administrators who want to create one
 |volumeAttributes.MSIEndpoint | Specify the MSI endpoint. |  | No ||
 |volumeAttributes.AzureStorageSPNClientID | Specify the Azure Service Principal Name (SPN) Client ID. |  | No ||
 |volumeAttributes.AzureStorageSPNTenantID | Specify the Azure SPN Tenant ID. |  | No ||
-|volumeAttributes.AzureStorageAADEndpoint | Specify the Azure Active Directory (Azure AD) endpoint. |  | No ||
+|volumeAttributes.AzureStorageAADEndpoint | Specify the Microsoft Entra endpoint. |  | No ||
 |--- | **Following parameters are only for feature: blobfuse read account key or SAS token from key vault** | --- | --- | --- |
 |volumeAttributes.keyVaultURL | Specify Azure Key Vault DNS name. | {vault-name}.vault.azure.net | No ||
 |volumeAttributes.keyVaultSecretName | Specify Azure Key Vault secret name. | Existing Azure Key Vault secret name. | No ||
@@ -302,7 +305,7 @@ The following example demonstrates how to mount a Blob storage container as a pe
 
    > [!NOTE]
    > `volumeHandle` value should be a unique volumeID for every identical storage blob container in the cluster.
-   > The character `#` is reserved for internal use and cannot be used.
+   > The character `#` and `/` are reserved for internal use and cannot be used.
 
     ```yml
     apiVersion: v1
@@ -318,12 +321,13 @@ The following example demonstrates how to mount a Blob storage container as a pe
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
       storageClassName: azureblob-nfs-premium
+      mountOptions:
+        - nconnect=4
       csi:
         driver: blob.csi.azure.com
-        readOnly: false
         # make sure volumeid is unique for every identical storage blob container in the cluster
-        # character `#` is reserved for internal use and cannot be used in volumehandle
-        volumeHandle: unique-volumeid
+        # character `#` and `/` are reserved for internal use and cannot be used in volumehandle
+        volumeHandle: account-name_container-name
         volumeAttributes:
           resourceGroup: resourceGroupName
           storageAccount: storageAccountName
@@ -392,7 +396,7 @@ Kubernetes needs credentials to access the Blob storage container created earlie
 
    > [!NOTE]
    > `volumeHandle` value should be a unique volumeID for every identical storage blob container in the cluster.
-   > The character `#` is reserved for internal use and cannot be used.
+   > The character `#` and `/` are reserved for internal use and cannot be used.
 
     ```yml
     apiVersion: v1
@@ -413,10 +417,9 @@ Kubernetes needs credentials to access the Blob storage container created earlie
         - --file-cache-timeout-in-seconds=120
       csi:
         driver: blob.csi.azure.com
-        readOnly: false
         # volumeid has to be unique for every identical storage blob container in the cluster
-        # character `#` is reserved for internal use and cannot be used in volumehandle
-        volumeHandle: unique-volumeid
+        # character `#`and `/` are reserved for internal use and cannot be used in volumehandle
+        volumeHandle: account-name_container-name
         volumeAttributes:
           containerName: containerName
         nodeStageSecretRef:
@@ -475,6 +478,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
           volumeMounts:
             - name: blob01
               mountPath: "/mnt/blob"
+              readOnly: false
       volumes:
         - name: blob01
           persistentVolumeClaim:
@@ -515,6 +519,7 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubernets-secret]: https://kubernetes.io/docs/concepts/configuration/secret
 
 <!-- LINKS - internal -->
 [operator-best-practices-storage]: operator-best-practices-storage.md
@@ -526,3 +531,4 @@ The following YAML creates a pod that uses the persistent volume or persistent v
 [sas-tokens]: ../storage/common/storage-sas-overview.md
 [azure-datalake-storage-account]: ../storage/blobs/upgrade-to-data-lake-storage-gen2-how-to.md
 [storage-account-private-endpoint]: ../storage/common/storage-private-endpoints.md
+[manage-blob-storage]: ../storage/blobs/blob-containers-cli.md

@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
-# Create and manage Private Link for Azure Database for MySQL - Flexible Server using the portal (Preview)
+# Create and manage Private Link for Azure Database for MySQL - Flexible Server using the portal 
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -258,4 +258,4 @@ In this section, you learn how to add a private endpoint to the MySQL flexible s
 - Learn how to configure private link for Azure Database for MySQL flexible server from [Azure CLI](how-to-networking-private-link-azure-cli.md).
 - Learn how to [manage connectivity](concepts-networking.md) to your Azure Database for MySQL flexible Server.
 - Learn how to [add another layer of encryption to your Azure Database for MySQL flexible server using [Customer Managed Keys](concepts-customer-managed-key.md).
-- Learn how to configure and use [Azure AD authentication](concepts-azure-ad-authentication.md) on your Azure Database for MySQL flexible server.
+- Learn how to configure and use [Microsoft Entra authentication](concepts-azure-ad-authentication.md) on your Azure Database for MySQL flexible server.

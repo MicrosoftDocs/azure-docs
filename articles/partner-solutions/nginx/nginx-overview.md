@@ -4,7 +4,6 @@ description: Learn about using the NGINXaaS Cloud-Native Observability Platform 
 author: flang-msft
 
 ms.topic: conceptual
-ms.custom: event-tier1-build-2022
 ms.author: franlanglois
 ms.date: 01/18/2023
 

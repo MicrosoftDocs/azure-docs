@@ -42,13 +42,13 @@ The Standard tier of Azure Data Manager for energy is ideal for customers' produ
 The standard tier is designed for production scenarios as it provides high availability, reliability and scale. The Standard tier includes the following:
 
 * Availability Zones
-* Disaster Recovery
+* Disaster Recovery\*
 * Financial Backed Service Level Agreement
 * Higher Database Throughput
 * Higher data partition maximum
 * Higher support prioritization
 
-
+(\*) Certain regions are restricted in supporting customer scenarios for disaster recovery. Please check the [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md) for more details on the regions which support disaster recovery.
 
 ## Tier details
 | Features | Developer Tier | Standard Tier |
@@ -60,11 +60,16 @@ Support | Yes | Yes
 Azure Customer Managed Encryption Keys|Yes| Yes
 Azure Private Links|Yes| Yes
 Financial Backed Service Level Agreement (SLA) Credits | No | Yes
-Disaster Recovery |No| Yes
+Disaster Recovery |No| Yes\*
 Availability Zones |No| Yes
 Database Throughput |Low| High
 Included Data Partition | 1| 1
 Maximum Data Partition |5 | 10
+
+(\*) Certain regions are restricted in supporting customer scenarios for disaster recovery. Please check the [Reliability in Azure Data Manager for Energy](reliability-energy-data-services.md) for more details on the regions which support disaster recovery.
+
+> [!IMPORTANT]
+> Disaster recovery is currently not available in Brazil South region. For more information please contact your Microsoft sales or customer representative.
 
 ## How to participate
 You can easily create a Developer tier resource by going to Azure Marketplace, [create portal](https://portal.azure.com/#create/Microsoft.AzureDataManagerforEnergy), and select your desired tier. 

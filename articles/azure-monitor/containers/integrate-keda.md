@@ -19,9 +19,9 @@ To integrate KEDA into your Azure Kubernetes Service, you have to deploy and con
 This article walks you through the steps to integrate KEDA into your AKS cluster using a workload identity.
 
 > [!NOTE]
-> We recommend using Azure Active Directory workload identity. This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
+> We recommend using Microsoft Entra Workload ID. This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities to federate with any external identity providers on behalf of the application.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the deprecation notice. The AKS Managed add-on begins deprecation in Sept. 2023.
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, and the project will be archived in Sept. 2023. For more information, see the deprecation notice. The AKS Managed add-on begins deprecation in Sept. 2023.
 >
 > Azure Managed Prometheus support starts from KEDA v2.10. If you have an older version of KEDA installed, you must upgrade in order to work with Azure Managed Prometheus.
 
@@ -29,7 +29,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
 
 + Azure Kubernetes Service (AKS) cluster
 + Prometheus sending metrics to an Azure Monitor workspace. For more information, see [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
-
++ Microsoft Entra Workload ID. For more information, see [Azure AD Workload Identity](https://azure.github.io/azure-workload-identity/docs/).
 
 ## Set up a workload identity
 
@@ -49,7 +49,7 @@ This article walks you through the steps to integrate KEDA into your AKS cluster
     + `SERVICE_ACCOUNT_NAME` - KEDA must use the service account that was used to create federated credentials. This can be any user defined name.
     + `AKS_CLUSTER_NAME`- The name of the AKS cluster where you want to deploy KEDA.
     + `SERVICE_ACCOUNT_NAMESPACE` Both KEDA and service account must be in same namespace.
-    + `USER_ASSIGNED_IDENTITY_NAME` is the name of the Azure Active directory identity that's created for KEDA. 
+    + `USER_ASSIGNED_IDENTITY_NAME` is the name of the Microsoft Entra identity that's created for KEDA. 
     + `FEDERATED_IDENTITY_CREDENTIAL_NAME` is the name of the credential that's created for KEDA to use to authenticate with Azure.
 
 1. If your AKS cluster hasn't been created with workload-identity or oidc-issuer enabled, you'll need to enable it. If you aren't sure, you can run the following command to check if it's enabled.
@@ -178,38 +178,10 @@ keda-operator-metrics-apiserver-7dc6f59678-745nz   1/1     Running   0          
 
 ## Scalers
 
-Scalers define how and when KEDA should scale a deployment. KEDA supports a variety of scalers. For more information on scalers, see [Scalers](https://keda.sh/docs/2.10/scalers/prometheus/). Azure Managed Prometheus utilizes already existing Prometheus scaler to retrieve Prometheus metrics from Azure Monitor Workspace. The following yaml file is an example to use Azure Managed Prometheus.
+Scalers define how and when KEDA should scale a deployment. KEDA supports a variety of scalers. For more information on scalers, see [Scalers](https://keda.sh/docs/2.10/scalers/prometheus/). Azure Managed Prometheus utilizes already existing Prometheus scaler to retrieve Prometheus metrics from Azure Monitor Workspace. The following yaml file is an example to use Azure Managed Prometheus. 
 
-```yml
-apiVersion: keda.sh/v1alpha1
-kind: TriggerAuthentication
-metadata:
-  name: azure-managed-prometheus-trigger-auth
-spec:
-  podIdentity:
-      provider: azure-workload | azure # use "azure" for pod identity and "azure-workload" for workload identity
-      identityId: <identity-id> # Optional. Default: Identity linked with the label set when installing KEDA.
----
-apiVersion: keda.sh/v1alpha1
-kind: ScaledObject
-metadata:
-  name: azure-managed-prometheus-scaler
-spec:
-  scaleTargetRef:
-    name: deployment-name-to-be-scaled
-  minReplicaCount: 1
-  maxReplicaCount: 20
-  triggers:
-  - type: prometheus
-    metadata:
-      serverAddress: https://test-azure-monitor-workspace-name-1234.eastus.prometheus.monitor.azure.com
-      metricName: http_requests_total
-      query: sum(rate(http_requests_total{deployment="my-deployment"}[2m])) # Note: query must return a vector/scalar single element response
-      threshold: '100.50'
-      activationThreshold: '5.5'
-    authenticationRef:
-      name: azure-managed-prometheus-trigger-auth
-```
+[!INCLUDE[managed-identity-yaml](../includes/prometheus-sidecar-keda-scaler-yaml.md)]
+
 + `serverAddress` is the Query endpoint of your Azure Monitor workspace. For more information, see [Query Prometheus metrics using the API and PromQL](../essentials/prometheus-api-promql.md#query-endpoint)
 + `metricName` is the name of the metric you want to scale on. 
 + `query` is the query used to retrieve the metric. 

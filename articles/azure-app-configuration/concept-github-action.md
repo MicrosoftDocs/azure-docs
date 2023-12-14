@@ -1,8 +1,8 @@
 ---
 title: Sync your GitHub repository to App Configuration
 description: Use GitHub Actions to automatically update your App Configuration instance when you update your GitHub repository.
-author: mcleanbyron
-ms.author: mcleans
+author: maud-lv
+ms.author: malev
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration

@@ -1,15 +1,17 @@
 ---
 title: Create a skillset
-titleSuffix: Azure Cognitive Search
-description: A skillset defines content extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure Cognitive Search.
+titleSuffix: Azure AI Search
+description: A skillset defines data extraction, natural language processing, and image analysis steps. A skillset is attached to indexer. It's used to enrich and extract information from source data for use in Azure AI Search.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 07/14/2022
 ---
 
-# Create a skillset in Azure Cognitive Search
+# Create a skillset in Azure AI Search
 
 ![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
 
@@ -42,7 +44,7 @@ Start with the basic structure. In the [Create Skillset REST API](/rest/api/sear
    ],
    "cognitiveServices":{
       "@odata.type":"#Microsoft.Azure.Search.CognitiveServicesByKey",
-      "description":"An Azure AI services resource in the same region as Azure Cognitive Search",
+      "description":"An Azure AI services resource in the same region as Azure AI Search",
       "key":"<Your-Cognitive-Services-Multiservice-Key>"
    },
    "knowledgeStore":{
@@ -78,46 +80,48 @@ The end result of an enrichment pipeline is textual content in either a search i
 All skills have a type, context, inputs, and outputs. A skill might optionally have a name and description. The following example shows two unrelated [built-in skills](cognitive-search-predefined-skills.md) so that you can compare the basic structure.
 
 ```json
-"skills":[
-  {
-    "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-    "name": "#1",
-    "description": "This skill detects organizations in the source content",
-    "context": "/document",
-    "categories": [ "Organization" ],
-    "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "organizations",
-        "targetName": "orgs"
-      }
-    ]
-  },
-  {
-      "name": "#2",
-      "description": "This skill detects corporate logos in the source files",
-      "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-      "context": "/document/normalized_images/*",
-      "visualFeatures": [
-          "brands"
-      ],
-      "inputs": [
-          {
-              "name": "image",
-              "source": "/document/normalized_images/*"
-          }
-      ],
-      "outputs": [
-          {
-              "name": "brands"
-          }
-      ]
-  }
+"skills": [
+    {
+        "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+        "name": "#1",
+        "description": "This skill detects organizations in the source content",
+        "context": "/document",
+        "categories": [
+            "Organization"
+        ],
+        "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "organizations",
+                "targetName": "orgs"
+            }
+        ]
+    },
+    {
+        "name": "#2",
+        "description": "This skill detects corporate logos in the source files",
+        "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+        "context": "/document/normalized_images/*",
+        "visualFeatures": [
+            "brands"
+        ],
+        "inputs": [
+            {
+                "name": "image",
+                "source": "/document/normalized_images/*"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "brands"
+            }
+        ]
+    }
 ]
 ```
 

@@ -92,9 +92,9 @@ Although you create connections within a workflow, these connections are actuall
 
 ### Connection security and encryption
 
-Connection configuration details, such as server address, username, and password, credentials, and secrets are [encrypted and stored in the secured Azure environment](../security/fundamentals/encryption-overview.md). This information can be used only in logic app resources and by clients who have permissions for the connection resource, which is enforced using linked access checks. Connections that use Azure Active Directory Open Authentication (Azure AD OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores only access and refresh tokens as secrets, not sign-in credentials.
+Connection configuration details, such as server address, username, and password, credentials, and secrets are [encrypted and stored in the secured Azure environment](../security/fundamentals/encryption-overview.md). This information can be used only in logic app resources and by clients who have permissions for the connection resource, which is enforced using linked access checks. Connections that use Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth), such as Office 365, Salesforce, and GitHub, require that you sign in, but Azure Logic Apps stores only access and refresh tokens as secrets, not sign-in credentials.
 
-Established connections can access the target service or system for as long as that service or system allows. For services that use Azure AD OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
+Established connections can access the target service or system for as long as that service or system allows. For services that use Microsoft Entra ID OAuth connections, such as Office 365 and Dynamics, Azure Logic Apps refreshes access tokens indefinitely. Other services might have limits on how long Logic Apps can use a token without refreshing. Some actions, such as changing your password, invalidate all access tokens.
 
 > [!NOTE]
 > 
@@ -180,7 +180,7 @@ The following table includes known issues for connectors in Azure Logic Apps:
 
 | Error message| Description | Resolution |
 |--------------|-------------|------------|
-| `Error: BadGateway. Client request id: '{GUID}'` | This error results from updating the tags on a logic app resource where one or more connections don't support Azure Active Directory (Azure AD) OAuth authentication, such as SFTP ad SQL, breaking those connections. | To prevent this behavior, avoid updating those tags. |
+| `Error: BadGateway. Client request id: '{GUID}'` | This error results from updating the tags on a logic app resource where one or more connections don't support Microsoft Entra ID OAuth authentication, such as SFTP ad SQL, breaking those connections. | To prevent this behavior, avoid updating those tags. |
 
 ## Next steps
 

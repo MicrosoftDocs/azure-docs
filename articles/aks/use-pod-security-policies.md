@@ -150,7 +150,7 @@ It's important to understand how these default policies interact with user reque
 
 ## Create a test user in an AKS cluster
 
-When you use the [`az aks get-credentials`][az-aks-get-credentials] command, the *admin* credentials for the AKS cluster are added to your `kubectl` config by default. The admin user bypasses the enforcement of pod security policies. If you use Azure Active Directory integration for your AKS clusters, you can sign in with the credentials of a non-admin user to see the enforcement of policies in action.
+When you use the [`az aks get-credentials`][az-aks-get-credentials] command, the *admin* credentials for the AKS cluster are added to your `kubectl` config by default. The admin user bypasses the enforcement of pod security policies. If you use Microsoft Entra integration for your AKS clusters, you can sign in with the credentials of a non-admin user to see the enforcement of policies in action.
 
 1. Create a sample namespace named *psp-aks* for test resources using the [`kubectl create namespace`][kubectl-create] command.
 

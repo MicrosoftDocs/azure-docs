@@ -3,7 +3,7 @@ title: "CyberArk Enterprise Password Vault (EPV) Events connector for Microsoft 
 description: "Learn how to install the connector CyberArk Enterprise Password Vault (EPV) Events to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 06/22/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

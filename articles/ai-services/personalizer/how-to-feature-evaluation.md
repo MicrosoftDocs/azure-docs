@@ -5,13 +5,14 @@ description: When you run a Feature Evaluation in your Personalizer resource fro
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: how-to
 ms.date: 09/22/2022
 ---
 
 # Evaluate feature importances
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 You can assess how important each feature was to Personalizer's machine learning model by conducting a _feature evaluation_ on your historical log data. Feature evaluations are useful to:
 

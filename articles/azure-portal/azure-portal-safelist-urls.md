@@ -1,7 +1,7 @@
 ---
 title: Allow the Azure portal URLs on your firewall or proxy server
 description: To optimize connectivity between your network and the Azure portal and its services, we recommend you add these URLs to your allowlist.
-ms.date: 05/18/2023
+ms.date: 09/14/2023
 ms.topic: conceptual
 ---
 
@@ -20,8 +20,10 @@ You can use [service tags](../virtual-network/service-tags-overview.md) to defin
 
 The URL endpoints to allow for the Azure portal are specific to the Azure cloud where your organization is deployed. To allow network traffic to these endpoints to bypass restrictions, select your cloud, then add the list of URLs to your proxy server or firewall. We do not recommend adding any additional portal-related URLs aside from those listed here, although you may want to add URLs related to other Microsoft products and services. Depending on which services you use, you may not need to include all of these URLs in your allowlist.
 
-> [!NOTE]
-> Including the wildcard symbol (\*) at the start of an endpoint will allow all subdomains. Avoid adding a wildcard symbol to endpoints listed here that don't already include one. Instead, if you identify additional subdomains of an endpoint that are needed for your particular scenario, we recommend that you allow only that particular subdomain. 
+> [!IMPORTANT]
+> Including the wildcard symbol (\*) at the start of an endpoint will allow all subdomains. For endpoints with wildcards, we also advise you to add the URL without the wildcard. For example, you should add both `*.portal.azure.com` and `portal.azure.com` to ensure that access to the domain is allowed with or without a subdomain.
+>
+> Avoid adding a wildcard symbol to endpoints listed here that don't already include one. Instead, if you identify additional subdomains of an endpoint that are needed for your particular scenario, we recommend that you allow only that particular subdomain.
 
 ### [Public Cloud](#tab/public-cloud)
 
@@ -46,16 +48,12 @@ login.live.com
 #### Azure portal framework
 
 ```
-portal.azure.com
 *.portal.azure.com
 *.hosting.portal.azure.net
-reactblade.portal.azure.net
 *.reactblade.portal.azure.net
 management.azure.com
 *.ext.azure.com
-graph.windows.net
 *.graph.windows.net
-graph.microsoft.com
 *.graph.microsoft.com
 ```
 
@@ -65,7 +63,6 @@ graph.microsoft.com
 *.account.microsoft.com
 *.bmx.azure.com
 *.subscriptionrp.trafficmanager.net
-signup.azure.com
 *.signup.azure.com
 ```
 
@@ -116,6 +113,7 @@ marketplacedataprovider.azure.com (Azure Marketplace)
 marketplaceemail.azure.com (Azure Marketplace)
 media.azure.net (Azure Media Services)
 monitor.azure.com (Azure Monitor Service)
+*.msidentity.com (Microsoft Entra)
 mspim.azure.com (Azure AD)
 network.azure.com (Azure Network)
 purview.azure.com (Azure Purview)
@@ -142,6 +140,7 @@ ux.console.azure.com (Azure Cloud Shell)
 *.microsoft.us
 *.microsoftonline.us
 *.msauth.net
+*.msidentity.us
 *.usgovcloudapi.net
 *.usgovtrafficmanager.net
 *.windowsazure.us
@@ -154,9 +153,12 @@ graph.microsoftazure.us
 aadcdn.msauth.cn
 aadcdn.msftauth.cn
 login.live.com
+catalogartifact.azureedge.net
+store-images.s-microsoft.com
 *.azure.cn
 *.microsoft.cn
 *.microsoftonline.cn
+*.msidentity.cn
 *.chinacloudapi.cn
 *.trafficmanager.cn
 *.windowsazure.cn

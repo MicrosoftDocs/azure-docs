@@ -67,7 +67,7 @@ For example:
 
 ## Supported security recommendations
 
-The following recommendations are displayed for devices detected by OT and Enterprise IoT network sensors:
+The following recommendations are displayed for OT devices in the Azure portal:
 
 |Name  |Description  |
 |---------|---------|
@@ -77,10 +77,17 @@ The following recommendations are displayed for devices detected by OT and Enter
 | **Secure your vulnerable devices** | Devices with this recommendation are found with one or more vulnerabilities with a critical severity. <br><br> We recommend that you follow the steps listed by the device vendor or CISA (Cybersecurity & Infrastructure Agency). <br><br> To see required remediation steps: <br><br> 1. Choose a device from the list of unhealthy devices to see its full list of vulnerabilities. <br> 2. From the **Vulnerabilities** tab, choose the link in the **Name** column for the critical CVE you are mitigating. Full details are opened in the NVD (National Vulnerability Database). <br> 3. Scroll to the NVD **References to Advisories, Solutions, and Tools** section and choose any of the listed links for more information. An advisory page opens, either from the vendor or from CISA. <br> 4. Find and perform the remediation steps listed for your scenario. Note that some vulnerabilities cannot be remediated with a patch.  |
 | **Set a secure password for devices with missing authentication** | Devices with this recommendation are found without authentication based on successful sign-ins. <br><br> We recommend that you enable authentication, and that you set a stronger password with minimum length and complexity. |
 | **Set a stronger password with minimum length and complexity** | Devices with this recommendation are found with weak passwords based on successful sign-ins. <br><br> We recommend that you change the device password to a password that has 8 or more characters and that contains characters from 3 of the following categories: <br><br> - Uppercase letters <br> - Lowercase letters <br> - Special characters <br> - Numbers (0-9) |
-| **Enterprise IoT network sensors** | |
 | **Disable insecure administration protocol**| Devices with this recommendation are exposed to malicious threats because they use Telnet, which isn't a secured and encrypted communication protocol. <br><br>We recommend that you switch to a more secure protocol, such as SSH, disable the server altogether, or apply network access restrictions.|
 
-Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](../device-builders/index.yml).
+Other recommendations you may see in the **Recommendations** page are relevant for the [Defender for IoT micro agent](../device-builders/index.yml).
+
+The following Defender for Endpoint recommendations are relevant for Enterprise IoT customers and are available in Microsoft 365 Defender only:
+- **Require authentication for VNC management interface**
+- **Disable insecure administration protocol – Telnet**
+- **Remove insecure administration protocols SNMP V1 and SNMP V2**
+- **Require authentication for VNC management interface**
+
+For more information, see [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation).
 
 ## Next steps
 

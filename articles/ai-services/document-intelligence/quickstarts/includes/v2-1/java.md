@@ -3,8 +3,7 @@ title: "Get started: Document Intelligence (formerly Form Recognizer) client lib
 description: Use the Document Intelligence SDK for Java to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: include
 ms.date: 07/18/2023
 ms.author: lajanuar

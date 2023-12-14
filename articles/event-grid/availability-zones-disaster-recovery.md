@@ -20,7 +20,7 @@ Event Grid resource definitions for topics, system topics, domains, and event su
 
 ## Geo-disaster recovery across regions
 
-When an Azure region experiences a prolonged outage, you might be interested in failover options to an alternate region for business continuity. Many Azure regions have geo-pairs, and some don't. For a list of regions that have paired regions, see [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). 
+When an Azure region experiences a prolonged outage, you might be interested in failover options to an alternate region for business continuity. Many Azure regions have geo-pairs, and some don't. For a list of regions that have paired regions, see [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-paired-regions). 
 
 For regions with a geo-pair, Event Grid offers a capability to fail over the publishing traffic to the paired region for custom topics, system topics, and domains. Behind the scenes, Event Grid automatically synchronizes resource definitions of topics, system topics, domains, and event subscriptions to the paired region. However, event data isn't replicated to the paired region. In the normal state, events are stored in the region you selected for that resource. When there's a region outage and Microsoft initiates the failover, new events will begin to flow to the geo-paired region and are dispatched from there with no intervention from you. Events published and accepted in the original region are dispatched from there after the outage is mitigated. 
 

@@ -26,7 +26,7 @@ sections:
       - question: |
           Is Azure Synapse Link supported for multi-region Azure Cosmos DB accounts?
         answer: |
-          Yes, for multi-region Azure Cosmos DB accounts, the data stored in the analytical store is also globally distributed. Analytical store will exists in all regions where you also have transactional store. Regardless of single write region or multiple write regions, analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
+          Yes, for multi-region Azure Cosmos DB accounts, the data stored in the analytical store is also globally distributed. Analytical store will exist in all regions where you also have transactional store. Regardless of single write region or multiple write regions, analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
       
         
       - question: |
@@ -67,7 +67,7 @@ sections:
       - question: |
           Can I enable analytical store on existing containers?
         answer: |
-          Currently you can only enable analytical store for existing API for NoSQL containers.
+          Yes. Currently you can use Azure portal, Azure CLI, PowerShell, or Azure Cosmos DB SDKs to enable analytical store for existing API for NoSQL containers. And you can use Azure CLI or PowerShell for existing API for MongoDB collections.
 
       - question: |
           Can I see analytical store files using Azure Data Explorer?

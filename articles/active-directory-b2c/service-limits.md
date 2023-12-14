@@ -1,12 +1,12 @@
 ---
 title: Azure Active Directory B2C service limits and restrictions
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
-services: active-directory-b2c
+
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 12/29/2022
 ms.subservice: B2C
@@ -33,7 +33,7 @@ The number of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
-Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
+Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification/), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
 
 The frequency of requests made to Azure AD B2C endpoints determines the overall token issuance capability. Azure AD B2C exposes endpoints, which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
@@ -75,7 +75,7 @@ When you add more features to a User Flow, such as multifactor authentication, m
 
 |Feature |Additional requests consumed    |
 |---------|---------|
-|Azure Active Directory Multi-Factor Authentication          |2   |
+|Microsoft Entra multifactor authentication          |2   |
 |Email one-time password      |2   |
 |Age gating     |2   |
 |Federated identity provider  |2   |
@@ -171,10 +171,10 @@ The following table lists the administrative configuration limits in the Azure A
 |Maximum policy file size      |1024 KB          |
 |Number of API connectors per tenant     |20         |
 
-<sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+<sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
 ## Next steps
 
 - Learn about [Microsoft Graph's throttling guidance](/graph/throttling) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
-- Learn about [Resilience through developer best practices](../active-directory/fundamentals/resilience-b2c-developer-best-practices.md)
+- Learn about [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md)

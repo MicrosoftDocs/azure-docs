@@ -19,7 +19,7 @@ This article describes best practices and tips for preparing a Windows-based lab
 
 ## Install and configure OneDrive
 
-When a lab user resets a lab virtual machine, all data on the machine is removed. To protect user data from being lost, we recommend that lab users back up their data in the cloud, for example by using Microsoft OneDrive.
+When a lab user reimages a lab virtual machine, all data on the machine is removed. To protect user data from being lost, we recommend that lab users back up their data in the cloud, for example by using Microsoft OneDrive.
 
 ### Install OneDrive
 

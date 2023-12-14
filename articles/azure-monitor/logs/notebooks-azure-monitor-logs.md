@@ -57,7 +57,7 @@ In this tutorial, you use these tools:
 | Tool | Description |
 | --- | --- |
 |[Azure Monitor Query client library](/python/api/overview/azure/monitor-query-readme) |Lets you run read-only queries on data in Azure Monitor Logs. |
-|[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Azure Active Directory.|
+|[Azure Identity client library](/python/api/overview/azure/identity-readme)|Enables Azure SDK clients to authenticate with Microsoft Entra ID.|
 |[Azure Monitor Ingestion client library](/python/api/overview/azure/monitor-ingestion-readme)| Lets you send custom logs to Azure Monitor using the Logs Ingestion API. Required to [ingest analyzed data into a custom table in your Log Analytics workspace (optional)](#4-ingest-analyzed-data-into-a-custom-table-in-your-log-analytics-workspace-optional)|
 |[Data collection rule](../essentials/data-collection-rule-overview.md), [data collection endpoint](../essentials/data-collection-endpoint-overview.md), and a [registered application](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) | Required to [ingest analyzed data into a custom table in your Log Analytics workspace (optional)](#4-ingest-analyzed-data-into-a-custom-table-in-your-log-analytics-workspace-optional) |  
 
@@ -113,7 +113,7 @@ Set up your notebook to query your Log Analytics workspace:
     logs_query_client = LogsQueryClient(credential, authentication_policy=authentication_policy)
     ```
 
-    `LogsQueryClient` typically only supports authentication with Azure Active Directory (Azure AD) token credentials. However, we can pass a custom authentication policy to enable the use of API keys. This allows the client to [query the demo workspace](../logs/api/access-api.md#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, so we recommend using your own Log Analytics workspace.
+    `LogsQueryClient` typically only supports authentication with Microsoft Entra token credentials. However, we can pass a custom authentication policy to enable the use of API keys. This allows the client to [query the demo workspace](../logs/api/access-api.md#authenticate-with-a-demo-api-key). The availability and access to this demo workspace is subject to change, so we recommend using your own Log Analytics workspace.
 
 1. Define a helper function, called `query_logs_workspace`, to run a given query in the Log Analytics workspace and return the results as a Pandas DataFrame.
    
@@ -196,7 +196,7 @@ For an example of how to implement machine learning techniques to analyze data i
 
 Send your analysis results to a custom table in your Log Analytics workspace to trigger alerts or to make them available for further analysis.   
 
-1. To send data to your Log Analytics workspace, you need a custom table, data collection endpoint, data collection rule, and a registered Azure Active Directory application with permission to use the data collection rule, as explained in [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md).
+1. To send data to your Log Analytics workspace, you need a custom table, data collection endpoint, data collection rule, and a registered Microsoft Entra application with permission to use the data collection rule, as explained in [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md).
 
     When you create your custom table:
 

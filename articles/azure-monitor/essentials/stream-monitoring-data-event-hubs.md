@@ -28,16 +28,16 @@ Before you configure streaming for any data source, you need to [create an Event
 
 | Tier | Data | Method |
 |:---|:---|:---|
-| [Azure tenant](../data-sources.md#azure-tenant) | Azure Active Directory audit logs | Configure a tenant diagnostic setting on your Azure Active Directory tenant. For more information, see [Tutorial: Stream Azure Active Directory logs to an Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
-| [Azure subscription](../data-sources.md#azure-subscription) | Azure activity log | [Create a diagnostic setting](diagnostic-settings.md#create-diagnostic-settings) to export activity log events to event hubs. For more information, see [Stream Azure platform logs to Azure event hubs](../essentials/resource-logs.md#send-to-azure-event-hubs). |
-| [Azure resources](../data-sources.md#azure-resources) | Platform metrics<br> Resource logs | [Create a diagnostic setting](diagnostic-settings.md#create-diagnostic-settings) to export resource logs and metrics to event hubs. For more information, see [Stream Azure platform logs to Azure event hubs](../essentials/resource-logs.md#send-to-azure-event-hubs). |
+| [Azure tenant](../data-sources.md#azure-tenant) | Microsoft Entra audit logs | Configure a tenant diagnostic setting on your Microsoft Entra tenant. For more information, see [Tutorial: Stream Microsoft Entra logs to an Azure event hub](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| [Azure subscription](../data-sources.md#azure-subscription) | Azure activity log | [Create a diagnostic setting](./create-diagnostic-settings.md) to export activity log events to event hubs. For more information, see [Stream Azure platform logs to Azure event hubs](../essentials/resource-logs.md#send-to-azure-event-hubs). |
+| [Azure resources](../data-sources.md#azure-resources) | Platform metrics<br> Resource logs | [Create a diagnostic setting](./create-diagnostic-settings.md) to export resource logs and metrics to event hubs. For more information, see [Stream Azure platform logs to Azure event hubs](../essentials/resource-logs.md#send-to-azure-event-hubs). |
 | [Operating system (guest)](../data-sources.md#operating-system-guest) | Azure virtual machines | Install the [Azure Diagnostics extension](../agents/diagnostics-extension-overview.md) on Windows and Linux virtual machines in Azure. For more information, see [Streaming Azure Diagnostics data in the hot path by using event hubs](../agents/diagnostics-extension-stream-event-hubs.md) for details on Windows VMs. See [Use Linux Diagnostic extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) for details on Linux VMs. |
 | [Application code](../data-sources.md#application-code) | Application Insights | Use diagnostic settings to stream to event hubs. This tier is only available with workspace-based Application Insights resources. For help with setting up workspace-based Application Insights resources, see [Workspace-based Application Insights resources](../app/create-workspace-resource.md#workspace-based-application-insights-resources) and [Migrate to workspace-based Application Insights resources](../app/convert-classic-resource.md#migrate-to-workspace-based-application-insights-resources).|
 
 ## Stream diagnostics data
 
 Use diagnostics setting to stream logs and metrics to Event Hubs.
-For information on how to set up diagnostic settings, see [Create diagnostic settings](./diagnostic-settings.md?tabs=portal#create-diagnostic-settings)
+For information on how to set up diagnostic settings, see [Create diagnostic settings](./create-diagnostic-settings.md)
 
 The following JSON is an example of metrics data sent to an event hub:
 

@@ -15,7 +15,7 @@ ms.custom: include file, devx-track-azurecli
 
 To create a service principal with access to your container registry, run the following script in the [Azure Cloud Shell](../articles/cloud-shell/overview.md) or a local installation of the [Azure CLI](/cli/azure/install-azure-cli). The script is formatted for the Bash shell.
 
-Before running the script, update the `ACR_NAME` variable with the name of your container registry. The `SERVICE_PRINCIPAL_NAME` value must be unique within your Azure Active Directory tenant. If you receive an "`'http://acr-service-principal' already exists.`" error, specify a different name for the service principal.
+Before running the script, update the `ACR_NAME` variable with the name of your container registry. The `SERVICE_PRINCIPAL_NAME` value must be unique within your Microsoft Entra tenant. If you receive an "`'http://acr-service-principal' already exists.`" error, specify a different name for the service principal.
 
 You can optionally modify the `--role` value in the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command if you want to grant different permissions. For a complete list of roles, see [ACR roles and permissions](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
 

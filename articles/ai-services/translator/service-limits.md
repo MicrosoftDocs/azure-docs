@@ -2,11 +2,10 @@
 title: Service limits - Translator Service
 titleSuffix: Azure AI services
 description: This article lists service limits for the Translator text and document translation. Charges are incurred based on character count, not request frequency with a limit of 50,000 characters per request. Character limits are subscription-based, with F0 limited to 2 million characters per hour.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: conceptual
 ms.date: 07/18/2023
 ms.author: lajanuar

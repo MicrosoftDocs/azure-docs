@@ -21,7 +21,9 @@ This article describes how to add users as lab creators to a lab account or lab 
 
 - To add lab creators to a lab plan, your Azure account needs to have the [Owner](./concept-lab-services-role-based-access-control.md#owner-role) Azure RBAC role assigned on the resource group. Learn more about the [Azure Lab Services built-in roles](./concept-lab-services-role-based-access-control.md).
 
-## Add Azure AD user account to Lab Creator role
+<a name='add-azure-ad-user-account-to-lab-creator-role'></a>
+
+## Add Microsoft Entra user account to Lab Creator role
 
 [!INCLUDE [Add Lab Creator role](./includes/lab-services-add-lab-creator.md)]
 
@@ -29,7 +31,7 @@ If you're using a lab account, assign the Lab Creator role on the lab account.
 
 ## Add a guest user as a lab creator
 
-If you need to add an external user as a lab creator, you need to add the external user as a guest account in the Azure Active Directory that is linked to your Azure subscription.
+If you need to add an external user as a lab creator, you need to add the external user as a guest account in the Microsoft Entra ID that is linked to your Azure subscription.
 
 The following types of email accounts can be used:
 
@@ -39,14 +41,14 @@ The following types of email accounts can be used:
 
 To add a guest user as a lab creator:
 
-1. Follow these steps to [add guest users to Azure Active Directory](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal).
+1. Follow these steps to [add guest users to Microsoft Entra ID](/azure/active-directory/external-identities/b2b-quickstart-add-guest-users-portal).
 
-    If using an email account that's provided by your university’s Azure AD, you don't have to add them as a guest account.
+    If using an email account that's provided by your university’s Microsoft Entra ID, you don't have to add them as a guest account.
 
-1. Follow these steps to [assign the Lab Creator role to the Azure AD user account](#add-azure-ad-user-account-to-lab-creator-role).
+1. Follow these steps to [assign the Lab Creator role to the Microsoft Entra user account](#add-azure-ad-user-account-to-lab-creator-role).
 
 > [!IMPORTANT]
-> Only lab creators need an account in Azure AD connected to the Azure subscription. For account requirements for lab users see [Access a lab in Azure Lab Services](./how-to-access-lab-virtual-machine.md).
+> Only lab creators need an account in Microsoft Entra connected to the Azure subscription. For account requirements for lab users see [Access a lab in Azure Lab Services](./how-to-access-lab-virtual-machine.md).
 
 ## Next steps
 

@@ -2,13 +2,12 @@
 title: Analytics on projects - custom question answering
 titleSuffix: Azure AI services
 description: Custom question answering uses Azure diagnostic logging to store the telemetry data and chat logs
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: jboback
 ms.author: jboback
 displayName: chat history, history, chat logs, logs
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021

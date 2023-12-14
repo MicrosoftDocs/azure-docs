@@ -2,8 +2,8 @@
 title: Data-driven style expressions in iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps iOS SDK to adjust styles in maps.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps

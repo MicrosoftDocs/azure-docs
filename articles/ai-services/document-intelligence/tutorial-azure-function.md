@@ -5,8 +5,7 @@ description: This guide shows you how to use an Azure function to trigger the pr
 author: laujan
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: tutorial
 ms.date: 07/18/2023
 ms.author: lajanuar

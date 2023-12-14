@@ -16,25 +16,25 @@ This feature supports the following methods to control access to logs, events, a
 - AKS without Kubernetes role-based access control (RBAC) authorization enabled
 - AKS enabled with Kubernetes RBAC authorization
     - AKS configured with the cluster role binding [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials)
-- AKS enabled with Azure Active Directory (Azure AD) SAML-based single sign-on
+- AKS enabled with Microsoft Entra SAML-based single sign-on
 
-These instructions require administrative access to your Kubernetes cluster. If you're configuring to use Azure AD for user authentication, you also need administrative access to Azure AD.
+These instructions require administrative access to your Kubernetes cluster. If you're configuring to use Microsoft Entra ID for user authentication, you also need administrative access to Microsoft Entra ID.
 
 This article explains how to configure authentication to control access to the Live Data feature from the cluster:
 
 - Kubernetes RBAC-enabled AKS cluster
-- Azure AD-integrated AKS cluster
+- Microsoft Entra integrated AKS cluster
 
 ## Authentication model
 
 The Live Data feature uses the Kubernetes API, which is identical to the `kubectl` command-line tool. The Kubernetes API endpoints use a self-signed certificate, which your browser will be unable to validate. This feature uses an internal proxy to validate the certificate with the AKS service, ensuring the traffic is trusted.
 
-The Azure portal prompts you to validate your sign-in credentials for an Azure AD cluster. It redirects you to the client registration setup during cluster creation (and reconfigured in this article). This behavior is similar to the authentication process required by `kubectl`.
+The Azure portal prompts you to validate your sign-in credentials for a Microsoft Entra ID cluster. It redirects you to the client registration setup during cluster creation (and reconfigured in this article). This behavior is similar to the authentication process required by `kubectl`.
 
 >[!NOTE]
 >Authorization to your cluster is managed by Kubernetes and the security model it's configured with. Users who access this feature require permission to download the Kubernetes configuration (*kubeconfig*), which is similar to running `az aks get-credentials -n {your cluster name} -g {your resource group}`.
 >
->This configuration file contains the authorization and authentication token for the *Azure Kubernetes Service Cluster User Role*, in the case of Azure RBAC enabled and AKS clusters without Kubernetes RBAC authorization enabled. It contains information about Azure AD and client registration details when AKS is enabled with Azure AD SAML-based single sign-on.
+>This configuration file contains the authorization and authentication token for the *Azure Kubernetes Service Cluster User Role*, in the case of Azure RBAC enabled and AKS clusters without Kubernetes RBAC authorization enabled. It contains information about Microsoft Entra ID and client registration details when AKS is enabled with Microsoft Entra SAML-based single sign-on.
 
 Users of this feature require the [Azure Kubernetes Cluster User Role](../../role-based-access-control/built-in-roles.md) to access the cluster to download the `kubeconfig` and use this feature. Users do *not* require contributor access to the cluster to use this feature.
 
@@ -48,7 +48,7 @@ AKS released this new role binding in January 2020, so clusters created before J
 
 ## Kubernetes cluster without Kubernetes RBAC enabled
 
-If you have a Kubernetes cluster that isn't configured with Kubernetes RBAC authorization or integrated with Azure AD single sign-on, you don't need to follow these steps. You already have administrative permissions by default in a non-RBAC configuration.
+If you have a Kubernetes cluster that isn't configured with Kubernetes RBAC authorization or integrated with Microsoft Entra single sign-on, you don't need to follow these steps. You already have administrative permissions by default in a non-RBAC configuration.
 
 ## Configure Kubernetes RBAC authorization
 
@@ -93,20 +93,22 @@ The following example steps demonstrate how to configure cluster role binding fr
 >[!NOTE]
 > If you've applied a previous version of the **LogReaderRBAC.yaml** file to your cluster, update it by copying and pasting the new code shown in step 1. Then run the command shown in step 2 to apply it to your cluster.
 
-## Configure Azure AD-integrated authentication
+<a name='configure-azure-ad-integrated-authentication'></a>
 
-An AKS cluster configured to use Azure AD for user authentication uses the sign-in credentials of the person accessing this feature. In this configuration, you can sign in to an AKS cluster by using your Azure AD authentication token.
+## Configure Microsoft Entra integrated authentication
 
-Azure AD client registration must be reconfigured to allow the Azure portal to redirect authorization pages as a trusted redirect URL. Users from Azure AD are then granted access directly to the same Kubernetes API endpoints through **ClusterRoles** and **ClusterRoleBindings**.
+An AKS cluster configured to use Microsoft Entra ID for user authentication uses the sign-in credentials of the person accessing this feature. In this configuration, you can sign in to an AKS cluster by using your Microsoft Entra authentication token.
+
+Microsoft Entra client registration must be reconfigured to allow the Azure portal to redirect authorization pages as a trusted redirect URL. Users from Microsoft Entra ID are then granted access directly to the same Kubernetes API endpoints through **ClusterRoles** and **ClusterRoleBindings**.
 
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->If you're creating a new Kubernetes RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Container insights matching those specified in step 3.
+>If you're creating a new Kubernetes RBAC-enabled cluster, see [Integrate Microsoft Entra ID with Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) and follow the steps to configure Microsoft Entra authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Container insights matching those specified in step 3.
 
 ### Client registration reconfiguration
 
-1. Locate the client registration for your Kubernetes cluster in Azure AD under **Azure Active Directory** > **App registrations** in the Azure portal.
+1. Locate the client registration for your Kubernetes cluster in Microsoft Entra ID under **Microsoft Entra ID** > **App registrations** in the Azure portal.
 
 1. On the left pane, select **Authentication**.
 
@@ -117,17 +119,17 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
 
 1. After you register the redirect URLs, under **Implicit grant**, select the options **Access tokens** and **ID tokens**. Then save your changes.
 
-You can configure authentication with Azure AD for single sign-on only during initial deployment of a new AKS cluster. You can't configure single sign-on for an AKS cluster that's already deployed.
+You can configure authentication with Microsoft Entra ID for single sign-on only during initial deployment of a new AKS cluster. You can't configure single sign-on for an AKS cluster that's already deployed.
 
 >[!IMPORTANT]
->If you reconfigured Azure AD for user authentication by using the updated URI, clear your browser's cache to ensure the updated authentication token is downloaded and applied.
+>If you reconfigured Microsoft Entra ID for user authentication by using the updated URI, clear your browser's cache to ensure the updated authentication token is downloaded and applied.
 
 ## Grant permission
 
-Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes to access the Live Data feature. The steps to grant the Azure AD account are similar to the steps described in the [Kubernetes RBAC authentication](#configure-kubernetes-rbac-authorization) section. Before you apply the YAML configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user.
+Each Microsoft Entra account must be granted permission to the appropriate APIs in Kubernetes to access the Live Data feature. The steps to grant the Microsoft Entra account are similar to the steps described in the [Kubernetes RBAC authentication](#configure-kubernetes-rbac-authorization) section. Before you apply the YAML configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user.
 
 >[!IMPORTANT]
->If the user you grant the Kubernetes RBAC binding for is in the same Azure AD tenant, assign permissions based on `userPrincipalName`. If the user is in a different Azure AD tenant, query for and use the `objectId` property.
+>If the user you grant the Kubernetes RBAC binding for is in the same Microsoft Entra tenant, assign permissions based on `userPrincipalName`. If the user is in a different Microsoft Entra tenant, query for and use the `objectId` property.
 
 For more help in configuring your AKS cluster **ClusterRoleBinding**, see [Create Kubernetes RBAC binding](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 

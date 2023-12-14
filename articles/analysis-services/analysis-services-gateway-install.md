@@ -4,7 +4,7 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 01/27/2023
+ms.date: 08/25/2023
 ms.author: owend
 ms.reviewer: minewiskan 
 ms.custom:
@@ -32,12 +32,11 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 
 * During setup, when registering your gateway with Azure, the default region for your subscription is selected. You can choose a different subscription and region. If you have servers in more than one region, you must install a gateway for each region. 
 * The gateway cannot be installed on a domain controller.
-* The gateway cannot be installed and configured by using automation.
 * Only one gateway can be installed on a single computer.
 * Install the gateway on a computer that remains on and does not go to sleep.
 * Do not install the gateway on a computer with a wireless only connection to your network. Performance can be diminished.
 * When installing the gateway, the user account you're signed in to your computer with must have Log on as service privileges. When install is complete, the On-premises data gateway service uses the NT SERVICE\PBIEgwService account to log on as a service. A different account can be specified during setup or in Services after setup is complete. Ensure Group Policy settings allow both the account you're signed in with when installing and the service account you choose have Log on as service privileges.
-* Sign in to Azure with an account in Azure AD for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
+* Sign in to Azure with an account in Microsoft Entra ID for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
 * If installing the gateway on an Azure Virtual Machine (VM), ensure optimal networking performance by configuring Accelerated networking. To learn more, see [Create a Windows VM with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
@@ -58,12 +57,12 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 
    ![Screenshot showing install location and license terms.](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
+3. Sign in to Azure. The account must be in your tenant's Microsoft Entra ID. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
 
    ![Screenshot showing sign in to Azure.](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > If you sign in with a domain account, it's mapped to your organizational account in Azure AD. Your organizational account is used as the gateway administrator.
+   > If you sign in with a domain account, it's mapped to your organizational account in Microsoft Entra ID. Your organizational account is used as the gateway administrator.
 
 ## Register
 

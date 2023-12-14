@@ -21,64 +21,62 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) Virtual Machine 
 The only step that is different from individual VMs is creating the network interface (NIC) configuration that uses the virtual machine scale set resource:  networkProfile/networkInterfaceConfigurations. The JSON structure is similar to that of the Microsoft.Network/networkInterfaces object used for individual VMs with the addition of setting the NIC and the IPv4 IpConfiguration as the primary interface using the **"primary": true**  attribute as seen in the following example:
 
 ```json
-          "networkProfile": {
-            "networkInterfaceConfigurations": [
-              {
-                "name": "[variables('nicName')]",
-                "properties": {
-                  "primary": true,
+  "networkProfile": {
+    "networkInterfaceConfigurations": [
+      {
+        "name": "[variables('nicName')]",
+        "properties": {
+          "primary": true,
           "networkSecurityGroup": {
             "id": "[resourceId('Microsoft.Network/networkSecurityGroups','VmssNsg')]"
-          },                  
-                  "ipConfigurations": [
-                    {
-                      "name": "[variables('ipConfigName')]",
-                      "properties": {
-                        "primary": true,
-                        "subnet": {
-                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'MyvirtualNetwork','Mysubnet')]"
-                        },
-                        "privateIPAddressVersion":"IPv4",                       
-                        "publicipaddressconfiguration": {
-                          "name": "pub1",
-                          "properties": {
-                            "idleTimeoutInMinutes": 15
-                          }
-                        },
-                        "loadBalancerBackendAddressPools": [
-                          {
-                            "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer', 'bePool'))]"
-                          }
-                        ],
-                        "loadBalancerInboundNatPools": [
-                          {
-                            "id": "[resourceId('Microsoft.Network/loadBalancers/inboundNatPools', 'loadBalancer', 'natPool')]"
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "name": "[variables('ipConfigNameV6')]",
-                      "properties": {
-                        "subnet": {
-                          "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets','MyvirtualNetwork','Mysubnet')]"
-                        },
-                        "privateIPAddressVersion":"IPv6",
-                        "loadBalancerBackendAddressPools": [
-                          {
-                            "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer','bePoolv6')]"
-                          }
-                        ],                        
-                      }
-                    }
-                  ]
-                }
+          },
+          "ipConfigurations": [
+            {
+              "name": "[variables('ipConfigName')]",
+              "properties": {
+                "primary": true,
+                "subnet": {
+                  "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'MyvirtualNetwork','Mysubnet')]"
+                },
+                "privateIPAddressVersion":"IPv4",                       
+                "publicipaddressconfiguration": {
+                  "name": "pub1",
+                  "properties": {
+                    "idleTimeoutInMinutes": 15
+                  }
+                },
+                "loadBalancerBackendAddressPools": [
+                  {
+                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer', 'bePool'))]"
+                  }
+                ],
+                "loadBalancerInboundNatPools": [
+                  {
+                    "id": "[resourceId('Microsoft.Network/loadBalancers/inboundNatPools', 'loadBalancer', 'natPool')]"
+                  }
+                ]
               }
-            ]
-          }
-
+            },
+            {
+              "name": "[variables('ipConfigNameV6')]",
+              "properties": {
+                "subnet": {
+                  "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets','MyvirtualNetwork','Mysubnet')]"
+                },
+                "privateIPAddressVersion":"IPv6",
+                "loadBalancerBackendAddressPools": [
+                  {
+                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', 'loadBalancer','bePoolv6')]"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
 ```
-
 
 ## Sample virtual machine scale set template JSON
 

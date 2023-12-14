@@ -46,7 +46,7 @@ The following steps explain how to implement a monetization strategy for your AP
 
 :::image type="content" source="media/monetization-overview/implementing-strategy.png" alt-text="Diagram of the steps for implementing your monetization strategy":::
 
-### Step 1 - Understand your customer
+### Step 1: Understand your customer
 
 1. Map out the stages in your API consumers' likely journey, from first discovery of your API to maximum scale.
 
@@ -66,7 +66,7 @@ The following steps explain how to implement a monetization strategy for your AP
 1. Consider applying a value-based pricing strategy if the direct value of the API to the customer is well understood.
 1. Calculate the anticipated lifetime usage levels of the API for a customer and your expected number of customers over the lifetime of the API.
 
-### Step 2 - Quantify the costs
+### Step 2: Quantify the costs
 
 Calculate the total cost of ownership for your API.
 
@@ -76,13 +76,13 @@ Calculate the total cost of ownership for your API.
 | **Engineering costs** | The human resources required to build, test, operate, and maintain the API over its lifetime. Tends to be the most significant cost component. Where possible, exploit cloud PaaS and serverless technologies to minimize. |
 | **Infrastructure costs** | The costs for the underlying platforms, compute, network, and storage required to support the API over its lifetime. Exploit cloud platforms to achieve an infrastructure cost model that scales up proportionally in line with API usage levels. |
 
-### Step 3 - Conduct market research
+### Step 3: Conduct market research
 
 1. Research the market to identify competitors. 
 1. Analyze competitors' monetization strategies. 
 1. Understand the specific features (functional and non-functional) that they are offering with their API.
 
-### Step 4 - Design the revenue model
+### Step 4: Design the revenue model
 
 Design a revenue model based on the outcome of the steps above. You can work across two dimensions:
 
@@ -105,7 +105,7 @@ Maximize the lifetime value (LTV) you generate from each customer by designing a
 
 Identify the range of required pricing models. A *pricing model* describes a specific set of rules for the API provider to turn consumption by the API consumer into revenue.
 
-For example, to support the [customer stages above](#step-1---understand-your-customer), we would need six types of subscription:
+For example, to support the [customer stages above](#step-1-understand-your-customer), we would need six types of subscription:
 
 | Subscription type | Description |
 | ----- | ----- |
@@ -146,7 +146,7 @@ Building on the examples above, the pricing models could be applied to create an
     * Are charged an extra $0.06/100 calls past the first 50,000. 
     * Rate limited to 1,200 calls/minute.
 
-### Step 5 - Calibrate
+### Step 5: Calibrate
 
 Calibrate the pricing across the revenue model to:
 
@@ -156,7 +156,7 @@ Calibrate the pricing across the revenue model to:
 - Verify the quality of your service offerings in each revenue model tier can be supported by your solution. 
     - For example, if you are offering to support 3,500 calls/minute, make sure your end-to-end solution can scale to support that throughput level.
 
-### Step 6 - Release and monitor
+### Step 6: Release and monitor
 
 Choose an appropriate solution to collect payment for usage of your APIs.  Providers tend to fall into two groups:
 

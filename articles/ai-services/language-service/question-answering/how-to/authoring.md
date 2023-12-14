@@ -2,8 +2,7 @@
 title: Authoring API - question answering
 titleSuffix: Azure AI services
 description: Use the question answering Authoring API to automate common tasks like adding new question answer pairs, and creating, and publishing projects. 
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: how-to

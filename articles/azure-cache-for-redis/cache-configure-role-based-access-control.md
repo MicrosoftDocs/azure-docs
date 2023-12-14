@@ -16,7 +16,7 @@ ms.author: franlanglois
 
 Managing access to your Azure Cache for Redis instance is critical to ensure that the right users have access to the right set of data and commands. In Redis version 6, the [Access Control List](https://redis.io/docs/management/security/acl/) (ACL) was introduced. ACL limits which user can execute certain commands, and the keys that a user can be access. For example, you can prohibit specific users from deleting keys in the cache using [DEL](https://redis.io/commands/del/) command.
 
-Azure Cache for Redis now integrates this ACL functionality with Azure Active Directory (Azure AD) to allow you to configure your Data Access Policies for your application's service principal and managed identity.
+Azure Cache for Redis now integrates this ACL functionality with Microsoft Entra ID to allow you to configure your Data Access Policies for your application's service principal and managed identity.
 
 Azure Cache for Redis offers three built-in access policies: _Owner_, _Contributor_, and _Reader_. If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policy as described in [Configure custom data access policy](#configure-a-custom-data-access-policy-for-your-application).
 
@@ -30,7 +30,7 @@ Azure Cache for Redis offers three built-in access policies: _Owner_, _Contribut
 
 - Redis ACL and Data Access Policies aren't supported on Azure Cache for Redis instances that run Redis version 4.
 - Redis ACL and Data Access Policies aren't supported on Azure Cache for Redis instances that depend on [Cloud Services](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic).
-- Azure AD authentication and authorization are supported for SSL connections only.
+- Microsoft Entra authentication and authorization are supported for SSL connections only.
 - Some Redis commands are [blocked](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis).
 
 ## Permissions for your data access policy
@@ -102,7 +102,7 @@ The following list contains some examples of permission strings for various scen
 
 ## Configure a custom data access policy for your application
 
-1. In the Azure portal, select the Azure Cache for Redis instance that you want to configure Azure AD token based authentication for.
+1. In the Azure portal, select the Azure Cache for Redis instance that you want to configure Microsoft Entra token based authentication for.
 
 1. From the Resource menu, select **(PREVIEW) Data Access configuration**.
 
@@ -118,19 +118,21 @@ The following list contains some examples of permission strings for various scen
 
 1. From the Resource menu, select **Advanced settings**.
 
-1. If not checked already, Check the box labeled **(PREVIEW) Enable Azure AD Authorization** and select **OK**. Then, select **Save**.
+1. If not checked already, Check the box labeled **(PREVIEW) Enable Microsoft Entra Authorization** and select **OK**. Then, select **Save**.
 
-   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-azure-ad-access-authorization.png" alt-text="Screenshot of Azure AD access authorization.":::
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-azure-ad-access-authorization.png" alt-text="Screenshot of Microsoft Entra ID access authorization.":::
 
 1. A dialog box displays a popup notifying you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
 
    > [!IMPORTANT]
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
 
-## Configure your Redis client to use Azure Active Directory
+<a name='configure-your-redis-client-to-use-azure-active-directory'></a>
+
+## Configure your Redis client to use Microsoft Entra ID
 
 Now that you have configured Redis User and Data access policy for configuring role based access control, you need to update your client workflow to support authenticating using a specific user/password. To learn how to configure you client application to connect to your cache instance as a specific Redis User, see [Configure your Redis client to use Azure AD.](cache-azure-active-directory-for-authentication.md#configure-your-redis-client-to-use-azure-active-directory)
 
 ## Next steps
 
-- [Use Azure Active Directory for cache authentication](cache-azure-active-directory-for-authentication.md)
+- [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md)

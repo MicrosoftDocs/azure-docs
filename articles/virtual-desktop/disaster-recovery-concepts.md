@@ -73,7 +73,7 @@ We'll go into more detail about the two main methods you can achieve these metho
 
 In this section, we'll discuss shared (or "pooled") host pools using an active-passive approach. The active-passive approach is when you divide up existing resources into a primary and secondary region. Normally, your organization would do all its work in the primary (or "active") region, but during a disaster, all it takes to switch over to the secondary (or "passive") region is to turn off the resources in the primary region (if you can do so, depending on the outage's extent) and turn on the ones in the secondary one.
 
-The following diagram shows an example of a deployment with redundant infrastructure in a secondary region. "Redundant" means that a copy of the original infrastructure exists in this other region, and is standard in deployments to provide resiliency for all components. Beneath a single Azure Active Directory, there are two regions: West US and East US. Each region has two session hosts running a multi-session operating system (OS), A server running Azure AD Connect, an Active Directory Domain Controller, an Azure Files Premium File share for FSLogix profiles, a storage account, and a virtual network (VNET). In the primary region, West US, all resources are turned on. In the secondary region, East US, the session hosts in the host pool are either turned off or in drain mode, and the Azure AD Connect server is in staging mode. The two VNETs in both regions are connected by peering.
+The following diagram shows an example of a deployment with redundant infrastructure in a secondary region. "Redundant" means that a copy of the original infrastructure exists in this other region, and is standard in deployments to provide resiliency for all components. Beneath a single Microsoft Entra ID, there are two regions: West US and East US. Each region has two session hosts running a multi-session operating system (OS), A server running Microsoft Entra Connect, an Active Directory Domain Controller, an Azure Files Premium File share for FSLogix profiles, a storage account, and a virtual network (VNET). In the primary region, West US, all resources are turned on. In the secondary region, East US, the session hosts in the host pool are either turned off or in drain mode, and the Microsoft Entra Connect server is in staging mode. The two VNETs in both regions are connected by peering.
 
 :::image type="content" source="media/shared-host-pool-recovery-new.png" alt-text="A diagram of a deployment using the recommended shared host pool disaster recovery strategy described in the previous paragraph.":::
 
@@ -136,7 +136,7 @@ When using this disaster recovery strategy, it's important to keep the following
 - There may be requirements that the host pool VMs need to function in the secondary site, such as virtual networks, subnets, network security, or VPNs to access a directory such as on-premises Active Directory.
 
     >[!NOTE]
-    > Using an [Azure Active Directory-joined VM](deploy-azure-ad-joined-vm.md) fulfills some of these requirements automatically.
+    > Using an [Microsoft Entra joined VM](deploy-azure-ad-joined-vm.md) fulfills some of these requirements automatically.
 
 - You may experience integration, performance, or contention issues for resources if a large-scale disaster affects multiple customers or tenants.
 

@@ -1,16 +1,14 @@
 ---
 title: Azure Kubernetes Service (AKS) Ubuntu image alignment with Center for Internet Security (CIS) benchmark
-description: Learn how AKS applies the CIS benchmark
+description: Learn how AKS applies the CIS benchmark to Ubuntu image used by Azure Kubernetes Service.
 ms.topic: article
-ms.custom: devx-track-linux
-ms.date: 04/19/2023
-ms.author: magoedte
+ms.date: 09/27/2023
 ms.reviewer: mattmcinnes
 ---
 
 # Azure Kubernetes Service (AKS) Ubuntu image alignment with Center for Internet Security (CIS) benchmark
 
-As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Ubuntu imaged used by AKS. This security configuration is based on the Azure Linux security baseline, which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](./concepts-security.md). For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
+As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security OS configuration applied to Ubuntu image used by AKS. This security configuration is based on the Azure Linux security baseline, which aligns with CIS benchmark. For more information about AKS security, see Security concepts for applications and clusters in Azure Kubernetes Service (AKS). For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)][security-concepts-aks-apps-clusters]. For more information on the CIS benchmark, see [Center for Internet Security (CIS) Benchmarks][cis-benchmarks]. For more information on the Azure security baselines for Linux, see [Linux security baseline][linux-security-baseline].
 
 ## Ubuntu LTS 18.04
 
@@ -37,10 +35,10 @@ Recommendations can have one of the following reasons:
 The following are CIS rules implemented:
 
 | CIS paragraph number | Recommendation description|Status| Reason |
-|---|---|---|---|---|
-| 1 | Initial Setup ||| 
-| 1.1 | Filesystem Configuration ||| 
-| 1.1.1 | Disable unused filesystems ||| 
+|---|---|---|---|
+| 1 | Initial Setup |||
+| 1.1 | Filesystem Configuration |||
+| 1.1.1 | Disable unused filesystems |||
 | 1.1.1.1 | Ensure mounting of cramfs filesystems is disabled | Pass ||
 | 1.1.1.2 | Ensure mounting of freevxfs filesystems is disabled | Pass ||
 | 1.1.1.3 | Ensure mounting of jffs2 filesystems is disabled | Pass ||
@@ -48,7 +46,7 @@ The following are CIS rules implemented:
 | 1.1.1.5 | Ensure mounting of hfsplus filesystems is disabled | Pass ||
 | 1.1.1.6 | Ensure mounting of udf filesystems is disabled | Fail | Potential Operational Impact |
 | 1.1.2 | Ensure /tmp is configured | Fail |  |
-| 1.1.3 | Ensure nodev option set on /tmp partition | Fail |  |
+| 1.1.3 | Ensure nodev option set on /tmp partition | Fail ||
 | 1.1.4 | Ensure nosuid option set on /tmp partition | Pass ||
 | 1.1.5 | Ensure noexec option set on /tmp partition | Pass ||
 | 1.1.6 | Ensure /dev/shm is configured | Pass ||
@@ -65,13 +63,13 @@ The following are CIS rules implemented:
 | 1.1.22 | Ensure sticky bit is set on all world-writable directories | Fail | Potential Operation Impact |
 | 1.1.23 | Disable Automounting | Pass ||
 | 1.1.24 | Disable USB Storage | Pass ||
-| 1.2 | Configure Software Updates ||| 
+| 1.2 | Configure Software Updates |||
 | 1.2.1 | Ensure package manager repositories are configured | Pass | Covered Elsewhere |
 | 1.2.2 | Ensure GPG keys are configured | Not Applicable ||
-| 1.3 | Filesystem Integrity Checking ||| 
+| 1.3 | Filesystem Integrity Checking |||
 | 1.3.1 | Ensure AIDE is installed | Fail | Covered Elsewhere |
 | 1.3.2 | Ensure filesystem integrity is regularly checked | Fail | Covered Elsewhere |
-| 1.4 | Secure Boot Settings ||| 
+| 1.4 | Secure Boot Settings |||
 | 1.4.1 | Ensure permissions on bootloader config aren't overridden | Fail |  |
 | 1.4.2 | Ensure bootloader password is set | Fail | Not Applicable|
 | 1.4.3 | Ensure permissions on bootloader config are configured | Fail |  |
@@ -81,8 +79,8 @@ The following are CIS rules implemented:
 | 1.5.2 | Ensure address space layout randomization (ASLR) is enabled | Pass ||
 | 1.5.3 | Ensure prelink is disabled | Pass ||
 | 1.5.4 | Ensure core dumps are restricted | Pass ||
-| 1.6 | Mandatory Access Control ||| 
-| 1.6.1 | Configure AppArmor ||| 
+| 1.6 | Mandatory Access Control |||
+| 1.6.1 | Configure AppArmor |||
 | 1.6.1.1 | Ensure AppArmor is installed | Pass ||
 | 1.6.1.2 | Ensure AppArmor is enabled in the bootloader configuration | Fail | Potential Operation Impact |
 | 1.6.1.3 | Ensure all AppArmor Profiles are in enforce or complain mode | Pass ||
@@ -93,14 +91,14 @@ The following are CIS rules implemented:
 | 1.7.4 | Ensure permissions on /etc/motd are configured | Pass ||
 | 1.7.5 | Ensure remote login warning banner is configured properly | Pass ||
 | 1.7.6 | Ensure local login warning banner is configured properly | Pass ||
-| 1.8 | GNOME Display Manager ||| 
+| 1.8 | GNOME Display Manager |||
 | 1.8.2 | Ensure GDM login banner is configured | Pass ||
 | 1.8.3 | Ensure disable-user-list is enabled | Pass ||
 | 1.8.4 | Ensure XDCMP isn't enabled | Pass ||
 | 1.9 | Ensure updates, patches, and additional security software are installed | Pass ||
-| 2 | Services ||| 
-| 2.1 | Special Purpose Services ||| 
-| 2.1.1 | Time Synchronization ||| 
+| 2 | Services |||
+| 2.1 | Special Purpose Services |||
+| 2.1.1 | Time Synchronization |||
 | 2.1.1.1 | Ensure time synchronization is in use | Pass ||
 | 2.1.1.2 | Ensure systemd-timesyncd is configured | Not Applicable | AKS uses ntpd for timesync |
 | 2.1.1.3 | Ensure chrony is configured | Fail | Covered Elsewhere |
@@ -129,7 +127,7 @@ The following are CIS rules implemented:
 | 2.2.5 | Ensure LDAP client isn't installed | Pass ||
 | 2.2.6 | Ensure  RPC isn't installed | Fail | Potential Operational Impact |
 | 2.3 | Ensure nonessential services are removed or masked | Pass |  |
-| 3 | Network Configuration ||| 
+| 3 | Network Configuration |||
 | 3.1 | Disable unused network protocols and devices |||
 | 3.1.2 | Ensure wireless interfaces are disabled | Pass ||
 | 3.2 | Network Parameters (Host Only) |||
@@ -167,7 +165,7 @@ The following are CIS rules implemented:
 | 3.5.2.9 | Ensure nftables service is enabled | Fail | Covered Elsewhere |
 | 3.5.2.10 | Ensure nftables rules are permanent | Fail | Covered Elsewhere |
 | 3.5.3| Configure iptables |||
-| 3.5.3.1 | Configure iptables software ||| 
+| 3.5.3.1 | Configure iptables software |||
 | 3.5.3.1.1 | Ensure iptables packages are installed | Fail | Covered Elsewhere |
 | 3.5.3.1.2 | Ensure nftables is not installed with iptables | Pass ||
 | 3.5.3.1.3 | Ensure ufw is uninstalled or disabled with iptables | Fail | Covered Elsewhere |
@@ -192,15 +190,15 @@ The following are CIS rules implemented:
 | 4.2.1.3 | Ensure logging is configured | Pass ||
 | 4.2.1.4 | Ensure rsyslog default file permissions configured | Pass ||
 | 4.2.1.5 | Ensure rsyslog is configured to send logs to a remote log host | Fail | Covered Elsewhere |
-| 4.2.1.6 | Ensure remote rsyslog messages are only accepted on designated log hosts. | Not Applicable |  |
+| 4.2.1.6 | Ensure remote rsyslog messages are only accepted on designated log hosts. | Not Applicable ||
 | 4.2.2 | Configure journald |||
 | 4.2.2.1 | Ensure journald is configured to send logs to rsyslog | Pass ||
-| 4.2.2.2 | Ensure journald is configured to compress large log files | Fail |  |
-| 4.2.2.3 | Ensure journald is configured to write logfiles to persistent disk | Pass |  |
-| 4.2.3 | Ensure permissions on all logfiles are configured | Fail |  |
+| 4.2.2.2 | Ensure journald is configured to compress large log files | Fail ||
+| 4.2.2.3 | Ensure journald is configured to write logfiles to persistent disk | Pass ||
+| 4.2.3 | Ensure permissions on all logfiles are configured | Fail ||
 | 4.3 | Ensure logrotate is configured | Pass ||
-| 4.4 | Ensure logrotate assigns appropriate permissions | Fail |  |
-| 5 | Access, Authentication, and Authorization ||| 
+| 4.4 | Ensure logrotate assigns appropriate permissions | Fail ||
+| 5 | Access, Authentication, and Authorization |||
 | 5.1 | Configure time-based job schedulers |||
 | 5.1.1 | Ensure cron daemon is enabled and running | Pass ||
 | 5.1.2 | Ensure permissions on /etc/crontab are configured | Pass ||
@@ -209,12 +207,12 @@ The following are CIS rules implemented:
 | 5.1.5 | Ensure permissions on /etc/cron.weekly are configured | Pass ||
 | 5.1.6 | Ensure permissions on /etc/cron.monthly are configured | Pass ||
 | 5.1.7 | Ensure permissions on /etc/cron.d are configured | Pass ||
-| 5.1.8 | Ensure cron is restricted to authorized users | Fail |  |
-| 5.1.9 | Ensure at is restricted to authorized users | Fail |  |
+| 5.1.8 | Ensure cron is restricted to authorized users | Fail ||
+| 5.1.9 | Ensure at is restricted to authorized users | Fail ||
 | 5.2 | Configure sudo |||
 | 5.2.1 | Ensure sudo is installed | Pass ||
 | 5.2.2 | Ensure sudo commands use pty | Fail | Potential Operational Impact |
-| 5.2.3 | Ensure sudo log file exists | Fail |  |
+| 5.2.3 | Ensure sudo log file exists | Fail ||
 | 5.3 | Configure SSH Server |||
 | 5.3.1 | Ensure permissions on /etc/ssh/sshd_config are configured | Pass ||
 | 5.3.2 | Ensure permissions on SSH private host key files are configured | Pass ||
@@ -230,16 +228,16 @@ The following are CIS rules implemented:
 | 5.3.13 | Ensure only strong Ciphers are used | Pass ||
 | 5.3.14 | Ensure only strong MAC algorithms are used | Pass ||
 | 5.3.15 | Ensure only strong Key Exchange algorithms are used | Pass ||
-| 5.3.16 | Ensure SSH Idle Timeout Interval is configured | Fail |  |
+| 5.3.16 | Ensure SSH Idle Timeout Interval is configured | Fail ||
 | 5.3.17 | Ensure SSH LoginGraceTime is set to one minute or less | Pass ||
 | 5.3.18 | Ensure SSH warning banner is configured | Pass ||
 | 5.3.19 | Ensure SSH PAM is enabled | Pass ||
-| 5.3.21 | Ensure SSH MaxStartups is configured | Fail |  |
+| 5.3.21 | Ensure SSH MaxStartups is configured | Fail ||
 | 5.3.22 | Ensure SSH MaxSessions is limited | Pass ||
 | 5.4 | Configure PAM |||
 | 5.4.1 | Ensure password creation requirements are configured | Pass ||
-| 5.4.2 | Ensure lockout for failed password attempts is configured | Fail |  |
-| 5.4.3 | Ensure password reuse is limited | Fail |  |
+| 5.4.2 | Ensure lockout for failed password attempts is configured | Fail ||
+| 5.4.3 | Ensure password reuse is limited | Fail ||
 | 5.4.4 | Ensure password hashing algorithm is SHA-512 | Pass ||
 | 5.5 | User Accounts and Environment |||
 | 5.5.1 | Set Shadow Password Suite Parameters |||
@@ -267,8 +265,8 @@ The following are CIS rules implemented:
 | 6.1.10 | Ensure no world writable files exist | Fail | Potential Operation Impact |
 | 6.1.11 | Ensure no unowned files or directories exist | Fail |  Potential Operation Impact |
 | 6.1.12 | Ensure no ungrouped files or directories exist | Fail |  Potential Operation Impact |
-| 6.1.13 | Audit SUID executables | Not Applicable |  |
-| 6.1.14 | Audit SGID executables | Not Applicable |  |
+| 6.1.13 | Audit SUID executables | Not Applicable ||
+| 6.1.14 | Audit SGID executables | Not Applicable ||
 | 6.2 | User and Group Settings |||
 | 6.2.1 | Ensure accounts in /etc/passwd use shadowed passwords | Pass ||
 | 6.2.2 | Ensure password fields aren't empty | Pass ||
@@ -296,12 +294,10 @@ For more information about AKS security, see the following articles:
 * [AKS security considerations](./concepts-security.md)
 * [AKS best practices](./best-practices.md)
 
-
-[azure-update-management]: ../automation/update-management/overview.md
-[azure-file-integrity-monotoring]: ../security-center/security-center-file-integrity-monitoring.md
-[azure-time-sync]: ../virtual-machines/linux/time-sync.md
-[auzre-log-analytics-agent-overview]: ../azure-monitor/platform/log-analytics-agent.md
-[cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
-[cis-benchmark-aks]: https://www.cisecurity.org/benchmark/kubernetes/
+<!-- EXTERNAL LINKS -->
 [cis-benchmark-ubuntu]: https://www.cisecurity.org/benchmark/ubuntu/
+
+<!-- INTERNAL LINKS -->
+[cis-benchmarks]: /compliance/regulatory/offering-CIS-Benchmark
 [linux-security-baseline]: ../governance/policy/samples/guest-configuration-baseline-linux.md
+[security-concepts-aks-apps-clusters]: concepts-security.md

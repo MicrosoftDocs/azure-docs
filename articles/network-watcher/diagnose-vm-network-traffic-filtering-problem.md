@@ -6,13 +6,14 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: quickstart
-ms.date: 08/23/2023
+ms.date: 10/26/2023
+
 #Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure portal
 
-In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](network-watcher-security-group-view-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
+In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
 :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
@@ -162,7 +163,7 @@ IP flow verify checks Azure default and configured security rules. If the checks
 
 When no longer needed, delete the resource group and all of the resources it contains:
 
-1. In the search box at the top of the portal, enter ***myResourceGroup***. When you see **myResourceGroup** in the search results, select it.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
 
 1. Select **Delete resource group**.
 
@@ -170,8 +171,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-## Next steps
+## Next step
 
-In this quickstart, you created a virtual machine and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a virtual machine. Learn more about [network security groups](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
-
-Even with the proper network traffic filters in place, communication to a virtual machine can still fail due to routing configuration. To learn how to diagnose virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md). To diagnose outbound routing, latency, and traffic filtering problems with one tool, see [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-portal.md).
+> [!div class="nextstepaction"]
+> [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md)

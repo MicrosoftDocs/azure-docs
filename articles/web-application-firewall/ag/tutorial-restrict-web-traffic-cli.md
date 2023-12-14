@@ -112,7 +112,7 @@ Replace \<username> and \<password> with your values before you run this.
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username <username> \
   --admin-password <password> \
   --instance-count 2 \

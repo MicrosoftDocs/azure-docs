@@ -2,19 +2,18 @@
 title: Moderate text by using the Text Moderation API - Content Moderator
 titleSuffix: Azure AI services
 description: Test-drive text moderation by using the Text Moderation API in the online console.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 ms.author: pafarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: content-moderator
+ms.service: azure-ai-content-moderator
 ms.topic: how-to
 ms.date: 10/27/2021
 ---
 
 # Moderate text from the API console
 
-Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure AI Content Moderator to scan your text content for profanity and compare it against custom and shared lists.
+Use the [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator to scan your text content for profanity and compare it against custom and shared lists.
 
 ## Get your API key
 

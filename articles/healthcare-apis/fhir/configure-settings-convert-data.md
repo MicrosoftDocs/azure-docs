@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 08/28/2023
 ms.author: jasteppe
 ---
 
@@ -47,7 +47,7 @@ You can use the [FHIR Converter Visual Studio Code extension](https://marketplac
 > [!NOTE]
 > The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported.
 
-The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following these guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for a FHIR Bundle resource. 
+The provided default templates can be used as a base starting point if needed, on top of which your customizations can be added. When making updates to the templates, consider following these guidelines to avoid unintended conversion results. The template should be authored in a way such that it yields a valid structure for a FHIR bundle resource. 
 
 For instance, the Liquid templates should have a format such as the following code:
 
@@ -72,7 +72,7 @@ For instance, the Liquid templates should have a format such as the following co
 }
 ```
 
-The overall template follows the structure and expectations for a FHIR Bundle resource, with the FHIR Bundle JSON being at the root of the file. If you choose to add custom fields to the template that aren’t part of the FHIR specification for a bundle resource, the conversion request could still succeed. However, the converted result could potentially have unexpected output and wouldn't yield a valid FHIR Bundle resource that can be persisted in the FHIR service as is.
+The overall template follows the structure and expectations for a FHIR bundle resource, with the FHIR bundle JSON being at the root of the file. If you choose to add custom fields to the template that aren’t part of the FHIR specification for a bundle resource, the conversion request could still succeed. However, the converted result could potentially have unexpected output and wouldn't yield a valid FHIR bundle resource that can be persisted in the FHIR service as is.
 
 For example, consider the following code:
 
@@ -100,7 +100,7 @@ For example, consider the following code:
 }
 ```
 
-In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR Bundle resource seem to be nested under `customfield_data` (that is, the FHIR Bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR Bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR Bundle (since it's nested and has non FHIR specification properties) and attempting to persist the result in your FHIR service fails.
+In the example code, two example custom fields `customfield_message` and `customfield_data` that aren't FHIR properties per the specification and the FHIR bundle resource seem to be nested under `customfield_data` (that is, the FHIR bundle JSON isn't at the root of the file). This template doesn’t align with the expected structure around a FHIR bundle resource. As a result, the conversion request might succeed using the provided template. However, the returned converted result could potentially have unexpected output (due to certain post conversion processing steps being skipped). It wouldn't be considered a valid FHIR bundle (since it's nested and has non FHIR specification properties) and attempting to persist the result in your FHIR service fails.
  
 ## Host your own templates
 
@@ -198,7 +198,7 @@ Make a call to the `$convert-data` operation by specifying your template referen
 
 `<RegistryServer>/<imageName>@<imageDigest>`
 
-You should receive a `Bundle` response that contains the health data converted into the FHIR format.
+You should receive a `bundle` response that contains the health data converted into the FHIR format.
 
 ## Next steps
 

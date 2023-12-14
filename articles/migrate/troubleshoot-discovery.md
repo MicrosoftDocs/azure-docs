@@ -17,7 +17,7 @@ This article helps you troubleshoot issues with ongoing server discovery, softwa
 ## Discovered servers not showing in the portal
 
 You get this error when you don't yet see the servers in the portal, and the discovery state is **Discovery in progress**.
- 
+
 ### Remediation
 
 If the servers don't appear in the portal, wait for a few minutes because it takes around 15 minutes for discovery of servers running on a vCenter server. It takes 2 minutes for each Hyper-V host added on the appliance for discovery of servers running on the host and 1 minute for discovery of each server added on the physical appliance.
@@ -33,7 +33,7 @@ If the preceding step doesn't work and you're discovering VMware servers:
 
 ## Server data not updating in the portal
 
-You get this error if the discovered servers don't appear in the portal or if the server data is outdated. 
+You get this error if the discovered servers don't appear in the portal or if the server data is outdated.
 
 ### Remediation
 
@@ -107,7 +107,7 @@ The table below summarizes all errors encountered when gathering software invent
 |--|--|--|
 | **60001**:UnableToConnectToPhysicalServer | Either the [prerequisites](./migrate-support-matrix-physical.md) to connect to the server have not been met or there are network issues in connecting to the server, for instance some proxy settings.| - Ensure that the server meets the prerequisites and [port access requirements](./migrate-support-matrix-physical.md). <br/> - Add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the Azure Migrate appliance, and retry the operation. This is to allow remote inbound connections on servers - _Windows:_ WinRM port 5985 (HTTP) and _Linux:_ SSH port 22 (TCP). <br/>- Ensure that you have chosen the correct authentication method on the appliance to connect to the server. <br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).|
 | **60002**:InvalidServerCredentials| Unable to connect to server. Either you have provided incorrect credentials on the appliance or the credentials previously provided have expired.| - Ensure that you have provided the correct credentials for the server on the appliance. You can check that by trying to connect to the server using those credentials.<br/> - If the credentials added are incorrect or have expired, edit the credentials on the appliance and revalidate the added servers. If the validation succeeds, the issue is resolved.<br/> - If the issue persists, submit a Microsoft support case, providing the appliance machine ID (available in the footer of the appliance configuration manager).|
-| **60005**:SSHOperationTimeout | The operation took longer than expected either due to network latency issues or due to the lack of latest updates on the server.| - Ensure that the impacted server has the latest kernel and OS updates installed.<br/>- Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.<br/> - Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance.md) to check if they return null or empty data.<br/>- If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager). | 
+| **60005**:SSHOperationTimeout | The operation took longer than expected either due to network latency issues or due to the lack of latest updates on the server.| - Ensure that the impacted server has the latest kernel and OS updates installed.<br/>- Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.<br/> - Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance.md) to check if they return null or empty data.<br/>- If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager). |
 | **9000**: VMware tools status on the server can't be detected. | VMware tools might not be installed on the server, or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.1 are installed and running on the server. |
 | **9001**: VMware tools aren't installed on the server. | VMware tools might not be installed on the server, or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.1 are installed and running on the server. |
 | **9002**: VMware tools aren't running on the server. | VMware tools might not be installed on the server, or the installed version is corrupted. | Ensure that VMware tools later than version 10.2.0 are installed and running on the server. |
@@ -167,7 +167,7 @@ The issue happens when the VMware discovery agent in the appliance tries to down
 
 ### Remediation
 - You can test TCP connectivity to the ESXi host _(name provided in the error message)_ on port 443 (required to be open on ESXi hosts to pull dependency data) from the appliance by opening PowerShell on the appliance server and running the following command:
- 
+
    ````
    Test -NetConnection -ComputeName <Ip address of the ESXi host> -Port 443
    ````
@@ -180,7 +180,7 @@ The issue happens when the VMware discovery agent in the appliance tries to down
 The error usually appears for servers running Windows Server 2008 or lower.
 
 ### Remediation
-Install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
+Install Windows PowerShell 5.1 at this location on the server. Following the instructios in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
 
 After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification).
 
@@ -189,12 +189,12 @@ After you install the required PowerShell version, verify if the error was resol
 ### Remediation
 Make sure that the user account provided in the appliance has access to WMI namespace and subnamespaces. To set the access:
 
-1.	Go to the server that's reporting this error.
+1.    Go to the server that's reporting this error.
 1. Search and select **Run** from the **Start** menu. In the **Run** dialog, enter **wmimgmt.msc** in the **Open** text box and select **Enter**.
 1. The wmimgmt console opens where you can find **WMI Control (Local)** in the left pane. Right-click it, and select **Properties** from the menu.
 1. In the **WMI Control (Local) Properties** dialog, select the **Securities** tab.
 1. Select **Security** to open the **Security for ROOT** dialog.
-1. Select **Advanced** to open the **Advanced Security Settings for Root** dialog. 
+1. Select **Advanced** to open the **Advanced Security Settings for Root** dialog.
 1. Select **Add** to open the **Permission Entry for Root** dialog.
 1. Click **Select a principal** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
 1. Select the usernames or groups you want to grant access to the WMI, and select **OK**.
@@ -277,11 +277,11 @@ After you use the mitigation steps for the preceding errors, verify if the mitig
 
    - For Windows servers:
 
-      ```` 
+      ````
         Invoke-VMScript -VM $vm -ScriptText "powershell.exe 'Get-WMIObject win32_operatingsystem'" -GuestCredential $credential
 
         Invoke-VMScript -VM $vm -ScriptText "powershell.exe Get-WindowsFeature" -GuestCredential $credential
-      ```` 
+      ````
    - For Linux servers:
       ````
       Invoke-VMScript -VM $vm -ScriptText "ls" -GuestCredential $credential
@@ -295,7 +295,7 @@ For Windows servers:
    $Server = New-PSSession –ComputerName <IPAddress of Server> -Credential <user_name>
    ````
    and input the server credentials in the prompt.
-   
+
 2. Run the following commands to validate for software inventory to see if you get a successful output:
    ````
    Invoke-Command -Session $Server -ScriptBlock {Get-WMIObject win32_operatingsystem}
@@ -350,7 +350,7 @@ Typical SQL discovery errors are summarized in the following table.
 | **Error** | **Cause** | **Action** | **Guide**
 |--|--|--|--|
 |**30000**: Credentials associated with this SQL server didn't work.|Either manually associated credentials are invalid or auto-associated credentials can no longer access the SQL server.|Add credentials for SQL Server on the appliance and wait until the next SQL discovery cycle or force refresh.| - |
-|**30001**: Unable to connect to SQL Server from the appliance.|1. The appliance doesn't have a network line of sight to SQL Server.<br/>2. The firewall is blocking the connection between SQL Server and the appliance.|1. Make SQL Server reachable from the appliance.<br/>2. Allow incoming connections from the appliance to SQL Server.| - | 
+|**30001**: Unable to connect to SQL Server from the appliance.|1. The appliance doesn't have a network line of sight to SQL Server.<br/>2. The firewall is blocking the connection between SQL Server and the appliance.|1. Make SQL Server reachable from the appliance.<br/>2. Allow incoming connections from the appliance to SQL Server.| - |
 |**30003**: Certificate isn't trusted.|A trusted certificate isn't installed on the computer running SQL Server.|Set up a trusted certificate on the server. [Learn more](/troubleshoot/sql/connect/error-message-when-you-connect).| [View](/troubleshoot/sql/connect/error-message-when-you-connect) |
 |**30004**: Insufficient permissions.|This error could occur because of the lack of permissions required to scan SQL Server instances. |Grant the sysadmin role to the credentials/ account provided on the appliance for discovering SQL Server instances and databases. [Learn more](/sql/t-sql/statements/grant-server-permissions-transact-sql).| [View](/sql/t-sql/statements/grant-server-permissions-transact-sql) |
 |**30005**: SQL Server login failed to connect because of a problem with its default master database.|Either the database itself is invalid or the login lacks CONNECT permission on the database.|Use ALTER LOGIN to set the default database to master database.<br/>Grant the sysadmin role to the credentials/ account provided on the appliance for discovering SQL Server instances and databases. [Learn more](/sql/relational-databases/errors-events/mssqlserver-4064-database-engine-error).| [View](/sql/relational-databases/errors-events/mssqlserver-4064-database-engine-error) |

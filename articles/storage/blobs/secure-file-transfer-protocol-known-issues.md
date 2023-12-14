@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 10/20/2022
 ms.author: normesta
@@ -61,7 +61,7 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
   
 - _Local users_ are the only form of identity management that is currently supported for the SFTP endpoint.
 
-- Azure Active Directory (Azure AD) isn't supported for the SFTP endpoint.
+- Microsoft Entra ID isn't supported for the SFTP endpoint.
 
 - POSIX-like access control lists (ACLs) aren't supported for the SFTP endpoint.
 
@@ -96,6 +96,12 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 - FTPS and FTP aren't supported.
   
 - TLS and SSL aren't related to SFTP.
+
+## Blob Storage features
+
+When you enable SFTP support, some Blob Storage features will be fully supported, but some features might be supported only at the preview level or not yet supported at all.
+
+To see how each Blob Storage feature is supported in accounts that have SFTP support enabled, see [Blob Storage feature support for Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
 ## Troubleshooting
 

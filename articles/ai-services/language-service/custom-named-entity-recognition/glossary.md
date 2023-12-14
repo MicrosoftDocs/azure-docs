@@ -2,11 +2,10 @@
 title: Definitions and terms used for Custom Named Entity Recognition (NER)
 titleSuffix: Azure AI services
 description: Definitions and terms you may encounter when building AI models using Custom Named Entity Recognition
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 05/06/2022
 ms.author: aahi

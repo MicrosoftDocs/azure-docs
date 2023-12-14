@@ -2,11 +2,10 @@
 title: Speech devices overview - Speech service
 titleSuffix: Azure AI services
 description: Get started with the Speech devices. The Speech service works with a wide variety of devices and audio sources. 
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: overview
 ms.date: 12/27/2021
 ms.author: eur

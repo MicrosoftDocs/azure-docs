@@ -1,5 +1,5 @@
 ---
-title: Configure application volume groups for SAP HANA REST API | Microsoft Docs
+title: Configure application volume groups for SAP HANA using REST API 
 description: Setting up your application volume groups for the SAP HANA API requires special configurations. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.date: 04/09/2023
 ms.author: b-ahibbard
 ---
-# Configure application volume groups for the SAP HANA REST API
+# Configure application volume groups for SAP HANA using REST API
 
 Application volume groups (AVG) enable you to deploy all volumes for a single HANA host in one atomic step. The Azure portal and the Azure Resource Manager template have implemented prechecks and recommendations for deployment in areas including throughputs and volume naming conventions. As a REST API user, those checks and recommendations are not available.
 
@@ -54,7 +54,7 @@ The following list describes all the possible volume types for application volum
 
 ## Prepare your environment
 
-1. **Networking:** You need to decide on the networking architecture. To use Azure NetApp Files, you need to create create a VNet that will host a delegated subnet for the Azure NetApp Files storage endpoints (IPs). To ensure that the size of this subnet is large enough, see [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
+1. **Networking:** You need to decide on the networking architecture. To use Azure NetApp Files, you need to create a VNet that will host a delegated subnet for the Azure NetApp Files storage endpoints (IPs). To ensure that the size of this subnet is large enough, see [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
     1.	Create a VNet.
     2.	Create a virtual machine (VM) subnet and delegated subnet for Azure NetApp Files.
 1.	**Storage Account and Capacity Pool:** A storage account is the entry point to consume Azure NetApp Files. At least one storage account needs to be created. Within a storage account, a capacity pool is the logical unit to create volumes. Application volume groups require a capacity pool with a manual QoS. It should be created with a size and service level that meets your HANA requirements.

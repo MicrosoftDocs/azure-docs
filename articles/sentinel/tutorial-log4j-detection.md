@@ -42,12 +42,12 @@ To complete this tutorial, make sure you have:
     | **Cisco ASA** | CommonSecurityLog (Cisco) |
     | **Palo Alto Networks (Firewall)** | CommonSecurityLog (PaloAlto) |
     | **Security Events** | SecurityEvents |
-    | **Azure Active Directory** | SigninLogs<br>AADNonInteractiveUserSignInLogs |
+    | **Microsoft Entra ID** | SigninLogs<br>AADNonInteractiveUserSignInLogs |
     | **Azure Monitor (WireData)** | WireData |
     | **Azure Monitor (IIS)** | W3CIISLog |
     | **Azure Activity** | AzureActivity |
     | **Amazon Web Services** | AWSCloudTrail |
-    | **Microsoft 365 Defender** | DeviceNetworkEvents |
+    | **Microsoft Defender XDR** | DeviceNetworkEvents |
     | **Azure Firewall** | AzureDiagnostics (Azure Firewall) |
 
 ## Sign in to the Azure portal and Microsoft Sentinel

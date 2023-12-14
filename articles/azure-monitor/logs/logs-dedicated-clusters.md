@@ -3,7 +3,7 @@ title: Azure Monitor Logs Dedicated Clusters
 description: Customers meeting the minimum commitment tier could use dedicated clusters
 ms.topic: conceptual
 ms.reviewer: yossiy
-ms.date: 07/01/2023
+ms.date: 12/01/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -44,7 +44,7 @@ For more information on Log Analytics permissions, see [Manage access to log dat
 Provide the following properties when creating new dedicated cluster:
 
 - **ClusterName**: Must be unique for the resource group.
-- **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review Design a Log Analytics workspace configuration(../logs/workspace-design.md).
+- **ResourceGroupName**: Use a central IT resource group because many teams in the organization usually share clusters. For more design considerations, review [Design a Log Analytics workspace configuration](../logs/workspace-design.md).
 - **Location**
 - **SkuCapacity**: You can set the commitment tier (formerly called capacity reservations) to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 - **Managed identity**: Clusters support two [managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): 
@@ -201,31 +201,33 @@ The managed identity service generates the *principalId* GUID when you create th
 
 ---
 
-
 ## Link a workspace to a cluster
 
-When a Log Analytics workspace is linked to a dedicated cluster, the workspace billing plan in workspace is changed to cluster plan, new data ingested to the workspace is routed to your dedicated cluster, and existing data remains in Log Analytics cluster. Linking a workspace has no effect on data ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete and accurate. 
- 
-When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
-
-A cluster can be linked to up to 1,000 workspaces. Linked workspaces can be located in the same region as the cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
+> [!NOTE]
+> Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
+> Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
+> When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
+> Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:
 
 - In the workspace: *Microsoft.OperationalInsights/workspaces/write*
 - In the cluster resource: *Microsoft.OperationalInsights/clusters/write*
 
-Other than the billing aspects that is governed by the cluster plan, the linked workspace configuration remain.
+Once Log Analytics workspace linked to a dedicated cluster, new data sent to workspace is ingested to your dedicated cluster, while previously ingested data remains in Log Analytics cluster. Linking a workspace has no effect on workspace operation, including ingestion and query experiences. Log Analytics query engine stitches data from old and new clusters automatically, and the results of queries are complete. 
+ 
+When dedicated cluster is configured with customer-managed key (CMK), new ingested data is encrypted with your key, while older data remains encrypted with Microsoft-managed key (MMK). The key configuration is abstracted by Log Analytics and the query across old and new data encryptions is performed seamlessly.
+
+A cluster can be linked to up to 1,000 workspaces located in the same region with cluster. A workspace can't be linked to a cluster more than twice a month, to prevent data fragmentation.
 
 The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
-> [!NOTE]
-> Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-> Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
-
-Use the following commands to link a workspace to a cluster:
+Use the following steps to link a workspace to a cluster. You can automated for linking multiple workspaces:
 
 #### [CLI](#tab/cli)
+
+> [!NOTE]
+> Use **cluster** value for linked-service ```name```.
 
 ```azurecli
 # Find cluster resource ID
@@ -243,6 +245,9 @@ az resource wait --deleted --ids $workspaceResourceId --include-response-body tr
 
 #### [PowerShell](#tab/powershell)
 
+> [!NOTE]
+> Use **cluster** value for ```LinkedServiceName```.
+
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
@@ -258,7 +263,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" 
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
-#### [REST API](#tab/restapi)
+#### [REST API](#tab/restapi)
 
 Use the following REST call to link to a cluster:
 
@@ -281,6 +286,7 @@ Content-type: application/json
 202 (Accepted) and header.
 
 ---
+
 
 ### Check workspace link status
   

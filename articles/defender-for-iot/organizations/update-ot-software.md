@@ -38,6 +38,11 @@ To perform the procedures described in this article, make sure that you have:
 
     For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
+> [!IMPORTANT]
+> We recommend verifying that you have sensor backups running regularly, and especially before updating sensor software.
+>
+> For more information, see [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md).
+
 ## Verify network requirements
 
 - Make sure that your sensors can reach the Azure data center address ranges and set up any extra resources required for the connectivity method your organization is using.
@@ -248,7 +253,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 
 1. Use SFTP or SCP to copy the update package you'd downloaded from the Azure portal to the OT sensor machine.
 
-1. Sign in to the sensor as the `support` user and copy the update file to a location accessible for the update process. For example:
+1. Sign in to the sensor as the `support` user, access the system shell and copy the update file to a location accessible for the update process. For example:
 
     ```bash
     cd /var/host-logs/ 
@@ -258,23 +263,7 @@ This procedure describes how to update OT sensor software via the CLI, directly 
 1. Start running the software update. Run:
 
     ```bash
-    curl -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
-    ```
-
-1. Verify that the update process has started by checking the `upgrade.log` file. Run:
-
-    ```bash
-    tail -f /var/cyberx/logs/upgrade.log
-    ```
-
-    Output similar to the following appears:
-
-    ```bash
-    2022-05-23 15:39:00,632 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Extracting upgrade package from /var/cyberx/media/device-info/update_agent.tar to /var/cyberx/media/device-info/update
-
-    2022-05-23 15:39:33,180 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Prepared upgrade, scheduling in 30 seconds
-
-    2022-05-23 15:40:03,181 [pool-34-thread-1] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Send upgrade request to os-manager. file location: /var/cyberx/media/device-info/update
+    curl -H "X-Auth-Token: $(python3 -c 'from cyberx.credentials.credentials_wrapper import CredentialsWrapper;creds_wrapper = CredentialsWrapper();print(creds_wrapper.get("api.token"))')" -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
     ```
 
     At some point during the update process, your SSH connection will disconnect. This is a good indication that your update is running.

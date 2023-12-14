@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot common Azure Chaos Studio Preview problems
-description: Learn to troubleshoot common problems when you use Azure Chaos Studio Preview.
+title: Troubleshoot common Azure Chaos Studio problems
+description: Learn to troubleshoot common problems when you use Azure Chaos Studio.
 author: c-ashton
 ms.service: chaos-studio
 ms.author: cashton
@@ -9,9 +9,9 @@ ms.date: 11/10/2021
 ms.custom: template-troubleshooting, ignite-fall-2021
 ---
 
-# Troubleshoot issues with Azure Chaos Studio Preview
+# Troubleshoot issues with Azure Chaos Studio
 
-As you use Azure Chaos Studio Preview, you might occasionally encounter some problems. This article explains common problems and troubleshooting steps.
+As you use Azure Chaos Studio, you might occasionally encounter some problems. This article explains common problems and troubleshooting steps.
 
 ## General troubleshooting tips
 
@@ -130,3 +130,9 @@ From the **Experiments** list in the Azure portal, select the experiment name to
 This error might happen if you added the agent by using the Azure portal, which has a known issue. Enabling an agent-based target doesn't assign the user-assigned managed identity to the VM or virtual machine scale set.
 
 To resolve this problem, go to the VM or virtual machine scale set in the Azure portal and go to **Identity**. Open the **User assigned** tab and add your user-assigned identity to the VM. After you're finished, you might need to reboot the VM for the agent to connect.
+
+## Problems when setting up a managed identity
+
+### When I try to add a system-assigned/user-assigned managed identity to my existing experiment, it fails to save. 
+
+If you are trying to add a user-assigned or system-assigned managed identity to an experiment that **already** has a managed identity assigned to it, the experiment fails to deploy. You need to delete the existing user-assigned or system-assigned managed identity on the desired experiment **first** before adding your desired managed identity. 
