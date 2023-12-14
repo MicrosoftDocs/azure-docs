@@ -112,19 +112,19 @@ As you called this function in the Python node, you don't need to assign it anyw
 
 There are two ways to develop your own evaluation methods:
 
-- **Customize a built-in evaluation flow:** Modify a built-in evaluation flow. Find the built-in evaluation flow from the flow creation wizard - flow gallery, select “Clone” to do customization.  
-
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-from-gallery.png" alt-text="Screenshot of cloning a built-in evaluation flow. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-from-gallery.png":::
-
 - **Create a new evaluation flow from scratch:** Develop a brand-new evaluation method from the ground up. In prompt flow tab home page, at the “Create by type” section , you can choose "Evaluation flow" and see a template of evaluation flow. 
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-by-type.png" alt-text="Screenshot of create a new evaluation flow from scratch. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-by-type.png":::
+
+- **Customize a built-in evaluation flow:** Modify a built-in evaluation flow. Find the built-in evaluation flow from the flow creation wizard - flow gallery, select “Clone” to do customization. You then can see and check the logic and flow of the built-in evaluations and then modify the flow. In this way, you do not start from a very beginning, but a sample for you to use for your customization.
+
+:::image type="content" source="./media/how-to-develop-an-evaluation-flow/create-from-gallery.png" alt-text="Screenshot of cloning a built-in evaluation flow. " lightbox = "./media/how-to-develop-an-evaluation-flow/create-from-gallery.png":::
 
 ### Calculate scores for each data
 
 As mentioned above, evaluation is run to calculate scores and metrics based a flow that run on a dataset. Therefore, the first steps in evaluation flows are calculating scores for each individual outputs. 
 
-Take the built-in evaluation flow `Classification Accuracy Evaluation` as an example, this score is calculated in `grade` node. If you create and edit from scratch when creating by type, this score is calculated in `line_process` node. You can also replace this python node with an LLM node to use LLM to calculate the score, or use multiple nodes to perform the calculation.
+Take the built-in evaluation flow `Classification Accuracy Evaluation` as an example, the score `grade`, which measures the accuracy of each flow-generated output to its corresponding ground truth, is calculated in `grade` node. If you create an evaluation flow and edit from scratch when creating by type, this score is calculated in `line_process` node in the template. You can also replace the `line_process` python node with an LLM node to use LLM to calculate the score, or use multiple nodes to perform the calculation.
 
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/line-process.png" alt-text="Screenshot of line process node in the template. " lightbox = "./media/how-to-develop-an-evaluation-flow/line-process.png":::
 
