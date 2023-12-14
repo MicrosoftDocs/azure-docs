@@ -5,6 +5,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 04/19/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable soft delete policy in Azure Container Registry (Preview)
