@@ -22,7 +22,7 @@ Support for containers is currently available with Document Intelligence version
 * [REST API `2022-08-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
 * [SDKs targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0.md)
 
-See [**Document Intelligence v3.0 containers in disconnected environments**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation.
+✔️ See [**Document Intelligence v3.0 containers in disconnected environments**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation.
 
 :::moniker-end
 
