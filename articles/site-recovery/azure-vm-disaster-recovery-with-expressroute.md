@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/25/2021
+ms.date: 12/14/2023
 ms.author: ankitadutta
 
 ---
