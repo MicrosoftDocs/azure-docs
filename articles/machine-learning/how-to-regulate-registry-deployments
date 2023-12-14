@@ -52,7 +52,7 @@ Model Catalog collections are made available to users using the underlying regis
 
 5. Select the **Parameters** tab and update the Effect and policy assignment parameters. Make sure to uncheck the 'Only show parameters that need input or review' so all the parameters show up. To further clarify what the parameter does, hover over the info icon next to the parameter name.
 
-If no asset IDs are set in 'allowedModels' during assignment, this policy restricts deploying all models from the model registry specified in '' parameter.
+If no model asset IDs are set in the *Restricted Model AssetIds* parameter during the policy assignment, this policy only allows deploying all models from the model registry specified in *Allowed Registry Name' parameter.
 
 6. Select **Review + Create** to finalize your policy assignment. The policy assignment takes approximately 15 minutes until it's active for new resources. 
 
@@ -69,6 +69,7 @@ You can remove the policy assignment in the Azure portal using the following ste
 * Any change in the policy (including updating the policy definition, assignments, exemptions or policy set) takes 10 mins for those changes to become effective in the evaluation process. 
 * This built-in policy supports only Greenfield operations currently. You can’t trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
 * You can’t allowlist more than one registry in a policy assignment. Users can create multiple policy assignments if they want to allow model deployments from multiple registries.
+* The [compliance data](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data) for the policy assignments are dropped after 24 hours.
 
 ## Next Steps
 
