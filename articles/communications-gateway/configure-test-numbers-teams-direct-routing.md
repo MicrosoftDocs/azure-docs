@@ -35,7 +35,7 @@ You must be able to sign in to the Microsoft 365 admin center for your test cust
 
 In [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md), you configured Azure Communications Gateway with an account for the test customer.
 
-Use Azure Communications Gateway's Provisioning API to provision the details of the numbers you chose under the account. Enable each number for Teams Direct Routing.
+Use Azure Communications Gateway's Provisioning API to provision the details of the numbers you chose under the account. Enable each number for Teams Direct Routing. For example API requests, see [Add one number to the account](/rest/api/voiceservices/#add-one-number-to-the-account) or [Add or update multiple numbers at once](/rest/api/voiceservices/#add-or-update-multiple-numbers-at-once) in the _API Reference_ for the Provisioning API.
 
 ## Update your network's routing configuration
 
