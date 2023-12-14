@@ -73,7 +73,7 @@ A `client-secret` is a string value your app can use in place of a certificate t
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page.":::
 
 :::image type="content" source="media/how-to-manage-users/data-partition-id-second-option-step-2.png" alt-text="Screenshot of finding the data-partition-id from the Azure Data Manager for Energy instance overview page with the data partitions.":::
-## Generate service principal access token
+## Generate client-id access token
 
 1. Run the below curl command in Azure Cloud Bash after replacing the placeholder values with the corresponding values found earlier in the above steps.
  
@@ -112,13 +112,15 @@ curl --location --request POST 'https://login.microsoftonline.com/<tenant-id>/oa
 :::image type="content" source="media/how-to-manage-users/profile-object-id.png" alt-text="Screenshot of finding the object-id from the profile.":::
 
 ## First time addition of users in a new data partition
-1. In order to add entitlements to a new data partition of Azure Data Manager for Energy instance, use the access token of the app that was used to provision the instance.
-2. Get the service principal access token using [Generate service principal access token](how-to-manage-users.md#generate-service-principal-access-token).
-3. If you try to directly use user tokens for adding entitlements, it results in 401 error. The service principal access token must be used to add initial users in the system and those users (with admin access) can then manage more users.
-4. Use the service principal access token to do these three steps using the commands outlined in the following sections.
-   1. Add the users to the `users@<data-partition-id>.<domain>` OSDU group.
-   1. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to.
-   1. Add the users to that group.
+1. In order to add first admin to a new data partition of Azure Data Manager for Energy instance, use the access token of the app that was used to provision the instance.
+2. Get the service principal access token using [Generate client-id access token](how-to-manage-users.md#generate-service-principal-access-token).
+3. If you try to directly use user auth tokens for adding entitlements, it results in 401 error. The client-id access token must be used to add first set of users in the system and those users (with admin access) can then manage more users.
+4. Use the client-id access token to do these three steps using the commands outlined in the following sections:
+   1. Add the user to the `users@<data-partition-id>.<domain>` OSDU group.
+   2. Add the user to the `users.datalake.ops@<data-partition-id>.<domain>` OSDU group.
+5. The user becomes the admin of the data partion. The admin can then add or remove other users to the required groups:
+   1. Get the OSDU group such as `service.legal.editor@<data-partition-id>.<domain>` you want to add the user to using your own user auth token.
+   2. Add the users to that group using your own user auth token.
 
 ## Get the list of all available groups in a data partition
 
