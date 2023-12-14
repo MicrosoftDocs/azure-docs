@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Quickstart: Create a new Azure API Management instance by using the Azure CLI
 
-This quickstart describes the steps for creating a new API Management instance by Azure CLI commands. You can also use the Azure CLI for common management tasks such as importing APIs in your API Management instance.
+This quickstart describes the steps for creating a new API Management instance by using Azure CLI commands. After creating an instance, you can use the Azure CLI for common management tasks such as importing APIs in your API Management instance.
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
