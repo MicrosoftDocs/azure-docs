@@ -28,7 +28,7 @@ Fine-tuning is an advanced technique that requires expertise to use appropriatel
 
 ## Why do you want to fine-tune a model?
 
-- You should be able to clearly articulate a specific use case for fine-tuning and identify the [model](models.md#fine-tuning-models-preview) you hope to fine-tune.
+- You should be able to clearly articulate a specific use case for fine-tuning and identify the [model](models.md#fine-tuning-models) you hope to fine-tune.
 - Good use cases for fine-tuning include steering the model to output content in a specific and customized style, tone, or format, or scenarios where the information needed to steer the model is too long or complex to fit into the prompt window.
 
 **Common signs you might not be ready for fine-tuning yet:**
