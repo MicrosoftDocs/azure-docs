@@ -26,9 +26,9 @@ This section lists the types of resource logs you can collect for Azure Operator
 
 |Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual logs |
 |-------|-----|
-| DataProducts| [Microsoft.NetworkAnalytics/DataProducts](/azure/azure-monitor/platform/resource-logs-categories#microsoftnetworkanalyticsdataproducts) |
+| DataProducts| [Microsoft.NetworkAnalytics/DataProducts](/azure/azure-monitor/reference/supported-logs/microsoft-networkanalytics-dataproducts-logs) |
 
-The DataProducts logs include information about:
+The DataProducts logs have information about:
 
 - `Ingestion` (for adding or changing data in the input storage account for a Data Product)
 - `IngestionDelete` (for deleting data from the input storage account for a Data Product)
