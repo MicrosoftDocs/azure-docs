@@ -3,6 +3,7 @@ title: Access from Container Instances
 description: Learn how to provide access to images in your private container registry from Azure Container Instances by using a Microsoft Entra service principal.
 ms.topic: article
 ms.custom: devx-track-azurecli
+ms.service: container-registry
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022

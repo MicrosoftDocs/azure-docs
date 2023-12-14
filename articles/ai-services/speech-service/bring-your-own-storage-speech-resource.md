@@ -2,7 +2,6 @@
 title: Set up the Bring your own storage (BYOS) Speech resource
 titleSuffix: Azure AI services
 description: Learn how to set up Bring your own storage (BYOS) Speech resource.
-#services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech

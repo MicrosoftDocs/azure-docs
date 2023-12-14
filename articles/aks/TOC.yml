@@ -376,7 +376,7 @@
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Scanning images in ACR registries
-              href: ../defender-for-cloud/defender-for-containers-introduction.mdtoc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Cluster security
           items:
             - name: Azure kubelogin
@@ -535,12 +535,6 @@
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
-            - name: Use unmanaged ingress-nginx
-              items:
-                - name: Create an Ingress controller
-                  href: ingress-basic.md
-                - name: Use TLS with an ingress controller
-                  href: ingress-tls.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer

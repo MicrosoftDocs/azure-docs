@@ -5,6 +5,7 @@ author: tejaswikolli-web
 ms.topic: article
 ms.date: 10/11/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Recommendations for tagging and versioning container images
