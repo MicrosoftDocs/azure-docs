@@ -203,6 +203,3 @@ Submit your questions in the [Azure Machine Learning discussion forum.](https://
 
 The Hugging Face Collection is currently available in all regions of the public cloud only.  
 
-
-
-The Hugging Face Collection is 
