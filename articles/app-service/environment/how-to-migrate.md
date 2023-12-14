@@ -274,7 +274,7 @@ After you add your custom domain suffix details, the "Migrate" button will be en
 
 Once you complete all of the above steps, you can start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what happens during this time. This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. Scaling and modifications to your existing App Service Environment are blocked during this step.
 
-Detailed migration statuses are only available when using the Azure CLI at this time. For more information, see the CLI guidance under the [Azure CLI section for Migrate to App Service Environment v3](#experience-azcli).
+Detailed migration statuses are only available when using the Azure CLI at this time. For more information, see the CLI guidance under the Azure CLI section for Migrate to App Service Environment v3.
 
 When migration is complete, you have an App Service Environment v3, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
