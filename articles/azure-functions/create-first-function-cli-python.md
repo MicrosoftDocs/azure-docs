@@ -173,10 +173,10 @@ By default, local development uses the Azurite storage emulator. This emulator i
 
 You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an Azure Storage account instead of `UseDevelopmentStorage=true`. 
 
-Use the following command to start the Azurite storage emulator:
+Use the following command to start the Azurite storage emulator in a separate process:
 
 ```cmd
-azurite
+start azurite
 ```
 
 For more information, see [Run Azurite](../storage/common/storage-use-azurite.md?tabs=npm#run-azurite)
