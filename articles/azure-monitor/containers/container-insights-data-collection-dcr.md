@@ -31,7 +31,9 @@ Specific configuration you can perform with the DCR includes:
 - Enable/disable Syslog collection
 - Select log schema
 
-### ConfigMap 
+
+
+### ConfigMap
 
 [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as configuration file or environment variables. You can configure Container insights data collection by modifying settings in its ConfigMap. ConfigMap is a global list and there can be only one ConfigMap applied to the agent for Container insights. You can't have another ConfigMap overruling the collections.
 
@@ -42,8 +44,8 @@ Specific configuration you can perform with the ConfigMap includes:
 - Enable/disable and namespace filtering for stdout and stderr logs
 - Enable/disable collection of environment variables for the cluster
 - Filter for Normal Kube events
-- Log schema
-- Multiline logging
+- Select log schema
+- Enable/disable multiline logging
 - Ignore proxy settings  
 
 
