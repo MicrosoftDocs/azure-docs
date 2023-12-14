@@ -3,7 +3,7 @@ title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/13/2023
+ms.date: 12/14/2023
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager (SRM)
@@ -17,7 +17,7 @@ VMware vSphere Replication is VMware's hypervisor-based replication technology f
 In this article, you'll implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs.
 
 > [!NOTE]
-> [The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is listed here](/includes/vmware-software-versions.md).
+> [VMware Site Recovery Manager (SRM) in Azure VMware Solution version page](/azure-vmware/includes/vmware-software-versions.md). Your on-premises version of VMware SRM and VMware vSphere Replication needs to match.
 
 > [!IMPORTANT]
 > VMware SRM does not currently support Azure VMware Solution with Azure NetApp Files.

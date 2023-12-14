@@ -62,19 +62,25 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     data = { 
         "messages": [ 
             { "role": "system", "content": "You are a helpful assistant." }, 
-            { "role": "user", "content": [ 
-               { "type": "text", "text": "Describe this picture:" }, 
-               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
-           ] } 
+            { "role": "user", "content": [  
+                { 
+                    "type": "text", 
+                    "text": "Describe this picture:" 
+                },
+                { 
+                    "type": "image_url", 
+                    "image_url": "<URL or base 64 encoded image>" # Can url or data url with base64 image string
+                }
+            ] } 
         ], 
-        "max_tokens": 100 
+        "max_tokens": 2000 
     }   
     
     # Make the API call   
     response = requests.post(endpoint, headers=headers, data=json.dumps(data))   
     
     print(f"Status Code: {response.status_code}")   
-    print(response.text) 
+    print(response.text)
     ```
 
 1. Make the following changes:
@@ -130,26 +136,32 @@ The **object grounding** integration brings a new layer to data analysis and use
         "dataSources": [
         {
             "type": "AzureComputerVision",
-            "parameters": {
             "endpoint": " <your_computer_vision_endpoint> ",
-            "key": "<your_computer_vision_key>"
-            }
+            "key": "<your_computer_vision_key>",
+            "indexName": "test-products"
         }],
         "messages": [ 
-            { "role": "system", "content": "You are a helpful assistant." },
-            { "role": "user", "content": [ 
-               { "type": "text", "text": "Describe this picture:" }, 
-               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
-           ]} 
+            { "role": "system", "content": "You are a helpful assistant." }, 
+            { "role": "user", 
+            "content": [  
+                { 
+                    "type": "text", 
+                    "text": "Describe this picture:" 
+                },
+                { 
+                    "type": "image_url", 
+                    "image_url": "<URL or base 64 encoded image>" # Can be url or data url with base64 image string
+                }
+            ]} 
         ], 
-        "max_tokens": 100 
+        "max_tokens": 2000 
     }   
     
     # Make the API call   
     response = requests.post(endpoint, headers=headers, data=json.dumps(data))   
-    
+
     print(f"Status Code: {response.status_code}")   
-    print(response.text) 
+    print(response.text)
     ```
 
 1. Make the following changes:
