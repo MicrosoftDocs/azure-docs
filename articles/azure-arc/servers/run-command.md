@@ -20,7 +20,7 @@ Run Command on Azure Arc-enabled servers (Public Preview) uses the Connected Mac
 - **Cost:** Run Command is free of charge, however storage of scripts in Azure may incur billing.
 
 - **Configuration:** Run Command doesn't require more configuration or the deployment of any extensions. The
-Connected Machine agent version must be or higher. 
+Connected Machine agent version must be 1.37 or higher. 
 
 ## Run Command operations
 
