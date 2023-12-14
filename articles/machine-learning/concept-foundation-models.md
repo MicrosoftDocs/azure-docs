@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: conceptual
-ms.author: tinaem
+ms.author: timanghn
 author: tinaem
 ms.reviewer: ssalgado
 ms.date: 12/12/2023
