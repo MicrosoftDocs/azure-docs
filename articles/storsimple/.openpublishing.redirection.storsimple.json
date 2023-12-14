@@ -98,7 +98,7 @@
         {
             "source_path": "./storsimple-virtual-device-u2.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "./storsimple-configure-chap.md",
@@ -188,7 +188,7 @@
         {
             "source_path": "./storsimple-limits.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "./storsimple-local-volume-faq.md",
@@ -308,7 +308,7 @@
         {
             "source_path": "./storsimple-system-requirements.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "./storsimple-technical-specifications-and-compliance.md",
@@ -318,12 +318,12 @@
         {
             "source_path": "./storsimple-troubleshoot-deployment.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "./storsimple-windows-powershell-administration.md",
             "redirect_url": "/azure/storsimple/storsimple-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "./storsimple-install-update-1.md",
