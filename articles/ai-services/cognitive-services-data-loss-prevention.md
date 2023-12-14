@@ -94,7 +94,7 @@ There are two parts to enable data loss prevention. First the property restrictO
 
 The following services support data loss prevention configuration:
 
-* Azure OpenAI *
+* Azure OpenAI
 * Azure AI Vision
 * Content Moderator
 * Custom Vision
@@ -104,7 +104,7 @@ The following services support data loss prevention configuration:
 * QnA Maker
 
 
-## Limitations: 
+## Limitations
 
 [Azure OpenAI on your data - text](/articles/ai-services/openai/concepts/use-your-data.md) features don't support data loss prevention yet. When `restrictOutboundNetworkAccess` is set as true, all requests to the following APIs will fail immediately to prevent potential data loss.
 
