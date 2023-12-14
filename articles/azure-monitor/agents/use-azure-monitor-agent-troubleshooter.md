@@ -10,6 +10,7 @@ ms.reviewer: jeffwo
 
 # customer-intent: As an IT manager, I want to investigate agent issue on a particular virtual machine and determine if I can resolve the issue on my own.
 ---
+
 # Use the Azure Monitor Agent Troubleshooter
 The Azure Monitor Agent isn't a service that runs in the context of an Azure Resource Provider. It might even be running in on-premises machines within a customer network boundary. The Azure Monitor Agent Troubleshooter is designed to help diagnose issues with the agent, and general agent health checks. It can run checks to verify agent installation, connection, general heartbeat, and collect AMA-related logs automatically from the affected Windows or Linux VM. More scenarios will be added over time to increase the number of issues that can be diagnosed.
 > [!Note]
@@ -38,7 +39,7 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
 ## Windows Troubleshooter
 ### Run Windows Troubleshooter
 1. Log in to the machine to be diagnosed as Administator
-2. Run script in power shell
+2. Run script in PowerShell
    
    ```PowerShell
    $currentVersion = ((Get-ChildItem -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\HandlerState\" `
@@ -60,6 +61,7 @@ The Troubleshooter runs two tests and collects several diagnostic logs.
 |Connection to Control Plan (MCS)              | This test checks to see if the agent configuration information can be retrieved from the central data control plan. Controlling information includes which source data to collect and where it should be sent to. All agent configuration is done through Data Collection Rules.|
 
 
+
 ### Share the Windows Results
 The detailed data collected by the troubleshooter include system configuration, network configuration, environment variables, and agent configuration that can aid the customer in finding any issues.  The troubleshooter make is easy to send this data to customer support by creating a Zip file that should be attached to any customer support request. The file is located in C:/Packages/Plugins/Microsoft.Azure.Monitor.AzureMonitorWindowsAgent/{version}/Troubleshooter.  The agent logs can be cryptic but they can give you insight into problems that you might be experiencing.
 
@@ -71,6 +73,7 @@ The detailed data collected by the troubleshooter include system configuration, 
 |Table2csv.exe                | snapshot of all the data streams and tables that are configured in the agent along with general information about the time range over which events were seen. |
 |ImdsMetadataResponse.json | contains the results of the request for Instance Metadata Service that contains information about the VM on which the agent is running. |
 |TroubleshootingLogs | contains a useful table in the Customer Data Statistics section for events that were collected in each local table over different time buckets. |
+
 
 
 ## Linux Troubleshooter

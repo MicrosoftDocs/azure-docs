@@ -12,8 +12,6 @@ items:
       href: ../whats-new-client-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
     - name: Azure Virtual Desktop Store app for Windows
       href: ../whats-new-client-windows-azure-virtual-desktop-app.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
-    - name: Web client
-      href: ../whats-new-client-web.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
     - name: macOS client
       href: ../whats-new-client-macos.md?toc=%2Fazure%2Fvirtual-desktop%2Fusers%2Ftoc.json
     - name: iOS/iPadOS client
