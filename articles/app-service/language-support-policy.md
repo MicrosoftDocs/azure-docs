@@ -15,7 +15,7 @@ This article describes the language runtime support policy for updating existing
 
 ## Updates to existing stacks
 
-App Service updates existing stacks after they become available from each community. App Service updates major versions of stacks but can't guarantee any specific minor or patch versions. The platform controls minor and patch versions. For example, App Service updates node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, you can use a [custom container](quickstart-custom-container.md).
+App Service updates existing stacks after they become available from each community. App Service updates major versions of stacks but can't guarantee any specific minor or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, you can use a [custom container](quickstart-custom-container.md).
 
 ## Retirements
 
@@ -28,7 +28,7 @@ App Service follows community support timelines for the lifecycle of the runtime
 
 End-of-support dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service. App Service sends reminder notifications to subscription owners for upcoming end-of-support runtime versions when they become available for each language.
 
-Those who receive notifications include account administrators, service administrators, and co-administrators. Contributors, readers, or other roles don't directly receive notifications, unless they opt in to receive notification emails through [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md).
+People who receive notifications include account administrators, service administrators, and co-administrators. Contributors, readers, or other roles don't directly receive notifications, unless they opt in to receive notification emails through [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## Timelines for language runtime version support
 
