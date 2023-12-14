@@ -20,7 +20,9 @@ An App Service Environment v1 and v2 can be automatically migrated to an [App Se
 
 Ensure you understand how migrating to an App Service Environment v3 affects your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-migration-feature) to understand the process timeline and where and when you need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration. Ensure there are no Azure Policies that block actions required for the migration including subnet modifications and App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
+Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration. 
+
+Ensure there are no Azure Policies that block actions required for the migration including subnet modifications and App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
 ::: zone pivot="experience-azcli"
 
