@@ -347,7 +347,7 @@ To authenticate the request, replace `<TOKEN>` in the `Authorization` header wit
 
 # [Azure portal](#tab/azure-portal)
 
-To start a job execution in the Azure portal, select **Run** in the job's overview page.
+To start a job execution in the Azure portal, select **Run now** in the job's overview page.
 
 ---
 
