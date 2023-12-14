@@ -17,6 +17,9 @@ ms.author: kavitagaddam
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+> [!NOTE]
+> There is a known issue with Azure API for FHIR instances where attempts to increase Request Units (RUs) through Azure Blade is failing. The Azure API for FHIR team is actively working on resolving the issue. In case you want to increase RUs, create a [support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).  
+
 ## **November 2023**
 **Bulk delete capability now available**
 `$bulk-delete' allows you to delete resources from FHIR server asynchronously. Bulk delete operation can be executed at system level or for individual resource type. For more information, see [bulk-delete operation](../../healthcare-apis/azure-api-for-fhir/bulk-delete-operation.md).
