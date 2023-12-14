@@ -29,7 +29,7 @@ As a developer or IT administrator, you can use API connectors to integrate your
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Verify user identity**. Use an identity verification service or external identity data sources to add an extra level of security to account creation decisions.
 - **Integrate with a custom approval workflow**. Connect to a custom approval system for managing and limiting account creation.
-- **Augment tokens with attributes from external sources**. Enrich tokens with attributes about the user from sources that are external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
+- **Augment tokens with attributes from external sources**. Enrich tokens with user attributes from sources that are external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
 - **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
 

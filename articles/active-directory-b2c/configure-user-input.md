@@ -75,10 +75,10 @@ To provide a set list of values for the city attribute:
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. On the **Languages** page for the user flow, select the language that you want to customize.
 1. Under **Page-level resources files**, select **Local account sign up page**.
-1. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
+1. Select **Download defaults** (or **Download overrides** if you previously edited this language).
 1. Create a `LocalizedCollections` attribute.
 
-The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. 
+The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items is the order they are displayed. 
 
 * `ElementId` is the user attribute that this `LocalizedCollections` attribute is a response to.
 * `Name` is the value that's shown to the user.
@@ -134,7 +134,7 @@ The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order fo
 
 ## Overview
 
-You can gather initial data from your users by using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, it uses the [self-asserted technical profile](self-asserted-technical-profile.md). In this sample, you:
+You can gather initial data from your users by using the sign-up or sign-in user journey. You can gather more claims later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, it uses the [self-asserted technical profile](self-asserted-technical-profile.md). In this sample, you:
 
 1. Define a "city" claim. 
 1. Ask the user for their city.
