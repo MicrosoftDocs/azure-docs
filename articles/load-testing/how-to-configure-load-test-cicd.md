@@ -16,7 +16,7 @@ You can automate a load test in Azure Load Testing by creating a CI/CD pipeline.
 To add an existing load test to a CI/CD pipeline:
 
 - Configure service authentication to allow the CI tool to connect to your Azure load testing resource.
-- Export the load test configuration files, such as the JMeter file and load test YAML configuration.
+- Add load test input files to your repository, such as the JMeter test script and the load test YAML configuration.
 - Update the CI/CD pipeline definition to invoke Azure Load Testing.
 
 ## Prerequisites
