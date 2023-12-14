@@ -363,7 +363,7 @@ Update your CI workflow to run a load test for your Azure load testing resource 
 
     Use the `clientId`, `clientSecret`, and `tenandId` values you stored previously.
 
-    ```azurecli    
+    ```azurecli-interactive
     az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
     az account set -s $AZURE_SUBSCRIPTION_ID
     ```
@@ -372,13 +372,13 @@ Update your CI workflow to run a load test for your Azure load testing resource 
 
     Replace the *`<load-testing-resource>`*, *`<load-testing-resource-group>`*, and *`<load-test-config-yaml>`* text placeholders with the name of the load testing resource, the resource group name, and the file name of the load test configuration YAML file you added to the repository previously.
 
-    ```azurecli
+    ```azurecli-interactive
     az load test create --load-test-resource <load-testing-resource> --resource-group <load-testing-resource-group> --test-id sample-test-id --load-test-config-file <load-test-config-yaml>
     ```
 
 1. Run the load test.
 
-    ```azurecli
+    ```azurecli-interactive
     testRunId="run_"`date +"%Y%m%d%_H%M%S"`
     displayName="Run"`date +"%Y/%m/%d_%H:%M:%S"`
 
@@ -387,7 +387,7 @@ Update your CI workflow to run a load test for your Azure load testing resource 
 
 1. Retrieve and display the client-side metrics for the load test run.
 
-    ```azurecli
+    ```azurecli-interactive
     az load test-run metrics list --load-test-resource <load-testing-resource> --test-run-id $testRunId --metric-namespace LoadTestRunMetrics
     ```
 
@@ -439,7 +439,13 @@ If you don't plan to use any of the resources that you created, delete them so y
 
 # [Other](#tab/otherci)
 
-Use the specifics of your CI tool to display the output logs of the CI workflow run. The logs contain the results of the load test run and the summary client-side metrics. You can view the load testing dashboard in the Azure portal to view more details.
+1. Undo the changes in your CI workflow.
+
+1. Remove the service principal:
+
+    ```azurecli-interactive
+    az ad sp delete --id $(az ad sp show --display-name "my-load-test-cicd" -o tsv)
+    ```
 
 ---
 
