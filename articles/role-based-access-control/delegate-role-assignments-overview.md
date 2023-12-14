@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/29/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
@@ -77,7 +77,7 @@ Here are some reasons why delegating role assignment management to others with c
 
 Consider an example where Alice is an administrator with the User Access Administrator role for a subscription. Alice wants to grant Dara the ability to assign specific roles for specific groups. Alice doesn't want Dara to have any other role assignment permissions. The following diagram shows how Alice can delegate role assignment responsibilities to Dara with conditions.
 
-1. Alice assigns the Role Based Access Control Administrator (Preview) role to Dara. Alice adds conditions so that Dara can only assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
+1. Alice assigns the Role Based Access Control Administrator role to Dara. Alice adds conditions so that Dara can only assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
 1. Dara can now assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
 1. If Dara attempts to assign other roles or assign any roles to different principals (such as a user or managed identity), the role assignment fails.
 
@@ -85,7 +85,7 @@ Consider an example where Alice is an administrator with the User Access Adminis
 
 ## Role Based Access Control Administrator role
 
-The [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) role is a built-in role that has been designed for delegating role assignment management to others. It has fewer permissions than [User Access Administrator](built-in-roles.md#user-access-administrator), which follows least privilege best practices. The Role Based Access Control Administrator role has following permissions:
+The [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) role is a built-in role that has been designed for delegating role assignment management to others. It has fewer permissions than [User Access Administrator](built-in-roles.md#user-access-administrator), which follows least privilege best practices. The Role Based Access Control Administrator role has following permissions:
 
 - Create a role assignment at the specified scope
 - Delete a role assignment at the specified scope
@@ -125,9 +125,9 @@ To delegate role assignment management with conditions, you assign roles as you 
 
 1. Start a new role assignment
 
-1. Select the [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) role
+1. Select the [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) role
 
-    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` action, but Role Based Access Control Administrator (Preview) has fewer permissions.
+    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` action, but Role Based Access Control Administrator has fewer permissions.
 
 1. Select the delegate
 

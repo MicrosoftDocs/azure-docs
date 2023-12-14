@@ -20,9 +20,9 @@ This tutorial shows how to build, configure, and deploy a secure [Quarkus](https
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
 * Knowledge of Java with [Quarkus](https://quarkus.io) development.
 
-## 1. Run the sample application
+## 1. Run the sample
 
-The tutorial uses [Quarkus sample: Hibernate ORM with Panache and RESTEasy](https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app), which comes with a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The easiest way to run it is in a GitHub codespace.
+For your convenience, the sample repository, [Hibernate ORM with Panache and RESTEasy](https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database, cache, and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/en/codespaces/overview), which means you can run the sample on any computer with a web browser.
 
 :::row:::
     :::column span="2":::
@@ -50,6 +50,7 @@ The tutorial uses [Quarkus sample: Hibernate ORM with Panache and RESTEasy](http
         1. Run `mvn quarkus:dev`.
         1. When you see the notification `Your application running on port 8080 is available.`, select **Open in Browser**. If you see a notification with port 5005, skip it.
         You should see the sample application in a new browser tab.
+        To stop the Quarkus development server, type `Ctrl`+`C`.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png" alt-text="A screenshot showing how to run the sample application inside the GitHub codespace." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-run-sample-application-3.png":::
@@ -187,54 +188,63 @@ Note the following:
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:** Back in the GitHub codespace of your sample fork, 
+        **Step 3:** Back in the GitHub codespace of your sample fork, run `git pull origin main`. 
+        This pulls the newly committed workflow file into your codespace.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing git pull inside a GitHub codespace." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:**  
         1. Open *src/main/resources/application.properties* in the explorer. Quarkus uses this file to load Java properties.
         1. Add a production property `%prod.quarkus.datasource.jdbc.url=${AZURE_POSTGRESQL_CONNECTIONTRING}`. 
         This property sets the production data source URL to the app setting that the creation wizard generated for you.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing a GitHub codespace and the application.properties file opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing a GitHub codespace and the application.properties file opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4:** 
+        **Step 5:** 
         1. Open *.github/workflows/main_msdocs-quarkus-postgres-XYZ.yml* in the explorer. This file was created by the App Service create wizard.
         1. Under the `Build with Maven` step, change the Maven command to `mvn clean install -DskipTests -Dquarkus.package.type=uber-jar`.
         `-DskipTests` skips the tests in your Quarkus project, and `-Dquarkus.package.type=uber-jar` creates an Uber-Jar that App Service needs.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png" alt-text="A screenshot showing a GitHub codespace and a GitHub workflow YAML opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-4.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing a GitHub codespace and a GitHub workflow YAML opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5:**
+        **Step 6:**
         1. Select the **Source Control** extension.
         1. In the textbox, type a commit message like `Configure DB and deployment workflow`.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 2**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-5.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6:** Back in the Deployment Center page in the Azure portal:
+        **Step 7:** Back in the Deployment Center page in the Azure portal:
         1. Select **Logs**. A new deployment run is already started from your committed changes.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-7.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
+        **Step 8:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Complete**. It takes about 5 minutes.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-7.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-7.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-8.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-8.png":::
     :::column-end:::
 :::row-end:::
 

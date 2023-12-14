@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 11/29/2023
+ms.date: 12/13/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -309,10 +309,6 @@ The name of each built-in links to the policy definition in the Azure portal. Us
 ## Tags
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
-
-## Video Analyzers
-
-[!INCLUDE [azure-policy-reference-policies-video-analyzers](../../../../includes/policy/reference/bycat/policies-video-analyzers.md)]
 
 ## VM Image Builder
 

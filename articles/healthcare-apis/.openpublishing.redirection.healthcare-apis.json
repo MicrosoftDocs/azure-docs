@@ -768,7 +768,11 @@
       },
       {   "source_path_from_root": "/articles/healthcare-apis/iot/how-to-configure-metrics.md",
             "redirect_url": "/azure/healthcare-apis/iot/configure-metrics",
-            "redirect_document_id": false          
+            "redirect_document_id": false 
+      },
+      {   "source_path_from_root": "/articles/healthcare-apis/iot/iot-metrics-display.md",
+          "redirect_url": "/azure/healthcare-apis/iot/configure-metrics",
+          "redirect_document_id": false           
       },
       {   "source_path_from_root": "/articles/healthcare-apis/events/events-display-metrics.md",
           "redirect_url": "/azure/healthcare-apis/events/events-use-metrics",

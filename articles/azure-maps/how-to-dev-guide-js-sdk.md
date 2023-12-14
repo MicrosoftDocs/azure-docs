@@ -403,7 +403,7 @@ main().catch(console.error);
 [Node.js]: https://nodejs.org/en/download/
 [search package]: https://www.npmjs.com/package/@azure-rest/maps-search
 [search readme]: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/maps/maps-search-rest/README.md
-[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v1-beta
+[search sample]: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/maps/maps-search-rest/samples/v2-beta
 [Search service]: /rest/api/maps/search
 [searchAddress]: /javascript/api/@azure-rest/maps-search/searchaddress
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

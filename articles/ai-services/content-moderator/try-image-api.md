@@ -1,7 +1,7 @@
 ---
 title: Moderate images with the API Console - Content Moderator
 titleSuffix: Azure AI services
-description: Use the Image Moderation API in Azure AI Content Moderator to scan image content.
+description: Use the Image Moderation API in Azure Content Moderator to scan image content.
 #services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Moderate images from the API console
 
-Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure AI Content Moderator to scan image content. The moderation job scans your content for profanity, and compares it against custom and shared blocklists.
+Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator to scan image content. The moderation job scans your content for profanity, and compares it against custom and shared blocklists.
 
 ## Use the API console
 Before you can test-drive the API in the online console, you need your subscription key. This is located on the **Settings** tab, in the **Ocp-Apim-Subscription-Key** box. For more information, see [Overview](overview.md).
