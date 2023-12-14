@@ -63,7 +63,8 @@ Attribute | Open source models curated by Azure Machine Learning | Transformers 
 --|--|--
 Model format | Curated in MLFlow or Triton model format for seamless no-code deployment with online and batch endpoints | Transformers
 Model hosting | Model weights hosted on Azure |  Model weights are pulled on demand during deployment from HuggingFace hub.
-Use in network isolated workspace | Out-of-the-box outbound capability to use models. Some models will require outbound to public domains for installing packages at runtime. | Allow outbound to HuggingFace hub, Docker hub and their CDNs | Support | Supported by Microsoft and covered by [Azure Machine Learning SLA](https://www.azure.cn/en-us/support/sla/machine-learning/) | Hugging face creates and maintains models listed in `HuggingFace` community registry. Use [HuggingFace forum](https://discuss.huggingface.co/) or [HuggingFace support](https://huggingface.co/support) for help.
+Use in network isolated workspace | Out-of-the-box outbound capability to use models. Some models will require outbound to public domains for installing packages at runtime. | Allow outbound to HuggingFace hub, Docker hub and their CDNs 
+Support | Supported by Microsoft and covered by [Azure Machine Learning SLA](https://www.azure.cn/en-us/support/sla/machine-learning/) | Hugging face creates and maintains models listed in `HuggingFace` community registry. Use [HuggingFace forum](https://discuss.huggingface.co/) or [HuggingFace support](https://huggingface.co/support) for help.
 
 ## Learn more
 
