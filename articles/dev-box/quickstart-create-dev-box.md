@@ -53,12 +53,12 @@ To create a dev box in the Microsoft Dev Box developer portal:
    - How many dev boxes you can create in the project that you selected, if the project has limits configured
    - Whether hibernation is supported or not
    - A shutdown time if the pool where you're creating the dev box has a shutdown schedule
+   - A notification that the dev box creation process can take 25 minutes or longer
    
 1. Select **Create** to begin creating your dev box.
 
 1. Use the dev box tile in the developer portal to track the progress of creation.
 
-   The developer portal displays a notification that the dev box creation process can take 25 minutes. After the process completes, the dev box status changes to *Running*.
    
 
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating.":::
