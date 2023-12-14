@@ -368,7 +368,7 @@ If the container image for a Batch task is configured with an [ENTRYPOINT](https
 
 - To use the default ENTRYPOINT of the container image, set the task command line to the empty string `""`.
 
-- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--endpoint "/bin/sh - python"`
+- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--entrypoint "/bin/sh - python"`
 
 - If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
 

@@ -47,9 +47,15 @@ The following is a sample request body. The format is the same as the chat compl
         },
         {
             "role": "user", 
-            "content": [ 
-               { "type": "text", "text": "Describe this picture:" }, 
-               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+            "content": [
+	            {
+	                "type": "text",
+	                "text": "Describe this picture:"
+	            },
+	            {
+	                "type": "image_url",
+	                "image_url": "<URL or base-64-encoded image>" 
+                } 
            ] 
         }
     ],
@@ -64,31 +70,68 @@ The API response should look like the following.
 
 ```json
 {
-    "id": "chatcmpl-8Uyxu7xpvngMZnvMhVAPpiI3laUef",
+    "id": "chatcmpl-8VAVx58veW9RCm5K1ttmxU6Cm4XDX",
     "object": "chat.completion",
-    "created": 1702394882,
+    "created": 1702439277,
     "model": "gpt-4",
-    "choices":
-    [
+    "prompt_filter_results": [
         {
-            "finish_details":
-            {
+            "prompt_index": 0,
+            "content_filter_results": {
+                "hate": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "self_harm": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "sexual": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "violence": {
+                    "filtered": false,
+                    "severity": "safe"
+                }
+            }
+        }
+    ],
+    "choices": [
+        {
+            "finish_details": {
                 "type": "stop",
                 "stop": "<|fim_suffix|>"
             },
             "index": 0,
-            "message":
-            {
+            "message": {
                 "role": "assistant",
-                "content": "This picture depicts a grayscale image of an individual showcasing dark hair combed to one side, and the tips of their ears are also visible. The person appears to be dressed in a casual outfit with a hint of a garment that has a collar or neckline. The background is a plain and neutral shade, creating a stark contrast with the subject in the foreground."
+                "content": "The picture shows an individual dressed in formal attire, which includes a black tuxedo with a black bow tie. There is an American flag on the left lapel of the individual's jacket. The background is predominantly blue with white text that reads \"THE KENNEDY PROFILE IN COURAGE AWARD\" and there are also visible elements of the flag of the United States placed behind the individual."
+            },
+            "content_filter_results": {
+                "hate": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "self_harm": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "sexual": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "violence": {
+                    "filtered": false,
+                    "severity": "safe"
+                }
             }
         }
     ],
-    "usage":
-    {
-        "prompt_tokens": 816,
-        "completion_tokens": 71,
-        "total_tokens": 887
+    "usage": {
+        "prompt_tokens": 1156,
+        "completion_tokens": 80,
+        "total_tokens": 1236
     }
 }
 ```
@@ -147,16 +190,22 @@ You must also include the `enhancements` and `dataSources` objects. `enhancement
             "key": "<your_computer_vision_key>"
         }
     }],
-    "messages": [ 
+    "messages": [
         {
-            "role": "system", 
-            "content": "You are a helpful assistant." 
+            "role": "system",
+            "content": "You are a helpful assistant."
         },
         {
-            "role": "user", 
-            "content": [ 
-               { "type": "text", "text": "Describe this picture:" }, 
-               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+            "role": "user",
+            "content": [
+	            {
+	                "type": "text",
+	                "text": "Describe this picture:"
+	            },
+	            {
+	                "type": "image_url",
+	                "image_url": "<URL or base-64-encoded image>" 
+                }
            ] 
         }
     ],
@@ -347,18 +396,18 @@ Every response includes a `"finish_details"` field. The subfield `"type"` has th
 
 If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
-## Low or high fidelity image understanding
+## Detail parameter settings in image processing: Low, High, Auto  
 
-By controlling the _detail_ parameter, which has two options, `low` or `high`, you can control how the model processes the image and generates its textual understanding.
-- `low` disables the "high res" mode. The model receives a low-res 512x512 version of the image and represents the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that don't require high detail.
-- `high` enables "high res" mode, which first allows the model to see the low res image and then creates detailed crops of input images as 512x512 squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens.
+The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
+- `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
+- `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.
 
 ## Limitations
 
 ### Image support
 
 - **Limitation on image enhancements per chat session**: Enhancements cannot be applied to multiple images within a single chat call.
-- **Maximum input image size**: The maximum size for input images is restricted to 4 MB.
+- **Maximum input image size**: The maximum size for input images is restricted to 20 MB.
 - **Object grounding in enhancement API**: When the enhancement API is used for object grounding, and the model detects duplicates of an object, it will generate one bounding box and label for all the duplicates instead of separate ones for each.
 - **Low resolution accuracy**: When images are analyzed using the "low resolution" setting, it allows for faster responses and uses fewer input tokens for certain use cases. However, this could impact the accuracy of object and text recognition within the image.
 - **Image chat restriction**: When uploading images in the chat playground or the API, there is a limit of 10 images per chat call.
