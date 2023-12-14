@@ -45,7 +45,7 @@ The chart shows the computing pressure of your SignalR service. You can test you
 Azure SignalR Service defines seven Standard tiers for different performance capacities. This
 guide answers the following questions:
 
-* What is the typical Azure SignalR Service performance for each tier(unit)?
+* What is the typical Azure SignalR Service performance for each tier (unit)?
 
 * Does Azure SignalR Service meet my requirements for message throughput (for example, sending 100,000 messages per second)?
 
@@ -179,7 +179,7 @@ The real use case is more complicated. It might send a message larger than 2,048
 
 The following table shows a real use case of **broadcast**. But the message size, connection count, and message sending rate are different from what we assumed in the previous section. The question is how we can deduce any of those items (message size, connection count, or message sending rate) if we know only two of them.
 
-| Broadcast  | Message size | Concurrent Inbound messages  | Connections | Send intervals |
+| Broadcast  | Message size | Concurrent inbound messages  | Connections | Send intervals |
 |---|---------------------|--------------------------|-------------|-------------------------|
 | 1 | 20 KB                | 1                        | 100,000     | 5 sec                      |
 | 2 | 256 KB               | 1                        | 8,000       | 5 sec                      |
@@ -240,7 +240,6 @@ The behavior of **echo** determines that the maximum inbound bandwidth is equal 
 | Inbound/outbound messages per second | 1,000 | 2,000 | 10,000 | 50,000 | 100,000 | 200,000 | 500,000                          | 1,000,000                         |
 | Inbound/outbound bandwidth         | 2 MBps| 4 MBps| 20 MBps| 100 MBps| 200 MBps| 400 MBps| 1,000 MBps                       | 2,000 MBps                       |
 
-...
 
 
 In this use case, every client invokes the hub defined in the app server. The hub just calls the method defined in the original client side. This hub is the most lightweight hub for **echo**.
