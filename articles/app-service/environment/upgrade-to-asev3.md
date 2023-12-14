@@ -41,6 +41,72 @@ App Service Environment v3 is the latest version of App Service Environment. It'
 - [App Service Environment version comparison](version-comparison.md)
 - [Feature differences](overview.md#feature-differences)
 
+### What tooling is available to help with the upgrade to App Service Environment v3?
+
+There are two automated migration features available to help you upgrade to App Service Environment v3. 
+
+- **In-place migration feature** migrates your App Service Environment to App Service Environment v3 in-place. In-place means that your App Service Environment v3 will replace your existing App Service Environment in the same subnet. There is application downtime during the migration because a subnet can only have a single App Service Environment at a given time. For more information about this feature, see [Automated upgrade using the in-place migration feature](migrate.md).
+- **Side by side migration feature** creates a new App Service Environment v3 in a different subnet that you choose and recreates all of your App Service plans and apps in that new environment. Your existing environment is up and running during the entire migration. Once the new App Service Environment v3 is ready, you can redirect traffic to the new environment and complete the migration. There is no application downtime during the migration. For more information about this feature, see [Automated upgrade using the side by side migration feature](side-by-side-migrate.md).
+- **Manual migration options** are available if you can't use the automated migration features. For more information about these options, see [Migration alternatives](migration-alternatives.md).
+
+### Migration path decision tree
+
+Use the following decision tree to determine which migration path is right for you.
+
+:::image type="content" source="./media/migration/migration-path-decision-tree.png" alt-text="Decision tree for helping decide which App Service Environment upgrade option to use.":::
+
+### Cost saving opportunities after upgrading to App Service Environment v3
+
+The App Service plan SKUs available for App Service Environment v3 run on the Isolated v2 (Iv2) tier. The number of cores and amount of RAM are effectively doubled per corresponding tier compared the Isolated tier. When you migrate, your App Service plans are converted to the corresponding tier. For example, your I2 instances are converted to I2v2. While I2 has two cores and 7-GB RAM, I2v2 has four cores and 16-GB RAM. If you expect your capacity requirements to stay the same, you're over-provisioned and paying for compute and memory you're not using. For this scenario, you can scale down your I2v2 instance to I1v2 and end up with a similar number of cores and RAM that you had previously.
+
+> [!NOTE]
+> All scenarios are calculated using costs based on Linux $USD pricing in East US. The payment option is set to monthly.  Estimates are based on the prices applicable on the day the estimate was created. Actual total estimates may vary. For the most up-to-date estimates, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+>
+
+To demonstrate the cost saving opportunity for this scenario, use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the monthly savings as a result of scaling down your App Service plans. For this example, your App Service Environment v2 has 1 I2 instance. You require two cores and 7-GB RAM. You're using pay-as-you-go pricing. On App Service Environment v2, your monthly payment is the following.
+
+[Stamp fee + 1(I2) = $991.34 + $416.10 = $1,407.44](https://azure.com/e/014bf22b3e88439dba350866a472a41a)
+
+When you migrate this App Service Environment using the migration feature, your new App Service Environment v3 has 1 I2v2 instance, which means you have four cores and 16-GB RAM. If you don't change anything, your monthly payment is the following.
+
+[1(I2v2) = $563.56](https://azure.com/e/17946ea2c4db483d882526ba515a6771)
+
+Your monthly cost is reduced, but you don't need that much compute and capacity. You scale down your instance to I1v2 and your monthly cost is reduced even further.
+
+[1(I1v2) = $281.78](https://azure.com/e/9d481c3af3cd407d975017c2b8158bbd)
+
+#### Break even point
+
+In most cases, migrating to App Service Environment v3 allows for cost saving opportunities. However, cost savings may not always be possible, especially if you're required to maintain a large number of small instances.
+
+To demonstrate this scenario, you have an App Service Environment v2 with a single I1 instance. Your monthly cost is:
+
+[Stamp fee + 1(I1) = $991.34 + $208.05 = **$1,199.39**](https://azure.com/e/ac89a70062a240e1b990304052d49fad)
+
+If you migrate this environment to App Service Environment v3, your monthly cost is:
+
+[1(I1v2) = **$281.78**](https://azure.com/e/9d481c3af3cd407d975017c2b8158bbd)
+
+This change is a significant cost reduction, but you're over-provisioned since you have double the cores and RAM, which you may not need. This excess isn't an issue for this scenario since the new environment is cheaper. However, when you increase your I1 instances in a single App Service Environment, you see how migrating to App Service Environment v3 can increase your monthly cost.
+
+For this scenario, your App Service Environment v2 has 14 I1 instances. Your monthly cost is:
+
+[Stamp fee + 14(I1) = $991.34 + $2,912.70 = **$3,904.04**](https://azure.com/e/bd1dce4b5c8f4d6d807ed3c4ae78fcae)
+
+When you migrate this environment to App Service Environment v3, your monthly cost is:
+
+[14(I1v2) = **$3,944.92**](https://azure.com/e/e0f1ebacf937479ba073a9c32cb2452f)
+
+Your App Service Environment v3 is now more expensive than your App Service Environment v2. As you start add more I1 instances, and therefore need more I1v2 instances when you migrate, the difference in price becomes more significant. If this scenario is a requirement for your environment, you may need to plan for an increase in your monthly cost. The following graph visually depicts the point where App Service Environment v3 becomes more expensive than App Service Environment v2 for this specific scenario.
+
+> [!NOTE]
+> This calculation was done with Linux $USD prices in East US. Break even points will vary due to price variances in the different regions. For an estimate that reflects your situation, see [the Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+>
+
+:::image type="content" source="./media/migration/pricing-break-even-point.png" alt-text="Graph that shows the point where App Service Environment v3 becomes more expensive than v2 for the scenario where you only have small instances.":::
+
+For more scenarios on cost changes and savings opportunities with App Service Environment v3, see [Estimate your cost savings by migrating to App Service Environment v3](https://azure.github.io/AppService/2023/03/02/App-service-environment-v3-pricing.html).
+
 ## We want your feedback!
 
 Got 2 minutes? We'd love to hear about your upgrade experience in this quick, anonymous poll. You'll help us learn and improve.
