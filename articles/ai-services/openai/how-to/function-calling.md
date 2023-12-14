@@ -29,7 +29,6 @@ At a high level you can break down working with functions into three steps:
 * `gpt-35-turbo` (0613)
 * `gpt-25-turbo-16k` (0613)
 * `gpt-4` (0613)
-* `gpt-4-32k` (0314)
 * `gpt-4-32k` (0613)
 
 Parallel function calls are supported with:
