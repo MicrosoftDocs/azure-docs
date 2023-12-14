@@ -316,7 +316,7 @@ netsh winhttp set proxy proxy-server="http=<customerwebproxyhere>" bypass-list="
 
 If the session host doesn't pass the *MonitoringAgentCheck* health check, you'll need to check the *Remote Desktop Services Infrastructure Geneva Agent* and validate if it is functioning correctly on the session host:
 
-1. Verify if the Remote Desktop Services Infrastructure Geneva Agent is installed on the session host. You can verify this in the list of installed programs on the session host. If you see multiple version of this agent installed, uninstall older versions and only keep the latest version installed.
+1. Verify if the Remote Desktop Services Infrastructure Geneva Agent is installed on the session host. You can verify this in the list of installed programs on the session host. If you see multiple versions of this agent installed, uninstall older versions and only keep the latest version installed.
 
 1. If you don't find the Remote Desktop Services Infrastructure Geneva Agent installed on the session host, please review logs located under *C:\Program Files\Microsoft RDInfra\GenevaInstall.txt* and see if installation is failing due to an error.
 
