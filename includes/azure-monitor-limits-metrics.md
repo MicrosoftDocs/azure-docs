@@ -107,7 +107,7 @@ Prometheus alert rules and recording rules are defined in PromQL. They're perfor
 |:---|:---|
 | Rule groups per Azure Monitor workspace, in an Azure subscription  | 500<br>You can request an increase. |
 | Rules per rule group | 20<br>This limit can't be increased. |
-| Rule group evaluation interval | Between 1 minute - 24 hours minutes.<br>Default is 1 minute. |
+| Rule group evaluation interval | Between 1 minute - 24 hours.<br>Default is 1 minute. |
 | Active alerts | No limit at this time. |
 
 #### Remote write
