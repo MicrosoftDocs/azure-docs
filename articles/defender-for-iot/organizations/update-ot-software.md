@@ -1,6 +1,6 @@
 ---
 title: Update Defender for IoT OT monitoring software versions
-description: Learn how to update (upgrade) Defender for IoT software on OT sensors and legacyon-premises management servers.
+description: Learn how to update (upgrade) Defender for IoT software on OT sensors and legacy on-premises management servers.
 ms.date: 02/14/2023
 ms.topic: upgrade-and-migration-article
 ---

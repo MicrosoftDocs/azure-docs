@@ -79,7 +79,7 @@ To check for backup notifications on the on-premises management console:
 
 1. In the **Sensor Backup Schedule** dialog, check for details about recent backup activities for each sensor listed. For example:
 
-    :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="View your sensors and where they're located and all relevant information.":::
+    :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="Screenshot of the Sensor Backup Schedule dialog.":::
 
 Backup failures might occur for any of the following scenarios:
 
