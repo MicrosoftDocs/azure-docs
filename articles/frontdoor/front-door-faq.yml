@@ -245,7 +245,7 @@ sections:
           - The client receives an HTTP `421 Misdirected Request` error code response. 
           - Azure Front Door records the block in the diagnostic logs under the *Error Info* property with the value *SSLMismatchedSNI*.
           
-          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/) and [Prohibiting domain fronting on Azure Front Door and Azure CDN Standard from Microsoft (classic)]().
+          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/) and [Prohibiting domain fronting on Azure Front Door and Azure CDN Standard from Microsoft (classic)](https://techcommunity.microsoft.com/t5/azure-networking-blog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn/ba-p/4006619).
  
       - question: |
           What TLS versions are supported with Azure Front Door?
