@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 10/30/2023
+ms.date: 12/14/2023
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -118,6 +118,10 @@ Your App Service plans are converted from Isolated to the corresponding Isolated
 ### Ensure there are no locks on your resources
 
 Virtual network locks block platform operations during migration. If your virtual network has locks, you need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, they need to be removed before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+
+### Ensure there are no Azure Policies blocking migration
+
+Azure Policy can be used to deny resource creation and modification to certain principals. If you have a policy that blocks the creation of App Service Environments or the modification of subnets, you need to remove it before migrating. The policy can be readded if needed once migration is complete. For more information on Azure Policy, see [Azure Policy overview](../../azure-policy/overview.md).
 
 ### Choose your App Service Environment v3 configurations
 

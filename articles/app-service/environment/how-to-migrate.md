@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 8/23/2023
+ms.date: 12/14/2023
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -20,7 +20,7 @@ An App Service Environment v1 and v2 can be automatically migrated to an [App Se
 
 Ensure you understand how migrating to an App Service Environment v3 affects your applications. Review the [migration process](migrate.md#overview-of-the-migration-process-using-the-migration-feature) to understand the process timeline and where and when you need to get involved. Also review the [FAQs](migrate.md#frequently-asked-questions), which may answer some questions you currently have.
 
-Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration.
+Ensure there are no locks on your virtual network, resource group, resource, or subscription. Locks block platform operations during migration. Ensure there are no Azure Policies that block actions required for the migration including subnet modifications and App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
 ::: zone pivot="experience-azcli"
 
@@ -168,17 +168,21 @@ If you're using a system assigned managed identity for your custom domain suffix
 
 Only start this step once you've completed all premigration actions listed previously and understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what happens during this time. This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. During that time, there's about one hour of application downtime. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
 
-Be sure to include `--verbose` so that you receive output when the command runs. Only include the "body" parameter in the command if you're enabling zone redundancy and/or are configuring a custom domain suffix. If neither of those configurations apply to your migration, you can remove the parameter from the command.
+Only include the "body" parameter in the command if you're enabling zone redundancy and/or are configuring a custom domain suffix. If neither of those configurations apply to your migration, you can remove the parameter from the command.
 
 ```azurecli
-az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --verbose --body @parameters.json
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --body @parameters.json
 ```
 
-Note the "operationId" that's returned after running the previous command. You need this ID to check the status of your migration. Including `--verbose` will result in the following output. The operation ID is highlighted in the screenshot.
+Run the following commands to check the detailed status of your migration. For information on the statuses, see the [migration status descriptions](migrate.md#migrate-to-app-service-environment-v3).
 
-:::image type="content" source="./media/migration/operation-id.png" alt-text="Location of operation ID in migration command response.":::
+The first command will get the operation id for the migration. Copy the value of the "id" property.
 
-Run the following command to check the status of your migration. Replace the placeholder for operation ID with the ID you copied. For details on the statuses, see the [migration status descriptions](migrate.md#migrate-to-app-service-environment-v3).
+```azurecli
+az rest --method get --uri "${ASE_ID}/operations?api-version=2022-03-01"
+```
+
+Replace the placeholder for the operation id in the following command with the value you copied in the previous step. This command will return the detailed status of your migration. You can run this command as often as needed to get the latest status.
 
 ```azurecli
 az rest --method get --uri "${ASE_ID}/operations/<operation-id>/details/default?api-version=2022-09-01"
@@ -267,6 +271,8 @@ After you add your custom domain suffix details, the "Migrate" button will be en
 ## 8. Migrate to App Service Environment v3
 
 Once you've completed all of the above steps, you can start migration. Make sure you understand the [implications of migration](migrate.md#migrate-to-app-service-environment-v3) including what happens during this time. This step takes three to six hours for v2 to v3 migrations and up to six hours for v1 to v3 migrations depending on environment size. Scaling and modifications to your existing App Service Environment are blocked during this step.
+
+Detailed migration statuses are only available when using the Azure CLI at this time. See the respective CLI section for more information.
 
 When migration is complete, you have an App Service Environment v3, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
 
