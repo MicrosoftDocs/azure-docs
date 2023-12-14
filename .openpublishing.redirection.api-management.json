@@ -1,5 +1,80 @@
 {
   "redirections": [
+      {
+        "source_path": "articles/api-management/set-graphql-resolver-policy.md",
+        "redirect_url": "/previous-versions/azure/api-management/set-graphql-resolver-policy",
+        "redirect_document_id": false
+      },      
+      {
+        "source_path": "articles/api-management/api-management-api-templates.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-api-templates",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-application-templates.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-application-templates",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-customize-styles.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-customize-styles",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-developer-portal-templates-reference.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-developer-portal-templates-reference",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-developer-portal-templates.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-developer-portal-templates",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-issue-templates.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-issue-templates",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-modify-content-layout.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-modify-content-layout",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-page-controls.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-page-controls",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-page-templates.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-page-templates",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-product-templates.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-product-templates",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-template-data-model-reference.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-template-data-model-reference",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-template-resources.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-template-resources",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/api-management-user-profile-templates.md",
+        "redirect_url": "/previous-versions/azure/api-management/api-management-user-profile-templates",
+        "redirect_document_id": false
+      },
+      {
+        "source_path": "articles/api-management/developer-portal-deprecated-migration.md",
+        "redirect_url": "/previous-versions/azure/api-management/developer-portal-deprecated-migration",
+        "redirect_document_id": false
+      }, 
     {
         "source_path_from_root": "/articles/api-management/api-management-howto-developer-portal.md",
         "redirect_url": "/azure/api-management/developer-portal-overview",
