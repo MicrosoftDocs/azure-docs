@@ -26,7 +26,7 @@ landingContent:
             url: whats-new.md
           - text: Azure NetApp Files for Azure Government
             url: azure-government.md
-      - linkListType: deploy  
+      - linkListType: reference  
         links: 
           - text: REST 
             url: /rest/api/netapp/
@@ -34,8 +34,6 @@ landingContent:
             url: /azure/templates/microsoft.netapp/allversions
           - text: Azure CLI 
             url: /cli/azure/netappfiles
-      - linkListType: reference
-        links: 
           - text: Pricing 
             url: https://azure.microsoft.com/pricing/details/netapp/
           - text: Regional availability 
