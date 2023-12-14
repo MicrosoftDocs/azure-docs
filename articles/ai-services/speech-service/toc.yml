@@ -380,6 +380,8 @@ items:
       href: language-identification.md
     - name: Audio configuration
       items:
+      - name: Audio concepts
+        href: concepts/audio-concepts.md
       - name: How to use the audio input stream
         href: how-to-use-audio-input-streams.md
       - name: How to use compressed input audio

@@ -47,9 +47,15 @@ The following is a sample request body. The format is the same as the chat compl
         },
         {
             "role": "user", 
-            "content": [ 
-               { "type": "text", "text": "Describe this picture:" }, 
-               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+            "content": [
+	            {
+	                "type": "text",
+	                "text": "Describe this picture:"
+	            },
+	            {
+	                "type": "image_url",
+	                "image_url": "<URL or base-64-encoded image>" 
+                } 
            ] 
         }
     ],
@@ -64,31 +70,68 @@ The API response should look like the following.
 
 ```json
 {
-    "id": "chatcmpl-8Uyxu7xpvngMZnvMhVAPpiI3laUef",
+    "id": "chatcmpl-8VAVx58veW9RCm5K1ttmxU6Cm4XDX",
     "object": "chat.completion",
-    "created": 1702394882,
+    "created": 1702439277,
     "model": "gpt-4",
-    "choices":
-    [
+    "prompt_filter_results": [
         {
-            "finish_details":
-            {
+            "prompt_index": 0,
+            "content_filter_results": {
+                "hate": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "self_harm": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "sexual": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "violence": {
+                    "filtered": false,
+                    "severity": "safe"
+                }
+            }
+        }
+    ],
+    "choices": [
+        {
+            "finish_details": {
                 "type": "stop",
                 "stop": "<|fim_suffix|>"
             },
             "index": 0,
-            "message":
-            {
+            "message": {
                 "role": "assistant",
-                "content": "This picture depicts a grayscale image of an individual showcasing dark hair combed to one side, and the tips of their ears are also visible. The person appears to be dressed in a casual outfit with a hint of a garment that has a collar or neckline. The background is a plain and neutral shade, creating a stark contrast with the subject in the foreground."
+                "content": "The picture shows an individual dressed in formal attire, which includes a black tuxedo with a black bow tie. There is an American flag on the left lapel of the individual's jacket. The background is predominantly blue with white text that reads \"THE KENNEDY PROFILE IN COURAGE AWARD\" and there are also visible elements of the flag of the United States placed behind the individual."
+            },
+            "content_filter_results": {
+                "hate": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "self_harm": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "sexual": {
+                    "filtered": false,
+                    "severity": "safe"
+                },
+                "violence": {
+                    "filtered": false,
+                    "severity": "safe"
+                }
             }
         }
     ],
-    "usage":
-    {
-        "prompt_tokens": 816,
-        "completion_tokens": 71,
-        "total_tokens": 887
+    "usage": {
+        "prompt_tokens": 1156,
+        "completion_tokens": 80,
+        "total_tokens": 1236
     }
 }
 ```
@@ -147,16 +190,22 @@ You must also include the `enhancements` and `dataSources` objects. `enhancement
             "key": "<your_computer_vision_key>"
         }
     }],
-    "messages": [ 
+    "messages": [
         {
-            "role": "system", 
-            "content": "You are a helpful assistant." 
+            "role": "system",
+            "content": "You are a helpful assistant."
         },
         {
-            "role": "user", 
-            "content": [ 
-               { "type": "text", "text": "Describe this picture:" }, 
-               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+            "role": "user",
+            "content": [
+	            {
+	                "type": "text",
+	                "text": "Describe this picture:"
+	            },
+	            {
+	                "type": "image_url",
+	                "image_url": "<URL or base-64-encoded image>" 
+                }
            ] 
         }
     ],
@@ -349,9 +398,9 @@ If `finish_details.type` is `stop`, then there is another `"stop"` property that
 
 ## Detail parameter settings in image processing: Low, High, Auto  
 
-The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input.  
-- `low` setting: the model does not activate the "high res" mode, instead processing a lower resolution 512x512 version of the image using 65 tokens, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.  
-- `high` setting activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, amounting to 129 tokens per segment, allowing for a more detailed interpretation of the image.
+The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
+- `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
+- `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.
 
 ## Limitations
 
