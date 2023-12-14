@@ -22,56 +22,75 @@ This article covers the recommended approaches, guidelines and practices for Azu
 
 Before you begin relocation planning, make sure that you include the following considerations and recommended guidance:
 
-- **Create a separate export template for virtual networking peering**. [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. 
+- **Create a dependency map** with all the Azure services that use the Virtual Network. For the services that
+are in scope of a relocation, you must select the appropriate [relocation strategy](./relocation-strategies.md).
 
-It's recommended that you:
-
-  1. Remove the peering before you export the template.
-  1. Copy the details of the peering to create a separate template.
-  1. Use the peering template to reestablish the peering after the relocation of the network.
+- **Create a separate export template for virtual networking peering**. [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. It's recommended that you:
     
-Architecture: Identify the source networking layout and all the resources that are currently used. This layout includes but isn’t
-limited to load balancers, network security groups (NSGs), Route Tables, and reserved IPs.
-Collect/List all virtual network resources & configurations.
-Associated DDoS plan.
-Azure Firewall
-Private endpoint connections
-Diagnostic setting configuration
+    1. Remove the peering before you export the template.
+    1. Copy the details of the peering to create a separate template.
+    1. Use the peering template to reestablish the peering after the relocation of the network.
+    
+- **Identify the source networking layout and all the resources that are currently used.** This layout can include load balancers, network security groups (NSGs), Route Tables, and reserved IPs.
 
-![Virtual Network Relocation Pattern](/relocation/patterns/az-services/virtualnetwork/virtual_network_relocation_pattern.png)
-
-## Prerequisites
-
-- **Export Template**: Virtual network peerings won't be re-created, and they'll fail if they're still present in the exported template. You can remove the peering before you export the template and capture the details of the
-  peering to create a separate template to reestablish the peering after the relocation of the network or you remove the peering information in the exported template manually.
-- **Architecture**: Identify the source networking layout and all the resources that are currently used. This layout includes but isn't limited to load balancers, network security groups (NSGs), and reserved IPs.
-- **Collect/List** all virtual network resources & configurations.
-  - Associated DDoS plan.
-  - Azure Firewall
-  - Private endpoint connections
-  - Diagnostic setting configuration
-- **Azure Landing Zone** has been deployed as per assessed architecture.
-- **Network Peering**: Its an independent networking resource and associated with a Virtual network.
-- **Load Balancer**: Its an independent networking resource and associated with a Virtual network.
-- **Route Table**: Its an independent networking resource and associated with a Virtual network.
-- **NAT gateway**: Its an independent networking resource and associated with a Virtual network.
-- **DDOS Protection Plan Prerequisite**: Its an independent security resource and associated with a Virtual network.
-- **Network Security Group (NSG)**: Its an independent security resource and associated with a Virtual network.
-- **Reserved Private IP Address**: Its a static private IP addresses which need to plan during or before Network relocation.
-- **Application Security Groups (ASG)** enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups.  You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your businesslogic.
-- it can be in the same, or in different subscription as the virtual network,
-  Both subscriptions must be associated to the same Azure Active Directory
-  tenant.
-- Note DDOS protection plan settings and protected resources like virtual
-  networks.
+- **Collect/List all virtual network resources & configurations**, such as Associated DDoS plan, Azure Firewall, Private endpoint connections and Diagnostic setting configuration.
 
 ## Dependencies
 
 None.
 
-### Dependent Resources
+## Dependent Resources
 
 Below is a list of Virtual Network dependent resources.
+
+## Relocation strategies
+
+To move Azure Virtual Network to a new region, you can choose to either migration or redeployment. However, it's recommended that you use the redeployment strategy top move your virtual network to a new region.
+
+### Migration strategy
+
+You can use Azure Resource Mover to migrate your virtual network to another region. However, it's important to note following considerations:
+
+- All workloads in a virtual network must be relocated together.
+
+- A relocation using Azure Resource Mover doesn't support private IP address range change.
+
+- Azure Resource Mover can move resources such as Network Security Group and User Defined Route along with the virtual network. However, its recommended that you move them separately. Moving them altogether can lead to failure of the  `Validate dependencies` stage.
+
+- Resource Mover cannot directly move NAT gateway instances from one region to another. To work around this limitation, see [Create and configure NAT gateway after moving resources to another region](/azure/nat-gateway/region-move-nat-gateway).
+
+- Azure Resource Mover doesn’t support any changes to the address space during the relocation process. As a result, when movement completes, both source and target have the same, and thus conflicting, address space. It's recommended that you do manual update of address space as soon as relocation completes.
+
+- Virtual Network Peering must be reconfigured after the relocation. Its recommended that you move the peering virtual network either before or with the source virtual network.
+
+- While performing the Initiate move steps with Azure Resource Mover, resources may be temporarily unavailable.
+
+
+To learn how to migrate your virtual network to a new region using Azure Resource Mover, see [Move Azure VMs across regions](/azure/resource-mover/tutorial-move-region-virtual-machine).
+
+
+### Redeployment strategy (Recommended)
+
+It's recommended that you redeploy, rather than migrate your virtual network, to a new region. It's important to note the following considerations:
+
+- If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other, 
+- Supports option to enable and disable private IP address range change in the target region.
+- If you don't enable private IP address change in the target region, data migration scenarios where
+communication between source and target region is required, can only be established using public
+endpoints (public IP addresses).
+
+To redeploy your virtual network to another region, choose the appropriate how-tos:
+
+|To learn how to move...| Using...| Go to...|
+|----|---|---|
+|Network Security Groups (NSG)| Azure portal|[Move Azure NSG to another region using the Azure portal](/azure/virtual-network/move-across-regions-nsg-portal).|
+| |PowerShell|[Move Azure NSG to another region using the PowerShell](/azure/virtual-network/move-across-regions-nsg-powershell).|
+|Virtual Network| Azure portal|[Move Azure Virtual Network to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
+|| PowerShell|[Move Azure Virtual Network to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
+|Public IP| Azure portal|[Move Azure Public IP to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
+|| PowerShell|[Move Azure Public IP to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
+
+
 
 
 | Category           | Service                                                                                                                                                                     | Dedicated Subnet                                              |
