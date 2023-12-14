@@ -29,11 +29,11 @@
       href: quickstart-wordpress.md
     - name: Deploy Go (experimental)
       href: quickstart-golang.md
-    - name: Use ARM template
-      displayName: Resource Manager
-      href: quickstart-arm-template.md      
     - name: Deploy a custom container
       href: quickstart-custom-container.md
+    - name: Use ARM template
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
 - name: Deployment and configuration
   items:
     - name: Deployment best practices
