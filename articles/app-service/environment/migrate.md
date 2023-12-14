@@ -28,7 +28,6 @@ At this time, the in-place migration feature doesn't support migrations to App S
 ### Azure Public
 
 - Jio India West
-- UAE Central
 
 ### Microsoft Azure operated by 21Vianet
 
