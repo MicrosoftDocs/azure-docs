@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.author: gennadyk 
 author: code-sidd
 ms.date: 03/09/2023
+ms.custom: references_regions
 ---
 
 # Connectivity architecture in Azure Database for PostgreSQL
@@ -35,7 +36,7 @@ The gateway service is hosted on group of stateless compute nodes located behind
 * You don't update the newer gateway IP addresses in the client-side firewall to allow outbound traffic to be able to reach our new gateway rings. 
 
 > [!IMPORTANT]
-> If customer connectivity stack needs to connect directly to gateway instead of **recommended DNS name approach**, or allow-list gateway in the firewall rules for connections to\from customer infrastructure,we **strongly encourage** customers to use Gateway IP address **subnets** versus hardcoding static IP in order to not be impacted by this activity in a region that may cause IP to change within the subnet range. 
+> If customer connectivity stack needs to connect directly to gateway instead of **recommended DNS name approach**, or allow-list gateway in the firewall rules for connections to\from customer infrastructure, we **strongly encourage** customers to use Gateway IP address **subnets** versus hardcoding static IP in order to not be impacted by this activity in a region that may cause IP to change within the subnet range. 
 
 The following table lists the gateway IP address subnets of the Azure Database for PostgreSQL gateway for all data regions. The most up-to-date information of the gateway IP addresses for each region is maintained in the table below. In the table below, the columns represent following:
 
