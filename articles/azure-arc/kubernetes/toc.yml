@@ -160,8 +160,13 @@
     displayName: troubleshoot, problem, proxy, network
     href: diagnose-connection-issues.md
   - name: Troubleshooting
-    displayName: problem, issue, resolve
-    href: troubleshooting.md
+    items:
+    - name: General troubleshooting
+      displayName: problem, issue, resolve
+      href: troubleshooting.md
+    - name: Extension troubleshooting
+      displayName: gitops, flux, osm, open
+      href: extensions-troubleshooting.md
 - name: Reference
   items:
   - name: Azure Policy built-ins
