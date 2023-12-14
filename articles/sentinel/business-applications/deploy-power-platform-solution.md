@@ -144,7 +144,7 @@ After you've waited for Microsoft Sentinel to ingest the data, complete the foll
 
    |Log Analytics tables |Data collected |
    |---------|---------|
-   |PowerApps_CL, PowerPlatrformEnvironments_CL |Power Apps and Power Automate inventory data     |
+   |PowerPlatrformEnvironments_CL, PowerApps_CL, PowerAutomateFlows_CL, PowerAppsConnections_CL |Power Platfrom Environments, Power Apps and Power Automate inventory data     |
    |PowerAppsActivity |Power Apps activity logs |  
    |PowerAutomateActivity |Power Automate activity logs  |
    |PowerPlatformConnectorActivity |Power Platform connector activity logs |
