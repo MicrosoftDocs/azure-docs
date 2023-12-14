@@ -79,7 +79,7 @@ sections:
       - question: |
           What if the Log Analytics agent was already installed as an extension on the VM?
         answer: |
-          When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud doesn't override existing connections to user workspaces. Defender for Cloud stores security data from a VM in a workspace that is already connected when the "Security" or "SecurityCenterFree" solution is installed on it. Defender for Cloud may upgrade the extension version to the latest version in this process.
+          When the Monitoring Agent is installed as an extension, the extension configuration allows reporting to only a single workspace. Defender for Cloud doesn't override existing connections to user workspaces. Defender for Cloud stores security data from a VM in a workspace that is already connected when the "Security" or "SecurityCenterFree" solution is installed on it. Defender for Cloud might upgrade the extension version to the latest version in this process.
           
           For more information, see [Automatic provisioning in cases of a pre-existing agent installation](monitoring-components.md#preexisting).
           
@@ -87,7 +87,7 @@ sections:
       - question: |
           What if a Log Analytics agent is directly installed on the machine but not as an extension (Direct Agent)?
         answer: |
-          If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Defender for Cloud installs the Log Analytics agent extension, and may upgrade the Log Analytics agent to the latest version.
+          If the Log Analytics agent is installed directly on the VM (not as an Azure extension), Defender for Cloud installs the Log Analytics agent extension, and might upgrade the Log Analytics agent to the latest version.
           
           The agent installed continues to report to its already configured workspaces, and reports to the workspace configured in Defender for Cloud. (Multi-homing is supported on Windows machines.)
           
@@ -139,7 +139,7 @@ sections:
           > [!NOTE]
           > Be sure to review sections [What are the implications of opting out?](#what-are-the-implications-of-opting-out-of-automatic-provisioning-) and [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning-) if you choose to opt out of automatic provisioning.
           
-          You may want to opt out of automatic provisioning if these scenarios apply to you:
+          You might want to opt out of automatic provisioning if these scenarios apply to you:
           
           - Automatic agent installation by Defender for Cloud applies to the entire subscription. You can't apply automatic installation to a subset of VMs. If there are critical VMs that can't be installed with the Log Analytics agent, then you should opt out of automatic provisioning.
           - Installation of the Log Analytics agent extension updates the agent's version. This applies to a direct agent and a System Center Operations Manager agent (in the latter, the Operations Manager and Log Analytics agent share common runtime libraries - which is updated in the process). If the installed Operations Manager agent is version 2012 and is upgraded, manageability capabilities can be lost when the Operations Manager server is also version 2012. Consider opting out of automatic provisioning if the installed Operations Manager agent is version 2012.
@@ -221,7 +221,7 @@ sections:
           Agentless scanning is included in Defender Cloud Security Posture Management (CSPM) and Defender for Servers P2 plans. No other costs incur to Defender for Cloud when enabling it.
 
           > [!NOTE]
-          > AWS charges for retention of disk snapshots. The Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes). AWS may charge an overhead cost for the disk snapshots storage. Check with AWS to see what costs apply to you.
+          > AWS charges for retention of disk snapshots. The Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes). AWS might charge an overhead cost for the disk snapshots storage. Check with AWS to see what costs apply to you.
 
 
   - name: Workspaces

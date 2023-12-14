@@ -82,71 +82,11 @@ This step isn't required if you're using an AKS identity since it will already h
     az vmss identity assign -g <AKS-NODE-RESOURCE-GROUP> -n <AKS-VMSS-NAME> --identities <USER-ASSIGNED-IDENTITY-RESOURCE-ID>
     ```
 
-
 ## Deploy Side car and configure remote write on the Prometheus server
 
 1. Copy the YAML below and save to a file. This YAML assumes you're using 8081 as your listening port. Modify that value if you use a different port.
 
-    ```yml
-    prometheus:
-      prometheusSpec:
-        externalLabels:
-          cluster: <AKS-CLUSTER-NAME>
-    
-      ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
-      remoteWrite:
-      - url: 'http://localhost:8081/api/v1/write'
-      
-      ## Azure Managed Prometheus currently exports some default mixins in Grafana. 
-      ## These mixins are compatible with Azure Monitor agent on your Azure Kubernetes Service cluster. 
-      ## However, these mixins aren't compatible with Prometheus metrics scraped by the Kube Prometheus stack. 
-      ## In order to make these mixins compatible, uncomment remote write relabel configuration below:
-      
-      ## writeRelabelConfigs:
-      ##   - sourceLabels: [metrics_path]
-      ##     regex: /metrics/cadvisor
-      ##     targetLabel: job
-      ##     replacement: cadvisor
-      ##     action: replace
-      ##   - sourceLabels: [job]
-      ##     regex: 'node-exporter'
-      ##     targetLabel: job
-      ##     replacement: node
-      ##     action: replace
-      
-      containers:
-      - name: prom-remotewrite
-        image: <CONTAINER-IMAGE-VERSION>
-        imagePullPolicy: Always
-        ports:
-        - name: rw-port
-          containerPort: 8081
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: rw-port
-            initialDelaySeconds: 10
-            timeoutSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /ready
-            port: rw-port
-            initialDelaySeconds: 10
-            timeoutSeconds: 10
-        env:
-        - name: INGESTION_URL
-          value: <INGESTION_URL>
-        - name: LISTENING_PORT
-          value: '8081'
-        - name: IDENTITY_TYPE
-          value: userAssigned
-        - name: AZURE_CLIENT_ID
-          value: <MANAGED-IDENTITY-CLIENT-ID>
-          # Optional parameter
-        - name: CLUSTER
-          value: <CLUSTER-NAME>
-    ```
-
+    [!INCLUDE[managed-identity-yaml](../includes/prometheus-sidecar-remote-write-managed-identity-yaml.md)]
 
 2. Replace the following values in the YAML.
 
@@ -157,10 +97,6 @@ This step isn't required if you're using an AKS identity since it will already h
     | `<INGESTION-URL>` | **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace |
     | `<MANAGED-IDENTITY-CLIENT-ID>` | **Client ID** from the **Overview** page for the managed identity |
     | `<CLUSTER-NAME>` | Name of the cluster Prometheus is running on |
-
-    
-
-
 
 3. Open Azure Cloud Shell and upload the YAML file.
 4. Use helm to apply the YAML file to update your Prometheus configuration with the following CLI commands. 

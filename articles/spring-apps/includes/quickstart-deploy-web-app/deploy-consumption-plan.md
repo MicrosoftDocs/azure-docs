@@ -123,17 +123,17 @@ Use the following steps to connect your service instances:
 
 1. Go to your Azure Spring Apps instance in the Azure portal.
 
-1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+1. From the navigation pane, open **Apps** and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name and then select *Use quick start sample app* to create the app.
+1. On the **Create App** page, for the app name, use *simple-todo-web* and then select **Use quick start sample app** to create the app.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/consumption-create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/consumption-create-app.png":::
 
-1. Select **Create** to finish the app creation and the select the app to view its details.
+1. Select **Create** to finish creating the app and then select the app to view its details.
 
 1. Select **Configuration** from the navigation pane and then configure the following properties on the **Environment variables** tab:
 
-   - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-psql.postgres.database.azure.com:5432/todo?sslmode=require*
+   - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-pgsql.postgres.database.azure.com:5432/todo?sslmode=require*
    - **SPRING_DATASOURCE_USERNAME**: *myadmin*
    - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
 
@@ -189,40 +189,16 @@ Use the following steps to create an Azure Spring Apps instance and an Azure Dat
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-Use the following steps to deploy with the [Maven plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Apps):
-
-1. Navigate to the sample project directory and then use the following command to configure the app in Azure Spring Apps:
-
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:config
-   ```
-
-   The following list describes the command interactions:
-
-   - **Select child modules to configure**: Select the module to configure, then enter the number of the *SimpleTodo Web* module.
-   - **OAuth2 login**: Authorize the sign in to Azure based on the OAuth2 protocol.
-   - **Select subscription**: Select the subscription list number of the Azure Spring Apps instance you created, which defaults to the first subscription in the list. If you use the default number, press <kbd>ENTER</kbd> directly.
-   - **Select Azure Spring Apps**: Select the number of the Azure Spring Apps instance you created. If you use the default number, press <kbd>ENTER</kbd> directly.
-   - **Expose public access for this app?**: Press <kbd>y</kbd>.
-   - **Confirm to save all the above configurations (Y/n)**: Press <kbd>y</kbd>. If you press <kbd>n</kbd>, the configuration isn't saved in the POM files.
-
-1. Use the following command to deploy the app:
-
-   ```bash
-   ./mvnw com.microsoft.azure:azure-spring-apps-maven-plugin:1.18.0:deploy
-   ```
-
-   The following list describes the command interactions:
-
-   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
-
-   After the command is executed, you can see output similar to the following example, which indicates that the deployment was successful:
+[!INCLUDE [web-spring-apps-maven-plugin](web-spring-apps-maven-plugin.md)]
 
    ```output
-   [INFO] Deployment(default) is successfully updated.
+   [INFO] Start updating app(simple-todo-web)...
+   [INFO] App(simple-todo-web) is successfully updated.
+   [INFO] Starting Spring App after deploying artifacts...
    [INFO] Deployment Status: Running
+   [INFO]   InstanceName:simple-todo-web--default-xxxxxxx-xxxxxxxxx-xxxxx  Status:Running Reason:null       DiscoverStatus:NONE
    [INFO] Getting public url of app(simple-todo-web)...
-   [INFO] Application url: https://<your-azure-spring-apps-name>-simple-todo-web.azuremicroservices.io
+   [INFO] Application url: https://simple-todo-web.<unique-identifier>.<region-name>.azurecontainerapps.io
    ```
 
    The output **Application url** is the endpoint to access the `todo` application.

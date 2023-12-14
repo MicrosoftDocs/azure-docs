@@ -8,7 +8,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/05/2023
+ms.date: 11/06/2023
 ms.author: rolyon
 ms.custom:
 ---
@@ -358,6 +358,23 @@ You can define only one management group in `AssignableScopes` of a custom role.
 Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
 
 For more information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
+
+## Privileged administrator role definition
+
+Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. If a built-in or custom role includes any of the following actions, it is considered privileged. For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.md#list-or-manage-privileged-administrator-role-assignments).
+
+> [!div class="mx-tableFixed"]
+> | Action string | Description |
+> | --- | --- |
+> | `*` | Create and manage resources of all types. |
+> | `*/delete` | Delete resources of all types. |
+> | `*/write` | Write resources of all types. |
+> | `Microsoft.Authorization/denyAssignments/delete` | Delete a deny assignment at the specified scope. |
+> | `Microsoft.Authorization/denyAssignments/write` | Create a deny assignment at the specified scope. |
+> | `Microsoft.Authorization/roleAssignments/delete` | Delete a role assignment at the specified scope. |
+> | `Microsoft.Authorization/roleAssignments/write` | Create a role assignment at the specified scope. |
+> | `Microsoft.Authorization/roleDefinitions/delete` | Delete the specified custom role definition. |
+> | `Microsoft.Authorization/roleDefinitions/write` | Create or update a custom role definition with specified permissions and assignable scopes. |
 
 ## Next steps
 

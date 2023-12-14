@@ -2,7 +2,7 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 05/12/2023
+ms.date: 11/09/2023
 ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-linux
 ---
@@ -32,6 +32,8 @@ Using a Shared Image configured for your scenario can provide several advantages
 ## Prerequisites
 
 > [!NOTE]
+> Currently, Azure Batch does not support the ‘TrustedLaunch’ feature. You must use the standard security type to create a custom image instead.
+> 
 > You need to authenticate using Microsoft Entra ID. If you use shared-key-auth, you will get an authentication error.  
 
 - **An Azure Batch account.** To create a Batch account, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
@@ -43,7 +45,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 >
 > The image can be in a different region as long as it has replicas in the same region as your Batch account.
 
-If you use a Microsoft Entra application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
+If you use a Microsoft Entra application to create a custom image pool with an Azure Compute Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
 
 ## Prepare a Shared Image
 

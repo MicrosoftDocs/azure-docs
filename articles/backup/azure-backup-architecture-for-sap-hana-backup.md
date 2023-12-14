@@ -1,8 +1,8 @@
 ---
-title: Azure Backup Architecture for SAP HANA Backup
+title: Azure Backup architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
 ms.topic: conceptual
-ms.date: 06/20/2023
+ms.date: 11/02/2023
 ms.service: backup
 ms.custom: ignite-2022
 author: AbhishekMallick-MS
@@ -142,9 +142,27 @@ This section provides you with an understanding about the backup process of an H
 >[!Note]
 >For the HANA VMs that are already backed-up as individual machines, you can do the grouping only for future backups.  
 
+### Backup architecture for database instance snapshot
+
+Azure Backup integrates Azure-managed disk full or incremental snapshots with HANA snapshot commands to deliver instant backup and recovery capabilities for HANA.
+
+**SAP HANA database instance snapshot backup**
+
+The backup architecture explains the different permissions that are required for the Azure Backup service, which resides on a HANA virtual machine (VM), to take snapshots of the managed disks and place them in a user-specified resource group that's mentioned in the policy. To do so, you can use the system-assigned managed identity of the source VM.
+
+
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/sap-hana-database-instance-snapshot-backup-architecture.png" alt-text="Diagram shows the SAP HANA database instance snapshot backup architecture.":::
+
+**SAP HANA database instance snapshot restore**
+
+The restore architecture explains the different permissions required during the restore operation. Azure Backup uses the target VM’s managed identity to read disk snapshots from a user-specified resource group, create disks in a target resource group, and attach them to the target VM.
+
+:::image type="content" source="./media/azure-backup-architecture-for-sap-hana-backup/sap-hana-database-instance-snapshot-restore-architecture.png" alt-text="Diagram shows the SAP HANA database instance snapshot restore architecture.":::
+
+
 ## Next steps
 
 - Learn about the supported configurations and scenarios in the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
 - Learn about how to [backup SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md).
 - Learn about how to [backup SAP HANA System Replication databases in Azure VMs](sap-hana-database-with-hana-system-replication-backup.md).
-- Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs (preview)](sap-hana-database-instances-backup.md).
+- Learn about how to [backup SAP HANA databases' snapshot instances in Azure VMs](sap-hana-database-instances-backup.md).

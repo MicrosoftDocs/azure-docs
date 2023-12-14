@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Optical character recognition client library for .NET"
 description: In this quickstart, get started with the Optical character recognition client library for .NET.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

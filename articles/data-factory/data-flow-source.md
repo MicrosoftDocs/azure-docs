@@ -152,6 +152,6 @@ If you're reading from an Azure SQL Database source, custom **Source** partition
 
 For more information on optimization within mapping data flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
 
-## Next steps
+## Related content
 
 Begin building your data flow with a [derived-column transformation](data-flow-derived-column.md) and a [select transformation](data-flow-select.md).

@@ -7,7 +7,7 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 10/16/2023
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.custom:
 ---
 
 # Monitor Azure Attestation 

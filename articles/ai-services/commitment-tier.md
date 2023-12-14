@@ -3,7 +3,10 @@ title: Create an Azure AI services resource with commitment tier pricing
 description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing.
 author: aahill
 ms.author: aahi
-ms.custom: subject-cost-optimization, mode-other
+ms.custom:
+  - subject-cost-optimization
+  - mode-other
+  - ignite-2023
 ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 12/01/2022
@@ -21,6 +24,7 @@ Azure AI offers commitment tier pricing, each offering a discounted rate compare
   * Sentiment Analysis
   * Key Phrase Extraction
   * Language Detection
+  * Named Entity Recognition (NER)
 
 Commitment tier pricing is also available for the following Azure AI service:
 
@@ -28,6 +32,7 @@ Commitment tier pricing is also available for the following Azure AI service:
   * Sentiment Analysis
   * Key Phrase Extraction
   * Language Detection
+  * Named Entity Recognition (NER)
 
 * Azure AI Vision - OCR
 
@@ -42,7 +47,7 @@ For more information, see [Azure AI services pricing](https://azure.microsoft.co
 2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier.
 
     > [!NOTE]
-    > If you intend to purchase a commitment tier for disconnected container usage, you will need to request separate access and select the **Commitment tier disconnected containers** pricing tier. For more information, [disconnected containers](./containers/disconnected-containers.md).
+    > If you intend to purchase a commitment tier for disconnected container usage, you will need to request separate access and select the **Commitment tier disconnected containers** pricing tier. For more information, see [disconnected containers](./containers/disconnected-containers.md).
 
     :::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
 
@@ -85,6 +90,18 @@ If you need a larger commitment plan than any of the ones offered, contact `csga
 ## End a commitment plan
 
 If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's autorenewal to **Do not auto-renew**. Your commitment plan expires on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You're able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of each month to end a commitment plan, and not be charged for the following month.
+
+## Purchase a commitment tier pricing plan for disconnected containers
+
+Commitment plans for disconnected containers have a calendar year commitment period. These are different plans than web and connected container commitment plans. When you purchase a commitment plan, you'll be charged the full price immediately. During the commitment period, you can't change your commitment plan, however you can purchase additional unit(s) at a pro-rated price for the remaining days in the year. You have until midnight (UTC) on the last day of your commitment, to end a commitment plan.
+
+You can choose a different commitment plan in the **Commitment Tier pricing** settings of your resource.
+
+## Overage pricing for disconnected containers
+
+To use a disconnected container beyond the quota initially purchased with your disconnected container commitment plan, you can purchase additional quota by updating your commitment plan at any time. 
+
+To purchase additional quota, go to your resource in Azure portal and adjust the "unit count" of your disconnected container commitment plan using the slider. This will add additional monthly quota and you will be charged a pro-rated price based on the remaining days left in the current billing cycle.
 
 ## See also
 

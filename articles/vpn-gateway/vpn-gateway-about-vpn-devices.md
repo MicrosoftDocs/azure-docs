@@ -129,6 +129,7 @@ In the following tables:
 | Authentication Method |Pre-Shared Key     |Pre-Shared Key     |
 | Encryption & Hashing Algorithms |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
 | SA Lifetime           |28,800 seconds     |28,800 seconds     |
+| Number of Quick Mode SA |100 |100 |
 
 ### IKE Phase 2 (Quick Mode) parameters
 

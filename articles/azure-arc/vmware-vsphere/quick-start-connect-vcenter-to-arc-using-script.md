@@ -3,7 +3,7 @@ title: Connect VMware vCenter Server to Azure Arc by using the helper script
 description: In this quickstart, you learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 09/05/2022
+ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 
@@ -14,7 +14,7 @@ ms.subservice: azure-arc-vmware-vsphere
 
 To start using the Azure Arc-enabled VMware vSphere features, you need to connect your VMware vCenter Server instance to Azure Arc. This quickstart shows you how to connect your VMware vCenter Server instance to Azure Arc by using a helper script.
 
-First, the script deploys a virtual appliance called [Azure Arc resource bridge (preview)](../resource-bridge/overview.md) in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between vCenter Server and Azure Arc.
+First, the script deploys a virtual appliance called [Azure Arc resource bridge](../resource-bridge/overview.md) in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between vCenter Server and Azure Arc.
 
 > [!IMPORTANT]
 > This article describes a way to connect a generic vCenter Server to Azure Arc. If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, please follow this guide instead - [Deploy Arc for Azure VMware Solution](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md). With the Arc for AVS onboarding process you need to provide fewer inputs and Arc capabilities are better integrated into the AVS private cloud portal experience. 
@@ -33,7 +33,7 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge 
 
 ### vCenter Server
 
-- vCenter Server version 6.7, 7 or 8.
+- vCenter Server version 7 or 8.
 
 - A virtual network that can provide internet access, directly or through a proxy. It must also be possible for VMs on this network to communicate with the vCenter server on TCP port (usually 443).
 
@@ -52,7 +52,7 @@ You need a vSphere account that can:
 - Read all inventory. 
 - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
-This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the deployment of the Azure Arc resource bridge (preview) VM.
+This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the deployment of the Azure Arc resource bridge VM.
 
 ### Workstation
 
@@ -74,7 +74,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 4. In the **Platform** section, select **Add** under **VMware vCenter**.
 
-    :::image type="content" source="media/add-vmware-vcenter.png" alt-text="Screenshot that shows how to add VMware vCenter through Azure Arc.":::
+    :::image type="content" source="media/quick-start-connect-vcenter-to-arc-using-script/add-vmware-vcenter.png" alt-text="Screenshot that shows how to add VMware vCenter through Azure Arc.":::
 
 5. Select **Create a new resource bridge**, and then select **Next**.
 
@@ -94,7 +94,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 13. If your subscription isn't registered with all the required resource providers, a **Register** button will appear. Select the button before you proceed to the next step.
 
-    :::image type="content" source="media/register-arc-vmware-providers.png" alt-text="Screenshot that shows the button to register required resource providers during vCenter onboarding to Azure Arc.":::
+    :::image type="content" source="media/quick-start-connect-vcenter-to-arc-using-script/register-arc-vmware-providers.png" alt-text="Screenshot that shows the button to register required resource providers during vCenter onboarding to Azure Arc.":::
 
 14. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the [workstation](#prerequisites).
 
@@ -146,7 +146,7 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 | **Data center selection** | Select the name of the datacenter (as shown in the vSphere client) where the Azure Arc resource bridge VM should be deployed. |
 | **Network selection** | Select the name of the virtual network or segment to which the Azure Arc resource bridge VM must be connected. This network should allow the appliance to communicate with vCenter Server and the Azure endpoints (or internet). |
 | **Static IP / DHCP** | For deploying Azure Arc resource bridge, the preferred configuration is to use Static IP. Enter **n** to select static IP configuration. While not recommended, if you have DHCP server in your network and want to use it instead, enter **y**. If you're using a DHCP server, reserve the IP address assigned to the Azure Arc Resource Bridge VM (Appliance VM IP).  If you use DHCP, the cluster configuration IP address still needs to be a static IP address. </br>When you choose a static IP configuration, you're asked for the following information: </br> 1. **Static IP address prefix**: Network address in CIDR notation. For example: **192.168.0.0/24**. </br> 2. **Static gateway**: Gateway address. For example: **192.168.0.0**. </br> 3. **DNS servers**: IP address(es) of DNS server(s) used by Azure Arc resource bridge VM for DNS resolution. Azure Arc resource bridge VM must be able to resolve external sites, like mcr.microsoft.com and the vCenter server. </br> 4. **Start range IP**: Minimum size of two available IP addresses is required. One IP address is for the Azure Arc resource bridge VM, and the other is reserved for upgrade scenarios. Provide the starting IP address of that range. Ensure the Start range IP has internet access. </br> 5. **End range IP**: Last IP address of the IP range requested in the previous field. Ensure the End range IP has internet access. </br>|
-| **Control Plane IP address** | Azure Arc resource bridge (preview) runs a Kubernetes cluster, and its control plane always requires a static IP address. Provide an IP address that meets the following requirements:  <br> - The IP address must have internet access. <br> - The IP address must be within the subnet defined by IP address prefix. <br> - If you're using static IP address option for resource bridge VM IP address, the control plane IP address must be outside of the IP address range provided for the VM (Start range IP - End range IP). <br> - If there's a DHCP service on the network, the IP address must be outside of DHCP range.|
+| **Control Plane IP address** | Azure Arc resource bridge runs a Kubernetes cluster, and its control plane always requires a static IP address. Provide an IP address that meets the following requirements:  <br> - The IP address must have internet access. <br> - The IP address must be within the subnet defined by IP address prefix. <br> - If you're using static IP address option for resource bridge VM IP address, the control plane IP address must be outside of the IP address range provided for the VM (Start range IP - End range IP). <br> - If there's a DHCP service on the network, the IP address must be outside of DHCP range.|
 | **Resource pool** | Select the name of the resource pool to which the Azure Arc resource bridge VM will be deployed. |
 | **Data store** | Select the name of the datastore to be used for the Azure Arc resource bridge VM. |
 | **Folder** | Select the name of the vSphere VM and the template folder where the Azure Arc resource bridge's VM will be deployed. |

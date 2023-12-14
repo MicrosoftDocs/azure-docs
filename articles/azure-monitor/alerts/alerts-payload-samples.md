@@ -1097,7 +1097,7 @@ You can also use `LinkToFilteredSearchResultsAPI` or `LinkToSearchResultsAPI` to
             "/subscriptions/11111111-1111-1111-1111-111111111111"
          ],
          "originAlertId":"12345678-1234-1234-1234-1234567890ab",
-         "firedDateTime":"2021-11-17T05:34:48.0623172",
+         "firedDateTime":"2021-11-17T05:34:48.0623172Z",
          "description":"Alert rule description",
          "essentialsVersion":"1.0",
          "alertContextVersion":"1.0"

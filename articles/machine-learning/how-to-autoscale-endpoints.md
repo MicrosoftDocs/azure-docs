@@ -256,15 +256,15 @@ rule_scale_in = ScaleRule(
         metric_resource_uri = deployment.id, 
         time_grain = datetime.timedelta(minutes = 1),
         statistic = "Average",
-        operator = "GreaterThan", 
+        operator = "less Than", 
         time_aggregation = "Last",
         time_window = datetime.timedelta(minutes = 5), 
-        threshold = 70
+        threshold = 30
     ), 
     scale_action = ScaleAction(
         direction = "Increase", 
         type = "ChangeCount", 
-        value = 2, 
+        value = 1, 
         cooldown = datetime.timedelta(hours = 1)
     )
 )

@@ -177,9 +177,21 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure_powershell_scripts",
+      "url": "https://github.com/Azure-Samples/azure-docs-powershell-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "powershell_scripts",
       "url": "https://github.com/Azure/azure-docs-powershell-samples",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "new_powershell_scripts",
+      "url": "https://github.com/Azure-Samples/azure-docs-powershell-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -230,6 +242,12 @@
       "branch": "master",
       "branch_mapping": {}
     },
+    {
+      "path_to_root": "function-app-arm-templates",
+      "url": "https://github.com/Azure-Samples/function-app-arm-templates",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
     {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
@@ -489,12 +507,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-batch-pup",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "santiagxf/batch-pup",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azureml-examples-mavaisma-r-azureml",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "mavaisma-r-azureml",
@@ -507,27 +519,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-sdk-preview",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "sdk-preview",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-online-endpoint-vnet",
-      "url": "https://github.com/azure/azureml-examples",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "azureml-examples-featurestore",
-      "url": "https://github.com/Azure/azureml-examples",
-      "branch": "featurestore/pup",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azureml-examples-temp-fix",
       "url": "https://github.com/Azure/azureml-examples",
-      "branch": "temp-fix-doc-error",
+      "branch": "temp-fix",
       "branch_mapping": {}
     },
     {
@@ -963,6 +957,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-quarkus-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azuresignalr-samples",
       "url": "https://github.com/aspnet/AzureSignalR-samples",
       "branch": "main",
@@ -1147,6 +1147,12 @@
       "url": "https://github.com/MicrosoftDocs/azure-reference-other-pr",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-iot-operations-samples",
+      "url": "https://github.com/Azure-Samples/explore-iot-operations",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -1228,6 +1234,7 @@
   "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
   "articles/iot/.openpublishing.redirection.iot.json",
   "articles/iot-hub/.openpublishing.redirection.iot-hub.json",
+  "articles/iot-operations/.openpublishing.redirection.iot-operations.json",
   "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
   "articles/logic-apps/.openpublishing.redirection.logic-apps.json",
   "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
@@ -1247,9 +1254,11 @@
   "articles/spring-apps/.openpublishing.redirection.spring-apps.json",
   "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
   "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
+  "articles/storsimple/.openpublishing.redirection.storsimple.json",
   "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json",
   "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
   "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
-  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json"
+  "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
+  "articles/operator-nexus/.openpublishing.redirection.operator-nexus.json"
 ]
 }

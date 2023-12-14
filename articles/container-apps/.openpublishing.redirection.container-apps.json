@@ -19,6 +19,11 @@
 			"source_path_from_root": "/articles/container-apps/disaster-recovery.md",
 			"redirect_url": "/azure/reliability/reliability-azure-container-apps",
 			"redirect_document_id": false
+        },
+        {
+			"source_path_from_root": "/articles/container-apps/start.md",
+			"redirect_url": "/azure/container-apps/overview",
+			"redirect_document_id": false
         }
     ]
 }

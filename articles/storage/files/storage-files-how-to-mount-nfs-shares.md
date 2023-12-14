@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System (NFS) Azure file share on 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/18/2023
+ms.date: 12/04/2023
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -107,9 +107,9 @@ Azure Backup isn't currently supported for NFS file shares.
 
 AzCopy isn't currently supported for NFS file shares. To copy data from an NFS Azure file share or share snapshot, use file system copy tools such as rsync or fpsync.
 
-### Regional availability for NFS Azure file share snapshots
+### Regional availability
 
-[!INCLUDE [files-nfs-snapshot-regions](../../../includes/files-nfs-snapshot-regions.md)]
+NFS Azure file share snapshots preview is now available in all Azure public cloud regions.
 
 ### Create a snapshot
 

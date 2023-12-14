@@ -158,16 +158,22 @@ Perf | where ObjectName == "Memory" and (CounterName == "Available MBytes Memory
 
 ## Create an alert based on a cross-service query
 
-To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the Scope tab.
+To create a new alert rule based on a cross-service query, follow the steps in [Create a new alert rule](../alerts/alerts-create-new-alert-rule.md), selecting your Log Analytics workspace on the **Scope** tab.
 
 ## Limitations
-
+### General cross-service query limitations
 * Database names are case sensitive.
 * Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass the time filter.
 * Cross-service queries support data retrieval only. 
 * [Private Link](../logs/private-link-security.md) (private endpoints) and [IP restrictions](/azure/data-explorer/security-network-restrict-public-access) do not support cross-service queries.
 * `mv-expand` is limited to 2000 records.
-* Azure Resource Graph cross-queries do not support these operators: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
+
+### Azure Resource Graph cross-service query limitations
+When you query Azure Resource Graph data from Azure Monitor:
+* The query returns the first 1000 records only.
+* Azure Monitor doesn't return Azure Resource Graph query errors.
+* The Log Analytics query editor marks valid Azure Resource Graph queries as syntax errors.
+* These operators aren't supported: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)

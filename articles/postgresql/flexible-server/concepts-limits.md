@@ -1,13 +1,13 @@
 ---
 title: Limits - Azure Database for PostgreSQL - Flexible Server
 description: This article describes limits in Azure Database for PostgreSQL - Flexible Server, such as number of connection and storage engine options.
-ms.author: sunila
-author: sunilagarwal
-ms.service: postgresql
+author: varun-dhawan
+ms.author: varundhawan
 ms.reviewer: kabharati
+ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 5/31/2023
+ms.date: 12/12/2023
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -18,38 +18,39 @@ The following sections describe capacity and functional limits in the database s
 
 ## Maximum connections
 
-The _default_ maximum number of connections per pricing tier and vCores are shown below. The Azure system requires three connections to monitor the Azure Database for PostgreSQL - Flexible Server.
+Below, you'll find the _default_ maximum number of connections for each pricing tier and vCore configuration. Please note, Azure Postgres reserves 15 connections for physical replication and monitoring of the Flexible Server. Consequently, the `max user connections` value listed in the table is reduced by 15 from the total `max connections`.
 
-| SKU Name                        | vCores | Memory Size | Max Connections | Max User Connections |
-|---------------------------------|--------|-------------|-----------------|----------------------|
-| **Burstable**                   |        |             |                 |                      |
-| B1ms                            | 1      | 2 GiB       | 50              | 47                   |
-| B2s                             | 2      | 4 GiB       | 100             | 97                   |
-| B2ms                            | 2      | 4 GiB       | 100             | 97                   |
-| B4ms                            | 4      | 8 GiB       | 859             | 856                  |
-| B8ms                            | 8      | 16 GiB      | 1719            | 1716                 |
-| B12ms                           | 12     | 24 GiB      | 2578            | 2575                 |
-| B16ms                           | 16     | 32 GiB      | 3438            | 3435                 |
-| B20ms                           | 20     | 40 GiB      | 4297            | 4294                 |
-| **General Purpose**             |        |             |                 |                      |
-| D2s_v3  / D2ds_v4 / D2ds_v5     | 2      | 8 GiB       | 859             | 856                  |
-| D4s_v3  / D4ds_v4 / D4ds_v5     | 4      | 16 GiB      | 1719            | 1716                 |
-| D8s_v3  / D8ds_V4 / D8ds_v5     | 8      | 32 GiB      | 3438            | 3435                 |
-| D16s_v3 / D16ds_v4 / D16ds_v5   | 16     | 64 GiB      | 5000            | 4997                 |
-| D32s_v3 / D32ds_v4 / D32ds_v5   | 32     | 128 GiB     | 5000            | 4997                 |
-| D48s_v3 / D48ds_v4 / D48ds_v5   | 48     | 192 GiB     | 5000            | 4997                 |
-| D64s_v3 / D64ds_v4 / D64ds_v5   | 64     | 256 GiB     | 5000            | 4997                 |
-| D96ds_v5                        | 96     | 384 GiB     | 5000            | 4997                 |
-| **Memory Optimized**            |        |             |                 |                      |
-| E2s_v3  / E2ds_v4  / E2ds_v5    | 2      | 16 GiB      | 1719            | 1716                 |
-| E4s_v3  / E4ds_v4   / E4ds_v5   | 4      | 32 GiB      | 3438            | 3433                 |
-| E8s_v3  / E8ds_v4   / E8ds_v5   | 8      | 64 GiB      | 5000            | 4997                 |
-| E16s_v3 / E16ds_v4  / E16ds_v5  | 16     | 128 GiB     | 5000            | 4997                 |
-| E20ds_v4 / E20ds_v5             | 20     | 160 GiB     | 5000            | 4997                 |
-| E32s_v3 / E32ds_v4  / E32ds_v5  | 32     | 256 GiB     | 5000            | 4997                 |
-| E48s_v3 / E48ds_v4  / E48ds_v5  | 48     | 384 GiB     | 5000            | 4997                 |
-| E64s_v3 / E64ds_v4  / E64ds_v5  | 64     | 432 GiB     | 5000            | 4997                 |
-| E96ds_v5                        | 96     | 672 GiB     | 5000            | 4997                 |
+|SKU Name                     |vCores|Memory Size|Max Connections|Max User Connections|
+|-----------------------------|------|-----------|---------------|--------------------|
+|**Burstable**                |      |           |               |                    |
+|B1ms                         |1     |2 GiB      |50             |35                  |
+|B2s                          |2     |4 GiB      |100            |85                  |
+|B2ms                         |2     |4 GiB      |100            |85                  |
+|B4ms                         |4     |8 GiB      |859            |844                 |
+|B8ms                         |8     |16 GiB     |1719           |1704                |
+|B12ms                        |12    |24 GiB     |2578           |2563                |
+|B16ms                        |16    |32 GiB     |3438           |3423                |
+|B20ms                        |20    |40 GiB     |4297           |4282                |
+|**General Purpose**          |      |           |               |                    |
+|D2s_v3 / D2ds_v4 / D2ds_v5   |2     |8 GiB      |859            |844                 |
+|D4s_v3 / D4ds_v4 / D4ds_v5   |4     |16 GiB     |1719           |1704                |
+|D8s_v3 / D8ds_V4 / D8ds_v5   |8     |32 GiB     |3438           |3423                |
+|D16s_v3 / D16ds_v4 / D16ds_v5|16    |64 GiB     |5000           |4985                |
+|D32s_v3 / D32ds_v4 / D32ds_v5|32    |128 GiB    |5000           |4985                |
+|D48s_v3 / D48ds_v4 / D48ds_v5|48    |192 GiB    |5000           |4985                |
+|D64s_v3 / D64ds_v4 / D64ds_v5|64    |256 GiB    |5000           |4985                |
+|D96ds_v5                     |96    |384 GiB    |5000           |4985                |
+|**Memory Optimized**         |      |           |               |                    |
+|E2s_v3 / E2ds_v4 / E2ds_v5   |2     |16 GiB     |1719           |1704                |
+|E4s_v3 / E4ds_v4 / E4ds_v5   |4     |32 GiB     |3438           |3423                |
+|E8s_v3 / E8ds_v4 / E8ds_v5   |8     |64 GiB     |5000           |4985                |
+|E16s_v3 / E16ds_v4 / E16ds_v5|16    |128 GiB    |5000           |4985                |
+|E20ds_v4 / E20ds_v5          |20    |160 GiB    |5000           |4985                |
+|E32s_v3 / E32ds_v4 / E32ds_v5|32    |256 GiB    |5000           |4985                |
+|E48s_v3 / E48ds_v4 / E48ds_v5|48    |384 GiB    |5000           |4985                |
+|E64s_v3 / E64ds_v4 / E64ds_v5|64    |432 GiB    |5000           |4985                |
+|E96ds_v5                     |96    |672 GiB    |5000           |4985                |
+
 
 ### Changing the max_connections value
 
@@ -90,6 +91,7 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 - When the storage usage reaches 95% or if the available capacity is less than 5 GiB whichever is more, the server is automatically switched to **read-only mode** to avoid errors associated with disk-full situations. In rare cases, if the rate of data growth outpaces the time it takes switch to read-only mode, your Server may still run out of storage.
 - We recommend setting alert rules for `storage used` or `storage percent` when they exceed certain thresholds so that you can proactively take action such as increasing the storage size. For example, you can set an alert if the storage percent exceeds 80% usage.
 - If you're using logical replication, then you must drop the logical replication slot in the primary server if the corresponding subscriber no longer exists. Otherwise the WAL files start to get accumulated in the primary filling up the storage. If the storage threshold exceeds certain threshold and if the logical replication slot isn't in use (due to non-available subscriber), Flexible server automatically drops that unused logical replication slot. That action releases accumulated WAL files and avoids your server becoming unavailable due to storage getting filled situation. 
+- We don't support the creation of tablespaces, so if you're creating a database, don’t provide a tablespace name. PostgreSQL will use the default one that is inherited from the template database. It's unsafe to provide a tablespace like the temporary one because we can't ensure that such objects will remain persistent after server restarts, HA failovers, etc.
    
 ### Networking
 
@@ -111,7 +113,6 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 - Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you need to use the [Single Server](../overview-single-server.md) option, which supports the older major versions 95, 96 and 10.
 - Flexible Server supports all `contrib` extensions and more. Please refer to [PostgreSQL extensions](/azure/postgresql/flexible-server/concepts-extensions).
 - Built-in PgBouncer connection pooler is currently not available for Burstable servers.
-- SCRAM authentication isn't supported with connectivity using built-in PgBouncer.
    
 ### Stop/start operation
 
@@ -131,8 +132,6 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
 - When using the Point-in-time-Restore feature, the new server is created with the same compute and storage configurations as the server it is based on.
 - VNET based database servers are restored into the same VNET when you restore from a backup.
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. Firewall rules need to be created separately for the new server.
-- Restoring a deleted server isn't supported.
-- Cross region restore isn't supported.
 - Restore to a different subscription isn't supported but as a workaround, you can restore the server within the same subscription and then migrate the restored server to a different subscription.
    
 ## Next steps
