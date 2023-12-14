@@ -91,19 +91,13 @@ In Azure Functions, a function project is a container for one or more individual
 ::: zone pivot="python-mode-configuration"  
 In this section, you create a function project that contains a single function.
 
-1. Run the `func init` command as follows to create a functions project in a folder named *LocalFunctionProj* with the specified runtime.
+1. Run the `func init` command as follows to create a Python functions project in the virtual environment.
 
     ```console
-    func init LocalFunctionProj --python
+    func init --python
     ```
 
-1. Go to the project folder.
-
-    ```console
-    cd LocalFunctionProj
-    ```
-
-    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -119,19 +113,13 @@ In this section, you create a function project that contains a single function.
 ::: zone pivot="python-mode-decorators"  
 In this section, you create a function project and add an HTTP triggered function.
 
-1. Run the `func init` command as follows to create a functions project in a folder named *LocalFunctionProj* with the specified runtime and the specified programming model version.
+1. Run the `func init` command as follows to create a Python v2 functions project in the virtual environment.
 
     ```console
-    func init LocalFunctionProj --python -m V2
+    func init --python -m V2
     ```
 
-1. Go to the project folder.
-
-    ```console
-    cd LocalFunctionProj
-    ```
-    
-    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. The file `function_app.py` can include all functions within your project. Open this file and replace the existing contents with the following code that defines an HTTP triggered function endpoint named `HttpExample`:  
 
