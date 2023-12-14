@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 08/24/2023
+ms.date: 12/12/2023
 ms.custom: engagement-fy24
 ---
 
@@ -112,6 +112,7 @@ There are four major reports that you need to review:
     - Potential savings (TCO).
     - Estimated year on year cashflow savings based on the estimated migration completed that year.
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
+    - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the Business case.
 - **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
@@ -136,8 +137,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | Software - Windows Server licensing | License cost | Calculated per two core pack license pricing of Windows Server. |
 |     | Windows Server - Extended Security Update (ESU) | License cost | Calculated for 3 years after the end of support of Windows server license: <br/><br/> ESU (Year 1) – 75% of the license cost <br/><br/> ESU (Year 2) – 100% of the license cost <br/><br/> ESU (Year 3) – 125% of the license cost <br/><br/>|
 |     |     | Software Assurance | Calculated per year as in settings. |
-|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost + support + management software cost) | License cost for vSphere Standard license + Production support for vSphere Standard license + Management software cost for vSphere Standard + production support cost of management software. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
-|     | Virtualization software for servers running in Microsoft Hyper-V environment| Virtualization Software (management software cost + software assurance) | Management software cost for System Center + software assurance. _Not included- other hypervisor software cost_ or  _Antivirus / Monitoring Agents_.|
+|     | Virtualization software for servers running in VMware environment | Virtualization Software (VMware license cost + support) | License cost for vSphere Standard license + Production support for vSphere Standard license. *Not included- other hypervisor software cost* or  *Antivirus / Monitoring Agents*.|
 | Storage | Storage Hardware |     | The total storage hardware acquisition cost is calculated by multiplying the Total volume of storage attached to  per GB cost. Default is USD 2 per GB per month. |
 |     | Storage Maintenance |     | Default is 10% of storage hardware acquisition cost. |
 | Network | Network Hardware and software | Network equipment (Cabinets, switches, routers, load balancers etc.) and software | As an industry standard and used by sellers in Business cases, it's a % of compute and storage cost. Default is 10% of storage and compute cost. |
@@ -146,6 +146,13 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | SQL Servers | SQL protection cost | Default is USD 1000 per year per server. This is multiplied with number of servers running SQL |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
+| Management | Management Software licensing | System center Management software | Used for cost of the System center management software that includes monitoring, hardware and virtual machine provisioning, automation, backup and configuration management capabilities. Cost of Microsoft system center management software is added when the system center agents are identified on any of the discovered resources. This is applicable only for windows servers and SQL servers related scenarios and includes Software assurance. |
+|     |    | VMware Vcenter Management software | This is the cost associated with VMware management software i.e. Management software cost for vSphere Standard + production support cost of management software. Not included- other hypervisor software cost or Antivirus/Monitoring Agents. |
+|     |    | Other Management software | This is the cost of the management software for third party management products. |
+|     | Management cost other than software | Monitoring cost | Specify costs other than monitoring software. Default is USD 430 per year per server. This is multiplied with the number of servers. The default used is the cost associated with a monitoring administrator. |
+|     |    | Patch Management cost | Specify costs other than patch management software. Default is USD 430 per year per server. This is multiplied with the number of servers. Default is the cost associated with a patch management administrator. |
+|     |    | Backup cost | Specify costs other than backup software. Default is USD 580 per year per server. This is multiplied with the number of servers. Default used includes the cost per server for a backup administrator and storage required locally for backup. |
+
 
 #### Azure cost
 
@@ -164,6 +171,7 @@ Cost components for running on-premises servers. For TCO calculations, an annual
 |     | Azure App Service security cost | Defender for App Service | For web apps recommended for App Service or App Service containers, the Defender for App Service cost for that region is added. |
 | Facilities | Facilities & Infrastructure | DC Facilities - Lease and Power | Facilities cost isn't applicable for Azure cost. |
 | Labor | Labor | IT admin | DC admin cost = ((Number of virtual machines) / (Avg. # of virtual machines that can be managed by a full-time administrator)) * 730 * 12 |
+| Management | Azure Management Services | Azure Monitor, Azure Backup and Azure Update Manager | Azure Monitor costs for each server as per listed price in the region assuming collection of logs ingestion for the guest operating system and one custom application is enabled for the server, totaling logs data of 3GB/month. <br/><br/> Azure Backup cost for each server/month is dynamically estimated based on the [Azure Backup Pricing](https://learn.microsoft.com/azure/backup/azure-backup-pricing), which includes a protected instance fee, snapshot storage and recovery services vault storage. <br/><br/> Azure Update Manager is free for Azure servers. |
 
 ### Year on Year costs
 

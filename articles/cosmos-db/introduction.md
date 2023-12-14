@@ -30,13 +30,21 @@ App development is faster and more productive thanks to:
 
 As a fully managed service, Azure Cosmos DB takes database administration off your hands with automatic management, updates and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 
-You can [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments or use the [Azure Cosmos DB free tier](free-tier.md) to get an account with the first 1000 RU/s and 25 GB of storage free.
+If you are an existing Azure AI or GitHub Copilot customer, you may try Azure Cosmos DB for free with 40,000 [RU/s](request-units.md) of throughput for 90 days under the Azure AI Advantage offer.
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/)
+> [90-day Free Trial with Azure AI Advantage](ai-advantage.md)
+
+If you are not an Azure customer, you may use the [30-day Free Trial without an Azure subscription](https://azure.microsoft.com/try/cosmosdb/). No commitment follows the end of your trial period.
+
+Alternatively, you may use the [Azure Cosmos DB lifetime free tier](free-tier.md) with the first 1000 [RU/s](request-units.md) of throughput and 25 GB of storage free.
 
 > [!TIP]
 > To learn more about Azure Cosmos DB, join us every Thursday at 1PM Pacific on Azure Cosmos DB Live TV. See the [Upcoming session schedule and past episodes](https://gotcosmos.com/tv).
+
+## Azure Cosmos DB is more than an AI database
+
+Besides AI database, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
 
 ## Key Benefits
 
@@ -90,10 +98,6 @@ End-to-end database management, with serverless and automatic scaling matching y
 - Cost effective.
 - Analytics for locally available, globally distributed, multi-region writes.
 - Native integration with Azure Synapse Analytics.
-
-## Azure Cosmos DB is more than an AI database
-
-Besides AI database, Azure Cosmos DB should also be your goto database for web, mobile, gaming, and IoT applications. Azure Cosmos DB is well positioned for solutions that handle massive amounts of data, reads, and writes at a global scale with near-real response times. Azure Cosmos DB's guaranteed high availability, high throughput, low latency, and tunable consistency are huge advantages when building these types of applications. Learn about how Azure Cosmos DB can be used to build IoT and telematics, retail and marketing, gaming and web and mobile applications.
 
 ## Related content
 
