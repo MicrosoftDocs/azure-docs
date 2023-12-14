@@ -14,15 +14,15 @@ ms.date: 12/11/2023
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc. An increasingly popular use case is augmenting your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG).
+Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
 
-This approach allows you to:
+An increasingly popular use case is augmenting your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG). This approach allows you to:
 
 - Generate contextually relevant and accurate responses to user prompts from AI models
 - Overcome ChatGPT, GPT-3.5, or GPT-4’s token limits
 - Reduce the costs from frequent fine-tuning on updated data
 
-Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional relational and nonrelational databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using the vector database extensions for Azure Cosmos DB when working with multi-modal data. By doing so, you can keep your vector embeddings and original data together to achieve data consistency, scale, and performance while avoiding the extra cost of moving data to a separate vector database. The importance of data consistency, scale, and performance to data-intensive applications is why OpenAI built its ChatGPT service on top of Azure Cosmos DB.
+Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional databases. Instead of adding a separate vector database, you can use our vector database extensions when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance. The latter reason is why OpenAI built its ChatGPT service on top of Azure Cosmos DB.
 
 Here's how to implement our vector database extensions:
 
