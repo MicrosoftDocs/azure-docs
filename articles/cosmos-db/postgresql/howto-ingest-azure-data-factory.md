@@ -60,7 +60,7 @@ new to Data Factory, here's a quick guide on how to get started:
 
 2. On the Azure Data Factory Studio home page, select **Orchestrate**.
 
-   :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Screenshot showing the Orchestrate page of Azure Data Factory.":::
+   :::image type="content" source="media/howto-ingestion/azure-data-factory-orchestrate.png" alt-text="Screenshot showing the 'Orchestrate' page of Azure Data Factory.":::
 
 3. Under **Properties**, enter a name for the pipeline.
 
@@ -90,8 +90,8 @@ new to Data Factory, here's a quick guide on how to get started:
    2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
    3. On the **Set properties** page, under **Linked service**, select **New**.
    4. On the **New linked service** page, enter a name for the linked service, and select **Enter manually** in the **Account selection method**.
-   5. Enter your cluster's coordinator name in the **Fully qualified domain name** field. You can copy the oordinators name from the *Overview* page of your Azure Cosmos DB for PostgreSQL cluster. 
-   6. Leave default port 5432 in the **Port** field for direct connection to coordinator or replace it with port 6432 to connect to [the managed PgBouncer](./concepts-connection-pool.md) port.
+   5. Enter your cluster's coordinator name in the **Fully qualified domain name** field. You can copy the coordinator's name from the *Overview* page of your Azure Cosmos DB for PostgreSQL cluster. 
+   6. Leave default port 5432 in the **Port** field for direct connection to the coordinator or replace it with port 6432 to connect to [the managed PgBouncer](./concepts-connection-pool.md) port.
    7. Enter database name on your cluster and provide credentials to connect to it.
    8. Select **SSL** in the **Encryption method** drop-down list.
   
@@ -106,8 +106,7 @@ new to Data Factory, here's a quick guide on how to get started:
       :::image type="content" source="media/howto-ingestion/azure-data-factory-copy-command.png" alt-text="Screenshot that shows selecting the table and Copy command.":::
 
 7. From the toolbar above the canvas, select **Validate** to validate pipeline
-   settings. Fix any errors, revalidate, and ensure that the pipeline has
-   been successfully validated.
+   settings. Fix any errors, revalidate, and ensure that the pipeline is successfully validated.
 
 8. Select **Debug** from the toolbar to execute the pipeline.
 
@@ -127,5 +126,5 @@ as shown below:
 
 ## Next steps
 
-Learn how to create a [real-time
-dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn how to create a [real-time dashboard](tutorial-design-database-realtime.md) with Azure Cosmos DB for PostgreSQL.
+- Learn how to [move your workload to Azure Cosmos DB for PostgreSQL](./quickstart-build-scalable-apps-overview.md)
