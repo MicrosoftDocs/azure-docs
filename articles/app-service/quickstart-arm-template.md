@@ -106,7 +106,7 @@ This template contains several parameters that are predefined for your convenien
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 | kind       | string  | "windows"                          | External Git repo (optional) |
 | hyperv     | string  | "true"                          | External Git repo (optional) |
-| windowsFxVersion | string  | "DOCKER|mcr.microsoft.com/dotnet/samples:aspnetapp"                          | External Git repo (optional) |
+| windowsFxVersion | string  | "DOCKER&#124;mcr.microsoft.com/dotnet/samples:aspnetapp"                          | External Git repo (optional) |
 
 ::: zone-end
 ## Deploy the template
