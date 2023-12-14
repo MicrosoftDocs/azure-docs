@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
 author: Heidilohr
 ms.topic: release-notes
-ms.date: 12/13/2023
+ms.date: 12/14/2023
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
