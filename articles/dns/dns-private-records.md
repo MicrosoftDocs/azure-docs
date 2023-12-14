@@ -25,7 +25,7 @@ An *apex* record is a DNS record at the root (or *apex*) of a DNS zone. For exam
 
 Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an 'A' record, which maps a name to an IPv4 address. Another common type is an 'MX' record, which maps a name to a mail server.
 
-Azure Private DNS supports the following common DNS record types: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT.
+Azure Private DNS supports the following common DNS record types: A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT.
 
 ### Record sets
 
