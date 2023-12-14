@@ -44,7 +44,7 @@ Resource logs provide an insight into operations that were performed within an A
 
 Resource logs aren't collected and stored until you create a *diagnostic setting* that routes them to one or more locations. We recommend routing them to a Log Analytics workspace, which stores the logs in [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md). Log Analytics allows you to analyze the logs of all your Azure resources together in Azure Monitor Logs and take advantage of all the features available to Azure Monitor Logs including [log queries](../azure-monitor/logs/log-query-overview.md) and [log alerts](../azure-monitor/alerts/alerts-log.md).
 
-For instructions on using getting started with Log Analytics and creating a diagnostic setting, see [Get started with resource logs for Data Products](#get-started-with-resource-logs). For more information about the data available, see [Data Product data in Azure Monitor Logs](#data-product-data-in-azure-monitor-logs).
+For instructions on using getting started with Log Analytics and creating a diagnostic setting, see [Get started with resource logs for Data Products](#get-started-with-resource-logs-for-data-products). For more information about the data available, see [Data Product information in Azure Monitor Logs](#data-product-information-in-azure-monitor-logs).
 
 ### Get started with resource logs for Data Products
 
@@ -66,7 +66,7 @@ To start monitoring a Data Product with Azure Monitor Logs and Log Analytics:
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Operator Insights menu, Log Analytics is opened with the query scope set to the current Data Product. This means that log queries will only include data from that resource. If you want to run a query that includes data from other Data Products or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
-## Data Product data in Azure Monitor Logs
+## Data Product information in Azure Monitor Logs
 
 For a full list of the types of resource logs collected for Azure Operator Insights, see [Monitoring Azure Operator Insights data reference: Resource logs](monitor-operator-insights-data-reference.md#resource-logs).
 
