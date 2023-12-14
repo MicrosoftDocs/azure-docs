@@ -5,21 +5,21 @@ items:
   expanded: true
   items:
     - name: About Radiology Insights
-      href: RI_AboutDoc.md
+      href: overview.md
 - name: Quickstarts
   items:
      - name: Use the Radiology Insightse model
-       href: RI_QuickStart.md
+       href: quickstart.md
 - name: Responsible use of AI
   items:
     - name: Transparency note for Radiology Insights
-      href: RI_TransparencyNote.md
+      href: transparencynote.md
     - name: Data, privacy, and security
       href: /azure/azure-health-insights/responsible-ai/data-privacy-security?toc=/azure/azure-health-insights/oncophenotype/toc.json
 - name: Concepts
   items:
      - name: Model configuration
-       href: RI_ModelConfiguration.md
+       href: modelconfiguration.md
      - name: Inference information
        href: inferences.md
 - name: Reference
@@ -37,7 +37,7 @@ items:
 - name: Resources
   items:
      - name: FAQ
-       href: RI_faq.md
+       href: faq.md
      - name: Enterprise readiness
        items:
         - name: Region Support
@@ -45,4 +45,4 @@ items:
         - name: Compliance and certification
           href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
      - name: Support and help options
-       href: RI_support-and-help.md
+       href: support-and-help.md
