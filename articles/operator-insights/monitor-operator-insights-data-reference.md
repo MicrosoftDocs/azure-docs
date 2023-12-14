@@ -30,9 +30,9 @@ This section lists the types of resource logs you can collect for Azure Operator
 
 The DataProducts logs include information about:
 
-- `Digestion` (for processing the data available to a Data Product)
 - `Ingestion` (for adding or changing data in the input storage account for a Data Product)
 - `IngestionDelete` (for deleting data from the input storage account for a Data Product)
+- `Digestion` (for processing the data available to a Data Product)
 - `ReadStorage` (for read access to the output storage account for a Data Product)
 - `DatabaseQuery` (for query operations performed on the database of a Data Product)
 
@@ -50,11 +50,11 @@ This section lists all of the Azure Monitor Logs Kusto tables relevant to Azure 
 
 ### Diagnostics tables
 
-Azure Operator Insights uses the tables listed in [Azure Monitor Logs tables](#azure-monitor-logs-tables) to store resource log information. It doesn't store resource log information in the Azure Diagnostics table.
+Azure Operator Insights uses the tables listed in [Azure Monitor Logs tables](#azure-monitor-logs-tables) to store resource log information. It doesn't use the Azure Diagnostics table.
 
 ## Activity log
 
-The following table lists the operations that Azure Operator Insights might record in the Activity log. This table is a subset of the possible entries you might find in the activity log.
+The following table lists the operations that Azure Operator Insights can record in the Activity log. This table is a subset of the possible entries you might find in the activity log.
 
 | Namespace | Description |
 |:---|:---|
@@ -67,7 +67,7 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 
 ## Schemas
 
-Azure Operator Insights uses multiple schemas for logs.
+Azure Operator Insights uses the following schemas for logs.
 
 |Log type|Relates to|Schema link|
 |--------|----------|-----------|

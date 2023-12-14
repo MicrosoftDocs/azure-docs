@@ -36,9 +36,9 @@ For Data Products:
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Operator Insights are listed in [Azure Operator Insights monitoring data reference](monitor-operator-insights-data-reference.md#resource-logs).
 
-The Azure Monitor metrics and logs that you can collect are discussed in the following sections.
+The Azure Monitor metrics and logs for Data Products are discussed in the following sections.
 
-Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored them on the VM on which you have installed the agent, and aren't uploaded to Azure Monitor. For details, see the troubleshooting guidance for [MCC EDR Ingestion Agents](troubleshoot-mcc-edr-agent.md) or [SFTP Ingestion Agents](troubleshoot-sftp-agent.md).
+Ingestion agents that we provide automatically collect metrics and logs for troubleshooting. Metrics and logs are stored on the VM on which you have installed the agent, and aren't uploaded to Azure Monitor. For details, see the troubleshooting guidance for [MCC EDR Ingestion Agents](troubleshoot-mcc-edr-agent.md) or [SFTP Ingestion Agents](troubleshoot-sftp-agent.md).
 
 ## Analyzing metrics
 
@@ -50,7 +50,7 @@ Data in Azure Monitor Logs is stored in tables where each table has its own set 
 
 All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) The schemas for Azure Operator Insights resource logs are found in the [Azure Operator Insights Data Reference: Schemas](monitor-operator-insights-data-reference.md#schemas).
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. For Azure Operator Insights, the Activity log includes activities like creating a Data Product or changing its settings. You can view the Activity independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 For a list of the types of resource logs collected for Azure Operator Insights, see [Monitoring Azure Operator Insights data reference: Resource logs](monitor-operator-insights-data-reference.md#resource-logs).
 
@@ -116,5 +116,7 @@ For a list of common queries for Azure Operator Insights, see the [Log Analytics
 
 ## Next steps
 
-- See [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md) for a reference of the monitoring data created by Azure Operator Insights.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md) for a reference of the Azure Monitor data created by Azure Operator Insights.
+- See [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md) for more information about metrics and logs for MCC EDR ingestion agents.
+- See [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md) for more information about metrics and logs for SFTP ingestion agents.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for background on Azure Monitor.

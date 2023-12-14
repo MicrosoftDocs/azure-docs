@@ -60,8 +60,6 @@
       href: troubleshoot-sftp-agent.md
     - name: SFTP Ingestion Agent configuration reference
       href: sftp-agent-configuration.md
-    - name: MCC EDR Ingestion Agent Configuration Reference
-      href: mcc-edr-agent-configuration.md
   - name: Monitor Azure Operator Insights
     href: monitor-operator-insights.md
 - name: Reference
