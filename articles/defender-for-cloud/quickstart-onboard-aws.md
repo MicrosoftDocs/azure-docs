@@ -35,6 +35,10 @@ To complete the procedures in this article, you need:
 > [!NOTE]
 > The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).
 
+## Native connector plan requirements
+
+Each plan has its own requirements for the native connector.
+
 ### Defender for Containers
 
 If you choose the Microsoft Defender for Containers plan, you need:
@@ -241,13 +245,13 @@ To view all the active recommendations for your resources by resource type, use 
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Screenshot of AWS options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-aws/aws-resource-types-in-inventory.png":::
 
-## Integrate with Microsoft 365 Defender (Preview)
+## Integrate with Microsoft Defender XDR (Preview)
 
-When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft 365 Defender portal. No further steps are needed.
+When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 
-The integration between Microsoft Defender for Cloud and Microsoft 365 Defender brings your cloud environments into Microsoft 365 Defender. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft 365 Defender, SOC teams can now access all security information from a single interface. 
+The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface. 
 
-Learn more about Defender for Cloud's [alerts in Microsoft 365 Defender](concept-integration-365.md).
+Learn more about Defender for Cloud's [alerts in Microsoft Defender XDR](concept-integration-365.md).
 
 ## Learn more
 

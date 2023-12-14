@@ -971,6 +971,10 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
+When running your functions in an [App Service plan](./dedicated-plan.md), dependencies that you define in requirements.txt are given precedence over built-in Python modules, such as `logging`. This precedence can cause conflicts when built-in modules have the same names as directories in your code. When running in a [Consumption plan](./consumption-plan.md) or an [Elastic Premium plan](./functions-premium-plan.md), conflicts are less likely because your dependencies aren't prioritized by default. 
+
+To prevent issues running in an App Service plan, don't name your directories the same as any Python native modules and don't including Python native libraries in your project's requirements.txt file.
+
 ## Publishing to Azure
 
 When you're ready to publish, make sure that all your publicly available dependencies are listed in the *requirements.txt* file. You can locate this file at the root of your project directory.

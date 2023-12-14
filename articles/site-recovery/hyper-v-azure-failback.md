@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/04/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23
