@@ -431,6 +431,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-retrieve-legacy-workbooks.md",
+            "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-retrieve-legacy-workbooks",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-view-designer-conversions.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/visualize/workbooks-view-designer-conversions",
             "redirect_document_id": false

@@ -1,5 +1,5 @@
 ---
-title: Creating an Azure Workbook
+title: Create or edit an Azure Workbook
 description: Learn how to create an Azure Workbook.
 services: azure-monitor
 author: AbbyMSFT
@@ -9,7 +9,7 @@ ms.date: 06/21/2023
 ms.reviewer: gardnerjr 
 ---
 
-# Creating an Azure Workbook
+# Create or edit an Azure Workbook
 This article describes how to create a new workbook and how to add elements to your Azure Workbook.
 
 This video walks you through creating workbooks.
@@ -449,3 +449,12 @@ To turn a larger template into multiple subtemplates:
 1. If the individual steps moved in step 3 had conditional visibilities, that will become the visibility of the outer group (like used in tabs). Remove them from the items inside the group and add that visibility setting to the group itself. Save here to avoid losing changes and/or export and save a copy of the json content.
 1. If you want that group to be loaded from a template, you can use the **Edit** toolbar button in the group. This will open just the content of that group as a workbook in a new window. You can then save it as appropriate and close this workbook view (don't close the browser, just that view to go back to the previous workbook you were editing).
 1. You can then change the group step to load from template and set the template ID field to the workbook/template you created in step 5. To work with workbooks IDs, the source needs to be the full Azure Resource ID of a shared workbook. Press *Load* and the content of that group will now be loaded from that subtemplate instead of saved inside this outer workbook.
+
+
+## Save a workbook
+
+To save a workbook, select **Save**. Enter the title, subscription, resource group, and location.
+
+By default, the workbook is auto-filled with the same settings as the LA workspace, with the same subscription and resource group. 
+By default, workbooks are saved to 'My Reports' and are only accessible by the individual user. You can also save the workbook directly to shared reports or share the workbook later on. Workbooks are shared resources and they require write access to the parent resource group to be saved.
+

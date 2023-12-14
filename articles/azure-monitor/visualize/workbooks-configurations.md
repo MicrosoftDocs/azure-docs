@@ -1,20 +1,57 @@
 ---
-title: Azure Monitor workbooks with custom parameters 
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks.
+title: Azure Monitor workbooks settings
+description: Understand the settings you can use in Azure Workbooks
 services: azure-monitor
-manager: carmonm
-
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/21/2023
 ---
 
-# Workbook configuration options
+# Workbook settings
 
-You can configure workbooks to suit your needs by using the settings in the **Settings** tab. If query or metrics steps display time-based data, more settings are available on the **Advanced settings** tab.
+This article describes the settings you can use in Azure Workbooks.
 
-## Workbook settings
+## Delete a workbook
+
+1. In the Azure portal, select **Monitor**, and then select **Workbooks** from the left pane.
+1. Select the checkbox next to the Workbook you want to delete.
+1. Select **Delete** from the top toolbar.
+
+## Recover a deleted workbook
+When you delete an Azure Workbook, it is soft-deleted and can be recovered by contacting support. After the soft-delete period, the workbook and its content are nonrecoverable and queued for purge completely within 30 days.
+ 
+> [!NOTE]
+> Workbooks that were saved using bring your own storage cannot be recovered by support. You may be able to recover the workbook content from the storage account if the storage account used has enabled soft delete. 
+
+## Share a workbook
+
+When you want to share a workbook or template, keep in mind that the person you want to share with must have permissions to access the workbook. They must have an Azure account, and **Monitoring Reader** permissions.
+To share a workbook or workbook template:
+
+1. In the Azure portal, select **Monitor**, and then select **Workbooks** from the left pane.
+1. Select the checkbox next to the workbook or template you want to share.
+1. Select the **Share** icon from the top toolbar.
+1. The **Share workbook** or **Share template** window opens with a URL to use for sharing the workbook.
+1. Copy the link to share the workbook, or select **Share link via email** to open your default mail app.
+
+:::image type="content" source="media/workbooks-getting-started/workbooks-share.png" alt-text="Screenshot of the steps to share an Azure workbook.":::
+
+## Set up Auto refresh
+
+1. In the Azure portal, select the workbook.
+1. Select **Auto refresh**, and then to select from a list of intervals for the auto-refresh. The workbook will start refreshing after the selected time interval.
+
+-  Auto refresh only applies when the workbook is in read mode. If a user sets an interval of 5 minutes and after 4 minutes switches to edit mode, refreshing doesn't occur if the user is still in edit mode. But if the user returns to read mode, the interval of 5 minutes resets and the workbook will be refreshed after 5 minutes.
+-  Selecting **Auto refresh** in read mode also resets the interval. If a user sets the interval to 5 minutes and after 3 minutes the user selects **Auto refresh** to manually refresh the workbook, the **Auto refresh** interval resets and the workbook will be auto-refreshed after 5 minutes.
+- The **Auto refresh** setting isn't saved with the workbook. Every time a user opens a workbook, **Auto refresh** is **Off** and needs to be set again.
+- Switching workbooks and going out of the gallery clears the **Auto refresh** interval.
+
+:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh.png" alt-text="Screenshot that shows workbooks with Auto refresh.":::
+
+:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot that shows workbooks with Auto refresh with an interval set.":::
+
+## Configure Workbooks using the Settings tab
+
+You can configure workbooks to suit your needs by using the settings in the **Settings** tab inside the workbook. 
 
 Workbook settings have these tabs to help you configure your workbook.
 
@@ -26,18 +63,42 @@ Workbook settings have these tabs to help you configure your workbook.
 |Pin     |While in pin mode, you can select **Pin Workbook** to pin a component from this workbook to a dashboard. Select **Link to Workbook** to pin a static link to this workbook on your dashboard. You can choose a specific component in your workbook to pin.|
 |Trusted hosts     |On this tab, you can enable a trusted source or mark this workbook as trusted in this browser. For more information, see [Trusted hosts](#trusted-hosts). |
 
-> [!NOTE]
-> Version history isn't available for [bring-your-own-storage](workbooks-bring-your-own-storage.md) workbooks.
+If query or metrics steps display time-based data, more settings are available on the **Advanced settings** tab.
 
-#### Versions tab
+### Versions
 
 :::image type="content" source="media/workbooks-configurations/workbooks-versions.png" alt-text="Screenshot that shows the versions tab of the workbook's Settings pane.":::
 
-#### Compare versions
+### Compare versions
 
 :::image type="content" source="media/workbooks-configurations/workbooks-compare-versions.png" alt-text="Screenshot that shows version comparison in the Compare Workbook Versions screen.":::
 
-### Trusted hosts
+> [!NOTE]
+> Version history isn't available for [bring-your-own-storage](workbooks-bring-your-own-storage.md) workbooks.
+
+## Pinning
+
+You can pin text, query, or metrics components in a workbook by using the **Pin** button on those items while the workbook is in pin mode. Or you can use the **Pin** button if the workbook author has enabled settings for that element to make it visible.
+
+To access pin mode, select **Edit** to enter editing mode. Select **Pin** on the top bar. An individual **Pin** then appears above each corresponding workbook part's **Edit** button on the right side of the screen.
+
+:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot that shows the Pin button." border="false":::
+
+> [!NOTE]
+> The state of the workbook is saved at the time of the pin. Pinned workbooks on a dashboard won't update if the underlying workbook is modified. To update a pinned workbook part, you must delete and re-pin that part.
+
+### Time ranges for pinned queries
+
+Pinned workbook query parts will respect the dashboard's time range if the pinned item is configured to use a *TimeRange* parameter. The dashboard's time range value will be used as the time range parameter's value. Any change of the dashboard time range will cause the pinned item to update. If a pinned part is using the dashboard's time range, you'll see the subtitle of the pinned part update to show the dashboard's time range whenever the time range changes.
+
+Pinned workbook parts using a time range parameter will auto-refresh at a rate determined by the dashboard's time range. The last time the query ran will appear in the subtitle of the pinned part.
+
+If a pinned component has an explicitly set time range and doesn't use a time range parameter, that time range will always be used for the dashboard, regardless of the dashboard's settings. The subtitle of the pinned part won't show the dashboard's time range. The query won't auto-refresh on the dashboard. The subtitle will show the last time the query executed.
+
+> [!NOTE]
+> Queries that use the *merge* data source aren't currently supported when pinning to dashboards.
+
+### Enable Trusted hosts
 
 Enable a trusted source or mark this workbook as trusted in this browser.
 
@@ -46,182 +107,4 @@ Enable a trusted source or mark this workbook as trusted in this browser.
 | Mark workbook as trusted      | If enabled, this workbook can call any endpoint, whether the host is marked as trusted or not. A workbook is trusted if it's a new workbook, an existing workbook that's saved, or is explicitly marked as a trusted workbook.   |
 | URL grid   | A grid to explicitly add trusted hosts.        |
 
-## Time brushing
 
-Time range brushing allows a user to "brush" or "scrub" a range on a chart and have that range output as a parameter value.
-
-:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-settings.png" alt-text="Screenshot that shows workbook time-brush settings.":::
-
-You can also choose to only export a parameter when a range is explicitly brushed:
-
- - If this setting is cleared (default), the parameter always has a value. When the parameter isn't brushed, the value is the full time range displayed in the chart.
- - If this setting is selected, the parameter has no value before the user brushes the parameter. The value is only set after a user brushes the parameter.
-
-### Brushing in a metrics chart
-
-When you enable time brushing on a metrics chart, you can "brush" a time by dragging the mouse on the time chart.
-
-:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-metrics-brushing.png" alt-text="Screenshot of a metrics time-brush in progress.":::
-
-After the brush has stopped, the metrics chart zooms in to that range and exports the range as a time range parameter.
-An icon on the toolbar in the upper-right corner is active to reset the time range back to its original, unzoomed time range.
-
-### Brushing in a query chart
-
-When you enable time brushing on a query chart, indicators appear that you can drag, or you can brush a range on the time chart.
-
-:::image type="content" source="media/workbooks-configurations/workbooks-timebrush-query-brushing.png" alt-text="Screenshot of time-brushing a query chart.":::
-
-After the brush has stopped, the query chart shows that range as a time range parameter but won't zoom in. This behavior is different than the behavior of metrics charts. Because of the complexity of user-written queries, it might not be possible for workbooks to correctly update the range used by the query in the query content directly. If the query is using a time range parameter, it's possible to get this behavior by using a [global parameter](workbooks-parameters.md#global-parameters) instead.
-
-An icon on the toolbar in the upper-right corner is active to reset the time range back to its original, unzoomed time range.
-
-## Interactivity
-
-There are several ways that you can create interactive reports and experiences in workbooks:
-
- - **Parameters**: When you update a [parameter](workbooks-parameters.md), any control that uses the parameter automatically refreshes and redraws to reflect the new value. This behavior is how most of the Azure portal reports support interactivity. Workbooks provide this functionality in a straightforward manner with minimal user effort.
- - **Grid, tile, and chart selections**: You can construct scenarios where selecting a row in a grid updates subsequent charts based on the content of the row. For example, you might have a grid that shows a list of requests and some statistics like failure counts. You can set it up so that if you select the row of a request, the detailed charts below update to show only that request. Learn how to [set up a grid row click](#set-up-a-grid-row-click).
- - **Grid cell clicks**: You can add interactivity with a special type of grid column renderer called a [link renderer](#link-renderer-actions). A link renderer converts a grid cell into a hyperlink based on the contents of the cell. Workbooks support many kinds of link renderers including renderers that open resource overview panes, property bag viewers, and Application Insights search, usage, and transaction tracing. Learn how to [set up a grid cell click](#set-up-grid-cell-clicks).
- - **Conditional visibility**: You can make controls appear or disappear based on the values of parameters. This way you can have reports that look different based on user input or telemetry state. For example, you can show consumers a summary when there are no issues. You can also show detailed information when there's something wrong. Learn how to [set up conditional visibility](#set-conditional-visibility).
- - **Export parameters with multi-selections**: You can export parameters from query and metrics workbook components when a row or multiple rows are selected. Learn how to [set up multi-selects in grids and charts](#set-up-multi-selects-in-grids-and-charts).
-
-### Set up a grid row click
-
-1. Make sure you're in edit mode by selecting **Edit**.
-1. Select **Add query** to add a log query control to the workbook.
-1. Select the log query type, the resource type, and the target resources.
-1. Use the query editor to enter the KQL for your analysis:
-
-    ```kusto
-    requests
-    | summarize AllRequests = count(), FailedRequests = countif(success == false) by Request = name
-    | order by AllRequests desc
-    ```
-
-1. Select **Run query** to see the results.
-1. Select **Advanced Settings** to open the **Advanced Settings** pane.
-1. Select the **When an item is selected, export a parameter** checkbox.
-1. Select **Add Parameter** and fill in the following information:
-    - **Field to export**: `Request`
-    - **Parameter name**: `SelectedRequest`
-    - **Default value**: `All requests`
-    
-     :::image type="content" source="media/workbooks-configurations/workbooks-export-parameters-add.png" alt-text="Screenshot that shows the Advanced Settings workbook editor with settings for exporting fields as parameters.":::
-
-1. Optional. If you want to export the entire contents of the selected row instead of a specific column, leave **Field to export** unset. The entire row's contents are exported as JSON to the parameter. On the referencing KQL control, use the `todynamic` function to parse the JSON and access the individual columns.
-1. Select **Save**.
-1. Select **Done Editing**.
-1. Add another query control as in the preceding steps.
-1. Use the query editor to enter the KQL for your analysis.
-
-    ```kusto
-    requests
-    | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
-    | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
-    ```
-
-1. Select **Run query** to see the results.
-1. Change **Visualization** to **Area chart**.
-1. Choose a row to select in the first grid. Note how the area chart below filters to the selected request.
-
-The resulting report looks like this example in edit mode:
-  
-  :::image type="content" source="media/workbooks-configurations/workbooks-interactivity-grid-create.png" alt-text="Screenshot that shows workbooks with the first two queries in edit mode.":::
-
-The following image shows a more elaborate interactive report in read mode based on the same principles. The report uses grid clicks to export parameters, which in turn are used in two charts and a text block.
-
-   :::image type="content" source="media/workbooks-configurations/workbooks-interactivity-grid-read.png" alt-text="Screenshot that shows a workbook report using grid clicks.":::
-
-### Set up grid cell clicks
-
-1. Make sure you're in edit mode by selecting **Edit**.
-1. Select **Add query** to add a log query control to the workbook.
-1. Select the log query type, resource type, and target resources.
-1. Use the query editor to enter the KQL for your analysis:
-
-    ```kusto
-    requests
-    | summarize Count = count(), Sample = any(pack_all()) by Request = name
-    | order by Count desc
-    ```
-
-1. Select **Run query** to see the results.
-1. Select **Column Settings** to open the settings pane.
-1. In the **Columns** section, set:
-    - **Sample**
-       - **Column renderer**: `Link`
-       - **View to open**: `Cell Details`
-       - **Link label**: `Sample`
-    - **Count**
-        - **Column renderer**: `Bar`
-        - **Color palette**: `Blue`
-        - **Minimum value**: `0`
-    - **Request**
-       - **Column renderer**: `Automatic`
-1. Select **Save and Close** to apply changes.
-
-    :::image type="content" source="media/workbooks-configurations/workbooks-column-settings.png" alt-text="Screenshot that shows the Edit column settings pane.":::
-
-1. Select a **Sample** link in the grid to open a pane with the details of a sampled request.
-
-    :::image type="content" source="media/workbooks-configurations/workbooks-grid-link-details.png" alt-text="Screenshot that shows the Details pane of the sample request.":::
-
-### Link renderer actions
-
-Learn about how [link actions](workbooks-link-actions.md) work to enhance workbook interactivity.
-
-### Set conditional visibility
-
-1. Follow the steps in the [Set up a grid row click](#set-up-a-grid-row-click) section to set up two interactive controls.
-1. Add a new parameter with these values:
-    - **Parameter name**: `ShowDetails`
-    - **Parameter type**: `Drop down`
-    - **Required**: `checked`
-    - **Get data from**: `JSON`
-    - **JSON Input**: `["Yes", "No"]`
-1. Select **Save** to commit changes.
-
-    :::image type="content" source="media/workbooks-configurations/workbooks-edit-parameter.png" alt-text="Screenshot that shows editing an interactive parameter in workbooks.":::
-
-1. Set the parameter value to `Yes`.
-  
-   :::image type="content" source="media/workbooks-configurations/workbooks-set-parameter.png" alt-text="Screenshot that shows setting an interactive parameter value in a workbook.":::
-
-1. In the query control with the area chart, select **Advanced Settings** (the gear icon).
-1. If **ShowDetails** is set to `Yes`, select **Make this item conditionally visible**.
-1. Select **Done Editing** to commit the changes.
-1. On the workbook toolbar, select **Done Editing**.
-1. Switch the value of **ShowDetails** to `No`. Notice that the chart below disappears.
-
-The following image shows the case where **ShowDetails** is `Yes`:
-
-  :::image type="content" source="media/workbooks-configurations/workbooks-conditional-visibility-visible.png" alt-text="Screenshot that shows a workbook with a conditional component that's visible.":::
-
-The following image shows the hidden case where **ShowDetails** is `No`:
-
-:::image type="content" source="media/workbooks-configurations/workbooks-conditional-visibility-invisible.png" alt-text="Screenshot that shows a workbook with a conditional component that's hidden.":::
-
-### Set up multi-selects in grids and charts
-
-Query and metrics components can export parameters when a row or multiple rows are selected.
-
-:::image type="content" source="media/workbooks-configurations/workbooks-export-parameters.png" alt-text="Screenshot that shows the workbooks export parameters settings with multiple parameters.":::
-
-1. In the query component that displays the grid, select **Advanced settings**.
-1. Select the **When items are selected, export parameters** checkbox.
-1. Select the **Allow selection of multiple values** checkbox.
-    - The displayed visualization allows multi-selecting and the exported parameter's values will be arrays of values, like when using multi-select dropdown parameters.
-    - If cleared, the display visualization only captures the last selected item and exports only a single value at a time.
-1. Use **Add Parameter** for each parameter you want to export. A pop-up window appears with the settings for the parameter to be exported.
-
-When you enable single selection, you can specify which field of the original data to export. Fields include parameter name, parameter type, and default value to use if nothing is selected.
-
-When you enable multi-selection, you specify which field of the original data to export. Fields include parameter name, parameter type, quote with, and delimiter. The quote with and delimiter values are used when turning arrow values into text when they're being replaced in a query. In multi-selection, if no values are selected, the default value is an empty array.
-
-> [!NOTE]
-> For multi-selection, only unique values are exported. For example, you won't see output array values like "1,1,2,1". The array output will be "1,2".
-
-If you leave the **Field to export** setting empty in the export settings, all the available fields in the data will be exported as a stringified JSON object of key:value pairs. For grids and titles, the string includes the fields in the grid. For charts, the available fields are x,y,series, and label, depending on the type of chart.
-
-While the default behavior is to export a parameter as text, if you know the field is a subscription or resource ID, use that information as the export parameter type. Then the parameter can be used downstream in places that require those types of parameters.
