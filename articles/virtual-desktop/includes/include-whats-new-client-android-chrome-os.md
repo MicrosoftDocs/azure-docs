@@ -18,7 +18,7 @@ The following table lists the current versions available for the public and beta
 
 *Published: August 14, 2023*
 
-In this release, we've made the following changes: 
+In this release, we made the following changes: 
 
 - Added support for pen redirection.
 - Azure Virtual Desktop desktop previews are now available.
@@ -33,7 +33,7 @@ In this release, we've made the following changes:
 
 *Published: October 31, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for camera redirection.
 - Bug fixes and improvements.
@@ -42,7 +42,7 @@ In this release, we've made the following changes:
 
 *Published: June 13, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Bug fixes and improvements.
 - App localized into 16 languages.
@@ -51,7 +51,7 @@ In this release, we've made the following changes:
 
 *Published: February 22, 2022*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Client-side time zone redirection.
 - HTTP proxy support.
@@ -69,9 +69,9 @@ In this release, we've made the following changes:
 
 *Published: December 15, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
-- We've made an in-session UI that switches between workspaces and PCs.
+- We made an in-session UI that switches between workspaces and PCs.
 - Updated language support for Input Method Editors (IME) and external keyboards.
 - Added support for Azure Virtual Desktop workspace subscriptions that use multiple identities for the same URL.
 - We added a warning message that says you shouldn't use the RD Gateway for local addresses.
@@ -83,7 +83,7 @@ In this release, we've made the following changes:
 
 *Published: July 13, 2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Bug fixes and performance improvements.
 
@@ -91,7 +91,7 @@ In this release, we've made the following changes:
 
 *Published: 3/24/2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Added support for client-side IMEs when using built-in and onscreen keyboards.
 - Added a prompt for credentials when subscribing to a workflow.
@@ -102,7 +102,7 @@ In this release, we've made the following changes:
 
 *Published: 2/2/2021*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Support for dark mode on Android 10 and later.
 - Fixed clipboard redirection synchronization issues.
@@ -116,7 +116,7 @@ In this release, we've made the following changes:
 
 *Published: 12/04/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Client now supports microphone redirection.
 - New UI for subscribing to and editing workspaces.
@@ -131,7 +131,7 @@ In this release, we've made the following changes:
 
 *Date Published: 07/24/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Implemented full support for Azure Virtual Desktop.
 - Rewrote the client to use the same underlying RDP core engine as the iOS and macOS clients.
@@ -146,7 +146,7 @@ In this release, we've made the following changes:
 
 *Date Published: 05/26/2020*
 
-In this release, we've made the following changes:
+In this release, we made the following changes:
 
 - Changed the client icon to distinguish it from the new client currently in preview.
 - Prepared the client to support settings and connections transfer to the new client.
@@ -155,7 +155,7 @@ In this release, we've made the following changes:
 
 *Published: 03/24/2020*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Fixed an issue where barcode scanners didn't work.
 
@@ -163,6 +163,6 @@ In this release, we've made the following change:
 
 *Published: 02/11/2020*
 
-In this release, we've made the following change:
+In this release, we made the following change:
 
 - Improved accessibility for users of keyboard-only navigation.
