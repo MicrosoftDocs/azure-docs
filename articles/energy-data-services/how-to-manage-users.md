@@ -19,7 +19,7 @@ In this article, you learn how to manage users and their memberships in OSDU gro
 3. Get various parameters of your instance such as client-id, client-secret, etc.  
 4. Keep all these parameter values handy as they are needed for executing different user management requests via the Entitlements API. 
 
-## Fetch Parameters
+## Fetch parameters
 #### Find `tenant-id`
 1. Navigate to the Microsoft Entra account for your organization. You can search for "Microsoft Entra ID" in the Azure portal's search bar.
 2. Locate `tenant-id` under the basic information section in the *Overview* tab.
@@ -48,8 +48,8 @@ A `client-secret` is a string value your app can use in place of a certificate t
 2. Open 'Certificates & secrets' under the *Manage* section.
 3. Create a `client-secret` for the `client-id` that you used to create your Azure Data Manager for Energy instance.
 4. Add one now by clicking on *New Client Secret*.
-5. Record the secret's `value` for later use in your client application code.
-6. The access token of the app id and client secret has the Infra Admin access to the instance.
+5. Record the `secret's value` for later use in your client application code.
+6. The access token of the `app-id` and client secret has the Infra Admin access to the instance.
 
 > [!CAUTION]
 > Don't forget to record the secret's value. This secret value is never displayed again after you leave this page of 'client secret' creation.
@@ -252,13 +252,10 @@ No output for a successful response
 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-Create a legal tag for your data partition.
-> [!div class="nextstepaction"]
-> [How to manage legal tags](how-to-manage-legal-tags.md)
+After you have added users to the groups, you can do the following:
+- [How to manage legal tags](how-to-manage-legal-tags.md)
+- [How to manage ACLs](how-to-manage-acls.md)
 
-Begin your journey by ingesting data into your Azure Data Manager for Energy instance.
-> [!div class="nextstepaction"]
-> [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
-> [!div class="nextstepaction"]
-> [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md)
+You can also ingest data into your Azure Data Manager for Energy instance with
+- [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
+- [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md)
