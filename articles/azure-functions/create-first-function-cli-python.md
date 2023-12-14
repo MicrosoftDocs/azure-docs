@@ -107,6 +107,8 @@ In this section, you create a function project that contains a single function.
 
     `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
 
+1. Run this command to make sure that the Azure Functions library is installed in the environment.
+
 [!INCLUDE [functions-install-python-requirements](../../includes/functions-install-python-requirements.md)]
  
 ::: zone-end  
@@ -160,6 +162,8 @@ In this section, you create a function project and add an HTTP triggered functio
     ```
 
     This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you'll need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.   
+
+1. Run this command to make sure that the Azure Functions library is installed in the environment.
 
 [!INCLUDE [functions-install-python-requirements](../../includes/functions-install-python-requirements.md)]
 

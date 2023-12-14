@@ -6,8 +6,6 @@ ms.date: 12/14/2023
 ms.author: glenga
 ---
 
-1. Run this command to make sure that the Azure Functions library is installed in the environment.
-
     ### [bash](#tab/bash)
 
     ```bash
