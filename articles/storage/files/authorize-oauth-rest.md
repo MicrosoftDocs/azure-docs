@@ -108,7 +108,7 @@ namespace FilesOAuthSample
             string aadEndpoint = "";
             string accountUri = "";
             string connectionString = "";
-            string shareName = "testShare";
+            string shareName = "test-share";
             string directoryName = "testDirectory";
             string fileName = "testFile"; 
 
@@ -124,11 +124,11 @@ namespace FilesOAuthSample
                     AuthorityHost = new Uri(aadEndpoint)
                 });
 
-            ShareClientOptions clientOptions = new ShareClientOptions(ShareClientOptions.ServiceVersion.V2021_12_02);
+            ShareClientOptions clientOptions = new ShareClientOptions(ShareClientOptions.ServiceVersion.V2023_05_03);
 
             // Set Allow Trailing Dot and Source Allow Trailing Dot.
             clientOptions.AllowTrailingDot = true;
-            clientOptions.SourceAllowTrailingDot = true;
+            clientOptions.AllowSourceTrailingDot = true;
 
             // x-ms-file-intent=backup will automatically be applied to all APIs
             // where it is required in derived clients.

@@ -29,7 +29,7 @@ In addition to providing incremental data feed from analytical store to diverse 
 - Supports applying filters, projections and transformations on the Change feed via source query
 - Multiple change feeds on the same container can be consumed simultaneously
 - Each change in container appears exactly once in the change data capture feed, and the checkpoints are managed internally for you
-- Changes can be synchronized "from the Beginning” or “from a given timestamp” or “from now”
+- Changes can be synchronized "from the beginning” or “from a given timestamp” or “from now”
 - There's no limitation around the fixed data retention period for which changes are available
 
 ## Efficient incremental data capture with internally managed checkpoints
@@ -46,7 +46,7 @@ Change data capture in Azure Cosmos DB analytical store supports the following k
 
 ### Capturing changes from the beginning
 
-When the `Start from beginning` option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. This is limited by the `analytical TTL` property and documents TTL-removed from analytical store are not included in the change feed. Example: Imagine a container with `analytical TTL` set to 31536000 seconds, what is equivalent to 1 year. If you create a CDC process for this container, only documents newer than 1 year will be included in the initial load.
+When the `Start from beginning` option is selected, the initial load includes a full snapshot of container data in the first run, and changed or incremental data is captured in subsequent runs. This is limited by the `analytical TTL` property and documents TTL-removed from analytical store are not included in the change feed. Example: Imagine a container with `analytical TTL` set to 31536000 seconds, which is equivalent to 1 year. If you create a CDC process for this container, only documents newer than 1 year will be included in the initial load.
 
 ### Capturing changes from a given timestamp
 
@@ -85,7 +85,7 @@ You can create multiple processes to consume CDC in analytical store. This appro
 
 ### Throughput isolation, lower latency and lower TCO
 
-Operations on Cosmos DB analytical store don't consume the provisioned RUs and so don't affect your transactional workloads. change data capture with analytical store also has lower latency and lower TCO. The lower latency is attributed to analytical store enabling better parallelism for data processing and reduces the overall TCO enabling you to drive cost efficiencies in these rapidly shifting economic conditions.
+Operations on Cosmos DB analytical store don't consume the provisioned RUs and so don't affect your transactional workloads. Change data capture with analytical store also has lower latency and lower TCO. The lower latency is attributed to analytical store enabling better parallelism for data processing and reduces the overall TCO enabling you to drive cost efficiencies in these rapidly shifting economic conditions.
 
 ## Scenarios
 
@@ -111,7 +111,7 @@ Change data capture capability enables an end-to-end analytical solution providi
 
 The linked service interface for the API for MongoDB isn't available within Azure Data Factory data flows yet. You can use your API for MongoDB's account endpoint with the **Azure Cosmos DB for NoSQL** linked service interface as a work around until the Mongo linked service is directly supported.
 
-In the interface for a new NoSQL linked service, select **Enter Manually** to provide the Azure Cosmos DB account information. Here, use the account's NoSQL document endpoint (ex: `https://<account-name>.documents.azure.com:443/`) instead of the Mongo DB endpoint (ex: `mongodb://<account-name>.mongo.cosmos.azure.com:10255/`)
+In the interface for a new NoSQL linked service, select **Enter Manually** to provide the Azure Cosmos DB account information. Here, use the account's NoSQL document endpoint (Example: `https://<account-name>.documents.azure.com:443/`) instead of the Mongo DB endpoint (Example: `mongodb://<account-name>.mongo.cosmos.azure.com:10255/`)
 
 ## Next steps
 

@@ -8,17 +8,37 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.custom:
   - ignite-2023
+  - references_regions
 ms.topic: whats-new
-ms.date: 10/17/2023
+ms.date: 11/30/2023
 recommendations: false
 keywords:
 ---
 
 # What's new in Azure OpenAI Service
 
+## December 2023
+
+### Azure OpenAI on your data
+
+- Full VPN and private endpoint support for Azure OpenAI on your data, including security support for: storage accounts, Azure OpenAI resources, and Azure AI Search service resources.   
+- New article for using [Azure OpenAI on your data securely](./how-to/use-your-data-securely.md) by protecting data with virtual networks and private endpoints.
+
+### GPT-4 Turbo with Vision now available
+
+GPT-4 Turbo with Vision on Azure OpenAI service is now in public preview. GPT-4 Turbo with Vision is a large multimodal model (LMM) developed by OpenAI that can analyze images and provide textual responses to questions about them. It incorporates both natural language processing and visual understanding. With enhanced mode, you can use the [Azure AI Vision](/azure/ai-services/computer-vision/overview) features to generate additional insights from the images.
+
+- Explore the capabilities of GPT-4 Turbo with Vision in a no-code experience using the [Azure Open AI Playground](https://oai.azure.com/). Learn more in the [Quickstart guide](./gpt-v-quickstart.md).
+- Vision enhancement using GPT-4 Turbo with Vision is now available in the [Azure Open AI Playground](https://oai.azure.com/) and includes support for Optical Character Recognition, object grounding, image support for "add your data," and support for video prompt. 
+- Make calls to the chat API directly using the [REST API](https://aka.ms/gpt-v-api-ref).
+- Region availability is currently limited to `SwitzerlandNorth`, `SwedenCentral`, `WestUS`, and `AustraliaEast`  
+- Learn more about the known limitations of GPT-4 Turbo with Vision and other [frequently asked questions](/azure/ai-services/openai/faq#gpt-4-with-vision).
+
 ## November 2023
 
+### New data source support in Azure OpenAI on your data 
 
+- You can now use [Azure Cosmos DB for MongoDB vCore](./concepts/use-your-data.md?tabs=mongo-db.md#ingesting-your-data) as well as URLs/web addresses as data sources to ingest your data and chat with a supported Azure OpenAI model.
 
 ### GPT-4 Turbo Preview & GPT-3.5-Turbo-1106 released
 
@@ -46,7 +66,6 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 
 - **Content Credentials in all DALL-E models**: AI-generated images from all DALL-E models now include a digital credential that discloses the content as AI-generated. Applications that display image assets can leverage the open source [Content Authenticity Initiative SDK](https://opensource.contentauthenticity.org/docs/js-sdk/getting-started/quick-start/) to display credentials in their AI generated images. [Content Credentials in Azure OpenAI](/azure/ai-services/openai/concepts/content-credentials)
 
-
 - **New RAI models**
     
     - **Jailbreak risk detection**: Jailbreak attacks are user prompts designed to provoke the Generative AI model into exhibiting behaviors it was trained to avoid or to break the rules set in the System Message. The jailbreak risk detection model is optional (default off), and available in annotate and filter model. It runs on user prompts.
@@ -69,6 +88,14 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
 - Fine-tuned models have different [quota limits](quotas-limits.md) than regular models.
 
 - [Tutorial: fine-tuning GPT-3.5-Turbo](./tutorials/fine-tune.md)
+
+### Azure OpenAI on your data
+
+- New [custom parameters](./concepts/use-your-data.md#custom-parameters) for determining the number of retrieved documents and strictness.
+    - The strictness setting sets the threshold to categorize documents as relevant to your queries.
+    - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
+- You can see data ingestion/upload status in the Azure OpenAI Studio.
+- Support for [private endpoints & VPNs for blob containers](./how-to/use-your-data-securely.md#security-support-for-azure-blob-storage)
 
 ## September 2023
 
@@ -99,9 +126,9 @@ Azure OpenAI Service now supports speech to text APIs powered by OpenAI's Whispe
 ### Azure OpenAI on your own data (preview) updates
 
 - You can now deploy Azure OpenAI on your data to [Power Virtual Agents](/azure/ai-services/openai/concepts/use-your-data#deploying-the-model).
-- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support-azure-ai-search-only) now supports private endpoints.
-- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control-azure-ai-search-only).
-- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes-azure-ai-search-only).
+- [Azure OpenAI on your data](./concepts/use-your-data.md#virtual-network-support--private-endpoint-support) now supports private endpoints.
+- Ability to [filter access to sensitive documents](./concepts/use-your-data.md#document-level-access-control).
+- [Automatically refresh your index on a schedule](./concepts/use-your-data.md#schedule-automatic-index-refreshes).
 - [Vector search and semantic search options](./concepts/use-your-data.md#search-options). 
 - [View your chat history in the deployed web app](./concepts/use-your-data.md#chat-history)
 

@@ -3,7 +3,7 @@ author: wchigit
 description: managed identity, code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/31/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -204,13 +204,79 @@ ms.author: wchi
     )
     ```
 
-### [NodeJS](#tab/node)
+### [Go](#tab/go)
+1. Install dependencies.
+    ```bash
+    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    go get github.com/go-gremlin/gremlin
+    ```
+
+1. In code, get the access token using `azidentity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+    ```go
+    import (
+        "fmt"
+        "os"
+        "context"
+        "log"
+        "io/ioutil"
+        "encoding/json"
+
+        "github.com/go-gremlin/gremlin"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+
+    func main() {
+        username = os.Getenv("AZURE_COSMOS_USERNAME")
+        endpoint = os.getenv("AZURE_COSMOS_RESOURCEENDPOINT")
+        port = os.getenv("AZURE_COSMOS_PORT")
+        listKeyUrl = os.Getenv("AZURE_COSMOS_LISTKEYURL")
+        scope = os.Getenv("AZUE_COSMOS_SCOPE")
+
+        // Uncomment the following lines according to the authentication type.
+        // For system-assigned identity.
+        // cred, err := azidentity.NewDefaultAzureCredential(nil)
+        
+        // For user-assigned identity.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // azidentity.ManagedIdentityCredentialOptions.ID := clientid
+        // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
+        // cred, err := azidentity.NewManagedIdentityCredential(options)
+        
+        // For service principal.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // tenantid := os.Getenv("AZURE_COSMOS_TENANTID")
+        // clientsecret := os.Getenv("AZURE_COSMOS_CLIENTSECRET")
+        // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
+
+        // Acquire the access token.
+        ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+        token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+            Scopes: []string{scope},
+        })
+        
+        // Acquire the connection string.
+        client := &http.Client{}
+        req, err := http.NewRequest("POST", listKeyUrl, nil)
+        req.Header.Add("Authorization", "Bearer " + token.Token)
+        resp, err := client.Do(req)
+        body, err := ioutil.ReadAll(resp.Body)
+        var result map[string]interface{}
+        json.Unmarshal(body, &result)
+        password, err := result["primaryMasterKey"];
+    
+        auth := gremlin.OptAuthUserPass(username, password)
+	    client, err := gremlin.NewClient(endpoint, auth)
+    }
+    ```
+
+### [NodeJS](#tab/nodejs)
 1. Install dependencies.
    ```bash
    npm install gremlin
    npm install --save @azure/identity
    ```
-2. In code, get the access token using `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get the access token using `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

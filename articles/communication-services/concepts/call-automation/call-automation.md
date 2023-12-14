@@ -43,6 +43,7 @@ The following list presents the set of features that are currently available in 
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio using Text-to-Speech                   | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Recognize user input through DTMF                 | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -53,6 +54,7 @@ The following list presents the set of features that are currently available in 
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Blind Transfer* a 1:1 call to another endpoint    | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Blind Transfer* a participant from group call to another endpoint |  ✔️    | ✔️    |     ✔️         |   ✔️ |
 |                       | Hang up a call (remove the call leg)              | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Terminate a call (remove all participants and end call)| ✔️ | ✔️  |     ✔️         |    ✔️   |
 |                       | Cancel media operations                           | ✔️    |  ✔️   |     ✔️         |    ✔️   |
@@ -162,6 +164,8 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | CallTransferFailed  | The transfer of your application’s call leg failed  |
 | AddParticipantSucceeded| Your application added a participant  |
 | AddParticipantFailed   | Your application was unable to add a participant  |
+| CancelAddParticipantSucceeded| Your application canceled adding a participant  |
+| CancelAddParticipantFailed   | Your application was unable to cancel adding a participant  |
 | RemoveParticipantSucceeded| Your application has successfully removed a participant from the call.  |
 | RemoveParticipantFailed   | Your application was unable to remove a participant from the call.  |
 | ParticipantsUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
@@ -181,6 +185,22 @@ The Call Automation events are sent to the web hook callback URI specified when 
 To understand which events are published for different actions, refer to [this guide](../../how-tos/call-automation/actions-for-call-control.md) that provides code samples and sequence diagrams for various call control flows. 
 
 To learn how to secure the callback event delivery, refer to [this guide](../../how-tos/call-automation/secure-webhook-endpoint.md).
+
+### Operation Callback Uri
+
+It is an optional parameter in some mid-call APIs that use events as their async responses. By default, all events are sent to the default callback Uri set by CreateCall / AnswerCall API when the user establishes a call. With the usage of Operation Callback Uri, corresponding events of this individual (one-time only) request will be sent to the new Uri.
+
+| Supported API             | Corresponding event |
+| ----------------- | ------------ |
+| AddParticipant      | AddParticipantSucceed / AddParticipantFailed  |
+| RemoveParticipant       | RemoveParticipantSucceed / RemoveParticipantFailed  |
+| TransferCall         | CallTransferAccepted / CallTransferFailed  |
+| CancelAddParticipant  | CancelAddParticipantSucceeded / CancelAddParticipantFailed |
+| Play | PlayCompleted / PlayFailed / PlayCanceled  |
+| PlayToAll | PlayCompleted / PlayFailed / PlayCanceled  |
+| Recognize | RecognizeCompleted / RecognizeFailed / RecognizeCanceled  |
+| StopContinuousDTMFRecognition | ContinuousDtmfRecognitionStopped |
+| SendDTMF | ContinuousDtmfRecognitionToneReceived / ContinuousDtmfRecognitionToneFailed  |
 
 ## Next steps
 

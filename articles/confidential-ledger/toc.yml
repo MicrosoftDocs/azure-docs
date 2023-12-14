@@ -60,8 +60,8 @@
     href: /dotnet/api/overview/azure/confidentialledger 
   - name: JavaScript client library
     href: /javascript/api/overview/azure/azure-confidential-ledger
-  - name: Java preview client library
-    href: /java/api/overview/azure/data-confidentialledger-readme
+  - name: Java client library
+    href: /java/api/overview/azure/security-confidentialledger-readme
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training
