@@ -24,7 +24,7 @@ When deciding whether or not fine-tuning is the right solution to explore for a 
 
 When we talk about fine tuning, we really mean *supervised fine-tuning* not continuous pre-training or Reinforcement Learning through Human Feedback (RLHF). Supervised fine-tuning refers to the process of retraining pre-trained models on specific datasets, typically to improve model performance on specific tasks or introduce information that wasn't well represented when the base model was originally trained.
 
-Fine-tuning is an advanced technique that requires expertise to use appropriately. The questions below will help you evaluate whether you are ready for fine-tuning, and how well you've thought through the process. You can use these to guide your next steps or identify other approaches that might be more appropriate.
+Fine-tuning is an advanced technique that requires expertise to use appropriately. The questions below will help you evaluate whether you're ready for fine-tuning, and how well you've thought through the process. You can use these to guide your next steps or identify other approaches that might be more appropriate.
 
 ## Why do you want to fine-tune a model?
 
@@ -34,7 +34,7 @@ Fine-tuning is an advanced technique that requires expertise to use appropriatel
 **Common signs you might not be ready for fine-tuning yet:**
 
 - No clear use case for fine tuning, or an inability to articulate much more than “I want to make a model better”.
-- If you identify cost as your primary motivator, proceed with caution. Fine-tuning might reduce costs for certain use cases by shortening prompts or allowing you to use a smaller model but there’s a higher upfront cost to training and you will have to pay for hosting your own custom model. Refer to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information on Azure OpenAI fine-tuning costs.
+- If you identify cost as your primary motivator, proceed with caution. Fine-tuning might reduce costs for certain use cases by shortening prompts or allowing you to use a smaller model but there’s a higher upfront cost to training and you'll have to pay for hosting your own custom model. Refer to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) for more information on Azure OpenAI fine-tuning costs.
 - If you want to add out of domain knowledge to the model, you should start with retrieval augmented generation (RAG) with features like Azure OpenAI's [on your data](./use-your-data.md) or [embeddings](../tutorials/embeddings.md). Often, this is a cheaper, more adaptable, and potentially more effective option depending on the use case and data.
 
 ## What have you tried so far?
@@ -75,9 +75,9 @@ Here’s an example: A customer wanted to use GPT-3.5-Turbo to turn natural lang
 
 ## What data are you going to use for fine-tuning?
 
-Even with a great use case, fine-tuning is only as good as the quality of the data that you are able to provide. You need to be willing to invest the time and effort to make fine-tuning work. Different models will require different data volumes but you often need to be able to provide fairly large quantities of high-quality curated data.
+Even with a great use case, fine-tuning is only as good as the quality of the data that you're able to provide. You need to be willing to invest the time and effort to make fine-tuning work. Different models will require different data volumes but you often need to be able to provide fairly large quantities of high-quality curated data.
 
-Another important point is even with high quality data if your data isn't in the necessary format for fine-tuning you will need to commit engineering resources in order to properly format the data.
+Another important point is even with high quality data if your data isn't in the necessary format for fine-tuning you'll need to commit engineering resources in order to properly format the data.
 
 | Data  | Babbage-002 & Davinci-002 | GPT-3.5-Turbo |
 |---|---|---|
