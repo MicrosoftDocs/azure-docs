@@ -421,7 +421,7 @@ Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Auth
 
 # [Azure portal](#tab/azure-portal)
 
-Starting an execution with an overridden configuration isn't supported in the Azure portal.
+Starting a job execution with an overridden configuration isn't supported in the Azure portal.
 
 ---
 
