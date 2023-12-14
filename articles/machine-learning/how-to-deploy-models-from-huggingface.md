@@ -1,5 +1,5 @@
 ---
-title: Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference (Preview)
+title: Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference
 titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
