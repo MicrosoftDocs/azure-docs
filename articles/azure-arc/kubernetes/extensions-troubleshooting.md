@@ -7,7 +7,7 @@ description: "Learn how to resolve common issues with Azure Arc-enabled Kubernet
 
 # Azure Arc-enabled Kubernetes extension troubleshooting
 
-This document provides troubleshooting tips for issues with issues related to extensions such as GitOps (Flux v2) and Open Service Mesh, which can be used in either Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters.
+This document provides troubleshooting tips for issues with issues related to [extensions](extensions-release.md), such as GitOps (Flux v2) and Open Service Mesh, which can be used in either Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters.
 
 ## GitOps (Flux v2)
 
@@ -490,3 +490,8 @@ For information on how OSM issues and manages certificates to Envoy proxies runn
 ### Upgrade Envoy
 
 When a new pod is created in a namespace monitored by the add-on, OSM will inject an [Envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the Envoy version needs to be updated, follow the steps in the [Upgrade Guide](https://docs.openservicemesh.io/docs/guides/upgrade/#envoy) on the OSM docs site.
+
+## Next steps
+
+* Learn more about [cluster extensions](conceptual-extensions.md).
+* View general [troubleshooting tips for Arc-enabled Kubernetes clusters](extensions-troubleshooting.md).
