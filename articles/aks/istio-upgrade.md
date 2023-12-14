@@ -12,7 +12,7 @@ This article addresses upgrade experiences for Istio-based service mesh add-on f
 
 ## How Istio components are upgraded
 
-**Minor version:** Istio addon only allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new revision is deployed alongside the old revision's control plane. The user can then manually roll over data plane workload while using their monitoring tools to track the health of their workloads during this process. If they are satisfied that everything is working as expected with their workloads, they may complete the upgrade so that only the new revision remains on the cluster. Else they may rollback to the previous revision.
+**Minor version:** Istio addon only allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new revision is deployed alongside the old revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't obersve any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
 
 The following example illustrates how to upgrade from revision `asm-1-17` to `asm-1-18`. The steps are the same for upgrades between any two successive revisions:
 
@@ -28,7 +28,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
     az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-18
     ```
 
-    Canary upgrade means the 1.18 control plane will come up alongside the 1.17 control plane. They will continue to coexist until you either complete or roll back the upgrade.
+    Canary upgrade means the 1.18 control plane is deployed alongside the 1.17 control plane. They continue to coexist until you either complete or roll back the upgrade.
 
 1. Verify control plane pods corresponding to both asm-1-17 and asm-1-18 exist:
 
@@ -68,7 +68,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
         aks-istio-ingressgateway-internal-asm-1-18-757d9b5545-krq9w   1/1     Running   0          51m
         ```
 
-1. Relabel the namespace so that any new pods coming up get the Istio sidecar associated witht the new revision and its control plane:
+1. Relabel the namespace so that any new pods coming up get the Istio sidecar associated with the new revision and its control plane:
 
     ```bash
     kubectl label namespace default istio.io/rev=asm-1-18 --overwrite
@@ -80,15 +80,15 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
     kubectl rollout restart deployment <deployment name>
     ```
 
-1. Check your monitoring tools and dashboards to see if you are satisfied that the workloads are all running in a healthy state after they were restarted. Based  you have two options - 
+1. Check your monitoring tools and dashboards to see if you're satisfied that the workloads are all running in a healthy state after the restart. Based  you have two options - 
 
-    * **Complete the canary upgrade**: If you are satisfied that the workloads are all running in a healthy state as expected, run the following command to complete the canary upgrade:
+    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, run the following command to complete the canary upgrade:
 
       ```bash
       az aks mesh upgrade complete --resource-group $RESOURCE_GROUP --name $CLUSTER
       ```
 
-    * **Rollback the canary upgrade**: If you are not satisfied with the workload health and want to rollback to the prevision revision of Istio:
+    * **Rollback the canary upgrade**: In case you observe any issues with the health of your workloads, you can roll back to the prevision revision of Istio:
 
       * Relabel the namespace to the older revision
 
