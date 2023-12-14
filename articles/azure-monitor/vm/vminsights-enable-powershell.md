@@ -31,8 +31,9 @@ You need to:
 To enable VM insights for multiple VMs or virtual machine scale set, use the PowerShell script [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights). The script is available from the Azure PowerShell Gallery. This script iterates through the virtual machines or virtual machine scale sets according to the parameters that you specify. The script can be used to enable VM insights for:
 
 - Every virtual machine and virtual machine scale set in your subscription.
-- The scoped resource group specified by `-ResourceGroup`.
-- A single VM or virtual machine scale set specified by `-Name`.
+- The scoped resource groups specified by `-ResourceGroup`.
+- A VM or virtual machine scale set specified by `-Name`.
+ You can specify multiple resource groups, VMs, or scale sets by using wildcards.
 
 
 Verify that you're using Az PowerShell module version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. To upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, run `Connect-AzAccount` to create a connection with Azure.
@@ -55,7 +56,7 @@ When you enable VM insights using Azure Monitor Agent, the script associates a D
 Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> `
 [-ResourceGroup <ResourceGroup>] `
 [-ProcessAndDependencies ] `
-[-Name <MV or Virtual Machine Scale Set name>] `
+[-Name <VM or Virtual Machine Scale Set name>] `
 -DcrResourceId <DataCollectionRuleResourceId> `
 -UserAssignedManagedIdentityName <UserAssignedIdentityName> `
 -UserAssignedManagedIdentityResourceGroup <UserAssignedIdentityResourceGroup> 
@@ -64,19 +65,19 @@ Install-VMInsights.ps1 -SubscriptionId <SubscriptionId> `
 
 Required Arguments:   
 +  `-SubscriptionId <String>`  Azure subscription ID.  
-+  `-DcrResourceId <String> `  Data Collection Rule (DCR) Azure resource ID identifier. 
++  `-DcrResourceId <String> `  Data Collection Rule (DCR) Azure resource ID identifier. You can specify DCRs from different subscriptions to the VMs or virtual machine scale sets being enabled with Vm-Insights.
 +  `-UserAssignedManagedIdentityResourceGroup <String> `  Name of User Assigned Managed Identity (UAMI) resource group.   
 +  `-UserAssignedManagedIdentityName <String> `  Name of User Assigned Managed Identity (UAMI).  
 
 
 Optional Arguments:   
 + `-ProcessAndDependencies` Set this flag to onboard the Dependency Agent with Azure Monitoring Agent (AMA) settings.  If not specified, only the Azure Monitoring Agent (AMA)  is onboarded.  
-+ `- Name <String>`   Name of the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Set in the subscription or resource group are onboarded.
-+ `- ResourceGroup <String>`  Name of the resource group containing the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Set in the subscription are onboarded.
++ `-Name <String>` Name of the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Set in the subscription or resource group are onboarded. Use wildcards to specify multiple VMs or Virtual Machine Scale Sets.
++ `-ResourceGroup <String>` Name of the resource group containing the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Set in the subscription are onboarded. Use wildcards to specify multiple resource groups.
 + `-PolicyAssignmentName <String>` Only include VMs associated with this policy.   When the PolicyAssignmentName parameter is specified, the VMs part of the parameter SubscriptionId are considered. 
 + `-TriggerVmssManualVMUpdate [<SwitchParameter>]` Trigger the update of VM instances in a scale set whose upgrade policy is set to Manual. 
 + `-WhatIf [<SwitchParameter>]` Get info about expected effect of the commands in the script.         
-+ `-Confirm [<SwitchParameter>]` Confirm each VM / Virtual Machine Scale Set. 
++ `-Confirm [<SwitchParameter>]` Confirm each action in the script. 
 + `-Approve [<SwitchParameter>]` Provide the approval for the installation to start with no confirmation prompt for the listed VM's/Virtual Machine Scale Sets. 
  
 The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_wildcards). 
@@ -140,21 +141,31 @@ Required Arguments:
 
 Optional Arguments:   
 + `-ReInstall [<SwitchParameter>]` Trigger removal of existing Log analytics extension and reinstallation to migrate log analytics workspaces with Legacy Agent (Linux) - OMSAgent. 
-+ `- Name <String>` Name of the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription or resource group are onboarded.
-+ `- ResourceGroup <String>` Name of the resource group containing the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription are onboarded.
-+ `-PolicyAssignmentName <String>` Only include VMs associated with this policy.   When the PolicyAssignmentName parameter is specified, the VMs part of the parameter SubscriptionId are considered. 
++ `-Name <String>` Name of the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription or resource group are onboarded. Use wildcards to specify multiple VMs or Virtual Machine Scale Sets.
++ `- ResourceGroup <String>` Name of the resource group containing the VM or Virtual Machine Scale Set to be onboarded. If not specified, all VMs and Virtual Machine Scale Sets in the subscription are onboarded. Use wildcards to specify multiple resource groups.
++ `-PolicyAssignmentName <String>` Only include VMs associated with this policy. When the PolicyAssignmentName parameter is specified, the VMs part of the parameter SubscriptionId are considered. 
 + `-TriggerVmssManualVMUpdate [<SwitchParameter>]` Trigger the update of VM instances in a scale set whose upgrade policy is set to Manual. 
 + `-WhatIf [<SwitchParameter>]` Get info about expected effect of the commands in the script.         
-+ `-Confirm [<SwitchParameter>]` Confirm each VM / Virtual Machine Scale Set. 
++ `-Confirm [<SwitchParameter>]` Confirm each action in the script. 
 + `-Approve [<SwitchParameter>]` Provide the approval for the installation to start with no confirmation prompt for the listed VM's/Virtual Machine Scale Sets. 
  
 The script supports wildcards for `-Name` and `-ResourceGroup`. For example, `-Name vm*` enables VM insights for all VMs and Virtual Machine Scale Sets that start with "vm". For more information, see [Wildcards in Windows PowerShell](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_wildcards). 
 
 
-Example 
-    Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> -WorkspaceKey \<WorkspaceKey\> -SubscriptionId \<SubscriptionId\> -ResourceGroup \<ResourceGroup\> 
-    Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> -WorkspaceKey \<WorkspaceKey\> -SubscriptionId \<SubscriptionId\> -ResourceGroup \<ResourceGroup\> -ReInstall 
-     
+Example:
+
+```powershell
+Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> `
+-WorkspaceKey \<WorkspaceKey\> `
+-SubscriptionId \<SubscriptionId\> `
+-ResourceGroup \<ResourceGroup\>   
+
+Install-VMInsights.ps1 -WorkspaceId \<WorkspaceId\> `
+-WorkspaceKey \<WorkspaceKey\> `
+-SubscriptionId \<SubscriptionId\> `
+-ResourceGroup \<ResourceGroup\> `
+-ReInstall 
+```     
 
 
 Use the following command to enable VM insights using Log Analytics Agent and Dependency Agent.
