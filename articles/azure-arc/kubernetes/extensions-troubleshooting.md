@@ -1,13 +1,15 @@
 ---
-title: "Troubleshoot common Azure Arc-enabled Kubernetes extension issues"
+title: "Troubleshoot Azure Arc-enabled Kubernetes extension issues"
 ms.date: 12/15/2023
 ms.topic: how-to
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes cluster extensions."
 ---
 
-# Azure Arc-enabled Kubernetes extension troubleshooting
+# Troubleshoot Azure Arc-enabled Kubernetes extension issues
 
-This document provides troubleshooting tips for issues related to [cluster extensions](extensions-release.md), such as GitOps (Flux v2) and Open Service Mesh.
+This document provides troubleshooting tips for common issues related to [cluster extensions](extensions-release.md), such as GitOps (Flux v2) and Open Service Mesh.
+
+For help troubleshooting general issues with Azure Arc-enabled Kubernetes, see [Troubleshoot Azure Arc-enabled Kubernetes issues](troubleshooting.md).
 
 ## GitOps (Flux v2)
 
