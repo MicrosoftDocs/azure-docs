@@ -3,8 +3,8 @@ title: Profile Azure containers with Application Insights Profiler
 description: Learn how to enable the Application Insights Profiler for your ASP.NET Core application running in Azure containers.
 ms.contributor: charles.weininger
 ms.topic: how-to
-ms.date: 08/30/2023
-ms.reviewer: jogrima
+ms.date: 09/22/2023
+ms.reviewer: ryankahng
 # Customer Intent: As a .NET developer, I'd like to learn how to enable Profiler on my ASP.NET Core application running in my container.
 ---
 

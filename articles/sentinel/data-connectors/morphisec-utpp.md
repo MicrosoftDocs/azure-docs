@@ -3,7 +3,7 @@ title: "Morphisec UTPP connector for Microsoft Sentinel"
 description: "Learn how to install the connector Morphisec UTPP to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -19,7 +19,7 @@ Integrate vital insights from your security products with the Morphisec Data Con
 | **Kusto function url** | https://aka.ms/sentinel-morphisecutpp-parser |
 | **Log Analytics table(s)** | CommonSecurityLog (Morphisec)<br/> |
 | **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
-| **Supported by** | [Morphisec](https://support.morphisec.com/) |
+| **Supported by** | [Morphisec](https://support.morphisec.com/hc/en-us) |
 
 ## Query samples
 
@@ -67,7 +67,7 @@ Install and configure the Linux agent to collect your Common Event Format (CEF) 
 
 1.1 Select or create a Linux machine
 
-Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-premises environment, Azure or other clouds.
 
 1.2 Install the CEF collector on the Linux machine
 
@@ -79,7 +79,7 @@ Install the Microsoft Monitoring Agent on your Linux machine and configure the m
 
    Run the following command to install and apply the CEF collector:
 
-   `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
+  `sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}`
 
 2. Forward Common Event Format (CEF) logs to Syslog agent
 
@@ -101,7 +101,7 @@ If the logs are not received, run the following connectivity validation script:
 
    Run the following command to validate your connectivity:
 
-   `sudo wget  -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}`
+  `sudo wget  -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}`
 
 4. Secure your machine 
 

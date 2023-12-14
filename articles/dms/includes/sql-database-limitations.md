@@ -1,9 +1,11 @@
 ---
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.date: 03/21/2023
 ms.service: dms
 ms.topic: include
+ms.custom:
+  - sql-migration-content
 ---
 
 Azure SQL Database offline migration utilizes Azure Data Factory (ADF) pipelines for data movement and thus abides by ADF limitations. A corresponding ADF is created when a database migration service is also created. Thus factory limits apply per service.

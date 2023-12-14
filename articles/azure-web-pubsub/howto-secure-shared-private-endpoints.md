@@ -4,6 +4,7 @@ titleSuffix: Azure Web PubSub Service
 description: How to secure Azure Web PubSub outbound traffic through shared private endpoints
 author: ArchangelSDY
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/27/2023
 ms.author: dayshen

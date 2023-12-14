@@ -12,7 +12,7 @@ ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli
 
 # Configure an application security group (ASG) with a private endpoint
 
-Azure Private endpoints support application security groups for network security. Private endpoints can be associated with an existing ASG in your current infrastructure along side virtual machines and other network resources.
+Azure Private endpoints support application security groups for network security. Private endpoints can be associated with an existing ASG in your current infrastructure alongside virtual machines and other network resources.
 
 ## Prerequisites
 

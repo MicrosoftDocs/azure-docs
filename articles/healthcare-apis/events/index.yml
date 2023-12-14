@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 09/01/2023
+  ms.date: 09/26/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What are events?
             url: events-overview.md
+          - text: Events message structures
+            url: events-message-structure.md 
             
   - title: Deploy events
     linkLists:
@@ -33,31 +35,16 @@ landingContent:
           - text: Deploy events using the Azure portal
             url: events-deploy-portal.md
                    
-  - title: Events message structures
+  - title: Disable events and delete events enabled workspaces
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to disable events and delete events enabled workspaces
+            url: events-disable-delete-workspace.md
+
+  - title: Consume FHIR events with Logic Apps
     linkLists:
       - linkListType: concept
         links:
-          - text: What are events?
-            url: events-overview.md
-          - text: Events message structures
-            url: events-message-structure.md 
-            
-  - title: Deployment
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Deploy events using Azure portal
-            url: events-deploy-portal.md
-          - text: Deploy events with sample code
-            url: https://learn.microsoft.com/samples/azure/azure-quickstart-templates/iotconnectors/
-          - text: Deploy Azure IoT Hub with the MedTech service
-            url: https://learn.microsoft.com/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/
-                            
-  - title: Tools & samples
-    linkLists:
-      - linkListType: download
-        links:
-          - text: Health data workflows sample code
-            url: https://github.com/Azure-Samples/azure-health-data-services-samples
-          - text: Enable $import in the FHIR service configuration
-            url: https://learn.microsoft.com/en-us/samples/azure/azure-quickstart-templates/fhir-import/
+          - text: How to consume FHIR events with Logic Apps to enable automation workflows
+            url: events-consume-logic-apps.md 

@@ -79,7 +79,7 @@ Follow these steps to list additional details about a deny assignment.
     | **Deny assignment applies to**  | Security principals that the deny assignment applies to. |
     | **Deny assignment excludes** | Security principals that are excluded from the deny assignment. |
 
-    **System-Defined Principal** represents all users, groups, service principals, and managed identities in an Azure AD directory.
+    **System-Defined Principal** represents all users, groups, service principals, and managed identities in a Microsoft Entra directory.
 
 1. To see a list of the permissions that are denied, click **Denied Permissions**.
 

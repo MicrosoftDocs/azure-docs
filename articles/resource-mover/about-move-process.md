@@ -13,7 +13,9 @@ ms.custom: UpdateFrequency.5
 
 # About the move process
 
-[Azure Resource Mover](overview.md) helps you to move Azure resources across Azure regions. This article summarizes the components used by Resource Mover and describes the move process. 
+[Azure Resource Mover](overview.md) helps you to move Azure resources across Azure regions. 
+
+This article summarizes the components used by Resource Mover and describes the move process. 
 
 
 ## Components
@@ -78,6 +80,6 @@ The table summarizes what's impacted when you're moving across regions.
 
 ## Next steps
 
-[Move](tutorial-move-region-virtual-machines.md) Azure VMs to another region.
-[Move](tutorial-move-region-sql.md) Azure SQL resources to another region.
+- [Move](tutorial-move-region-virtual-machines.md) Azure VMs to another region.
+- [Move](tutorial-move-region-sql.md) Azure SQL resources to another region.
 

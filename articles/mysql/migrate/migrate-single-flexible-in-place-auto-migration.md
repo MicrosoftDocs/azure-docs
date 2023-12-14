@@ -13,7 +13,7 @@ ms.custom: mvc, mode-api
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic or General Purpose SKU**, data storage used **< 10 GiB** and **no complex features (CMK, AAD, Read Replica, Private Link) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
+**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic or General Purpose SKU**, data storage used **<= 20 GiB** and **no complex features (CMK, AAD, Read Replica, Private Link) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
 
 The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with less than **5 mins** of downtime. It uses backup and restore technology for faster migration time. This migration removes the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
@@ -25,7 +25,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 > In-place migration is only for Single Server database workloads with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled. All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure MySQL Import to migrate.
 
 ## What's new?
-* If you own a Single Server workload with Basic or GP SKU, data storage used < 10 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). (Sept 2023)
+* If you own a Single Server workload with Basic or GP SKU, data storage used <= 20 GiB and no complex features (CMK, AAD, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). (Sept 2023)
 
 ## Configure migration alerts and review migration schedule
 
@@ -50,8 +50,9 @@ Following described are the ways to review your migration schedule once you have
 ## Pre-requisite checks for in-place auto-migration
 
 * The Single Server instance should be in **ready state** and should not be in stopped state during the planned maintenance window for automigration to take place.
-* For Single Server instance with **SSL enabled**, ensure you have both certificates (**BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 Root CA**) available in the trusted root store. Additionally, if you have the certificate pinned to the connection string create a combined CA certificate before scheduled auto-migration by following steps [here](../single-server/concepts-certificate-rotation.md#create-a-combined-ca-certificate) to ensure business continuity post-migration.
+* For Single Server instance with **SSL enabled**, ensure you have all three certificates (**[BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [DigiCertGlobalRootG2 Root CA](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and [DigiCertGlobalRootCA Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)**) available in the trusted root store. Additionally, if you have the certificate pinned to the connection string create a combined CA certificate with all three certificates before scheduled auto-migration to ensure business continuity post-migration.
 * The MySQL engine doesn't guarantee any sort order if there is no 'SORT' clause present in queries. Post in-place automigration, you may observe a change in the sort order. If preserving sort order is crucial, ensure your queries are updated to include 'SORT' clause before the scheduled in-place automigration.
+* If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
 
 ## How is the target MySQL Flexible Server auto-provisioned?
 

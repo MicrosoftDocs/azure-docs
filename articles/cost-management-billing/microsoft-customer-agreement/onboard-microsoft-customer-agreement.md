@@ -89,7 +89,7 @@ In the MCA contract process, there are two main customer roles – the _Signer_ 
 There are two customer roles assigned to one person in the Click-to-accept and Embedded e-sign processes. The person that has the Billing Account Owner role can then invite someone else in their organization to complete the contract acceptance process. This person also receives the Billing Account Owner role.
 
 - The Signer is the person in your organization who is authorized to accept and enter into contractual agreements on the company's behalf.
-- The Billing Account Owner is the administrator of the Billing Account. This person places the order, accepts the proposal, and must have an Azure Active Directory (Azure AD) identity in the customer tenant.
+- The Billing Account Owner is the administrator of the Billing Account. This person places the order, accepts the proposal, and must have a Microsoft Entra identity in the customer tenant.
 
 You can accelerate proposal creation and contract signature by gathering the following information before you contact your Microsoft account manager:
 
@@ -117,7 +117,7 @@ Based on your signature requirements, request the appropriate article from your 
 
 - Click-to-accept signing steps – The process works best when there's a single person in your organization who is **signer** (to accept the MCA) and the **billing account owner** (to accept the proposal.) There's no need for Microsoft or customer signature blocks. It's the simplest signature option.
 - Embedded e-sign signing steps – The process works best when there's a single person in your organization who is the **signer** (to accept the MCA) and the **billing account owner** (to accept the proposal.) Use it when you need to see actual Microsoft and customer signature blocks.
-- Electronic signature signing steps – The process works best when you have a **signer** who doesn't necessarily have an Azure AD identity in the tenant and when actual Microsoft and customer signature blocks are required. With the signature option, a different person who has an Azure AD identity in the tenant must be assigned as the **billing account owner** to accept the proposal. The signature option allows one or more reviewers to review the agreement.
+- Electronic signature signing steps – The process works best when you have a **signer** who doesn't necessarily have a Microsoft Entra identity in the tenant and when actual Microsoft and customer signature blocks are required. With the signature option, a different person who has a Microsoft Entra identity in the tenant must be assigned as the **billing account owner** to accept the proposal. The signature option allows one or more reviewers to review the agreement.
 - Physical signature signing steps – The process works best when you require a paper agreement and physical signatures from your organization _and_ from Microsoft. You can assign one or more persons from your organization as **signers** to sign the MCA. One of the signers, or a different person from your organization, must be assigned by your Microsoft account manager as **billing account owner** to accept the proposal so that they can accept the proposal in the Admin Center. The signature option supports one or more reviewers to review the agreement.
 
 ### Step 4 – Complete purchase
@@ -223,7 +223,7 @@ In the MCA contract process, there are two main customer roles - the _Signer_ an
 There are two customer roles assigned to one person in the Click-to-accept and Embedded e-sign processes. The person that has the Billing Account Owner role can then invite someone else in their organization to complete the contract acceptance process. They also receive the Billing Account Owner role.
 
 - The Signer is the person in your organization who is authorized to accept and enter into contractual agreements on the company's behalf.
-- The Billing Account Owner is the administrator of the Billing Account. They place the order, accepts the proposal, and must have an Azure Active Directory (Azure AD) identity in the customer tenant.
+- The Billing Account Owner is the administrator of the Billing Account. They place the order, accepts the proposal, and must have a Microsoft Entra identity in the customer tenant.
 
 You can accelerate proposal creation and contract signature by gathering the following information before you contact your Microsoft account manager:
 
@@ -251,7 +251,7 @@ Based on your signature requirements, request the appropriate article from your 
 
 - Click-to-accept signing steps - The process works best when there's a single person in your organization who is the **signer** (to accept the Microsoft Customer Agreement) and the **billing account owner** (to accept the proposal.) There's no need for Microsoft or customer signature blocks. It's the simplest signature option.
 - Embedded e-sign signing steps - The process works best when there's a single person in your organization who is the **signer** (to accept the MCA) and the **billing account owner** (to accept the proposal.) Use this choice when you need to see actual Microsoft and customer signature blocks.
-- Electronic signature signing steps - The process works best when you have a **signer** who doesn't necessarily have an Azure AD identity in the tenant and when actual Microsoft and customer signature blocks are required. With the signature option, a different person who has an Azure AD identity in the tenant must be assigned as the **billing account owner** to accept the proposal. This signature option allows one or more reviewers to look over the agreement.
+- Electronic signature signing steps - The process works best when you have a **signer** who doesn't necessarily have a Microsoft Entra identity in the tenant and when actual Microsoft and customer signature blocks are required. With the signature option, a different person who has a Microsoft Entra identity in the tenant must be assigned as the **billing account owner** to accept the proposal. This signature option allows one or more reviewers to look over the agreement.
 - Physical signature signing steps - The process works best when you require a paper agreement and physical signatures from your organization _and_ from Microsoft. You can assign one or more people from your organization as **signers** (to sign the MCA). One of the signers, or a different person from your organization, must be assigned by your Microsoft account manager as **billing account owner** to accept the proposal. This signature option supports one or more reviewers to review the agreement.
 
 ### Step 4 - Complete purchase

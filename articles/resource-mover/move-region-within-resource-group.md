@@ -87,7 +87,7 @@ Select resources you want to move. You move resources to a target region in the 
 
 Resources you're moving appear in the **Across regions** page, in a *Prepare pending* state. Start validation as follows:
 
-1. Dependencies are *auto validated* at the beginning when you add the resources. If the initial auto validation does not resolves the issue, you will see a **Validate dependencies** ribbon, select it to validate manually.
+1. Dependencies are validated in the background after you add them. If you see a **Validate dependencies** button, select it to trigger the manual validation.
 
     ![Button to validate dependencies](./media/move-region-within-resource-group/validate-dependencies.png)
 

@@ -8,7 +8,7 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: faq
-  ms.date: 04/25/2023
+  ms.date: 10/12/2023
   ms.author: banders
 title: Centrally managed Azure Hybrid Benefit FAQ
 summary: |
@@ -48,25 +48,31 @@ sections:
 
           1. Review the information available in the Azure portal about how many SQL Server licenses are applied to Azure SQL resources with resource-level Azure Hybrid Benefit selections.
           2. Confirm with your procurement or software asset management department the number of licenses available to assign to Azure. Available licenses are either not in use on-premises or they are in use with a workload actively migrating from on-premises to Azure. Licenses can be used in both places for up to 180 days during migration. Review the [Transition scenario examples](transition-existing.md#transition-scenario-examples).
-          3. If there are only enough licenses available to cover your existing Azure Hybrid Benefit license usage, you may decide to assign that number for continuity. If there are more licenses available, you may decide to assign more licenses to cover all Azure SQL usage and even expected usage growth. By optimizing assigned licenses to cover your steady or growing usage, you can save your organization more money. Finally, if there aren't enough licenses available to cover your existing Azure Hybrid Benefit license usage, you have two choices:
+          3. If there are only enough licenses available to cover your existing Azure Hybrid Benefit license usage, you might decide to assign that number for continuity. If there are more licenses available, you might decide to assign more licenses to cover all Azure SQL usage and even expected usage growth. By optimizing assigned licenses to cover your steady or growing usage, you can save your organization more money. Finally, if there aren't enough licenses available to cover your existing Azure Hybrid Benefit license usage, you have two choices:
 
               - Assign fewer licenses, which might increase your Azure bill.
               - Engage within your organization to either free-up or acquire more licenses so that you can assign the right amount.
       - question: What happens after I set the license assignment review date?
         answer: |
-          After you assign licenses and set a review date, Microsoft later sends you email notifications to let you know that the license assignment will expire.
+          After you assign a license and set a review date, the license assignment automatically expires 90 days after the review date. The license assignment becomes inactive and no longer applies 90 days after expiration.
+          
+          Microsoft sends email notifications:
 
-          Email notifications are sent:
+          - Ninety days before expiration
+          - Thirty days before expiration
+          - Seven days before expiration
 
-          - 90 days before expiration
-          - 30 days before expiration
-          - 7 days before expiration
+          Before the license assignment expires, you can set the review date to a future date so that you continue to receive the benefit. When the license assignment expires, you're charged with pay-as-you-go prices. To change the review date, use the following steps:
 
-          No notification is sent on the review date. The license assignment becomes inactive and no longer applies 90 days after expiration.
+          1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.
+          2. Select a license assignment that you want to change the review date for.
+          3. Select the review date.
+          4. Fill the review date and select **Save**.
 
+          No notification is sent on the review date. 
       - question: Can I use the new experience with self-installed SQL Server in Azure virtual machines?
         answer: |
-          The new approach of centrally managing Azure Hybrid Benefit at a scope-level supports SQL Server in Azure Virtual machines. However, it’s essential that you have enabled automatic registration of the self-installed SQL server images with the IaaS extension *before* you assign SQL licenses. The experience includes a feature that informs you about current usage of Azure Hybrid Benefit. And, the usage of SQL licenses that aren’t discounted. Assigning the number of SQL Server licenses at the level of the current usage ensures that you don't experience unexpected pay-as-you-go charges. Because the unregistered SQL VMs aren’t recognized as SQL resources, registering them with the IaaS extension *after* you begin assigning licenses at a scope-level could lead to the license assignments being insufficient to cover the newly recognized SQL VMs. In that case, those *new* SQL VMs from registration may incur unexpected pay-as-you-go charges. 
+          The new approach of centrally managing Azure Hybrid Benefit at a scope-level supports SQL Server in Azure Virtual machines. However, it’s essential that you have enabled automatic registration of the self-installed SQL server images with the IaaS extension *before* you assign SQL licenses. The experience includes a feature that informs you about current usage of Azure Hybrid Benefit. And, the usage of SQL licenses that aren’t discounted. Assigning the number of SQL Server licenses at the level of the current usage ensures that you don't experience unexpected pay-as-you-go charges. Because the unregistered SQL VMs aren’t recognized as SQL resources, registering them with the IaaS extension *after* you begin assigning licenses at a scope-level could lead to the license assignments being insufficient to cover the newly recognized SQL VMs. In that case, those *new* SQL VMs from registration might incur unexpected pay-as-you-go charges. 
 
           For more information about how to enable automatic IaaS registration, see [Register SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk).
 
@@ -85,7 +91,7 @@ sections:
         answer: |
           When you use the new experience in the Azure portal, you're simply assigning qualified SQL Server licenses to Azure, as is your right. Your commitment is to use the capability compliantly. For example, only assign licenses to Azure that aren't already in use elsewhere.
 
-          If you try the new approach for centrally managing the benefit at a scope-level and decide it isn’t for you, you may opt out by removing the associated license assignments. When you remove all your license assignments for a given scope, then you're fully opted out of the capability for that scope. That means the resource-based Azure Hybrid Benefit selections are available again to the users that deploy and manage SQL resources. If Azure Hybrid Benefit was enabled for a resource before transitioning it to the scope-level managed license experience, the state is preserved for the resource. If you decide to opt out of the scope-level managed license experience, the original discounts take effect immediately.
+          If you try the new approach for centrally managing the benefit at a scope-level and decide it isn’t for you, you can opt out by removing the associated license assignments. When you remove all your license assignments for a given scope, then you're fully opted out of the capability for that scope. That means the resource-based Azure Hybrid Benefit selections are available again to the users that deploy and manage SQL resources. If Azure Hybrid Benefit was enabled for a resource before transitioning it to the scope-level managed license experience, the state is preserved for the resource. If you decide to opt out of the scope-level managed license experience, the original discounts take effect immediately.
           
           > [!IMPORTANT]
           > If you added Azure SQL resources within a scope using the centralized management experience and you later opt out, you must select Azure Hybrid Benefit for each individual resource for benefit application.
@@ -94,7 +100,7 @@ sections:
           You can track your usage of the assigned SQL Server licenses in **Cost Management** > **Reservations + Hybrid Benefit**. For more information, see [Track assigned license usage](create-sql-license-assignments.md#track-assigned-license-use).
       - question: Can I use my existing Windows Server and Client Access Licenses with the new centrally managed Azure Hybrid Benefit experience?
         answer: |
-          The scope-level managed license experience is optimized for SQL Server core licenses with Software Assurance and core subscription licenses. It doesn’t currently support Windows Server or the Server + Client Access Licenses version of SQL Server. Concerning the latter, you may continue to use [License Mobility through Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility).  Also, don’t hesitate to reach out to your Microsoft account team to see how they can help.
+          The scope-level managed license experience is optimized for SQL Server core licenses with Software Assurance and core subscription licenses. It doesn’t currently support Windows Server or the Server + Client Access Licenses version of SQL Server. Concerning the latter, you can continue to use [License Mobility through Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility).  Also, don’t hesitate to reach out to your Microsoft account team to see how they can help.
       - question: How do I enable and manage Azure Hybrid Benefit for my Windows Server licenses?
         answer: |
           You can enable Azure Hybrid Benefit for each individual resource, for example an Azure virtual machine. Managing Window Server licenses at a scope level isn't currently supported.

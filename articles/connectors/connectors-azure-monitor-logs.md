@@ -21,7 +21,7 @@ tags: connectors
 > the same functionality as the other connectors and is the preferred method for running a query against a 
 > Log Analytics workspace or an Application Insights resource. For example, when you connect to your Application 
 > Insights resource, you don't have to create or provide an application ID and API key. Authentication is 
-> integrated with Azure Active Directory.
+> integrated with Microsoft Entra ID.
 
 To build workflows in Azure Logic Apps that retrieve data from a Log Analytics workspace or an Application Insights resource in Azure Monitor, you can use the Azure Monitor Logs connector.
 
@@ -40,8 +40,8 @@ For technical information about this connector's operations, see the [connector'
 > 
 > | Action | Description |
 > |--------|-------------|
-> | [Run query and and list results](/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each action](../logic-apps/logic-apps-control-flow-loops.md). |
-> | [Run query and and visualize results](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns a JPG file that depicts the query result set. This action lets you use the result set in the rest of the workflow by sending the results in an email, for example. The action only returns a JPG file if the query returns results. |
+> | [Run query and list results](/connectors/azuremonitorlogs/#run-query-and-list-results) | Returns each row as its own object. Use this action when you want to work with each row separately in the rest of the workflow. The action is typically followed by a [For each action](../logic-apps/logic-apps-control-flow-loops.md). |
+> | [Run query and visualize results](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | Returns a JPG file that depicts the query result set. This action lets you use the result set in the rest of the workflow by sending the results in an email, for example. The action only returns a JPG file if the query returns results. |
 
 ## Limitations
 
@@ -92,7 +92,7 @@ For technical information about this connector's operations, see the [connector'
 
    This example continues with the action named **Run query and visualize results**.
 
-1. In the connection box, from the **Tenant** list, select your Azure Active Directory (Azure AD) tenant, and then select **Create**.
+1. In the connection box, from the **Tenant** list, select your Microsoft Entra tenant, and then select **Create**.
 
    > [!NOTE]
    > 

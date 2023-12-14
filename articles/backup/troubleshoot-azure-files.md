@@ -284,7 +284,7 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
   :::image type="content" source="./media/troubleshoot-azure-files/storage-account-network-configuration.png" alt-text="Screenshot shows the required networking details in a storage account." lightbox="./media/troubleshoot-azure-files/storage-account-network-configuration.png":::
 
-- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* is set to *From storage accounts in the same Azure AD tenant*.
+- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* is set to *From storage accounts in the same Microsoft Entra tenant*.
 
   :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 

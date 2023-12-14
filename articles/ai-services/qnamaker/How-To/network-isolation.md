@@ -1,11 +1,11 @@
 ---
 title: Network isolation
 description: Users can restrict public access to QnA Maker resources.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
@@ -49,7 +49,7 @@ The QnA Maker App Service requires outbound access to the below endpoint. Make s
 
 The App Service Environment (ASE) can be used to host the QnA Maker App Service instance. Follow the steps below:
 
-1. Create a [new Azure Cognitive Search Resource](https://portal.azure.com/#create/Microsoft.Search).
+1. Create a [new Azure AI Search Resource](https://portal.azure.com/#create/Microsoft.Search).
 2. Create an external ASE with App Service.
     - Follow this [App Service quickstart](../../../app-service/environment/create-external-ase.md#create-an-ase-and-an-app-service-plan-together) for instructions. This process can take up to 1-2 hours.
     - Finally, you'll have an App Service endpoint that will appear similar to: `https://<app service name>.<ASE name>.p.azurewebsite.net` . 
@@ -59,8 +59,8 @@ The App Service Environment (ASE) can be used to host the QnA Maker App Service 
     | Name                       | Value                                                     |
     |:---------------------------|:----------------------------------------------------------| 
     | PrimaryEndpointKey         | `<app service name>-PrimaryEndpointKey`                   | 
-    | AzureSearchName            | `<Azure Cognitive Search Resource Name from step #1>`     | 
-    | AzureSearchAdminKey        | `<Azure Cognitive Search Resource admin Key from step #1>`| 
+    | AzureSearchName            | `<Azure AI Search Resource Name from step #1>`     | 
+    | AzureSearchAdminKey        | `<Azure AI Search Resource admin Key from step #1>`| 
     | QNAMAKER_EXTENSION_VERSION | `latest`                                                  |
     | DefaultAnswer              | `no answer found`                                         |
 

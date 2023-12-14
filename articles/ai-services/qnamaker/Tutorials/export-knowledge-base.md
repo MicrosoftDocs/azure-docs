@@ -1,11 +1,11 @@
 ---
 title: Export knowledge bases - QnA Maker
 description: Exporting a knowledge base requires exporting from one knowledge base, then importing into another.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.custom: ignite-fall-2021
@@ -24,7 +24,7 @@ You may want to create a copy of your knowledge base for several reasons:
 ## Prerequisites
 
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
+> * A [QnA Maker resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Microsoft Entra ID, Subscription, QnA resource name you selected when you created the resource.
 > * Set up a new [QnA Maker service](../how-to/set-up-qnamaker-service-azure.md)
 
 ## Export a knowledge base
@@ -40,7 +40,7 @@ You may want to create a copy of your knowledge base for several reasons:
 ## Import a knowledge base
 1. Select **Create a knowledge base** from the top menu of the qnamaker.ai portal and then create an _empty_ knowledge base by not adding any URLs or files. Set the name of your choice for the new knowledge base and then Click **Create your KB**. 
 
-1. In this new knowledge base, open the **Settings** tab and and under _Import knowledge base_ select one of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
+1. In this new knowledge base, open the **Settings** tab and under _Import knowledge base_ select one of the following options: **QnAs**, **Synonyms**, or **Knowledge Base Replica**. 
 
    1. **QnAs**: This option imports all QnA pairs. **The QnA pairs created in the new knowledge base shall have the same QnA ID as present in the exported file**. You can refer [SampleQnAs.xlsx](https://aka.ms/qnamaker-sampleqnas), [SampleQnAs.tsv](https://aka.ms/qnamaker-sampleqnastsv) to import QnAs.
    2. **Synonyms**: This option can be used to import synonyms to the knowledge base. You can refer [SampleSynonyms.xlsx](https://aka.ms/qnamaker-samplesynonyms), [SampleSynonyms.tsv](https://aka.ms/qnamaker-samplesynonymstsv) to import synonyms.

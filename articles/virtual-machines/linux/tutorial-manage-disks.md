@@ -80,7 +80,7 @@ Create a VM using the [az vm create](/cli/azure/vm#az-vm-create) command. The fo
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --size Standard_DS2_v2 \
   --admin-username azureuser \
   --generate-ssh-keys \

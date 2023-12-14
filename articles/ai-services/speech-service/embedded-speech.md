@@ -2,19 +2,17 @@
 title: Embedded Speech - Speech service
 titleSuffix: Azure AI services
 description: Embedded Speech is designed for on-device scenarios where cloud connectivity is intermittent or unavailable.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 10/31/2022
+ms.date: 11/15/2023
 ms.author: eur
 zone_pivot_groups: programming-languages-set-thirteen
 ---
 
-# Embedded Speech (preview)
+# Embedded Speech
 
 Embedded Speech is designed for on-device [speech to text](speech-to-text.md) and [text to speech](text-to-speech.md) scenarios where cloud connectivity is intermittent or unavailable. For example, you can use embedded speech in industrial equipment, a voice enabled air conditioning unit, or a car that might travel out of range. You can also develop hybrid cloud and offline solutions. For scenarios where your devices must be in a secure environment like a bank or government entity, you should first consider [disconnected containers](../containers/disconnected-containers.md). 
 
@@ -29,29 +27,29 @@ Embedded speech is included with the Speech SDK (version 1.24.1 and higher) for 
 
 # [Android](#tab/android-target)
 
-Requires Android 7.0 (API level 24) or higher on ARM64 (`arm64-v8a`) or ARM32 (`armeabi-v7a`) hardware.
+Requires Android 7.0 (API level 24) or higher on Arm64 (`arm64-v8a`) or Arm32 (`armeabi-v7a`) hardware.
 
-Embedded TTS with neural voices is only supported on ARM64.
+Embedded TTS with neural voices is only supported on Arm64.
 
 # [Linux](#tab/linux-target)
 
-Requires Linux on x64, ARM64, or ARM32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
+Requires Linux on x64, Arm64, or Arm32 hardware with [supported Linux distributions](quickstarts/setup-platform.md?tabs=linux).
 
 Embedded speech isn't supported on RHEL/CentOS 7.
 
-Embedded TTS with neural voices isn't supported on ARM32.
+Embedded TTS with neural voices isn't supported on Arm32.
 
 # [macOS](#tab/macos-target)
 
-Requires 10.14 or newer on x64 or ARM64 hardware.
+Requires 10.14 or newer on x64 or Arm64 hardware.
 
 # [Windows](#tab/windows-target)
 
-Requires Windows 10 or newer on x64 or ARM64 hardware.
+Requires Windows 10 or newer on x64 or Arm64 hardware.
 
 The latest [Microsoft Visual C++ Redistributable for Visual Studio 2015-2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) must be installed regardless of the programming language used with the Speech SDK.
 
-The Speech SDK for Java doesn't support Windows on ARM64.
+The Speech SDK for Java doesn't support Windows on Arm64.
 
 ---
 
@@ -133,7 +131,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.32.1</version>
+            <version>1.33.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -154,7 +152,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.32.1@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.33.0@aar'
 }
 ```
 ::: zone-end
@@ -162,28 +160,11 @@ dependencies {
 
 ## Models and voices
 
-For embedded speech, you'll need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions will be provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
+For embedded speech, you need to download the speech recognition models for [speech to text](speech-to-text.md) and voices for [text to speech](text-to-speech.md). Instructions are provided upon successful completion of the [limited access review](https://aka.ms/csgate-embedded-speech) process.
 
-The following [speech to text](speech-to-text.md) models are available: de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, hi-IN, it-IT, ja-JP, ko-KR, nl-NL, pt-BR, ru-RU, sv-SE, tr-TR, zh-CN, zh-HK, and zh-TW.
+The following [speech to text](speech-to-text.md) models are available: da-DK, de-DE, en-AU, en-CA, en-GB, en-IE, en-IN, en-NZ, en-US, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, pt-PT, zh-CN, zh-HK, and zh-TW.
 
-The following [text to speech](text-to-speech.md) locales and voices are available out of box. We welcome your input to help us gauge demand for additional languages and voices. Check the full text to speech language and voice list [here](language-support.md?tabs=tts). 
-
-| Locale (BCP-47) | Language | Text to speech voices |
-| ----- | ----- | ----- |
-| `de-DE` | German (Germany) | `de-DE-KatjaNeural` (Female)<br/>`de-DE-ConradNeural` (Male)|
-| `en-AU` | English (Australia) | `en-AU-AnnetteNeural` (Female)<br/>`en-AU-WilliamNeural` (Male)|
-| `en-CA` | English (Canada) | `en-CA-ClaraNeural` (Female)<br/>`en-CA-LiamNeural` (Male)|
-| `en-GB` | English (United Kingdom) | `en-GB-LibbyNeural` (Female)<br/>`en-GB-RyanNeural` (Male)|
-| `en-US` | English (United States) | `en-US-AriaNeural` (Female)<br/>`en-US-GuyNeural` (Male)<br/>`en-US-JennyNeural` (Female)|
-| `es-ES` | Spanish (Spain) | `es-ES-ElviraNeural` (Female)<br/>`es-ES-AlvaroNeural` (Male)|
-| `es-MX` | Spanish (Mexico) | `es-MX-DaliaNeural` (Female)<br/>`es-MX-JorgeNeural` (Male)|
-| `fr-CA` | French (Canada) | `fr-CA-SylvieNeural` (Female)<br/>`fr-CA-JeanNeural` (Male)|
-| `fr-FR` | French (France) | `fr-FR-DeniseNeural` (Female)<br/>`fr-FR-HenriNeural` (Male)|
-| `it-IT` | Italian (Italy) | `it-IT-IsabellaNeural` (Female)<br/>`it-IT-DiegoNeural` (Male)|
-| `ja-JP` | Japanese (Japan) | `ja-JP-NanamiNeural` (Female)<br/>`ja-JP-KeitaNeural` (Male)|
-| `ko-KR` | Korean (Korea) | `ko-KR-SunHiNeural` (Female)<br/>`ko-KR-InJoonNeural` (Male)|
-| `pt-BR` | Portuguese (Brazil) | `pt-BR-FranciscaNeural` (Female)<br/>`pt-BR-AntonioNeural` (Male)|
-| `zh-CN` | Chinese (Mandarin, Simplified) | `zh-CN-XiaoxiaoNeural` (Female)<br/>`zh-CN-YunxiNeural` (Male)|
+All text to speech locales [here](language-support.md?tabs=tts) (except fa-IR, Persian (Iran)) are available out of box with either 1 selected female and/or 1 selected male voices. We welcome your input to help us gauge demand for more languages and voices. 
 
 ## Embedded speech configuration
 
@@ -293,11 +274,55 @@ Hybrid speech with the `HybridSpeechConfig` object uses the cloud speech service
 
 With hybrid speech configuration for [speech to text](speech-to-text.md) (recognition models), embedded speech is used when connection to the cloud service fails after repeated attempts. Recognition may continue using the cloud service again if the connection is later resumed.
 
-With hybrid speech configuration for [text to speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the result is selected based on which one gives a faster response. The best result is evaluated on each synthesis request.
+With hybrid speech configuration for [text to speech](text-to-speech.md) (voices), embedded and cloud synthesis are run in parallel and the final result is selected based on response speed. The best result is evaluated again on each new synthesis request.
 
 ## Cloud speech
 
 For cloud speech, you use the `SpeechConfig` object, as shown in the [speech to text quickstart](get-started-speech-to-text.md) and [text to speech quickstart](get-started-text-to-speech.md). To run the quickstarts for embedded speech, you can replace `SpeechConfig` with `EmbeddedSpeechConfig` or `HybridSpeechConfig`. Most of the other speech recognition and synthesis code are the same, whether using cloud, embedded, or hybrid configuration.
+
+## Embedded voices capabilities
+
+For embedded voices, it is essential to note that certain SSML tags may not be currently supported due to differences in the model structure. For detailed information regarding the unsupported SSML tags, refer to the following table.
+
+| Level 1            | Level 2        | Sub values                                           | Support in embedded NTTS |
+|-----------------|-----------|-------------------------------------------------------|--------------------------|
+| audio           | src       |                                                       | No                       |
+| bookmark        |           |                                                       | Yes                      |
+| break           | strength  |                                                       | No                       |
+|                 | time      |                                                       | No                       |
+| silence         | type      | Leading, Tailing, Comma-exact, etc.                   | No                       |
+|                 | value     |                                                       | No                       |
+| emphasis        | level     |                                                       | No                       |
+| lang            |           |                                                       | No                       |
+| lexicon         | uri       |                                                       | Yes                      |
+| math            |           |                                                       | No                       |
+| msttsaudioduration | value   |                                                       | No                       |
+| msttsbackgroundaudio | src    |                                                       | No                       |
+|                 | volume    |                                                       | No                       |
+|                 | fadein    |                                                       | No                       |
+|                 | fadeout   |                                                       | No                       |
+| msttsexpress-as | style     |                                                       | No                       |
+|                 | styledegree |                                                     | No                       |
+|                 | role      |                                                       | No                       |
+| msttssilence    |           |                                                       | No                       |
+| msttsviseme     | type      | redlips_front, FacialExpression                       | No                       |
+| p               |           |                                                       | Yes                      |
+| phoneme         | alphabet  | ipa, sapi, ups, etc.                                  | Yes                      |
+|                 | ph        |                                                       | Yes                      |
+| prosody         | contour   | Sentences level support, word level only en-US and zh-CN | Yes                      |
+|                 | pitch     |                                                       | Yes                      |
+|                 | range     |                                                       | Yes                      |
+|                 | rate      |                                                       | Yes                      |
+|                 | volume    |                                                       | Yes                      |
+| s               |           |                                                       | Yes                      |
+| say-as          | interpret-as | characters, spell-out, number_digit, date, etc.     | Yes                      |
+|                 | format    |                                                       | Yes                      |
+|                 | detail    |                                                       | Yes                      |
+| sub             | alias     |                                                       | Yes                      |
+| speak           |           |                                                       | Yes                      |
+| voice           |           |                                                       | No                       |
+
+
 
 
 ## Next steps

@@ -114,7 +114,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 ### Register Azure CDN
 
-Register Azure CDN as an app in your Azure Active Directory.
+Register Azure CDN as an app in your Microsoft Entra ID.
 
 > [!NOTE]
 > * `205478c0-bd83-4e1b-a9d6-db63a3e1e1c8` is the service principal for `Microsoft.AzureFrontDoor-Cdn`.

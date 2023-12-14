@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="273px" preserveAspectRatio="none" style="width:701px;height:273px;background:#FFFFFF;" version="1.1" viewBox="0 0 701 273" width="701px" zoomAndPan="magnify"><defs/><g><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="67" x2="67" y1="37.6094" y2="236.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="278.5" x2="278.5" y1="37.6094" y2="236.4219"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="619.5" x2="619.5" y1="37.6094" y2="236.4219"/><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="124" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="12" y="26.5332">Operator network</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="124" x="5" y="235.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="12" y="256.9551">Operator network</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="217" x="170.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="203" x="177.5" y="26.5332">Azure Communications Gateway</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="217" x="170.5" y="235.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="203" x="177.5" y="256.9551">Azure Communications Gateway</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="151" x="544.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="551.5" y="26.5332">Teams Direct Routing</text><rect fill="#C2F0FF" height="31.6094" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="151" x="544.5" y="235.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="137" x="551.5" y="256.9551">Teams Direct Routing</text><polygon fill="#181818" points="267,98.6641,277,102.6641,267,106.6641,271,102.6641" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="67" x2="273" y1="102.6641" y2="102.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="131" x="74" y="65.1045">INVITE +14255550100</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="120" x="74" y="81.4561">(Number assigned to</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="188" x="74" y="97.8076">customer with subdomain cust1)</text><path d="M134,115.6641 L134,174.6641 L423,174.6641 L423,125.6641 L413,115.6641 L134,115.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><path d="M413,115.6641 L413,125.6641 L423,125.6641 L413,115.6641 " fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="268" x="140" y="134.1592">Azure Communications Gateway uses internal</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="246" x="140" y="150.5107">database to find subdomain for the number</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="257" x="140" y="166.8623">and updates Contact header with subdomain</text><polygon fill="#181818" points="608,214.4219,618,218.4219,608,222.4219,612,218.4219" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="279" x2="614" y1="218.4219" y2="218.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="131" x="286" y="197.2139">INVITE +14255550100</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49" x="286" y="213.5654">Contact:</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacing" textLength="64" x="343" y="213.5654">&lt;sip:abc@</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" font-weight="bold" lengthAdjust="spacing" textLength="32" x="407" y="213.5654">cust1</text><text fill="#000000" font-family="sans-serif" font-size="13" font-style="italic" lengthAdjust="spacing" textLength="160" x="439" y="213.5654">.region1.acg.example.com&gt;</text><!--MD5=[09c30c4cf26035007593cf6cda4845d3]
+@startuml azure-communications-gateway-teams-direct-routing-subdomain-in-contact
+
+skinparam {
+
+ParticipantBackgroundColor application
+BackgroundColor white
+}
+
+
+Participant "Operator network" as ON
+
+Participant "Azure Communications Gateway" as ACG
+
+Participant "Teams Direct Routing" as DR
+
+ 
+ON-> ACG : **INVITE +14255550100**\n(Number assigned to\ncustomer with subdomain cust1)
+
+note over ACG: Azure Communications Gateway uses internal\ndatabase to find subdomain for the number\nand updates Contact header with subdomain
+
+ACG -> DR: **INVITE +14255550100**\nContact: // <sip:abc@**cust1**.region1.acg.example.com> //
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

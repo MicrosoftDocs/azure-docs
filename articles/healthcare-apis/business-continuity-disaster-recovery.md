@@ -20,10 +20,10 @@ Business continuity and disaster recovery (BCDR) in Azure Health Data Services h
 
 Azure Health Data Services is available in multiple regions. When you create an Azure Health Data Services resource, you specify its region. From then on, your resource and all its operations stay associated with that Azure region. Cross-region disaster recovery isn't currently supported in Azure Health Data Services.
 
-In most cases, Azure Health Data Services handles disruptive events that may occur in the cloud environment and is able to keep your applications and business processes running. However, Azure Health Data Services can't handle these situations:
+In most cases, Azure Health Data Services handles disruptive events that may occur in the cloud environment and is able to keep your applications and business processes running. However, Azure Health Data Services can't handle situations like:
 
-- You accidentally delete or update your service or data, and you don't have a backup.
-- A natural disaster, such as an earthquake, causes a power outage or disables the region or data center where your service and data are located.
+- You have deleted your service
+- A natural disaster, such as an earthquake or power outage disables the region or data center where your service and data are located.
 - Any other catastrophic event that requires cross-region failover.
 
 ## Database backups for the FHIR service
@@ -33,7 +33,7 @@ Database backups are an essential part of any business continuity strategy becau
 The support team handles the backups and restores of the FHIR database. To restore the data, customers need to submit a support ticket with these details:
 
 - Name of the service
-- Restore point date and time within the last seven days. If the date and time is unavailable, ask us to restore from the earliest available point.
+- Restore point date and time within the last seven days. If the requested restore point is not available, we will use the nearest one available, unless you tell us otherwise. Please include this information in your support request.
 
 More information: [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
 

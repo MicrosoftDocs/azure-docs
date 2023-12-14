@@ -2,11 +2,10 @@
 title: How to detect Personally Identifiable Information (PII)
 titleSuffix: Azure AI services
 description: This article will show you how to extract PII and health information (PHI) from text and detect identifiable information.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 07/27/2022
 ms.author: jboback

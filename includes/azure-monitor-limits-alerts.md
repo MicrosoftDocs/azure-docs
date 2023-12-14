@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Metric alerts (classic) |100 active alert rules per subscription. | Call support. |
+| Metric alerts (classic) |100 active alert rules per subscription. <br/>Classic alerts are [retired](/previous-versions/azure/azure-monitor/alerts/monitoring-classic-retirement) for public cloud users. <br/>Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on 29 February 2024.| Call support. |
 | Metric alerts |5,000 active alert rules per subscription in Azure public, Microsoft Azure operated by 21Vianet, and Azure Government clouds. If you're hitting this limit, explore if you can use the [same type multi-resource alerts](../articles/azure-monitor/alerts/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).<br/>5,000 metric time-series per alert rule. | Call support. |
 | Activity log alerts | 100 active alert rules per subscription (can't be increased). <br/>As this limit cannot be increased, consider [sending your Activity Logs to a Log Analytics workspace](../articles/azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace) and creating log search alerts instead, if you need a larger number of rules per subscription. | Same as default. |
 | Log alerts | 5,000 active alert rules per subscription. Out of which, 100 active alert rules with 1-minute frequency. <br/>1,000 active alert rules per resource. <br/>Each alert rule can trigger up to 6000 alerts per evaluation. | Call support. |

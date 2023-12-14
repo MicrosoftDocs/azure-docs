@@ -1,15 +1,17 @@
 ---
-title: Use clustered applications on Azure Elastic SAN
-description: Learn more about using clustered applications on an Elastic SAN volume and sharing volumes between compute clients.
+title: Use clustered applications on Azure Elastic SAN Preview
+description: Learn more about using clustered applications on an Elastic SAN Preview volume and sharing volumes between compute clients.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 08/15/2023
+ms.date: 10/19/2023
 ms.author: rogarana
-ms.custom: references_regions
+ms.custom:
+  - references_regions
+  - ignite-2023-elastic-SAN
 ---
 
-# Use clustered applications on Azure Elastic SAN
+# Use clustered applications on Azure Elastic SAN Preview
 
 Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Virtual Desktop with the getting started feature
+title: Use the getting started feature to create a sample infrastructure - Azure Virtual Desktop
 description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's getting started feature.
 author: dknappettmsft
 ms.topic: quickstart
@@ -9,11 +9,11 @@ manager: femila
 ms.custom: mode-portal
 ---
 
-# Deploy Azure Virtual Desktop with the getting started feature
+# Use the getting started feature to create a sample infrastructure
 
-You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) deployments, or it can deploy Azure AD DS for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one application group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
+You can quickly deploy Azure Virtual Desktop with the *getting started* feature in the Azure portal. This can be used in smaller scenarios with a few users and apps, or you can use it to evaluate Azure Virtual Desktop in larger enterprise scenarios. It works with existing Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services deployments, or it can deploy Microsoft Entra Domain Services for you. Once you've finished, a user will be able to sign in to a full virtual desktop session, consisting of one host pool (with one or more session hosts), one application group, and one user. To learn about the terminology used in Azure Virtual Desktop, see [Azure Virtual Desktop terminology](environment-setup.md).
 
-Joining session hosts to Azure Active Directory with the getting started feature is not supported. If you want to want to join session hosts to Azure Active Directory, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
+Joining session hosts to Microsoft Entra ID with the getting started feature is not supported. If you want to join session hosts to Microsoft Entra ID, follow the [tutorial to create a host pool](create-host-pools-azure-marketplace.md).
 
 > [!TIP]
 > Enterprises should plan an Azure Virtual Desktop deployment using information from [Enterprise-scale support for Microsoft Azure Virtual Desktop](/azure/cloud-adoption-framework/scenarios/wvd/enterprise-scale-landing-zone). You can also find more a granular deployment process in a [series of tutorials](create-host-pools-azure-marketplace.md), which also cover programmatic methods and less permission.
@@ -25,55 +25,55 @@ You can see the list of [resources that will be deployed](#resources-that-will-b
 Please review the [Prerequisites for Azure Virtual Desktop](prerequisites.md) to start for a general idea of what's required, however there are some differences when using the getting started feature that you'll need to meet. Select a tab below to show instructions that are most relevant to your scenario.
 
 > [!TIP]
-> If you don't already have other Azure resources, we recommend you select the **New Azure AD DS** tab. This scenario will deploy everything you need to be ready to connect to a full virtual desktop session. If you already have AD DS or Azure AD DS, select the relevant tab for your scenario instead.
+> If you don't already have other Azure resources, we recommend you select the **New Microsoft Entra Domain Services** tab. This scenario will deploy everything you need to be ready to connect to a full virtual desktop session. If you already have AD DS or Microsoft Entra Domain Services, select the relevant tab for your scenario instead.
 
-# [New Azure AD DS](#tab/new-aadds)
+# [New Microsoft Entra Domain Services](#tab/new-aadds)
 
 At a high level, you'll need:
 
 - An Azure account with an active subscription
-- An account with the [global administrator Azure AD role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
-- No existing Azure AD DS domain deployed in your Azure tenant.
-- User names you choose must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-), and you must use a unique user name that's not already in your Azure AD subscription.
-- The user name for AD Domain join UPN should be a unique one that doesn't already exist in Azure AD. The getting started feature doesn't support using existing Azure AD user names when also deploying Azure AD DS.
+- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
+- No existing Microsoft Entra Domain Services domain deployed in your Azure tenant.
+- User names you choose must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-), and you must use a unique user name that's not already in your Microsoft Entra subscription.
+- The user name for AD Domain join UPN should be a unique one that doesn't already exist in Microsoft Entra ID. The getting started feature doesn't support using existing Microsoft Entra user names when also deploying Microsoft Entra Domain Services.
 
 # [Existing AD DS](#tab/existing-adds)
 
 At a high level, you'll need:
 
 - An Azure account with an active subscription.
-- An account with the [global administrator Azure AD role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
+- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
 - An AD DS domain controller deployed in Azure in the same subscription as the one you choose to use with the getting started feature. Using multiple subscriptions isn't supported. Make sure you know the fully qualified domain name (FQDN).
 - Domain admin credentials for your existing AD DS domain
-- You must configure [Azure AD connect](../active-directory/hybrid/whatis-azure-ad-connect.md) on your subscription and make sure the **Users** container is syncing with Azure AD. A security group called **AVDValidationUsers** will be created during deployment in the *Users* container by default. You can also pre-create the **AVDValidationUsers** security group in a different organization unit in your existing AD DS domain. You must make sure this group is then synchronized to Azure AD. 
-- A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network for AD DS or Azure AD DS. You also need to make sure you can resolve your AD DS or Azure AD DS domain name from this new virtual network.
+- You must configure [Microsoft Entra Connect](../active-directory/hybrid/whatis-azure-ad-connect.md) on your subscription and make sure the **Users** container is syncing with Microsoft Entra ID. A security group called **AVDValidationUsers** will be created during deployment in the *Users* container by default. You can also pre-create the **AVDValidationUsers** security group in a different organization unit in your existing AD DS domain. You must make sure this group is then synchronized to Microsoft Entra ID. 
+- A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network for AD DS or Microsoft Entra Domain Services. You also need to make sure you can resolve your AD DS or Microsoft Entra Domain Services domain name from this new virtual network.
 - Internet access is required from your domain controller VM to download PowerShell DSC configuration from `https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts/`.
 
 > [!NOTE]
 > The PowerShell Desired State Configuration (DSC) extension will be added to your domain controller VM. A configuration will be added called **AddADDSUser** that contains PowerShell scripts to create the security group and test user, and to populate the security group with any users you choose to add during deployment.
 
-# [Existing Azure AD DS](#tab/existing-aadds)
+# [Existing Microsoft Entra Domain Services](#tab/existing-aadds)
 
 At a high level, you'll need:
 
 - An Azure account with an active subscription.
-- An account with the [global administrator Azure AD role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
-- Azure AD DS deployed in the same tenant and subscription. Peered subscriptions aren't supported. Make sure you know the fully qualified domain name (FQDN).
-- Your domain admin user needs to have the same UPN suffix in Azure AD and Azure AD DS. This means your Azure AD DS name is the same as your `.onmicrosoft.com` tenant name or you've added the domain name used for Azure AD DS as a verified custom domain name to Azure AD.
-- An Azure AD account that is a member of **AAD DC Administrators** group in Azure AD.
-- The *forest type* for Azure AD DS must be **User**.
-- A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network  or Azure AD DS. You also need to make sure you [configure DNS servers](../active-directory-domain-services/tutorial-configure-networking.md#configure-dns-servers-in-the-peered-virtual-network) to resolve your Azure AD DS domain name from this virtual network for Azure Virtual Desktop.
+- An account with the [global administrator Microsoft Entra role](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) assigned on the Azure tenant and the [owner role](../role-based-access-control/role-assignments-portal.md) assigned on subscription you're going to use.
+- Microsoft Entra Domain Services deployed in the same tenant and subscription. Peered subscriptions aren't supported. Make sure you know the fully qualified domain name (FQDN).
+- Your domain admin user needs to have the same UPN suffix in Microsoft Entra ID and Microsoft Entra Domain Services. This means your Microsoft Entra Domain Services name is the same as your `.onmicrosoft.com` tenant name or you've added the domain name used for Microsoft Entra Domain Services as a verified custom domain name to Microsoft Entra ID.
+- A Microsoft Entra account that is a member of **AAD DC Administrators** group in Microsoft Entra ID.
+- The *forest type* for Microsoft Entra Domain Services must be **User**.
+- A virtual network in the same Azure region you want to deploy Azure Virtual Desktop to. We recommend that you [create a new virtual network](../virtual-network/quick-create-portal.md) for Azure Virtual Desktop and use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to peer it with the virtual network  or Microsoft Entra Domain Services. You also need to make sure you [configure DNS servers](../active-directory-domain-services/tutorial-configure-networking.md#configure-dns-servers-in-the-peered-virtual-network) to resolve your Microsoft Entra Domain Services domain name from this virtual network for Azure Virtual Desktop.
 
 ---
 
 > [!IMPORTANT]
-> The getting started feature doesn't currently support accounts that use multi-factor authentication. It also does not support personal Microsoft accounts (MSA) or [Azure AD B2B collaboration](../active-directory/external-identities/user-properties.md) users (either member or guest accounts).
+> The getting started feature doesn't currently support accounts that use multi-factor authentication. It also does not support personal Microsoft accounts (MSA) or [Microsoft Entra B2B collaboration](../active-directory/external-identities/user-properties.md) users (either member or guest accounts).
 
 ## Deployment steps
 
-# [New Azure AD DS](#tab/new-aadds)
+# [New Microsoft Entra Domain Services](#tab/new-aadds)
 
-Here's how to deploy Azure Virtual Desktop and a new Azure AD DS domain using the getting started feature:
+Here's how to deploy Azure Virtual Desktop and a new Microsoft Entra Domain Services domain using the getting started feature:
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 
@@ -87,19 +87,19 @@ Here's how to deploy Azure Virtual Desktop and a new Azure AD DS domain using th
    |--|--|
    | Subscription | The subscription you want to use from the drop-down list. |
    | Identity provider | No identity provider. |
-   | Identity service type | Azure AD Domain Services. |
+   | Identity service type | Microsoft Entra Domain Services. |
    | Resource group | Enter a name. This will be used as the prefix for the resource groups that are deployed. |
    | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Microsoft Entra role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
    | Azure admin password | The password for the Azure admin account. |
-   | Domain admin user name | The user principal name (UPN) for a new Azure AD account that will be added to a new *AAD DC Administrators* group and used to manage your Azure AD DS domain. The UPN suffix will be used as the Azure AD DS domain name.<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Domain admin user name | The user principal name (UPN) for a new Microsoft Entra account that will be added to a new *AAD DC Administrators* group and used to manage your Microsoft Entra Domain Services domain. The UPN suffix will be used as the Microsoft Entra Domain Services domain name.<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Domain admin password | The password for the domain admin account. |
 
 1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
 
    | Parameter | Value/Description |
    |--|--|
-   | Users per virtual machine | Select **Multiple users** or **One user at a time** depending on whether you want users to share a session host or assign a session host to an individual user. Learn more about [host pool types](environment-setup.md#host-pools). Selecting **Multiple users** will also create an Azure Files storage account joined to the same Azure AD DS domain. |
+   | Users per virtual machine | Select **Multiple users** or **One user at a time** depending on whether you want users to share a session host or assign a session host to an individual user. Learn more about [host pool types](environment-setup.md#host-pools). Selecting **Multiple users** will also create an Azure Files storage account joined to the same Microsoft Entra Domain Services domain. |
    | Image type | Select **Gallery** to choose from a predefined list, or **storage blob** to enter a URI to the image. |
    | Image | If you chose **Gallery** for image type, select the operating system image you want to use from the drop-down list. You can also select **See all images** to choose an image from the [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).<br /><br />If you chose **Storage blob** for image type, enter the URI of the image. |
    | Virtual machine size | The [Azure virtual machine size](../virtual-machines/sizes.md) used for your session host(s) |
@@ -114,7 +114,7 @@ Here's how to deploy Azure Virtual Desktop and a new Azure AD DS domain using th
    | Parameter | Value/Description |
    |--|--|
    | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your new Azure AD tenant, synchronized to Azure AD DS, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your new Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Test password | The password to be used for the test account. |
    | Confirm password | Confirmation of the password to be used for the test account. |
 
@@ -143,7 +143,7 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
    | Virtual network | The virtual network in the same Azure region you want to connect your Azure Virtual Desktop resources to. This must have connectivity to your AD DS domain controller in Azure and be able to resolve its FQDN. |
    | Subnet | The subnet of the virtual network you want to connect your Azure Virtual Desktop resources to. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Microsoft Entra role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
    | Azure admin password | The password for the Azure admin account. |
    | Domain admin user name | The user principal name (UPN) of the domain admin account in your AD DS domain. The UPN suffix doesn't need to be added as a custom domain in Azure AD.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
    | Domain admin password | The password for the domain admin account. |
@@ -170,18 +170,18 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Parameter | Value/Description |
    |--|--|
    | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your AD DS domain, synchronized to Azure AD, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your AD DS domain, synchronized to Microsoft Entra ID, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Test password | The password to be used for the test account. |
    | Confirm password | Confirmation of the password to be used for the test account. |
-   | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Azure AD users or user groups**. Select Azure AD users or user groups, then select **Select**. These users and groups must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user account is synchronized between your AD DS domain and Azure AD. Admin accounts aren’t able to sign in to the virtual desktop. |
+   | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Microsoft Entra users or user groups**. Select Microsoft Entra users or user groups, then select **Select**. These users and groups must be [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means the user account is synchronized between your AD DS domain and Microsoft Entra ID. Admin accounts aren’t able to sign in to the virtual desktop. |
 
 1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
 
 1. Select **Create**.
 
-# [Existing Azure AD DS](#tab/existing-aadds)
+# [Existing Microsoft Entra Domain Services](#tab/existing-aadds)
 
-Here's how to deploy Azure Virtual Desktop using the getting started feature where you already have Azure AD DS available:
+Here's how to deploy Azure Virtual Desktop using the getting started feature where you already have Microsoft Entra Domain Services available:
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 
@@ -195,21 +195,21 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    |--|--|
    | Subscription | The subscription you want to use from the drop-down list. |
    | Identity provider | Existing Active Directory. |
-   | Identity service type | Azure AD Domain Services. |
+   | Identity service type | Microsoft Entra Domain Services. |
    | Resource group | Enter a name. This will be used as the prefix for the resource groups that are deployed. |
    | Location | The Azure region where your Azure Virtual Desktop resources will be deployed. |
-   | Virtual network | The virtual network in the same Azure region you want to connect your Azure Virtual Desktop resources to. This must have connectivity to your Azure AD DS domain and be able to resolve its FQDN. |
+   | Virtual network | The virtual network in the same Azure region you want to connect your Azure Virtual Desktop resources to. This must have connectivity to your Microsoft Entra Domain Services domain and be able to resolve its FQDN. |
    | Subnet | The subnet of the virtual network you want to connect your Azure Virtual Desktop resources to. |
-   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Azure AD role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Azure admin user name | The user principal name (UPN) of the account with the global administrator Microsoft Entra role assigned on the Azure tenant and the owner role on the subscription that you selected.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
    | Azure admin password | The password for the Azure admin account. |
-   | Domain admin user name | The user principal name (UPN) of the admin account to manage your Azure AD DS domain. The UPN suffix of the user in Azure AD must match the Azure AD DS domain name.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Domain admin user name | The user principal name (UPN) of the admin account to manage your Microsoft Entra Domain Services domain. The UPN suffix of the user in Microsoft Entra ID must match the Microsoft Entra Domain Services domain name.<br /><br />Make sure this account meets the requirements noted in the [prerequisites](#prerequisites). |
    | Domain admin password | The password for the domain admin account. |
 
 1. On the **Virtual machines** tab, complete the following information, then select **Next: Assignments >**:
 
    | Parameter | Value/Description |
    |--|--|
-   | Users per virtual machine | Select **Multiple users** or **One user at a time** depending on whether you want users to share a session host or assign a session host to an individual user. Learn more about [host pool types](environment-setup.md#host-pools). Selecting **Multiple users** will also create an Azure Files storage account joined to the same Azure AD DS domain. |
+   | Users per virtual machine | Select **Multiple users** or **One user at a time** depending on whether you want users to share a session host or assign a session host to an individual user. Learn more about [host pool types](environment-setup.md#host-pools). Selecting **Multiple users** will also create an Azure Files storage account joined to the same Microsoft Entra Domain Services domain. |
    | Image type | Select **Gallery** to choose from a predefined list, or **storage blob** to enter a URI to the image. |
    | Image | If you chose **Gallery** for image type, select the operating system image you want to use from the drop-down list. You can also select **See all images** to choose an image from the [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).<br /><br />If you chose **Storage blob** for image type, enter the URI of the image. |
    | Virtual machine size | The [Azure virtual machine size](../virtual-machines/sizes.md) used for your session host(s) |
@@ -224,10 +224,10 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
    | Parameter | Value/Description |
    |--|--|
    | Create test user account | Tick the box if you want a new user account created during deployment for testing purposes. |
-   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your Azure AD tenant, synchronized to Azure AD DS, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Azure AD](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
+   | Test user name | The user principal name (UPN) of the test account you want to be created, for example `testuser@contoso.com`. This user will be created in your Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the **AVDValidationUsers** security group that is also created during deployment. It must contain a valid UPN suffix for your domain that is also [added as a verified custom domain name in Microsoft Entra ID](../active-directory/fundamentals/add-custom-domain.md).<br /><br />Make sure this user name meets the requirements noted in the [prerequisites](#prerequisites). |
    | Test password | The password to be used for the test account. |
    | Confirm password | Confirmation of the password to be used for the test account. |
-   | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Azure AD users or user groups**. Select Azure AD users or user groups, then select **Select**. These users and groups must be in the synchronization scope configured for Azure AD DS. Admin accounts aren’t able to sign in to the virtual desktop. |
+   | Assign existing users or groups | You can select existing users or groups by ticking the box and selecting **Add Microsoft Entra users or user groups**. Select Microsoft Entra users or user groups, then select **Select**. These users and groups must be in the synchronization scope configured for Microsoft Entra Domain Services. Admin accounts aren’t able to sign in to the virtual desktop. |
 
 1. On the **Review + create** tab, ensure validation passes and review the information that will be used during deployment.
 
@@ -243,14 +243,14 @@ If you didn't create a test account or assigned an existing user during deployme
 
 ## Resources that will be deployed
 
-# [New Azure AD DS](#tab/new-aadds)
+# [New Microsoft Entra Domain Services](#tab/new-aadds)
 
 | Resource type | Name | Resource group name | Notes |
 |--|--|--|--|
 | Resource group | *your prefix*-avd | N/A | This is a predefined name. |
 | Resource group | *your prefix*-deployment | N/A | This is a predefined name. |
 | Resource group | *your prefix*-prerequisite | N/A | This is a predefined name. |
-| Azure AD DS | *your domain name* | *your prefix*-prerequisite | Deployed with the [Enterprise SKU](https://azure.microsoft.com/pricing/details/active-directory-ds/#pricing). You can [change the SKU](../active-directory-domain-services/change-sku.md) after deployment. |
+| Microsoft Entra Domain Services | *your domain name* | *your prefix*-prerequisite | Deployed with the [Enterprise SKU](https://azure.microsoft.com/pricing/details/active-directory-ds/#pricing). You can [change the SKU](../active-directory-domain-services/change-sku.md) after deployment. |
 | Automation Account | ebautomation*random string* | *your prefix*-deployment | This is a predefined name. |
 | Automation Account runbook | inputValidationRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
 | Automation Account runbook | prerequisiteSetupCompletionRunbook(*Automation Account name*) | *your prefix*-deployment | This is a predefined name. |
@@ -270,8 +270,8 @@ If you didn't create a test account or assigned an existing user during deployme
 | Load balancer | aadds-*random string*-lb | *your prefix*-prerequisite | This is a predefined name. |
 | Public IP address | aadds-*random string*-pip | *your prefix*-prerequisite | This is a predefined name. |
 | Network security group | avdVnet-nsg | *your prefix*-prerequisite | This is a predefined name. |
-| Group | AVDValidationUsers | N/A | Created in your new Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. This is a predefined name. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your new Azure AD tenant, synchronized to Azure AD DS, and made a member of the *AVDValidationUsers* security group. |
+| Group | AVDValidationUsers | N/A | Created in your new Microsoft Entra tenant and synchronized to Microsoft Entra Domain Services. It contains a new test user (if created) and users you selected. This is a predefined name. |
+| User | *your test user* | N/A | If you select to create a test user, it will be created in your new Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the *AVDValidationUsers* security group. |
 
 # [Existing AD DS](#tab/existing-adds)
 
@@ -292,10 +292,10 @@ If you didn't create a test account or assigned an existing user during deployme
 | Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
 | Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
 | Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
-| Group | AVDValidationUsers | N/A | Created in your AD DS domain and synchronized to Azure AD. It contains a new test user (if created) and users you selected. This is a predefined name. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your AD DS domain, synchronized to Azure AD, and made a member of the *AVDValidationUsers* security group. |
+| Group | AVDValidationUsers | N/A | Created in your AD DS domain and synchronized to Microsoft Entra ID. It contains a new test user (if created) and users you selected. This is a predefined name. |
+| User | *your test user* | N/A | If you select to create a test user, it will be created in your AD DS domain, synchronized to Microsoft Entra ID, and made a member of the *AVDValidationUsers* security group. |
 
-# [Existing Azure AD DS](#tab/existing-aadds)
+# [Existing Microsoft Entra Domain Services](#tab/existing-aadds)
 
 | Resource type | Name | Resource group name | Notes |
 |--|--|--|--|
@@ -314,8 +314,8 @@ If you didn't create a test account or assigned an existing user during deployme
 | Virtual machine | *your prefix*-*number* | *your prefix*-avd | This is a predefined name. |
 | Network interface | *virtual machine name*-nic | *your prefix*-avd | This is a predefined name. |
 | Disk | *virtual machine name*\_OsDisk_1_*random string* | *your prefix*-avd | This is a predefined name. |
-| Group | AVDValidationUsers | N/A | Created in your Azure AD tenant and synchronized to Azure AD DS. It contains a new test user (if created) and users you selected. This is a predefined name. |
-| User | *your test user* | N/A | If you select to create a test user, it will be created in your Azure AD tenant, synchronized to Azure AD DS, and made a member of the *AVDValidationUsers* security group. |
+| Group | AVDValidationUsers | N/A | Created in your Microsoft Entra tenant and synchronized to Microsoft Entra Domain Services. It contains a new test user (if created) and users you selected. This is a predefined name. |
+| User | *your test user* | N/A | If you select to create a test user, it will be created in your Microsoft Entra tenant, synchronized to Microsoft Entra Domain Services, and made a member of the *AVDValidationUsers* security group. |
 
 ---
 
@@ -325,7 +325,7 @@ If you want to remove Azure Virtual Desktop resources from your environment, you
 
 - *your-prefix*-deployment
 - *your-prefix*-avd
-- *your-prefix*-prerequisite (only if you deployed the getting started feature with a new Azure AD DS domain)
+- *your-prefix*-prerequisite (only if you deployed the getting started feature with a new Microsoft Entra Domain Services domain)
 
 To delete the resource groups:
 

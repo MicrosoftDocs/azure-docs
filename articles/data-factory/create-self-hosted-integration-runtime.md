@@ -25,7 +25,7 @@ This article describes how you can create and configure a self-hosted IR.
 
 ## Considerations for using a self-hosted IR
 
-- You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory within the same Azure Active Directory (Azure AD) tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
+- You can use a single self-hosted integration runtime for multiple on-premises data sources. You can also share it with another data factory within the same Microsoft Entra tenant. For more information, see [Sharing a self-hosted integration runtime](./create-shared-self-hosted-integration-runtime-powershell.md).
 - You can install only one instance of a self-hosted integration runtime on any single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](./create-shared-self-hosted-integration-runtime-powershell.md) to share the self-hosted IR, or install the self-hosted IR on two on-premises computers, one for each data factory or Synapse workspace.  Synapse workspace doesn't support Integration Runtime Sharing.
 - The self-hosted integration runtime doesn't need to be on the same machine as the data source. However, having the self-hosted integration runtime close to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that differs from the one that hosts the on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime doesn't compete with the data source for resources.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, if you have two self-hosted integration runtimes that serve two data factories, the same on-premises data source can be registered with both data factories.
@@ -104,6 +104,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
     ```
 > [!NOTE]
+
 > Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).
 
 ### Create a self-hosted IR via UI
@@ -138,6 +139,7 @@ Use the following steps to create a self-hosted IR using the Azure Data Factory 
 1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
    :::image type="content" source="media/create-self-hosted-integration-runtime/new-self-hosted-integration-runtime-synapse.png" alt-text="Create a selfhosted IR":::
 
+
 ---
 
 ### Configure a self-hosted IR via UI
@@ -170,7 +172,7 @@ You can automate self-hosted IR setup on an Azure virtual machine by using the [
 
 You can use a command line to set up or manage an existing self-hosted IR. This usage can especially help to automate the installation and registration of self-hosted IR nodes.
 
-Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\4.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
+Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\5.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
 
 Use the application as follows:
 
@@ -331,9 +333,9 @@ You can use the configuration manager tool to view and update the HTTP proxy.
 
 If you select the **Use system proxy** option for the HTTP proxy, the self-hosted integration runtime uses the proxy settings in diahost.exe.config and diawp.exe.config. When these files specify no proxy, the self-hosted integration runtime connects to the cloud service directly without going through a proxy. The following procedure provides instructions for updating the diahost.exe.config file:
 
-1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config as a backup of the original file.
+1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config as a backup of the original file.
 1. Open Notepad running as administrator.
-1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
+1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config.
 1. Find the default **system.net** tag as shown in the following code:
 
     ```xml
@@ -377,9 +379,9 @@ You also need to make sure that Microsoft Azure is in your company's allowlist. 
 
 If your company's network architure involves the use of private endpoints and for security reasons, and your company's policy does not allow a direct internet connection from the VM hosting the Self Hosted Integration Runtime to the Azure Data Factory service URL, then you will need to allow bypass the ADF Service URL for full connectivity. The following procedure provides instructions for updating the diahost.exe.config file. You should also repeat these steps for the diawp.exe.config file.
 
-1. In File Explorer, make a safe copy of _C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config_ as a backup of the original file.
+1. In File Explorer, make a safe copy of _C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config_ as a backup of the original file.
 1. Open Notepad running as administrator.
-1. In Notepad, open _C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config_.
+1. In Notepad, open _C:\Program Files\Microsoft Integration Runtime\5.0\Shared\diahost.exe.config_.
 1. Find the default **system.net** tag as shown here:
 
     ```xml
@@ -462,6 +464,7 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 > It is not right to install both Integration Runtime and Power BI gateway in same machine, because mainly Integration Runtime uses port number 443, which is one of the main ports being used by Power BI gateway as well.
 
 
+
 ### Self-contained interactive authoring (preview)
 In order to perform interactive authoring actions such as data preview and connection testing, the self-hosted integration runtime requires a connection to Azure Relay. If the connection is not established, there are two possible solutions to ensure uninterrupted functionality. The first option is to add the Azure Relay endpoints to your firewall's allowlist [Get URL of Azure Relay](#get-url-of-azure-relay). Alternatively, you can enable self-contained interactive authoring.
 
@@ -508,8 +511,10 @@ If all your data source and sink and self-hosted integration runtime are in on-p
 ## Credentials store
 There are two ways to store the credentials when using self-hosted integration runtime:
 1. Use Azure Key Vault.
+
 This is the recommended way to store your credentials in Azure. The self-hosted integration runtime can directly get the credentials from Azure Key Vault which can highly avoid some potential security issues or any credential in-sync problems between self-hosted integration runtime nodes.
 2. Store credentials locally.
+
 The credentials will be push to the machine of your self-hosted integration runtime and be encrypted. 
 When your self-hosted integration runtime is recovered from crash, you can either recover credential from the one you back up before or edit linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, the pipeline doesn't work due to the lack of credential when running via self-hosted integration runtime.
 > [!NOTE]
@@ -535,6 +540,6 @@ When installing a self-hosted integration runtime consider following
 - Share across multiple data sources
 - Share across multiple data factories
 
-## Next steps
+## Related content
 
 For step-by-step instructions, see [Tutorial: Copy on-premises data to cloud](tutorial-hybrid-copy-powershell.md).

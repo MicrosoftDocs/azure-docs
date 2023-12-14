@@ -41,7 +41,7 @@ For instructions on how to create an HDInsight cluster, see [Get started with Az
 
 ## Enable or disable logs by using a script action for multiple tables and log types
 
-1. Go to **Script actions** in your cluster and select **Submit now** to start the process of creating a script action. 
+1. Go to **Script actions** in your cluster and select **Submit new** to start the process of creating a script action. 
 
     :::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/select-submit-script-action.png" alt-text="Screenshot that shows the button for starting the process of creating a script action.":::
 

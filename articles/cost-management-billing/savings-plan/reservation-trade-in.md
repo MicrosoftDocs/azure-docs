@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -22,13 +22,20 @@ Apart from [Azure Virtual Machines](https://azure.microsoft.com/pricing/details/
 
 
 > [!NOTE]
-> Exchanges will be unavailable for all compute reservations - Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations - purchased on or after **January 1, 2024**. Compute reservations purchased **prior to January 1, 2024** will reserve the right to **exchange one more time** after the policy change goes into effect. Azure savings plan for compute is designed to help you save broadly on predictable compute usage. The savings plan provides more flexibility needed to accommodate changes such as virtual machine series and regions. With savings plan providing the flexibility automatically, we’re adjusting our reservations exchange policy. You can continue to use instance size flexibility for VM sizes, but we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. 
+> Through a grace period, you will have the ability to [exchange](../reservations/exchange-and-refund-azure-reservations.md) Azure compute reservations (Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations) **until at least July 1, 2024**. In October 2022 it was announced that the ability to exchange Azure compute reservations would be deprecated on January 1, 2024. This policy’s start date remains January 1, 2024 but with this grace period **you now have until at least July 1, 2024 to exchange your Azure compute reservations**. Compute reservations purchased prior to the end of the grace period will reserve the right to exchange one more time after the grace period ends.​
 >
-> You may trade-in your Azure compute reservations for a savings plan. Or, you may continue to use and purchase reservations for those predictable, stable workloads where you know the specific configuration you’ll need and want additional savings. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
+> This grace period is designed to provide more time for you to determine your resource needs and plan accordingly. For more information about the exchange policy change, see [Changes to the Azure reservation exchange policy](../reservations/reservation-exchange-policy-changes.md)​.
+>
+> [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/) was launched in October 2022 to provide you with more flexibility and accommodate changes such as virtual machine series and regions. With savings plan providing flexibility automatically, we adjusted our reservations exchange policy. You can continue to use [instance size flexibility for VM sizes](../../virtual-machines/reserved-vm-instance-size-flexibility.md), but after the grace period we'll no longer support exchanging instance series or regions for Azure Reserved Virtual Machine Instances, Azure Dedicated Host reservations, and Azure App Services reservations. ​
+>
+> You may [trade-in](reservation-trade-in.md) your Azure compute reservations for a savings plan or may continue to use and purchase reservations for those predictable, stable workloads where the specific configuration need is known. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).​
 
-Although compute reservation exchanges will end on January 1, 2024, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.
+Although compute reservation exchanges become unavailable at the end of the grace period, noncompute reservation exchanges are unchanged. You're able to continue to trade-in reservations for saving plans.​
 
 - You must have owner access on the Reservation Order to trade in an existing reservation. You can [Add or change users who can manage a savings plan](manage-savings-plan.md#who-can-manage-a-savings-plan).
+- To trade-in a reservation for a savings plan, you must have Azure RBAC Owner permission on the subscription you plan to use to purchase a savings plan.
+    - EA Admin write permission or Billing profile contributor and higher, which are Cost Management + Billing permissions, are supported only for direct Savings plan purchases. They can't be used for savings plans purchases as a part of a reservation trade-in.
+- The new savings plan's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. Example: for a three-year reservation that's $100 per month and exchanged after the 18th payment, the new  savings plan's lifetime commitment should be $1,800 or more (paid monthly or upfront).
 - Microsoft isn't currently charging early termination fees for reservation trade ins. We might charge the fees made in the future. We currently don't have a date for enabling the fee.
 
 ## How to trade in an existing reservation
@@ -43,7 +50,7 @@ You can trade in your reservation from [Azure portal](https://portal.azure.com/#
 
 ## Determine savings plan commitment needed to replace your reservation
 
-During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations that are being traded in. The resulting hourly commitment may not be a large enough benefit commitment to cover the virtual machines that were previously covered by the returned reservations. You can calculate the necessary savings plan hourly commitment to cover the reservations as follows:
+During a reservation trade-in, the default hourly commitment for the savings plan is calculated using the remaining monetary value of the reservations that are being traded in. The resulting hourly commitment might not be a large enough benefit commitment to cover the virtual machines that were previously covered by the returned reservations. You can calculate the necessary savings plan hourly commitment to cover the reservations as follows:
 
 1. Follow the first six steps in [Estimate costs with the Azure pricing calculator](../manage/ea-pricing.md#estimate-costs-with-the-azure-pricing-calculator).
 2. Search for the product that you want to return.

@@ -2,6 +2,7 @@
 title: Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
 description: Learn how to secure access to Azure OpenAI from Azure Kubernetes Service (AKS).
 ms.service: azure-kubernetes-service
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/18/2023
 ms.author: schaffererin
@@ -10,27 +11,29 @@ author: schaffererin
 
 # Secure access to Azure OpenAI from Azure Kubernetes Service (AKS)
 
-In this article, you learn how to secure access to Azure OpenAI from Azure Kubernetes Service (AKS) using Azure Active Directory (Azure AD) Workload Identity. You learn how to:
+In this article, you learn how to secure access to Azure OpenAI from Azure Kubernetes Service (AKS) using Microsoft Entra Workload ID. You learn how to:
 
 * Enable workload identities on an AKS cluster.
 * Create an Azure user-assigned managed identity.
-* Create an Azure AD federated credential.
+* Create a Microsoft Entra ID federated credential.
 * Enable workload identity on a Kubernetes Pod.
 
 > [!NOTE]
-> We recommend using Azure AD Workload Identity and managed identities on AKS for Azure OpenAI access because it enables a secure, passwordless authentication process for accessing Azure resources.
+> We recommend using Microsoft Entra Workload ID and managed identities on AKS for Azure OpenAI access because it enables a secure, passwordless authentication process for accessing Azure resources.
 
 ## Before you begin
 
 * You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * This article builds on [Deploy an application that uses OpenAI on AKS](./open-ai-quickstart.md). You should complete that article before you begin this one.
-* You need a custom domain name enabled on your Azure OpenAI account to use for Azure AD authorization. For more information, see [Custom subdomain names for Azure AI services](../ai-services/cognitive-services-custom-subdomains.md).
+* You need a custom domain name enabled on your Azure OpenAI account to use for Microsoft Entra authorization. For more information, see [Custom subdomain names for Azure AI services](../ai-services/cognitive-services-custom-subdomains.md).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-## Enable Azure AD Workload Identity on an AKS cluster
+<a name='enable-azure-ad-workload-identity-on-an-aks-cluster'></a>
 
-The Azure AD Workload Identity and OIDC Issuer Endpoint features aren't enabled on AKS by default. You must enable them on your AKS cluster before you can use them.
+## Enable Microsoft Entra Workload ID on an AKS cluster
+
+The Microsoft Entra Workload ID and OIDC Issuer Endpoint features aren't enabled on AKS by default. You must enable them on your AKS cluster before you can use them.
 
 1. Set the resource group name and AKS cluster resource group name variables.
 
@@ -42,7 +45,7 @@ The Azure AD Workload Identity and OIDC Issuer Endpoint features aren't enabled 
     AKS_NAME=$(az resource list --resource-group $RG_NAME --resource-type Microsoft.ContainerService/managedClusters --query "[0].name" -o tsv)
     ```
 
-2. Enable the Azure AD Workload Identity and OIDC Issuer Endpoint features on your existing AKS cluster using the [`az aks update`][az-aks-update] command.
+2. Enable the Microsoft Entra Workload ID and OIDC Issuer Endpoint features on your existing AKS cluster using the [`az aks update`][az-aks-update] command.
 
     ```azurecli-interactive
     az aks update \
@@ -98,7 +101,9 @@ The Azure AD Workload Identity and OIDC Issuer Endpoint features aren't enabled 
         --scope $AOAI_RESOURCE_ID
     ```
 
-## Create an Azure AD federated credential
+<a name='create-an-azure-ad-federated-credential'></a>
+
+## Create a Microsoft Entra ID federated credential
 
 1. Set the federated credential, namespace, and service account variables.
 
@@ -124,9 +129,11 @@ The Azure AD Workload Identity and OIDC Issuer Endpoint features aren't enabled 
         --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
     ```
 
-## Use Azure AD Workload Identity on AKS
+<a name='use-azure-ad-workload-identity-on-aks'></a>
 
-To use Azure AD Workload Identity on AKS, you need to make a few changes to the `ai-service` deployment manifest.
+## Use Microsoft Entra Workload ID on AKS
+
+To use Microsoft Entra Workload ID on AKS, you need to make a few changes to the `ai-service` deployment manifest.
 
 ### Create a ServiceAccount
 
@@ -152,7 +159,9 @@ To use Azure AD Workload Identity on AKS, you need to make a few changes to the 
     EOF
     ```
 
-### Enable Azure AD Workload Identity on the Pod
+<a name='enable-azure-ad-workload-identity-on-the-pod'></a>
+
+### Enable Microsoft Entra Workload ID on the Pod
 
 1. Set the Azure OpenAI resource name, endpoint, and deployment name variables.
 
@@ -263,9 +272,9 @@ To use Azure AD Workload Identity on AKS, you need to make a few changes to the 
 
 ## Next steps
 
-In this article, you learned how to secure access to Azure OpenAI from Azure Kubernetes Service (AKS) using Azure Active Directory (Azure AD) Workload Identity.
+In this article, you learned how to secure access to Azure OpenAI from Azure Kubernetes Service (AKS) using Microsoft Entra Workload ID.
 
-For more information on Azure AD Workload Identity, see [Azure AD Workload Identity](./workload-identity-overview.md).
+For more information on Microsoft Entra Workload ID, see [Microsoft Entra Workload ID](./workload-identity-overview.md).
 
 <!-- Links internal -->
 [az-aks-update]: /cli/azure/aks#az_aks_update

@@ -81,6 +81,10 @@ If you want to access all VMs in VMMap in a loop, you can use the following code
 
 
 ```powershell
+param (
+    [parameter(Mandatory=$false)]
+    [Object]$RecoveryPlanContext
+)
 $VMinfo = $RecoveryPlanContext.VmMap | Get-Member | Where-Object MemberType -EQ NoteProperty | select -ExpandProperty Name
 $vmMap = $RecoveryPlanContext.VmMap
     foreach($VMID in $VMinfo)
@@ -254,14 +258,13 @@ To deploy sample scripts to your Automation account, select the **Deploy to Azur
 
 [![Deploy to Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-This video provides another example. It demonstrates how to recover a two-tier WordPress application to Azure:
-
 ## Next steps
 
-- Learn about an [Azure Automation Run As account](../automation/manage-runas-account.md)
-- Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
+- Learn about:
+    - [Running failovers](site-recovery-failover.md)
+- Review:
+    -  [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
+    - [A few tasks you might want to run during an Azure Site Recovery DR](https://github.com/WernerRall147/RallTheory/tree/main/AzureSiteRecoveryDRRunbooks).
 
-- Also Review [A few tasks you might want to run during an Azure Site Recovery DR](https://github.com/WernerRall147/RallTheory/tree/main/AzureSiteRecoveryDRRunbooks)
-- [Learn more](site-recovery-failover.md) about running failovers.
 
 

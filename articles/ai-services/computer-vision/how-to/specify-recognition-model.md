@@ -2,11 +2,10 @@
 title: How to specify a recognition model - Face
 titleSuffix: Azure AI services
 description: This article will show you how to choose which recognition model to use with your Azure AI Face application.
-services: cognitive-services
+#services: cognitive-services
 author: longli0
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: longl

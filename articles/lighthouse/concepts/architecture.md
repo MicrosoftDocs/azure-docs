@@ -7,12 +7,12 @@ ms.topic: conceptual
 
 # Azure Lighthouse architecture
 
-Azure Lighthouse helps service providers simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision. Authorized users, groups, and service principals can work directly in the context of a customer subscription without having an account in that customer's Azure Active Directory (Azure AD) tenant or being a co-owner of the customer's tenant. The mechanism used to support this access is called Azure delegated resource management.
+Azure Lighthouse helps service providers simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision. Authorized users, groups, and service principals can work directly in the context of a customer subscription without having an account in that customer's Microsoft Entra tenant or being a co-owner of the customer's tenant. The mechanism used to support this access is called Azure delegated resource management.
 
 :::image type="content" source="../media/delegation.jpg" alt-text="Diagram illustrating Azure delegated resource management.":::
 
 > [!TIP]
-> Azure Lighthouse can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant management.
+> Azure Lighthouse can also be used [within an enterprise which has multiple Microsoft Entra tenants of its own](enterprise.md) to simplify cross-tenant management.
 
 This topic discusses the relationship between tenants in Azure Lighthouse, and the resources created in the customer's tenant that enable that relationship.
 

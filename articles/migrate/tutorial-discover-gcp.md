@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 09/15/2023
-ms.custom: mvc, subject-rbac-steps, engagement-fy23
+ms.date: 11/03/2023
+ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
 
@@ -37,7 +37,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 **Requirement** | **Details**
 --- | ---
-**Appliance** | You need a server on GCP on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed.<br/> _Running the appliance on a machine with Windows Server 2019 isn't supported_.<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
+**Appliance** | You need a server on GCP on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2019 or Windows Server 2022 installed.<br/> _Running the appliance on a machine with Windows Server 2019 isn't supported_.<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
 **Windows server instances** | Allow inbound connections on WinRM port 5985 (HTTP) for discovery of Windows servers.
 **Linux server instances** | Allow inbound connections on port 22 (TCP) for discovery of Linux servers.
 
@@ -46,13 +46,13 @@ Before you start this tutorial, check you have these prerequisites in place.
 To create a project and register the Azure Migrate appliance, you need an account with:
 
 * Contributor or Owner permissions on an Azure subscription.
-* Permissions to register Azure Active Directory apps.
+* Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
 1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
 
-    ![Screenshot of Search box to search for the Azure subscription.](./media/tutorial-discover-gcp/search-subscription.png)
+    :::image type="content" source="./media/tutorial-discover-gcp/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
 
 1. In the **Subscriptions** page, select the subscription in which you want to create a project.
 
@@ -68,13 +68,13 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of role assignment page in Azure portal.":::
 
-1. To register the appliance, your Azure account needs **permissions to register Azure Active Directory apps**.
+1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps**.
 
-1. In the portal, go to **Azure Active Directory** > **Users**.
+1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Azure AD app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare GCP instances
 
@@ -108,15 +108,13 @@ Set up a new project.
 4. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
-   ![Screenshot to enter project name and region.](./media/tutorial-discover-gcp/new-project.png)
-
 6. Select **Create**.
 7. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
 
-![Page showing Server Assessment tool added by default.](./media/tutorial-discover-gcp/added-tool.png)
+:::image type="content" source="./media/tutorial-discover-gcp/added-tool.png" alt-text="Screenshot of Discovery and assessment tool added by default.":::
 
 > [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project).
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
 
 ## Set up the appliance
 
@@ -263,10 +261,11 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
     - Currently Azure Migrate doesn't support SSH private key file generated by PuTTY.
     - Azure Migrate supports OpenSSH format of the SSH private key file as shown below:
     
-    ![Image of SSH private key supported format.](./media/tutorial-discover-physical/key-format.png)
+    :::image type="content" source="./media/tutorial-discover-physical/key-format.png" alt-text="Screenshot of SSH private key supported format.":::
 
 
 2. If you want to add multiple credentials at once, select **Add more** to save and add more credentials. 
+
    > [!Note]
    > By default, the credentials will be used to gather data about the installed applications, roles, and features, and also to collect dependency data from Windows and Linux servers, unless you disable the slider to not perform these features (as instructed in the last step).
 3. In **Step 2:Provide physical or virtual server details​**, select **Add discovery source** to specify the server **IP address/FQDN** and the friendly name for credentials to connect to the server.
@@ -297,7 +296,7 @@ Click **Start discovery**, to kick off discovery of the successfully validated s
 * It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
 * [Software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers is finished.
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
-* Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+* Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself might not need network line of sight.
 * The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 * SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.

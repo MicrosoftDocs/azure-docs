@@ -6,4 +6,4 @@ ms.topic: include
 ms.service: azure-operator-nexus
 ---
 
-You can now deploy the CNFs either directly via [cluster connect](../../../azure-arc/kubernetes/cluster-connect.md) or via Azure Operator Service Manager (AOSM).
+You can now deploy the CNFs either directly via [cluster connect](../../howto-kubernetes-cluster-connect.md#connected-mode-access) or via [Azure Operator Service Manager](../../../operator-service-manager/azure-operator-service-manager-overview.md).

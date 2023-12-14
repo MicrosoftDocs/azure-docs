@@ -16,7 +16,7 @@ The steps in this article help you create a **Barracuda CloudGen WAN** Network V
 
 For deployment documentation of **Cisco SD-WAN** within Azure Virtual WAN, see [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701).
 
-For deployment documentation of **VMware SD-WAN** within Azure Virtual WAN, see [Deployment Guide for VMware SD-WAN in Virtual WAN Hub](https://kb.vmware.com/s/article/82746)
+For deployment documentation of **VMware SD-WAN** within Azure Virtual WAN, see [Deployment Guide for VMware SD-WAN in Virtual WAN Hub](https://docs.vmware.com/en/VMware-SD-WAN/index.html)
 
 ## Prerequisites
 

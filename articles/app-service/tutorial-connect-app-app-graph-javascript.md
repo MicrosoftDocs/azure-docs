@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 3/13/2023
 ms.custom: devx-track-js, seodec18, engagement-fy23, AppServiceConnectivity
 zone_pivot_groups: app-service-platform-windows-linux
-# Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure AAD apps
+# Requires non-internal subscription - internal subscriptions doesn't provide permission to correctly configure Microsoft Entra apps
 ---
 
 # Tutorial: Flow authentication from App Service through back-end API to Microsoft Graph
@@ -63,7 +63,7 @@ This tutorial doesn't:
 
 In the previous tutorial, when the user signed in to the frontend app, a pop-up displayed asking for user consent. 
 
-In this tutorial, in order to read user profile from Microsoft Graph, the back-end app needs to exchange the signed-in user's [access token](../active-directory/develop/access-tokens.md) for a new access token with the required permissions for Microsoft Graph. Because the user isn't directly connected to the backend app, they can't access the consent screen interactively. You must work around this by configuring the back-end app's app registration in Azure AD to [grant admin consent](../active-directory/manage-apps/grant-admin-consent.md?pivots=portal). This is a setting change typically done by an Active Directory administrator. 
+In this tutorial, in order to read user profile from Microsoft Graph, the back-end app needs to exchange the signed-in user's [access token](../active-directory/develop/access-tokens.md) for a new access token with the required permissions for Microsoft Graph. Because the user isn't directly connected to the backend app, they can't access the consent screen interactively. You must work around this by configuring the back-end app's app registration in Microsoft Entra ID to [grant admin consent](../active-directory/manage-apps/grant-admin-consent.md?pivots=portal). This is a setting change typically done by an Active Directory administrator. 
 
 1. Open the Azure portal and search for your research for the backend App Service.
 1. Find the **Settings -> Authentication** section.
@@ -80,9 +80,9 @@ In this tutorial, in order to read user profile from Microsoft Graph, the back-e
 
 ## 2. Install npm packages
 
-In the previous tutorial, the backend app didn't need any npm packages for authentication because the only authentication was provided by configuring the identity provider in the Azure portal. In this tutorial, the signed-in user's access token for the back-end API must be exchanged for an access token with Microsoft Graph in its scope. This exchange is completed with two libraries because this exchange doesn't use App Service authentication anymore, but Azure Active Directory and MSAL.js directly.
+In the previous tutorial, the backend app didn't need any npm packages for authentication because the only authentication was provided by configuring the identity provider in the Azure portal. In this tutorial, the signed-in user's access token for the back-end API must be exchanged for an access token with Microsoft Graph in its scope. This exchange is completed with two libraries because this exchange doesn't use App Service authentication anymore, but Microsoft Entra ID and MSAL.js directly.
 
-* [@azure/msal-node](https://www.npmjs.com/package/@azure/msal-node) - exchange token
+* [@azure/MSAL-node](https://www.npmjs.com/package/@azure/msal-node) - exchange token
 * [@microsoft/microsoft-graph-client](https://www.npmjs.com/package/@microsoft/microsoft-graph-client) - connect to Microsoft Graph
 
 1. Open the Azure Cloud Shell and change into the sample directory's backend app:

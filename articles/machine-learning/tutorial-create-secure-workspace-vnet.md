@@ -432,11 +432,11 @@ Use the following steps to create an Azure Virtual Machine to use as a jump box.
 A compute cluster is used by your training jobs. A compute instance provides a Jupyter Notebook experience on a shared compute resource attached to your workspace.
 
 1. From an Azure Bastion connection to the jump box, open the __Microsoft Edge__ browser on the remote desktop.
-1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Azure AD account.
+1. In the remote browser session, go to __https://ml.azure.com__. When prompted, authenticate using your Microsoft Entra account.
 1. From the __Welcome to studio!__ screen, select the __Machine Learning workspace__ you created earlier and then select __Get started__.
 
     > [!TIP]
-    > If your Azure AD account has access to multiple subscriptions or directories, use the __Directory and Subscription__ dropdown to select the one that contains the workspace.
+    > If your Microsoft Entra account has access to multiple subscriptions or directories, use the __Directory and Subscription__ dropdown to select the one that contains the workspace.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace-vnet/studio-select-workspace.png" alt-text="Screenshot of the select Machine Learning workspace form.":::
 

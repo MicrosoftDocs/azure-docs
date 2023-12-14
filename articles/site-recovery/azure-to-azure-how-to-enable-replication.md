@@ -32,7 +32,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
    For example, the source location is *East Asia*.
      >[!NOTE]
      >For cross-regional disaster recovery, the source location should be different from the Recovery Services Vault and its Resource Group's location. However, it can be the same as any of them for zonal disaster recovery.
-   - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
+   - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Microsoft Entra tenant where your recovery services vault exists.
    - **Resource group**: Select the resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
    - **Virtual machine deployment model**: Select Azure deployment model of the source machines.
    - **Disaster recovery between availability zones**: Select **Yes** if you want to perform zonal disaster recovery on virtual machines.

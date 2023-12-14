@@ -2,10 +2,9 @@
 title: 'Quickstart: Use Azure OpenAI Service with the C# SDK'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the C# SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
@@ -21,7 +20,7 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - The current version of <a href="https://dotnet.microsoft.com/download/dotnet-core" target="_blank">.NET Core</a>
-- An Azure OpenAI Service resource with the `text-davinci-003` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
+- An Azure OpenAI Service resource with the `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
 > [I ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=DOTNET&Pillar=AOAI&Product=gpt&Page=quickstart&Section=Prerequisites)
@@ -50,16 +49,15 @@ using static System.Environment;
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string key = GetEnvironmentVariable("AZURE_OPENAI_KEY");
 
-// Enter the deployment name you chose when you deployed the model.
-string engine = "text-davinci-003";
+var client = new OpenAIClient(new Uri(endpoint), new AzureKeyCredential(key));
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+CompletionsOptions completionsOptions = new()
+{
+    DeploymentName = "gpt-35-turbo-instruct", 
+    Prompts = { "When was Microsoft founded?" },
+};
 
-string prompt = "When was Microsoft founded?";
-Console.Write($"Input: {prompt}\n");
-
-Response<Completions> completionsResponse = 
-    await client.GetCompletionsAsync(engine, prompt);
+Response<Completions> completionsResponse = client.GetCompletions(completionsOptions);
 string completion = completionsResponse.Value.Choices[0].Text;
 Console.WriteLine($"Chatbot: {completion}");
 ```
@@ -74,10 +72,9 @@ dotnet run program.cs
 ## Output
 
 ```console
-Input: When was Microsoft founded?
 Chatbot:
 
-Microsoft was founded on April 4, 1975
+Microsoft was founded on April 4, 1975.
 ```
 
 > [!div class="nextstepaction"]

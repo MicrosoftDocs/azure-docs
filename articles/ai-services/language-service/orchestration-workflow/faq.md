@@ -2,11 +2,10 @@
 title: Frequently Asked Questions for orchestration projects
 titleSuffix: Azure AI services
 description: Use this article to quickly get the answers to FAQ about orchestration projects
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: faq
 ms.date: 06/21/2022
 ms.author: aahi

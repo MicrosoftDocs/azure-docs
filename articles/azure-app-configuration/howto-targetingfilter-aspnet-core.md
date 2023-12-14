@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: maud-lv
 ms.author: malev
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 11/20/2023
 ---
 
 # Enable staged rollout of features for targeted audiences
@@ -15,6 +15,11 @@ ms.date: 11/20/2020
 Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky." This means that once an individual user receives a feature, they'll continue to see that feature on all future requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively roll out new features to users in different groups or "rings," and much more.
 
 In this article, you'll learn how to roll out a new feature in an ASP.NET Core web application to specified users and groups, using `TargetingFilter` with Azure App Configuration.
+
+## Prerequisites
+
+- Finish the [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md).
+- Update the `Microsoft.FeatureManagement.AspNetCore` package to version **2.6.0** or later.
 
 ## Create a web application with feature flags and authentication
 

@@ -23,7 +23,7 @@ Managed HSM is a cloud service that safeguards cryptographic keys. Because these
 
 To control access to your managed HSM:
 
-- Create an [Azure Active Directory security group](../../active-directory/fundamentals/active-directory-manage-groups.md) for the HSM Administrators (instead of assigning the Administrator role to individuals) to prevent "administration lockout" if an individual account is deleted.
+- Create an [Microsoft Entra security group](../../active-directory/fundamentals/active-directory-manage-groups.md) for the HSM Administrators (instead of assigning the Administrator role to individuals) to prevent "administration lockout" if an individual account is deleted.
 - Lock down access to your management groups, subscriptions, resource groups, and managed HSMs. Use Azure role-based access control (Azure RBAC) to control access to your management groups, subscriptions, and resource groups.
 - Create per-key role assignments by using [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
 - To maintain separation of duties, avoid assigning multiple roles to the same principals.

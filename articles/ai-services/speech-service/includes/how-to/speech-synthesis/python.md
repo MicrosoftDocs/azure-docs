@@ -1,6 +1,6 @@
 ---
 author: eric-urban
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 08/30/2023
 ms.author: eur
@@ -247,6 +247,28 @@ elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
 ```
 
 You can find more text to speech samples at [GitHub](https://aka.ms/csspeech/samples).
+
+## Use a custom endpoint
+
+The custom endpoint is functionally identical to the standard endpoint that's used for text to speech requests. 
+
+One difference is that the `endpoint_id` must be specified to use your custom voice via the Speech SDK. You can start with the [text to speech quickstart](../../../get-started-text-to-speech.md) and then update the code with the `endpoint_id` and `speech_synthesis_voice_name`.
+
+```Python
+speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
+speech_config.endpoint_id = "YourEndpointId"
+speech_config.speech_synthesis_voice_name = "YourCustomVoiceName"
+```
+
+To use a custom voice via [Speech Synthesis Markup Language (SSML)](../../../speech-synthesis-markup-voice.md#use-voice-elements), specify the model name as the voice name. This example uses the `YourCustomVoiceName` voice. 
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="YourCustomVoiceName">
+        This is the text that is spoken. 
+    </voice>
+</speak>
+```
 
 ## Run and use a container
 

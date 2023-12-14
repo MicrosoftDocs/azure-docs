@@ -1,10 +1,10 @@
 ---
 title: Azure AI services support and help options
 description: How to obtain help and support for questions and problems when you create applications that integrate with Azure AI services.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-services
 ms.topic: conceptual
 ms.date: 06/28/2022
 ms.author: pafarley

@@ -222,7 +222,7 @@ kubectl edit datacontroller <DC name> --name <namespace>
 
 ## Upload logs to Azure Monitor in **indirect** mode
 
- To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers run the following CLI commands-
+ To upload logs for SQL Managed Instance enabled by Azure Arc and Azure Arc-enabled PostgreSQL servers run the following CLI commands-
 
 1. Export all logs to the specified file:
 
@@ -279,7 +279,7 @@ watch -n 1200 ./myuploadscript.sh
 
 You could also use a job scheduler like cron or Windows Task Scheduler or an orchestrator like Ansible, Puppet, or Chef.
 
-## Next steps
+## Related content
 
 [Upload metrics, and logs to Azure Monitor](upload-metrics.md)
 

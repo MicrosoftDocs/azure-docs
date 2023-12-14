@@ -28,7 +28,7 @@ All clusters deployed in a VNET will also have a private endpoint. The endpoint 
 
 ### Authentication
 
-[Enterprise Security Package](apache-domain-joined-architecture.md) from HDInsight provides Active Directory-based authentication, multi-user support, and role-based access control. The Active Directory integration is achieved through the use of [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). With these capabilities, you can create an HDInsight cluster joined to an Active Directory domain. Then configure a list of employees from the enterprise who can authenticate to the cluster.
+[Enterprise Security Package](apache-domain-joined-architecture.md) from HDInsight provides Active Directory-based authentication, multi-user support, and role-based access control. The Active Directory integration is achieved through the use of [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md). With these capabilities, you can create an HDInsight cluster joined to an Active Directory domain. Then configure a list of employees from the enterprise who can authenticate to the cluster.
 
 With this setup, enterprise employees can sign in to the cluster nodes by using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints. Like Apache Ambari Views, ODBC, JDBC, PowerShell, and REST APIs to interact with the cluster.
 
@@ -75,7 +75,7 @@ The following table provides links to resources for each type of security soluti
 |  | Ensure that the [Encryption in transit](./encryption-in-transit.md) feature is enabled to use TLS and IPSec for intra-cluster communication. | Customer |
 |  | Configure [customer-managed keys](../../storage/common/customer-managed-keys-configure-key-vault.md) for Azure Storage encryption | Customer |
 |  | Control access to your data by Azure support using [Customer lockbox](../../security/fundamentals/customer-lockbox-overview.md) | Customer |
-| Application and middleware security | Integrate with AAD-DS and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
+| Application and middleware security | Integrate with Microsoft Entra Domain Services and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
 |  | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies | Customer |
 |  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
 | Operating system security | Create clusters with most recent secure base image | Customer |

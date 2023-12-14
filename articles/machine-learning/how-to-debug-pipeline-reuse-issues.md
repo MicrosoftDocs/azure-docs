@@ -36,7 +36,7 @@ Azure Machine Learning pipeline has holistic logic to calculate whether a compon
 
 Reuse criteria:
 
-- Component definition `is_determinstic` = true
+- Component definition `is_deterministic` = true
 - Pipeline runtime setting `ForceReRun` = false
 - Component code, environment definition, inputs and parameters, output settings, and run settings are all the same.
 
@@ -94,7 +94,13 @@ The environment can also be compared in the graph comparison feature. We'll cove
 
 ### Step 5: Use graph comparison to check if there's any other change to the inputs, parameters, output settings, run settings
 
-You can compare the input data, parameters, output settings, run settings of the two components using graph compare. To learn more, see  [how to enable and use the graph compare feature](./how-to-use-pipeline-ui.md#compare-different-pipelines-to-debug-failure-or-other-unexpected-issues-preview)
+You can compare the input data, parameters, output settings, run settings of the two pipeline jobs or components using compare feature. To learn more, see  [how to enable and use the graph compare feature](./how-to-use-pipeline-ui.md#compare-different-pipelines-to-debug-failure-or-other-unexpected-issues-preview)
+
+To identify any changes in pipeline topology, pipeline input/output, or pipeline settings between two pipelines, select **Compare graph** after adding two pipeline jobs to the compare list.
+
+:::image type="content" source="./media/how-to-debug-pipeline-failure/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab." lightbox= "./media/how-to-debug-pipeline-failure/parameter-changed.png":::
+
+Furthermore, you can compare two components to observe if there have been any changes in the component input/output, component setting or source code. To do this, select **Compare details** after adding two components to the compare list.
 
 :::image type="content" source="./media/how-to-debug-pipeline-reuse/compare.png" alt-text="Screenshot showing detail comparison.":::
 

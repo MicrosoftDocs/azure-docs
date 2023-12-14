@@ -3,7 +3,7 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 08/25/2023
+ms.date: 10/17/2023
 ms.topic: how-to
 ms.service: azure-disk-storage
 ms.tgt_pltfrm: linux
@@ -18,9 +18,11 @@ This article explains how to either upload a VHD from your local machine to an A
 
 If you're providing a backup solution for IaaS VMs in Azure, you should use direct upload to restore customer backups to managed disks. When uploading a VHD from a source external to Azure, speeds depend on your local bandwidth. When uploading or copying from an Azure VM, your bandwidth would be the same as standard HDDs.
 
-## Secure uploads with Azure AD
+<a name='secure-uploads-with-azure-ad'></a>
 
-If you're using [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that an Azure AD identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Azure AD, reach out to this email: azuredisks@microsoft .com
+## Secure uploads with Microsoft Entra ID
+
+If you're using [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict uploading of Azure managed disks. This feature is available as a GA offering in all regions. When a user attempts to upload a disk, Azure validates the identity of the requesting user in Microsoft Entra ID, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that a Microsoft Entra identity has the necessary permissions for uploading before allowing a disk or a disk snapshot to be uploaded. If you have any questions on securing uploads with Microsoft Entra ID, reach out to this email: azuredisks@microsoft .com
 
 ### Prerequisites
 [!INCLUDE [disks-azure-ad-upload-download-prereqs](../../../includes/disks-azure-ad-upload-download-prereqs.md)]
@@ -30,7 +32,7 @@ If you're using [Azure Active Directory (Azure AD)](../../active-directory/funda
 
 ### Assign RBAC role
 
-To access managed disks secured with Azure AD, the requesting user must have either the [Data Operator for Managed Disks](../../role-based-access-control/built-in-roles.md#data-operator-for-managed-disks) role, or a [custom role](../../role-based-access-control/custom-roles-powershell.md) with the following permissions: 
+To access managed disks secured with Microsoft Entra ID, the requesting user must have either the [Data Operator for Managed Disks](../../role-based-access-control/built-in-roles.md#data-operator-for-managed-disks) role, or a [custom role](../../role-based-access-control/custom-roles-powershell.md) with the following permissions: 
 
 - **Microsoft.Compute/disks/download/action**
 - **Microsoft.Compute/disks/upload/action**
@@ -61,7 +63,7 @@ For guidance on how to copy a managed disk from one region to another, see [Copy
 
 ### (Optional) Grant access to the disk
 
-If Azure AD is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#assign-rbac-role). You'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
+If Microsoft Entra ID is used to enforce upload restrictions on a subscription or at the account level, [Add-AzVHD](/powershell/module/az.compute/add-azvhd) only succeeds if attempted by a user that has the [appropriate RBAC role or necessary permissions](#assign-rbac-role). You'll need to [assign RBAC permissions](../../role-based-access-control/role-assignments-powershell.md) to grant access to the disk and generate a writeable SAS.
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
@@ -74,7 +76,7 @@ New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
 The following example uploads a VHD from your local machine to a new Azure managed disk using [Add-AzVHD](/powershell/module/az.compute/add-azvhd). Replace `<your-filepath-here>`, `<your-resource-group-name>`,`<desired-region>`, and `<desired-managed-disk-name>` with your parameters:
 
 > [!NOTE]
-> If you're using Azure AD to enforce upload restrictions, add `DataAccessAuthMode 'AzureActiveDirectory'` to the end of your `Add-AzVhd` command.
+> If you're using Microsoft Entra ID to enforce upload restrictions, add `DataAccessAuthMode 'AzureActiveDirectory'` to the end of your `Add-AzVhd` command.
 
 ```azurepowershell
 # Required parameters
@@ -122,7 +124,7 @@ Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run
 > [!IMPORTANT]
 > If you're creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
 > 
-> If you're using Azure AD to secure your uploads, add `-dataAccessAuthMode 'AzureActiveDirectory'` to `New-AzDiskConfig`.  
+> If you're using Microsoft Entra ID to secure your uploads, add `-dataAccessAuthMode 'AzureActiveDirectory'` to `New-AzDiskConfig`.  
 > When uploading to an Ultra Disk or Premium SSD v2 you need to select the correct sector size of the target disk. If you're using a VHDX file with a 4k logical sector size, the target disk must be set to 4k. If you're using a VHD file with a 512 logical sector size, the target disk must be set to 512.
 >
 > VHDX files with logical sector size of 512k aren't supported.
