@@ -76,7 +76,7 @@ You can define several of them when you [save your own query](save-query.md). Th
 
 From the **Queries** pane on the left sidebar of Log Analytics, hover over a query name to see its properties.
 
-:::image type="content" source="media/queries/query-properties.png" lightbox="media/queries/query-properties.png" alt-text="Screenshot that shows the Example queries screen group by dropdown list.":::
+:::image type="content" source="media/queries/query-properties.png" lightbox="media/queries/query-properties.png" alt-text="Screenshot that shows the query properties for a query.":::
 
 ## Favorites
 You can identify frequently used queries as favorites to give you quicker access. Select the star next to the query to add it to **Favorites**. View your favorite queries from the **Favorites** option in the query interface.
