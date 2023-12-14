@@ -25,12 +25,12 @@ Azure Database for MariaDB provides business continuity and disaster recovery fe
 
 With [geo-restore](concepts-backup.md), Azure Database for MariaDB creates a new server by using the backup data that's replicated from another region. The overall time to restore and recover depends on the size of the database and the amount of log data to recover. The overall time to establish the server varies from few minutes to few hours.
 
-With [read replicas](concepts-read-replicas.md), transaction logs from the primary database are asynchronously streamed to the replica. If there's a primary database outage due to a zone-level or a region-level fault, failing over to the replica provides a shorter RTO and reduced data loss.
+With [read replicas](concepts-read-replicas.md), transaction logs from the primary database are asynchronously streamed to a replica. If there's a primary database outage due to a zone-level or a region-level fault, failing over to the replica provides a shorter RTO and reduced data loss.
 
 > [!NOTE]
 > The lag between the primary database and the replica depends on the latency between the sites, the amount of data to be transmitted, and (most important) the write workload of the primary server. Heavy write workloads can generate a significant lag.
 >
-> Because of the asynchronous nature of the replication that's used for read replicas, don't consider read replicas to be a high-availability solution. The higher lags can mean higher RTO and RPO. Read replicas can act as a high-availability alternative only for workloads where the lag remains smaller through the peak and off-peak times of the workload. Otherwise, read replicas are intended for true read scale for read-heavy workloads and for disaster recovery scenarios.
+> Because of the asynchronous nature of the replication that's used for read replicas, don't consider read replicas to be a high-availability solution. The higher lags can mean higher RTO and RPO. Read replicas can act as a high-availability alternative only for workloads where the lag remains smaller through the peak and off-peak times. Otherwise, read replicas are intended for true read scale for read-heavy workloads and for disaster recovery scenarios.
 
 The following table compares RTO and RPO in a *typical workload* scenario:
 
@@ -53,7 +53,7 @@ You can perform a point-in-time-restore to create a copy of your server to a kno
 
 ## Recovery from an Azure regional datacenter outage
 
-Although it's rare, an Azure datacenter can have an outage. When an outage occurs, it causes a business disruption that might last only a few minutes, but could last for hours.
+Although it's rare, an Azure datacenter can have an outage. When an outage occurs, it causes a business disruption that might last only a few minutes but could last for hours.
 
 One option is to wait for your server to come back online when the datacenter outage is over. When datacenter has an outage, you don't know how long the outage might last. So this option works only for applications that can afford to have the server offline for some time (for example, a development environment).
 

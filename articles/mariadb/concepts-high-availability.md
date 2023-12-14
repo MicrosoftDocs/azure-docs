@@ -37,14 +37,14 @@ Here are some scenarios for planned maintenance:
 
 | Scenario | Description|
 | ------------ | ----------- |
-| Compute scale-up or scale-down | When you perform a compute scale-up or scale-down operation, Azure Database for MariaDB provisions a new database server by using the scaled compute configuration. On the old database server, the service allows active checkpoints to finish, drains client connections, and cancels any uncommitted transactions. The service then shuts down the old database server. It detaches the storage from the old database server and attaches the storage to the new database server. When the client application retries the connection, or tries to make a new connection, the gateway directs the connection request to the new database server.|
+| Compute scale-up or scale-down | When you perform a compute scale-up or scale-down operation, Azure Database for MariaDB provisions a new database server by using the scaled compute configuration. On the old database server, the service allows active checkpoints to finish, drains client connections, and cancels any uncommitted transactions. The service then shuts down the old database server. It detaches the storage from the old database server and attaches the storage to the new database server. When the client application retries the connection or tries to make a new connection, the gateway directs the connection request to the new database server.|
 | Scaling up storage | Scaling up the storage is an online operation and doesn't interrupt the database server.|
-| New software deployment (Azure) | Rollout of new features or bug fixes automatically happen as part of the service's planned maintenance. For more information, refer to the [documentation](concepts-monitoring.md#planned-maintenance-notification) and check your [portal](https://aka.ms/servicehealthpm).|
-| Minor version upgrades | Azure Database for MariaDB automatically patches database servers to the minor version that Azure determines. Automatic patching happens as part of the service's planned maintenance. It incurs a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, refer to the [documentation](concepts-monitoring.md#planned-maintenance-notification) and check your [portal](https://aka.ms/servicehealthpm).|
+| New software deployment (Azure) | Rollouts of new features or bug fixes automatically happen as part of the service's planned maintenance. For more information, see the [documentation](concepts-monitoring.md#planned-maintenance-notification) and check your [portal](https://aka.ms/servicehealthpm).|
+| Minor version upgrades | Azure Database for MariaDB automatically patches database servers to the minor version that Azure determines. Automatic patching happens as part of the service's planned maintenance. It incurs a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, see the [documentation](concepts-monitoring.md#planned-maintenance-notification) and check your [portal](https://aka.ms/servicehealthpm).|
 
 ## Mitigation of unplanned downtime
 
-Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware fault, network problems, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server.
+Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware faults, network problems, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server.
 
 The MariaDB engine performs the recovery operation by using write-ahead log and database files, and it opens the database server to allow clients to connect. Uncommitted transactions are lost, and the application must retry them.
 
@@ -54,14 +54,14 @@ Although you can't avoid unplanned downtime, Azure Database for MariaDB mitigate
 
 ### Unplanned downtime: Failure scenarios and service recovery
 
-Here are some failure scenarios and how Azure Database for MariaDB automatically recovers:
+Here are two failure scenarios and how Azure Database for MariaDB automatically recovers:
 
 | Scenario | Automatic recovery |
 | ---------- | ---------- |
-| Database server failure | If the database server is down because of an underlying hardware fault, active connections are dropped, and any inflight transactions are canceled. A new database server is automatically deployed, and the remote data storage is attached to the new database server. After the database recovery is complete, clients can connect to the new database server through the gateway. <br />Applications that use the MariaDB databases need to be built in a way that they detect and retry dropped connections and failed transactions. When the application retries a connection, the gateway transparently redirects the connection to the newly created database server. |
-| Storage failure | Storage-related problems, such as a disk failure or a physical block corruption, don't affect applications. Because the data is stored in three copies, the surviving storage serves the copy of the data. Block corruptions are automatically corrected. If a copy of data is lost, a new copy of the data is automatically created. |
+| Database server failure | If the database server is down because of an underlying hardware fault, Azure Database for MariaDB drops active connections and cancels any inflight transactions. The service automatically deploys a new database server and attaches the remote data storage to the new database server. After the database recovery is complete, clients can connect to the new database server through the gateway. <br />Applications that use the MariaDB databases need to be built in a way that they detect and retry dropped connections and failed transactions. When the application retries a connection, the gateway transparently redirects the connection to the newly created database server. |
+| Storage failure | Storage-related problems, such as a disk failure or a physical block corruption, don't affect applications. Because the data is stored in three copies, the surviving storage serves the copy of the data. Azure Database for MariaDB automatically corrects block corruptions. If a copy of data is lost, the service automatically creates a new copy of the data. |
 
-Here are some failure scenarios that require user action to recover:
+Here are failure scenarios that require user action to recover:
 
 | Scenario | Recovery plan |
 | ---------- | ---------- |
