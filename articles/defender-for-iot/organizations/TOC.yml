@@ -330,7 +330,7 @@
             href: legacy-central-management/back-up-restore-management.md
             displayName: backup, restore, back up
           - name: Set up high availability
-            href: how-to-set-up-high-availability.md
+            href: legacy-central-management/how-to-set-up-high-availability.md
           - name: Manage sensors from the on-premises management console
             href: legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md
           - name: Maintain an on-premises management console

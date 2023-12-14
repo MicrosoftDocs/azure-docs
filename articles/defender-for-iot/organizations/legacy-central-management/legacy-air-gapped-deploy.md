@@ -64,7 +64,7 @@ When using a high availability architecture:
 |**Data backups**     |  The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. <br><br>For more information, see [Backup and restore the on-premises management console](../legacy-central-management/back-up-restore-management.md).       |
 |**System settings**     |  The system settings defined on the primary on-premises management console are duplicated on the secondary. For example, if the system settings are updated on the primary, they're also updated on the secondary.       |
 
-For more information, see [About high availability](../how-to-set-up-high-availability.md).
+For more information, see [About high availability](how-to-set-up-high-availability.md).
 
 ## Next steps
 

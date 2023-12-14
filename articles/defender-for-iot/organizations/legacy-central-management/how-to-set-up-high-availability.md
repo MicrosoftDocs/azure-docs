@@ -1,10 +1,12 @@
 ---
-title: Set up high availability
+title: Set up high availability | Microsoft Defender for IoT
 description: Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 ms.date: 01/24/2023 
 ms.topic: how-to
 ---
-# About high availability
+# About high availability (Legacy)
+
+[!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
 
 Increase the resiliency of your Defender for IoT deployment by configuring [high availability](legacy-central-management/legacy-air-gapped-deploy.md#high-availability-for-on-premises-management-consoles) on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
