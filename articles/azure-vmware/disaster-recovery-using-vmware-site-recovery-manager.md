@@ -17,7 +17,7 @@ VMware vSphere Replication is VMware's hypervisor-based replication technology f
 In this article, you'll implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs.
 
 > [!NOTE]
-> [VMware Site Recovery Manager (SRM) in Azure VMware Solution version page](/azure-vmware/includes/vmware-software-versions.md). Your on-premises version of VMware SRM and VMware vSphere Replication needs to match.
+> [VMware Site Recovery Manager (SRM) in Azure VMware Solution version page](concepts-private-clouds-clusters.md). Your on-premises versions of VMware SRM and VMware vSphere Replication need to match.
 
 > [!IMPORTANT]
 > VMware SRM does not currently support Azure VMware Solution with Azure NetApp Files.
