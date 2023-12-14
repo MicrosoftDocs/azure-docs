@@ -10,7 +10,7 @@ ms.custom: template-tutorial, devx-track-azurecli, references_regions, ignite-20
 
 This tutorial describes how to use GitOps in a Kubernetes cluster. GitOps with Flux v2 is enabled as a [cluster extension](conceptual-extensions.md) in Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. After the `microsoft.flux` cluster extension is installed, you can create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
-In this tutorial, we use an example GitOps configuration with two [kustomizations](conceptual-gitops-flux2.md#kustomization), so that you can see how one kustomization can have a dependency on another. You can add more kustomizations and dependencies as needed, depending on your scenario.
+In this tutorial, we use an example GitOps configuration with two [kustomizations](gitops-flux2-parameters.md#kustomization), so that you can see how one kustomization can have a dependency on another. You can add more kustomizations and dependencies as needed, depending on your scenario.
 
 Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
@@ -225,7 +225,7 @@ az k8s-configuration flux create -g flux-demo-rg \
 --kustomization name=apps path=./apps/staging prune=true dependsOn=\["infra"\]
 ```
 
-The `microsoft.flux` extension will be installed on the cluster (if it hasn't already been installed due to a previous GitOps deployment).
+The `microsoft.flux` extension is installed on the cluster (if it wasn't already installed in a previous GitOps deployment).
 
 > [!TIP]
 > The `az k8s-configuration create` command deploys the `microsoft.flux` extension to the cluster and creates the configuration. In some scenarios, you may want to create the flux extension instance separately before you create your configuration resources. To do so, use the `az k8s-extension create` command to [create an instance of the extension on your cluster](extensions.md#create-extension-instance).
@@ -391,7 +391,7 @@ az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connec
 
 #### Using Kubelet identity as authentication method for AKS clusters
 
-For AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [pre-created kubelet managed identity](../../aks/use-managed-identity.md#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
+For AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [precreated kubelet managed identity](../../aks/use-managed-identity.md#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
 
 ```azurecli
 az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true
@@ -432,7 +432,7 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
 
    1. Enter a name for the configuration.
    1. Enter the namespace within which the Flux custom resources will be installed. This can be an existing namespace or a new one that will be created when the configuration is deployed.
-   1. Under **Scope**, select **Cluster** so that the Flux operator will have access to apply the configuration to all namespaces in the cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
+   1. Under **Scope**, select **Cluster** so that the Flux operator has access to apply the configuration to all namespaces in the cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
    1. Select **Next** to continue to the **Source** section.
 
    :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-basics.png" alt-text="Screenshot showing the Basics options for a GitOps configuration in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-basics.png":::
@@ -447,7 +447,7 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
 
    :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-source.png" alt-text="Screenshow showing the Source options for a GitOps configuration in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-source.png":::
 
-1. In the **Kustomizations** section, create two [kustomizations](conceptual-gitops-flux2.md#kustomization): `infrastructure` and `staging`. These kustomizations are Flux resources, each associated with a path in the repository, that represent the set of manifests that Flux should reconcile to the cluster.
+1. In the **Kustomizations** section, create two [kustomizations](gitops-flux2-parameters.md#kustomization): `infrastructure` and `staging`. These kustomizations are Flux resources, each associated with a path in the repository, that represent the set of manifests that Flux should reconcile to the cluster.
 
    1. Select **Create**.
    1. In the **Create a Kustomization** screen:
@@ -498,8 +498,7 @@ For more information, see [Monitor GitOps (Flux v2) status and activity](monitor
 
 Flux supports many parameters to enable various scenarios. For a description of all parameters that Flux supports, see the [official Flux documentation](https://fluxcd.io/docs/). Flux in Azure doesn't support all parameters yet. Let us know if a parameter you need is missing from the Azure implementation.
 
-For more information about available parameters and how to use them, see [GitOps Flux v2 configurations with AKS and Azure Arc-enabled Kubernetes](conceptual-gitops-flux2.md#parameters).
-A workaround to deploy Flux resources with non-supported parameters is to define the required Flux custom resources inside your git repository. For example, [GitRepository](https://fluxcd.io/flux/components/source/gitrepositories/), [Kustomization](https://fluxcd.io/flux/components/kustomize/kustomization/), etcetera. Then deploy these resources with the `az k8s-configuration flux create` command. You will then still be able to access your Flux resources through the Azure Arc UI.
+For information about available parameters and how to use them, see [GitOps (Flux v2) supported parameters](gitops-flux2-parameters.md).
 
 ## Manage cluster configuration by using the Flux Kustomize controller
 
@@ -616,7 +615,7 @@ Use the following commands to delete your Flux configurations and, if desired, t
 
 #### Delete the Flux configurations
 
-The following command deletes both the `fluxConfigurations` resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the Git repository will be removed when the Flux configuration is removed. However, this command doesn't remove the Flux extension itself.
+The following command deletes both the `fluxConfigurations` resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the Git repository are removed when the Flux configuration is removed. However, this command doesn't remove the Flux extension itself.
 
 ```azurecli
 az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n cluster-config -t connectedClusters --yes
@@ -624,12 +623,12 @@ az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n cluster-con
 
 #### Delete the Flux cluster extension
 
-When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster will be removed.
+When you delete the Flux extension, both the `microsoft.flux` extension resource in Azure and the Flux extension objects in the cluster are removed.
 
 > [!IMPORTANT]
 > Be sure to delete all Flux configurations in the cluster before you delete the Flux extension. Deleting the extension without first deleting the Flux configurations may leave your cluster in an unstable condition.
 
-If the Flux extension was created automatically when the Flux configuration was first created, the extension name will be `flux`.
+If the Flux extension was created automatically when the Flux configuration was first created, the extension name is `flux`.
 
 ```azurecli
 az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t connectedClusters --yes

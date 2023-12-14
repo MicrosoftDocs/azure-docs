@@ -36,7 +36,7 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 - `api-key`: {API_KEY} 
 
 **Body**: 
-The following is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing strings and images (either a URL to an image, or a base-64-encoded image). 
+The following is a sample request body. The format is the same as the chat completions API for GPT-4, except that the message content can be an array containing strings and images (either a URL to an image, or a base-64-encoded image). Remember to set a `"max_tokens"` value, or the return output will be cut off.
 
 ```json
 {
@@ -48,14 +48,57 @@ The following is a sample request body. The format is the same as the chat compl
         {
             "role": "user", 
             "content": [ 
-                "Describe this picture:", { "image": "URL or base-64-encoded image" } 
-            ] 
+               { "type": "text", "text": "Describe this picture:" }, 
+               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+           ] 
         }
     ],
     "max_tokens": 100, 
     "stream": false 
 } 
 ```
+
+### Output
+
+The API response should look like the following.
+
+```json
+{
+    "id": "chatcmpl-8Uyxu7xpvngMZnvMhVAPpiI3laUef",
+    "object": "chat.completion",
+    "created": 1702394882,
+    "model": "gpt-4",
+    "choices":
+    [
+        {
+            "finish_details":
+            {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
+            "index": 0,
+            "message":
+            {
+                "role": "assistant",
+                "content": "This picture depicts a grayscale image of an individual showcasing dark hair combed to one side, and the tips of their ears are also visible. The person appears to be dressed in a casual outfit with a hint of a garment that has a collar or neckline. The background is a plain and neutral shade, creating a stark contrast with the subject in the foreground."
+            }
+        }
+    ],
+    "usage":
+    {
+        "prompt_tokens": 816,
+        "completion_tokens": 71,
+        "total_tokens": 887
+    }
+}
+```
+
+Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+- `stop`: API returned complete model output.
+- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `content_filter`: Omitted content due to a flag from our content filters.
+
+If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
 ## Use Vision enhancement with images
 
@@ -82,7 +125,9 @@ Send a POST request to `https://{RESOURCE_NAME}.openai.azure.com/openai/deployme
 
 **Body**: 
 
-The request body is the same as above, except you must include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource.
+The format is similar to that of the chat completions API for GPT-4, but the message content can be an array containing strings and images (either a URL to an image, or a base-64-encoded image).
+
+You must also include the `enhancements` and `dataSources` objects. `enhancements` represents the specific Vision enhancement features requested in the chat. It has a `grounding` and `ocr` property, which each have a boolean `enabled` property. Use these to request the OCR service and/or the object detection/grounding service. `dataSources` represents the Computer Vision resource data that's needed for Vision enhancement. It has a `type` property which should be `"AzureComputerVision"` and a `parameters` property. Set the `endpoint` and `key` to the endpoint URL and access key of your Computer Vision resource. Remember to set a `"max_tokens"` value, or the return output will be cut off.
 
 ```json
 {
@@ -110,8 +155,9 @@ The request body is the same as above, except you must include the `enhancements
         {
             "role": "user", 
             "content": [ 
-                "Describe this picture:", { "image": "URL or base-64-encoded image" } 
-            ] 
+               { "type": "text", "text": "Describe this picture:" }, 
+               { "type": "image_url", "url": "<URL or base-64-encoded image>" } 
+           ] 
         }
     ],
     "max_tokens": 100, 
@@ -119,7 +165,69 @@ The request body is the same as above, except you must include the `enhancements
 } 
 ```
 
-The chat responses you receive from the model should now include enhanced information about the image, such as object labels and bounding boxes, and OCR results.
+### Output
+
+The chat responses you receive from the model should now include enhanced information about the image, such as object labels and bounding boxes, and OCR results. The API response should look like the following.
+
+```json
+{
+    "id": "chatcmpl-8UyuhLfzwTj34zpevT3tWlVIgCpPg",
+    "object": "chat.completion",
+    "created": 1702394683,
+    "model": "gpt-4",
+    "choices":
+    [
+        {
+            "finish_details":
+            {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
+            "index": 0,
+            "message":
+            {
+                "role": "assistant",
+                "content": "The image shows a close-up of an individual with dark hair and what appears to be a short haircut. The person has visible ears and a bit of their neckline. The background is a neutral light color, providing a contrast to the dark hair."
+            },
+            "enhancements":
+            {
+                "grounding":
+                {
+                    "lines":
+                    [
+                        {
+                            "text": "The image shows a close-up of an individual with dark hair and what appears to be a short haircut. The person has visible ears and a bit of their neckline. The background is a neutral light color, providing a contrast to the dark hair.",
+                            "spans":
+                            [
+                                {
+                                    "text": "the person",
+                                    "length": 10,
+                                    "offset": 99,
+                                    "polygon": [{"x":0.11950000375509262,"y":0.4124999940395355},{"x":0.8034999370574951,"y":0.4124999940395355},{"x":0.8034999370574951,"y":0.6434999704360962},{"x":0.11950000375509262,"y":0.6434999704360962}]
+                                }
+                            ]
+                        }
+                    ],
+                    "status": "Success"
+                }
+            }
+        }
+    ],
+    "usage":
+    {
+        "prompt_tokens": 816,
+        "completion_tokens": 49,
+        "total_tokens": 865
+    }
+}
+```
+
+Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+- `stop`: API returned complete model output.
+- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `content_filter`: Omitted content due to a flag from our content filters.
+
+If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
 ## Use Vision enhancement with video
 
@@ -186,7 +294,8 @@ Follow these steps to set up a video retrieval system and integrate it with your
                         }
                     ]
             }
-        ]
+        ],
+        "max_tokens": 100, 
     } 
     ```
 
@@ -194,18 +303,62 @@ Follow these steps to set up a video retrieval system and integrate it with your
 1. Fill in all the `<placeholder>` fields above with your own information: enter the endpoint URLs and keys of your OpenAI and AI Vision resources where appropriate, and retrieve the video index information from the earlier step.
 1. Send the POST request to the API endpoint. It should contain your OpenAI and AI Vision credentials, the name of your video index, and the ID and SAS URL of a single video.
 
- ## Low or high fidelity image understanding
 
-By controlling the _detail_ parameter, which has two options, `low` or `high`, you can control how the model processes the image and generates its textual understanding.
-- `low` disables the "high res" mode. The model receives a low-res 512x512 version of the image and represents the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that don't require high detail.
-- `high` enables "high res" mode, which first allows the model to see the low res image and then creates detailed crops of input images as 512x512 squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens.
+### Output
+
+The chat responses you receive from the model should include information about the video. The API response should look like the following.
+
+
+```json
+{
+    "id": "chatcmpl-8V4J2cFo7TWO7rIfs47XuDzTKvbct",
+    "object": "chat.completion",
+    "created": 1702415412,
+    "model": "gpt-4",
+    "choices":
+    [
+        {
+            "finish_details":
+            {
+                "type": "stop",
+                "stop": "<|fim_suffix|>"
+            },
+            "index": 0,
+            "message":
+            {
+                "role": "assistant",
+                "content": "The advertisement video opens with a blurred background that suggests a serene and aesthetically pleasing environment, possibly a workspace with a nature view. As the video progresses, a series of frames showcase a digital interface with search bars and prompts like \"Inspire new ideas,\" \"Research a topic,\" and \"Organize my plans,\" suggesting features of a software or application designed to assist with productivity and creativity.\n\nThe color palette is soft and varied, featuring pastel blues, pinks, and purples, creating a calm and inviting atmosphere. The backgrounds of some frames are adorned with abstract, organically shaped elements and animations, adding to the sense of innovation and modernity.\n\nMidway through the video, the focus shifts to what appears to be a browser or software interface with the phrase \"Screens simulated, subject to change; feature availability and timing may vary,\" indicating the product is in development and that the visuals are illustrative of its capabilities.\n\nThe use of text prompts continues with \"Help me relax,\" followed by a demonstration of a 'dark mode' feature, providing a glimpse into the software's versatility and user-friendly design.\n\nThe video concludes by revealing the product name, \"Copilot,\" and positioning it as \"Your everyday AI companion,\" implying the use of artificial intelligence to enhance daily tasks. The final frames feature the Microsoft logo, associating the product with the well-known technology company.\n\nIn summary, the advertisement video is for a Microsoft product named \"Copilot,\" which seems to be an AI-powered software tool aimed at improving productivity, creativity, and organization for its users. The video conveys a message of innovation, ease, and support in daily digital interactions through a visually appealing and calming presentation."
+            }
+        }
+    ],
+    "usage":
+    {
+        "prompt_tokens": 2068,
+        "completion_tokens": 341,
+        "total_tokens": 2409
+    }
+}
+```
+
+Every response includes a `"finish_details"` field. The subfield `"type"` has the following possible values:
+- `stop`: API returned complete model output.
+- `max_tokens`: Incomplete model output due to the `max_tokens` input parameter or model's token limit.
+- `content_filter`: Omitted content due to a flag from our content filters.
+
+If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
+
+## Detail parameter settings in image processing: Low, High, Auto  
+
+The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
+- `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
+- `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.
 
 ## Limitations
 
 ### Image support
 
 - **Limitation on image enhancements per chat session**: Enhancements cannot be applied to multiple images within a single chat call.
-- **Maximum input image size**: The maximum size for input images is restricted to 4 MB.
+- **Maximum input image size**: The maximum size for input images is restricted to 20 MB.
 - **Object grounding in enhancement API**: When the enhancement API is used for object grounding, and the model detects duplicates of an object, it will generate one bounding box and label for all the duplicates instead of separate ones for each.
 - **Low resolution accuracy**: When images are analyzed using the "low resolution" setting, it allows for faster responses and uses fewer input tokens for certain use cases. However, this could impact the accuracy of object and text recognition within the image.
 - **Image chat restriction**: When uploading images in the chat playground or the API, there is a limit of 10 images per chat call.

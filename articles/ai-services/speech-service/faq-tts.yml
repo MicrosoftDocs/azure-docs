@@ -58,12 +58,12 @@ sections:
           answer: |
             First, you can open the lexicon file on the Audio Content Creation and obtain the lexicon file ID, which is located before "?fileKind=CustomLexiconFile" in the file path. For example, if the file path is `https://speech.microsoft.com/portal/d391a094f76846acbcd11dc2ba835f4f/audiocontentcreation/file/6cbc2527-8d57-4c1b-b9d9-3ea6d13ca95c?fileKind=CustomLexiconFile`, the lexicon file ID is `6cbc2527-8d57-4c1b-b9d9-3ea6d13ca95c`. Then, switch a file referencing this lexicon to SSML format on the Audio Content Creation. In the SSML file, locate the `<!--ID=FCB` xml node, where you can find the URI of the lexicon file based on the mentioned file ID. Finally, reference the lexicon file URI link using the SSML lexicon element in your code. For instance, if you locate the XML node `<!--ID=FCB5B6FB566-33CA-4B68-BEAF-B013C53B3368;Version=1|{"Files":{"6cbc2527-8d57-4c1b-b9d9-3ea6d13ca95c":{"FileKind":"CustomLexiconFile","FileSubKind":"CustomLexiconFile","Uri":"https://cvoiceprodwus2.blob.core.windows.net/acc-public-files/d391a094f76846acbcd11dc2ba835f4f/e9a6a5a2-9cef-47f4-b961-d175be75d92f.xml"}}}`, you can obtain the lexicon file URI `https://cvoiceprodwus2.blob.core.windows.net/acc-public-files/d391a094f76846acbcd11dc2ba835f4f/e9a6a5a2-9cef-47f4-b961-d175be75d92f.xml`.
         
-  - name: Custom Neural Voice
+  - name: Custom neural voice
     questions:
       - question: |
           How much data is required to create a custom neural voice?
         answer: |
-          Custom Neural Voice (CNV) supports two project types: CNV Pro and CNV Lite. With CNV Pro, at least 300 lines of recordings (or approximately 30 minutes of speech) are required as training data for Custom Neural Voice. We recommend 2,000 lines of recordings (or approximately 2-3 hours of speech) to create a voice for production use. With CNV Lite, you can create a voice with just 20 recorded samples. CNV Lite is best for quick trials, or when you don't have access to professional voice actors. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
+          Custom neural voice (CNV) supports two project types: CNV Pro and CNV Lite. With CNV Pro, at least 300 lines of recordings (or approximately 30 minutes of speech) are required as training data for custom neural voice. We recommend 2,000 lines of recordings (or approximately 2-3 hours of speech) to create a voice for production use. With CNV Lite, you can create a voice with just 20 recorded samples. CNV Lite is best for quick trials, or when you don't have access to professional voice actors. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
       - question: |
           Can we include duplicate text sentences in the same set of training data?
         answer: |
@@ -71,19 +71,19 @@ sections:
       - question: |
           Can we include multiple styles in the same set of training data?
         answer: |
-          We recommend that you keep the style consistent in one set of training data. If the styles are different, put them into different training sets. In this case, you may consider using the multi-style voice training feature of Custom Neural Voice. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
+          We recommend that you keep the style consistent in one set of training data. If the styles are different, put them into different training sets. In this case, you may consider using the multi-style voice training feature of custom neural voice. For the script selection criteria, see [Record custom voice samples](record-custom-voice-samples.md).
       - question: |
-          Does switching styles via SSML work for Custom Neural Voices?
+          Does switching styles via SSML work for custom neural voices?
         answer: |
           Switching styles via SSML works for both prebuilt multi-style voices and CNV multi-style voices. With multi-style training, you can create a voice that speaks in different styles, and you can also adjust these styles via SSML.
       - question: |
           How does cross-lingual voice work with languages that have different pronunciation structure and assembly?  
         answer: |
-          Sentence structure and pronunciation naturally vary across languages such as English and Japanese. Each neural voice is trained with audio data recorded by native speaking voice talent. For [cross lingual](how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) voice, we transfer the major features like timbre to sound like the original speaker and preserve the right pronunciation. For example, a cross-lingual voice will use the native way to speak Japanese and still sound similar (but not exactly) like the original English speaker. 
+          Sentence structure and pronunciation naturally vary across languages such as English and Japanese. Each neural voice is trained with audio data recorded by native speaking voice talent. For [cross lingual](professional-voice-train-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) voice, we transfer the major features like timbre to sound like the original speaker and preserve the right pronunciation. For example, a cross-lingual voice will use the native way to speak Japanese and still sound similar (but not exactly) like the original English speaker. 
       - question: |
-          Can I use Custom Neural Voice to customize pronunciation for my domain?
+          Can I use custom neural voice to customize pronunciation for my domain?
         answer: |
-          Custom Neural Voice enables you to create a brand voice for your business. You can optimize it for your domain as well. We recommend you include domain-specific samples in your training data for higher naturalness. However, the pronunciation is defined by the TTS engine by default, and we do not support pronunciation customization during the CNV training. If you want to customize pronunciation for your voice, use SSML. See [Pronunciation with Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-pronunciation.md).
+          Custom neural voice enables you to create a brand voice for your business. You can optimize it for your domain as well. We recommend you include domain-specific samples in your training data for higher naturalness. However, the pronunciation is defined by the TTS engine by default, and we do not support pronunciation customization during the CNV training. If you want to customize pronunciation for your voice, use SSML. See [Pronunciation with Speech Synthesis Markup Language (SSML)](speech-synthesis-markup-pronunciation.md).
       - question: |
           After one training can I train my voice again? 
         answer: |
@@ -91,7 +91,7 @@ sections:
       - question: |
           Is the model version the same as the engine version?
         answer: |
-          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure AI services text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
+          No. The model version is different from the engine version. The model version means the version of the training recipe for your model and varies by the features supported and model training time. Azure AI services text to speech engines are updated from time to time to capture the latest language model that defines the pronunciation of the language. After you've trained your voice, you can apply your voice to the new language model by updating to the latest engine version. When a new engine is available, you're prompted to update your neural voice model. See [Update engine version for your voice model](professional-voice-train-voice.md?tabs=neural#update-engine-version-for-your-voice-model).
       - question: |
           Can we limit the number of trainings using Azure Policy or other features? Or is there any way to avoid false training?
         answer: |
@@ -107,7 +107,7 @@ sections:
       - question: |
           Do we need to return the written permission from the voice talent back to Microsoft?
         answer: |
-          Microsoft doesn't need the written permission, but you must obtain consent from your voice talent. The voice talent will also be required to record the consent statement and it must be uploaded into Speech Studio before training can begin. See [Set up voice talent for Custom Neural Voice](how-to-custom-voice-talent.md).
+          Microsoft doesn't need the written permission, but you must obtain consent from your voice talent. The voice talent will also be required to record the consent statement and it must be uploaded into Speech Studio before training can begin. See [Set up voice talent for custom neural voice](professional-voice-create-consent.md).
 
 
 
