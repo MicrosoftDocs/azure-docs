@@ -141,7 +141,7 @@ After you fail Azure VMs over to the target Azure region using Site Recovery, yo
 
 #### Two circuits with two peering locations
 
-This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering location goes down, connections can continue from the other location.
+This configuration helps protect ExpressRoute circuits against regional disaster. If your primary peering location goes down, connections can continue from the other location.
 
 - The circuit connected to the production environment is usually the primary. The secondary circuit typically has lower bandwidth, which can be increased if a disaster occurs.
 - After failover, you can establish connections from the secondary ExpressRoute circuit to the target vNet. Alternatively, you can have connections set up and ready in case of disaster, to reduce overall recovery time.
@@ -168,7 +168,7 @@ In this configuration there's only one Expressroute circuit. Although the circui
         - If you created the connection in the target region, and primary region recovers later, you might experience packet drops if two simultaneous connections attempt to connect to the same address space.
         - To prevent this, terminate the primary connection immediately.
         - After VM failback to the primary region, the primary connection can again be established, after you disconnect the secondary connection.
--	If a different address spaces is used on the target vNet, you can simultaneously connect to the source and target vNets from the same ExpressRoute circuit.
+-	If a different address space is used on the target vNet, you can simultaneously connect to the source and target vNets from the same ExpressRoute circuit.
 
 
 ## Failover example
@@ -192,7 +192,7 @@ To automate recovery in this example, here's what you need to do:
 
     b. Create the connection from the target hub vNet to the target ExpressRoute circuit.
 
-    c. Set up the VNet peerings between the target region’s hub and spoke virtual networks. The peering properties on the target region is the same as those on the source region.
+    c. Set up the VNet peerings between the target region’s hub and spoke virtual networks. The peering properties on the target region are the same as those on the source region.
 
     d. Set up the UDRs in the hub VNet, and the two spoke VNets.
 
