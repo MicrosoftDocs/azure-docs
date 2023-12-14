@@ -103,7 +103,7 @@ You may see an error similar to the following:
 
 `An exception has occurred while trying to execute the cluster diagnostic checks in the cluster. Exception: Unable to pull cluster-diagnostic-checks helm chart from the registry 'mcr.microsoft.com/azurearck8s/helmchart/stable/clusterdiagnosticchecks:0.1.2': Error: failed to do request: Head "https://mcr.microsoft.com/v2/azurearck8s/helmchart/stable/clusterdiagnosticchecks/manifests/0.1.2": dial tcp xx.xx.xx.219:443: i/o timeout`
 
-This error occurs when the `https://k8connecthelm.azureedge.net` endpoing is blocked. Be sure that your network allows connectivity to this endpoint and meets all of the other [networking requirements](network-requirements.md).
+This error occurs when the `https://k8connecthelm.azureedge.net` endpoint is blocked. Be sure that your network allows connectivity to this endpoint and meets all of the other [networking requirements](network-requirements.md).
 
 ### Unable to retrieve MSI certificate
 
@@ -215,7 +215,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
 
 For more information, see [Use cluster connect to securely connect to Azure Arc-enabled Kubernetes clusters](cluster-connect.md).
 
-## Permission issues for custom locations using service principal
+## Enable custom locations using service principal
 
 When connecting your cluster to Azure Arc or enabling custom locations on an existing cluster, you may see the following warning:
 

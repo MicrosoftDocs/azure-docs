@@ -7,9 +7,12 @@ description: "Learn how to resolve common issues with Azure Arc-enabled Kubernet
 
 # Azure Arc-enabled Kubernetes extension troubleshooting
 
-This document provides troubleshooting tips for issues with issues related to [extensions](extensions-release.md), such as GitOps (Flux v2) and Open Service Mesh, which can be used in either Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters.
+This document provides troubleshooting tips for issues related to [cluster extensions](extensions-release.md), such as GitOps (Flux v2) and Open Service Mesh.
 
 ## GitOps (Flux v2)
+
+> [!NOTE]
+> The Flux v2 extension can be used in either Azure Arc-enabled Kubernetes clusters or Azure Kubernetes Service (AKS) clusters. These troubleshooting tips generally apply regardless of cluster type.
 
 For general help troubleshooting issues with `fluxConfigurations` resources, run these Azure CLI commands with the `--debug` parameter specified:
 
@@ -26,7 +29,7 @@ For more information, see [How do I resolve `webhook does not support dry run` e
 
 ### Errors installing the `microsoft.flux` extension
 
-The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension isn't already installed in a cluster and you [create a GitOps configuration resource](tutorial-use-gitops-flux2.md) for that cluster, the extension will be installed automatically.
+The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension isn't already installed in a cluster and you [create a GitOps configuration resource](tutorial-use-gitops-flux2.md) for that cluster, the extension is installed automatically.
 
 If you experience an error during installation, or if the extension is in a failed state, make sure that the cluster doesn't have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
 
@@ -64,7 +67,7 @@ The extension status also returns as "Failed".
 "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceOperationFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"ExtensionCreationFailed\",\"message\":\" error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}\"}]}}",
 ```
 
-TIn this case, the extension-agent pod tries to get its token from IMDS on the cluster in order to talk to the extension service in Azure, but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
+In this case, the extension-agent pod tries to get its token from IMDS on the cluster so that it talk to the extension service in Azure; however, the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)).
 
 To fix this issue, [upgrade to the latest version](extensions.md#upgrade-extension-instance) of the `microsoft.flux` extension.
 
@@ -80,7 +83,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Ensuring memory and CPU requirements for `microsoft.flux` extension installation are met
 
-The controllers installed in your Kubernetes cluster with the `microsoft.flux `extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. Be sure that your cluster is able to meet the minimum memory and CPU resources that may be requested, along with the maximum limits for potential CPU and memory resource requirements, as shown in this table.
+The controllers installed in your Kubernetes cluster with the `microsoft.flux `extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. Be sure that your cluster is able to meet the minimum memory and CPU resources that may be requested. Note also the maximum limits for potential CPU and memory resource requirements shown here.
 
 | Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |
@@ -94,7 +97,7 @@ The controllers installed in your Kubernetes cluster with the `microsoft.flux `e
 | image-automation-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 | image-reflector-controller | 100 m | 64 Mi | 1000 m | 1 Gi |
 
-If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown above, or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
+If you've enabled a custom or built-in Azure Gatekeeper Policy that limits the resources for containers on Kubernetes clusters, such as `Kubernetes cluster containers CPU and memory resource limits should not exceed the specified limits`, ensure that either the resource limits on the policy are greater than the limits shown here, or that the `flux-system` namespace is part of the `excludedNamespaces` parameter in the policy assignment.
 
 ### Flux v1
 
@@ -155,7 +158,7 @@ Use the following command to inspect controller logs:
 kubectl logs -n arc-osm-system -l app=osm-controller
 ```
 
-Column `READY` with a number higher than 1 after the `/` indicates that there are sidecars installed. OSM Controller will generally not work properly with sidecars attached.
+Column `READY` with a number higher than 1 after the `/` indicates that there are sidecars installed. OSM Controller generally won't work properly with sidecars attached.
 
 ### Check OSM controller service
 
@@ -320,7 +323,7 @@ Example output:
 1845
 ```
 
-The number in the output indicates the number of bytes, or the size of the CA Bundle. If the output is empty, 0, or a number under 1000, the CA Bundle isn't correctly provisioned. Without a correct CA Bundle, the `ValidatingWebhook` will throw an error.
+The number in the output indicates the number of bytes, or the size of the CA Bundle. If the output is empty, 0, or a number under 1000, the CA Bundle isn't correctly provisioned. Without a correct CA Bundle, the `ValidatingWebhook` throws an error.
 
 ### Check the `osm-mesh-config` resource
 
@@ -459,7 +462,7 @@ Check whether the cluster has the required Custom Resource Definitions (CRDs) by
 kubectl get crds
 ```
 
-Ensure that the CRDs correspond to the versions available in the release branch. To confirm which CRDs version are in use, visit the [SMI supported versions page](https://docs.openservicemesh.io/docs/overview/smi/) and select your version from the **Releases** dropdown.
+Ensure that the CRDs correspond to the versions available in the release branch. To confirm which CRD versions are in use, visit the [SMI supported versions page](https://docs.openservicemesh.io/docs/overview/smi/) and select your version from the **Releases** dropdown.
 
 Get the versions of the installed CRDs with the following command:
 
@@ -489,9 +492,9 @@ For information on how OSM issues and manages certificates to Envoy proxies runn
 
 ### Upgrade Envoy
 
-When a new pod is created in a namespace monitored by the add-on, OSM will inject an [Envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the Envoy version needs to be updated, follow the steps in the [Upgrade Guide](https://docs.openservicemesh.io/docs/guides/upgrade/#envoy) on the OSM docs site.
+When a new pod is created in a namespace monitored by the add-on, OSM injects an [Envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the Envoy version needs to be updated, follow the steps in the [Upgrade Guide](https://docs.openservicemesh.io/docs/guides/upgrade/#envoy) on the OSM docs site.
 
 ## Next steps
 
-* Learn more about [cluster extensions](conceptual-extensions.md).
-* View general [troubleshooting tips for Arc-enabled Kubernetes clusters](extensions-troubleshooting.md).
+- Learn more about [cluster extensions](conceptual-extensions.md).
+- View general [troubleshooting tips for Arc-enabled Kubernetes clusters](extensions-troubleshooting.md).
