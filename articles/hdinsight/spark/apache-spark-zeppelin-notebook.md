@@ -81,7 +81,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
     The **%sql** statement at the beginning tells the notebook to use the Livy Scala interpreter.
 
-6. Select the **Bar Chart** icon to change the display.  **settings**, appear after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
+6. Select the **Bar Chart** icon to change the display.  **settings** appear after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
 
     :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png " alt-text="Run a Spark SQL statement using the notebook1" border="true":::
 
@@ -147,6 +147,7 @@ This action saves the notebook as a JSON file in your download location.
 
 > [!NOTE]
 > * In HDI 4.0 , the zeppelin notebook directory path is, `/usr/hdp/<version>/zeppelin/notebook/<notebook_session_id>/`
+   > 
    >    Eg. /usr/hdp/4.1.17.10/zeppelin/2JMC9BZ8X/
    > 
    >    Where as in HDI 5.0 and above this path is different `/usr/hdp/<version>/zeppelin/notebook/<Kernel_name>/`
@@ -163,9 +164,9 @@ This action saves the notebook as a JSON file in your download location.
 > 
 > * HDI Zeppelin always saves the notebook in the path `/usr/hdp/<version>/zeppelin/notebook/` in hn0 local disk.
 >    
-> If you want the notebook to be available even after cluster deletion , you can try to use azure file storage (Using SMB protocol ) and link it to local path. Please refer the link below for more details, [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
+>    If you want the notebook to be available even after cluster deletion , you can try to use azure file storage (Using SMB protocol ) and link it to local path. For more details, see [Mount SMB Azure file share on Linux](/azure/storage/files/storage-how-to-use-files-linux)
 > 
-> After mounting it, you can modify the zeppelin configuration zeppelin.notebook.dir to the mounted path in ambari UI.
+>    After mounting it, you can modify the zeppelin configuration zeppelin.notebook.dir to the mounted path in ambari UI.
 
 ## Use `Shiro` to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
 
@@ -238,7 +239,7 @@ To validate the service from a command line, SSH to the head node. Switch user t
 |---|---|
 |zeppelin-server|/usr/hdp/current/zeppelin-server/|
 |Server Logs|/var/log/zeppelin|
-|Configuration Interpreter, `Shiro`, site.xml, log4j|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
+|Configuration Interpreter, `Shiro`, site.xml, `log4j`|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
 |PID directory|/var/run/zeppelin|
 
 ### Enable debug logging
