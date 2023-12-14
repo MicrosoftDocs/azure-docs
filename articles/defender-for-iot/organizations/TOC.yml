@@ -300,7 +300,7 @@
         - name: Deploy air-gapped OT sensor management
           items:
           - name: Air-gapped management deployment path
-            href: ot-deploy/legacy-air-gapped-deploy.md
+            href: legacy-central-management/legacy-air-gapped-deploy.md
           - name: Prepare an appliance
             href: legacy-central-management/install-software-on-premises-management-console.md
           - name: Install an on-premises management console
