@@ -36,10 +36,10 @@ In this tutorial, you learn how to use the portal to:
 ## Add APIs
 
 When you add (register) APIs in your API center, the API registration includes:
-* a title (name), type, and description
-* version information
-* optional links to documentation and contacts
-* built-in and custom metadata properties that you defined
+* A title (name), type, and description
+* Version information
+* Optional links to documentation and contacts
+* Built-in and custom metadata properties that you defined
 
 The following steps register two sample APIs: Swagger Petstore API and Demo Conference API (see [Prerequisites](#prerequisites)). If you prefer, register APIs of your own.
  
@@ -65,14 +65,14 @@ The following steps register two sample APIs: Swagger Petstore API and Demo Conf
     | **Line of business** | If you added this custom property in the previous tutorial, make a selection from the dropdown, such as **Marketing**. | Custom metadata property that identifies the business unit that owns the API. |
     | **Public-facing**  | If you added this custom property, select the checkbox.    |  Custom metadata property that identifies whether the API is public-facing or internal only.     |
 
-    :::image type="content" source="media/register-apis/register-api.png" alt-text="Screenshot of registering an API in the portal.":::
+    :::image type="content" source="media/register-apis/register-api.png" alt-text="Screenshot of registering an API in the portal." lightbox="media/register-apis/register-api.png":::
 
 1. Select **Create**. The API is registered
 1. Repeat the preceding three steps to register another API, such as the Demo Conference API.
 
 The APIs appear on the **APIs** page in the portal. When you've added a large number of APIs to the API center, use the search box and filters on this page to find the APIs you want.
 
-:::image type="content" source="media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal.":::
+:::image type="content" source="media/register-apis/apis-page.png" alt-text="Screenshot of the APIs page in the portal." lightbox="media/register-apis/apis-page.png":::
 
 > [!TIP]
 > After registering an API, you can view or edit the API's properties. On the **APIs** page, select the API to see options to manage the API registration. 
@@ -89,7 +89,7 @@ Here you add a version to one of your APIs:
 
 1. On the Demo Conference API page, select **Versions** > **+ Add version**.
 
-    :::image type="content" source="media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal.":::
+    :::image type="content" source="media/register-apis/add-version.png" alt-text="Screenshot of adding an API version in the portal." lightbox="media/register-apis/add-version.png":::
 
 1. On the **Add API version** page: 
     1. Enter or select the following information:
@@ -123,7 +123,7 @@ To add an API definition to your version:
         | **Specification version** | Enter a version identifier of your choice, such as *2.0*. | Specification version. |
         |**Document**        | Browse to a definition file for the Demo Conference API.      |  API definition file.     |
 
-        :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png":::
+        :::image type="content" source="media/register-apis/add-definition.png" alt-text="Screenshot of adding an API definition in the portal." lightbox="media/register-apis/add-definition.png lightbox="media/register-apis/add-definition.png":::
 
     1. Select **Create**. The definition is added.
 
