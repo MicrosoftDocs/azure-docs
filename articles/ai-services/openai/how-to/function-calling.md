@@ -146,6 +146,9 @@ print(run_conversation())
 
 ## Using function in the chat completions API (Deprecated)
 
+> [!IMPORTANT]
+> The `functions` and `function_call` parameters have been deprecated with the release of the [`2023-12-01-preview`](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/preview/2023-12-01-preview/inference.json) version of the API. The replacement for `functions` is the [`tools`](../reference.md#chat-completions) parameter. The replacement for `function_call` is the [`tool_choice`](../reference.md#chat-completions) parameter. 
+
 Function calling is available in the `2023-07-01-preview` API version and works with version 0613 of gpt-35-turbo, gpt-35-turbo-16k, gpt-4, and gpt-4-32k.
 
 To use function calling with the Chat Completions API, you need to include two new properties in your request: `functions` and `function_call`. You can include one or more `functions` in your request and you can learn more about how to define functions in the [defining functions](#defining-functions) section. Keep in mind that functions are injected into the system message under the hood so functions count against your token usage.
