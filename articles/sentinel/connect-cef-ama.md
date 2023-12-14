@@ -31,7 +31,7 @@ The AMA is installed on a Linux machine that acts as a log forwarder, and the AM
 
 ## Overview 
 
-### What is CEF collection?
+### What is Common Event Format (CEF)?
 
 Many network, security appliances, and devices send their logs in the CEF format over Syslog. This format includes more structured information than Syslog, with information presented in a parsed key-value arrangement.
 
@@ -43,10 +43,25 @@ CEF normalizes the data, making it more immediately useful for analysis with Mic
 
 :::image type="content" source="media/connect-cef-ama/cef-forwarder-diagram.png" alt-text="Diagram showing the CEF log forwarding procedure." lightbox="media/connect-cef-ama/cef-forwarder-diagram.png":::
 
-1. Set up a log forwarder on a Linux VM, if one doesn't already exist. The forwarder can be installed on an on-premises or cloud-based VM.
+To ingest CEF logs into Microsoft Sentinel, you must set up a number of components:
+
+1. Designate and configure a Linux machine (a "**log forwarder**") that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. If this machine is not an Azure VM, it must have Azure Arc installed (see the [prerequisites](#prerequisites)).
+
+    This machine has two components that take part in this process of log collection and forwarding:
+
+    - A Syslog daemon, either `rsyslog` or `syslog-ng`, which collects the logs.
+    - The Azure Monitor Agent (AMA), which forwards the logs to Microsoft Sentinel.
+
+1. You configure the Syslog daemon (`rsyslog.d`/`syslog-ng`) to listen for Syslog messages from your log sources on TCP port 514. (While you can use UDP in limited circumstances, TCP is preferable.)
+
 1. Configure your originating devices to send Syslog events to the Syslog daemon on the log forwarder's VM, instead of to the local Syslog daemon.
-1. The Syslog daemon on the forwarder sends events to the Azure Monitor Agent over TCP port 28330 (as of version 1.28.11 of the AMA. Prior versions use Unix domain sockets instead of the TCP port).
-1. The Azure Monitor Agent installed on the log forwarder collects and parses the events. 
+
+1. In Microsoft Sentinel, you set up the **Common Event Format (CEF) via AMA** data connector. As part of the setup process, you choose the VM that you've designated as a log forwarder to install the AMA on it, and you create one or more Data Collection Rules (DCRs) which filter and parse the collected data before passing it on to Microsoft Sentinel.
+
+1. The Syslog daemon on the forwarder sends events internally to the Azure Monitor Agent over TCP port 28330 (as of version 1.28.11 of the AMA. Prior versions use Unix domain sockets instead of the TCP port).
+
+1. The Azure Monitor Agent installed on the log forwarder collects and parses the events using the Data Collection Rules you defined. 
+
 1. The agent streams the events to the Microsoft Sentinel workspace to be further analyzed. 
 
 ## Set up the Common Event Format (CEF) via AMA connector
@@ -63,7 +78,7 @@ Before you begin, verify that you have:
 - Either the `syslog-ng` or `rsyslog` daemon enabled.
 - To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](../azure-monitor/agents/azure-monitor-agent-manage.md) is installed.
 
-## Avoid data ingestion duplication
+### Avoid data ingestion duplication
 
 Using the same facility for both Syslog and CEF messages may result in data ingestion duplication between the CommonSecurityLog and Syslog tables. 
 
