@@ -16,7 +16,7 @@ ms.date: 12/14/2023
 
 The Model Catalog in Azure Machine Learning Studio provides access to many open-source foundation models, and regulating the deployments of these models by enforcing organization standards can be of paramount importance to meet your security and compliance requirements. In this article, you learn how you can restrict the deployments from the Model Catalog using a built-in Azure Policy.
 
-[Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/) is a governance tool that gives users the ability to audit, perform real-time enforcement and manage their Azure environment at scale. For more information, see the [Overview of the Azure Policy service](https://learn.microsoft.com/en-us/azure/governance/policy/overview).
+[Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit, perform real-time enforcement and manage their Azure environment at scale. For more information, see the [Overview of the Azure Policy service](/azure/governance/policy/overview).
 
 Example Usage Scenarios:
 
@@ -37,24 +37,24 @@ Model Catalog collections are made available to users using the underlying regis
 
 1. On the Azure home page, type Policy in the search bar and select the Azure **Policy** icon.
 
-2. On the Azure Policy service, under **Authoring**, select *Assignments*.
+2. On the Azure Policy service, under **Authoring**, select **Assignments**.
 
-:::image type="content" source="how-to-regulate-registry-deployments/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy home page.":::
+:::image type="content" source="./media/how-to-regulate-registry-deployments/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy home page.":::
 
 3. On the Assignments page, select the **Assign Policy** icon at the top. 
 
-:::image type="content" source="media/how-to-regulate-registry-deployments/assign-policy.md" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
+:::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy.png" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
 
 4. On the Assign Policy page basics tab, update the following fields:
     1. Scope: Select what Azure subscriptions and resource groups the policies apply to.
     2. Exclusions: Select any resources from the scope to exclude from the policy assignment.
     3. Policy Definition: Select the policy definition to apply to the scope with exclusions. Type "Azure Machine Learning" in the search bar and locate the policy '[Preview] Azure Machine Learning Model Registry Deployments are restricted except for allowed registry'. Select the policy and select **Add**.
 
-:::image type="content" source="how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab tab within Azure Policy home page.":::
+:::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab tab within Azure Policy home page.":::
 
 5. Select the **Parameters** tab and update the Effect and policy assignment parameters. Make sure to uncheck the 'Only show parameters that need input or review' so all the parameters show up. To further clarify what the parameter does, hover over the info icon next to the parameter name.
 
-If no model asset IDs are set in the *Restricted Model AssetIds* parameter during the policy assignment, this policy only allows deploying all models from the model registry specified in *Allowed Registry Name' parameter.
+    If no model asset IDs are set in the *Restricted Model AssetIds* parameter during the policy assignment, this policy only allows deploying all models from the model registry specified in *Allowed Registry Name' parameter.
 
 6. Select **Review + Create** to finalize your policy assignment. The policy assignment takes approximately 15 minutes until it's active for new resources. 
 
@@ -74,5 +74,5 @@ You can remove the policy assignment in the Azure portal using the following ste
 
 ## Next Steps
 
-- Learn how to [get compliance data](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data).
-- Learn how to [create policies programmatically](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/programmatically-create).
+- Learn how to [get compliance data](/azure/governance/policy/how-to/get-compliance-data).
+- Learn how to [create policies programmatically](/azure/governance/policy/how-to/programmatically-create).
