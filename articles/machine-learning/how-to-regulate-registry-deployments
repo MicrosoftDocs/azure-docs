@@ -39,16 +39,18 @@ Model Catalog collections are made available to users using the underlying regis
 
 2. On the Azure Policy service, under **Authoring**, select *Assignments*.
 
-:::image type="content" source="../media/waf-azure-policy/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy.":::
+:::image type="content" source="how-to-regulate-registry-deployments/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy home page.":::
 
 3. On the Assignments page, select the **Assign Policy** icon at the top. 
 
-:::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
+:::image type="content" source="media/how-to-regulate-registry-deployments/assign-policy.md" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
 
 4. On the Assign Policy page basics tab, update the following fields:
     1. Scope: Select what Azure subscriptions and resource groups the policies apply to.
     2. Exclusions: Select any resources from the scope to exclude from the policy assignment.
     3. Policy Definition: Select the policy definition to apply to the scope with exclusions. Type "Azure Machine Learning" in the search bar and locate the policy '[Preview] Azure Machine Learning Model Registry Deployments are restricted except for allowed registry'. Select the policy and select **Add**.
+
+:::image type="content" source="how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab tab within Azure Policy home page.":::
 
 5. Select the **Parameters** tab and update the Effect and policy assignment parameters. Make sure to uncheck the 'Only show parameters that need input or review' so all the parameters show up. To further clarify what the parameter does, hover over the info icon next to the parameter name.
 
