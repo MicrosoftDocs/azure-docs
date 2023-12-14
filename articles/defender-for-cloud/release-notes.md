@@ -25,7 +25,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | Date | Update |
 |--|--|
 | December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
-| December 13 | [Agentless Container Posture in Defender AWS and (Preview)](#agentless-container-posture-in-defender-aws-preview) |
+| December 13 | [Agentless container posture for AWS in Defender for Containers and Defender CSPM (Preview)](#agentless-container-posture-for-aws-in-defender-for-containers-and-defender-cspm-preview) |
 | December 13 | [Deny effect - replacing deprecated policies](#deny-effect---replacing-deprecated-policies) |
 | December 13 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
 | December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
@@ -37,11 +37,11 @@ December 13, 2023
 
 The [container vulnerability assessment powered by Trivy](defender-for-containers-vulnerability-assessment-elastic.md) is now on a retirement path to be completed by February 13. This capability is now deprecated and will continue to be available to existing customers using this capability until February 13. We encourage customers using this capability to upgrade to the new [AWS container vulnerability assessment powered by Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md) by February 13.
 
-### Agentless Container Posture in Defender AWS (Preview)
+### Agentless container posture for AWS in Defender for Containers and Defender CSPM (Preview)
 
 December 13, 2023
 
-The new Agentless Container Posture (Preview) capabilities are available for AWS. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
+The new Agentless container posture (Preview) capabilities are available for AWS. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
 
 ### Deny effect - replacing deprecated policies
 
@@ -120,7 +120,7 @@ November 27, 2023
 
 Agentless secret scanning enhances the security cloud based Virtual Machines (VM) by identifying plaintext secrets on VM disks. Agentless secret scanning provides comprehensive information to help prioritize detected findings and mitigate lateral movement risks before they occur. This proactive approach prevents unauthorized access, ensuring your cloud environment remains secure.
 
-We're announcing the General Availability (GA) of agentless secret scanning, which is included in both the [Defender for Servers P2](tutorial-enable-servers-plan.md) and the [Defender CSPM](tutorial-enable-cspm-plan.md) plans. 
+We're announcing the General Availability (GA) of agentless secret scanning, which is included in both the [Defender for Servers P2](tutorial-enable-servers-plan.md) and the [Defender CSPM](tutorial-enable-cspm-plan.md) plans.
 
 Agentless secret scanning utilizes cloud APIs to capture snapshots of your disks, conducting out-of-band analysis that ensures that there's no effect on your VM's performance. Agentless secret scanning broadens the coverage offered by Defender for Cloud over cloud assets across Azure, AWS, and GCP environments to enhance your cloud security.
 
@@ -134,7 +134,7 @@ November 22, 2023
 
 Microsoft now offers both Cloud-Native Application Protection Platforms (CNAPP) and Cloud Infrastructure Entitlement Management (CIEM) solutions with [Microsoft Defender for Cloud (CNAPP)](defender-for-cloud-introduction.md) and [Microsoft Entra Permissions Management](/entra/permissions-management/) (CIEM).
 
-Security administrators can get a centralized view of their unused or excessive access permissions within Defender for Cloud. 
+Security administrators can get a centralized view of their unused or excessive access permissions within Defender for Cloud.
 
 Security teams can drive the least privilege access controls for cloud resources and receive actionable recommendations for resolving permissions risks across Azure, AWS, and GCP cloud environments as part of their Defender Cloud Security Posture Management (CSPM), without any extra licensing requirements.
 
@@ -160,7 +160,7 @@ Customers using the MMA autoprovisioning process are requested to [migrate to th
 
 November 15, 2023
 
-We're announcing the General Availability (GA) of Microsoft Defender for APIs. Defender for APIs is designed to protect organizations against API security threats. 
+We're announcing the General Availability (GA) of Microsoft Defender for APIs. Defender for APIs is designed to protect organizations against API security threats.
 
 Defender for APIs allows organizations to protect their APIs and data from malicious actors. Organizations can investigate and improve their API security posture, prioritize vulnerability fixes, and quickly detect and respond to active real-time threats. Organizations can also integrate security alerts directly into their Security Incident and Event Management (SIEM) platform, for example Microsoft Sentinel, to investigate and triage issues.
 
@@ -172,7 +172,7 @@ You can also read [this blog](https://techcommunity.microsoft.com/t5/microsoft-d
 
 November 15, 2023
 
-Businesses can protect their cloud resources and devices with the new integration between Microsoft Defender for Cloud and Microsoft Defender XDR. This integration connects the dots between cloud resources, devices, and identities, which previously required multiple experiences. 
+Businesses can protect their cloud resources and devices with the new integration between Microsoft Defender for Cloud and Microsoft Defender XDR. This integration connects the dots between cloud resources, devices, and identities, which previously required multiple experiences.
 
 The integration also brings competitive cloud protection capabilities into the Security Operations Center (SOC) day-to-day. With Microsoft Defender XDR, SOC teams can easily discover attacks that combine detections from multiple pillars, including Cloud, Endpoint, Identity, Office 365, and more.
 
@@ -279,7 +279,7 @@ Learn more about [Defender CSPM plan options](concept-cloud-security-posture-man
 
 November 15, 2023
 
-The data security dashboard is now available in General Availability (GA) as part of the Defender CSPM plan. 
+The data security dashboard is now available in General Availability (GA) as part of the Defender CSPM plan.
 
 The data security dashboard allows you to view your organization's data estate, risks to sensitive data, and insights about your data resources.
 
