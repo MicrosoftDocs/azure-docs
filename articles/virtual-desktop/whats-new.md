@@ -27,31 +27,25 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in November 2023:
 
-### Administrators can now easily start, stop, and restart Azure Virtual Desktop VMs 
+### Administrators can now easily start, stop, and restart session hosts
 
-You can now stop, start and restart Azure Virtual Desktop session hosts directly in the Azure portal. You can also choose whether to perform the operation on a single session host or on multiple session hosts in your host pool at the same time.
+You can now stop, start and restart session hosts directly in the Azure portal. You can also choose whether to perform the operation on a single session host or on multiple session hosts in your host pool at the same time.
 
-### Add Community image and directed shared images when deploying session host VMs 
+### Use community image and directed shared images when deploying session hosts
 
-You can now add community images and directed shared images when configuring the **Select an image** tab while [creating a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool).
+You can now select community images and directed shared images to use for your session hosts when [creating a host pool](deploy-azure-virtual-desktop.md#create-a-host-pool).
 
 Community images and associated publisher information aren't verified or tested by Microsoft, so make sure to verify any custom images you deploy using this method. 
 
-For more information on preparing a storing and sharing images to be used to create virtual machines, see [Store and share VM images in a compute gallery](../virtual-machines/shared-image-galleries.md).
+For more information on preparing, storing and sharing images to be used to create virtual machines, see [Store and share VM images in a compute gallery](../virtual-machines/shared-image-galleries.md).
 
 ### Windows 11 version 23H2 and 22H2 images added to the Azure Marketplace 
 
-Windows 11 multisession version 23H2 and 22H2 with Microsoft 365 apps preinstalled are now available in the Azure Marketplace. You can use these images to create custom images to deploy in session host VMs.
-
-For more information about how to use Azure Marketplace images when adding session hosts to an Azure Virtual Desktop host pool, see [Add session hosts to a host pool](add-session-hosts-host-pool.md).
-
-### Administrative template for Watermarking and Screen Capture Protection now available
-
-The administrative template for [watermarking](watermarking.md) and [screen capture protection](screen-capture-protection.md) is now available in [the Intune settings catalog](/mem/intune/configuration/administrative-templates-windows). This template lets you configure these security settings centrally for [session hosts enrolled in Intune](management.md#microsoft-intune).
+Windows 11 Enterprise multi-session, versions 23H2 and 22H2 with Microsoft 365 apps preinstalled are now available in the Azure Marketplace. You can use these images when you [deploy Azure Virtual Desktop in the Azure portal](deploy-azure-virtual-desktop.md?tabs=portal), [add session hosts to a host pool](add-session-hosts-host-pool.md), or [create custom images](custom-image-templates.md).
 
 ### Autoscale for personal host pools is now generally available
 
-Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which lets you pause VMs you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale lets you scale your session host virtual machines (VMs) in a host pool up or down according to schedule, optimizing deployment costs. Autoscale now also supports the hibernate feature (preview), which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
 
 ### Updated preview of Azure Virtual Desktop on Azure Stack HCI
 
