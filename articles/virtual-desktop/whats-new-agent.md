@@ -38,7 +38,6 @@ The agent is automatically installed when adding session hosts in most scenarios
 
 In this update, we've made the following changes: 
 
-
 - General improvements and bug fixes. 
 
 ## Version 1.0.7909.2600  
