@@ -25,7 +25,7 @@ The following table highlights the key differences between using ContainerLogV2 
 
 | Feature differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
-| Schema | Details at [ContainerLog](/azure/azure-monitor/reference/tables/containerlog). | Details at [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2).<br>Additional columns are `ContainerName`, `PodName`, `PodNamespace`. |
+| Schema | Details at [ContainerLog](/azure/azure-monitor/reference/tables/containerlog). | Details at [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2).<br>Additional columns are:<br>- `ContainerName`<br>- `PodName`<br>- `PodNamespace`. |
 | Onboarding | Only configurable through ConfigMap. | Configurable through both ConfigMap and DCR. <sup>1</sup>|
 | Pricing | Only compatible with full-priced analytics logs. | Supports the low cost [basic logs](../logs/basic-logs-configure.md) tier in addition to analytics logs. |
 | Querying | Requires multiple join operations with inventory tables for standard queries. | Includes additional pod and container metadata to reduce query complexity and join operations. |

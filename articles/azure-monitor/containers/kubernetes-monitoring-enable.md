@@ -607,21 +607,17 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
 ## Verify deployment
 Use the [kubectl command line tool](../../aks/learn/quick-kubernetes-deploy-cli.md#connect-to-the-cluster) to verify that the agent is deployed properly.
 
+### Managed Prometheus
 
-**Verify that the DaemonSets were deployed properly on the Linux node pools**
+**Verify that the DaemonSet was deployed properly on the Linux node pools**
 
-```
+```AzureCLI
 kubectl get ds ama-metrics-node --namespace=kube-system
-kubectl get ds ama-logs --namespace=kube-system
 ```
 
 The number of pods should be equal to the number of Linux nodes on the cluster. The output should resemble the following example:
 
-```
-User@aksuser:~$ kubectl get ds ama-logs --namespace=kube-system
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
- 
+```output
 User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
 NAME               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 ama-metrics-node   1         1         1       1            1           <none>          10h
@@ -629,8 +625,53 @@ ama-metrics-node   1         1         1       1            1           <none>  
 
 **Verify that Windows nodes were deployed properly**
 
+```AzureCLI
+kubectl get ds ama-metrics-win-node --namespace=kube-system
 ```
-kubectl get ds ama-logs-windows --namespace=kube-system
+
+The number of pods should be equal to the number of Windows nodes on the cluster. The output should resemble the following example:
+
+```output
+User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+ama-metrics-win-node   3         3         3       3            3           <none>          10h
+```
+
+**Verify that the two ReplicaSets were deployed for Prometheus**
+
+```AzureCLI
+kubectl get rs --namespace=kube-system
+```
+
+The output should resemble the following example:
+
+```output
+User@aksuser:~$kubectl get rs --namespace=kube-system
+NAME                            DESIRED   CURRENT   READY   AGE
+ama-metrics-5c974985b8          1         1         1       11h
+ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
+```
+
+
+### Container insights
+
+**Verify that the DaemonSets were deployed properly on the Linux node pools**
+
+```AzureCLI
+kubectl get ds ama-logs --namespace=kube-system
+```
+
+The number of pods should be equal to the number of Linux nodes on the cluster. The output should resemble the following example:
+
+```output
+User@aksuser:~$ kubectl get ds ama-logs --namespace=kube-system
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+ama-logs   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```
+
+**Verify that Windows nodes were deployed properly**
+
+```
 kubectl get ds ama-metrics-win-node --namespace=kube-system
 ```
 
@@ -640,10 +681,6 @@ The number of pods should be equal to the number of Windows nodes on the cluster
 User@aksuser:~$ kubectl get ds ama-logs-windows --namespace=kube-system
 NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
 ama-logs-windows           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
-
-User@aksuser:~$ kubectl get ds ama-metrics-node --namespace=kube-system
-NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-ama-metrics-win-node   3         3         3       3            3           <none>          10h
 ```
 
 
@@ -659,21 +696,6 @@ The output should resemble the following example:
 User@aksuser:~$ kubectl get deployment ama-logs-rs -n=kube-system
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 ama-logs-rs   1         1         1            1            3h
-```
-
-**Verify that the two ReplicaSets were deployed for Prometheus**
-
-```
-kubectl get rs --namespace=kube-system
-```
-
-The output should resemble the following example:
-
-```
-User@aksuser:~$kubectl get rs --namespace=kube-system
-NAME                            DESIRED   CURRENT   READY   AGE
-ama-metrics-5c974985b8          1         1         1       11h
-ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 ```
 
 **View configuration with CLI**

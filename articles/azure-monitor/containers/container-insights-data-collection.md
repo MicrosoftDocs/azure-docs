@@ -1,5 +1,5 @@
 ---
-title: Configure Container insights agent data collection | Microsoft Docs
+title: Configure Container insights data collection
 description: This article describes how you can configure the Container insights agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
 ms.date: 11/14/2023
@@ -11,6 +11,16 @@ ms.reviewer: aul
 This article describes how to configure data collection in Container insights. You may want to collect additional data from your containerized workloads to support your DevOps or operational processes and procedures. Or you may want to reduce the amount of data collected to reduce costs.
 
 You can configure data collection either using the Azure portal, which modifies the data collection rule (DCR) used by the agent, or by creating a custom Kubernetes ConfigMap.
+
+
+## Methods
+There are two methods to configure data collection in Container insights, the ConfigMap for the cluster and the DCR for the agent.
+
+| Method | Actions possible
+|:---|:---|
+| DCR       | - Collection and namespace filtering for performance and inventory data<br>- Collection interval for performance and inventory data<br>Collection of stdout, stderr logs<br>- Log schema<br>- Syslog collection |
+| ConfigMap | - Collection and namespace filtering for stdout, stderr logs<br>- Environment variables for the cluster<br>- Filter for Normal Kube events<br>- Log schema<br>- Multiline logging<br>- Ignore proxy settings | 
+
 
 ## Azure portal
 

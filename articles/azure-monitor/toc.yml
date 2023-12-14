@@ -581,9 +581,10 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Create metric alert rules
+      - name: Prometheus alert rules
         href: containers/container-insights-metric-alerts.md
-      - name: Create log alert rules
+      - name: Log alert rules
+        displayName: Container insights
         href: containers/container-insights-log-alerts.md
     - name: Troubleshooting
       items:
