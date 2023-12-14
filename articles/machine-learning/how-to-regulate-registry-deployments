@@ -1,3 +1,4 @@
+---
 title: Regulate deployments in Model Catalog using policies
 titleSuffix: Azure Machine Learning
 description: Learn about using the Azure Machine Learning built-in policy to deny registry model deployments 
@@ -9,8 +10,11 @@ ms.author: timanghn
 author: tinaem
 ms.reviewer: ssalgado
 ms.date: 12/14/2023
+---
 
-The Model Catalog in Azure Machine Learning studio provides access to many open-source foundation models, and regulating the deployments of these models by enforcing organization standards can be of paramount importance to meet your security and compliance requirements. In this article, you'll learn how you can restrict the deployments from the Model Catalog using a built-in Azure Policy.
+# Regulate deployments in Model Catalog using policies
+
+The Model Catalog in Azure Machine Learning studio provides access to many open-source foundation models, and regulating the deployments of these models by enforcing organization standards can be of paramount importance to meet your security and compliance requirements. In this article, you learn how you can restrict the deployments from the Model Catalog using a built-in Azure Policy.
 
 [Azure Policy](https://learn.microsoft.com/en-us/azure/governance/policy/) is a governance tool that gives users the ability to audit, perform real-time enforcement and manage their Azure environment at scale. For more information, see the [Overview of the Azure Policy service](https://learn.microsoft.com/en-us/azure/governance/policy/overview).
 
@@ -42,9 +46,9 @@ Model Catalog collections are made available to users using the underlying regis
 :::image type="content" source="../media/waf-azure-policy/assign-policy.png" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
 
 4. On the Assign Policy page basics tab, update the following fields:
-  a. Scope: Select what Azure subscriptions and resource groups the policies apply to.
-  b. Exclusions: Select any resources from the scope to exclude from the policy assignment.
-  c. Policy Definition: Select the policy definition to apply to the scope with exclusions. Type "Azure Machine Learning" in the search bar and locate the policy '[Preview] Azure Machine Learning Model Registry Deployments are restricted except for allowed registry'. Select the policy and select **Add**.
+    1. Scope: Select what Azure subscriptions and resource groups the policies apply to.
+    2. Exclusions: Select any resources from the scope to exclude from the policy assignment.
+    3. Policy Definition: Select the policy definition to apply to the scope with exclusions. Type "Azure Machine Learning" in the search bar and locate the policy '[Preview] Azure Machine Learning Model Registry Deployments are restricted except for allowed registry'. Select the policy and select **Add**.
 
 5. Select the **Parameters** tab and update the Effect and policy assignment parameters. Make sure to uncheck the 'Only show parameters that need input or review' so all the parameters show up. To further clarify what the parameter does, hover over the info icon next to the parameter name.
 
@@ -56,15 +60,15 @@ If no asset IDs are set in 'allowedModels' during assignment, this policy restri
 
 You can remove the policy assignment in the Azure portal using the following steps:
 
-  1. Navigate to the Policy pane on the Azure portal.
-  2. Select **Assignments**.
-  3. Select on the ... button next to your policy assignment and select **Delete** assignment.
+1. Navigate to the Policy pane on the Azure portal.
+2. Select **Assignments**.
+3. Select on the ... button next to your policy assignment and select **Delete** assignment.
 
 ### Limitations 
 
-	1. Any change in the policy (including updating the policy definition, assignments, exemptions or policy set) takes 10 mins for those changes to become effective in the evaluation process. 
-	2. This built-in policy supports only greenfield operations currently. You can not trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
-  3. You can’t allowlist more than one registry in a policy assignment. Users can create multiple policy assignments if they want to allow model deployments from multiple registries.
+* Any change in the policy (including updating the policy definition, assignments, exemptions or policy set) takes 10 mins for those changes to become effective in the evaluation process. 
+* This built-in policy supports only Greenfield operations currently. You can’t trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
+* You can’t allowlist more than one registry in a policy assignment. Users can create multiple policy assignments if they want to allow model deployments from multiple registries.
 
 ## Next Steps
 
