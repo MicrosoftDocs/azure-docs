@@ -76,6 +76,9 @@ This situation leads to two possible scenarios:
 > [!NOTE]
 > When you use application volume group to deploy your HANA volumes, at least one VM in the availability set must be started. Without a running VM, the PPG cannot be used to find the optimal Azure NetApp files hardware, and provisioning will fail.
 
+> [!NOTE]
+> Do not delete your PPG. Deleting a PPG will remove the pinning and can cause subsequent volume groups to be created in sub-optimal locations which could lead to increased latency.
+
 ## Next steps
 
 * To use a zonal placement for your database volumes, see [Configuring Azure NetApp Files (ANF) Application Volume Group (AVG) for zonal SAP HANA deployment](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/configuring-azure-netapp-files-anf-application-volume-group-avg/ba-p/3943801)
