@@ -485,6 +485,68 @@ if(!dfRelevantSequences.isEmpty){
 ```
 
 ---
+
+## Hierarchical Partition Keys
+
+You can also use the Spark Connector to create containers with [hierarchical partition keys](../hierarchical-partition-keys.md) in Azure Cosmos DB. Here we create a new container with hierarchical partition keys defined using the existing database from the above samples, ingest some data, then query using the first two levels in the hierarchy.
+
+#### [Python](#tab/python)
+
+```python
+# create an Azure Cosmos DB container with hierarchical partitioning using catalog api
+cosmosHierarchicalContainerName = "HierarchicalPartitionKeyContainer"
+spark.sql("CREATE TABLE IF NOT EXISTS cosmosCatalog.{}.{} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/tenantId,/userId,/sessionId', manualThroughput = '1100')".format(cosmosDatabaseName, cosmosHierarchicalContainerName))
+
+cfg = {
+  "spark.cosmos.accountEndpoint" : cosmosEndpoint,
+  "spark.cosmos.accountKey" : cosmosMasterKey,
+  "spark.cosmos.database" : cosmosDatabaseName,
+  "spark.cosmos.container" : cosmosHierarchicalContainerName,
+}
+
+#ingest some data
+spark.createDataFrame((("id1", "tenant 1", "User 1", "session 1"), ("id2", "tenant 1", "User 1", "session 1"), ("id3", "tenant 2", "User 1", "session 1"))) \
+  .toDF("id","tenantId","userId","sessionId") \
+   .write \
+   .format("cosmos.oltp") \
+   .options(**cfg) \
+   .mode("APPEND") \
+   .save()
+
+#query by filter the first two levels in the hierarchy
+query_df = spark.read.format("cosmos.oltp").options(**cfg) \
+.option("spark.cosmos.read.customQuery" , "SELECT * from c where c.tenantId = 'tenant 1' and c.userId = 'User 1'").load()
+query_df.show()
+```
+
+#### [Scala](#tab/scala)
+
+```scala
+//create an Azure Cosmos DB container with hierarchical partitioning using catalog api
+val cosmosHierarchicalContainerName = "HierarchicalPartitionKeyContainer"
+spark.sql(s"CREATE TABLE IF NOT EXISTS cosmosCatalog.${cosmosDatabaseName}.${cosmosHierarchicalContainerName} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/tenantId,/userId,/sessionId', manualThroughput = '1100')")
+
+//ingest some data
+val cfg = Map("spark.cosmos.accountEndpoint" -> cosmosEndpoint,
+  "spark.cosmos.accountKey" -> cosmosMasterKey,
+  "spark.cosmos.database" -> cosmosDatabaseName,
+  "spark.cosmos.container" -> cosmosHierarchicalContainerName
+)
+spark.createDataFrame(Seq(("id1", "tenant 1", "User 1", "session 1"), ("id2", "tenant 1", "User 1", "session 1"), ("id3", "tenant 2", "User 1", "session 1")))
+  .toDF("id","tenantId","userId","sessionId")
+   .write
+   .format("cosmos.oltp")
+   .options(cfg)
+   .mode("APPEND")
+   .save()
+
+//query by filter the first two levels in the hierarchy
+val query = cfg + ("spark.cosmos.read.customQuery" -> "SELECT * from c where c.tenantId = 'tenant 1' and c.userId = 'User 1'")
+val query_df = spark.read.format("cosmos.oltp").options(query).load()
+query_df.show
+```
+---
+
 ## Configuration reference
 
 The Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL has a complete configuration reference that provides more advanced settings for writing and querying data, serialization, streaming using change feed, partitioning and throughput management and more. For a complete listing with details, see our [Spark Connector Configuration Reference](https://aka.ms/azure-cosmos-spark-3-config) on GitHub.
