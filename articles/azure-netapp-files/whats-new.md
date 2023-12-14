@@ -20,6 +20,12 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+<!-- Date TBD -->
+
+* The [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) feature is now generally available (GA).
+
+    You are no longer required to register when you edit the network features option of existing volumes from Basic to Standard network features.
   
 ## November 2023
 
