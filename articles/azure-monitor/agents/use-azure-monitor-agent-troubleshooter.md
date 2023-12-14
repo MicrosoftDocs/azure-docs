@@ -50,7 +50,8 @@ The Azure Monitor Agent isn't a service that runs in the context of an Azure Res
    Start-Process -FilePath $troubleshooterPath\AgentTroubleshooter.exe -ArgumentList "--ama"
    Invoke-Item $troubleshooterPath
    ```
-
+> [!Note]
+> Note: If the client installer is used the trouble shooter path is C:\Program Files\Azure Monitor Agent\Troubleshooter
 
 ### Evaluate the Windows Results
 The Troubleshooter runs two tests and collects several diagnostic logs.

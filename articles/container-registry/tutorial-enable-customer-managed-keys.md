@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 08/5/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable a customer-managed key
