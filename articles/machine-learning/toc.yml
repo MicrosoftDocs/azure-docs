@@ -586,7 +586,7 @@
     href: how-to-schedule-pipeline-job.md
 - name: Work with foundation models
   items:
-    - name: Foundation models in model catalog
+    - name: Model Catalog Overview
       href: concept-foundation-models.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
