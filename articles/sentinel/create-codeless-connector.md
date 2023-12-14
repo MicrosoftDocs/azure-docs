@@ -418,13 +418,13 @@ These recommended variables help simplify the template. Use more or less as need
     "variables": {
         "workspaceResourceId": "[resourceId('microsoft.OperationalInsights/Workspaces', parameters('workspace'))]",
         "_solutionName": "Solution name", // Enter your solution name 
-        "_solutionVersion": "3.0.0",
+        "_solutionVersion": "3.0.0", // must be 3.0.0 or above
         "_solutionAuthor": "Contoso", // Enter the name of the author
         "_packageIcon": "<img src=\"{LogoLink}\" width=\"75px\" height=\"75px\">", // Enter the http link for the logo. NOTE: This field is only recommended for Azure Global Cloud.
-        "_solutionId": "azuresentinel.azure-sentinel-MySolution", // Enter a name for your solution with this format but exchange the 'MySolution' portion
+        "_solutionId": "azuresentinel.azure-sentinel-solution-azuresentinel.azure-sentinel-MySolution", // Enter a name for your solution with this format but exchange the 'MySolution' portion
         "dataConnectorVersionConnectorDefinition": "1.0.0",
         "dataConnectorVersionConnections": "1.0.0",
-        "_solutionTier": "Community", // Enter the support tier, either Microsoft or Community
+        "_solutionTier": "Community", // This designates the appropriate support - all custom data connectors should "Community"
         "_dataConnectorContentIdConnectorDefinition": "MySolutionTemplateConnectorDefinition", // Enter a name for the connector
         "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
         "_dataConnectorContentIdConnections": "MySolutionTemplateConnections", // Enter a name for the connections this connector makes
@@ -440,12 +440,12 @@ There are 5 resources in this template guide.
 
 1. **contentTemplates** (a parent resource)
     - metadata
-    - dataConnectorDefinitions - For more information, see [Data connector user interface](#data-connector-user-interface).
     - dataCollectionRules - For more information, see [Data collection rule](#data-collection-rule).
     - tables - For more information, see [Output table definition](#output-table-definition).
-1. **dataConnectorDefinitions** - the [Data connector user interface](#data-connector-user-interface) section again.
+1. **dataConnectorDefinitions** - For more information, see [Data connector user interface](#data-connector-user-interface).
 1. **metadata**
-1. **contentTemplates** 
+1. **contentTemplates**
+    - metadata
     - RestApiPoller - For more information, see [Data connection rules](#data-connection-rules).
 1. **contentPackages**
 
@@ -503,18 +503,6 @@ There are 5 resources in this template guide.
                             }
                         },
                         {
-                            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',variables('_dataConnectorContentIdConnectorDefinition'))]",
-                            "apiVersion": "2022-09-01-preview",
-                            "type": "Microsoft.OperationalInsights/workspaces/providers/dataConnectorDefinitions",
-                            "location": "[parameters('workspace-location')]",
-                            "kind": "Customizable",
-                            "properties": {
-                                // Enter your data connector definition properties here. This is the 'connectorUiConfig' section.
-                                //  Consider using this variable for the graphQueriesTableName property:
-                                //  "graphQueriesTableName": "[variables('_logAnalyticsTableId1')]",
-                            }
-                        },
-                        {
                             "name": "MyDCRV1", // Enter your DCR name
                             "apiVersion": "2021-09-01-preview",
                             "type": "Microsoft.Insights/dataCollectionRules",
@@ -536,7 +524,7 @@ There are 5 resources in this template guide.
                             "kind": null,
                             "properties": 
 							{
-								// Enter your log analytics table properties here.
+								// Enter your log analytics table schema here.
                                 //  Consider using this variable for the name property:
                                 //  "name": "[variables('_logAnalyticsTableId1')]",
 							}			
