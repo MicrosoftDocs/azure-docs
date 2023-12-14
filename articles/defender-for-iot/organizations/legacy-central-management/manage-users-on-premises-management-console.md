@@ -179,7 +179,7 @@ Before you create access groups, we also recommend that you:
 
   - **Assign groups of Active Directory groups**: Verify that you [set up an Active Directory instance](#integrate-users-with-active-directory) to integrate with the on-premises management console.
 
-  - **Assign local users**: Verify that you've [created local users](#create-and-manage-users-on-an-on-premises-management-console).
+  - **Assign local users**: Verify that you've [created local users](#add-new-on-premises-management-console-users).
 
     Users with **Admin** roles have access to all business topology entities by default, and can't be assigned to access groups.
 
