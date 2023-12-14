@@ -20,13 +20,11 @@ You can quickly test out any pre-trained model using the Sample Inference widget
 
 ## How to evaluate foundation models using your own test data
 
-You can evaluate a Foundation Model against your test dataset, using either the Evaluate UI wizard or by using the code based samples, linked from the model card.
+You can evaluate a Foundation Model against your test dataset, using either the Evaluate UI form or by using the code based samples, linked from the model card.
 
 ### Evaluating using the studio
 
-You can invoke the Evaluate model form by clicking on the 'Evaluate' button on the model card for any foundation model.
-
-An image of the Evaluation Settings form:
+You can invoke the Evaluate model form by selecting the **Evaluate** button on the model card for any foundation model.
 
 :::image type="content" source="./media/how-to-use-foundation-models/evaluate-quick-wizard.png" alt-text="Screenshot showing the evaluation settings form after the user selects the evaluate button on a model card for a foundation model.":::
 
@@ -37,13 +35,13 @@ Each model can be evaluated for the specific inference task that the model can b
 1. Pass in the test data you would like to use to evaluate your model. You can choose to either upload a local file (in JSONL format) or select an existing registered dataset from your workspace.
 1. Once you've selected the dataset, you need to map the columns from your input data, based on the schema needed for the task. For example, map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 
-:::image type="content" source="./media/how-to-use-foundation-models/evaluate-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/evaluate-map-data-columns.png"  alt-text="Screenshot showing the evaluation map in the foundation models evaluate wizard.":::
+:::image type="content" source="./media/how-to-use-foundation-models/evaluate-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/evaluate-map-data-columns.png"  alt-text="Screenshot showing the evaluation map in the foundation models evaluate form.":::
 
 **Compute:** 
 
 1. Provide the Azure Machine Learning Compute cluster you would like to use for fine-tuning the model. Evaluation needs to run on GPU compute. Ensure that you have sufficient compute quota for the compute SKUs you wish to use.
 
-1.  Select **Finish** in the Evaluate wizard to submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to fine-tune the model using your own training data. Additionally, you can decide if you would like to register the model and deploy it to an endpoint.
+1.  Select **Finish** in the Evaluate form to submit your evaluation job. Once the job completes, you can view evaluation metrics for the model. Based on the evaluation metrics, you might decide if you would like to fine-tune the model using your own training data. Additionally, you can decide if you would like to register the model and deploy it to an endpoint.
 
 ### Evaluating using code based samples
 
@@ -100,7 +98,7 @@ You can deploy foundation models (both pre-trained models from the model catalog
 
 ### Deploying using the studio
 
-You can invoke the Deploy UI wizard by clicking on the 'Deploy' button on the model card for any foundation model, and selecting either Real-time endpoint or Batch endpoint
+You can invoke the Deploy UI form by selecting the **Deploy** button on the model card for any foundation model, and selecting either Real-time endpoint or Batch endpoint
 
 :::image type="content" source="./media/how-to-use-foundation-models/deploy-button.png" lightbox="./media/how-to-use-foundation-models/deploy-button.png" alt-text="Screenshot showing the deploy button on the foundation model card.":::
 
