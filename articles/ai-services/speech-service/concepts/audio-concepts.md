@@ -19,10 +19,10 @@ The Speech service accepts and provides audio in multiple formats, and the area 
 Speech is inherently analog, which is approximated by converting it to a digital signal by sampling. The number of times it's sampled per second is the sampling rate, and how accurate each sample is defined by the bit-depth.
  
 ### Sample Rate
-How many audio samples there are per second. A higher sampling rate will more accurately reproduce higher frequencies such as music. Humans can typically hear between 20 Hz and 20 kHz but most sensitive up to 5 kHz. The sample rate needs to be twice the highest frequency so for human speech a 16-kHz sampling rate is normally adequate, but a higher sampling rate can provide a higher quality although larger files. The default for both STT and TTS is 16 kHz, however 48 kHz is recommended for audio books. Some source audio is in 8 kHz, especially when coming from legacy telecom systems, which will result in degraded results.
+How many audio samples there are per second. A higher sampling rate will more accurately reproduce higher frequencies such as music. Humans can typically hear between 20 Hz and 20 kHz but most sensitive up to 5 kHz. The sample rate needs to be twice the highest frequency so for human speech a 16 kHz sampling rate is normally adequate, but a higher sampling rate can provide a higher quality although larger files. The default for both STT and TTS is 16 kHz, however 48 kHz is recommended for audio books. Some source audio is in 8 kHz, especially when coming from legacy telecom systems, which will result in degraded results.
  
 ### Bit-depth
-Uncompressed audio samples are each represented by many bits that define its accuracy or resolution. For human speech 13 bits are needed, which is rounded up to a 16-bit sample. A higher bit-depth would be needed for professional audio or music. Legacy telephony systems often use 8 bits with compression, but it isn't ideal.
+Uncompressed audio samples are each represented by many bits that define its accuracy or resolution. For human speech 13 bits are needed, which is rounded up to a 16 bit sample. A higher bit-depth would be needed for professional audio or music. Legacy telephony systems often use 8 bits with compression, but it isn't ideal.
  
 ### Channels
 The speech service typically expects and provides a mono stream. The behavior of stereo and multi-channel files is API specific, for example the REST STT will split a stereo file and generate a result for each channel. TTS is mono only.
@@ -42,7 +42,7 @@ Lossy algorithms might enable greater compression resulting in smaller files or 
 MP3 was designed for music rather than speech.
 AMR and AMR-WB were designed to efficiently compress speech for mobile phones, and won't work as well representing music or noise.
 
-A-Law and Mu-Law are older algorithms that compress each sample by itself, and converts a 16-bit sample to 8 bit using a logarithmic quantization technique. It should only be used to support legacy systems.
+A-Law and Mu-Law are older algorithms that compress each sample by itself, and converts a 16 bit sample to 8 bit using a logarithmic quantization technique. It should only be used to support legacy systems.
  
 ### Lossless compressed audio
  
@@ -51,4 +51,4 @@ Lossless compression allows you to recreate the original uncompressed file. The 
 The most common lossless compression is FLAC.
 
 ## Next steps
-[Use the Speech SDK for audio processing](audio-processing-speech-sdk.md)
+[Use the Speech SDK for audio processing](../audio-processing-speech-sdk.md)
