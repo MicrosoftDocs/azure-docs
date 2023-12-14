@@ -525,7 +525,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following changes:
 
-- When connecting via a Remote Desktop Gateway with multi-factor authentication, the gateway connection will be held open to avoid multiple MFA prompts.
+- When connecting via a Remote Desktop Gateway with multifactor authentication, the gateway connection will be held open to avoid multiple MFA prompts.
 - All the client UI is now fully keyboard-accessible with Voiceover support.
 - Files copied to the clipboard in the remote session are now only transferred when pasting to the local computer.
 - URLs copied to the clipboard in the remote session now paste correctly to the local computer.
