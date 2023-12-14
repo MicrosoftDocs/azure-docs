@@ -109,7 +109,26 @@ In this section, you create a function project that contains a single function.
 
 1. Run this command to make sure that the Azure Functions library is installed in the environment.
 
-[!INCLUDE [functions-install-python-requirements](../../includes/functions-install-python-requirements.md)]
+    ### [bash](#tab/bash)
+
+    ```bash
+    .venv/bin/python -m pip install -r requirements.txt
+    ```
+    
+    ### [PowerShell](#tab/powershell)
+    
+    ```powershell
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    
+    ### [Cmd](#tab/cmd)
+    
+    ```cmd
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    ---
  
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"  
@@ -165,7 +184,26 @@ In this section, you create a function project and add an HTTP triggered functio
 
 1. Run this command to make sure that the Azure Functions library is installed in the environment.
 
-[!INCLUDE [functions-install-python-requirements](../../includes/functions-install-python-requirements.md)]
+    ### [bash](#tab/bash)
+
+    ```bash
+    .venv/bin/python -m pip install -r requirements.txt
+    ```
+    
+    ### [PowerShell](#tab/powershell)
+    
+    ```powershell
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    
+    ### [Cmd](#tab/cmd)
+    
+    ```cmd
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    ---
 
 ## Start the storage emulator
 
