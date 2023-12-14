@@ -18,7 +18,7 @@ The Speech service accepts and provides audio in multiple formats, and the area 
 
 Speech is inherently analog, which is approximated by converting it to a digital signal by sampling. The number of times it's sampled per second is the sampling rate, and how accurate each sample is defined by the bit-depth.
  
-### Sample Rate
+### Sample rate
 How many audio samples there are per second. A higher sampling rate will more accurately reproduce higher frequencies such as music. Humans can typically hear between 20 Hz and 20 kHz but most sensitive up to 5 kHz. The sample rate needs to be twice the highest frequency so for human speech a 16 kHz sampling rate is normally adequate, but a higher sampling rate can provide a higher quality although larger files. The default for both STT and TTS is 16 kHz, however 48 kHz is recommended for audio books. Some source audio is in 8 kHz, especially when coming from legacy telecom systems, which will result in degraded results.
  
 ### Bit-depth
@@ -31,7 +31,7 @@ The speech service typically expects and provides a mono stream. The behavior of
  
 For the Speech service to be able to use the audio it needs to know how it's encoded. Also as audio files can be relatively large it's common to use compression to reduce their size. Audio files and streams can be described by their container format and the audio codec. Common containers are WAV or MP4 and common audio formats are PCM or MP3. You normally can't presume that a container uses a specific audio format, for instance .WAV files often contain PCM data but other audio formats are possible.
  
-### Uncompressed Audio
+### Uncompressed audio
  
 The Speech service internally works on uncompressed audio, which is encoded with Pulse Code Modulation (or PCM). This means that every sample represents the amplitude of the signal. This is a simple representation for processing, but not space efficient so compression is often used for transporting audio.
  
