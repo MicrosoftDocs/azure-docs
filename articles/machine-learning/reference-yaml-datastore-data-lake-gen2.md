@@ -10,7 +10,7 @@ ms.custom: cliv2, event-tier1-build-2022
 
 author: ynpandey
 ms.author: yogipandey
-ms.date: 10/21/2021
+ms.date: 12/15/2023
 ms.reviewer: franksolomon
 ---
 
@@ -18,9 +18,7 @@ ms.reviewer: franksolomon
 
 [!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json.
-
-
+The source JSON schema can be found at [this resource](https://azuremlschemas.azureedge.net/latest/azureDataLakeGen2.schema.json).
 
 [!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
@@ -50,15 +48,15 @@ The `az ml datastore` command can be used for managing Azure Machine Learning da
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown here:
+You can find examples in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown here:
 
 ## YAML: identity-based access
 
-:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen2-credless.yml":::
+:::code language="yaml" source="~/azureml-examples/cli/resources/datastore/adls-gen2-credless.yml":::
 
 ## YAML: tenant ID, client ID, client secret
 
-:::code language="yaml" source="~/azureml-examples-main/cli/resources/datastore/adls-gen2.yml":::
+:::code language="yaml" source="~/azureml-examples/cli/resources/datastore/adls-gen2.yml":::
 
 ## Next steps
 
