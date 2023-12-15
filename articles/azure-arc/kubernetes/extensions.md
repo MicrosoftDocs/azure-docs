@@ -326,3 +326,4 @@ az extension update --name k8s-extension
 * Review the [az k8s-extension CLI reference](/cli/azure/k8s-extension) for a comprehensive list of commands and parameters.
 * Learn more about [how extensions work with Arc-enabled Kubernetes clusters](conceptual-extensions.md).
 * Review the [cluster extensions currently available for Azure Arc-enabled Kubernetes](extensions-release.md).
+* Get help [troubleshooting extension issues](extensions-troubleshooting.md).

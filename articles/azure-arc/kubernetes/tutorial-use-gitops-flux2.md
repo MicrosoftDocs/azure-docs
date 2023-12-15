@@ -135,7 +135,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 ```
 
 > [!TIP]
-> For help resolving any errors, see the GitOps (Flux v2) section of [Azure Arc-enabled Kubernetes extension troubleshooting](extensions-troubleshooting.md).
+> For help resolving any errors, see the GitOps (Flux v2) section of [Troubleshoot extension issues for Azure Arc-enabled Kubernetes clusters](extensions-troubleshooting.md).
 
 ### [Azure portal](#tab/azure-portal)
 

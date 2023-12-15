@@ -158,13 +158,13 @@
     href: move-regions.md
   - name: Troubleshooting
     items:
-    - name: Troubleshoot connection and platform issues
+    - name: Platform issues
       displayName: problem, issue, resolve
       href: troubleshooting.md
-    - name: Diagnose connection issues
+    - name: Connection issues
       displayName: troubleshoot, problem, proxy, network
       href: diagnose-connection-issues.md
-    - name: Troubleshoot extensions
+    - name: Extension issues
       displayName: gitops, flux, osm, open
       href: extensions-troubleshooting.md
 - name: Reference

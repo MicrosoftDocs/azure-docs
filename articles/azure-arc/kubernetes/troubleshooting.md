@@ -1,16 +1,16 @@
 ---
-title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
+title: "Troubleshoot platform issues for Azure Arc-enabled Kubernetes clusters"
 ms.date: 12/15/2023
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 description: "Learn how to resolve common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 ---
 
-# Troubleshoot Azure Arc-enabled Kubernetes issues
+# Troubleshoot platform issues for Azure Arc-enabled Kubernetes clusters
 
 This document provides troubleshooting guides for issues with Azure Arc-enabled Kubernetes connectivity, permissions, and agents. It also provides troubleshooting guides for Azure GitOps, which can be used in either Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters.
 
-For help troubleshooting issues related to extensions, see [Troubleshoot Azure Arc-enabled Kubernetes extension issues](extensions-troubleshooting.md).
+For help troubleshooting issues related to extensions, see [Troubleshoot extension issues for Azure Arc-enabled Kubernetes clusters](extensions-troubleshooting.md).
 
 ## Azure CLI
 

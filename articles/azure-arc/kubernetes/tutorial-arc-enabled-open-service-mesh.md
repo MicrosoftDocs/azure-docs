@@ -592,7 +592,7 @@ When you use the `az k8s-extension `command to delete the OSM extension, the `ar
 
 ## Troubleshooting
 
-Refer to the troubleshooting guide [available here](extensions-troubleshooting.md#azure-arc-enabled-open-service-mesh).
+Refer to the [extension troubleshooting guide](extensions-troubleshooting.md#azure-arc-enabled-open-service-mesh) for help with issues.
 
 ## Frequently asked questions
 
