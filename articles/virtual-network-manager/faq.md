@@ -149,7 +149,7 @@ Azure SQL Managed Instance has some network requirements. These are enforced thr
 #### Are you applying security rules to a virtual network or subnet that contains services blocking security configuration rules?
 
 
-Certain services such as Azure SQL Managed Instance, Azure Databricks and Azure Application Gateway require specific network requirements to function properly. By default, security admin rule application is skipped on [VNets and subnets containing any of these services](./concept-security-admins.md#non-application-of-security-admin-rules). Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules by setting the security configurations' `AllowRulesOnly`field on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` .NET class.
+Certain services such as Azure SQL Managed Instance, Azure Databricks and Azure Application Gateway require specific network requirements to function properly. By default, security admin rule application is skipped on [VNets and subnets containing any of these services](./concept-security-admins.md#nonapplication-of-security-admin-rules). Since *Allow* rules pose no risk of conflict, you can opt to apply *Allow Only* rules by setting the security configurations' `AllowRulesOnly`field on `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` .NET class.
 
 ## Limits
 
