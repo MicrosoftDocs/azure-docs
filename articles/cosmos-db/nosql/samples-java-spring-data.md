@@ -72,7 +72,7 @@ $ git clone https://github.com/Azure-Samples/azure-spring-boot-samples
 $ cd cosmos/azure-spring-data-cosmos/spring3-samples/cosmos-quickstart-samples
 ```
 
-You can run the samples using either an IDE (Eclipse, IntelliJ, or VSCODE) or from the command line using Maven.
+You can run the samples using either an IDE (Eclipse, IntelliJ, or VS Code) or from the command line using Maven.
 
 In **application.properties** these environment variables must be set
 
