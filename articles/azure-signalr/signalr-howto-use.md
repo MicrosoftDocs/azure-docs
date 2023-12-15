@@ -90,7 +90,7 @@ There are a few [options](https://github.com/Azure/azure-signalr/blob/dev/src/Mi
 
 - Default value is `null`.
 - This option controls what claims you want to associate with the client connection.
-It is used when Service SDK generates access token for client in client's negotiate request.
+It's used when Service SDK generates access token for client in client's negotiate request.
 By default, all claims from `HttpContext.User` of the negotiated request are reserved.
 They can be accessed at [`Hub.Context.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubcallercontext.user).
 - Normally you should leave this option as is. Make sure you understand what happens before customizing it.
@@ -111,11 +111,11 @@ You can increase this value to avoid client disconnect.
 #### `ServerStickyMode`
 
 - Default value is `Disabled`.
-- This option specifies the mode for **server sticky**. When the client is routed to the server which it first negotiates with, we call it **server sticky**.
+- This option specifies the mode for **server sticky**. When the client is routed to the server that it first negotiates with, we call it **server sticky**.
 - In distributed scenarios, there can be multiple app servers connected to one Azure SignalR instance. As [internals of client connections](signalr-concept-internals.md#client-connections) explains, client first negotiates with the app server, and then redirects to Azure SignalR to establish the persistent connection. Azure SignalR then finds one app server to serve the client, as [Transport Data between client and server](signalr-concept-internals.md#data-transmission-between-client-and-server) explains.
   - When `Disabled`, the client routes to a random app server. In general, app servers have balanced client connections with this mode. If your scenarios are *broadcast* or *group send*, use this default option is enough.
-  - When `Preferred`, Azure SignalR tries to find the app server which the client first negotiates with in a way that no additional cost or global routing is needed. This one can be useful when your scenario is *send to connection*. *Send to connection* can have better performance and lower latency when the sender and the receiver are routed to the same app server.
-  - When `Required`, Azure SignalR always tries to find the app server which the client first negotiates with. This options can be useful when some client context is fetched from `negotiate` step and stored in memory, and then to be used inside `Hub`s. However, this option may have performance drawbacks because it requires Azure SignalR to take additional efforts to find this particular app server globally, and to keep globally routing traffics between client and server.
+  - When `Preferred`, Azure SignalR tries to find the app server that the client first negotiates with in a way that no other cost or global routing is needed. This one can be useful when your scenario is sent to connection*. *Send to connection* can have better performance and lower latency when the sender and the receiver are routed to the same app server.
+  - When `Required`, Azure SignalR always tries to find the app server that the client first negotiates with. This option can be useful when some client context is fetched from `negotiate` step and stored in memory, and then to be used inside `Hub`s. However, this option might have performance drawbacks because it requires Azure SignalR to take other efforts to find this particular app server globally, and to keep globally routing traffics between client and server.
 
 #### `GracefulShutdown`
 
@@ -124,9 +124,9 @@ You can increase this value to avoid client disconnect.
 - Default value is `Off`
 - This option specifies the behavior after the app server receives a **SIGINT** (CTRL + C).
 - When set to `WaitForClientsClose`, instead of stopping the server immediately, we remove it from the Azure SignalR Service to prevent new client connections from being assigned to this server.
-- When set to `MigrateClients`, in addition, we will try migrating client connections to another valid server. The migration will be triggered only after a message has been completely delivered.
-  - `OnConnected` and `OnDisconnected` will be triggered when connections be migrated in/out.
-  - `IConnectionMigrationFeature` can help you identify if the connection has been migrated in/out.
+- When set to `MigrateClients`, in addition, we try migrating client connections to another valid server. The migration will be triggered only after a message is delivered.
+  - `OnConnected` and `OnDisconnected` are triggered when connections be migrated in/out.
+  - `IConnectionMigrationFeature` can help you identify if the connection is migrated in/out.
   - See our [sample codes](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample) for detail usage.
 
 ##### `GracefulShutdown.Timeout`
@@ -142,7 +142,7 @@ You can increase this value to avoid client disconnect.
 #### `MaxPollIntervalInSeconds`
 
 - Default value is `5`
-- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request does not come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service will also clean up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
+- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
 - The value is limited to `[1, 300]`.
 
 ### 4. Sample
@@ -205,17 +205,17 @@ There are a few [options](https://github.com/Azure/azure-signalr/blob/dev/src/Mi
 #### `ConnectionString`
 
 - Default value is the `Azure:SignalR:ConnectionString` `connectionString` or `appSetting` in `web.config` file.
-- It can be reconfigured, but please make sure the value is **NOT** hard coded.
+- It can be reconfigured, but make sure the value is **NOT** hard coded.
 
 #### `InitialHubServerConnectionCount`
 
 - Default value is `5`.
-- This option controls the initial count of connections per hub between application server and Azure SignalR Service. Usually keep it as the default value is enough. During runtime, the SDK might start new server connections for performance tuning or load balancing. When you have big number of clients, you can give it a larger number for better throughput. For example, if you have 100,000 clients in total, the connection count can be increased to `10` or `15`.
+- This option controls the initial count of connections per hub between application server and Azure SignalR Service. Usually keep it as the default value is enough. During runtime, the SDK might start new server connections for performance tuning or load balancing. When you have large number of clients, you can give it a larger number for better throughput. For example, if you have 100,000 clients in total, the connection count can be increased to `10` or `15`.
 
 #### `MaxHubServerConnectionCount`
 
 - Default value is `null`.
-- This option controls the max count of connections allowed per hub between application server and Azure SignalR Service. During runtime, the SDK might start new server connections for performance tuning or load balancing. By default a new server connection starts whenever needed. When the max allowed server connection count is configured, the SDK does not start new connections when server connection count reaches the limit.
+- This option controls the max count of connections allowed per hub between application server and Azure SignalR Service. During runtime, the SDK might start new server connections for performance tuning or load balancing. By default a new server connection starts whenever needed. When the max allowed server connection count is configured, the SDK doesn't start new connections when server connection count reaches the limit.
 
 #### `ApplicationName`
 
@@ -226,36 +226,36 @@ There are a few [options](https://github.com/Azure/azure-signalr/blob/dev/src/Mi
 
 - Default value is `null`.
 - This option controls what claims you want to associate with the client connection.
-It will be used when Service SDK generates access token for client in client's negotiate request.
-By default, all claims from `IOwinContext.Authentication.User` of the negotiate request will be reserved.
-- Normally you should leave this option as is. Make sure you understand what will happen before customizing it.
+It's used when Service SDK generates access token for client in client's negotiate request.
+By default, all claims from `IOwinContext.Authentication.User` of the negotiated request are reserved.
+- Normally you should leave this option as is. Make sure you understand what happens before customizing it.
 
 #### `AccessTokenLifetime`
 
 - Default value is `1 hour`.
-- This option controls the valid lifetime of the access token, which is generated by Service SDK for each client.
+- This option controls the valid lifetime of the access token, which Service SDK generates for each client.
 The access token is returned in the response to client's negotiate request.
-- When `ServerSentEvent` or `LongPolling` is used as transport, client connection will be closed due to authentication failure after the expire time.
+- When `ServerSentEvent` or `LongPolling` is used as transport, client connection will be closed due to authentication failure after the expired time.
 You can increase this value to avoid client disconnect.
 
 #### `AccessTokenAlgorithm`
 
 - Default value is `HS256`
-- This option provides choice of [`SecurityAlgorithms`](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/dev/src/Microsoft.IdentityModel.Tokens/SecurityAlgorithms.cs) when generate access token. Now supported optional values are `HS256` and `HS512`. Please note `HS512` is more secure but the generated token will be comparatively longer than that using `HS256`.
+- This option provides choice of [`SecurityAlgorithms`](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/dev/src/Microsoft.IdentityModel.Tokens/SecurityAlgorithms.cs) when generate access token. Now supported optional values are `HS256` and `HS512`. Note `HS512` is more secure but the generated token is comparatively longer than that using `HS256`.
 
 #### `ServerStickyMode`
 
 - Default value is `Disabled`.
-- This option specifies the mode for **server sticky**. When the client is routed to the server which it first negotiates with, we call it **server sticky**.
+- This option specifies the mode for **server sticky**. When the client is routed to the server that it first negotiates with, we call it **server sticky**.
 - In distributed scenarios, there can be multiple app servers connected to one Azure SignalR instance. As [internals of client connections](signalr-concept-internals.md#client-connections) explains, client first negotiates with the app server, and then redirects to Azure SignalR to establish the persistent connection. Azure SignalR then finds one app server to serve the client, as [Transport Data between client and server](signalr-concept-internals.md#data-transmission-between-client-and-server) explains.
   - When `Disabled`, the client routes to a random app server. In general, app servers have balanced client connections with this mode. If your scenarios are *broadcast* or *group send*, use this default option is enough.
-  - When `Preferred`, Azure SignalR tries to find the app server which the client first negotiates with in a way that no additional cost or global routing is needed. This one can be useful when your scenario is *send to connection*. *Send to connection* can have better performance and lower latency when the sender and the receiver are routed to the same app server.
-  - When `Required`, Azure SignalR always tries to find the app server which the client first negotiates with. This options can be useful when some client context is fetched from `negotiate` step and stored in memory, and then to be used inside `Hub`s. However, this option may have performance drawbacks because it requires Azure SignalR to take additional efforts to find this particular app server globally, and to keep globally routing traffics between client and server.
+  - When `Preferred`, Azure SignalR tries to find the app server that the client first negotiates with in a way that no other cost or global routing is needed. This one can be useful when your scenario is sent to connection*. *Send to connection* can have better performance and lower latency when the sender and the receiver are routed to the same app server.
+  - When `Required`, Azure SignalR always tries to find the app server that the client first negotiates with. This option can be useful when some client context is fetched from `negotiate` step and stored in memory, and then to be used inside `Hub`s. However, this option might have performance drawbacks because it requires Azure SignalR to take other efforts to find this particular app server globally, and to keep globally routing traffics between client and server.
 
 #### `MaxPollIntervalInSeconds`
 
 - Default value is `5`
-- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request does not come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service will also clean up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
+- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
 - The value is limited to `[1, 300]`.
 
 ### Sample
@@ -279,7 +279,7 @@ Below are a few tips for scaling out application servers.
 - Multiple application servers can connect to the same Azure SignalR Service instance.
 - If you'd like to share the same Azure SignalR instance for different applications containing the same hub names, set them with different [ApplicationName](#applicationname) option. If not set, all the connected app servers are considered to be instances of the same application.
 - As long as the [ApplicationName](#applicationname) option and the name of the hub class is the same, connections from different application servers are grouped in the same hub.
-- Each client connection will only be created in ***one*** of the application servers, and messages from that client will only be sent to that same application server. If you want to access client information globally *(from all application servers)*, you have to use some centralized storage to save client information from all application servers.
+- Each client connection is only created in ***one*** of the application servers, and messages from that client are only sent to that same application server. If you want to access client information globally *(from all application servers)*, you have to use some centralized storage to save client information from all application servers.
 
 ## Next steps
 
