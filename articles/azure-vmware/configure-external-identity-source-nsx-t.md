@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 In this article, you will learn how to configure an external identity source for the NSX-T Data Center in an Azure VMware Solution. The NSX-T Data Center can be configured to use an external LDAP directory service to authenticate users, enabling a user to login using their Active Directory account credentials, or those from a 3rd party LDAP server. The account can be then be assigned an NSX-T Data Center Role, like you have with on-premises environments, to provide RBAC for each NSX-T user.
 
-![NSX-T connectivity to the LDAP ((Active Directory) server](./media/nsxt/azurevmwaresolution-to-ldap-server.jpg)
+![NSX-T connectivity to the LDAP ((Active Directory) server](./media/nsxt/azure-vmware-solution-to-ldap-server.jpg)
 
 
 ## Prerequisites 
