@@ -26,7 +26,7 @@ Data Factory has a data sink for Azure Cosmos DB for PostgreSQL. The data sink a
 your data (relational, NoSQL, data lake files) into Azure Cosmos DB for PostgreSQL tables
 for storage, processing, and reporting.
 
-:::image type="content" source="media/howto-ingestion/azure-data-factory-architecture.png" alt-text="Dataflow diagram for Azure Data Factor    y." border="false":::
+:::image type="content" source="media/howto-ingestion/azure-data-factory-architecture.png" alt-text="Dataflow diagram for Azure Data Factory." border="false":::
 
 > [!IMPORTANT]
 > Data Factory doesn't support private endpoints for Azure Cosmos DB for PostgreSQL at this time.
