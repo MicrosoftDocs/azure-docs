@@ -80,7 +80,7 @@ You have two networking options to connect to your Azure Database for MySQL - Fl
 
 - **Private access (VNet Integration)** – You can deploy your flexible server into your [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure virtual networks provide private and secure network communication. Resources in a virtual network can communicate through private IP addresses.
 
-  Choose the VNet Integration option if you want the following capabilities:
+  Choose the virtual network Integration option if you want the following capabilities:
 
   - Connect from Azure resources in the same virtual network to your flexible server using private IP addresses
   - Use VPN or ExpressRoute to connect from non-Azure resources to your flexible server
@@ -106,11 +106,11 @@ The read replica feature allows you to replicate data from an Azure Database for
 
 For more information, see [Read Replica concepts](concepts-read-replicas.md).
 
-## Setup Hybrid or Multi-Cloud Data synchronization with Data-in replication
+## Setup Hybrid or multicloud Data synchronization with Data-in replication
 
 Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible Server. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. The main scenarios to consider about using Data-in replication are:
 * Hybrid Data Synchronization
-* Multi-Cloud Synchronization
+* Multicloud Synchronization
 * [Minimal downtime migration to Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
 
 For more information, see [Data-in replication concepts](concepts-data-in-replication.md).
