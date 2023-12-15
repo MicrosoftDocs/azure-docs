@@ -20,7 +20,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 ### Advantages of Private Link
 
-- Private link supported on Basic, Standard, Premium, Enterprise, and Enterprise Flash tiers of Azure Cache for Redis instances.
+- Private link supported on all tiers - Basic, Standard, Premium, Enterprise, and Enterprise Flash tiers - of Azure Cache for Redis instances.
 - By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Cache instance from your virtual network through a private endpoint. The endpoint is assigned a private IP address in a subnet within the virtual network. With this private link, cache instances are available from both within the VNet and publicly.
 
    > [!IMPORTANT]
