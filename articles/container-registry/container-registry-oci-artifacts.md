@@ -6,6 +6,7 @@ manager: gwallace
 ms.topic: article
 ms.date: 01/03/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Push and pull OCI artifacts using an Azure container registry

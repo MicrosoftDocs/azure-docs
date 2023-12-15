@@ -2,7 +2,6 @@
 title: Speech to text REST API - Speech service
 titleSuffix: Azure AI services
 description: Get reference documentation for Speech to text REST API.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

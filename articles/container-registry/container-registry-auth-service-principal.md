@@ -3,6 +3,7 @@ title: Authenticate with service principal
 description: Provide access to images in your private container registry by using a Microsoft Entra service principal.
 ms.topic: article
 ms.custom: devx-track-azurecli
+ms.service: container-registry
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
