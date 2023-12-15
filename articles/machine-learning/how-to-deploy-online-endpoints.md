@@ -553,11 +553,12 @@ To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must
 > [!TIP]
 > You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
 
-> [!NOTE]
-> Local endpoints have the following limitations:
-> - They do *not* support traffic rules, authentication, or probe settings.
-> - They support only one deployment per endpoint.
-> - They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare local conda file to use. Example in this article demonstrates using local model and environment with local conda file, which supports local deployment. 
+#### Limitations of local endpoints
+
+Local endpoints have the following limitations:
+- They do *not* support traffic rules, authentication, or probe settings.
+- They support only one deployment per endpoint.
+- They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare local conda file to use. In the [Deploy the model locally](#deploy-the-model-locally) section, you deploy a local model and an environment with a local conda file.
 
 For more information on debugging online endpoints locally before deploying to Azure, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
@@ -742,7 +743,7 @@ The template doesn't support local endpoints. See the Azure CLI or Python tabs f
 
 ## Deploy your online endpoint to Azure
 
-To deploy your model locally, you specified the `path` (where to upload files from) inline. As a best practice for production, you should register the model and environment and specify the registered name and version separately when you deploy to Azure.
+Before you deploy your model to Azure, as a best practice for production, you should register the model and environment and specify the registered name and version separately during deployment. Local deployment, on the other hand, doesn't support using registered models and environments. Rather, local deployment uses local model files and environments with local files only.
 
 ### Register your model and environment separately
 
