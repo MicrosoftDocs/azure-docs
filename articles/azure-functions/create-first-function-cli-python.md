@@ -94,7 +94,7 @@ In this section, you create a function project that contains a single function.
 1. Run the `func init` command as follows to create a Python functions project in the virtual environment.
 
     ```console
-    func init --python
+    func init --python --model V1
     ```
 
     The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
@@ -136,7 +136,7 @@ In this section, you create a function project and add an HTTP triggered functio
 1. Run the `func init` command as follows to create a Python v2 functions project in the virtual environment.
 
     ```console
-    func init --python -m V2
+    func init --python
     ```
 
     The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
