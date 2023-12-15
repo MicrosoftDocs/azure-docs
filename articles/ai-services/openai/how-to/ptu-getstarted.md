@@ -164,7 +164,7 @@ The exact performance and throughput capabilities of your instance will depend o
 To assist you in this work, we have created a benchmarking tool which will run against a provisioned deployment. Learn more about the tool and configuration settings in our GitHub Repo: [https://aka.ms/aoai/benchmarking](https://aka.ms/aoai/benchmarking). The tool comes with several possible pre-configured workload shapes and outputs key performance metrics. 
 
 We recommend the following workflow:
-1. Estimate your throughput using the capacity calculator
+1. Estimate your throughput PTUs using the capacity calculator.
 1. Run a benchmark with this trafic shape for an extended period of time (10+ min) to measure the results in a steady state
 1. Measure the utilization, tokens processed and call rate values from Azure Monitor.
 1. Run a benchmark with your own traffic shape & workloads. Be sure to implement retry logic using either an Azure Openai client library or custom logic. 
