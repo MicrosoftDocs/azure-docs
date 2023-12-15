@@ -141,35 +141,13 @@ In this section, you create a function project and add an HTTP triggered functio
 
     The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
-1. The file `function_app.py` can include all functions within your project. Open this file and replace the existing contents with the following code that defines an HTTP triggered function endpoint named `HttpExample`:  
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
-    ```python
-    import azure.functions as func
-    import logging
-    
-    app = func.FunctionApp()
-    
-    @app.route(route="HttpExample", auth_level=func.AuthLevel.ANONYMOUS)
-    def test_function(req: func.HttpRequest) -> func.HttpResponse:
-        logging.info('Python HTTP trigger function processed a request.')
-    
-        name = req.params.get('name')
-        if not name:
-            try:
-                req_body = req.get_json()
-            except ValueError:
-                pass
-        else:
-            name = req_body.get('name')
-    
-        if name:
-            return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
-        else:
-            return func.HttpResponse(
-                "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-                status_code=200
-            )
+    ```console
+    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
+
+    If prompted, choose the **ANONYMOUS** option. `func new` adds an HTTP trigger endpoint named `HttpExample` to the `function_app.py` file, which is accessible without authentication.    
    
 1. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
 
