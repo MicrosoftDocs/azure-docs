@@ -24,7 +24,7 @@ The Azure Monitor pricing model is primarily based on the amount of data ingeste
 The following types of data collected from a Kubernetes cluster with Container insights influence cost and can be customized based on your usage:
 
 - Perf, Inventory, InsightsMetrics, and KubeEvents can be controlled through [cost optimization settings](../containers/container-insights-cost-config.md)
-- Stdout and stderr container logs from every monitored container in every Kubernetes namespace in the cluster via the [agent ConfigMap](../containers/container-insights-data-collection-config-map.md)
+- Stdout and stderr container logs from every monitored container in every Kubernetes namespace in the cluster via the [agent ConfigMap](../containers/container-insights-data-collection-configmap.md)
 - Container environment variables from every monitored container in the cluster
 - Completed Kubernetes jobs/pods in the cluster that don't require monitoring
 - Active scraping of Prometheus metrics
@@ -75,7 +75,7 @@ Otherwise, the majority of your data belongs to the ContainerLog table. and you 
 
 ### Reducing your ContainerLog costs
 
-After you finish your analysis to determine which sources are generating the data that's exceeding your requirements, you can reconfigure data collection. For more information on configuring collection of stdout, stderr, and environmental variables, see [Configure agent data collection settings](container-insights-data-collection-config-map.md).
+After you finish your analysis to determine which sources are generating the data that's exceeding your requirements, you can reconfigure data collection. For more information on configuring collection of stdout, stderr, and environmental variables, see [Configure agent data collection settings](container-insights-data-collection-configmap.md).
 
 The following examples show what changes you can apply to your cluster by modifying the ConfigMap file to help control cost.
 

@@ -234,7 +234,7 @@ ContainerLog
 
 Reenable collection for these properties for every container log line.
 
-If the first option isn't convenient because of query changes involved, you can reenable collecting these fields. Enable the setting `log_collection_settings.enrich_container_logs` in the agent config map as described in the [data collection configuration settings](./container-insights-data-collection-config-map.md).
+If the first option isn't convenient because of query changes involved, you can reenable collecting these fields. Enable the setting `log_collection_settings.enrich_container_logs` in the agent config map as described in the [data collection configuration settings](./container-insights-data-collection-configmap.md).
 
 > [!NOTE]
 > We don't recommend the second option for large clusters that have more than 50 nodes. It generates API server calls from every node in the cluster to perform this enrichment. This option also increases data size for every log line collected.
