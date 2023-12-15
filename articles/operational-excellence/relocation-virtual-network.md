@@ -24,16 +24,10 @@ Before you begin relocation planning, make sure that you include the following c
 
 - **Create a dependency map** with all the Azure services that use the Virtual Network. For the services that
 are in scope of a relocation, you must select the appropriate [relocation strategy](./relocation-strategies.md).
-
-- **Create a separate export template for virtual networking peering**. [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. It's recommended that you:
-    
-    1. Remove the peering before you export the template.
-    1. Copy the details of the peering to create a separate template.
-    1. Use the peering template to reestablish the peering after the relocation of the network.
     
 - **Identify the source networking layout and all the resources that are currently used.** This layout can include load balancers, network security groups (NSGs), Route Tables, and reserved IPs.
 
-- **Collect/List all virtual network resources & configurations**, such as Associated DDoS plan, Azure Firewall, Private endpoint connections and Diagnostic setting configuration.
+- **Collect/List all virtual network resources and configurations**, such as Associated DDoS plan, Azure Firewall, Private endpoint connections and Diagnostic setting configuration.
 
 ## Dependencies
 
@@ -45,11 +39,51 @@ Below is a list of Virtual Network dependent resources.
 
 ## Relocation strategies
 
-To move Azure Virtual Network to a new region, you can choose to either migration or redeployment. However, it's recommended that you use the redeployment strategy top move your virtual network to a new region.
+To move Azure Virtual Network to a new region, you can choose either migration or redeployment. However, it's highly recommended that you use the [redeployment method](#redeployment-strategy-recommended).
+
+
+### Redeployment strategy (Recommended)
+
+Redeployment is the recommended way to move your virtual network to a new region.  Redeployment supports both independent relocation of multiple workloads, as well as private IP address range change in the target region.
+
+
+### Redeployment considerations
+
+- [Peered Virtual networks](/azure/virtual-network/virtual-network-peering-overview) can't be re-created in the new region, even if they're defined in the exported template. To have virtual networking peering in the new region, you need to create a separate export template for the peering.
+- If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other, 
+- Supports option to enable and disable private IP address range change in the target region.
+- If you don't enable private IP address change in the target region, data migration scenarios that require
+communication between source and target region can only be established using public endpoints (public IP addresses).
+
+#### How to redeploy
+
+1. If you want virtual networking peering to be redeployed along with the virtual network, create a separate export template for the peering. 
+
+**To create a separate peering template:**
+
+    1. Copy the details of the peering to create a peering template.
+    1. Remove the peering information from the primary export template.
+    1. Use the peering template to reestablish the peering after the relocation of the network.
+    
+1. Redeploy your virtual network to another region by choosing the appropriate guides:
+
+    |To learn how to move...| Using...| Go to...|
+    |----|---|---|
+    |Network Security Groups (NSG)| Azure portal|[Move Azure NSG to another region using the Azure portal](/azure/virtual-network/move-across-regions-nsg-portal).|
+    | |PowerShell|[Move Azure NSG to another region using the PowerShell](/azure/virtual-network/move-across-regions-nsg-powershell).|
+    |Virtual Network| Azure portal|[Move Azure Virtual Network to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
+    || PowerShell|[Move Azure Virtual Network to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
+    |Public IP| Azure portal|[Move Azure Public IP to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
+    || PowerShell|[Move Azure Public IP to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
+    
 
 ### Migration strategy
 
-You can use Azure Resource Mover to migrate your virtual network to another region. However, it's important to note following considerations:
+Although it's not recommended, you can choose to use Azure Resource Mover to migrate your virtual network to another region. 
+
+### Migration considerations
+
+Below are some features and limitations of using the migration strategy.
 
 - All workloads in a virtual network must be relocated together.
 
@@ -68,27 +102,6 @@ You can use Azure Resource Mover to migrate your virtual network to another regi
 
 To learn how to migrate your virtual network to a new region using Azure Resource Mover, see [Move Azure VMs across regions](/azure/resource-mover/tutorial-move-region-virtual-machine).
 
-
-### Redeployment strategy (Recommended)
-
-It's recommended that you redeploy, rather than migrate your virtual network, to a new region. It's important to note the following considerations:
-
-- If you enable private IP address range change, multiple workloads in a virtual network can be relocated independently of each other, 
-- Supports option to enable and disable private IP address range change in the target region.
-- If you don't enable private IP address change in the target region, data migration scenarios where
-communication between source and target region is required, can only be established using public
-endpoints (public IP addresses).
-
-To redeploy your virtual network to another region, choose the appropriate how-tos:
-
-|To learn how to move...| Using...| Go to...|
-|----|---|---|
-|Network Security Groups (NSG)| Azure portal|[Move Azure NSG to another region using the Azure portal](/azure/virtual-network/move-across-regions-nsg-portal).|
-| |PowerShell|[Move Azure NSG to another region using the PowerShell](/azure/virtual-network/move-across-regions-nsg-powershell).|
-|Virtual Network| Azure portal|[Move Azure Virtual Network to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
-|| PowerShell|[Move Azure Virtual Network to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
-|Public IP| Azure portal|[Move Azure Public IP to another region using the Azure portal](/azure/virtual-network/move-across-regions-vnet-portal).|
-|| PowerShell|[Move Azure Public IP to another region using the PowerShell](/azure/virtual-network/move-across-regions-vnet-powershell).|
 
 
 
