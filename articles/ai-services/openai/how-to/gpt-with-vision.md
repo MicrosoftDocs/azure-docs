@@ -422,15 +422,15 @@ Processing videos will involve the use of extra tokens to identify key frames fo
 #### Calculation
 For a typical use case let's imagine that I have use a 3-minute video with a 100-token prompt input. The section of video has a transcript that's 100-tokens long and when I process the prompt, I generate 100-tokens of output. The pricing for this transaction would be as follows:
 
-| Item                                   | Detail                                                        | Total Cost   |
-|----------------------------------------|---------------------------------------------------------------|--------------|
-| **GPT-4V Input Tokens**                | 100 text tokens                                               | $0.001       |
-| **Additional Cost to identify frames** | 100 input tokens + 700 tokens + 1 Video Retrieval txn         | $0.00825     |
-| **Image Inputs and Transcript Input**  | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
-| **Output Tokens**                      | 100 tokens (assumed)                                          | $0.003       |
-|                                        | **Total Cost**                                                | **$0.03025** |
+| Item                                      | Detail                                                        | Total Cost   |
+|-------------------------------------------|---------------------------------------------------------------|--------------|
+| **GPT-4 Turbo with Vision Input Tokens**  | 100 text tokens                                               | $0.001       |
+| **Additional Cost to identify frames**    | 100 input tokens + 700 tokens + 1 Video Retrieval txn         | $0.00825     |
+| **Image Inputs and Transcript Input**     | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
+| **Output Tokens**                         | 100 tokens (assumed)                                          | $0.003       |
+|                                           | **Total Cost**                                                | **$0.03025** |
 
-Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute segment of video. This index can be reused across any number of Video Retrieval and GPT-4V calls.
+Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute segment of video. This index can be reused across any number of Video Retrieval and GPT-4 Turbo with Vision calls.
 
 ## Limitations
 
