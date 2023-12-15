@@ -45,7 +45,7 @@ az ml workspace provision-network --subscription <sub_id> -g <resource_group_nam
 
 ## Work with open source models curated by Azure Machine Learning
 
-Workspace managed virtual network provides out-of-the-box default outbound to the storage accounts with the models in the collections curated by Azure Machine Learning. This mode of workspace configuration also has default outbound to Microsoft Container Registry where the docker image used to deploy the models are present. 
+Workspace managed virtual network to allow only approved outbound uses a Service Endpoint Policy to Azure Machine managed storage accounts, to help access the models in the collections curated by Azure Machine Learning in an out-of-the-box manner. This mode of workspace configuration also has default outbound to Microsoft Container Registry where the docker image used to deploy the models is present. 
 
 ### Language models in 'Curated by Azure AI' collection
 
@@ -67,7 +67,7 @@ Today, these models involve dynamic installation of dependencies at runtime. The
 Users can work with this collection in network isolated workspaces with no additional user defined outbound rules required. 
 
 > [!NOTE]
-> New curated collections are added to the Model Catalog frequently. We will update this documentation to reflect the support in private networks as and when tested.
+> New curated collections are added to the Model Catalog frequently. We will update this documentation to reflect the support in private networks for various collections.
 
 ## Work with Hugging Face Collection 
 
