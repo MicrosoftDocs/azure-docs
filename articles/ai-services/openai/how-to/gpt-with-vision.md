@@ -396,6 +396,32 @@ Every response includes a `"finish_details"` field. The subfield `"type"` has th
 
 If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
+### Pricing example for Video prompts
+The pricing for GPT-4 Turbo with Vision is dynamic and depends on the specific features and inputs used. The base charges and additional features are outlined below:
+
+Base Pricing for GPT-4 Turbo with Vision is:
+- Input: $0.01 per 1000 tokens
+- Output: $0.03 per 1000 tokens
+  
+Video prompt integration with Video Retrieval Add-on:
+- Ingestion: $0.05 per minute of video
+- Transactions: $0.25 per 1000 queries of the Video Retrieval index
+
+Processing videos will involve the use of extra tokens to identify key frames for analysis. The number of these additional tokens will be roughly equivalent to the sum of the tokens in the text input plus 700 tokens.
+
+#### Calculation
+For a typical use case let's imagine that I have use a 3-minute video with a 100-token prompt input. The section of video has a transcript that's 100-tokens long and when I process the prompt, I generate 100-tokens of output. The pricing for this transaction would be as follows:
+
+| Item                                   | Detail                                                        | Total Cost   |
+|----------------------------------------|---------------------------------------------------------------|--------------|
+| **GPT-4V Input Tokens**                | 100 text tokens                                               | $0.001       |
+| **Additional Cost to identify frames** | 100 input tokens + 700 tokens + 1 Video Retrieval txn         | $0.00825     |
+| **Image Inputs and Transcript Input**  | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
+| **Output Tokens**                      | 100 tokens (assumed)                                          | $0.003       |
+|                                        | **Total Cost**                                                | **$0.03025** |
+
+Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute segment of video. This index can be reused across any number of Video Retrieval and GPT-4V calls.
+
 ## Detail parameter settings in image processing: Low, High, Auto  
 
 The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
