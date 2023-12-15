@@ -479,7 +479,8 @@ You can find the scoring URI on the __Details__ tab of the endpoint's page.
 
 ## Get the key or token for data plane operations
 
-A key or token can be used for data plane operations, even though the process of getting the key or token is a control plane operation. In other words, you use a control plane token to get the key or token that you'll use to perform your data plane operations.
+
+A key or token can be used for data plane operations, even though the process of getting the key or token is a control plane operation. In other words, you use a control plane token to get the key or token that you later use to perform your data plane operations.
 
 Getting the _key_ or _Azure Machine Learning token_ requires that the correct role is assigned to the user identity that is requesting it, as described in [authorization for control plane operations](concept-endpoints-online-auth.md#control-plane-operations). 
 The user identity doesn't need any extra roles to get the _Microsoft Entra token_.
