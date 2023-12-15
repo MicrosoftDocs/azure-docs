@@ -101,6 +101,15 @@
       href: ./security-controls-policy.md
 - name: How-to guides
   items:
+  - name: Develop
+    items:
+    - name: Use the Azure SignalR SDK
+      href: signalr-howto-use.md
+      items:
+      - name: Use in ASP.NET Core SignalR
+        href: signalr-howto-asp-net-core.md
+      - name: Use in ASP.NET SignalR
+        href: signalr-howto-asp-net.md
   - name: Scale and geo-replicate
     items:
     - name: Single instance
