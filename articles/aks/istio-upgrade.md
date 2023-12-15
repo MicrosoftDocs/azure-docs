@@ -16,7 +16,7 @@ This article addresses upgrade experiences for Istio-based service mesh add-on f
 
 Istio add-on allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new revision is deployed alongside the old revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't obersve any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
 
-If the cluster is currently using a supported minor version of Istio, upgrades are only allowed one minor version at a time. If the cluster is using a very old version of Istio that's outside the supported versions, then the upgrade first needs to be done to the least supported minor version of Istio for that Kubernetes version. After that, upgrades can again be done one minor version at a time.
+If the cluster is currently using a supported minor version of Istio, upgrades are only allowed one minor version at a time. If the cluster is using an old version of Istio that's outside the supported versions, then the upgrade first needs to be done to the least supported minor version of Istio for that Kubernetes version. After that, upgrades can again be done one minor version at a time.
 
 The following example illustrates how to upgrade from revision `asm-1-17` to `asm-1-18`. The steps are the same for upgrades between any two successive revisions:
 
@@ -72,7 +72,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
         aks-istio-ingressgateway-internal-asm-1-18-757d9b5545-krq9w   1/1     Running   0          51m
         ```
 
-1. Relabel the namespace so that any new pods will utilize the Istio sidecar associated with the new revision and its control plane:
+1. Relabel the namespace so that any new pods get the Istio sidecar associated with the new revision and its control plane:
 
     ```bash
     kubectl label namespace default istio.io/rev=asm-1-18 --overwrite
