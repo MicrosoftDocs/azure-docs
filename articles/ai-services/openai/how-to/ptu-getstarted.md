@@ -32,6 +32,43 @@ The following guide walks you through setting up your provisioned deployment on 
 
 ## Deploy your provisioned deployment
 
+To create a provisioned deployment, you can follow these steps; the choices described below reflect those shown in the screenshot 
+
+:::image type="content" source="../media/provisioned/deployment-screen.jpg" alt-text="Screenshot of the Azure OpenAI Studio deployment page for a provisioned deployment." lightbox="../media/provisioned/deployment-screen.jpg":::
+
+
+
+1.	Sign into the [Azure OpenAI studio](https://oai.azure.com)
+2.	Choose the subscription that was enabled for provisioned deployments and the Azure OpenAI resource in Sweden Central. 
+3.	Under Management in the left-nav select Deployments
+4.	Select Create new deployment and configure the following fields. You will need to expand the ‘advanced options’ drop down.
+5.	Fill out the values in each field. We have provided an example below:
+
+| Field | Description |	Example |
+| -- | -- | --| 
+| Select a model|	Choose the specific model you wish to deploy	| GPT-4 |
+| Model version |	Version of the model to deploy	 | 0613 |
+| Deployment Name	 | The deployment name is used in your code to call the model by using the client libraries and the REST APIs.	| gpt-4|
+| Content filter	| Specify the filtering policy to apply to the deployment | 	Default |
+| Deployment Type	| Type of deployment you will enable. This impacts the throughput and performance. 	| Provisioned-Managed |
+| Provisioned Throughput units |	Amount of throughput to provision |	100 |
+
+
+If you wish to deploy your endpoint programmatically you can do so with the following Azure CLI command. You will just need to pudate the sku-capacity with the desired amout of provisioned throughput units.
+
+```cli
+az cognitiveservices account deployment create \
+--name <myResourceName> \
+--resource-group  <myResourceGroupName> \
+--deployment-name MyModel \
+--model-name GPT-4 \
+--model-version“"0613”"  \
+--model-format OpenAI \
+--sku-capacity“"100”" \
+--sku-name“"Provisioned-Manage”" 
+```
+
+REST, ARM, Bicep and Terraform can also be used to create deployments.  Use the instructions in the public documentation for Standard deployments and replace the sku.name with “Provisioned-Managed” rather than “Standard”.  See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide.
 
 
 ## Make your first calls
@@ -116,3 +153,14 @@ The exact performance and throughput capabilities of your instance will depend o
 
 Learn more about the tool and configuration settings in our GitHub Repo: https://aka.ms/aoai/benchmarking.
 
+
+## Next Steps
+
+* For more information on cloud application best practices, check out [Best practices in cloud applications](https://learn.microsoft.com/azure/architecture/best-practices/index-best-practices)
+* For more information on provisioned dployments, check out [What is provisioned throughput?](../concepts/provisioned-throughput.md)
+* For more information on retry logic within each SDK, check out:
+    * Python reference documetnation
+    * .NET reference documentation
+    * Java reference documentation
+    * Javascript reference documetnation
+    * GO reference documntation
