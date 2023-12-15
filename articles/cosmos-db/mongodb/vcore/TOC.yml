@@ -36,8 +36,10 @@
       href: failover-disaster-recovery.md
     - name: Migration options
       href: migration-options.md 
-    - name: Security
-      href: security.md
+    - name: Security 
+      items:
+        - name: Security overview
+          href: security.md
 - name: How to
   items:
     - name: Use community tools

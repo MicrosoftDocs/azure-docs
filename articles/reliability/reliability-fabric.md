@@ -11,7 +11,7 @@ ms.custom:
   - references_regions
   - build-2023
   - ignite-2023
-ms.date: 12/05/2023 
+ms.date: 12/13/2023 
 ---
 
 # Reliability in Microsoft Fabric
@@ -50,7 +50,7 @@ Fabric makes commercially reasonable efforts to provide availability zone suppor
 | **Europe**           | **Power BI**                                                          | **Datamarts**                                                         | **Data Warehouses**                                                   | **Real-Time Analytics**                                               |
 | France Central       | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: |
 | Germany West Central | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                       |                                                                       |                                                                       |
-| North Europe         | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                       | :::image type="icon" source="media/yes-icon.svg" border="false"::: |
+| North Europe         | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: |
 | UK South             | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                       | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: |
 | West Europe          | :::image type="icon" source="media/yes-icon.svg" border="false"::: | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                       |                                                                       |
 | Norway East          | :::image type="icon" source="media/yes-icon.svg" border="false"::: |                                                                       |                                                                       | :::image type="icon" source="media/yes-icon.svg" border="false"::: |

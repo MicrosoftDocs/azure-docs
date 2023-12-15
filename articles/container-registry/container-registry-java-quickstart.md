@@ -5,6 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.date: 10/11/2022
 ms.topic: quickstart
+ms.service: container-registry
 ms.custom: devx-track-java, devx-track-azurecli, mode-api, devx-track-extended-java
 ---
 
@@ -114,7 +115,7 @@ Finally, you'll update your project configuration and use the command prompt to 
    </properties>
    ```
 
-1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk), [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre), [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless), and [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven).
+1. Update the `<plugins>` collection in the *pom.xml* file so that the `<plugin>` element contains and an entry for the `jib-maven-plugin`, as shown in the following example. Note that we are using a base image from the Microsoft Container Registry (MCR): `mcr.microsoft.com/java/jdk:8-zulu-alpine`, which contains an officially supported JDK for Azure. For other MCR base images with officially supported JDKs, see [Install the Microsoft Build of OpenJDK.](/java/openjdk/install)
 
    ```xml
    <plugin>
@@ -154,10 +155,7 @@ docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 
 For other versions of the official Microsoft-supported Java base images, see:
 
-* [Java SE JDK](https://hub.docker.com/_/microsoft-java-jdk)
-* [Java SE JRE](https://hub.docker.com/_/microsoft-java-jre)
-* [Java SE Headless JRE](https://hub.docker.com/_/microsoft-java-jre-headless)
-* [Java SE JDK and Maven](https://hub.docker.com/_/microsoft-java-maven)
+* [Install the Microsoft Build of OpenJDK](/java/openjdk/install)
 
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 

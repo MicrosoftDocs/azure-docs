@@ -4,7 +4,7 @@ description: Learn about storage capacity, storage policies, fault tolerance, an
 ms.topic: conceptual
 ms.custom: contperf-fy21q4, engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/05/2023
+ms.date: 12/13/2023
 ---
 
 # Azure VMware Solution storage concepts
@@ -34,14 +34,13 @@ The default storage policy is set to **RAID-1 FTT-1**, with Object Space Reserva
 In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an operations perspective.
 
 >[!NOTE]
->When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thin** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
+>When you log on to the vSphere Client, you may notice a VM Storage Policy called **vSAN Default Storage Policy** with **Object Space Reservation** set to **Thick** provisioning. Please note that this is not the default storage policy applied to the cluster. This policy exists for historical purposes and will eventually be modified to **Thin** provisioning. 
 
 >[!NOTE]
 >All of the software-defined data center (SDDC) management VMs (vCenter Server, NSX-T Manager, NSX-T Data Center Edges, and others) use the **Microsoft vSAN Management Storage Policy**, with **Object Space Reservation** set to **Thin** provisioning.
 
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend deploying the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. In reference to [SLA for Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/), note that more than 6 hosts should be configured in the cluster to use an FTT-2 policy (RAID-1, or RAID-6). Also note that the storage policy is not automatically updated based on cluster size. Similarly, changing the default does not automatically update the running VM policies.  
-
 
 ## Data-at-rest encryption
 

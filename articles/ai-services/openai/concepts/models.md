@@ -5,7 +5,7 @@ description: Learn about the different model capabilities that are available wit
 ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 11/22/2023
-ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai
+ms.custom: event-tier1-build-2022, references_regions, build-2023, build-2023-dataai, refefences_regions
 manager: nitinme
 author: mrbullwinkle #ChrisHMSFT
 ms.author: mbullwin #chrhoder
@@ -31,6 +31,7 @@ Azure OpenAI Service is powered by a diverse set of models with different capabi
 
 - `gpt-4`
 - `gpt-4-32k`
+- `gpt-4-vision`
 
 You can see the token context length supported by each model in the [model summary table](#model-summary-table-and-region-availability).
 
@@ -74,7 +75,8 @@ You can also use the Whisper model via Azure AI Speech [batch transcription](../
 
 ### GPT-4 and GPT-4 Turbo Preview models
 
-GPT-4 and GPT-4-32k models are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
+
+GPT-4, GPT-4-32k, and GPT-4 Turbo with Vision are now available to all Azure OpenAI Service customers.  Availability varies by region.  If you don't see GPT-4 in your region, please check back later.
 
 These models can only be used with the Chat Completion API.
 
@@ -92,18 +94,24 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 | `gpt-4` (0613)     | 8,192                | Sep 2021         |
 | `gpt-4-32k` (0613) | 32,768               | Sep 2021         |
 | `gpt-4` (1106-preview)**<sup>1</sup>**<br>**GPT-4 Turbo Preview** | Input: 128,000  <br> Output: 4096           | Apr 2023         |
+| `gpt-4` (vision-preview)**<sup>2</sup>**<br>**GPT-4 Turbo with Vision Preview**  | Input: 128,000  <br> Output: 4096              | Apr 2023       |
 
-**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (1106-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **1106-preview**. We don't recommend using this model in production. We will upgrade all deployments of this model to a future stable version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
+**<sup>1</sup>** GPT-4 Turbo Preview = `gpt-4` (1106-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **1106-preview**. 
+
+**<sup>2</sup>** GPT-4 Turbo with Vision Preview = `gpt-4` (vision-preview). To deploy this model, under **Deployments** select model **gpt-4**. For **Model version** select **vision-preview**.
+
+> [!CAUTION]
+> We don't recommend using these models in production. We will upgrade all deployments of these models to a future stable version. Models designated preview do not follow the standard Azure OpenAI model lifecycle.
 
 > [!NOTE]
 > Regions where GPT-4 (0314) & (0613) are listed as available have access to both the 8K and 32K versions of the model
 
 ### GPT-4 and GPT-4 Turbo Preview model availability
 
-| Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) |
-|---|:---|:---|:---|
-| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US |
-| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South |
+| Model Availability | gpt-4 (0314) | gpt-4 (0613) | gpt-4 (1106-preview) | `gpt-4` (vision-preview) | 
+|---|:---|:---|:---|:---|
+| Available to all subscriptions with Azure OpenAI access | | Australia East <br> Canada East <br> France Central <br> Sweden Central <br> Switzerland North | Australia East <br> Canada East <br> East US 2 <br> France Central <br> Norway East <br> South India <br> Sweden Central <br> UK South <br> West US | Australia East <br> Sweden Central <br> Switzerland North <br> West US | 
+| Available to subscriptions with current access to the model version in the region | East US <br> France Central <br> South Central US <br> UK South | East US <br> East US 2 <br> Japan East <br> UK South | |
 
 ### GPT-3.5 models
 
@@ -147,7 +155,7 @@ These models can only be used with Embedding API requests.
 | dalle2 | East US | 1000 |
 | dalle3 | Sweden Central | 4000 |
 
-### Fine-tuning models (Preview)
+### Fine-tuning models
 
 `babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
 

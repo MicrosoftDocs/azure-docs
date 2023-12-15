@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 06/17/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable Artifact Cache with authentication - Azure CLI

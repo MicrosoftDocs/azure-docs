@@ -278,11 +278,13 @@ When linking your Storage Account for saved queries, the service stores saved-qu
 
 **Considerations before setting Customer-managed key for queries**
 * You need to have "write" permissions on your workspace and Storage Account.
-* Make sure to create your Storage Account in the same region as your Log Analytics workspace is located.
-* The saves queries in storage is considered as service artifacts and their format may change.
-* Linking a Storage Account for queries removed existing saves queries from your workspace. Copy saves queries that you need before this configuration. You can view your saved queries using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
+* Make sure to create your Storage Account in the same region as your Log Analytics workspace is located, with Customer-managed key encryption. This is important since saved queries are stored in table storage and it can only be encrypted at Storage Account creation.
+* Queries saved in [query pack](./query-packs.md) aren't encrypted with Customer-managed key. Select **Save as Legacy query** when saving queries instead, to protect them with Customer-managed key.
+* Saves queries in storage are considered service artifacts and their format may change.
+* Linking a Storage Account for queries removes existing saves queries from your workspace. Copy saves queries that you need before this configuration. You can view your saved queries using [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
-* You can link a single Storage Account to a workspace, which can be used for both saved queries and log alerts queries.
+* You can link a single Storage Account to a workspace for both saved queries and log alerts queries.
+* Log alerts are saved in blob storage and Customer-managed key encryption can be configured at Storage Account creation, or later.
 * Fired log alerts won't contain search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
 **Configure BYOS for saved queries**

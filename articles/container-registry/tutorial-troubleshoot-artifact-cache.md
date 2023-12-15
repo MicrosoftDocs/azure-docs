@@ -4,6 +4,7 @@ description: Learn how to troubleshoot the most common problems for a registry e
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Troubleshoot guide for Artifact Cache 
