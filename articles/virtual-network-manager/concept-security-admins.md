@@ -1,11 +1,11 @@
 ---
 title: 'Security admin rules in Azure Virtual Network Manager'
-description: Learn about what security admin rules are in Azure Virtual Network Manager. Understand how they work and how traffic is evaluated along with network security groups.
+description: Learn about what security admin rules are in Azure Virtual Network Manager, how they work, and how traffic rules are evaluated including nonapplication of security admin rules and exceptions.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 12/07/2023
 ms.custom: template-concept, ignite-fall-2021, engagement-fy23
 ---
 
@@ -17,7 +17,7 @@ In this article, you learn about security admin rules in Azure Virtual Network M
 
 ## What is a security admin rule?
 
-Security admin rules are global network security rules that enforce security policies defined in the rule collection on virtual networks. These rules can be used to Allow, Always Allow, or Deny traffic across virtual networks within your targeted network groups. These network groups can only consist of virtual networks within the scope of your network manager instance; thus, security admin rules can't apply to virtual networks not managed by a network manager.
+Security admin rules are global network security rules that enforce security policies defined in the rule collection on virtual networks. These rules can be used to Allow, Always Allow, or Deny traffic across virtual networks within your targeted network groups. These network groups can only consist of virtual networks within the scope of your virtual network manager instance. Security admin rules can't apply to virtual networks not managed by a virtual network manager.
 
 Here are some scenarios where security admin rules can be used:
 
@@ -48,7 +48,7 @@ To enforce security policies across multiple virtual networks, you [create and d
 > [!IMPORTANT]
 > Only one security admin configuration can be deployed to a region. However, multiple connectivity configurations can exist in a region. To deploy multiple security admin configurations to a region, you can [create multiple rule collections](how-to-block-network-traffic-portal.md#add-a-rule-collection) in a security configuration instead.
 
-### Evaluation of security admin rules and network security groups (NSGs)
+### How security admin rules and network security groups (NSGs) are evaluated
 
 Security admin rules and network security groups (NSGs) can be used to enforce network security policies in Azure. However, they have different scopes and priorities.#
 
@@ -63,7 +63,7 @@ Security admin rules are currently applied at the virtual network level, whereas
 | **Security admin rules** | Network admins, central governance team | 	Virtual networks | 	Higher priority | 	Allow, Deny, Always Allow | 	Priority, protocol, action, source, destination |
 | **Network security group rules** | 	Individual teams | 	Subnets, NICs | Lower priority, after security admin rules | Allow, Deny | Priority, protocol, action, source, destination |
 
-Security admin rules can perform three actions on traffic: *Allow*, *Always Allow*, and *Deny*. If you create an *Allow* rule, it's evaluated first, followed by network security group rules. This action allows network security group rules to handle the traffic differently if needed. 
+Security admin rules can perform three actions on traffic: *Allow*, *Always Allow*, and *Deny*. When created, *Allow* rules are evaluated first, followed by network security group rules. This action allows network security group rules to handle the traffic differently if needed. 
 
 If you create an *Always Allow* or *Deny* rule, traffic evaluation is terminated after the security admin rule is evaluated. With an *Always Allow* rule, the traffic goes directly to the resource and terminates further (and possibly conflicting) evaluation by NSG rules. This action can be useful for enforcing traffic and preventing denial by network security group rules. With a *Deny* rule, the traffic is stopped without being delivered to the destination. Security admin rules don't depend on NSGs, so they can be used to create default security rules on their own.
 
@@ -80,7 +80,7 @@ Security admin rules provide many benefits for securing your organization's reso
 
 ### Protect high-risk ports
 
-Based on the industry study and suggestions from Microsoft, we recommend customers restrict the traffic from outside using security admin rules for this list of high-risk ports. These ports are often used for the management of resources or unsecure/unencrypted data transmission and shouldn't be exposed to the internet. However, there are times when certain virtual networks and their resources need to allow traffic for management or other processes. You can create exceptions where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
+Based on the industry study and suggestions from Microsoft, we recommend customers restrict the traffic from outside using security admin rules for this list of high-risk ports. These ports are often used for the management of resources or unsecure/unencrypted data transmission and shouldn't be exposed to the internet. However, there are times when certain virtual networks and their resources need to allow traffic for management or other processes. You can [create exceptions](./concept-enforcement.md#network-traffic-enforcement-and-exceptions-with-security-admin-rules) where needed. Learn how to [blocking high-risk ports with exceptions](how-to-block-high-risk-ports.md) for these types of scenarios.
 
 | **Port** | **Protocol** | **Description** |
 | --- | ---- | ------- |
@@ -107,7 +107,7 @@ Based on the industry study and suggestions from Microsoft, we recommend custome
 
 ### Management at scale
 
-Azure Virtual Network Manager provides a way to manage your security policies at scale with security admin rules. When you apply a security admin configuration to a [network group](./concept-network-groups.md), a network group can contain dozens or hundreds of VNets, and all of the resources in the network groups’ scope have those security admin rules applied to them.
+Azure Virtual Network Manager provides a way to manage your security policies at scale with security admin rules. When you apply a security admin configuration to a [network group](./concept-network-groups.md), all of the virtual networks and their contained resources in the network groups’ scope receive the security admin rules in the policy.
 
 New resources are protected along with existing resources. For example, if you add new VMs to a virtual network in the scope of a security admin rule, the VMs are automatically secured as well. Shortly after you deploy these VMs, security admin rules will be applied and protect them.
 
@@ -115,7 +115,7 @@ When new security risks are identified, you can deploy them at scale by creating
 
 ## Nonapplication of security admin rules
 
-In most instances, security admin rules are applied to all virtual networks and subnets within the scope of a network group's applied security configuration. However, there are some services that don't apply security admin rules due to the network requirements of the service. These requirements are enforced by the service's network intent policy.
+In most instances, security admin rules apply to all virtual networks and subnets within the scope of a network group's applied security configuration. However, there are some services that don't apply security admin rules due to the network requirements of the service. The service's network intent policy enforce these requirements.
 
 ### Nonapplication of security admin rules at virtual network level
 
@@ -124,7 +124,7 @@ By default, security admin rules aren't applied to a virtual network containing 
 - [Azure SQL Managed Instances](/azure/azure-sql/managed-instance/connectivity-architecture-overview#mandatory-security-rules-with-service-aided-subnet-configuration)
 - Azure Databricks  
 
-When a virtual network contains these services, the security admin rules skip this virtual network. If you want *Allow* rules applied to this virtual network, you create your security configuration with the `AllowRulesOnly` field set in the [securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices](/dotnet/api/microsoft.azure.management.network.models.networkintentpolicybasedservice?view=azure-dotnet) .NET class. When set, *Allow* rules in your security configuration will be applied to this virtual network. All *Deny* rules will not be applied on this virtual network. Virtual networks without these services can continue using *Allow* and *Deny* rules. 
+When a virtual network contains these services, the security admin rules skip this virtual network. If you want *Allow* rules applied to this virtual network, you create your security configuration with the `AllowRulesOnly` field set in the [securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices](/dotnet/api/microsoft.azure.management.network.models.networkintentpolicybasedservice?view=azure-dotnet&preserve-view=true) .NET class. When set, only *Allow* rules in your security configuration are applied to this virtual network. *Deny* rules aren't applied to this virtual network. Virtual networks without these services can continue using *Allow* and *Deny* rules. 
 
 You can create a security configuration with *Allow* rules only and deploy it to your virtual networks with [Azure PowerShell](/powershell/module/az.network/new-aznetworkmanagersecurityadminconfiguration#example-1) and [Azure CLI](/cli/azure/network/manager/security-admin-config#az-network-manager-security-admin-config-create-examples).
 
@@ -134,7 +134,7 @@ You can create a security configuration with *Allow* rules only and deploy it to
 
 ### Nonapplication of security admin rules at subnet level
 
-Similarly, there are some services that don't apply security admin rules at the subnet level when those subnets' virtual networks are a part of a network group targeted by a security admin configuration. Those services include:
+Similarly, some services don't apply security admin rules at the subnet level when the subnets' virtual network are within the scope of a security admin configuration. Those services include:
 
 - Azure Application Gateway
 - Azure Bastion
@@ -144,7 +144,7 @@ Similarly, there are some services that don't apply security admin rules at the 
 - Azure Virtual WAN
 - Azure ExpressRoute Gateway
 
-In this case, the resources in the subnet with these services won’t be applied with security admin rules; however, other subnets will still have security admin rules applied to them.
+In this case, security admin rules don't affect the resources in the subnet with these services. However, other subnets within the same virtual network have security admin rules applied to them.
 
 > [!NOTE]
 > If you want to apply security admin rules on subnets containing an Azure Application Gateway, ensure each subnet only contains gateways that have been provisioned with [network isolation](../application-gateway/application-gateway-private-deployment.md) enabled. If a subnet contains an Azure Application Gateway without network isolation, security admin rules won't be applied to this subnet.
