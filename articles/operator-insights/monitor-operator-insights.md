@@ -35,7 +35,7 @@ The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of pl
 The Activity log is collected and stored automatically by Azure. You can:
 
 - View the Activity log in the **Activity Log** for your Data Product.
-- Route the Activity Log to Azure Monitor Logs, where you can do much more complex queries using Log Analytics. See [Send to Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+- Route the Activity Log to Azure Monitor Logs, which offers a rich query interface. See [Send to Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
 - Route the Activity Log to other location or download it. See [Azure Monitor activity log](../azure-monitor/essentials/activity-log.md).
 
 ## Resource logs for Data Products: overview, collection and analysis
