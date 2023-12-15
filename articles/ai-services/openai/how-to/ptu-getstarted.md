@@ -165,7 +165,7 @@ To assist you in this work, we have created a benchmarking tool which will run a
 
 We recommend the following workflow:
 1. Estimate your throughput PTUs using the capacity calculator.
-1. Run a benchmark with this trafic shape for an extended period of time (10+ min) to measure the results in a steady state
+1. Run a benchmark with this traffic shape for an extended period of time (10+ min) to observe the results in a steady state.
 1. Measure the utilization, tokens processed and call rate values from Azure Monitor.
 1. Run a benchmark with your own traffic shape & workloads. Be sure to implement retry logic using either an Azure Openai client library or custom logic. 
 
