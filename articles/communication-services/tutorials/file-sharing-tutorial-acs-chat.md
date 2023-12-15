@@ -331,7 +331,8 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Check the rest of the UI Library](https://azure.github.io/communication-ui-library/)
+> [!div class="nextstepaction"]
+> [Check the rest of the UI Library](https://azure.github.io/communication-ui-library/)
 
 You may also want to:
 
