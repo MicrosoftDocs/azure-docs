@@ -24,11 +24,11 @@ Azure Operator Insights Data Products use [Azure Monitor](/azure/azure-monitor/o
 
 Ingestion agents also collect monitoring data that you or Microsoft Support can use for troubleshooting.
 
-## Metrics for Data Products: overview, collection and analysis
+## Metrics for Data Products: Overview, collection and analysis
 
 Azure Operator Insights doesn't provide metrics in Azure Monitor.
 
-## Activity logs for Data Products: overview, collection and analysis
+## Activity logs for Data Products: Overview, collection and analysis
 
 The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. For Azure Operator Insights, the Activity log includes activities like creating a Data Product or changing its settings.
 
@@ -38,7 +38,7 @@ The Activity log is collected and stored automatically by Azure. You can:
 - Route the Activity Log to a Log Analytics workspace, which offers a rich query interface. See [Send to Log Analytics workspace](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
 - Route the Activity Log to other locations or download it. See [Azure Monitor activity log](../azure-monitor/essentials/activity-log.md).
 
-## Resource logs for Data Products: overview, collection and analysis
+## Resource logs for Data Products: Overview, collection and analysis
 
 Resource logs provide an insight into operations that were performed within an Azure resource. This is known as the *data plane*. For Data Products, resource logs include ingestion (activity on files uploaded to Azure Operator Insights), digestion (processing the data in those files), and management of the processed data. 
 
@@ -66,7 +66,7 @@ To start monitoring a Data Product with Azure Monitor Logs and Log Analytics:
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Operator Insights menu, Log Analytics is opened with the query scope set to the current Data Product. This means that log queries will only include data from that resource. If you want to run a query that includes data from other Data Products or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
-## Data Product information in Azure Monitor Logs
+### Data Product information in Azure Monitor Logs
 
 For a full list of the types of resource logs collected for Azure Operator Insights, see [Monitoring Azure Operator Insights data reference: Resource logs](monitor-operator-insights-data-reference.md#resource-logs).
 
@@ -137,7 +137,7 @@ Ingestion agents that we provide automatically collect metrics and logs for trou
 
 ## Next steps
 
-- For a reference of the Azure Monitor data created by Azure Operator Insights [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md).
+- For a reference of the Azure Monitor data created by Azure Operator Insights, see [Monitoring Azure Operator Insights data reference](monitor-operator-insights-data-reference.md).
 - For more information about metrics and logs for MCC EDR ingestion agents, see [Monitor and troubleshoot MCC EDR Ingestion Agents for Azure Operator Insights](troubleshoot-mcc-edr-agent.md).
 - For more information about metrics and logs for SFTP ingestion agents, see [Monitor and troubleshoot SFTP Ingestion Agents for Azure Operator Insights](troubleshoot-sftp-agent.md).
 - For background on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) .
