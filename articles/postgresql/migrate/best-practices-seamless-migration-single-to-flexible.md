@@ -17,11 +17,11 @@ ms.custom: seo-lt-2023, references_regions
 
 [!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
 
-This article explains common pitfalls ecountered, and best practices to ensure a smooth and successful migration to the Azure Database for PostgreSQL Flexible Server.
+This article explains common pitfalls encountered, and best practices to ensure a smooth and successful migration to the Azure Database for PostgreSQL Flexible Server.
 
 ## Preparing for the migration
 
-It is recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This will ensure that the migration process completes seamelessly. In case of Offline migrations, the applications should stop writing to the Database so that there is no data loss. Similary, for Online migration, it is recommended to keep traffic low during the change data capture phase.
+It's recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamelessly. In Offline migrations, the applications should stop writing to the Database so that there is no data loss. Similary, for Online migration, it's recommended to keep traffic low during the change data capture phase.
 
 ### Setup Online migration parameters
 
@@ -34,7 +34,7 @@ For Online migration, the Azure replication support should be set to Logical und
 - ALTER SYSTEM SET max_wal_senders = <number of databases to migrate>;
 - ALTER SYSTEM SET max_replication_slots = <number of databases to migrate>;
 
-Note that you will need to restart the source Single server after completing all the Online migration prerequisites.
+You'll need to restart the source Single server after completing all the Online migration prerequisites.
 
 ## Target Flexible server storage configuration
 
@@ -46,7 +46,7 @@ During initial base copy of data, multiple insert statements are executed on the
 
 ## Pre-Migration Validation
 
-As a first step in the migration, it's recommended to run the pre-migration validation before you perform a migration. You can do this using the **Validate** and **Validate and Migrate** options in the migration setup page. Pre-migration validation conducts thorough checks against a predefined rule set. The goal is to identify any potential problems and provide actionable insights for remedial actions. Keep running pre migration validation until it results in **Succeeded** state. Click [Pre-migration validations](./concepts-single-to-flexible.md#pre-migration-validations) to know more.
+As a first step in the migration, run the pre-migration validation before you perform a migration. You can do this using the **Validate** and **Validate and Migrate** options in the migration setup page. Pre-migration validation conducts thorough checks against a predefined rule set. The goal is to identify any potential problems and provide actionable insights for remedial actions. Keep running pre migration validation until it results in **Succeeded** state. Click [Pre-migration validations](./concepts-single-to-flexible.md#pre-migration-validations) to know more.
 
 ## Migration Timeline Planning
 
@@ -68,7 +68,7 @@ For calculating the total downtime to perform migration of production server, th
     * Comparing max or min IDs of key application related columns
 
 > [!NOTE]  
-> The size of databases is not the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It is completely normal to have size differences between source and target servers. If there is an issue in the first three steps of validation, it indicates a problem with the migration.
+> The size of databases is not the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It's completely normal to have size differences between source and target servers. If there's an issue in the first three steps of validation, it indicates a problem with the migration.
 
 - **Migration of server settings** - The server parameters, firewall rules (if applicable), tags, alerts need to be manually copied from single server to flexible server.
 
