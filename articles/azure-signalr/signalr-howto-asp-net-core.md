@@ -10,24 +10,6 @@ ms.author: lianwei
 
 # Use Azure SignalR Service in ASP.NET Core SignalR applications
 
-- [Run ASP&#46;NET Core SignalR](#run-aspnet-core-signalr)
-  - [1. Install and Use Service SDK](#1-install-and-use-service-sdk)
-  - [2. Configure Connection String](#2-configure-connection-string)
-  - [3. Configure Service Options](#3-configure-service-options)
-    - [`ConnectionString`](#connectionstring)
-    - [`InitialHubServerConnectionCount`](#initialhubserverconnectioncount)
-    - [`ApplicationName`](#applicationname)
-    - [`ClaimsProvider`](#claimsprovider)
-    - [`AccessTokenLifetime`](#accesstokenlifetime)
-    - [`AccessTokenAlgorithm`](#accesstokenalgorithm)
-    - [`ServerStickyMode`](#serverstickymode)
-    - [`GracefulShutdown`](#gracefulshutdown)
-      - [`GracefulShutdown.Mode`](#gracefulshutdownmode)
-      - [`GracefulShutdown.Timeout`](#gracefulshutdowntimeout)
-    - [`ServiceScaleTimeout`](#servicescaletimeout)
-    - [`MaxPollIntervalInSeconds`](#maxpollintervalinseconds)
-  - [4. Sample](#4-sample)
-
 ## 1. Install and Use Service SDK
 
 Run below command to install SignalR Service SDK to your ASP&#46;NET Core project.
@@ -76,7 +58,7 @@ There are two approaches to configure SignalR Service's connection string in you
 
 ## 3. Configure Service Options
 
-There are a few options you can customize when using Azure SignalR Service SDK.
+There are a few [options](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/ServiceOptions.cs) you can customize when using Azure SignalR Service SDK.
 
 ### `ConnectionString`
 
@@ -104,7 +86,7 @@ There are a few options you can customize when using Azure SignalR Service SDK.
 - This option controls what claims you want to associate with the client connection.
 It will be used when Service SDK generates access token for client in client's negotiate request.
 By default, all claims from `HttpContext.User` of the negotiate request will be reserved.
-They can be accessed at [`Hub.Context.User`](https://github.com/aspnet/SignalR/blob/release/2.2/src/Microsoft.AspNetCore.SignalR.Core/HubCallerContext.cs#L29).
+They can be accessed at [`Hub.Context.User`](/dotnet/api/microsoft.aspnetcore.signalr.hubcallercontext.user).
 - Normally you should leave this option as is. Make sure you understand what will happen before customizing it.
 
 ### `AccessTokenLifetime`
@@ -124,7 +106,7 @@ You can increase this value to avoid client disconnect.
 
 - Default value is `Disabled`.
 - This option specifies the mode for **server sticky**. When the client is routed to the server which it first negotiates with, we call it **server sticky**.
-- In distributed scenarios, there can be multiple app servers connected to one Azure SignalR instance. As [internals of client connections](internal.md#client-connections) explains, client first negotiates with the app server, and then redirects to Azure SignalR to establish the persistent connection. Azure SignalR then finds one app server to serve the client, as [Transport Data between client and server](internal.md#transport-data-between-client-and-server) explains.
+- In distributed scenarios, there can be multiple app servers connected to one Azure SignalR instance. As [internals of client connections](signalr-concept-internals.md#client-connections) explains, client first negotiates with the app server, and then redirects to Azure SignalR to establish the persistent connection. Azure SignalR then finds one app server to serve the client, as [Transport Data between client and server](signalr-concept-internals.md#transport-data-between-client-and-server) explains.
   - When `Disabled`, the client routes to a random app server. In general, app servers have balanced client connections with this mode. If your scenarios are *broadcast* or *group send*, use this default option is enough.
   - When `Preferred`, Azure SignalR tries to find the app server which the client first negotiates with in a way that no additional cost or global routing is needed. This one can be useful when your scenario is *send to connection*. *Send to connection* can have better performance and lower latency when the sender and the receiver are routed to the same app server.
   - When `Required`, Azure SignalR always tries to find the app server which the client first negotiates with. This options can be useful when some client context is fetched from `negotiate` step and stored in memory, and then to be used inside `Hub`s. However, this option may have performance drawbacks because it requires Azure SignalR to take additional efforts to find this particular app server globally, and to keep globally routing traffics between client and server.
@@ -139,7 +121,7 @@ You can increase this value to avoid client disconnect.
 - When set to `MigrateClients`, in addition, we will try migrating client connections to another valid server. The migration will be triggered only after a message has been completely delivered.
   - `OnConnected` and `OnDisconnected` will be triggered when connections be migrated in/out.
   - `IConnectionMigrationFeature` can help you identify if the connection has been migrated in/out.
-  - See our [sample codes](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.NetCore31/Hub/Chat.cs) for detail usage.
+  - See our [sample codes](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample) for detail usage.
 
 #### `GracefulShutdown.Timeout`
 

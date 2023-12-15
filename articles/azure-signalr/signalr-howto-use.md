@@ -10,12 +10,6 @@ ms.author: lianwei
 
 # Use Azure SignalR Service
 
-- [Use Azure SignalR Service](#use-azure-signalr-service)
-  - [Provision an Azure SignalR Service instance](#provision-an-azure-signalr-service-instance)
-  - [For ASP&#46;NET Core SignalR](#for-aspnet-core-signalr)
-  - [For ASP&#46;NET SignalR](#for-aspnet-signalr)
-  - [Scale Out Application Server](#scale-out-application-server)
-
 ## Provision an Azure SignalR Service instance
 
 Follow [Quickstart: Use an ARM template to deploy Azure SignalR](./signalr-quickstart-azure-signalr-service-arm-template.md) to provision a SignalR service instance.
@@ -26,7 +20,7 @@ Follow [Quickstart: Use an ARM template to deploy Azure SignalR](./signalr-quick
 
 ## For ASP&#46;NET SignalR
 
-[See document](signalr-howto-run-asp-net.md)
+[See document](signalr-howto-asp-net.md)
 
 ## Scale Out Application Server
 

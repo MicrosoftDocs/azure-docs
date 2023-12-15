@@ -10,23 +10,11 @@ ms.author: lianwei
 
 # Use Azure SignalR Service in ASP.NET SignalR applications
 
-- [Run ASP&#46;NET SignalR](#run-aspnet-signalr)
-  - [1. Install and Use Service SDK](#1-install-and-use-service-sdk)
-  - [2. Configure Connection String](#2-configure-connection-string)
-  - [3. Configure Service Options](#3-configure-service-options)
-    - [`ConnectionString`](#connectionstring)
-    - [`InitialHubServerConnectionCount`](#initialhubserverconnectioncount)
-    - [`ApplicationName`](#applicationname)
-    - [`ClaimProvider`](#claimprovider)
-    - [`AccessTokenLifetime`](#accesstokenlifetime)
-    - [`AccessTokenAlgorithm`](#accesstokenalgorithm)
-    - [`ServerStickyMode`](#serverstickymode)
-    - [`MaxPollIntervalInSeconds`](#maxpollintervalinseconds)
-  - [Sample](#sample)
+> [!NOTE]
+>
+> If it is your first time trying SignalR, we recommend you use the [ASP&#46;NET Core SignalR](/aspnet/core/signalr/introduction), it is **simpler, more reliable, and easier to use**.
 
-> If it is your first time trying SignalR, we recommend you to use the ASP&#46;NET Core SignalR, it is **simpler, more reliable, and easier to use**.
-
-## 1. Install and Use Service SDK
+## 1. Install and Usethe  Service SDK
 
 Install SignalR Service SDK to your ASP&#46;NET project with **Package Manager Console**:
 
