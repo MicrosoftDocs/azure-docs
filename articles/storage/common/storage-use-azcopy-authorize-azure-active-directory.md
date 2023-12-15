@@ -1,5 +1,5 @@
 ---
-title: Authorize access to blobs with AzCopy & Microsoft Entra ID
+title: Authorize access to blobs & files with AzCopy & Microsoft Entra ID
 description: You can provide authorization credentials for AzCopy operations by using Microsoft Entra ID.
 author: normesta
 ms.service: azure-storage
@@ -9,7 +9,7 @@ ms.author: normesta
 ms.subservice: storage-common-concepts
 ---
 
-# Authorize access to blobs with AzCopy and Microsoft Entra ID
+# Authorize access to blobs and files with AzCopy and Microsoft Entra ID
 
 You can provide AzCopy with authorization credentials by using Microsoft Entra ID. That way, you won't have to append a shared access signature (SAS) token to each command.
 
@@ -25,16 +25,18 @@ For more information about AzCopy, [Get started with AzCopy](storage-use-azcopy-
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role has been assigned to your user identity, managed identity, or service principal.
+If you just want to download files, then verify that the [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role (Azure Blob Storage) or the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) role (Azure Files) has been assigned to your user identity, managed identity, or service principal.
 
-If you want to upload files, then verify that one of these roles has been assigned to your security principal:
+If you want to upload files to Azure Blob Storage, then verify that one of these roles has been assigned to your security principal.
 
 - [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 
+If you want to upload files to an Azure file share, then verify that the [Storage File Data Privileged Reader](../../role-based-access-control/built-in-roles.md#storage-file-data-privileged-reader) has been assigned to your security principal.
+
 These roles can be assigned to your security principal in any of these scopes:
 
-- Container (file system)
+- Container (file system) or file share
 - Storage account
 - Resource group
 - Subscription
