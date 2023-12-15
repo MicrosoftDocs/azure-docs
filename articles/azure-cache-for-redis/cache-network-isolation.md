@@ -32,7 +32,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
    > Enterprise/Enterprise Flash tier does not support `publicNetworkAccess` flag.
 
 - Any external cache dependencies don't affect the VNet's NSG rules.
-- Persisting to any Storage accounts protected with firewall rules is supported when using managed identity to connect to Storage account, see more [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+- Persisting to any storage accounts protected with firewall rules is supported when using managed identity to connect to Storage account, see more [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
 
 ### Limitations of Private Link
 
@@ -55,11 +55,11 @@ Virtual Network (VNet) is the fundamental building block for your private networ
 
 ### Limitations of VNet injection
 
-- Creating and maintaining virtual network configurations can be error prone. Troubleshooting is challenging. Incorrect virtual network configurations can lead to various issues: 
-  - obstructed metrics transmission from your cache instances, 
-  - failure of replica node to replicate data from primary node, 
-  - potential data loss, 
-  - failure of management operations like scaling, 
+- Creating and maintaining virtual network configurations can be error prone. Troubleshooting is challenging. Incorrect virtual network configurations can lead to various issues:
+  - obstructed metrics transmission from your cache instances,
+  - failure of replica node to replicate data from primary node,
+  - potential data loss,
+  - failure of management operations like scaling,
   - and in the most severe scenarios, loss of availability.
 - VNet injected caches are only available for Premium-tier Azure Cache for Redis instances.
 - When using a VNet injected cache, you must change your VNet to cache dependencies, such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.
