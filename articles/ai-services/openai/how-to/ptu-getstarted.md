@@ -124,7 +124,7 @@ Provisioned deployments provide customers with an allocated amount of compute ca
 
 ### What should  I do when I receive a 429 response?
 A 429 response indicates that the allocated PTUs are fully consumed at the time of the call. The response includes the `retry-after-ms` and `retry-after` headers which tell you the time to wait before the next call will be accepted. How you choose to handle this depends on your application requirements. Here are some considerations:
--	If you are okay with longer per-call latencies, implement client-side retry logic to wait the retry-after-ms time and retry. This will let you maximize your throughput per PTU.
+-	If you are okay with longer per-call latencies, implement client-side retry logic to wait the `retry-after-ms` time and retry. This will let you maximize your throughput per PTU. Microsoft-supplied client SDKs already handles it with reasonable defaults. You may still need further tuning based on your use-cases.
 -	Consider re-directing the traffic to other models, deployments or experiences. This is the lowest-latency solution because this action can be taken as soon as you receive the 429 signal.
 The 429 signal is not an unexpected error response when pushing to high utilizaiton but instead part of the design for managing queuing and high load for provisioned deployments. 
 
