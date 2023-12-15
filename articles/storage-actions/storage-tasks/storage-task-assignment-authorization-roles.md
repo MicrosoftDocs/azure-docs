@@ -16,7 +16,7 @@ ms.author: normesta
 
 An _assignment_ identifies a storage account and a subset of objects in that account that the storage task will target. An assignment also defines when the task runs and where execution reports are stored. For step-by-step guidance, see [Create and manage a Storage task assignment](storage-task-assignment-create.md).
 
-As part of creating an assignment, you use a custom role that has the permission necessary to perform the specified operations on the target storage account. You can choose only roles that are assigned to your user identity. A custom role is required in the preview release Azure Storage Actions. To learn how to create a custom role, see [Azure custom roles](../../role-based-access-control/custom-roles#steps-to-create-a-custom-role).
+As part of creating an assignment, you use a custom role that has the permission necessary to perform the specified operations on the target storage account. You can choose only roles that are assigned to your user identity. A custom role is required in the preview release Azure Storage Actions. To learn how to create a custom role, see [Azure custom roles](../../role-based-access-control/custom-role#steps-to-create-a-custom-role).
 
 Make sure that your role contains the RBAC actions necessary to perform the operations. This article describes the RBAC actions required by each operation that a storage task can perform.
 
