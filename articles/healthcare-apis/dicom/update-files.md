@@ -190,6 +190,14 @@ Any attributes in the [Patient Identification Module](https://dicom.nema.org/dic
 | Patient Breed Description | (0010,2292) | The breed of the patient. See Section C.7.1.1.1.1. |
 | Breed Registration Number | (0010,2295) | Identification number of a veterinary patient within the registry. |
 | Issuer of Patient ID | (0010,0021) | Identifier of the Assigning Authority (system, organization, agency, or department) that issued the Patient ID. ```
+
+#### General study module
+| Attribute Name   | Tag           | Description           |
+| ---------------- | --------------| --------------------- |
+| Referring Physician's Name | (0008,0090) | Name of the patient's referring physician.  |
+| Accession Number | (0008,0050) | A RIS generated number that identifies the order for the Study. |
+| Study Description | (0008,1030) | Institution-generated description or classification of the Study (component) performed. |
+
 ## Limitations
 There are a few limitations when you use the bulk update operation:
 
