@@ -119,7 +119,7 @@ These metrics are available for Azure Database for MySQL:
 ## Server logs
 
 In Azure Database for MySQL Server – Flexible Server, users can configure and download server logs to assist with troubleshooting efforts. With this feature enabled, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal and Azure CLI to download the files to work with them.
-The server logs feature is disabled by default. For information about how to enable server logs, see [How to enable and download server logs for Azure Database for MySQL - Flexible Serve.r](./how-to-server-logs-portal.md)
+The server logs feature is disabled by default. For information about how to enable server logs, see [How to enable and download server logs for Azure Database for MySQL - Flexible Server.](./how-to-server-logs-portal.md)
 
 Server logs supports [slow query logs](./concepts-slow-query-logs.md) and [error logs](./concepts-error-logs.md) for enabling and downloading.
 To perform a historical analysis of your data, in the Azure portal, on the Diagnostics settings pane for your server, add a diagnostic setting to send the logs to Log Analytics workspace, Azure Storage, or event hubs. For more information, see [Set up diagnostics](./tutorial-query-performance-insights.md#set-up-diagnostics).
