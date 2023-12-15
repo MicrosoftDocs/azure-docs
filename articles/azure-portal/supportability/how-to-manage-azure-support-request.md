@@ -93,7 +93,7 @@ To close a support request, select the **Close request** option near the top of 
 To reopen a closed support request, select **Reopen request** near the top of the screen. When prompted to confirm, select **Reopen request.** Your support request will then be active again.
 
 > [!NOTE]
-> Closed support requests can be viewed and reopened for 13 months after they're opened. After that time, they may be removed and not available to view or reopen.
+> Closed support requests can be viewed and reopened for 13 months. After that time, they may be removed and not available to view or reopen.
 
 ## Cancel a support plan
 
