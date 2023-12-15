@@ -180,7 +180,7 @@ In this section, you perform the steps to create a service principal for a Micro
     $application = New-AzADApplication `
         -DisplayName "HDIADL" `
         -HomePage "https://contoso.com" `
-        -IdentifierUris "https://mycontoso.com" `
+        -IdentifierUris "https://contoso.com" `
         -CertValue $credential  `
         -StartDate $certificatePFX.NotBefore  `
         -EndDate $certificatePFX.NotAfter

@@ -2,7 +2,6 @@
 title: Pronunciation with Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure AI services
 description: Learn about Speech Synthesis Markup Language (SSML) elements to improve pronunciation.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

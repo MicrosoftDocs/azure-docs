@@ -206,6 +206,6 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
     :::image type="content" source="media/monitor-visually/create-alert-rule.png" alt-text="Screenshot of options for creating an alert rule.":::
 
-## Next steps
+## Related content
 
 To learn about monitoring and managing pipelines, see the [Monitor and manage pipelines programmatically](./monitor-programmatically.md) article.

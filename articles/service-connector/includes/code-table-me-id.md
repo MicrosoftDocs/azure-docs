@@ -20,7 +20,7 @@ ms.author: wchi
     using Azure.Identity;
     using Azure.Data.Tables;
     
-    // get table endpoint
+    // get Table endpoint
     var tableEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGETABLE_RESOURCEENDPOINT");
     
     // Uncomment the following lines according to the authentication type.
@@ -156,5 +156,5 @@ ms.author: wchi
     const tableServiceClient = new TableServiceClient(account_url, credential);
     ```
 
-### [Other](#tab/other)
-For other languages, you can use the table storage account URL and other properties that Service Connector sets to the environment variables to connect the table storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).
+### [Other](#tab/none)
+For other languages, you can use the Azure Table Storage account URL and other properties that Service Connector sets to the environment variables to connect to Azure Table Storage. For environment variable details, see [Integrate Azure Table Storage with Service Connector](../how-to-integrate-storage-table.md).

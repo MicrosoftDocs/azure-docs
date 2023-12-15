@@ -27,11 +27,11 @@ Once your administrator has connected a VMware vCenter to Azure, represented VMw
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com). Navigate to virtual machines browse view. You'll see a unified browse experience for Azure and Arc virtual machines.
 
-   :::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the unified browse experience for Azure and Arc virtual machines.":::
+   :::image type="content" source="media/quick-start-create-a-vm/browse-virtual-machines.png" alt-text="Screenshot showing the unified browse experience for Azure and Arc virtual machines." lightbox="media/quick-start-create-a-vm/browse-virtual-machines.png":::
 
 2. Select **Add** and then select **Azure Arc machine** from the drop-down.
 
-   :::image type="content" source="media/create-azure-arc-virtual-machine-1.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine.":::
+   :::image type="content" source="media/quick-start-create-a-vm/create-azure-arc-virtual-machine.png" alt-text="Screenshot showing the Basic tab for creating an Azure Arc virtual machine." lightbox="media/quick-start-create-a-vm/create-azure-arc-virtual-machine.png":::
 
 3. Select the **Subscription** and **Resource group** where you want to deploy the VM.
 

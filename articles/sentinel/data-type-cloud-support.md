@@ -11,7 +11,7 @@ ms.author: lwainstein
 
 Microsoft Sentinel data connectors use data stored in various cloud environments, like the Microsoft 365 Commercial cloud or the Government Community Cloud (GCC). 
 
-This article describes the types of clouds that affect the supported data types for the different connectors that Microsoft Sentinel supports. Specifically, support varies for different Microsoft 365 Defender connector data types in different GCC environments.  
+This article describes the types of clouds that affect the supported data types for the different connectors that Microsoft Sentinel supports. Specifically, support varies for different Microsoft Defender XDR connector data types in different GCC environments.  
 
 ## Microsoft cloud types
 
@@ -32,7 +32,7 @@ This diagram shows the hierarchy of the Office 365 and Microsoft Azure clouds an
 
 Because of this complexity, different types of data streaming into Microsoft Sentinel may or may not be fully supported.
 
-## How cloud support affects data from Microsoft 365 Defender connectors
+## How cloud support affects data from Microsoft Defender XDR connectors
 
 Your environment ingests data from multiple connectors. The type of cloud you use affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more.
 

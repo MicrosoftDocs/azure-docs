@@ -4,6 +4,7 @@ description: Learn how to enable Artifact Cache with authentication using Azure 
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable Artifact Cache with authentication - Azure portal

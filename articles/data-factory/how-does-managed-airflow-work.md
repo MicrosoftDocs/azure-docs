@@ -126,8 +126,9 @@ If you're using Airflow version 1.x, delete DAGs that are deployed on any Airflo
 > [!NOTE]
 > This is the current experience during the Public Preview, and we will be improving this experience. 
 
-## Next steps
+## Related content
 
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
 - [Managed Airflow pricing](airflow-pricing.md)
 - [How to change the password for Managed Airflow environments](password-change-airflow.md)
+

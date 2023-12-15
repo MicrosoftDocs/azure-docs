@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN Preview networking options, includ
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/29/2023
 ms.author: rogarana
 ms.custom: references_regions
 ---
@@ -29,6 +29,10 @@ After configuring endpoints, you can configure network rules to further control 
 ## Public network access
 
 You can enable or disable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups in that SAN over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. If you disable public access at the SAN level, access to the volume groups within that SAN is only available over private endpoints.
+
+### Regional availability
+
+[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
 ## Storage service endpoints
 

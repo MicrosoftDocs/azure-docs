@@ -163,6 +163,8 @@ items:
       href: configure-storage-policy.md
     - name: Configure vSAN
       href: configure-vsan.md
+    - name: Configure Azure Elastic SAN
+      href: configure-azure-elastic-san.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
@@ -195,6 +197,8 @@ items:
       href: azure-vmware-solution-citrix.md
   - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
+  - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+    href: enable-sql-azure-hybrid-benefit.md
   - name: Migrate Microsoft SQL Server workloads
     items:
     - name: Migrate a SQL Server standalone instance to Azure VMware Solution
@@ -247,8 +251,6 @@ items:
       href: deploy-vm-content-library.md
     - name: Enable VMware HCX access over the internet
       href: enable-hcx-access-over-internet.md
-    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
-      href: enable-sql-azure-hybrid-benefit.md
     - name: Configure VMware Cloud Director Service in Azure VMware Solution
       href: configure-vmware-cloud-director-service-azure-vmware-solution.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)

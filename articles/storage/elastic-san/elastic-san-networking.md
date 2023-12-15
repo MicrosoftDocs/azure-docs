@@ -4,9 +4,9 @@ description: Learn how to configure access to an Azure Elastic SAN Preview.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 11/29/2023
 ms.author: rogarana
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure network access for Azure Elastic SAN Preview
@@ -37,17 +37,11 @@ There are no extra registration steps required.
 
 You enable public Internet access to your Elastic SAN endpoints at the SAN level. Enabling public network access for an Elastic SAN allows you to configure public access to individual volume groups over storage service endpoints. By default, public access to individual volume groups is denied even if you allow it at the SAN level. You must explicitly configure your volume groups to permit access from specific IP address ranges and virtual network subnets.
 
-You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure portal, PowerShell, or the Azure CLI.
+You can enable public network access when you create an elastic SAN, or enable it for an existing SAN using the Azure PowerShell module or the Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
-To enable public network access when you create a new Elastic SAN, proceed through the deployment. On the **Networking** tab, select **Enable from virtual networks** as shown in this image:
-
-:::image type="content" source="media/elastic-san-networking/elastic-san-public-network-access-create-san.png" alt-text="Screenshot showing how to enable public network access during creation of a new Elastic SAN." lightbox="media/elastic-san-networking/elastic-san-public-network-access-create-san.png":::
-
-To enable it for an existing Elastic SAN, navigate to **Networking** under **Settings** for the Elastic SAN then select **Enable public access from selected virtual networks** as shown in this image:
-
-:::image type="content" source="media/elastic-san-networking/elastic-san-public-network-access-update-san.png" alt-text="Screenshot showing how to enable public network access for an existing Elastic SAN." lightbox="media/elastic-san-networking/elastic-san-public-network-access-update-san.png":::
+Use the Azure PowerShell module or the Azure CLI to enable public network access.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -75,7 +69,7 @@ $NewEsanArguments = @{
     ExtendedCapacitySizeTiB = $ExtendedSize
     Location                = $Location
     SkuName                 = $SkuName
-    PublicNetworkAccess     = Enabled
+    PublicNetworkAccess     = "Enabled"
 }
 # Create the Elastic San.
 New-AzElasticSan @NewEsanArguments
@@ -191,7 +185,7 @@ Deploying a private endpoint for an Elastic SAN Volume group using PowerShell in
 1. Get the Elastic SAN Volume Group.
 1. Create a private link service connection using the volume group as input.
 1. Create the private endpoint using the subnet and the private link service connection as input.
-1. **(Optional** *if you're using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
+1. **(Optional)** *if you're using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
 Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location` with your own values:
 

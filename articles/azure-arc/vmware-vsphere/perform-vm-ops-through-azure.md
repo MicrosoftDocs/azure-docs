@@ -23,7 +23,7 @@ In this article, you learn how to perform various operations on the Azure Arc-en
 
 - Install extensions (enabling guest management is required). All the [extensions](../servers/manage-vm-extensions.md#extensions) that are available with Arc-enabled Servers are supported.
 
-:::image type="content" source="media/browse-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/manage-virtual-machines.png":::
+:::image type="content" source="media/perform-vm-ops-through-azure/manage-virtual-machines.png" alt-text="Screenshot showing the VMware virtual machine operations." lightbox="media/perform-vm-ops-through-azure/manage-virtual-machines.png":::
 
 To perform guest OS operations on Arc-enabled VMs, you must enable guest management on the VMs. When you enable guest management, the Arc Connected Machine Agent is installed on the VM.
 

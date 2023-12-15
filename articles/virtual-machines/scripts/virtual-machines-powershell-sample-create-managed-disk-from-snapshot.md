@@ -1,6 +1,6 @@
 ---
 title: Create managed disk from snapshot - PowerShell sample
-description: Azure PowerShell Script Sample - Create a managed disk from a snapshot
+description: Azure PowerShell Sample - restore a disk from a snapshot and learn about the performance impact of restoring managed disk snapshots
 services: virtual-machines
 documentationcenter: storage
 author: ramankumarlive
@@ -11,7 +11,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.custom: devx-track-azurepowershell
 ms.workload: infrastructure
-ms.date: 10/24/2023
+ms.date: 11/17/2023
 ms.author: ramankum
 ---
 

@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -36,13 +36,14 @@ Azure service: [Azure Cache for Redis](../../../azure-cache-for-redis/index.yml)
 > | Microsoft.Cache/redis/forceReboot/action | Force reboot a cache instance, potentially with data loss. |
 > | Microsoft.Cache/redis/stop/action | Stop an Azure Cache for Redis, potentially with data loss. |
 > | Microsoft.Cache/redis/start/action | Start an Azure Cache for Redis |
+> | Microsoft.Cache/redis/flush/action | Deletes all of the keys in a cache.  |
 > | Microsoft.Cache/redis/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
-> | Microsoft.Cache/redis/accessPolicies/read | Operation Read Redis Access Policies |
-> | Microsoft.Cache/redis/accessPolicies/write | Operation Write Redis Access Policies |
-> | Microsoft.Cache/redis/accessPolicies/delete | Operation Delete Redis Access Policies Long |
-> | Microsoft.Cache/redis/accessPolicyAssignments/read | Operation Read Redis Access Policy Assignments Long |
-> | Microsoft.Cache/redis/accessPolicyAssignments/write | Operation Write Redis Access Policy Assignments Long |
-> | Microsoft.Cache/redis/accessPolicyAssignments/delete | Operation Delete Access Policy Assignments Long |
+> | Microsoft.Cache/redis/accessPolicies/read | Get Redis Access Policies |
+> | Microsoft.Cache/redis/accessPolicies/write | Modify Redis Access Policies |
+> | Microsoft.Cache/redis/accessPolicies/delete | Delete Redis Access Policies |
+> | Microsoft.Cache/redis/accessPolicyAssignments/read | Get Redis Access Policy Assignments |
+> | Microsoft.Cache/redis/accessPolicyAssignments/write | Modify Redis Access Policy Assignments |
+> | Microsoft.Cache/redis/accessPolicyAssignments/delete | Delete Access Policy Assignments |
 > | Microsoft.Cache/redis/detectors/read | Get the properties of one or all detectors for an Azure Cache for Redis cache |
 > | Microsoft.Cache/redis/eventGridFilters/read | Get Redis Cache Event Grid Filter |
 > | Microsoft.Cache/redis/eventGridFilters/write | Update Redis Cache Event Grid Filters |
@@ -65,12 +66,6 @@ Azure service: [Azure Cache for Redis](../../../azure-cache-for-redis/index.yml)
 > | Microsoft.Cache/redis/privateEndpointConnections/write | Write a private endpoint connection |
 > | Microsoft.Cache/redis/privateEndpointConnections/delete | Delete a private endpoint connection |
 > | Microsoft.Cache/redis/privateLinkResources/read | Read 'groupId' of redis subresource that a private link can be connected to |
-> | Microsoft.Cache/redis/roleAssignments/read | Read role assignments on a Redis Cache |
-> | Microsoft.Cache/redis/roleAssignments/write | Create or update role assignments on a Redis Cache |
-> | Microsoft.Cache/redis/roleAssignments/delete | Delete All Redis Role Assignments |
-> | Microsoft.Cache/redis/roles/read | Read roles on a Redis Cache |
-> | Microsoft.Cache/redis/roles/write | Create or update role on a Redis Cache |
-> | Microsoft.Cache/redis/roles/delete | Delete role on a Redis Cache |
 > | Microsoft.Cache/redisEnterprise/delete | Delete the entire Redis Enterprise cache |
 > | Microsoft.Cache/redisEnterprise/read | View the Redis Enterprise cache's settings and configuration in the management portal |
 > | Microsoft.Cache/redisEnterprise/write | Modify the Redis Enterprise cache's settings and configuration in the management portal |
@@ -251,6 +246,7 @@ Azure service: [Data Factory](../../../data-factory/index.yml)
 > | Microsoft.DataFactory/factories/querytriggerruns/read | Reads the Result of Trigger Runs. |
 > | Microsoft.DataFactory/factories/sandboxpipelineruns/read | Gets the debug run info for the Pipeline. |
 > | Microsoft.DataFactory/factories/sandboxpipelineruns/sandboxActivityRuns/read | Gets the debug run info for the Activity. |
+> | Microsoft.DataFactory/factories/sessions/write | Writes any Session. |
 > | Microsoft.DataFactory/factories/triggerruns/read | Reads the Trigger Runs. |
 > | Microsoft.DataFactory/factories/triggers/read | Reads any Trigger. |
 > | Microsoft.DataFactory/factories/triggers/write | Creates or Updates any Trigger. |
@@ -285,9 +281,16 @@ Azure service: [Azure Database Migration Service](../../../dms/index.yml)
 > | Microsoft.DataMigration/databaseMigrations/read | Retrieve the Database Migration resource |
 > | Microsoft.DataMigration/databaseMigrations/cancel/action | Stop ongoing migration for the database |
 > | Microsoft.DataMigration/databaseMigrations/cutover/action | Cutover online migration operation for the database |
+> | Microsoft.DataMigration/locations/migrationServiceOperationResults/read | Retrieve Service Operation Results |
 > | Microsoft.DataMigration/locations/operationResults/read | Get the status of a long-running operation related to a 202 Accepted response |
 > | Microsoft.DataMigration/locations/operationStatuses/read | Get the status of a long-running operation related to a 202 Accepted response |
 > | Microsoft.DataMigration/locations/sqlMigrationServiceOperationResults/read | Retrieve Service Operation Results |
+> | Microsoft.DataMigration/migrationServices/write | Create a new or change properties of existing Service |
+> | Microsoft.DataMigration/migrationServices/delete | Delete existing Service |
+> | Microsoft.DataMigration/migrationServices/read | Retrieve details of Migration Service |
+> | Microsoft.DataMigration/migrationServices/read | Retrieve details of Migration Services in a Resource Group |
+> | Microsoft.DataMigration/migrationServices/read | Retrieve all services in the Subscription |
+> | Microsoft.DataMigration/migrationServices/listMigrations/read |  |
 > | Microsoft.DataMigration/operations/read | Get all REST Operations |
 > | Microsoft.DataMigration/services/read | Read information about resources |
 > | Microsoft.DataMigration/services/write | Create or update resources and their properties |
@@ -328,6 +331,9 @@ Azure service: [Azure Database Migration Service](../../../dms/index.yml)
 > | Microsoft.DataMigration/sqlMigrationServices/read | Retrieve all services in the Subscription |
 > | Microsoft.DataMigration/sqlMigrationServices/listMigrations/read |  |
 > | Microsoft.DataMigration/sqlMigrationServices/MonitoringData/read | Retrieve the Monitoring Data |
+> | Microsoft.DataMigration/sqlMigrationServices/tasks/write | Create or Update Migration Service task |
+> | Microsoft.DataMigration/sqlMigrationServices/tasks/delete |  |
+> | Microsoft.DataMigration/sqlMigrationServices/tasks/read | Get Migration Service task details |
 
 ### Microsoft.DBforMariaDB
 
@@ -440,6 +446,8 @@ Azure service: [Azure Database for MySQL](../../../mysql/index.yml)
 > | Microsoft.DBforMySQL/flexibleServers/administrators/read | Returns the list of administrators for a server or gets the properties for the specified administrator |
 > | Microsoft.DBforMySQL/flexibleServers/administrators/write | Creates an administrator with the specified parameters or updates an existing administrator |
 > | Microsoft.DBforMySQL/flexibleServers/administrators/delete | Deletes an existing server administrator. |
+> | Microsoft.DBforMySQL/flexibleServers/advancedThreatProtectionSettings/read | Returns the list of Advanced Threat Protection settings for a server or gets the properties for the specified Advanced Threat Protection setting. |
+> | Microsoft.DBforMySQL/flexibleServers/advancedThreatProtectionSettings/write | Update the server's advanced threat protection setting. |
 > | Microsoft.DBforMySQL/flexibleServers/backups/write | Creates a server backup with specific backup name. |
 > | Microsoft.DBforMySQL/flexibleServers/backups/read | Returns the list of backups for a server or gets the properties for the specified backup. |
 > | Microsoft.DBforMySQL/flexibleServers/configurations/read | Returns the list of  MySQL server configurations or gets the configurations for the specified server. |
@@ -451,6 +459,8 @@ Azure service: [Azure Database for MySQL](../../../mysql/index.yml)
 > | Microsoft.DBforMySQL/flexibleServers/firewallRules/read | Returns the list of firewall rules for a server or gets the properties for the specified firewall rule. |
 > | Microsoft.DBforMySQL/flexibleServers/firewallRules/delete | Deletes an existing firewall rule. |
 > | Microsoft.DBforMySQL/flexibleServers/logFiles/read | Return a list of server log files for a server with file download links |
+> | Microsoft.DBforMySQL/flexibleServers/maintenances/read |  |
+> | Microsoft.DBforMySQL/flexibleServers/maintenances/write |  |
 > | Microsoft.DBforMySQL/flexibleServers/outboundIp/read | Get the outbound ip of server |
 > | Microsoft.DBforMySQL/flexibleServers/privateEndpointConnectionProxies/read | Returns the list of private endpoint connection proxies or gets the properties for the specified private endpoint connection proxy. |
 > | Microsoft.DBforMySQL/flexibleServers/privateEndpointConnectionProxies/delete | Deletes an existing private endpoint connection proxy |
@@ -476,6 +486,7 @@ Azure service: [Azure Database for MySQL](../../../mysql/index.yml)
 > | Microsoft.DBforMySQL/locations/administratorOperationResults/read | Return MySQL Server administrator operation results |
 > | Microsoft.DBforMySQL/locations/azureAsyncOperation/read | Return MySQL Server Operation Results |
 > | Microsoft.DBforMySQL/locations/capabilities/read | Gets the capabilities for this subscription in a given location |
+> | Microsoft.DBforMySQL/locations/capabilitySets/read |  |
 > | Microsoft.DBforMySQL/locations/operationResults/read | Return ResourceGroup based MySQL Server Operation Results |
 > | Microsoft.DBforMySQL/locations/operationResults/read | Return MySQL Server Operation Results |
 > | Microsoft.DBforMySQL/locations/performanceTiers/read | Returns the list of Performance Tiers available. |
@@ -570,9 +581,15 @@ Azure service: [Azure Database for PostgreSQL](../../../postgresql/index.yml)
 > | Microsoft.DBforPostgreSQL/flexibleServers/restart/action | Restarts an existing server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/start/action | Starts an existing server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/stop/action | Stops an existing server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/getSourceDatabaseList/action |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/testConnectivity/action |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/startLtrBackup/action | Start long term backup for a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrPreBackup/action | Checks if a server is ready for a long term backup |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/read | Return the list of server administrators or gets the properties for the specified server administrator. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/delete | Deletes an existing PostgreSQL server administrator. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/administrators/write | Creates a server administrator with the specified parameters or update the properties or tags for the specified server administrator. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/advancedThreatProtectionSettings/read | Returns the list of Advanced Threat Protection or gets the properties for the specified Advanced Threat Protection. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/advancedThreatProtectionSettings/write | Enables/Disables Azure Database for PostgreSQL Flexible Server Advanced Threat Protection |
 > | Microsoft.DBforPostgreSQL/flexibleServers/advisors/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/advisors/recommendedActions/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/backups/read |  |
@@ -585,6 +602,9 @@ Azure service: [Azure Database for PostgreSQL](../../../postgresql/index.yml)
 > | Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/write | Creates a firewall rule with the specified parameters or update an existing rule. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/read | Return the list of firewall rules for a server or gets the properties for the specified firewall rule. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/firewallRules/delete | Deletes an existing firewall rule. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/logFiles/read | Return a list of server log Files for a PostgreSQL Flexible server with File download links |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read | Returns the PostgreSQL server long term backup operation tracking by backup name. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read | Returns the list of  PostgreSQL server long term backup operation tracking. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/write | Creates a migration with the specified parameters. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | Gets the properties for the specified migration workflow. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | List of migration workflows for the specified database server. |
@@ -594,6 +614,10 @@ Azure service: [Azure Database for PostgreSQL](../../../postgresql/index.yml)
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/delete | Deletes an existing private endpoint connection proxy resource. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/write | Creates a private endpoint connection proxy with the specified parameters or updates the properties or tags for the specified private endpoint connection proxy |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionProxies/validate/action | Validates a private endpoint connection create call from NRP side |
+> | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/delete | Deletes an existing private endpoint connection |
+> | Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
 > | Microsoft.DBforPostgreSQL/flexibleServers/privateLinkResources/read | Return a list containing private link resource or gets the specified private link resource. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/providers/Microsoft.Insights/diagnosticSettings/read | Gets the disagnostic setting for the resource |
 > | Microsoft.DBforPostgreSQL/flexibleServers/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
@@ -603,6 +627,11 @@ Azure service: [Azure Database for PostgreSQL](../../../postgresql/index.yml)
 > | Microsoft.DBforPostgreSQL/flexibleServers/queryTexts/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/replicas/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/topQueryStatistics/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Creates or Updates VirtualEndpoint |
+> | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Patches the VirtualEndpoint. Currently patch does a full replace |
+> | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/delete | Deletes the VirtualEndpoint |
+> | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/read | Gets the VirtualEndpoint details |
+> | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/read | Lists the VirtualEndpoints |
 > | Microsoft.DBforPostgreSQL/locations/administratorAzureAsyncOperation/read | Gets in-progress operations on PostgreSQL server administrators |
 > | Microsoft.DBforPostgreSQL/locations/administratorOperationResults/read | Return PostgreSQL Server administrator operation results |
 > | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | Return PostgreSQL Server Operation Results |
@@ -819,17 +848,12 @@ Azure service: [Azure Cosmos DB](../../../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/databases/metricDefinitions/read | Reads the database metric definitions |
 > | Microsoft.DocumentDB/databaseAccounts/databases/metrics/read | Reads the database metrics. |
 > | Microsoft.DocumentDB/databaseAccounts/databases/usages/read | Reads the database usages. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/write | Create a Graph. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/read | Read a Graph or list all the graphs. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/delete | Delete a Graph. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/operationResults/read | Read status of the asynchronous operation. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/throughputSettings/write | Update a Graph throughput. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/throughputSettings/read | Read a Graph throughput. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/throughputSettings/migrateToAutoscale/action | Migrate Graph offer to autoscale. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/throughputSettings/migrateToManualThroughput/action | Migrate a Graph throughput offer to manual throughput. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/throughputSettings/migrateToAutoscale/operationResults/read | Read status of the asynchronous operation. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/throughputSettings/migrateToManualThroughput/operationResults/read | Read status of the asynchronous operation. |
-> | Microsoft.DocumentDB/databaseAccounts/graphs/throughputSettings/operationResults/read | Read status of the asynchronous operation. |
+> | Microsoft.DocumentDB/databaseAccounts/dataTransferJobs/read | Read container copy job or List all container copy jobs in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/dataTransferJobs/write | Create container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/dataTransferJobs/pause/action | Pause a container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/dataTransferJobs/resume/action | Resume container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/dataTransferJobs/cancel/action | Cancel container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/dataTransferJobs/complete/action | Complete an online container copy job in a database account |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/write | Create a Gremlin database. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/read | Read a Gremlin database or list all the Gremlin databases. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/delete | Delete a Gremlin database. |
@@ -891,6 +915,7 @@ Azure service: [Azure Cosmos DB](../../../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/networkSecurityPerimeterAssociationProxies/read | Read association proxies related to network security perimeter |
 > | Microsoft.DocumentDB/databaseAccounts/networkSecurityPerimeterAssociationProxies/write | Write association proxies related to network security perimeter |
 > | Microsoft.DocumentDB/databaseAccounts/networkSecurityPerimeterAssociationProxies/delete | Deletes association proxies related to network security perimeter |
+> | Microsoft.DocumentDB/databaseAccounts/networkSecurityPerimeterConfigurations/read | Get Effective configuration for Network Security Perimeter |
 > | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces/write | Create or update a notebook workspace |
 > | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces/read | Read a notebook workspace |
 > | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces/delete | Delete a notebook workspace |
@@ -933,9 +958,9 @@ Azure service: [Azure Cosmos DB](../../../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/write | Create or update a SQL container. |
 > | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/read | Read a SQL container or list all the SQL containers. |
 > | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/delete | Delete a SQL container. |
-> | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/partitionMerge/action | Read status of the asynchronous operation. |
+> | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/partitionMerge/action | Merge the physical partitions of a SQL container. |
 > | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/operationResults/read | Read status of the asynchronous operation. |
-> | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/partitionMerge/operationResults/read | Merge the physical partitions of a SQL container. |
+> | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/partitionMerge/operationResults/read | Read status of the asynchronous operation. |
 > | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/storedProcedures/write | Create or update a SQL stored procedure. |
 > | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/storedProcedures/read | Read a SQL stored procedure or list all the SQL stored procedures. |
 > | Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/storedProcedures/delete | Delete a SQL stored procedure. |
@@ -992,8 +1017,29 @@ Azure service: [Azure Cosmos DB](../../../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/locations/operationsStatus/read | Reads Status of Asynchronous Operations |
 > | Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read | Read a restorable database account or List all the restorable database accounts |
 > | Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action | Submit a restore request |
+> | Microsoft.DocumentDB/mongoClusters/read | Reads a Mongo Cluster or list all Mongo Clusters. |
+> | Microsoft.DocumentDB/mongoClusters/write | Create or Update the properties or tags of the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/delete | Deletes the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/PrivateEndpointConnectionsApproval/action | Manage a private endpoint connection of Mongo Cluster |
+> | Microsoft.DocumentDB/mongoClusters/listConnectionStrings/action | List connection strings for a given Mongo Cluster |
+> | Microsoft.DocumentDB/mongoClusters/firewallRules/read | Reads a firewall rule or lists all firewall rules for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/firewallRules/write | Create or Update a firewall rule on a specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/firewallRules/delete | Deletes an existing firewall rule for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateEndpointConnectionProxies/read | Reads a private endpoint connection proxy for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateEndpointConnectionProxies/write | Create or Update a private endpoint connection proxy on a specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateEndpointConnectionProxies/delete | Deletes an existing private endpoint connection proxy for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateEndpointConnectionProxies/validate/action | Validates private endpoint connection proxy for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateEndpointConnections/read | Reads a private endpoint connection or lists all private endpoint connection for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateEndpointConnections/write | Create or Update a private endpoint connection on a specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateEndpointConnections/delete | Deletes an existing private endpoint connection for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/privateLinkResources/read | Reads a private link resource or lists all private link resource for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/users/read | Reads a user or lists all users for the specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/users/write | Create or Update a user on a specified Mongo Cluster. |
+> | Microsoft.DocumentDB/mongoClusters/users/delete | Deletes an existing user for the specified Mongo Cluster. |
 > | Microsoft.DocumentDB/operationResults/read | Read status of the asynchronous operation |
 > | Microsoft.DocumentDB/operations/read | Read operations available for the Microsoft DocumentDB  |
+> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/read | Read throughputPool account in throughputPool |
+> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/write | Create throughputPool account in throughputPool |
 
 ### Microsoft.Sql
 
@@ -1020,6 +1066,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | Retrieve result of the extended server blob auditing policy Set operation |
 > | Microsoft.Sql/locations/auditingSettingsOperationResults/read | Retrieve result of the server blob auditing policy Set operation |
 > | Microsoft.Sql/locations/capabilities/read | Gets the capabilities for this subscription in a given location |
+> | Microsoft.Sql/locations/changeLongTermRetentionBackupAccessTierAzureAsyncOperation/read | Gets the async operation status of changing long term retention backup access tier operation. |
+> | Microsoft.Sql/locations/changeLongTermRetentionBackupAccessTierOperationResults/read | Gets the changing LTR backup access tier operation result. |
 > | Microsoft.Sql/locations/connectionPoliciesAzureAsyncOperation/read | Gets the in progress operation of server connection policy update. |
 > | Microsoft.Sql/locations/connectionPoliciesOperationResults/read | Gets the in progress operation of server connection policy update. |
 > | Microsoft.Sql/locations/databaseAzureAsyncOperation/read | Gets the status of a database operation. |
@@ -1061,6 +1109,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/locations/ipv6FirewallRulesOperationResults/read | Gets the status of a firewall rule operation. |
 > | Microsoft.Sql/locations/jobAgentAzureAsyncOperation/read | Gets the status of an job agent operation. |
 > | Microsoft.Sql/locations/jobAgentOperationResults/read | Gets the result of an job agent operation. |
+> | Microsoft.Sql/locations/jobAgentPrivateEndpointAzureAsyncOperation/read | Gets the status of a job agent private endpoint operation |
+> | Microsoft.Sql/locations/jobAgentPrivateEndpointOperationResults/read | Gets the result of a job agent private endpoint operation |
 > | Microsoft.Sql/locations/ledgerDigestUploadsAzureAsyncOperation/read | Gets in-progress operations of ledger digest upload settings |
 > | Microsoft.Sql/locations/ledgerDigestUploadsOperationResults/read | Gets in-progress operations of ledger digest upload settings |
 > | Microsoft.Sql/locations/longTermRetentionBackupAzureAsyncOperation/read | Get the status of long term retention backup operation |
@@ -1072,11 +1122,14 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read | Returns a list of LTR backups for a managed instance database |
 > | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete | Deletes an LTR backup for a managed instance database |
 > | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read | Returns a list of managed instance LTR backups for a specific managed instance |
+> | Microsoft.Sql/locations/longTermRetentionPolicyAzureAsyncOperation/read | Gets the status of a long term retention policy operation |
+> | Microsoft.Sql/locations/longTermRetentionPolicyOperationResults/read | Gets the status of a long term retention policy operation |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read | Lists the long term retention backups for every database on a server |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/copy/action | Copy a long term retention backup |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/update/action | Update a long term retention backup |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read | Lists the long term retention backups for a database |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Deletes a long term retention backup |
+> | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/changeAccessTier/action | Change long term retention backup access tier operation. |
 > | Microsoft.Sql/locations/managedDatabaseMoveAzureAsyncOperation/read | Gets Managed Instance database move Azure async operation. |
 > | Microsoft.Sql/locations/managedDatabaseMoveOperationResults/read | Gets Managed Instance database move operation result. |
 > | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | Completes managed database restore operation |
@@ -1101,12 +1154,16 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/locations/managedTransparentDataEncryptionOperationResults/read | Gets in-progress operations on managed database transparent data encryption |
 > | Microsoft.Sql/locations/networkSecurityPerimeterAssociationProxyAzureAsyncOperation/read | Get network security perimeter proxy azure async operation |
 > | Microsoft.Sql/locations/networkSecurityPerimeterAssociationProxyOperationResults/read | Get network security perimeter operation result |
+> | Microsoft.Sql/locations/networkSecurityPerimeterConfigurationsReconcileAzureAsyncOperation/read | Sync sql server network security perimeter effective configuration with Network Provider |
+> | Microsoft.Sql/locations/networkSecurityPerimeterConfigurationsReconcileOperationResults/read | Get Reconcile Network Security Perimeter Operation Result |
 > | Microsoft.Sql/locations/networkSecurityPerimeterUpdatesAvailableAzureAsyncOperation/read | Get network security perimeter updates available azure async operation |
 > | Microsoft.Sql/locations/privateEndpointConnectionAzureAsyncOperation/read | Gets the result for a private endpoint connection operation |
 > | Microsoft.Sql/locations/privateEndpointConnectionOperationResults/read | Gets the result for a private endpoint connection operation |
 > | Microsoft.Sql/locations/privateEndpointConnectionProxyAzureAsyncOperation/read | Gets the result for a private endpoint connection proxy operation |
 > | Microsoft.Sql/locations/privateEndpointConnectionProxyOperationResults/read | Gets the result for a private endpoint connection proxy operation |
 > | Microsoft.Sql/locations/refreshExternalGovernanceStatusAzureAsyncOperation/read | Refresh external governance enablement status async operation |
+> | Microsoft.Sql/locations/refreshExternalGovernanceStatusMIAzureAsyncOperation/read | Refresh external governance enablement status async operation |
+> | Microsoft.Sql/locations/refreshExternalGovernanceStatusMIOperationResults/read | Refresh external governance enablement status operation results |
 > | Microsoft.Sql/locations/refreshExternalGovernanceStatusOperationResults/read | Refresh external governance enablement status operation results |
 > | Microsoft.Sql/locations/replicationLinksAzureAsyncOperation/read | Return the get result of replication links async operation. |
 > | Microsoft.Sql/locations/replicationLinksOperationResults/read | Return the get result of replication links operation. |
@@ -1149,6 +1206,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/managedInstances/start/action | Starts a given Azure SQL Managed Instance. |
 > | Microsoft.Sql/managedInstances/stop/action | Stops a given Azure SQL Managed Instance. |
 > | Microsoft.Sql/managedInstances/failover/action | Customer initiated managed instance failover. |
+> | Microsoft.Sql/managedInstances/refreshExternalGovernanceStatus/action | Refreshes external governance enablemement status |
 > | Microsoft.Sql/managedInstances/crossSubscriptionPITR/action | Determine if user is allowed to do cross subscription PITR operations |
 > | Microsoft.Sql/managedInstances/administrators/read | Gets a list of managed instance administrators. |
 > | Microsoft.Sql/managedInstances/administrators/write | Creates or updates managed instance administrator with the specified parameters. |
@@ -1322,8 +1380,8 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/databases/automaticTuning/read | Returns automatic tuning settings for a database |
 > | Microsoft.Sql/servers/databases/automaticTuning/write | Updates automatic tuning settings for a database and returns updated settings |
 > | Microsoft.Sql/servers/databases/azureAsyncOperation/read | Gets the status of a database operation. |
-> | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/write | Create or update a database backup archival policy. |
-> | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/read | Return the list of backup archival policies of a specified database. |
+> | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/write | Sets a long term retention policy for a database |
+> | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/read | Gets a long term retention policy for a database |
 > | Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies/read | Gets a short term retention policy for a database |
 > | Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies/write | Updates a short term retention policy for a database |
 > | Microsoft.Sql/servers/databases/columns/read | Return a list of columns for a database |
@@ -1369,6 +1427,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/read | List the recommended sensitivity labels for a given database |
 > | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/write | Batch update recommended sensitivity labels |
 > | Microsoft.Sql/servers/databases/replicationLinks/read | Return the list of replication links or gets the properties for the specified replication links. |
+> | Microsoft.Sql/servers/databases/replicationLinks/write | Updates the replication link type |
 > | Microsoft.Sql/servers/databases/replicationLinks/delete | Execute deletion of an existing replication link. |
 > | Microsoft.Sql/servers/databases/replicationLinks/failover/action | Execute planned failover of an existing replication link. |
 > | Microsoft.Sql/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action | Execute forced failover of an existing replication link. |
@@ -1486,6 +1545,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/failoverGroups/delete | Deletes an existing failover group. |
 > | Microsoft.Sql/servers/failoverGroups/failover/action | Executes planned failover in an existing failover group. |
 > | Microsoft.Sql/servers/failoverGroups/forceFailoverAllowDataLoss/action | Executes forced failover in an existing failover group. |
+> | Microsoft.Sql/servers/failoverGroups/tryPlannedBeforeForcedFailover/action | Executes try planned before forced failover in an existing failover group. |
 > | Microsoft.Sql/servers/firewallRules/write | Creates a server firewall rule with the specified parameters, update the properties for the specified rule or overwrite all existing rules with new server firewall rule(s). |
 > | Microsoft.Sql/servers/firewallRules/read | Return the list of server firewall rules or gets the properties for the specified server firewall rule. |
 > | Microsoft.Sql/servers/firewallRules/delete | Deletes an existing server firewall rule. |
@@ -1514,6 +1574,9 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/jobAgents/jobs/steps/delete | Delete a job step |
 > | Microsoft.Sql/servers/jobAgents/jobs/versions/read | Get a job version |
 > | Microsoft.Sql/servers/jobAgents/jobs/versions/steps/read | Gets the job step version |
+> | Microsoft.Sql/servers/jobAgents/privateEndpoints/read | Get a private endpoint |
+> | Microsoft.Sql/servers/jobAgents/privateEndpoints/write | Create or update a private endpoint |
+> | Microsoft.Sql/servers/jobAgents/privateEndpoints/delete | Delete a private endpoint |
 > | Microsoft.Sql/servers/jobAgents/targetGroups/read | Get a target group |
 > | Microsoft.Sql/servers/jobAgents/targetGroups/write | Create or update a target group |
 > | Microsoft.Sql/servers/jobAgents/targetGroups/delete | Delete a target group |
@@ -1524,6 +1587,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/networkSecurityPerimeterAssociationProxies/write | Create network security perimeter association |
 > | Microsoft.Sql/servers/networkSecurityPerimeterAssociationProxies/delete | Drop network security perimeter association |
 > | Microsoft.Sql/servers/networkSecurityPerimeterConfigurations/read | Get sql server network security perimeter effective configuration |
+> | Microsoft.Sql/servers/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile Network Security Perimeter |
 > | Microsoft.Sql/servers/operationResults/read | Gets in-progress server operations |
 > | Microsoft.Sql/servers/operations/read | Return the list of operations performed on the server |
 > | Microsoft.Sql/servers/outboundFirewallRules/read | Read outbound firewall rule |
@@ -1597,9 +1661,10 @@ Azure service: [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-m
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/write | Create a new or changes properties of existing SQL availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/delete | Delete existing availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/sqlVirtualMachines/read | List Sql virtual machines by a particular sql virtual virtual machine group |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/fetchDCAssessment/action |  |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/redeploy/action | Redeploy existing SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/read | Retrieve details of SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/write | Create a new or change properties of existing SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/delete | Delete existing SQL virtual machine |
-> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/troubleshoot/action |  |
-> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/startAssessment/action |  |
-> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/redeploy/action | Redeploy existing SQL virtual machine |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/startAssessment/action | Starts SQL best practices Assessment on SQL virtual machine |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/troubleshoot/action | Start SQL virtual machine troubleshooting operation |

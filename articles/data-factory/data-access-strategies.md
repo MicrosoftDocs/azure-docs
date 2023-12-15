@@ -75,7 +75,7 @@ For more information about supported network security mechanisms on data stores 
     | Azure laaS                     | SQL Server,   Oracle,   etc.                                  | Yes       | -                   |
     | On-premise   laaS              | SQL Server,   Oracle,   etc.                                  | Yes       | -                   |
 
-## Next steps
+## Related content
 
 For more information, see the following related articles:
 * [Supported data stores](./copy-activity-overview.md#supported-data-stores-and-formats)

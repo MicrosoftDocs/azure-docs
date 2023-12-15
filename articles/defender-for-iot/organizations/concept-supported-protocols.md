@@ -31,7 +31,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
 |**ISO**     |  CLNP (ISO 8473)<br> COTP (ISO 8073)<br> ISO Industrial Protocol<br>  MQTT (IEC 20922)       |
 | **Jenesys** |FOX <br>Niagara |
-|**Medical**     |ASTM<br> HL7         |
+|**Medical**     |ASTM<br> HL7  <br> DICOM  <br>  POCT1     |
 |**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
 |**Mitsubishi**     |   Melsoft / Melsec (Mitsubishi Electric)      |
 |**Omron**     |  FINS <br>HTTP      |

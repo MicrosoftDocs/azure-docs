@@ -19,7 +19,7 @@ This article provides troubleshooting steps and fixes for MedTech service deploy
 >  
 > [How to use the MedTech service monitoring and health checks tabs](how-to-use-monitoring-and-health-checks-tabs.md) 
 >
-> [How to configure the MedTech service metrics](how-to-configure-metrics.md)
+> [How to configure the MedTech service metrics](configure-metrics.md)
 >
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)
 
@@ -98,7 +98,7 @@ Here's a list of errors that can be found in the Azure Resource Manager (ARM) AP
 
 **Displayed**: ARM API and Azure portal
 
-**Description**: MedTech service's FHIR destination resource quota is reached (default is one per MedTech service).
+**Description**: MedTech service's FHIR&reg; destination resource quota is reached (default is one per MedTech service).
 
 **Fix**: Delete the existing instance of the MedTech service's FHIR destination resource. Only one FHIR destination resource is permitted per MedTech service.
 

@@ -4,7 +4,7 @@ description: Learn how you can view Azure Reservations as a Cloud Solution Provi
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: nitinarora
+ms.reviewer: primittal
 ms.topic: how-to
 ms.date: 06/03/2022
 ms.author: banders

@@ -6,6 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.custom: "seodec18, mvc"
+ms.service: container-registry
 ---
 
 # Tutorial: Deploy a web app from a geo-replicated Azure container registry

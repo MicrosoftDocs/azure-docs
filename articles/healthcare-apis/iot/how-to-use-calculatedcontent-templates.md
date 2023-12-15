@@ -52,7 +52,7 @@ The CalculatedContent templates allow matching on and extracting values from a d
 |timestampExpression|The expression to extract the timestamp value for the measurement's `OccurrenceTimeUtc` value.|`$.matchedToken.endDate`|`@.matchedToken.endDate`|
 |patientIdExpression|The expression to extract the patient identifier. *Required* when the MedTech services's **Resolution type** is set to **Create**, and *optional* when the MedTech service's **Resolution type** is set to **Lookup**.|`$.matchedToken.patientId`|`@.matchedToken.patientId`|
 |encounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.matchedToken.encounterId`|`@.matchedToken.encounterId`
-|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.matchedToken.correlationId`|`@.matchedToken.correlationId`|
+|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR&reg; destination mapping.|`$.matchedToken.correlationId`|`@.matchedToken.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.matchedToken.heartRate`|`@.matchedToken.heartRate`|
 
 > [!NOTE]

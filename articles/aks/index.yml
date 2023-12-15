@@ -26,6 +26,8 @@ landingContent:
             url: intro-kubernetes.md
       - linkListType: whats-new
         links:
+          - text: Reduce image pull time with Artifact Streaming on AKS (Preview)
+            url: artifact-streaming.md
           - text: Secure your cluster using pod security policies (Deprecated)
             url: use-pod-security-policies.md
           - text: Automatically upgrade node images
@@ -34,8 +36,6 @@ landingContent:
             url: use-azure-linux.md
           - text: Vertical Pod Autoscaler
             url: vertical-pod-autoscaler.md
-          - text: Workload identity
-            url: workload-identity-overview.md
           - text: Use Confidential Virtual Machines
             url: use-cvm.md
           - text: AKS GitHub Actions

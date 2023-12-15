@@ -421,7 +421,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 6        new     50	       1                            	 I
 ```
 
-## Next steps
+## Related content
 
 Advance to the following tutorial to learn about copying only new and changed files, based on `LastModifiedDate`:
 

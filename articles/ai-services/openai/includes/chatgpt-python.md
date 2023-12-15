@@ -2,17 +2,17 @@
 title: 'Quickstart: Use Azure OpenAI Service with the Python SDK'
 titleSuffix: Azure OpenAI
 description: Walkthrough on how to get started with Azure OpenAI and make your first completions call with the Python SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 03/21/2023
+ms.date: 11/15/2023
 keywords: 
 ---
 
-[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) |
+[Library source code](https://github.com/openai/openai-python?azure-portal=true) | [Package (PyPi)](https://pypi.org/project/openai?azure-portal=true) | [Retrieval Augmented Generation (RAG) enterprise chat template](/azure/developer/python/get-started-app-chat-template) |
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Install the OpenAI Python client library with:
 pip install openai==0.28.1
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python 1.x](#tab/python-new)
 
 ```console
 pip install openai
@@ -86,7 +86,7 @@ print(response)
 print(response['choices'][0]['message']['content'])
 ```
 
-# [OpenAI Python 1.0](#tab/python-new)
+# [OpenAI Python 1.x](#tab/python-new)
 
 You need to set the `model` variable to the deployment name you chose when you deployed the GPT-3.5-Turbo or GPT-4 models. Entering the model name will result in an error unless you chose a deployment name that is identical to the underlying model name.
 

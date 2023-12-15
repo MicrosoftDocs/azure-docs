@@ -187,9 +187,9 @@ items:
       href: quickstarts/email/add-multiple-senders.md
     - name: Add multiple sender addresses with Azure Communication Services Management SDKs
       href: quickstarts/email/add-multiple-senders-mgmt-sdks.md
-    - name: Sending emails using Smtp
+    - name: Sending emails using SMTP 
       items:
-        - name: Setting up Smtp Authentication
+        - name: Setting up SMTP Authentication
           href: quickstarts/email/send-email-smtp/smtp-authentication.md
         - name: Smtp Send Mail Examples
           href: quickstarts/email/send-email-smtp/send-email-smtp.md
@@ -312,6 +312,8 @@ items:
         href: how-tos/calling-sdk/reactions.md
       - name: Spotlight
         href: how-tos/calling-sdk/spotlight.md
+      - name: Teams Meeting Audio Conferencing
+        href: how-tos/calling-sdk/audio-conferencing.md
       - name: Show transcription state
         href: how-tos/calling-sdk/call-transcription.md
       - name: Manage role assignment
@@ -481,6 +483,8 @@ items:
         href: how-tos/call-automation/secure-webhook-endpoint.md
       - name: Handling Call Automation Events with EventProcessor
         href: how-tos/call-automation/handle-events-with-event-processor.md
+      - name: How to pass call contextual data in Call Automation
+        href: how-tos/call-automation/custom-context.md
     - name: Call recording
       items:
       - name: Record a call
@@ -739,6 +743,9 @@ items:
       - name: Manage call quality
         href: concepts/voice-video-calling/manage-call-quality.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+      - name: Call Diagnostics
+        href: concepts/voice-video-calling/call-diagnostics.md
+        displayName: diagnostics, Survey, feedback, quality, reliability, users, call, quick, debug, diagnose, call debugging, debugging
       - name: End of Call Survey
         href: concepts/voice-video-calling/end-of-call-survey-concept.md
         displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
@@ -780,6 +787,8 @@ items:
       href: how-tos/chat-sdk/archive-chat-threads.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/communication-services/
+    - name: Government clouds
+      href: concepts/chat/government-cloud.md
     - name: Events
       items:
       - name: Overview
@@ -884,6 +893,8 @@ items:
       href: concepts/email/email-overview.md
     - name: SDK features
       href: concepts/email/sdk-features.md
+    - name: SMTP
+      href: concepts/email/email-smtp-overview.md
     - name: Allowed attachment types
       href: concepts/email/email-attachment-allowed-mime-types.md
     - name: Understanding sender reputation
@@ -1046,6 +1057,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+  - name: Job Router 
+    items:
+    - name: Job Router (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationjobrouter
+    - name: Job Router (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-7
+    - name: Job Router (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-jobrouter
+    - name: Job Router (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-jobrouter
   - name: Advanced Messaging
     items:
     - name: Advanced Messaging (.NET)
