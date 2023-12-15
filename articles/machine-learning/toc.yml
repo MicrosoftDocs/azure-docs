@@ -600,6 +600,8 @@
       href: how-to-use-openai-models-in-azure-ml.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
+    - name: Use Model Catalog Collections with virtual network
+      href: how-to-network-isolation-model-catalog.md
 - name: Use Generative AI
   items:
     - name: Build AI solutions with prompt flow
