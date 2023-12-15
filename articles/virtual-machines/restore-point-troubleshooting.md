@@ -4,6 +4,7 @@ description: Symptoms, causes, and resolutions of restore point failures related
 ms.topic: troubleshooting
 ms.date: 04/12/2023
 ms.service: virtual-machines
+ms.custom: devx-track-linux
 ---
 
 # Troubleshoot restore point failures: Issues with the agent or extension
@@ -30,13 +31,13 @@ Most common restore point failures can be resolved by following the troubleshoot
 
 - Navigate to **services.msc** and ensure **Windows Azure VM Guest Agent service** is up and running. Also, ensure the [latest version](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) is installed. [Learn more](#the-agent-is-installed-in-the-vm-but-its-unresponsive-for-windows-vms).
 - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
-- Review the support matrix to check if VM runs on the [supported Windows operating system](concepts-restore-points.md#operating-system-support).
+- Review the support matrix to check if VM runs on the [supported Windows operating system](concepts-restore-points.md#operating-system-support-for-application-consistency).
 
 # [On Linux VM](#tab/linux)
 
 - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. [Learn more](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
 - Ensure the [Linux VM agent dependencies on system packages](../virtual-machines/extensions/agent-linux.md#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
-- Review the support matrix to check if VM runs on the [supported Linux operating system.](concepts-restore-points.md#operating-system-support).
+- Review the support matrix to check if VM runs on the [supported Linux operating system.](concepts-restore-points.md#operating-system-support-for-application-consistency).
 
 ---
 

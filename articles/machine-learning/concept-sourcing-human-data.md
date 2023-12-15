@@ -4,6 +4,7 @@ description: Learn best practices for mitigating potential harm to people—espe
 author: nhu-do-1
 ms.author: nhudo
 ms.service: machine-learning
+ms.subservice: rai
 ms.reviewer: lagayhar
 ms.topic: conceptual 
 ms.date: 11/04/2022
@@ -11,8 +12,7 @@ ms.custom: responsible-ml
 ---
 # What is "human data" and why is it important to source responsibly?
 
-[!INCLUDE [SDK v2](../../includes/machine-learning-sdk-v2.md)]
-[!INCLUDE [CLI v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [SDK/cli v2](includes/machine-learning-dev-v2.md)]
 
 Human data is data collected directly from, or about, people. Human data may include personal data such as names, age, images, or voice clips and sensitive data such as genetic data, biometric data, gender identity, religious beliefs, or political affiliations. 
 

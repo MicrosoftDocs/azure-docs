@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
 ---
 
@@ -205,7 +205,7 @@ for i in `seq 1 3`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --admin-password Azure123456! \
     --instance-count 2 \

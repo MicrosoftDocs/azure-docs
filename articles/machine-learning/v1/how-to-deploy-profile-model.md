@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Use CLI (v1) or SDK (v1) to profile your model before deployment. Profiling determines the memory and CPU usage of your model.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.date: 11/04/2022
 ms.topic: how-to
 zone_pivot_groups: aml-control-methods
@@ -16,14 +16,14 @@ ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
 
 # Profile your model to determine resource utilization
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 This article shows how to profile a machine learning to model to determine how much CPU and memory you will need to allocate for the model when deploying it as a web service.
 
 > [!IMPORTANT]
 > This article applies to CLI v1 and SDK v1.  This profiling technique is not available for v2 of either CLI or SDK.
 
-[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+[!INCLUDE [cli v1 deprecation](../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Below is an example of how you can construct an input dataset to profile a servi
 
 ::: zone pivot="py-sdk"
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 import json
@@ -114,7 +114,7 @@ details = profile.get_details()
 
 ::: zone pivot="cli"
 
-[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+[!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 The following command demonstrates how to profile a model by using the CLI:
 

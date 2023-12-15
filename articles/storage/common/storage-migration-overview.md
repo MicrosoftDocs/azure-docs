@@ -5,8 +5,8 @@ author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual 
 ms.date: 03/31/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ---
 
 # Azure Storage migration overview

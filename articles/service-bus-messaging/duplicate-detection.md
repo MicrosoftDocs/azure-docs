@@ -31,6 +31,10 @@ The `MessageId` can always be some GUID, but anchoring the identifier to the bus
 >- When **partitioning** is **disabled** (default), only `MessageId` is used to determine uniqueness.
 >- For information about `SessionId`, `PartitionKey`, and `MessageId`, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
 
+> [!NOTE]
+> Scheduled messages are included in duplicate detection. Therefore, if you send a scheduled message and then send a duplicate non-scheduled message, the non-scheduled message gets dropped. Similarly, if you send a non-scheduled message and then a duplicate scheduled message, the scheduled message is dropped. 
+ 
+
 ## Duplicate detection window size
 
 Apart from just enabling duplicate detection, you can also configure the size of the duplicate detection history time window during which message-ids are retained. This value defaults to 10 minutes for queues and topics, with a minimum value of 20 seconds to maximum value of 7 days.
@@ -55,3 +59,5 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 See samples for the older .NET and Java client libraries here:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

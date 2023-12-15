@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add calling to an iOS app using Azure Communication Services
 description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for iOS.
-author: chpalm
+author: tophpalmer
 ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: include
@@ -12,7 +12,7 @@ In this quickstart, you learn how to start a call using the Azure Communication 
 
 ## Sample Code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling).
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
 
 ## Prerequisites
 

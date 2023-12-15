@@ -79,7 +79,7 @@ Named-entity recognition is a deep learning method that takes a piece of text as
 
 ### Object detection
 
-Deep learning has been applied in many object detection use cases. Object detection comprises two parts: image classification and then image localization. Image _classification_ identifies the image's objects, such as cars or people. Image _localization_ provides the specific location of these objects. 
+Deep learning has been applied in many object detection use cases. Object detection is used to identify objects in an image (such as cars or people) and provide specific location for each object with a bounding box.
 
 Object detection is already used in industries such as gaming, retail, tourism, and self-driving cars.
 

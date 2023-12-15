@@ -17,7 +17,7 @@ monikerRange: 'azureml-api-1'
 
 # How Azure Machine Learning works: Architecture and concepts (v1)
 
-[!INCLUDE [dev v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [dev v1](../includes/machine-learning-dev-v1.md)]
 
 This article applies to the first version (v1) of the Azure Machine Learning CLI & SDK. For version two (v2), see  [How Azure Machine Learning works (v2)](../concept-azure-machine-learning-v2.md).
 
@@ -125,7 +125,7 @@ There are multiple ways to view your logs: monitoring run status in real time, o
 
 
 > [!NOTE]
-> [!INCLUDE [amlinclude-info](../../../includes/machine-learning-amlignore-gitignore.md)]
+> [!INCLUDE [amlinclude-info](../includes/machine-learning-amlignore-gitignore.md)]
 
 ### Git tracking and integration
 

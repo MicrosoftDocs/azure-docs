@@ -1,8 +1,8 @@
 ---
 title: Private Network Access overview - Azure Database for MySQL - Flexible Server
 description: Learn about private access networking option in the Flexible Server deployment option for Azure Database for MySQL
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -72,7 +72,7 @@ Here are some concepts to be familiar with when using virtual networks with MySQ
 
 ## Use Private DNS Zone
 
-- If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to set up your own private DNS zone with the flexible server, see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
+- If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone ending with `mysql.database.azure.com` is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to set up your own private DNS zone with the flexible server, see the [private DNS overview](../../dns/private-dns-overview.md) documentation.
 - If you use Azure API, an Azure Resource Manager template (ARM template), or Terraform, create private DNS zones that end with `mysql.database.azure.com` and use them while configuring flexible servers with private access. For more information, see the [private DNS zone overview](../../dns/private-dns-overview.md).
 
    > [!IMPORTANT]  
@@ -108,12 +108,15 @@ To configure correctly, you need the following resources:
 
 You can then use the flexible servername (FQDN) to connect from the client application in peered virtual network or on-premises network to flexible server.
 
+> [!NOTE]  
+> We recommend you use the fully qualified domain name (FQDN) `<servername>.mysql.database.azure.com` in connection strings when connecting to your flexible server. The server's IP address is not guaranteed to remain static. Using the FQDN will help you avoid making changes to your connection string.
+
 ## Unsupported virtual network scenarios
 
 - Public endpoint (or public IP or DNS) - A flexible server deployed to a virtual network can't have a public endpoint
 - After the flexible server is deployed to a virtual network and subnet, you can't move it to another virtual network or subnet. You can't move the virtual network into another resource group or subscription.
 - Subnet size (address spaces) can't be increased once resources exist in the subnet
-- Flexible server doesn't support Private Link. Instead, it uses VNet injection to make a flexible server available within a VNet.
+
 
 ## Next steps
 

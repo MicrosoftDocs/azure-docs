@@ -8,7 +8,7 @@ ms.date: 06/20/2023
 # What are classic alerts in Azure?
 
 > [!NOTE]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [near real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **February 29, 2024**.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [near real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **February 29, 2024**.
 >
 
 Alerts allow you to configure conditions over data, and they notify you when the conditions match the latest monitoring data.
@@ -19,7 +19,7 @@ In the past, Azure Monitor, Application Insights, Log Analytics, and Service Hea
 
 You can view classic alerts only on the classic alerts user screen in the Azure portal. To see this screen, select **View classic alerts** on the **Alerts** screen.
 
- ![Screenshot that shows alert choices in the Azure portal.](media/alerts-classic.overview/monitor-alert-screen2.png)
+ :::image type="content" source="media/alerts-classic.overview/monitor-alert-screen2.png" lightbox="media/alerts-classic.overview/monitor-alert-screen2.png" alt-text="Screenshot that shows alert choices in the Azure portal.":::
 
 The new alerts user experience has the following benefits over the classic alerts experience:
 - **Better notification system:** All newer alerts use action groups. You can reuse these named groups of notifications and actions in multiple alerts. Classic metric alerts and older Log Analytics alerts don't use action groups.
@@ -47,7 +47,7 @@ For resource log data available through Azure Monitor, route the data into Log A
 
 The following diagram summarizes sources of data in Azure Monitor and, conceptually, how you can alert off of that data.
 
-![Diagram that explains alerts.](media/alerts-classic.overview/Alerts_Overview_Resource_v5.png)
+:::image type="content" source="media/alerts-classic.overview/Alerts_Overview_Resource_v5.png" lightbox="media/alerts-classic.overview/Alerts_Overview_Resource_v5.png" alt-text="Diagram that explains alerts.":::
 
 ## Taxonomy of alerts (classic)
 Azure uses the following terms to describe classic alerts and their functions:

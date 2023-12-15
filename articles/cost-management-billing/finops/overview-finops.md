@@ -7,7 +7,7 @@ ms.author: banders
 ms.date: 06/21/2023
 ms.topic: overview
 ms.service: cost-management-billing
-ms.subservice: common
+ms.subservice: finops
 ms.reviewer: micflan
 ---
 

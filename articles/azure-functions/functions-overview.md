@@ -30,7 +30,7 @@ The following are a common, _but by no means exhaustive_, set of integrated scen
 | [Run scheduled task](./functions-scenarios.md#run-scheduled-tasks)| Execute data clean-up code on pre-defined timed intervals. |
 | [Build a scalable web API](./functions-scenarios.md#build-a-scalable-web-api)| Implement a set of REST endpoints for your web applications using HTTP triggers. |
 | [Build a serverless workflow](./functions-scenarios.md#build-a-serverless-workflow)| Create an event-driven workflow from a series of functions using Durable Functions. |
-| [Respond to database changes](./functions-scenarios.md#respond-to-database-changes)| Run custom logic when a document is created or updated in Azure Cosmos DB. |
+| [Respond to database changes](./functions-scenarios.md#respond-to-database-changes)| Run custom logic when a document is created or updated in [Azure Cosmos DB](../cosmos-db/introduction.md). |
 | [Create reliable message systems](./functions-scenarios.md#create-reliable-message-systems)| Process message queues using Queue Storage, Service Bus, or Event Hubs. |
 
 These scenarios allow you to build event-driven systems using modern architectural patterns. For more information, see [Azure Functions Scenarios](functions-scenarios.md).
@@ -47,7 +47,7 @@ Functions also integrates with Azure Monitor and Azure Application Insights to p
 
 Functions provides a variety [hosting options](functions-scale.md#overview-of-plans) for your business needs and application workload. [Event-driven scaling hosting options](./event-driven-scaling.md) range from fully serverless, where you only pay for execution time (Consumption plan), to always warm instances kept ready for fastest response times (Premium plan). 
 
-When you have excess App Service hosting resources, you can host your functions an existing App Service plan. This kind of Dedicated hosting plan is also a good choice when you need predictable scaling behaviors and costs from your functions. 
+When you have excess App Service hosting resources, you can host your functions in an existing App Service plan. This kind of Dedicated hosting plan is also a good choice when you need predictable scaling behaviors and costs from your functions. 
 
 If you want complete control over your functions runtime environment and dependencies, you can even deploy your functions in containers that you can fully customize. Your custom containers can be hosted by Functions, deployed as part of a microservices architecture in Azure Container Apps, or even self-hosted in Kubernetes. 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Form Recognizer with Azure Applied AI Service'
-description: Learn how to use form recognizer in Azure Synapse Analytics.
+title: 'Tutorial: Document Intelligence with Azure AI services'
+description: Learn how to use Azure AI Document Intelligence in Azure Synapse Analytics.
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -11,11 +11,11 @@ ms.author: ruxu
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Form Recognizer with Applied AI Service
+# Tutorial: Document Intelligence with Azure AI services
 
-[Azure Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) is an [Azure Applied AI Service](../../applied-ai-services/index.yml) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Form Recognizer](../../applied-ai-services/form-recognizer/index.yml) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
+[Azure AI Document Intelligence](../../ai-services/document-intelligence/index.yml) is an [Azure AI service](../../ai-services/index.yml) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](../../ai-services/document-intelligence/index.yml) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
 
-This tutorial demonstrates using form recognizer with [SynapseML](https://github.com/microsoft/SynapseML) to:
+This tutorial demonstrates using Document Intelligence with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
 > [!div class="checklist"]
 > - Extract text and layout from a given document
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started
@@ -43,12 +43,12 @@ import synapse.ml
 from synapse.ml.cognitive import *
 ```
 
-## Configure form recognizer 
+## Configure Document Intelligence 
 
-Use the linked form recognizer you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
+Use the linked Document Intelligence you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
 
 ```python
-cognitive_service_name = "<Your linked service for form recognizer>"
+ai_service_name = "<Your linked service for Document Intelligence>"
 ```
 
 
@@ -68,7 +68,7 @@ imageDf = spark.createDataFrame([
 ], ["source",])
 
 analyzeLayout = (AnalyzeLayout()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("layout")
                  .setConcurrency(5))
@@ -101,7 +101,7 @@ imageDf2 = spark.createDataFrame([
 ], ["image",])
 
 analyzeReceipts = (AnalyzeReceipts()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("image")
                  .setOutputCol("parsed_document")
                  .setConcurrency(5))
@@ -125,7 +125,7 @@ imageDf3 = spark.createDataFrame([
 ], ["source",])
 
 analyzeBusinessCards = (AnalyzeBusinessCards()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("businessCards")
                  .setConcurrency(5))
@@ -150,7 +150,7 @@ imageDf4 = spark.createDataFrame([
 ], ["source",])
 
 analyzeInvoices = (AnalyzeInvoices()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("invoices")
                  .setConcurrency(5))
@@ -174,7 +174,7 @@ imageDf5 = spark.createDataFrame([
 ], ["source",])
 
 analyzeIDDocuments = (AnalyzeIDDocuments()
-                 .setLinkedService(cognitive_service_name)
+                 .setLinkedService(ai_service_name)
                  .setImageUrlCol("source")
                  .setOutputCol("ids")
                  .setConcurrency(5))
@@ -195,6 +195,6 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 ## Next steps
 
-* [Train a custom form recognizer model](../../applied-ai-services/form-recognizer/label-tool.md)
+* [Train a custom Document Intelligence model](../../ai-services/document-intelligence/label-tool.md)
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [SynapseML GitHub Repo](https://github.com/microsoft/SynapseML)

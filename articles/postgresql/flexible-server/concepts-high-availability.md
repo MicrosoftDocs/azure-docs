@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/05/2022
+ms.date: 7/19/2023
 ---
 
 # High availability concepts in Azure Database for PostgreSQL - Flexible Server
@@ -69,9 +69,9 @@ In both the failover modes, once the replication is severed, the standby server 
 
 In all cases, you must observe any downtime from your application/client side. Your application will be able to reconnect after a failover as soon as the DNS is updated. We take care of a few more aspects including LSN comparisons between primary and standby before fencing the writes. But with unplanned failovers, the time taken for the standby can be longer than 2 minutes in some cases due to the volume  of logs to recover before opening for read/write.
 
-## HA status
+## Monitoring for high availability
 
-The health of primary and standby servers are continuously monitored and appropriate actions are taken to remediate issues including triggering a failover to the standby server. The high availability statuses are listed below:
+The health of primary and standby servers are continuously monitored and appropriate actions are taken to remediate issues including triggering a failover to the standby server. Following is the list of high availability statuses that are reported on the overview page:
 
 | **Status** | **Description** |
 | ------- | ------ |
@@ -366,4 +366,5 @@ Here are some failure scenarios that require user action to recover:
 -   Learn about [business continuity](./concepts-business-continuity.md)
 -   Learn how to [manage high availability](./how-to-manage-high-availability-portal.md)
 -   Learn about [backup and recovery](./concepts-backup-restore.md)
+
 

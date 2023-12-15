@@ -2,6 +2,7 @@
 title: Upload image data in the cloud with Azure Storage 
 description: This tutorial creates a web app that stores and displays images from Azure storage. It's a prerequisite for an Event Grid tutorial that's linked at the end of this article. 
 ms.topic: tutorial
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/16/2023
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: Add a Bubble layer to Android maps | Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps Android SDK to add and customize bubble layers for this purpose.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -20,7 +20,7 @@ This article shows you how to render point data from a data source as a bubble l
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Complete the steps in the [Quickstart: Create an Android app] article. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Add a bubble layer
 
@@ -173,16 +173,23 @@ The following screenshot shows the above code rendering a point in a bubble laye
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Cluster point data](clustering-point-data-android-sdk.md)
+> [Cluster point data]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-android-sdk.md)
+> [Use data-driven style expressions]
 
 > [!div class="nextstepaction"]
-> [Display feature information](display-feature-information-android.md)
+> [Display feature information]
+
+[Quickstart: Create an Android app]: quick-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[Cluster point data]: clustering-point-data-android-sdk.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md
+[Display feature information]: display-feature-information-android.md

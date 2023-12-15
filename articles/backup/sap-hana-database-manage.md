@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 06/30/2023
 ms.service: backup
 ms.custom: ignite-2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Manage and monitor backed up SAP HANA databases
@@ -16,7 +16,7 @@ This article describes common tasks for managing and monitoring SAP HANA databas
 You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a VM from backups.
 
 >[!Note]
->Support for HANA instance snapshots is in preview.
+>Support for HANA instance snapshots is in now generally available.
 
 If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md). To earn more about the supported configurations and scenarios, see [Support matrix for backup of SAP HANA databases on Azure VMs](sap-hana-backup-support-matrix.md).
 

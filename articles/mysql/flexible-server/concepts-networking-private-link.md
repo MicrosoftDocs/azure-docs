@@ -1,8 +1,8 @@
 ---
 title: Private Link with Azure Database for MySQL - Flexible Server
 description: Learn how Private Link works for Azure Database for MySQL - Flexible Server.
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 05/10/2023
 ms.service: mysql
@@ -10,7 +10,7 @@ ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
-# Private Link for Azure Database for MySQL - Flexible Server (Preview)
+# Private Link for Azure Database for MySQL - Flexible Server 
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -18,8 +18,8 @@ Private Link allows you to connect to various PaaS services, such as Azure Datab
 
 A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and Subnet.
 
-> [!NOTE]  
-> Learn how to enable private endpoint using the [Azure portal](how-to-networking-private-link-portal.md) or [Azure CLI](how-to-networking-private-link-azure-cli.md).
+> [!NOTE]
+> Enabling Private Link is exclusively possible for Azure Database for MySQL - Flexible Server instances that are created with public access. Learn how to enable private endpoint using the [Azure portal](how-to-networking-private-link-portal.md) or [Azure CLI](how-to-networking-private-link-azure-cli.md).
 
 ## Benefits of Private Link for MySQL flexible server
 
@@ -107,6 +107,8 @@ When a user tries to delete both the MySQL flexible server and Private Endpoint 
 
 To learn more about Azure Database for MySQL security features, see the following articles:
 
-- To configure a firewall for Azure Database for MySQL, see [firewall support](../single-server/concepts-firewall-rules.md).
+- To configure a firewall for Azure Database for MySQL, see [firewall support](../flexible-server/concepts-networking-public.md).
 
-- For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](../single-server/concepts-connectivity-architecture.md)
+- For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](../flexible-server/concepts-networking.md)
+
+

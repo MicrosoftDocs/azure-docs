@@ -34,7 +34,7 @@ You need Visual Studio 2015 to complete this tutorial.  [Visual Studio Community
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## Create your project and add NuGet packages
-Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
+Now that we've created a resource group for our CDN profiles and given our Microsoft Entra application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
 
 > [!IMPORTANT]
 > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade. For more information, see the [migration guide](../active-directory/develop/msal-migration.md).
@@ -50,7 +50,7 @@ Our project is going to use some Azure libraries contained in NuGet packages.  L
     ![Manage Nuget Packages](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 2. In the Package Manager Console, execute the following command to install the **Active Directory Authentication Library (ADAL)**:
 
-    `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
+    `Install-Package Microsoft.Identity.Client`
 3. Execute the following to install the **Azure CDN Management Library**:
 
     `Install-Package Microsoft.Azure.Management.Cdn`
@@ -67,7 +67,7 @@ Let's get the basic structure of our program written.
     using Microsoft.Azure.Management.Cdn.Models;
     using Microsoft.Azure.Management.Resources;
     using Microsoft.Azure.Management.Resources.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     using Microsoft.Rest;
     ```
 2. We need to define some constants our methods use.  In the `Program` class, but before the `Main` method, add the following code blocks.  Be sure to replace the placeholders, including the **&lt;angle brackets&gt;**, with your own values as needed.
@@ -185,7 +185,7 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Azure AD.
+Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Microsoft Entra ID.
 
 ## List CDN profiles and endpoints
 Now we're ready to perform CDN operations. The first thing our method does is list all the profiles and endpoints in our resource group, and if it finds a match for the profile and endpoint names specified in our constants, makes a note for later so we don't try to create duplicates.
@@ -288,7 +288,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path.  This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Verizon** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.  However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.
+> In the example previously, the string `/*` denotes that I want to purge everything in the root of the endpoint path.  This is equivalent to checking **Purge All** in the Azure portal's "purge" dialog. In the `CreateCdnProfile` method, I created our profile as an **Azure CDN from Edgio** profile using the code `Sku = new Sku(SkuName.StandardVerizon)`, so this will be successful.  However, **Azure CDN from Akamai** profiles do not support **Purge All**, so if I was using an Akamai profile for this tutorial, I would need to include specific paths to purge.
 >
 >
 

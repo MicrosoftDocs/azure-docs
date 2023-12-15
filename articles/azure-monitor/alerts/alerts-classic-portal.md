@@ -9,7 +9,7 @@ ms.reviewer: harelbr
 # Create, view, and manage classic metric alerts using Azure Monitor
 
 > [!WARNING]
-> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Azure China 21Vianet will retire on **29 February 2024**.
+> This article describes how to create older classic metric alerts. Azure Monitor now supports [newer near-real time metric alerts and a new alerts experience](./alerts-overview.md). Classic alerts are [retired](./monitoring-classic-retirement.md) for public cloud users. Classic alerts for Azure Government cloud and Microsoft Azure operated by 21Vianet will retire on **29 February 2024**.
 >
 
 Classic metric alerts in Azure Monitor provide a way to get notified when one of your metrics crosses a threshold. Classic metric alerts is an older functionality that allows for alerting only on non-dimensional metrics. There's an existing newer functionality called Metric alerts, which has improved functionality over classic metric alerts. You can learn more about the new metric alerts functionality in [metric alerts overview](./alerts-metric-overview.md). In this article, we'll describe how to create, view and manage classic metric alert rules through Azure portal and PowerShell.
@@ -20,11 +20,11 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 2. In the **MONITORING** section, select **Alerts (Classic)**. The text and icon might vary slightly for different resources. If you don't find **Alerts (Classic)** here, you might find it in **Alerts** or **Alert Rules**.
 
-    ![Monitoring](media/alerts-classic-portal/AlertRulesButton.png)
+    :::image type="content" source="media/alerts-classic-portal/AlertRulesButton.png" lightbox="media/alerts-classic-portal/AlertRulesButton.png" alt-text="Monitoring":::
 
 3. Select the **Add metric alert (classic)** command, and then fill in the fields.
 
-    ![Add Alert](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
+    :::image type="content" source="media/alerts-classic-portal/AddAlertOnlyParamsPage.png" lightbox="media/alerts-classic-portal/AddAlertOnlyParamsPage.png" alt-text="Add Alert":::
 
 4. **Name** your alert rule. Then choose a **Description**, which also appears in notification emails.
 

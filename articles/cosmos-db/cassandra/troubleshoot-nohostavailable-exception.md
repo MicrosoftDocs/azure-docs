@@ -12,7 +12,7 @@ ms.custom: ignite-2022
 ---
 
 # Troubleshoot NoHostAvailableException and NoNodeAvailableException
-NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with the cluster or connection settings, or if one or more Cassandra nodes are unavailable. 
+NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with the cluster or connection settings, or if one or more Cassandra nodes are unavailable.
 
 This article explores possible reasons for this exception, and it discusses specific details about the client driver that's being used.
 
@@ -20,7 +20,7 @@ This article explores possible reasons for this exception, and it discusses spec
 One of the most common causes of NoHostAvailableException is the default driver settings. We recommend that you use the [settings](#code-sample) listed at the end of this article. Here is some explanatory information:
 
 - The default value of the connections per host is 1, which we don't recommend for Azure Cosmos DB. We do recommend a minimum value of 10. Although more aggregated Request Units (RU) are provided, increase the connection count. The general guideline is 10 connections per 200,000 RU.
-- Use the Azure Cosmos DB retry policy to handle intermittent throttling responses. For more information, see the Azure Cosmos DB extension libraries: 
+- Use the Azure Cosmos DB retry policy to handle intermittent throttling responses. For more information, see the Azure Cosmos DB extension libraries:
    - [Driver 3 extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions)
    - [Driver 4 extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1)
 - For multi-region accounts, use the Azure Cosmos DB load-balancing policy in the extension.
@@ -54,7 +54,7 @@ Apply one of the following options:
 
 ### All hosts tried for query failed
 When the client is set to connect to a region other than the primary contact point region, during the initial few seconds at startup, you'll get one of the following exception messages:
- 
+
 - For Java driver 3: `Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)`
 
 - For Java driver 4: `No node was available to execute the query`
@@ -76,7 +76,7 @@ Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-
     // https://docs.datastax.com/en/developer/java-driver/3.6/manual/socket_options/
     SocketOptions socketOptions = new SocketOptions()
         .setReadTimeoutMillis(90000); // default 12000
-    
+
     // connection pooling options (default values are 1s)
     // https://docs.datastax.com/en/developer/java-driver/3.6/manual/pooling/
     PoolingOptions poolingOptions = new PoolingOptions()
@@ -84,21 +84,21 @@ Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-
         .setMaxConnectionsPerHost(HostDistance.LOCAL, 10) // default 1
         .setCoreConnectionsPerHost(HostDistance.REMOTE, 10) // default 1
         .setMaxConnectionsPerHost(HostDistance.REMOTE, 10); //default 1
-    
+
     // Azure Cosmos DB load balancing policy
     String Region = "West US";
     CosmosLoadBalancingPolicy cosmosLoadBalancingPolicy = CosmosLoadBalancingPolicy.builder()
         .withWriteDC(Region)
         .withReadDC(Region)
         .build();
-    
+
     // Azure Cosmos DB retry policy
     CosmosRetryPolicy retryPolicy = CosmosRetryPolicy.builder()
         .withFixedBackOffTimeInMillis(5000)
         .withGrowingBackOffTimeInMillis(1000)
         .withMaxRetryCount(5)
         .build();
-    
+
     Cluster cluster = Cluster.builder()
         .addContactPoint(EndPoint).withPort(10350)
         .withCredentials(UserName, Password)
@@ -115,7 +115,7 @@ Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-
     // driver configurations
     // https://docs.datastax.com/en/developer/java-driver/4.6/manual/core/configuration/
     ProgrammaticDriverConfigLoaderBuilder configBuilder = DriverConfigLoader.programmaticBuilder();
-        
+
     // connection settings
     // https://docs.datastax.com/en/developer/java-driver/4.6/manual/core/pooling/
     configBuilder
@@ -124,7 +124,7 @@ Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-
         .withDuration(DefaultDriverOption.REQUEST_TIMEOUT, Duration.ofSeconds(90)) // default 2
         .withClass(DefaultDriverOption.RECONNECTION_POLICY_CLASS, ConstantReconnectionPolicy.class) // default ExponentialReconnectionPolicy
         .withBoolean(DefaultDriverOption.METADATA_TOKEN_MAP_ENABLED, false); // default true
-        
+
     // load balancing settings
     // https://docs.datastax.com/en/developer/java-driver/4.6/manual/core/load_balancing/
     String Region = "West US";
@@ -138,7 +138,7 @@ Use CosmosLoadBalancingPolicy in [Java driver 3](https://github.com/Azure/azure-
     // retry policy
     // https://docs.datastax.com/en/developer/java-driver/4.6/manual/core/retries/
     configBuilder
-    	.withClass(DefaultDriverOption.RETRY_POLICY_CLASS, CosmosRetryPolicy.class)
+        .withClass(DefaultDriverOption.RETRY_POLICY_CLASS, CosmosRetryPolicy.class)
         .withInt(CosmosRetryPolicyOption.FIXED_BACKOFF_TIME, 5000)
         .withInt(CosmosRetryPolicyOption.GROWING_BACKOFF_TIME, 1000)
         .withInt(CosmosRetryPolicyOption.MAX_RETRIES, 5);

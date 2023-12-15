@@ -4,8 +4,8 @@ description: This article summarizes Azure Backup support when you back up machi
 ms.date: 12/28/2022
 ms.topic: conceptual
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Support matrix for backup with the Microsoft Azure Recovery Services (MARS) agent
@@ -106,16 +106,16 @@ Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
 
-### Minimum retention limits
+### Retention limits
 
-The following are the minimum retention durations that can be set for the different recovery points:
+The following are the retention durations that can be set for the different recovery points:
 
-|Recovery point |Duration  |
-|---------|---------|
-|Daily recovery point    |   7 days      |
-|Weekly recovery point     |    4 weeks     |
-|Monthly recovery point    |   3 months      |
-|Yearly recovery point  |      1 year   |
+|Recovery point |Minimum  | Maximum
+|---------|---------| ---------
+|Daily recovery point    |   7 days      | 9999 days
+|Weekly recovery point     |    4 weeks     | 5163 weeks
+|Monthly recovery point    |   3 months      | 1188 months
+|Yearly recovery point  |      1 year   | 99 years
 
 ### Other limitations
 

@@ -3,7 +3,7 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 06/24/2023
+ms.date: 08/16/2023
 ms.custom: references_regions
 ---
 
@@ -57,8 +57,8 @@ It should be noted that these types of failures, although rare, fall outside the
 
 Azure VMware Solution stretched clusters are available in the following regions: 
 
-- UK South (on AV36) 
-- West Europe (on AV36) 
+- UK South (on AV36, and AV36P)
+- West Europe (on AV36, and AV36P) 
 - Germany West Central (on AV36) 
 - Australia East (on AV36P) 
 
@@ -123,7 +123,7 @@ No. A stretched cluster is created between two availability zones, while the thi
 ### What are the limitations I should be aware of?
 
 - Once a private cloud has been created with a stretched cluster, it can't be changed to a standard cluster private cloud. Similarly, a standard cluster private cloud can't be changed to a stretched cluster private cloud after creation.
-- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment.
+- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment. For more details, refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
 - Currently not supported in a stretched cluster environment:

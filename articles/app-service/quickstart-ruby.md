@@ -6,7 +6,9 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 04/27/2021
 ms.devlang: ruby
-ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other, devx-track-linux
+author: cephalin
+ms.author: cephalin
 ---
 
 # Create a Ruby on Rails App in App Service
@@ -229,7 +231,7 @@ http://<app-name>.azurewebsites.net
 
 1. From the left navigation, select **Deployment Center**.
 
-    ![Screenshot of the App Service in the Azure Portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-deployment-center.png)  
+    ![Screenshot of the App Service in the Azure portal. The Deployment Center option in the Deployment section of the left navigation is highlighted.](media/quickstart-ruby/azure-portal-configure-app-service-deployment-center.png)  
 
 1. Under **Settings**, select a **Source**. For this quickstart, select *GitHub*.
 

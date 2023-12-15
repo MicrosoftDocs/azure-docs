@@ -151,9 +151,9 @@ To uninstall Datadog agents on the app service, go to **App Service Extension**.
 
 If you would like to reconfigure single sign-on, select **Single sign-on** in the left pane.
 
-To establish single sign-on through Azure Active directory, select **Enable single sign-on through Azure Active Directory**.
+To establish single sign-on through Microsoft Entra ID, select **Enable single sign-on through Microsoft Entra ID**.
 
-The portal retrieves the appropriate Datadog application from Azure Active Directory. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name:
+The portal retrieves the appropriate Datadog application from Microsoft Entra ID. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name:
 
 :::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigure single sign-on application." border="true":::
 
@@ -192,3 +192,10 @@ If more than one Datadog resource is mapped to the Datadog organization, deletin
 ## Next steps
 
 - For help with troubleshooting, see [Troubleshooting Datadog solutions](troubleshoot.md).
+- Get started with Datadog – An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

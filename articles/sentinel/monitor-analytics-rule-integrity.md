@@ -9,11 +9,13 @@ ms.date: 02/20/2023
 
 # Monitor the health and audit the integrity of your analytics rules
 
-To ensure uninterrupted and tampering-free threat detection in your Microsoft Sentinel service, keep track of your analytics rules' health and integrity by monitoring their execution and audit logs.
+To ensure comprehensive, uninterrupted, and tampering-free threat detection in your Microsoft Sentinel service, keep track of your analytics rules' health and integrity and keep them functioning optimally, by monitoring their [execution insights](monitor-optimize-analytics-rule-execution.md#view-analytics-rule-insights), by querying the health and audit logs, and by [using manual rerun to test and optimize your rules](monitor-optimize-analytics-rule-execution.md#use-cases-and-benefits-of-rule-rerun).
 
 Set up notifications of health and audit events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
 This article describes how to use Microsoft Sentinel's [auditing and health monitoring features](health-audit.md) to keep track of your analytics rules' health and integrity from within Microsoft Sentinel.
+
+For information on rule insights and manual rerunning of rules, see [Monitor and optimize the execution of your scheduled analytics rules](monitor-optimize-analytics-rule-execution.md).
 
 > [!IMPORTANT]
 >
@@ -154,14 +156,14 @@ For either **Scheduled analytics rule run** or **NRT analytics rule run**, you m
     | An internal server error occurred while running the query.   |   |
     | The query execution timed out.   |   |
     | A table referenced in the query was not found.   | Verify that the relevant data source is connected.   |
-    | A semantic error occurred while running the query.   | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | A semantic error occurred while running the query.   | Try resetting the analytics rule by editing and saving it (without changing any settings). |
     | A function called by the query is named with a reserved word.   | Remove or rename the function.   |
-    | A syntax error occurred while running the query.   | Try resetting the alert rule by editing and saving it (without changing any settings). |
+    | A syntax error occurred while running the query.   | Try resetting the analytics rule by editing and saving it (without changing any settings). |
     | The workspace does not exist.   |   |
-    | This query was found to use too many system resources and was prevented from running.   |   |
+    | This query was found to use too many system resources and was prevented from running.   | Review and tune the analytics rule. Consult our Kusto Query Language [overview](kusto-overview.md) and [best practices](/azure/data-explorer/kusto/query/best-practices?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json) documentation. |
     | A function called by the query was not found.   | Verify the existence in your workspace of all functions called by the query.   |
     | The workspace used in the query was not found.   | Verify that all workspaces in the query exist.   |
-    | You don't have permissions to run this query.   | Try resetting the alert rule by editing and saving it (without changing any settings).   |
+    | You don't have permissions to run this query.   | Try resetting the analytics rule by editing and saving it (without changing any settings).   |
     | You don't have access permissions to one or more of the resources in the query.   |   |
     | The query referred to a storage path that was not found.   |   |
     | The query was denied access to a storage path.   |   |
@@ -264,6 +266,7 @@ The **Audit** tab lets you drill down to particular audit events.
 
 ## Next steps
 
+- [Monitor and optimize analytics rule execution in Microsoft Sentinel](monitor-optimize-analytics-rule-execution.md).
 - Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
 - [Turn on auditing and health monitoring](enable-monitoring.md) in Microsoft Sentinel.
 - [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).

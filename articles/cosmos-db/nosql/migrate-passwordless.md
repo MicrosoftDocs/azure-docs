@@ -1,14 +1,14 @@
 ---
 title: Migrate applications to use passwordless authentication with Azure Cosmos DB for NoSQL
 titleSuffix: Azure Cosmos DB
-description: Learn to migrate existing applications away from connection strings to instead use Azure AD and Azure RBAC for enhanced security.
+description: Learn to migrate existing applications away from connection strings to instead use Microsoft Entra ID and Azure RBAC for enhanced security.
 author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 06/01/2023
 ms.service: cosmos-db
 ms.topic: how-to
-ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli
 ---
 
 # Migrate an application to use passwordless connections with Azure Cosmos DB for NoSQL
@@ -238,5 +238,5 @@ In this tutorial, you learned how to migrate an application to passwordless conn
 
 You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* [Authorize access to blobs using Azure Active Directory](../../storage/blobs/authorize-access-azure-active-directory.md))
+* [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md))
 * To learn more about .NET, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

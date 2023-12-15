@@ -15,7 +15,7 @@ ms.date: 11/08/2022
 
 # Azure Machine Learning CLI (v2) release notes
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 
@@ -23,6 +23,13 @@ In this article, learn about Azure Machine Learning CLI (v2) releases.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes-v2%22&locale=en-us`
+
+## 2023-10-18
+
+### Azure Machine Learning CLI (v2) v2.21.1
+
+ - pydash dependency version was upgraded to >=6.0.0 to patch [security vulnerability in versions below 6.0.0](https://github.com/advisories/GHSA-8mjr-6c96-39w8)
+
 
 ## 2023-05-09
 

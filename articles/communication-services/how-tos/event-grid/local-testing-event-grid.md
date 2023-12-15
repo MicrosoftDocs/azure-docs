@@ -2,10 +2,10 @@
 title: Test your Event Grid handler locally
 titleSuffix: An Azure Communication Services how-to document
 description: In this how-to document, you can learn how to locally test your Event Grid handler for Azure Communication Services events with Postman.
-author: ddematheu2
+author: tophpalmer
 manager: shahen
 services: azure-communication-services
-ms.author: dademath
+ms.author: chpalm
 ms.date: 02/09/2023
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -50,7 +50,7 @@ ngrok http 7071
         "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
         "From": "15555555555",
         "To": "15555555555",
-        "Message": "Great to connect with ACS events",
+        "Message": "Great to connect with Azure Communication Services events",
         "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
       },
       "eventType": "Microsoft.Communication.SMSReceived",

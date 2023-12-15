@@ -2,7 +2,7 @@
 title: Physical server disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used during disaster recovery of on-premises physical servers to Azure with the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 12/14/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.service: site-recovery
@@ -40,7 +40,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 

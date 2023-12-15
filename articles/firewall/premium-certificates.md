@@ -41,7 +41,7 @@ Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a
 
 Ensure your CA certificate complies with the following requirements:
 
-- When deployed as a Key Vault secret, you must use Password-less PFX (Pkcs12) with a certificate and a private key.
+- When deployed as a Key Vault secret, you must use Password-less PFX (PKCS12) with a certificate and a private key. PEM certificates are not supported.
 
 - It must be a single certificate, and shouldn’t include the entire chain of certificates.  
 
@@ -51,11 +51,12 @@ Ensure your CA certificate complies with the following requirements:
 
 - It must have the `KeyUsage` extension marked as Critical with the `KeyCertSign` flag (RFC 5280; 4.2.1.3 Key Usage).
 
-- It must have the `BasicContraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
+- It must have the `BasicConstraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
 
 - The `CA` flag must be set to TRUE.
 
 - The Path Length must be greater than or equal to one.
+- It must be exportable.
 
 ## Azure Key Vault
 

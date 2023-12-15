@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/27/2023
+ms.date: 11/30/2023
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -419,8 +419,7 @@ You'll now add the prepared node to the first node and form the cluster. Before 
 
 ## Configure virtual IPs
 
-For Azure consistent services and NFS, you'll also need to define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP.
-
+For Azure consistent services and NFS, you'll also need to define a virtual IP that allows you to connect to a clustered device as opposed to a specific node. A virtual IP is an available IP in the cluster network and any client connecting to the cluster network on the two-node device should be able to access this IP. Azure consistent services and NFS must be on the same network.
 
 ### For Azure Consistent Services
 
@@ -476,11 +475,12 @@ After the cluster is formed and configured, you'll now create new virtual switch
 
     1. Provide a name for your virtual switch.
     1. Choose the network interface on which the virtual switch should be created. 
-    1. If deploying 5G workloads, set **Supports accelerated networking** to **Yes**.
     1. Select the intent to associate with this network interface as **compute**. Alternatively, the switch can be used for management traffic as well. You can't configure storage intent as storage traffic was already configured based on the network topology that you selected earlier. 
     
-    > [!TIP] 
-    > Use *CTRL + Click* to select more than one intent for your virtual switch.
+       You can create Virtual Machines from Azure portal using any of the virtual networks you have created.
+
+       > [!TIP] 
+       > Use *CTRL + Click* to select more than one intent for your virtual switch.
  
 1. Assign **Kubernetes node IPs**. These static IP addresses are for the Kubernetes VMs.  
 

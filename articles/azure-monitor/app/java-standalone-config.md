@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 06/19/2023
+ms.date: 10/30/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -24,21 +24,20 @@ Connection string and role name are the most common settings you need to get sta
   }
 }
 ```
-
 Connection string is required. Role name is important anytime you're sending data from different applications to the same Application Insights resource.
 
 More information and configuration options are provided in the following sections.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.14.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.18.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.14.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.18.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -61,7 +60,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it's resolved relative to the directory where `applicationinsights-agent-3.4.14.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.18.jar` is located.
 
 ```json
 {
@@ -127,11 +126,14 @@ Sampling is based on request, which means that if a request is captured (sampled
 
 Sampling is also based on trace ID to help ensure consistent sampling decisions across different services.
 
+Sampling only applies to logs inside of a request. Logs that aren't inside of a request (for example, startup logs) are always collected by default.
+If you want to sample those logs, you can use [Sampling overrides](./java-standalone-sampling-overrides.md).
+
 ### Rate-limited sampling
 
 Starting from 3.4.0, rate-limited sampling is available and is now the default.
 
-If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
+If no sampling is configured, the default is now rate-limited sampling configured to capture at most
 (approximately) five requests per second, along with all the dependencies and logs on those requests.
 
 This configuration replaces the prior default, which was to capture all requests. If you still want to capture all requests, use [fixed-percentage sampling](#fixed-percentage-sampling) and set the sampling percentage to 100.
@@ -207,10 +209,12 @@ If you want to collect some other JMX metrics:
 In the preceding configuration example:
 
 * `name` is the metric name that is assigned to this JMX metric (can be anything).
-* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the JMX MBean that you want to collect.
-* `attribute` is the attribute name inside of the JMX MBean that you want to collect.
+* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect.  Wildcard character asterisk (*) is supported.
+* `attribute` is the attribute name inside of the `JMX MBean` that you want to collect.
 
 Numeric and Boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false and `1` for true.
+
+See the [JMX metrics](./java-jmx-metrics-configuration.md) documentation for more details.
 
 ## Custom dimensions
 
@@ -232,8 +236,7 @@ You can use `${...}` to read the value from the specified environment variable a
 
 ## Inherited attribute (preview)
 
-Starting from version 3.2.0, if you want to set a custom dimension programmatically on your request telemetry
-and have it inherited by dependency and log telemetry, which are captured in the context of that request:
+Starting with version 3.2.0, you can set a custom dimension programmatically on your request telemetry. It ensures inheritance by dependency and log telemetry. All are captured in the context of that request.
 
 ```json
 {
@@ -325,7 +328,7 @@ and add `applicationinsights-core` to your application:
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>3.4.14</version>
+  <version>3.4.18</version>
 </dependency>
 ```
 
@@ -350,7 +353,7 @@ Starting from version 3.2.0, if you want to capture controller "InProc" dependen
 
 ## Browser SDK Loader (preview)
 
-This feature automatically injects the [Browser SDK Loader](https://github.com/microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) into your application's HTML pages, including configuring the appropriate Connection String.
+This feature automatically injects the [Browser SDK Loader](javascript-sdk.md#add-the-javascript-code) into your application's HTML pages, including configuring the appropriate Connection String.
 
 For example, when your java application returns a response like:
 
@@ -365,7 +368,8 @@ For example, when your java application returns a response like:
 </html>
 ```
 
-Then it will be automatically modified to return:
+It automatically modifies to return:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -388,10 +392,12 @@ The script is aiming at helping customers to track the web user data, and sent t
 If you want to enable this feature, add the below configuration option:
 
 ```json
-"preview": {
-  "browserSdkLoader": {
-     "enabled": true
-   }
+{
+  "preview": {
+    "browserSdkLoader": {
+      "enabled": true
+    }
+  }
 }
 ```
 
@@ -415,8 +421,8 @@ Log4j, Logback, JBoss Logging, and java.util.logging are autoinstrumented. Loggi
 
 Logging is only captured if it:
 
-* Meets the level that's configured for the logging framework.
-* Also meets the level that's configured for Application Insights.
+* Meets the configured level for the logging framework.
+* Also meets the configured level for Application Insights.
 
 For example, if your logging framework is configured to log `WARN` (and aforementioned) from the package `com.example`,
 and Application Insights is configured to capture `INFO` (and aforementioned), Application Insights only captures `WARN` (and more severe) from the package `com.example`.
@@ -519,7 +525,7 @@ To send custom metrics using micrometer:
     </dependency>
     ```
 
-1. Use the Micrometer [global registry](https://micrometer.io/docs/concepts#_global_registry) to create a meter:
+1. Use the Micrometer [global registry](https://micrometer.io/?/docs/concepts#_global_registry) to create a meter:
 
     ```java
     static final Counter counter = Metrics.counter("test.counter");
@@ -727,7 +733,13 @@ Starting from version 3.2.0, you can enable the following preview instrumentatio
       "grizzly": {
         "enabled": true
       },
+      "ktor": {
+        "enabled": true
+      },
       "play": {
+        "enabled": true
+      },
+      "r2dbc": {
         "enabled": true
       },
       "springIntegration": {
@@ -780,12 +792,12 @@ By default, Application Insights Java 3.x sends a heartbeat metric once every 15
 > [!NOTE]
 > You can't increase the interval to longer than 15 minutes because the heartbeat data is also used to track Application Insights usage.
 
-## Authentication (preview)
+## Authentication
 
 > [!NOTE]
-> The authentication feature is available starting from version 3.2.0.
+> The authentication feature is GA since version 3.4.17.
 
-You can use authentication to configure the agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory authentication.
+You can use authentication to configure the agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Microsoft Entra authentication.
 For more information, see the [Authentication](./azure-ad-authentication.md) documentation.
 
 ## HTTP proxy
@@ -846,7 +858,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.14.jar` is located.
+`applicationinsights-agent-3.4.18.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.

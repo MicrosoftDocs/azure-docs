@@ -58,7 +58,7 @@ As part of migrating and modifying your client applications to interact with Azu
 
 #### Authentication and authorization
 
-Azure role-based access control (Azure RBAC), backed by Azure Active Directory, is the preferred authentication mechanism for Service Bus. To enable role-based access control, please follow the steps in the [Azure Service Bus JMS 2.0 developer guide](jms-developer-guide.md).
+Azure role-based access control (Azure RBAC), backed by Microsoft Entra ID, is the preferred authentication mechanism for Service Bus. To enable role-based access control, please follow the steps in the [Azure Service Bus JMS 2.0 developer guide](jms-developer-guide.md).
 
 ## Pre-migration
 

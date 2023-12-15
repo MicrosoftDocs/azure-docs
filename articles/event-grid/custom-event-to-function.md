@@ -18,7 +18,7 @@ ms.devlang: azurecli
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left navigational menu, select **All services**.
 1. Select **Compute** in the list of **Categories**.
-1. Hover (not select) the mouse over **Function App**, and select **Create**.
+1. Hover (not select) the mouse over **Function App**, and select **+**.
 
     :::image type="content" source="./media/custom-event-to-function/create-function-app-link.png" lightbox="./media/custom-event-to-function/create-function-app-link.png" alt-text="Screenshot showing the select of Create link for a Function App.":::    
 1. On the **Basics** page of the **Create Function App** wizard, follow these steps: 
@@ -27,33 +27,30 @@ ms.devlang: azurecli
     1. Specify a **name** for the function app.
     1. Select **.NET** for **Runtime stack**.
     1. Select the **region** closest to you. 
-    1. Select **Next: Hosting** at the bottom of the page. 
+    1. Select **Next: Storage** at the bottom of the page. 
     
         :::image type="content" source="./media/custom-event-to-function/create-function-app-page.png" alt-text="Screenshot showing the Basics tab of the Create Function App page.":::    
-1. On the **Hosting** page, create a new storage account or select an existing storage account to be associated with the function app, and then select **Review + create** at the bottom of the page. 
+1. On the **Storage** page, create a new storage account or select an existing storage account to be associated with the function app, and then select **Review + create** at the bottom of the page. 
         
-    :::image type="content" source="./media/custom-event-to-function/create-function-app-hosting-page.png" alt-text="Screenshot showing the Hosting tab of the Create Function App page.":::  
+    :::image type="content" source="./media/custom-event-to-function/create-function-app-hosting-page.png" alt-text="Screenshot showing the Storage tab of the Create Function App page.":::  
 1. On the **Review + create** page, review settings, and select **Create** at the bottom of the page to create the function app.   
 1. Once the deployment is successful, select **Go to resource** to navigate to the home page for the function app. 
 
 ## Create a function
 Before subscribing to the custom topic, create a function to handle the events. 
 
-1. On the **Function App** page, select **Functions** on the left menu. 
-1. Select **+ Create** on the toolbar to create a function.
+1. On the **Function App** page, select **Create in Azure portal** link in the right pane.
 
     :::image type="content" source="./media/custom-event-to-function/create-function-link.png" alt-text="Screenshot showing the selection of Create function link.":::  
     
 1. On the **Create Function** page, follow these steps:
-    1. This step is optional. For **Development environment**, select the development environment that you want to use to work with the function code. 
-    1. Select **Azure Event Grid Trigger** in the **Select a template** section. Use the scroll bar right to the list to scroll down if needed.
+    1. In the **Select a template** section, in the filter or search box, type **Azure Event Grid trigger**.
+    1. Select **Azure Event Grid Trigger** template in the template list. 
     1. In the **Template details** section in the bottom pane, enter a name for the function. In this example, it's **HandleEventsFunc**. 
+    1. Select **Create**.
 
-        :::image type="content" source="./media/custom-event-to-function/function-trigger.png" lightbox="./media/custom-event-to-function/function-trigger.png" alt-text="Select Event Grid trigger.":::
-4. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu. 
-
-    :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
-5. Replace the code with the following code.
+        :::image type="content" source="./media/custom-event-to-function/function-trigger.png" lightbox="./media/custom-event-to-function/function-trigger.png" alt-text="Screenshot showing select Event Grid trigger.":::
+4. On the **Function** page for the **HandleEventsFunc**, select **Code + Test** on the left navigational menu, replace the code with the following code, and then select **Save** on the command bar.
 
     ```csharp
     #r "Azure.Messaging.EventGrid"
@@ -67,11 +64,11 @@ Before subscribing to the custom topic, create a function to handle the events.
         log.LogInformation(eventGridEvent.Data.ToString());
     }        
     ```
-    :::image type="content" source="./media/custom-event-to-function/function-updated-code.png" alt-text="Screenshot showing the Code + Test view of an Azure function with the updated code.":::    
-6. Select **Monitor** on the left menu, and then select **Logs**. 
 
-    :::image type="content" source="./media/custom-event-to-function/monitor-page.png" alt-text="Screenshot showing the Monitor view the Azure function.":::    
-7. Keep this window or tab of the browser open so that you can see the received event information. 
+    :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image showing the selection Code + Test menu for an Azure function.":::
+6. Select **Monitor** on the left menu, and keep this window or tab of the browser open so that you can see the received event information. 
+
+    :::image type="content" source="./media/custom-event-to-function/monitor-page.png" alt-text="Screenshot showing the Monitor view the Azure function.":::
 
 ## Create a custom topic
 
@@ -91,7 +88,7 @@ An Event Grid topic provides a user-defined endpoint that you post your events t
     4. Select a **location** for the Event Grid topic.
     5. Select **Review + create**. 
     
-        :::image type="content" source="./media/custom-event-to-function/create-custom-topic.png" alt-text="Image showing the Create Topic page.":::      
+        :::image type="content" source="./media/custom-event-to-function/create-custom-topic.png" alt-text="Screenshot showing the Create Topic page.":::      
     1. On the **Review + create** page, review settings and select **Create**. 
 5. After the custom topic has been created, select **Go to resource** link to see the following Event Grid topic page for the topic you created. 
 
@@ -107,7 +104,7 @@ You subscribe to an Event Grid topic to tell Event Grid which events you want to
 2. On the **Create Event Subscription** page, follow these steps:
     1. Enter a **name** for the event subscription.
     3. Select **Azure Function** for the **Endpoint type**. 
-    4. Choose **Select an endpoint**. 
+    4. Choose **Configure an endpoint**. 
 
         :::image type="content" source="./media/custom-event-to-function/provide-subscription-values.png" alt-text="Image showing event subscription values.":::
     5. For the function endpoint, select the Azure Subscription and Resource Group your Function App is in and then select the Function App and function you created earlier. Select **Confirm Selection**.
@@ -216,9 +213,17 @@ The second example uses PowerShell to perform similar steps.
     ```
 
 ### Verify that function received the event
-You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. Navigate to your Event Grid triggered function and open the logs. You should see a copy of the data payload of the event in the logs. If you don't make sure you open the logs window first, or hit reconnect, and then try sending a test event again.
+You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing.
 
-:::image type="content" source="./media/custom-event-to-function/successful-function.png" lightbox="./media/custom-event-to-function/successful-function.png" alt-text="Image showing the Monitor view of the Azure function with a log.":::
+1. On the **Monitor** page for your Azure function, you see an invocation. 
+
+    :::image type="content" source="./media/custom-event-to-function/monitor-page-invocations.png" alt-text="Screenshot showing the Invocations tab of the Monitor page.":::
+2. Select the invocation to see the details. 
+
+    :::image type="content" source="./media/custom-event-to-function/invocation-details-page.png" alt-text="Screenshot showing the Invocation details.":::
+3. You can also use the **Logs** tab in the right pane to see the logged messages when you post events to the topic's endpoint. 
+
+    :::image type="content" source="./media/custom-event-to-function/successful-function.png" lightbox="./media/custom-event-to-function/successful-function.png" alt-text="Image showing the Monitor view of the Azure function with a log.":::
 
 ## Clean up resources
 If you plan to continue working with this event, don't clean up the resources created in this article. Otherwise, delete the resources you created in this article.

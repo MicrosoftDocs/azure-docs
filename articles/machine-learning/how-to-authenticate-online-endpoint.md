@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn to authenticate clients to an Azure Machine Learning online endpoint
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
@@ -34,6 +34,8 @@ Access to retrieve the key or token for an online endpoint is restricted by Azur
 * A custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`.
 
 For more information on using Azure RBAC with Azure Machine Learning, see [Manage access to Azure Machine Learning](how-to-assign-roles.md).
+
+On the option to retrieve the token via REST API, see [Invoke the endpoint to score data with your model](how-to-deploy-with-rest.md#invoke-the-endpoint-to-score-data-with-your-model).
 
 # [Azure CLI](#tab/azure-cli)
 

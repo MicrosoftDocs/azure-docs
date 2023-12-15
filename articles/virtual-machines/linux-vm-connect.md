@@ -5,11 +5,11 @@ author: mattmcinnes
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 04/06/2023
 ms.author: mattmcinnes
 ms.reviewer: jamesser
-
 ---
 # Connect to a Linux VM
 
@@ -123,7 +123,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     ssh azureuser@20.51.230.13
     ```
 
-    If you forgot your password or username see [Reset Access to an Azure VM](./extensions/vmaccess.md)
+    If you forgot your password or username see [Reset Access to an Azure VM](./extensions/vmaccess-linux.md)
 
 2. Validate the returned fingerprint.
 
@@ -168,7 +168,7 @@ Once the above prerequisites are met, you're ready to connect to your VM. Open y
     ssh azureuser@20.51.230.13
     ```
 
-   If you forgot your password or username see [Reset Access to an Azure VM](./extensions/vmaccess.md)
+   If you forgot your password or username see [Reset Access to an Azure VM](./extensions/vmaccess-linux.md)
 
 2. Validate the returned fingerprint.
     

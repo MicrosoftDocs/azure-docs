@@ -1,5 +1,5 @@
 ---
-title: How to deploy existing pipeline jobs to a batch endpoint (preview)
+title: How to deploy existing pipeline jobs to a batch endpoint
 titleSuffix: Azure Machine Learning
 description: Learn how to create pipeline component deployment for Batch Endpoints
 services: machine-learning
@@ -10,13 +10,17 @@ ms.author: fasantia
 reviewer: msakande
 ms.reviewer: mopeakande
 ms.topic: how-to
-ms.date: 05/12/2023
-ms.custom: how-to, devplatv2
+ms.custom:
+  - how-to
+  - devplatv2
+  - ignite-2023
+ms.date: 11/15/2023
+
 ---
 
-# Deploy existing pipeline jobs to batch endpoints (preview)
+# Deploy existing pipeline jobs to batch endpoints
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 Batch endpoints allow you to deploy pipeline components, providing a convenient way to operationalize pipelines in Azure Machine Learning. Batch endpoints accept pipeline components for deployment. However, if you already have a pipeline job that runs successfully, Azure Machine Learning can accept that job as input to your batch endpoint and create the pipeline component automatically for you. In this article, you'll learn how to use your existing pipeline job as input for batch deployment.
 
@@ -27,13 +31,11 @@ You'll learn to:
 > * Create a batch deployment from the existing job
 > * Test the deployment
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## About this example
 
 In this example, we're going to deploy a pipeline consisting of a simple command job that prints "hello world!". Instead of registering the pipeline component before deployment, we indicate an existing pipeline job to use for deployment. Azure Machine Learning will then create the pipeline component automatically and deploy it as a batch endpoint pipeline component deployment.
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -43,7 +45,7 @@ cd endpoints/batch/deploy-pipelines/hello-batch
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Run the pipeline job you want to deploy
 
@@ -185,13 +187,13 @@ To deploy the pipeline component, we have to create a batch deployment from the 
     Notice now how we use the property `job_definition` instead of `component`:
     
     ```python
-    deployment = BatchPipelineComponentDeployment(
+    deployment = PipelineComponentBatchDeployment(
         name="hello-batch-from-job",
         description="A hello world deployment with a single step. This deployment is created from a pipeline job.",
         endpoint_name=endpoint.name,
         job_definition=pipeline_job_run,
         settings={
-            "default_comput": "batch-cluster",
+            "default_compute": "batch-cluster",
             "continue_on_step_failure": False
         }
     )
@@ -290,7 +292,7 @@ ml_client.batch_endpoints.begin_delete(endpoint.name).result()
 
 ## Next steps
 
-- [How to deploy a training pipeline with batch endpoints (preview)](how-to-use-batch-training-pipeline.md)
-- [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
+- [How to deploy a training pipeline with batch endpoints](how-to-use-batch-training-pipeline.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
 - [Access data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

@@ -5,8 +5,8 @@ ms.topic: reference
 ms.date: 11/29/2022
 ms.service: backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Azure Backup compliance offerings
@@ -53,4 +53,4 @@ In this article, you'll learn about the various compliance offerings for Azure B
 
 ## Next steps
 
-Find the latest coverage and details about compliance in [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+Find the latest coverage and details about compliance in [Microsoft TrustCenter](https://www.microsoft.com/trust-center/compliance/compliance-overview).

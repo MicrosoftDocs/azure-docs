@@ -14,7 +14,7 @@ zone_pivot_groups: functions-nodejs-model
 This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you have already read the [Azure Functions developer guide](functions-reference.md).
 
 > [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [upgrade guide](./functions-node-upgrade-v4.md).
+> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [migration guide](./functions-node-upgrade-v4.md).
 
 As a Node.js developer, you might also be interested in one of the following articles:
 
@@ -30,8 +30,8 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description |
 | ---- | ---- | --- | --- | --- |
-| 4.x | Preview | 4.16+ | 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
-| 3.x | GA | 4.x | 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
+| 4.x | GA | 4.25+ | 20.x (Preview), 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
+| 3.x | GA | 4.x | 20.x (Preview), 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
 | 2.x | GA (EOL) | 3.x | 14.x, 12.x, 10.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x | GA (EOL) | 2.x | 10.x, 8.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 
@@ -1167,7 +1167,7 @@ The `HttpRequest` object has the following properties:
 | **`params`**     | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**       | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
 | **`body`**       | `Buffer | string | any` | If the media type is "application/octet-stream" or "multipart/*", `body` is a Buffer. If the value is a JSON parse-able string, `body` is the parsed object. Otherwise, `body` is a string. |
-| **`rawBody`**    | `Buffer | string` | If the media type is "application/octet-stream" or "multipart/*", `rawBody` is a Buffer. Otherwise, `rawBody` is a string. The only difference between `body` and `rawBody` is that `rawBody` doesn't JSON parse a string body. |
+| **`rawBody`**    | `string` | The body as a string. Despite the name, this property doesn't return a Buffer. |
 | **`bufferBody`** | `Buffer` | The body as a buffer. |
 
 ::: zone-end
@@ -1418,21 +1418,62 @@ You can see the current version that the runtime is using by logging `process.ve
 
 ### Setting the Node version
 
-# [Windows](#tab/windows-setting-the-node-version)
+The way that you upgrade your Node.js version depends on the OS on which your function app runs.
 
-For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~18`.
+# [Windows](#tab/windows)
 
-# [Linux](#tab/linux-setting-the-node-version)
+When running on Windows, the Node.js version is set by the [`WEBSITE_NODE_DEFAULT_VERSION`](./functions-app-settings.md#website_node_default_version) application setting. This setting can be updated either by using the Azure CLI or in the Azure portal.
 
-For Linux function apps, run the following Azure CLI command to update the Node version.
+# [Linux](#tab/linux)
 
-```azurecli
-az functionapp config set --linux-fx-version "node|18" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
-```
+When running on Linux, the Node.js version is set by the [linuxfxversion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
 
 ---
 
-To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md).
+For more information about Node.js versions, see [Supported versions](#supported-versions).
+
+Before upgrading your Node.js version, make sure your function app is running on the latest version of the Azure Functions runtime. If you need to upgrade your runtime version, see [Migrate apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md?pivots=programming-language-javascript).  
+
+# [Azure CLI](#tab/azure-cli/windows)
+
+Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
+
+```azurecli-interactive
+az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~18 \
+ --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
+```
+
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~18`.
+
+# [Azure portal](#tab/azure-portal/windows)
+
+Use the following steps to change the Node.js version:
+
+[!INCLUDE [functions-set-nodejs-version-portal](../../includes/functions-set-nodejs-version-portal.md)]
+
+# [Azure CLI](#tab/azure-cli/linux)
+
+Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
+
+```azurecli-interactive
+az functionapp config set --linux-fx-version "node|18" --name "<FUNCTION_APP_NAME>" \
+ --resource-group "<RESOURCE_GROUP_NAME>"
+```
+
+This sets the base image of the Linux function app to Node.js version 18.
+
+# [Azure portal](#tab/azure-portal/linux)
+
+>[!NOTE]  
+> You can't change the Node.js version in the Azure portal when your function app is running on Linux in a Consumption plan. Instead use the Azure CLI.
+
+For Premium and Dedicated plans, use the following steps to change the Node.js version:  
+
+[!INCLUDE [functions-set-nodejs-version-portal](../../includes/functions-set-nodejs-version-portal.md)]
+
+---
+
+After changes are made, your function app restarts. To learn more about Functions support for Node.js, see [Language runtime support policy](./language-support-policy.md).
 
 <a name="access-environment-variables-in-code"></a>
 
@@ -1701,13 +1742,29 @@ When you develop Azure Functions in the serverless hosting model, cold starts ar
 
 When you use a service-specific client in an Azure Functions application, don't create a new client with every function invocation because you can hit connection limits. Instead, create a single, static client in the global scope. For more information, see [managing connections in Azure Functions](manage-connections.md).
 
-::: zone pivot="nodejs-model-v3"
 
 ### Use `async` and `await`
 
 When writing Azure Functions in Node.js, you should write code using the `async` and `await` keywords. Writing code using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps avoid two common problems:
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior, such as missing logs from `context.log`, caused by asynchronous calls that aren't properly awaited.
+
+::: zone pivot="nodejs-model-v4"
+
+In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Returning without ensuring the callback finishes means the http response will sometimes have an empty body (issue #2).
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" :::
+
+---
+
+::: zone-end
+::: zone pivot="nodejs-model-v3"
 
 In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Calling the deprecated `context.done()` method outside of the scope of the callback can signal the function is finished before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
 
@@ -1758,9 +1815,28 @@ export default trigger1;
 
 ---
 
+::: zone-end
+
 Use the `async` and `await` keywords to help avoid both of these issues. Most APIs in the Node.js ecosystem have been converted to support promises in some form. For example, starting in v14, Node.js provides an `fs/promises` API to replace the `fs` callback API.
 
-In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
+In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete.
+
+::: zone pivot="nodejs-model-v4"
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" :::
+
+---
+
+::: zone-end
+::: zone pivot="nodejs-model-v3"
+
+With `async` and `await`, you also don't need to call the `context.done()` callback.
 
 # [JavaScript](#tab/javascript)
 
@@ -1806,6 +1882,10 @@ export default trigger1;
 ---
 
 ::: zone-end
+
+## Troubleshoot
+
+See the [Node.js Troubleshoot guide](./functions-node-troubleshoot.md).
 
 ## Next steps
 

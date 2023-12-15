@@ -177,7 +177,9 @@
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
     href: /cli/azure/dt
-  - name: DTDL v2 spec
+  - name: DTDL v3 Language Description
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md
+  - name: DTDL v2 Language Description
     href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md
   - name: Query language reference
     items:
@@ -287,8 +289,8 @@
         href: https://github.com/microsoft/azure-digital-twins-postman-samples
       - name: Sample for ingesting OPC UA data into Azure Digital Twins
         href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
-      - name: DTDL Validator (sample)
-        href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+      - name: DTDL parser sample
+        href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
       - name: Model Uploader (sample)
         href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/UploadModels
       - name: Model Deleter (sample)
@@ -313,12 +315,10 @@
     items:
     - name: DTDL extension for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl
-    - name: DTDL parser library - NuGet
-      href: https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/
-    - name: DTDL validator (sample)
-      href: /samples/azure-samples/dtdl-validator/dtdl-validator/
-    - name: DTMI spec
-      href: https://github.com/Azure/digital-twin-model-identifier
+    - name: DTDLParser on NuGet
+      href: https://www.nuget.org/packages/DTDLParser
+    - name: DTDL parser sample
+      href: https://github.com/digitaltwinconsortium/DTDLParser/tree/main/samples/DTDLParserResolveSample
   - name: Learning paths
     items:  
     - name: 'Extend IoT solutions by using Azure Digital Twins'

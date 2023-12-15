@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to author scoring scripts to perform batch inference in batch deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 ms.topic: conceptual
 author: santiagxf
 ms.author: fasantia
@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Author scoring scripts for batch deployments
 
-[!INCLUDE [cli v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-dev-v2.md)]
 
 Batch endpoints allow you to deploy models to perform long-running inference at scale. When deploying models, you need to create and specify a scoring script (also known as batch driver script) to indicate how we should use it over the input data to create predictions. In this article, you will learn how to use scoring scripts in model deployments for different scenarios and their best practices.
 
@@ -114,7 +114,7 @@ The `run()` method should return a Pandas `DataFrame` or an array/list. Each ret
 > If you need to write predictions in a different way, you can [customize outputs in batch deployments](how-to-deploy-model-custom-output.md).
 
 > [!WARNING]
-> Do not not output complex data types (or lists of complex data types) rather than `pandas.DataFrame` in the `run` function. Those outputs will be transformed to string and they will be hard to read.
+> Do not output complex data types (or lists of complex data types) rather than `pandas.DataFrame` in the `run` function. Those outputs will be transformed to string and they will be hard to read.
 
 The resulting DataFrame or array is appended to the output file indicated. There's no requirement on the cardinality of the results (1 file can generate 1 or many rows/elements in the output). All elements in the result DataFrame or array are written to the output file as-is (considering the `output_action` isn't `summary_only`).
 

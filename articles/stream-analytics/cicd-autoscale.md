@@ -2,8 +2,8 @@
 title: Configure autoscale settings for a Stream Analytics job by using the CI/CD tool
 description: This article shows how to configure autoscale settings for a Stream Analytics job by using the CI/CD tool.
 services: stream-analytics
-author: alexlzx
-ms.author: zhenxilin
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/08/2023
@@ -27,7 +27,7 @@ Here's an example of an autoscale setting:
 
 To complete the steps in this article, you need either:
 
-- A Stream Analytics project on the local machine. If don't have one, follow [this guide](quick-create-visual-studio-code.md) to create one.
+- A Stream Analytics project on the local machine. Follow [this guide](quick-create-visual-studio-code.md) to create one.
 - A running Stream Analytics job in Azure.
 
 ## Configure autoscale settings
@@ -73,7 +73,7 @@ If you have a working Stream Analytics project on the local machine, follow thes
 
     |Parameter key   | Value | Example|
     |----------------|-------|--------|
-    |`capacity`| Maximum SUs (1, 3, 6, or multiples of 6 up to 396)|`12`|
+    |`capacity`| Maximum SUs (1/3, 2/3, 1, up to 66 SU V2s)|`2`|
     |`metrics` | Metrics used for autoscale rules | `ProcessCPUUsagePercentage` `ResourceUtilization`|
     |`targetJobName`| Project name| `ClickStream-Filter`|
     |`outputPath`| Output path for ARM templates | `./Deploy`|
@@ -81,7 +81,7 @@ If you have a working Stream Analytics project on the local machine, follow thes
     Here's an example:
 
     ```powershell
-    azure-streamanalytics-cicd autoscale --capacity 12 --metrics ProcessCPUUsagePercentage ResourceUtilization --targetJobName ClickStream-Filter --outputPath ./Deploy
+    azure-streamanalytics-cicd autoscale --capacity 2 --metrics ProcessCPUUsagePercentage ResourceUtilization --targetJobName ClickStream-Filter --outputPath ./Deploy
     ```
 
     If you configure the autoscale setting successfully, two JSON files are created under the *Deploy* folder. One is the ARM template file, and the other is the parameter file.
@@ -161,7 +161,7 @@ If you have a Stream Analytics job running in Azure, you can use the Stream Anal
 Run the following command. Replace `$jobResourceId` with the resource ID of your Stream Analytics job.
 
 ```powershell
-azure-streamanalytics-cicd autoscale --capacity 12 --metrics ProcessCPUUsagePercentage ResourceUtilization --targetJobResourceId $jobResourceId --outputPath ./Deploy
+azure-streamanalytics-cicd autoscale --capacity 2 --metrics ProcessCPUUsagePercentage ResourceUtilization --targetJobResourceId $jobResourceId --outputPath ./Deploy
 ```
 
 If you configure the settings successfully, ARM template and parameter files are created in the current directory.

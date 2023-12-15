@@ -4,11 +4,11 @@ titleSuffix: Azure Storage
 description: Learn to work with user-assigned managed identities to configure passwordless connections between multiple Azure services.
 services: storage
 author: alexwolfmsft
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 09/23/2022
 ms.author: alexwolf
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.devlang: csharp
 ms.custom: devx-track-csharp, ignite-2022, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
 
@@ -81,10 +81,10 @@ You can also enable access to Azure resources for local development by assigning
 
 1) After assigning the **Storage Blob Data Contributor** role to your managed identity,  under **Assign access to**, this time select **User, group or service principal**. Choose **+ Select members** to open the flyout menu again.
 
-2) Search for the *user@domain* account or Azure AD security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
+2) Search for the *user@domain* account or Microsoft Entra security group you would like to grant access to by email address or name, and then select it. This should be the same account you use to sign-in to your local development tooling with, such as Visual Studio or the Azure CLI.
 
 > [!NOTE]
-> You can also assign these roles to an Azure Active Directory security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
+> You can also assign these roles to a Microsoft Entra security group if you are working on a team with multiple developers. You can then place any developer inside that group who needs access to develop the app locally.
 
 ### Implement the application code
 
@@ -488,5 +488,5 @@ These types of scenarios are explored in more depth in the [identities best prac
 
 In this tutorial, you learned how to migrate an application to passwordless connections. You can read the following resources to explore the concepts discussed in this article in more depth:
 
-* [Authorize access to blobs using Azure Active Directory](../blobs/authorize-access-azure-active-directory.md)
+* [Authorize access to blobs using Microsoft Entra ID](../blobs/authorize-access-azure-active-directory.md)
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).

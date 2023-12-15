@@ -1,6 +1,6 @@
 ---
-author: ddematheu2
-ms.author: dademath
+author: RinaRish
+ms.author: ektrishi
 ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
@@ -39,32 +39,23 @@ Get more conceptual documentation, quickstarts, and examples in the [UI Library 
 
 ## Chat use cases
 
-| Area         | Use cases                                        |
-| ------------ | ------------------------------------------------ |
-| Chat types   | Join a Microsoft Teams meeting chat                        |
-|              | Join an Azure Communication Services chat thread |
-| Teams interoperability  | Send and receive chat messages                                               |
-|  | Send typing indicators                                            |
-|                     | Receive rich text messages              |
-|                     | Receive inline images*              |
-| Chat actions | Send a chat message                                |
-|              | Receive a chat message                             |
-| Chat events  | Show typing indicators                                |
-|              | Show a read receipt                                     |
-|              | Show when a participant is added or removed                        |
-|              | Show changes to the chat title                               |
-| Participants | Show a participant roster                               |
 
-*Microsoft Teams allows users to share images by:
-- Copying & paste into the box at the bottom of the chat - inline images.
-- Drag & drop into the chat area.
-- Upload an image as a file via the "Upload from this device" button.
+| Area         | Azure Communication Services Chat                | Teams Interoperability Chat                 |
+| ------------ | ------------------------------------------------ | ------------------------------------------- |
+| Chat types   | Join an Azure Communication Services chat thread | Join a Microsoft Teams meeting chat         |
+| Chat actions | Send and receive text messages                      | Send and receive text messages                 |
+|              | Receive rich text messages                          | Receive rich text messages                     |
+|              | -                                                | [Receive inline images\*](../../../tutorials/inline-image-tutorial-interop-chat.md)                        |
+|              | [Send and receive file attachments](../../../tutorials/file-sharing-tutorial-acs-chat.md)                   | [Receive file attachments\*](../../../tutorials/file-sharing-tutorial-interop-chat.md)                 |
+| Chat events  | Send and receive typing indicators                  | Send and receive typing indicators\*\*             |
+|              | Send and receive read receipts                      | Send and receive read receipts                 |
+|              | Show when a participant is added or removed      | Show when a participant is added or removed |
+| Participants | Show a participant roster                        | Show a participant roster                   |
 
-Azure Communication Services currently support only option one for copying and pasting the image. Users can achieve it using keyboard shortcuts or the operating system's context menu options for copy and paste. To learn more about this, please refer to the storybook page for [Teams Inline Image](https://azure.github.io/communication-ui-library/?path=/docs/examples-teamsinterop-inlineimage--inline-image#inline-images)
 
-*Certain GIF encodings may not be supported by the UI library at this time, the user might receive a static image instead and this is a known issue. 
+\*Inline image and file attachment support are currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-*Inline image support is currently in public preview. Preview APIs and SDKs are provided without a service-level agreement. We recommend that you don't use them for production workloads. Some features might not be supported, or they might have constrained capabilities. For more information, review [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+\*\*The display name of typing event from the Teams user might not be shown properly.
 
 ## Supported identities
 
@@ -84,6 +75,8 @@ If you use UI components to deliver Teams interoperability experiences, begin by
 - [Lobby example](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--lobby). A sample lobby where a participant can wait to be admitted to a call.
 - [Compliance banner](https://azure.github.io/communication-ui-library/?path=/story/examples-teams-interop--compliance-banner). A sample banner that shows the user if the call is being recorded.
 - [Teams theme](https://azure.github.io/communication-ui-library/?path=/story/examples-themes--teams). A sample theme that makes UI Library elements look like Microsoft Teams.
+- [Image sharing\*](../../../tutorials/inline-image-tutorial-interop-chat.md). A sample of Azure Communication Service end user can receive images sent by the Teams user.
+- [File sharing\*](../../../tutorials/file-sharing-tutorial-interop-chat.md). A sample of Azure Communication Service end user can receive file attachments sent by the Teams user. 
 
 ## Customization
 

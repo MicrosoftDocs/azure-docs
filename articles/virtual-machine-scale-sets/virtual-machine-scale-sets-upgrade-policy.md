@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 03/28/2023
 ms.reviewer: ju-shim
-ms.custom: maxsurge, upgradepolicy
-
+ms.custom: maxsurge, upgradepolicy, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Manage Upgrade Policies for Virtual Machine Scale Sets
 
@@ -23,10 +22,10 @@ There are three different modes an Upgrade Policy can be set to. The modes are *
 Additionally, as your application processes traffic, there can be situations where you might want specific instances to be treated differently from the rest of the scale set instance. For example, certain instances in the scale set could be needed to perform additional or different tasks than the other members of the scale set. You might require these 'special' VMs not to be modified with the other instances in the scale set. In these situations, [Instance Protection](virtual-machine-scale-sets-instance-protection.md) provides the additional controls needed to protect these instances from the various upgrades discussed in this article.
 
 ### Manual
-In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set will use the most update-to-date model available. If no upgrade policy is set during VM creation, the default value is manual. 
+In this mode, you choose when to initiate an update to the scale set instances. Nothing happens automatically to the existing VMs when changes occur to the scale set model. New instances added to the scale set will use the most update-to-date model available.
 
 ### Automatic 
-In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
+In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set might take down all VMs at the same time when performing upgrades. If your scale set is part of a Service Fabric cluster, *Automatic* mode is the only available mode. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
 ### Rolling
 
@@ -51,6 +50,9 @@ When using a Rolling Upgrade Policy, the scale set must also have a [health prob
  
 
 ## Setting the Upgrade Policy
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
 
 The Upgrade Policy can be set during deployment or updated post deployment.  
 
@@ -80,7 +82,8 @@ az network lb rule create --resource-group MyResourceGroup --lb-name myLoadBalan
 az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
+    --orchestration-mode Uniform \
     --lb myLoadBalancer \
     --health-probe myProbe \
     --upgrade-policy-mode Rolling \
@@ -103,6 +106,7 @@ New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
   -VMScaleSetName "myScaleSet" `
+  -OrchestrationMode "Uniform" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `
   -PublicIpAddressName "myPublicIPAddress" `

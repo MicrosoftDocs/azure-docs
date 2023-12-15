@@ -1,6 +1,6 @@
 ---
 title: "Azure Operator Nexus: How to create route policy in Network Fabric"
-description: Learn to create, view, list, update, delete commands for Network Fabric.
+description: Learn to create, view, list, update, and delete commands for Network Fabric.
 author: jdasari
 ms.author: jdasari
 ms.service: azure-operator-nexus
@@ -11,10 +11,10 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Route Policy in Network Fabric
 
-Route policies provides Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
+Route policies provide Operators the capability to allow or deny routes in regards to Layer 3 isolation domains in Network Fabric.
 
 With route policies, routes are tagged with certain attributes via community values
-and extended community values when they're distributed via Border Gateway Patrol (BGP).
+and extended community values when they're distributed via Border Gateway Protocol (BGP).
 Similarly, on the BGP listener side, route policies can be authored to discard/allow
 routes based on community values and extended community value attributes.
 
@@ -89,7 +89,6 @@ IP prefixes specify only the match conditions of route policies. They don't spec
 | sequenceNumber | Sequence in which the prefixes are processed. Prefix lists are evaluated starting with the lowest sequence number and continue down the list until a match is made. Once a match is made, the permit or deny statement is applied to that network and the rest of the list is ignored |  100 |True |
 | networkPrefix | Network Prefix specifying IPv4/IPv6 packets to be permitted or denied. |  1.1.1.0/24 |True |
 | condition | Specified prefix list bounds- EqualTo \|  GreaterThanOrEqualTo \|  LesserThanOrEqualTo |  EqualTo | |
-
 | subnetMaskLength | SubnetMaskLength specifies the minimum networkPrefix length to be matched. Required when condition is specified.  |  32| |
 
 ### Create IP Prefix
@@ -97,7 +96,7 @@ IP prefixes specify only the match conditions of route policies. They don't spec
 This command creates an IP prefix resource with IPv4 prefix rules:
 
 ```azurecli
-az nf ipprefix create \
+az networkfabric ipprefix create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipprefixv4-1204-cn1" \
 --location "eastus" \
@@ -139,7 +138,7 @@ Expected output:
 This command creates an IP prefix resource with IPv6 prefix rules,
 
 ```azurecli
-az nf ipprefix create \
+az networkfabric ipprefix create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipprefixv6-2701-cn1" \
 --location "eastus" \
@@ -202,7 +201,7 @@ IP community resource allows operators to manipulate routes based on Community v
 This command creates an IP community resource:
 
 ```azurecli
-az nf ipcommunity create \
+az networkfabric ipcommunity create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipcommunity-2701" \
 --location "eastus" \
@@ -248,7 +247,7 @@ Expected output:
 This command displays an IP community resource:
 
 ```azurecli
-az nf ipcommunity show --resource-group "ResourceGroupName" --resource-name "ipcommunity-2701"
+az networkfabric ipcommunity show --resource-group "ResourceGroupName" --resource-name "ipcommunity-2701"
 
 ```
 
@@ -286,7 +285,7 @@ Expected output:
 
 ## IP extended community
 
-The `IPExtendedCommunity`resource allows operators to manipulate routes  based on  route targets. Operators use it to specify conditions and actions for adding/removing routes as they're propagated up-stream/down-stream or tag them with specific extended community values. The operator must create an ARM resource of the type `I`PExtendedCommunityList` by providing a list of community values and specific properties. ExtendedCommunityLists are used in specifying match conditions and the action properties for route policies.
+The `IPExtendedCommunity`resource allows operators to manipulate routes  based on  route targets. Operators use it to specify conditions and actions for adding/removing routes as they're propagated up-stream/down-stream or tag them with specific extended community values. The operator must create an ARM resource of the type `IPExtendedCommunityList` by providing a list of community values and specific properties. ExtendedCommunityLists are used in specifying match conditions and the action properties for route policies.
 
 ### Parameters for IP extended community
 
@@ -303,7 +302,7 @@ The `IPExtendedCommunity`resource allows operators to manipulate routes  based o
 This command creates an IP extended community resource:
 
 ```azurecli
-az nf ipextendedcommunity create \
+az networkfabric ipextendedcommunity create \
 --resource-group "ResourceGroupName" \
 --resource-name "ipextcommunity-2701" \
 --location "eastus"  \
@@ -343,7 +342,7 @@ Expected output:
 This command displays an IP extended community resource:
 
 ```azurecli
-az nf ipextendedcommunity show --resource-group "ResourceGroupName" --resource-name "ipextcommunity-2701"
+az networkfabric ipextendedcommunity show --resource-group "ResourceGroupName" --resource-name "ipextcommunity-2701"
 ```
 
 Expected output:
@@ -409,7 +408,7 @@ Route policy resource enables an operator to specify conditions and actions base
 This command creates  route policies:
 
 ```azurecli
-az nf routepolicy create \
+az networkfabric routepolicy create \
 --resource-group "ResourceGroupName"  \
 --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy" \
 --location "eastus" \
@@ -498,7 +497,7 @@ Expected output:
 This command displays route policies:
 
 ```Azurecli
-az nf routepolicy show --resource-group "ResourceGroupName" --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy"
+az networkfabric routepolicy show --resource-group "ResourceGroupName" --resource-name "rcf-Fab3-l3domain-v6-connsubnet-ext-policy"
 ```
 
 Expected output:

@@ -1,12 +1,12 @@
 ---
 title: Set up a staging environment in Azure Spring Apps
 description: Learn how to use blue-green deployment with Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Set up a staging environment in Azure Spring Apps
@@ -163,10 +163,10 @@ Use the following steps to view deployed apps.
    :::image type="content" source="media/how-to-staging-environment/running-staging-app.png" lightbox="media/how-to-staging-environment/running-staging-app.png" alt-text="Screenshot that shows the URL of the staging app.":::
 
 >[!TIP]
-> Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/demo/green`. Use this format to access your endpoint.
+> Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green`. Use this format to access your endpoint.
 
 >[!NOTE]
-> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app demo in the configuration server as *somepath*, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/demo/green/somepath/...`.
+> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app demo in the configuration server as *somepath*, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green/somepath/...`.
 
 If you visit your public-facing app demo at this point, you should see the old page without your new change.
 

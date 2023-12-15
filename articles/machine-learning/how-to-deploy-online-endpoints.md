@@ -1,25 +1,24 @@
 ---
-title: Deploy machine learning models to online endpoints
+title: Deploy machine learning models to online endpoints for inference
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as an online endpoint in Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: inferencing
 author: dem108
 ms.author: sehan
 ms.reviewer: mopeakande
-ms.date: 06/07/2023
+ms.date: 11/15/2023
+reviewer: msakande
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
 
 # Deploy and score a machine learning model by using an online endpoint
 
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
-
-You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for real-time scoring. 
+In this article, you'll learn to deploy your model to an online endpoint for use in real-time inferencing. You'll begin by deploying a model on your local machine to debug any errors. Then, you'll deploy and test the model in Azure. You'll also learn to view the deployment logs and monitor the service-level agreement (SLA). By the end of this article, you'll have a scalable HTTPS/REST endpoint that you can use for real-time inference.
 
 Online endpoints are endpoints that are used for real-time inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints and differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints-online.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
@@ -31,19 +30,19 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic prereqs cli](includes/machine-learning-cli-prereqs.md)]
 
-* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+* Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. If you use studio to create/manage online endpoints/deployments, you will need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
 # [Python](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
-[!INCLUDE [basic prereqs sdk](../../includes/machine-learning-sdk-v2-prereqs.md)]
+[!INCLUDE [basic prereqs sdk](includes/machine-learning-sdk-v2-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -64,7 +63,7 @@ Before following the steps in this article, make sure you have the following pre
 > [!NOTE]
 > While the Azure CLI and CLI extension for machine learning are used in these steps, they're not the main focus. they're used more as utilities, passing templates to Azure and checking the status of template deployments.
 
-[!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
+[!INCLUDE [basic prereqs cli](includes/machine-learning-cli-prereqs.md)]
 
 * Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __owner__ or __contributor__ role for the Azure Machine Learning workspace, or a custom role allowing `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/*`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
@@ -72,10 +71,13 @@ Before following the steps in this article, make sure you have the following pre
 
 ### Virtual machine quota allocation for deployment
 
-For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades. Therefore, if you request a given number of instances in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 4 cores) in a deployment, you should have a quota for 48 cores (`12 instances * 4 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
+For managed online endpoints, Azure Machine Learning reserves 20% of your compute resources for performing upgrades on some VM SKUs. If you request a given number of instances in a deployment, you must have a quota for `ceil(1.2 * number of instances requested for deployment) * number of cores for the VM SKU` available to avoid getting an error. For example, if you request 10 instances of a [Standard_DS3_v2](/azure/virtual-machines/dv2-dsv2-series) VM (that comes with 4 cores) in a deployment, you should have a quota for 48 cores (`12 instances * 4 cores`) available. To view your usage and request quota increases, see [View your usage and quotas in the Azure portal](how-to-manage-quotas.md#view-your-usage-and-quotas-in-the-azure-portal).
 
-<!-- In this tutorial, you'll request one instance of a Standard_DS2_v2 VM SKU (that comes with 2 cores) in your deployment; therefore, you should have a minimum quota for 4 cores (`2 instances*2 cores`) available.  -->
----
+There are certain VM SKUs that are exempted from extra quota reservation. To view the full list, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+
+Azure Machine Learning provides a [shared quota](how-to-manage-quotas.md#azure-machine-learning-shared-quota) pool from which all users can access quota to perform testing for a limited time. When you use the studio to deploy Llama models (from the model catalog) to a managed online endpoint, Azure Machine Learning allows you to access this shared quota for a short time. 
+
+To deploy a _Llama-2-70b_ or _Llama-2-70b-chat_ model, however, you must have an [Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription) before you can deploy using the shared quota. For more information on how to use the shared quota for online endpoint deployment, see [How to deploy foundation models using the studio](how-to-use-foundation-models.md#deploying-using-the-studio).
 
 ## Prepare your system
 
@@ -233,7 +235,7 @@ cd azureml-examples
 
 To define an endpoint, you need to specify:
 
-* Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+* Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 * Authentication mode: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A key doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
 * Optionally, you can add a description and tags to your endpoint.
 
@@ -253,7 +255,7 @@ The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* f
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
-The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
 
 | Key         | Description                                                                                                                                                                                                                                                 |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -279,7 +281,7 @@ endpoint_name = "endpt-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 # create an online endpoint
 endpoint = ManagedOnlineEndpoint(
     name = endpoint_name, 
-    description="this is a sample endpoint"
+    description="this is a sample endpoint",
     auth_mode="key"
 )
 ```
@@ -328,10 +330,11 @@ The following table describes the key attributes of a deployment:
 | Scoring script | The relative path to the scoring file in the source code directory. This Python code must have an `init()` function and a `run()` function. The `init()` function will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | Environment    | The environment to host the model and code. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.                                                                                                                                                                                                                 |
 | Instance type  | The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                            |
-| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                |
+| Instance count | The number of instances to use for the deployment. Base the value on the workload you expect. For high availability, we recommend that you set the value to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployments](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment).                                |
 
 > [!NOTE]
-> The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
+> - The model and container image (as defined in Environment) can be referenced again at any time by the deployment when the instances behind the deployment go through security patches and/or other recovery operations. If you used a registered model or container image in Azure Container Registry for deployment and removed the model or the container image, the deployments relying on these assets can fail when reimaging happens. If you removed the model or the container image, ensure the dependent deployments are re-created or updated with alternative model or container image.
+> - The container registry that the environment refers to can be private only if the endpoint identity has the permission to access it via Microsoft Entra authentication and Azure RBAC. For the same reason, private Docker registries other than Azure Container Registry are not supported.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -366,7 +369,7 @@ To configure a deployment:
 ```python
 model = Model(path="../model-1/model/sklearn_regression_model.pkl")
 env = Environment(
-    conda_file="../model-1/environment/conda.yml",
+    conda_file="../model-1/environment/conda.yaml",
     image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
 )
 
@@ -419,7 +422,7 @@ For more information on creating an environment, see [Manage Azure Machine Learn
 
 ### Register the model
 
-A model registration is a logical entity in the workspace that may contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
+A model registration is a logical entity in the workspace that can contain a single model file or a directory of multiple files. As a best practice for production, you should register the model and environment. When creating the endpoint and deployment in this article, we'll assume that you've registered the [model folder](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1/model) that contains the model.
 
 To register the example model, follow these steps:
 
@@ -494,14 +497,120 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 ---
 
-### Use more than one model in a deployment
+### Identify model path with respect to `AZUREML_MODEL_DIR`
 
-Currently, you can specify only one model per deployment in the deployment definition when you use the Azure CLI, Python SDK, or any of the other client tools.
+When deploying your model to Azure Machine Learning, you need to specify the location of the model you wish to deploy as part of your deployment configuration. In Azure Machine Learning, the path to your model is tracked with the `AZUREML_MODEL_DIR` environment variable. By identifying the model path with respect to `AZUREML_MODEL_DIR`, you can deploy one or more models that are stored locally on your machine or deploy a model that is registered in your Azure Machine Learning workspace.
 
-To use more than one model in a deployment, register a model folder that contains all the models as files or subdirectories. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure will be retained. For an example of deploying multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel) and [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
+For illustration, we reference the following local folder structure for the first two cases where you deploy a single model or deploy multiple models that are stored locally:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-1.png" alt-text="A screenshot showing a folder structure containing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-1.png":::
+
+#### Use a single local model in a deployment
+
+To use a single model that you have on your local machine in a deployment, specify the `path` to the `model` in your deployment YAML. Here's an example of the deployment YAML with the path `/Downloads/multi-models-sample/models/model_1/v1/sample_m1.pkl`:
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
+name: blue 
+endpoint_name: my-endpoint 
+model: 
+  path: /Downloads/multi-models-sample/models/model_1/v1/sample_m1.pkl 
+code_configuration: 
+  code: ../../model-1/onlinescoring/ 
+  scoring_script: score.py 
+environment:  
+  conda_file: ../../model-1/environment/conda.yml 
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest 
+instance_type: Standard_DS3_v2 
+instance_count: 1 
+```
+
+After you create your deployment, the environment variable `AZUREML_MODEL_DIR` will point to the storage location within Azure where your model is stored. For example, `/var/azureml-app/azureml-models/81b3c48bbf62360c7edbbe9b280b9025/1` will contain the model `sample_m1.pkl`. 
+
+Within your scoring script (`score.py`), you can load your model (in this example, `sample_m1.pkl`) in the `init()` function:
+
+```python
+def init(): 
+    model_path = os.path.join(str(os.getenv("AZUREML_MODEL_DIR")), "sample_m1.pkl") 
+    model = joblib.load(model_path) 
+```
+
+#### Use multiple local models in a deployment
+
+Although the Azure CLI, Python SDK, and other client tools allow you to specify only one model per deployment in the deployment definition, you can still use multiple models in a deployment by registering a model folder that contains all the models as files or subdirectories.
+
+In the previous example folder structure, you notice that there are multiple models in the `models` folder. In your deployment YAML, you can specify the path to the `models` folder as follows:
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
+name: blue 
+endpoint_name: my-endpoint 
+model: 
+  path: /Downloads/multi-models-sample/models/ 
+code_configuration: 
+  code: ../../model-1/onlinescoring/ 
+  scoring_script: score.py 
+environment:  
+  conda_file: ../../model-1/environment/conda.yml 
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest 
+instance_type: Standard_DS3_v2 
+instance_count: 1 
+```
+
+After you create your deployment, the environment variable `AZUREML_MODEL_DIR` will point to the storage location within Azure where your models are stored. For example, `/var/azureml-app/azureml-models/81b3c48bbf62360c7edbbe9b280b9025/1` will contain the models and the file structure. 
+
+For this example, the contents of the `AZUREML_MODEL_DIR` folder will look like this:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-2.png" alt-text="A screenshot of the folder structure of the storage location for multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-2.png":::
+
+Within your scoring script (`score.py`), you can load your models in the `init()` function. The following code loads the `sample_m1.pkl` model:
+
+```python
+def init(): 
+    model_path = os.path.join(str(os.getenv("AZUREML_MODEL_DIR")), "models","model_1","v1", "sample_m1.pkl ") 
+    model = joblib.load(model_path) 
+```
+
+For an example of how to deploy multiple models to one deployment, see [Deploy multiple models to one deployment (CLI example)](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/minimal/multimodel) and [Deploy multiple models to one deployment (SDK example)](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container-multimodel.ipynb).
 
 > [!TIP]
-> If you have more than 1500 files to register, you may consider compressing the files or subdirectories as .tar.gz when registering the model. To consume the models, you can uncompress the files or subdirectories in the init() function from the scoring script. Alternatively, when you register the model, set the `azureml.unpack` property to `True`, which will allow automatic uncompression. In either case, uncompression happens once in the initialization stage.
+> If you have more than 1500 files to register, consider compressing the files or subdirectories as .tar.gz when registering the models. To consume the models, you can uncompress the files or subdirectories in the `init()` function from the scoring script. Alternatively, when you register the models, set the `azureml.unpack` property to `True`, to automatically uncompress the files or subdirectories. In either case, uncompression happens once in the initialization stage.
+
+#### Use models registered in your Azure Machine Learning workspace in a deployment
+
+To use one or more models, which are registered in your Azure Machine Learning workspace, in your deployment, specify the name of the registered model(s) in your deployment YAML. For example, the following deployment YAML configuration specifies the registered `model` name as `azureml:local-multimodel:3`:
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json 
+name: blue 
+endpoint_name: my-endpoint 
+model: azureml:local-multimodel:3 
+code_configuration: 
+  code: ../../model-1/onlinescoring/ 
+  scoring_script: score.py 
+environment:  
+  conda_file: ../../model-1/environment/conda.yml 
+  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest 
+instance_type: Standard_DS3_v2 
+instance_count: 1 
+```
+
+For this example, consider that `local-multimodel:3` contains the following model artifacts, which can be viewed from the **Models** tab in the Azure Machine Learning studio:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-3.png" alt-text="A screenshot of the folder structure showing the model artifacts of the registered model." lightbox="media/how-to-deploy-online-endpoints/multi-models-3.png":::
+
+After you create your deployment, the environment variable `AZUREML_MODEL_DIR` will point to the storage location within Azure where your models are stored. For example, `/var/azureml-app/azureml-models/local-multimodel/3` will contain the models and the file structure. `AZUREML_MODEL_DIR` will point to the folder containing the root of the model artifacts. 
+Based on this example, the contents of the `AZUREML_MODEL_DIR` folder will look like this:
+
+:::image type="content" source="media/how-to-deploy-online-endpoints/multi-models-4.png" alt-text="A screenshot of the folder structure showing multiple models." lightbox="media/how-to-deploy-online-endpoints/multi-models-4.png":::
+
+Within your scoring script (`score.py`), you can load your models in the `init()` function. For example, load the `diabetes.sav` model:
+
+```python
+def init(): 
+    model_path = os.path.join(str(os.getenv("AZUREML_MODEL_DIR"), "models", "diabetes", "1", "diabetes.sav") 
+    model = joblib.load(model_path) 
+```
 
 ---
 
@@ -552,10 +661,11 @@ To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must
 > [!TIP]
 > You can use [Azure Machine Learning inference HTTP server Python package](how-to-inference-server-http.md) to debug your scoring script locally **without Docker Engine**. Debugging with the inference server helps you to debug the scoring script before deploying to local endpoints so that you can debug without being affected by the deployment container configurations.
 
-Local endpoints have the following limitations:
-- They do *not* support traffic rules, authentication, or probe settings. 
-- They support only one deployment per endpoint.
-- They support local model files only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder.
+> [!NOTE]
+> Local endpoints have the following limitations:
+> - They do *not* support traffic rules, authentication, or probe settings.
+> - They support only one deployment per endpoint.
+> - They support local model files and environment with local conda file only. If you want to test registered models, first download them using [CLI](/cli/azure/ml/model#az-ml-model-download) or [SDK](/python/api/azure-ai-ml/azure.ai.ml.operations.modeloperations#azure-ai-ml-operations-modeloperations-download), then use `path` in the deployment definition to refer to the parent folder. If you want to test registered environments, check the context of the environment in Azure Machine Learning studio and prepare local conda file to use. Example in this article demonstrates using local model and environment with local conda file, which supports local deployment. 
 
 For more information on debugging online endpoints locally before deploying to Azure, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
@@ -811,12 +921,12 @@ One way to create a managed online endpoint in the studio is from the **Models**
 1. Enter an __Endpoint name__.
 
     > [!NOTE]
-    > * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+    > * Endpoint name: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [endpoint limits](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
     > * Authentication type: The authentication method for the endpoint. Choose between key-based authentication and Azure Machine Learning token-based authentication. A `key` doesn't expire, but a token does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
     > * Optionally, you can add a description and tags to your endpoint.
 
 1. Keep the default selections: __Managed__ for the compute type and __key-based authentication__ for the authentication type.
-1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
+1. Select __Next__, until you get to the "Deployment" page. Here, toggle __Application Insights diagnostics__ to Enabled to allow you to view graphs of your endpoint's activities in the studio later and analyze metrics and logs using Application Insights.
 1. Select __Next__ to go to the "Environment" page. Here, select the following options:
 
     * __Select scoring file and dependencies__: Browse and select the `\azureml-examples\cli\endpoints\online\model-1\onlinescoring\score.py` file from the repo you cloned or downloaded earlier.
@@ -956,7 +1066,7 @@ To view log output, select the **Deployment logs** tab in the endpoint's **Detai
 
 :::image type="content" source="media/how-to-deploy-online-endpoints/deployment-logs.png" lightbox="media/how-to-deploy-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
 
-By default, logs are pulled from the inference server. To see logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
+By default, logs are pulled from the inference server. To see logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). Logs from the storage initializer container provide information on whether code and model data were successfully downloaded to the container. For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 # [ARM template](#tab/arm)
 
@@ -980,7 +1090,7 @@ You can use either the `invoke` command or a REST client of your choice to invok
 The following example shows how to get the key used to authenticate to the endpoint:
 
 > [!TIP]
-> You can control which Azure Active Directory security principals can get the authentication key by assigning them to a custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
+> You can control which Microsoft Entra security principals can get the authentication key by assigning them to a custom role that allows `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/token/action` and `Microsoft.MachineLearningServices/workspaces/onlineEndpoints/listkeys/action`. For more information, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
@@ -1134,7 +1244,7 @@ To view metrics and set alerts based on your SLA, complete the steps that are de
 
 The `get-logs` command for CLI or the `get_logs` method for SDK provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs).
 
-<!-- [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)] -->
+<!-- [!INCLUDE [Email Notification Include](includes/machine-learning-email-notifications.md)] -->
 
 ## Delete the endpoint and the deployment
 
@@ -1171,7 +1281,7 @@ If you aren't going use the deployment, you should delete it by running the foll
 
 ---
 
-## Next steps
+## Related content
 
 - [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Deploy models with REST](how-to-deploy-with-rest.md)
@@ -1181,5 +1291,5 @@ If you aren't going use the deployment, you should delete it by running the foll
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 - [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
-- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints)
 - [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)

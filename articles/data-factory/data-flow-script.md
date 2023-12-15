@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/04/2022
+ms.date: 07/17/2023
 ---
 
 # Data flow script (DFS)
@@ -293,6 +293,6 @@ DerivedColumn1 window(over(dummy),
 
 ```size(array(columns()))```
 
-## Next steps
+## Related content
 
 Explore Data Flows by starting with the [data flows overview article](concepts-data-flow-overview.md)

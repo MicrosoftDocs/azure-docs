@@ -1,5 +1,7 @@
 ---
 title: FAQ
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Questions frequently asked about NC2 on Azure
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix

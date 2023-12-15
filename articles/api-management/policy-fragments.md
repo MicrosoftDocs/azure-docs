@@ -110,11 +110,12 @@ After creating a policy fragment, you can view and update the properties of a po
 1. Review **Policy document references** for policy definitions that include the fragment. Before a fragment can be deleted, you must remove the fragment references from all policy definitions.
 1. After all references are removed, select **Delete**.
 
-## Next steps
+## Related content
 
 For more information about working with policies, see:
 
 + [Tutorial: Transform and protect APIs](transform-api.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements
-+ [Policy samples](./policies/index.md)	
++ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
++ [Author policies using Microsoft Copilot for Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

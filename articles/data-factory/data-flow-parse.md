@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 07/17/2023
 ---
 
 # Parse transformation in mapping data flow
@@ -138,7 +138,7 @@ parse(csv = csvString ? (id as integer,
                 documentForm: 'documentPerLine') ~> ParseCsv
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.

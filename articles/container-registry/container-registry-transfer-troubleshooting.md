@@ -5,6 +5,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.topic: article
+ms.service: container-registry
 ---
 
 # ACR Transfer troubleshooting

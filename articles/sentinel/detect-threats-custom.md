@@ -164,7 +164,7 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
     | Field name | Contains | Running the query in this field<br>results in... |
     | - | :-: | :-: |
-    | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert |
+    | **Query** | The compressed record of the event that generated this instance of the alert | The event that generated this instance of the alert;<br>limited to 10240 bytes  |
     | **OriginalQuery** | The original query as written in the analytics&nbsp;rule | The most recent event in the timeframe in which the query runs, that fits the parameters defined by the query |
 
     In other words, the **OriginalQuery** field behaves like the **Query** field usually behaves. The result of this extra field is that the problem described by the first item in the [Troubleshooting](#troubleshooting) section below has been solved.
@@ -334,9 +334,9 @@ If you operate Microsoft Sentinel in a cross-subscription or cross-tenant scenar
 
 ## Next steps
 
-When using analytics rules to detect threats from Microsoft Sentinel, make sure that you enable all rules associated with your connected data sources in order to ensure full security coverage for your environment. The most efficient way to enable analytics rules is directly from the data connector page, which lists any related rules. For more information, see [Connect data sources](connect-data-sources.md).
+When using analytics rules to detect threats from Microsoft Sentinel, make sure you enable all rules associated with your connected data sources to ensure full security coverage for your environment.
 
-You can also push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
+To automate rule enablement, push rules to Microsoft Sentinel via [API](/rest/api/securityinsights/) and [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), although doing so requires additional effort. When using API or PowerShell, you must first export the rules to JSON before enabling the rules. API or PowerShell may be helpful when enabling rules in multiple instances of Microsoft Sentinel with identical settings in each instance.
 
 For more information, see:
 

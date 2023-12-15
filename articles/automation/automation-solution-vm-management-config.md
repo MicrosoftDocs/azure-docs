@@ -86,18 +86,20 @@ In an environment that includes two or more components on multiple VMs supportin
 
 1. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the **monitoring-and-diagnostics/monitoring-action-groupsrunbook** with the parameter set to **False**. Alternatively, let the Automation schedules **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
 
-## <a name="cpuutil"></a>Scenario 3: Start or stop automatically based on CPU utilization
+## <a name="cpuutil"></a>Scenario 3: Stop automatically based on CPU utilization
 
 Start/Stop VMs during off-hours can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
-By default, the feature is pre-configured to evaluate the percentage CPU metric to see if average utilization is 5 percent or less. This scenario is controlled by the following variables and can be modified if the default values don't meet your requirements:
+By default, the feature is pre-configured to evaluate the percentage CPU metric to see if average utilization is 5 percent or less. This scenario is controlled by the following variables or parameters and can be modified if the default values don't meet your requirements:
 
-* `External_AutoStop_MetricName`
-* `External_AutoStop_Threshold`
-* `External_AutoStop_TimeAggregationOperator`
-* `External_AutoStop_TimeWindow`
-* `External_AutoStop_Frequency`
-* `External_AutoStop_Severity`
+|Parameter | Description|
+|----------|----------|
+|External_AutoStop_MetricName | This parameter specifies the name of the metric that will be used to trigger the auto-stop action. It could be a metric related to the VM's performance or resource usage.|
+|External_AutoStop_Threshold | This parameter sets the threshold value for the specified metric. When the metric value falls below this threshold, the auto-stop action will be triggered.|
+|External_AutoStop_TimeAggregationOperator | This parameter determines how the metric values will be aggregated over time. It could be an operator like "Average", "Minimum", or "Maximum".|
+|External_AutoStop_TimeWindow | This parameter defines the time window over which the metric values will be evaluated. It specifies the duration for which the metric values will be monitored before triggering the auto-stop action.|
+|External_AutoStop_Frequency | This parameter sets the frequency at which the metric values will be checked. It determines how often the auto-stop action will be evaluated based on the specified metric.|
+|External_AutoStop_Severity | This parameter specifies the severity level of the auto-stop action. It could be a value like "Low", "Medium", or "High" to indicate the importance or urgency of the action.|
 
 You can enable and target the action against a subscription and resource group, or target a specific list of VMs.
 

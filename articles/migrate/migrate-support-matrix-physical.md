@@ -5,6 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
+ms.service: azure-migrate
 ms.date: 05/15/2023
 ms.custom: engagement-fy23
 ---
@@ -72,7 +73,7 @@ For Linux servers, based on the features you want to perform, you can create a u
     Operating system | Versions
     --- | ---
     Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x
-    Cent OS | 5.1, 5.9, 5.11, 6.x, 7.x, 8.x
+    CentOS | 5.1, 5.9, 5.11, 6.x, 7.x, 8.x
     Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04
     Oracle Linux | 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5
     SUSE Linux | 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3
@@ -159,8 +160,7 @@ The following are sample scripts for creating a login and provisioning it with t
   ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
-    DECLARE @SID NVARCHAR(MAX) = N'';
+	  DECLARE @SID NVARCHAR(MAX) = N'';
     CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
 	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
 	IF (ISNULL(@SID,'') != '')
@@ -217,7 +217,10 @@ The following are sample scripts for creating a login and provisioning it with t
    ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
+	-- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID for the SQL login. 
+	  -- After the account is created in one of the members, copy the SID output from the script and include this value 
+	  -- when executing against the remaining replicas.
+	  -- When the SID needs to be specified, add the value to the @SID variable definition below.
     DECLARE @SID NVARCHAR(MAX) = N'';
 	IF (@SID = N'')
 	BEGIN
@@ -226,13 +229,14 @@ The following are sample scripts for creating a login and provisioning it with t
 	END
 	ELSE
 	BEGIN
-		CREATE LOGIN [evaluator]
-			WITH PASSWORD = '<provide a strong password>'
-			, SID = @SID 
+		DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
+			WITH PASSWORD = ''<provide a strong password>''
+			, SID = '+@SID 
+    EXEC SP_EXECUTESQL @SQLString
 	END
-	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'evaluator'
+	SELECT @SID = N'0x'+CONVERT(NVARCHAR(35), sid, 2) FROM sys.syslogins where name = 'evaluator'
 	IF (ISNULL(@SID,'') != '')
-		PRINT N'Created login [evaluator] with SID = '+@SID
+		PRINT N'Created login [evaluator] with SID = '''+ @SID +'''. If this instance hosts any Always On Availability Group replica, use this SID value when executing the script against the instances hosting the other replicas'
 	ELSE
 		PRINT N'Login creation failed'
   GO    
@@ -320,9 +324,9 @@ Support | Details
 --- | ---
 **Before deployment** | You should have a project in place, with the Azure Migrate: Discovery and assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 **Azure Government** | Dependency visualization isn't available in Azure Government.
-**Log Analytics** | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. The workspace for a project can't be modified after it's added. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br/><br/> The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
+**Log Analytics** | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. The workspace for a project can't be modified after it's added. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br/><br/> The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br/><br/> In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
 **Required agents** | On each server you want to analyze, install the following agents:<br/><br/> The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md).<br/> The [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md).<br/><br/> If on-premises servers aren't connected to the internet, you need to download and install Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
-**Log Analytics workspace** | The workspace must be in the same subscription a project.<br/><br/> Azure Migrate supports workspaces residing in the East US, Southeast Asia, and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> The workspace for a project can't be modified after adding it.
+**Log Analytics workspace** | The workspace must be in the same subscription a project.<br/><br/> Azure Migrate supports workspaces residing in the East US, Southeast Asia, and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br/><br/> The workspace for a project can't be modified after adding it.
 **Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the project).<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the project is deleted, the workspace isn't deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA - 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project since existing workspaces before GA are still chargeable.
 **Management** | When you register agents to the workspace, you use the ID and key provided by the project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/logs/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the project. If you do, the dependency visualization functionality won't work as expected.
 **Internet connectivity** | If servers aren't connected to the internet, you need to install the Log Analytics gateway on them.

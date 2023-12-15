@@ -2,7 +2,7 @@
 title: Use private endpoints with Azure Batch accounts
 description: Learn how to connect privately to an Azure Batch account by using private endpoints.
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 8/14/2023
 ms.custom: references_regions
 ---
 
@@ -165,6 +165,7 @@ When creating a private endpoint with your Batch account, keep in mind the follo
 - If a Batch account resource is moved to a different resource group or subscription, the private endpoints can still work, but the association to the Batch account breaks. If you delete the private endpoint resource, its associated private endpoint connection still exists in your Batch account. You can manually remove connection from your Batch account.
 - To delete the private connection, either delete the private endpoint resource, or delete the private connection in the Batch account (this action disconnects the related private endpoint resource).
 - DNS records in the private DNS zone aren't removed automatically when you delete a private endpoint connection from the Batch account. You must manually remove the DNS records before adding a new private endpoint linked to this private DNS zone. If you don't clean up the DNS records, unexpected access issues might happen.
+- When private endpoint is enabled for the Batch account, the [task authentication token](/rest/api/batchservice/task/add?tabs=HTTP#request-body) for Batch task is not supported. The workaround is to use [Batch pool with managed identities](managed-identity-pools.md).
 
 ## Next steps
 

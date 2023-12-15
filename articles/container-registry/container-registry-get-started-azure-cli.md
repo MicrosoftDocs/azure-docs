@@ -5,6 +5,7 @@ ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
+ms.service: container-registry
 ms.custom: seodec18, H1Hack27Feb2017, mvc, devx-track-azurecli, mode-api
 ---
 # Quickstart: Create a private container registry using the Azure CLI

@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 06/13/2023
+ms.date: 09/05/2023
 ---
 
 # What is Azure Web Application Firewall Sensitive Data Protection?

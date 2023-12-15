@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dastanfo
 ms.date: 08/23/2018
 ms.topic: article
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -70,7 +69,8 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind BlobStorage `
-  -AccessTier Hot
+  -AccessTier Hot `
+  -AllowBlobPublicAccess $false  
 
 $ctx = $storageAccount.Context
 ```

@@ -1,8 +1,8 @@
 ---
 title: Cluster extensions for Azure Kubernetes Service (AKS)
 description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service (AKS)
-ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 05/15/2023
+ms.custom: event-tier1-build-2022
+ms.date: 06/30/2023
 ms.topic: article
 author: nickomang
 ms.author: nickoman
@@ -27,13 +27,13 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 > For new clusters created with `az aks create`, managed identity is configured by default. For existing service principal-based clusters that need to be switched over to managed identity, it can be enabled by running `az aks update` with the `--enable-managed-identity` flag. For more information, see [Use managed identity][use-managed-identity].
 
 > [!NOTE]
-> If you have enabled [Azure AD pod-managed identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
+> If you have enabled [Microsoft Entra pod-managed identity][use-azure-ad-pod-identity] on your AKS cluster or are considering implementing it,
 > we recommend you first review [Workload identity overview][workload-identity-overview] to understand our
-> recommendations and options to set up your cluster to use an Azure AD workload identity (preview).
+> recommendations and options to set up your cluster to use a Microsoft Entra Workload ID (preview).
 > This authentication method replaces pod-managed identity (preview), which integrates with the Kubernetes native capabilities
 > to federate with any external identity providers.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
 
 ## Currently available extensions
 
@@ -43,6 +43,7 @@ For supported Kubernetes versions, refer to the corresponding documentation for 
 | [Azure Machine Learning][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
 | [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. See also [supported versions of Flux (GitOps)][gitops-support] and [Tutorial: Deploy applications using GitOps with Flux v2][gitops-tutorial].|
 | [Azure Container Storage](../storage/container-storage/container-storage-introduction.md) | Use Azure Container Storage to manage block storage on AKS clusters to store data in persistent volumes. |
+| [Azure Backup for AKS](../backup/azure-kubernetes-service-backup-overview.md) | Use Azure Backup for AKS to protect your containerized applications and data stored in Persistent Volumes deployed in the AKS clusters. |
 
 You can also [select and deploy Kubernetes applications available through Marketplace](deploy-marketplace.md).
 

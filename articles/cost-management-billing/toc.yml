@@ -43,6 +43,8 @@
     href: manage/ea-direct-portal-get-started.md
   - name: Direct EA billing invoice documents
     href: manage/direct-ea-billing-invoice-documents.md
+  - name: Enterprise agreement price sheet terms
+    href: manage/ea-understand-pricesheet.md
   - name: Request Withholding Tax credit - India
     href: manage/withholding-tax-credit-india.md
 - name: How-to guides
@@ -91,6 +93,8 @@
         href: manage/mca-check-azure-credits-balance.md
       - name: Track your Microsoft Azure Consumption Commitment
         href: manage/track-consumption-commitment.md
+      - name: Markup - China
+        href: manage/markup-china.md
     - name: Administer subscriptions
       items:
       - name: Assign access to cost management data
@@ -124,6 +128,8 @@
         href: manage/cancel-azure-subscription.md
       - name: Manage subscription policies
         href: manage/manage-azure-subscription-policy.md
+      - name: Filter and view subscriptions
+        href: manage/filter-view-subscriptions.md
     - name: Transfer billing products
       items:
       - name: Azure billing product transfers

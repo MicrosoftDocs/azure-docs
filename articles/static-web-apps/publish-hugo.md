@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Publish a Hugo site to Azure Static Web Apps"
+title: "Deploy a Hugo site to Azure Static Web Apps"
 description: Learn how to deploy a Hugo application to Azure Static Web Apps.
 services: static-web-apps
 author: aaronpowell
@@ -9,7 +9,7 @@ ms.date: 05/11/2021
 ms.author: aapowell
 ---
 
-# Tutorial: Publish a Hugo site to Azure Static Web Apps
+# Deploy a Hugo site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Hugo](https://gohugo.io/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web App with associated GitHub Actions that give you control over how the app is built and published.
 

@@ -11,7 +11,7 @@ ms.topic: how-to
 ---
 
 # Auto-stop your Dev Boxes on schedule
-To save on costs, you can enable an Auto-stop schedule on a dev box pool. Microsoft Dev Box Preview attempts to shut down all dev boxes in that pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
+To save on costs, you can enable an Auto-stop schedule on a dev box pool. Microsoft Dev Box will attempt to shut down all dev boxes in that pool at the time specified in the schedule. You can configure one stop time in one timezone for each pool.
 
 ## Permissions
 To manage a dev box schedule, you need the following permissions:
@@ -53,7 +53,7 @@ You can create an auto-stop schedule while creating a new dev box pool, or by mo
    
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-save-pool.png" alt-text="Screenshot of the edit dev box pool page showing the Auto-stop options."::: 
 
-1. Select **Save**.  
+1. Select **Save**. 
 
 ### Add an Auto-stop schedule as you create a pool
 
@@ -113,7 +113,7 @@ To delete an auto-stop schedule, first navigate to your pool:
    
    :::image type="content" source="./media/how-to-manage-stop-schedule/dev-box-disable-stop.png" alt-text="Screenshot of the edit dev box pool page showing Auto-stop disabled."::: 
 
-1. Select **Save**.  Dev boxes in this pool won't automatically shut down.
+1. Select **Save**. Dev boxes in this pool won't automatically shut down.
 
 ## Manage an auto-stop schedule at the CLI
 

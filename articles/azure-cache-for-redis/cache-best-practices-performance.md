@@ -90,7 +90,7 @@ redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a 
 
 The following tables show the maximum throughput values that were observed while testing various sizes of Standard, Premium, Enterprise, and Enterprise Flash caches. We used `redis-benchmark` from an IaaS Azure VM against the Azure Cache for Redis endpoint. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. These numbers are optimized for throughput. Real-world throughput under acceptable latency conditions may be lower.
 
-The following configuration was used to benchmark throughput:
+The following configuration was used to benchmark throughput for the Basic, Standard, and Premium tiers:
 
 ```dos
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50
@@ -99,6 +99,10 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 >[!CAUTION]
 >These values aren't guaranteed and there's no SLA for these numbers. We strongly recommend that you should [perform your own performance testing](cache-best-practices-performance.md) to determine the right cache size for your application.
 >These numbers might change as we post newer results periodically.
+>
+
+>[!IMPORTANT]
+>Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect older generation cache hardware in a single region. You may see better or different results in practice.
 >
 
 ### Standard tier
@@ -129,6 +133,14 @@ redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n
 ### Enterprise & Enterprise Flash tiers
 
 The Enterprise and Enterprise Flash tiers offer a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughputs. We recommend using OSS cluster policy in most cases. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise). Benchmarks for both cluster policies are shown in the following tables.
+
+The following configuration was used to benchmark throughput for the Enterprise and Enterprise flash tiers:
+
+```dos
+redis-benchmark -h yourcache.region.redisenterprise.cache.azure.net -p 10000 -a yourAccesskey -t GET -n 10000000 -d 1024 -P 50 -c 50 --threads 32
+```
+> [!NOTE]
+> This configuration is nearly identical to the one used to benchmark the Basic, Standard, and Premium tiers. The previous configuration, however, did not fully utilize the greater compute performance of the Enterprise tiers. Additional requests and threads were added to this configuration in order to demonstrate full performance.
 
 #### Enterprise Cluster Policy
 

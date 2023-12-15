@@ -3,14 +3,14 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/28/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
 ---
 
-# Create and manage Azure cost allocation rules (Preview)
+# Create and manage Azure cost allocation rules
 
 Large enterprises often centrally manage Azure services or resources. However, different internal departments or business units use them. Typically, the centrally managing team wants to reallocate the cost of the shared services back out to the internal departments or organizational business units who are actively using the services. This article helps you understand and use cost allocation in Cost Management.
 
@@ -19,9 +19,6 @@ With cost allocation, you can reassign or distribute the costs of shared service
 Cost allocation doesn't affect your billing invoice. Billing responsibilities don't change. The primary purpose of cost allocation is to help you charge back costs to others. All chargeback processes happen in your organization outside of Azure. Cost allocation helps you charge back costs by showing them as the get reassigned or distributed.
 
 Allocated costs appear in cost analysis. They appear as other items associated with the targeted subscriptions, resource groups, or tags that you specify when you create a cost allocation rule.
-
-> [!NOTE]
-> Cost Management's cost allocation feature is currently in public preview. Some features in Cost Management might not be supported or might have limited capabilities.
 
 ## Prerequisites
 
@@ -35,7 +32,7 @@ Allocated costs appear in cost analysis. They appear as other items associated w
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 2. Navigate to **Cost Management + Billing** > **Cost Management**.
-3. Under **Settings** > **Configuration**, select **Cost allocation (Preview)**.
+3. Under **Settings** > **Configuration**, select **Cost allocation**.
 4. Ensure that you select the correct EA enrollment or billing account.
 5. Select **+Add**.
 6. Enter descriptive text for the cost allocation rule name.
@@ -118,7 +115,7 @@ You can edit a cost allocation rule to change the source or the target or if you
 
 Currently, Cost Management supports cost allocation in Cost analysis, budgets, and forecast views. Allocated costs appear in the subscriptions list and on the Subscriptions overview page.
 
-The following items are currently unsupported by the cost allocation public preview:
+The following items are currently unsupported by cost allocation:
 
 - Billing subscriptions area
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)

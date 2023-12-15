@@ -1,5 +1,5 @@
 ---
-title: "Operationalize a training pipeline on batch endpoints (preview)"
+title: "Operationalize a training pipeline on batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy a training pipeline under a batch endpoint.
 services: machine-learning
@@ -8,15 +8,19 @@ ms.subservice: inferencing
 ms.topic: how-to
 author: santiagxf
 ms.author: fasantia
-ms.date: 04/21/2023
+ms.date: 11/16/2023
 reviewer: msakande
 ms.reviewer: mopeakande
-ms.custom: how-to, devplatv2, event-tier1-build-2023
+ms.custom:
+  - how-to
+  - devplatv2
+  - event-tier1-build-2023
+  - ignite-2023
 ---
 
-# How to operationalize a training pipeline with batch endpoints (preview)
+# How to operationalize a training pipeline with batch endpoints
 
-[!INCLUDE [ml v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [ml v2](includes/machine-learning-dev-v2.md)]
 
 In this article, you'll learn how to operationalize a training pipeline under a batch endpoint. The pipeline uses multiple components (or steps) that include model training, data preprocessing, and model evaluation.
 
@@ -28,8 +32,6 @@ You'll learn to:
 > * Modify the pipeline and create a new deployment in the same endpoint
 > * Test the new deployment and set it as the default deployment
 
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## About this example
 
 This example deploys a training pipeline that takes input training data (labeled) and produces a predictive model, along with the evaluation results and the transformations applied during preprocessing. The pipeline will use tabular data from the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease) to train an XGBoost model. We use a data preprocessing component to preprocess the data before it is sent to the training component to fit and evaluate the model.
@@ -38,7 +40,7 @@ A visualization of the pipeline is as follows:
 
 :::image type="content" source="media/how-to-use-batch-training-pipeline/pipeline-overview.png" alt-text="A screenshot of the pipeline showing the preprocessing and training components." lightbox="media/how-to-use-batch-training-pipeline/pipeline-overview.png":::
 
-[!INCLUDE [machine-learning-batch-clone](../../includes/machine-learning/azureml-batch-clone-samples.md)]
+[!INCLUDE [machine-learning-batch-clone](includes/azureml-batch-clone-samples.md)]
 
 The files for this example are in:
 
@@ -52,7 +54,7 @@ You can follow along with the Python SDK version of this example by opening the 
 
 ## Prerequisites
 
-[!INCLUDE [machine-learning-batch-prereqs](../../includes/machine-learning/azureml-batch-prereqs.md)]
+[!INCLUDE [machine-learning-batch-prereqs](includes/azureml-batch-prereqs.md)]
 
 ## Create the training pipeline component
 
@@ -265,7 +267,7 @@ To deploy the pipeline component, we have to create a batch deployment. A deploy
     
     # [Python](#tab/python)
 
-    Our pipeline is defined in a function. To transform it to a component, you'll use the `build()` method. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
+    Our pipeline is defined in a function. To transform it to a component, you'll use the `component` property from it. Pipeline components are reusable compute graphs that can be included in batch deployments or used to compose more complex pipelines.
 
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb?name=build_pipeline_component)]
     
@@ -524,7 +526,7 @@ ml_client.compute.begin_delete(name="batch-cluster")
 
 ## Next steps
 
-- [How to deploy a pipeline to perform batch scoring with preprocessing (preview)](how-to-use-batch-scoring-pipeline.md)
-- [Create batch endpoints from pipeline jobs (preview)](how-to-use-batch-pipeline-from-job.md)
+- [How to deploy a pipeline to perform batch scoring with preprocessing](how-to-use-batch-scoring-pipeline.md)
+- [Create batch endpoints from pipeline jobs](how-to-use-batch-pipeline-from-job.md)
 - [Accessing data from batch endpoints jobs](how-to-access-data-batch-endpoints-jobs.md)
 - [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md)

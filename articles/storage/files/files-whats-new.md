@@ -2,11 +2,10 @@
 title: What's new in Azure Files and Azure File Sync
 description: Learn about new features and enhancements in Azure Files and Azure File Sync.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/24/2023
+ms.date: 10/23/2023
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # What's new in Azure Files
@@ -14,14 +13,33 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 
 ## What's new in 2023
 
+### 2023 quarter 4 (October, November, December)
+
+#### Snapshot support for NFS Azure premium file shares is in public preview
+
+Customers using NFS Azure file shares can now take point-in-time snapshots of file shares. This enables users to roll back their entire filesystem to a previous point in time, or restore specific files that were accidentally deleted or corrupted. Customers using this preview feature can perform share-level Snapshot management operations via REST API, PowerShell, and Azure CLI. 
+
+This preview feature is now available in all Azure public cloud regions. [Learn more](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots-preview).
+
+#### Azure Files now supports all valid Unicode characters
+
+Expanded character support will allow users to create SMB file shares with file and directory names on par with the NTFS file system for all valid Unicode characters. It also enables tools like AzCopy and Storage Mover to migrate all the files into Azure Files using the REST protocol. Expanded character support is now available in all Azure regions. For more information, [read the announcement](https://azure.microsoft.com/updates/azurefilessupportforunicodecharacters/).
+
+### 2023 quarter 3 (July, August, September)
+
+#### Azure Active Directory support for Azure Files REST API with OAuth authentication is generally available
+
+This feature enables share-level read and write access to SMB Azure file shares for users, groups, and managed identities when accessing file share data through the REST API. Cloud native and modern applications that use REST APIs can utilize identity-based authentication and authorization to access file shares. For more information, [read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-introducing-azure-ad-support-for-azure-files-smb/ba-p/3826733).
+
 ### 2023 quarter 2 (April, May, June)
+
 #### Azure Files scalability improvement for Azure Virtual Desktop and other workloads that open root directory handles is generally available
+
 Azure Files has increased the root directory handle limit per share from 2,000 to 10,000 for standard and premium file shares. This improvement benefits applications that keep an open handle on the root directory. For example, Azure Virtual Desktop with FSLogix profile containers now supports 10,000 active users per share (5x improvement). 
 
 Note: The number of active users supported per share is dependent on the applications that are accessing the share. If your applications are not opening a handle on the root directory, Azure Files can support more than 10,000 active users per share.
  
 The root directory handle limit has been increased in all regions and applies to all existing and new file shares. For more information about Azure Files scale targets, see: [Azure Files scalability and performance targets](storage-files-scale-targets.md).
-
 
 #### Geo-redundant storage for large file shares is in public preview
 
@@ -42,7 +60,7 @@ Azure Files customers can now use identity-based Kerberos authentication for Lin
 ### 2023 quarter 1 (January, February, March)
 #### Nconnect for NFS Azure file shares is generally available
 
-Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance with nconnect](nfs-nconnect-performance.md).
+Nconnect is a client-side Linux mount option that increases performance at scale by allowing you to use more TCP connections between the Linux client and the Azure Premium Files service for NFSv4.1. With nconnect, you can increase performance at scale using fewer client machines to reduce total cost of ownership. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
 #### Improved Azure File Sync service availability
 
@@ -54,7 +72,7 @@ Note: Azure File Sync is zone-redundant in all regions that [support zones](../.
 
 ### 2022 quarter 4 (October, November, December)
 #### Azure Active Directory (Azure AD) Kerberos authentication for hybrid identities on Azure Files is generally available
-This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for line-of-sight to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
+This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds on top of [FSLogix profile container support](../../virtual-desktop/create-profile-container-azure-ad.md) released in December 2022 and expands it to support more use cases (SMB only). Hybrid identities, which are user identities created in Active Directory Domain Services (AD DS) and synced to Azure AD, can mount and access Azure file shares without the need for network connectivity to an Active Directory domain controller. While the initial support is limited to hybrid identities, it’s a significant milestone as we simplify identity-based authentication for Azure Files customers. [Read the blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/general-availability-azure-active-directory-kerberos-with-azure/ba-p/3612111).
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
@@ -113,7 +131,7 @@ SMB Multichannel enables SMB clients to establish multiple parallel connections 
 
 For more information, see:
 
-- [SMB Multichannel performance in Azure Files](storage-files-smb-multichannel-performance.md)
+- [SMB Multichannel performance in Azure Files](smb-performance.md)
 - [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel)
 - [Overview on SMB Multichannel in the Windows Server documentation](/azure-stack/hci/manage/manage-smb-multichannel)
 

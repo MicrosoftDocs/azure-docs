@@ -5,8 +5,7 @@ author: roygara
 ms.date: 02/06/2023
 ms.topic: how-to
 ms.author: rogarana
-ms.service: storage
-ms.subservice: disks
+ms.service: azure-disk-storage
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -62,7 +61,7 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azu
 1.    Grant the DiskEncryptionSet resource access to the key vault. 
 
         > [!NOTE]
-        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+        > It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Microsoft Entra ID. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
         ```azurecli
         desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)

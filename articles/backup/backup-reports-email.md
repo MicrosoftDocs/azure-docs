@@ -3,9 +3,9 @@ title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
 ms.topic: conceptual
 ms.date: 04/17/2023
-author: jyothisuri
 ms.service: backup
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Email Azure Backup Reports
@@ -163,7 +163,7 @@ You can also directly update the ARM template, which is used for deploying the l
                 "name": "oauthGccHigh",
                 "values": {
                     "token": {
-                        "value": "https://logic-apis-usgovvirginia.consent.azure-apihub.us/redirect"
+                        "value": "[concat('https://logic-apis-', parameters('location'), '.consent.azure-apihub.us/redirect')]"
                     }
                 }
             },

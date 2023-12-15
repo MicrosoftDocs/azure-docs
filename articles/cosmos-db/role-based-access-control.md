@@ -17,7 +17,7 @@ ms.custom: ignite-2022
 
 To learn more about role-based access control applied to data plane operations in the API for NoSQL, see [Secure access to data](secure-access-to-data.md) and [Azure Cosmos DB RBAC](how-to-setup-rbac.md) articles. For the Azure Cosmos DB API for MongoDB, see [Data Plane RBAC in the API for MongoDB](mongodb/how-to-setup-rbac.md).
 
-Azure Cosmos DB provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos DB accounts, databases, containers, and offers (throughput).
+Azure Cosmos DB provides built-in Azure role-based access control (Azure RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Microsoft Entra ID can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos DB accounts, databases, containers, and offers (throughput).
 
 
 ## Built-in roles
@@ -52,7 +52,7 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 
 The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources from a client connecting using the account keys (that is applications connecting via the Azure Cosmos DB SDK). This feature may be desirable for users who want higher degrees of control and governance for production environments. Preventing changes from the SDK also enables features such as resource locks and diagnostic logs for control plane operations. The clients connecting from Azure Cosmos DB SDK will be prevented from changing any property for the Azure Cosmos DB accounts, databases, containers, and throughput. The operations involving reading and writing data to Azure Cosmos DB containers themselves are not impacted.
 
-When this feature is enabled, changes to any resource can only be made from a user with the right Azure role and Azure Active Directory credentials including Managed Service Identities.
+When this feature is enabled, changes to any resource can only be made from a user with the right Azure role and Microsoft Entra credentials including Managed Service Identities.
 
 > [!WARNING]
 > Enabling this feature can have impact on your application. Make sure that you understand the impact before enabling it.
@@ -118,4 +118,3 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 - [Azure custom roles](../role-based-access-control/custom-roles.md)
 - [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 - [Configure role-based access control for your Azure Cosmos DB for MongoDB](mongodb/how-to-setup-rbac.md)
-

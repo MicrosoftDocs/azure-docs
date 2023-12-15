@@ -1,14 +1,14 @@
 ---
 title: Manage your device inventory from the Azure portal
 description: Learn how to view and manage OT and IoT devices (assets) from the Device inventory page in the Azure portal.
-ms.date: 05/17/2023
+ms.date: 08/27/2023
 ms.topic: how-to
 ms.custom: enterprise-iot
 ---
 
 # Manage your device inventory from the Azure portal
 
-Use the **Device inventory** page in [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
+Use the **Device inventory** page in [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal to manage all network devices detected by cloud-connected sensors, including OT, IoT, and IT. Identify new devices detected, devices that might need troubleshooting, and more.
 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
@@ -23,7 +23,7 @@ Use any of the following options to modify or filter the devices shown:
 |Option  |Steps  |
 |---------|---------|
 | **Sort devices** | Select a column header to sort the devices by that column. Select it again to change the sort direction. |
-|**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br> In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br> You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. <br><br> The **Network location (Preview)** filter is on by default. |
+|**Filter devices shown**    |   Either use the **Search** box to search for specific device details, or select **Add filter** to filter the devices shown. <br><br> In the **Add filter** box, define your filter by column name, operator, and value. Select **Apply** to apply your filter.<br><br> You can apply multiple filters at the same time. Search results and filters aren't saved when you refresh the **Device inventory** page. <br><br> The **Last active time** and **Network location (Preview)** filters are on by default. |
 |**Modify columns shown**     |   Select **Edit columns** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/edit-columns-icon.png" border="false":::. In the **Edit columns** pane:<br><br>        - Select the **+ Add Column** button to add new columns to the grid.<br>        - Drag and drop fields to change the columns order.<br>- To remove a column, select the **Delete** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/trashcan-icon.png" border="false"::: icon to the right.<br>- To reset the columns to their default settings, select **Reset** :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/reset-icon.png" border="false":::.   <br><br>Select **Save** to save any changes made.  |
 | **Group devices** | From the **Group by** above the gird, select a category, such as **Class**, **Data source**, **Location**, **Purdue level**, **Site**, **Type**, **Vendor**, or **Zone**, to group the devices shown. Inside each group, devices retain the same column sorting. To remove the grouping, select **No grouping**. |
 

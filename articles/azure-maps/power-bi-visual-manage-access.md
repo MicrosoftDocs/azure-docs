@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Maps Power BI visual within your organization
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to manage Azure Maps Power BI visual within your organization.
+description: This article demonstrates how to manage Azure Maps Power BI visual within your organization.
 author: deniseatmicrosoft
 ms.author: limingchen
 ms.date: 11/29/2021
@@ -13,11 +13,11 @@ services: azure-maps
 
 # Manage Azure Maps Power BI visual within your organization
 
-Power BI provides the ability for designers and tenant administrators to manage the use of the Azure Maps visual. Below you will find steps each role can take.
+Power BI provides the ability for designers and tenant administrators to manage the use of the Azure Maps visual.
 
 ## Tenant admin options
 
-In PowerBI.com, tenant administrators can turn off the Azure Maps visual for all users. Select **Settings** &gt; **Admin** **Portal** &gt; **Tenant settings**. When disabled, Power BI will no longer display the Azure Maps visual in the visualizations pane.
+In PowerBI.com, tenant administrators can turn off the Azure Maps visual for all users. Select **Settings** &gt; **Admin** **Portal** &gt; **Tenant settings**. When disabled, Power BI doesn't display the Azure Maps visual in the visualizations pane.
 
 :::image type="content" source="media/power-bi-visual/tenant-admin-settings.png" alt-text="Power BI admin portal showing tenant settings for the Azure Maps visual.":::
 

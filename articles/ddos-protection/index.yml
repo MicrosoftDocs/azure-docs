@@ -7,7 +7,7 @@ metadata:
   keywords: azure ddos protection
   author: AbdullahBell
   ms.author: abell
-  ms.date: 06/13/2023
+  ms.date: 10/06/2023
   ms.service: ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection, ignite-2022
@@ -23,7 +23,7 @@ landingContent:
         links:
           - text: What is Azure DDoS Protection?
             url: ddos-protection-overview.md
-          - text: Azure DDoS Protection SKU comparison
+          - text: Azure DDoS Protection tier comparison
             url: ddos-protection-sku-comparison.md
           - text: Pricing
             url: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
@@ -101,6 +101,10 @@ landingContent:
         links:
         - text: Azure DDoS Solution for Microsoft Sentinel
           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/new-azure-ddos-solution-for-microsoft-sentinel/ba-p/3732013
+        - text: 'Maximizing Effectiveness: Best Practices for Azure DDoS Protection and Application Resilience'
+          url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/maximizing-effectiveness-best-practices-for-azure-ddos/ba-p/3914324
+        - text: Defending Against UDP Flood Attacks with Azure DDoS Protection
+          url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/defending-against-udp-flood-attacks-with-azure-ddos-protection/ba-p/3941758
    # Card
   - title: Reference 
     linkLists:

@@ -6,6 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.custom: references_regions
+ms.service: container-registry
 ---
 
 # Container image storage in Azure Container Registry
@@ -47,7 +48,6 @@ For more information about Basic, Standard, and Premium container registries, se
 <!-- IMAGES -->
 
 <!-- LINKS - External -->
-[portal]: https://portal.azure.com
 [pricing]: https://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->

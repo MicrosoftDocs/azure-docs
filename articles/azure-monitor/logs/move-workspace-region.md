@@ -3,7 +3,7 @@ title: Move a Log Analytics workspace to another Azure region by using the Azure
 description: Use an Azure Resource Manager template to move a Log Analytics workspace from one Azure region to another by using the Azure portal.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 08/17/2021
+ms.date: 07/02/2023
 ms.reviewer: yossiy
 ---
 
@@ -292,7 +292,7 @@ The following procedures show how to prepare the workspace and resources for the
     | summarize max(TimeGenerated) by Type
     ```
 
-After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](./cross-workspace-query.md#perform-a-query-across-multiple-resources). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
+After data sources are connected to the target workspace, ingested data is stored in the target workspace. Older data stays in the original workspace and is subject to the retention policy. You can perform a [cross-workspace query](./cross-workspace-query.md). If both workspaces were assigned the same name, use a qualified name (*subscriptionName/resourceGroup/componentName*) in the workspace reference.
 
 Here's an example for a query across two workspaces that have the same name:
 
@@ -317,7 +317,7 @@ If you want to discard the source workspace, delete the exported resources or th
 
 ## Clean up
 
-While new data is being ingested to your new workspace, older data in the original workspace remains available for query and is subject to the retention policy defined in the workspace. We recommend that you keep the original workspace for as long as you need older data to [query across](./cross-workspace-query.md#perform-a-query-across-multiple-resources) workspaces. 
+While new data is being ingested to your new workspace, older data in the original workspace remains available for query and is subject to the retention policy defined in the workspace. We recommend that you keep the original workspace for as long as you need older data to [query across](./cross-workspace-query.md) workspaces. 
 
 If you no longer need access to older data in the original workspace:
 

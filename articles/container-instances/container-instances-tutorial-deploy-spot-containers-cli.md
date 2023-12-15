@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.author: atsenthi
 author: athinanthny
 ms.service: container-instances
+ms.custom: devx-track-azurecli
 services: container-instances
 ms.date:  05/11/2023
 ---

@@ -16,7 +16,7 @@ services: azure-communication-services
 
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Due to the asynchronous nature of calling, most actions have corresponding events that are triggered when the action completes successfully or fails. This guide covers the  actions available for steering calls, like CreateCall, Transfer, Redirect, and managing participants. Actions are accompanied with sample code on how to invoke the said action and sequence diagrams describing the events expected after invoking an action. These diagrams help you visualize how to program your service application with Call Automation.
 
-Call Automation supports various other actions to manage call media and recording that aren't included in this guide.
+Call Automation supports various other actions to manage call media and recording that have separate guides.
 
 > [!NOTE]
 > Call Automation currently doesn't support [Rooms](../../concepts/rooms/room-concept.md) calls.
@@ -64,7 +64,7 @@ To place a call to a Communication Services user, you need to provide a Communic
 
 ```csharp
 Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events 
-var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller  
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller  
 var callThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); // person to call
 CreateCallResult response = await client.CreateCallAsync(callThisPerson, callbackUri);
 ```
@@ -73,7 +73,7 @@ CreateCallResult response = await client.CreateCallAsync(callThisPerson, callbac
 
 ```java
 String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the ACS provisioned phone number for the caller  
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the Azure Communication Services provisioned phone number for the caller  
 CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16471234567"), callerIdNumber); // person to call
 CreateCallResult response = client.createCall(callInvite, callbackUri).block();
 ```
@@ -83,7 +83,7 @@ CreateCallResult response = client.createCall(callInvite, callbackUri).block();
 ```javascript
 const callInvite = {
     targetParticipant: { phoneNumber: "+18008008800" }, // person to call
-    sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the ACS provisioned phone number for the caller
+    sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the Azure Communication Services provisioned phone number for the caller
 };
 const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
 const response = await client.createCall(callInvite, callbackUri);
@@ -95,7 +95,7 @@ const response = await client.createCall(callInvite, callbackUri);
 callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
 caller_id_number = PhoneNumberIdentifier(
     "+18001234567"
-)  # This is the ACS provisioned phone number for the caller
+)  # This is the Azure Communication Services provisioned phone number for the caller
 call_invite = CallInvite(
     target=PhoneNumberIdentifier("+16471234567"),
     source_caller_id_number=caller_id_number,
@@ -114,7 +114,7 @@ var pstnEndpoint = new PhoneNumberIdentifier("+16041234567");
 var voipEndpoint = new CommunicationUserIdentifier("<user_id_of_target>"); //user id looks like 8:a1b1c1-...
 var groupCallOptions = new CreateGroupCallOptions(new List<CommunicationIdentifier>{ pstnEndpoint, voipEndpoint }, callbackUri)
 {
-    SourceCallerIdNumber = new PhoneNumberIdentifier("+16044561234"), // This is the ACS provisioned phone number for the caller
+    SourceCallerIdNumber = new PhoneNumberIdentifier("+16044561234"), // This is the Azure Communication Services provisioned phone number for the caller
 };
 CreateCallResult response = await client.CreateGroupCallAsync(groupCallOptions);
 ```
@@ -123,7 +123,7 @@ CreateCallResult response = await client.CreateGroupCallAsync(groupCallOptions);
 
 ```java
 String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the ACS provisioned phone number for the caller
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+18001234567"); // This is the Azure Communication Services provisioned phone number for the caller
 List<CommunicationIdentifier> targets = new ArrayList<>(Arrays.asList(new PhoneNumberIdentifier("+16471234567"), new CommunicationUserIdentifier("<user_id_of_target>")));
 CreateGroupCallOptions groupCallOptions = new CreateGroupCallOptions(targets, callbackUri);
 groupCallOptions.setSourceCallIdNumber(callerIdNumber);
@@ -139,7 +139,7 @@ const participants = [
     { communicationUserId: "<user_id_of_target>" }, //user id looks like 8:a1b1c1-...
 ];
 const createCallOptions = {
-    sourceCallIdNumber: { phoneNumber: "+18888888888" }, // This is the ACS provisioned phone number for the caller
+    sourceCallIdNumber: { phoneNumber: "+18888888888" }, // This is the Azure Communication Services provisioned phone number for the caller
 };
 const response = await client.createGroupCall(participants, callbackUri, createCallOptions);
 ```
@@ -150,7 +150,7 @@ const response = await client.createGroupCall(participants, callbackUri, createC
 callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
-)  # This is the ACS provisioned phone number for the caller
+)  # This is the Azure Communication Services provisioned phone number for the caller
 pstn_endpoint = PhoneNumberIdentifier("+18008008800")
 voip_endpoint = CommunicationUserIdentifier(
     "<user_id_of_target>"
@@ -268,7 +268,7 @@ No events are published for reject action.
 
 ## Redirect a call
 
-You can choose to redirect an incoming call to one or more endpoints without answering it. Redirecting a call removes your application's ability to control the call using Call Automation.
+You can choose to redirect an incoming call to another endpoint without answering it. Redirecting a call removes your application's ability to control the call using Call Automation.
 
 # [csharp](#tab/csharp)
 
@@ -308,19 +308,19 @@ client.redirect_call(
 ```
 
 -----
-To redirect the call to a phone number, construct the target with PhoneNumberIdentifier.
+To redirect the call to a phone number, construct the target and caller ID with PhoneNumberIdentifier. 
 
 # [csharp](#tab/csharp)
 
 ```csharp
-var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
 var target = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 ```
 
 # [Java](#tab/java)
 
 ```java
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
 CallInvite target = new CallInvite(new PhoneNumberIdentifier("+18001234567"), callerIdNumber);
 ```
 
@@ -339,7 +339,7 @@ const target = {
 ```python
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
-)  # This is the ACS provisioned phone number for the caller
+)  # This is the Azure Communication Services provisioned phone number for the caller
 call_invite = CallInvite(
     target=PhoneNumberIdentifier("+16471234567"),
     source_caller_id_number=caller_id_number,
@@ -349,23 +349,35 @@ call_invite = CallInvite(
 -----
 No events are published for redirect. If the target is a Communication Services user or a phone number owned by your resource, it generates a new IncomingCall event with 'to' field set to the target you specified.
 
-## Transfer a 1:1 call
+## Transfer a participant in call
 
-When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call removes your application from the call and hence remove its ability to control the call using Call Automation.
+When your application answers a call or places an outbound call to an endpoint, that endpoint can be transferred to another destination endpoint. Transferring a 1:1 call removes your application from the call and hence remove its ability to control the call using Call Automation. The call invite to the target will display the caller ID of the endpoint being transferred. Providing a custom caller ID is not supported. 
 
 # [csharp](#tab/csharp)
 
 ```csharp
 var transferDestination = new CommunicationUserIdentifier("<user_id>"); 
-var transferOption = new TransferToParticipantOptions(transferDestination);   
+var transferOption = new TransferToParticipantOptions(transferDestination) {
+    OperationContext = "<Your_context>",
+    OperationCallbackUri = new Uri("<uri_endpoint>") // Sending event to a non-default endpoint.
+};
+// adding customCallingContext
+transferOption.CustomCallingContext.AddVoip("customVoipHeader1", "customVoipHeaderValue1");
+transferOption.CustomCallingContext.AddVoip("customVoipHeader2", "customVoipHeaderValue2");
+
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
 ```
 
 # [Java](#tab/java)
 
 ```java
-CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>"); 
-TransferToParticipantCallOptions options = new TransferToParticipantCallOptions(transferDestination); 
+CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>"); // Sending event to a non-default endpoint.
+// set customCallingContext
+options.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
+
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 ```
 
@@ -373,7 +385,13 @@ Response<TransferCallResult> transferResponse = callConnectionAsync.transferToPa
 
 ```javascript
 const transferDestination = { communicationUserId: "<user_id>" };
-const result = await callConnection.transferCallToParticipant(transferDestination);
+const options = { operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
+// adding customCallingContext
+const customCallingContext: CustomCallingContext = [];
+customCallingContext.push({ kind: "voip", key: "customVoipHeader1", value: "customVoipHeaderValue1" })
+options.customCallingContext = customCallingContext;
+
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
 ```
 
 # [Python](#tab/python)
@@ -381,73 +399,359 @@ const result = await callConnection.transferCallToParticipant(transferDestinatio
 ```python
 transfer_destination = CommunicationUserIdentifier("<user_id>")
 call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
+# set custom context
+voip_headers = {"customVoipHeader1", "customVoipHeaderValue1"}
+
 result = call_connection_client.transfer_call_to_participant(
-    target_participant=transfer_destination
+    target_participant=transfer_destination,
+    voip_headers=voip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
 )
 ```
-
 -----
-When transferring to a phone number, it's mandatory to provide a source caller ID. This ID serves as the identity of your application(the source) for the destination endpoint.
-
------
-The sequence diagram shows the expected flow when your application places an outbound 1:1 call and then transfers it to another endpoint.
-
-![Sequence diagram for placing a 1:1 call and then transferring it.](media/transfer-flow.png)
-
-## Add a participant to a call
-
-You can add a participant (Communication Services user or phone number) to an existing call. When adding a phone number, it's mandatory to provide source caller ID. This caller ID is shown on call notification to the participant being added.
+When your application answers a group call or places an outbound group call to an endpoint or added a participant to a 1:1 call, an endpoint can be transferred from the call to another destination endpoint, except call automation endpoint. Transferring a participant in a group call removes the endpoint being transferred from the call. The call invite to the target will display the caller ID of the endpoint being transferred. Providing a custom caller ID is not supported.
 
 # [csharp](#tab/csharp)
 
 ```csharp
-var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
-var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
-AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson); 
+// Transfer User
+var transferDestination = new CommunicationUserIdentifier("<user_id>");
+var transferee = new CommunicationUserIdentifier("<transferee_user_id>"); 
+var transferOption = new TransferToParticipantOptions(transferDestination);
+transferOption.Transferee = transferee;
+
+// adding customCallingContext
+transferOption.CustomCallingContext.AddVoip("customVoipHeader1", "customVoipHeaderValue1");
+transferOption.CustomCallingContext.AddVoip("customVoipHeader2", "customVoipHeaderValue2");
+
+transferOption.OperationContext = "<Your_context>";
+transferOption.OperationCallbackUri = new Uri("<uri_endpoint>");
+TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
+
+// Transfer PSTN User
+var transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
+var transferee = new PhoneNumberIdentifier("<transferee_phoneNumber>"); 
+var transferOption = new TransferToParticipantOptions(transferDestination);
+transferOption.Transferee = transferee;
+
+// adding customCallingContext
+transferOption.CustomCallingContext.AddSipUui("uuivalue");
+transferOption.CustomCallingContext.AddSipX("header1", "headerValue");
+
+transferOption.OperationContext = "<Your_context>";
+
+// Sending event to a non-default endpoint.
+transferOption.OperationCallbackUri = new Uri("<uri_endpoint>");
+
+TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption);
 ```
 
 # [Java](#tab/java)
 
 ```java
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS provisioned phone number for the caller
-CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); 
-AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
+// Transfer User
+CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
+CommunicationIdentifier transferee = new CommunicationUserIdentifier("<transferee_user_id>"); 
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
+options.setTransferee(transferee);
+options.setOperationContext("<Your_context>");
+options.setOperationCallbackUrl("<url_endpoint>");
+
+// set customCallingContext
+options.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
+
+Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
+
+// Transfer Pstn User
+CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<taget_phoneNumber>");
+CommunicationIdentifier transferee = new PhoneNumberIdentifier("<transferee_phoneNumber>"); 
+TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
+options.setTransferee(transferee);
+options.setOperationContext("<Your_context>");
+options.setOperationCallbackUrl("<url_endpoint>");
+
+// set customCallingContext
+options.getCustomCallingContext().addSipUui("UUIvalue");
+options.getCustomCallingContext().addSipX("sipHeaderName", "value");
+
+Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+// Transfer User
+const transferDestination = { communicationUserId: "<user_id>" };
+const transferee = { communicationUserId: "<transferee_user_id>" };
+const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
+
+// adding customCallingContext
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "voip", key: "customVoipHeader1", value: "customVoipHeaderValue1" })
+options.customCallingContext = customCallingContext;
+
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
+
+// Transfer pstn User
+const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
+const transferee = { phoneNumber: "<transferee_phoneNumber>" };
+const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
+
+// adding customCallingContext
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "sipuui", key: "", value: "uuivalue" });
+customContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
+options.customCallingContext = customCallingContext;
+
+const result = await callConnection.transferCallToParticipant(transferDestination, options);
+```
+
+# [Python](#tab/python)
+
+```python
+# Transfer to user
+transfer_destination = CommunicationUserIdentifier("<user_id>")
+transferee = CommnunicationUserIdentifer("transferee_user_id")
+call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
+
+# create custom context
+voip_headers = {"customVoipHeader1", "customVoipHeaderValue1"}
+
+result = call_connection_client.transfer_call_to_participant(
+    target_participant=transfer_destination,
+    transferee=transferee,
+    voip_headers=voip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
+)
+
+# Transfer to PSTN user
+transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
+transferee = PhoneNumberIdentifer("transferee_phoneNumber")
+
+# create custom context
+sip_headers={}
+sip_headers.add("X-MS-Custom-headerName", "headerValue")
+sip_headers.add("User-To-User","uuivale")
+
+call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
+result = call_connection_client.transfer_call_to_participant(
+    target_participant=transfer_destination,
+    transferee=transferee,
+    sip_headers=sip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
+)
+```
+-----
+The sequence diagram shows the expected flow when your application places an outbound call and then transfers it to another endpoint.
+
+
+
+![Sequence diagram for placing a 1:1 call and then transferring it.](media/transfer-flow.png)
+
+## Add a participant to a call
+
+You can add a participant (Communication Services user or phone number) to an existing call. When adding a phone number, it's mandatory to provide a caller ID. This caller ID is shown on call notification to the participant being added.
+
+# [csharp](#tab/csharp)
+
+```csharp
+// Add user
+var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+// add custom calling context
+addThisPerson.CustomCallingContext.AddVoip("myHeader", "myValue");
+AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
+
+// Add PSTN user
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
+var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
+// add custom calling context
+addThisPerson.CustomCallingContext.AddSipUui("value");
+addThisPerson.CustomCallingContext.AddSipX("header1", "customSipHeaderValue1");
+
+// Use option bag to set optional parameters
+var addParticipantOptions = new AddParticipantOptions(new CallInvite(addThisPerson))
+{
+    InvitationTimeoutInSeconds = 60,
+    OperationContext = "operationContext",
+    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
+};
+
+AddParticipantsResult result = await callConnection.AddParticipantAsync(addParticipantOptions); 
+```
+
+# [Java](#tab/java)
+
+```java
+// Add user
+CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+// add custom calling context
+callInvite.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
+Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
+
+// Add PSTN user
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
+CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
+// add custom calling context
+callInvite.getCustomCallingContext().addSipUui("value");
+callInvite.getCustomCallingContext().addSipX("header1", "customSipHeaderValue1");
+AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 ```
 
 # [JavaScript](#tab/javascript)
 
 ```javascript
-const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the ACS provisioned phone number for the caller
+// Add user
+// add custom calling context
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "voip", key: "voipHeaderName", value: "voipHeaderValue" })
+
+const addThisPerson = {
+    targetParticipant: { communicationUserId: "<acs_user_id>" },
+    customCallingContext: customCallingContext,
+};
+const addParticipantResult = await callConnection.addParticipant(addThisPerson, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
+
+// Add PSTN user
+const callerIdNumber = { phoneNumber: "+16044561234" }; // This is the Azure Communication Services provisioned phone number for the caller
+// add custom calling context
+const customCallingContext: CustomCallingContext = [];
+customContext.push({ kind: "sipuui", key: "", value: "value" });
+customContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
 const addThisPerson = {
     targetParticipant: { phoneNumber: "+16041234567" }, 
     sourceCallIdNumber: callerIdNumber,
+    customCallingContext: customCallingContext,
 };
-const addParticipantResult = await callConnection.addParticipant(addThisPerson);
+const addParticipantResult = await callConnection.addParticipant(addThisPerson, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
 ```
 
 # [Python](#tab/python)
 
 ```python
-caller_id_number = PhoneNumberIdentifier(
-    "+18888888888"
-) # This is the ACS provisioned phone number for the caller
-call_invite = CallInvite(
-    target=PhoneNumberIdentifier("+18008008800"),
-    source_caller_id_number=caller_id_number,
-)
+# Add user
+voip_headers = {"voipHeaderName", "voipHeaderValue"}
+target = CommunicationUserIdentifier("<acs_user_id>")
+
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.add_participant(call_invite)
+result = call_connection_client.add_participant(
+    target,
+    voip_headers=voip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>"
+)
+
+# Add PSTN user
+caller_id_number = PhoneNumberIdentifier(
+    "+18888888888"
+) # This is the Azure Communication Services provisioned phone number for the caller
+sip_headers = {}
+sip_headers.add("User-To-User", "value")
+sip_headers.add("X-MS-Custom-headerName", "headerValue")
+target = PhoneNumberIdentifier("+18008008800"),
+
+call_connection_client = call_automation_client.get_call_connection(
+    "<call_connection_id_from_ongoing_call>"
+)
+result = call_connection_client.add_participant(
+    target,
+    sip_headers=sip_headers,
+    opration_context="Your context",
+    operationCallbackUrl="<url_endpoint>",
+    source_caller_id_number=caller_id_number
+)
 ```
 
 -----
-To add a Communication Services user, provide a CommunicationUserIdentifier instead of PhoneNumberIdentifier. Source caller ID isn't mandatory in this case.
+To add a Communication Services user, provide a CommunicationUserIdentifier instead of PhoneNumberIdentifier. Caller ID isn't mandatory in this case.
 
 AddParticipant publishes a `AddParticipantSucceeded` or `AddParticipantFailed` event, along with a `ParticipantUpdated` providing the latest list of participants in the call.
 
 ![Sequence diagram for adding a participant to the call.](media/add-participant-flow.png)
+
+## Cancel an add participant request
+
+# [csharp](#tab/csharp)
+
+```csharp
+// add a participant
+var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+var addParticipantResponse = await callConnection.AddParticipantAsync(addThisPerson);
+
+// cancel the request with optional parameters
+var cancelAddParticipantOperationOptions = new CancelAddParticipantOperationOptions(addParticipantResponse.Value.InvitationId)
+{
+    OperationContext = "operationContext",
+    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
+}
+await callConnection.CancelAddParticipantOperationAsync(cancelAddParticipantOperationOptions);
+```
+
+# [Java](#tab/java)
+
+```java
+// Add user
+CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
+AddParticipantOperationOptions addParticipantOperationOptions = new AddParticipantOptions(callInvite);
+Response<AddParticipantResult> addParticipantOperationResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
+
+// cancel the request
+CancelAddParticipantOperationOptions cancelAddParticipantOperationOptions = new CancelAddParticipantOperationOptions(addParticipantResultResponse.invitationId)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
+callConnectionAsync.cancelAddParticipantOperationWithResponse(cancelAddParticipantOperationOptions).block();
+```
+
+# [JavaScript](#tab/javascript)
+
+```javascript
+// Add user
+const addThisPerson = {
+    targetParticipant: { communicationUserId: "<acs_user_id>" },
+};
+const { invitationId } = await callConnection.addParticipant(addThisPerson, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
+
+// cancel the request
+await callConnection.cancelAddParticipantOperation(invitationId, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
+```
+
+# [Python](#tab/python)
+
+```python
+# Add user
+target = CommunicationUserIdentifier("<acs_user_id>")
+
+call_connection_client = call_automation_client.get_call_connection(
+    "<call_connection_id_from_ongoing_call>"
+)
+result = call_connection_client.add_participant(target)
+
+# cancel the request
+call_connection_client.cancel_add_participant_operation(result.invitation_id, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+```
+-----
 
 ## Remove a participant from a call
 
@@ -455,22 +759,35 @@ AddParticipant publishes a `AddParticipantSucceeded` or `AddParticipantFailed` e
 
 ```csharp
 var removeThisUser = new CommunicationUserIdentifier("<user_id>"); 
-RemoveParticipantsResult result = await callConnection.RemoveParticipantAsync(removeThisUser);
+
+// remove a participant from the call with optional parameters
+var removeParticipantOptions = new RemoveParticipantOptions(removeThisUser)
+{
+    OperationContext = "operationContext",
+    OperationCallbackUri = new Uri("uri_endpoint"); // Sending event to a non-default endpoint.
+}
+
+RemoveParticipantsResult result = await callConnection.RemoveParticipantAsync(removeParticipantOptions);
 ```
 
 # [Java](#tab/java)
 
 ```java
 CommunicationIdentifier removeThisUser = new CommunicationUserIdentifier("<user_id>");
-RemoveParticipantOptions removeParticipantOptions = new RemoveParticipantOptions(removeThisUser); 
-Response<RemoveParticipantResult> removeParticipantResultResponse = callConnectionAsync.removeParticipantWithResponse(removeThisUser).block();
+RemoveParticipantOptions removeParticipantOptions = new RemoveParticipantOptions(removeThisUser)
+                .setOperationContext("<operation_context>")
+                .setOperationCallbackUrl("<url_endpoint>");
+Response<RemoveParticipantResult> removeParticipantResultResponse = callConnectionAsync.removeParticipantWithResponse(removeParticipantOptions).block();
 ```
 
 # [JavaScript](#tab/javascript)
 
 ```javascript
 const removeThisUser = { communicationUserId: "<user_id>" };
-const removeParticipantResult = await callConnection.removeParticipant(removeThisUser);
+const removeParticipantResult = await callConnection.removeParticipant(removeThisUser, {
+            operationCallbackUrl: "<url_endpoint>",
+            operationContext: "<operation_context>"
+});
 ```
 
 # [Python](#tab/python)
@@ -480,11 +797,11 @@ remove_this_user = CommunicationUserIdentifier("<user_id>")
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.remove_participant(remove_this_user)
+result = call_connection_client.remove_participant(remove_this_user, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 
 -----
-RemoveParticipant will publish a `RemoveParticipantSucceeded` or `RemoveParticipantFailed` event, along with a `ParticipantUpdated` providing the latest list of participants in the call. The removed participant is excluded if the remove operation was successful.  
+RemoveParticipant will publish a `RemoveParticipantSucceeded` or `RemoveParticipantFailed` event, along with a `ParticipantUpdated` event providing the latest list of participants in the call. The removed participant is omitted from the list.  
 ![Sequence diagram for removing a participant from the call.](media/remove-participant-flow.png)
 
 ## Hang up on a call

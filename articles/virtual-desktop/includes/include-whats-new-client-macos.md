@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 06/26/2023
+ms.date: 10/02/2023
 ---
 
 ## Latest client versions
@@ -11,12 +11,53 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.8.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.8.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.3         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.3         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.3
+
+*Published: October 2, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue where using workspace refresh deleted the workspace.
+- Resolved a RemoteApp issue where drag operations sometimes didn't work on certain apps.
+- Fixed an incorrect error message displayed for expired passwords.
+- Addressed a number of accessibility bugs.
+
+## Updates for version 10.9.2
+
+*Published: September 11, 2023*
+
+In this release, we've made the following changes:
+
+- Addressed "Proof Key for Code Exchange is required" message users receive when refreshing AVD workspaces after upgrading from versions 10.9.0 and 10.9.1.
+
+## Updates for version 10.9.1
+
+*Published: September 5, 2023*
+
+In this release, we've made the following changes:
+
+- Addressed clipboard redirection issue for macOS 11.
+
+## Updates for version 10.9.0
+
+*Published: August 16, 2023*
+
+In this release,  we added two new features for Azure Virtual Desktop and addressed a number of reported bugs and incidents. 
+
+- Added support for RDP Shortpath for public networks for Azure Virtual Desktop connections.
+- Integrated an Azure Virtual Desktop account profile switcher into the Connection Center.
+- Improved diagnostics sent during Azure Virtual Desktop connections.
+- Added support for video mirroring in Teams redirection.
+
+>[!NOTE]
+>This release isn't compatible with macOS 10.14 and macOS 10.15.
 
 ## Updates for Version 10.8.4
 
-Date published: June 16, 2023
+*Published: June 16, 2023*
 
 In this release, we've made the following changes:
 
@@ -29,7 +70,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.3
 
-Date published: May 20, 2023
+*Published: May 20, 2023*
 
 In this release, we've made the following changes:
 
@@ -38,7 +79,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.2
 
-*Date published: April 25, 2023*
+*Published: April 25, 2023*
 
 In this release, we've made the following changes:
 
@@ -54,7 +95,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.1
 
-*Date published: January 25, 2023*
+*Published: January 25, 2023*
 
 In this release, we've made the following changes:
 
@@ -66,7 +107,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.8.0
 
-*Date published: December 14, 2022*
+*Published: December 14, 2022*
 
 In this release, we've made the following changes:
 
@@ -75,7 +116,7 @@ In this release, we've made the following changes:
 
 ## Updates for Version 10.7.10
 
-*Date published: October 24, 2022*
+*Published: October 24, 2022*
 
 In this release, we've added some new features to Teams redirection for Azure Virtual Desktop and Windows 365 scenarios:
 
@@ -110,7 +151,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.7
 
-*Date Published: Jun 23, 2022*
+*Date Published: June 23, 2022*
 
 In this release we added the following new features:
 
@@ -142,7 +183,7 @@ In this release, we made some changes to improve connection reliability for Azur
 
 ## Updates for version 10.7.5
 
-*Date published: January 25, 2022*
+*Published: January 25, 2022*
 
 In this release, we've made the following changes:
 
@@ -152,7 +193,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.4
 
-*Date published: January 13, 2022*
+*Published: January 13, 2022*
 
 In this release, we've made the following changes:
 
@@ -161,13 +202,13 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.7.3
 
-*Date published: December 17, 2021*
+*Published: December 17, 2021*
 
 Unfortunately, the 10.7.2 update disabled smart card redirection for some users when they'd try to reconnect to their sessions. As a result, we've released this update to address the issue.
 
 ## Updates for version 10.7.2
 
-*Date published: December 13, 2021*
+*Published: December 13, 2021*
 
 In this release, we've made the following changes:
 
@@ -182,16 +223,24 @@ In this release, we've made the following changes:
 - Updates and enhancements to Teams redirection (only available in Azure Virtual Desktop scenarios).
 - Addressed reliability issues identified through crash reporting and feedback.
 
+## Updates for version 10.7.1
+
+*Published: November 4, 2021*
+
+In this release, we've made the following changes:
+
+- Addressed issues that caused the app to crash.
+
 ## Updates for version 10.7.0
 
-*Date published: October 21, 2021*
+*Published: October 21, 2021*
 
 In this release, we've made the following changes:
 
 - Addressed issues brought up by users in crash reports and general feedback.
 - Invertible cursors, such as the text cursor, are now outlined to make them visible on dark backgrounds.
 - Made improvements to the code for the Connection Center for both PCs and workspaces.
-- Added support for moving the local window while using RemoteApps.
+- Added support for moving the local window while using a RemoteApp.
   - By default, local window movement in RemoteApp scenarios is disabled. To enable local window movement, set the **EnableRemoteAppLocalMove** policy to **True**.
 - Updated the Connection Information prompt that appears when you go to **Connections** > **Show Connection Information**.
 - Added [screen capture protection for Azure Virtual Desktop scenarios](/azure/virtual-desktop/screen-capture-protection).
@@ -199,9 +248,35 @@ In this release, we've made the following changes:
 - Added a link to the new support forum at **Help** > **Submit feedback**.
 - Updates improving security, connectivity and performance while connecting to Azure Virtual Desktop.
 
+## Updates for version 10.6.8
+
+*Published: August 16, 2021*
+
+In this release, we've made the following changes:
+
+- Added background refresh for subscribed workspaces.
+- Addressed issues where the session window may switch to another monitor when auto-reconnecting.
+- Addressed issues where the session window would intermittently enlarge after connecting.
+- Addressed issues where the name of a redirected folder would be incorrect in the remote session.
+- Addressed issues when resizing remote app windows.
+- Improved error messages that are displayed when user accounts fail to update.
+- Addressed issues where window titles in the list of connected remote apps were blank.
+- Addressed multi-monitor issue where the mouse cursor shape would not update correctly when dragging between monitors.
+- Added a checkbox to General Preferences to enable/disable Microsoft Teams optimizations.
+- Added a UI to report if a remote app could not be launched on the server due to not being on the system allowlist.
+- Addressed issues where the session window could not expand when placed at the top or bottom of the screen.
+- Addressed scenarios where the mouse cursor would disappear while connected to a remote PC.
+- Deletion of an Azure Virtual Desktop workspace now correctly removes all associated workspaces.
+- Addressed issues where adding a folder to redirect to a bookmark would enable the "Add" button with an empty PC name.
+- Addressed issues where double-clicking the title bar incorrectly stretches the session window.
+- Updated the mouse to change to a hand glyph when hovering over a red input error indicator.
+- Addressed issues where the session window would flash rapidly in the "Mission Control" or "Application windows" view.
+- Improved connectivity and performance metrics when connecting to Azure Virtual Desktop.
+- Subscribed workspaces are refreshed every six hours, by default, and can be changed using **ClientSettings.WorkspaceAutoRefreshInterval** (minimum interval is 30 minutes and 24 hours is the maximum).
+
 ## Updates for version 10.6.7
 
-*Date published: June 21, 2021*
+*Published: June 21, 2021*
 
 In this release, we've made the following changes:
 
@@ -219,7 +294,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.6
 
-*Date published: May 4, 2021*
+*Published: May 4, 2021*
 
 In this release, we've made the following changes:
 
@@ -228,7 +303,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.5
 
-*Date published: April 29, 2021*
+*Published: April 29, 2021*
 
 In this release, we've made the following changes:
 
@@ -237,7 +312,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.4
 
-*Date published: April 22, 2021*
+*Published: April 22, 2021*
 
 In this release, we've made the following changes:
 
@@ -245,7 +320,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.3
 
-*Date published: April 20, 2021*
+*Published: April 20, 2021*
 
 In this release, we've made the following changes:
 
@@ -255,7 +330,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.2
 
-*Date published: April 20, 2021*
+*Published: April 20, 2021*
 
 In this release, we've made the following changes:
 
@@ -263,13 +338,13 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.6.1
 
-*Date published: April 20, 2021*
+*Published: April 20, 2021*
 
 In this update, we fixed an issue that caused the client to stop responding when connecting to a Remote Desktop Gateway.
 
 ## Updates for version 10.6.0
 
-*Date published: April 19, 2021*
+*Published: April 19, 2021*
 
 In this release we've made some significant updates to the shared underlying code that powers the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reports.
 
@@ -286,7 +361,7 @@ In this release we've made some significant updates to the shared underlying cod
 
 ## Updates for version 10.5.2
 
-*Date published: February 15, 2021*
+*Published: February 15, 2021*
 
 In this release, we've made the following changes:
 
@@ -300,7 +375,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.5.1
 
-*Date published: January 29, 2021*
+*Published: January 29, 2021*
 
 In this release, we've made the following changes:
 
@@ -310,12 +385,12 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.5.0
 
-*Date published: December 2, 2020*
+*Published: December 2, 2020*
 
 In this release, we've made the following changes:
 
 - You can now edit the display, device, and folder redirection settings of published PC connections.
-- Remote app windows now shrink to the dock when minimized.
+- RemoteApp windows now shrink to the dock when minimized.
 - Added a Connection Information dialog that displays the current bandwidth and round-trip time.
 - Added support for Remote Desktop Gateway consent and admin messages.
 - Fixed an issue where an RDP file specifying a gatewayusagemethod value of 0 or 4 was incorrectly imported.
@@ -328,7 +403,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.4.1
 
-*Date published: November 6, 2020*
+*Published: November 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -340,12 +415,12 @@ In this release, we've made the following changes:
 - Corrected the aspect ratio of PC thumbnails displayed in the Connection Center.
 - Improved smart card redirection heuristics to better handle nested transactions.
 - Fixed a bug that prevented bookmark export if the bookmark's display name contained the "/" character.
-- Resolved a bug that caused a 0xD06 protocol error when running Outlook as a remote app.
+- Resolved a bug that caused a 0xD06 protocol error when running Outlook as a RemoteApp.
 - Added support for a new integer RDP file property (ForceHiDpiOptimizations) to enable Retina display optimization.
 
 ## Updates for version 10.4.0
 
-*Date published: August 20, 2020*
+*Published: August 20, 2020*
 
 In this release, we've made substantial updates to the underlying code for the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reporting. Here are some changes you may notice:
 
@@ -363,7 +438,7 @@ In this release, we've made substantial updates to the underlying code for the R
 - User account UI that interacts with the macOS keychain will now surface keychain access errors.
 - Hitting cancel during workspace subscription will now result in nothing being added to the Connection Center.
 - Added key mappings for Cmd+Z and Cmd+F to map to Ctrl+Z and Ctrl+F respectively.
-- Fixed a bug that caused remote apps to open behind the Connection Center when launched.
+- Fixed a bug that caused a RemoteApp to open behind the Connection Center when launched.
 - Worked around an issue in macOS 10.15 where AAC audio playback caused the client to stall.
 - Shift+left-click now works in Unicode mode.
 - Fixed a bug where using the Shift key triggered the Sticky Keys alert in Unicode mode.
@@ -386,7 +461,7 @@ In this release, we've made substantial updates to the underlying code for the R
 
 ## Updates for version 10.3.9
 
-*Date published: April 6, 2020*
+*Published: April 6, 2020*
 
 In this release, we've made some changes to improve interoperability with the [Azure Virtual Desktop service](https://azure.microsoft.com/services/virtual-desktop/). In addition, we've included the following updates:
 
@@ -399,7 +474,7 @@ In this release, we've made some changes to improve interoperability with the [A
 
 ## Updates for version 10.3.8
 
-*Date published: February 12, 2020*
+*Published: February 12, 2020*
 
 With this update, you can switch between Scancode (Ctrl+Command+K) and Unicode (Ctrl+Command+U) modes when entering keyboard input. Unicode mode allows extended characters to be typed using the Option key on a Mac keyboard. For example, on a US Mac keyboard, Option+2 will enter the trademark (&trade;) symbol. You can also enter accented characters in Unicode mode. For example, on a US Mac keyboard, entering Option+E and the "A" key at the same time will enter the character "á" on your remote session.
 
@@ -414,7 +489,7 @@ Other updates in this release include:
 
 ## Updates for version 10.3.7
 
-*Date published: January 6, 2020*
+*Published: January 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -423,7 +498,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.6
 
-*Date published: January 6, 2020*
+*Published: January 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -431,7 +506,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.5
 
-*Date published: January 6, 2020*
+*Published: January 6, 2020*
 
 In this release, we've made the following changes:
 
@@ -446,11 +521,11 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.4
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we've made the following changes:
 
-- When connecting via a Remote Desktop Gateway with multi-factor authentication, the gateway connection will be held open to avoid multiple MFA prompts.
+- When connecting via a Remote Desktop Gateway with multifactor authentication, the gateway connection will be held open to avoid multiple MFA prompts.
 - All the client UI is now fully keyboard-accessible with Voiceover support.
 - Files copied to the clipboard in the remote session are now only transferred when pasting to the local computer.
 - URLs copied to the clipboard in the remote session now paste correctly to the local computer.
@@ -465,7 +540,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.3
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we've made the following changes:
 
@@ -482,19 +557,19 @@ In this release, we've made the following changes:
 - Addressed initial flicker that occurred when connecting to a session in windowed mode with dynamic display enabled.
 - Fixed graphics mis-paints that occurred when connected to Windows 7 after toggling fit-to-window with dynamic display enabled.
 - Fixed a bug that caused an incorrect device name to be sent to the remote session (breaking licensing in some third-party apps).
-- Resolved an issue where remote app windows would occupy an entire monitor when maximized.
+- Resolved an issue where RemoteApp windows would occupy an entire monitor when maximized.
 - Addressed an issue where the access permissions UI appeared underneath local windows.
 - Cleaned up some shutdown code to ensure the client closes more reliably.
 
 ## Updates for version 10.3.2
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we fixed a bug that made the display low resolution while connecting to a session
 
 ## Updates for version 10.3.1
 
-*Date published: November 18, 2019*
+*Published: November 18, 2019*
 
 In this release, we've made the following changes:
 
@@ -505,7 +580,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.3.0
 
-*Date published: August 27, 2019*
+*Published: August 27, 2019*
 
 In this release, we've made the following changes:
 
@@ -515,7 +590,7 @@ In this release, we've made the following changes:
 - Clipboard redirection now includes the Rich Text Format (RTF).
 - When entering your password, you can now choose to reveal it by selecting the "Show password" checkbox.
 - Addressed scenarios where the session window was jumping between monitors.
-- The Connection Center displays high-resolution remote app icons (when available).
+- The Connection Center displays high-resolution RemoteApp icons when available.
 - Cmd+A maps to Ctrl+A when Mac clipboard shortcuts are being used.
 - Cmd+R now refreshes all of your subscribed feeds.
 - Added new secondary click options to expand or collapse all groups or feeds in the Connection Center.
@@ -524,7 +599,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.13
 
-*Date published: May 8, 2019*
+*Published: May 8, 2019*
 
 In this release, we've made the following changes:
 
@@ -533,7 +608,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.12
 
-*Date published: April 16, 2019*
+*Published: April 16, 2019*
 
 In this release, we've made the following changes:
 
@@ -544,7 +619,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.10
 
-*Date published: March 30, 2019*
+*Published: March 30, 2019*
 
 In this release, we've made the following changes:
 
@@ -553,7 +628,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.9
 
-*Date published: March 6, 2019*
+*Published: March 6, 2019*
 
 In this release, we've made the following changes:
 
@@ -562,25 +637,25 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.8
 
-*Date published: March 1, 2019*
+*Published: March 1, 2019*
 
 In this release, we've made the following changes:
 
 - Resolved connectivity issues that surfaced when using a Remote Desktop Gateway.
 - Fixed incorrect certificate warnings that were displayed when connecting.
-- Addressed some cases where the menu bar and dock would needlessly hide when launching remote apps.
+- Addressed some cases where the menu bar and dock would needlessly hide when launching a RemoteApp.
 - Reworked the clipboard redirection code to address crashes and hangs that have been plaguing some users.
 - Fixed a bug that caused the Connection Center to needlessly scroll when launching a connection.
 
 ## Updates for version 10.2.7
 
-*Date published: February 6, 2019*
+*Published: February 6, 2019*
 
 In this release, we addressed graphics mis-paints (caused by a server encoding bug) that appeared when using AVC444 mode.
 
 ## Updates for version 10.2.6
 
-*Date published: January 28, 2019*
+*Published: January 28, 2019*
 
 In this release, we've made the following changes:
 
@@ -596,7 +671,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.4
 
-*Date published: December 18, 2018*
+*Published: December 18, 2018*
 
 In this release, we've made the following changes:
 
@@ -610,17 +685,17 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.3
 
-*Date published: November 6, 2018*
+*Published: November 6, 2018*
 
 In this release, we've made the following changes:
 
-- Added support for the "remoteapplicationcmdline" RDP file setting for remote app scenarios.
+- Added support for the *remoteapplicationcmdline* RDP file setting for RemoteApp scenarios.
 - The title of the session window now includes the name of the RDP file (and server name) when launched from an RDP file.
 - Fixed reported Remote Desktop Gateway performance issues.
 - Fixed reported Remote Desktop Gateway crashes.
 - Fixed issues where the connection would hang when connecting through a Remote Desktop Gateway.
-- Better handling of full-screen remote apps by intelligently hiding the menu bar and dock.
-- Fixed scenarios where remote apps remained hidden after being launched.
+- Better handling of a RemoteApp in full-screen by intelligently hiding the menu bar and dock.
+- Fixed scenarios where a RemoteApp remained hidden after being launched.
 - Addressed slow rendering updates when using "Fit to Window" with hardware acceleration disabled.
 - Handled database creation errors caused by incorrect permissions when the client starts up.
 - Fixed an issue where the client was consistently crashing at launch and not starting for some users.
@@ -628,7 +703,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.2
 
-*Date published: October 9, 2018*
+*Published: October 9, 2018*
 
 In this release, we've made the following changes:
 
@@ -659,7 +734,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.1
 
-*Date published: August 6, 2018*
+*Published: August 6, 2018*
 
 In this release, we've made the following changes:
 
@@ -668,7 +743,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.2.0
 
-*Date published: July 24, 2018*
+*Published: July 24, 2018*
 
 In this release, we've made the following changes:
 
@@ -699,7 +774,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.1.8
 
-*Date published: May 4, 2018*
+*Published: May 4, 2018*
 
 In this release, we've made the following changes:
 
@@ -709,7 +784,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.1.7
 
-*Date published: April 5, 2018*
+*Published: April 5, 2018*
 
 In this release, we've made the following changes:
 
@@ -725,7 +800,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.1.6
 
-*Date published: March 26, 2018*
+*Published: March 26, 2018*
 
 In this release, we've made the following changes:
 

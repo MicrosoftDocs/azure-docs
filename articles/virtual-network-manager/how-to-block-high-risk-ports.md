@@ -15,18 +15,14 @@ In this article, you learn to block high risk network ports using [Azure Virtual
 
 While this article focuses on a single port, SSH, you can protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub and spoke connectivity configurations. 
->
-> Mesh connectivity configurations and security admin rules remain in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
-* You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
-* You understand each element in a [Security admin rule](concept-security-admins.md).
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A group of virtual networks that can be split into network groups for applying granular security admin rules.
+- You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
+- You understand each element in a [Security admin rule](concept-security-admins.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A group of virtual networks that can be split into network groups for applying granular security admin rules.
+- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
 
 ## Deploy virtual network environment
 You need a virtual network environment that includes virtual networks that can be segregated for allowing and blocking specific network traffic. You may use the following table or your own configuration of virtual networks:
@@ -114,7 +110,7 @@ In this section, you define the security rule to block high-risk network traffic
     | ------- | ----- |
     | Name | Enter a rule name. |
     | Description | Enter a description about the rule. |
-    | Priority* | Enter a value between 0 and 99 to determine the priority of the rule. The lower the value the higher the priority.|
+    | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value the higher the priority.|
     | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action)
     | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
     | Protocol* | Select the network protocol for the port. |

@@ -14,7 +14,7 @@ ms.date: 01/18/2022
 
 # Hyperparameters for computer vision tasks in automated machine learning (v1)
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 

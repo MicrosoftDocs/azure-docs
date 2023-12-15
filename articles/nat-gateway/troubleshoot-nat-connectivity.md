@@ -3,7 +3,7 @@ title: Troubleshoot Azure NAT Gateway connectivity
 description: Troubleshoot connectivity issues with a NAT gateway.
 author: asudbring
 ms.service: nat-gateway
-ms.custom: ignite-2022
+ms.custom: ignite-2022, devx-track-linux
 ms.topic: troubleshooting
 ms.date: 04/24/2023
 ms.author: allensu
@@ -49,7 +49,7 @@ The following table describes a scenario where a long TCP idle timeout timer is 
 
 ### TCP idle timeout 
 
-As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) in the previous section, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [Timer considerations](./nat-gateway-resource.md#timer-considerations). 
+As described in the [TCP timers](#tcp-idle-timeout-timers-set-higher-than-the-default-value) in the previous section, TCP keepalives should be used to refresh idle flows and reset the idle timeout. TCP keepalives only need to be enabled from one side of a connection in order to keep a connection alive from both sides. When a TCP keepalive is sent from one side of a connection, the other side automatically sends an ACK packet. The idle timeout timer is then reset on both sides of the connection. To learn more, see [TCP idle timeout](./nat-gateway-resource.md#tcp-idle-timeout). 
 
 >[!Note] 
 >Increasing the TCP idle timeout is a last resort and may not resolve the root cause. A long timeout can cause low-rate failures when timeout expires and introduce delay and unnecessary failures. 
@@ -78,14 +78,14 @@ Test and resolve issues with VMs holding on to old SNAT IP addresses by:
 
 If you're still having trouble, open a support case for further troubleshooting.  
 
-### Virtual appliance UDRs and ExpressRoute override NAT gateway for routing outbound traffic 
+### UDRs for virtual network gateways and network appliances override NAT gateway for routing outbound traffic 
 
-When forced tunneling with a custom UDR is enabled to direct traffic to a virtual appliance or VPN through ExpressRoute, the UDR or ExpressRoute takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-network/virtual-networks-udr-overview.md#custom-routes).  
+When forced tunneling with a custom UDR is enabled to direct traffic either to a network virtual appliance (NVA) or virtual network gateway such as VPN Gateway or ExpressRoute, the UDR takes precedence over NAT gateway for directing internet bound traffic. To learn more, see [custom UDRs](../virtual-network/virtual-networks-udr-overview.md#custom-routes).  
 
 The order of precedence for internet routing configurations is as follows:  
-Virtual appliance UDR / ExpressRoute >> NAT gateway >> instance level public IP addresses >> outbound rules on Load balancer >> default outbound access  
+UDR for NVA / VPN Gateway / ExpressRoute >> NAT gateway >> instance level public IP addresses >> outbound rules on Load balancer >> default outbound access  
 
-Test and resolve issues with a virtual appliance UDR or VPN ExpressRoute overriding your NAT gateway by:  
+Test and resolve issues with a virtual appliance UDR or virtual network gateway overriding your NAT gateway by:  
 
 1. [Testing that the NAT gateway public IP](./quickstart-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs. 
 
@@ -162,8 +162,8 @@ To prevent possible passive FTP connection failures, do the following steps:
 
 2. Make sure that the passive port range from your NAT gateway is allowed to pass any firewalls that may be at the destination endpoint.
 
-> !NOTE
-> Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.  
+>[!NOTE]
+>Reducing the amount of public IP addresses on your NAT gateway reduces the SNAT port inventory available for making outbound connections and may increase the risk of SNAT port exhaustion. Consider your SNAT connectivity needs before removing public IP addresses from NAT gateway.  
 
 ### Extra network captures 
 

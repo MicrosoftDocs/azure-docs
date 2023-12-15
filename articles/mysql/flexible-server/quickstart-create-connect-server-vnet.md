@@ -1,8 +1,8 @@
 ---
 title: "Connect to Azure Database for MySQL - Flexible Server with private access in the Azure portal"
 description: This article walks you through using the Azure portal to create and connect to an Azure Database for MySQL - Flexible Server in private access.
-author: vivgk
-ms.author: vivgk
+author: SudheeshGH
+ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 11/21/2022
 ms.service: mysql
@@ -21,7 +21,7 @@ Azure Database for MySQL - Flexible Server is a managed service that runs, manag
 
 ## Sign in to the Azure portal
 
-Go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Sign in to the [Azure portal](https://portal.azure.com). Enter your credentials to sign in to the portal. The default view is your service dashboard.
 
 ## Create an Azure Database for MySQL - Flexible Server
 

@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -36,6 +36,9 @@ Azure service: [Azure Spring Apps](../../../spring-apps/index.yml)
 > | Microsoft.AppPlatform/Spring/stop/action | Stop a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/start/action | Start a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/configServers/action | Validate the config server settings for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/enableApmGlobally/action | Enable APM globally for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/disableApmGlobally/action | Disable APM globally for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/listGloballyEnabledApms/action | List globally enabled APMs for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apiPortals/read | Get the API portal for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apiPortals/write | Create or update the API portal for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apiPortals/delete | Delete the API portal for a specific Azure Spring Apps service instance |
@@ -43,6 +46,10 @@ Azure service: [Azure Spring Apps](../../../spring-apps/index.yml)
 > | Microsoft.AppPlatform/Spring/apiPortals/domains/read | Get the API portal domain for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apiPortals/domains/write | Create or update the API portal domain for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apiPortals/domains/delete | Delete the API portal domain for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/read | Get the APM for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/write | Create or update the APM for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/delete | Delete the APM for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/apms/listSecretKeys/action | List the secret keys for a specific Azure Spring Apps service instance APM |
 > | Microsoft.AppPlatform/Spring/applicationAccelerators/read | Get the Application Accelerator for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/applicationAccelerators/write | Create or update Application Accelerator for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/applicationAccelerators/delete | Delete Application Accelerator for a specific Azure Spring Apps service instance |
@@ -62,9 +69,13 @@ Azure service: [Azure Spring Apps](../../../spring-apps/index.yml)
 > | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Get the resource upload URL of a specific Microsoft Azure Spring Apps application |
 > | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Validate the custom domain for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/setActiveDeployments/action | Set active deployments for a specific Microsoft Azure Spring Apps application |
+> | Microsoft.AppPlatform/Spring/apps/validate/action | Validate the container registry for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/apps/bindings/write | Create or update the binding for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/bindings/delete | Delete the binding for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/bindings/read | Get the bindings for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/connectorProps/read | Get the service connectors for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/connectorProps/write | Create or update the service connector for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/connectorProps/delete | Delete the service connector for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/write | Create or update the deployment for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/delete | Delete the deployment for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/read | Get the deployments for a specific application |
@@ -78,9 +89,9 @@ Azure service: [Azure Spring Apps](../../../spring-apps/index.yml)
 > | Microsoft.AppPlatform/Spring/apps/deployments/enableRemoteDebugging/action | Enable remote debugging for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/disableRemoteDebugging/action | Disable remote debugging for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/getRemoteDebuggingConfig/action | Get remote debugging configuration for a specific application |
-> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/read | Get the service connectors for a specific application |
-> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/write | Create or update the service connector for a specific application |
-> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/delete | Delete the service connector for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/read | Get the service connectors for a specific deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/write | Create or update the service connector for a specific deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/connectorProps/delete | Delete the service connector for a specific deployment |
 > | Microsoft.AppPlatform/Spring/apps/deployments/operationResults/read | Read resource operation result |
 > | Microsoft.AppPlatform/Spring/apps/deployments/operationStatuses/read | Read resource operation Status |
 > | Microsoft.AppPlatform/Spring/apps/deployments/skus/read | List available skus of an application deployment |
@@ -120,8 +131,9 @@ Azure service: [Azure Spring Apps](../../../spring-apps/index.yml)
 > | Microsoft.AppPlatform/Spring/configurationServices/write | Create or update the Application Configuration Service for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/configurationServices/delete | Delete the Application Configuration Service for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/configurationServices/validate/action | Validate the settings for a specific Application Configuration Service |
-> | Microsoft.AppPlatform/Spring/containerRegistries/read | Get the Container Registry for a specific Azure Spring Apps service instance |
-> | Microsoft.AppPlatform/Spring/containerRegistries/write | Create or update the Container Registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/containerRegistries/read | Get the container registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/containerRegistries/write | Create or update the container registry for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/containerRegistries/delete | Delete the container registry for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/deployments/read | Get the deployments for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/detectors/read | Get the detectors for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/devToolPortals/read | Get the Dev Tool Portal for a specific Azure Spring Apps service instance |
@@ -153,6 +165,8 @@ Azure service: [Azure Spring Apps](../../../spring-apps/index.yml)
 > | Microsoft.AppPlatform/Spring/storages/write | Create or update the storage for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/storages/delete | Delete the storage for a specific Azure Spring Apps service instance |
 > | Microsoft.AppPlatform/Spring/storages/read | Get storage for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/supportedApmTypes/read | List the supported APM types for a specific Azure Spring Apps service instance |
+> | Microsoft.AppPlatform/Spring/supportedServerVersions/read | List the supported server versions for a specific Azure Spring Apps service instance |
 > | **DataAction** | **Description** |
 > | Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action | Remote debugging app instance for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/connect/action | Connect to an instance for a specific application |
@@ -166,7 +180,7 @@ Azure service: [Azure Spring Apps](../../../spring-apps/index.yml)
 
 ### Microsoft.CertificateRegistration
 
-Azure service: [App Service Certificates](../../../app-service/configure-ssl-certificate.md#buy-and-import-app-service-certificate)
+Azure service: [App Service Certificates](../../../app-service/configure-ssl-app-service-certificate.md)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -208,6 +222,7 @@ Azure service: [App Service](../../../app-service/index.yml)
 > | Microsoft.DomainRegistration/domains/Write | Add a new Domain or update an existing one |
 > | Microsoft.DomainRegistration/domains/Delete | Delete an existing domain. |
 > | Microsoft.DomainRegistration/domains/renew/Action | Renew an existing domain. |
+> | Microsoft.DomainRegistration/domains/verifyRegistrantEmail/Action | Resends verification emails to the email address of registrant contact. |
 > | Microsoft.DomainRegistration/domains/retrieveContactInfo/Action | Retrieve contact info for existing domain |
 > | Microsoft.DomainRegistration/domains/Read | Transfer out a domain to another registrar. |
 > | Microsoft.DomainRegistration/domains/domainownershipidentifiers/Read | List ownership identifiers |
@@ -234,15 +249,16 @@ Azure service: [Azure Maps](../../../azure-maps/index.yml)
 > | Microsoft.Maps/accounts/delete | Delete a Maps Account. |
 > | Microsoft.Maps/accounts/listKeys/action | List Maps Account keys. |
 > | Microsoft.Maps/accounts/regenerateKey/action | Generate new Maps Account primary or secondary key. |
-> | Microsoft.Maps/accounts/creators/write | Create or update a Creator. |
-> | Microsoft.Maps/accounts/creators/read | Get a Creator. |
-> | Microsoft.Maps/accounts/creators/delete | Delete a Creator. |
 > | Microsoft.Maps/accounts/eventGridFilters/delete | Delete an Event Grid filter. |
 > | Microsoft.Maps/accounts/eventGridFilters/read | Get an Event Grid filter |
 > | Microsoft.Maps/accounts/eventGridFilters/write | Create or update an Event Grid filter. |
+> | Microsoft.Maps/accounts/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy. |
+> | Microsoft.Maps/accounts/privateEndpointConnectionProxies/read | Read a Private Endpoint Connection Proxy. |
+> | Microsoft.Maps/accounts/privateEndpointConnectionProxies/write | Create or update a Private Endpoint Connection Proxy. |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Microsoft.Maps/accounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Maps Accounts |
+> | Microsoft.Maps/locations/operationStatuses/read | Read an Asyncronous Operation. |
 > | Microsoft.Maps/operations/read | Read the provider operations |
 > | Microsoft.Maps/resourceTypes/read | Read the provider resourceTypes |
 > | **DataAction** | **Description** |
@@ -255,7 +271,6 @@ Azure service: [Azure Maps](../../../azure-maps/index.yml)
 > | Microsoft.Maps/accounts/services/data/write | Allows writing or updating of data for data upload services and Creator resource. |
 > | Microsoft.Maps/accounts/services/dataordering/read | Allows reading of data for DataOrdering services. |
 > | Microsoft.Maps/accounts/services/dataordering/write | Allows writing of data for Data Ordering services. |
-> | Microsoft.Maps/accounts/services/elevation/read | Allows reading of data for Elevation services. |
 > | Microsoft.Maps/accounts/services/geolocation/read | Allows reading of data for Geolocation services. |
 > | Microsoft.Maps/accounts/services/render/read | Allows reading of data for Render services. |
 > | Microsoft.Maps/accounts/services/route/read | Allows reading of data for Route services. |
@@ -417,6 +432,7 @@ Azure service: [Azure Search](../../../search/index.yml)
 > | --- | --- |
 > | Microsoft.Search/register/action | Registers the subscription for the search resource provider and enables the creation of search services. |
 > | Microsoft.Search/checkNameAvailability/action | Checks availability of the service name. |
+> | Microsoft.Search/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/write | Check if the configuration of the Network Security Perimeter needs updating. |
 > | Microsoft.Search/operations/read | Lists all of the available operations of the Microsoft.Search provider. |
 > | Microsoft.Search/searchServices/write | Creates or updates the search service. |
 > | Microsoft.Search/searchServices/read | Reads the search service. |
@@ -446,6 +462,11 @@ Azure service: [Azure Search](../../../search/index.yml)
 > | Microsoft.Search/searchServices/indexes/delete | Delete an index. |
 > | Microsoft.Search/searchServices/logDefinitions/read | Gets the available logs for the search service |
 > | Microsoft.Search/searchServices/metricDefinitions/read | Gets the available metrics for the search service |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterAssociationProxies/delete | Delete an association proxy to a Network Security Perimeter resource of Microsoft.Network provider. |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterAssociationProxies/read | Delete an association proxy to a Network Security Perimeter resource of Microsoft.Network provider. |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterAssociationProxies/write | Change the state of an association to a Network Security Perimeter resource of Microsoft.Network provider |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterConfigurations/read | Read the Network Security Perimeter configuration. |
+> | Microsoft.Search/searchServices/networkSecurityPerimeterConfigurations/reconcile/action | Reconcile the Network Security Perimeter configuration with NRP's (Microsoft.Network Resource Provider) copy. |
 > | Microsoft.Search/searchServices/privateEndpointConnectionProxies/validate/action | Validates a private endpoint connection create call from NRP side |
 > | Microsoft.Search/searchServices/privateEndpointConnectionProxies/write | Creates a private endpoint connection proxy with the specified parameters or updates the properties or tags for the specified private endpoint connection proxy |
 > | Microsoft.Search/searchServices/privateEndpointConnectionProxies/read | Returns the list of private endpoint connection proxies or gets the properties for the specified private endpoint connection proxy |
@@ -477,26 +498,26 @@ Azure service: [Azure SignalR Service](../../../azure-signalr/index.yml)
 > | --- | --- |
 > | Microsoft.SignalRService/register/action | Registers the 'Microsoft.SignalRService' resource provider with a subscription |
 > | Microsoft.SignalRService/unregister/action | Unregisters the 'Microsoft.SignalRService' resource provider with a subscription |
-> | Microsoft.SignalRService/locations/checknameavailability/action | Checks if a name is available for use with a new Microsoft.SignalRService resource. |
+> | Microsoft.SignalRService/locations/checknameavailability/action | Checks if a name is available for use with a new Microsoft.SignalRService resource |
 > | Microsoft.SignalRService/locations/operationresults/signalr/read | Query the result of a location-based asynchronous operation |
 > | Microsoft.SignalRService/locations/operationresults/webpubsub/read | Query the result of a location-based asynchronous operation |
 > | Microsoft.SignalRService/locations/operationStatuses/signalr/read | Query the status of a location-based asynchronous operation |
 > | Microsoft.SignalRService/locations/operationStatuses/webpubsub/read | Query the status of a location-based asynchronous operation |
-> | Microsoft.SignalRService/locations/usages/read | Get the quota usages for Microsoft.SignalRService resource provider. |
+> | Microsoft.SignalRService/locations/usages/read | Get the quota usages for Microsoft.SignalRService resource provider |
 > | Microsoft.SignalRService/operationresults/read | Query the result of a provider-level asynchronous operation |
-> | Microsoft.SignalRService/operations/read | List the operations for Microsoft.SignalRService resource provider. |
+> | Microsoft.SignalRService/operations/read | List the operations for Microsoft.SignalRService resource provider |
 > | Microsoft.SignalRService/operationStatuses/read | Query the status of a provider-level asynchronous operation |
 > | Microsoft.SignalRService/SignalR/read | View the SignalR's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/SignalR/write | Modify the SignalR's settings and configurations in the management portal or through API |
-> | Microsoft.SignalRService/SignalR/delete | Delete the SignalR resource. |
+> | Microsoft.SignalRService/SignalR/delete | Delete the SignalR resource |
 > | Microsoft.SignalRService/SignalR/listkeys/action | View the value of SignalR access keys in the management portal or through API |
 > | Microsoft.SignalRService/SignalR/regeneratekey/action | Change the value of SignalR access keys in the management portal or through API |
-> | Microsoft.SignalRService/SignalR/restart/action | To restart a SignalR resource in the management portal or through API. There will be certain downtime. |
+> | Microsoft.SignalRService/SignalR/restart/action | To restart a SignalR resource in the management portal or through API. There will be certain downtime |
 > | Microsoft.SignalRService/SignalR/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
 > | Microsoft.SignalRService/SignalR/detectors/read | Read Detector |
-> | Microsoft.SignalRService/SignalR/eventGridFilters/read | Get the properties of the specified event grid filter or lists all the event grid filters for the specified SignalR resource. |
-> | Microsoft.SignalRService/SignalR/eventGridFilters/write | Create or update an event grid filter for a SignalR resource with the specified parameters. |
-> | Microsoft.SignalRService/SignalR/eventGridFilters/delete | Delete an event grid filter from a SignalR resource. |
+> | Microsoft.SignalRService/SignalR/eventGridFilters/read | Get the properties of the specified event grid filter or lists all the event grid filters for the specified SignalR resource |
+> | Microsoft.SignalRService/SignalR/eventGridFilters/write | Create or update an event grid filter for a SignalR resource with the specified parameters |
+> | Microsoft.SignalRService/SignalR/eventGridFilters/delete | Delete an event grid filter from a SignalR resource |
 > | Microsoft.SignalRService/SignalR/operationResults/read |  |
 > | Microsoft.SignalRService/SignalR/operationStatuses/read |  |
 > | Microsoft.SignalRService/SignalR/privateEndpointConnectionProxies/updatePrivateEndpointProperties/action |  |
@@ -510,19 +531,29 @@ Azure service: [Azure SignalR Service](../../../azure-signalr/index.yml)
 > | Microsoft.SignalRService/SignalR/privateLinkResources/read | List Private Link Resources |
 > | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
-> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a SignalR resource. |
-> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a SignalR resource. |
+> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a SignalR resource |
+> | Microsoft.SignalRService/SignalR/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a SignalR resource |
+> | Microsoft.SignalRService/SignalR/replicas/read | View the SignalR replica's settings and configurations in the management portal or through API |
+> | Microsoft.SignalRService/SignalR/replicas/write | Modify the SignalR replica's settings and configurations in the management portal or through API |
+> | Microsoft.SignalRService/SignalR/replicas/delete | Delete the SignalR replica resource |
+> | Microsoft.SignalRService/SignalR/replicas/operationResults/read |  |
+> | Microsoft.SignalRService/SignalR/replicas/operationStatuses/read |  |
+> | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a SignalR replica resource |
+> | Microsoft.SignalRService/SignalR/replicas/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a SignalR replica resource |
+> | Microsoft.SignalRService/SignalR/replicas/skus/read | List the valid SKUs for an existing resource |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
 > | Microsoft.SignalRService/SignalR/sharedPrivateLinkResources/delete | Delete Shared Private Link Resource |
-> | Microsoft.SignalRService/SignalR/skus/read | List the valid SKUs for an existing resource. |
-> | Microsoft.SignalRService/skus/read | List the valid SKUs for an existing resource. |
+> | Microsoft.SignalRService/SignalR/skus/read | List the valid SKUs for an existing resource |
+> | Microsoft.SignalRService/skus/read | List the valid SKUs for an existing resource |
 > | Microsoft.SignalRService/WebPubSub/read | View the WebPubSub's settings and configurations in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/write | Modify the WebPubSub's settings and configurations in the management portal or through API |
-> | Microsoft.SignalRService/WebPubSub/delete | Delete the WebPubSub resource. |
+> | Microsoft.SignalRService/WebPubSub/delete | Delete the WebPubSub resource |
 > | Microsoft.SignalRService/WebPubSub/listkeys/action | View the value of WebPubSub access keys in the management portal or through API |
 > | Microsoft.SignalRService/WebPubSub/regeneratekey/action | Change the value of WebPubSub access keys in the management portal or through API |
-> | Microsoft.SignalRService/WebPubSub/restart/action | To restart a WebPubSub resource in the management portal or through API. There will be certain downtime. |
+> | Microsoft.SignalRService/WebPubSub/restart/action | To restart a WebPubSub resource in the management portal or through API. There will be certain downtime |
 > | Microsoft.SignalRService/WebPubSub/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
 > | Microsoft.SignalRService/WebPubSub/detectors/read | Read Detector |
 > | Microsoft.SignalRService/WebPubSub/hubs/write | Write hub settings |
@@ -541,43 +572,54 @@ Azure service: [Azure SignalR Service](../../../azure-signalr/index.yml)
 > | Microsoft.SignalRService/WebPubSub/privateLinkResources/read | List Private Link Resources |
 > | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
-> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a WebPubSub resource. |
-> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a WebPubSub resource. |
+> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a WebPubSub resource |
+> | Microsoft.SignalRService/WebPubSub/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a WebPubSub resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/read | View the WebPubSub replica's settings and configurations in the management portal or through API |
+> | Microsoft.SignalRService/WebPubSub/replicas/write | Modify the WebPubSub replica's settings and configurations in the management portal or through API |
+> | Microsoft.SignalRService/WebPubSub/replicas/delete | Delete the WebPubSub replica resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/operationResults/read |  |
+> | Microsoft.SignalRService/WebPubSub/replicas/operationStatuses/read |  |
+> | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/logDefinitions/read | Get the available logs of a WebPubSub replica resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/providers/Microsoft.Insights/metricDefinitions/read | Get the available metrics of a WebPubSub replica resource |
+> | Microsoft.SignalRService/WebPubSub/replicas/skus/read | List the valid SKUs for an existing resource |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/write | Write Shared Private Link Resource |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/read | Read Shared Private Link Resource |
 > | Microsoft.SignalRService/WebPubSub/sharedPrivateLinkResources/delete | Delete Shared Private Link Resource |
-> | Microsoft.SignalRService/WebPubSub/skus/read | List the valid SKUs for an existing resource. |
+> | Microsoft.SignalRService/WebPubSub/skus/read | List the valid SKUs for an existing resource |
 > | **DataAction** | **Description** |
-> | Microsoft.SignalRService/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default. |
-> | Microsoft.SignalRService/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default. |
-> | Microsoft.SignalRService/SignalR/auth/accessToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default. |
-> | Microsoft.SignalRService/SignalR/clientConnection/send/action | Send messages directly to a client connection. |
-> | Microsoft.SignalRService/SignalR/clientConnection/read | Check client connection existence. |
-> | Microsoft.SignalRService/SignalR/clientConnection/write | Close client connection. |
-> | Microsoft.SignalRService/SignalR/group/send/action | Broadcast message to group. |
-> | Microsoft.SignalRService/SignalR/group/read | Check group existence or user existence in group. |
-> | Microsoft.SignalRService/SignalR/group/write | Join / Leave group. |
-> | Microsoft.SignalRService/SignalR/hub/send/action | Broadcast messages to all client connections in hub. |
+> | Microsoft.SignalRService/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
+> | Microsoft.SignalRService/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
+> | Microsoft.SignalRService/SignalR/auth/accessToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
+> | Microsoft.SignalRService/SignalR/clientConnection/send/action | Send messages directly to a client connection |
+> | Microsoft.SignalRService/SignalR/clientConnection/read | Check client connection existence |
+> | Microsoft.SignalRService/SignalR/clientConnection/write | Close client connection |
+> | Microsoft.SignalRService/SignalR/group/send/action | Broadcast message to group |
+> | Microsoft.SignalRService/SignalR/group/read | Check group existence or user existence in group |
+> | Microsoft.SignalRService/SignalR/group/write | Join / Leave group |
+> | Microsoft.SignalRService/SignalR/hub/send/action | Broadcast messages to all client connections in the hub |
+> | Microsoft.SignalRService/SignalR/hub/write | Close all client connections in the hub |
 > | Microsoft.SignalRService/SignalR/livetrace/read | Read live trace tool results |
 > | Microsoft.SignalRService/SignalR/livetrace/write | Create live trace connections |
-> | Microsoft.SignalRService/SignalR/serverConnection/write | Start a server connection. |
-> | Microsoft.SignalRService/SignalR/user/send/action | Send messages to user, who may consist of multiple client connections. |
-> | Microsoft.SignalRService/SignalR/user/read | Check user existence. |
-> | Microsoft.SignalRService/SignalR/user/write | Modify a user. |
-> | Microsoft.SignalRService/WebPubSub/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default. |
-> | Microsoft.SignalRService/WebPubSub/auth/accessToken/action | Generate an AccessToken for client to connect to AWPS, the token will expire in 5 minutes by default. |
-> | Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action | Generate a JWT Token for client to connect to the service. |
-> | Microsoft.SignalRService/WebPubSub/clientConnection/send/action | Send messages directly to a client connection. |
-> | Microsoft.SignalRService/WebPubSub/clientConnection/read | Check client connection existence. |
-> | Microsoft.SignalRService/WebPubSub/clientConnection/write | Close client connection. |
-> | Microsoft.SignalRService/WebPubSub/group/send/action | Broadcast message to group. |
-> | Microsoft.SignalRService/WebPubSub/group/read | Check group existence or user existence in group. |
-> | Microsoft.SignalRService/WebPubSub/group/write | Join / Leave group. |
-> | Microsoft.SignalRService/WebPubSub/hub/send/action | Broadcast messages to all client connections in hub. |
+> | Microsoft.SignalRService/SignalR/serverConnection/write | Start a server connection |
+> | Microsoft.SignalRService/SignalR/user/send/action | Send messages to user, who may consist of multiple client connections |
+> | Microsoft.SignalRService/SignalR/user/read | Check user existence |
+> | Microsoft.SignalRService/SignalR/user/write | Modify a user |
+> | Microsoft.SignalRService/WebPubSub/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
+> | Microsoft.SignalRService/WebPubSub/auth/accessToken/action | Generate an AccessToken for client to connect to AWPS, the token will expire in 5 minutes by default |
+> | Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action | Generate a JWT Token for client to connect to the service |
+> | Microsoft.SignalRService/WebPubSub/clientConnection/send/action | Send messages directly to a client connection |
+> | Microsoft.SignalRService/WebPubSub/clientConnection/read | Check client connection existence |
+> | Microsoft.SignalRService/WebPubSub/clientConnection/write | Close client connection |
+> | Microsoft.SignalRService/WebPubSub/group/send/action | Broadcast message to group |
+> | Microsoft.SignalRService/WebPubSub/group/read | Check group existence or user existence in group |
+> | Microsoft.SignalRService/WebPubSub/group/write | Join / Leave group |
+> | Microsoft.SignalRService/WebPubSub/hub/send/action | Broadcast messages to all client connections in the hub |
 > | Microsoft.SignalRService/WebPubSub/livetrace/read | Read live trace tool results |
 > | Microsoft.SignalRService/WebPubSub/livetrace/write | Create live trace connections |
-> | Microsoft.SignalRService/WebPubSub/user/send/action | Send messages to user, who may consist of multiple client connections. |
-> | Microsoft.SignalRService/WebPubSub/user/read | Check user existence. |
+> | Microsoft.SignalRService/WebPubSub/user/send/action | Send messages to user, who may consist of multiple client connections |
+> | Microsoft.SignalRService/WebPubSub/user/read | Check user existence |
 
 ### microsoft.web
 
@@ -801,6 +843,7 @@ Azure service: [App Service](../../../app-service/index.yml), [Azure Functions](
 > | Microsoft.Web/sites/resetSlotConfig/Action | Reset web app configuration |
 > | Microsoft.Web/sites/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | microsoft.web/sites/deployWorkflowArtifacts/action | Create the artifacts in a Logic App. |
+> | microsoft.web/sites/listworkflowsconnections/action | List logic app's connections by its ID in a Logic App. |
 > | microsoft.web/sites/functions/action | Functions Web Apps. |
 > | microsoft.web/sites/listsyncfunctiontriggerstatus/action | List Sync Function Trigger Status. |
 > | microsoft.web/sites/networktrace/action | Network Trace Web Apps. |
@@ -913,6 +956,7 @@ Azure service: [App Service](../../../app-service/index.yml), [Azure Functions](
 > | microsoft.web/sites/hostruntime/webhooks/api/workflows/runs/read | List Web Apps Hostruntime Workflow Runs. |
 > | microsoft.web/sites/hostruntime/webhooks/api/workflows/triggers/read | List Web Apps Hostruntime Workflow Triggers. |
 > | microsoft.web/sites/hostruntime/webhooks/api/workflows/triggers/listCallbackUrl/action | Get Web Apps Hostruntime Workflow Trigger Uri. |
+> | microsoft.web/sites/hostruntime/webhooks/api/workflows/triggers/run/action | Run Web Apps Hostruntime Workflow Trigger. |
 > | microsoft.web/sites/hybridconnection/delete | Delete Web Apps Hybrid Connection. |
 > | microsoft.web/sites/hybridconnection/read | Get Web Apps Hybrid Connection. |
 > | microsoft.web/sites/hybridconnection/write | Update Web Apps Hybrid Connection. |
@@ -990,6 +1034,7 @@ Azure service: [App Service](../../../app-service/index.yml), [Azure Functions](
 > | Microsoft.Web/sites/slots/resetSlotConfig/Action | Reset web app slot configuration |
 > | Microsoft.Web/sites/slots/Read | Get the properties of a Web App deployment slot |
 > | microsoft.web/sites/slots/deployWorkflowArtifacts/action | Create the artifacts in a deployment slot in a Logic App. |
+> | microsoft.web/sites/slots/listworkflowsconnections/action | List logic app's connections by its ID in a deployment slot in a Logic App. |
 > | microsoft.web/sites/slots/listsyncfunctiontriggerstatus/action | List Sync Function Trigger Status for deployment slot. |
 > | microsoft.web/sites/slots/newpassword/action | Newpassword Web Apps Slots. |
 > | microsoft.web/sites/slots/sync/action | Sync Web Apps Slots. |
@@ -1138,7 +1183,7 @@ Azure service: [App Service](../../../app-service/index.yml), [Azure Functions](
 > | microsoft.web/sites/slots/virtualnetworkconnections/gateways/write | Update Web Apps Slots Virtual Network Connections Gateways. |
 > | microsoft.web/sites/slots/webjobs/read | Get Web Apps Slots WebJobs. |
 > | microsoft.web/sites/slots/workflows/read | List the workflows in a deployment slot in a Logic App. |
-> | microsoft.web/sites/slots/workflowsconfiguration/read | Get workflow app's configuration information by its ID in a deployment slot in a Logic App. |
+> | microsoft.web/sites/slots/workflowsconfiguration/read | Get logic app's configuration information by its ID in a deployment slot in a Logic App. |
 > | microsoft.web/sites/snapshots/read | Get Web Apps Snapshots. |
 > | Microsoft.Web/sites/sourcecontrols/Read | Get Web App's source control configuration settings |
 > | Microsoft.Web/sites/sourcecontrols/Write | Update Web App's source control configuration settings |
@@ -1155,7 +1200,7 @@ Azure service: [App Service](../../../app-service/index.yml), [Azure Functions](
 > | microsoft.web/sites/virtualnetworkconnections/gateways/write | Update Web Apps Virtual Network Connections Gateways. |
 > | microsoft.web/sites/webjobs/read | Get Web Apps WebJobs. |
 > | microsoft.web/sites/workflows/read | List the workflows in a Logic App. |
-> | microsoft.web/sites/workflowsconfiguration/read | Get workflow app's configuration information by its ID in a Logic App. |
+> | microsoft.web/sites/workflowsconfiguration/read | Get logic app's configuration information by its ID in a Logic App. |
 > | microsoft.web/skus/read | Get SKUs. |
 > | microsoft.web/sourcecontrols/read | Get Source Controls. |
 > | microsoft.web/sourcecontrols/write | Update Source Controls. |

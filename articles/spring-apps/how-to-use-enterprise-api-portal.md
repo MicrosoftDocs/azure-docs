@@ -2,12 +2,12 @@
 title: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: How to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Use API portal for VMware Tanzu
@@ -17,69 +17,114 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article shows you how to use API portal for VMware Tanzu® with the Azure Spring Apps Enterprise plan.
+This article shows you how to use API portal for VMware Tanzu with the Azure Spring Apps Enterprise plan.
 
-[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.1/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
+[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.1/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling single sign-on (SSO) authentication via configuration.
 
 ## Prerequisites
 
 - An already provisioned Azure Spring Apps Enterprise plan instance with API portal enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
-
-  > [!NOTE]
-  > To use API portal, you must enable it when you provision your Azure Spring Apps service instance. You cannot enable it after provisioning at this time.
-
 - [Spring Cloud Gateway for Tanzu](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 
-## Configure API portal
-
-The following sections describe configuration in API portal.
-
-### Configure single sign-on (SSO)
+## Configure single sign-on (SSO)
 
 API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
-> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
+> Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the API portal. Refer to your authorization server's documentation and add `https://<api-portal-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 
 | Property | Required? | Description |
 | - | - | - |
-| issuerUri | Yes | The URI that the app asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
+| issuerUri | Yes | The URI that the app asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request is made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
 | clientId | Yes | The OpenID Connect client ID provided by your IdP |
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
 
-To set up SSO with Azure AD, see [How to set up single sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set-up-sso-with-azure-ad.md).
+To set up SSO with Microsoft Entra ID, see [How to set up single sign-on with Microsoft Entra ID for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set-up-sso-with-azure-ad.md).
 
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
 
-> [!IMPORTANT]
-> If you're using the SSO feature, only one instance count is supported.
+## Configure the instance count
 
-### Configure the instance count
+### [Azure portal](#tab/Portal)
 
-Configuration of the instance count for API portal is supported, unless you're using SSO. If you're using the SSO feature, only one instance count is supported.
+Use the following steps to configure the instance count using API portal:
+
+1. Navigate to your service instance and select **API portal**.
+1. Select **Scale out**.
+1. Configure **Instance count** and then select **Save**.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to configure the instance count using API portal. Be sure to replace the placeholder with your actual value.
+
+```azurecli
+az spring api-portal update --instance-count <number>
+```
+
+---
 
 ## Assign a public endpoint for API portal
 
-To access API portal, use the following steps to assign a public endpoint:
+### [Azure portal](#tab/Portal)
+
+Use the following steps to assign a public endpoint to API portal:
 
 1. Select **API portal**.
 1. Select **Overview** to view the running state and resources allocated to API portal.
-1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL will be generated within a few minutes.
+1. Select **Yes** next to *Assign endpoint* to assign a public endpoint. A URL is generated within a few minutes.
 1. Save the URL for use later.
 
-You can also use the Azure CLI to assign a public endpoint with the following command:
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to assign a public endpoint to API portal:
 
 ```azurecli
 az spring api-portal update --assign-endpoint
 ```
 
+---
+
+## Configure the API try-out feature
+
+API portal enables you to view APIs centrally and try them out using the API try-out feature. API try-out is enabled by default and this configuration helps you turn it off across the whole API portal instance. For more information, see the [Try out APIs in API portal](#try-out-apis-in-api-portal) section.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable or disable API try-out:
+
+1. Navigate to your service instance and select **API portal**.
+1. Select **Configuration**.
+1. Select or clear **Enable API try-out** and then select **Save**.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following command to enable API try-out:
+
+```azurecli
+az spring api-portal update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --enable-api-try-out
+```
+
+Use following command to disable API try-out:
+
+```azurecli
+az spring api-portal update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --enable-api-try-out false
+```
+
+---
+
 ## Configure API routing with OpenAPI Spec on Spring Cloud Gateway for Tanzu
 
 This section describes how to view and try out APIs with schema definitions in API portal. Use the following steps to configure API routing with an OpenAPI spec URL on Spring Cloud Gateway for Tanzu.
 
-1. Create an app in Azure Spring Apps that the gateway will route traffic to.
+1. Create an app in Azure Spring Apps that the gateway routes traffic to.
 
 1. Generate the OpenAPI definition and get the URI to access it. The following two URI options are accepted:
 
@@ -146,16 +191,16 @@ This section describes how to view and try out APIs with schema definitions in A
 > [!NOTE]
 > It takes several minutes to sync between Spring Cloud Gateway for Tanzu and API portal.
 
-Select the `endpoint URL` to go to API portal. You'll see all the routes configured in Spring Cloud Gateway for Tanzu.
+Select the `endpoint URL` to go to API portal. You see all the routes configured in Spring Cloud Gateway for Tanzu.
 
-:::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of API portal showing configured routes.":::
+:::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal.png" alt-text="Screenshot of API portal that shows the configured routes.":::
 
 ## Try out APIs in API portal
 
 Use the following steps to try out APIs:
 
 1. Select the API you would like to try.
-1. Select **EXECUTE**, and the response will be shown.
+1. Select **EXECUTE**, and the response appears.
 
    :::image type="content" source="media/how-to-use-enterprise-api-portal/api-portal-tryout.png" alt-text="Screenshot of API portal.":::
 

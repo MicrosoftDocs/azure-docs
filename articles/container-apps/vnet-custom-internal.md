@@ -4,9 +4,9 @@ description: Learn how to integrate a VNET to an internal Azure Container Apps e
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli
+ms.custom: event-tier1-build-2022, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
 ms.topic:  how-to
-ms.date: 08/31/2022
+ms.date: 08/29/2023
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only environment. When using the Workload Profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking environment overview](./networking.md#subnet).
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps when using the Consumption only environment. When using the workload profiles environment, a `/27` or larger is required. To learn more about subnet sizing, see the [networking environment overview](./networking.md#subnet).
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
@@ -156,7 +156,7 @@ The following table describes the parameters used in for `containerapp env creat
 |---|---|
 | `name` | Name of the Container Apps environment. |
 | `resource-group` | Name of the resource group. |
-| `logs-workspace-id` | (Optional) The ID of an existing the Log Analytics workspace.  If omitted, a workspace will be created for you. |
+| `logs-workspace-id` | (Optional) The ID of an existing the Log Analytics workspace.  If omitted, a workspace is created for you. |
 | `logs-workspace-key` | The Log Analytics client secret. Required if using an existing workspace. |
 | `location` | The Azure location where the environment is to deploy.  |
 | `infrastructure-subnet-resource-id` | Resource ID of a subnet for infrastructure components and user application containers. |
@@ -338,7 +338,7 @@ You must either provide values for all three of these properties, or none of the
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group removes the resource group automatically created by the Container Apps service containing the custom network components.
 
 ::: zone pivot="azure-cli"
 

@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 12/30/2022
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: devx-track-linux
 ms.topic: how-to
 ---
 
@@ -19,7 +20,7 @@ This article describes how to set up [Data-in replication](concepts-data-in-repl
 > [!NOTE]  
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-To create a replica in the Azure Database for MySQL Flexible service, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services.  Data-in replication can be configured using either binary log (binlog) file position-based replication OR GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
+To create a replica in the Azure Database for MySQL Flexible Server, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services.  Data-in replication can be configured using either binary log (binlog) file position-based replication OR GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
@@ -201,8 +202,11 @@ The results should appear similar to the following. Make sure to note the binary
     az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <replica server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
     ```
 
-    For more details refer [GTID Reset](/cli/azure/mysql/flexible-server/gtid).
-   
+For more details refer [GTID Reset](/cli/azure/mysql/flexible-server/gtid).
+
+> [!NOTE]  
+>GTID reset can't be performed on a Geo-redundancy backup enabled server. Please disable Geo-redundancy to perform GTID reset on the server. You can enable Geo-redundancy option again after GTID reset. GTID reset action invalidates all the available backups and therefore, once Geo-redundancy is enabled again, it may take a day before geo-restore can be performed on the server
+
 
 
 ## Link source and replica servers to start Data-in replication
@@ -323,3 +327,4 @@ To skip a replication error and allow replication to continue, use the following
 
 - Learn more about [Data-in replication](concepts-data-in-replication.md) for Azure Database for MySQL - Flexible Server.
  
+

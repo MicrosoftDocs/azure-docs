@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, e
 
 # Data wrangling with Apache Spark pools (deprecated) 
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 > [!WARNING]
 > The Azure Synapse Analytics integration with Azure Machine Learning available in Python SDK v1 is deprecated. Users can continue using Synapse workspace registered with Azure Machine Learning as a linked service. However, a new Synapse workspace can no longer be registered with Azure Machine Learning as a linked service. We recommend using Managed (Automatic) Synapse compute and attached Synapse Spark pools available in CLI v2 and Python SDK v2. Please see [https://aka.ms/aml-spark](https://aka.ms/aml-spark) for more details.
@@ -60,7 +60,7 @@ To begin data preparation with the Apache Spark pool, specify the attached Spark
 ![get attached compute name](media/how-to-data-prep-synapse-spark-pool/attached-compute.png)
 
 > [!IMPORTANT]
-> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines. [Learn more about the %synapse magic command](/python/api/azureml-synapse/azureml.synapse.magics.remotesynapsemagics(class)).
+> To continue use of the Apache Spark pool you must indicate which compute resource to use throughout your data wrangling tasks with `%synapse` for single lines of code and `%%synapse` for multiple lines.
 
 ```python
 %synapse start -c SynapseSparkPoolAlias

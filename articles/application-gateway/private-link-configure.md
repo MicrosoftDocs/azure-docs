@@ -35,7 +35,7 @@ Complete the following steps to create a new subnet:
 
 **Configure Private Link**
 
-The Private link configuration defines the infrastructure used by Application Gateway to enable connections from Private Endpoints. To create the Private link configuration, complete the following steps:
+The Private link configuration defines the infrastructure used by Application Gateway to enable connections from Private Endpoints. While creating the Private Link configuration ensure a listener is actively utilizing the respected frontend IP configuration.Complete the following steps to create the Private Link configuration:
 
 1. Go to the [Azure portal](https://portal.azure.com)
 1. Search for and select **Application Gateways**.
@@ -48,7 +48,7 @@ The Private link configuration defines the infrastructure used by Application Ga
    - **Frontend IP Configuration**: The frontend IP address that private link should forward traffic to on Application Gateway.
    - **Private IP address settings**: specify at least one IP address
 1. Select **Add**.
-1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, this is required if you are setting up a Private Endpoint within a different Azure AD tenant.
+1. Within your **Application Gateways** properties blade, obtain and make a note of the **Resource ID**, this is required if you are setting up a Private Endpoint within a different Microsoft Entra tenant.
 
 **Configure Private Endpoint**
 

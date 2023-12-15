@@ -4,19 +4,25 @@ titleSuffix: Azure Machine Learning
 description: Learn how to train models with Azure Machine Learning. Explore the different training methods and choose the right one for your project.
 services: machine-learning
 ms.service: machine-learning
-author: manashgoswami 
+author: manashgoswami
 ms.author: magoswam
-ms.reviewer: ssalgado 
+ms.reviewer: ssalgado
 ms.subservice: training
 ms.topic: conceptual
 ms.date: 06/7/2023
-ms.custom: devx-track-python, devx-track-azurecli, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom:
+  - devx-track-python
+  - devx-track-azurecli
+  - event-tier1-build-2022
+  - ignite-2022
+  - build-2023
+  - ignite-2023
 ms.devlang: azurecli
 ---
 
 # Train models with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 Azure Machine Learning provides several ways to train your models, from code-first solutions using the SDK to low-code solutions such as automated machine learning and the visual designer. Use the following list to determine which training method is right for you:
 
@@ -77,9 +83,9 @@ The Azure training lifecycle consists of:
 1. Zipping the files in your project folder and upload to the cloud.
     
     > [!TIP]
-    > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
+    > [!INCLUDE [amlinclude-info](includes/machine-learning-amlignore-gitignore.md)]
 
-1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md) (preview))
+1. Scaling up your compute cluster (or [serverless compute](./how-to-use-serverless-compute.md)
 1. Building or downloading the dockerfile to the compute node 
     1. The system calculates a hash of: 
         - The base image 

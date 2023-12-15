@@ -50,7 +50,7 @@
           - name: PHP
             href: flexible-server/connect-php.md
           - name: Azure Data Studio
-            href: /sql/azure-data-studio/quickstart-mysql
+            href: /azure-data-studio/quickstart-mysql
           - name: MySQL Workbench
             href: flexible-server/connect-workbench.md
           - name: Python
@@ -86,6 +86,10 @@
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
         href: flexible-server/concepts-limitations.md
+      - name: Storage IOPS
+        href: flexible-server/concepts-storage-iops.md
+      - name: Accelerated Logs
+        href: flexible-server/concepts-accelerated-logs.md    
     - name: Networking
       items:
       - name: Networking concepts
@@ -116,6 +120,8 @@
         href: flexible-server/concepts-monitoring.md
       - name: Slow query Logs
         href: flexible-server/concepts-slow-query-logs.md
+      - name: Error logs
+        href: flexible-server/concepts-error-logs.md        
       - name: Audit logs
         href: flexible-server/concepts-audit-logs.md
       - name: Workbooks
@@ -134,12 +140,14 @@
         href: flexible-server/concepts-backup-restore.md
     - name: Security
       items:
-      - name: Azure AD Authentication
+      - name: Microsoft Entra authentication
         href: flexible-server/concepts-azure-ad-authentication.md
       - name: Data encryption
         href: flexible-server/concepts-customer-managed-key.md
   - name: Integrations
     items:
+    - name: Automation tasks
+      href: flexible-server/create-automation-tasks.md
     - name: Azure Key Vault
       href: flexible-server/tutorial-add-mysql-connection-in-key-vault.md
     - name: Power Apps
@@ -152,7 +160,7 @@
       href: flexible-server/tutorial-add-redis-to-mysql.md
     - name: Azure Logic Apps
       href: flexible-server/tutorial-logic-apps-with-mysql.md
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: ../search/search-howto-index-mysql.md
     - name: Azure Advisor
       href: ../mysql/single-server/concepts-azure-advisor-recommendations.md
@@ -206,6 +214,8 @@
         href: flexible-server/how-to-move-regions.md
       - name: Major version upgrade
         href: flexible-server/how-to-upgrade.md
+      - name: Server Maintenance
+        href: flexible-server/how-to-maintenance-portal.md
     - name: Networking
       items:
       - name: Configure Private access (VNet Integration)
@@ -228,10 +238,6 @@
           href: flexible-server/how-to-networking-private-link-deny-public-access.md
         - name: Azure CLI
           href: flexible-server/how-to-networking-private-link-azure-cli.md
-      - name: Service Maintenance
-        items:
-      - name: Configure Scheduled Maintenance using Azure portal
-        href: flexible-server/how-to-maintenance-portal.md
     - name: High Availability
       items:
       - name: Configure Zone redundant high availability
@@ -288,7 +294,7 @@
         href: flexible-server/how-to-troubleshoot-cli-errors.md
     - name: Security
       items:
-      - name: Configure Azure AD Authentication
+      - name: Configure Microsoft Entra authentication
         href: flexible-server/how-to-azure-ad.md
       - name: Data encryption with Azure portal
         href: flexible-server/how-to-data-encryption-portal.md
@@ -446,7 +452,7 @@
         href: single-server/concepts-security.md
       - name: Security baseline
         href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
-      - name: Azure AD authentication
+      - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
       - name: Network Security (Encryption in motion)
         items:
@@ -566,7 +572,7 @@
         displayName: private link, private endpoint
     - name: Security
       items:
-      - name: Configure Azure AD integration
+      - name: Configure Microsoft Entra integration
         href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
         displayName:  active directory
       - name: Connect with Managed identity
@@ -701,12 +707,18 @@
     href: ../dms/faq-mysql-single-to-flex.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Choose the right tools for migration to Azure Database for MySQL
     href: migrate/how-to-decide-on-right-migration-tools.md
-  - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
+  - name: Migrate data from MySQL on-premises to Azure Database for MySQL
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+  - name: Migrate MySQL on-premise or Virtual Machine (VM) workload to Flexible Server using Azure MySQL Import CLI
+    href: migrate/migrate-external-mysql-import-cli.md    
   - name: Migrate MySQL - Single Server to Flexible Server offline using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
   - name: Migrate MySQL - Single Server to Flexible Server online using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-online-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
+  - name: Migrate MySQL - Single Server to Flexible Server using Azure MySQL Import CLI
+    href: migrate/migrate-single-flexible-mysql-import-cli.md
+  - name: In-place auto-migration for MySQL - Single Server to Flexible Server
+    href: migrate/migrate-single-flexible-in-place-auto-migration.md
   - name: Migrate data with mysqldump or phpmyadmin
     href: single-server/concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
@@ -804,13 +816,11 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-database-mysql.html
+    href: /answers/tags/181/azure-database-mysql
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
     items:
-    - name: Product videos
-      href: videos.md
     - name: How to video series
       items:
       - name: Learn product features and benefits

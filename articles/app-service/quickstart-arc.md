@@ -2,9 +2,11 @@
 title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
-ms.date: 06/30/2022
+ms.date: 10/19/2023
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
+author: msangapu-msft
+ms.author: msangapu
 ---
 
 # Create an App Service app on Azure Arc (Preview)
@@ -31,7 +33,29 @@ az group create --name myResourceGroup --location eastus
 
 ## 3. Create an app
 
-The following example creates a Node.js app. Replace `<app-name>` with a name that's unique within your cluster (valid characters are `a-z`, `0-9`, and `-`). To see all supported runtimes, run [`az webapp list-runtimes --os linux`](/cli/azure/webapp).
+The following example creates a Node.js app. Replace `<app-name>` with a name that's unique within your cluster (valid characters are `a-z`, `0-9`, and `-`).
+
+Supported runtimes:
+
+| Description | Runtime Value for CLI |
+|-|-|
+| .NET Core 3.1 | DOTNETCORE\|3.1 |
+| .NET 5.0 | DOTNETCORE\|6.0 |
+| Node JS 12 | NODE\|12-lts |
+| Node JS 14 | NODE\|14-lts |
+| Python 3.6 | PYTHON\|3.6 |
+| Python 3.7 | PYTHON\|3.7 |
+| Python 3.8 | PYTHON\|3.8 |
+| PHP 7.3 | PHP\|7.3 |
+| PHP 7.4 | PHP\|7.4 |
+| Ruby 2.5 | RUBY\|2.5 |
+| Ruby 2.6 | RUBY\|2.6 |
+| Java 8 | JAVA\|8-jre8 |
+| Java 11 | JAVA\|11-java11 |
+| Tomcat 8.5 | TOMCAT\|8.5-jre8 |
+| Tomcat 8.5 | TOMCAT\|8.5-java11 |
+| Tomcat 9.0 | TOMCAT\|9.0-jre8 |
+| Tomcat 9.0 | TOMCAT\|9.0-java11 |
 
 ```azurecli-interactive
  az webapp create \

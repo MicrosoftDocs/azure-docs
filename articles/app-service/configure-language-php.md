@@ -4,9 +4,11 @@ description: Learn how to configure a PHP app in a pre-built PHP container, in A
 
 ms.devlang: php
 ms.topic: article
-ms.date: 05/09/2023 
+ms.date: 08/31/2023 
 ms.custom: devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
+ms.author: msangapu
+author: msangapu-msft
 
 ---
 
@@ -230,7 +232,7 @@ For more information on how App Service runs and builds PHP apps in Linux, see [
 
 ## Customize start-up
 
-By default, the built-in PHP container runs the Apache server. At start-up, it runs `apache2ctl -D FOREGROUND"`. If you like, you can run a different command at start-up, by running the following command in the [Cloud Shell](https://shell.azure.com):
+If you want, you can run a custom command at the container start-up time, by running the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -266,17 +268,30 @@ By default, Azure App Service points the root virtual application path (*/*) to 
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the `public/` subdirectory as the site root.
 
-The default PHP image for App Service uses Apache, and it doesn't let you customize the site root for your app. To work around this limitation, add an *.htaccess* file to your repository root with the following content:
+The default PHP image for App Service uses Nginx, and you change the site root by [configuring the Nginx server with the `root` directive](https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/). This [example configuration file](https://github.com/Azure-Samples/laravel-tasks/blob/main/default) contains the following snippets that changes the `root` directive:
 
 ```
-<IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^(.*)
-    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
-</IfModule>
+server {
+    #proxy_cache cache;
+    #proxy_cache_valid 200 1s;
+    listen 8080;
+    listen [::]:8080;
+    root /home/site/wwwroot/public; # Changed for Laravel
+
+    location / {            
+        index  index.php index.html index.htm hostingstart.html;
+        try_files $uri $uri/ /index.php?$args; # Changed for Laravel
+    }
+    ...
 ```
 
-If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-custom-container.md) instead.
+The default container uses the configuration file found at */etc/nginx/sites-available/default*. Keep in mind that any edit you make to this file is erased when the app restarts. To make a change that is effective across app restarts, [add a custom start-up command](#customize-start-up) like this example:
+
+```
+cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service nginx reload
+```
+
+This command replaces the default Nginx configuration file with a file named *default* in your repository root and restarts Nginx.
 
 ::: zone-end
 
@@ -333,7 +348,7 @@ To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives for linux 
 4. Create a directory called "ini" (for example, mkdir ini).
 5. Change the current working directory to the "ini" folder you just created.
 
-You need to create an "ini" file to add your settings to. In this example, we use "extensions.ini." There are no file editors such as Vi, Vim, or Nano so you'll use echo to add the settings to the file. Change the "upload_max_filesize" from 2M to 50M. Use the following command to add the setting and create an "extensions.ini" file if one doesn't already exist.
+You need to create an "ini" file to add your settings to. In this example, we use "extensions.ini". There are no file editors such as Vi, Vim, or Nano so you'll use echo to add the settings to the file. Change the "upload_max_filesize" from 2M to 50M. Use the following command to add the setting and create an "extensions.ini" file if one doesn't already exist.
 
 ```
 /home/site/wwwroot/ini>echo "upload_max_filesize=50M" >> extensions.ini
@@ -349,7 +364,7 @@ Then, go to the Azure portal and add an Application Setting to scan the "ini" di
 1. Go to the [Azure portal](https://portal.azure.com) and select your App Service Linux PHP application.
 2. Select Application Settings for the app.
 3. Under the Application settings section, select **+ Add new setting**.
-4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter "/home/site/wwwroot/ini."
+4. For the App Setting Name, enter "PHP_INI_SCAN_DIR" and for value, enter "/home/site/wwwroot/ini".
 5. Select the save button.
 
 > [!NOTE]
@@ -361,7 +376,7 @@ Then, go to the Azure portal and add an Application Setting to scan the "ini" di
 
 ::: zone pivot="platform-windows"  
 
-To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
+To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), use the `PHP_INI_SCAN_DIR` app setting.
 
 First, run the following command in the [Cloud Shell](https://shell.azure.com) to add an app setting called `PHP_INI_SCAN_DIR`:
 

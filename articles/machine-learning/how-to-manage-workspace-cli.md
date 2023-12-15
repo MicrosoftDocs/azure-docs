@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 
 # Manage Azure Machine Learning workspaces using Azure CLI
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
@@ -32,9 +32,9 @@ You can also manage workspaces the [Azure portal and Python SDK](how-to-manage-w
 
 ## Limitations
 
-[!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+[!INCLUDE [register-namespace](includes/machine-learning-register-namespace.md)]
 
-[!INCLUDE [application-insight](../../includes/machine-learning-application-insight.md)]
+[!INCLUDE [application-insight](includes/machine-learning-application-insight.md)]
 
 ### Secure CLI communications
 
@@ -74,7 +74,7 @@ az login
 
 If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
 
-[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+[!INCLUDE [select-subscription](includes/machine-learning-cli-subscription.md)] 
 
 For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
@@ -315,7 +315,7 @@ For more information on the sync-keys command, see [az ml workspace sync-keys](/
 
 ### Delete a workspace
 
-[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+[!INCLUDE [machine-learning-delete-workspace](includes/machine-learning-delete-workspace.md)]
 
 To delete a workspace after it's no longer needed, use the following command:
 
@@ -341,7 +341,7 @@ For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#a
 
 ### Resource provider errors
 
-[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+[!INCLUDE [machine-learning-resource-provider](includes/machine-learning-resource-provider.md)]
 
 ### Moving the workspace
 
@@ -352,7 +352,7 @@ For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#a
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+[!INCLUDE [machine-learning-delete-acr](includes/machine-learning-delete-acr.md)]
 
 ## Next steps
 

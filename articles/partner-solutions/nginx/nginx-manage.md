@@ -5,7 +5,6 @@ author: flang-msft
 
 ms.author: franlanglois
 ms.topic: conceptual
-ms.custom: event-tier1-build-2022
 ms.date: 01/18/2023
 
 
@@ -113,4 +112,11 @@ Enable CI/CD deployments via GitHub Actions integrations.
 
 ## Next steps
 
-For help with troubleshooting, see [Troubleshooting NGINXaaS integration with Azure](nginx-troubleshoot.md).
+- For help with troubleshooting, see [Troubleshooting NGINXaaS integration with Azure](nginx-troubleshoot.md).
+- Get started with NGINXaaS – An Azure Native ISV Service on
+
+    > [!div class="nextstepaction"]
+    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NGINX.NGINXPLUS%2FnginxDeployments)
+
+    > [!div class="nextstepaction"]
+    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-nginx-for-azure?tab=Overview)

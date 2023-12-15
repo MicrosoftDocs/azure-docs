@@ -4,8 +4,9 @@ description: Learn how to use the Azure CLI to manage and monitor Azure file sha
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.date: 02/09/2022
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+
 ---
 
 # Manage Azure file share backups with the Azure CLI

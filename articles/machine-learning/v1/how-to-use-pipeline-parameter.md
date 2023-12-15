@@ -10,7 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: designer
+ms.custom: UpdateFrequency5, designer
 ---
 
 # Use pipeline parameters in the designer to build versatile pipelines
@@ -32,7 +32,8 @@ In this article, you learn how to do the following:
 
 * For a guided introduction to the designer, complete the [designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
-[!INCLUDE [machine-learning-missing-ui](../../../includes/machine-learning-missing-ui.md)]
+> [!IMPORTANT]
+> If you do not see graphical elements mentioned in this document, such as buttons in studio or designer, you may not have the right level of permissions to the workspace. Please contact your Azure subscription administrator to verify that you have been granted the correct level of access. For more information, see [Manage users and roles](../how-to-assign-roles.md).
 
 ## Create pipeline parameter
 

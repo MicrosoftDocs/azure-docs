@@ -15,7 +15,7 @@ ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 
 Scale set instances can opt in to receive instance termination notifications and set a pre-defined delay timeout to the terminate operation. The termination notification is sent through Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), which provides notifications for and delaying of impactful operations such as reboots and redeploy. The solution adds another event – Terminate – to the list of Scheduled Events, and the associated delay of the terminate event will depend on the delay limit as specified by users in their scale set model configurations.
 
-Once you're enrolled into the feature, scale set instances don't need to wait for specified timeout to expire before the instance is deleted. After receiving a Terminate notification, the instance can choose to be deleted at any time before the terminate timeout expires. Terminate notifications cannot be enabled on Spot instances. For more information on Spot instances, see [Azure Spot Virtual Machines for Virtual Machine Scale Sets](use-spot.md)
+Once you've enrolled into Scheduled Events by [calling the appropriate Metadata Service endpoint](../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events), scale set instances don't need to wait for specified timeout to expire before the instance is deleted. After receiving a Terminate notification, the instance can choose to be deleted at any time before the terminate timeout expires. Terminate notifications cannot be enabled on Spot instances. For more information on Spot instances, see [Azure Spot Virtual Machines for Virtual Machine Scale Sets](use-spot.md)
 
 ## Enable terminate notifications
 There are multiple ways of enabling termination notifications on your scale set instances, as detailed in the examples below.
@@ -77,12 +77,14 @@ When creating a new scale set, you can enable termination notifications on the s
 
 This sample script walks through the creation of a scale set and associated resources using the configuration file: [Create a complete Virtual Machine Scale Set](./scripts/powershell-sample-create-complete-scale-set.md). You can provide "configure terminate" notifications by adding the parameters *TerminateScheduledEvents* and *TerminateScheduledEventNotBeforeTimeoutInMinutes* to the configuration object for creating scale set. The following example enables the feature with a delay timeout of 10 minutes.
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ```azurepowershell-interactive
 New-AzVmssConfig `
   -Location "VMSSLocation" `
   -SkuCapacity 2 `
   -SkuName "Standard_DS2" `
-  -UpgradePolicyMode "Automatic" `
   -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 10
 ```
@@ -109,7 +111,7 @@ az group create --name <myResourceGroup> --location <VMSSLocation>
 az vmss create \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username <azureuser> \
   --generate-ssh-keys \
   --terminate-notification-time 10

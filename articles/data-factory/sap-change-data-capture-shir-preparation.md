@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: ignite-2022, devx-track-dotnet
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 07/20/2023
 ms.author: ulrichchrist
 ---
 
@@ -69,6 +69,6 @@ yyy.yyy.yyy.yyy sapbw01
 zzz.zzz.zzz.zzz sapnw01 
 ```
 
-## Next steps
+## Related content
 
 [Set up an SAP CDC linked service and source dataset](sap-change-data-capture-prepare-linked-service-source-dataset.md)

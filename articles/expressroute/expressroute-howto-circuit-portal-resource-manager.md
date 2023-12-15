@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create, provision, verify, upd
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 07/18/2022
+ms.date: 08/31/2023
 ms.topic: quickstart
 ms.service: expressroute
 ms.custom: mode-ui
@@ -25,7 +25,7 @@ This quickstart shows you how to create an ExpressRoute circuit using the Azure 
 
 ### Sign in to the Azure portal
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
+From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
 ### Create a new ExpressRoute circuit
 
@@ -54,7 +54,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
     | --- | --- |
     | Port type | Select if you're connecting to a service provider or directly into Microsoft's global network at a peering location. |
     | Create new or import from classic | Select if you're creating a new circuit or if you're migrating a classic circuit to Azure Resource Manager. |
-    | Provider | Select the internet service provider who you'll be requesting your service from. |
+    | Provider | Select the internet service provider who you are requesting your service from. |
     | Peering Location | Select the physical location where you're peering with Microsoft. |
     | SKU | Select the SKU for the ExpressRoute circuit. You can specify **Local** to get the local SKU, **Standard** to get the standard SKU or **Premium** for the premium add-on. You can change between Local, Standard and Premium. |
     | Billing model | Select the billing type for egress data charge. You can specify **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. You can change the billing type from **Metered** to **Unlimited**. |
@@ -75,19 +75,19 @@ You can view all the circuits that you created by searching for **ExpressRoute c
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Screenshot of ExpressRoute circuit menu.":::
 
-All Expressroute circuits created in the subscription will appear here.
+All Expressroute circuits created in the subscription appear here.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Screenshot of ExpressRoute circuit list.":::
 
 **View the properties**
 
-You can view the properties of the circuit by selecting it. On the Overview page for your circuit, you'll find the **Service Key**. Provide the service key to the service provider to complete the provisioning process. The service key is unique to your circuit.
+You can view the properties of the circuit by selecting it. On the Overview page for your circuit, you find the **Service Key**. Provide the service key to the service provider to complete the provisioning process. The service key is unique to your circuit.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Screenshot of ExpressRoute properties.":::
 
 ### Send the service key to your connectivity provider for provisioning
 
-On this page, **Provider status** gives you the current state of provisioning on the service-provider side. **Circuit status** provides you the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
+On this page, **Provider status** gives you the current state of provisioning on the service-provider side. **Circuit status** provides you with the state on the Microsoft side. For more information about circuit provisioning states, see the [Workflows](expressroute-workflows.md#expressroute-circuit-provisioning-states) article.
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
@@ -141,7 +141,8 @@ You can do the following tasks with no downtime:
 * Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port.
 
   > [!IMPORTANT]
-  > Downgrading the bandwidth of a circuit is not supported.
+  > * Downgrading the bandwidth of a circuit is not supported.
+  > * To determine if there is available capacity for a bandwidth upgrade, submit a support request.
 
 * Change the metering plan from *Metered Data* to *Unlimited Data*.
 

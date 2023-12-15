@@ -11,7 +11,7 @@ ms.date: 01/26/2023
 Create an L3 isolation domain:
 
 ```azurecli
-  az nf l3domain create \
+  az networkfabric l3domain create \
     --resource-name "<YourL3IsolationDomainName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \
@@ -25,7 +25,7 @@ Create an `internalnetwork` resource for every VLAN or subnet that you need to i
 > The following example uses the minimal configuration for creating a valid internal network. It doesn't show optional parameters.
 
 ```azurecli
-  az nf internalnetwork create \
+  az networkfabric internalnetwork create \
     --resource-name "<L3IsolationDomainInternalNetworkName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \
@@ -44,7 +44,7 @@ Repeat, as needed, for any other `internalnetwork` resources that you have to ad
 Enable the L3 isolation domain after you've created all `internalnetwork` resources.
 
 ```azurecli
-  az nf l3domain update-admin-state \
+  az networkfabric l3domain update-admin-state \
     --resource-name "<YourL3IsolationDomainName>" \
     --resource-group "<YourResourceGroupName>" \
     --subscription "<YourSubscription>" \

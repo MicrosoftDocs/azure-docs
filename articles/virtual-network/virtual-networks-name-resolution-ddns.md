@@ -8,6 +8,7 @@ ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.topic: how-to
 ms.workload: infrastructure-services
+ms.custom: devx-track-linux
 ms.date: 04/27/2023
 ms.author: greglin
 ---

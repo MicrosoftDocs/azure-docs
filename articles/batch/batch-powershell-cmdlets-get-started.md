@@ -3,7 +3,7 @@ title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 ms.topic: how-to
 ms.date: 05/24/2023
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: seodec18, devx-track-azurepowershell, devx-track-linux
 ---
 
 # Manage Batch resources with PowerShell cmdlets
@@ -84,7 +84,7 @@ When prompted, confirm you want to remove the account. Account removal can take 
 
 ## Create a BatchAccountContext object
 
-You can authenticate to manage Batch resources using either shared key authentication or Azure Active Directory authentication. To authenticate using the Batch PowerShell cmdlets, first create a BatchAccountContext object to store your account credentials or identity. You pass the BatchAccountContext object into cmdlets that use the **BatchContext** parameter.
+You can authenticate to manage Batch resources using either shared key authentication or Microsoft Entra authentication. To authenticate using the Batch PowerShell cmdlets, first create a BatchAccountContext object to store your account credentials or identity. You pass the BatchAccountContext object into cmdlets that use the **BatchContext** parameter.
 
 ### Shared key authentication
 
@@ -95,7 +95,9 @@ $context = Get-AzBatchAccountKeys -AccountName <account_name>
 > [!NOTE]
 > By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s **KeyInUse** property: `$context.KeyInUse = "Secondary"`.
 
-### Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
+
+### Microsoft Entra authentication
 
 ```powershell
 $context = Get-AzBatchAccount -AccountName <account_name>

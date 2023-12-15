@@ -2,11 +2,10 @@
 title: Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
 description: How to configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 02/07/2023
 ms.author: kendownie
-ms.subservice: files
 ms.custom: devx-track-azurecli
 ---
 
@@ -127,7 +126,7 @@ The Azure virtual network gateway is the service that your on-premises Linux mac
 Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
 
 > [!Note]  
-> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script script will block for the deployment to be completed.
+> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script will block for the deployment to be completed.
 >
 > P2S IKEv2/OpenVPN connections are not supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway, accordingly.
 

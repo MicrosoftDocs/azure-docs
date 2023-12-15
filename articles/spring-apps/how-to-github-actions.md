@@ -1,12 +1,12 @@
 ---
 title: Use Azure Spring Apps CI/CD with GitHub Actions
 description: How to build up a CI/CD workflow for Azure Spring Apps with GitHub Actions
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 09/08/2020
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -36,7 +36,7 @@ az login
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID> \
-    --sdk-auth
+    --json-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
@@ -45,7 +45,7 @@ To access to a specific resource group, you can reduce the scope:
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
-    --sdk-auth
+    --json-auth
 ```
 
 The command should output a JSON object:
@@ -179,7 +179,7 @@ az login
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID> \
-    --sdk-auth
+    --json-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
@@ -188,7 +188,7 @@ To access to a specific resource group, you can reduce the scope:
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
-    --sdk-auth
+    --json-auth
 ```
 
 The command should output a JSON object:
@@ -542,6 +542,6 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 ## Next steps
 
 * [Authenticate Azure Spring Apps with Azure Key Vault in GitHub Actions](./github-actions-key-vault.md)
-* [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Microsoft Entra service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)
 * [GitHub Action for deploying to Azure Spring Apps](https://github.com/Azure/spring-apps-deploy)

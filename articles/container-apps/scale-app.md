@@ -4,7 +4,7 @@ description: Learn how applications scale in and out in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: conceptual
 ms.date: 12/08/2022
 ms.author: cshoe
@@ -17,9 +17,11 @@ Azure Container Apps manages automatic horizontal scaling through a set of decla
 
 Adding or editing scaling rules creates a new revision of your container app. A revision is an immutable snapshot of your container app. See revision [change types](./revisions.md#change-types) to review which types of changes trigger a new revision.
 
+[Event-driven Container Apps jobs](jobs.md#event-driven-jobs) use scaling rules to trigger executions based on events.
+
 ## Scale definition
 
-Scaling is defined by the combination of limits and rules.
+Scaling is defined by the combination of limits, rules, and behavior.
 
 - **Limits** are the minimum and maximum possible number of replicas per revision as your container app scales.
 
@@ -34,6 +36,10 @@ Scaling is defined by the combination of limits and rules.
 
     [Scale rules](#scale-rules) are implemented as HTTP, TCP, or custom.
 
+- **Behavior** is how the rules and limits are combined together to determine scale decisions over time.
+
+    [Scale behavior](#scale-behavior) explains how scale decisions are calculated.
+  
 As you define your scaling rules, keep in mind the following items:
 
 - You aren't billed usage charges if your container app scales to zero.
@@ -56,7 +62,7 @@ If you define more than one scale rule, the container app begins to scale once t
 
 ## HTTP
 
-With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales.
+With an HTTP scaling rule, you have control over the threshold of concurrent HTTP requests that determines how your container app revision scales. [Container Apps jobs](jobs.md) don't support HTTP scaling rules. 
 
 In the following example, the revision scales out up to five replicas and can scale in to zero. The scaling property is set to 100 concurrent requests per second.
 
@@ -151,7 +157,7 @@ az containerapp create \
 
 ## TCP
 
-With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales.
+With a TCP scaling rule, you have control over the threshold of concurrent TCP connections that determines how your app scales. [Container Apps jobs](jobs.md) don't support TCP scaling rules.
 
 In the following example, the container app revision scales out up to five replicas and can scale in to zero. The scaling threshold is set to 100 concurrent connections per second.
 
@@ -231,6 +237,8 @@ You can create a custom Container Apps scaling rule based on any [ScaledObject](
 |--|--|
 | Polling interval | 30 |
 | Cool down period | 300 |
+
+For [event-driven Container Apps jobs](jobs.md#event-driven-jobs), you can create a custom scaling rule based on any [ScaledJob](https://keda.sh/docs/latest/concepts/scaling-jobs/)-based KEDA scalers.
 
 The following example demonstrates how to create a custom scale rule.
 
@@ -382,13 +390,13 @@ A KEDA scaler may support using secrets in a [TriggerAuthentication](https://ked
 
 ::: zone pivot="azure-portal"
 
-1. Go to your container app in the Azure portal
+1. Go to your container app in the Azure portal.
 
 1. Select **Scale**.
 
 1. Select **Edit and deploy**.
 
-1. Select the **Scale** tab.
+1. Select the **Scale and replicas** tab.
 
 1. Select the minimum and maximum replica range.
 
@@ -440,15 +448,66 @@ If you don't create a scale rule, the default scale rule is applied to your cont
 > [!IMPORTANT]
 > Make sure you create a scale rule or set `minReplicas` to 1 or more if you don't enable ingress. If ingress is disabled and you don't define a `minReplicas` or a custom scale rule, then your container app will scale to zero and have no way of starting back up.
 
+## Scale behavior
+
+Scaling behavior has the following defaults:
+
+| Parameter | Value |
+|--|--|
+| Polling interval | 30 seconds |
+| Cool down period | 300 seconds |
+| Scale up stabilization window | 0 seconds |
+| Scale down stabilization window | 300 seconds |
+| Scale up step | 1, 4, 100% of current |
+| Scale down step | 100% of current |
+| Scaling algorithm | `desiredReplicas = ceil(currentMetricValue / targetMetricValue)` |
+
+- **Polling interval** is how frequently event sources are queried by KEDA. This value doesn't apply to HTTP and TCP scale rules.
+- **Cool down period** is how long after the last event was observed before the application scales down to its minimum replica count.
+- **Scale up stabilization window** is how long to wait before performing a scale up decision once scale up conditions were met.
+- **Scale down stabilization window** is how long to wait before performing a scale down decision once scale down conditions were met.
+- **Scale up step** is the rate new instances are added at. It starts with 1, 4, 8, 16, 32, ... up to the configured maximum replica count.
+- **Scale down step** is the rate at which replicas are removed. By default 100% of replicas that need to shut down are removed.
+- **Scaling algorithm** is the formula used to calculate the current desired number of replicas.
+
+### Example
+
+For the following scale rule:
+
+```json
+"minReplicas": 0,
+"maxReplicas": 20,
+"rules": [
+  {
+    "name": "azure-servicebus-queue-rule",
+    "custom": {
+      "type": "azure-servicebus",
+      "metadata": {
+        "queueName": "my-queue",
+        "namespace": "service-bus-namespace",
+        "messageCount": "5"
+      }
+    }
+  }
+]
+```
+
+Starting with an empty queue, KEDA takes the following steps in a scale up scenario:
+
+1. Check `my-queue` every 30 seconds.
+1. If the queue length equals 0, go back to (1).
+1. If the queue length is > 0, scale the app to 1.
+1. If the queue length is 50, calculate `desiredReplicas = ceil(50/5) = 10`.
+1. Scale app to `min(maxReplicaCount, desiredReplicas, max(4, 2*currentReplicaCount))`
+1. Go back to (1).
+
+If the app was scaled to the maximum replica count of 20, scaling goes through the same previous steps. Scale down only happens if the condition was satisfied for 300 seconds (scale down stabilization window). Once the queue length is 0, KEDA waits for 300 seconds (cool down period) before scaling the app to 0.
+
 ## Considerations
 
-- In "multiple revision" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
+- In "multiple revisions" mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage traffic allocations.
 
 - No usage charges are incurred when an application scales to zero. For more pricing information, see [Billing in Azure Container Apps](billing.md).
-
-### Unsupported KEDA capabilities
-
-- KEDA ScaledJobs aren't supported. For more information, see [KEDA Scaling Jobs](https://keda.sh/docs/concepts/scaling-jobs/#overview).
 
 ### Known limitations
 

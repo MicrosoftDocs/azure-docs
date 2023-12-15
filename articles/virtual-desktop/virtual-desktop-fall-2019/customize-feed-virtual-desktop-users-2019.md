@@ -24,7 +24,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 You can change the display name for a published RemoteApp by setting the friendly name. By default, the friendly name is the same as the name of the RemoteApp program.
 
-To retrieve a list of published RemoteApps for an application group, run the following PowerShell cmdlet:
+To retrieve a list of published applications for an application group, run the following PowerShell cmdlet:
 
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
@@ -66,7 +66,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 
 ## Next steps
 
-Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
+Now that you've customized the feed for users, you can sign in to an Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
  - [Connect from the Windows Desktop client](connect-windows-2019.md)
  - [Connect from a web browser](connect-web-2019.md)

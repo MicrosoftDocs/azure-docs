@@ -15,13 +15,13 @@ ms.date: 10/21/2021
 
 # CLI (v2) batch endpoint YAML schema
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](includes/machine-learning-cli-v2.md)]
 
 The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/batchEndpoint.schema.json.
 
 
 
-[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+[!INCLUDE [schema note](includes/machine-learning-preview-old-json-schema-note.md)]
 
 ## YAML syntax
 
@@ -31,7 +31,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `name` | string | **Required.** Name of the endpoint. Needs to be unique at the Azure region level. | | |
 | `description` | string | Description of the endpoint. | | |
 | `tags` | object | Dictionary of tags for the endpoint. | | |
-| `auth_mode` | string | The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based authentication is supported. | `aad_token` | `aad_token` |
+| `auth_mode` | string | The authentication method for the endpoint. Currently only Microsoft Entra token-based authentication is supported. | `aad_token` | `aad_token` |
 | `defaults` | object | Default settings for the endpoint. | | |
 | `defaults.deployment_name` | string | Name of the deployment that will serve as the default deployment for the endpoint. | | |
 

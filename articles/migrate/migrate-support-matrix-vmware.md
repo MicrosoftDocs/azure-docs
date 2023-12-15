@@ -5,7 +5,8 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/15/2023
+ms.service: azure-migrate
+ms.date: 11/23/2023
 ms.custom: engagement-fy23
 ---
 
@@ -31,7 +32,7 @@ Learn more about [assessments](concepts-assessment-calculation.md).
 
 VMware | Details
 --- | ---
-**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
+**vCenter Server** | Servers that you want to discover and assess must be managed by vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 **Permissions** | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps and SQL discovery, the account must have privileges for guest operations on VMware VMs.
 
 ## Server requirements
@@ -69,7 +70,7 @@ Support | Details
 **Server requirements** | For software inventory, VMware Tools must be installed and running on your servers. The VMware Tools version must be version 10.2.1 or later.<br /><br /> Windows servers must have PowerShell version 2.0 or later installed.<br/><br/>WMI must be enabled and available on Windows servers to gather the details of the roles and features installed on the servers.
 **vCenter Server account** | To interact with the servers for software inventory, the vCenter Server read-only account that's used for assessment must have privileges for guest operations on VMware VMs.
 **Server access** | You can add multiple domain and non-domain (Windows/Linux) credentials in the appliance configuration manager for software inventory.<br /><br /> You must have a guest user account for Windows servers and a standard user account (non-`sudo` access) for all Linux servers.
-**Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory.
+**Port access** | The Azure Migrate appliance must be able to connect to TCP port 443 on ESXi hosts running servers on which you want to perform software inventory. The server running vCenter Server returns an ESXi host connection to download the file that contains the details of the software inventory. <br /><br /> If using domain credentials, the Azure Migrate appliance must be able to connect to the following TCP and UDP ports: <br /> <br />TCP 135 – RPC Endpoint<br />TCP 389 – LDAP<br />TCP 636 – LDAP SSL<br />TCP 445 – SMB<br />TCP/UDP 88 – Kerberos authentication<br />TCP/UDP 464 – Kerberos change operations
 **Discovery** | Software inventory is performed from vCenter Server by using VMware Tools installed on the servers.<br/><br/> The appliance gathers the information about the software inventory from the server running  vCenter Server through vSphere APIs.<br/><br/> Software inventory is agentless. No agent is installed on the server, and the appliance doesn't connect directly to the servers.
 
 ## SQL Server instance and database discovery requirements
@@ -104,8 +105,7 @@ The following are sample scripts for creating a login and provisioning it with t
   ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
-    DECLARE @SID NVARCHAR(MAX) = N'';
+	  DECLARE @SID NVARCHAR(MAX) = N'';
     CREATE LOGIN [MYDOMAIN\MYACCOUNT] FROM WINDOWS;
 	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'MYDOMAIN\MYACCOUNT'
 	IF (ISNULL(@SID,'') != '')
@@ -162,8 +162,11 @@ The following are sample scripts for creating a login and provisioning it with t
    ```sql
   -- Create a login to run the assessment
   use master;
-	-- If a SID needs to be specified, add here
-    DECLARE @SID NVARCHAR(MAX) = N'';
+	-- NOTE: SQL instances that host replicas of Always On Availability Groups must use the same SID for the SQL login. 
+	  -- After the account is created in one of the members, copy the SID output from the script and include this value 
+	  -- when executing against the remaining replicas.
+	  -- When the SID needs to be specified, add the value to the @SID variable definition below.
+  DECLARE @SID NVARCHAR(MAX) = N'';
 	IF (@SID = N'')
 	BEGIN
 		CREATE LOGIN [evaluator]
@@ -171,13 +174,14 @@ The following are sample scripts for creating a login and provisioning it with t
 	END
 	ELSE
 	BEGIN
-		CREATE LOGIN [evaluator]
-			WITH PASSWORD = '<provide a strong password>'
-			, SID = @SID 
+		DECLARE @SQLString NVARCHAR(500) = 'CREATE LOGIN [evaluator]
+			WITH PASSWORD = ''<provide a strong password>''
+			, SID = ' + @SID 
+    EXEC SP_EXECUTESQL @SQLString
 	END
-	SELECT @SID = N'0x'+CONVERT(NVARCHAR, sid, 2) FROM sys.syslogins where name = 'evaluator'
+	SELECT @SID = N'0x'+CONVERT(NVARCHAR(100), sid, 2) FROM sys.syslogins where name = 'evaluator'
 	IF (ISNULL(@SID,'') != '')
-		PRINT N'Created login [evaluator] with SID = '+@SID
+		PRINT N'Created login [evaluator] with SID = '''+ @SID +'''. If this instance hosts any Always On Availability Group replica, use this SID value when executing the script against the instances hosting the other replicas'
 	ELSE
 		PRINT N'Login creation failed'
   GO    
@@ -249,8 +253,8 @@ Support | ASP.NET web apps | Java web apps
 Support | Details
 --- | ---
 **Supported servers** | You can enable agentless dependency analysis on up to 1000 servers (across multiple vCenter Servers), discovered per appliance.
-**Windows servers** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
-**Linux servers** | Red Hat Enterprise Linux 5.1, 5.3, 5.11, 6.x, 7.x, 8.x <br /> Cent OS 5.1, 5.9, 5.11, 6.x, 7.x, 8.x <br /> Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11
+**Windows servers** | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
+**Linux servers** | Red Hat Enterprise Linux 5.1, 5.3, 5.11, 6.x, 7.x, 8.x <br /> CentOS 5.1, 5.9, 5.11, 6.x, 7.x, 8.x <br /> Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11
 **Server requirements** | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.<br /><br /> WMI should be enabled and available on Windows servers.
 **vCenter Server account** | The read-only account used by Azure Migrate for assessment must have privileges for guest operations on VMware VMs.
 **Windows server acesss** |  A user account (local or domain) with administrator permissions on servers.
@@ -266,9 +270,9 @@ Requirement | Details
 --- | ---
 **Before deployment** | You should have a project in place, with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />Deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](create-manage-projects.md).<br /> Learn how to [add a discovery and  assessment tool to an existing project](how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 **Supported servers** | Supported for all servers in your on-premises environment.
-**Log Analytics** | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after the workspace is added. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br /><br /> In Log Analytics, the workspace that's associated with Azure Migrate is tagged with the project key and project name.
+**Log Analytics** | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after the workspace is added. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace that's associated with Azure Migrate is tagged with the project key and project name.
 **Required agents** | On each server that you want to analyze, install the following agents:<br />- [Microsoft Monitoring Agent (MMA)](../azure-monitor/agents/agent-windows.md)<br />- [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
-**Log Analytics workspace** | The workspace must be in the same subscription as the project.<br /><br /> Azure Migrate supports workspaces that are located in the East US, Southeast Asia, and West Europe regions.<br /><br />  The workspace must be in a region in which [Service Map is supported](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br /><br /> The workspace for a project can't be modified after the workspace is added.
+**Log Analytics workspace** | The workspace must be in the same subscription as the project.<br /><br /> Azure Migrate supports workspaces that are located in the East US, Southeast Asia, and West Europe regions.<br /><br />  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> The workspace for a project can't be modified after the workspace is added.
 **Cost** | The Service Map solution doesn't incur any charges for the first 180 days (from the day you associate the Log Analytics workspace with the project).<br /><br /> After 180 days, standard Log Analytics charges apply.<br /><br /> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br /><br /> When the project is deleted, the workspace isn't automatically deleted. After deleting the project, Service Map usage isn't free, and each node will be charged per the paid tier of Log Analytics workspace.<br /><br />If you have projects that you created before Azure Migrate general availability (February 28, 2018), you might have incurred additional Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
 **Management** | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/logs/manage-access.md).<br /><br /> Don't delete the workspace created by Azure Migrate, unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
 **Internet connectivity** | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.

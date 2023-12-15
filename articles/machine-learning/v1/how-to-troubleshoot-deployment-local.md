@@ -29,7 +29,7 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
    * Have a working Docker installation on your local system. 
    * To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 * Option C - Enable local debugging with Azure Machine Learning inference HTTP server.
-    * The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
+    * The Azure Machine Learning inference HTTP server is a Python package that allows you to easily validate your entry script (`score.py`) in a local development environment. If there's a problem with the scoring script, the server will return an error. It will also return the location where the error occurred.
     * The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with thee candidate script and run the test suite against the local endpoint.
 
 ## Azure Machine Learning inference HTTP server
@@ -65,7 +65,7 @@ You can find a sample [local deployment notebook](https://github.com/Azure/Machi
 
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
 
-[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.environment import Environment

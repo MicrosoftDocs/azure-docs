@@ -27,7 +27,7 @@ This new version of Start/Stop VMs v2 provides a decentralized low-cost automati
 
 Start/Stop VMs v2 is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
-A managed identity is created in Azure Active Directory (Azure AD) for this Azure Functions application and allows Start/Stop VMs v2 to easily access other Azure AD-protected resources, such as the logic apps and Azure VMs. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+A managed identity is created in Microsoft Entra ID for this Azure Functions application and allows Start/Stop VMs v2 to easily access other Microsoft Entra protected resources, such as the logic apps and Azure VMs. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 An HTTP trigger function endpoint is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
@@ -40,8 +40,8 @@ An HTTP trigger function endpoint is created to support the schedule and sequenc
 |VirtualMachineRequestExecutor |Queue |This function performs the actual start and stop operation on the VM.|
 |CreateAutoStopAlertExecutor |Queue |This function gets the payload information from the **AutoStop** function to create the alert on the VM.|
 |HeartBeatAvailabilityTest |Timer |This function monitors the availability of the primary HTTP functions.|
-|CostAnalyticsFunction |Timer |This function calculates the cost to run the Start/Stop V2 solution on a monthly basis.|
-|SavingsAnalyticsFunction |Timer |This function calculates the total savings achieved by the Start/Stop V2 solution on a monthly basis.|
+|CostAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate cost of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
+|SavingsAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate savings of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
 |VirtualMachineSavingsFunction |Queue |This function performs the actual savings calculation on a VM achieved by the Start/Stop V2 solution.|
 |TriggerAutoUpdate |Timer |This function starts the auto update process based on the application setting "**EnableAutoUpdate=true**".|
 |UpdateStartStopV2 |Queue |This function performs the actual auto update execution, which validates your current version with the available version and decides the final action.|
@@ -107,7 +107,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-- Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription.
+- To deploy the solution, your account must be granted the [Owner](../../role-based-access-control/built-in-roles.md#owner) permission in the subscription.
 
 - Start/Stop VMs v2 is available in all Azure global and US Government cloud regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions.
 

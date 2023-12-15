@@ -3,13 +3,15 @@ title: Monitor operational issues logged in your Azure Monitor Log Analytics wor
 description: The article describes how to monitor the health of your Log Analytics workspace by using data in the Operation table.
 ms.topic: how-to
 ms.reviewer: MeirMen
-ms.date: 03/21/2022
+ms.date: 07/02/2023
 
 ---
 
 # Monitor operational issues in your Azure Monitor Log Analytics workspace
 
 To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace by using data in the [Operation](/azure/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace. It contains error messages and warnings that occur in your workspace. We recommend that you create alerts for issues with the level of Warning and Error.
+
+[!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
 ## _LogOperation function
 
@@ -102,7 +104,7 @@ The following section provides information on data collection.
 
 #### Operation: Azure Activity Log collection
 
-"Access to the subscription was lost. Ensure that the \<**subscription id**\> subscription is in the \<**tenant id**\> Azure Active Directory tenant. If the subscription is transferred to another tenant, there is no impact to the services, but information for the tenant could take up to an hour to propagate."
+"Access to the subscription was lost. Ensure that the \<**subscription id**\> subscription is in the \<**tenant id**\> Microsoft Entra tenant. If the subscription is transferred to another tenant, there's no impact to the services, but information for the tenant could take up to an hour to propagate."
 
 In some situations, like moving a subscription to a different tenant, the Azure activity logs might stop flowing into the workspace. In those situations, you need to reconnect the subscription following the process described in this article.
 
@@ -130,7 +132,7 @@ Check the `_LogOperation` table for the agent event:</br>
 
  `_LogOperation | where TimeGenerated >= ago(6h) | where Category == "Agent" | where Operation == "Linux Agent"  | distinct _ResourceId`
 
-The list will show the resource IDs where the agent has the wrong configuration. To mitigate the issue, reinstall the agents listed.
+The list shows the resource IDs where the agent has the wrong configuration. To mitigate the issue, reinstall the agents listed.
 
 ## Alert rules
 
@@ -145,7 +147,7 @@ Use the process in [Create, view, and manage log alerts by using Azure Monitor](
 | `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
 | `_LogOperation | where Level == "Warning"` | 0 | 1,440 | 1,440 |
 
-These alert rules will respond the same to all operations with Error or Warning. As you become more familiar with the operations that are generating alerts, you might want to respond differently for particular operations. For example, you might want to send notifications to different people for particular operations.
+These alert rules respond the same to all operations with Error or Warning. As you become more familiar with the operations that are generating alerts, you might want to respond differently for particular operations. For example, you might want to send notifications to different people for particular operations.
 
 To create an alert rule for a specific operation, use a query that includes the **Category** and **Operation** columns.
 

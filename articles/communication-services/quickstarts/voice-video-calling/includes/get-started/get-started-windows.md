@@ -38,7 +38,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or superior. Make sure Include Preleased is checked.
+Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.2.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.2.0-beta.1) or superior. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -230,7 +230,7 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the ACS call:
+Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
         private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
@@ -382,7 +382,7 @@ In Visual Studio, create a new project with the **Blank App, Packaged (WinUI 3 i
 
 #### Install the package
 
-Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.0.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.0.0) or superior. Make sure Include Preleased is checked.
+Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.2.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.2.0-beta.1) or superior. Make sure Include Preleased is checked.
 
 #### Request access
 
@@ -654,7 +654,7 @@ In the meeting join scenario, `JoinCallOptions` is made available to customize t
 
 ### Start the call
 
-Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the ACS call:
+Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
         private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)

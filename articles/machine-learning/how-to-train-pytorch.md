@@ -16,7 +16,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 # Train PyTorch models at scale with Azure Machine Learning
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
 In this article, you'll learn to train, hyperparameter tune, and deploy a [PyTorch](https://pytorch.org/) model using the Azure Machine Learning Python SDK v2.
 
@@ -39,7 +39,7 @@ To benefit from this article, you'll need to:
 
 You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/pytorch/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) of this guide on the GitHub samples page.
 
-[!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
+[!INCLUDE [gpu quota](includes/machine-learning-gpu-quota-prereq.md)]
 
 ## Set up the job
 

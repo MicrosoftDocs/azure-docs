@@ -2,12 +2,12 @@
 title: Integer claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: Integer claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 02/16/2022
 ms.author: kengaderdus

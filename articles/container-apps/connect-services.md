@@ -4,6 +4,7 @@ description: Connect a service in development and then promote to production in 
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/13/2023
 ms.author: cshoe
@@ -222,7 +223,7 @@ The following steps bind your application to an existing instance of Azure Cache
     ```
 
     > [!NOTE]
-    > Environment variable names used for dev mode services and managed service vary slightly.
+    > Environment variable names used for [add-ons](services.md) and managed services vary slightly.
     >
     > If you'd like to see the sample code used for this tutorial please see https://github.com/Azure-Samples/sample-service-redis.
 

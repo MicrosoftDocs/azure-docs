@@ -5,6 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.date: 01/31/2023
+ms.service: azure-migrate
 ms.custom: engagement-fy23
 ---
 
@@ -86,12 +87,12 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 3. In the **Region** drop-down list, select the Azure region to store the servers' metadata.
 
-4. Provide the **Azure Active Directory service principal** details for onboarding at scale. Review this article to [create a service principal using the Azure portal or Azure PowerShell.](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) <br/>
+4. Provide the **Microsoft Entra service principal** details for onboarding at scale. Review this article to [create a service principal using the Azure portal or Azure PowerShell.](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) <br/>
 
     The following inputs are required:
-    - **Directory (tenant) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) that represents your dedicated instance of Azure AD. 
+    - **Directory (tenant) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) that represents your dedicated instance of Microsoft Entra ID. 
     - **Application (client) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) that represents the application ID of the service principal.
-    - **Service principal secret (application secret)** - The [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-application-secret) for password-based authentication. 
+    - **Service principal secret (application secret)** - The [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret) for password-based authentication. 
     
 5. _Optional_: Provide the **proxy server IP address** or the name and **port number** if your discovered servers require a proxy server to connect to the Internet. Enter the value in the format `http://<proxyURL>:<proxyport>`. This proxy server used by the discovered servers can be different from the proxy server required by the appliance server  to connect to the Internet (provided in the prerequisites section in the appliance configuration manager).   
 

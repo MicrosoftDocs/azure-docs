@@ -2,11 +2,11 @@
 title: Optimize the performance of AzCopy v10 with Azure Storage
 description: This article helps you to optimize the performance of AzCopy v10 with Azure Storage.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
 ---
 
@@ -42,9 +42,11 @@ This command runs a performance benchmark by uploading test data to a specified 
 
 If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md).
 
-## Optimize for large numbers of small files
+## Optimize for large numbers of files
 
-Throughput can decrease when transferring small files, especially when transferring large numbers of them. To maximize performance, reduce the size of each job. For download and upload operations, increase concurrency, decrease log activity, and turn off features that incur high performance costs.
+Throughput can decrease when transferring large numbers of files. Each copy operation translates to one or more transactions that must be executed in the storage service. When you are transferring a large number of files, consider the number of transactions that need to be executed and any potential impact those transactions can have if other activities are occurring in the storage account at the same time. 
+
+To maximize performance, you can reduce the size of each job by limiting the number of files that are copied in a single job. For download and upload operations, increase concurrency as needed, decrease log activity, and turn off features that incur high performance costs.
 
 #### Reduce the size of each job
 

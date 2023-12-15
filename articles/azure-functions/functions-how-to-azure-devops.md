@@ -597,7 +597,8 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 
 ## Deploy a container
 
-You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md). 
+You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Working with containers and Azure Functions](./functions-how-to-custom-container.md) . 
+
 ### Deploy with the Azure Function App for Container task
 
 # [YAML](#tab/yaml/)

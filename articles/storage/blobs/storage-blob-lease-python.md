@@ -6,17 +6,24 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 01/25/2023
-ms.subservice: blobs
+ms.date: 08/02/2023
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
 
 # Create and manage blob leases with Python
 
+[!INCLUDE [storage-dev-guide-selector-lease-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-blob.md)]
+
 This article shows how to create and manage blob leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can use the client library to acquire, renew, release, and break blob leases.
+
+## Prerequisites
+
+- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with a blob lease. To learn more, see the authorization guidance for the following REST API operation:
+    - [Lease Blob](/rest/api/storageservices/lease-blob#authorization)
 
 ## About blob leases
 

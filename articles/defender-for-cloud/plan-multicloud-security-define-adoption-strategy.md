@@ -1,5 +1,5 @@
 ---
-title: Defender for Cloud Planning multicloud security defining adoption strategy lifecycle strategy guidance
+title: Planning multicloud security defining adoption strategy lifecycle strategy guidance
 description: Learn about defining broad requirements for business needs and ownership in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.custom: ignite-2022

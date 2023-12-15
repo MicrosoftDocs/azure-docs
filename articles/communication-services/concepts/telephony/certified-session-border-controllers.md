@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 06/30/2021
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -22,10 +22,8 @@ Microsoft works with each vendor to:
 - Run daily tests with all certified devices in production and preproduction environments. Validating the devices in preproduction environments guarantees that new versions of Azure Communication Services code in the cloud work with certified SBCs.
 - Establish a joint support process with the SBC vendors.
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-[!INCLUDE [Dynamics 365 Omnichannel Notice](../includes/direct-routing-omnichannel-note.md)]
 
-Media bypass is not yet supported by Azure Communication Services. 
+Media bypass isn't yet supported in Azure Communication Services. 
 The table that follows list devices certified for Azure Communication Services direct routing.
 
 If you have any questions about the SBC certification program for Communication Services direct routing, contact acsdrcertification@microsoft.com.
@@ -34,6 +32,7 @@ If you have any questions about the SBC certification program for Communication 
 
 |Vendor|Product|Software version|
 |:--- |:--- |:--- 
+|[Microsoft](https://azure.microsoft.com/products/communications-gateway/)|Azure Communications Gateway|2023-01-31|
 |[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|Mediant Virtual Edition SBC|7.40A|
 ||Mediant 500 SBC|7.40A|
 ||Mediant 800 SBC|7.40A|

@@ -1,5 +1,5 @@
 ---
-title: Why use Azure Orbital Ground Station?
+title: Azure Orbital Ground Station - Overview
 description: Azure Orbital Ground Station is a cloud-based ground station as a service that allows you to streamline your operations by ingesting space data directly into Azure.
 author: apoorvanori
 ms.service: orbital
@@ -10,31 +10,29 @@ ms.author: apoorvanori
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Why use Azure Orbital Ground Station?
+# Azure Orbital Ground Station overview
 
-Azure Orbital Ground Station is a fully managed cloud-based ground station as a service that allows you to streamline your operations by ingesting space data directly into Azure. 
+With Azure Orbital Ground Station, your space data is delivered with near-zero latency to your Azure region over the secure and highly available Microsoft network. Azure Orbital Ground Station supports both Microsoft and industry leading Partner ground station networks, ensuring access to the best sites and networks to support your space missions. Deploying and operating a large, globally distributed ground station solution for your space mission can now be done with the reliability and flexibility of the cloud&mdash;at any classification level.
 
-With Azure Orbital Ground Station, you can focus on your missions by off-loading the responsibility for deployment and maintenance of ground stations. 
+:::image type="content" source="./media/overview-image.png" alt-text="Diagram showing data flowing from a satellite, to Microsoft or Partner ground stations, and landing in the Azure cloud.":::
 
-Azure Orbital Ground Station uses Microsoft’s global infrastructure and low-latency global network along with an expansive partner ecosystem of ground station networks, cloud modems, and "Telemetry, Tracking, & Control" (TT&C) functions.
+## Product highlights
 
-:::image type="content" source="./media/orbital-all-overview.png" alt-text="Azure Orbital Overview":::
+- Self-service scheduling of spacecraft contacts to ingest data, monitor satellite health and status, or transmit commands to satellites.
+- The managed data path provides one-click access to a global network of ground stations and direct data ingestion into your private Azure virtual network.
+- Take advantage of integrated software modems from Kratos for X and S bands, or leverage virtual RF and GNU radio for unrestricted modem implementations.
+- Avoid building and managing ground station infrastructure and instead pay-as-you-go with any antenna in the global Azure Orbital network.
+- Space data are transmitted and managed securely, according to stringent compliance requirements.
+- Integrate command and control software with the Azure Orbital Ground Station API to manage fleet operations.
 
-## Earth Observation with Azure Orbital Ground Station
-
-   Schedule contacts with satellites on a pay-as-you-go basis to ingest data from the satellite, monitor the satellite health and status, or transmit commands to the satellite. Incoming data is delivered to your private virtual network allowing it to be processed or stored in Azure.
-   
-   The fully digitized service allows you to use software modems from Kratos and Amergint to do the modulation / demodulation, and encoding / decoding functions to recover the data. 
-
-   For a full end-to-end solution to manage fleet operations and "Telemetry, Tracking, & Control" (TT&C) functions, seamlessly integrate your Azure Orbital Ground Station operations with Kubos Major Tom. Lower your operational costs and maximize your capabilities by using Azure Space.
-
-   * Spacecraft contact self-service scheduling
-   * Direct data ingestion into Azure
-   * Marketplace integration with third-party data processing and image calibration services
-   * Integrated cloud modems for X and S bands and Certified cloud modems available through the Azure Marketplace
-   * Global reach through integrated third-party networks
+## Links to learn more
+- [Overview, features, security, and FAQ](https://azure.microsoft.com/products/orbital/#layout-container-uid189e)
+- [Pricing](https://azure.microsoft.com/pricing/details/orbital/) and [SLA](https://azure.microsoft.com/support/legal/sla/orbital/)
+- [Microsoft Learn training session](/training/modules/introduction-to-ground-station/)
+- [Azure Space tech blog](https://techcommunity.microsoft.com/t5/azure-space-blog/bg-p/AzureSpaceBlog)
+- [General Availability press announcement](https://azure.microsoft.com/blog/new-azure-space-products-enable-digital-resiliency-and-empower-the-industry/)
 
 ## Next steps
-
-- [Register Spacecraft](register-spacecraft.md)
-- [Configure a Contact Profile](contact-profile.md)
+- [About Microsoft and Partner ground stations](about-ground-stations.md)
+- [Get started with Azure Orbital Ground Station](get-started.md)
+- [Support all mission phases](mission-phases.md)

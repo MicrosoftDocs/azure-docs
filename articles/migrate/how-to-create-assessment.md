@@ -4,6 +4,7 @@ description: Describes how to create an Azure VM assessment with the Azure Migra
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/21/2022
 ms.custom: engagement-fy23
@@ -105,7 +106,7 @@ Run an assessment as follows:
      :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Screenshot of adding VMs to a group.":::
 
 
-1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**.
+1. Select the appliance, and select the VMs you want to add to the group. Then select **Next**. We recommend that you prioritize migrations for servers in extended support/out of support.
 
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
@@ -130,6 +131,16 @@ An Azure VM assessment describes:
 2. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example, only): 
 
     :::image type="content" source="./media/how-to-create-assessment/assessment-summary.png" alt-text="Screenshot of an Assessment summary.":::
+
+### Review support status
+
+The assessment summary displays the support status of the Operating system licenses.
+
+1. Select the graph in the **Supportability** section to view a list of the assessed VMs.
+2. The **Operating system license support status** column displays the support status of the Operating system, whether it is in mainstream support, extended support, or out of support. Selecting the support status opens a pane on the right which shows the type of support status, duration of support, and the recommended steps to secure their workloads. 
+   - To view the remaining duration of support, that is, the number of months for which the license is valid, 
+select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months. 
+
 
 ### Review Azure readiness
 

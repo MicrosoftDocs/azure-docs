@@ -3,12 +3,11 @@ title: Expand unmanaged disks in Azure
 description: Expand the size of an unmanaged virtual hard disks attached to a virtual machine using Azure PowerShell in the Resource Manager deployment model.
 author: kirpasingh
 manager: roshar
-ms.service: storage
+ms.service: azure-disk-storage
 ms.collection: windows
 ms.topic: article
 ms.date: 11/17/2021
 ms.author: kirpas
-ms.subservice: disks
 ms.custom: devx-track-azurepowershell
 ---
 # Expand unmanaged virtual hard disks attached to a virtual machine

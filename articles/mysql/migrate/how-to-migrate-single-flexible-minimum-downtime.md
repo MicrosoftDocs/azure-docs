@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 05/03/2023
 ms.service: mysql
 ms.subservice: single-server
+ms.custom: devx-track-linux
 ms.topic: how-to
 ---
 
@@ -156,7 +157,7 @@ To configure Data in replication, perform the following steps:
 
     - If SSL enforcement is enabled, then:
 
-        i. Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [here](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
+        i. Download the certificate needed to communicate over SSL with your Azure Database for MySQL server from [here](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
         ii. Open the file in notepad and paste the contents to the section “PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE“.
 

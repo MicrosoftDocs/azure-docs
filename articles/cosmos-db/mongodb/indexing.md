@@ -4,7 +4,7 @@ description: This article presents an overview of Azure Cosmos DB indexing capab
 ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 12/2/2022
 author: gahl-levy
 ms.author: gahllevy
@@ -125,7 +125,7 @@ Here's an example of creating a geospatial index on the `location` field:
 
 ### Text indexes
 
-Azure Cosmos DB for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure Cognitive Search](../../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
+Azure Cosmos DB for MongoDB does not currently support text indexes. For text search queries on strings, you should use [Azure AI Search](../../search/search-howto-index-cosmosdb.md) integration with Azure Cosmos DB. 
 
 ## Wildcard indexes
 
@@ -190,6 +190,9 @@ You can also create wildcard indexes using the Data Explorer in the Azure portal
 > If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
 
 Documents with many fields may have a high Request Unit (RU) charge for writes and updates. Therefore, if you have a write-heavy workload, you should opt to individually index paths as opposed to using wildcard indexes.
+
+> [!NOTE]
+> Support for unique index on existing collections with data is available in preview. This feature can be enabled for your database account by enabling the ['EnableUniqueIndexReIndex' capability](./how-to-configure-capabilities.md#available-capabilities).
 
 ### Limitations
 
@@ -281,13 +284,13 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 Unique indexes need to be created while the collection is empty. 
 
-Unique indexes on nested fields are not supported by default due to limiations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the unique index and uniqueness wil not be preserved for that value. 
+Unique indexes on nested fields are not supported by default due to limitations with arrays. If your nested field does not contain an array, the index will work as intended. If your nested field contains an array (anywhere on the path), that value will be ignored in the unique index and uniqueness will not be preserved for that value. 
 
 For example a unique index on people.tom.age will work in this case since there's no array on the path:
 ```javascript
 { "people": { "tom": { "age": "25" }, "mark": { "age": "30" } } }
 ```
-but won't won't work in this case since there's an array in the path:
+but won't work in this case since there's an array in the path:
 ```javascript
 { "people": { "tom": [ { "age": "25" } ], "mark": [ { "age": "30" } ] } }
 ```

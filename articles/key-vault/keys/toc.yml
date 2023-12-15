@@ -45,7 +45,6 @@ items:
   - name: Import HSM-protected keys (nCipher)
     href: hsm-protected-keys-ncipher.md
 
-
 - name: Samples
   items:
   - name: Key Vault Code Samples

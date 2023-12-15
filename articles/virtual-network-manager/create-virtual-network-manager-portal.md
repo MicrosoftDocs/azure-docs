@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure portal'
-description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager by using the Azure portal.
+title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal'
+description: Learn to a mesh virtual network topology with Azure Virtual Network Manager by using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.date: 08/24/2023
 ms.custom: template-quickstart, mode-ui, engagement-fy23
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager by using the Azure portal
+# Quickstart: Create a mesh network topology with Azure Virtual Network Manager - Azure portal
 
 Get started with Azure Virtual Network Manager by using the Azure portal to manage connectivity for all your virtual networks.
 
@@ -17,38 +17,14 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager.":::
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations and security admin rules remain in public preview.
->
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported.
 
-## Create a Virtual Network Manager instance
-
-Deploy a Virtual Network Manager instance with the defined scope and access that you need:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Select **+ Create a resource** and search for **Network Manager**. Then select **Network Manager** > **Create** to begin setting up Virtual Network Manager.
-
-1. On the **Basics** tab, enter or select the following information, and then select **Review + create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png" alt-text="Screenshot of basic information for creating a network manager." lightbox="./media/create-virtual-network-manager-portal/network-manager-basics-thumbnail.png":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Subscription** | Select the subscription where you want to deploy Virtual Network Manager. |
-    | **Resource group** | Select **Create new** and enter **rg-learn-eastus-001**.
-    | **Name** | Enter **vnm-learn-eastus-001**. |
-    | **Region** | Enter **eastus** or a region of your choosing. Virtual Network Manager can manage virtual networks in any region. The selected region is where the Virtual Network Manager instance will be deployed. |
-    | **Description** | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
-    | [Scope](concept-network-manager-scope.md#scope) | Choose **Select scopes** and then select your subscription.</br> Select **Add to selected scope** > **Select**. </br> Scope information defines the resources that Virtual Network Manager can manage. You can choose subscriptions and management groups.
-    | [Features](concept-network-manager-scope.md#features) | Select **Connectivity** and **Security Admin** from the dropdown list.  </br> **Connectivity** enables the creation of a full mesh or hub-and-spoke network topology between virtual networks within the scope. </br> **Security Admin** enables the creation of global network security rules. |
-
-1. Select **Create** after your configuration passes validation.
+[!INCLUDE [virtual-network-manager-create-instance](../../includes/virtual-network-manager-create-instance.md)]
 
 ## Create virtual networks
 

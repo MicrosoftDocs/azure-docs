@@ -3,17 +3,14 @@ title: Deploy the MedTech service using a Bicep file and Azure PowerShell or the
 description: Learn how to deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI.
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.custom: devx-track-bicep, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 05/16/2023
+ms.date: 07/12/2023
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
@@ -165,7 +162,7 @@ Complete the following five steps to deploy the MedTech service using the Azure 
 
 When deployment is completed, the following resources and access roles are created in the Bicep file deployment:
 
-* Azure Event Hubs namespace and device message event hub. In this deployment, the device message event hub is named *devicedata*.
+* Azure Event Hubs namespace and event hub. In this deployment, the event hub is named *devicedata*.
 
   * Event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
@@ -173,11 +170,11 @@ When deployment is completed, the following resources and access roles are creat
 
 * Health Data Services workspace.
 
-* Health Data Services FHIR service.
+* Health Data Services FHIR&reg; service.
 
 * Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
-  * For the event hub, the **Azure Events Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
+  * For the event hub, the **Azure Events Hubs Data Receiver** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the event hub.
 
   * For the FHIR service, the **FHIR Data Writer** role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   
@@ -219,11 +216,10 @@ For example: `az group delete --resource-group BicepTestDeployment`
 
 ## Next steps
 
-In this quickstart, you learned about how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+[Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
-To learn about other methods for deploying the MedTech service, see
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-> [!div class="nextstepaction"]
-> [Choose a deployment method for the MedTech service](deploy-choose-method.md)
+[Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

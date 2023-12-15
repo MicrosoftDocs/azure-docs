@@ -4,8 +4,7 @@ titleSuffix: Azure Storage
 description: Use the Azure portal to manage access control lists (ACLs) in storage accounts that have a hierarchical namespace (HNS) enabled.
 author: normesta
 
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+ms.service: azure-data-lake-storage
 ms.topic: how-to
 ms.date: 03/09/2023
 ms.author: normesta
@@ -57,7 +56,7 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
 7. To add a *security principal* to the ACL, select the **Add principal** button.
 
    > [!TIP]
-   > A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD).
+   > A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Microsoft Entra ID.
 
    Find the security principal by using the search box, and then select the **Select** button.
 
@@ -65,7 +64,7 @@ To learn about how to use ACLs and Azure roles together, see [Access control mod
    > ![Add a security principal to the ACL](./media/data-lake-storage-acl-azure-portal/get-security-principal.png)
 
    > [!NOTE]
-   > We recommend that you create a security group in Azure AD, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+   > We recommend that you create a security group in Microsoft Entra ID, and then maintain permissions on the group rather than for individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 8. To manage the *default ACL*, select the **default permissions** tab, and then select the **Configure default permissions** checkbook.
 

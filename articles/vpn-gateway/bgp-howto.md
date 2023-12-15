@@ -11,7 +11,7 @@ ms.author: cherylmc
 ---
 # How to configure BGP for Azure VPN Gateway
 
-This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using the Azure portal. This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using Azure PowerShell. You can also create this configuration using the [Azure portal](bgp-howto.md) or [PowerShell](vpn-gateway-bgp-resource-manager-ps.md) steps.
+This article helps you enable BGP on cross-premises site-to-site (S2S) VPN connections and VNet-to-VNet connections using the Azure portal. You can also create this configuration using the [Azure CLI](bgp-how-to-cli.md) or [PowerShell](vpn-gateway-bgp-resource-manager-ps.md) steps.
 
 BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. BGP enables the VPN gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
 
@@ -155,15 +155,15 @@ In this step, you create a new connection that has BGP enabled. If you already h
 #### To create a connection
 
 1. To create a new connection, go to your virtual network gateway **Connections** page.
-1. Click **+Add** to open the **Add a connection page**.
+1. Select **+Add** to open the **Add a connection page**.
 1. Fill in the necessary values.
 1. Select **Enable BGP** to enable BGP on this connection.
-1. Click **OK** to save changes.
+1. Select **OK** to save changes.
 
 #### To update an existing connection
 
 1. Go to your virtual network gateway **Connections** page.
-1. Click the connection you want to modify.
+1. Select the connection you want to modify.
 1. Go to the **Configuration** page for the connection.
 1. Change the **BGP** setting to **Enabled**.
 1. **Save** your changes.

@@ -4,6 +4,7 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial 
 ms.date: 05/05/2023
 ---
@@ -414,6 +415,7 @@ In this tutorial, you learn how to:
         ``` 
     - Add `using` statements in header to resolve required dependencies.
         ```c#
+        using System.Threading.Tasks;
         using Microsoft.Azure.WebJobs.Extensions.WebPubSub;
         using Microsoft.Azure.WebPubSub.Common;
         ```

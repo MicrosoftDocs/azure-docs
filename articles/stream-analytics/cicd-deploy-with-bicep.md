@@ -2,6 +2,7 @@
 title: Deploy Azure Stream Analytics jobs using Bicep files
 description: This article shows you how to generate and deploy Azure Stream Analytics jobs using Bicep files. 
 ms.service: stream-analytics
+ms.custom: devx-track-bicep
 author: alexlzx
 ms.author: zhenxilin
 ms.date: 05/24/2023
@@ -51,4 +52,3 @@ az deployment group create --name demodeployment --resource-group {resource-grou
 * [Azure Stream Analytics CI/CD tool](cicd-overview.md)
 * [Automate builds, tests, and deployments of an Azure Stream Analytics job](cicd-tools.md)
 * [Set up CI/CD pipeline for Stream Analytics job using Azure Pipelines](set-up-cicd-pipeline.md)
-

@@ -4,6 +4,7 @@ description: Introduction to key concepts of Azure container registries, reposit
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.date: 10/11/2022
 ---
 
@@ -36,8 +37,6 @@ Repository names can also include [namespaces](container-registry-best-practices
 - *product-returns/legacy-integrator:20180715*
 
 Repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
-
-For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ## Artifact
 

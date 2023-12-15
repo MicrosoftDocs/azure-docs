@@ -4,8 +4,9 @@ description: Learn how to prepare on-premises machines for migration with Azure 
 author: sunishvohra-ms 
 ms.author: sunishvohra
 ms.manager: vijain
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 09/13/2023
 ms.custom: engagement-fy23
 ---
 
@@ -32,7 +33,7 @@ The table summarizes discovery, assessment, and migration limits for Azure Migra
 --- | --- | --- | ---
 **VMware vSphere VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware vSphere VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware vSphere. <br> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance. | **Agentless migration**: you can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance.<br> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
-**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 1000 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 
 ## Select a VMware vSphere migration method
 

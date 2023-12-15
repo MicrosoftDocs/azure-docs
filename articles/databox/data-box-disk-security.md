@@ -2,13 +2,13 @@
 title: Microsoft Azure Data Box Disk security features | Microsoft Docs in data 
 description: Describes security features implemented for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-author: alkohli
+author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: alkohli
+ms.author: shaas
 ---
 # Azure Data Box Disk security and data protection
 
@@ -81,7 +81,7 @@ Azure Data Box Disk collects and displays personal information in the following 
 
 - **Shipping address** – After the order is placed, Data Box service provides the shipping address to third party carriers such as UPS or DHL. 
 
-For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trust-center).
 
 
 ## Next steps

@@ -47,6 +47,8 @@
       href: utilization-cost-reports.md
     - name: View savings plan transactions
       href: view-transactions.md
+    - name: View amortized costs
+      href: ../reservations/view-amortized-costs.md?toc=/azure/cost-management-billing/savings-plan/toc.json
     - name: Charge back savings plan costs
       href: charge-back-costs.md
     - name: Calculate EA cost savings

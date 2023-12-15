@@ -6,11 +6,12 @@ documentationcenter: saponazure
 author: apmsft
 manager: juergent
 tags: azure-resource-manager
+ms.custom: devx-track-linux
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 06/23/2023
+ms.date: 09/15/2023
 ms.author: ampatel
 ---
 
@@ -48,7 +49,7 @@ Read the following SAP Notes and papers first:
 - General SLES documentation
   - [Setting up SAP HANA Cluster](https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-cluster.html).
   - [SLES High Availability Extension 15 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/15-SP3/index.html)
-  - [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15](https://documentation.suse.com/sbp/all/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15/index.html).
+  - [Operating System Security Hardening Guide for SAP HANA for SUSE Linux Enterprise Server 15](https://documentation.suse.com/sbp/sap-15/html/OS_Security_Hardening_Guide_for_SAP_HANA_SLES15_SP2_and_later/index.html).
   - [SUSE Linux Enterprise Server for SAP Applications 15 SP3 Guide](https://documentation.suse.com/sles/15-SP3/)
   - [SUSE Linux Enterprise Server for SAP Applications 15 SP3 SAP Automation](https://documentation.suse.com/sles-sap/15-SP3/html/SLES-SAP-automation/article-sap-automation.html)
   - [SUSE Linux Enterprise Server for SAP Applications 15 SP3 SAP Monitoring](https://documentation.suse.com/sles-sap/15-SP3/html/SLES-SAP-monitoring/article-sap-monitoring.html)
@@ -60,7 +61,7 @@ Read the following SAP Notes and papers first:
 - [Azure Virtual Machines planning and implementation for SAP on Linux](./planning-guide.md)
 
 >[!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ## Overview
 
@@ -92,17 +93,35 @@ SAP high availability HANA System Replication configuration uses a dedicated vir
 - Front-end configuration IP address: 10.3.0.50 for hn1-db
 - Probe Port: 62503
 
-## Setup the Azure NetApp File infrastructure
+## Set up the Azure NetApp File infrastructure
 
-Before you continue with the set up for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../azure-netapp-files/index.yml).
-
-Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.
+Before you continue with the setup for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../azure-netapp-files/index.yml).
+Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.  
 
 For information about the availability of Azure NetApp Files by Azure region, see [Azure NetApp Files Availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all).
 
+### Important considerations
+
+As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the important considerations documented in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#important-considerations).  
+
+### Sizing of HANA database on Azure NetApp Files
+
+The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md).
+
+While designing the infrastructure for SAP HANA on Azure with Azure NetApp Files, be aware of the recommendations in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#sizing-for-hana-database-on-azure-netapp-files).   
+
+The configuration in this article is presented with simple Azure NetApp Files Volumes. 
+
+> [!IMPORTANT]
+> For production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
+
+> [!NOTE]
+> All commands to mount /hana/shared in this article are presented for NFSv4.1 /hana/shared volumes.
+> If you deployed the /hana/shared volumes as NFSv3 volumes, don't forget to adjust the mount commands for /hana/shared for NFSv3.
+
 ### Deploy Azure NetApp Files resources
 
-The following instructions assume that you've already deployed your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
+The following instructions assume that you've already deployed your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources are mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
 
 1. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 2. Set up Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
@@ -125,53 +144,6 @@ The following instructions assume that you've already deployed your [Azure virtu
    - Volume hanadb2-log-mnt00001 (nfs://10.3.1.4:/hanadb2-log-mnt00001)
    - Volume hanadb2-shared-mnt00001 (nfs://10.3.1.4:/hanadb2-shared-mnt00001)
 
-### Important considerations
-
-As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the following consideration:
-
-- The minimum capacity pool is 4 tebibytes (TiB).
-- The minimum volume size is 100 gibibytes (GiB).
-- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted, must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region.
-- The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
-- The throughput of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the HANA Azure NetApp volumes, make sure that the resulting throughput meets the HANA system requirements.
-- With the Azure NetApp Files [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (read-write, read only, and so on).
-- The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
-
-> [!IMPORTANT]
-> For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in proximity.
-
-### Sizing of HANA database on Azure NetApp Files
-
-The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md).
-
-While designing the infrastructure for SAP in Azure, be aware of some minimum storage requirements by SAP, which translate into minimum throughput characteristics:
-
-- Read-write on /hana/log of 250 megabytes per second (MB/s) with 1-MB I/O sizes.
-- Read activity of at least 400 MB/s for /hana/data for 16-MB and 64-MB I/O sizes.
-- Write activity of at least 250 MB/s for /hana/data with 16-MB and 64-MB I/O sizes.
-
-The [Azure NetApp Files throughput limits](../../azure-netapp-files/azure-netapp-files-service-levels.md) per 1 TiB of volume quota are:
-
-- Premium Storage tier - 64 MiB/s.
-- Ultra Storage tier - 128 MiB/s.
-
-To meet the SAP minimum throughput requirements for /hana/data and /hana/log, and the guidelines for /hana/shared, the recommended sizes would be:
-
-|    Volume    | Size of Premium Storage Tier | Size of Ultra Storage Tier | Supported NFS Protocol |
-| :----------: | :--------------------------: | :------------------------: | :--------------------: |
-|  /hana/log   |            4 TiB             |           2 TiB            |          v4.1          |
-|  /hana/data  |           6.3 TiB            |          3.2 TiB           |          v4.1          |
-| /hana/shared |           1 x RAM            |          1 x RAM           |       v3 or v4.1       |
-
-> [!NOTE]
-> The Azure NetApp Files sizing recommendations stated here are targeted to meet the minimum requirements that SAP recommends for their infrastructure providers. In real customer deployments and workload scenarios, these sizes may not be sufficient. Use these recommendations as a starting point and adapt, based on the requirements of your specific workload.
-
-> [!TIP]
-> You can resize Azure NetApp Files volumes dynamically, without having to *unmount* the volumes, stop the virtual machines, or stop SAP HANA. This approach allows flexibility to meet both the expected and unforeseen throughput demands of your application.
-
-> [!NOTE]
-> All commands to mount /hana/shared in this article are presented for NFSv4.1 /hana/shared volumes.
-> If you deployed the /hana/shared volumes as NFSv3 volumes, don't forget to adjust the mount commands for /hana/shared for NFSv3.
 
 ## Deploy Linux virtual machine via Azure portal
 
@@ -182,7 +154,7 @@ Deploy virtual machines for SAP HANA. Choose a suitable SLES image that is suppo
 > [!IMPORTANT]
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
-During VM configuration, we won't be adding any disk as all our mount points will be on NFS shares from Azure NetApp Files. Also, you have an option to create or select exiting load balancer in networking section. If you're creating a new load balancer, follow below steps -
+During VM configuration, we won't be adding any disk as all our mount points are on NFS shares from Azure NetApp Files. Also, you have an option to create or select exiting load balancer in networking section. If you're creating a new load balancer, follow below steps -
 
 1. To set up standard load balancer, follow these configuration steps:
    1. First, create a front-end IP pool:
@@ -487,7 +459,7 @@ Example output
 
 ### Create File System resources
 
-Create a dummy file system cluster resource, which will monitor and report failures, in case there's a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there's a problem accessing `/hana/shared`. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904).
+Create a dummy file system cluster resource, which monitors and reports failures, in case there's a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there's a problem accessing `/hana/shared`. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904).
 
 1. **[A]** Create the directory structure on both nodes.
 
@@ -501,7 +473,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
    ```bash
    sudo crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
        device="/hana/shared/HN1/check/" \
-       directory="/hana/shared/check/" fstype=nfs4  \
+       directory="/hana/shared/check/" fstype=nfs  \
        options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,noatime,_netdev,nfsvers=4.1,lock,sec=sys" \
        op monitor interval=120 timeout=120 on-fail=fence \
        op_params OCF_CHECK_LEVEL=20 \
@@ -660,7 +632,7 @@ This section describes how you can test your set up.
 
    The SAP HANA resource agents depend on binaries stored on `/hana/shared` to perform operations during fail-over. File system  `/hana/shared` is mounted over NFS in the presented scenario.
 
-   It's difficult to simulate a failure, where one of the servers loses access to the NFS share. A test that can be performed is to re-mount the file system as read-only.
+   It's difficult to simulate a failure, where one of the servers loses access to the NFS share. A test that can be performed is to remount the file system as read-only.
    This approach validates that the cluster will be able to fail over, if access to `/hana/shared` is lost on the active node.
 
    **Expected Result:** On making `/hana/shared` as read-only file system, the `OCF_CHECK_LEVEL` attribute of the resource `hana_shared1`, which performs read/write operation on file system will fail as it isn't able to write anything on the file system and will perform HANA resource failover.  The same result is expected when your HANA node loses access to the NFS shares.

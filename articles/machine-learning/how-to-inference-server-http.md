@@ -7,21 +7,19 @@ ms.author: shnagata
 ms.reviewer: mopeakande
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: inference server, local development, local debugging, devplatv2
 ms.date: 11/29/2022
 ---
 
-# Debugging scoring script with Azure Machine Learning inference HTTP server (preview)
+# Debugging scoring script with Azure Machine Learning inference HTTP server
 
-The Azure Machine Learning inference HTTP server [(preview)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
+The Azure Machine Learning inference HTTP server is a Python package that exposes your scoring function as an HTTP endpoint and wraps the Flask server code and dependencies into a singular package. It's included in the [prebuilt Docker images for inference](concept-prebuilt-docker-images-inference.md) that are used when deploying a model with Azure Machine Learning. Using the package alone, you can deploy the model locally for production, and you can also easily validate your scoring (entry) script in a local development environment. If there's a problem with the scoring script, the server will return an error and the location where the error occurred.
 
 The server can also be used to create validation gates in a continuous integration and deployment pipeline. For example, you can start the server with the candidate script and run the test suite against the local endpoint.
 
 This article mainly targets users who want to use the inference server to debug locally, but it will also help you understand how to use the inference server with online endpoints.
-
-[!INCLUDE [machine-learning-preview-generic-disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Online endpoint local debugging
 
@@ -227,7 +225,7 @@ In this section, we'll run the server locally with [sample files](https://github
     Use the `curl` command to send an example request to the server and receive a scoring result.
 
     ```bash
-    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type: application/json' --data @sample-request.json
+    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type:application/json' --data @sample-request.json
     ```
 
     The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script, and launch the server again to test the updated script.
@@ -370,7 +368,7 @@ There are six levels of logging in Python, with numbers associated with severity
 ## Troubleshooting guide
 In this section, we'll provide basic troubleshooting tips for Azure Machine Learning inference HTTP server. If you want to troubleshoot online endpoints, see also [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 
-[!INCLUDE [inference server TSGs](../../includes/machine-learning-inference-server-troubleshooting.md)]
+[!INCLUDE [inference server TSGs](includes/machine-learning-inference-server-troubleshooting.md)]
 
 ## Next steps
 

@@ -31,10 +31,10 @@ Upon startup of the Azure Virtual Desktop session host, the Remote Desktop Agent
 Client connection sequence described below:
 
 1. Using supported Azure Virtual Desktop client user subscribes to the Azure Virtual Desktop Workspace
-2. Azure Active Directory authenticates the user and returns the token used to enumerate resources available to a user
+2. Microsoft Entra authenticates the user and returns the token used to enumerate resources available to a user
 3. Client passes token to the Azure Virtual Desktop feed subscription service
 4. Azure Virtual Desktop feed subscription service validates the token
-5. Azure Virtual Desktop feed subscription service passes the list of available desktops and RemoteApps back to the client in the form of digitally signed connection configuration
+5. Azure Virtual Desktop feed subscription service passes the list of available desktops and applications back to the client in the form of digitally signed connection configuration
 6. Client stores the connection configuration for each available resource in a set of .rdp files
 7. When a user selects the resource to connect, the client uses the associated .rdp file and establishes the secure TLS 1.2 connection to an Azure Virtual Desktop gateway instance with the help of [Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites) and passes the connection information. The latency from all gateways is evaluated, and the gateways are put into groups of 10ms. The gateway with the lowest latency and then lowest number of existing connections is chosen.
 8. Azure Virtual Desktop gateway validates the request and asks the Azure Virtual Desktop broker to orchestrate the connection

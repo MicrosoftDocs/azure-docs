@@ -4,11 +4,11 @@ description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+ms.custom: devx-track-linux
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 02/03/2023
-
 ---
 # How to update the Azure Linux Agent on a VM
 

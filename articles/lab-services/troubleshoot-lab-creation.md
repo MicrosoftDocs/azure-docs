@@ -16,7 +16,7 @@ In this article, you learn how to resolve common issues with creating a lab in A
 
 ## Prerequisites
 
-- To change settings for the lab plan, your Azure account needs the Owner or Contributor Azure Active Directory role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
+- To change settings for the lab plan, your Azure account needs the Owner or Contributor [RBAC](../role-based-access-control/overview.md) role on the lab plan. Learn more about the [Azure Lab Services built-in roles](./administrator-guide.md#rbac-roles).
 
 ## Virtual machine image is not available
 

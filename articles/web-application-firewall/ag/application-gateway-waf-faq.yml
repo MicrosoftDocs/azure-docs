@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: web-application-firewall
   ms.topic: faq
-  ms.date: 04/28/2022
+  ms.date: 08/25/2023
   ms.author: victorh
 title: Frequently asked questions for Azure Web Application Firewall on Application Gateway
 summary: This article answers common questions about Azure Web Application Firewall (WAF)  on Application Gateway features and functionality. 
@@ -20,7 +20,7 @@ sections:
         answer: |
           Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
           
-          An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
+          An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Door.
           
       - question: |
           What features does the WAF SKU support?
@@ -57,7 +57,7 @@ sections:
           
           For more information, see [OWASP top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
 
-          CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version.
+          CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
           
       - question: |
           What content types does WAF support?
@@ -83,12 +83,12 @@ sections:
           
           ### Does WAF store customer data?
           
-          No, WAF does not store customer data.
+          No, WAF doesn't store customer data.
 
       - question: |
           How does the Azure WAF work with WebSockets?
         answer: |
-          Azure Application Gateway natively supports WebSocket. WebSocket on Azure WAF on Azure Application Gateway does not require any additional configuration to work. However, the WebSocket traffic is not inspected by WAF. After the initial handshake between client and server, the data exchange between client and server can be of any format, for example binary or encrypted. So Azure WAF can't always parse the data, it just acts as a pass-through proxy for the data.
+          Azure Application Gateway natively supports WebSocket. WebSocket on Azure WAF on Azure Application Gateway doesn't require any extra configuration to work. However, WAF doesn't inspect the WebSocket traffic. After the initial handshake between client and server, the data exchange between client and server can be of any format, for example binary or encrypted. So Azure WAF can't always parse the data, it just acts as a pass-through proxy for the data.
 
           For more information, see [Overview of WebSocket support in Application Gateway](../../application-gateway/application-gateway-websocket.md).
 

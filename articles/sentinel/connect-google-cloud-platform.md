@@ -36,7 +36,7 @@ Before you begin, verify that you have:
 You can set up the GCP environment in one of two ways:
 
 - [Create GCP resources via the Terraform API](#create-gcp-resources-via-the-terraform-api): Terraform provides an API for the Identity and Access Management (IAM) that creates the resources: The topic, a subscription for the topic, a workload identity pool, a workload identity provider, a service account, and a role.  
-- [Set up GCP environment manually](#) via the GCP console.
+- [Set up GCP environment manually](#set-up-the-gcp-environment-manually-via-the-gcp-portal) via the GCP console.
 
 ### Create GCP resources via the Terraform API
 
@@ -59,7 +59,7 @@ You can set up the GCP environment in one of two ways:
     terraform apply 
     ```
 
-1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](../active-directory/fundamentals/active-directory-how-to-find-tenant.md). 
+1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name). 
 1. When asked if a workload Identity Pool has already been created for Azure, type *yes* or *no*.  
 1. When asked if you want to create the resources listed, type *yes*.
 1. Save the resources parameters for later use. 	
@@ -143,7 +143,7 @@ This section shows you how to set up the GCP environment manually. Alternatively
 1. Fill in the required details, and make sure that the **Tenant ID** and **Tenant name** is the TenantID **without dashes**. 
     
     > [!NOTE]
-    > To find the tenant ID, in the Azure portal, navigate to **All Services > Azure Active Directory > Overview** and copy the **TenantID**. 
+    > To find the tenant ID, in the Azure portal, navigate to **All Services > Microsoft Entra ID > Overview** and copy the **TenantID**. 
 
 1. Make sure that **Enable pool** is selected. 
 
@@ -151,7 +151,7 @@ This section shows you how to set up the GCP environment manually. Alternatively
 
 1. To add a provider to the pool:
     - Select **OIDC** 
-    - Type the **Issuer (URL)**: \https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d    
+    - Type the **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
     - Next to **Audiences**, select **Allowed audiences**, and next to **Audience 1**, type: *api://2041288c-b303-4ca0-9076-9612db3beeb2*. 
 
         :::image type="content" source="media/connect-google-cloud-platform/gcp-add-provider-pool.png" alt-text="Screenshot of adding the provider to the pool when creating the GCP workload identity federation.":::

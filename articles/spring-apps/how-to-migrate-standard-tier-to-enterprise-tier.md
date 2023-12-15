@@ -2,12 +2,12 @@
 title: How to migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
-author: karlerickson
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-apps
 ms.topic: how-to
 ms.date: 6/20/2023
-ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Migrate an Azure Spring Apps Basic or Standard plan instance to the Enterprise plan
@@ -135,14 +135,14 @@ The app creation steps are the same as Standard plan.
 
 ## Use Application Configuration Service for external configuration
 
-For externalized configuration in a distributed system, managed Spring Cloud Config Server (OSS) is available only in the Basic and Standard plans. In the Enterprise plan, Application Configuration Service for Tanzu (ACS) provides similar functions for your apps. The following table describes some differences in usage between the OSS config server and ACS.
+For externalized configuration in a distributed system, managed Spring Cloud Config Server (OSS) is available only in the Basic and Standard plans. In the Enterprise plan, Application Configuration Service for Tanzu provides similar functions for your apps. The following table describes some differences in usage between the OSS config server and Application Configuration Service.
 
 | Component                                   | Support plans  | Enabled           | Bind to app | Profile                                                               |
 |---------------------------------------------|----------------|-------------------|-------------|-----------------------------------------------------------------------|
 | Spring Cloud Config Server                  | Basic/Standard | Always enabled.   | Auto bound  | Configured in app's source code.                                      |
 | Application Configuration Service for Tanzu | Enterprise     | Enable on demand. | Manual bind | Provided as `config-file-pattern` in an Azure Spring Apps deployment. |
 
-Unlike the client-server mode in the OSS config server, ACS manages configuration by using the Kubernetes-native `ConfigMap`, which is populated from properties defined in backend Git repositories. ACS can't get the active profile configured in the app's source code to match the right configuration, so the explicit configuration `config-file-pattern` should be specified at the Azure Spring Apps deployment level.
+Unlike the client-server mode in the OSS config server, Application Configuration Service manages configuration by using the Kubernetes-native `ConfigMap`, which is populated from properties defined in backend Git repositories. Application Configuration Service can't get the active profile configured in the app's source code to match the right configuration, so the explicit configuration `config-file-pattern` should be specified at the Azure Spring Apps deployment level.
 
 ## Configure Application Configuration Service for Tanzu
 
@@ -187,7 +187,7 @@ When you use Application Configuration Service for Tanzu with a Git backend, you
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to bind apps to Application Configuration Service for VMware Tanzu®.
+Use the following steps to bind apps to Application Configuration Service for VMware Tanzu.
 
 1. In your Azure Spring Apps Enterprise instance, select **Application Configuration Service** in the navigation pane.
 
@@ -199,7 +199,7 @@ Use the following steps to bind apps to Application Configuration Service for VM
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following commands to bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry:
+Use the following commands to bind apps to Application Configuration Service for VMware Tanzu and VMware Tanzu Service Registry:
 
 ```azurecli
 az spring application-configuration-service bind --app api-gateway
@@ -212,7 +212,7 @@ For more information, see [Use Application Configuration Service for Tanzu](./ho
 
 ## Using Service Registry for Tanzu
 
-[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
+[Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.1/spring-cloud-services/GUID-service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
 
 | Component        | Standard plan                                                        | Enterprise plan                                                                   |
 |------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------|
@@ -220,7 +220,7 @@ For more information, see [Use Application Configuration Service for Tanzu](./ho
 
 ## Bind an application to Tanzu Service Registry
 
-To bind apps to Application Configuration Service for VMware Tanzu®, follow these steps.
+To bind apps to Application Configuration Service for VMware Tanzu, follow these steps.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -236,7 +236,7 @@ To bind apps to Application Configuration Service for VMware Tanzu®, follow the
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the following commands to bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry:
+Use the following commands to bind apps to Application Configuration Service for VMware Tanzu and VMware Tanzu Service Registry:
 
 ```azurecli
 az spring service-registry bind --app api-gateway

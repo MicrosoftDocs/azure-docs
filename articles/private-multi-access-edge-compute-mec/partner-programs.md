@@ -55,7 +55,7 @@ Networking ISV partners include software vendors that provide network functions 
 | | [Versa Networks](https://aka.ms/versa) |
 
 ### SIM & RAN
-SIM partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. The following partners have completed interop tests with Azure private MEC. Contact the partner or your Microsoft representative for more details:
+SIM partners provide wireless authentication technologies and embedded cellular modules. RAN partners deliver various hardware equipment (such as radios and antennas) necessary to deploy private mobile networks. The following partners have completed interop tests with Azure private MEC. Contact the partner representative for more details:
 
 |SIM |RAN (hardware)|
 |---------|---------|

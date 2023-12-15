@@ -6,8 +6,7 @@ author: normesta
 
 ms.author: normesta
 ms.date: 12/02/2022
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---

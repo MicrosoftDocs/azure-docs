@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, devx-track-linux
 #Customer intent: As an IT administrator, I want to use Azure CLI to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 
@@ -177,21 +177,21 @@ In order to ensure that more specific rules are processed first, use the rule pr
 ```azurecli-interactive
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name wccontosoRule \
+  --name contosoRule \
   --resource-group myResourceGroupAG \
-  --http-listener wccontosoListener \
+  --http-listener contosoListener \
   --rule-type Basic \
   --priority 200 \
-  --address-pool wccontosoPool
+  --address-pool contosoPool
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
-  --name shopcontosoRule \
+  --name fabrikamRule \
   --resource-group myResourceGroupAG \
-  --http-listener shopcontosoListener \
+  --http-listener fabrikamListener \
   --rule-type Basic \
   --priority 100 \
-  --address-pool shopcontosoPool
+  --address-pool fabrikamPool
 
 ```
 
@@ -215,13 +215,13 @@ for i in `seq 1 2`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --admin-password Azure123456! \
     --instance-count 2 \
     --vnet-name myVNet \
     --subnet myBackendSubnet \
-    --vm-sku Standard_DS2 \
+    --vm-sku Standard_D1_v2 \
     --upgrade-policy-mode Automatic \
     --app-gateway myAppGateway \
     --backend-pool-name $poolName

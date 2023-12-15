@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 11/02/2022
+ms.date: 06/27/2023
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -30,8 +30,6 @@ In this tutorial, you learn how to:
 + Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## View metrics of your APIs
 
@@ -122,7 +120,10 @@ To view the activity log:
 
 ## Resource logs
 
-Resource logs provide rich information about operations and errors that are important for auditing and troubleshooting purposes. Resource logs differ from activity logs. The activity log provides insights into the operations run on your Azure resources. Resource logs provide insight into operations that your resource ran.
+Resource logs (Azure Monitor logs) provide rich information about API Management operations and errors that are important for auditing and troubleshooting purposes. When enabled through a diagnostic setting, the logs collect information about the API requests that are received and processed by the API Management gateway.
+
+> [!NOTE]
+> The Consumption tier doesn't support the collection of resource logs.
 
 To configure resource logs:
 
@@ -142,7 +143,7 @@ To configure resource logs:
 1. After configuring details for the log destination or destinations, select **Save**. 
 
 > [!NOTE]
-> Adding a diagnostic setting object might result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2019-12-01. 
+> Adding a diagnostic setting object might result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2022-09-01-preview. 
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
  

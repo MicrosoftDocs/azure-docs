@@ -6,7 +6,7 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
 ms.date: 06/08/2023
@@ -87,10 +87,10 @@ Moving the workspace enables you to migrate the workspace and its contents as a 
 
 * Workspace move isn't meant for replicating workspaces, or moving individual assets such as models or datasets from one workspace to another.
 * Workspace move doesn't support migration across Azure regions.
-* Workspace move doesn't support migration across Azure Active Directory tenants.
+* Workspace move doesn't support migration across Microsoft Entra tenants.
 
     > [!TIP]
-    > For information on manually moving tenants, see the [Transfer an Azure subscription to a different Azure Active Directory](/azure/role-based-access-control/transfer-subscription) article.
+    > For information on manually moving tenants, see the [Transfer an Azure subscription to a different Microsoft Entra ID](/azure/role-based-access-control/transfer-subscription) article.
 
 * The workspace mustn't be in use during the move operation. Verify that all experiment jobs, data profiling jobs, and labeling projects have completed. Also verify that inference endpoints aren't being invoked.
 * The workspace becomes unavailable during the move.

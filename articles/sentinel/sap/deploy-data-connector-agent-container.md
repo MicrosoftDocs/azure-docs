@@ -4,6 +4,7 @@ description: This article shows you how to use the UI to deploy the container th
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
@@ -11,7 +12,9 @@ ms.date: 01/18/2023
 
 This article shows you how to deploy the container that hosts the SAP data connector agent. You do this to ingest SAP data into Microsoft Sentinel, as part of the Microsoft Sentinel solution for SAP® applications.
 
-This article shows you how to deploy the container and create SAP systems via the UI. Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): Managed identity, a registered application, a configuration file, or directly on the VM.
+This article shows you how to deploy the container and create SAP systems via the UI. Also see [this video](https://www.youtube.com/watch?v=bg0vmUvcQ5Q) that shows the agent deployment process via the UI.
+
+Alternatively, you can [deploy the data connector agent using other methods](deploy-data-connector-agent-container-other-methods.md): Managed identity, a registered application, a configuration file, or directly on the VM.
 
 > [!IMPORTANT]
 > Deploying the container and creating SAP systems via the UI is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
@@ -54,7 +57,7 @@ The agent connects to your SAP system to pull logs and other data from it, then 
 Your SAP authentication mechanism, and where you deploy your VM, will determine how and where your agent configuration information, including your SAP authentication secrets, is stored. These are the options, in descending order of preference:
 
 - An **Azure Key Vault**, accessed through an Azure **system-assigned managed identity**
-- An **Azure Key Vault**, accessed through an Azure AD **registered-application service principal**
+- An **Azure Key Vault**, accessed through a Microsoft Entra ID **registered-application service principal**
 - A plaintext **configuration file**
 
 If your SAP authentication is done using SNC and X.509 certificates, your only option is to use a configuration file. Select the [**Configuration file** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=config-file#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
@@ -63,9 +66,9 @@ If you're not using SNC, then your SAP configuration and authentication secrets 
 
 - **A container on an Azure VM** can use an Azure [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to seamlessly access Azure Key Vault. Select the [**Managed identity** tab](deploy-data-connector-agent-container-other-methods.md?tabs=managed-identity#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container using managed identity.
 
-    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a configuration file.
+    In the event that a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md), or, as a last resort, a configuration file.
 
-- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Azure AD registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
+- **A container on an on-premises VM**, or **a VM in a third-party cloud environment**, can't use Azure managed identity, but can authenticate to Azure Key Vault using an [Microsoft Entra registered-application service principal](../../active-directory/develop/app-objects-and-service-principals.md). Select the [**Registered application** tab below](deploy-data-connector-agent-container-other-methods.md?tabs=registered-application#deploy-the-data-connector-agent-container) for the instructions to deploy your agent container.
 
     If for some reason a registered-application service principal can't be used, you can use a configuration file, though this is not preferred.
 
@@ -75,7 +78,6 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 ### Prerequisites
 
-- To get started with deploying the data connector agent via the UI, **[complete the sign-up form](https://aka.ms/SentinelSAPMultiSIDUX)** so that we can provision your subscription with access to the preview. We’ll send a confirmation email once your subscription is active.
 - Follow the [Microsoft Sentinel Solution for SAP deployment prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).
 - If you plan to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), [deploy the Microsoft Sentinel for SAP data connector with SNC](configure-snc.md).
 - Set up a [managed identity](#managed-identity) or a [registered application](#registered-application). For more information on these options, see the [overview section](#data-connector-agent-deployment-overview).
@@ -160,7 +162,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
 
 1. Copy the **appId**, **tenant**, and **password** from the output. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
-1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`). If you'll be using an existing key vault, ignore this step :
+1. Run the following commands to **create a key vault** (substitute actual names for the `<placeholders>`). If you'll be using an existing key vault, ignore this step:
 
     ```azurecli
     az keyvault create \
@@ -214,7 +216,7 @@ In this section, you deploy the data connector agent. After you deploy the agent
         - . 
         - \-
     - Select the subscription and key vault.
-    - Under **NWRFC SDK zip file path on the agent VM**, type a path that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, *src/test/NWRFC.zip*.
+    - Under **NWRFC SDK zip file path on the agent VM**, type a path that contains the SAP NetWeaver Remote Function Call (RFC), Software Development Kit (SDK) archive (.zip file). For example, */src/test/NWRFC.zip*.
     - To ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC), select **Enable SNC connection support**. If you select this option, under **SAP Cryptographic Library path on the agent VM**, provide the path that contains the `sapgenpse` binary and `libsapcrypto.so` library.
     
     > [!NOTE]
@@ -229,6 +231,9 @@ In this section, you deploy the data connector agent. After you deploy the agent
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment.png" alt-text="Screenshot of the final stage of the agent deployment.":::
 
 1. Under **Just one step before we finish**, select **Copy** :::image type="content" source="media/deploy-data-connector-agent-container/copy-icon.png" alt-text="Screenshot of the Copy icon." border="false"::: next to **Agent command**.
+
+   The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl). You can supply additional parameters to the script to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+   
 1. In your target VM (the VM where you plan to install the agent), open a terminal and run the command you copied in the previous step.
 
     The relevant agent information is deployed into Azure Key Vault, and the new agent is visible in the table under **Add an API based collector agent**. 

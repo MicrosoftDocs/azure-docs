@@ -86,7 +86,7 @@ The new VM Extension for SAP uses a managed identity that's assigned to the VM t
 1. Make sure to uninstall the standard version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0). For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 1. Run the following PowerShell cmdlet.
-    For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
+    For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
     The VM Extension for SAP supports configuring a proxy that the extension should use to connect to external resources, for example the Azure Resource Manager API. Please use parameter -ProxyURI to set the proxy.
 
@@ -148,7 +148,7 @@ Before deploying the VM Extension for SAP, please make sure to assign a user or 
 * [Configure managed identities for Azure resources on an Azure VM using templates](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 * [Terraform VM Identity](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_virtual_machine#identity)
 
-After assigning an identity to the virtual machine, give the VM read access to either the resource group or the individual resources associated to the virtual machine (VM, Network Interfaces, OS Disks and Data Disks). It is recommended to use the built-in Reader role to grant the access to these resources. You can also grant this access by adding the VM identity to an Azure Active Directory group that already has read access to the required resources. It is then no longer needed to have Owner privileges when deploying the VM Extension for SAP if you use a user assigned identity that already has the required permissions.
+After assigning an identity to the virtual machine, give the VM read access to either the resource group or the individual resources associated to the virtual machine (VM, Network Interfaces, OS Disks and Data Disks). It is recommended to use the built-in Reader role to grant the access to these resources. You can also grant this access by adding the VM identity to a Microsoft Entra group that already has read access to the required resources. It is then no longer needed to have Owner privileges when deploying the VM Extension for SAP if you use a user assigned identity that already has the required permissions.
 
 There are different ways how to deploy the VM Extension for SAP manually. Please find a few examples in the next chapters.
 
@@ -370,7 +370,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
 ### Health checks using PowerShell
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure China 21Vianet, select **AzureChinaCloud**.
+1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Microsoft Azure operated by 21Vianet, select **AzureChinaCloud**.
 
    ```powershell
    $env = Get-AzEnvironment -Name <name of the environment>

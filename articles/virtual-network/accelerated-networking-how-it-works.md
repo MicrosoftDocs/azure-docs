@@ -5,6 +5,7 @@ author: steveesp
 ms.service: virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
+ms.custom: devx-track-linux
 ms.workload: infrastructure
 ms.date: 04/18/2023
 ms.author: steveesp
@@ -56,7 +57,7 @@ TX packets 9103233  bytes 2183731687 (2.1 GB)
 TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0 
 ```
 
-The synthetic interface always has a name in the form `eth\<n\>`. Depending on the Linux distribution, the VF interface might have a name in the form `eth\<n\>`. Or it might have a name in a different form because of a udev rule that does renaming.
+The synthetic interface always has a name in the form `eth\<n\>`. Depending on the Linux distribution, the VF interface might have a name in the form `eth\<n\>`. Or it might have a different name in the form of `enP\<n\>` because of a udev rule that does renaming.
 
 You can determine whether a particular interface is the synthetic interface or the VF interface by using the shell command line that shows the device driver that the interface uses:
 

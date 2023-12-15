@@ -4,6 +4,7 @@ description: Learn how to provide server credentials on appliance configuration 
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/13/2023
 ms.custom: engagement-fy23

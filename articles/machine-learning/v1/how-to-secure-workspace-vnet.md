@@ -8,14 +8,14 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 06/17/2022
+ms.date: 09/29/2023
 ms.topic: how-to
 ms.custom: UpdateFrequency5, contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, sdkv1, event-tier1-build-2022, build-2023
 ---
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)
 
-[!INCLUDE [sdk/cli v1](../../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [sdk/cli v1](../includes/machine-learning-dev-v1.md)]
 
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in an Azure Virtual Network.
@@ -93,7 +93,7 @@ When ACR is behind a virtual network, Azure Machine Learning can't use it to dir
 
 ## Required public internet access
 
-[!INCLUDE [machine-learning-required-public-internet-access](../../../includes/machine-learning-public-internet-access.md)]
+[!INCLUDE [machine-learning-required-public-internet-access](../includes/machine-learning-public-internet-access.md)]
 
 For information on using a firewall solution, see [Use a firewall with Azure Machine Learning](../how-to-access-azureml-behind-firewall.md).
 
@@ -136,7 +136,7 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a private endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a private endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
 
 # [Service endpoint](#tab/se)
 
@@ -159,7 +159,8 @@ Azure Machine Learning supports storage accounts configured to use either a priv
 1. Select __Save__ to save the configuration.
 
 > [!TIP]
-> When using a service endpoint, you can also disable public access. For more information, see [disallow public read access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> When using a service endpoint, you can also disable anonymous access. For more information, see [disallow anonymous access](../../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-anonymous-read-access-for-a-storage-account).
+
 
 ---
 
@@ -208,7 +209,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
-    [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+    [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
     If you've [installed the Machine Learning extension v1 for Azure CLI](reference-azure-machine-learning-cli.md), you can use the `az ml workspace show` command to show the workspace information.
 
@@ -220,7 +221,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Python SDK](#tab/python)
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
 
@@ -263,7 +264,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/). Replace `mycomputecluster` with the name of the cluster to use:
 
-    [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+    [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
     ```python
     from azureml.core import Workspace
@@ -334,20 +335,22 @@ validate=False)
 
 To enable network isolation for Azure Monitor and the Application Insights instance for the workspace, use the following steps:
 
-1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
+1. Open your Application Insights resource in the Azure Portal. The __Overview__ tab may or may not have a Workspace property. If it _doesn't_ have the property, perform step 2. If it _does_, then you can proceed directly to step 3.
 
     > [!TIP]
-    > New workspaces create a workspace-based Application Insights resource by default.
+    > New workspaces create a workspace-based Application Insights resource by default. If your workspace was recently created, then you would not need to perform step 2.
+   
+1. Upgrade the Application Insights instance for your workspace. For steps on how to upgrade, see [Migrate to workspace-based Application Insights resources](/azure/azure-monitor/app/convert-classic-resource).
 
 1. Create an Azure Monitor Private Link Scope and add the Application Insights instance from step 1 to the scope. For steps on how to do this, see [Configure your Azure Monitor private link](/azure/azure-monitor/logs/private-link-configure).
 
 ## Securely connect to your workspace
 
-[!INCLUDE [machine-learning-connect-secure-workspace](../../../includes/machine-learning-connect-secure-workspace.md)]
+[!INCLUDE [machine-learning-connect-secure-workspace](../includes/machine-learning-connect-secure-workspace.md)]
 
 ## Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../../includes/machine-learning-workspace-diagnostics.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](../includes/machine-learning-workspace-diagnostics.md)]
 
 ## Next steps
 
@@ -362,3 +365,5 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 * [Tutorial: Create a secure workspace](../tutorial-create-secure-workspace.md)
 * [Tutorial: Create a secure workspace using a template](../tutorial-create-secure-workspace-template.md)
 * [API platform network isolation](../how-to-configure-network-isolation-with-v2.md)
+
+

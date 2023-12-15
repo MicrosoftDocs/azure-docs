@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 06/26/2023
 # As a developer, I want to collect and send diagnostics data for my logic app workflows to specific destinations, such as a Log Analytics workspace, storage account, or event hub, for further review.
 ---
 
@@ -16,6 +16,15 @@ ms.date: 05/25/2023
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To get richer data for debugging and diagnosing your workflows in Azure Logic Apps, you can log workflow runtime data and events, such as trigger events, run events, and action events, that you can send to a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace), Azure [storage account](../storage/common/storage-account-overview.md), Azure [event hub](../event-hubs/event-hubs-features.md#namespace), another partner destination, or all these destinations when you set up and use [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
+
+> [!NOTE]
+>
+> Azure Monitor Resource Logs aren't 100% lossless. Resource Logs are based on a store and forward architecture designed to affordably move 
+> petabytes of data per day at scale. This capability includes built-in redundancy and retries across the platform, but doesn't provide 
+> transactional guarantees. Transactional monitoring might reduce the reliability and performance of the monitored service. 
+> Also, transient logging errors must halt the upstream service when unable to confirm log delivery. 
+> Whenever the Azure Monitor team can confirm a persistent source of data loss, the team considers resolution and prevention its highest priority. 
+> However, small data losses might still happen due to temporary, non-repeating service issues distributed across Azure, and not all can be caught.
 
 This how-to guide shows how to complete the following tasks, based on whether you have a Consumption or Standard logic app resource.
 
@@ -55,7 +64,7 @@ This how-to guide shows how to complete the following tasks, based on whether yo
 
   * [Permission to purchase - Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing#permission-to-purchase)
 
-  * [Azure roles, Azure AD roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
+  * [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)
 
 * The destination resource for where you want to send diagnostic data:
 
@@ -369,7 +378,7 @@ Tracked properties can only reference the parameters, inputs, and outputs for it
 
 Tracked properties aren't allowed on a trigger or action that has secure inputs, secure outputs, or both. They're also not allowed to reference another trigger or action that has secure inputs, secure outputs, or both.
 
-The following examples shows where custom properties appear in your Log Analytics workspace:
+The following examples show where custom properties appear in your Log Analytics workspace:
 
 ### [Consumption](#tab/consumption)
 

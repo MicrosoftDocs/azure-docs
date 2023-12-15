@@ -2,6 +2,7 @@
 title: Use Container Storage Interface (CSI) driver for Azure Disk on Azure Kubernetes Service (AKS)
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Disk in an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
+ms.custom: devx-track-linux
 ms.date: 04/19/2023
 ---
 

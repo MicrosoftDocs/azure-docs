@@ -16,6 +16,15 @@ ms.custom: ignite-2022, devx-track-azurecli, devx-track-python
 
 [!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
 
+> [!div class="op_single_selector"]
+>
+> * [.NET](quickstart-dotnet.md)
+> * [Python](quickstart-python.md)
+> * [Java](quickstart-java.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Go](quickstart-go.md)
+>
+
 Get started with the PyMongo package to create databases, collections, and documents within your Azure Cosmos DB resource. Follow these steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
@@ -263,10 +272,3 @@ Remove-AzResourceGroup @parameters
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
 
 ---
-
-## Next steps
-
-In this quickstart, you learned how to create an Azure Cosmos DB for MongoDB account, create a database, and create a collection using the PyMongo driver. You can now dive deeper into the Azure Cosmos DB for MongoDB to import more data, perform complex queries, and manage your Azure Cosmos DB MongoDB resources.
-
-> [!div class="nextstepaction"]
-> [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md)

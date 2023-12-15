@@ -103,23 +103,10 @@ To generalize your Windows VM, follow these steps:
 
 5. Then change the directory to %windir%\system32\sysprep, and then run:
    ```
-   sysprep.exe /oobe /generalize /shutdown
+   sysprep.exe /generalize /shutdown
    ```
 6. The VM will shut down when Sysprep is finished generalizing the VM. Do not restart the VM.
  
-
-
-> [!TIP]
-> **Optional** Use [DISM](/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
->
-> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
->
-> ```cmd
-> DISM /image:D:\ /optimize-image /boot
-> ```
-> Where D: is the mounted VHD's path.
->
-> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
 
 Once Sysprep has finished, set the status of the virtual machine to **Generalized**.
    

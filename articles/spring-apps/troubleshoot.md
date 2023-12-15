@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Apps
-author: karlerickson
+author: KarlErickson
 ms.service: spring-apps
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: karler
-ms.custom: devx-track-java, event-tier1-build-2022
+ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022
 ---
 
 # Troubleshoot common Azure Spring Apps issues
@@ -126,7 +126,7 @@ But if you try to set up the Azure Spring Apps service instance by using the [Az
 
 If you want to set up the Azure Spring Apps service instance by using the Resource Manager template, first refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
-The name of the Azure Spring Apps service instance is used for requesting a subdomain name under `azureapps.io`, so the setup fails if the name conflicts with an existing one. You might find more details in the activity logs.
+The name of the Azure Spring Apps service instance is used for requesting a subdomain name under `azuremicroservices.io`, so the setup fails if the name conflicts with an existing one. You might find more details in the activity logs.
 
 ### I can't deploy a .NET Core app
 

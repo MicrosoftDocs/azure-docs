@@ -4,6 +4,7 @@ description: This article shows you how to manually deploy the container that ho
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.date: 01/18/2023
 ---
 
@@ -40,8 +41,6 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
 ## Deploy the data connector agent container
 
 # [Managed identity](#tab/managed-identity)
-
-1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
 
 1. Run the following command to **Create a VM** in Azure (substitute actual names for the `<placeholders>`):
 
@@ -98,12 +97,14 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
 
 1. **Sign in to the newly created machine** with a user with sudo privileges.
 
-1. **download and run the deployment Kickstart script**:
+1. **Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine on which you want to install the agent.
+
+1. **Download and run the deployment Kickstart script**:
     For public cloud, the command is:
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh
     ```
-    For Azure China 21Vianet, the command is:
+    For Microsoft Azure operated by 21Vianet, the command is:
     ```bash
     wget -O sapcon-sentinel-kickstart.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh && bash ./sapcon-sentinel-kickstart.sh --cloud mooncake
     ```
@@ -265,7 +266,7 @@ Read about the [deployment process](deploy-data-connector-agent-container.md#dat
    ```bash
    sid=<SID>
    docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest
-   docker create -d --restart unless-stopped -v /opt/sapcon/$sid/:/sapcon-app/sapcon/config/system --name sapcon-$sid sapcon   
+   docker create --restart unless-stopped --name my-container mcr.microsoft.com/azure-sentinel/solutions/sapcon   
    ```
 
 1. Run the following command to copy the SDK into the container. Replace `<SID>` with the name of the SAP instance and `<sdkfilename>` with full filename of the SAP NetWeaver SDK.

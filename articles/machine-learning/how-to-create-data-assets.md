@@ -2,11 +2,10 @@
 title: Create Data Assets
 titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning data assets
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, ignite-2022
+ms.custom: data4ml, ignite-2022, devx-track-azurecli
 ms.author: xunwan
 author: SturgeonMi
 ms.reviewer: franksolomon
@@ -14,7 +13,7 @@ ms.date: 06/20/2023
 ---
 
 # Create and manage data assets
-[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
+[!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
 
 This article shows how to create and manage data assets in Azure Machine Learning.
@@ -50,6 +49,10 @@ When you create your data asset, you need to set the data asset type. Azure Mach
 |**File**<br>Reference a single file     |    `uri_file`    | Read a single file on Azure Storage (the file can have any format). |
 |**Folder**<br> Reference a folder     |     `uri_folder`    |      Read a folder of parquet/CSV files into Pandas/Spark.<br><br>Read unstructured data (images, text, audio, etc.) located in a folder. |
 |**Table**<br> Reference a data table    |   `mltable`      |   You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables.<br><br>Read unstructured data (images, text, audio, etc.) data that is spread across **multiple** storage locations. |
+
+> [!NOTE]
+> Please do not use embedded newlines in csv files unless you register the data as an MLTable. Embedded newlines in csv files might cause misaligned field values when you read the data. MLTable has this parameter [`support_multi_line`](../machine-learning/reference-yaml-mltable.md?view=azureml-api-2&preserve-view=true#read-transformations)in `read_delimited` transformation to interpret quoted line breaks as one record.
+
 
 When you consume the data asset in an Azure Machine Learning job, you can either *mount* or *download* the asset to the compute node(s). For more information, please read [Modes](how-to-read-write-data-v2.md#modes).
 

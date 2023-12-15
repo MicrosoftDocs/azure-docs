@@ -1,12 +1,12 @@
 ---
 title: "Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps"
 description: Describes the setup of Azure Spring Apps Config Server for app deployment.
-author: karlerickson
+author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 7/19/2022
-ms.custom: devx-track-java, fasttrack-edit, mode-other, event-tier1-build-2022, devx-track-extended-java
+ms.custom: devx-track-java, devx-track-extended-java, fasttrack-edit, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-apps
 ---
 
@@ -34,7 +34,7 @@ Set up your Config Server with the location of the git repository for the projec
 az spring config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
 ```
 
-This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that gets the configuration data is `planet-weather-provider`, the file that's used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/steeltoe-sample/config/planet-weather-provider.yml).
+This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that gets the configuration data is `planet-weather-provider`, the file that's used is [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/HEAD/steeltoe-sample/config/planet-weather-provider.yml).
 
 ::: zone-end
 

@@ -6,7 +6,8 @@ author: ankitaduttaMSFT
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 6/4/2020
+ms.custom: devx-track-linux
+ms.date: 12/15/2023
 ms.author: ankitadutta
 ---
 # Azure Site Recovery Deployment Planner Version History

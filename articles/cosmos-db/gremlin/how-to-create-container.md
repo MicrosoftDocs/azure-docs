@@ -25,7 +25,7 @@ This article explains the different ways to create a container in Azure Cosmos D
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](quickstart-dotnet.md), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Graph**. Next, provide the following details:
 

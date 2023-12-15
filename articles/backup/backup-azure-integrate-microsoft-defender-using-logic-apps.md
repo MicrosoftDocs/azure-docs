@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.custom: references_regions
 ms.date: 12/30/2022
 ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Solution sample to integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points
@@ -79,7 +79,7 @@ To authorize the API connection to Office 365, follow these steps:
 4. Select **Authorize**. 
 
    >[!Note]
-   >Ensure that you authenticate against Azure AD.
+   >Ensure that you authenticate against Microsoft Entra ID.
 
 5. Select **Save**.
 

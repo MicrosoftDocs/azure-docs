@@ -1,17 +1,16 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 10/26/2022
+ms.date: 06/27/2023
 ms.topic: reference
 ms.custom: generated
 ms.author: davidsmatlak
 author: davidsmatlak
 ---
+
 # Azure Resource Graph table and resource type reference
 
-Azure Resource Graph supports the following **resource types** of
-[Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is
-part of a **table** in Resource Graph.
+Azure Resource Graph supports the following **resource types** of [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). Each **resource type** is part of a **table** in Resource Graph.
 
 ## advisorresources
 
@@ -123,6 +122,11 @@ For sample queries for this table, see [Resource Graph sample queries for kubern
 - microsoft.maintenance/configurationassignments
 - microsoft.maintenance/maintenanceconfigurations/applyupdates
 - microsoft.maintenance/updates
+
+## managedservicesresources
+
+- microsoft.managedservices/registrationassignments
+- microsoft.managedservices/registrationdefinitions
 
 ## networkresources
 
@@ -807,6 +811,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.scvmm/virtualnetworks
 - microsoft.ScVmm/vmmServers (SCVMM management servers)
 - microsoft.Search/searchServices (Search services)
+- microsoft.security/apicollections
+- microsoft.security/apicollections/apiendpoints
 - microsoft.security/assignments
 - microsoft.security/automations
 - microsoft.security/customassessmentautomations
