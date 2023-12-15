@@ -1087,6 +1087,16 @@ items:
       href: /java/api/overview/azure/communication-phonenumbers-readme
     - name: Phone Numbers (Python)
       href: /python/api/overview/azure/communication-phonenumbers-readme
+  - name: Rooms
+    items:
+    - name: Rooms (JavaScript)
+      href: /javascript/api/overview/azure/communication-rooms-readme
+    - name: Rooms (.NET)
+      href: /dotnet/api/overview/azure/communication.rooms-readme
+    - name: Rooms (Java)
+      href: /java/api/overview/azure/communication-rooms-readme
+    - name: Rooms (Python)
+      href: /python/api/overview/azure/communication-rooms-readme
   - name: SMS
     items:
     - name: SMS (JavaScript)
