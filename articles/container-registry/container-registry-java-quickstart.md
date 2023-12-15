@@ -3,7 +3,7 @@ title: Quickstart - Build and push container images of the Java Spring Boot App 
 description: Learn to build and push a containerized Java Spring Boot app to the Azure Container Registry using Maven and Jib plugin.
 author: KarlErickson
 ms.author: karler
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.topic: quickstart
 ms.service: container-registry
 ms.custom: devx-track-java, devx-track-azurecli, mode-api, devx-track-extended-java
