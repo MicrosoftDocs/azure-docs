@@ -26,7 +26,7 @@ The following guide walks you through setting up your provisioned deployment on 
 - Obtained Quota for a provisioned deployment and purchased a commiment. 
 
 > [!NOTE]
-> Provisioned throughput units (PTU) are different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
+> Provisioned Throughput Units (PTU) are different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
 
 
 ## Deploy your provisioned deployment
