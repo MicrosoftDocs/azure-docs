@@ -52,7 +52,7 @@ X2Go uses the same port as SSH (22), which is enabled by default when you create
 1. On the template VM, use the following ReadMe and script to install the XFCE GUI desktop and the X2Go server:
     1. [ReadMe](https://aka.ms/azlabs/scripts/LinuxDesktop-Xfce)
     1. [Bash script](https://aka.ms/azlabs/scripts/LinuxDesktop-Xfce/x2go-xfce4.sh)
-1.  Use the [X2Go client to connect to the template VM](lab-services/connect-virtual-machine-linux-x2go.md).
+1.  Use the [X2Go client to connect to the template VM](connect-virtual-machine-linux-x2go.md).
 
 ### Set up xUbuntu and X2Go
 
