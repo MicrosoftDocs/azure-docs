@@ -452,7 +452,7 @@ The following label must be present:
 If you aren't using `osm` CLI, you can also manually add these annotations to your namespaces. If a namespace isn't annotated with `"openservicemesh.io/sidecar-injection": "enabled"`, or isn't labeled with `"openservicemesh.io/monitored-by": "osm"`, the OSM injector won't add Envoy sidecars.
 
 > [!NOTE]
-> After `osm namespace add` is called, only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment` command.
+> After `osm namespace add` is called, only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with the `kubectl rollout restart deployment` command.
 
 ### Verify the SMI CRDs
 

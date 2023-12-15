@@ -422,7 +422,7 @@ Changes to `osm-mesh-config` can be made using the `kubectl patch` command. In t
 kubectl patch meshconfig osm-mesh-config -n arc-osm-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":false}}}' --type=merge
 ```
 
-If an incorrect value is used, validations on the MeshConfig CRD prevents the change with an error message explaining why the value is invalid. For example, this command shows what happens if we patch `enableEgress` to a non-boolean value:
+If an incorrect value is used, validations on the MeshConfig CRD prevent the change with an error message explaining why the value is invalid. For example, this command shows what happens if we patch `enableEgress` to a non-boolean value:
 
 ```azurecli-interactive
 kubectl patch meshconfig osm-mesh-config -n arc-osm-system -p '{"spec":{"traffic":{"enableEgress":"no"}}}'  --type=merge
@@ -551,7 +551,7 @@ There may be some downtime of the control plane during upgrades. The data plane 
 
 ### Supported upgrades
 
-The OSM extension can be upgraded manually across minor and major versions. However, auto-upgrades (if enabled) only works across minor versions.
+The OSM extension can be upgraded manually across minor and major versions. However, automatic upgrade (if enabled) only works across minor versions.
 
 ### Upgrade to a specific OSM version manually
 
@@ -585,7 +585,7 @@ az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_N
 
 This output should not include OSM. If you do not have any other extensions installed on your cluster, it's just an empty array.
 
-When you use the `az k8s-extension `command to delete the OSM extension, the `arc-osm-system`` namespace is not removed, and the actual resources within the namespace (like mutating webhook configuration and osm-controller pod) takes around ~10 minutes to delete.
+When you use the `az k8s-extension` command to delete the OSM extension, the `arc-osm-system` namespace is not removed, and the actual resources within the namespace (like mutating webhook configuration and osm-controller pod) take around 10 minutes to delete.
 
 > [!NOTE]
 > Use the az k8s-extension CLI to uninstall OSM components managed by Arc. Using the OSM CLI to uninstall is not supported by Arc and can result in undesirable behavior.

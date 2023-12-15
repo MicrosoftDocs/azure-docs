@@ -78,7 +78,7 @@ If you see these errors, check [Azure status](https://azure.status.microsoft/en-
 
 ## Overage claims error
 
-If you receive an overage claim, make sure that your service principal isn't part of more than 200 Microsoft Entra groups. If sp, you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
+If you receive an overage claim, make sure that your service principal isn't part of more than 200 Microsoft Entra groups. If this is the case, you must create and use another service principal that isn't a member of more than 200 groups, or remove the original service principal from some of its groups and try again.
 
 An overage claim may also occur if you have configured an outbound proxy environment without allowing the endpoint `https://<region>.obo.arc.azure.com:8084/` for outbound traffic.
 
@@ -235,17 +235,8 @@ This warning occurs when you use a service principal to log into Azure, and the 
 
 1. Sign in into Azure CLI using the service principal. Use the `<objectId>` value from the previous step to enable custom locations on the cluster:
 
-   * To enable custom locations when connecting the cluster to Arc, run the following command:
-
-     ```azurecli
-     az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>   
-     ```
-
-   * To enable custom locations on an existing Azure Arc-enabled Kubernetes cluster, run the following command:
-
-    ```azurecli
-    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
-    ```
+   * To enable custom locations when connecting the cluster to Arc, run `az connectedk8s connect -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId>`
+   * To enable custom locations on an existing Azure Arc-enabled Kubernetes cluster, run `az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations`
 
 ## Next steps
 
