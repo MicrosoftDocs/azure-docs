@@ -23,8 +23,7 @@ The following guide walks you through setting up your provisioned deployment on 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
 - Access granted to the Azure OpenAI service in the desired Azure subscription.
     Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- Quota for a provisioned deployment. 
-- Purchased commitment for the provisioned deployment
+- Obtained Quota for a provisioned deployment and purchased a commiment. 
 
 > [!NOTE]
 > Provisioned throughput units (PTU) are different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
@@ -32,14 +31,14 @@ The following guide walks you through setting up your provisioned deployment on 
 
 ## Deploy your provisioned deployment
 
-To create a provisioned deployment, you can follow these steps; the choices described below reflect those shown in the screenshot 
+After you have purchased a commitment on your quota, you can create a deployment. To create a provisioned deployment, you can follow these steps; the choices described below reflect those shown in the screenshot 
 
 :::image type="content" source="../media/provisioned/deployment-screen.jpg" alt-text="Screenshot of the Azure OpenAI Studio deployment page for a provisioned deployment." lightbox="../media/provisioned/deployment-screen.jpg":::
 
 
 
 1.	Sign into the [Azure OpenAI studio](https://oai.azure.com)
-2.	Choose the subscription that was enabled for provisioned deployments and the Azure OpenAI resource in Sweden Central. 
+2.	Choose the subscription that was enabled for provisioned deployments & select the desired resource in a region where you have the quota.
 3.	Under Management in the left-nav select Deployments
 4.	Select Create new deployment and configure the following fields. You will need to expand the ‘advanced options’ drop down.
 5.	Fill out the values in each field. We have provided an example below:
@@ -54,7 +53,7 @@ To create a provisioned deployment, you can follow these steps; the choices desc
 | Provisioned Throughput units |	Amount of throughput to provision |	100 |
 
 
-If you wish to deploy your endpoint programmatically you can do so with the following Azure CLI command. You will just need to pudate the sku-capacity with the desired amout of provisioned throughput units.
+If you wish to deploy your endpoint programmatically you can do so with the following Azure CLI command. You will just need to update the sku-capacity with the desired amout of provisioned throughput units.
 
 ```cli
 az cognitiveservices account deployment create \
@@ -109,9 +108,15 @@ The amount of throughput that you can achieve on the endpoint is a factor of the
 
 
 ## Measuring your deployment utilization
-When you deploy a specified number of provisioned throughput units (PTUs), a set amount of inference throughput is made available to that endpoint. Utilization of this throughput is a complex formula based on the model, model-version call rate, prompt size, generation size. To simplify this calculation, we provide a utilization metric in Azure Monitor. The LLM Utilization will be unique to each model+-version pair and cannot be compared across models. Your deployment will start to receive 429 signals  when the utilization is above 100%. 
+When you deploy a specified number of provisioned throughput units (PTUs), a set amount of inference throughput is made available to that endpoint. Utilization of this throughput is a complex formula based on the model, model-version call rate, prompt size, generation size. To simplify this calculation, we provide a utilization metric in Azure Monitor. The LLM Utilization will be unique to each model+-version pair and cannot be compared across models. Your deployment will start to receive 429 signals  when the utilization is above 100%. The Provisioned utilization is defined as follows:
 
 PTU deployment utilization = (PTUs consumed in the time period) / (PTUs deployed in the time period)
+
+You can find the utilization measure in the Azure-Monitor section for your resource. To access the monitoring dashboards sign-in to [https://portal.azure.com](https://portal.azure.com), go to your Azure OpenAI resource and select select the Metrics page from the left nav.  On the metrics page, select the 'Provisioned-managed utilization' measure. If you have more than one deployment in the resource, you should also split the values by each deployment by clicking the 'Apply Splitting' button.
+
+:::image type="content" source="../media/provisioned/azure-monitor-utilization.jpg" alt-text="Screenshot of the provisioned managed utilization on the resource's metrics blade in the Azure portal" lightbox="../media/provisioned/azure-monitor-utilization.jpg":::
+
+See our [Monitoring Azure OpenAI Service](./monitoring.md) page for more details on monitoring your deployment.
 
 
 ## Handling high utilization
@@ -154,7 +159,9 @@ client.with_options(max_retries=5).chat.completions.create(
 
 
 ## Run a Benchmark
-The exact performance and throughput capabilities of your instance will depend on the kind of requests you make and the exact workload. The best way to determine this is to run a benchmark on your own data. To assist you in this work, we have created a benchmarking tool which will run against a provisioned deployment. Learn more about the tool and configuration settings in our GitHub Repo: [https://aka.ms/aoai/benchmarking](https://aka.ms/aoai/benchmarking). The tool comes with several possible pre-configured workload shapes and outputs key performance metrics. 
+The exact performance and throughput capabilities of your instance will depend on the kind of requests you make and the exact workload. The best way to determine this is to run a benchmark on your own data once you have your provisioned deployment set up. 
+
+To assist you in this work, we have created a benchmarking tool which will run against a provisioned deployment. Learn more about the tool and configuration settings in our GitHub Repo: [https://aka.ms/aoai/benchmarking](https://aka.ms/aoai/benchmarking). The tool comes with several possible pre-configured workload shapes and outputs key performance metrics. 
 
 We recommend the following workflow:
 1. Estimate your throughput using the capacity calculator
