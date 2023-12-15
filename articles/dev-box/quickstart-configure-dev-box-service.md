@@ -6,22 +6,11 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/12/2023
+ms.date: 12/15/2023
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
 # Quickstart: Configure Microsoft Dev Box 
-
-<!-- Rose: A few notes for your review regarding the quickstart topic pattern.
-
-   -- The pattern says not to number H2 headings, but instead use verb * noun. I updated the headings accordingly.
-      For now, I added <a href> tags to fix broken bookmarks to the old headings.
-      If you approve the new headings, I'll update the references in the other files.
-   
-   -- The pattern says not to use links that send the user to another article for details or instructions.
-      This topic has several links that send the user away, and line 255 sends the user to another topic for instructions.
-      How would you like to address these issues?
--->
 
 In this quickstart, you set up all the resources in Microsoft Dev Box to enable development teams to self-service their dev boxes. Learn how to create and configure a dev center, specify a dev box definition, and create a dev box pool. After you complete this quickstart, developers can use the developer portal to create and connect to a dev box.
 
@@ -55,7 +44,6 @@ To complete this quickstart, you need:
 
 ## Create a dev center
 
-<a name="1-create-a-dev-center"> </a>
 To get started with Microsoft Dev Box, you first create a dev center. A dev center in Microsoft Dev Box provides a centralized place to manage a collection of projects, the configuration of available dev box images and sizes, and the networking settings to enable access to organizational resources.
 
 Use the following steps to create a dev center so you can manage your dev box resources: 
@@ -145,7 +133,6 @@ Because you're not configuring Deployment Environments, you can safely ignore th
 
 ## Create a dev box definition
 
-<a name="2-create-a-dev-box-definition"> </a>
 Next, you create a dev box definition in your dev center. A dev box definition defines the VM image and the VM SKU (compute size + storage) that are used in the creation of the dev boxes. Depending on the type of development project or developer profiles, you can create multiple dev box definitions. For example, some developers might need a specific developer tool set, whereas others need a cloud workstation that has more compute resources.
 
 The dev box definitions you create in a dev center are available for all projects associated with that dev center. You need to add at least one dev box definition to your dev center.
@@ -160,19 +147,6 @@ To create and configure a dev box definition for your dev center:
 
 1. On the **Create dev box definition** page, enter the following values:
 
-   <!-- Rose: Several questions for you in this section.
-
-     -- For the Image value, the current image title for the recommended value includes the suffix "| Hibernate". 
-        Do you want to use this newer image title, or leave off the suffix?
-
-     -- For Hibernation, since we're not enabling hibernation in this topic,
-        should the item be listed in the table, or presented standalone as I've done?
-
-     -- The screenshot shows values entered for all items. This style differs from most other screenshots
-        where no values are entered, or only critical values are entered. Should the screenshot be updated to
-        show only critical values, including the preferred Image and Image version (latest)?
-   -->
-
    | Setting | Value | Note |
    |---|---|---|
    | **Name** | Enter a descriptive name for your dev box definition. | |
@@ -180,8 +154,7 @@ To create and configure a dev box definition for your dev center:
    | **Image version** | Select a specific, numbered version to ensure that all the dev boxes in the pool always use the same version of the image. Select **Latest** to ensure that new dev boxes use the latest image available.|Selecting the **Latest** image version enables the dev box pool to use the most recent version of your chosen image from the gallery. This approach ensures the created dev boxes stay up to date with the latest tools and code for your image. Existing dev boxes aren't modified when an image version is updated. |
    | **Compute** | Select the compute combination for your dev box definition. | |
    | **Storage** | Select the amount of storage for your dev box definition. | |
-
-   Leave the **Enable hibernation** checkbox unselected. For more information about working with hibernation, see [Configure hibernation in Microsoft Dev Box](./how-to-configure-dev-box-hibernation.md).
+   | **Enable hibernation**| Leave this checkbox unselected. | |
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/recommended-test-image.png" alt-text="Screenshot that shows the page for creating a dev box definition." lightbox="./media/quickstart-configure-dev-box-service/recommended-test-image.png":::
 
@@ -189,7 +162,6 @@ To create and configure a dev box definition for your dev center:
 
 ## Create a dev box pool
 
-<a name="3-create-a-dev-box-pool"> </a>
 Now that you defined a dev box definition in your dev center, you can create a dev box pool in the project. A dev box pool is the collection of dev boxes that have the same settings, such as the dev box definition and network connection. Developers that have access to the project in the dev center, can then choose to create a dev box from a dev box pool.
 
 Dev box pools define the location of the dev boxes through the specified network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
@@ -236,7 +208,6 @@ The Azure portal deploys the dev box pool and runs health checks to ensure that 
 
 ## Provide access to a dev box project
 
-<a name="4-provide-access-to-a-dev-box-project"> </a>
 Before users can create dev boxes based on the dev box pools in a project, you must provide access for users through role assignments. The Dev Box User role enables dev box users to create, manage, and delete their own dev boxes. You grant access for the user at the level of the project.
 
 > [!IMPORTANT]
@@ -274,9 +245,9 @@ To assign roles:
 
 ## Delegate to project administrators
 
-Microsoft Dev Box makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams. They can create and manage [dev box pools](./how-to-manage-dev-box-pools.md), set [dev box limits](./tutorial-dev-box-limits.md), and configure [auto-stop schedules](./how-to-configure-stop-schedule.md). To give users permissions to manage projects, assign the DevCenter Project Admin role to them.
+Microsoft Dev Box makes it possible for you to delegate administration of projects to a member of the project team. Project administrators can assist with the day-to-day management of projects for their teams. They can create and manage [dev box pools](./how-to-manage-dev-box-pools.md), set [dev box limits](./tutorial-dev-box-limits.md), and configure [auto-stop schedules](./how-to-configure-stop-schedule.md). Currently, the DevCenter Project Admin role doesn't allow the project admin to add users to the project.
 
-You can assign the DevCenter Project Admin role by using the steps described earlier in [Provide access to a dev box project](#provide-access-to-a-dev-box-project) and select the **DevCenter Project Admin** role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
+To give users permissions to manage projects, assign the DevCenter Project Admin role to them. You can assign the DevCenter Project Admin role by using the steps described earlier in [Provide access to a dev box project](#provide-access-to-a-dev-box-project) and select the **DevCenter Project Admin** role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
 
