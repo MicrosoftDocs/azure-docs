@@ -93,9 +93,9 @@ productDirectory:
         text: Call flow topologies
       - url: ./concepts/voice-video-calling/calling-sdk-features.md
         text: Calling SDK overview
-    title: Chat
-    imageSrc: ./media/icons/chat-icon.svg
-    links:
+    - title: Chat
+      imageSrc: ./media/icons/chat-icon.svg
+      links:
       - url: ./concepts/chat/concepts.md
         text: Chat concepts
       - url: ./quickstarts/chat/get-started.md
@@ -106,9 +106,9 @@ productDirectory:
         text: Chat SDK overview
       - url: ./samples/chat-hero-sample.md
         text: Get started with the chat hero sample
-    title: Advanced Messaging
-    imageSrc: ./media/icons/advanced-messaging.svg
-    links:
+    - title: Advanced Messaging
+      imageSrc: ./media/icons/advanced-messaging.svg
+      links:
       - url: ./concepts/advanced-messaging/whatsapp/whatsapp-overview.md
         text: Advanced Messaging for WhatsApp overview
       - url: ./quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
