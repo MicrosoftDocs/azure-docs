@@ -51,6 +51,23 @@ When you send API calls to chat with an Azure OpenAI model on your data, the ser
 
 Use the following sections to configure your resources for the best secure usage. If you plan to only secure part of your resources, you can skip unrelated sections.
 
+## Create resource group
+
+Create a resource group, so you can organize all resources mentioned in this article in it later. To clean up all the resources, you can easily delete the resource group. The resources in the resource group will include but not limited to:
+* 1 virtual network, 
+* 3 key services: 1 Azure OpenAI, 1 Azure AI Search, 1 Storage Account, 
+* 3 private endpoints, each is linked to one key service above, 
+* 3 network interfaces, each is associated with one private endpoint above,
+* 1 virtual network gateway, for the access from on-premises client machines,
+* 1 Web App with virtual network integrated,
+* 1 private DNS zone, so the web app or virtual machines in the virtual network can resolve the private IP of the endpoint of the key service mentioned above.
+
+## Create virtual network
+
+The virtual network will have 2 subnets. The first subnet is what you created and will be used for the private IP of the 3 private endpoints. The second subnet will be created automatically when you create the virtual network gateway. See the virtual network architecture below.
+
+:::image type="content" source="../media/use-your-data/virtual-network.png" alt-text="A diagram showing the virtual network architecture." lightbox="../media/use-your-data/virtual-network.png":::
+
 
 ## Configure Azure OpenAI
 
