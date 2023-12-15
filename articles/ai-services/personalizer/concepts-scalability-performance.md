@@ -5,12 +5,13 @@ description: "High-performance and high-traffic websites and applications have t
 author: jcodella
 ms.author: jacodel
 ms.manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.service: azure-ai-personalizer
 ms.topic: conceptual
 ms.date: 10/24/2019
 ---
 # Scalability and Performance
+
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
 
 High-performance and high-traffic websites and applications have two main factors to consider with Personalizer for scalability and performance:
 

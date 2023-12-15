@@ -2,8 +2,8 @@
 title: Set a map style in Android maps
 titleSuffix: Microsoft Azure Maps
 description: Learn two ways of setting the style of a map. See how to use the Azure Maps Android SDK in either the layout file or the activity class to adjust the style.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps

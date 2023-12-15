@@ -43,7 +43,7 @@ The following example creates a container asynchronously from the BlobServiceCli
 ```javascript
 async function createContainer(blobServiceClient, containerName){
 
-  // public access at container level
+  // anonymous access at container level
   const options = {
     access: 'container'
   };

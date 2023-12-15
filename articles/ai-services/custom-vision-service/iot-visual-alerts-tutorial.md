@@ -2,12 +2,11 @@
 title: "Tutorial: IoT Visual Alerts sample"
 titleSuffix: "Azure AI services"
 description: In this tutorial, you use Custom Vision with an IoT device to recognize and report visual states from a camera's video feed.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: custom-vision
+ms.service: azure-ai-custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley

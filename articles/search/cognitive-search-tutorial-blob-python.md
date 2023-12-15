@@ -1,7 +1,7 @@
 ---
 title: 'Python tutorial: AI on Azure blobs'
-titleSuffix: Azure Cognitive Search
-description: Step through an example of text extraction and natural language processing over content in Blob storage using a Jupyter Python notebook and the Azure Cognitive Search REST APIs. 
+titleSuffix: Azure AI Search
+description: Step through an example of text extraction and natural language processing over content in Blob storage using a Jupyter Python notebook and the Azure AI Search REST APIs.
 
 manager: nitinme
 author: HeidiSteen
@@ -10,12 +10,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/13/2023
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - ignite-2023
 ---
 
 # Tutorial: Use Python and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can extract information and create new content for full-text search or knowledge mining scenarios. 
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure AI Search can extract information and create new content for full-text search or knowledge mining scenarios. 
 
 In this Python tutorial, you learn how to:
 
@@ -39,7 +41,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 
 * [Visual Studio Code](https://code.visualstudio.com/download) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and Python 3.7 or later
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
-* [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
+* [Azure AI Search](https://azure.microsoft.com/services/search/)
 
 > [!NOTE]
 > You can use the free search service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -52,11 +54,11 @@ The sample data consists of 14 files of mixed content type that you'll upload to
 
 1. Right-click the zip file and select **Extract All**. There are 14 files of various types. 
 
-Optionally, you can also download the source code for this tutorial. Source code can be found at [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
+Optionally, you can also download the source code for this tutorial. Source code can be found at [https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Tutorial-AI-Enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Tutorial-AI-Enrichment).
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Azure AI services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the Cognitive Search free allocation of 20 transactions per indexer per day on Azure AI services, so the only services you need to create are search and storage.
+This tutorial uses Azure AI Search for indexing and queries, Azure AI services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the Azure AI Search free allocation of 20 transactions per indexer per day on Azure AI services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -74,7 +76,7 @@ If possible, create both in the same region and resource group for proximity and
 
    + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Azure AI services. A single location voids bandwidth charges.
+   + **Location**. If possible, choose the same location used for Azure AI Search and Azure AI services. A single location voids bandwidth charges.
 
    + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
@@ -90,7 +92,7 @@ If possible, create both in the same region and resource group for proximity and
 
    :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Upload sample files" border="false":::
 
-1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
+1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure AI Search. 
 
    1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). 
    
@@ -106,19 +108,19 @@ If possible, create both in the same region and resource group for proximity and
 
 ### Azure AI services
 
-AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Azure AI services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment is backed by Azure AI services, including Language service and Azure AI Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Azure AI services (in the same region as Azure AI Search) so that you can attach it to indexing operations.
 
-Since this tutorial only uses 14 transactions, you can skip resource provisioning because Azure Cognitive Search can connect to Azure AI services for 20 free transactions per indexer run. For larger projects, plan on provisioning Azure AI services at the pay-as-you-go S0 tier. For more information, see [Attach Azure AI services](cognitive-search-attach-cognitive-services.md).
+Since this tutorial only uses 14 transactions, you can skip resource provisioning because Azure AI Search can connect to Azure AI services for 20 free transactions per indexer run. For larger projects, plan on provisioning Azure AI services at the pay-as-you-go S0 tier. For more information, see [Attach Azure AI services](cognitive-search-attach-cognitive-services.md).
 
-### Azure Cognitive Search
+### Azure AI Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
+The third component is Azure AI Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
 
 You can use the Free tier to complete this tutorial.
 
-### Copy an admin api-key and URL for Azure Cognitive Search
+### Copy an admin api-key and URL for Azure AI Search
 
-To send requests to your Azure Cognitive Search service, you'll need the service URL and an access key.
+To send requests to your Azure AI Search service, you'll need the service URL and an access key.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL is `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
@@ -132,7 +134,7 @@ All requests require an api-key in the header of every request sent to your serv
 
 Use Visual Studio Code with the Python extension to create a new notebook. Press F1 to open the command palette and then search for "Create: New Jupyter Notebook". 
 
-Alternatively, if you downloaded the notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment), you can open it in Visual Studio Code.
+Alternatively, if you downloaded the notebook from [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Tutorial-AI-Enrichment), you can open it in Visual Studio Code.
 
 In your notebook, create a new cell and add this script. It loads the libraries used for working with JSON and formulating HTTP requests.
 
@@ -166,7 +168,7 @@ params = {
 
 ## 3 - Create the pipeline
 
-In Azure Cognitive Search, AI processing occurs during indexing (or data ingestion). This part of the tutorial creates four objects: data source, index definition, skillset, indexer. 
+In Azure AI Search, AI processing occurs during indexing (or data ingestion). This part of the tutorial creates four objects: data source, index definition, skillset, indexer. 
 
 ### Step 1: Create a data source
 
@@ -179,7 +181,7 @@ In the following script, replace the placeholder YOUR-BLOB-RESOURCE-CONNECTION-S
 datasourceConnectionString = "<YOUR-BLOB-RESOURCE-CONNECTION-STRING>"
 datasource_payload = {
     "name": datasource_name,
-    "description": "Demo files to demonstrate cognitive search capabilities.",
+    "description": "Demo files to demonstrate Azure AI Search capabilities.",
     "type": "azureblob",
     "credentials": {
         "connectionString": datasourceConnectionString
@@ -201,7 +203,7 @@ In the Azure portal, on the search service dashboard page, verify that the cogsr
 
 ### Step 2: Create a skillset
 
-In this step, you'll define a set of enrichment steps using [built-in cognitive skills](cognitive-search-predefined-skills.md) from Microsoft:
+In this step, you'll define a set of enrichment steps using [built-in skills](cognitive-search-predefined-skills.md) from Microsoft:
 
 + [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) for extracting the names of organizations from content in the blob container.
 
@@ -306,7 +308,7 @@ The request should return a status code of 201 confirming success.
 
 The key phrase extraction skill is applied for each page. By setting the context to `"document/pages/*"`, you run this enricher for each member of the document/pages array (for each page in the document).
 
-Each skill executes on the content of the document. During processing, Azure Cognitive Search cracks each document to read content from different file formats. Text found in the source file is placed into a `content` field, one for each document. Therefore, set the input as `"/document/content"`.
+Each skill executes on the content of the document. During processing, Azure AI Search cracks each document to read content from different file formats. Text found in the source file is placed into a `content` field, one for each document. Therefore, set the input as `"/document/content"`.
 
 A graphical representation of a portion of the skillset is shown below.
 
@@ -386,7 +388,7 @@ To learn more about defining an index, see [Create Index (REST API)](/rest/api/s
 
 ### Step 4: Create and run an indexer
 
-An [Indexer](/rest/api/searchservice/create-indexer) drives the pipeline. The three components you've created thus far (data source, skillset, index) are inputs to an indexer. Creating the indexer on Azure Cognitive Search is the event that puts the entire pipeline into motion. 
+An [Indexer](/rest/api/searchservice/create-indexer) drives the pipeline. The three components you've created thus far (data source, skillset, index) are inputs to an indexer. Creating the indexer on Azure AI Search is the event that puts the entire pipeline into motion. 
 
 To tie these objects together in an indexer, you must define field mappings.
 
@@ -468,7 +470,7 @@ When content is extracted, you can set `imageAction` to extract text from images
 
 ## 4 - Monitor indexing
 
-Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer  processing is complete, run the following script.
+Once the indexer is defined, it runs automatically when you submit the request. Depending on which skills you defined, indexing can take longer than you expect. To find out whether the indexer  processing is complete, run the following script.
 
 ```python
 # Get indexer status
@@ -516,7 +518,7 @@ If you'd like to continue testing from this notebook, repeat the above commands 
 
 ## Reset and rerun
 
-In the early stages of development, it's practical to delete the objects from Azure Cognitive Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
+In the early stages of development, it's practical to delete the objects from Azure AI Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
 You can use the portal to delete indexes, indexers, data sources, and skillsets. When you delete the indexer, you can optionally, selectively delete the index, skillset, and data source at the same time.
 
@@ -537,7 +539,7 @@ Status code 204 is returned on successful deletion.
 
 This tutorial demonstrates the basic steps for building an enriched indexing pipeline through the creation of component parts: a data source, skillset, index, and indexer.
 
-[Built-in skills](cognitive-search-predefined-skills.md) were introduced, along with skillset definitions and a way to chain skills together through inputs and outputs. You also learned that `outputFieldMappings` in the indexer definition is required for routing enriched values from the pipeline into a searchable index on an Azure Cognitive Search service.
+[Built-in skills](cognitive-search-predefined-skills.md) were introduced, along with skillset definitions and a way to chain skills together through inputs and outputs. You also learned that `outputFieldMappings` in the indexer definition is required for routing enriched values from the pipeline into a searchable index on an Azure AI Search service.
 
 Finally, you learned how to test the results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. In this release, there's a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check the indexer status and what  objects must be deleted before rerunning a pipeline.
 

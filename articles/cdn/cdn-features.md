@@ -5,7 +5,7 @@ services: cdn
 author: duongau
 ms.service: azure-cdn
 ms.topic: overview
-ms.date: 06/05/2023
+ms.date: 10/09/2023
 ms.author: duau
 ms.custom: mvc
 
@@ -46,6 +46,7 @@ The following table compares the features available with each product.
 | [Query string caching](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 dual-stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Routing preference unmetered](../virtual-network/ip-services/routing-preference-unmetered.md)  | |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
  **Security** | **Standard Microsoft** | **Standard Akamai** | **Standard Edgio** | **Premium Edgio** |
 | HTTPS support with CDN endpoint | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -70,7 +71,7 @@ The following table compares the features available with each product.
 | Easy integration with Azure services, such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md), and [Media Services](/azure/media-services/previous/media-services-portal-manage-streaming-endpoints)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Management via [REST API](/rest/api/cdn/), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), or [PowerShell](cdn-manage-powershell.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compression MIME types](./cdn-improve-performance.md)  |Configurable |Configurable |Configurable  |Configurable  |
-| Compression encodings  |gzip, brotli |gzip |gzip, deflate, bzip2  |gzip, deflate, bzip2  |
+| Compression encodings  |gzip, brotli |gzip |gzip, deflate, bzip2, brotli  |gzip, deflate, bzip2, brotli  |
 
 ## Migration
 

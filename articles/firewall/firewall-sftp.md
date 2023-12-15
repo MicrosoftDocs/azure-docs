@@ -37,7 +37,7 @@ This article requires the latest Azure PowerShell modules. Run `Get-Module -List
 First, set up some variables to use in the deployment. Replace the values with your own.
 
 > [!TIP]
-> You can use Azure Active Directory to find your user principal name.
+> You can use Microsoft Entra ID to find your user principal name.
 
 ```azurepowershell
 $rg = "<resource-group-name>"

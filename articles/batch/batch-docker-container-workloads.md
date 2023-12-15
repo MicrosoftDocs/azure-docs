@@ -2,7 +2,7 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 12/06/2023
 ms.devlang: csharp, python
 ms.custom: seodec18, devx-track-csharp, devx-track-linux
 ---
@@ -46,15 +46,22 @@ Keep in mind the following limitations:
 - Batch provides remote direct memory access (RDMA) support only for containers that run on Linux pools.
 - For Windows container workloads, you should choose a multicore VM size for your pool.
 
+> [!IMPORTANT]
+> Note that docker, by default, will create a network bridge with a subnet specification of `172.17.0.0/16`. If you are specifying a
+> [virtual network](batch-virtual-network.md) for your pool, please ensure that there are no conflicting IP ranges.
+
 ## Supported VM images
 
 Use one of the following supported Windows or Linux images to create a pool of VM compute nodes for container workloads. For more information about Marketplace images that are compatible with Batch, see [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images).
 
 ### Windows support
 
-Batch supports Windows server images that have container support designations. Typically, these image SKU names are suffixed with `-with-containers` or `-with-containers-smalldisk`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes a `DockerCompatible` capability if the image supports Docker containers.
+Batch supports Windows server images that have container support designations. Typically, these image SKU names are suffixed with `win_2016_mcr_20_10` or `win_2022_mcr_20_10` under the Mirantis publisher and are offered as `windows_2016_with_mirantis_container_runtime` or `windows_2022_with_mirantis_container_runtime`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotes a `DockerCompatible` capability if the image supports Docker containers.
 
 You can also create custom images from VMs running Docker on Windows.
+
+> [!NOTE]
+> The image SKUs `-with-containers` or `-with-containers-smalldisk` are retired. Please see the [announcement](https://techcommunity.microsoft.com/t5/containers/updates-to-the-windows-container-runtime-support/ba-p/2788799) for details and alternative container runtime options for Kubernetes environment.
 
 ### Linux support
 
@@ -71,6 +78,32 @@ For Linux container workloads, Batch currently supports the following Linux imag
 - Publisher: `microsoft-azure-batch`
   - Offer: `centos-container-rdma`
   - Offer: `ubuntu-server-container-rdma`
+
+- Publisher: `microsoft-dsvm`
+  - Offer: `ubuntu-hpc`
+
+#### Notes
+  The docker data root of the above images lies in different places:
+  - For the batch image `microsoft-azure-batch` (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is usually located on the temporary disk.
+  - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are usually located on the OS disk.
+
+  For non-Batch published images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
+
+#### Potential solutions for customers
+
+Change the docker data root in a start task when creating a pool in BatchExplorer. Here's an example of the Start Task command:
+```csharp
+1)  sudo systemctl stop docker
+2)  sudo vi /lib/systemd/system/docker.service
+    +++
+    FROM:
+    ExecStart=/usr/bin/docker daemon -H fd://
+    TO:
+    ExecStart=/usr/bin/docker daemon -g /new/path/docker -H fd://
+    +++
+3)  sudo systemctl daemon-reload
+4)  sudo systemctl start docker
+```
 
 These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 
@@ -335,7 +368,7 @@ If the container image for a Batch task is configured with an [ENTRYPOINT](https
 
 - To use the default ENTRYPOINT of the container image, set the task command line to the empty string `""`.
 
-- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--endpoint "/bin/sh - python"`
+- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--entrypoint "/bin/sh - python"`
 
 - If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
 

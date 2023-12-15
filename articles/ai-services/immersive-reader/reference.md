@@ -2,26 +2,25 @@
 title: "Immersive Reader SDK Reference"
 titleSuffix: Azure AI services
 description: The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: immersive-reader
+ms.service: azure-ai-immersive-reader
 ms.custom: devx-track-js
 ms.topic: reference
 ms.date: 11/15/2021
 ms.author: rwaller
 ---
 
-# Immersive Reader JavaScript SDK Reference (v1.2)
+# Immersive Reader JavaScript SDK Reference (v1.4)
 
 The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
 You may use `npm`, `yarn`, or an `HTML` `<script>` element to include the library of the latest stable build in your web application:
 
 ```html
-<script type='text/javascript' src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js'></script>
+<script type='text/javascript' src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.4.0.js'></script>
 ```
 
 ```bash
@@ -56,7 +55,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The Azure AD authentication token. For more information, see [How-To Create an Immersive Reader Resource](./how-to-create-immersive-reader.md). |
+| `token` | string | The Microsoft Entra authentication token. For more information, see [How-To Create an Immersive Reader Resource](./how-to-create-immersive-reader.md). |
 | `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. For more information, see [How-To Create an Immersive Reader Resource](./how-to-create-immersive-reader.md). |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |

@@ -47,7 +47,7 @@ Before you begin, make sure you have either the tenant ID, or the primary domain
 1. On the Add tenant page, enter a tenant ID or domain name, provide a friendly name and then select one or both options for access settings. For more information about access settings, see [Access settings for associated billing tenant](#access-settings-for-associated-billing-tenants).  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add.png" alt-text="Screenshot showing associated billing tenants form." lightbox="./media/manage-billing-across-tenants/associated-tenants-add.png" :::
     > [!NOTE]
-    > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Azure active directory.
+    > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Microsoft Entra ID.
 1. Select **Save**.
 
 If the Provisioning access setting is turned on, a unique link is created for you to send to the global administrator of the associated billing tenant. They must accept the request before you can move subscriptions to their tenant.
@@ -114,7 +114,7 @@ Before moving subscriptions, make sure you [add a tenant as an associated billin
 
 ## Move Azure subscriptions to an associated billing tenant
 
-The provisioning setting that you enable for an associated billing tenant doesn't apply for Azure subscriptions. To move Azure subscriptions to an associated billing tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+The provisioning setting that you enable for an associated billing tenant doesn't apply for Azure subscriptions. To move Azure subscriptions to an associated billing tenant, see [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Need help? Contact support
 
@@ -123,4 +123,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Billing administrative roles](understand-mca-roles.md)
-- [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)

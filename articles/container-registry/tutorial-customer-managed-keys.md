@@ -4,6 +4,7 @@ description: Learn how to encrypt your Premium container registry by using a cus
 ms.topic: tutorial
 ms.date: 08/5/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Overview of customer-managed keys

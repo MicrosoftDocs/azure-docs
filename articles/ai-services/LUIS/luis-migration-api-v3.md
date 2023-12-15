@@ -1,11 +1,11 @@
 ---
 title: Prediction endpoint changes in the V3 API
 description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 author: aahill
 ms.manager: nitinme
 ms.author: aahi
-ms.subservice: language-understanding
+ms.subservice: azure-ai-luis
 ms.topic: how-to
 ms.date: 05/28/2021
 

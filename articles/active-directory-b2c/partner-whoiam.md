@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with WhoIAM 
 titleSuffix: Azure AD B2C
 description: In this tutorial, learn how to integrate Azure AD B2C authentication with WhoIAM for user verification. 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 01/18/2023
 ms.author: gasinh
@@ -25,7 +25,8 @@ Learn more: [WhoIAM, Products and Services, Branded Identity Management System](
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A WhoIAM trial account
@@ -57,7 +58,7 @@ The following diagram shows the implementation architecture.
 
     * [Key Vault](https://azure.microsoft.com/services/key-vault/): Store passwords
     * [App Service](https://azure.microsoft.com/services/app-service/): Host the BRIMS API and admin portal services
-    * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Authenticate administrative users for the portal
+    * [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/): Authenticate administrative users for the portal
     * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Store and retrieve settings
     * [Application Insights overview](../azure-monitor/app/app-insights-overview.md) (optional): Sign in to the API and the portal
 

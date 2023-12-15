@@ -2,11 +2,10 @@
 title: How to tag utterances in an orchestration workflow project
 titleSuffix: Azure AI services
 description: Use this article to tag utterances
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 ms.date: 05/20/2022
 ms.author: aahi

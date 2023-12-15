@@ -39,7 +39,7 @@ Azure roles are used to control management of:
 
 To *create* these resources, you need to be an Azure Owner or Contributor on the resource group. To *manage* them once created, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
 
-An Azure Owner or Contributor can enable or disable Azure AD-only authentication for Azure Synapse workspaces. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
+An Azure Owner or Contributor can enable or disable Microsoft Entra-only authentication for Azure Synapse workspaces. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ### Develop and execute code in Azure Synapse 
 Synapse supports two development models.
@@ -93,7 +93,7 @@ Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 co
 To simplify managing access control, you can use security groups to assign roles to individuals and groups. Security groups can be created to mirror personas or job functions in your organization that need access to Synapse resources or artifacts.  These persona-based security groups can then be assigned one or more Azure roles, Synapse roles, SQL permissions, or Git permissions. With well-chosen security groups, it's easy to assign a user the required permissions by adding them to the appropriate security group. 
 
 >[!Note]
->If using security groups to manage access, there is additional latency introduced by Azure Active Directory before changes take effect. 
+>If using security groups to manage access, there is additional latency introduced by Microsoft Entra ID before changes take effect. 
 
 ## Access control enforcement in Synapse Studio
 

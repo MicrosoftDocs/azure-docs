@@ -1,6 +1,6 @@
 ---
 author: erhopf
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 07/01/2021
 ms.author: erhopf

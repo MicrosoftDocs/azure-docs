@@ -4,12 +4,41 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 08/30/2023
+ms.date: 11/15/2023
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article we highlight articles for new features and where there have been important updates to existing articles.
+
+## November 2023
+
+In November 2023, we published the following changes:
+
+- Updated articles for the general availability of autoscale for personal host pools. We also added in support for hibernate (preview). For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
+- Updated articles for the updated preview of Azure Virtual Desktop on Azure Stack HCI. You can now deploy Azure Virtual Desktop with your session hosts on Azure Stack HCI as an integrated experience with Azure Virtual Desktop in the Azure portal. For more information, see [Azure Virtual Desktop on Azure Stack HCI](azure-stack-hci-overview.md) and [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).
+- Updated articles for the general availability of Single sign-on using Microsoft Entra authentication and In-session passwordless authentication. For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra authentication](configure-single-sign-on.md) and [In-session passwordless authentication](authentication.md#in-session-authentication).
+- Published a new set of documentation for Windows App (preview). You can use Windows App to connect to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs, securely connecting you to Windows devices and apps. For more information, see [Windows App](/windows-app/overview).
+
+## October 2023
+
+In October 2023, we published the following changes:
+
+- A new article about the service architecture for Azure Virtual Desktop and how it provides a resilient, reliable, and secure service for organizations and users. Most components are Microsoft-managed, but some are customer-managed. You can learn more at [Azure Virtual Desktop service architecture and resilience](service-architecture-resilience.md).
+- Updated [Connect to Azure Virtual Desktop with the Remote Desktop Web client](./users/connect-web.md) and [Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop](./users/client-features-web.md) for the general availability of the updated user interface for the Remote Desktop Web client.
+
+## September 2023
+
+In September 2023, we published the following changes:
+
+- A new article to [Use Microsoft OneDrive with a RemoteApp](onedrive-remoteapp.md).
+- A new article to [Uninstall and reinstall Remote Desktop Connection](/windows-server/remote/remote-desktop-services/clients/uninstall-remote-desktop-connection) (MSTSC) on Windows 11 23H2.
+- A new article for [Azure Virtual Desktop (classic) retirement](virtual-desktop-fall-2019/classic-retirement.md).
+- Updated articles for custom images templates general availability:
+  - [Custom image templates](custom-image-templates.md).
+  - [Use Custom image templates to create custom images](create-custom-image-templates.md).
+  - [Troubleshoot Custom image templates](troubleshoot-custom-image-templates.md).
+- Updated [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor) for the general availability of using the Azure Monitor Agent with Azure Virtual Desktop Insights.
 
 ## August 2023
 

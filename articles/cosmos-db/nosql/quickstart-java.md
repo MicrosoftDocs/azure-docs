@@ -462,6 +462,29 @@ Now we're ready to enable global throughput control for this container object. O
     container.enableGlobalThroughputControlGroup(groupConfig, globalControlConfig);
 ```
 
+Finally, you must set the group name in request options for the given operation:
+
+```java
+    CosmosItemRequestOptions options = new CosmosItemRequestOptions();
+    options.setThroughputControlGroupName("globalControlGroup");
+    container.createItem(family, options).block();
+```
+
+For [bulk operations](bulk-executor-java.md), this would look like the below:
+
+```java
+    Flux<Family> families = Flux.range(0, 1000).map(i -> {
+        Family family = new Family();
+        family.setId(UUID.randomUUID().toString());
+        family.setLastName("Andersen-" + i);
+        return family;
+    });
+    CosmosBulkExecutionOptions bulkExecutionOptions = new CosmosBulkExecutionOptions();
+    bulkExecutionOptions.setThroughputControlGroupName("globalControlGroup")
+    Flux<CosmosItemOperation> cosmosItemOperations = families.map(family -> CosmosBulkOperations.getCreateItemOperation(family, new PartitionKey(family.getLastName())));
+    container.executeBulkOperations(cosmosItemOperations, bulkExecutionOptions).blockLast();
+```
+
 > [!NOTE]
 > Throughput control does not do RU pre-calculation of each operation. Instead, it tracks the RU usages *after* the operation based on the response header. As such, throughput control is based on an approximation - and **does not guarantee** that amount of throughput will be available for the group at any given time. This means that if the configured RU is so low that a single operation can use it all, then throughput control cannot avoid the RU exceeding the configured limit. Therefore, throughput control works best when the configured limit is higher than any single operation that can be executed by a client in the given control group. With that in mind, when reading via query or change feed, you should configure the [page size](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/a9460846d144fb87ae4e3d2168f63a9f2201c5ed/src/main/java/com/azure/cosmos/examples/queries/async/QueriesQuickstartAsync.java#L255) to be a modest amount, so that client throughput control can be re-calculated with higher frequency, and therefore reflected more accurately at any given time. However, when using throughput control for a write-job using bulk, the number of documents executed in a single request will automatically be tuned based on the throttling rate to allow the throughput control to kick-in as early as possible.
 
@@ -476,6 +499,29 @@ You can also use local throughput control, without defining a shared control gro
             .targetThroughputThreshold(0.1)
             .build();
     container.enableLocalThroughputControlGroup(groupConfig);
+```
+
+As with global throughput control, remember to set the group name in request options for the given operation:
+
+```java
+    CosmosItemRequestOptions options = new CosmosItemRequestOptions();
+    options.setThroughputControlGroupName("localControlGroup");
+    container.createItem(family, options).block();
+```
+
+For [bulk operations](bulk-executor-java.md), this would look like the below:
+
+```java
+    Flux<Family> families = Flux.range(0, 1000).map(i -> {
+        Family family = new Family();
+        family.setId(UUID.randomUUID().toString());
+        family.setLastName("Andersen-" + i);
+        return family;
+    });
+    CosmosBulkExecutionOptions bulkExecutionOptions = new CosmosBulkExecutionOptions();
+    bulkExecutionOptions.setThroughputControlGroupName("localControlGroup")
+    Flux<CosmosItemOperation> cosmosItemOperations = families.map(family -> CosmosBulkOperations.getCreateItemOperation(family, new PartitionKey(family.getLastName())));
+    container.executeBulkOperations(cosmosItemOperations, bulkExecutionOptions).blockLast();
 ```
 
 ## Review SLAs in the Azure portal

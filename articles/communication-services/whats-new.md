@@ -5,141 +5,148 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: conceptual
-ms.date: 09/01/2023
+ms.date: 12/07/2023
 ms.custom: template-concept, references_regions
 ---
 
-# What's new in Azure Communication Services, June through August, 2023
+# What's new in Azure Communication Services, Holiday Edition, 2023
 
-We've created this page to keep you updated on new features, blog posts, and other useful information related to Azure Communication Services. Be sure to check back monthly for all the newest and latest information!
+We created this page to keep you updated on new features, blog posts, and other useful information related to Azure Communication Services. Be sure to check back monthly for all the newest and latest information!
+
+We're combining the November and December updates into one. **Have a terrific holiday, everyone!**
 
 <br>
 <br>
 <br>
+
 
 ## New features
 Get detailed information on the latest Azure Communication Services feature launches.
-### Trial phone numbers
-:::image type="content" source="./media/whats-new-images/09-23/trial-phone-numbers.png" alt-text="A photograph of a developer sitting in front of multiple computer monitors.":::
 
-Explore the benefits of Trial Phone Numbers for Azure Communication Services. Enjoy a 30-day free trial period to assess features and make calls for up to 60 minutes, perfect for thorough testing and experimentation. Additionally, Trial Phone Numbers include recipient phone number verification, ensuring that calls are made only to verified numbers, safeguarding against any potential misuse.
+### Call Diagnostics now available in Public Preview
+:::image type="content" source="./media/whats-new-images/11-23/call-diagnostics.png" alt-text="A graphic showing icons that represent the ways that call diagnostics helps developers.":::
 
-[Read more on the Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-august-2023-feature-updates/ba-p/3890595)
+Azure Communication Services Call Diagnostics (CD) is a new feature that helps developers troubleshoot and improve their voice & video calling applications. It's an Azure Monitor experience that offers specialized telemetry and diagnostic pages in the Azure portal. With Call Diagnostics, developers can easily access and analyze data, visualizations, and insights for each call, and identify and resolve issues that affect the end-user experience. Call Diagnostics works with other ACS features, such as noise suppression and pre-call troubleshooting, to deliver beautiful, reliable video calling experiences that are easy to develop and operate. Call Diagnostics is now available in Public Preview. Try it today and see how Azure can help you make every call a success. 🚀
 
-[Try the trial phone numbers quickstart](https://aka.ms/trial-quickstart)
+
+
+[Read the documentation.](./concepts/voice-video-calling/call-diagnostics.md)
 
 
 <br>
 <br>
 
+
+### Email Simple Mail Transfer Protocol (SMTP) as Service
+:::image type="content" source="./media/whats-new-images/11-23/email-as-a-service.png" alt-text="A graphic showing the Azure logo for email and the Azure Communication Services logo.":::
+
+Azure Communication Services Email Simple Mail Transfer Protocol (SMTP) as a Service is now in public preview. This service allows you to send emails from your line of business applications using a cloud-based SMTP relay that is secure, reliable, and compliant. You can use Microsoft Entra Application ID to authenticate your SMTP requests and apply the power of Exchange as a transport. Whether you need to send high-volume B2C communications or occasional notifications, this service can meet your needs and expectations.
+
+
+
+[Read the documentation.](./concepts/email/email-smtp-overview.md)
+
+
+<br>
+<br>
+
+### Azure AI-powered Azure Communication Services Call Automation API Actions
+:::image type="content" source="./media/whats-new-images/11-23/advanced-call-automation-actions.png" alt-text="A graphic showing a server interacting with the cloud":::
+
+Azure AI-powered Call Automation API actions are now generally available for developers who want to create enhanced calling workflows using Azure AI Speech-to-Text, Text-to-Speech and other language understanding engines. These actions allow developers to play dynamic audio prompts and recognize voice input from callers, enabling natural conversational experiences and more efficient task handling. Developers can use these actions with any of the four major SDKs - .NET, Java, JavaScript and Python - and integrate them with their Azure Open AI solutions to create virtual assistants that go beyond simple IVRs. You can learn more about this release and its capabilities from the Microsoft Ignite 2023 announcements blog and on-demand session.
+
+[Read more in the Ignite Blog post.](https://techcommunity.microsoft.com/t5/azure-communication-services/ignite-2023-creating-value-with-intelligent-application/ba-p/3907629)
+
+[View the on-demand session from Ignite.](https://ignite.microsoft.com/en-US/sessions/18ac73bd-2d06-4b72-81d4-67c01ecb9735?source=sessions)
+
+[Read the documentation.](./concepts/call-automation/call-automation.md)
+
+[Try the quickstart.](./quickstarts/call-automation/quickstart-make-an-outbound-call.md)
+
+[Try a sample application.](./samples/call-automation-ai.md)
+<br>
+<br>
+
+
+
+### Job Router
+
+:::image type="content" source="./media/whats-new-images/11-23/job-router.png" alt-text="A photograph of a customer rep talking on the phone through a headset.":::
+
+Job Router APIs are now generally available for developers who want to use Azure Communication Services to create personalized customer experiences across multiple communication channels. These APIs allow developers to classify, queue, and distribute jobs to the most suitable workers based on various routing rules, using any of the three major SDKs - .NET, JavaScript, and Python. You can learn more about Job Router and how to use it with Azure AI Services from the Ignite 2023 announcement blog and prerecorded video.
  
-### Job router
-:::image type="content" source="./media/whats-new-images/05-23/call-automation.png" alt-text="A photograph of a worker sitting in a large office talking on the phone.":::
+[Read more in the Ignite Blog post.](https://techcommunity.microsoft.com/t5/azure-communication-services/ignite-2023-creating-value-with-intelligent-application/ba-p/3907629)
 
- Job Router is a robust tool that makes it easy for developers to add advanced routing rules to their business application. As part of Azure Communication Services, Job Router simplifies the routing of customer engagement interactions to the best agent or automated services, ensuring that every interaction is directed to the most appropriate resource.
+[View the on-demand session from Ignite.](https://ignite.microsoft.com/en-US/sessions/18ac73bd-2d06-4b72-81d4-67c01ecb9735?source=sessions)
 
-[Try Job Router](./concepts/router/concepts.md)
-[Try the Job Router Quickstart](./quickstarts/router/get-started-router.md?pivots=programming-language-csharp)
+[Read the documentation.](./concepts/router/concepts.md)
 
+[Try the quickstart.](./quickstarts/router/get-started-router.md)
+<br>
+<br>
+
+### Azure Bot Support
+
+:::image type="content" source="./media/whats-new-images/11-23/azure-bot-support.png" alt-text="A graphic showing the logos of Azure Bot Services and Azure Communication Services":::
+
+With this release, you can use Azure bots to enhance your Chat service and integrate with Azure AI services. This helps you automate routine tasks for your agents, such as getting customer information and answering frequently asked questions. This way, your agents can focus on complex queries and assist more customers.
+
+[Try the quickstart.](./quickstarts/chat/quickstart-botframework-integration.md)
+[Read more about how to use adaptive cards.](https://adaptivecards.io/samples/)
 <br>
 <br>
 
 
-### New geographies available for email
-:::image type="content" source="./media/whats-new-images/09-23/geo-expansion.png" alt-text="A photograph of a map of the world showing multiple countries.":::
+### Managed Identities in Public Preview
+:::image type="content" source="./media/whats-new-images/11-23/managed-identities.png" lightbox="./media/whats-new-images/10-23/number-lookup-lightbox.png" alt-text="A banner showing images representing identity and security.":::
 
-With Email Geo Expansion, you can choose the location where your email communication service is created. This update means all email domain config information and data stored by Azure Communication Services Email at rest is retained in that geography. Secure your data and improve your email communication with Email Geo Expansion.
-<br>
+Azure Communication Services now supports Azure Managed Identities, which are a feature of Microsoft Entra ID (formerly Azure Active Directory (Azure AD)) that allow resources to securely authenticate with other Azure services that support Entra authentication. Managed Identities is an [Azure Enterprise Promise](/entra/identity/managed-identities-azure-resources/overview) that improves security and simplifies workflows for customers, as they don't need to embed security credentials into their code. Managed Identities can be used in Azure Communication Services for various scenarios, such as connecting Cognitive Services, Azure Storage, and Key-Vault. You can learn more about this feature and how to use it from the Ignite 2023 announcement blog and prerecorded video.
+
+[Try the quickstart.](./how-tos/managed-identity.md)
+
+
 <br>
 
 ## Blog posts and case studies 
 Go deeper on common scenarios and learn more about how customers are using advanced Azure Communication 
 Services features.
 
-### Capgemini and Microsoft are transforming customer experiences with intelligent communications
-:::image type="content" source="./media/whats-new-images/09-23/capgemini.png" alt-text="A banner showing the logos of Capgemini and Microsoft Azure.":::
+### Azure Communication Services at DEVintersection & Microsoft Azure + AI Conference
+:::image type="content" source="./media/whats-new-images/11-23/devintersection.png" alt-text="A banner showing the logos of HCLTech and Microsoft Azure.":::
 
-Customer experience strategy leader Capgemini partners with Azure Communication Services to provide intelligent communication capabilities for enterprises.
+Microsoft employees Shawn Henry and Dan Wahlin presented at the DEVintersection & Microsoft Azure + AI conference in Orlando, FL. Shawn and Dan presented four separate sessions plus a workshop. The sessions were: 
 
-[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/capgemini-and-microsoft-are-transforming-customer-experiences/ba-p/3907619)
+- Transform Customer Experiences with AI-assisted Voice, Video and Chat
+- Azure for WhatsApp, SMS, and Email Integration: A Developer's Guide
+- Take Your Apps to the Next Level with AI, Communication, and Organizational Data
+- Integrate Services Across the Microsoft Cloud to Enhance User Collaboration
 
-
-<br>
-<br>
-
-
-
+and the workshop was entitled "Integrate OpenAI, Communication, and Organizational Data Features into Line of Business Apps"
 
 
-## From the community
-See examples and get inspired by what's being done in the community of Azure Communication Services users.
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-at-devintersection-amp-amp/ba-p/3999834)
+
+[Read more about the conference](https://devintersection.com/#!/)
+
+### Ignite 2023: Creating value with intelligent application solutions for B2C communications
+:::image type="content" source="./media/whats-new-images/11-23/ignite.png" alt-text="A banner that says Microsoft Ignite 2023.":::
+
+Read a summary of all of the new features we announced at Ignite, including Azure AI Speech, Job Router and Azure AI Services!
 
 
-### Build AI-assisted communication workflows for customer engagement
-:::image type="content" source="./media/whats-new-images/05-23/customer-service-workflow.png" alt-text="Screenshot of the architecture of the demo app." lightbox="./media/whats-new-images/05-23/customer-service-workflow-large.png":::
-
-Listen to Azure Communication Services PMs Ashwinder Bhatti and Anuj Bhatia talk about how to use Azure Communication Services features and tools to build intelligent workflows that businesses can use to improve customer engagement.
-
-[Watch the video](https://youtu.be/EYTjH1xrmtI)
-
-[Learn more about Azure AI services](https://azure.microsoft.com/products/cognitive-services/)
-
-[Learn more about Azure Event Grid](../event-grid/overview.md)
-
-
-<br>
-<br>
-
-### Microsoft 365 & Power Platform Development Community call
-:::image type="content" source="./media/whats-new-images/09-23/power-platform.png" alt-text="A photograph showing two workers working on a tablet computer." lightbox="./media/whats-new-images/05-23/virtual-appts-large.png":::
-
-Microsoft 365 & Power Platform Development Community call on August 31, 2023. Recap on news and updates from Microsoft and community projects, followed by demos by the community on the art of possible.
-
-[Watch the video](https://www.youtube.com/watch?v=gAqUr9wa2_0)
-
-[Learn more about Azure OpenAI function calling](../ai-services/openai/how-to/function-calling.md)
-
-[Read more about Microsoft Teams Premium](https://www.microsoft.com/microsoft-teams/premium)
-
-
-<br>
-<br>
-
-### Building an SMS generator with short URLs using Azure Functions, Storage, and Communication Services
-:::image type="content" source="./media/whats-new-images/05-23/sms-generator-blog.png" alt-text="A visual representation of the challenge of fitting a long URL into a short SMS." lightbox="./media/whats-new-images/05-23/sms-generator-blog-large.png":::
-
-Learn how to convert a lengthy URL into a format that fits the format of SMS, and then send the SMS using Azure Communication Services.
-
-[Watch the video](https://youtu.be/Knctudbao1o)
-
-[Read the accompanying tutorial](https://aka.ms/sms-shorturl)
-
-[Read the quickstart on how to send an SMS using Azure Communication Services](./quickstarts/sms/send.md)
+[Read the full blog post](https://techcommunity.microsoft.com/t5/azure-communication-services/ignite-2023-creating-value-with-intelligent-application/ba-p/3907629)
 
 
 <br>
 <br>
 
 
-### View of new features from Q2 2023
-:::image type="content" source="./media/whats-new-images/09-23/summer-features.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
+### View of new features from November and December 2023
+:::image type="content" source="./media/whats-new-images/10-23/blog-new.png" alt-text="An abstract photo of a wavy metal roof shining in the sunlight." :::
 
-This summer, we launched a host of new features, including:
-* Job Router
-* Trial Phone Numbers
-* Alphanumeric Sender ID
-* Email Geo Expansion
-* Call automation & recording 
-* Direct routing
-* Virtual rooms
-* PSTN Updates
-* and others....
+[View the complete list of all features launched in November and December.](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-december-2023-feature-updates/ba-p/4003567) of all new features added to Azure Communication Services in December.
 
-[View the complete list from August](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-august-2023-feature-updates/ba-p/3890595) of all new features added to Azure Communication Services in August.
 
-[View the complete list from July](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-july-2023-feature-updates/ba-p/3869978) of all new features added to Azure Communication Services in July.
-
-[View the complete list from June](https://techcommunity.microsoft.com/t5/azure-communication-services/azure-communication-services-june-2023-feature-updates/ba-p/3841874) of all new features added to Azure Communication Services in June.
 
 <br>
 <br>

@@ -1,6 +1,6 @@
 ---
 author: PatrickFarley
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.topic: include
 ms.date: 08/01/2023
 ms.author: pafarley
@@ -19,7 +19,7 @@ You must install the [Microsoft Visual C++ Redistributable for Visual Studio 201
 
 # [Linux](#tab/linux)
 
-The Vision SDK for C# only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
+The Vision SDK for Python only supports **Ubuntu 18.04/20.04/22.04** and **Debian 9/10/11** on the x64 architecture when used with Linux.
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

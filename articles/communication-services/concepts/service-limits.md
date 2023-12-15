@@ -3,7 +3,7 @@ title: Service limits for Azure Communication Services
 titleSuffix: An Azure Communication Services how-to document
 description: Learn how to
 author: tophpalmer
-manager: shahen
+manager: sundraman
 services: azure-communication-services
 
 ms.author: chpalm
@@ -67,12 +67,15 @@ When sending or receiving a high volume of messages, you might receive a ```429`
 
 Rate Limits for SMS:
 
-|Operation|Scope|Timeframe (seconds)| Limit (number of requests) | Message units per minute|
-|---------|-----|-------------|-------------------|-------------------------|
-|Send Message|Per Number|60|200|200|
+|Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|---------|---|--|-------------|-------------------|-------------------------|
+|Send Message|Toll-Free|Per Number|60|200|200|
+|Send Message|Short Code |Per Number|60|6000|6000|
+|Send Message|Alphanumeric Sender ID |Per resource|60|600|600|
 
 ### Action to take
-If you require to send a volume of messages that exceed the rate limits, email us at phone@microsoft.com.
+If you have requirements that exceed the rate-limits, submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
+
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
@@ -96,7 +99,10 @@ Sending a high volume of messages has a set of limitations on the number of emai
 |Total email request size (including attachments) |10 MB |
 
 ### Action to take
-This sandbox setup is designed to help developers begin building the application. Once the application is ready for production, you can gradually request to increase the sending volume. If you need to send more messages than the rate limits allow, submit a support request to raise your desired email sending limit. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse, when determining approval status.
+This sandbox setup is to help developers start building the application. Once you have established a sender reputation by sending mails, you can request to increase the sending volume limits. Submit a [support request](https://azure.microsoft.com/support/create-ticket/) to raise your desired email sending limit if you require sending a volume of messages exceeding the rate limits. Email quota increase requests are not automatically approved. The reviewing team will consider your overall sender reputation, which includes factors such as your email delivery failure rates, your domain reputation, and reports of spam and abuse when determining approval status.
+
+> [!NOTE]
+> Email quota increase requests may take up to 72 hours to be evaluated and approved, especially for requests that come in on Friday afernoon.
 
 ## Chat
 
@@ -108,28 +114,33 @@ This sandbox setup is designed to help developers begin building the application
 |Batch of participants - CreateThread|200 |
 |Batch of participants - AddParticipant|200 |
 |Page size - ListMessages|200 |
+|Message Size|28 KB |
+|Number of Azure Communication Services resources per Azure Bot|1000 |
 
-### Operation Limits
+### Rate Limits
 
-| **Operation** | **Bucketed by** | **Limit per 10 seconds** | **Limit per minute** |
+| **Operation** | **Scope** | **Limit per 10 seconds** | **Limit per minute** |
 |--|--|--|--|
-|Create chat thread|User|10|-|
-|Delete chat thread|User|10|-|
-|Update chat thread|Chat thread|5|-|
-|Add participants / remove participants|Chat thread|10|30|
-|Get chat thread / List chat threads|User|50|-|
-|Get chat message|User and chat thread|50|-|
-|Get chat message|Chat thread|250|-|
-|List chat messages|User and chat thread|50|200|
-|List chat messages|Chat thread|250|400|
-|Get read receipts|User and chat thread|5|-|
-|Get read receipts|Chat thread|250|-|
-|List chat thread participants|User and chat thread|10|-|
-|List chat thread participants|Chat thread|250|-|
-|Send message / update message / delete message|Chat thread|10|30|
-|Send read receipt|User and chat thread|10|30|
-|Send typing indicator|User and chat thread|5|15|
-|Send typing indicator|Chat thread|10|30|
+|Create chat thread|per User|10|-|
+|Delete chat thread|per User|10|-|
+|Update chat thread|per Chat thread|5|-|
+|Add participants / remove participants|per Chat thread|10|30|
+|Get chat thread / List chat threads|per User|50|-|
+|Get chat message|per User per chat thread|50|-|
+|Get chat message|per Chat thread|250|-|
+|List chat messages|per User per chat thread|50|200|
+|List chat messages|per Chat thread|250|400|
+|Get read receipts (20 participant limit**) |per User per chat thread|5|-|
+|Get read receipts (20 participant limit**) |per Chat thread|100|-|
+|List chat thread participants|per User per chat thread|10|-|
+|List chat thread participants|per Chat thread|250|-|
+|Send message / update message / delete message|per Chat thread|10|30|
+|Send read receipt|per User per chat thread|10|30|
+|Send typing indicator|per User per chat thread|5|15|
+|Send typing indicator|per Chat thread|10|30|
+
+> [!NOTE] 
+> ** Read receipts and typing indicators are not supported on chat threads with more than 20 participants. 
 
 ### Chat storage
 Azure Communication Services stores chat messages indefinitely till they are deleted by the customer. 
@@ -143,9 +154,9 @@ Beginning in CY24 Q1, customers must choose between indefinite message retention
 
 ### PSTN Call limitations
 
-| **Name**         | Limit  |
-|--|--|
-|Number of outbound concurrent calls | 2 
+| **Name**         | **Scope** |  Limit  |
+|--|--|--|
+|Default number of outbound concurrent calls |per Number | 2 
 
 ### Call maximum limitations
 

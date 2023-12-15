@@ -240,7 +240,7 @@ After executing the script, you'll have a VM image tailored for your Virtual Net
 
 ## Next steps
 
- Refer to the [QuickStart guide](./quickstarts-tenant-workload-deployment.md) to deploy a VNF using the image you created.
+ Refer to the [QuickStart guide](./quickstarts-virtual-machine-deployment-cli.md) to deploy a VNF using the image you created.
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../../../aks/concepts-clusters-workloads.md

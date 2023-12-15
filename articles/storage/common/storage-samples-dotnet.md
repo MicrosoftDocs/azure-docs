@@ -226,7 +226,7 @@ The following table provides an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Authenticate using Azure Active Directory](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)
+      [Authenticate using Microsoft Entra ID](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample01b_HelloWorldAsync.cs#L167)
    :::column-end:::
    :::column span="":::
       [Authenticate using a connection string](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples/Sample02_Auth.cs#L24)

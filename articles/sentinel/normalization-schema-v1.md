@@ -39,7 +39,7 @@ The following table provides guidance for normalizing data values, which is requ
 | **MAC Address** | String | Colon-Hexadecimal notation |
 | **IP Address** | IP Address | The schema does not have separate IPv4 and IPv6 addresses. Any IP address field may include either an IPv4 address or IPv6 address:<ul><li>IPv4 in a dot-decimal notation</li><li>IPv6 in 8 hextets notation, allowing for the short forms described here.</li></ul> |
 | **User** | String | The following 3 user fields are available:<ul><li>User name</li><li>User UPN</li><li>User domain</li></ul> |
-| **User ID** | String | The following 2 user IDs are currently supported:<ul><li>User SID</li><li>Azure Active directory ID</li></ul> |
+| **User ID** | String | The following 2 user IDs are currently supported:<ul><li>User SID</li><li>Microsoft Entra ID</li></ul> |
 | **Device** | String | The following 3 device/host columns are supported:<ul><li>ID</li><li>Name</li><li>Fully qualified domain name (FQDN)</li></ul> |
 | **Country** | String | A string using ISO 3166-1, according to the following priorities:<ul><li>Alpha-2 codes, such as `US` for the United States</li><li>Alpha-3 codes, such as `USA` for the United States</li><li>Short name</li></ul> |
 | **Region** | String | The country subdivision name using ISO 3166-2 |
@@ -102,7 +102,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **DstNatIpAddr** | IP address | 2::1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the source. | Destination NAT,<br>IP |
 | **DstNatPortNumber** | int | 443 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the source. | Destination NAT,<br>Port |
 | **DstUserSid** | User SID |  S-12-1445 | The User ID of the identity associated with the session’s destination. Typically, the identity used to authenticate a server. For more information, see [Data types and formats](#data-types-and-formats). | Destination,<br>User |
-| **DstUserAadId** | String (guid) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | The Azure AD account object ID of the user at the destination end of the session | Destination,<br>User |
+| **DstUserAadId** | String (guid) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | The Microsoft Entra account object ID of the user at the destination end of the session | Destination,<br>User |
 | **DstUserName** | Username (String) | johnd | The username of the identity associated with the session’s destination.  | Destination,<br>User |
 | **DstUserUpn** | string | johnd@anon.com | The UPN of the identity associated with the session’s destination. | Destination,<br>User |
 | **DstUserDomain** | string | WORKGROUP | The domain or computer name of the account at the destination of the session | Destination,<br>User |
@@ -145,7 +145,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **SrcNatIpAddr** | IP address | 4.3.2.1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the destination. | Source NAT,<br>IP |
 | **SrcNatPortNumber** | Integer | 345 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the destination. | Source NAT,<br>Port |
 | **SrcUserSid** | User ID (String) | S-15-1445 | The user ID of the identity associated with the sessions source. Typically, user performing an action on the client. For more information, see [Data types and formats](#data-types-and-formats). | Source,<br>User |
-| **SrcUserAadId** | String (guid) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | The Azure AD account object ID of the user at the source end of the session | Source,<br>User |
+| **SrcUserAadId** | String (guid) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | The Microsoft Entra account object ID of the user at the source end of the session | Source,<br>User |
 | **SrcUserName** | Username (String) | bob | The username of the identity associated with the sessions source. Typically, user performing an action on the client. For more information, see [Data types and formats](#data-types-and-formats). | Source<br>User |
 | **SrcUserUpn** | string | bob@alice.com | UPN of the account initiating the session | Source,<br>User |
 | **SrcUserDomain** | string | DESKTOP | The domain for the account initiating the session | Source,<br>User |

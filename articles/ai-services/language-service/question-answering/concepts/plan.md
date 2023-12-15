@@ -1,8 +1,7 @@
 ---
 title: Plan your app - question answering
 description: Learn how to plan your question answering app. Understand how question answering works and interacts with other Azure services and some project concepts.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: conceptual
@@ -20,22 +19,22 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with questio
 | Resource | Purpose |
 |--|--|
 | [Language resource](azure-resources.md) resource | Authoring, query prediction endpoint and telemetry|
-| [Cognitive Search](azure-resources.md#azure-cognitive-search-resource) resource | Data storage and search |
+| [Azure AI Search](azure-resources.md#azure-ai-search-resource) resource | Data storage and search |
 
 ### Resource planning
 
-Question answering throughput is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure Cognitive Search.
+Question answering throughput is currently capped at 10 text records per second for both management APIs and prediction APIs. To target 10 text records per second for your service, we recommend the S1 (one instance) SKU of Azure AI Search.
 
 ### Language resource
 
-A single language resource with the custom question answering feature enabled can host more than one project. The number of projects is determined by the Cognitive Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to projects](azure-resources.md#index-usage).
+A single language resource with the custom question answering feature enabled can host more than one project. The number of projects is determined by the Azure AI Search pricing tier's quantity of supported indexes. Learn more about the [relationship of indexes to projects](azure-resources.md#index-usage).
 
 ### Project size and throughput
 
 When you build a real app, plan sufficient resources for the size of your project and for your expected query prediction requests.
 
 A project size is controlled by the:
-* [Cognitive Search resource](../../../../search/search-limits-quotas-capacity.md) pricing tier limits
+* [Azure AI Search resource](../../../../search/search-limits-quotas-capacity.md) pricing tier limits
 * [Question answering limits](./limits.md)
 
 The project query prediction request is controlled by the web app plan and web app. Refer to [recommended settings](azure-resources.md#recommended-settings) to plan your pricing tier.
@@ -142,7 +141,7 @@ Each pair can contain:
 
 Developing a project to insert into a DevOps pipeline requires that the project is isolated during batch testing.
 
-A project shares the Cognitive Search index with all other projects on the language resource. While the project is isolated by partition, sharing the index can cause a difference in the score when compared to the published project.
+A project shares the Azure AI Search index with all other projects on the language resource. While the project is isolated by partition, sharing the index can cause a difference in the score when compared to the published project.
 
 To have the _same score_ on the `test` and `production` projects, isolate a language resource to a single project. In this architecture, the resource only needs to live as long as the isolated batch test.
 

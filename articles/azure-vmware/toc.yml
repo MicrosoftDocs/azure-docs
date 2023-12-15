@@ -99,9 +99,9 @@ items:
         href: restore-azure-netapp-files-vms.md
     - name: Backup with Azure Backup Server
       items:
-      - name: Set up Backup Server
+      - name: Setup Backup Server
         href: set-up-backup-server-for-azure-vmware-solution.md
-      - name: Back up private cloud VMs with Backup Server
+      - name: Backup private cloud VMs with Backup Server
         href: backup-azure-vmware-solution-virtual-machines.md
     - name: Disaster recovery using Azure Site Recovery
       items:
@@ -111,7 +111,7 @@ items:
         href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Setup replication
         href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-      - name: Run a disaster recovery drill
+      - name: Run disaster recovery drill
         href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
       - name: Failover to Azure
         href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -163,14 +163,22 @@ items:
       href: configure-storage-policy.md
     - name: Configure vSAN
       href: configure-vsan.md
+    - name: Configure Azure Elastic SAN
+      href: configure-azure-elastic-san.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Connect multiple private clouds in same region
     href: connect-multiple-private-clouds-same-region.md
-  - name: Deploy Arc
-    href: deploy-arc-for-azure-vmware-solution.md
+  - name: Arc-enabled Azure VMware Solution private cloud
+    items:
+    - name: Deploy Arc-enabled Azure VMware Solution
+      href: deploy-arc-for-azure-vmware-solution.md
+    - name: Manage Arc-enabled Azure VMware Solution
+      href: manage-arc-enabled-azure-vmware-solution.md
+    - name: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
+      href: remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure.md
   - name: Deploy disaster recovery
     items:
     - name: Deploy VMware HCX for disaster recovery
@@ -189,13 +197,15 @@ items:
       href: azure-vmware-solution-citrix.md
   - name: Deploy vSAN stretched clusters
     href: deploy-vsan-stretched-clusters.md
+  - name: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
+    href: enable-sql-azure-hybrid-benefit.md
   - name: Migrate Microsoft SQL Server workloads
     items:
-    - name: Migrate Microsoft SQL Server Standalone to Azure VMware Solution
+    - name: Migrate a SQL Server standalone instance to Azure VMware Solution
       href: migrate-sql-server-standalone-cluster.md
     - name: Migrate SQL Server failover cluster to Azure VMware Solution
       href: migrate-sql-server-failover-cluster.md
-    - name: Migrate Microsoft SQL Server Always-On cluster to Azure VMware Solution
+    - name: Migrate Microsoft SQL Server Always On Availability Group to Azure VMware Solution
       href: migrate-sql-server-always-on-availability-group.md
   - name: Move resources
     items:
@@ -241,8 +251,6 @@ items:
       href: deploy-vm-content-library.md
     - name: Enable VMware HCX access over the internet
       href: enable-hcx-access-over-internet.md
-    - name: Enable SQL Azure hybrid benefit for Azure VMware Solution
-      href: enable-sql-azure-hybrid-benefit.md
     - name: Configure VMware Cloud Director Service in Azure VMware Solution
       href: configure-vmware-cloud-director-service-azure-vmware-solution.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)

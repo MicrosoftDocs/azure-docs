@@ -3,8 +3,8 @@ title: Compare Azure Government and global Azure
 description: Describe feature differences between Azure Government and global Azure.
 ms.service: azure-government
 ms.topic: article
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
 ms.date: 06/08/2023
@@ -82,7 +82,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
 ||Azure Database for PostgreSQL|postgres.database.azure.com|postgres.database.usgovcloudapi.net||
 ||Azure SQL Database|database.windows.net|database.usgovcloudapi.net||
-|**Identity**|Azure AD|login.microsoftonline.com|login.microsoftonline.us||
+|**Identity**|Microsoft Entra ID|login.microsoftonline.com|login.microsoftonline.us||
 |||certauth.login.microsoftonline.com|certauth.login.microsoftonline.us||
 |||passwordreset.microsoftonline.com|passwordreset.microsoftonline.us||
 |**Integration**|Service Bus|servicebus.windows.net|servicebus.usgovcloudapi.net||
@@ -120,7 +120,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||API Management Portal|portal.azure-api.net|portal.azure-api.us||
 ||App Configuration|azconfig.io|azconfig.azure.us||
 ||App Service|azurewebsites.net|azurewebsites.us||
-||Azure Cognitive Search|search.windows.net|search.windows.us||
+||Azure AI Search|search.windows.net|search.windows.us||
 ||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability
@@ -240,7 +240,9 @@ This section outlines variations and considerations when using Developer tools i
 
 This section outlines variations and considerations when using Identity services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=information-protection,active-directory-ds,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Active Directory Premium P1 and P2](../active-directory/index.yml)
+<a name='azure-active-directory-premium-p1-and-p2'></a>
+
+### [Microsoft Entra ID P1 and P2](../active-directory/index.yml)
 
 For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
 
@@ -249,7 +251,7 @@ For information on how to use Power BI capabilities for collaboration between Az
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
-  - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Azure AD B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
+  - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Microsoft Entra B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
 
 - Limitations with multi-factor authentication:
     - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
@@ -363,13 +365,10 @@ For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressrou
 
 ### [Azure Front Door](../frontdoor/index.yml)
 
-Azure Front Door Standard and Premium tiers are available in public preview in Azure Government regions US Gov Arizona and US Gov Texas. During public preview, the following Azure Front Door **features aren't supported** in Azure Government:
+Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas. The following Azure Front Door feature **isn’t supported** in Azure Government:
 
-- Managed certificate for enabling HTTPS; instead, you need to use your own certificate.
-- [Migration](../frontdoor/tier-migration.md) from classic to Standard/Premium tier.
-- [Managed identity integration](../frontdoor/managed-identity.md) for Azure Front Door Standard/Premium access to Azure Key Vault for your own certificate.
-- [Tier upgrade](../frontdoor/tier-upgrade.md) from Standard to Premium.
-- Web Application Firewall (WAF) policies creation via WAF portal extension; instead, WAF policies can be created via Azure Front Door Standard/Premium portal extension. Updates and deletions to WAF policies and rules are supported on WAF portal extension.
+- Managed certificate for enabling HTTPS; instead use your own certificate.
+
 
 ### [Private Link](../private-link/index.yml)
 
@@ -458,4 +457,3 @@ Start using Azure Government:
 
 - [Guidance for developers](./documentation-government-developer-guide.md)
 - [Connect with the Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
-

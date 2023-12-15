@@ -62,7 +62,7 @@ Create a resource group in the desired location for provisioning the global rang
 > [!IMPORTANT]
 > Although the resource for the global range will be associated with a region, the prefix will be advertised by the Microsoft WAN globally.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 $rg =@{
     Name = 'myResourceGroup'
     Location = 'WestUS2'
@@ -74,7 +74,7 @@ New-AzResourceGroup @rg
 
 The following command creates a custom IP prefix in the specified region and resource group. Specify the exact prefix in CIDR notation as a string to ensure there's no syntax error. (The `-AuthorizationMessage` and `-SignedMessage` parameters are constructed in the same manner as they are for IPv4; for more information, see [Create a custom IP prefix - PowerShell](create-custom-ip-address-prefix-powershell.md).)  No zonal properties are provided because the global range isn't associated with any particular region (and therefore no regional availability zones).
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 $prefix =@{
     Name = 'myCustomIPv6GlobalPrefix'
     ResourceGroupName = 'myResourceGroup'
@@ -90,7 +90,7 @@ $myCustomIPv6GlobalPrefix = New-AzCustomIPPrefix @prefix
 
 After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created.  These ranges must always be of size /64 to be considered valid.  The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range.  The "children" custom IP prefixes will be advertised locally from the region they're created in.  Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required.  (Because these ranges will be advertised from a specific region, zones can be utilized.)
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 $prefix =@{
     Name = 'myCustomIPv6RegionalPrefix'
     ResourceGroupName = 'myResourceGroup'
@@ -99,6 +99,7 @@ $prefix =@{
 }
 $myCustomIPv6RegionalPrefix = New-AzCustomIPPrefix @prefix -Zone 1,2,3
 ```
+
 Similar to IPv4 custom IP prefixes, after the regional custom IP prefix is in a **Provisioned** state, public IP prefixes can be derived from the regional custom IP prefix.  These public IP prefixes and any public IP addresses derived from them can be attached to networking resources, though they aren't yet being advertised.
 
 > [!IMPORTANT]

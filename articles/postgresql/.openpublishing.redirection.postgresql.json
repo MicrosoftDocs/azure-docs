@@ -452,8 +452,13 @@
 	},
 	{
 		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-distributed-data.md",
-		"redirect_url": "/azure/cosmos-db/postgresql/concepts-distributed-data",
-		"redirect_document_id": true
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-nodes",
+		"redirect_document_id": false
+	},
+	{
+        "source_path_from_root": "/articles/cosmos-db/postgresql/concepts-distributed-data.md",
+		"redirect_url": "/azure/cosmos-db/postgresql/concepts-nodes",
+		"redirect_document_id": false
 	},
 	{
 		"source_path_from_root": "/articles/postgresql/hyperscale/concepts-firewall-rules.md",
@@ -1474,6 +1479,16 @@
         "source_path_from_root": "/articles/postgresql/flexible-server/index.yml",
         "redirect_url": "/azure/postgresql/index",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/concepts-networking.md",
+        "redirect_url": "/azure/postgresql/flexible-server/concepts-networking-private",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/postgresql/flexible-server/how-to-read-replicas-rest-api.md",
+        "redirect_url": "/azure/postgresql/flexible-server/how-to-read-replicas-portal",
+        "redirect_document_id": true
     }
     ]
 }

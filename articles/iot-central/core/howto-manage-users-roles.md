@@ -21,16 +21,16 @@ To learn how to manage users and roles by using the IoT Central REST API, see [H
 
 ## Add users
 
-Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Azure Active Directory accounts, Azure Active Directory groups, and Azure Active Directory service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Microsoft Entra accounts, Microsoft Entra groups, and Microsoft Entra service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Microsoft Entra ID](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section.
 
     :::image type="content" source="media/howto-manage-users-roles/manage-users.png" alt-text="Screenshot that shows the manage users page in IoT Central." lightbox="media/howto-manage-users-roles/manage-users.png":::  
 
-1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add an Azure Active Directory group on the **Users** page, choose **+ Assign group**. Start typing the name of the Active Directory group or service principal to auto-populate the form.
+1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add a Microsoft Entra group on the **Users** page, choose **+ Assign group**. Start typing the name of the Active Directory group or service principal to auto-populate the form.
 
     > [!NOTE]
-    > Service principals and Active Directory groups must belong to the same Azure Active Directory tenant as the Azure subscription associated with the IoT Central application.
+    > Service principals and Active Directory groups must belong to the same Microsoft Entra tenant as the Azure subscription associated with the IoT Central application.
 
 1. If your application uses [organizations](howto-create-organizations.md), choose an organization to assign to the user from the **Organization** drop-down menu.
 
@@ -46,13 +46,13 @@ Every user must have a user account before they can sign in and access an applic
     When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
     > [!NOTE]
-    > If a user is deleted from Azure Active Directory and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
+    > If a user is deleted from Microsoft Entra ID and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
 
-The following limitations apply to Azure Active Directory groups and service principals:
+The following limitations apply to Microsoft Entra groups and service principals:
 
-- Total number of Azure Active Directory groups for each IoT Central application can't be more than 20.
-- Total number of unique Azure Active Directory groups from the same Azure Active Directory tenant can't be more than 200 across all IoT Central applications.
-- Service principals that are part of an Azure Active Directory group aren't automatically granted access to the application. The service principals must be added explicitly.
+- Total number of Microsoft Entra groups for each IoT Central application can't be more than 20.
+- Total number of unique Microsoft Entra groups from the same Microsoft Entra tenant can't be more than 200 across all IoT Central applications.
+- Service principals that are part of a Microsoft Entra group aren't automatically granted access to the application. The service principals must be added explicitly.
 
 ### Edit the roles and organizations that are assigned to users
 

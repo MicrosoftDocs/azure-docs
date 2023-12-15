@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/15/2023
+ms.date: 09/20/2023
 ms.author: saraic
 ms.reviewer: cynthn, mattmcinnes
 ms.custom: template-how-to
 ms.devlang: azurecli
 ---
 
-# Share images using a community gallery (preview)
+# Share images using a community gallery
 
 To share a gallery with all Azure users, you can create a [community gallery](azure-compute-gallery.md#community-gallery). Community galleries can be used by anyone with an Azure subscription. Someone creating a VM can browse images shared with the community using the portal, REST, or the Azure CLI.
 
@@ -23,8 +23,6 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 > [!IMPORTANT]
 > Microsoft does not provide support for images you share to the community.
 > 
-
-
 
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
@@ -117,6 +115,26 @@ You can also use the following links to report issues, but the forms won't be pr
 ## Best practices
 
 - Images published to the community gallery should be [generalized](generalize.md) images that have had sensitive or machine specific information removed. For more information about preparing an image, see the OS specific information for [Linux](./linux/create-upload-generic.md) or [Windows](./windows/prepare-for-upload-vhd-image.md).
+- If you would like to block sharing images to Community at the organization level, create an Azure policy with the following policy rule to deny sharing to Community.
+```
+  "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Compute/galleries"
+          },
+          {
+            "field": "Microsoft.Compute/galleries/sharingProfile.permissions",
+            "equals": "Community"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+```
 ## FAQ
 
 **Q: What are the charges for using a gallery that is shared to the community?**

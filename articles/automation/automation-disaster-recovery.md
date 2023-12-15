@@ -89,7 +89,7 @@ You can use these scripts for migration of Automation account assets from the ac
       - Az.Resources version 6.0.0 
       - Az.Automation version 1.7.3 
       - Az.Storage version 4.6.0 
-1. Ensure that both the source and destination Automation accounts should belong to the same Azure Active Directory tenant.
+1. Ensure that both the source and destination Automation accounts should belong to the same Microsoft Entra tenant.
 
 ### Create and execute the runbook
 You can use the[PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 

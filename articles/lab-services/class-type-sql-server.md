@@ -111,7 +111,7 @@ Visual Studio supports several workloads including **Web & cloud** and **Desktop
 
 [Azure Data Studio](https://github.com/microsoft/azuredatastudio) is a multi-database, cross-platform desktop environment for data professionals using the family of on-premises and cloud data platforms on Windows, macOS, and Linux.
 
-1. Download the [Azure Data Studio *system* installer for Windows](https://go.microsoft.com/fwlink/?linkid=2127432). To find installers for other supported operating systems, go to the [Azure Data Studio](/sql/azure-data-studio/download) download page.
+1. Download the [Azure Data Studio *system* installer for Windows](https://go.microsoft.com/fwlink/?linkid=2127432). To find installers for other supported operating systems, go to the [Azure Data Studio](/azure-data-studio/download-azure-data-studio) download page.
 
 1. On the **License Agreement** page, select **I accept the agreement**, and then select **Next**.
 

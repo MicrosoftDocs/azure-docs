@@ -248,6 +248,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|AllowDisableEnableService|Bool, default is FALSE |Dynamic|Flag to indicate if it's allowed to execute Disable/Enable feature |
 |AllowNodeStateRemovedForSeedNode|Bool, default is FALSE |Dynamic|Flag to indicate if it's allowed to remove node state for a seed node |
 |BuildReplicaTimeLimit|TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic|Specify timespan in seconds. The time limit for building a stateful replica; after which a warning health report will be initiated |
 |ClusterPauseThreshold|int, default is 1|Dynamic|If the number of nodes in system go below this value then placement; load balancing; and failover is stopped. |
@@ -599,6 +600,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AffinityConstraintPriority | Int, default is 0 | Dynamic|Determines the priority of affinity constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |ApplicationCapacityConstraintPriority | Int, default is 0 | Dynamic|Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |AutoDetectAvailableResources|bool, default is TRUE|Static|This config will trigger auto detection of available resources on node (CPU and Memory) When this config is set to true - we will read real capacities and correct them if user specified bad node capacities or didn't define them at all If this config is set to false - we will trace a warning that user specified bad node capacities; but we will not correct them; meaning that user wants to have the capacities specified as > than the node really has or if capacities are undefined; it will assume unlimited capacity |
+|AuxiliaryInBuildThrottlingWeight | double, default is 1 | Static|Auxiliary replica's weight against the current InBuildThrottling max limit. |
 |BalancingDelayAfterNewNode | Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. Don't start balancing activities within this period after adding a new node. |
 |BalancingDelayAfterNodeDown | Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. Don't start balancing activities within this period after a node down event. |
 |BlockNodeInUpgradeConstraintPriority | Int, default is -1 |Dynamic|Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore  |
@@ -614,6 +616,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DetailedPartitionListLimit | Int, default is 15 |Dynamic| Defines the number of partitions per diagnostic entry for a constraint to include before truncation in Diagnostics. |
 |DetailedVerboseHealthReportLimit | Int, default is 200 | Dynamic|Defines the number of times an unplaced replica has to be persistently unplaced before detailed health reports are emitted. |
 |EnforceUserServiceMetricCapacities|bool, default is FALSE | Static |Enables fabric services protection. All user services are under one job object/cgroup and limited to specified amount of resources. This needs to be static (requires restart of FabricHost) as creation/removal of user job object and setting limits in done during open of Fabric Host. |
+|EnableServiceSensitivity | bool, default is False | Dynamic|Feature switch to enable/disable the replica sensitivity feature. |
 |FaultDomainConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of fault domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |GlobalMovementThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track per domain replica movements (used along with GlobalMovementThrottleThreshold). Can be set to 0 to ignore global throttling altogether. |
 |GlobalMovementThrottleThreshold | Uint, default is 1000 |Dynamic| Maximum number of movements allowed in the Balancing Phase in the past interval indicated by GlobalMovementThrottleCountingInterval. |
@@ -748,14 +751,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 ## Security
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|string, default is ""|Static|Azure Active Directory Cert Endpoint Format, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|string, default is ""|Static|Microsoft Entra Cert Endpoint Format, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|string, default is ""|Static|Native Client application name or ID representing Fabric Clients |
 |AADClusterApplication|string, default is ""|Static|Web API application name or ID representing the cluster |
-|AADLoginEndpoint|string, default is ""|Static|Azure Active Directory Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us" |
+|AADLoginEndpoint|string, default is ""|Static|Microsoft Entra Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us" |
 |AADTenantId|string, default is ""|Static|Tenant ID (GUID) |
 |AcceptExpiredPinnedClusterCertificate|bool, default is FALSE|Dynamic|Flag indicating whether to accept expired cluster certificates declared by thumbprint Applies only to cluster certificates; so as to keep the cluster alive. |
 |AdminClientCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates used by clients in admin role. It's a comma-separated name list. |
-|AADTokenEndpointFormat|string, default is ""|Static|Azure Active Directory Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|string, default is ""|Static|Microsoft Entra Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, default is ""|Dynamic|All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims. |
 |AdminClientIdentities|string, default is ""|Dynamic|Windows identities of fabric clients in admin role; used to authorize privileged fabric operations. It's a comma-separated list; each entry is a domain account name or group name. For convenience; the account that runs fabric.exe is automatically assigned admin role; so is group ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|string, default is /home/sfuser/sfusercerts |Static|Folder where AppRunAsAccountGroup X509 certificates and private keys are located |
@@ -778,6 +781,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DisableFirewallRuleForPublicProfile| bool, default is TRUE | Static|Indicates if firewall rule shouldn't be enabled for public profile |
 | EnforceLinuxMinTlsVersion | bool, default is FALSE | Static | If set to true; only TLS version 1.2+ is supported.  If false; support earlier TLS versions. Applies to Linux only |
 | EnforcePrevalidationOnSecurityChanges | bool, default is FALSE| Dynamic | Flag controlling the behavior of cluster upgrade upon detecting changes of its security settings. If set to 'true', the cluster upgrade will attempt to ensure that at least one of the certificates matching any of the presentation rules can pass a corresponding validation rule. The pre-validation is executed before the new settings are applied to any node, but runs only on the node hosting the primary replica of the Cluster Manager service at the time of initiating the upgrade. The default is currently set to 'false'; starting with release 7.1, the setting will be set to 'true' for new Azure Service Fabric clusters.|
+| EnforceStrictRoleMapping | bool, default is FALSE | Dynamic | The permissions mapping in the SF runtime for the ElevatedAdmin role includes all current operations and any newly introduced functionality remains accessible to ElevatedAmin; i.e. the EA role gets a "*" permission in the code - that is; a blank authorization to invoke all SF APIs. The intent is that a 'deny' rule (Security/ClientAccess MyOperation="None") won't apply to the ElevatedAdmin role by default. However; if EnforceStrictRoleMapping is set to true; existing code or cluster manifest overrides which specify "operation": "Admin" (in Security/ClientAccess section) will make "operation" in effect inaccessible to the ElevatedAdmin role. |
 |FabricHostSpn| string, default is "" |Static| Service principal name of FabricHost; when fabric runs as a single domain user (gMSA/domain user account) and FabricHost runs under machine account. It's the SPN of IPC listener for FabricHost; which by default should be left empty since FabricHost runs under machine account |
 |IgnoreCrlOfflineError|bool, default is FALSE|Dynamic|Whether to ignore CRL offline error when server-side verifies incoming client certificates |
 |IgnoreSvrCrlOfflineError|bool, default is TRUE|Dynamic|Whether to ignore CRL offline error when client side verifies incoming server certificates; default to true. Attacks with revoked server certificates require compromising DNS; harder than with revoked client certificates. |
@@ -793,6 +797,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, default is None|Dynamic|This is a list of "Name" and "Value" pair. Each "Name" is of subject common name or DnsName of X509 certificates authorized for admin client operations. For a given "Name", "Value" is a comma separate list of certificate thumbprints for issuer pinning, if not empty, the direct issuer of admin client certificates must be in the list. |
+
+## Security/ElevatedAdminClientX509Names
+
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|PropertyGroup|X509NameMap, default is None|Dynamic|Certificate common names of fabric clients in elevated admin role; used to authorize privileged fabric operations. It is a comma separated list. |
 
 ## Security/ClientAccess
 
@@ -819,9 +829,11 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DeleteName |string, default is "Admin" |Dynamic|Security configuration for Naming URI deletion. |
 |DeleteNetwork|string, default is "Admin" |Dynamic|Deletes a container network |
 |DeleteService |string, default is "Admin" |Dynamic|Security configuration for service deletion. |
-|DeleteVolume|string, default is "Admin"|Dynamic|Deletes a volume.| 
+|DeleteVolume|string, default is "Admin"|Dynamic|Deletes a volume.|
+|DisableService|wstring, default is L"Admin"|Dynamic|Security configuration for disabling a service.| 
 |EnumerateProperties |string, default is "Admin\|\|User" | Dynamic|Security configuration for Naming property enumeration. |
 |EnumerateSubnames |string, default is "Admin\|\|User" |Dynamic| Security configuration for Naming URI enumeration. |
+|EnableService|wstring, default is L"Admin"|Dynamic|Security configuration for enabling a service.| 
 |FileContent |string, default is "Admin" |Dynamic| Security configuration for image store client file transfer (external to cluster). |
 |FileDownload |string, default is "Admin" |Dynamic| Security configuration for image store client file download initiation (external to cluster). |
 |FinishInfrastructureTask |string, default is "Admin" |Dynamic| Security configuration for finishing infrastructure tasks. |
@@ -955,7 +967,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|Providers |string, default is "DSTS" |Static|Comma separated list of token validation providers to enable (valid providers are: DSTS; Azure Active Directory). Currently only a single provider can be enabled at any time. |
+|Providers |string, default is "DSTS" |Static|Comma separated list of token validation providers to enable (valid providers are: DSTS; Microsoft Entra ID). Currently only a single provider can be enabled at any time. |
 
 ## Trace/Etw
 

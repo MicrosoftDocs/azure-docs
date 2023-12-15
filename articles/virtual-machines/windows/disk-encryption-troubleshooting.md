@@ -48,7 +48,7 @@ When encrypting a VM fails with the error message "Failed to send DiskEncryption
 /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
-- Ensure you are not following any [unsupported scenario](disk-encryption-windows.md#unsupported-scenarios)
+- Ensure you are not violating any [restrictions](disk-encryption-windows.md#restrictions)
 - Ensure you are meeting [network requirements](disk-encryption-overview.md#networking-requirements) and try again
 
 ## Troubleshooting Azure Disk Encryption behind a firewall
@@ -60,7 +60,7 @@ Any network security group settings that are applied must still allow the endpoi
 
 ### Azure Key Vault behind a firewall
 
-When encryption is being enabled with [Azure AD credentials](disk-encryption-windows-aad.md#), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
+When encryption is being enabled with [Microsoft Entra credentials](disk-encryption-windows-aad.md#), the target VM must allow connectivity to both Microsoft Entra endpoints and Key Vault endpoints. Current Microsoft Entra authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### Azure Instance Metadata Service 
 The VM must be able to access the [Azure Instance Metadata service](../windows/instance-metadata-service.md) endpoint (`169.254.169.254`) and the [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md) (`168.63.129.16`) used for communication with Azure platform resources. Proxy configurations that alter local HTTP traffic to these addresses (for example, adding an X-Forwarded-For header) are not supported.

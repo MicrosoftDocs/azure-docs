@@ -14,7 +14,7 @@ Backing up Active Directory, and ensuring successful restores in cases of corrup
 This article outlines the proper procedures for backing up and restoring Active Directory domain controllers with Azure Backup, whether they're Azure virtual machines or on-premises servers. It discusses a scenario where you need to restore an entire domain controller to its state at the time of backup. To see which restore scenario is appropriate for you, see [this article](/windows-server/identity/ad-ds/manage/forest-recovery-guide/ad-forest-recovery-guide).  
 
 >[!NOTE]
-> This article does not discuss restoring items from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). For information on restoring Azure Active Directory users, see [this article](../active-directory/fundamentals/active-directory-users-restore.md).
+> This article does not discuss restoring items from [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). For information on restoring Microsoft Entra users, see [this article](../active-directory/fundamentals/active-directory-users-restore.md).
 
 ## Best practices
 

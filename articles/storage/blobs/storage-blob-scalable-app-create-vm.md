@@ -1,11 +1,11 @@
 ---
 title: Create a VM and storage account for a scalable application in Azure
 description: Learn how to deploy a VM to be used to run a scalable application using Azure blob storage
-author: roygara
+author: akashdubey-ms
 ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: rogarana
+ms.author: akashdubey
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -48,6 +48,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -SkuName Standard_LRS `
   -Kind Storage `
+  -AllowBlobPublicAccess $false
 ```
 
 ## Create a virtual machine

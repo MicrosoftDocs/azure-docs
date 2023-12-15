@@ -2,12 +2,11 @@
 title: "Generate a smart-cropped thumbnail - Image Analysis"
 titleSuffix: Azure AI services
 description: Use the Image Analysis REST API to generate a thumbnail with smart cropping.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 07/20/2022
 ms.author: pafarley

@@ -2,12 +2,14 @@
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline in Azure Data Studio"
 titleSuffix: Azure Database Migration Service
 description: Learn how to migrate on-premises SQL Server to Azure SQL Managed Instance offline by using Azure Data Studio and Azure Database Migration Service.
-author: croblesm
-ms.author: roblescarlos
+author: abhims14
+ms.author: abhishekum
 ms.date: 06/07/2023
 ms.service: dms
 ms.topic: tutorial
-ms.custom: seo-lt-2019
+ms.custom:
+  - seo-lt-2019
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline in Azure Data Studio
@@ -37,8 +39,8 @@ This tutorial describes an offline migration from SQL Server to Azure SQL Manage
 
 Before you begin the tutorial:
 
-- [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
-- [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
+- [Download and install Azure Data Studio](/azure-data-studio/download-azure-data-studio).
+- [Install the Azure SQL Migration extension](/azure-data-studio/extensions/azure-sql-migration-extension) from Azure Data Studio Marketplace.
 - Have an Azure account that's assigned to one of the following built-in roles:
 
   - Contributor for the target instance of Azure SQL Managed Instance and for the storage account where you upload your database backup files from a Server Message Block (SMB) network share

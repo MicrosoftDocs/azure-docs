@@ -56,11 +56,11 @@ Ensure that the following prerequisites are met before you start the offline bac
 * Update Rollup 1 is installed on SC DPM 2019 or MABS v3, along with the [latest MARS agent](https://aka.ms/azurebackup_agent).
 
   > [!NOTE]
-  > With DPM 2019 UR1 and MABS v3 UR1 the offline seeding authenticates using Azure Active Directory.
+  > With DPM 2019 UR1 and MABS v3 UR1 the offline seeding authenticates using Microsoft Entra ID.
 
 * On the DPM or MABS server, make sure Microsoft Edge or Internet Explorer 11 is installed, and JavaScript is enabled.
 * Create an Azure Storage account in the same subscription as the Recovery Services vault.
-* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The Offline Backup workflow creates an Azure Active Directory application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow.
+* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow.
 * Register the Microsoft.DataBox resource provider with the subscription containing the Azure Storage account. To register the resource provider:
     1. In the main menu, select **Subscriptions**.
     2. If you're subscribed to multiple subscriptions, select the subscription you're using for the offline backup. If you use only one subscription, then your subscription appears.
@@ -89,7 +89,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 3. Provide the inputs on the **Use your Own Disk** page.
 
-   ![Screenshot shows how how to add details to use your own disk.](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
+   ![Screenshot shows how to add details to use your own disk.](./media/backup-azure-backup-server-import-export/use-your-own-disk.png)
 
    The description of the inputs is as follows:
 

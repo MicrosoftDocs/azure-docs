@@ -85,7 +85,7 @@ You can use the same VPN client configuration package on each Windows client com
 
 ## <a name="azurevpn"></a>OpenVPN: Azure VPN Client steps
 
-This section applies to certificate authentication configurations that use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. Note that these steps apply to certificate authentication. If you're using OpenVPN with Azure AD authentication, see the [Azure AD](openvpn-azure-ad-client.md) configuration article instead.
+This section applies to certificate authentication configurations that use the OpenVPN tunnel type. The following steps help you download, install, and configure the Azure VPN Client to connect to your VNet. Note that these steps apply to certificate authentication. If you're using OpenVPN with Microsoft Entra authentication, see the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
 
 To connect, each client computer requires the following items:
 
@@ -100,7 +100,7 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 If you don't see the file, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Azure AD authentication, you may not have an AzureVPN folder. See the [Azure AD](openvpn-azure-ad-client.md) configuration article instead.
+* If you're using Microsoft Entra authentication, you may not have an AzureVPN folder. See the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
 
 ### Download the Azure VPN Client
 
@@ -149,7 +149,7 @@ This section applies to certificate authentication configurations that are confi
 When you open the VPN client configuration package zip file, you should see an OpenVPN folder. If you don't see the folder, verify the following items:
 
 * Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* If you're using Azure AD authentication, you may not have an OpenVPN folder. See the [Azure AD](openvpn-azure-ad-client.md) configuration article instead.
+* If you're using Microsoft Entra authentication, you may not have an OpenVPN folder. See the [Microsoft Entra ID](openvpn-azure-ad-client.md) configuration article instead.
 
 [!INCLUDE [Configuration steps](../../includes/vpn-gateway-vwan-config-openvpn-windows.md)]
 

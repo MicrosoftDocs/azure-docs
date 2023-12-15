@@ -2,11 +2,10 @@
 title: Configure vehicle analysis containers
 titleSuffix: Azure AI services
 description: Vehicle analysis provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, and security settings.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.custom: ignite-2022
 ms.topic: conceptual
 ms.date: 11/07/2022

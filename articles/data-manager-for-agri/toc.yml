@@ -33,6 +33,8 @@ items:
         href: concepts-understanding-throttling.md
       - name: Using your license keys
         href: concepts-byol-and-credentials.md
+      - name: Using LLM APIs
+        href: concepts-llm-apis.md        
   - name: How-to guides
     items:
       - name: Administration
@@ -80,3 +82,5 @@ items:
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=agri-data-services&regions=all
     - name: Sample events
       href: sample-events.md
+    - name: FAQs
+      href: faq-agriculture-data-services.md

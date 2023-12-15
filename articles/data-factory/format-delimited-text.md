@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, contperf-fy22q2
 ms.topic: conceptual
-ms.date: 09/05/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 
@@ -241,7 +241,7 @@ Here are some common connectors and formats related to the delimited text format
 - JSON format(format-json.md)
 - Parquet format(format-parquet.md)
 
-## Next steps
+## Related content
 
 - [Copy activity overview](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)

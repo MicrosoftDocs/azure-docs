@@ -2,10 +2,9 @@
 title: 'Quickstart: Use the OpenAI Service image generation Go SDK'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI image generation using the Go SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/28/2023
 keywords: 
@@ -13,7 +12,7 @@ keywords:
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Go.
 
-[Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cognitiveservices/azopenai) | [Samples](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)
+[Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai) | [Samples](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai)
 
 ## Prerequisites
 

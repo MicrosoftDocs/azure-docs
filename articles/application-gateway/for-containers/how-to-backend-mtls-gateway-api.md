@@ -20,7 +20,7 @@ This document helps set up an example application that uses the following resour
 
 ## Background
 
-Mutual Transport Layer Security (MTLS) is a process that relies on certificate authentication to create an encrypted TLS connection. You can use MTLS to secure the connection from a client device to the Application Gateway for Containers backend target. If a client certificate is revoked or invalid, the connection is not secure. 
+Mutual Transport Layer Security (MTLS) is a process that relies on certificates to encrypt communications and identify clients to a service.  This enables backend workloads to further increase its security posture by only trusting connections from authenticated devices.
 
 See the following figure:
 
@@ -42,10 +42,10 @@ See the following figure:
   
   This command creates the following on your cluster:
   - a namespace called `test-infra`
-  - 1 service called `mtls-app` in the `test-infra` namespace
-  - 1 deployment called `mtls-app` in the `test-infra` namespace
-  - 1 config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-  - 4 secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+  - one service called `mtls-app` in the `test-infra` namespace
+  - one deployment called `mtls-app` in the `test-infra` namespace
+  - one config map called `mtls-app-nginx-cm` in the `test-infra` namespace
+  - four secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
@@ -266,7 +266,7 @@ spec:
 EOF
 ```
 
-Once the BackendTLSPolicy object has been create check the status on the object to ensure that the policy is valid.
+Once the BackendTLSPolicy object has been created check the status on the object to ensure that the policy is valid.
 
 ```bash
 kubectl get backendtlspolicy -n test-infra mtls-app-tls-policy -o yaml

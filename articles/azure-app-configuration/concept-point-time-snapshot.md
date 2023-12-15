@@ -6,6 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 05/24/2023
 ---

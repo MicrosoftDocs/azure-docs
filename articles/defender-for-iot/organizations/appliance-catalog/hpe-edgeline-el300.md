@@ -15,7 +15,7 @@ This article describes the HPE Edgeline EL300 appliance for OT sensors or on-pre
 
 | Appliance characteristic |Details |
 |---------|---------|
-|**Hardware profile** | L500 |
+|**Hardware profile** | L100 |
 |**Performance** |Max bandwidth: 100 Mbps<br>Max devices: 800 |
 |**Physical specifications** | Mounting: Mounting kit, Din Rail<br>Ports: 5x RJ45|
 |**Status** | Supported, Not available pre-configured|

@@ -1,5 +1,5 @@
 ---
-title: Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)
+title: Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
 ms.service: virtual-machines
@@ -10,19 +10,19 @@ ms.author: mbaldwin
 ms.date: 01/04/2023
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell, has-azure-ad-ps-ref
 ---
-# Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release) for Linux VMs
+# Creating and configuring a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release) for Linux VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-**The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption](disk-encryption-overview.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
+**The new release of Azure Disk Encryption eliminates the requirement for providing a Microsoft Entra application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Microsoft Entra credentials during the enable encryption step. All new VMs must be encrypted without the Microsoft Entra application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption](disk-encryption-overview.md). VMs that were already encrypted with Microsoft Entra application parameters are still supported and should continue to be maintained with the Microsoft Entra syntax.**
 
 Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md).
 
-Creating and configuring a key vault for use with Azure Disk Encryption with Azure AD (previous release) involves three steps:
+Creating and configuring a key vault for use with Azure Disk Encryption with Microsoft Entra ID (previous release) involves three steps:
 
 1. Create a key vault.
-2. Set up an Azure AD application and service principal.
-3. Set the key vault access policy for the Azure AD app.
+2. Set up a Microsoft Entra application and service principal.
+3. Set the key vault access policy for the Microsoft Entra app.
 4. Set key vault advanced access policies.
 
 You may also, if you wish, generate or import a key encryption key (KEK).
@@ -87,14 +87,14 @@ You can create a key vault by using the [Resource Manager template](https://gith
 2. Select the subscription, resource group, resource group location, Key Vault name, Object ID,  legal terms, and agreement, and then select **Purchase**.
 
 
-## <a name="bkmk_ADapp"></a> Set up an Azure AD app and service principal
-When you need encryption to be enabled on a running VM in Azure, Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Azure AD authentication. Create an Azure AD application for this purpose. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Azure AD authentication](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+## <a name="bkmk_ADapp"></a> Set up a Microsoft Entra app and service principal
+When you need encryption to be enabled on a running VM in Azure, Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Microsoft Entra authentication. Create a Microsoft Entra application for this purpose. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Microsoft Entra authentication](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 
-### <a name="bkmk_ADappPSH"></a> Set up an Azure AD app and service principal with Azure PowerShell
+### <a name="bkmk_ADappPSH"></a> Set up a Microsoft Entra app and service principal with Azure PowerShell
 To execute the following commands, get and use the [Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 
-1. Use the [New-AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell cmdlet to create an Azure AD application. MyApplicationHomePage and the MyApplicationUri can be any values you wish.
+1. Use the [New-AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell cmdlet to create a Microsoft Entra application. MyApplicationHomePage and the MyApplicationUri can be any values you wish.
 
      ```azurepowershell
      $aadClientSecret = "My AAD client secret"
@@ -103,10 +103,10 @@ To execute the following commands, get and use the [Azure AD PowerShell module](
      $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId -Role Contributor
      ```
 
-3. The $azureAdApplication.ApplicationId is the Azure AD ClientID and the $aadClientSecret is the client secret that you'll use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately. Running `$azureAdApplication.ApplicationId` will show you the ApplicationID.
+3. The $azureAdApplication.ApplicationId is the Microsoft Entra ClientID and the $aadClientSecret is the client secret that you'll use later to enable Azure Disk Encryption. Safeguard the Microsoft Entra client secret appropriately. Running `$azureAdApplication.ApplicationId` will show you the ApplicationID.
 
 
-### <a name="bkmk_ADappCLI"></a> Set up an Azure AD app and service principal with Azure CLI
+### <a name="bkmk_ADappCLI"></a> Set up a Microsoft Entra app and service principal with Azure CLI
 
 You can manage your service principals with Azure CLI using the [az ad sp](/cli/azure/ad/sp) commands. For more information, see [Create an Azure service principal](/cli/azure/create-an-azure-service-principal-azure-cli).
 
@@ -115,27 +115,27 @@ You can manage your service principals with Azure CLI using the [az ad sp](/cli/
      ```azurecli-interactive
      az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --role Contributor --scopes /subscriptions/<subscription_id>
      ```
-3.  The appId returned is the Azure AD ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
+3.  The appId returned is the Microsoft Entra ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Microsoft Entra client secret appropriately.
 
-### <a name="bkmk_ADappRM"></a> Set up an Azure AD app and service principal through the Azure portal
-Use the steps from the [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md) article to create an Azure AD application. Each step listed below will take you directly to the article section to complete.
+### <a name="bkmk_ADappRM"></a> Set up a Microsoft Entra app and service principal through the Azure portal
+Use the steps from the [Use portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md) article to create a Microsoft Entra application. Each step listed below will take you directly to the article section to complete.
 
 1. [Verify required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
-2. [Create an Azure Active Directory application](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+2. [Create a Microsoft Entra application](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
      - You can use any name and sign-on URL you would like when creating the application.
 3. [Get the application ID and the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
      - The authentication key is the client secret and is used as the AadClientSecret for Set-AzVMDiskEncryptionExtension.
-        - The authentication key is used by the application as a credential to sign in to Azure AD. In the Azure portal, this secret is called keys, but has no relation to key vaults. Secure this secret appropriately.
+        - The authentication key is used by the application as a credential to sign in to Microsoft Entra ID. In the Azure portal, this secret is called keys, but has no relation to key vaults. Secure this secret appropriately.
      - The application ID will be used later as the AadClientId for Set-AzVMDiskEncryptionExtension and as the ServicePrincipalName for Set-AzKeyVaultAccessPolicy.
 
-## <a name="bkmk_KVAP"></a> Set the key vault access policy for the Azure AD app
-To write encryption secrets to a specified Key Vault, Azure Disk Encryption needs the Client ID and the Client Secret of the Azure Active Directory application that has permissions to write secrets to the Key Vault.
+## <a name="bkmk_KVAP"></a> Set the key vault access policy for the Microsoft Entra app
+To write encryption secrets to a specified Key Vault, Azure Disk Encryption needs the Client ID and the Client Secret of the Microsoft Entra application that has permissions to write secrets to the Key Vault.
 
 > [!NOTE]
-> Azure Disk Encryption requires you to configure the following access policies to your Azure AD client application: _WrapKey_ and _Set_ permissions.
+> Azure Disk Encryption requires you to configure the following access policies to your Microsoft Entra client application: _WrapKey_ and _Set_ permissions.
 
-### <a name="bkmk_KVAPPSH"></a> Set the key vault access policy for the Azure AD app with Azure PowerShell
-Your Azure AD application needs rights to access the keys or secrets in the vault. Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant permissions to the application, using the client ID (which was generated when the application was registered) as the _–ServicePrincipalName_ parameter value. To learn more, see the blog post [Azure Key Vault - Step by Step](/archive/blogs/kv/azure-key-vault-step-by-step).
+### <a name="bkmk_KVAPPSH"></a> Set the key vault access policy for the Microsoft Entra app with Azure PowerShell
+Your Microsoft Entra application needs rights to access the keys or secrets in the vault. Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant permissions to the application, using the client ID (which was generated when the application was registered) as the _–ServicePrincipalName_ parameter value. To learn more, see the blog post [Azure Key Vault - Step by Step](/archive/blogs/kv/azure-key-vault-step-by-step).
 
 1. Set the key vault access policy for the AD application with PowerShell.
 
@@ -146,7 +146,7 @@ Your Azure AD application needs rights to access the keys or secrets in the vaul
      Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $KVRGname
      ```
 
-### <a name="bkmk_KVAPCLI"></a> Set the key vault access policy for the Azure AD app with Azure CLI
+### <a name="bkmk_KVAPCLI"></a> Set the key vault access policy for the Microsoft Entra app with Azure CLI
 Use [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) to set the access policy. For more information, see [Manage Key Vault using CLI 2.0](../../key-vault/general/manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Give the service principal you created via the Azure CLI access to get secrets and wrap keys with the following command:
@@ -155,11 +155,11 @@ Give the service principal you created via the Azure CLI access to get secrets a
 az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the Azure AD ClientID>" --key-permissions wrapKey --secret-permissions set
 ```
 
-### <a name="bkmk_KVAPRM"></a> Set the key vault access policy for the Azure AD app with the portal
+### <a name="bkmk_KVAPRM"></a> Set the key vault access policy for the Microsoft Entra app with the portal
 
 1. Open the resource group with your key vault.
 2. Select your key vault, go to **Access Policies**, then select **Add new**.
-3. Under **Select principal**, search for the Azure AD application you created and select it.
+3. Under **Select principal**, search for the Microsoft Entra application you created and select it.
 4. For **Key permissions**, check **Wrap Key** under **Cryptographic Operations**.
 5. For **Secret permissions**, check **Set** under **Secret Management Operations**.
 6. Select **OK** to save the access policy.
@@ -269,7 +269,7 @@ Before using the PowerShell script, you should be familiar with the Azure Disk E
      $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId -Role Contributor;
      $aadClientID = $azureAdApplication.ApplicationId;
 
- #Step 3: Enable the vault for disk encryption and set the access policy for the Azure AD application.
+ #Step 3: Enable the vault for disk encryption and set the access policy for the Microsoft Entra application.
 
 	 Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDiskEncryption;
      Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName  $KVRGname;
@@ -312,7 +312,7 @@ If you would like to use certificate authentication, you can upload one to your 
    $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
    $KeyVaultResourceId = $KeyVault.ResourceId
 
-   # Create the Azure AD application and associate the certificate with it.
+   # Create the Microsoft Entra application and associate the certificate with it.
    # Fill in "C:\certificates\mycert.pfx", "Password", "<My Application Display Name>", "<https://MyApplicationHomePage>", and "<https://MyApplicationUri>" with your values.
    # MyApplicationHomePage and the MyApplicationUri can be any values you wish
 
@@ -363,7 +363,7 @@ If you would like to use certificate authentication, you can upload one to your 
    $VM = Add-AzVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
    Update-AzVM -VM $VM -ResourceGroupName $VMRGName
 
-   #Enable encryption on the VM using Azure AD client ID and the client certificate thumbprint
+   #Enable encryption on the VM using Microsoft Entra client ID and the client certificate thumbprint
 
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
  ```
@@ -373,12 +373,9 @@ If you would like to use certificate authentication, you can upload one to your 
 If you would like to use certificate authentication and wrap the encryption key with a KEK, you can use the below script as an example. Before using the PowerShell script, you should be familiar with  all of the previous Azure Disk Encryption prerequisites to understand the steps in the script. The sample script might need changes for your environment.
 
 > [!IMPORTANT]
-> Azure AD certificate-based authentication is currently not supported on Linux VMs.
+> Microsoft Entra certificate-based authentication is currently not supported on Linux VMs.
 
-
-
-
- ```powershell
+```powershell
 # Fill in 'MyKeyVaultResourceGroup', 'MySecureVault', and 'MyLocation' (if needed)
 
    $KVRGname = 'MyKeyVaultResourceGroup'
@@ -460,7 +457,6 @@ If you would like to use certificate authentication and wrap the encryption key 
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId
 ```
 
-
 ## Next steps
 
-[Enable Azure Disk Encryption with Azure AD on Linux VMs (previous release)](disk-encryption-linux-aad.md)
+[Enable Azure Disk Encryption with Microsoft Entra ID on Linux VMs (previous release)](disk-encryption-linux-aad.md)

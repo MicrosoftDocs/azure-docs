@@ -34,7 +34,7 @@ You need Visual Studio 2015 to complete this tutorial.  [Visual Studio Community
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## Create your project and add NuGet packages
-Now that we've created a resource group for our CDN profiles and given our Azure AD application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
+Now that we've created a resource group for our CDN profiles and given our Microsoft Entra application permission to manage CDN profiles and endpoints within that group, we can start creating our application.
 
 > [!IMPORTANT]
 > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade. For more information, see the [migration guide](../active-directory/develop/msal-migration.md).
@@ -185,7 +185,7 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Azure AD.
+Be sure to replace `<redirect URI>` with the redirect URI you entered when you registered the application in Microsoft Entra ID.
 
 ## List CDN profiles and endpoints
 Now we're ready to perform CDN operations. The first thing our method does is list all the profiles and endpoints in our resource group, and if it finds a match for the profile and endpoint names specified in our constants, makes a note for later so we don't try to create duplicates.
