@@ -50,13 +50,13 @@ To download and set up the Remote Desktop client for Windows:
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/windows-open-rdp-client.png" alt-text="Screenshot of the card for a user's dev boxes with the option for opening in an RDP client.":::
 
-1. In the **Connect with the Remote Desktop Client** window, under **New to Microsoft Dev Box**, select your platform configuration in the dropdown list: Windows 64 bit, Windows 32 bit, or Windows ARM 64.
+1. In the **Connect with the Remote Desktop Client** window, under **New to Microsoft Dev Box?**, select your platform configuration in the dropdown list: Windows 64 bit, Windows 32 bit, or Windows ARM 64.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/connect-remote-desktop-client.png" alt-text="Screenshot that shows how to select your platform configuration for the Windows Remote Desktop client." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/connect-remote-desktop-client.png":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/connect-remote-desktop-client.png" alt-text="Screenshot that shows how to select your platform configuration for the Windows Remote Desktop client.":::
 
 1. After you select your platform configuration, click the platform configuration to start the download process for the Remote Desktop client.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot that shows how to click the platform configuration again to download the Windows Remote Desktop client." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-windows-desktop.png" alt-text="Screenshot that shows how to click the platform configuration again to download the Windows Remote Desktop client.":::
 
 1. After the Remote Desktop MSI file downloads to your computer, open the file and follow the prompts to install the Remote Desktop app. 
 
@@ -126,25 +126,25 @@ To use a non-Windows Remote Desktop client to connect to your dev box:
 
 1. Under **Quick actions**, select **Configure Remote Desktop**.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/configure-remote-desktop-non-windows.png" alt-text="Screenshot of the button for configuring Remote Desktop in the area for quick actions.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/configure-remote-desktop-non-windows.png" alt-text="Screenshot of the button for configuring Remote Desktop in the area for quick actions." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/configure-remote-desktop-non-windows.png":::
 
 1. In the **Configure Remote Desktop** dialog, select **Download** to download the client.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-non-windows-rdp-client.png" alt-text="Screenshot of the download button in the dialog for configuring Remote Desktop.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-non-windows-rdp-client.png" alt-text="Screenshot of the download button in the dialog for configuring Remote Desktop." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/download-non-windows-rdp-client.png":::
 
 1. Copy the subscription feed URL. After the Remote Desktop client installs, you'll connect to your dev box by using this URL.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/copy-subscription-url-non-windows.png" alt-text="Screenshot of the subscription feed URL in the Configure Remote Desktop dialog.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/copy-subscription-url-non-windows.png" alt-text="Screenshot of the subscription feed URL in the Configure Remote Desktop dialog." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/copy-subscription-url-non-windows.png":::
 
 ### Connect to your dev box
 
 1. Open the Remote Desktop client, select **Add Workspace**, and paste the subscription feed URL in the box.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-subscription-feed.png" alt-text="Screenshot of the dialog for adding a Workspace URL.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-subscription-feed.png" alt-text="Screenshot of the dialog for adding a Workspace URL." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-subscription-feed.png":::
 
 1. Your dev box appears in the Remote Desktop client's **Workspaces** area. Double-click the dev box to connect.
 
-   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of a dev box in a non-Windows Remote Desktop client Workspace.":::
+   :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png" alt-text="Screenshot of a dev box in a non-Windows Remote Desktop client Workspace." lightbox="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/non-windows-rdp-connect-dev-box.png":::
 
 ---
 
@@ -202,7 +202,7 @@ You can stop a dev box from the developer portal:
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
 
-1. For the dev box that you want to stop, select More options (**...**) > **Stop**.
+1. For the dev box that you want to stop, select More options (**...**), and then select **Stop**.
 
    :::image type="content" source="./media/tutorial-connect-to-dev-box-with-remote-desktop-app/stop-dev-box.png" alt-text="Screenshot of the menu command to stop a dev box.":::
 
