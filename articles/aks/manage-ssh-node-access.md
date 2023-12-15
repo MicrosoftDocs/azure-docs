@@ -10,11 +10,11 @@ ms.date: 12/15/2023
 
 This article describes how to configure the SSH key (preview) on your AKS clusters or node pools, during initial deployment or at a later time. 
 
-AKS supports the following configuraton options to manage SSH keys on cluster nodes:
+AKS supports the following configuration options to manage SSH keys on cluster nodes:
 
 * Create a cluster with an SSH key
 * Update the SSH key on an existing AKS cluster
-* Disable and renable the SSH key
+* Disable and enable the SSH key
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -130,13 +130,13 @@ The following are examples of this command:
     ```
 
 > [!IMPORTANT]
-> After you update the SSH key, AKS doesn't automatically update your node pool. At anytime you can choose to perform a [nodepool update operation][node-image-upgrade]. Only after a node image update is complete does the update SSH key operation take effect.
+> After you update the SSH key, AKS doesn't automatically update your node pool. At any time you can choose to perform a [nodepool update operation][node-image-upgrade]. Only after a node image update is complete does the update SSH key operation take effect.
 
 ## Disable SSH overview
 
 To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH (preview) both on the cluster and at the node pool level. Disable SSH introduces a better approach compared to the only supported solution, which requires configuring [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC). Network security group rules restrict specific user outbound IP addresses from connecting to AKS nodes using SSH.
 
-When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing node pool, AKS doesn't automatically update your node pool. At anytime you can choose to perform a nodepool update operation. Only after a node image update is complete does the disable/enable SSH key operation take effect.
+When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing node pool, AKS doesn't automatically update your node pool. At any time you can choose to perform a nodepool update operation. Only after a node image update is complete does the disable/enable SSH key operation take effect.
 
 |SSH parameter |Description |
 |-----|-----|
