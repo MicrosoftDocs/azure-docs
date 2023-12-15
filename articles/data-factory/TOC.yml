@@ -467,7 +467,7 @@ items:
       href: connector-ftp.md
     - name: GitHub
       href: connector-github.md
-    - name: Google AdWords
+    - name: Google Ads
       href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
@@ -1220,7 +1220,7 @@ items:
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting
-      - name: Google AdWords
+      - name: Google Ads
         href: connector-troubleshoot-google-adwords.md          
         displayName: troubleshooting
       - name: Hive

@@ -5,6 +5,7 @@ ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
+ms.service: container-registry
 ms.custom: subject-rbac-steps, devx-track-azurecli 
 ms.devlang: azurecli
 ---

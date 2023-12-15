@@ -5,13 +5,15 @@ description: Use Microsoft Entra API connectors to customize and extend your use
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 12/13/2023
 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 ms.custom: "it-pro"
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer or IT administrator, I want to use API connectors to integrate your sign-up user flows with REST APIs.
 ---
 
 # Use API connectors to customize and extend sign-up user flows and custom policies with external identity data sources 
@@ -27,7 +29,7 @@ As a developer or IT administrator, you can use API connectors to integrate your
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
 - **Verify user identity**. Use an identity verification service or external identity data sources to add an extra level of security to account creation decisions.
 - **Integrate with a custom approval workflow**. Connect to a custom approval system for managing and limiting account creation.
-- **Augment tokens with attributes from external sources**. Enrich tokens with attributes about the user from sources that are external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
+- **Augment tokens with attributes from external sources**. Enrich tokens with user attributes from sources that are external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
 - **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
 
@@ -45,7 +47,7 @@ There are three places in a user flow where you can enable an API connector:
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, and Microsoft Entra ID). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step isn't invoked if a user is registering with a local account. The following are examples of API connector scenarios you might enable at this step:
 
-- Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
+- Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, prefill the attribute collection page, and make them available to return in the token.
 - Implement an allow or blocklist based on social identity.
 
 ### Before creating the user
@@ -243,7 +245,7 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 Your REST API can be developed on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
 
-The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API calls will arrive from an Azure data center IP address.
+The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API call arrives from an Azure data center IP address.
 
 You can use serverless cloud functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md) for ease of development.
 
@@ -269,7 +271,7 @@ See the following articles for examples of using a RESTful technical profile:
 - [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md)
 - [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your REST API services](secure-rest-api.md)
-- [Reference: RESTful technical profile](restful-technical-profile.md)
+- [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md)
 
 ::: zone-end
 

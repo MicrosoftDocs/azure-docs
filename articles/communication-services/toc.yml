@@ -1057,6 +1057,16 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
     - name: Identity (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
+  - name: Job Router 
+    items:
+    - name: Job Router (.NET)
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationjobrouter
+    - name: Job Router (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-7
+    - name: Job Router (Android/Java)
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-jobrouter
+    - name: Job Router (Python)
+      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-jobrouter
   - name: Advanced Messaging
     items:
     - name: Advanced Messaging (.NET)

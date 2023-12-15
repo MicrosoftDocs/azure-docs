@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
-ms.custom:
+ms.service: container-registry
 ---
 
 # Transfer artifacts to another registry
