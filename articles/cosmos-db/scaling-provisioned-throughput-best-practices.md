@@ -55,7 +55,8 @@ Each PartitionKeyRangeId maps to one physical partition and is assigned to hold 
 Azure Cosmos DB distributes your data across logical and physical partitions based on your partition key to enable horizontal scaling. As data gets written, Azure Cosmos DB uses the hash of the partition key value to determine which logical and physical partition the data lives on.
 
 ### Step 2: Calculate the default maximum throughput
-The highest RU/s you can scale to without triggering Azure Cosmos DB to split partitions is equal to `Current number of physical partitions * 10,000 RU/s`.
+The highest RU/s you can scale to without triggering Azure Cosmos DB to split partitions is equal to `Current number of physical partitions * 10,000 RU/s`. You can get this value from the Azure Cosmos DB Resource Provider. Perform a GET request on your [database](/rest/api/cosmos-db-resource-provider/2023-04-15/sql-resources/get-sql-database-throughput) or [container](/rest/api/cosmos-db-resource-provider/2023-04-15/sql-resources/get-sql-container-throughput) throughput setting objects and retrieve the `instantMaximumThroughput` property. This value is also available in the Scale and Settings page of your database or container in the portal.
+
 
 #### Example
 Suppose we have an existing container with five physical partitions and 30,000 RU/s of manual provisioned throughput. We can increase the RU/s to 5 * 10,000 RU/s = 50,000 RU/s instantly. Similarly if we had a container with autoscale max RU/s of 30,000 RU/s (scales between 3000 - 30,000 RU/s), we could increase our max RU/s to 50,000 RU/s instantly (scales between 5000 - 50,000 RU/s). 
