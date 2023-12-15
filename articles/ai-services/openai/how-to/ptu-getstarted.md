@@ -50,7 +50,7 @@ After you have purchased a commitment on your quota, you can create a deployment
 | Deployment Name	 | The deployment name is used in your code to call the model by using the client libraries and the REST APIs.	| gpt-4|
 | Content filter	| Specify the filtering policy to apply to the deployment | 	Default |
 | Deployment Type	| Type of deployment you will enable. This impacts the throughput and performance. 	| Provisioned-Managed |
-| Provisioned Throughput units |	Amount of throughput to provision |	100 |
+| Provisioned Throughput Units |	Amount of throughput to provision. |	100 |
 
 
 If you wish to deploy your endpoint programmatically you can do so with the following Azure CLI command. You will just need to update the sku-capacity with the desired amout of provisioned throughput units.
