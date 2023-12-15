@@ -60,3 +60,9 @@
       href: troubleshoot-sftp-agent.md
     - name: SFTP Ingestion Agent configuration reference
       href: sftp-agent-configuration.md
+  - name: Monitor Azure Operator Insights
+    href: monitor-operator-insights.md
+- name: Reference
+  items:
+    - name: Monitoring data
+      href: monitor-operator-insights-data-reference.md
