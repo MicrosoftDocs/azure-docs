@@ -29,25 +29,27 @@ Use the following steps to prepare the project and run the sample locally:
    git clone https://github.com/Azure-Samples/spring-petclinic-microservices.git
    ```
 
-1. Enter the project root directory and execute the following command to build the project:
+1. Enter the project root directory and use the following command to build the project:
 
    ```shell
    ./mvnw clean package -DskipTests
    ```
 
-1. If you don't want to run the application locally, you can skip the next steps. Open a terminal and execute the following command to start Config Server:
+If you don't want to run the application locally, you can skip the following steps.
+
+1. Open a terminal and use the following command to start Config Server:
 
    ```shell
    ./mvnw spring-boot:run -pl spring-petclinic-config-server
    ```
 
-1. Open a terminal and execute the following command to start Discovery Server:
+1. Open a terminal and use the following command to start Discovery Server:
 
    ```shell
    ./mvnw spring-boot:run -pl spring-petclinic-discovery-server
    ```
 
-1. For Customers, Vets, Visits, and Gateway services, open new terminal in turn and execute the following commands to start the services:
+1. For Customers, Veterinarians, Visits, and Spring Cloud Gateway services, open new terminal and use the following commands to start the services:
 
    ```shell
    ./mvnw spring-boot:run -pl spring-petclinic-customers-service
@@ -57,14 +59,14 @@ Use the following steps to prepare the project and run the sample locally:
      -pl spring-petclinic-api-gateway
    ```
 
-1. Open a new terminal and enter the project `spring-petclinic-frontend` directory, execute the following commands to install dependencies and run the frontend app:
+1. Open a new terminal and enter the project `spring-petclinic-frontend` directory. Use the following commands to install dependencies and run the sample application:
 
    ```shell
    npm install
    npm run start
    ````
 
-1. After the script executes successfully, go to `http://localhost:8080` in your browser to access the PetClinic app.
+1. Go to `http://localhost:8080` in your browser to access the application.
 
 ---
 
@@ -112,8 +114,6 @@ Use the following steps to create all the Azure resources that the app depends o
 
 ## 4. Deploy the apps to Azure Spring Apps
 
-You can now deploy the apps to Azure Spring Apps.
-
 ### [Azure portal](#tab/Azure-portal-ent)
 
 The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
@@ -122,7 +122,7 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
 
 [!INCLUDE [deploy-spring-apps-maven-plugin](microservice-spring-apps-maven-plugin.md)]
 
-2. Use the following command to deploy the backend apps:
+2. Use the following command to deploy the application:
 
    ```bash
    ./mvnw azure-spring-apps:deploy
@@ -151,20 +151,21 @@ The **Deploy to Azure** button in the previous section launches an Azure portal 
    [INFO] Deployment Status: Running
    ```
 
-2. Since the Azure portal currently does not support deploying the frontend apps, use the following Azure CLI command to deploy the frontend app:
+2. Use the following Azure CLI command to deploy the application:
 
    ```bash
    az spring app deploy --resource-group ${RESOURCE_GROUP} --name ${APP_FRONTEND} \
      --service ${SPRING_APPS_NAME}  --source-path spring-petclinic-frontend \
      --build-env BP_WEB_SERVER=nginx --builder ${APP_FRONTEND}
    ```
-   
+
    After the command is executed, you can see from the following log messages that the deployment was successful:
-    
+
    ```output
    [5/5] Updating deployment in app "frontend" (this operation can take a while to complete)
    Azure Spring Apps will use rolling upgrade to update your deployment, you have 1 instance, Azure Spring Apps will update the deployment in 1 round.
    The deployment is in round 1, 1 old instance is deleted/deleting and 1 new instance is started/starting
    Your application is successfully deployed.
    ```
+
 ---
