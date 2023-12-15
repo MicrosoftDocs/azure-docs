@@ -103,7 +103,7 @@ You can follow the [Document Intelligence studio quickstart](quickstarts/try-doc
 
 ## Build document chat with semantic chunking
 
-* [Azure OpenAI on your data](../../openai/concepts/use-your-data) enables you to run supported chat **Azure AI Document Intelligence** layout model is underlying OCR engine for **Azure OpenAI on your documents** to ingest document data. It chunks long text based on table tables and paragraphs. You can also customize your chunking strategy based with these [scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts).
+* [Azure OpenAI on your data](../../openai/concepts/use-your-data.md) enables you to run supported chat **Azure AI Document Intelligence** layout model is underlying OCR engine for **Azure OpenAI on your documents** to ingest document data. It chunks long text based on table tables and paragraphs. You can also customize your chunking strategy based with these [scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts).
 
 * Azure AI Document Intelligence is now integrated with Langchain as one of its document loaders. You can use it to easily load the data, output to Markdown format, and then use This [cookbook]() shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in Langchain.
 
