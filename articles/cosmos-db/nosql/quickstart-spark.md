@@ -493,15 +493,26 @@ You can also use the Spark Connector to create containers with [hierarchical par
 #### [Python](#tab/python)
 
 ```python
+from pyspark.sql.types import StringType
+from pyspark.sql.functions import udf
+
 # create an Azure Cosmos DB container with hierarchical partitioning using catalog api
 cosmosHierarchicalContainerName = "HierarchicalPartitionKeyContainer"
 spark.sql("CREATE TABLE IF NOT EXISTS cosmosCatalog.{}.{} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/tenantId,/userId,/sessionId', manualThroughput = '1100')".format(cosmosDatabaseName, cosmosHierarchicalContainerName))
+
+# prepare feed range to filter on first two levels in the hierarchy
+spark.udf.registerJavaFunction("GetFeedRangeForPartitionKey", "com.azure.cosmos.spark.udf.GetFeedRangeForHierarchicalPartitionKeyValues", StringType())
+pkDefinition = "{\"paths\":[\"/tenantId\",\"/userId\",\"/sessionId\"],\"kind\":\"MultiHash\"}"
+pkValues = "[\"tenant 1\", \"User 1\"]"
+feedRangeDf = spark.sql(f"SELECT GetFeedRangeForPartitionKey('{pkDefinition}', '{pkValues}')")
+feedRange = feedRangeDf.collect()[0][0]
 
 cfg = {
   "spark.cosmos.accountEndpoint" : cosmosEndpoint,
   "spark.cosmos.accountKey" : cosmosMasterKey,
   "spark.cosmos.database" : cosmosDatabaseName,
   "spark.cosmos.container" : cosmosHierarchicalContainerName,
+  "spark.cosmos.read.partitioning.strategy" : "Restrictive"
 }
 
 #ingest some data
@@ -513,24 +524,40 @@ spark.createDataFrame((("id1", "tenant 1", "User 1", "session 1"), ("id2", "tena
    .mode("APPEND") \
    .save()
 
-#query by filter the first two levels in the hierarchy
+#query by filtering the first two levels in the hierarchy (this is less efficient as it will go through all physical partitions)
 query_df = spark.read.format("cosmos.oltp").options(**cfg) \
 .option("spark.cosmos.read.customQuery" , "SELECT * from c where c.tenantId = 'tenant 1' and c.userId = 'User 1'").load()
+query_df.show()
+
+# query by filtering the first two levels in the hierarchy using feedRangeFilter (will target the physical partition in which all sub-partitions are co-located)
+query_df = spark.read.format("cosmos.oltp").options(**cfg).option("spark.cosmos.partitioning.feedRangeFilter",feedRange).load()
 query_df.show()
 ```
 
 #### [Scala](#tab/scala)
 
 ```scala
+import com.azure.cosmos.spark.udf.{GetFeedRangeForHierarchicalPartitionKeyValues}
+import org.apache.spark.sql.types._
+
 //create an Azure Cosmos DB container with hierarchical partitioning using catalog api
 val cosmosHierarchicalContainerName = "HierarchicalPartitionKeyContainer"
 spark.sql(s"CREATE TABLE IF NOT EXISTS cosmosCatalog.${cosmosDatabaseName}.${cosmosHierarchicalContainerName} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/tenantId,/userId,/sessionId', manualThroughput = '1100')")
+
+//prepare feed range filter to filter on first two levels in the hierarchy
+spark.udf.register("GetFeedRangeForPartitionKey", new GetFeedRangeForHierarchicalPartitionKeyValues(), StringType)
+val pkDefinition = "{\"paths\":[\"/tenantId\",\"/userId\",\"/sessionId\"],\"kind\":\"MultiHash\"}"
+val pkValues = "[\"tenant 1\", \"User 1\"]"
+val feedRangeDf = spark.sql(s"SELECT GetFeedRangeForPartitionKey('$pkDefinition', '$pkValues')")
+val feedRange = feedRangeDf.collect()(0).getAs[String](0)
 
 //ingest some data
 val cfg = Map("spark.cosmos.accountEndpoint" -> cosmosEndpoint,
   "spark.cosmos.accountKey" -> cosmosMasterKey,
   "spark.cosmos.database" -> cosmosDatabaseName,
-  "spark.cosmos.container" -> cosmosHierarchicalContainerName
+  "spark.cosmos.container" -> cosmosHierarchicalContainerName,
+  "spark.cosmos.read.partitioning.strategy" -> "Restrictive",
+  "spark.cosmos.partitioning.feedRangeFilter" -> feedRange
 )
 spark.createDataFrame(Seq(("id1", "tenant 1", "User 1", "session 1"), ("id2", "tenant 1", "User 1", "session 1"), ("id3", "tenant 2", "User 1", "session 1")))
   .toDF("id","tenantId","userId","sessionId")
@@ -540,10 +567,15 @@ spark.createDataFrame(Seq(("id1", "tenant 1", "User 1", "session 1"), ("id2", "t
    .mode("APPEND")
    .save()
 
-//query by filter the first two levels in the hierarchy
-val query = cfg + ("spark.cosmos.read.customQuery" -> "SELECT * from c where c.tenantId = 'tenant 1' and c.userId = 'User 1'")
-val query_df = spark.read.format("cosmos.oltp").options(query).load()
-query_df.show
+//query by filtering the first two levels in the hierarchy (this is less efficient as it will go through all physical partitions)
+val query1 = cfg + ("spark.cosmos.read.customQuery" -> "SELECT * from c where c.tenantId = 'tenant 1' and c.userId = 'User 1'")
+val query_df1 = spark.read.format("cosmos.oltp").options(query1).load()
+query_df1.show
+
+//query by filtering the first two levels in the hierarchy using feedRangeFilter (will target the physical partition in which all sub-partitions are co-located)
+val query2 = cfg + ("spark.cosmos.partitioning.feedRangeFilter" -> feedRange)
+val query_df2 = spark.read.format("cosmos.oltp").options(cfg).load()
+query_df2.show
 ```
 ---
 
