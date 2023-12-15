@@ -52,6 +52,7 @@ Managed Airflow in Azure Data Factory offers a range of powerful features, inclu
 * East Us
 * South Central Us
 * West Us
+* Brazil South
 * UK South  
 * North Europe  
 * West Europe  

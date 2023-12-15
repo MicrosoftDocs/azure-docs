@@ -396,8 +396,10 @@
       - name: Create deployment script resource
         href: deployment-script-develop.md
       - name: Access private virtual networks
+        displayName: deployment script
         href: deployment-script-vnet.md
       - name: Create script development environments
+        displayName: deployment script
         href: deployment-script-bicep-configure-dev.md
     - name: Template specs
       href: template-specs.md
