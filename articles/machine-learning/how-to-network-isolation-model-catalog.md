@@ -71,7 +71,7 @@ Users can work with this collection in network isolated workspaces with no addit
 
 ## Work with Hugging Face Collection 
 
-The model weights are not hosted on Azure in the case of Hugging Face registry, and and instaed downloaded directly from Hugging Face hub to the online endpoints in your workspace during deployment.
+The model weights are not hosted on Azure in the case of Hugging Face registry, and instead downloaded directly from Hugging Face hub to the online endpoints in your workspace during deployment.
 Users need to add the following outbound FQDNs rules for Hugging Face Hub, Docker Hub and their CDNs to allow traffic to the following hosts: 
 
   * `docker.io`
