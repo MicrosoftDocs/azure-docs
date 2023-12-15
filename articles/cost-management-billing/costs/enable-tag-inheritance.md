@@ -94,7 +94,7 @@ In the Tag inheritance window, select the **Use the subscription or resource gro
 
 In the tag inheritance window, select the **Use the inherited tag** option.
 
-:::image type="content" source="./media/enable-tag-inheritance/tag-inheritance-use-inherited-tag.png" alt-text="Screenshot showing the inherited tag option selected for MCA customers" lightbox="./media/enable-tag-inheritance/tag-inheritance-use-inherited-tag.png" :::
+:::image type="content" source="./media/enable-tag-inheritance/tag-inheritance-use-inherited-tag.png" alt-text="Screenshot showing the inherited tag option selected for MCA customers." lightbox="./media/enable-tag-inheritance/tag-inheritance-use-inherited-tag.png" :::
 
 Let's look at an example of how a resource tag gets applied. In the following diagram, resource 4 and resource group 2 have the same tag: *App*. Because the user chose to keep the resource tag, usage record 4 is updated with the resource tag value *E2E*.
 
