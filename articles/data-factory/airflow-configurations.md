@@ -38,7 +38,7 @@ For the Airflow configurations reference, see [Airflow Configurations](https://a
 |[AIRFLOW__METRICS__STATSD_ON](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#statsd-on) |Enables sending metrics to StatsD. |True |
 |[AIRFLOW__METRICS__STATSD_HOST](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#statsd-host) |Hostname of the StatsD server. |geneva-services |
 |[AIRFLOW__METRICS__STATSD_PORT](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#statsd-port) |Port number of the StatsD server. |8125 |
-|[AIRFLOW__METRICS__STATSD_PREFIX](AIRFLOW__METRICS__STATSD_PREFIX) |Prefix for all Airflow metrics sent to StatsD. |AirflowMetrics|
+|AIRFLOW__METRICS__STATSD_PREFIX |Prefix for all Airflow metrics sent to StatsD. |AirflowMetrics|
 |[AIRFLOW__SCHEDULER__CHILD_PROCESS_LOG_DIRECTORY](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#child-process-log-directory) |Path of the directory where the Airflow scheduler will write its child process logs. |/opt/airflow/logs/scheduler |
 |[AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#dag-dir-list-interval) |How often (in seconds) to scan the DAGs directory for new files. Default to 5 minutes. |5|
 |[AIRFLOW__WEBSERVER__BASE_URL](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#webserver) |The base url of your website as airflow cannot guess what domain or cname you are using. This is used in automated emails that airflow sends to point links to the right web server. |https://localhost:8080 |
