@@ -31,14 +31,12 @@ Create an assignment for each storage account you want to target. A storage task
 
 You can create an assignment in the context of a storage task. This option can be convenient if you're the task author and you want to target multiple storage accounts. For each assignment you'll to identify the storage account that you want to target.
 
-Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**.
-
-In the **Assignments** page, select **+ Create assignment**, and then select **+ Add assignment**.
+Navigate to the storage task in the Azure portal and then under **Storage task management**, select **Assignments**, and then select **Configure assignments**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Assignments page that appears in the context of the storage task.](../media/storage-tasks/storage-task-assignment-create/assignment-create.png)
 
-The **Add assignment** pane appears.
+In the **Assignments** page, select **+ Add assignment** and the **Add assignment** pane will appear.
 
 ### Create an assignment from the storage account menu
 
