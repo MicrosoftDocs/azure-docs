@@ -56,6 +56,13 @@ Results:
 Chrome version 98 introduced a regression with abnormal generation of video keyframes that impacts resolution of a sent video stream negatively for majority (70%+) of users.
 - This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815)
 
+### While on a PSTN call, the user can still hear audio from the ACS call
+
+This issue happens when an Android Chrome user experiences an incoming PSTN call
+After answering the PSTN call, the microphone in the ACS call becomes muted.
+The outgoing audio of the ACS call is muted, so other participants won't hear the user who is the PSTN call.
+It's worth noting that the user's incoming audio is not muted, and this behavior is inherent to the browser.
+
 ### No incoming audio during a call
 
 Occasionally, a user in an Azure Communication Services call may not be able to hear the audio from remote participants.
