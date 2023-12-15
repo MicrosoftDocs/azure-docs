@@ -62,17 +62,18 @@ az cognitiveservices account deployment create \
 --resource-group  <myResourceGroupName> \
 --deployment-name MyModel \
 --model-name GPT-4 \
---model-version“"0613”"  \
+--model-version "0613"  \
 --model-format OpenAI \
---sku-capacity“"100”" \
---sku-name“"Provisioned-Manage”" 
+--sku-capacity "100" \
+--sku-name "Provisioned-Managed" 
 ```
 
 REST, ARM, Bicep and Terraform can also be used to create deployments.  Use the instructions in the public documentation for Standard deployments and replace the sku.name with “Provisioned-Managed” rather than “Standard”.  See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide.
 
-
 ## Make your first calls
-You can follow the steps outlined in the getting started guide 
+The inferencing code for provisioned deployments is the same a standard deployment type. The followign code snippet shows a chat completions call to a GPT-4 model.  If this is your first time using these models programmatically, we recommend starting with our [quickstart start guide](../quickstart.md). 
+
+
 
 ```python
     #Note: The openai-python library support for Azure OpenAI is in preview.
@@ -101,9 +102,14 @@ You can follow the steps outlined in the getting started guide
 > For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 
+## Understanding expected throughput
+The amount of throughput that you can achieve on the endpoint is a factor of the number of PTUs deployed, input size, output size, call rate and cache match rate. The number of concurrent calls and total tokens processed can vary significantly based on these values. The most accurate way to assess this for Provisioned-Managed is as follows:
+1.	Use the Capacity calculator for a sizing estimate. You can find the capacity calculator in the Azure OpenAI Studio under the quotas page and Provisioned tab.  
+2.	Benchmark the load using real traffic workload. see the [benchmarking](#run-a-benchmark) section below for more guidance.
+
 
 ## Measuring your deployment utilization
-When you deploy a specified number of provisioned throughput units (PTUs), a set amount of inference throughput is made available to that endpoint. Utilization of this throughput is a complex formula based on the model, model-version call rate, prompt size, generation size. To simplify this calculation, we provide a utilization metric in Azure Monitor. The LLM Utilization will be unique to each model+-version pair and cannot be compared across models. Your deployment will start to receive 429 signalserrors when the utilization is above 100%. 
+When you deploy a specified number of provisioned throughput units (PTUs), a set amount of inference throughput is made available to that endpoint. Utilization of this throughput is a complex formula based on the model, model-version call rate, prompt size, generation size. To simplify this calculation, we provide a utilization metric in Azure Monitor. The LLM Utilization will be unique to each model+-version pair and cannot be compared across models. Your deployment will start to receive 429 signals  when the utilization is above 100%. 
 
 PTU deployment utilization = (PTUs consumed in the time period) / (PTUs deployed in the time period)
 
@@ -136,22 +142,26 @@ client = OpenAI(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).chat.completions.create(
+    engine="gpt-4", # engine = "deployment_name".
     messages=[
-        {
-            "role": "user",
-            "content": "How can I get the name of the current day in Node.js?",
-        }
-    ],
-    engine="gpt-4",
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
 )
 ```
 
 
-
 ## Run a Benchmark
-The exact performance and throughput capabilities of your instance will depend on the kind of requests you make and the exact workload. The best way to determine this is to run a benchmark on your own data. To assist you in this work, we have created a benchmarking tool which will run against a provisioned deployment. The tool comes with several possible pre-configured workload shapes and outputs key performance metrics. 
+The exact performance and throughput capabilities of your instance will depend on the kind of requests you make and the exact workload. The best way to determine this is to run a benchmark on your own data. To assist you in this work, we have created a benchmarking tool which will run against a provisioned deployment. Learn more about the tool and configuration settings in our GitHub Repo: [https://aka.ms/aoai/benchmarking](https://aka.ms/aoai/benchmarking). The tool comes with several possible pre-configured workload shapes and outputs key performance metrics. 
 
-Learn more about the tool and configuration settings in our GitHub Repo: https://aka.ms/aoai/benchmarking.
+We recommend the following workflow:
+1. Estimate your throughput using the capacity calculator
+1. Run a benchmark with this trafic shape for an extended period of time (10+ min) to measure the results in a steady state
+1. Measure the utilization, tokens processed and call rate values from Azure Monitor.
+1. Run a benchmark with your own traffic shape & workloads. Be sure to implement retry logic using either an Azure Openai client library or custom logic. 
+
 
 
 ## Next Steps
