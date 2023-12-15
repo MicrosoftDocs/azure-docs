@@ -17,8 +17,10 @@ Azure region relocation documentation contains [service-specific relocation guid
 
 Each service specific guide includes service-specific information such as:
 
-- Available and recommended [relocation methods, such as Cold, Hot or Warm relocation](/azure/cloud-adoption-framework/relocate/select)
-- Available and recommended [relocation strategies](./relocation-concept-strategies.md).
+- [Relocation methods, such as Cold, Hot or Warm relocation](/azure/cloud-adoption-framework/relocate/select)
+- [Service-relocation automation tools](/azure/cloud-adoption-framework/relocate/select#select-service-relocation-automation).
+- [Data relocation automation](/azure/cloud-adoption-framework/relocate/select#select-data-relocation-automation).
+- [Cutover approaches](/azure/cloud-adoption-framework/relocate/select#select-cutover-approach).
 - Possible and actual service dependencies that also require relocation planning.
 - Lists of considerations, features, and limitations in relation to relocation planning for that service.
 - Links to how-tos and relevant product-specific relocation information.

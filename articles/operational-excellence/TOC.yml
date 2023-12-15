@@ -4,28 +4,24 @@
   href: not-yet.md
 - name: Azure region relocation
   items:
-  - name: Relocation strategies
-    href: relocation-concept-strategies.md
+  - name: Overview
+    href: relocation-concept-guidance-overview.md
   - name: Relocation guides by service
     items:
-    - name: Overview
-      href: relocation-concept-guidance-overview.md
-    - name: Relocation guides by service
-      items:
-      - name: Azure Database for PostgreSQL
-        href: relocation-postgresql-flexible-server.md
-      - name: Azure Key Vault
-        href: not-yet.md
-      - name: Azure Monitor - Log Analytics
-        href: not-yet.md
-      - name: Azure Private Endpoint
-        href: not-yet.md 
-      - name: Azure Private Link
-        href: relocation-private-link.md 
-      - name: Azure Public IP
-        href: relocation-public-ip.md    
-      - name: Azure Virtual Network
-        href: relocation-virtual-network.md    
+    - name: Azure Database for PostgreSQL
+      href: relocation-postgresql-flexible-server.md
+    - name: Azure Key Vault
+      href: not-yet.md
+    - name: Azure Monitor - Log Analytics
+      href: not-yet.md
+    - name: Azure Private Endpoint
+      href: not-yet.md 
+    - name: Azure Private Link
+      href: relocation-private-link.md 
+    - name: Azure Public IP
+      href: relocation-public-ip.md    
+    - name: Azure Virtual Network
+      href: relocation-virtual-network.md    
 - name: Resources
   items:
   - name: Operational Excellence in Microsoft Azure Well-Architected Framework
