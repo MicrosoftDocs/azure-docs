@@ -830,7 +830,7 @@
             - name: Add a transformation for workspace data
               href: ../tutorial-log-transformation.md
         - name: Use Micrometer client metrics for Java
-          href: ../client-metrics-java.md
+          href: client-metrics-java.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
