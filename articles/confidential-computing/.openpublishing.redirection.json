@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "/articles/confidential-computing/tdx-confidential-vm-overview.md",
-            "redirect_url": "/azure/confidential-computing/virtual-machine-solutions",
+            "redirect_url": "/azure/virtual-machines/dcesv5-dcedsv5-series",
             "redirect_document_id": true
         }
     ]
