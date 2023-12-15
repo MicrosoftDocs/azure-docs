@@ -19,7 +19,7 @@ Under Preview phase, error logs are available under Server logs only, error logs
 >[!Note]
 >The Error Log feature is accessible for new servers created after *1st December 2023*. For existing servers, this feature will become available following their scheduled maintenance in January 2024. To enable the Error Log feature on existing servers, before January 2024, kindly contact us via [support ticket](./../../azure-portal/supportability/how-to-manage-azure-support-request.md).
 
-In Azure Database for MySQL - Flexible Server, enabling the error log under [Server logs](./concepts-monitoring#server-logs.md) in the Azure portal records details in multiple files named using the syntax *mysql-error-<servername>-<timestamp>.log*. In the file name, the timestamp (in GMT/UTC) associated with when the file was generated is appended, identifying the specific time that that log entries were recorded. For more information, see [Server logs retention.](./concepts-monitoring#server-logs.md)
+In Azure Database for MySQL - Flexible Server, enabling the error log under [Server logs](./concepts-monitoring.md#server-logs.md) in the Azure portal records details in multiple files named using the syntax *mysql-error-servername-timestamp.log*. In the file name, the timestamp (in GMT/UTC) associated with when the file was generated is appended, identifying the specific time that that log entries were recorded. For more information, see [Server logs retention.](./concepts-monitoring.md#server-logs.md)
 
 ## Enabling Error logs (Preview)
 
