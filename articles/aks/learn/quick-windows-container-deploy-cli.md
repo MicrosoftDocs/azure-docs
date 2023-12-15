@@ -39,18 +39,6 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
   > [!NOTE]
   > Run the commands with administrative privileges if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
 
-## Limitations
-
-The following limitations apply when you create and manage AKS clusters that support multiple node pools:
-
-- You can't delete the first node pool.
-
-The following limitations apply to *Windows Server node pools*:
-
-- The AKS cluster can have a maximum of 10 node pools.
-- The AKS cluster can have a maximum of 100 nodes in each node pool.
-- The Windows Server node pool name has a limit of six characters.
-
 ## Create a resource group
 
 An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored and where your resources run in Azure if you don't specify another region during resource creation.

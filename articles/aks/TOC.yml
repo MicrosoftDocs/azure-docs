@@ -124,8 +124,6 @@
               href: /compliance/regulatory/offering-CIS-Benchmark?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: CIS Kubernetes benchmark
               href: cis-kubernetes.md
-            - name: CIS Ubuntu benchmark
-              href: cis-ubuntu.md
             - name: CIS Azure Linux benchmark
               href: cis-azure-linux.md
             - name: CIS Windows Server benchmark
@@ -351,6 +349,8 @@
           href: reduce-latency-ppg.md
         - name: Cluster Autoscaler
           href: cluster-autoscaler.md
+        - name: Node autoprovision
+          href: node-autoprovision.md
         - name: Availability Zones
           href: availability-zones.md
     - name: Cluster management
@@ -378,7 +378,7 @@
             - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
             - name: Scanning images in ACR registries
-              href: ../defender-for-cloud/defender-for-containers-introduction.mdtoc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+              href: ../defender-for-cloud/defender-for-containers-introduction.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Cluster security
           items:
             - name: Azure kubelogin
@@ -480,23 +480,21 @@
                     - name: 3 - Apply extra configurations or perform troubleshooting
                       href: csi-secrets-store-configuration-options.md
     - name: Configure networking
-      items:
-        - name: Create or use existing virtual network
+      items:     
+        - name: CNI
           items:
+            - name: Use Azure CNI Overlay
+              href: azure-cni-overlay.md
+            - name: Use Azure CNI for dynamic IP allocation
+              href: configure-azure-cni-dynamic-ip-allocation.md
+            - name: Use Azure CNI Powered by Cilium
+              href: azure-cni-powered-by-cilium.md
             - name: Use kubenet
               href: configure-kubenet.md
             - name: Use kubenet with dual-stack networking
               href: configure-kubenet-dual-stack.md
-        - name: CNI
-          items:
             - name: Use Azure CNI
               href: configure-azure-cni.md
-            - name: Use Azure CNI Overlay
-              href: azure-cni-overlay.md
-            - name: Use Azure CNI Powered by Cilium
-              href: azure-cni-powered-by-cilium.md
-            - name: Use Azure CNI for dynamic IP allocation and enhanced subnet support
-              href: configure-azure-cni-dynamic-ip-allocation.md
             - name: Bring your own CNI
               href: use-byo-cni.md
         - name: DNS
@@ -539,12 +537,6 @@
               href: istio-deploy-ingress.md
             - name: Use HTTP application routing add-on (retired)
               href: http-application-routing.md
-            - name: Use unmanaged ingress-nginx
-              items:
-                - name: Create an Ingress controller
-                  href: ingress-basic.md
-                - name: Use TLS with an ingress controller
-                  href: ingress-tls.md
         - name: Load balancing
           items:
             - name: Create an internal load balancer

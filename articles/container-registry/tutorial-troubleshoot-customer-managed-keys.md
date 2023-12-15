@@ -5,6 +5,7 @@ author: tejaswikolli-web
 ms.topic: tutorial
 ms.date: 08/5/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Troubleshoot a customer-managed key 
