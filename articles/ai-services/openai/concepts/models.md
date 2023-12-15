@@ -115,7 +115,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-3.5 models
 
-GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can also be used with the Completions API.  GPT3.5 Turbo (0613) only supports the Chat Completions API.
+GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
 
 GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 

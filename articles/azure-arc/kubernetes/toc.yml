@@ -156,12 +156,17 @@
         href: ../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
   - name: Move between regions
     href: move-regions.md
-  - name: Diagnose connection issues
-    displayName: troubleshoot, problem, proxy, network
-    href: diagnose-connection-issues.md
   - name: Troubleshooting
-    displayName: problem, issue, resolve
-    href: troubleshooting.md
+    items:
+    - name: Platform issues
+      displayName: problem, issue, resolve
+      href: troubleshooting.md
+    - name: Connection issues
+      displayName: troubleshoot, problem, proxy, network
+      href: diagnose-connection-issues.md
+    - name: Extension issues
+      displayName: gitops, flux, osm, open
+      href: extensions-troubleshooting.md
 - name: Reference
   items:
   - name: Azure Policy built-ins
