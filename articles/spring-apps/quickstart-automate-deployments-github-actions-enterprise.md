@@ -68,7 +68,7 @@ The automation associated with the sample application requires a Storage account
    az ad sp create-for-rbac \
        --role contributor \
        --scopes /subscriptions/<SUBSCRIPTION_ID> \
-       --sdk-auth
+       --json-auth
    ```
 
    The command should output a JSON object:

@@ -58,6 +58,7 @@ You can move your existing backups storage to geo-redundant storage using the fo
 
 - **Moving from zone-redundant to geo-redundant backup storage** - Azure Database for MySQL flexible server doesn't support zone-redundant storage to geo-redundant storage conversion through Compute + Storage settings change after the server is provisioned. In order to move your backup storage from zone-redundant storage to geo-redundant storage, there are two options: a) Use PITR (point-in-time restore) to restore the server with desired configuration. b) Create a new server with the desired configuration and migrate the data using [dump and restore](../concepts-migrate-dump-restore.md).
 
+
 ## Backup retention
 
 Backups are retained based on the backup retention period setting on the server. You can select a retention period of 1 to 35 days with a default retention period is seven days. You can set the retention period during server creation or later by updating the backup configuration using Azure portal.
@@ -138,7 +139,7 @@ Geo-restore can also be performed on a stopped server leveraging Azure CLI. Read
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. 
 
 > [!NOTE]
-> If you are geo-restoring a Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the geo-paired region and the same zone as your primary server and deployed as a single Azure Database for MySQL flexible server instance in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for Azure Database for MySQL flexible server.
+> If you're geo-restoring an Azure Database for MySQL flexible server instance configured with zone redundant high availability, the restored server is configured in the geo-paired region and the same zone as your primary server and deployed as a single Azure Database for MySQL flexible server instance in a non-HA mode. Refer to [zone redundant high availability](concepts-high-availability.md) for Azure Database for MySQL flexible server.
 
 > [!IMPORTANT]
 > When primary region is down, you can't create geo-redundant servers in the respective geo-paired region because storage can't be provisioned in the primary region. You must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 

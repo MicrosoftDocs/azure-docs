@@ -67,7 +67,7 @@ Follow the steps in this section to instrument your application with OpenTelemet
 Install the latest [Azure.Monitor.OpenTelemetry.AspNetCore](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.AspNetCore) NuGet package:
 
 ```dotnetcli
-dotnet add package --prerelease Azure.Monitor.OpenTelemetry.AspNetCore 
+dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore 
 ```
 
 ### [.NET](#tab/net)

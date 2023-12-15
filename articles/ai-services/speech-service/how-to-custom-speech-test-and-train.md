@@ -2,7 +2,6 @@
 title: "Training and testing datasets - Speech service"
 titleSuffix: Azure AI services
 description: Learn about types of training and testing data for a Custom Speech project, along with how to use and manage that data.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

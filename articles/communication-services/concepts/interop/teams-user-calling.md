@@ -94,8 +94,10 @@ The following list presents the set of features that are currently available in 
 |                   | Allow video stream to be selected for spotlight                                                                     | ✔️ | ✔️ | ✔️ | ✔️ |
 | Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)                               | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Custom background image                                                                                             | ✔️ | ❌ | ❌ | ❌ |
-| Recording & transcription | Manage Teams convenient recording                                                                           | ❌ | ❌ | ❌ | ❌ |
-|                   | Receive information of call being recorded                                                                          | ✔️ | ✔️ | ✔️ | ✔️ |
+| Recording & transcription | Manage Teams cloud recording                                                                                | ❌ | ❌ | ❌ | ❌ |
+|                   | Receive information of call being cloud recorded                                                                    | ✔️ | ✔️ | ✔️ | ✔️ |
+|                   | Manage Teams local recording                                                                                        | ❌ | ❌ | ❌ | ❌ |
+|                   | Receive information of call being locally recorded                                                                  | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Manage Teams transcription                                                                                          | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive information of call being transcribed                                                                       | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Manage Teams closed captions                                                                                        | ✔️ | ✔️ | ✔️ | ✔️ |
