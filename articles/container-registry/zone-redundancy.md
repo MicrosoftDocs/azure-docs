@@ -6,6 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.custom: references_regions, devx-track-azurecli
+ms.service: container-registry
 
 ---
 

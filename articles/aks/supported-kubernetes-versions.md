@@ -62,7 +62,7 @@ If you prefer to see this information visually, here's a Gantt chart with all th
 
 ## AKS Components Breaking Changes by Version
 
-Note the following important changes to make before you upgrade to any of the available minor versions:
+Note the following important changes before you upgrade to any of the available minor versions:
 
 |Kubernetes Version | AKS Managed Addons  | AKS Components | OS components | Breaking Changes | Notes
 |--------------|------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------|----------------|---------------------------|

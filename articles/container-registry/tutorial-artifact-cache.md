@@ -4,6 +4,7 @@ description: An overview on Artifact Cache feature, its limitations and benefits
 ms.topic: tutorial
 ms.date: 04/19/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Artifact Cache - Overview 

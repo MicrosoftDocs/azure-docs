@@ -5,6 +5,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
 ms.topic: quickstart
+ms.service: container-registry
 ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 

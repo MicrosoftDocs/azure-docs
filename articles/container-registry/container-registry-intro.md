@@ -5,6 +5,7 @@ author: tejaswikolli-web
 ms.topic: overview
 ms.date: 10/11/2022
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.custom: "seodec18, mvc"
 ---
 # Introduction to Container registries in Azure

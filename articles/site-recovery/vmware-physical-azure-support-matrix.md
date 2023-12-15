@@ -306,6 +306,7 @@ Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
 General-purpose v2 storage accounts (hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)
 Soft delete | Not supported.
+Disk subscription limits | Up to 3000 protected disks per subscription. Ensure that the target subscription doesn't have more than 3000 Azure Site Recovery-protected Disks (Both Data and OS).
 
 ## Azure compute
 
@@ -366,7 +367,14 @@ Maximum data churn per day supported by a Process Server | 2 TB
 - Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior.
 - These numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
-## Storage account limits
+## Cache Storage account 
+
+This table summarizes support for the cache storage account used by Site Recovery during replication.
+
+**Setting** | **Support** | **Details**
+--- | --- | ---
+General purpose V2 storage accounts | Supported | Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. 
+Soft delete | Not supported | Soft delete isn't supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase. 
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. The below table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
 

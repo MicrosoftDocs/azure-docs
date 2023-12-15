@@ -4,6 +4,7 @@ description: Overview of options and scenarios to authenticate to an Azure conta
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.date: 10/11/2022
 ---
 
