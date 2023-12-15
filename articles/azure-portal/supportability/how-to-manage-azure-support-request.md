@@ -3,7 +3,7 @@ title: Manage an Azure support request
 description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
-ms.date: 08/23/2023
+ms.date: 12/15/2023
 ---
 
 # Manage an Azure support request
@@ -91,6 +91,9 @@ To close a support request, select the **Close request** option near the top of 
 ## Reopen a closed request
 
 To reopen a closed support request, select **Reopen request** near the top of the screen. When prompted to confirm, select **Reopen request.** Your support request will then be active again.
+
+> [!NOTE]
+> Closed support requests can be viewed and reopened for 13 months after they're opened. After that time, they may be removed and not available to view or reopen.
 
 ## Cancel a support plan
 
