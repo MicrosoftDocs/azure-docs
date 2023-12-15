@@ -31,8 +31,8 @@ It's recommended to enable or provision Read replicas and High Availability (HA)
 For Online migration, the Azure replication support should be set to Logical under the Replication settings of the Single server page in the Azure Portal. In addition, the Server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
 
 - ALTER SYSTEM SET wal_level = logical;
-- ALTER SYSTEM SET max_wal_senders = <number of databases to migrate>;
-- ALTER SYSTEM SET max_replication_slots = <number of databases to migrate>;
+- ALTER SYSTEM SET max_wal_senders = `number of databases to migrate`;
+- ALTER SYSTEM SET max_replication_slots = `number of databases to migrate`;
 
 You'll need to restart the source Single server after completing all the Online migration prerequisites.
 
@@ -119,7 +119,7 @@ If the data distribution on the source is highly skewed, with most of the data p
     create unique index concurrently partkey_idx on <table name> (column name);
 ```
 
-3. If the table has neither a simple int/big int primary key or unique index nor any column that meets the data type criteria, you can add such a column using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the ALTER command requires a lock on the table.
+3. If the table doesn't have a simple int/big int primary key or unique index or any column that meets the data type criteria, you can add such a column using [ALTER](https://www.postgresql.org/docs/current/sql-altertable.html) and drop it post-migration. Running the ALTER command requires a lock on the table.
 
 ```sql
     alter table <table name> add column <column name> bigserial unique;
@@ -172,7 +172,7 @@ Regularly incorporating these vacuuming strategies ensures a well-maintained Pos
 
 ## Conclusion
 
-Once the migration is complete, make sure you perform the recommended post-migration activities. Click [Pre-migration validations](./concepts-single-to-flexible.md#post-migration) to know more.
+Once the migration is complete, make sure you perform the recommended post-migration activities. Click [Post-migration activites](./concepts-single-to-flexible.md#post-migration) to know more.
 
 ## Next steps
 
