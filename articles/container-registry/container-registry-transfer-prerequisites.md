@@ -4,7 +4,7 @@ description: Overview of ACR Transfer and prerequisites
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.service: container-registry
 ---
 

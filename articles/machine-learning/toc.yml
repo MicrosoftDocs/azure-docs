@@ -898,7 +898,9 @@
               href: how-to-deploy-automl-endpoint.md
         - name: Security
           items:
-            - name: Authentication for endpoints
+            - name: Authentication for online endpoints
+              href: concept-endpoints-online-auth.md
+            - name: Authenticate clients for online endpoints
               href: how-to-authenticate-online-endpoint.md
             - name: Network isolation with managed online endpoints
               displayName: network, vnet, secure

@@ -4,7 +4,7 @@ description: Learn how to use cross-region replication to provide disaster recov
 author: flang-msft
 
 ms.service: cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: engagement-fy23
 ms.date: 12/15/2023
 ms.author: franlanglois
@@ -228,16 +228,15 @@ Yes, as long as both caches have the same number of shards.
 
 ### Can I use geo-replication with my caches in a VNet?
 
-Yes, geo-replication of caches in VNets is supported with caveats:
+We recommend using using Azure Private Link over VNet injection in most cases. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
 
-- Geo-replication between caches in the same VNet is supported.
-- Geo-replication between caches in different VNets is also supported.
-  - If the VNets are in the same region, you can connect them using [VNet peering](../virtual-network/virtual-network-peering-overview.md) or a [VPN Gateway VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
-  - If the VNets are in different regions, geo-replication using VNet peering isn't supported. A client VM in VNet 1 (region 1) isn't able to access the cache in VNet 2 (region 2) using its DNS name because of a constraint with Basic internal load balancers. For more information about VNet peering constraints, see [Virtual Network - Peering - Requirements and constraints](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). We recommend using a VPN Gateway VNet-to-VNet connection.
+While it is still technically possible to use VNet injection when geo-replicating your caches, we recommend Azure Private Link.
 
-To configure your VNet effectively and avoid geo-replication issues, you must configure both the inbound and outbound ports correctly. For more information on avoiding the most common VNet misconfiguration issues, see [Geo-replication peer port requirements](cache-how-to-premium-vnet.md#geo-replication-peer-port-requirements).
-  
-Using [this Azure template](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/), you can quickly deploy two geo-replicated caches into a VNet connected with a VPN Gateway VNet-to-VNet connection.
+> [!IMPORTANT]
+> Azure Cache for Redis recommends using Azure Private Link, which simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Azure Private Links is offered on all our tiers, includes Azure Policy support, and simplified NSG rule management. To learn more, see [Private Link Documentation](cache-private-link.md). To migrate your VNet injected caches to Private Link, see [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
+>
+
+For more information about support for geo-replication with VNets, see [Geo-replication using VNet injection with Premium caches](cache-troubleshoot-connectivity.md#geo-replication-using-vnet-injection-with-premium-caches).
 
 ### What is the replication schedule for Redis geo-replication?
 

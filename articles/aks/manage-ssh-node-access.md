@@ -19,8 +19,6 @@ This article describes how to configure the SSH key (preview) on your AKS cluste
 
 ## Install the `aks-preview` Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
 1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
 
     ```azurecli
@@ -67,10 +65,6 @@ Use the [az aks update][az-aks-update] command to update the SSH public key on y
 > [!NOTE]
 > Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
 
-|SSH parameter |Description |Default value |
-|-----|-----|-----|
-|--ssh-key-vaule |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~.ssh\id_rsa.pub` |
-
 The following are examples of this command:
 
 * To specify a new SSH public key value, include the `--ssh-key-value` argument:
@@ -96,8 +90,15 @@ To help troubleshoot any issues with SSH connectivity to your clusters nodes, yo
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: monitor-aks-reference.md#resource-logs
 [node-image-upgrade]: node-image-upgrade.md
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
+[network-security-group-rules-overview]: concepts-security.md#azure-network-security-groups
