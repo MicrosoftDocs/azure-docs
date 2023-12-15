@@ -8,7 +8,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 12/14/2023
 ms.author: eur
 ---
 
@@ -16,63 +16,68 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-In Azure, resources enable access to Azure services for individuals and teams. Access to many Azure AI capabilities is available via a unified resource called Azure AI. 
+The 'Azure AI'resource is the top-level Azure resource for AI Studio and provides the working environment for a team to build and manage AI applications. In Azure, resources enable access to Azure services for individuals and teams. Resources also provide a container for billing, security configuration and monitoring.
 
-The preview 'Azure AI' resource used in AI studio can be used to access multiple Azure AI services with a single setup. Previously, different Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md), [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md), [Azure Speech](../../ai-services/speech-service/overview.md), required their individual setup.
+The Azure AI resource is used to access multiple Azure AI services with a single setup. Previously, different Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md), [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md), [Azure Speech](../../ai-services/speech-service/overview.md), required their individual setup.
 
-The AI resource provides the working environment for a team to build and manage AI applications, catering to two persona:
+In this article, you learn more about Azure AI resource's capabilities, and how to set up Azure AI for your organization. You can see the resources created in the [Azure portal](https://portal.azure.com/) and in [Azure AI Studio](https://ai.azure.com).
 
-* To AI developers, the Azure AI resource provides the working environment for building AI applications granting access to various tools for AI model building. Tools can be used together, and lets you use and produce shareable components including datasets, indexes, models. AI resources allows you to configure connections to external resources, provide compute resources used by tools and [endpoints and access keys to pre-built AI models](#azure-ai-services-resource-keys).
-* To IT administrators and team leads, the Azure AI resource provides a single pane of glass on projects created by a team, audit connections that are in use to external resources, and additional governance controls to help meet cost and compliance requirements. Security settings are configured on the Azure AI resource, and once set up apply to all projects created under it, allowing administrators to enable developers to self-serve create projects to organize work.
+## Collaboration environment for a team
 
-In this article, you learn more about Azure AI resource's capabilities, and how to set up Azure AI for your organization. You can see the resources that have created in the [Azure portal](https://portal.azure.com/) and in [Azure AI Studio](https://ai.azure.com).
+The AI resource provides the collaboration environment for a team to build and manage AI applications, catering to two personas:
 
-## Unified assets across projects
+* To AI developers, the Azure AI resource provides the working environment for building AI applications granting access to various tools for AI model building. Tools can be used together, and lets you use and produce shareable components including datasets, indexes, models. An AI resource allows you to configure connections to external resources, provide compute resources used by tools and [endpoints and access keys to prebuilt AI models](#azure-ai-services-api-access-keys). When you use a project to customize AI capabilities, it's hosted by an AI resource and can access the same shared resources.
+* To IT administrators, team leads and risk officers, the Azure AI resource provides a single pane of glass on projects created by a team, audit connections that are in use to external resources, and other governance controls to help meet cost and compliance requirements. Security settings are configured on the Azure AI resource, and once set up apply to all projects created under it, allowing administrators to enable developers to self-serve create projects to organize work.
 
-An **Azure AI resource** can be used to access multiple Azure AI services. An Azure AI resource is the top-level resource for access management, security configuration and governance. 
+## Central setup and management concepts
 
-Each Azure AI resource has its own:
+Various management concepts are available on AI resource to support team leads and admins to centrally manage a team's environment. In [Azure AI studio](https://ai.azure.com/), you find these on the **Manage** page.
 
-| Asset | Description |
-| --- | --- |
-| Endpoints | The location of deployed models or flows |
-| Compute instances | However the runtimes are project assets |
-| Connections | Connections to Azure and third-party resources |
-| Managed network | A managed virtual network is shared between all projects that share the same AI resource |
-| Storage | Storage account to store artifacts for your projects, such as uploaded data, and output logs when you use Azure |
-| Key vault | Key vault to store secrets for your projects, such as when you create connections |
-| AI services resource | To access foundation models such as Azure OpenAI, Speech, Vision, and Content Safety with one [API key](#azure-ai-services-resource-keys) |
+* **Security configuration** including public network access, [virtual networking](#virtual-networking), customer-managed key encryption, and privileged access to whom can create projects for customization. Security settings configured on the AI resource automatically pass down to each project. A managed virtual network is shared between all projects that share the same AI resource
+* **Connections** are named and authenticated references to Azure and non-Azure resources like data storage providers. Use a connection as a means for making an external resource available to a group of developers without having to expose its stored credential to an individual.
+* **Compute and quota allocation** is managed as shared capacity for all projects in AI studio that share the same Azure AI resource. This includes compute instance as managed cloud-based workstation for an individual. Compute instance can be used across projects by the same user.
+* **AI services access keys** to endpoints for prebuilt AI models are managed on the AI resource scope. Use these endpoints to access foundation models from Azure OpenAI, Speech, Vision, and Content Safety with one [API key](#azure-ai-services-api-access-keys)
+* **Policy** enforced in Azure on the Azure AI resource scope applies to all projects managed under it.
+* **Dependent Azure resources** are set up once per AI resource and associated projects and used to store artifacts you generate while working in AI studio such as logs or when uploading data. See [Azure AI dependencies](#azure-ai-dependencies) for more details.
 
-All associated [Azure AI projects](#project-assets) can use the configurations that are set up here. 
+## Organize work in projects for customization
 
-## Project assets
+An Azure AI resource provides the hosting environment for **projects** in AI studio. A project is an organizational container that has tools for AI customization and orchestration, lets you organize your work, save state across different tools like prompt flow, and collaborate with others. For example, you can share uploaded files and connections to data sources.
 
-An Azure AI resource hosts an **Azure AI project** which provides enterprise-grade security and a collaborative environment. 
+Multiple projects can use an Azure AI resource, and a project can be used by multiple users. A project also helps you keep track of billing, and manage access and provides data isolation. Every project has dedicated storage containers to let you upload files and share it with only other project members when using the 'data' experiences.
 
-An Azure AI project has tools for AI experimentation, lets you organize your work, save state across different tools like prompt flow, and share your work with others. For example, you can share files and connections to data sources. Multiple projects can use an Azure AI resource, and a project can be used by multiple users. A project also helps you keep track of billing, upload files, and manage access.
-
-A project has its own settings and components that you can manage in Azure AI Studio:
+Projects let you create and group reusable components that can be used across tools in AI studio:
 
 | Asset | Description |
 | --- | --- |
-| Compute instances | A managed cloud-based workstation.<br/><br/>Compute can only be shared across projects by the same user. |
-| Prompt flow runtime | Prompt flow is a feature that can be used to generate, customize, or run a flow. To use prompt flow, you need to create a runtime on top of a compute instance. |
+| Data | Dataset that can be used to create indexes, fine-tune models, and evaluate models. |
 | Flows | An executable instruction set that can implement the AI logic.​​ |
 | Evaluations | Evaluations of a model or flow. You can run manual or metrics-based evaluations. |
-| Indexes | Vector search indexes generated from your data |
-| Data | Data sources that can be used to create indexes, train models, and evaluate models |
+| Indexes | Vector search indexes generated from your data. |
+
+Projects also have specific settings that only hold for that project:
+
+| Asset | Description |
+| --- | --- |
+| Project connections | Connections to external resources like data storage providers that only you and other project members can use. They complement shared connections on the AI resource accessible to all projects.|
+| Prompt flow runtime | Prompt flow is a feature that can be used to generate, customize, or run a flow. To use prompt flow, you need to create a runtime on top of a compute instance. |
 
 > [!NOTE]
-> In AI Studio you can also manage language and notification settings that apply to all Azure AI Studio projects that you can access regardless of the Azure AI resource.
+> In AI Studio you can also manage language and notification settings that apply to all Azure AI Studio projects that you can access regardless of the Azure AI resource or project.
 
-## Azure AI services resource keys
+## Azure AI services API access keys
 
-The Azure AI resource doesn't directly contain the keys and endpoints needed to authenticate your requests to **Azure AI services**. Instead, the Azure AI resource contains among other resources, an "Azure AI services" resource. To see how this is represented in Azure AI Studio and in the Azure portal, see [Find Azure AI Studio resources in the Azure portal](#find-azure-ai-studio-resources-in-the-azure-portal) later in this article.
+The Azure AI Resource exposes API endpoints and keys for prebuilt AI services that are created by Microsoft such as Speech services and Language service. Which precise services are available to you is subject to your Azure region and your chosen Azure AI services provider at the time of setup ('advanced' option):
+
+* If you create an Azure AI resource using the default configuration, you'll have by default capabilities enabled for Azure OpenAI service, Speech, Vision, Content Safety.
+* If you create an Azure AI resource and choose an existing Azure OpenAI resource as service provider, you'll only have capabilities for Azure OpenAI service. Use this option if you'd like to reuse existing Azure OpenAI quota and models deployments. Currently, there's no upgrade path to get Speech and Vision capabilities after deployment.
+
+To understand the full layering of Azure AI resources and its Azure dependencies including the Azure AI services provider, and how these is represented in Azure AI Studio and in the Azure portal, see [Find Azure AI Studio resources in the Azure portal](#find-azure-ai-studio-resources-in-the-azure-portal).
 
 > [!NOTE]
-> This Azure AI services resource is not to be confused with the standalone "Azure AI services multi-service account" resource. Their capabilities vary, and the standalone resource is not supported in Azure AI Studio. Going forward, we recommend using the Azure AI services resource that's provided with your Azure AI resource.
+> This Azure AI services resource is similar but not to be confused with the standalone "Azure AI services multi-service account" resource. Their capabilities vary, and the standalone resource is not supported in Azure AI Studio. Going forward, we recommend using the Azure AI services resource that's provided with your Azure AI resource.
 
-The Azure AI services resource contains the keys and endpoints needed to authenticate your requests to Azure AI services. With the same API key, you can access all of the following Azure AI services:
+With the same API key, you can access all of the following Azure AI services:
 
 | Service | Description |
 | --- | --- |
@@ -83,62 +88,49 @@ The Azure AI services resource contains the keys and endpoints needed to authent
 
 Large language models that can be used to generate text, speech, images, and more, are hosted by the AI resource. Fine-tuned models and open models deployed from the [model catalog](../how-to/model-catalog.md) are always created in the project context for isolation.
 
-## Centralized setup and governance
+### Virtual networking
 
-An Azure AI resource lets you configure security and shared configurations that are shared across projects. 
+Azure AI resources, compute resources, and projects share the same Microsoft-managed Azure virtual network. After you configure the managed networking settings during the Azure AI resource creation process, all new projects created using that Azure AI resource will inherit the same virtual network settings. Therefore, any changes to the networking settings are applied to all current and new project in that Azure AI resource. By default, Azure AI resources provide public network access.
 
-Resources and security configurations are passed down to each project that shares the same Azure AI resource. If changes are made to the Azure AI resource, those changes are applied to any current and new projects.
+To establish a private inbound connection to your Azure AI resource environment, create an Azure Private Link endpoint on the following scopes:
+* The Azure AI resource
+* The dependent `Azure AI services` providing resource
+* Any other [Azure AI dependency](#azure-ai-dependencies) such as Azure storage
 
-You can set up Azure resources and security once, and reuse this environment for a group of projects. Data is stored separately per project on Azure AI associated resources such as Azure storage.
-
-The following settings are configured on the Azure AI resource and shared with every project:
-
-|Configuration|Note|
-|---|---|
-|Managed network isolation mode|The resource and associated projects share the same managed virtual network resource.|
-|Public network access|The resource and associated projects share the same managed virtual network resource.|
-|Encryption settings|One managed resource group is created for the resource and associated projects combined. Currently encryption configuration doesn't yet pass down from AI resource to AI Services provider and must be separately set up.|
-|Azure Storage account|Stores artifacts for your projects like flows and evaluations. For data isolation, storage containers are prefixed using the project GUID, and conditionally secured using Azure ABAC for the project identity.|
-|Azure Key Vault| Stores secrets like connection strings for your resource connections. For data isolation, secrets can't be retrieved across projects via APIs.|
-|Azure Container Registry| For data isolation, docker images are prefixed using the project GUID.|
-
-### Managed Networking
-
-Azure AI resource and projects share the same managed virtual network. After you configure the managed networking settings during the Azure AI resource creation process, all new projects created using that Azure AI resource will inherit the same network settings. Therefore, any changes to the networking settings are applied to all current and new project in that Azure AI resource. By default, Azure AI resources provide public network access.
-
-## Shared computing resources across projects
-
-When you create compute to use in Azure AI for Visual Studio Code interactive development, or for use in prompt flow, it's reusable across all projects that share the same Azure AI resource.
-
-Compute instances are managed cloud-based workstations that are bound to an individual user. 
-
-Every project comes with a unique fileshare that can be used to share files across all users that collaborate on a project. This fileshare gets mounted on your compute instance.
+While projects show up as their own tracking resources in the Azure portal, they don't require their own private link endpoints to be accessed. New projects that are created post AI resource setup, do automatically get added to the network-isolated environment.
 
 ## Connections to Azure and third-party resources
 
 Azure AI offers a set of connectors that allows you to connect to different types of data sources and other Azure tools. You can take advantage of connectors to connect with data such as indices in Azure AI Search to augment your flows.
 
-Connections can be set up as shared with all projects in the same Azure AI resource, or created exclusively for one project. As an administrator, you can audit both shared and project-scoped connections on an Azure AI resource level.
+Connections can be set up as shared with all projects in the same Azure AI resource, or created exclusively for one project. To manage project connections via Azure AI Studio, navigate to a project page, then navigate to **Settings** > **Connections**. To manage shared connections, navigate to the **Manage** page. As an administrator, you can audit both shared and project-scoped connections on an Azure AI resource level to have a single pane of glass of connectivity across projects.
 
 ## Azure AI dependencies
 
-Azure AI studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. Some of the architectural details are apparent when you open the Azure portal. For example, an Azure AI resource is a specific kind of Azure Machine Learning workspace hub, and a project is an Azure Machine Learning workspace. 
+Azure AI studio layers on top of existing Azure services including Azure AI and Azure Machine Learning services. While this might not be visible on the display names in Azure portal, AI studio, or when using the SDK or CLI, some of these architectural details become apparent when you work with the Azure REST APIs, use Azure cost reporting, or use infrastructure-as-code templates such as Azure Bicep or Azure Resource Manager. From an Azure Resource Provider perspective, Azure AI studio resource types map to the following resource provider kinds:
 
-Across Azure AI Studio, Azure portal, and Azure Machine Learning studio, the displayed resource type of some resources vary. The following table shows some of the resource display names that are shown in each portal:
-
-|Portal|Azure AI resource|Azure AI project|
+|Resource type|Resource provider|Kind|
 |---|---|---|
-|Azure AI Studio|Azure AI resource|Project|
-|Azure portal resource group view|Azure AI|Azure AI project|
-|Azure portal cost analysis view|Azure AI service|Azure Machine Learning workspace|
-|Azure Machine Learning studio|Not applicable|Azure Machine Learning workspace (kind: project)|
-|Resource provider (ARM templates, REST API, Bicep) | Microsoft.Machinelearningservices/kind="hub" | Microsoft.Machinelearningservices/kind="project"|
+|Azure AI resources|Microsoft.MachineLearningServices/workspace|hub|
+|Azure AI project|Microsoft.MachineLearningServices/workspace|project|
+|Azure AI services|Microsoft.CognitiveServices/account|AIServices|
+|Azure AI OpenAI Service|Microsoft.CognitiveServices/account|OpenAI|
+
+When you create a new Azure AI resource, a set of dependent Azure resources are required to store data that you upload or get generated when working in AI studio. If not provided by you, these resources are automatically created.
+
+|Dependent Azure resource|Note|
+|---|---|
+|Azure AI services|Either Azure AI services multi-service provider, or Azure OpenAI service. Provides API endpoints and keys for prebuilt AI services.|
+|Azure Storage account|Stores artifacts for your projects like flows and evaluations. For data isolation, storage containers are prefixed using the project GUID, and conditionally secured using Azure ABAC for the project identity.|
+|Azure Key Vault| Stores secrets like connection strings for your resource connections. For data isolation, secrets can't be retrieved across projects via APIs.|
+|Azure Container Registry| Stores docker images created when using custom runtime for prompt flow. For data isolation, docker images are prefixed using the project GUID.|
+|Azure Application Insights| Used as log storage when you opt in for application-level logging for your deployed prompt flows.|
 
 ## Managing cost
 
-Azure AI costs accrue by [various Azure resources](#centralized-setup-and-governance). 
+Azure AI costs accrue by [various Azure resources](#central-setup-and-management-concepts). 
 
-In general, an Azure AI resource and project don't have a fixed monthly cost, and only charge for usage in terms of compute hours and tokens used. Azure Key Vault, Storage, and Application Insights charge transaction and volume-based, dependent on the amount of data stored with your Azure AI projects. 
+In general, an Azure AI resource and project don't have a fixed monthly cost, and you're only charged for usage in terms of compute hours and tokens used. Azure Key Vault, Storage, and Application Insights charge transaction and volume-based, dependent on the amount of data stored with your Azure AI projects. 
 
 If you require to group costs of these different services together, we recommend creating Azure AI resources in one or more dedicated resource groups and subscriptions in your Azure environment.
 
