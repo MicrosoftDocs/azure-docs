@@ -48,6 +48,7 @@ Thousands of models from the HuggingFace hub are accessible via the 'Hugging Fac
 > Model packaging and inference schema is subject to change for newer versions of the model. 
 > For more information on preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+
 ## Compare capabilities of models by collection
 
 Feature | Open source models curated by Azure Machine Learning | Transformers models from the HuggingFace hub
