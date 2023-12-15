@@ -305,9 +305,9 @@
     - name: Azure Health Data Services - Azure API for FHIR
       href: ../healthcare-apis/azure-api-for-fhir/disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure IoT Hub
-      href: ../iot-hub/iot-hub-ha-dr.md#disable-disaster-recovery
+      href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#disable-disaster-recovery
     - name: Azure Machine Learning Service
-      href: ../machine-learning/how-to-high-availability-machine-learning.md
+      href: ../machine-learning/v1/how-to-high-availability-machine-learning.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure NetApp Files
       href: ../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Private 5G Core
