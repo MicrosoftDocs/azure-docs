@@ -40,7 +40,7 @@ az ml workspace provision-network --subscription <sub_id> -g <resource_group_nam
 
 ## Workspace managed virtual network to allow only approved outbound
 
-1. Configure a workspace with managed virtual network to allow only approved outbound by following the steps listed [here](./how-to-managed-network#configure-a-managed-virtual-network-to-allow-only-approved-outbound).
+1. Configure a workspace with managed virtual network to allow only approved outbound by following the steps listed [here](./how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound).
 2. If you choose to set the public network access to the workspace to disabled, you can connect to the workspace using one of the methods as listed in Scenario 1.
 
 
