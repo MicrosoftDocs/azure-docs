@@ -4,12 +4,12 @@
   href: not-yet.md
 - name: Azure region relocation
   items:
-  - name: Overview
-    href: relocation-overview.md
+  - name: Relocation strategies
+    href: relocation-concept-strategies.md
   - name: Relocation guides by service
     items:
     - name: Overview
-      href: relocation-guidance-overview.md
+      href: relocation-concept-guidance-overview.md
     - name: Relocation guides by service
       items:
       - name: Azure Database for PostgreSQL
