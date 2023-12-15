@@ -197,6 +197,110 @@ itemResponseMono.onErrorResume(throwable -> {
 ```
 ---
 
+## Logging the diagnostics
+Java V4 SDK versions v4.43.0 and above support automatic logging of Cosmos Diagnostics for all requests or errors if they meet certain criterias. Application developers can define thresholds for latency (for both point and non-point operations), request charge and payload size. If the requests exceed these defined thresholds, the cosmos diagnostics for those requests will automatically be logged.
+
+The following code samples shows how to define diagnostics thresholds:
+
+# [Sync](#tab/sync)
+```Java
+//  Create diagnostics threshold
+CosmosDiagnosticsThresholds cosmosDiagnosticsThresholds = new CosmosDiagnosticsThresholds();
+//  For demo purposes, we will reduce the threshold so to log all diagnostics
+//  NOTE: Do not use the same thresholds for production
+cosmosDiagnosticsThresholds.setPayloadSizeThreshold(10);
+cosmosDiagnosticsThresholds.setPointOperationLatencyThreshold(Duration.ofMillis(10));
+cosmosDiagnosticsThresholds.setNonPointOperationLatencyThreshold(Duration.ofMillis(10));
+cosmosDiagnosticsThresholds.setRequestChargeThreshold(5f);
+```
+
+# [Async](#tab/async)
+```Java
+//  Create diagnostics threshold
+CosmosDiagnosticsThresholds cosmosDiagnosticsThresholds = new CosmosDiagnosticsThresholds();
+//  For demo purposes, we will reduce the threshold so to log all diagnostics
+//  NOTE: Do not use the same thresholds for production
+cosmosDiagnosticsThresholds.setPayloadSizeThreshold(10);
+cosmosDiagnosticsThresholds.setPointOperationLatencyThreshold(Duration.ofMillis(10));
+cosmosDiagnosticsThresholds.setNonPointOperationLatencyThreshold(Duration.ofMillis(10));
+cosmosDiagnosticsThresholds.setRequestChargeThreshold(5f);
+```
+
+By default, the Java v4 SDK will log these diagnostics automatically in a specific format. However, this can be changed by implementing `CosmosDiagnosticsHandler` interface and providing your own custom Diagnostics Handler. 
+
+The following code sample shows how to implement the `CosmosDiagnosticsHandler` interface if required using the Java V4 SDK:
+
+# [Sync](#tab/sync)
+```Java
+//  By default, DEFAULT_LOGGING_HANDLER can be used
+CosmosDiagnosticsHandler cosmosDiagnosticsHandler = CosmosDiagnosticsHandler.DEFAULT_LOGGING_HANDLER;
+
+//  App developers can also define their own diagnostics handler
+cosmosDiagnosticsHandler = new CosmosDiagnosticsHandler() {
+    @Override
+    public void handleDiagnostics(CosmosDiagnosticsContext diagnosticsContext, Context traceContext) {
+        logger.info("This is custom diagnostics handler: {}", diagnosticsContext.toJson());
+    }
+};
+```
+
+# [Async](#tab/async)
+```Java
+//  By default, DEFAULT_LOGGING_HANDLER can be used
+CosmosDiagnosticsHandler cosmosDiagnosticsHandler = CosmosDiagnosticsHandler.DEFAULT_LOGGING_HANDLER;
+
+//  App developers can also define their own diagnostics handler
+cosmosDiagnosticsHandler = new CosmosDiagnosticsHandler() {
+    @Override
+    public void handleDiagnostics(CosmosDiagnosticsContext diagnosticsContext, Context traceContext) {
+        logger.info("This is custom diagnostics handler: {}", diagnosticsContext.toJson());
+    }
+};
+```
+
+These `CosmosDiagnosticsThresholds` and `CosmosDiagnosticsHandler` can then be leveraged in `CosmosClientTelemetryConfig` object which should be passed into `CosmosClientBuilder` while creating sync or async client.
+
+The following code sample shows their usage in `CosmosClientBuilder`:
+
+# [Sync](#tab/sync)
+```Java
+//  Create Client Telemetry Config
+CosmosClientTelemetryConfig cosmosClientTelemetryConfig =
+    new CosmosClientTelemetryConfig();
+cosmosClientTelemetryConfig.diagnosticsHandler(cosmosDiagnosticsHandler);
+cosmosClientTelemetryConfig.diagnosticsThresholds(cosmosDiagnosticsThresholds);
+
+//  Create sync client
+client = new CosmosClientBuilder()
+    .endpoint(AccountSettings.HOST)
+    .key(AccountSettings.MASTER_KEY)
+    .clientTelemetryConfig(cosmosClientTelemetryConfig)
+    .buildAsyncClient();
+
+//  Create sync client
+CosmosClient client = new CosmosClientBuilder()
+    .endpoint(AccountSettings.HOST)
+    .key(AccountSettings.MASTER_KEY)
+    .clientTelemetryConfig(cosmosClientTelemetryConfig)
+    .buildClient();
+```
+
+# [Async](#tab/async)
+```Java
+//  Create Client Telemetry Config
+CosmosClientTelemetryConfig cosmosClientTelemetryConfig =
+    new CosmosClientTelemetryConfig();
+cosmosClientTelemetryConfig.diagnosticsHandler(cosmosDiagnosticsHandler);
+cosmosClientTelemetryConfig.diagnosticsThresholds(cosmosDiagnosticsThresholds);
+
+//  Create async client
+CosmosAsyncClient client = new CosmosClientBuilder()
+    .endpoint(AccountSettings.HOST)
+    .key(AccountSettings.MASTER_KEY)
+    .clientTelemetryConfig(cosmosClientTelemetryConfig)
+    .buildAsyncClient();
+```
+
 ## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
 See our guide to [designing resilient applications with Azure Cosmos DB SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
