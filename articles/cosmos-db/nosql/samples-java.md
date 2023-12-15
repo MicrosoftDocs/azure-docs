@@ -68,7 +68,7 @@ $ git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples.g
 $ cd azure-cosmos-java-sql-api-samples
 ```
 
-You can run the samples using either an IDE (Eclipse, IntelliJ, or VSCODE) or from the command line using Maven.
+You can run the samples using either an IDE (Eclipse, IntelliJ, or VS Code) or from the command line using Maven.
 
 These environment variables must be set
 
