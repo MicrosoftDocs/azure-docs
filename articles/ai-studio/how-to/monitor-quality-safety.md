@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: Learn how to monitor quality and safety of deployed applications with Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -22,7 +22,7 @@ Capabilities and integrations include:
 - Collect production data using Model data collector from a prompt flow deployment.
 - Apply Responsible AI evaluation metrics such as groundedness, coherence, fluency, relevance, and similarity, which are interoperable with prompt flow evaluation metrics. 
 - Preconfigured alerts and defaults to run monitoring on a recurring basis.
-- Consume result and configure advanced behavior in Azure AI studio.
+- Consume result and configure advanced behavior in Azure AI Studio.
 
 ## Evaluation metrics 
 

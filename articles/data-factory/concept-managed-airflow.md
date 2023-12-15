@@ -52,6 +52,7 @@ Managed Airflow in Azure Data Factory offers a range of powerful features, inclu
 * East Us
 * South Central Us
 * West Us
+* Brazil South
 * UK South  
 * North Europe  
 * West Europe  
@@ -82,8 +83,7 @@ You can install any provider package by editing the airflow environment from the
 * DAGs that are inside a Blob Storage in VNet/behind Firewall is currently not supported. Instead we recommend using Git sync feature of Managed Airflow. See, [Sync a GitHub repository in Managed Airflow](airflow-sync-github-repository.md)
 * Importing Dags from Azure Key Vault isn't supported in LinkedServices.
 
-
-## Next steps
+## Related content
 
 - [Get Started with Managed Airflow](get-started-with-managed-airflow.md)
 - [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)

@@ -53,14 +53,11 @@ from azure.communication.jobrouter import (
     JobRouterAdministrationClient
 )
 from azure.communication.jobrouter.models import (
-    DistributionPolicy,
     LongestIdleMode,
-    RouterQueue,
-    RouterJob,
     RouterWorkerSelector,
     LabelOperator,
-    RouterWorker,
-    RouterChannel
+    RouterChannel,
+    CloseJobOptions
 )
 
 class RouterQuickstart(object):
@@ -175,7 +172,7 @@ print(f"Worker {worker.id} has completed job {accept.job_id}")
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```python
-router_client.close_job(job_id = job.id, assignment_id = accept.assignment_id, disposition_code = "Resolved")
+router_client.close_job(job_id = job.id, assignment_id = accept.assignment_id, options = CloseJobOptions(disposition_code = "Resolved"))
 print(f"Worker {worker.id} has closed job {accept.job_id}")
 ```
 
@@ -208,7 +205,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication-jobrouter-readme?view=azure-python-preview&preserve-view=true) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [Python SDK reference](/python/api/overview/azure/communication-jobrouter-readme) or [REST API reference](/rest/api/communication/jobrouter/operation-groups).
 
 <!-- LINKS -->
 

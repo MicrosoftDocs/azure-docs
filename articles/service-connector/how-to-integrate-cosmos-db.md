@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 12/04/2023
 ms.custom: event-tier1-build-2022, ignite-2022
 ---
 # Integrate Azure Cosmos DB for MongoDB with Service Connector
@@ -23,7 +23,6 @@ This page shows supported authentication methods and clients, and shows sample c
 
 Supported authentication and clients for App Service, Azure Functions, Container Apps, and Azure Spring Apps:
 
-### [Azure App Service](#tab/app-service)
 
 | Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
 | ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
@@ -31,37 +30,9 @@ Supported authentication and clients for App Service, Azure Functions, Container
 | Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
 | Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Functions](#tab/azure-functions)
-
-| Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Container Apps](#tab/container-apps)
-
-| Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-
-### [Azure Spring Apps](#tab/spring-apps)
-
-| Client type        | System-assigned managed identity   | User-assigned managed identity | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ------------------------------ | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| None        | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 
@@ -84,6 +55,8 @@ Use the connection details below to connect compute services to Azure Cosmos DB.
 |-----------------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AZURE_COSMOS_CONNECTIONSTRING     | MongoDB API connection string | `mongodb://<mongo-db-admin-user>:<password>@<mongo-db-server>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<mongo-db-server>@` |
 
+#### Sample code
+
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a connection string.
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-secret.md)]
 
@@ -94,6 +67,8 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 | AZURE_COSMOS_LISTCONNECTIONSTRINGURL | The URL to get the connection string | `https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DocumentDB/databaseAccounts/<Azure-Cosmos-DB-API-for-MongoDB-account>/listConnectionStrings?api-version=2021-04-15` |
 | AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                                                    |
 | AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<Azure-Cosmos-DB-API-for-MongoDB-account>.documents.azure.com:443/`                                                                                                                                                             |
+
+#### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a system-assigned managed identity.
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
@@ -106,6 +81,8 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 | AZURE_COSMOS_SCOPE                   | Your managed identity scope          | `https://management.azure.com/.default`                                                                                                                                                                                                    |
 | AZURE_COSMOS_CLIENTID                | Your client ID                       | `<client-ID>`                                                                                                                                                                                                                              |
 | AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<Azure-Cosmos-DB-API-for-MongoDB-account>.documents.azure.com:443/`                                                                                                                                                               |
+
+#### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a user-assigned managed identity.
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]
@@ -120,6 +97,8 @@ Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB usin
 | AZURE_COSMOS_CLIENTSECRET            | Your client secret                   | `<client-secret>`                                                                                                                                                                                                                          |
 | AZURE_COSMOS_TENANTID                | Your tenant ID                       | `<tenant-ID>`                                                                                                                                                                                                                              |
 | AZURE_COSMOS_RESOURCEENDPOINT        | Your resource endpoint               | `https://<Azure-Cosmos-DB-API-for-MongoDB-account>.documents.azure.com:443/`                                                                                                                                                               |
+
+#### Sample code
 
 Refer to the steps and code below to connect to Azure Cosmos DB for MongoDB using a service principal.
 [!INCLUDE [code sample for mongo](./includes/code-cosmosmongo-me-id.md)]

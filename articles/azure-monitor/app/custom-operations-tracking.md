@@ -20,6 +20,8 @@ This article provides guidance on how to track custom operations with the Applic
 - Application Insights for web applications (running ASP.NET) version 2.4+.
 - Application Insights for ASP.NET Core version 2.1+.
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 ## Overview
 
 An operation is a logical piece of work run by an application. It has a name, start time, duration, result, and a context of execution like user name, properties, and result. If operation A was initiated by operation B, then operation B is set as a parent for A. An operation can have only one parent, but it can have many child operations. For more information on operations and telemetry correlation, see [Application Insights telemetry correlation](distributed-tracing-telemetry-correlation.md).

@@ -3,7 +3,7 @@ title: Publish data to an MQTT broker from a pipeline
 description: Configure a pipeline destination stage to publish the pipeline output to an MQTT broker and make it available to other subscribers.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

@@ -4,7 +4,7 @@ titleSuffix: Azure AI Studio
 description: This article provides instructions on how to troubleshoot your deployments and monitors in Azure AI Studio.
 author: eric-urban
 manager: nitinme
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
 ms.topic: how-to
@@ -30,7 +30,7 @@ For the general deployment error code reference, you can go to the [Azure Machin
 **Question:** I got an "out of quota" error message. What should I do?
 
 **Answer:**  For more information about managing quota, see:
--  [Quota for deploying and inferencing a model](../concepts/deployments-overview.md#quota-for-deploying-and-inferencing-a-model)
+-  [Quota for deploying and inferencing a model](../how-to/deploy-models-openai.md#quota-for-deploying-and-inferencing-a-model)
 -  [Manage Azure OpenAI Service quota documentation](/azure/ai-services/openai/how-to/quota?tabs=rest)
 - [Manage and increase quotas for resources with Azure AI Studio](quota.md)
 
@@ -85,6 +85,9 @@ Option 2: Find the build log within Azure Machine Learning studio, which is a se
 **Question:** I deployed a web app but I don't see a way to launch it or find it.
 
 **Answer:** We're working on improving the user experience of web app deployment at this time. For the time being, here's a tip: if your web app launch button doesn't become active after a while, try deploy again using the 'update an existing app' option. If the web app was properly deployed, it should show up on the dropdown list of your existing web apps.
+
+**Question:** I deployed a model but I don't see it in the playground.
+**Answer:** Playground only supports a few select models, such as Azure OpenAI models and Llama-2. If playground support is available, you see the **Open in playground** button on the model deployment's **Details** page. 
 
 ## Next steps
 

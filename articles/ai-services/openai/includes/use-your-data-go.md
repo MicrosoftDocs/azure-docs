@@ -52,7 +52,7 @@ ms.date: 08/29/2023
        // Ex: "https://<your-azure-openai-host>.openai.azure.com"
        azureOpenAIEndpoint := os.Getenv("AOAIEndpoint")
 
-       // Azure Cognitive Search configuration
+       // Azure AI Search configuration
        searchIndex := os.Getenv("SearchIndex")
        searchEndpoint := os.Getenv("SearchEndpoint")
        searchAPIKey := os.Getenv("SearchKey")
@@ -86,7 +86,7 @@ ms.date: 08/29/2023
            AzureExtensionsOptions: &azopenai.AzureChatExtensionOptions{
                Extensions: []azopenai.AzureChatExtensionConfiguration{
                    {
-                       // This allows Azure OpenAI to use an Azure Cognitive Search index.
+                       // This allows Azure OpenAI to use an Azure AI Search index.
                        //
                        // > Because the model has access to, and can reference specific sources to support its responses, answers are not only based on its pretrained knowledge
                        // > but also on the latest information available in the designated data source. This grounding data also helps the model avoid generating responses

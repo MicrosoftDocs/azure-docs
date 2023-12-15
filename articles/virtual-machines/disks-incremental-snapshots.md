@@ -6,7 +6,7 @@ ms.service: azure-disk-storage
 ms.topic: how-to
 ms.date: 11/17/2023
 ms.author: rogarana
-ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions, devx-track-arm-template
+ms.custom: devx-track-azurepowershell, ignite-fall-2021, devx-track-azurecli, ignite-2022, references_regions
 ms.devlang: azurecli
 ---
 

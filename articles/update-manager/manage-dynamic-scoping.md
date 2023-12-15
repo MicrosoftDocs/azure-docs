@@ -4,7 +4,7 @@ description: This article describes how to manage Dynamic Scoping operations
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 11/20/2023
 ms.topic: how-to
 ---
 
@@ -35,8 +35,8 @@ To add a Dynamic scope to an existing configuration, follow these steps:
        - *Set the BypassPlatformSafetyChecksOnUserSchedule = True*.
    1. **Continue with supported machines only** - this option confirms that you want to proceed with only the machines that already have patch orchestration set to *Customer Managed Schedules*.
    
-    > [!NOTE]
-    > In the **Preview of machines based on above scope** page, you can view only the machines that don't have patch orchestration set to *Customer Managed Schedules*.
+   > [!NOTE]
+   > In the **Preview of machines based on above scope** page, you can view only the machines that don't have patch orchestration set to *Customer Managed Schedules*.
 
 1. Select **Save** to go back to the Dynamic scopes tab. In this tab, you can view and edit the Dynamic scope that you have created.
 
@@ -47,6 +47,14 @@ To view the list of Dynamic scopes associated to a given maintenance configurati
 1. Select **Machines** > **Browse maintenance configurations** > **Maintenance configurations**.
 1. In the **Maintenance configurations** page, select the name of the maintenance configuration for which you want to view the Dynamic scope.
 1. In the given maintenance configuration page, select **Dynamic scopes** to view all the Dynamic scopes that are associated with the maintenance configuration.
+
+> [!NOTE]
+> The schedules associated to dynamic scopes aren’t displayed in the following two areas by design:
+>
+>  - **Update manager** > **Machines** > **Associated schedules** column
+>  - In your virtual machine home page > **Updates** > **Scheduling** tab.
+>
+> To view the VMs that are associated to the schedule, go to the existing schedule and view under **Dynamic scopes** tab.
 
 ## Edit a Dynamic scope
 

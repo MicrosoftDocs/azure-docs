@@ -26,6 +26,7 @@ you'll first need to create a Network Fabric Controller and then a Cluster Manag
 - Set up Resource Groups to place and group resources in a logical manner
   that will be created for Operator Nexus platform.
 - Establish ExpressRoute connectivity from your WAN to an Azure Region
+- To enable Microsoft Defender for Endpoint for on-premises bare metal machines (BMMs), you must have selected a Defender for Servers plan in your Operator Nexus subscription prior to deployment. Additional information available [here](./howto-set-up-defender-for-cloud-security.md).
 
 ## On your premises prerequisites
 

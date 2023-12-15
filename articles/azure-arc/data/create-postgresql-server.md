@@ -179,7 +179,7 @@ You can now connect either psql:
 psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 ```
 
-## Next steps
+## Related content
 
 - Connect to your Azure Arc-enabled PostgreSQL server: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgresql-server.md)
 

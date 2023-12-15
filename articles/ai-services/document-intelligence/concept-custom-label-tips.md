@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 11/21/2023
 ms.author: vikurpad
 ms.custom:
   - references_regions
@@ -35,9 +35,9 @@ This article highlights the best methods for labeling custom model datasets in t
 
 * The following video is the second of two presentations intended to help you build custom models with higher accuracy (the first presentation explores [How to create a balanced data set](concept-custom-label.md#video-custom-label-tips-and-pointers)).
 
-* Here, we examine best practices for labeling your selected documents. With semantically relevant and consistent labeling, you should see an improvement in model performance.</br></br>
+* Here, we examine best practices for labeling your selected documents. With semantically relevant and consistent labeling, you should see an improvement in model performance.
 
-  [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5fZKB]
 
 ## Search
 

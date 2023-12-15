@@ -4,6 +4,7 @@ description: Learn how you can connect a Python function to a storage blob as in
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
+ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 10/25/2023
 ---

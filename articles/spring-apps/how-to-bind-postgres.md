@@ -73,7 +73,7 @@ For the default environment variable names, see [Integrate Azure Database for Po
 > Be sure to select only one of the following approaches to create a connection. If you've already created tables with one connection, other users can't access or modify the tables. When you try the other approach, the application will throw errors such as "Permission denied". To fix this issue, connect to a new database or delete and recreate an existing one.
 
 > [!NOTE]
-> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
+> By default, Service Connectors are created at the application level. To override the connections, you can create other connections again in the deployments.
 
 ### [Passwordless (Recommended)](#tab/Passwordlessflex)
 

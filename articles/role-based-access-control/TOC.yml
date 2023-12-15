@@ -43,7 +43,7 @@
     href: best-practices.md
   - name: Delegate
     items:
-    - name: Delegate role assignments overview
+    - name: Delegate role assignment management overview
       href: delegate-role-assignments-overview.md
     - name: Authorization actions and attributes
       href: conditions-authorization-actions-attributes.md
@@ -105,7 +105,7 @@
     items:
     - name: Subscription administrator
       href: role-assignments-portal-subscription-admin.md
-    - name: Delegate role assignments with conditions
+    - name: Delegate role assignment management with conditions
       href: delegate-role-assignments-portal.md
   - name: Add or edit ABAC conditions
     items:

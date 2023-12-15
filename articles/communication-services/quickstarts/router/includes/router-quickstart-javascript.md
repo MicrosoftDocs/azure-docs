@@ -138,7 +138,7 @@ let worker = await client.path("/routing/workers/{workerId}", "worker-1").patch(
         capacity: 1,
         queues: [queue.body.id],
         labels: { "Some-Skill": 11 },
-        channels: [ { channelId: "voice", capacityCostPerJob: 1 } ],
+        channels: [{ channelId: "voice", capacityCostPerJob: 1 }],
         availableForOffers: true
     },
     contentType: "application/merge-patch+json"
@@ -181,7 +181,7 @@ console.log(`Worker ${worker.body.id} has completed job ${accept.body.jobId}`);
 Once the worker is ready to take on new jobs, the worker should close the job.  Optionally, the worker can provide a disposition code to indicate the outcome of the job.
 
 ```javascript
-await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:complete", accept.body.jobId, accept.assignmentId).post({
+await client.path("/routing/jobs/{jobId}/assignments/{assignmentId}:close", accept.body.jobId, accept.body.assignmentId).post({
     body: { dispositionCode: "Resolved" }
 });
 console.log(`Worker ${worker.body.id} has closed job ${accept.body.jobId}`);
@@ -216,7 +216,7 @@ Deleting job job-1
 
 ## Reference documentation
 
-Read about the full set of capabilities of Azure Communication Services Job Router from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-jobrouter?view=azure-node-preview&preserve-view=true) or [REST API reference](/rest/api/communication/jobrouter/job-router).
+Read about the full set of capabilities of Azure Communication Services Job Router from the [JavaScript SDK reference](/javascript/api/overview/azure/communication-job-router-rest-readme) or [REST API reference](/rest/api/communication/jobrouter/operation-groups).
 
 <!-- LINKS -->
 

@@ -6,6 +6,7 @@ ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/11/2022
+ms.service: container-registry
 ---
 
 # Manually move a container registry to another region

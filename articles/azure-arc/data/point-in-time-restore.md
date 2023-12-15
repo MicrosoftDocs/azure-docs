@@ -1,6 +1,6 @@
 ---
-title: Restore a database in Azure Arc-enabled SQL Managed Instance to a previous point-in-time
-description: Explains how to restore a database to a specific point-in-time on Azure Arc-enabled SQL Managed Instance.
+title: Restore a database in SQL Managed Instance enabled by Azure Arc to a previous point-in-time
+description: Explains how to restore a database to a specific point-in-time on SQL Managed Instance enabled by Azure Arc.
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -14,15 +14,15 @@ ms.topic: how-to
 
 #  Perform a point-in-time Restore
 
-Use the point-in-time restore (PITR) to create a database as a copy of another database from some time in the past that is within the retention period. This article describes how to do a point-in-time restore of a database in Azure Arc-enabled SQL managed instance.
+Use the point-in-time restore (PITR) to create a database as a copy of another database from some time in the past that is within the retention period. This article describes how to do a point-in-time restore of a database in SQL Managed Instance enabled by Azure Arc.
 
 Point-in-time restore can restore a database:
 
 - From an existing database
-- To a new database on the same Azure Arc-enabled SQL managed instance
+- To a new database on the same SQL Managed Instance enabled by Azure Arc
 
 You can restore a database to a point-in-time within a pre-configured retention setting.
-You can check the retention setting for an Azure Arc-enabled SQL managed instance as follows:
+You can check the retention setting for a SQL Managed Instance enabled by Azure Arc as follows:
 
 For **Direct** connected mode:
 
@@ -47,7 +47,7 @@ Currently, point-in-time restore can restore a database:
 
 ## Automatic Backups
 
-Azure Arc-enabled SQL managed instance has built-in automatic backups feature enabled. Whenever you create or restore a new database, Azure Arc-enabled SQL managed instance initiates a full backup immediately and schedules differential and transaction log backups automatically. SQL managed instance stores these backups in the storage class specified during the deployment. 
+SQL Managed Instance enabled by Azure Arc has built-in automatic backups feature enabled. Whenever you create or restore a new database, SQL Managed Instance enabled by Azure Arc initiates a full backup immediately and schedules differential and transaction log backups automatically. SQL managed instance stores these backups in the storage class specified during the deployment. 
 
 Point-in-time restore enables a database to be restored to a specific point-in-time, within the retention period. To restore a database to a specific point-in-time, Azure Arc-enabled data services applies the backup files in a specific order. For example:
 
@@ -61,7 +61,7 @@ Currently, full backups are taken once a week, differential backups are taken ev
 
 ## Retention Period
 
-The default retention period for a new Azure Arc-enabled SQL managed instance is seven days, and can be adjusted with values of 0, or 1-35 days. The retention period can be set during deployment of  the SQL managed instance by specifying the `--retention-days` property. Backup files older than the configured retention period are automatically deleted.
+The default retention period for a new SQL Managed Instance enabled by Azure Arc is seven days, and can be adjusted with values of 0, or 1-35 days. The retention period can be set during deployment of  the SQL managed instance by specifying the `--retention-days` property. Backup files older than the configured retention period are automatically deleted.
 
 
 ## Create a database from a point-in-time using az CLI
@@ -104,7 +104,7 @@ az sql midb-arc restore --managed-instance sqlmi1 --name Testdb1 --dest-name myn
 1.  Edit the properties as follows:
 
     1. `name:` Unique string for each custom resource (CR). Required by Kubernetes.
-    1. `namespace:` Kubernetes namespace where the Azure Arc-enabled SQL managed instance is.
+    1. `namespace:` Kubernetes namespace where instance is.
     1. `source: ... name:` Name of the source instance.
     1. `source: ... database:` Name of source database where the restore would be applied from.
     1. `restorePoint:` Point-in-time for the restore operation in UTC datetime.
@@ -132,7 +132,7 @@ You can also restore a database to a point-in-time from Azure Data Studio as fol
 1. Launch Azure Data studio
 2. Ensure you have the required Arc extensions as described in [Tools](install-client-tools.md).
 3. Connect to the Azure Arc data controller
-4. Expand the data controller node and right click on the Azure Arc-enabled SQL managed instance and select "Manage". Azure Data Studio launches the SQL managed instance dashboard.
+4. Expand the data controller node,  right-click on the instance and select **Manage**. Azure Data Studio launches the SQL managed instance dashboard.
 5. Click on the **Backups** tab in the dashboard
 6. You should see a list of databases on the SQL managed instance and their Earliest and Latest restore time windows, and an icon to initiate the **Restore**
 7. Click on the icon for the database you want to restore from. Azure Data Studio launches a blade towards the right side
@@ -156,7 +156,7 @@ kubectl describe sqlmirestoretask <nameoftask> -n <namespace>
 
 ## Configure Retention period
 
-The Retention period for an Azure Arc-enabled SQL managed instance can be reconfigured from their original setting as follows:
+The Retention period for a SQL Managed Instance enabled by Azure Arc can be reconfigured from their original setting as follows:
 
 > [!WARNING] 
 > If you reduce the current retention period, you lose the ability to restore to points in time older than the new retention period. Backups that are no longer needed to provide PITR within the new retention period are deleted. If you increase the current retention period, you do not immediately gain the ability to restore to older points in time within the new retention period. You gain that ability over time, as the system starts to retain backups for longer.
@@ -178,10 +178,10 @@ az sql mi-arc update  --name sqlmi --k8s-namespace arc  --use-k8s --retention-da
 
 ## Disable Automatic backups
 
-You can disable the built-in automated backups for a specific instance of Azure Arc-enabled SQL managed instance by setting the `--retention-days` property to 0, as follows. The below command applies to both ```direct``` and ```indirect``` modes. 
+You can disable the built-in automated backups for a specific instance of SQL Managed Instance enabled by Azure Arc by setting the `--retention-days` property to 0, as follows. The below command applies to both ```direct``` and ```indirect``` modes. 
 
 > [!WARNING]
-> If you disable Automatic Backups for an Azure Arc-enabled SQL managed instance, then any Automatic Backups configured will be deleted and  you lose the ability to do a point-in-time restore. You can change the `retention-days` property to re-initiate automatic backups if needed.
+> If you disable Automatic Backups for a SQL Managed Instance enabled by Azure Arc, then any Automatic Backups configured will be deleted and  you lose the ability to do a point-in-time restore. You can change the `retention-days` property to re-initiate automatic backups if needed.
 
 
 ```azurecli
@@ -199,15 +199,15 @@ The backups are stored under `/var/opt/mssql/backups/archived/<dbname>/<datetime
 
 ## Limitations
 
-Point-in-time restore to Azure Arc-enabled SQL Managed Instance has the following limitations:
+Point-in-time restore to SQL Managed Instance enabled by Azure Arc has the following limitations:
 
 - Point-in-time restore is database level feature, not an instance level feature. You cannot restore the entire instance with Point-in-time restore.
-- You can only restore to the same Azure Arc-enabled SQL managed instance from where the backup was taken.
+- You can only restore to the same SQL Managed Instance enabled by Azure Arc from where the backup was taken.
 
-## Next steps
+## Related content
 
-[Learn more about Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
+[Learn more about Features and Capabilities of SQL Managed Instance enabled by Azure Arc](managed-instance-features.md)
 
 [Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
-[Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Create a SQL Managed Instance enabled by Azure Arc](create-sql-managed-instance.md)

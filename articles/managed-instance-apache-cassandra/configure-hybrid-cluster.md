@@ -7,8 +7,7 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 10/11/2023
 ms.devlang: azurecli
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, devx-track-azurecli
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra using Client Configurator
 
@@ -86,11 +85,23 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
         *It then prompts user to restart Cassandra.
         :::image type="content" source="./media/configure-hybrid-cluster/script-result.png" alt-text="Screenshot of the result of running the script.":::
 
-* Once Cassandra has finished restarting on all nodes, check `nodetool status`. Both datacenters should appear in the list, with their nodes in the UN (Up/Normal) state.
+* Once Cassandra is done restarting on all nodes, check `nodetool status`. Both datacenters should appear in the list, with their nodes in the UN (Up/Normal) state.
 
 * From your Azure Managed Instance for Apache Cassandra, you can then select `AllKeyspaces` to change the replication settings in your Keyspace schema and start the migration process to Cassandra Managed Instance cluster.
 
    :::image type="content" source="./media/create-cluster-portal/cluster-version.png" alt-text="Screenshot of selecting all key spaces." lightbox="./media/create-cluster-portal/cluster-version.png" border="true":::
+
+> [!TIP]
+> Auto-Replicate setting should be enabled via an arm template.
+> The arm template should include:
+> ```json
+> "properties":{
+> ...
+> "externalDataCenters": ["dc-name-1","dc-name-2"],
+> "autoReplicate": "AllKeyspaces",
+> ...
+> }
+> ```
 
 > [!WARNING]
 > This will change all your keyspaces definition to include 
@@ -101,6 +112,9 @@ python3 client_configurator.py --subscription-id <subcriptionId> --cluster-resou
 * Update and monitor data replication progress by selecting the `Data Center` pane
 
    :::image type="content" source="./media/configure-hybrid-cluster/replication-progress.png" alt-text="Screenshot showing replication progress." lightbox="./media/configure-hybrid-cluster/replication-progress.png" border="true":::
+
+> [!INFO]
+>
 
 ## Next steps
 

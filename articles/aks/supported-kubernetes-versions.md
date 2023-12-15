@@ -46,7 +46,7 @@ For the past release history, see [Kubernetes history](https://github.com/kubern
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life | Platform support |
 |--------------|-------------------|--------------|---------|-------------|-----------------------|
 | 1.24 | Apr 2022 | May 2022 | Jul 2022	| Jul 2023 | Until 1.28 GA |
-| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Jan 2, 2024 | Until 1.29 GA |
+| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | Jan 14, 2024 | Until 1.29 GA |
 | 1.26 | Dec 2022 | Feb 2023 | Apr 2023 | Mar 2024 | Until 1.30 GA |
 | 1.27* | Apr 2023 | Jun 2023 | Jul 2023 | Jul 2024, LTS until Jul 2025 | Until 1.31 GA |
 | 1.28 | Aug 2023 | Sep 2023 | Nov 2023 | Nov 2024 | Until 1.32 GA|
@@ -62,25 +62,23 @@ If you prefer to see this information visually, here's a Gantt chart with all th
 
 ## AKS Components Breaking Changes by Version
 
-Note the following important changes to make before you upgrade to any of the available minor versions:
+Note the following important changes before you upgrade to any of the available minor versions:
 
 |Kubernetes Version | AKS Managed Addons  | AKS Components | OS components | Breaking Changes | Notes
 |--------------|------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------|----------------|---------------------------|
-| 1.25 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 18.04 Cgroups V1 <br>ContainerD 1.7<br>| Ubuntu 22.04 by default with cgroupv2 and Overlay VPA 0.13.0  |CgroupsV2 - If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
-| 1.26 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>|No breaking changes  |None
-| 1.27 | Azure policy 1.1.0<br>Metrics-Server 0.6.3<br>KEDA 2.10.0<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0|Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>|Keda 2.10.0  |Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards.
-| 1.28 | Azure policy 1.2.1<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.2<br>Azure Workload identity v2.0.0<br>MDC Defender Security Publisher 1.0.68<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1|Cilium 1.13.5<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>|No breaking changes|None
+| 1.25 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 18.04 Cgroups V1 <br>ContainerD 1.7<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>| Ubuntu 22.04 by default with cgroupv2 and Overlay VPA 0.13.0  |CgroupsV2 - If you deploy Java applications with the JDK, prefer to use JDK 11.0.16 and later or JDK 15 and later, which fully support cgroup v2
+| 1.26 | Azure policy 1.0.1<br>Metrics-Server 0.6.3<br>KEDA 2.9.3<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.5.3<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0| Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|No breaking changes  |None
+| 1.27 | Azure policy 1.1.0<br>Metrics-Server 0.6.3<br>KEDA 2.10.0<br>Open Service Mesh 1.2.3<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.11.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.1.1<br>Azure Workload identity v1.0.0<br>MDC Defender 1.0.56<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.7.0<br>KMS 0.5.0|Cilium 1.12.8<br>CNI 1.4.44<br> Cluster Autoscaler 1.8.5.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7 for Linux and 1.6 for Windows<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|Keda 2.10.0  |Because of Ubuntu 22.04 FIPS certification status, we'll switch AKS FIPS nodes from 18.04 to 20.04 from 1.27 onwards.
+| 1.28 | Azure policy 1.2.1<br>Metrics-Server 0.6.3<br>KEDA 2.11.2<br>Open Service Mesh 1.2.7<br>Core DNS V1.9.4<br>0.12.0</br>Overlay VPA 0.13.0<br>Azure-Keyvault-SecretsProvider 1.4.1<br>Application Gateway Ingress Controller (AGIC) 1.7.2<br>Image Cleaner v1.2.2<br>Azure Workload identity v2.0.0<br>MDC Defender Security Publisher 1.0.68<br>MDC Defender Old File Cleaner 1.3.68<br>MDC Defender Pod Collector 1.0.78<br>MDC Defender Low Level Collector 1.3.81<br>Azure Active Directory Pod Identity 1.8.13.6<br>GitOps 1.8.1|Cilium 1.13.5<br>CNI v1.4.43.1 (Default)/v1.5.11 (Azure CNI Overlay)<br> Cluster Autoscaler 1.27.3<br> | OS Image Ubuntu 22.04 Cgroups V2 <br>ContainerD 1.7.5 for Linux and 1.7.1 for Windows<br>Azure Linux 2.0<br>Cgroups V1<br>ContainerD 1.6<br>|No breaking changes|None
 
 ## Alias minor version
 
 > [!NOTE]
 > Alias minor version requires Azure CLI version 2.37 or above as well as API version 20220401 or above. Use `az upgrade` to install the latest version of the CLI.
 
-AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster runs **`1.21.7`**, which is the latest GA patch version of *1.21*.
+AKS allows you to create a cluster without specifying the exact patch version. When you create a cluster without designating a patch, the cluster runs the minor version's latest GA patch. For example, if you create a cluster with **`1.21`**, your cluster runs **`1.21.7`**, which is the latest GA patch version of *1.21*. If you want to upgrade your patch version in the same minor version, please use [auto-upgrade](./auto-upgrade-cluster.md#use-cluster-auto-upgrade).
 
-When you upgrade by alias minor version, only a higher minor version is supported. For example, upgrading from `1.14.x` to `1.14` doesn't trigger an upgrade to the latest GA `1.14` patch, but upgrading to `1.15` triggers an upgrade to the latest GA `1.15` patch.
-
-To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
+To see what patch you're on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The `currentKubernetesVersion` property shows the whole Kubernetes version.
 
 ```
 {
@@ -115,7 +113,7 @@ New minor version    |    Supported Version List
 -----------------    |    ----------------------
 1.17.a               |    1.17.a, 1.17.b, 1.16.c, 1.16.d, 1.15.e, 1.15.f
 
-When a new minor version is introduced, the oldest supported minor version and patch releases are deprecated and removed. For example, the current supported version list is:
+When a new minor version is introduced, the oldest minor version and patch releases supported are deprecated and removed. For example, let's say the current supported version list is:
 
 ```
 1.17.a
@@ -127,7 +125,6 @@ When a new minor version is introduced, the oldest supported minor version and p
 ```
 
 When AKS releases 1.18.\*, all the 1.15.\* versions go out of support 30 days later.
-
 
 AKS also supports a maximum of two **patch** releases of a given minor version. For example, given the following supported versions:
 
@@ -201,6 +198,12 @@ Install-AzAksKubectl -Version latest
 ```
 
 ---
+
+## Long Term Support (LTS)
+
+AKS provides one year Community Support and one year of Long Term Support (LTS) to back port security fixes from the community upstream in our public repository. Our upstream LTS working group contributes efforts back to the community to provide our customers with a longer support window.
+
+For more details on LTS, see [Long term support for Azure Kubernetes Service (AKS)](./long-term-support.md).
 
 ## Release and deprecation process
 
@@ -279,13 +282,17 @@ Downgrades aren't supported.
 
 Additionally, AKS doesn't make any runtime or other guarantees for clusters outside of the supported versions list.
 
-### What happens when a user scales a Kubernetes cluster with a minor version that isn't supported?
+### What happens when you scale a Kubernetes cluster with a minor version that isn't supported?
 
 For minor versions not supported by AKS, scaling in or out should continue to work. Since there are no guarantees with quality of service, we recommend upgrading to bring your cluster back into support.
 
-### Can a user stay on a Kubernetes version forever?
+### Can you stay on a Kubernetes version forever?
 
-If a cluster has been out of support for more than three (3) minor versions and has been found to carry security risks, Azure proactively contacts you to upgrade your cluster. If you don't take further action, Azure reserves the right to automatically upgrade your cluster on your behalf.
+If a cluster has been out of support for more than three (3) minor versions and has been found to carry security risks, Azure proactively contacts you to  upgrade your cluster. If you don't take further action, Azure reserves the right to automatically upgrade your cluster on your behalf.
+
+### What happens if you scale a Kubernetes cluster with a minor version that isn't supported?
+
+For minor versions not supported by AKS, scaling in or out should continue to work. Since there are no guarantees with quality of service, we recommend upgrading to bring your cluster back into support.
 
 ### What version does the control plane support if the node pool isn't in one of the supported AKS versions?
 

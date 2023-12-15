@@ -885,7 +885,7 @@
           href: changefeed-ecommerce-solution.md
         - name: Azure App Service
           href: create-website.md
-        - name: Azure Cognitive Search indexer
+        - name: Azure AI Search indexer
           href: ../../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Functions
           items:

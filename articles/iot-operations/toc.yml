@@ -169,12 +169,16 @@ items:
       items:
       - name: Overview
         href: manage-layered-network/overview-layered-network.md
-      - name: Get started with a simplified VM and network
+      - name: Concepts
+        items:
+        - name: IoT Operations in layered network
+          href: manage-layered-network/concept-iot-operations-in-layered-network.md
+      - name: Deploy Layered Network Management
         href: manage-layered-network/howto-deploy-aks-layered-network.md
-      - name: Deploy Azure IoT Operations in isolated network
-        href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
       - name: How to
         items:
+        - name: Deploy Azure IoT Operations in isolated network
+          href: manage-layered-network/howto-configure-aks-edge-essentials-layered-network.md
         - name: Create sample network environment
           href: manage-layered-network/howto-configure-layered-network.md
         - name: Configure L4 cluster
@@ -231,4 +235,5 @@ items:
           href: reference/observability-metrics-opcua-broker.md
         - name: Azure IoT Layered Network Management
           href: reference/observability-metrics-layered-network.md
-
+      - name: MQTT support
+        href: reference/mqtt-support.md

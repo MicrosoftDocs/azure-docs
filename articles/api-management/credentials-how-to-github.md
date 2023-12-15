@@ -1,5 +1,5 @@
 ---
-title: Create credential to GitHub API - Azure API Management | Microsoft Docs
+title: Create connection to GitHub API - Azure API Management | Microsoft Docs
 description: Learn how to create and use a managed connection to a backend GitHub API using the Azure API Management credential manager.  
 services: api-management
 author: dlepow
@@ -17,9 +17,9 @@ You learn how to:
 
 > [!div class="checklist"]
 > * Register an application in GitHub
-> * Configure a credential provider in API Management.
+> * Configure a credential provider in API Management
 > * Configure a connection
-> * Create an API in API Management and configure a policy.
+> * Create an API in API Management and configure a policy
 > * Test your GitHub API in API Management
 
 ## Prerequisites
@@ -29,6 +29,9 @@ You learn how to:
 - Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity.md) for API Management in the API Management instance. 
 
 ## Step 1: Register an application in GitHub
+
+Create a GitHub OAuth app for the API and give it the appropriate permissions for the requests that you want to call.
+
 
 1. Sign in to GitHub. 
 1. In your account profile, go to **Settings > Developer Settings > OAuth Apps.** Select **New OAuth app**. 

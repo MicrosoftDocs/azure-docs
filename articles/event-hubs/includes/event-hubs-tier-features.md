@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 10/19/2022
+ms.date: 11/27/2023
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
@@ -22,7 +22,7 @@ The following table shows the list of features that are available (or not availa
 | Dynamic Partition scale out | N/A | N/A | Yes | Yes |
 | Ingress events | Pay per million events | Pay per million events | Included | Included |
 | Runtime audit logs | N/A | N/A | Yes | Yes |
-| Availablity Zone | Yes | Yes | Yes | Yes |
+| Availability Zone | Yes | Yes | Yes | Yes |
 | Geo disaster | N/A | Yes | Yes | Yes |
 | IP Firewall | N/A | Yes | Yes | Yes |
 
