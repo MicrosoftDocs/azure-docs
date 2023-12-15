@@ -18,6 +18,8 @@ monikerRange: 'azureml-api-1 || azureml-api-2'
 
 Learn how to manage a labeling project in Azure Machine Learning. This article is for project managers who are responsible for managing text or image labeling projects. For information about how to create the project, see [Set up a text labeling project](how-to-create-text-labeling-projects.md) or [Set up an image labeling project](how-to-create-image-labeling-projects.md).
 
+[!INCLUDE [machine-learning-preview-items-disclaimer](includes/machine-learning-preview-items-disclaimer.md)]
+
 ## Run and monitor the project
 
 After you initialize the project, Azure begins to run it. To manage a project, select the project on the main **Data Labeling** page.
@@ -271,7 +273,7 @@ Access exported Azure Machine Learning datasets and data assets in the **Data** 
 
 ---
 
-## Import labels
+## Import labels (preview)
 
 If you have an Azure MLTable data asset or COCO file that contains labels for your current data, you can import these labels into your project. For example, you might have labels that were exported from a previous labeling project using the same data. The import labels feature is available for image projects only.
 

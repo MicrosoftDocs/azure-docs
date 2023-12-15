@@ -14,11 +14,11 @@ monikerRange: 'azureml-api-1 || azureml-api-2'
 #customer intent: As a project manager, I want to set up a project to label images in the project. I want to enable machine learning-assisted labeling to help with the task.
 ---
 
-# Set up an image labeling project and export labels
+# Set up an image labeling project
 
 Learn how to create and run data labeling projects to label images in Azure Machine Learning. Use machine learning (ML)-assisted data labeling or human-in-the-loop labeling to help with the task.
 
-Set up labels for classification, object detection (bounding box), instance segmentation (polygon), or semantic segmentation (Preview).
+Set up labels for classification, object detection (bounding box), instance segmentation (polygon), or semantic segmentation (preview).
 
 You can also use the data labeling tool in Azure Machine Learning to [create a text labeling project](how-to-create-text-labeling-projects.md).
 
@@ -96,15 +96,15 @@ You can also select **Create a dataset** to use an existing Azure datastore or t
 > [!NOTE]
 > A project can't contain more than 500,000 files. If your dataset exceeds this file count, only the first 500,000 files are loaded.
 
-### Data column mapping
+### Data column mapping (preview)
 
 If you select an MLTable data asset, an additional **Data Column Mapping** step appears for you to specify the column that contains the image URLs.  
 
 [!INCLUDE [mapping](includes/machine-learning-data-labeling-mapping.md)]
 
-### Import options
+### Import options (preview)
 
- When you include a Category column, an additional step appears for import options.
+ When you include a **Category** column in the  **Data Column Mapping** step, use **Import Options** to specify how to treat the labeled data.
 
 [!INCLUDE [mapping](includes/machine-learning-data-labeling-mapping.md)]
 
