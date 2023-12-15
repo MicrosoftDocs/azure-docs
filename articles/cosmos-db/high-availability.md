@@ -94,7 +94,7 @@ Service-managed failover allows Azure Cosmos DB to fail over the write region of
 > In the absence of this configuration, the account will experience loss of write availability for the whole duration of the write region outage. Manual failover won't succeed because of a lack of region connectivity.
 
 > [!WARNING]
-> Even with service-managed failover enabled, partial outage may require manual intervention. In these scenarios, it may take up to 1 hour (or more) for failover to take effect. For better write availability during partial outages, we recommend enabling availability zones.  
+> Even with service-managed failover enabled, partial outage may require manual intervention for the Azure Cosmos DB service team. In these scenarios, it may take up to 1 hour (or more) for failover to take effect. For better write availability during partial outages, we recommend enabling availability zones in addition to service-managed failover.  
 
 
 ### Multiple write regions
