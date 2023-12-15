@@ -77,7 +77,7 @@ Managed Identity authentication is required when your storage account is attache
 
 #### Steps
 
-1. If you have a standalone dedicated SQL pool, register your SQL server with Azure Active Directory (Azure AD) using PowerShell: 
+1. If you have a standalone dedicated SQL pool, register your SQL server with Microsoft Entra ID using PowerShell: 
 
    ```powershell
    Connect-AzAccount
@@ -104,7 +104,7 @@ Managed Identity authentication is required when your storage account is attache
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to | SERVICEPRINCIPAL |
-    | Members | server or workspace hosting your dedicated SQL pool that you've registered with Azure Active Directory (Azure AD)  |
+    | Members | server or workspace hosting your dedicated SQL pool that you've registered with Microsoft Entra ID  |
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -128,7 +128,9 @@ Managed Identity authentication is required when your storage account is attache
     )
     ```
 
-## D. Azure Active Directory Authentication
+<a name='d-azure-active-directory-authentication'></a>
+
+## D. Microsoft Entra authentication
 #### Steps
 
 1. Under your storage account, select **Access control (IAM)**.
@@ -141,7 +143,7 @@ Managed Identity authentication is required when your storage account is attache
     | --- | --- |
     | Role | Storage Blob Data Owner, Contributor, or Reader |
     | Assign access to | USER |
-    | Members | Azure AD user |
+    | Members | Microsoft Entra user |
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -150,7 +152,7 @@ Managed Identity authentication is required when your storage account is attache
 
     ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-1. Configure Azure AD authentication. Refer to [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell). 
+1. Configure Microsoft Entra authentication. Refer to [Configure and manage Microsoft Entra authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell). 
 
 1. Connect to your SQL pool using Active Directory where you can now run the COPY statement without specifying any credentials:
 
@@ -166,11 +168,11 @@ Managed Identity authentication is required when your storage account is attache
 ## E. Service Principal Authentication
 #### Steps
 
-1. [Create an Azure Active Directory application](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. [Create a Microsoft Entra application](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 2. [Get application ID](../..//active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application).
 3. [Get the authentication key](../../active-directory/develop/howto-create-service-principal-portal.md#set-up-authentication).
 4. [Get the V1 OAuth 2.0 token endpoint](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications).
-5. [Assign read, write, and execution permissions to your Azure AD application](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) on your storage account.
+5. [Assign read, write, and execution permissions to your Microsoft Entra application](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) on your storage account.
 6. You can now run the COPY statement:
 
     ```sql

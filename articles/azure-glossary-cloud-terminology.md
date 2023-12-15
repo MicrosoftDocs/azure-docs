@@ -119,14 +119,14 @@ See [About Azure storage accounts](./storage/common/storage-account-create.md)
 
 ## subscription
 A customer's agreement with Microsoft that enables them to obtain Azure services. The subscription pricing and related terms are governed by the offer chosen for the subscription.
-See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+See [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/) and [How Azure subscriptions are associated with Microsoft Entra ID](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## tag
 An indexing term that enables you to categorize resources according to your requirements for managing or billing. When you have a complex collection of resources, you can use tags to visualize those assets in the way that makes the most sense. For example, you could tag resources that serve a similar role in your organization or belong to the same department.  
 See [Using tags to organize your Azure resources](./azure-resource-manager/management/tag-resources.md)
 
-## Tenant
-A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Azure Active Directory a tenant is an instance of Azure Active Directory that an organization receives when it signs up for a cloud application like Microsoft 365. Each Azure AD tenant is distinct and separate from other Azure AD tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
+## tenant
+A tenant is a group of users or an organization that share access with specific privileges to an instance of a product, service, or application. In Microsoft Entra ID a tenant is an instance of Microsoft Entra ID that an organization receives when it signs up for a cloud application like Microsoft 365. Each Microsoft Entra tenant is distinct and separate from other Microsoft Entra tenants. Multitenancy refers to an instance of an application shared by multiple organizations, each with separate access to the instance.
 
 ## update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  

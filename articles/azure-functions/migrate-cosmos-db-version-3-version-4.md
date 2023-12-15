@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: how-to 
-ms.date: 08/16/2023
+ms.date: 10/05/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -16,6 +16,10 @@ This article highlights considerations for upgrading your existing Azure Functio
 > On August 31, 2024 the Azure Cosmos DB extension version 3.x will be retired. The extension and all applications using the extension will continue to function, but Azure Cosmos DB will cease to provide further maintenance and support for this extension. We recommend migrating to the latest version 4.x of the extension.
 
 This article walks you through the process of migrating your function app to run on version 4.x of the Azure Cosmos DB extension. Because project upgrade instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
+
+## Changes to item ID generation
+
+Item ID is no longer auto populated in the Extension. Therefore, the Item ID must specifically include a generated ID for cases where you were using the Output Binding to create items.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -30,31 +34,7 @@ This article walks you through the process of migrating your function app to run
 
 Update your `.csproj` project file to use the latest extension version for your process model. The following `.csproj` file uses version 4 of the Azure Cosmos DB extension.
 
-### [In-process](#tab/in-process)
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="4.3.0" />
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="host.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="local.settings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
-</Project>
-```
-
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -79,6 +59,34 @@ Update your `.csproj` project file to use the latest extension version for your 
   </ItemGroup>
 </Project>
 ```
+
+### [In-process model](#tab/in-process)
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="4.3.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
+
+## Azure Cosmos DB SDK changes
+
+The underlying SDK used by extension changed to use the Azure Cosmos DB V3 SDK, for cases where you were using SDK related types, please look at the [Azure Cosmos DB SDK V3 migration guide](../cosmos-db/nosql/migrate-dotnet-v3.md) for more information.
 
 ---
 
@@ -117,7 +125,7 @@ The following table only includes attributes that were renamed or were removed f
 |**CollectionName** |**ContainerName** | The name of the container being monitored. |
 |**LeaseConnectionStringSetting** |**LeaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `Connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**LeaseCollectionName** |**LeaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
-|**CreateLeaseCollectionIfNotExists** |**CreateLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Azure AD identities if you set the value to `true`, creating containers isn't [an allowed operation](../cosmos-db/nosql/troubleshoot-forbidden.md#non-data-operations-are-not-allowed) and your Function won't be able to start.|
+|**CreateLeaseCollectionIfNotExists** |**CreateLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](../cosmos-db/nosql/troubleshoot-forbidden.md#non-data-operations-are-not-allowed) and your Function won't be able to start.|
 |**LeasesCollectionThroughput** |**LeasesContainerThroughput** | (Optional) Defines the number of Request Units to assign when the leases container is created. This setting is only used when `CreateLeaseContainerIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal. |
 |**LeaseCollectionPrefix** |**LeaseContainerPrefix** | (Optional) When set, the value is added as a prefix to the leases created in the Lease container for this function. Using a prefix allows two separate Azure Functions to share the same Lease container by using different prefixes. |
 |**UseMultipleWriteLocations** |*Removed* | This attribute is no longer needed as it's automatically detected. |
@@ -140,7 +148,7 @@ The following table only includes attributes that changed or were removed from t
 |**collectionName** |**containerName** | The name of the container being monitored. |
 |**leaseConnectionStringSetting** |**leaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**leaseCollectionName** |**leaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
-|**createLeaseCollectionIfNotExists** |**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Azure AD identities if you set the value to `true`, creating containers isn't [an allowed operation](../cosmos-db/nosql/troubleshoot-forbidden.md#non-data-operations-are-not-allowed) and your Function won't be able to start.|
+|**createLeaseCollectionIfNotExists** |**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](../cosmos-db/nosql/troubleshoot-forbidden.md#non-data-operations-are-not-allowed) and your Function won't be able to start.|
 |**leasesCollectionThroughput** |**leasesContainerThroughput** | (Optional) Defines the number of Request Units to assign when the leases container is created. This setting is only used when `createLeaseContainerIfNotExists` is set to `true`. This parameter is automatically set when the binding is created using the portal. |
 |**leaseCollectionPrefix** |**leaseContainerPrefix** | (Optional) When set, the value is added as a prefix to the leases created in the Lease container for this function. Using a prefix allows two separate Azure Functions to share the same Lease container by using different prefixes. |
 |**useMultipleWriteLocations** |*Removed* | This attribute is no longer needed as it's automatically detected. |

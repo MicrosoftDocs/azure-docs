@@ -53,6 +53,9 @@
   - name: Paginate query results with Azure PowerShell
     displayName: queries, powershell, Az.ResourceGraph
     href: ./paginate-powershell.md
+  - name: Create alerts query
+    displayName: alerts, portal, resource graph, monitor, log analytics, query
+    href: ./alerts-query-quickstart.md
 - name: Tutorials
   items:
   - name: Create and share a query in Azure portal
@@ -99,8 +102,13 @@
     displayName: resource, change, history, snapshot, details
     href: ./how-to/get-resource-changes.md
 - name: Troubleshoot
-  displayName: errors, violation
-  href: ./troubleshoot/general.md
+  items:
+  - name: Alerts
+    displayName: alerts, portal, resource graph, monitor, log analytics, query, error, violation
+    href: ./troubleshoot/alerts.md
+  - name: Common issues
+    displayName: errors, violation
+    href: ./troubleshoot/general.md
 - name: Reference
   items:
   - name: Keyboard shortcuts

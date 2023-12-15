@@ -1,23 +1,48 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md",
-            "redirect_url": "/azure/cloud-shell/quickstart",
+            "source_path_from_root": "/articles/cloud-shell/troubleshooting.md",
+            "redirect_url": "/azure/cloud-shell/faq-troubleshooting",
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cloud-shell/limitations.md",
+            "redirect_url": "/azure/cloud-shell/faq-troubleshooting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/private-vnet.md",
+            "redirect_url": "/azure/cloud-shell/vnet-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/quickstart-deploy-vnet.md",
+            "redirect_url": "/azure/cloud-shell/vnet-deployment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/msi-authorization.md",
+            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/quickstart.md",
+            "redirect_url": "/azure/cloud-shell/get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md",
+            "redirect_url": "/azure/cloud-shell/get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cloud-shell/cloud-shell-windows-users.md",
-            "redirect_url": "/azure/cloud-shell/quickstart",
+            "redirect_url": "/azure/cloud-shell/get-started",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cloud-shell/features-powershell.md",
             "redirect_url": "/azure/cloud-shell/features",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cloud-shell/index.md",
-            "redirect_url": "/azure/cloud-shell/overview",
             "redirect_document_id": false
         },
         {
@@ -33,6 +58,11 @@
         {
             "source_path_from_root": "/articles/cloud-shell/security-baseline.md",
             "redirect_url": "/security/benchmark/azure/baselines/cloud-shell-security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cloud-shell/index.md",
+            "redirect_url": "/azure/cloud-shell/overview",
             "redirect_document_id": false
         }
     ]

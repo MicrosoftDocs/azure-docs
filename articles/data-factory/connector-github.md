@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/24/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 
@@ -51,6 +51,6 @@ The following properties are supported for the GitHub linked service.
 | userName | GitHub username | yes |
 | password | GitHub password | yes |
 
-## Next steps
+## Related content
 
 Create a [source dataset](data-flow-source.md) in mapping data flow.

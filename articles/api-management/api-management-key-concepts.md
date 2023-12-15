@@ -8,7 +8,7 @@ editor: ''
  
 ms.service: api-management
 ms.topic: overview
-ms.date: 09/23/2022
+ms.date: 12/13/2023
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -69,12 +69,12 @@ More information:
 
 API providers interact with the service through the management plane, which provides full access to the API Management service capabilities. 
 
-Customers interact with the management plane through Azure tools including the Azure portal, Azure PowerShell, Azure CLI, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview), or client SDKs in several popular programming languages.
+Customers interact with the management plane through Azure tools including the Azure portal, Azure PowerShell, Azure CLI, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview), a REST API, or client SDKs in several popular programming languages.
 
 Use the management plane to:
 
   * Provision and configure API Management service settings
-  * Define or import API schemas from a wide range of sources, including OpenAPI specifications, Azure compute services, or WebSocket or GraphQL backends
+  * Define or import API schemas from a wide range of sources, including OpenAPI, WSDL, and OData definitions, Azure compute services, and WebSocket, GraphQL, and gRPC backends
   * Package APIs into products
   * Set up [policies](#policies) like quotas or transformations on the APIs
   * Get insights from analytics
@@ -108,9 +108,10 @@ API Management integrates with many complementary Azure services to create enter
 * [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
 * [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
 * [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
-* Azure Active Directory for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+* [Azure Defender for APIs](protect-with-defender-for-apis.md) and [Azure DDoS Protection](protect-with-ddos-protection.md) for runtime protection against malicious attacks​
+* Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 * [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
-* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
+* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others including Azure OpenAI service.​
 
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
@@ -133,7 +134,7 @@ Operations in API Management are highly configurable, with control over URL mapp
 
 Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription key, while open products can be consumed freely. 
 
-When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
+When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers using the developer portal. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 
 **More information**:
 * [Create and publish a product][How to create and publish a product]
@@ -151,7 +152,7 @@ Groups are used to manage the visibility of products to developers. API Manageme
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
+Administrators can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
 **More information**: 
 * [How to create and use groups][How to create and use groups]
@@ -165,13 +166,22 @@ When developers subscribe to a product, they're granted the primary and secondar
 **More information**:
 * [How to manage user accounts][How to create or invite developers]
 
+
+### Workspaces
+
+Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC).
+
+**More information**:
+
+* [Workspaces in API Management](workspaces-overview.md)
+
 ### Policies
 
 With [policies][API Management policies], an API publisher can change the behavior of an API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call-rate limiting to restrict the number of incoming calls from a developer. For a complete list, see [API Management policies][Policy reference].
 
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./choose-policy.md) and [Set variable](./set-variable-policy.md) policies are based on policy expressions. 
 
-Policies can be applied at different scopes, depending on your needs: global (all APIs), a product, a specific API, or an API operation. 
+Policies can be applied at different scopes, depending on your needs: global (all APIs), a workspace, a product, a specific API, or an API operation. 
 
 **More information**:
 

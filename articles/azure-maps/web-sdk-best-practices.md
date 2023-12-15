@@ -2,8 +2,8 @@
 title: Azure Maps Web SDK best practices
 titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/23/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -14,7 +14,7 @@ services: azure-maps
 
 This document focuses on best practices for the Azure Maps Web SDK, however, many of the best practices and optimizations outlined can be applied to all other Azure Maps SDKs.
 
-The Azure Maps Web SDK provides a powerful canvas for rendering large spatial data sets in many different ways. In some cases, there are multiple ways to render data the same way, but depending on the size of the data set and the desired functionality, one method may perform better than others. This article highlights best practices and tips and tricks to maximize performance and create a smooth user experience.
+The Azure Maps Web SDK provides a powerful canvas for rendering large spatial data sets in many different ways. In some cases, there are multiple ways to render data the same way, but depending on the size of the data set and the desired functionality, one method might perform better than others. This article highlights best practices and tips and tricks to maximize performance and create a smooth user experience.
 
 Generally, when looking to improve performance of the map, look for ways to reduce the number of layers and sources, and the complexity of the data sets and rendering styles being used.
 
@@ -45,7 +45,7 @@ When a web page is loading, one of the first things you want to do is start rend
 
 Similarly, when the map initially loads often it's desired to load data on it as quickly as possible, so the user isn't looking at an empty map. Since the map loads resources asynchronously, you have to wait until the map is ready to be interacted with before trying to render your own data on it. There are two events you can wait for, a `load` event and a `ready` event. The load event will fire after the map has finished completely loading the initial map view and every map tile has loaded. If you see a "Style is not done loading" error, you should use the `load` event and wait for the style to be fully loaded.
 
-The ready event fires when the minimal map resources needed to start interacting with the map. More precisely, the `ready` event is triggered when the map is loading the style data for the first time. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner.
+The ready event fires when the minimal map resources needed to start interacting with the map. More precisely, the `ready` event is triggered when the map is loading the style data for the first time. The ready event can often fire in half the time of the load event and thus allow you to start loading your data into the map sooner. Avoid making changes to the map's style or language at this moment, as doing so can trigger a style reload.
 
 ### Lazy load the Azure Maps Web SDK
 
@@ -69,8 +69,8 @@ Often apps want to load the map to a specific location or style. Sometimes devel
 
 The Web SDK has two data sources,
 
-* **GeoJSON source**: The `DataSource` class, manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of features).
-* **Vector tile source**: The `VectorTileSource` class, loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of features).
+* **GeoJSON source**: The `DataSource` class manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of features).
+* **Vector tile source**: The `VectorTileSource` class loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of features).
 
 ### Use tile-based solutions for large datasets
 
@@ -147,7 +147,7 @@ It's possible to store GeoJSON objects inline inside of JavaScript, however this
 
 ## Optimize rendering layers
 
-Azure maps provides several different layers for rendering data on a map. There are many optimizations you can take advantage of to tailor these layers to your scenario the increase performances and the overall user experience.
+Azure maps provide several different layers for rendering data on a map. There are many optimizations you can take advantage of to tailor these layers to your scenario the increase performances and the overall user experience.
 
 ### Create layers once and reuse them
 
@@ -163,13 +163,13 @@ Unlike most layers in the Azure Maps Web control that use WebGL for rendering, H
 
 The [Reusing Popup with Multiple Pins] code sample shows how to create a single popup and reuse it by updating its content and position. For the source code, see [Reusing Popup with Multiple Pins sample code].
 
-:::image type="content" source="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of a map of Seattle with three blue pins, demonstrating how to Reuse Popups with Multiple Pins.":::
+:::image type="content" source="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" lightbox="./media/web-sdk-best-practices/reusing-popup-with-multiple-pins.png" alt-text="A screenshot of a map of Seattle with three blue pins, demonstrating how to Reuse Popups with Multiple Pins.":::
 
 <!------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 -------------------------------------------------------->
 
-That said, if you only have a few points to render on the map, the simplicity of HTML markers may be preferred. Additionally, HTML markers can easily be made draggable if needed.
+That said, if you only have a few points to render on the map, the simplicity of HTML markers might be preferred. Additionally, HTML markers can easily be made draggable if needed.
 
 ### Combine layers
 
@@ -263,14 +263,14 @@ The symbol layer has two options that exist for both icon and text called `allow
 
 ### Cluster large point data sets
 
-When working with large sets of data points you may find that when rendered at certain zoom levels, many of the points overlap and are only partial visible, if at all. Clustering is process of grouping points that are close together and representing them as a single clustered point. As the user zooms in the map, clusters break apart into their individual points. This can significantly reduce the amount of data that needs to be rendered, make the map feel less cluttered, and improve performance. The `DataSource` class has options for clustering data locally. Additionally, many tools that generate vector tiles also have clustering options.
+When working with large sets of data points you might find that when rendered at certain zoom levels, many of the points overlap and are only partial visible, if at all. Clustering is process of grouping points that are close together and representing them as a single clustered point. As the user zooms in the map, clusters break apart into their individual points. This can significantly reduce the amount of data that needs to be rendered, make the map feel less cluttered, and improve performance. The `DataSource` class has options for clustering data locally. Additionally, many tools that generate vector tiles also have clustering options.
 
 Additionally, increase the size of the cluster radius to improve performance. The larger the cluster radius, the less clustered points there's to keep track of and render.
 For more information, see [Clustering point data in the Web SDK].
 
 ### Use weighted clustered heat maps
 
-The heat map layer can render tens of thousands of data points easily. For larger data sets, consider enabling clustering on the data source and using a small cluster radius and use the clusters `point_count` property as a weight for the height map. When the cluster radius is only a few pixels in size, there's little visual difference in the rendered heat map. Using a larger cluster radius improves performance more but may reduce the resolution of the rendered heat map.
+The heat map layer can render tens of thousands of data points easily. For larger data sets, consider enabling clustering on the data source and using a small cluster radius and use the clusters `point_count` property as a weight for the height map. When the cluster radius is only a few pixels in size, there's little visual difference in the rendered heat map. Using a larger cluster radius improves performance more but might reduce the resolution of the rendered heat map.
 
 ```javascript
 var layer = new atlas.layer.HeatMapLayer(source, null, {
@@ -308,7 +308,7 @@ var layer = new atlas.layer.BubbleLayer(source, null, {
 });
 ```
 
-The above code functions fine if all features in the data source have a `myColor` property, and the value of that property is a color. This may not be an issue if you have complete control of the data in the data source and know for certain all features have a valid color in a `myColor` property. That said, to make this code safe from errors, a `case` expression can be used with the `has` expression to check that the feature has the `myColor` property. If it does, the `to-color` type expression can then be used to try to convert the value of that property to a color. If the color is invalid, a fallback color can be used. The following code demonstrates how to do this and sets the fallback color to green.
+The above code functions fine if all features in the data source have a `myColor` property, and the value of that property is a color. This might not be an issue if you have complete control of the data in the data source and know for certain all features have a valid color in a `myColor` property. That said, to make this code safe from errors, a `case` expression can be used with the `has` expression to check that the feature has the `myColor` property. If it does, the `to-color` type expression can then be used to try to convert the value of that property to a color. If the color is invalid, a fallback color can be used. The following code demonstrates how to do this and sets the fallback color to green.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(source, null, {
@@ -345,7 +345,7 @@ Things to check:
 
 * Ensure that you complete your authentication options in the map. Without authentication, the map loads a blank canvas and returns a 401 error in the network tab of the browser's developer tools.
 * Ensure that you have an internet connection.
-* Check the console for errors of the browser's developer tools. Some errors may cause the map not to render. Debug your application.
+* Check the console for errors of the browser's developer tools. Some errors might cause the map not to render. Debug your application.
 * Ensure you're using a [supported browser].
 
 **All my data is showing up on the other side of the world, what's going on?**
@@ -363,9 +363,9 @@ Things to check:
 **Why are icons or text in the symbol layer appearing in the wrong place?**
 
 Check that the `anchor` and the `offset` options are configured correctly to align with the part of your image or text that you want to have aligned with the coordinate on the map.
-If the symbol is only out of place when the map is rotated, check the `rotationAlignment` option. By default, symbols rotate with the maps viewport, appearing upright to the user. However, depending on your scenario, it may be desirable to lock the symbol to the map's orientation by setting the `rotationAlignment` option to `map`.
+If the symbol is only out of place when the map is rotated, check the `rotationAlignment` option. By default, symbols rotate with the maps viewport, appearing upright to the user. However, depending on your scenario, it might be desirable to lock the symbol to the map's orientation by setting the `rotationAlignment` option to `map`.
 
-If the symbol is only out of place when the map is pitched/tilted, check the `pitchAlignment` option. By default, symbols stay upright in the maps viewport when the map is pitched or tilted. However, depending on your scenario, it may be desirable to lock the symbol to the map's pitch by setting the `pitchAlignment` option to `map`.
+If the symbol is only out of place when the map is pitched/tilted, check the `pitchAlignment` option. By default, symbols stay upright in the maps viewport when the map is pitched or tilted. However, depending on your scenario, it might be desirable to lock the symbol to the map's pitch by setting the `pitchAlignment` option to `map`.
 
 **Why isn't any of my data appearing on the map?**
 
@@ -374,7 +374,7 @@ Things to check:
 * Check the console in the browser's developer tools for errors.
 * Ensure that a data source has been created and added to the map, and that the data source has been connected to a rendering layer that has also been added to the map.
 * Add break points in your code and step through it. Ensure data is added to the data source and the data source and layers are added to the map.
-* Try removing data-driven expressions from your rendering layer. It's possible that one of them may have an error in it that is causing the issue.
+* Try removing data-driven expressions from your rendering layer. It's possible that one of them might have an error in it that is causing the issue.
 
 **Can I use the Azure Maps Web SDK in a sandboxed iframe?**
 

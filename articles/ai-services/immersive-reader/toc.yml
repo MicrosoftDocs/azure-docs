@@ -40,11 +40,11 @@
     items:
       - name: Set up Virtual Networks
         href: ../../ai-services/cognitive-services-virtual-networks.md?context=/azure/ai-services/immersive-reader/context/context
-      - name: Use Azure AD authentication
+      - name: Use Microsoft Entra authentication
         href: ../../ai-services/authentication.md?context=/azure/ai-services/immersive-reader/context/context
 - name: Security Advisory
   items:
-  - name: Update Role Assignment for Azure Active Directory authentication
+  - name: Update Role Assignment for Microsoft Entra authentication
     href: security-how-to-update-role-assignment.md
 - name: Reference
   items:

@@ -53,7 +53,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
    | Property | Value |
    | ----- | ----- |
-   | **Permission model** | Part of role-based access control, this property decides how you *manage access* to your IoT hub. Allow shared access policies or choose only role-based access control. For more information, see [Control access to IoT Hub by using Azure Active Directory](../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md).
+   | **Permission model** | Part of role-based access control, this property decides how you *manage access* to your IoT hub. Allow shared access policies or choose only role-based access control. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](../articles/iot-hub/iot-hub-dev-guide-azure-ad-rbac.md).
    | **Assign me** | You may need access to IoT Hub data APIs to manage elements within an instance. If you have access to role assignments, select **IoT Hub Data Contributor role** to grant yourself full access to the data APIs.<br><br>To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../articles/role-based-access-control/built-in-roles.md#owner). |
    | **Device-to-cloud partitions** | This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most IoT hubs need only four partitions. |
 

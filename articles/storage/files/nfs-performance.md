@@ -4,7 +4,7 @@ description: Learn ways to improve the performance of NFS Azure file shares at s
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 09/26/2023
 ms.author: kendownie
 ---
 
@@ -33,11 +33,11 @@ To change this value, set the read-ahead size by adding a rule in udev, a Linux 
    ```output
    SUBSYSTEM=="bdi" \
    , ACTION=="add" \
-   , PROGRAM="<absolute_path>/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes" \
+   , PROGRAM="/usr/bin/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes" \
    , ATTR{read_ahead_kb}="15360"
    ```
 
-1. In a console, apply the udev rule by running the [udevadm](https://www.man7.org/linux/man-pages/man8/udevadm.8.html) command as a superuser:
+1. In a console, apply the udev rule by running the [udevadm](https://www.man7.org/linux/man-pages/man8/udevadm.8.html) command as a superuser and reloading the rules files and other databases. You only need to run this command once, to make udev aware of the new file.
 
    ```bash
    sudo udevadm control --reload

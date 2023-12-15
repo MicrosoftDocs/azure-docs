@@ -1,13 +1,13 @@
 ---
-title: DNS Zones and Records overview - Azure DNS
-description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
+title: DNS Zones and Records Overview - Azure Public DNS
+description: Overview of support for hosting DNS zones and records in Microsoft Azure Public DNS.
 author: greg-lindsay
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 09/06/2023
+ms.date: 11/21/2023
 ms.author: greglin
 ---
 
@@ -19,7 +19,7 @@ This article explains the key concepts of domains, DNS zones, DNS records, and r
 
 The Domain Name System is a hierarchy of domains. The hierarchy starts from the `root` domain, whose name is simply '**.**'.  Below this come top-level domains, such as `com`, `net`, `org`, `uk` or `jp`.  Below the top-level domains are second-level domains, such as `org.uk` or `co.jp`. The domains in the DNS hierarchy are globally distributed, hosted by DNS name servers around the world.
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`. Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar may host the domain in its own name servers on your behalf or allow you to specify alternative name servers.
+A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`. Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar might host the domain on its own name servers on your behalf or allow you to specify alternative name servers.
 
 Azure DNS provides a globally distributed and high-availability name server infrastructure that you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
 
@@ -79,6 +79,9 @@ You can modify all properties of the SOA record except for the `host` property. 
 
 The zone serial number in the SOA record isn't updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
 
+> [!NOTE]
+> Azure DNS doesn't currently support the use of a dot (**.**) before the '**@**' in the SOA hostmaster mailbox entry. For example: `john.smith@contoso.xyz` (converted to john.smith.contoso.xyz) and `john\.smith@contoso.xyz` are not allowed. 
+
 ### SPF records
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
@@ -94,7 +97,7 @@ The zone serial number in the SOA record isn't updated automatically when change
 
 TXT records are used to map domain names to arbitrary text strings. They're used in multiple applications, in particular related to email configuration, such as the [Sender Policy Framework (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
 
-The DNS standards permit a single TXT record to contain multiple strings, each of which may be up to 255 characters in length. Where multiple strings are used, they're concatenated by clients and treated as a single string.
+The DNS standards permit a single TXT record to contain multiple strings, each of which can be up to 255 characters in length. Where multiple strings are used, they're concatenated by clients and treated as a single string.
 
 When calling the Azure DNS REST API, you need to specify each TXT string separately.  When you use the Azure portal, PowerShell, or CLI interfaces, you should specify a single string per record. This string is automatically divided into 255-character segments if necessary.
 
@@ -136,7 +139,7 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 
 The following default limits apply when using Azure DNS:
 
-[!INCLUDE [dns-limits](../../includes/dns-limits.md)]
+[!INCLUDE [dns-limits](../../includes/dns-limits-public-zones.md)]
 
 ## Next steps
 

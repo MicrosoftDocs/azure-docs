@@ -48,7 +48,7 @@ This example uses the portal:
 
    :::image type="content" source="media/cache-tutorial-write-behind/cache-create-sql.png" alt-text="Screenshot of creating an Azure SQL resource.":::
 
-1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Azure Active Directory (Azure AD) authentication instead.
+1. Select **Use SQL authentication** and enter an admin sign-in and password. Be sure to remember these credentials or write them down. When you're deploying a server in production, use Microsoft Entra authentication instead.
 
    :::image type="content" source="media/cache-tutorial-write-behind/cache-sql-authentication.png" alt-text="Screenshot of the authentication information for an Azure SQL resource.":::
 

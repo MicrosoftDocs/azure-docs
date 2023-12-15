@@ -44,7 +44,7 @@ Before you start this scenario, you must have the following pre-requisites:
 
 ### Create the runbook
 
-The first step to configuring the example is to create the runbook. This example uses a run-as account. To learn about run-as accounts, visit [Authenticate Runbooks with Azure Run As account](../automation/manage-runas-account.md)
+The first step to configuring the example is to create the runbook.
 
 ### Step 1
 

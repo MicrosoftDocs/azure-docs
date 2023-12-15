@@ -88,7 +88,7 @@ The following list includes the SQL Server 2022 on Linux features that aren't cu
 | | Management Data Warehouse |
 | | Contained Databases |
 | | S3-compatible object storage integration |
-| | Azure Active Directory authentication |
+| | Microsoft Entra authentication |
 | | Buffer pool parallel scan |
 | | Hybrid buffer pool with direct write |
 | | Concurrent updates to global allocation map (GAM) pages and shared global allocation map (SGAM) pages |

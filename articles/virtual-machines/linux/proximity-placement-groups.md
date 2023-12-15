@@ -21,7 +21,7 @@ A proximity placement group is a logical grouping used to make sure that Azure c
 
 
 ## Create the proximity placement group
-Create a proximity placement group using [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
+Create a proximity placement group using [az ppg create](/cli/azure/ppg#az-ppg-create). 
 
 ```azurecli-interactive
 az group create --name myPPGGroup --location eastus
@@ -36,14 +36,14 @@ az ppg create \
 
 ## List proximity placement groups
 
-You can list all of your proximity placement groups using ['az ppg list'](/cli/azure/ppg#az-ppg-list).
+You can list all of your proximity placement groups using [az ppg list](/cli/azure/ppg#az-ppg-list).
 
 ```azurecli-interactive
 az ppg list -o table
 ```
 ## Show proximity placement group
 
-You can see the proximity placement group details and resources using ['az ppg show'](/cli/azure/ppg#az-ppg-show)
+You can see the proximity placement group details and resources using [az ppg show](/cli/azure/ppg#az-ppg-show)
 
 ```azurecli-interactive
 az ppg show --name myPPG --resource-group myPPGGroup
@@ -72,20 +72,24 @@ az ppg show --name myPPG --resource-group myPPGGroup
 
 ## Create a VM
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 Create a VM within the proximity placement group using [new az vm](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 az vm create \
    -n myVM \
    -g myPPGGroup \
-   --image UbuntuLTS \
+   --image Ubuntu2204 \
+   --orchestration-mode "Uniform"
    --ppg myPPG  \
    --generate-ssh-keys \
    --size Standard_E64s_v4 \
    -l eastus
 ```
 
-You can see the VM in the proximity placement group using ['az ppg show'](/cli/azure/ppg#az-ppg-show).
+You can see the VM in the proximity placement group using [az ppg show](/cli/azure/ppg#az-ppg-show).
 
 ```azurecli-interactive
 az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
@@ -96,7 +100,7 @@ You can also create an availability set in your proximity placement group. Use t
 
 ## Scale sets
 
-You can also create a scale set in your proximity placement group. Use the same `--ppg` parameter with ['az vmss create'](/cli/azure/vmss#az-vmss-create) to create a scale set and all of the instances will be created in the same proximity placement group.
+You can also create a scale set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss#az-vmss-create) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 

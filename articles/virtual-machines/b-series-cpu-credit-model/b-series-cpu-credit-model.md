@@ -33,16 +33,16 @@ While traditional Azure virtual machines provide fixed CPU performance, B-series
 The credit accumulation and consumption rates are set such that a VM running at exactly its base performance level will have neither a net accumulation or consumption of bursting credits. A VM has a net credit increase whenever it's running below its base CPU performance level and will have a net decrease in credits whenever the VM is utilizing the CPU more than its base CPU performance level.
 
 To conduct calculations on credit accumulations and consumptions, customers can utilize the holistic 'credits banked per minute' formula => 
-`((Base CPU performance * number of vCPU)/2 - (Percentage CPU * number of vCPU)/2)/100`.  
+`((Base CPU performance * number of vCPU) - (Percentage CPU * number of vCPU))/100`.  
 
-Putting this calculation into action, let's say that a customer deploys the Standard_B2ts_v2 VM size and their workload demands 10% of the 'Percentage CPU' or CPU performance, then the 'credits banked per minute' calculation will be as follows: `((20%*2)/2 - (10%*2)/2)/100 = 0.1 credits/minute`. In such a scenario, a B-series VM is accumulating credits given the 'Percentage CPU'/ CPU performance requirement is below the 'Base CPU performance' of the Standard_B2ts_v2. 
+Putting this calculation into action, let's say that a customer deploys the Standard_B2ts_v2 VM size and their workload demands 10% of the 'Percentage CPU' or CPU performance, then the 'credits banked per minute' calculation will be as follows: `((20*2) - (10*2))/100 = 0.2 credits/minute`. In such a scenario, a B-series VM is accumulating credits given the 'Percentage CPU' per CPU performance requirement is below the 'Base CPU performance' of the Standard_B2ts_v2. 
 
-Similarly, utilizing the example of a Standard_B32as_v2 VM size, if the workload demands 60% of the CPU performance for a measurement of time - then the 'credits banked per minute' calculation will be as follows: `((40%*32)/2 - (60%*32)/2)/100 =  (6.4 - 9.6)/100 = -3.2 credits per minute`. Here the negative result implies the B-series VM is consuming credits given the 'Percentage CPU'/CPU performance requirement is above the 'Base CPU performance' of the Standard_B32as_v2.  
+Similarly, utilizing the example of a Standard_B32as_v2 VM size, if the workload demands 60% of the CPU performance for a measurement of time - then the 'credits banked per minute' calculation will be as follows: `((40*32) - (60*32))/100 = -6.4 credits/minute`. Here the negative result implies the B-series VM is consuming credits given the 'Percentage CPU'/CPU performance requirement is above the 'Base CPU performance' of the Standard_B32as_v2.  
  
 
 ## Credit monitoring
-To monitor B-series specific credit metrics, customers can utilize the Azure monitor data platform, see [Overview of metrics in Microsoft Azure](../../azure-monitor/data-platform.md). Azure monitor data platform can be accessed via Azure portal and other orchestration paths, and via programmatic API calls to Azure monitor.
-Via Azure monitor data platform, customers can access B-series credit model specific metrics such as 'CPU Credits Consumed', 'CPU Credits Remaining' and 'Percentage CPU' for their given B-series size in real time.  
+To monitor B-series specific credit metrics, customers can utilize the Azure monitor data platform, see [Overview of metrics in Microsoft Azure](../../azure-monitor/data-platform.md). Azure monitor data platform can be accessed via the Azure portal and other orchestration paths, and via programmatic API calls to Azure monitor.
+Via Azure monitor data platform, customers can access B-series credit model-specific metrics such as 'CPU Credits Consumed', 'CPU Credits Remaining', and 'Percentage CPU' for their given B-series size in real time.  
 
 
 ## Other sizes and information

@@ -93,7 +93,7 @@ The following considerations apply when using remote builds during deployment:
 + Remote builds are supported for function apps running on Linux in the Consumption plan, however they don't have an SCM/Kudu site, which limits deployment options. 
 + Function apps running on Linux a [Premium plan](functions-premium-plan.md) or in a [Dedicated (App Service) plan](dedicated-plan.md) do have an SCM/Kudu site, but it's limited compared to Windows.
 + Remote builds aren't performed when an app has previously been set to run in [run-from-package](run-functions-from-deployment-package.md) mode. To learn how to use remote build in these cases, see [Zip deploy](#zip-deploy).
-+ You may have issues with remote build when your app was created before the feature was made available (August 1, 2019). For older apps, either create a new function app or run `az functionapp update -resource-group <RESOURCE_GROUP_NAME> -name <APP_NAME>` to update your function app. This command might take two tries to succeed.
++ You may have issues with remote build when your app was created before the feature was made available (August 1, 2019). For older apps, either create a new function app or run `az functionapp update --resource-group <RESOURCE_GROUP_NAME> --name <APP_NAME>` to update your function app. This command might take two tries to succeed.
 
 ### App content storage
 

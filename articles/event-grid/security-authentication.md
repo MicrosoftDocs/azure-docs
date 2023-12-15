@@ -15,11 +15,11 @@ Azure Event Grid uses different authentication methods to deliver events to even
 |--|--|--|
 Access key | - Event Hubs<br/>- Service Bus<br/>- Storage Queues<br/>- Relay Hybrid Connections<br/>- Azure Functions<br/>- Storage Blobs (Deadletter) | Access keys are fetched using Event Grid service principal's credentials. The permissions are granted to Event Grid when you register the Event Grid resource provider in their Azure subscription. |  
 Managed System Identity <br/>&<br/> Role-based access control | - Event Hubs<br/>- Service Bus<br/>- Storage Queues<br/>- Storage  Blobs (Deadletter) | Enable managed system identity for the topic and add it to the appropriate role on the destination. For details, see [Use system-assigned identities for event delivery](#use-system-assigned-identities-for-event-delivery).  |
-|Bearer token authentication with Microsoft Entra ID protected webhook | Webhook | See the [Authenticate event delivery to webhook endpoints](#authenticate-event-delivery-to-webhook-endpoints) section for details. |
+|Bearer token authentication with Microsoft Entra protected webhook | Webhook | See the [Authenticate event delivery to webhook endpoints](#authenticate-event-delivery-to-webhook-endpoints) section for details. |
 Client secret as a query parameter | Webhook | See the [Using client secret as a query parameter](#using-client-secret-as-a-query-parameter) section for details. |
 
 > [!NOTE]
-> If you protect your Azure function with an Microsoft Entra ID app, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
+> If you protect your Azure function with a Microsoft Entra app, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
 
 ## Use system-assigned identities for event delivery
 You can enable a system-assigned managed identity for a topic or domain and use the identity to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
@@ -38,7 +38,7 @@ The following sections describe how to authenticate event delivery to webhook en
 
 
 ### Using Microsoft Entra ID
-You can secure the webhook endpoint that's used to receive events from Event Grid by using Microsoft Entra ID. You need to create a Microsoft Entra ID application, create a role and a service principal in your application authorizing Event Grid, and configure the event subscription to use the Microsoft Entra ID application. Learn how to [Configure Microsoft Entra ID with Event Grid](secure-webhook-delivery.md).
+You can secure the webhook endpoint that's used to receive events from Event Grid by using Microsoft Entra ID. You need to create a Microsoft Entra application, create a role and a service principal in your application authorizing Event Grid, and configure the event subscription to use the Microsoft Entra application. Learn how to [Configure Microsoft Entra ID with Event Grid](secure-webhook-delivery.md).
 
 ### Using client secret as a query parameter
 You can also secure your webhook endpoint by adding query parameters to the webhook destination URL specified as part of creating an Event Subscription. Set one of the query parameters to be a client secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) or a shared secret. Event Grid service includes all the query parameters in every event delivery request to the webhook. The webhook service can retrieve and validate the secret. If the client secret is updated, event subscription also needs to be updated. To avoid delivery failures during this secret rotation, make the webhook accept both old and new secrets for a limited duration before updating the event subscription with the new secret. 

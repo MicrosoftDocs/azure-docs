@@ -21,6 +21,9 @@ For either implicit or explicit cross-workspace queries, you need to specify the
  - Workspace ID - GUID string
  - Azure Resource ID - string with format /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroup\>/providers/  microsoft.operationalinsights/workspaces/\<workspaceName\>
 
+> [!NOTE]
+> We strongly recommend identifying a workspace by its unique Workspace ID or Azure Resource ID because they remove ambiguity and are more performant.
+
 ## Implicit cross workspace queries
 
 For implicit syntax, specify the workspaces that you want to include in your query scope. The API performs a single query over each application provided in your list. The syntax for a cross-workspace POST is:

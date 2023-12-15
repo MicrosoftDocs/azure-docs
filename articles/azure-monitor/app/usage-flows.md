@@ -17,7 +17,7 @@ The User Flows tool visualizes how users move between the pages and features of 
 * Where are the places that users churn most from your site?
 * Are there places where users repeat the same action over and over?
 
-The User Flows tool starts from an initial page view, custom event, or exception that you specify. From this initial event, User Flows shows the events that happened before and after user sessions. Lines of varying thickness show how many times users followed each path. Special **Session Started** nodes show where the subsequent nodes began a session. **Session Ended** nodes show how many users sent no page views or custom events after the preceding node, highlighting where users probably left your site.
+The User Flows tool starts from an initial custom event, exception, dependency, page view or request that you specify. From this initial event, User Flows shows the events that happened before and after user sessions. Lines of varying thickness show how many times users followed each path. Special **Session Started** nodes show where the subsequent nodes began a session. **Session Ended** nodes show how many users sent no page views or custom events after the preceding node, highlighting where users probably left your site.
 
 > [!NOTE]
 > Your Application Insights resource must contain page views or custom events to use the User Flows tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](./javascript.md).
@@ -27,10 +27,10 @@ The User Flows tool starts from an initial page view, custom event, or exception
 
 :::image type="content" source="./media/usage-flows/initial-event.png" lightbox="./media/usage-flows/initial-event.png" alt-text="Screenshot that shows choosing an initial event for User Flows.":::
 
-To begin answering questions with the User Flows tool, choose an initial page view, custom event, or exception to serve as the starting point for the visualization:
+To begin answering questions with the User Flows tool, choose an initial custom event, exception, dependency, page view or request to serve as the starting point for the visualization:
 
 1. Select the link in the **What do users do after?** title or select **Edit**.
-1. Select a page view, custom event, or exception from the **Initial event** dropdown list.
+1. Select a custom event, exception, dependency, page view or request from the **Initial event** dropdown list.
 1. Select **Create graph**.
 
 The **Step 1** column of the visualization shows what users did most frequently after the initial event. The items are ordered from top to bottom and from most to least frequent. The **Step 2** and subsequent columns show what users did next. The information creates a picture of all the ways that users moved through your site.
@@ -44,7 +44,7 @@ If page views or custom events are missing that you expect to see in the visuali
 * Check the **Excluded events** section on the **Edit** menu.
 * Use the plus buttons on **Others** nodes to include less-frequent events in the visualization.
 * If the page view or custom event you expect is sent infrequently by users, increase the time range of the visualization on the **Edit** menu.
-* Make sure the page view, custom event, or exception you expect is set up to be collected by the Application Insights SDK in the source code of your site. Learn more about [collecting custom events](./api-custom-events-metrics.md).
+* Make sure the custom event, exception, dependency, page view or request you expect is set up to be collected by the Application Insights SDK in the source code of your site. Learn more about [collecting custom events](./api-custom-events-metrics.md).
 
 If you want to see more steps in the visualization, use the **Previous steps** and **Next steps** dropdown lists above the visualization.
 

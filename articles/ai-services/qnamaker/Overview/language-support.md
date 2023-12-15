@@ -2,12 +2,12 @@
 title: Language support - QnA Maker
 titleSuffix: Azure AI services
 description: A list of culture, natural languages supported by QnA Maker for your knowledge base. Do not mix languages in the same knowledge base.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
 ms.custom: ignite-fall-2021
@@ -105,9 +105,9 @@ The following list contains the languages supported for a QnA Maker resource.
 | Vietnamese |
 
 ## Query matching and relevance
-QnA Maker depends on [Azure Cognitive Search language analyzers](/rest/api/searchservice/language-support) for providing results.
+QnA Maker depends on [Azure AI Search language analyzers](/rest/api/searchservice/language-support) for providing results.
 
-While the Azure Cognitive Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
+While the Azure AI Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
 
 |Languages with additional ranker|
 |--|

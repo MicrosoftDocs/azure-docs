@@ -3,7 +3,7 @@ title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/21/2023
+ms.date: 11/03/2023
 ---
 
 # File functions for Bicep
@@ -28,7 +28,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 Use this function when you have binary content you would like to include in deployment. Rather than manually encoding the file to a base64 string and adding it to your Bicep file, load the file with this function. The file is loaded when the Bicep file is compiled to a JSON template. You can't use variables in the file path because they haven't been resolved when compiling to the template. During deployment, the JSON template contains the contents of the file as a hard-coded string.
 
-This function requires **Bicep version 0.4.412 or later**.
+This function requires [Bicep CLI version 0.4.X or higher](./install.md).
 
 The maximum allowed size of the file is **96 Kb**.
 
@@ -58,7 +58,7 @@ Use this function when you have JSON content or minified JSON content that is st
 
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
-This function requires **Bicep version 0.7.4 or later**.
+This function requires [Bicep CLI version 0.7.X or higher](./install.md).
 
 The maximum allowed size of the file is **1,048,576 characters**, including line endings.
 
@@ -100,7 +100,7 @@ Use this function when you have YAML content or minified YAML content that is st
 
 In VS Code, the properties of the loaded object are available intellisense. For example, you can create a file with values to share across many Bicep files. An example is shown in this article.
 
-This function requires **Bicep version >0.16.2**.
+This function requires [Bicep CLI version 0.16.X or higher](./install.md).
 
 The maximum allowed size of the file is **1,048,576 characters**, including line endings.
 
@@ -141,7 +141,7 @@ Use this function when you have content that is stored in a separate file. You c
 
 Use the [`loadJsonContent()`](#loadjsoncontent) function to load JSON files.
 
-This function requires **Bicep version 0.4.412 or later**.
+This function requires [Bicep CLI version 0.4.X or higher](./install.md).
 
 The maximum allowed size of the file is **131,072 characters**, including line endings.
 

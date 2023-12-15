@@ -13,11 +13,12 @@ ms.custom: known-issue
 
 # Known issue  - Provisioning error when creating a compute instance with A10 SKU
 
+[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
+
 While trying to create a compute instance with A10 SKU, you'll encounter a provisioning error.
 
 :::image type="content" source="media/compute-a10-sku-not-supported/ci-a10.png" alt-text="A screenshot showing the provisioning error message.":::
 
-[!INCLUDE [dev v2](../includes/machine-learning-dev-v2.md)]
 
 **Status:** Open
 

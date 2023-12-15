@@ -564,7 +564,7 @@ The following code shows how to call a post-trigger using the Python SDK:
 ```python
 item = {'category': 'Personal', 'name': 'Groceries',
         'description': 'Pick up strawberries', 'isComplete': False}
-container.create_item(item, {'post_trigger_include': 'trgPreValidateToDoItemTimestamp'})
+container.create_item(item, pre_trigger_include='trgPreValidateToDoItemTimestamp')
 ```
 
 ---

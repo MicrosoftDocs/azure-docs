@@ -1,6 +1,6 @@
 ---
-title: Connect to a virtual network using Azure API Management
-description: Learn how to set up a connection to a virtual network in Azure API Management and access API backends through it.
+title: Deploy Azure API Management instance to external VNet
+description: Learn how to deploy (inject) your Azure API instance to a virtual network in external mode and access API backends through it.
 services: api-management
 author: dlepow
 
@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: danlep
 ---
-# Connect to a virtual network using Azure API Management
+# Deploy your Azure API Management instance to a virtual network - external mode
 
-Azure API Management can be deployed inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
+Azure API Management can be deployed (injected) inside an Azure virtual network (VNet) to access backend services within the network. For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
 This article explains how to set up VNet connectivity for your API Management instance in the *external* mode, where the developer portal, API gateway, and other API Management endpoints are accessible from the public internet, and backend services are located in the network. 
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="Connect to external VNet":::
 
-For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNet, see [Connect to an internal virtual network using Azure API Management](./api-management-using-with-internal-vnet.md). 
+For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNet, see [Deploy your Azure API Management instance to a virtual network - internal mode](./api-management-using-with-internal-vnet.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

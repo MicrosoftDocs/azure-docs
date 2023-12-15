@@ -296,7 +296,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     
     2. Otherwise, enable public network access by setting **Public network access** option to **Selected networks** on Azure SQL Database **Networking** setting page.
     
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

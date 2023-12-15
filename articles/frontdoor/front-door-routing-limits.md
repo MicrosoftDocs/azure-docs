@@ -38,7 +38,7 @@ Add together all of the composite route metrics for each route. This is your pro
 
 ### Example
 
-Suppose you have have two routes in your Front Door profile. The routes are named *Route 1* and *Route 2*. You plan to configure the routes as follows:
+Suppose you have two routes in your Front Door profile. The routes are named *Route 1* and *Route 2*. You plan to configure the routes as follows:
 * *Route 1* will have 50 domains associated to it, and requires HTTPS for all inbound requests. *Route 1* specifies 80 paths.
 * *Route 2* will have 25 domains associated to it. *Route 2* specifies 25 paths, and supports both the HTTP and HTTPS protocols.
 

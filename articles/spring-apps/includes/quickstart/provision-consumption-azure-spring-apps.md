@@ -10,7 +10,7 @@ ms.date: 08/31/2023
 <!-- 
 To reuse the Spring Apps instance creation steps in other articles, a separate markdown file is used to describe how to provision Spring Apps instance.
 
-[!INCLUDE [provision-spring-apps](../../includes/quickstart/provision-consumption-azure-spring-apps.md)]
+[!INCLUDE [provision-consumption-azure-spring-apps](provision-consumption-azure-spring-apps.md)]
 
 -->
 
@@ -19,8 +19,6 @@ Use the following steps to create an Azure Spring Apps service instance:
 1. Select **Create a resource** in the corner of the Azure portal.
 
 1. Select **Compute** > **Azure Spring Apps**.
-
-   :::image type="content" source="../../media/quickstart/create-azure-spring-apps.png" alt-text="Screenshot of the Azure portal that shows Azure Spring Apps in the list of compute resources." lightbox="../../media/quickstart/create-azure-spring-apps.png":::
 
 1. Fill out the **Basics** form with the following information.
 
@@ -34,8 +32,6 @@ Use the following steps to create an Azure Spring Apps service instance:
    | Plan                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                   |
    | Region                     | The region closest to your users               | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | Container Apps Environment | *myacaenv*                                     | The environment is a secure boundary around one or more container apps that can communicate with each other and share a virtual network, logging, and Dapr configuration.                                                                                                                          |
-
-   :::image type="content" source="../../media/quickstart/create-consumption.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart/create-consumption.png":::
 
 1. (Optional) Create a Container Apps Environment.
 

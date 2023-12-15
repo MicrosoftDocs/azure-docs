@@ -6,6 +6,7 @@ author: ericasp
 manager: danielav
 ms.service: azure-communication-services
 ms.subservice: pstn
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 08/10/2023
 ms.topic: quickstart
 ms.author: ericasp

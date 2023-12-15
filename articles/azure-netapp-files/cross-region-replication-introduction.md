@@ -31,6 +31,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Australia | Australia Central | Australia Central 2 |
 | Australia | Australia East | Australia Southeast |
 | Asia-Pacific | East Asia | Southeast Asia | 
+| Brazil | Brazil South | Brazil Southeast |
 | Brazil/North America | Brazil South | South Central US |
 | Canada | Canada Central | Canada East |
 | Europe | North Europe | West Europe |
@@ -75,6 +76,8 @@ Azure NetApp Files volume replication is supported between various [Azure region
 ## Service-level objectives
 
 Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
+
+Cross-region replication supports three replication schedules: 10 minutes, hourly, and daily. 
 
 * For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.  
 * For the hourly replication schedule, the typical RPO is less than two hours.  

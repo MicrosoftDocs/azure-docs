@@ -34,7 +34,7 @@ You can run **Diagnose and solve** at any time from the appliance configuration 
 ||VDDK check | Checks if the required VDDK files have been downloaded and copied at the required location on the appliance server.
 **Service health checks** |Operational status |Checks if the agents on the appliance are in running state. <br>*If not, appliance will auto-resolve by restarting the agents.* 
 ||Service endpoint connectivity |Checks if the agents can communicate to their respective services on Azure either directly or via proxy.
-**Azure-specific checks** |Azure Active Directory App availability* | Checks if the Azure Active Directory App created during the appliance registration is available and is accessible from the appliance.
+**Azure-specific checks** |Microsoft Entra App availability* | Checks if the Microsoft Entra App created during the appliance registration is available and is accessible from the appliance.
 ||Migrate project availability* | Checks if the Migrate project to which the appliance has been registered still exists and is accessible from the appliance.
 ||Essential resources availability*| Checks if the Migrate resources created during appliance registration still exist and are accessible from the appliance.
 **Appliance-specific checks** | Key Vault certificate availability* | Checks if the certificate downloaded from Key Vault during appliance registration is still available on the appliance server. <br> *If not, appliance will auto-resolve by downloading the certificate again, provided the Key Vault is available and accessible*.

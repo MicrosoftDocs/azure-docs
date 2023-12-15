@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 11/28/2023
 ---
 
 # How to ingest data by using Azure Data Factory in Azure Cosmos DB for PostgreSQL
@@ -28,6 +28,9 @@ your data (relational, NoSQL, data lake files) into Azure Cosmos DB for PostgreS
 for storage, processing, and reporting.
 
 :::image type="content" source="media/howto-ingestion/azure-data-factory-architecture.png" alt-text="Dataflow diagram for Azure Data Factory." border="false":::
+
+> [!IMPORTANT]
+> Data Factory doesn't support private endpoints for Azure Cosmos DB for PostgreSQL at this time.
 
 ## Data Factory for real-time ingestion
 

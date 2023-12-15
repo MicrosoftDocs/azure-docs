@@ -2,7 +2,7 @@
 title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using PowerShell
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: article
-ms.date: 07/11/2023
+ms.date: 11/30/2023
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
@@ -23,18 +23,6 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 * The identity you use to create your cluster must have the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 * If you choose to use PowerShell locally, you need to install the [`Az PowerShell`](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [`Connect-AzAccount`](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information, see [Install Azure PowerShell][install-azure-powershell].
 * If you have multiple Azure subscriptions, select and set the appropriate subscription ID in which the resources should be billed using the [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) cmdlet.
-
-## Limitations
-
-The following limitations apply when you create and manage AKS clusters that support multiple node pools:
-
-* You can't delete the first node pool.
-
-The following limitations apply to *Windows Server node pools*:
-
-* The AKS cluster can have a maximum of 10 node pools.
-* The AKS cluster can have a maximum of 100 nodes in each node pool.
-* The Windows Server node pool name has a limit of six characters.
 
 ## Create a resource group
 
@@ -205,7 +193,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     spec:
       type: LoadBalancer
       ports:
-     - protocol: TCP
+      - protocol: TCP
         port: 80
       selector:
         app: sample

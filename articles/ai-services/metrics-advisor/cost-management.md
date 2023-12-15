@@ -12,6 +12,8 @@ ms.author: mbullwin
 
 # Azure AI Metrics Advisor cost management
 
+[!INCLUDE [Deprecation announcement](includes/deprecation.md)]
+
 Azure AI Metrics Advisor monitors the performance of your organization's growth engines, including sales revenue and manufacturing operations. Quickly identify and fix problems through a powerful combination of monitoring in near-real time, adapting models to your scenario, and offering granular analysis with diagnostics and alerting. You will only be charged for the time series that are analyzed by the service. There's no up-front commitment or minimum fee.
 
 > [!NOTE]

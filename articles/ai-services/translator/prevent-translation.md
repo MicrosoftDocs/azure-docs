@@ -2,7 +2,7 @@
 title: Prevent content translation - Translator
 titleSuffix: Azure AI services
 description: Prevent translation of content with the Translator. The Translator allows you to tag content so that it isn't translated.
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

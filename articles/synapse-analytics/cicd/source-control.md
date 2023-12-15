@@ -47,7 +47,7 @@ You can associate a Synapse workspace with an Azure DevOps Repository for source
 
 ### Azure DevOps Git repository settings
 
-When connecting to your git repository, first select your repository type as Azure DevOps git, and then select one Azure AD tenant from the dropdown list, and click **Continue**.
+When connecting to your git repository, first select your repository type as Azure DevOps git, and then select one Microsoft Entra tenant from the dropdown list, and click **Continue**.
 
 ![Configure the code repository settings](media/connect-with-azure-devops-repo-selected.png)
 
@@ -57,7 +57,7 @@ The configuration pane shows the following Azure DevOps git settings:
 |:--- |:--- |:--- |
 | **Repository Type** | The type of the Azure Repos code repository.<br/> | Azure DevOps Git or GitHub |
 | **Cross tenant sign in** | Checkbox to sign in with cross tenant account. | unselected (default) |
-| **Azure Active Directory** | Your Azure AD tenant name. | `<your tenant name>` |
+| **Microsoft Entra ID** | Your Microsoft Entra tenant name. | `<your tenant name>` |
 | **Azure DevOps account** | Your Azure Repos organization name. You can locate your Azure Repos organization name at `https://{organization name}.visualstudio.com`. You can [sign in to your Azure Repos organization](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | `<your organization name>` |
 | **ProjectName** | Your Azure Repos project name. You can locate your Azure Repos project name at `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Your Azure Repos code repository name. Azure Repos projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | `<your Azure Repos code repository name>` |
@@ -71,18 +71,20 @@ Your can also use repository link to quickly point to the git repository you wan
 > [!NOTE]
 > Azure Synapse doesn't support connection to Prem Azure DevOps repository.
 
-### Use a different Azure Active Directory tenant
+<a name='use-a-different-azure-active-directory-tenant'></a>
 
-The Azure Repos Git repo can be in a different Azure Active Directory tenant. To specify a different Azure AD tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
+### Use a different Microsoft Entra tenant
+
+The Azure Repos Git repo can be in a different Microsoft Entra tenant. To specify a different Microsoft Entra tenant, you have to have administrator permissions for the Azure subscription that you're using. For more info, see [change subscription administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
 
 > [!IMPORTANT]
-> To connect to another Azure Active Directory, the user logged in must be a part of that active directory. 
+> To connect to another Microsoft Entra ID, the user logged in must be a part of that active directory. 
 
 ### Use your personal Microsoft account
 
 To use a personal Microsoft account for Git integration, you can link your personal Azure Repo to your organization's Active Directory.
 
-1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../../active-directory/external-identities/add-users-administrator.md).
+1. Add your personal Microsoft account to your organization's Active Directory as a guest. For more info, see [Add Microsoft Entra B2B collaboration users in the Azure portal](../../active-directory/external-identities/add-users-administrator.md).
 
 2. Log in to the Azure portal with your personal Microsoft account. Then switch to your organization's Active Directory.
 
@@ -90,7 +92,7 @@ To use a personal Microsoft account for Git integration, you can link your perso
 
 After these configuration steps, your personal repo is available when you set up Git integration in the Synapse Studio.
 
-For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
+For more info about connecting Azure Repos to your organization's Active Directory, see [Connect your organization to Microsoft Entra ID](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ### Use a cross tenant Azure DevOps account
 

@@ -2,7 +2,7 @@
 title: "Analyze video content for objectionable material in C# - Content Moderator"
 titleSuffix: Azure AI services
 description: How to analyze video content for various objectionable material using the Content Moderator SDK for .NET
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
@@ -31,15 +31,17 @@ The Content Moderator's video moderation capability is available as a free publi
 
 Follow the instructions in [Create an Azure Media Services account](/azure/media-services/previous/media-services-portal-create-account) to subscribe to AMS and create an associated Azure storage account. In that storage account, create a new Blob storage container.
 
-### Create an Azure Active Directory application
+<a name='create-an-azure-active-directory-application'></a>
+
+### Create a Microsoft Entra application
 
 Navigate to your new AMS subscription in the Azure portal and select **API access** from the side menu. Select **Connect to Azure Media Services with service principal**. Note the value in the **REST API endpoint** field; you will need this later.
 
-In the **Azure AD app** section, select **Create New** and name your new Azure AD application registration (for example, "VideoModADApp"). Select **Save** and wait a few minutes while the application is configured. Then, you should see your new app registration under the **Azure AD app** section of the page.
+In the **Microsoft Entra app** section, select **Create New** and name your new Microsoft Entra application registration (for example, "VideoModADApp"). Select **Save** and wait a few minutes while the application is configured. Then, you should see your new app registration under the **Microsoft Entra app** section of the page.
 
 Select your app registration and click the **Manage application** button below it. Note the value in the **Application ID** field; you will need this later. Select **Settings** > **Keys**, and enter a description for a new key (such as "VideoModKey"). Select **Save**, and then notice the new key value. Copy this string and save it somewhere secure.
 
-For a more thorough walkthrough of the above process, See [Get started with Azure AD authentication](/azure/media-services/previous/media-services-portal-get-started-with-aad).
+For a more thorough walkthrough of the above process, See [Get started with Microsoft Entra authentication](/azure/media-services/previous/media-services-portal-get-started-with-aad).
 
 Once you've done this, you can use the video moderation media processor in two different ways.
 
@@ -80,7 +82,7 @@ using System.Collections.Generic;
 
 ### Set up resource references
 
-Add the following static fields to the **Program** class in _Program.cs_. These fields hold the information necessary for connecting to your AMS subscription. Fill them in with the values you got in the steps above. Note that `CLIENT_ID` is the **Application ID** value of your Azure AD app, and `CLIENT_SECRET` is the value of the "VideoModKey" that you created for that app.
+Add the following static fields to the **Program** class in _Program.cs_. These fields hold the information necessary for connecting to your AMS subscription. Fill them in with the values you got in the steps above. Note that `CLIENT_ID` is the **Application ID** value of your Microsoft Entra app, and `CLIENT_SECRET` is the value of the "VideoModKey" that you created for that app.
 
 ```csharp
 // declare constants and globals

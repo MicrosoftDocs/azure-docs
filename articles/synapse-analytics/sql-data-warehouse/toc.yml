@@ -128,9 +128,9 @@ items:
         href: sql-data-warehouse-authentication.md
       - name: Logins and users
         href: /azure/azure-sql/database/logins-create-manage?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-      - name: Use Azure Active Directory
+      - name: Use Microsoft Entra ID
         href: /azure/azure-sql/database/authentication-aad-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-      - name: Configure Azure AD auth
+      - name: Configure Microsoft Entra auth
         href: /azure/azure-sql/database/authentication-aad-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Multi-Factor Auth
         href: /azure/azure-sql/database/authentication-mfa-ssms-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
@@ -142,7 +142,7 @@ items:
         href: /azure/azure-sql/database/authentication-azure-ad-logins?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Directory Readers role
         href: /azure/azure-sql/database/authentication-aad-directory-readers-role?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-      - name: Azure AD-only authentication
+      - name: Microsoft Entra-only authentication
         href: /azure/azure-sql/database/authentication-azure-ad-only-authentication?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Access control
       items:
@@ -316,9 +316,9 @@ items:
       href: workspace-connected-create.md
   - name: Secure
     items:
-    - name: Configure Azure AD auth
+    - name: Configure Microsoft Entra auth
       href: /azure/azure-sql/database/authentication-aad-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
-    - name: Create and utilize Azure AD server logins
+    - name: Create and utilize Microsoft Entra server logins
       href: /azure/azure-sql/database/authentication-aad-directory-readers-role-tutorial?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
     - name: Assign Directory Readers role to groups
       href: /azure/azure-sql/database/authentication-azure-ad-logins-tutorial?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json

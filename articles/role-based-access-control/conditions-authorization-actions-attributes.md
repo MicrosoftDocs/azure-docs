@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/20/2023
+ms.date: 11/29/2023
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to 
@@ -17,7 +17,7 @@ ms.author: rolyon
 # Authorization actions and attributes (preview)
 
 > [!IMPORTANT]
-> Delegating Azure role assignments with conditions is currently in PREVIEW.
+> Delegating Azure role assignment management with conditions is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Authorization actions
@@ -94,5 +94,5 @@ This section lists the authorization attributes you can use in your condition ex
 
 ## Next steps
 
-- [Examples to delegate Azure role assignments with conditions (preview)](delegate-role-assignments-examples.md)
-- [Delegate the Azure role assignment task to others with conditions (preview)](delegate-role-assignments-portal.md)
+- [Examples to delegate Azure role assignment management with conditions (preview)](delegate-role-assignments-examples.md)
+- [Delegate Azure role assignment management to others with conditions (preview)](delegate-role-assignments-portal.md)

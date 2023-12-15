@@ -63,7 +63,7 @@ sections:
           Yes, you can configure internal-only load balancer. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
       
       - question: | 
-          Can I change the Azure AD tenant after initial deployment?
+          Can I change the Microsoft Entra tenant after initial deployment?
         answer: |
           No. At this time you would need to create a new Service Fabric managed cluster resource.
 

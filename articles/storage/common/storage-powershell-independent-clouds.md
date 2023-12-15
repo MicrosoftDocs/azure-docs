@@ -18,7 +18,6 @@ ms.custom: devx-track-azurepowershell
 Most people use Azure Public Cloud for their global Azure deployment. There are also some independent deployments of Microsoft Azure for reasons of sovereignty and so on. These independent deployments are referred to as "environments." The following list details the independent clouds currently available.
 
 - [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-- [Microsoft Azure operated by 21Vianet](http://www.windowsazure.cn/)
 - [Azure German Cloud](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

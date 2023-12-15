@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To create an Azure Migrate project, you need an account with:
 
 - Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -76,7 +76,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the portal, search for users, and under **Services**, select **Users**.
 
-1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-import/register-apps.png)
 

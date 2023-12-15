@@ -1,16 +1,21 @@
 ---
 title: Ingest historical telemetry data
 description: This article describes how to ingest historical telemetry data.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 11/04/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ms.custom: has-azure-ad-ps-ref
 ---
 
 # Ingest historical telemetry data
 
 This article describes how to ingest historical sensor data into Azure FarmBeats.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information, see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 Ingesting historical data from Internet of Things (IoT) resources such as devices and sensors is a common scenario in FarmBeats. You create metadata for devices and sensors and then ingest the historical data to FarmBeats in a canonical format.
 
@@ -20,7 +25,7 @@ Before you proceed with this article, ensure that you've installed FarmBeats and
 
 ## Enable partner access
 
-You need to enable partner integration to your Azure FarmBeats instance. This step creates a client that has access to your Azure FarmBeats instance as your device partner and provides you with the following values that are required in the subsequent steps:
+You need to enable partner integration to your Azure FarmBeats instance. Doing so creates a client that has access to your Azure FarmBeats instance as your device partner and provides you with the following values that are required in the subsequent steps:
 
 - API endpoint: This is the Datahub URL, for example, https://\<datahub>.azurewebsites.net
 - Tenant ID
@@ -37,11 +42,11 @@ Follow these steps:
 
 2. **If you are on FarmBeats version 1.2.7 or later, skip steps a, b and c, and go to step 3.** You can check FarmBeats version by selecting the **Settings** icon on the top-right corner of the FarmBeats UI.
 
-      a.  Go to **Azure Active Directory** > **App Registrations**
+      a.  Go to **Microsoft Entra ID** > **App Registrations**
 
-      b. Select the **App Registration** that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats datahub.
+      b. Select the **App Registration** that was created as part of your FarmBeats deployment. It has the same name as your FarmBeats datahub.
 
-      c. Select **Expose an API** > select **Add a client application** and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check **Authorize Scope**. This will give access to the Azure CLI (Cloud Shell) to perform the below steps:
+      c. Select **Expose an API** > select **Add a client application** and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check **Authorize Scope**. This gives access to the Azure CLI (Cloud Shell) to perform the below steps:
 
 3. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
@@ -57,13 +62,13 @@ Follow these steps:
     cd
     ```
 
-6. Run the following command. This connects an authenticated account to use for Azure AD requests
+6. Run the following command. This connects an authenticated account to use for Microsoft Entra ID requests
 
     ```azurepowershell-interactive
     Connect-AzureAD
     ```
 
-7. Run the following command. This will download a script to your home directory.
+7. Run the following command. This downloads a script to your home directory.
 
     ```azurepowershell-interactive 
 
@@ -71,7 +76,7 @@ Follow these steps:
 
     ```
 
-8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Microsoft Entra ID** > **Overview** page.
 
     ```azurepowershell-interactive
 
@@ -94,7 +99,7 @@ Follow these steps:
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node.
 - /**Device**: Device corresponds to a physical device present on the farm.
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measurement, such as ambient temperature and pressure.
-- /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
+- /**Sensor**: Sensor corresponds to a physical sensor that record values. A sensor is typically connected to a device with a device ID.
 
 | DeviceModel | Suggestions |
 |--|--|
@@ -104,7 +109,7 @@ Follow these steps:
 | Ports | Port name and type, which is digital or analog. |
 | Name | Name to identify the resource. For example, the model name or product name. |
 | Description | Provide a meaningful description of the model. |
-| Properties | Additional properties from the manufacturer. |
+| Properties | other properties from the manufacturer. |
 | **Device** |  |
 | DeviceModelId | ID of the associated device model. |
 | HardwareId | Unique ID for the device, such as the MAC address. |
@@ -113,7 +118,7 @@ Follow these steps:
 | ParentDeviceId | ID of the parent device to which this device is connected. For example, a node that's connected to a gateway. A node has parentDeviceId as the gateway. |
 | Name | A name to identify the resource. Device partners must send a name that's consistent with the device name on the partner side. If the partner device name is user defined, then the same user-defined name should be propagated to FarmBeats. |
 | Description | Provide a meaningful description. |
-| Properties | Additional properties from the manufacturer. |
+| Properties | other properties from the manufacturer. |
 | **SensorModel** |  |
 | Type (analog, digital) | The type of sensor, whether it's analog or digital. |
 | Manufacturer | The manufacturer of the sensor. |
@@ -125,7 +130,7 @@ Follow these steps:
 | SensorMeasures > AggregationType | Values can be none, average, maximum, minimum, or StandardDeviation. |
 | Name | Name to identify a resource. For example, the model name or product name. |
 | Description | Provide a meaningful description of the model. |
-| Properties | Additional properties from the manufacturer. |
+| Properties | other properties from the manufacturer. |
 | **Sensor** |  |
 | HardwareId | Unique ID for the sensor set by the manufacturer. |
 | SensorModelId | ID of the associated sensor model. |
@@ -134,7 +139,7 @@ Follow these steps:
 | DeviceID | ID of the device that the sensor is connected to. |
 | Name | Name to identify resource. For example, sensor name or product name and model number or product code. |
 | Description | Provide a meaningful description. |
-| Properties | Additional properties from the manufacturer. |
+| Properties | other properties from the manufacturer. |
 
 ### API request to create metadata
 
@@ -324,7 +329,7 @@ response = requests.post(ENDPOINT + "/DeviceModel", data=payload, headers=header
 
 ### Send telemetry
 
-Now that you've created the devices and sensors in FarmBeats, you can send the associated telemetry messages.
+Now that devices and sensors are created in FarmBeats, you can send the associated telemetry messages.
 
 ### Create a telemetry client
 
@@ -423,7 +428,7 @@ Here's an example of a telemetry message:
 
 ### Can't view telemetry data after ingesting historical/streaming data from your sensors
 
-**Symptom**: Devices or sensors are deployed, and you've created the devices/sensors on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
+**Symptom**: Devices or sensors are deployed, and you have created the devices/sensors on FarmBeats and ingested telemetry to the EventHub, but you can't get or view telemetry data on FarmBeats.
 
 **Corrective action**:
 

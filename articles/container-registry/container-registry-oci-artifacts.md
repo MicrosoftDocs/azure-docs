@@ -6,6 +6,7 @@ manager: gwallace
 ms.topic: article
 ms.date: 01/03/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Push and pull OCI artifacts using an Azure container registry
@@ -32,7 +33,7 @@ REGISTRY=$ACR_NAME.azurecr.io
 
 ## Sign in to a registry
 
-Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
+Authenticate with your [individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
 # Login to Azure

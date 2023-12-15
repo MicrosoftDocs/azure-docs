@@ -69,7 +69,7 @@ The following table provides a high-level list of Bing Maps features and the rel
 
 <sup>1</sup> While there's no direct replacement for the Bing Maps *Snap to road* service, this functionality can be implemented using the Azure Maps [Route - Get Route Directions] REST API. For a complete code sample demonstrating the snap to road functionality, see the [Basic snap to road logic] sample that demonstrates how to snap individual points to the rendered roads on the map. Also see the [Snap points to logical route path] sample that shows how to snap points to the road network to form a logical path.
 
-Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Azure Active Directory authentication.
+Bing Maps provides basic key-based authentication. Azure Maps provides both basic key-based authentication and highly secure, Microsoft Entra authentication.
 
 ## Licensing considerations
 
@@ -92,7 +92,7 @@ Here's an example of a high-level migration plan.
 1. Take inventory of what Bing Maps SDKs and services your application is using and verify that Azure Maps provides alternative SDKs and services for you to migrate to.
 1. Create an Azure subscription (if you don’t already have one) at [azure.com]).
 1. Create an [Azure Maps account].
-1. Setup authentication using an Azure Maps [subscription key] or [Azure Active Directory authentication].
+1. Setup authentication using an Azure Maps [subscription key] or [Microsoft Entra authentication].
 1. Migrate your application code.
 1. Test your migrated application.
 1. Deploy your migrated application to production.
@@ -104,7 +104,7 @@ To create an Azure Maps account and get access to the Azure Maps platform, follo
 1. If you don't have an Azure subscription, create a [free Azure account] before you begin.
 2. Sign in to the [Azure portal].
 3. Create an [Azure Maps account].
-4. Get your Azure Maps [subscription key] or setup [Azure Active Directory authentication] for enhanced security.
+4. Get your Azure Maps [subscription key] or setup [Microsoft Entra authentication] for enhanced security.
 
 ## Azure Maps technical resources
 
@@ -129,7 +129,7 @@ The following list contains common Bing Maps terms and their corresponding Azure
 | Bing Maps Term                    | Azure Maps Term                                                |
 |-----------------------------------|----------------------------------------------------------------|
 | Aerial                            | Satellite or Aerial                                            |
-| Directions                        | May also be referred to as Routing                             |
+| Directions                        | Might also be referred to as Routing                             |
 | Entities                          | Geometries or Features                                         |
 | `EntityCollection`                | Data source or Layer                                           |
 | `Geopoint`                        | Position                                                       |
@@ -157,7 +157,7 @@ Learn the details of how to migrate your Bing Maps application with these articl
 [Azure Active Directory authentication]: azure-maps-authentication.md#azure-ad-authentication
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Blog]: https://aka.ms/AzureMapsTechBlog
-[Azure Maps code samples]: https://aka.ms/AzureMapsSamples
+[Azure Maps code samples]: https://samples.azuremaps.com/
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
 [Azure Maps Feedback (UserVoice)]: https://aka.ms/AzureMapsFeedback
 [Azure Maps is also available in Power BI]: power-bi-visual-get-started.md

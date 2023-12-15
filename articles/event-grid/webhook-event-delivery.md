@@ -80,7 +80,7 @@ And, follow one of these steps:
 
     Imagine that you already have the validation implemented in your app because you created your own event subscriptions. Even if a hacker creates an event subscription with your app URL, your correct implementation of the validation request event checks for the `aeg-subscription-name` header in the request to ascertain that it's an event subscription that you recognize. 
     
-    Even after that correct handshake implementation, a hacker can flood your app (it already validated the event subscription) by replicating a request that seems to be coming from Event Grid. To prevent that, you must secure your webhook with AAD authentication. For more information, see [Deliver events to Azure Active Directory protected endpoints](secure-webhook-delivery.md). 
+    Even after that correct handshake implementation, a hacker can flood your app (it already validated the event subscription) by replicating a request that seems to be coming from Event Grid. To prevent that, you must secure your webhook with Microsoft Entra authentication. For more information, see [Deliver events to Microsoft Entra protected endpoints](secure-webhook-delivery.md). 
 - Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated. The validation Url uses **port 553**. If your firewall rules block port 553, you need to update rules for a successful manual handshake.
 
     In your validation of the subscription validation event, if you identify that it isn't an event subscription for which you're expecting events, you wouldn't return a 200 response or no response at all. Hence, the validation fails.    

@@ -6,6 +6,7 @@ ms.date: 10/11/2022
 ms.author: memladen
 author: toddysm
 ms.custom: [ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment]
+ms.service: container-registry
 ---
 
 # Tutorial: Deploy a connected registry to a nested IoT Edge hierarchy

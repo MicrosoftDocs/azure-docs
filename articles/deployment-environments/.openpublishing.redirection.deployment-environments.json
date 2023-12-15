@@ -27,7 +27,7 @@
     },
     {
       "source_path_from_root": "/articles/deployment-environments/concept-common-components.md",
-      "redirect_url": "/azure/dev-box/concept-common-components",
+      "redirect_url": "/azure/deployment-environments/overview-what-is-azure-deployment-environments#components-shared-with-microsoft-dev-box",
       "redirect_document_id": false
     }
   ]
