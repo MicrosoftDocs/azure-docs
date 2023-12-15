@@ -53,7 +53,7 @@ The ARM template can only deploy Resource Manager resources from the following r
 - Microsoft.ManagedIdentity
 
 >[!NOTE]
-> For ARM templates containing anything beyond the above list, all PUT calls and Re-PUT on the VNF will result in validation error.
+> For ARM templates containing anything beyond the preceding list, all PUT calls and Re-PUT on the VNF will result in validation error.
 
 ### Common use cases that trigger Network Function Design Version minor or major version update
 
