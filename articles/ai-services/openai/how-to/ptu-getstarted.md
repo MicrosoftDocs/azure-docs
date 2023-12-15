@@ -120,7 +120,7 @@ See our [Monitoring Azure OpenAI Service](./monitoring.md) page for more details
 
 
 ## Handling high utilization
-Provisioned deployments provide customers with an allocated amount of compute capacity to run a given model. The utilization of the deployment is measured by the ‘Provisioned-Managed Utilization’ metric in Azure Monitor. Provisioned-Managed deployments are also optimized so that calls accepted are processed with a consistent per-call max latency. When the workload exceeds its allocated capacity, the service will return a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the retry-after and retry-after-ms response headers which provide the time in seconds and milliseconds respectively.  This maintains the per-call latency targets while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
+Provisioned deployments provide customers with an allocated amount of compute capacity to run a given model. The utilization of the deployment is measured by the ‘Provisioned-Managed Utilization’ metric in Azure Monitor. Provisioned-Managed deployments are also optimized so that calls accepted are processed with a consistent per-call max latency. When the workload exceeds its allocated capacity, the service will return a 429 HTTP status code until the utilization drops down below 100%. The time before retrying is provided in the `retry-afte`r and `retry-after-ms` response headers which provide the time in seconds and milliseconds respectively.  This maintains the per-call latency targets while giving the developer control over how to handle high-load situations – for example retry or divert to another experience/endpoint. 
 
 ### What should  I do when I receive a 429 response?
 A 429 response indicates that the allocated PTUs are fully consumed at the time of the call. The response includes the `retry-after-ms` and `retry-after` headers which tell you the time to wait before the next call will be accepted. How you choose to handle this depends on your application requirements. Here are some considerations:
@@ -131,7 +131,7 @@ The 429 signal is not an unexpected error response when pushing to high utilizai
 Any call accepted, will aim to be served by the model without queueing. When the deployment is fully utilized we will fast-respond with the 429 error response so that the you can make an decision on how to best handle.
 
 ### Modifying retry logic within the client libraries
-The Azure OpenAI SDKs retry 429 responses by default and will happen without error in the client (upt to the maximum retries). The library will also respect the retry-after time. You can also modify the retry-behavior. Here's an example with the python library. 
+The Azure OpenAI SDKs retry 429 responses by default and will happen without error in the client (up to the maximum retries). The library will also respect the `retry-after` time. You can also modify the retry behavior to better suite your experience. Here's an example with the python library. 
 
 
 You can use the `max_retries` option to configure or disable retry settings:
@@ -166,7 +166,7 @@ To assist you in this work, we have created a benchmarking tool which will run a
 We recommend the following workflow:
 1. Estimate your throughput PTUs using the capacity calculator.
 1. Run a benchmark with this traffic shape for an extended period of time (10+ min) to observe the results in a steady state.
-1. Measure the utilization, tokens processed and call rate values from Azure Monitor.
+1. Observe the utilization, tokens processed and call rate values from benchmark tool and Azure Monitor.
 1. Run a benchmark with your own traffic shape and workloads using your client implementation. Be sure to implement retry logic using either an Azure Openai client library or custom logic. 
 
 
