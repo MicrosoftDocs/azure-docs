@@ -55,8 +55,7 @@ A client can have a few ways to obtain the Client Access URL. For this quick sta
 Create a file with name `client.js` and add the following code
 
 ```javascript
-import { WebPubSubClient } from "@azure/web-pubsub-client";
-
+const { WebPubSubClient } = require("@azure/web-pubsub-client");
 // Instantiates the client object 
 // <client-access-url> is copied from Azure portal mentioned above.
 const client = new WebPubSubClient("<client-access-url>");
@@ -88,7 +87,7 @@ npm install --save @azure/web-pubsub-express
 #### 2. Create a new file named "server.js" that sets up an empty express app
 
 ```javascript
-import express from "express";
+const express = require("express");
 
 const app = express();
 
@@ -104,8 +103,8 @@ With Web PubSub, when there are certain activities happening at the client side 
 - when a client sends a message to your Web PubSub resource, you can persist the message in a database of your choice
 
 ```javascript
-import express from "express";
-import { WebPubSubEventHandler } from ('@azure/web-pubsub-express');
+const express = require("express");
+const { WebPubSubEventHandler } = require("@azure/web-pubsub-express");
 
 const app = express();
 
@@ -176,8 +175,6 @@ az webpubsub hub update --group "<your-resource-group-name>" --name "<your-uniqu
 ## Run the programs
 # [JavaScript](#tab/javascript)
 #### Start the application server
-> [!Important]
-> Make sure your localhost is exposed to the internet.
 
 ```bash
 node server.js
