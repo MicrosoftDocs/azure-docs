@@ -16,7 +16,7 @@ ms.author: eur
 
 [!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
 
-The 'Azure AI'resource is the top-level Azure resource for AI Studio and provides the working environment for a team to build and manage AI applications. In Azure, resources enable access to Azure services for individuals and teams. Resources also provide a container for billing, security configuration and monitoring.
+The 'Azure AI' resource is the top-level Azure resource for AI Studio and provides the working environment for a team to build and manage AI applications. In Azure, resources enable access to Azure services for individuals and teams. Resources also provide a container for billing, security configuration and monitoring.
 
 The Azure AI resource is used to access multiple Azure AI services with a single setup. Previously, different Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md), [Azure Machine Learning](../../machine-learning/overview-what-is-azure-machine-learning.md), [Azure Speech](../../ai-services/speech-service/overview.md), required their individual setup.
 
