@@ -23,7 +23,7 @@ In Azure Database for MySQL - Flexible Server, enabling the error log under [Ser
 
 ## Enabling error logs (Preview)
 
-Users can access and configure the error logs in Azure Database for MySQL – Flexible Server via the Server logs feature, which can be enabled using the [Azure portal](./how-to-server-logs-portal#enable-server-logs) or [Azure CLI](./how-to-server-logs-cli.md). 
+Users can access and configure the error logs in Azure Database for MySQL – Flexible Server via the Server logs feature, which can be enabled using the [Azure portal](./how-to-server-logs-portal.md#enable-server-logs) or [Azure CLI](./how-to-server-logs-cli.md). 
 After the feature is enabled, your MySQL flexible server starts capturing events and writes them to a series of files saved as activity occurs.
 
 To enable Error logs, perform the following steps.
