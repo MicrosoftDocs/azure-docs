@@ -997,7 +997,17 @@ items:
     href: /cli/azure/communication
   - name: REST API documentation
     href: /rest/api/communication/
-  - name: Calling 
+  - name: Azure Resource Manager
+    items:
+    - name: Azure Resource Manager (JavaScript)
+      href: /javascript/api/overview/azure/arm-communication-readme
+    - name: Azure Resource Manager (.NET)
+      href: /dotnet/api/overview/azure/resourcemanager.communication-readme
+    - name: Azure Resource Manager (Java)
+      href: /java/api/overview/azure/resourcemanager-communication-readme
+    - name: Azure Resource Manager (Python)
+      href: /python/api/overview/azure/mgmt-communication-readme
+  - name: Calling
     items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
@@ -1103,16 +1113,6 @@ items:
     items:
     - name: Advanced Messaging (.NET)
       href: /dotnet/api/overview/azure/communication.messages-readme
-  - name: Azure Resource Manager
-    items:
-    - name: Azure Resource Manager (JavaScript)
-      href: /javascript/api/overview/azure/arm-communication-readme
-    - name: Azure Resource Manager (.NET)
-      href: /dotnet/api/overview/azure/resourcemanager.communication-readme
-    - name: Azure Resource Manager (Java)
-      href: /java/api/overview/azure/resourcemanager-communication-readme
-    - name: Azure Resource Manager (Python)
-      href: /python/api/overview/azure/mgmt-communication-readme
   - name: Common
     items:
     - name: Common (JavaScript)
