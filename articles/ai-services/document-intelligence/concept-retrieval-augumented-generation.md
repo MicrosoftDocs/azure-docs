@@ -15,7 +15,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD036 -->
 
-[!INCLUDE [applies to v4.0, v3.1 and v3.0](includes/applies-to-v-4-0-v3-1-v3-0.md)]
+This content applies to: checkmark v4.0 (preview) 
 
 Retrieval Augmented Generation (RAG) is an document generative AI solution that combines a pretrained Large Language Model (LLM) like ChatGPT with an external data retrieval system to generate an enhanced response incorporating new data outside of the original training data. Adding an information retrieval system enables you to chat with your documents, generate captivating content, and access the power of Azure OpenAI models for your data. You also have more control over the data used by the LLM as it formulates a response.
 
@@ -103,7 +103,7 @@ You can follow the [Document Intelligence studio quickstart](quickstarts/try-doc
 
 ## Build document chat with semantic chunking
 
-* [Azure OpenAI on your data](../openai/concepts/use-your-data) enables you to run supported chat **Azure AI Document Intelligence** layout model is underlying OCR engine for **Azure OpenAI on your documents** to ingest document data. It chunks long text based on table tables and paragraphs. You can also customize your chunking strategy based with these [scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts).
+* [Azure OpenAI on your data](../../openai/concepts/use-your-data) enables you to run supported chat **Azure AI Document Intelligence** layout model is underlying OCR engine for **Azure OpenAI on your documents** to ingest document data. It chunks long text based on table tables and paragraphs. You can also customize your chunking strategy based with these [scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts).
 
 * Azure AI Document Intelligence is now integrated with Langchain as one of its document loaders. You can use it to easily load the data, output to Markdown format, and then use This [cookbook]() shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in Langchain.
 
@@ -132,7 +132,7 @@ splits
 
 * This [solution accelerator](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) demonstrates an end-to-end baseline RAG pattern sample that uses Azure AI Search as a retriever and Azure AI Document Intelligence for document loading and semantic chunking.
 
-# Next steps
+## Next steps
 
 - Learn more about [Azure AI Document Intelligence](overview.md).
 
