@@ -27,6 +27,7 @@ Download for [Windows](https://download.microsoft.com/download/f/6/4/f64c574f-d3
 
 ### Fixed
 
+- Restored access to servers with Windows Admin Center in Azure
 - Improved detection logic for Microsoft SQL Server
 - Agents connected to sovereign clouds should now see the correct cloud and portal URL in [azcmagent show](azcmagent-show.md)
 - The installation script for Linux now automatically approves the request to import the packages.microsoft.com signing key to ensure a silent installation experience
@@ -37,6 +38,10 @@ Download for [Windows](https://download.microsoft.com/download/f/6/4/f64c574f-d3
 ## Version 1.36 - November 2023
 
 Download for [Windows](https://download.microsoft.com/download/5/e/9/5e9081ed-2ee2-4b3a-afca-a8d81425bcce/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issues
+
+The Windows Admin Center in Azure feature is incompatible with Azure Connected Machine agent version 1.36. Upgrade to version 1.37 or later to use this feature.
 
 ### New features
 
@@ -56,6 +61,10 @@ Download for [Windows](https://download.microsoft.com/download/5/e/9/5e9081ed-2e
 ## Version 1.35 - October 2023
 
 Download for [Windows](https://download.microsoft.com/download/e/7/0/e70b1753-646e-4aea-bac4-40187b5128b0/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Known issues
+
+The Windows Admin Center in Azure feature is incompatible with Azure Connected Machine agent version 1.35. Upgrade to version 1.37 or later to use this feature.
 
 ### New features
 

@@ -7,6 +7,7 @@ ms.author: memladen
 author: toddysm
 ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+ms.service: container-registry
 ---
 
 # Quickstart: Create a connected registry using the Azure CLI

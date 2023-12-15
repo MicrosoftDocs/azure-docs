@@ -1,6 +1,6 @@
 ---
 title: Best practices for Azure Operator Service Manager
-description: Understand best practices for Azure Operator Service Manager to onboard and deploy a Network Function (NF).
+description: Understand best practices for Azure Operator Service Manager to onboard and deploy a network function (NF).
 author: sherrygonz
 ms.author: sherryg
 ms.date: 09/11/2023
@@ -8,9 +8,9 @@ ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
 
-# Azure Operator Service Manager best practices to onboard and deploy Network Functions
+# Azure Operator Service Manager best practices to onboard and deploy network functions
 
-Microsoft has developed many proven practices for managing Network Functions (NFs) by using Azure Operator Service Manager. This article provides guidelines that NF vendors, telco operators, and their system integrators can follow to optimize the design. Keep these practices in mind when you onboard and deploy your NFs.
+Microsoft has developed many proven practices for managing network functions (NFs) by using Azure Operator Service Manager. This article provides guidelines that NF vendors, telco operators, and their partners can follow to optimize the design. Keep these practices in mind when you onboard and deploy your NFs.
 
 ## General considerations
 
@@ -19,7 +19,7 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
 - Structure your artifacts to align with planned use. Consider separating global artifacts from the artifacts you want to vary by site or instance.
 - Ensure service composition of multiple NFs with a set of parameters that matches the needs of your network. For example, you might have a chart that has 1,000 values and you only customize 100 of them. Make sure in the Configuration Group Schema (CGS) layer (covered more extensively in sections that follow) that you only expose 100.
 - Think early on about how you want to separate infrastructure (for example, clusters) or artifact stores and access between suppliers, in particular within a single service. Make your set of publisher resources match this model.
-- Azure Operator Service Manager site is a logical concept, a representation of a deployment destination. For example, Kubernetes cluster for CNFs or Azure Operator Nexus extended custom location for VNFs. It isn't a representation of a physical edge site, so you have use cases where multiple sites share the same physical location.
+- Azure Operator Service Manager site is a logical concept, a representation of a deployment destination. Examples are a Kubernetes cluster for Containerized Network Functions (CNFs) or an Azure Operator Nexus extended custom location for Virtualized Network Functions (VNFs). It isn't a representation of a physical edge site, so you have use cases where multiple sites share the same physical location.
 - Azure Operator Service Manager provides various APIs making it simple to combine with ADO or other pipeline tools.
 
 ## Publisher considerations
@@ -34,13 +34,13 @@ We recommend that you first onboard and deploy your simplest NFs (one or two cha
     - Marking an artifact manifest as immutable ensures that all artifacts listed in that manifest (typically, charts, images, and Azure Resource Manager templates [ARM templates]) are marked immutable too by enforcing necessary permissions on the artifact store.
 - Consider using agreed-upon naming conventions and governance techniques to help address any remaining gaps.
 
-## Network Function Definition Group and version considerations
+## Network Function Definition Group and Version considerations
 
-Network Function Definition Group (NFDG) represents the smallest component that you plan to reuse independently across multiple services. All parts of an NFDG are always deployed together. These parts are called `networkFunctionApplications`. For example, it's natural to onboard a single NF comprised of multiple Helm charts and images as a single NFDG if you always deploy those components together. In cases when multiple NFs are always deployed together, it's reasonable to have a single NFDG for all of them. Single NFDGs can have multiple NFDVs.
+Network Function Definition Group (NFDG) represents the smallest component that you plan to reuse independently across multiple services. All parts of an NFDG are always deployed together. These parts are called `networkFunctionApplications`. For example, it's natural to onboard a single NF composed of multiple Helm charts and images as a single NFDG if you always deploy those components together. In cases when multiple NFs are always deployed together, it's reasonable to have a single NFDG for all of them. Single NFDGs can have multiple NFDVs.
 
 For Containerized Network Function Definition Versions (CNF NFDVs), the `networkFunctionApplications` list can only contain helm packages. It's reasonable to include multiple helm packages if they're always deployed and deleted together.
 
-For Virtualized Network Function Definition Versions (VNF NFDVs), the `networkFunctionApplications` list must contain one `VhdImageFile` and one ARM template. The ARM template should deploy a single VM. To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM.
+For Virtualized Network Function Definition Versions (VNF NFDVs), the `networkFunctionApplications` list must contain at least one `VhdImageFile` and one ARM template. The ARM template should deploy a single VM. To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM.
 
 The ARM template can only deploy Resource Manager resources from the following resource providers:
 
@@ -52,6 +52,9 @@ The ARM template can only deploy Resource Manager resources from the following r
 - Microsoft.Authorization
 - Microsoft.ManagedIdentity
 
+>[!NOTE] 
+> For ARM templates containing anything beyond the above list, all PUT calls and Re-PUT on the VNF will result in validation error.
+
 ### Common use cases that trigger Network Function Design Version minor or major version update
 
 - Updating CGS/Configuration Group Values (CGVs) for an existing release that triggers changing the `deployParametersMappingRuleProfile`.
@@ -62,9 +65,9 @@ The ARM template can only deploy Resource Manager resources from the following r
 > [!NOTE]
 > Minimum number of changes required every time the payload of a given NF changes. A minor or major NF release without exposing new CGS parameters only requires updating the artifact manifest, pushing new images and charts, and bumping the NFDV version.
 
-## Network Service Design Group and version considerations
+## Network Service Design Group and Version considerations
 
-Network Service Design Group (NSDG) is a composite of one or more NFDGs and any infrastructure components (such as Nexus Azure Kubernetes Service [NAKS]/Azure Kubernetes Service [AKS] clusters and virtual machines) deployed at the same time. A Site Network Service (SNS) refers to a single NSDV. Such design guarantees consistent and repeatable deployment of the network service to a given site from a single SNS PUT.
+Network Service Design Group (NSDG) is a composite of one or more NFDGs and any infrastructure components (such as Nexus Azure Kubernetes Service [NAKS]/Azure Kubernetes Service [AKS] clusters and virtual machines) deployed at the same time. A site network service (SNS) refers to a single NSDV. Such design guarantees consistent and repeatable deployment of the network service to a given site from a single SNS PUT.
 
 An example of an NSDG is:
 
@@ -153,7 +156,7 @@ Before you submit the CGV resource creation, you can validate that the schema an
 
 The Azure Operator Service Manager CLI extension assists with the publishing of NFDs and NSDs. Use this tool as the starting point for creating new NFDs and NSDs. Consider using the CLI to create the initial files. Then edit them to incorporate infrastructure components before you publish.
 
-## Site Network Service considerations
+## Site network service considerations
 
 We recommend that you have a single SNS for the entire site, including the infrastructure. The SNS should deploy any infrastructure required (for example, NAKS/AKS clusters and virtual machines), and then deploy the NFs required on top. Such design guarantees consistent and repeatable deployment of the network service to a given site from a single SNS PUT.
 
@@ -163,7 +166,7 @@ We recommend that every SNS is deployed with a user-assigned managed identity ra
 
 The following two scenarios illustrate Azure Operator Service Manager resource mapping.
 
-### Scenario: Single Network Function
+### Scenario: Single network function
 
 An NF with one or two application components is deployed to a NAKS cluster.
 
@@ -177,7 +180,7 @@ Resources breakdown:
 - **CGV**: Single based on the number of CGSes.
 - **SNS**: Single per NSDV.
 
-### Scenario: Multiple Network Functions
+### Scenario: Multiple network functions
 
 Multiple NFs with some shared and independent components are deployed to a NAKS cluster.
 

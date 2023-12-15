@@ -4,6 +4,7 @@ description: Get started creating and managing a geo-replicated Azure container 
 author: tejaswikolli-web
 ms.topic: article
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.date: 10/11/2022
 
 ---
