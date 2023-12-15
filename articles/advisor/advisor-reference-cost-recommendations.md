@@ -261,8 +261,17 @@ We noticed that your virtual network gateway has been idle for over 90 days. Thi
 
 Learn more about [Virtual network gateway - IdleVNetGateway (Repurpose or delete idle virtual network gateways)](https://aka.ms/aa_idlevpngateway_learnmore).
 
+### Consider migrating to Front Door Standard/Premium
 
+Your Front Door Classic tier contains a large number of domains or routing rules, which adds extra charges. Front Door Standard or Premium do not charge per additional domain or routing rule. Consider migrating to save costs.
 
+Learn more about [Front Door pricing](https://learn.microsoft.com/azure/frontdoor/understanding-pricing).
+
+### Consider using multiple endpoints under one single Front Door Standard/Premium profile
+
+We detected your subscription contains multiple Front Door Standard/Premium profiles with a small number of endpoints on them. You can save costs in base fees by using multiple endpoints within one profile. You can use a maximum of 10 endpoints with Standard tier and 25 endpoints with Premium tier.
+
+Learn more about [Front Door endpoints](https://learn.microsoft.com/azure/frontdoor/endpoint).
 
 ## Reserved instances
 
