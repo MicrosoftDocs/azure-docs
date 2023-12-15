@@ -91,7 +91,7 @@ In Azure Functions, a function project is a container for one or more individual
 ::: zone pivot="python-mode-configuration"  
 In this section, you create a function project that contains a single function.
 
-1. Run the `func init` command as follows to create a Python functions project in the virtual environment.
+1. Run the [`func init`](functions-core-tools-reference.md#func-init) command as follows to create a Python functions project in the virtual environment.
 
     ```console
     func init --python --model V1
@@ -105,7 +105,7 @@ In this section, you create a function project that contains a single function.
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
 
-    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
+   [`func new`](functions-core-tools-reference.md#func-new) creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
 
 1. Run this command to make sure that the Azure Functions library is installed in the environment.
 
@@ -133,7 +133,7 @@ In this section, you create a function project that contains a single function.
 ::: zone pivot="python-mode-decorators"  
 In this section, you create a function project and add an HTTP triggered function.
 
-1. Run the `func init` command as follows to create a Python v2 functions project in the virtual environment.
+1. Run the [`func init`](functions-core-tools-reference.md#func-init) command as follows to create a Python v2 functions project in the virtual environment.
 
     ```console
     func init --python
@@ -147,7 +147,7 @@ In this section, you create a function project and add an HTTP triggered functio
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
 
-    If prompted, choose the **ANONYMOUS** option. `func new` adds an HTTP trigger endpoint named `HttpExample` to the `function_app.py` file, which is accessible without authentication.    
+    If prompted, choose the **ANONYMOUS** option. [`func new`](functions-core-tools-reference.md#func-new) adds an HTTP trigger endpoint named `HttpExample` to the `function_app.py` file, which is accessible without authentication.    
    
 1. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
 
