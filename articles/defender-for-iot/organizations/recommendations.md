@@ -81,7 +81,7 @@ The following recommendations are displayed for OT devices in the Azure portal:
 
 Other recommendations you may see in the **Recommendations** page are relevant for the [Defender for IoT micro agent](../device-builders/index.yml).
 
-The following Defender for Endpoint recommendations are relevant for Enterprise IoT customers and are available in Microsoft 365 Defender only:
+The following Defender for Endpoint recommendations are relevant for Enterprise IoT customers and are available in Microsoft Defender XDR only:
 - **Require authentication for VNC management interface**
 - **Disable insecure administration protocol – Telnet**
 - **Remove insecure administration protocols SNMP V1 and SNMP V2**

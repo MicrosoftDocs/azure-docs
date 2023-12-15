@@ -29,7 +29,7 @@ Enterprise IoT security in Microsoft Defender XDR provides IoT-specific security
 
 Most Microsoft Defender for Endpoint network-based detections are also relevant for Enterprise IoT devices. For example, network-based detections include alerts for scans involving managed endpoints.
 
-For more information, see [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
+For more information, see [Alerts queue in Microsoft Defender XDR](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
 ### Recommendations
 
@@ -100,14 +100,14 @@ For any billing or technical issues, open a support ticket for Microsoft Defende
 
 For more information, see:
 
-- [Get started with enterprise IoT monitoring in Microsoft 365 Defender](eiot-defender-for-endpoint.md)
+- [Get started with enterprise IoT monitoring in Microsoft Defender XDR](eiot-defender-for-endpoint.md)
 - [Defender for IoT subscription billing](billing.md)
 - [Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery)
-- [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
+- [Alerts queue in Microsoft Defender XDR](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response)
 - [Security recommendations](/microsoft-365/security/defender-vulnerability-management/tvm-security-recommendation)
 - [Vulnerabilities in my organization](/microsoft-365/security/defender-vulnerability-management/tvm-weaknesses)
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
-- [Proactively hunt with advanced hunting in Microsoft 365 Defender](/microsoft-365/security/defender/advanced-hunting-overview)
+- [Proactively hunt with advanced hunting in Microsoft Defender XDR](/microsoft-365/security/defender/advanced-hunting-overview)
 
 ## Next steps
 

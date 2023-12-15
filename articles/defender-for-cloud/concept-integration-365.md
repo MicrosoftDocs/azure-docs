@@ -31,11 +31,11 @@ Learn more about [handling alerts in Microsoft Defender XDR](/microsoft-365/secu
 
 ## Sentinel customers
 
-Microsoft Sentinel customers can [benefit from the Defender for Cloud integration with Microsoft 365 Defender](../sentinel/ingest-defender-for-cloud-incidents.md) in their workspaces using the Microsoft 365 Defender incidents and alerts connector.
+Microsoft Sentinel customers can [benefit from the Defender for Cloud integration with Microsoft Defender XDR](../sentinel/ingest-defender-for-cloud-incidents.md) in their workspaces using the Microsoft Defender XDR incidents and alerts connector.
 
-First you need to [enabled incident integration in your Microsoft 365 Defender connector](../sentinel/connect-microsoft-365-defender.md).
+First you need to [enabled incident integration in your Microsoft Defender XDR connector](../sentinel/connect-microsoft-365-defender.md).
 
-Then, enable the `Tenant-based Microsoft Defender for Cloud (Preview)` connector to synchronize your subscriptions with your tenant-based Defender for Cloud incidents to stream through the Microsoft 365 Defender incidents connector. 
+Then, enable the `Tenant-based Microsoft Defender for Cloud (Preview)` connector to synchronize your subscriptions with your tenant-based Defender for Cloud incidents to stream through the Microsoft Defender XDR incidents connector. 
 
 The connector is available through the Microsoft Defender for Cloud solution, version 3.0.0, in the Content Hub. If you have an earlier version of this solution, you can upgrade it in the Content Hub. 
 
@@ -43,11 +43,11 @@ If you have the legacy subscription-based Microsoft Defender for Cloud alerts co
 
 We recommend you disable analytic rules that are enabled (either scheduled or through Microsoft creation rules), from creating incidents from your Defender for Cloud alerts.
 
-You can use automation rules to close incidents immediately and prevent specific types of Defender for Cloud alerts from becoming incidents. You can also use the built-in tuning capabilities in the Microsoft 365 Defender portal to prevent alerts from becoming incidents. 
+You can use automation rules to close incidents immediately and prevent specific types of Defender for Cloud alerts from becoming incidents. You can also use the built-in tuning capabilities in the Microsoft Defender portal to prevent alerts from becoming incidents. 
 
-Customers who integrated their Microsoft 365 Defender incidents into Sentinel and want to keep their subscription-based settings and avoid tenant-based syncing can [opt out of syncing incidents and alerts](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud?view=o365-worldwide) through the Microsoft 365 Defender connector. 
+Customers who integrated their Microsoft Defender XDR incidents into Sentinel and want to keep their subscription-based settings and avoid tenant-based syncing can [opt out of syncing incidents and alerts](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud?view=o365-worldwide) through the Microsoft Defender XDR connector. 
 
-Learn how [Defender for Cloud and Microsoft 365 Defender handle your data's privacy](data-security.md#defender-for-cloud-and-microsoft-defender-365-defender-integration).
+Learn how [Defender for Cloud and Microsoft Defender XDR handle your data's privacy](data-security.md#defender-for-cloud-and-microsoft-defender-365-defender-integration).
 
 ## Next steps
 

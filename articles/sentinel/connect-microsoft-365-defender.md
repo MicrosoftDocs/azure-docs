@@ -66,7 +66,7 @@ To query Microsoft Defender XDR incident data, use the following statement in th
 
 ```kusto
 SecurityIncident
-| where ProviderName == "Microsoft 365 Defender"
+| where ProviderName == "Microsoft Defender XDR"
 ```
 
 ### Connect entities
@@ -153,7 +153,7 @@ let Now = now();
 | extend Count = 0 
 | union isfuzzy=true ( 
     SecurityIncident
-    | where ProviderName == "Microsoft 365 Defender"
+    | where ProviderName == "Microsoft Defender XDR"
     | summarize Count = count() by bin_at(TimeGenerated, 1d, Now) 
 ) 
 | summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now) 

@@ -68,7 +68,7 @@ This procedure describes how to view related alerts, recommendations, and vulner
 
 1. On the device details page, explore the following tabs to view data added by the enterprise IoT security for your device:
 
-    - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft 365 Defender for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft 365 Defender [Evaluation & Tutorials](https://security.microsoft.com/tutorials/all) page.
+    - On the **Alerts** tab, check for any alerts triggered by the device. Simulate alerts in Microsoft Defender XDR for Enterprise IoT using the Raspberry Pi scenario available in the Microsoft Defender XDR [Evaluation & Tutorials](https://security.microsoft.com/tutorials/all) page.
 
         You can also set up advanced hunting queries to create custom alert rules. For more information, see [sample advanced hunting queries for Enterprise IoT monitoring](#sample-advanced-hunting-queries-for-enterprise-iot). 
 
@@ -82,7 +82,7 @@ On the **Device inventory** page, select **Go hunt** to query devices using tabl
 
 ## Sample advanced hunting queries for Enterprise IoT
 
-This section lists sample advanced hunting queries that you can use in Microsoft 365 Defender to help you monitor and secure your IoT devices with Enterprise for IoT security. 
+This section lists sample advanced hunting queries that you can use in Microsoft Defender XDR to help you monitor and secure your IoT devices with Enterprise for IoT security. 
 
 ### Find devices by specific type or subtype
 

@@ -220,7 +220,7 @@
       href: ../defender-for-iot/organizations/iot-solution.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
     - name: Investigate Defender for IoT incidents with Microsoft Sentinel
       href: ../defender-for-iot/organizations/iot-advanced-threat-monitoring.md?bc=%2fazure%2fsentinel%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsentinel%2fTOC.json
-  - name: Integrate Microsoft 365 Defender
+  - name: Integrate Microsoft Defender XDR
     href: microsoft-365-defender-sentinel-integration.md
   - name: Integrate Microsoft Defender for Cloud
     href: ingest-defender-for-cloud-incidents.md
@@ -576,7 +576,7 @@
       href: data-connectors/mcafee-network-security-platform.md
     - name: Microsoft 365
       href: data-connectors/microsoft-365.md
-    - name: Microsoft 365 Defender
+    - name: Microsoft Defender XDR
       href: data-connectors/microsoft-365-defender.md
     - name: Microsoft 365 Insider Risk Management
       href: data-connectors/microsoft-365-insider-risk-management.md
@@ -830,7 +830,7 @@
       href: connect-azure-virtual-desktop.md
     - name: Microsoft Defender for Cloud
       href: connect-defender-for-cloud.md
-    - name: Microsoft 365 Defender
+    - name: Microsoft Defender XDR
       href: connect-microsoft-365-defender.md
     - name: Integrate Microsoft Purview
       href: purview-solution.md  
@@ -1216,7 +1216,7 @@
       href: dns-ama-fields.md
     - name: Microsoft Purview Information Protection reference
       href: microsoft-purview-record-types-activities.md
-    - name: Microsoft 365 Defender connector data type support
+    - name: Microsoft Defender XDR connector data type support
       href: microsoft-365-defender-cloud-support.md
   - name: Detection and analysis references
     items:

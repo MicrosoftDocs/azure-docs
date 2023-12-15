@@ -18,9 +18,9 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 > [!NOTE]
 > For Defender for Cloud pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
-When you [enable Defender for Cloud](connect-azure-subscription.md), you automatically gain access to Microsoft 365 Defender.
+When you [enable Defender for Cloud](connect-azure-subscription.md), you automatically gain access to Microsoft Defender XDR.
 
-The Microsoft 365 Defender portal helps security teams investigate attacks across cloud resources, devices, and identities. Microsoft 365 Defender provides an overview of attacks, including suspicious and malicious events that occur in cloud environments. Microsoft 365 Defender accomplishes this goal by correlating all alerts and incidents, including cloud alerts and incidents.
+The Microsoft Defender portal helps security teams investigate attacks across cloud resources, devices, and identities. Microsoft Defender XDR provides an overview of attacks, including suspicious and malicious events that occur in cloud environments. Microsoft Defender XDR accomplishes this goal by correlating all alerts and incidents, including cloud alerts and incidents.
 
 You can learn more about the [integration between Microsoft Defender for Cloud and Microsoft Defender XDR](concept-integration-365.md).
 
