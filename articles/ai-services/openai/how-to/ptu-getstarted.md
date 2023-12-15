@@ -70,7 +70,7 @@ az cognitiveservices account deployment create \
 REST, ARM, Bicep and Terraform can also be used to create deployments.  Use the instructions in the public documentation for Standard deployments and replace the sku.name with “Provisioned-Managed” rather than “Standard”.  See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide.
 
 ## Make your first calls
-The inferencing code for provisioned deployments is the same a standard deployment type. The followign code snippet shows a chat completions call to a GPT-4 model.  If this is your first time using these models programmatically, we recommend starting with our [quickstart start guide](../quickstart.md). 
+The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  If this is your first time using these models programmatically, we recommend starting with our [quickstart start guide](../quickstart.md). 
 
 
 
