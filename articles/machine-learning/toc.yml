@@ -598,7 +598,7 @@
       href: how-to-deploy-models-from-huggingface.md
     - name: How to use Azure OpenAI models
       href: how-to-use-openai-models-in-azure-ml.md
-    - name: How to regulate registry deployments
+    - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
 - name: Use Generative AI
   items:
