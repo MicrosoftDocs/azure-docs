@@ -143,6 +143,14 @@ Every response includes a `"finish_details"` field. The subfield `"type"` has th
 
 If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
+## Detail parameter settings in image processing: Low, High, Auto  
+
+The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
+- `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
+- `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.''
+
+For details on how the image parameters impact tokens used and pricing please see - [What is OpenAI? Image Tokens with GPT-4 Turbo with Vision](https://github.com/jfilcik/azure-docs-pr/blob/patch-9/articles/ai-services/openai/overview.md#image-tokens-gpt-4-turbo-with-vision)
+
 ## Use Vision enhancement with images
 
 GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored enhancements. When combined with Azure AI Vision, it enhances your chat experience by providing the chat model with more detailed information about visible text in the image and the locations of objects.
@@ -397,7 +405,9 @@ Every response includes a `"finish_details"` field. The subfield `"type"` has th
 If `finish_details.type` is `stop`, then there is another `"stop"` property that specifies the token that caused the output to end.
 
 ### Pricing example for Video prompts
-The pricing for GPT-4 Turbo with Vision is dynamic and depends on the specific features and inputs used. The base charges and additional features are outlined below:
+The pricing for GPT-4 Turbo with Vision is dynamic and depends on the specific features and inputs used. For a comprehensive view of Azure OpenAI pricing see [Azure OpenAI Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/).
+
+The base charges and additional features are outlined below:
 
 Base Pricing for GPT-4 Turbo with Vision is:
 - Input: $0.01 per 1000 tokens
@@ -421,12 +431,6 @@ For a typical use case let's imagine that I have use a 3-minute video with a 100
 |                                        | **Total Cost**                                                | **$0.03025** |
 
 Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute segment of video. This index can be reused across any number of Video Retrieval and GPT-4V calls.
-
-## Detail parameter settings in image processing: Low, High, Auto  
-
-The detail parameter in the model offers three choices: `low`, `high`, or `auto`, to adjust the way the model interprets and processes images. The default setting is auto, where the model decides between low or high based on the size of the image input. 
-- `low` setting: the model does not activate the "high res" mode, instead processes a lower resolution 512x512 version, resulting in quicker responses and reduced token consumption for scenarios where fine detail isn't crucial.
-- `high` setting: the model activates "high res" mode. Here, the model initially views the low-resolution image and then generates detailed 512x512 segments from the input image. Each segment uses double the token budget, allowing for a more detailed interpretation of the image.
 
 ## Limitations
 
