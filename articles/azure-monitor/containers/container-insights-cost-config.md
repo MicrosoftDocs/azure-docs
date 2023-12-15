@@ -203,7 +203,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 The following table describes the supported data collection settings and the name used for each for different onboarding options.
 
 >[!NOTE]
->This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-agent-config.md).
+>This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-data-collection-config-map.md).
 
 | Name | Description |
 |:---|:---|
@@ -217,7 +217,7 @@ The following table describes the supported data collection settings and the nam
 The settings for **collection frequency** and **namespace filtering** don't apply to all Container insights data. The following table lists the tables in the Log Analytics workspace used by Container insights and the settings that apply to each. 
 
 >[!NOTE]
->This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-agent-config.md).
+>This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-data-collection-config-map.md).
 
 
 | Table name | Interval? | Namespaces? | Remarks |

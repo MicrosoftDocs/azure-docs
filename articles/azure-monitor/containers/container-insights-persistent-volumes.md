@@ -18,7 +18,7 @@ Container insights automatically starts monitoring PV usage by collecting the fo
 |-----|-----------|----------|
 | `pvUsedBytes`| `podUID`, `podName`, `pvcName`, `pvcNamespace`, `capacityBytes`, `clusterId`, `clusterName`| Used space in bytes for a specific persistent volume with a claim used by a specific pod. The `capacityBytes` tag is folded in as a dimension in the Tags field to reduce data ingestion cost and to simplify queries.|
 
-To learn more about how to configure collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-agent-config.md).
+To learn more about how to configure collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-data-collection-config-map.md).
 
 ## PV inventory
 
@@ -49,4 +49,4 @@ You can enable a recommended alert to alert you when average PV usage for a pod 
 
 ## Next steps
 
-To learn more about collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-agent-config.md).
+To learn more about collected PV metrics, see [Configure agent data collection for Container insights](./container-insights-data-collection-config-map.md).

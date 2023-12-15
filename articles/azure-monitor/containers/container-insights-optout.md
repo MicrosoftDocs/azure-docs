@@ -1,18 +1,21 @@
 ---
-title: Disable Container insights on your Azure Kubernetes Service (AKS) cluster
-description: This article describes how you can discontinue monitoring of your Azure AKS cluster with Container insights.
+title: Disable Container insights on your Kubernetes cluster
+description: This article describes how you can discontinue monitoring of your Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 08/21/2023
+ms.date: 12/14/2023
 ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ms.reviewer: aul
 ---
 
-# Disable Container insights on your Azure Kubernetes Service (AKS) cluster
+# Disable Container insights on your Kubernetes cluster
 
-After you enable monitoring of your Azure Kubernetes Service (AKS) cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows you how to do this task by using the Azure CLI or the provided Azure Resource Manager templates (ARM templates).
+This article shows you how to stop monitoring your Kubernetes cluster and Remove Container insights.
 
-## Azure CLI
+
+## AKS cluster
+
+### [CLI](#tab/cli)
 
 Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) command to disable Container insights. The command removes the agent from the cluster nodes. It doesn't remove the solution or the data already collected and stored in your Azure Monitor resource.
 
@@ -20,26 +23,12 @@ Use the [az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) command to
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-To reenable monitoring for your cluster, see [Enable monitoring by using the Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli).
+### [Azure Resource Manager](#tab/arm)
 
-## Azure Resource Manager template
 
-Two ARM templates are provided to support removing the solution resources consistently and repeatedly in your resource group. One is a JSON template that specifies the configuration to stop monitoring. The other template contains parameter values that you configure to specify the AKS cluster resource ID and resource group in which the cluster is deployed.
+#### Download and install template
 
-If you're unfamiliar with the concept of deploying resources by using a template, see:
-
-* [Deploy resources with ARM templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
-* [Deploy resources with ARM templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
-
->[!NOTE]
->The template must be deployed in the same resource group of the cluster. If you omit any other properties or add-ons when you use this template, they might be removed from the cluster. Examples are `enableRBAC` for Kubernetes RBAC policies implemented in your cluster, or `aksResourceTagValues`, if tags are specified for the AKS cluster.
->
-
-If you choose to use the Azure CLI, you must install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-### Create a template
-
-1. Copy and paste the following JSON syntax into your file:
+1. Create the template file by saving the following JSON syntax as *OptOutTemplate.json*.
 
     ```json
     {
@@ -87,77 +76,83 @@ If you choose to use the Azure CLI, you must install and use the CLI locally. Yo
     }
     ```
 
-1. Save this file as **OptOutTemplate.json** to a local folder.
+2. Create the template file by saving the following JSON syntax as *OptOutParam.json*.
 
-1. Paste the following JSON syntax into your file:
+3. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
 
-    ```json
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "aksResourceId": {
-          "value": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-        },
-        "aksResourceLocation": {
-          "value": "<aksClusterRegion>"
-        },
-        "aksResourceTagValues": {
-          "value": {
-            "<existing-tag-name1>": "<existing-tag-value1>",
-            "<existing-tag-name2>": "<existing-tag-value2>",
-            "<existing-tag-nameN>": "<existing-tag-valueN>"
-          }
-        }
-      }
-    }
-    ```
+    | Parameter | Description |
+    |:---|:---|
+    | `aksResourceId` | Resource ID of the cluster. |
+    | `aksResourceLocation` | Location of the cluster. |
+    | `resourceTagValues` | Existing tag values specified for the Container insights cluster. |
 
-1. Edit the values for **aksResourceId** and **aksResourceLocation** by using the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.
-    <!-- convertborder later -->
-    :::image type="content" source="media/container-insights-optout/container-properties-page.png" lightbox="media/container-insights-optout/container-properties-page.png" alt-text="Screenshot that shows the Container properties page." border="false":::
 
-    While you're on the **Properties** page, also copy the **Workspace Resource ID**. This value is required if you decide you want to delete the Log Analytics workspace later. Deleting the Log Analytics workspace isn't performed as part of this process.
+4. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
-    Edit the values for **aksResourceTagValues** to match the existing tag values specified for the AKS cluster.
+---
 
-1. Save this file as **OptOutParam.json** to a local folder.
+## Arc-enabled Kubernetes cluster
 
-Now you're ready to deploy this template.
+The following scripts are available for removing Container insights from your Arc-enabled Kubernetes clusters. You can get the **kube-context** of your cluster by running the command `kubectl config get-contexts`. If you want to use the current context, then don't specify this parameter.
 
-### Remove the solution by using the Azure CLI
 
-To remove the solution and clean up the configuration on your AKS cluster, run the following command with the Azure CLI on Linux:
+PowerShell: [disable-monitoring.ps1](https://aka.ms/disable-monitoring-powershell-script)
+Bash: [disable-monitoring.sh](https://aka.ms/disable-monitoring-bash-script)
 
-```azurecli
-az login   
-az account set --subscription "Subscription Name"
-az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters ./OptOutParam.json  
-```
-
-The configuration change can take a few minutes to finish. The result is returned in a message similar to the following example:
-
-```output
-ProvisioningState       : Succeeded
-```
-
-### Remove the solution by using PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-To remove the solution and clean up the configuration from your AKS cluster, run the following PowerShell commands in the folder that contains the template:
 
 ```powershell
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName <yourSubscriptionName>
-New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
+# Use current context
+.\disable-monitoring.ps1 -clusterResourceId <cluster-resource-id>
+
+# Specify kube-context
+.\disable-monitoring.ps1 -clusterResourceId <cluster-resource-id> -kubeContext <kube-context>
 ```
 
-The configuration change can take a few minutes to finish. The result is returned in a message similar to the following example:
+```bash
+# Use current context
+bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID 
 
-```output
-ProvisioningState       : Succeeded
+# Specify kube-context
+bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID --kube-context $KUBECONTEXT
 ```
+
+## Disable monitoring using Helm
+
+The following steps apply to the following environments:
+
+- AKS Engine on Azure and Azure Stack
+- OpenShift version 4 and higher
+
+1. Run the following helm command to identify the Container insights helm chart release installed on your cluster
+
+    ```
+    helm list
+    ```
+
+    The output resembles the following:
+
+    ```
+    NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
+    azmon-containers-release-1      default         3               2020-04-21 15:27:24.1201959 -0700 PDT   deployed        azuremonitor-containers-2.7.0   7.0.0-1
+    ```
+
+    *azmon-containers-release-1* represents the helm chart release for Container insights.
+
+2. To delete the chart release, run the following helm command.
+
+    `helm delete <releaseName>`
+
+    Example:
+
+    `helm delete azmon-containers-release-1`
+
+    This removes the release from the cluster. You can verify by running the `helm list` command:
+
+    ```
+    NAME                            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
+    ```
+
+The configuration change can take a few minutes to complete. Because Helm tracks your releases even after you’ve deleted them, you can audit a cluster’s history, and even undelete a release with `helm rollback`.
 
 ## Next steps
 

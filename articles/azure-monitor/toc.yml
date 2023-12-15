@@ -468,13 +468,7 @@ items:
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Disable monitoring
-        items:
-        - name: AKS cluster
-          displayName: Container insights, Disable
-          href: containers/container-insights-optout.md
-        - name: Hybrid cluster
-          displayName: Container insights, Disable
-          href: containers/container-insights-optout-hybrid.md
+        href: containers/container-insights-optout.md
       - name: Configure private Link
         items:
         - name: Prometheus
@@ -538,13 +532,13 @@ items:
           href: containers/prometheus-metrics-multiple-workspaces.md
       - name: Customize Container insights collection
         items:
-      - name: Configure data collection
-        displayName: Container insights
-        items:
-        - name: ConfigMap
-          href: containers/container-insights-data-collection-configmap.md
-        - name: Data collection rule
-          href: containers/container-insights-data-collection-dcr.md
+        - name: Configure data collection
+          displayName: Container insights
+          items:
+          - name: ConfigMap
+            href: containers/container-insights-data-collection-configmap.md
+          - name: Data collection rule
+            href: containers/container-insights-data-collection-dcr.md
         - name: Log schema
           href: containers/container-insights-logs-schema.md
         - name: Data Transformations
