@@ -39,7 +39,7 @@ After you have purchased a commitment on your quota, you can create a deployment
 
 1.	Sign into the [Azure OpenAI studio](https://oai.azure.com)
 2.	Choose the subscription that was enabled for provisioned deployments & select the desired resource in a region where you have the quota.
-3.	Under Management in the left-nav select Deployments
+3.	Under Management in the left-nav select Deployments.
 4.	Select Create new deployment and configure the following fields. You will need to expand the ‘advanced options’ drop down.
 5.	Fill out the values in each field. We have provided an example below:
 
