@@ -63,7 +63,7 @@ In this section, you deploy a Virtual Network Manager instance with the Security
 1. Select **Review + create** and then select **Create** once validation has passed.
 1. Select **Go to resource** when deployment is complete and review the virtual network manager configuration
 
-## Create a network group all virtual networks
+## Create a network group for all virtual networks
 
 With your virtual network manager created, you now create a network group containing all of the VNets in the organization, and you manually add all of the VNets.
 1. Select **Network Groups**, under **Settings**.

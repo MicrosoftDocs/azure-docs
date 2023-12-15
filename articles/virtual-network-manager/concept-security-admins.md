@@ -130,7 +130,7 @@ You can create a security configuration with *Allow* rules only and deploy it to
 
 > [!NOTE]
 > When multiple Azure Virtual Network Manager instances apply different settings in the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` class to the same virtual network, the setting of the network manager instance with the highest scope will be used.
-> Let's say you have two virtual network managers. The first network manager is scoped to the root management group and has a security configuration with set to *AllowRulesOnly* in the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` class. The second virtual network manager is scoped to a subscription under the root management group and uses the default field of *None* in it's security configuration. When both configurations apply security admin rules to the same virtual network, the *AllowRulesOnly* setting will be applied to the virtual network.
+> Let's say you have two virtual network managers. The first network manager is scoped to the root management group and has a security configuration with set to *AllowRulesOnly* in the `securityConfiguration.properties.applyOnNetworkIntentPolicyBasedServices` class. The second virtual network manager is scoped to a subscription under the root management group and uses the default field of *None* in its security configuration. When both configurations apply security admin rules to the same virtual network, the *AllowRulesOnly* setting will be applied to the virtual network.
 
 ### Nonapplication of security admin rules at subnet level
 
