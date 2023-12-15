@@ -204,6 +204,7 @@ NOTE: These diagnostics thresholds are applied across different types of diagnos
 
 The following code samples shows how to define diagnostics thresholds:
 
+#### Defining custom Diagnostics Thresholds
 # [Sync](#tab/sync)
 ```Java
 //  Create diagnostics threshold
@@ -232,6 +233,7 @@ By default, the Java v4 SDK will log these diagnostics automatically in a specif
 
 The following code sample shows how to implement the `CosmosDiagnosticsHandler` interface if required using the Java V4 SDK:
 
+#### Defining custom Diagnostics Handler
 # [Sync](#tab/sync)
 ```Java
 //  By default, DEFAULT_LOGGING_HANDLER can be used
@@ -264,6 +266,7 @@ These `CosmosDiagnosticsThresholds` and `CosmosDiagnosticsHandler` can then be l
 
 The following code sample shows their usage in `CosmosClientBuilder`:
 
+#### Defining CosmosClientTelemetryConfig
 # [Sync](#tab/sync)
 ```Java
 //  Create Client Telemetry Config
