@@ -12,25 +12,25 @@ This article addresses upgrade experiences for Istio-based service mesh add-on f
 
 ## How Istio components are upgraded
 
-**Minor version:** Istio addon only allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new revision is deployed alongside the old revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't obersve any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
-
+**Minor version:** The Istio add-on only allows upgrading the minor version using a [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new revision is deployed alongside the old revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't observe any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. If any issues are present, you can roll back to the previous revision of Istio.
+## Upgrade the Istio add-on minor version
 The following example illustrates how to upgrade from revision `asm-1-17` to `asm-1-18`. The steps are the same for upgrades between any two successive revisions:
 
-1. Use the upgrade discovery command to check which revisions are available for the cluster as upgrade targets:
+1. Use the [az aks mesh get-upgrades](/cli/azure/aks/mesh#az-aks-mesh-get-upgrades) command to check which revisions are available for the cluster as upgrade targets:
 
     ```bash
     az aks mesh get-upgrades --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
 
-1. Initiate canary upgrade from revision `asm-1-17` to `asm-1-18`:
+1. Initiate a canary upgrade from revision `asm-1-17` to `asm-1-18` using [az aks mesh upgrade start](/cli/azure/aks/mesh#az-aks-mesh-upgrade-start):
 
     ```bash
     az aks mesh upgrade start --resource-group $RESOURCE_GROUP --name $CLUSTER --revision asm-1-18
     ```
 
-    Canary upgrade means the 1.18 control plane is deployed alongside the 1.17 control plane. They continue to coexist until you either complete or roll back the upgrade.
+    A canary upgrade means the 1.18 control plane is deployed alongside the 1.17 control plane. They continue to coexist until you either complete or roll back the upgrade.
 
-1. Verify control plane pods corresponding to both asm-1-17 and asm-1-18 exist:
+1. Verify control plane pods corresponding to both `asm-1-17` and `asm-1-18` exist:
 
     * Verify `istiod` pods:
 
@@ -68,7 +68,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
         aks-istio-ingressgateway-internal-asm-1-18-757d9b5545-krq9w   1/1     Running   0          51m
         ```
 
-1. Relabel the namespace so that any new pods coming up get the Istio sidecar associated with the new revision and its control plane:
+1. Relabel the namespace so that any new pods will utilize the Istio sidecar associated with the new revision and its control plane:
 
     ```bash
     kubectl label namespace default istio.io/rev=asm-1-18 --overwrite
@@ -80,7 +80,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
     kubectl rollout restart deployment <deployment name>
     ```
 
-1. Check your monitoring tools and dashboards to see if you're satisfied that the workloads are all running in a healthy state after the restart. Based  you have two options - 
+1. Check your monitoring tools and dashboards to determine whether your workloads are all running in a healthy state after the restart. Based on the outcome, you have two options:
 
     * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, run the following command to complete the canary upgrade:
 
