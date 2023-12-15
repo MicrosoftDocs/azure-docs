@@ -278,7 +278,6 @@ When you choose a name for your service principal, make sure that the name is un
     # public_network_access_enabled controls if storage account and key vaults have public network access enabled
     public_network_access_enabled = true
 
-
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
@@ -325,7 +324,14 @@ export       ARM_TENANT_ID="<tenantId>"
 
 ```
 
-1. Create the deployer and the SAP library. Add the service principal details to the deployment key vault.
+If you are running the script from a workstation that is not part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
+
+```bash
+export TF_VAR_Agent_IP=<your-public-ip-address>
+```
+
+
+1. Create the deployer and the SAP library and add the service principal details to the deployment key vault using this script.
 
 ```bash
 
@@ -336,7 +342,6 @@ export         region_code="<region_code>"
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 
-
 cd $CONFIG_REPO_PATH
 
 deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
@@ -344,7 +349,7 @@ library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-S
 
 ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --deployer_parameter_file "${deployer_parameter_file}"         \
-    --library_parameter_file "${library_parameter_file}"            \
+    --library_parameter_file "${library_parameter_file}"           \
     --subscription "${ARM_SUBSCRIPTION_ID}"                        \
     --spn_id "${ARM_CLIENT_ID}"                                    \
     --spn_secret "${ARM_CLIENT_SECRET}"                            \
@@ -439,7 +444,9 @@ To connect to your deployer VM:
 1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the public IP address you noted earlier and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configure-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
 
 > [!NOTE]
->The default username is *azureadm*.
+>The default username is *azureadm*. 
+>
+> Ensure that the file you use to save the ssh key can save the file using the correct format, i.e without Carrage Return (CR) characters. Use Visual Studio Code or Notepad++.
 
 After you're connected to the deployer VM, you can download the SAP software by using the Bill of Materials (BOM).
 
@@ -475,6 +482,8 @@ The rest of the tasks must be executed on the deployer.
 ## Securing the control plane
 
 The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
+
+You should update the control plane tfvars file to enable private endpoints and to block public access to the storage accounts and key vaults. 
 
 To copy the control plane configuration files to the deployer VM, you can use the `sync_deployer.sh` script. Sign in to the deployer VM and run the following commands:
 
