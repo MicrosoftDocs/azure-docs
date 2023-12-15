@@ -42,9 +42,9 @@ landingContent:
             url: flexible-server/concepts-limits.md
       - linkListType: quickstart
         links:
-          - text: Create a server - Azure portal
+          - text: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure portal
             url: flexible-server/quickstart-create-server-portal.md
-          - text: Create a server - ARM template
+          - text: Create an Azure Database for PostgreSQL - Flexible Server instance using ARM template
             url: flexible-server/quickstart-create-server-arm-template.md
       - linkListType: tutorial
         links:
@@ -60,7 +60,7 @@ landingContent:
             url: flexible-server/concepts-compute-storage.md
           - text: Networking
             url: flexible-server/concepts-networking.md
-          - text: Firewall Rules
+          - text: Firewall rules
             url: flexible-server/concepts-firewall-rules.md
           - text: PostgreSQL versions
             url: flexible-server/concepts-supported-versions.md
@@ -170,13 +170,13 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Database for PostgreSQL - Flexible Server
+          - text: What is Azure Database for PostgreSQL - Single Server?
             url: single-server/overview.md
       - linkListType: quickstart
         links:
-          - text: Create a server using the Azure portal
+          - text: Create an Azure Database for PostgreSQL - Single Server instance using the Azure portal
             url: single-server/quickstart-create-server-database-portal.md
-          - text: Create a server using Azure CLI
+          - text: Create an Azure Database for PostgreSQL - Single Server instance using Azure CLI
             url: single-server/quickstart-create-server-database-azure-cli.md
       - linkListType: concept
         links:
