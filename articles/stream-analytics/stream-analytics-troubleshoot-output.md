@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Stream Analytics outputs
 description: This article describes techniques to troubleshoot your output connections in Azure Stream Analytics jobs.
-author: ajetasin
-ms.author: ajetasi
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 12/15/2023
 ms.custom: seodec18
 ---
 
