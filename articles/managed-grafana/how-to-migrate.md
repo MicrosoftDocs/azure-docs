@@ -30,12 +30,11 @@ This guide walks you through the process of exporting self-hosted Grafana dashbo
 Start by exporting your local Grafana dashboards as JSON files.
 
 1. Open your self-hosted Grafana user interface and go **Dashboards**.
-1. Open one of your dashboards and select the gear icon to open the **Dashboard settings**.
-1. Select the **JSON Model** tab. This tab shows the JSON data structure that defines the dashboard, including the dashboard settings, panel settings, layout, and queries.
+1. Open one of your dashboards and select the **Share panel or dashboard** icon.
+1. Go to the **Export** tab and select **Save to file**.
 
-    :::image type="content" source="media/migration/json-model.png" alt-text="Screenshot of the Grafana user interface showing the JSON data in the JSON Model tab.":::
+    :::image type="content" source="media/migration/export-dashboard.png" alt-text="Screenshot of the Grafana user interface showing the JSON data in the JSON Model tab.":::
 
-1. Copy the JSON data and save it in a new file on your local machine.
 1. Repeat this process for each dashboard you want to export.
 
 ## Import your self-hosted Grafana dashboards into Azure Managed Grafana
