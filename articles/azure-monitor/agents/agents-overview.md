@@ -71,7 +71,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
     | Data source | Destinations | Description |
     |:---|:---|:---|
-    | Performance | <ul><li>Azure Monitor Metrics (Public preview):<ul><li>For Windows - Virtual Machine Guest namespace</li><li>For Linux<sup>1</sup> - azure.vm.linux.guestmetrics namespace</li></ul></li><p>For more information, see [Analyze metric data for virtual machines with metrics explorer](../vm/monitor-virtual-machine-analyze.md#analyze-metric-data-with-metrics-explorer).</p><li>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table</li></ul> | Numerical values measuring performance of different aspects of operating system and workloads |
+    | Performance | <ul><li>Azure Monitor Metrics (Public preview):<ul><li>For Windows - Virtual Machine Guest namespace</li><li>For Linux<sup>1</sup> - azure.vm.linux.guestmetrics namespace</li></ul></li><li>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table</li></ul> | Numerical values measuring performance of different aspects of operating system and workloads |
     | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
     | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
     |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
