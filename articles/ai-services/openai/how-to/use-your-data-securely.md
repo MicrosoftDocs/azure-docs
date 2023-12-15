@@ -182,18 +182,26 @@ So far you have already setup each resource work independently. Next you will ne
 
 See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignments-portal) for instructions on setting these roles in the Azure portal. You can use the [available script on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/role_assignment.sh) to add the role assignments programmatically. You need to have the `Owner` role on these resources to do role assignments.
 
+
+## Setup Gateway and Client
+
+Follow [this guideline](/azure/vpn-gateway/tutorial-create-gateway-portal#VNetGateway) to create virtual network gateway for your virtual network.
+
+Follow [this guideline](/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication) to add point-to-site configuration, and enable Microsoft Entra ID based authentication. Download the Azure VPN Client profile configuration package, unzip, and import the `AzureVPN/azurevpnconfig.xml` file to your Azure VPN client.
+
+Configure your local machine `hosts` file point your resources host names to the private IPs in your virtual network. The `hosts` is at `C:\Windows\System32\drivers\etc` for Windows, and at `/etc/hosts` on Linux. Example:
+
+```
+10.0.0.5 contoso.openai.azure.com
+10.0.0.6 contoso.search.windows.net
+10.0.0.7 contoso.blob.core.windows.net
+```
+
 ## Using the API
 
-
-### Local test setup
-
-Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` role on your Azure OpenAI resource. 
+Make sure your sign-in credential has `Cognitive Services OpenAI Contributor` role on your Azure OpenAI resource, and run `az login` first.
 
 :::image type="content" source="../media/use-your-data/api-local-test-setup-credential.png" alt-text="A screenshot showing the cognitive services OpenAI contributor role in the Azure portal." lightbox="../media/use-your-data/api-local-test-setup-credential.png":::
-
-Also, make sure that the IP your development machine is allowlisted in the IP rules, so you can call the Azure OpenAI API.
-
-:::image type="content" source="../media/use-your-data/ip-rules-azure-portal.png" alt-text="A screenshot showing roles for accounts in the Azure portal." lightbox="../media/use-your-data/ip-rules-azure-portal.png":::
 
 ### Ingestion API
 
@@ -283,7 +291,19 @@ curl -i -X POST https://my-resource.openai.azure.com/openai/deployments/turbo/ex
 You should be able to use all Azure OpenAI Studio features, including both ingestion and inference.
 
 ## Web app
-The web app published from the Studio will communicate with Azure OpenAI. If Azure OpenAI is network restricted, the web app need to be set up correctly for outbound networking.
+The web app published from the Studio will only communicate with Azure OpenAI. Since your Azure OpenAI has public network disabled, the web app need to be set up coorespondingly to use the private endpoint in your virtual network to access your Azure OpenAI.
+
+
+### Create Private DNS Zone
+ Add A-record
+ Link to your virtual network
+
+### Public web app from Studio
+SKU requirement
+
+1. Configure web app outbound vitual network integration
+
+
 
 1. Set Azure OpenAI allow inbound traffic from your virtual network.
 
