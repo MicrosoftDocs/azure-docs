@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-linux
 author: tejaswikolli-web
 ms.service: container-registry
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Use an Azure managed identity to authenticate to an Azure container registry 

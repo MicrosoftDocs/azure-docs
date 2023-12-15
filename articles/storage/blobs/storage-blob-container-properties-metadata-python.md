@@ -43,7 +43,7 @@ To retrieve container properties, use the following method:
 
 The following code example fetches a container's system properties and writes the property values to a console window:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_get_container_properties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_get_container_properties":::
 
 ## Set and retrieve metadata
 
@@ -55,7 +55,7 @@ Setting container metadata overwrites all existing metadata associated with the 
 
 The following code example sets metadata on a container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_set_container_metadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_set_container_metadata":::
 
 To retrieve metadata, call the following method:
 
@@ -63,7 +63,7 @@ To retrieve metadata, call the following method:
 
 The following example reads in metadata values: 
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_get_container_metadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_get_container_metadata":::
 
 ## Resources
 
@@ -81,6 +81,6 @@ The `get_container_properties` method retrieves container properties and metadat
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]

@@ -20,7 +20,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 > [!NOTE]
 > The examples in this article show the use of a SAS token to authorize access. However, for commands that target files and directories, you can now provide authorization credentials by using Microsoft Entra ID and omit the SAS token from those commands. You'll still have to use a SAS token in any command that targets only the file share or the account (For example: `'azcopy make https://mystorageaccount.file.core.windows.net/myfileshare'` or `'azcopy copy 'https://mystorageaccount.file.core.windows.net'`. 
 > 
-> To learn more, see [Authorize AzCopy](storage-use-azcopy-v10.md#authorize-azcopy). 
+> To learn more, see [Authorize AzCopy](storage-use-azcopy-authorize-azure-active-directory.md). 
 
 ## Create file shares
 

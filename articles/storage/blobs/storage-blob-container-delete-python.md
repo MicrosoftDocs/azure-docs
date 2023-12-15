@@ -40,11 +40,11 @@ After you delete a container, you can't create a container with the same name fo
 
 The following example uses a `BlobServiceClient` object to delete the specified container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_delete_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_delete_container":::
 
 The following example shows how to delete all containers that start with a specified prefix:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_delete_container_prefix":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_delete_container_prefix":::
 
 ## Restore a deleted container
 
@@ -54,7 +54,7 @@ When container soft delete is enabled for a storage account, a deleted container
 
 The following example finds a deleted container, gets the version of that deleted container, and then passes the version into the `undelete_container` method to restore the container.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_restore_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_restore_container":::
 
 ## Resources
 
@@ -69,7 +69,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
