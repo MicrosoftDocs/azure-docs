@@ -29,14 +29,14 @@
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: ./v1/how-to-configure-environment.md
     # end v1
-    - name: Install and setup the CLI(v2)
+    - name: Install and set up the CLI(v2)
       href: how-to-configure-cli.md
     # v1
     - name: Install and set up the CLI(v1)
       displayName: azurecli, mlops
       href: ./v1/reference-azure-machine-learning-cli.md
     # end v1
-    - name: Install and setup the SDK(v2)
+    - name: Install and set up the SDK(v2)
       href: https://aka.ms/sdk-v2-install
     - name: Set up VS Code extension
       displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
@@ -590,7 +590,7 @@
     href: how-to-schedule-pipeline-job.md
 - name: Work with foundation models
   items:
-    - name: Foundation models in model catalog
+    - name: Model Catalog Overview
       href: concept-foundation-models.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
@@ -598,6 +598,8 @@
       href: how-to-deploy-models-from-huggingface.md
     - name: How to use Azure OpenAI models
       href: how-to-use-openai-models-in-azure-ml.md
+    - name: Regulate deployments using policy
+      href: how-to-regulate-registry-deployments.md
 - name: Use Generative AI
   items:
     - name: Build AI solutions with prompt flow
@@ -811,7 +813,7 @@
       href: how-to-use-parallel-job-in-pipeline.md
     - name: How to do hyperparameter sweep in pipeline
       href: how-to-use-sweep-in-pipeline.md
-  - name: How to manage inputs and ouputs in pipeline
+  - name: How to manage inputs and outputs in pipeline
     href: how-to-manage-inputs-outputs-pipeline.md
   - name: How to use pipeline components in pipeline 
     href: how-to-use-pipeline-component.md

@@ -4,6 +4,7 @@ description: Configure an AKS cluster's service principal with permissions to ac
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.date: 05/31/2023
 ---
 

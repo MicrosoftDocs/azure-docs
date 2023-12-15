@@ -4,6 +4,7 @@ description: Error codes and possible solutions to problems found by running the
 ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
+ms.service: container-registry
 ms.date: 10/11/2022
 ---
 # Health check error reference
