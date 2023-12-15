@@ -8,7 +8,7 @@ ms.date: 12/15/2023
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
 
-This article describes how to configure the SSH key (preview) on your AKS clusters or node pools, during initial deployment or at a later time. 
+This article describes how to configure the SSH key (preview) on your AKS clusters or node pools, during initial deployment or at a later time.
 
 AKS supports the following configuration options to manage SSH keys on cluster nodes:
 
@@ -24,8 +24,6 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 * This feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
 
 ## Install the `aks-preview` Azure CLI extension
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
 1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
 
@@ -61,9 +59,9 @@ AKS supports the following configuration options to manage SSH keys on cluster n
     az provider register --namespace Microsoft.ContainerService
     ```
 
-## Create an AKS cluster with SSH key (preview)
+## Create an AKS cluster with SSH key
 
-Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an SSH public key. You can either specify the key or a key file using the `--ssh-key-value` argument.
+Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an SSH public key (preview). You can either specify the key or a key file using the `--ssh-key-value` argument.
 
 |SSH parameter |Description |Default value |
 |-----|-----|-----|
@@ -86,22 +84,6 @@ The following are examples of this command:
 
     ```azurecli
     az aks create --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
-    ```
-
-## Update SSH public key (preview) on an existing AKS cluster
-
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-1. Install the aks-preview extension using the [`az extension add`][az-extension-add] command.
-
-    ```azurecli
-    az extension add --name aks-preview
-    ```
-
-2. Update to the latest version of the extension using the [`az extension update`][az-extension-update] command.
-
-    ```azurecli
-    az extension update --name aks-preview
     ```
 
 ## Update SSH public key on an existing AKS cluster
@@ -253,6 +235,8 @@ To help troubleshoot any issues with SSH connectivity to your clusters nodes, yo
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: monitor-aks-reference.md#resource-logs
 [node-image-upgrade]: node-image-upgrade.md
