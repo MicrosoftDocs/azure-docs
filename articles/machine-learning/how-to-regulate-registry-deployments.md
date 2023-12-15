@@ -39,11 +39,9 @@ Model Catalog collections are made available to users using the underlying regis
 
 2. On the Azure Policy service, under **Authoring**, select **Assignments**.
 
-:::image type="content" source="./media/how-to-regulate-registry-deployments/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy home page.":::
+:::image type="content" source="./media/how-to-regulate-registry-deployments/policy-home.png" alt-text="Screenshot of Assignments tab within Azure Policy home page." lightbox="./media/how-to-regulate-registry-deployments/policy-home.png" :::
 
 3. On the Assignments page, select the **Assign Policy** icon at the top. 
-
-:::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy.png" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
 
 4. On the Assign Policy page basics tab, update the following fields:
     1. **Scope:** Select what Azure subscriptions and resource groups the policies apply to.
@@ -52,7 +50,7 @@ Model Catalog collections are made available to users using the underlying regis
 
 5. Select the **Parameters** tab and update the Effect and policy assignment parameters. Make sure to uncheck the 'Only show parameters that need input or review' so all the parameters show up. To further clarify what the parameter does, hover over the info icon next to the parameter name.
 
-    :::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab within Azure Policy home page.":::
+    :::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab within Azure Policy home page." lightbox="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png":::
 
     If no model asset IDs are set in the *Restricted Model AssetIds* parameter during the policy assignment, this policy only allows deploying all models from the model registry specified in *Allowed Registry Name' parameter.
 
