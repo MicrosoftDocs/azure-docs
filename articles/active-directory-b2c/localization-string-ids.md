@@ -641,7 +641,30 @@ This example shows localized messages for local account password reset.
 
 ## CAPTCHA display control user interface elements
 
-TODO  
+The following IDs are used for a [CAPTCHA display control](display-control-captcha.md).
+
+| ID | Default value | Description |
+| --- | ------------- | ----------- |
+| `newCaptcha_arialabel` | Create new CAPTCHA | The tooltip message to display to the user when they move the mouse pointer over the CAPTCHA replay icon. |
+| `switchCaptchaType_title` | Switch CAPTCHA type to {0} | The tooltip message to display to they user when the move the mouse pointer over the CAPTCHA  Audio or image icon. |
+| `captchatype_visual_help` | Enter the characters you see | The placeholder text in the input box where the user inputs the CAPTCHA code if the user is in visual mode. |
+| `captchatype_audio_title` | Press audio button to play the challenge | The tooltip message to display to the user when they move the mouse pointer over the CAPTCHA speaker icon if the user is switches to audio mode. |
+| `captchatype_audio_help` | Enter the characters you hear | The placeholder text in the input box where the user inputs the CAPTCHA code if the user switches to audio mode. |
+| `charsnotmatched_error` | The characters did not match for CAPTCHA challenge. Please try again | The message to display to the user if they enter wrong CAPTCHA code. |
+| `api_error` | Api error on CAPTCHA control | The message to display to the user if an error occurs while Azure AD B2C attempts to validate the CAPTCHA code. |
+| `captcha_resolved` | Success! | The characters did not match for CAPTCHA challenge. Please try again | The message to display to the user if they enter correct CAPTCHA code. |
+
+### CAPTCHA display control example
+
+```xml
+      <LocalizedResources Id="api.selfasserted.totp.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="" ElementId="" StringId=""></LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="">[Insert default message].</LocalizedString>
+         
+        </LocalizedStrings>
+      </LocalizedResources>
+```
 
 ## Next steps
 
