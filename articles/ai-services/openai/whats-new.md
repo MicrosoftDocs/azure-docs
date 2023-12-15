@@ -95,7 +95,7 @@ Try out DALL-E 3 by following a [quickstart](./dall-e-quickstart.md).
     - The strictness setting sets the threshold to categorize documents as relevant to your queries.
     - The retrieved documents setting specifies the number of top-scoring documents from your data index used to generate responses.
 - You can see data ingestion/upload status in the Azure OpenAI Studio.
-- Support for [private endpoints & VPNs for blob containers](./how-to/use-your-data-securely.md#security-support-for-azure-blob-storage)
+- Support for private endpoints & VPNs for blob containers.
 
 ## September 2023
 
