@@ -199,7 +199,7 @@ Community registries are Azure Machine Learning registries created by trusted Az
 **Where can users submit questions and concerns regarding Hugging Face within Azure Machine Learning?**
 Submit your questions in the [Azure Machine Learning discussion forum.](https://discuss.huggingface.co/t/about-the-azure-machine-learning-category/40677) 
 
-### Regional Availability
+### Regional availability
 
 The Hugging Face Collection is currently available in all regions of the public cloud only.  
 

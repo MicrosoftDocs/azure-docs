@@ -15,7 +15,7 @@ ms.date: 12/12/2023
 
 # Model Catalog and Collections
 
-The Model Catalog in Azure Machine Learning Studio is the hub for a wide-variety of third-party open source as well as Microsoft developed foundation models pre-trained for various language, speech and vision use-cases. You can evaluate, customize and deploy these models with the native capabilities to build and operationalize open-source foundation Models at scale to easily integrate these pretrained models into your applications with enterprise-grade security and data governance.  
+The Model Catalog in Azure Machine Learning studio is the hub for a wide-variety of third-party open source as well as Microsoft developed foundation models pre-trained for various language, speech and vision use-cases. You can evaluate, customize and deploy these models with the native capabilities to build and operationalize open-source foundation Models at scale to easily integrate these pretrained models into your applications with enterprise-grade security and data governance.  
 
 * **Discover:** Review model descriptions, try sample inference and browse code samples to evaluate, finetune or deploy the model.
 * **Evaluate:** Evaluate if the model is suited for your specific workload by providing your own test data. Evaluation metrics make it easy to visualize how well the selected model performed in your scenario.
@@ -43,9 +43,9 @@ Thousands of models from the HuggingFace hub are accessible via the 'Hugging Fac
 > [!IMPORTANT]
 > Models in model catalog are covered by third party licenses. Understand the license of the models you plan to use and verify that license allows your use case.
 > Some models in the model catalog are currently in preview. 
-  > Models are in preview if one or more of the following statements apply to them:  
-    > The model is not usable (can be deployed, fine-tuned, and evaluated) within a isolated network.   
-    > Model packaging and inference schema is subject to change for newer versions of the model. 
+> Models are in preview if one or more of the following statements apply to them:  
+> The model is not usable (can be deployed, fine-tuned, and evaluated) within an isolated network.   
+> Model packaging and inference schema is subject to change for newer versions of the model. 
 > For more information on preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Compare capabilities of models by collection
