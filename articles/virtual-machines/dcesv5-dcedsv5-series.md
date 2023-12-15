@@ -41,7 +41,7 @@ These VMs have native support for [confidential disk encryption](disk-encryption
 - [Premium Storage](premium-storage-performance.md)
 - [Premium Storage caching](premium-storage-performance.md)
 - [VM Generation 2](generation-2.md)
-- [Ephemeral OS Disks](ephemeral-os-disks.md) - DCedsv5 only
+- [Ephemeral OS Disk](ephemeral-os-disks.md) - DCedsv5 only
 
 *Unsupported* features include:
 
