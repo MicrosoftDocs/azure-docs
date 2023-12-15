@@ -68,7 +68,7 @@ After tag inheritance is enabled, subscription and resource group tags are appli
 1. In the Tag inheritance window, select **Automatically apply billing, subscription and resource group tags to new usage data**.  
     :::image type="content" source="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data-billing-profile.png" alt-text="Screenshot showing the Automatically apply subscription and resource group tags to new data option for a billing profile." lightbox="./media/enable-tag-inheritance/automatically-apply-tags-new-usage-data-billing-profile.png":::
 
-After tag inheritance is enabled, billing profile, invoice section, subscription, and resource group tags are applied to usage data for the current month within 24 hours.
+After tag inheritance is enabled, billing profile, invoice section, subscription, and resource group tags are applied to child resource usage records for the current month within 24 hours.
 
 ### To enable tag inheritance in the Azure portal for a subscription
 

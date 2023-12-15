@@ -76,7 +76,7 @@ Here's a video that demonstrates how to create a cost allocation rule.
 
 Rules are processed in the order in which they're created and can take up to 24 hours to take effect.
 
-Let's look an example. Assume that an active rule, *Rule CA-1*, allocates costs from subscription A (the source) to subscription B (the target).
+Let's look at an example. Assume that an active rule, *Rule CA-1*, allocates costs from subscription A (the source) to subscription B (the target).
 
 Later, a new rule, *Rule CA-2* gets created. Its source is subscription A and its target is subscription C. So, the rule has no effect because costs for subscription A are zero. The costs are zero because *Rule CA-1* is active. It already allocated all the costs from subscription A to subscription B.
 
