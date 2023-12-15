@@ -23,7 +23,7 @@ The creation of the managed virtual network is deferred until a compute resource
 az ml workspace provision-network --subscription <sub_id> -g <resource_group_name> -n <workspace_name>
 ```
 
-## Workspace managed virtual network to allow internet outbound
+# Scenario 1: Workspace managed virtual network to allow internet outbound
 
 1. Configure a workspace with managed virtual network to allow internet outbound by following the steps listed [here](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-managed-network?view=azureml-api-2&tabs=azure-cli#configure-a-managed-virtual-network-to-allow-internet-outbound).
 2. If you choose to set the public network access to the workspace to disabled, you can connect to the workspace using one of the following methods:
@@ -38,10 +38,11 @@ az ml workspace provision-network --subscription <sub_id> -g <resource_group_nam
     * [Azure Bastion](https://learn.microsoft.com/en-us/azure/bastion/bastion-overview) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the VNet. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the VNet, it can directly access the workspace.
 3. Since the workspace managed virtual network can access internet in this configuration, you can work with all the Collections in the Model Catalog from within the workspace. 
 
-## Workspace managed virtual network to allow only approved outbound
+# Scenario 2: Workspace managed virtual network to allow only approved outbound
 
 1. Configure a workspace with managed virtual network to allow only approved outbound by following the steps listed [here](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-managed-network?view=azureml-api-2&tabs=azure-cli#configure-a-managed-virtual-network-to-allow-only-approved-outbound).
-2. If you choose to set the public network access to the workspace to disabled, you can connect to the workspace using one of the methods listed in the previous scenario. 
+2. If you choose to set the public network access to the workspace to disabled, you can connect to the workspace using one of the methods as listed in Scenario 1.
+
 
 ## Work with open source models curated by Azure Machine Learning
 
