@@ -25,6 +25,8 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 
 - An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md).
 
+- A custom role assigned to your user identity which contains the RBAC actions necessary to set tags and blob immunity policies. See [storage-task-assignment-authorization-roles](storage-task-assignment-authorization-roles.md).
+
 - A blob container that has a metadata key named `Classification` which is set to the string "Confidential". 
 
   Make sure to enable version-level immutability support on that container. See [Enable version-level immutability support on a container](../../storage/blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-container).
@@ -114,7 +116,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Select scope section of the assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-select-scope.png)
 
-4. In the **Role assignment** section, in the **Role** drop-down list, select the **Storage Blob Data Contributor** to assign that role to the system-assigned managed identity of the storage task. 
+4. In the **Role assignment** section, in the **Role** drop-down list, select your custom role to assign that role to the system-assigned managed identity of the storage task. 
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
