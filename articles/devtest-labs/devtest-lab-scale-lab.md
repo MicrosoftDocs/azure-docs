@@ -16,19 +16,24 @@ As you work in DevTest Labs, you might notice that there are certain default lim
 
 You can use each Azure resource until you reach its quota. Each subscription has separate quotas and usage is tracked per subscription.
 
-For example, each subscription has a default quota of 20 cores. So, if you are creating VMs in your lab with four cores each, then you can only create five VMs.
+For example, each subscription has a default quota of 20 cores. So, if you're creating VMs in your lab with four cores each, then you can only create five VMs.
 
 [Azure Subscription and Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md) lists some of the most common quotas for Azure resources. The resources most commonly used in a lab, and for which you might encounter quotas, include VM cores, public IP addresses, network interface, managed disks, Azure role assignment, and ExpressRoute circuits.
 
 ## View your usage and quotas
-These steps show you how to view the current quotas in your subscription for specific Azure resources, and to see what percentage of each quota you have used.
+These steps show you how to view the current quotas in your subscription for specific Azure resources, and to see what percentage of each quota used.
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Select **Show portal menu**, and then select **Cost Management + Billing** from the list.
+1. Open the Azure portal menu.
+ 
+   :::image type="content" source="media/devtest-lab-scale-lab/azure-portal-menu.png" alt-text="Screenshot showing the Azure portal home page with the three-bar icon that opens the Azure portal menu at the top left highlighted." lightbox="media/devtest-lab-scale-lab/azure-portal-menu.png"::: 
+ 
+1. Select **Cost Management + Billing** from the list.
+ 
+   :::image type="content" source="media/devtest-lab-scale-lab/azure-portal-menu-cost-billing.png" alt-text="Screenshot of the Azure portal homepage showing the Azure portal menu open at the left with cost management and billing highlighted."  lightbox="media/devtest-lab-scale-lab/azure-portal-menu-cost-billing.png"::: 
+ 
 1. In **Cost Management + Billing**, select a subscription.
 1. Select **Usage + quotas**.
-
-   :::image type="content" source="./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas-new.png" alt-text="Screenshot showing the portal menu, with cost management and billing selected." lightbox="./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas-new.png":::
 
    Usage + quotas appears, listing different resources available in that subscription and the percentage of the quota that is being used per resource.
 
@@ -49,7 +54,7 @@ These steps show you how to request a quota increase through the [Azure portal](
 
 1. Select **New Quota Request** > **Enter a new limit**.
 
-   :::image type="content" source="./media/devtest-lab-scale-lab/request-new-limit.png" alt-text="Screenshot showing the new quota request menu, with the enter a new limit option highlighted." lightbox="./media/devtest-lab-scale-lab/request-new-limit.png":::
+   :::image type="content" source="./media/devtest-lab-scale-lab/request-new-limit.png" alt-text="Screenshot showing the new quota request menu, with the Enter a new limit option highlighted." lightbox="./media/devtest-lab-scale-lab/request-new-limit.png":::
 
 1. To complete and submit the request, fill out the required information in **New Quota Request**, and then select **Submit**.
 
