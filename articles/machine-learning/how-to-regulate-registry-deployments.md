@@ -33,7 +33,7 @@ This built-in policy supports `Deny` effect only.
 
 Model Catalog collections are made available to users using the underlying registries. You can find the underlying registry name in the model asset ID.   
 
-### Create a Policy Assignment
+## Create a Policy Assignment
 
 1. On the Azure home page, type Policy in the search bar and select the Azure **Policy** icon.
 
@@ -46,17 +46,17 @@ Model Catalog collections are made available to users using the underlying regis
 :::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy.png" alt-text="Screenshot of Basics tab on the Assign Policy page.":::
 
 4. On the Assign Policy page basics tab, update the following fields:
-    1. Scope: Select what Azure subscriptions and resource groups the policies apply to.
-    2. Exclusions: Select any resources from the scope to exclude from the policy assignment.
-    3. Policy Definition: Select the policy definition to apply to the scope with exclusions. Type "Azure Machine Learning" in the search bar and locate the policy '[Preview] Azure Machine Learning Model Registry Deployments are restricted except for allowed registry'. Select the policy and select **Add**.
-
-:::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab within Azure Policy home page.":::
+    1. **Scope:** Select what Azure subscriptions and resource groups the policies apply to.
+    2. **Exclusions:** Select any resources from the scope to exclude from the policy assignment.
+    3. **Policy Definition:** Select the policy definition to apply to the scope with exclusions. Type "Azure Machine Learning" in the search bar and locate the policy '[Preview] Azure Machine Learning Model Registry Deployments are restricted except for allowed registry'. Select the policy and select **Add**.
 
 5. Select the **Parameters** tab and update the Effect and policy assignment parameters. Make sure to uncheck the 'Only show parameters that need input or review' so all the parameters show up. To further clarify what the parameter does, hover over the info icon next to the parameter name.
 
+    :::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab within Azure Policy home page.":::
+
     If no model asset IDs are set in the *Restricted Model AssetIds* parameter during the policy assignment, this policy only allows deploying all models from the model registry specified in *Allowed Registry Name' parameter.
 
-6. Select **Review + Create** to finalize your policy assignment. The policy assignment takes approximately 15 minutes until it's active for new resources. 
+7. Select **Review + Create** to finalize your policy assignment. The policy assignment takes approximately 15 minutes until it's active for new resources. 
 
 ### Disable the policy
 
@@ -66,7 +66,7 @@ You can remove the policy assignment in the Azure portal using the following ste
 2. Select **Assignments**.
 3. Select on the ... button next to your policy assignment and select **Delete** assignment.
 
-### Limitations 
+## Limitations 
 
 * Any change in the policy (including updating the policy definition, assignments, exemptions or policy set) takes 10 mins for those changes to become effective in the evaluation process.
 * Compliance is reported for newly created and updated deployments. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned won't report compliance. You also can’t trigger the evaluations of deployments that existed before setting up the policy definition and assignment.
