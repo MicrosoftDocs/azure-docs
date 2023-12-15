@@ -1,33 +1,36 @@
-- name: Azure Database for MySQL documentation
+- name: Azure Database for MySQL - Flexible Server documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure DB for MySQL?
-    href: single-server/overview.md
-  - name: Select the right MySQL deployment type
+  - name: What is Azure Database for MySQL - Flexible Server?
+    href: flexible-server/overview-single.md
+  - name: Select the right deployment type
     href: select-right-deployment-type.md
-  - name: Try Flexible Server for free
+  - name: Try for free
     href: flexible-server/how-to-deploy-on-azure-free-account.md
   - name: Prepay for reserved capacity
     href: flexible-server/concept-reserved-pricing.md
   - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
-- name: Flexible Server
+  - name: Supported versions
+    href: flexible-server/concepts-supported-versions.md
+
+- name: Azure Database for MySQL - Flexible Server
   items:
   - name: Overview
     items:
-    - name: What is Flexible Server?
+    - name: Flexible server deployment model
       href: flexible-server/overview.md
-    - name: What's new in Flexible Server?
+    - name: What's new?
       href: flexible-server/whats-new.md
     - name: Compute and storage
       href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
     expanded: true
     items:
-      - name: Create a MySQL Flexible Server
+      - name: Create an Azure Database for MySQL - Flexible Server instance
         items:
           - name: Azure portal
             href: flexible-server/quickstart-create-server-portal.md
@@ -63,6 +66,8 @@
             href: flexible-server/connect-nodejs.md
           - name: Connect to server in VNET
             href: flexible-server/quickstart-create-connect-server-vnet.md
+      - name: Connection libraries
+        href: flexible-server/concepts-connection-libraries.md
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
       - name: Configure server parameters
@@ -78,7 +83,7 @@
         displayName: users
   - name: Concepts
     items:
-    - name: Server Management
+    - name: Server management
       items:
       - name: Servers
         href: flexible-server/concept-servers.md
@@ -88,27 +93,27 @@
         href: flexible-server/concepts-limitations.md
       - name: Storage IOPS
         href: flexible-server/concepts-storage-iops.md
-      - name: Accelerated Logs
+      - name: Accelerated logs
         href: flexible-server/concepts-accelerated-logs.md    
     - name: Networking
       items:
       - name: Networking concepts
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
-      - name: Private Access
+      - name: Private access
         href: flexible-server/concepts-networking-vnet.md
         displayName: virtual network
-      - name: Public Access
+      - name: Public access
         href: flexible-server/concepts-networking-public.md
         displayName: Public access
       - name: Private Link
         href: flexible-server/concepts-networking-private-link.md
         displayName: Private Link
-    - name: Service Maintenance
+    - name: Service maintenance
       items:
-      - name: Scheduled Maintenance
+      - name: Scheduled maintenance
         href: flexible-server/concepts-maintenance.md
-    - name: High Availability
+    - name: High availability
       items:
       - name: Business continuity overview
         href: flexible-server/concepts-business-continuity.md
@@ -118,7 +123,7 @@
       items:
       - name: Monitoring overview
         href: flexible-server/concepts-monitoring.md
-      - name: Slow query Logs
+      - name: Slow query logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
         href: flexible-server/concepts-audit-logs.md
@@ -132,9 +137,9 @@
         href: flexible-server/concepts-data-out-replication.md
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
-    - name: Backup & Restore
+    - name: Backup & restore
       items:
-      - name: Backup & Restore concepts
+      - name: Backup & restore concepts
         href: flexible-server/concepts-backup-restore.md
     - name: Security
       items:
@@ -148,13 +153,15 @@
       href: flexible-server/create-automation-tasks.md
     - name: Azure Key Vault
       href: flexible-server/tutorial-add-mysql-connection-in-key-vault.md
+    - name: Azure Kubernetes Service
+      href: flexible-server/concepts-aks.md
     - name: Power Apps
       href: flexible-server/tutorial-create-power-app-with-mysql.md
     - name: Power Automate
       href: flexible-server/tutorial-power-automate-with-mysql.md
     - name: Power BI
       href: flexible-server/connect-with-powerbi-desktop.md
-    - name: Azure Redis
+    - name: Azure Cache for Redis
       href: flexible-server/tutorial-add-redis-to-mysql.md
     - name: Azure Logic Apps
       href: flexible-server/tutorial-logic-apps-with-mysql.md
@@ -162,11 +169,11 @@
       href: ../search/search-howto-index-mysql.md
     - name: Azure Advisor
       href: flexible-server/concepts-azure-advisor-recommendations.md
-    - name: Azure Data factory
+    - name: Azure Data Factory
       href: ../data-factory/connector-azure-database-for-mysql.md
   - name: Tutorials
     items:
-    - name: Application Development
+    - name: Application development
       items:
       - name: WordPress on App Service
         href: ../app-service/quickstart-wordpress.md
@@ -188,7 +195,7 @@
           href: flexible-server/quickstart-mysql-github-actions.md
         - name: Azure Pipelines
           href: flexible-server/azure-pipelines-deploy-database-task.md
-    - name: Server Management
+    - name: Server management
       items:
       - name: Manage a server
         items:
@@ -208,21 +215,21 @@
           href: flexible-server/how-to-restart-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restart-stop-start-server-cli.md
-      - name: Move Servers between regions
+      - name: Move servers between regions
         href: flexible-server/how-to-move-regions.md
       - name: Major version upgrade
         href: flexible-server/how-to-upgrade.md
-      - name: Server Maintenance
+      - name: Server maintenance
         href: flexible-server/how-to-maintenance-portal.md
     - name: Networking
       items:
-      - name: Configure Private access (VNet Integration)
+      - name: Configure private access (VNet integration)
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-virtual-network-cli.md
-      - name: Configure Public access (allowed IP addresses)
+      - name: Configure public access (allowed IP addresses)
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-firewall-portal.md
@@ -236,9 +243,9 @@
           href: flexible-server/how-to-networking-private-link-deny-public-access.md
         - name: Azure CLI
           href: flexible-server/how-to-networking-private-link-azure-cli.md
-    - name: High Availability
+    - name: High availability
       items:
-      - name: Configure Zone redundant high availability
+      - name: Configure zone redundant high availability
         items:
         - name: Azure portal
           href: flexible-server/how-to-configure-high-availability.md
@@ -252,7 +259,7 @@
         href: flexible-server/tutorial-configure-audit.md
       - name: Alerts
         href: flexible-server/how-to-alert-on-metric.md
-      - name: Configuring Server logs
+      - name: Configuring server logs
         items:
         - name: Azure portal
           href: flexible-server/how-to-server-logs-portal.md
@@ -272,7 +279,7 @@
           href: flexible-server/how-to-read-replicas-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-read-replicas-cli.md
-    - name: Backup & Restore
+    - name: Backup & restore
       items:
       - name: Restore a server
         items:
@@ -282,11 +289,11 @@
           href: flexible-server/how-to-restore-server-cli.md
       - name: Restore a deleted server
         href: flexible-server/how-to-restore-dropped-server.md
-      - name: Trigger On-Demand Backup
+      - name: Trigger on-demand backup
         href: flexible-server/how-to-trigger-on-demand-backup.md
     - name: Troubleshooting
       items:
-      - name: Troubleshoot Connection errors
+      - name: Troubleshoot connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
       - name: Troubleshoot CLI errors
         href: flexible-server/how-to-troubleshoot-cli-errors.md
@@ -326,25 +333,25 @@
         href: flexible-server/scripts/sample-cli-audit-logs.md
       - name: Configure slow-query logs
         href: flexible-server/scripts/sample-cli-slow-query-logs.md
-- name: Single Server
+- name: Azure Database for MySQL - Single Server
   items:
-  - name: What's happening to Single Server?
+  - name: What's happening to Azure Database for MySQL - Single Server?
     href: single-server/whats-happening-to-mysql-single-server.md
     displayName: What's happening to Single Server?
   - name: Overview
     items:
-    - name: What is Single Server?
+    - name: What is Azure Database for MySQL - Single Server?
       href: single-server/single-server-overview.md
-    - name: What's new in Single Server?
+    - name: What's new in Azure Database for MySQL - Single Server?
       href: single-server/single-server-whats-new.md
-    - name: Pricing Tiers
+    - name: Pricing tiers
       items:
       - name: Pricing tiers
         href: single-server/concepts-pricing-tiers.md
   - name: Quickstarts
     expanded: true
     items:
-    - name: Create a MySQL Single Server
+    - name: Create an Azure Database for MySQL - Single Server instance
       items:
        - name: Azure CLI
          href: single-server/quickstart-create-mysql-server-database-using-azure-cli.md
@@ -366,6 +373,12 @@
        - name: Connect and query guide
          href: single-server/how-to-connect-overview-single-server.md
          displayName: connect , query , libraries, TLS, runtime
+       - name: Application connection strings
+         href: single-server/how-to-connection-string.md
+       - name: Generate connection string - PowerShell
+         href: single-server/how-to-connection-string-powershell.md
+       - name: Connect to a gateway node
+         href: single-server/concepts-connect-to-a-gateway-node.md
        - name: MySQL Workbench
          href: single-server/connect-workbench.md
        - name: Azure App Service
@@ -399,14 +412,14 @@
     - name: Configure SSL
       href: single-server/how-to-configure-ssl.md
       displayName: ssl, security, application
-    - name: Configure Firewall rules
+    - name: Configure firewall rules
       items:
       - name: Concepts
         href: single-server/concepts-firewall-rules.md
-      - name: Configure Firewall rules using Azure portal
+      - name: Configure firewall rules using Azure portal
         href: single-server/how-to-manage-firewall-using-portal.md
         displayName: firewall
-      - name: Configure Firewall rules using Azure CLI
+      - name: Configure firewall rules using Azure CLI
         href: single-server/how-to-manage-firewall-using-cli.md
         displayName: firewall
     - name: Configure server parameters
@@ -423,15 +436,17 @@
     - name: Create databases and users
       href: how-to-create-users.md
       displayName: users
-    - name: Monitor Server
+    - name: Monitor server
       items:
       - name: Create alerts on metrics
         href: single-server/how-to-alert-on-metric.md
         displayName: debug, monitor, alerts, metrics
   - name: Concepts
     items:
-    - name: Application Development
+    - name: Application development
       items:
+      - name: Application development overview
+        href: single-server/concepts-database-application-development.md
       - name: Drivers and tools compatibility
         href: single-server/concepts-compatibility.md
         displayName: drivers, tools
@@ -440,9 +455,9 @@
         displayName: connection, resiliency
     - name: Networking
       items:
-      - name: Virtual Network Service Endpoints
+      - name: Virtual Network service endpoints
         href: single-server/concepts-data-access-and-security-vnet.md
-      - name: Private link
+      - name: Private Link
         href: single-server/concepts-data-access-security-private-link.md
     - name: Security
       items:
@@ -452,7 +467,7 @@
         href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
       - name: Microsoft Entra authentication
         href: single-server/concepts-azure-ad-authentication.md
-      - name: Network Security (Encryption in motion)
+      - name: Network security (encryption in motion)
         items:
         - name: Configuring SSL
           href: single-server/concepts-ssl-connection-security.md
@@ -460,11 +475,11 @@
         href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
       - name: Encryption at rest
         items:
-        - name: Data Encryption
+        - name: Data encryption
           href: single-server/concepts-data-encryption-mysql.md
         - name: Infrastructure double encryption
           href: single-server/concepts-infrastructure-double-encryption.md
-      - name: Server Audit
+      - name: Server audit
         items:
         - name: Concepts
           href: single-server/concepts-audit-logs.md
@@ -472,7 +487,7 @@
       - name: Compliance
         href: single-server/security-controls-policy.md
         displayName: regulatory, compliance, standards, domains
-    - name: High Availability
+    - name: High availability
       items:
       - name: Business continuity intro
         displayName: backup, restore, backups, restores, georestore, geo-restore, outage
@@ -480,16 +495,16 @@
       - name: High availability
         href: single-server/concepts-high-availability.md
         displayName: backup, restore,high availability
-    - name: Server Management
+    - name: Server management
       items:
       - name: Servers
         href: single-server/concepts-servers.md
-      - name: Server Limitations
+      - name: Server limitations
         href: single-server/concepts-limits.md
       - name: Server parameters
         href: single-server/concepts-server-parameters.md
         displayName: server parameters
-    - name: Backup & Restore
+    - name: Backup & restore
       href: single-server/concepts-backup.md
       displayName: backup, restore, backups, restores, georestore, geo-restore, outage
     - name: Replication
@@ -500,7 +515,7 @@
       - name: Read replicas
         href: single-server/concepts-read-replicas.md
         displayName: replication, read replica
-    - name: Service Maintenance
+    - name: Service maintenance
       items:
       - name: Planned maintenance
         href: single-server/concepts-planned-maintenance-notification.md
@@ -516,7 +531,7 @@
       - name: Slow query logs
         href: single-server/concepts-server-logs.md
         displayName: monitor, slow query log, alert
-      - name: Query Store
+      - name: Query store
         href: single-server/concepts-query-store.md
         displayName: performance, query store
       - name: Query Performance Insight
@@ -529,7 +544,7 @@
         href: single-server/concepts-azure-advisor-recommendations.md
   - name: Tutorials
     items:
-    - name: Application Development
+    - name: Application development
       items:
       - name: Design a database
         items:
@@ -550,16 +565,16 @@
       - name: Connect with redirection
         href: single-server/how-to-redirection.md
         displayName: development, redirection , php
-      - name: Database Deployment
+      - name: Database deployment
         items:
         - name: Azure Pipelines
           href: single-server/azure-pipelines-mysql-deploy.md
     - name: Networking
       items:
-      - name: Configure VNet Service Endpoints using Azure portal
+      - name: Configure VNet service endpoints using Azure portal
         href: single-server/how-to-manage-vnet-using-portal.md
         displayName: vnet, virtual network, service endpoint
-      - name: Configure VNet Service Endpoints using Azure CLI
+      - name: Configure VNet service endpoints using Azure CLI
         href: single-server/how-to-manage-vnet-using-cli.md
         displayName: vnet, virtual network, service endpoint
       - name: Configure Private Link using Azure portal
@@ -573,19 +588,19 @@
       - name: Configure Microsoft Entra integration
         href: single-server/how-to-configure-sign-in-azure-ad-authentication.md
         displayName:  active directory
-      - name: Connect with Managed identity
+      - name: Connect with managed identity
         href: single-server/how-to-connect-with-managed-identity.md
         displayName: managed identity, msi
       - name: Configure TLS
         href: single-server/how-to-tls-configurations.md
         displayName: TLS, security, development
-      - name: Deny Public Network Access
+      - name: Deny public network access
         href: single-server/how-to-deny-public-network-access.md
         displayName: security, public access
-      - name: Configuring encryption with customer managed keys using Azure portal
+      - name: Configure encryption with customer managed keys using Azure portal
         href: single-server/how-to-data-encryption-portal.md
         displayName: encryption, security
-      - name: Configuring encryption with customer managed keys using Azure CLI
+      - name: Configure encryption with customer managed keys using Azure CLI
         href: single-server/how-to-data-encryption-cli.md
         displayName: encryption, security
       - name: Data encryption validation
@@ -594,62 +609,62 @@
       - name: Configure infrastructure double encryption
         href: single-server/how-to-double-encryption.md
         displayName: infrastructure encryption, security
-      - name: Configuring Audit Logs using Azure portal
+      - name: Configure audit logs using Azure portal
         href: single-server/how-to-configure-audit-logs-portal.md
         displayName: debug, audit log
-      - name: Configuring Audit Logs using Azure CLI
+      - name: Configure audit logs using Azure CLI
         href: single-server/how-to-configure-audit-logs-cli.md
         displayName: debug, audit log
-    - name: Server Management
+    - name: Server management
       items:
       - name: Manage and scale a server
         items:
-        - name: Using Azure portal
+        - name: Use Azure portal
           href: single-server/how-to-create-manage-server-portal.md
           displayName: manage, reset password, scale
-        - name: Using Azure CLI
+        - name: Use Azure CLI
           href: single-server/how-to-manage-single-server-cli.md
           displayName: manage, reset password, scale
-      - name: Stop/Start MySQL server
+      - name: Stop/start MySQL server
         href: single-server/how-to-stop-start-server.md
       - name: Major version upgrade
         href: single-server/how-to-major-version-upgrade.md
       - name: Auto grow storage
         items:
-        - name: Using Azure portal
+        - name: Use Azure portal
           href: single-server/how-to-auto-grow-storage-portal.md
           displayName: storage, business continuity , downtime, portal
-        - name: Using Azure CLI
+        - name: Use Azure CLI
           href: single-server/how-to-auto-grow-storage-cli.md
           displayName: storage, business continuity , downtime, cli
-        - name: Using Azure PowerShell
+        - name: Use Azure PowerShell
           href: single-server/how-to-auto-grow-storage-powershell.md
           displayName: storage, business continuity , downtime, powershell
       - name: Restart server
         items:
-        - name: Using Azure portal
+        - name: Use Azure portal
           href: single-server/how-to-restart-server-portal.md
           displayName: restart
-        - name: Using Azure CLI
+        - name: Use Azure CLI
           href: single-server/how-to-restart-server-cli.md
           displayName: restart
-        - name: Using Azure PowerShell
+        - name: Use Azure PowerShell
           href: single-server/how-to-restart-server-powershell.md
           displayName: restart
-      - name: Move Servers between regions
+      - name: Move servers between regions
         href: single-server/how-to-move-regions-portal.md
         displayName: move servers across regions
-    - name: Backup & Restore
+    - name: Backup & restore
       items:
       - name: Restore a server
         items:
-        - name: Using Azure portal
+        - name: Use Azure portal
           href: single-server/how-to-restore-server-portal.md
           displayName: restore server,backup
-        - name: Using Azure CLI
+        - name: Use Azure CLI
           href: single-server/how-to-restore-server-cli.md
           displayName: restore server, backup
-        - name: Using Azure PowerShell
+        - name: Use Azure PowerShell
           href: single-server/how-to-restore-server-powershell.md
           displayName: restore server, backup, geo-restore powershell
       - name: Restore a deleted server
@@ -662,23 +677,23 @@
         displayName: data-in replication, replica, failover
       - name: Create read replicas
         items:
-        - name: Using Azure portal
+        - name: Use Azure portal
           href: single-server/how-to-read-replicas-portal.md
           displayName: data-in replication, replica, failover
-        - name: Using Azure CLI, REST API
+        - name: Use Azure CLI, REST API
           href: single-server/how-to-read-replicas-cli.md
           displayName: data-in replication, replica, failover
-        - name: Using Azure PowerShell
+        - name: Use Azure PowerShell
           href: single-server/how-to-read-replicas-powershell.md
           displayName: data-in replication, replica, failover
     - name: Monitor and tune
       items:
-      - name: Configuring slow query logs
+      - name: Configure slow query logs
         items:
-        - name: Using Azure portal
+        - name: Use Azure portal
           href: single-server/how-to-configure-server-logs-in-portal.md
           displayName: debug, slow query log , performance
-        - name: Using Azure CLI
+        - name: Use Azure CLI
           href: single-server/how-to-configure-server-logs-in-cli.md
           displayName: debug, slow query log , performance
   - name: Samples
@@ -703,24 +718,24 @@
   items:
   - name: FAQ
     href: ../dms/faq-mysql-single-to-flex.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
-  - name: Choose the right tools for migration to Azure Database for MySQL
+  - name: Choose the right tools for migration
     href: migrate/how-to-decide-on-right-migration-tools.md
-  - name: Migrate data from MySQL on-premises to Azure Database for MySQL
+  - name: Migrate data from MySQL on-premises to Azure Database for MySQL - Flexible Server
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
-  - name: Migrate MySQL on-premise or Virtual Machine (VM) workload to Flexible Server using Azure MySQL Import CLI
+  - name: Migrate MySQL on-premises or VM workload using Azure MySQL Import CLI
     href: migrate/migrate-external-mysql-import-cli.md    
-  - name: Migrate MySQL - Single Server to Flexible Server offline using DMS (classic)
+  - name: Migrate Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server offline using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
-  - name: Migrate MySQL - Single Server to Flexible Server online using DMS (classic)
+  - name: Migrate Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server online using DMS (classic)
     href: ../dms/tutorial-mysql-azure-single-to-flex-online-portal.md?bc=%2fazure%2fmysql%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmysql%2ftoc.json
-  - name: Migrate MySQL - Single Server to Flexible Server using Azure MySQL Import CLI
+  - name: Migrate Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server using Azure MySQL Import CLI
     href: migrate/migrate-single-flexible-mysql-import-cli.md
-  - name: In-place auto-migration for MySQL - Single Server to Flexible Server
+  - name: In-place auto-migration for Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server
     href: migrate/migrate-single-flexible-in-place-auto-migration.md
   - name: Migrate data with mysqldump or phpmyadmin
     href: flexible-server/concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
-  - name: Migrate large databases to Azure Database for MySQL using mydumper/myloader
+  - name: Migrate large databases to Azure Database for MySQL - Flexible Server using mydumper/myloader
     href: migrate/concepts-migrate-mydumper-myloader.md
     displayName: migrate, mydumper/myloader
   - name: Migrate data with dbForge Studio for MySQL
@@ -735,7 +750,7 @@
   - name: Migrate RDS MySQL data using Data-in replication
     href: flexible-server/how-to-migrate-rds-mysql-data-in-replication.md
     displayName: migrate, rds, data-in replication
-  - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
+  - name: Azure Database for MySQL - Single Server to Azure Database for MySQL - Flexible Server
     href: migrate/how-to-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
   - name: Minimal downtime migration with DMS (classic)
@@ -779,7 +794,7 @@
     displayName: sys schema, views
   - name: Troubleshooting best practices
     href: flexible-server/concepts-troubleshooting-best-practices.md
-- name: Best Practices
+- name: Best practices
   items:
   - name: Monitoring best practices
     href: flexible-server/concept-monitoring-best-practices.md
@@ -787,7 +802,7 @@
     href: flexible-server/concept-performance-best-practices.md
   - name: Performance benchmark best practices
     href: flexible-server/concept-perf-benchmark-best-practices.md
-  - name: Application Development best practices
+  - name: Application development best practices
     href: app-development-best-practices.md
     displayName: application
   - name: Operational best practices
@@ -798,7 +813,7 @@
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
-  - name: Resource Manager template
+  - name: Azure Resource Manager template
     href: /azure/templates/microsoft.dbformysql/allversions
   - name: Management stored procedures
     href: single-server/reference-stored-procedures.md
