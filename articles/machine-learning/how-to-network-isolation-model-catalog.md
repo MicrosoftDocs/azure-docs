@@ -1,5 +1,5 @@
 ---
-title: Use Model Catalog Collections with workspace managed virtual network
+title: Use Model Catalog collections with workspace managed virtual network
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Model Catalog in an isolated network.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: ssalgadodev
 ms.date: 12/15/2023
 ---
 
-# Use Model Catalog Collections with workspace managed virtual network
+# Use Model Catalog collections with workspace managed virtual network
 
 In this article, you learn how you can use the various collections in the Model Catalog within an isolated network. 
 
@@ -63,14 +63,14 @@ Today, these models involve dynamic installation of dependencies at runtime. The
 > [!WARNING]
 > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](./how-to-managed-network.md#pricing).
   
-### Meta Collection 
+### Meta collection 
 
 Users can work with this collection in network isolated workspaces with no other user defined outbound rules required. 
 
 > [!NOTE]
 > New curated collections are added to the Model Catalog frequently. We will update this documentation to reflect the support in private networks for various collections.
 
-## Work with Hugging Face Collection 
+## Work with Hugging Face collection 
 
 The model weights aren't hosted on Azure if you're using the Hugging Face registry. The model weights are downloaded directly from Hugging Face hub to the online endpoints in your workspace during deployment.
 Users need to add the following outbound FQDNs rules for Hugging Face Hub, Docker Hub and their CDNs to allow traffic to the following hosts: 
@@ -81,7 +81,7 @@ Users need to add the following outbound FQDNs rules for Hugging Face Hub, Docke
   * `cdn-lfs.huggingface.co`
   * `cdn.auth0.com`
 
-## Next Steps 
+## Next steps 
 
 * Learn how-to [troubleshoot managed virtual network](./how-to-troubleshoot-managed-network.md)
   
