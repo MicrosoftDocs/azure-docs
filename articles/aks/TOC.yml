@@ -313,8 +313,6 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
-            - name: Node autoprovision
-              href: manage-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
             - name: Add an Azure Spot node pool
@@ -351,6 +349,8 @@
           href: reduce-latency-ppg.md
         - name: Cluster Autoscaler
           href: cluster-autoscaler.md
+        - name: Node autoprovision
+          href: node-autoprovision.md
         - name: Availability Zones
           href: availability-zones.md
     - name: Cluster management

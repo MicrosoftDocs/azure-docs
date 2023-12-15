@@ -22,17 +22,15 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 - [Install the `aks-preview` Azure CLI extension.  Minimum version 0.5.170](#install-the-aks-preview-azure-cli-extension).
 - [Register the NodeAutoProvisioningPreviewfeature flag](#register-the-nodeautoprovisioningpreview-feature-flag).
 
-### Install the `aks-preview` Azure CLI extension
+## Install the `aks-preview` CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
-
-1. Install the `aks-preview` extension using the [`az extension add`][az-extension-add] command.
+1. Install the `aks-preview` CLI extension using the [`az extension add`][az-extension-add] command.
 
     ```azurecli-interactive
     az extension add --name aks-preview
     ```
 
-2. Update to the latest version of the `aks-preview` extension using the [`az extension update`][az-extension-update] command.
+2. Update the extension to ensure you have the latest version installed using the [`az extension update`][az-extension-update] command.
 
     ```azurecli-interactive
     az extension update --name aks-preview
@@ -40,7 +38,7 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 
 ### Register the `NodeAutoProvisioningPreview` feature flag
 
-1. Register the `NodeAutoProvisioningPreview` feature flag using the [`az feature register`][az-feature-register] command.
+1. Register the `NodeAutoProvisioningPreview` feature flag using the `az feature register` command.
 
     ```azurecli-interactive
     az feature register --namespace "Microsoft.ContainerService" --name "NodeAutoProvisioningPreview"
@@ -48,25 +46,24 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 
     It takes a few minutes for the status to show *Registered*.
 
-2. Verify the registration status using the [`az feature show`][az-feature-show] command.
+2. Verify the registration status using the `az feature show` command.
 
     ```azurecli-interactive
     az feature show --namespace "Microsoft.ContainerService" --name "NodeAutoProvisioningPreview"
     ```
 
-3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the [`az provider register`][az-provider-register] command.
+3. When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider using the `az provider register` command.
 
     ```azurecli-interactive
     az provider register --namespace Microsoft.ContainerService
     ```
 
 ## Limitations
-* NAP isn't yet available in  WestUS, WestUS2, EastUS, EastUS2, SouthCentralUS, WestEurope regions.  
-* Windows and Azure Linux node pools aren't supported
+* Windows and Azure Linux node pools aren't supported yet
 * Kubelet configuration through Node pool configuration is not supported
-* NAP can only be enabled on new clusters
+* NAP can only be enabled on new clusters currently
 
-## Enable Node autoprovisioning
+## Enable node autoprovisioning
 To enable node autoprovisioning, create a new cluster using the az aks create command and set --node-provisioning-mode to "Auto". You'll also need to use overlay networking and the cilium network policy.  
 
 
@@ -128,7 +125,7 @@ az deployment group create --resource-group napcluster --template-file ./nap.jso
 }
 ```
 ---
-## Node Pools
+## Node pools
 Node autoprovision uses a list of VM SKUs as a starting point to decide which is best suited for the workloads that are in a pending state.  Having control over what SKU you want in the initial pool allows you to specify specific SKU families, or VM types and the maximum amount of resources a provisioner uses.
 
 
@@ -225,7 +222,7 @@ When you have multiple Nodepools defined, it's possible to set a preference of w
   weight: 10
 ```
 
-## Kubernetes and Node image updates 
+## Kubernetes and node image updates 
 AKS with NAP manages the Kubernetes version upgrades and VM OS disk updates for you by default.
 
 ### Kubernetes upgrades
@@ -296,3 +293,7 @@ Node autoprovision produces cluster events that can be used to monitor deploymen
 ```
 kubectl get events -A --field-selector source=karpenter -w
 ```
+
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
