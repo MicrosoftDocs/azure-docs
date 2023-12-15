@@ -58,7 +58,9 @@ Before you can enable single sign-on, you must meet the following prerequisites:
 
 - Your session hosts must be [Microsoft Entra joined](/entra/identity/devices/concept-directory-join) or [Microsoft Entra hybrid joined](/entra/identity/devices/concept-hybrid-join). Session hosts joined to Microsoft Entra Domain Services or to Active Directory Domain Services only aren't supported.
 
-- If your Microsoft Entra hybrid joined session hosts are in a different domain than your user accounts, there must be a two-way trust between the 2 domains. Without the two-way trust, connections will fall back to older authentication protocols.
+   If your Microsoft Entra hybrid joined session hosts are in a different Active Directory domain than your user accounts, there must be a two-way trust between the two domains. Without the two-way trust, connections will fall back to older authentication protocols.
+
+- [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) version 2.9.0 or later on your local device or in [Azure Cloud Shell](../cloud-shell/overview.md).
 
 - A supported Remote Desktop client to connect to a remote session. The following clients are supported:
 
@@ -86,9 +88,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
-2. [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) on your local device, or [Azure Cloud Shell](../cloud-shell/overview.md).
-
-3. Import the *Authentication* and *Applications* Microsoft Graph modules and connect to Microsoft Graph with the `Application.Read.All` and `Application-RemoteDesktopConfig.ReadWrite.All` scopes by running the following commands:
+2. Make sure you installed the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation) from the [prerequisites](#prerequisites), then import the *Authentication* and *Applications* Microsoft Graph modules and connect to Microsoft Graph with the `Application.Read.All` and `Application-RemoteDesktopConfig.ReadWrite.All` scopes by running the following commands:
 
    ```powershell
    Import-Module Microsoft.Graph.Authentication
@@ -97,14 +97,14 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    Connect-MgGraph -Scopes "Application.Read.All","Application-RemoteDesktopConfig.ReadWrite.All"
    ```
 
-4. Get the object ID for each service principal and store them in variables by running the following commands:
+3. Get the object ID for each service principal and store them in variables by running the following commands:
 
    ```powershell
    $MSRDspId = (Get-MgServicePrincipal -Filter "AppId eq 'a4a365df-50f1-4397-bc59-1a1564b8bb9c'").Id
    $WCLspId = (Get-MgServicePrincipal -Filter "AppId eq '270efc09-cd0d-444b-a71f-39af4910ec45'").Id
    ```
 
-5. Set the property `isRemoteDesktopProtocolEnabled` to `true` by running the following commands. There's no output from these commands.
+4. Set the property `isRemoteDesktopProtocolEnabled` to `true` by running the following commands. There's no output from these commands.
 
    ```powershell
    If ((Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId) -ne $true) {
@@ -116,7 +116,7 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    }
    ```
 
-6. Confirm the property `isRemoteDesktopProtocolEnabled` is set to `true` by running the following commands:
+5. Confirm the property `isRemoteDesktopProtocolEnabled` is set to `true` by running the following commands:
 
    ```powershell
    Get-MgServicePrincipalRemoteDesktopSecurityConfiguration -ServicePrincipalId $MSRDspId
