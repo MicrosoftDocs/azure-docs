@@ -211,12 +211,18 @@
     href: /rest/api/appservice/static-sites
   - name: SWA CLI
     items:
-      - name: Summary
-        href: static-web-apps-cli.yml
+      - name: Install
+        href: static-web-apps-cli-install.md
+      - name: Start the emulator
+        href: static-web-apps-cli-emulator.md
+      - name: Start the API server
+        href: static-web-apps-cli-api-server.md
+      - name: Deploy to Azure
+        href: static-web-apps-cli-deploy.md
       - name: Configure SWA CLI
         href: static-web-apps-cli-configuration.md
-      - name: Deploy static web app with SWA CLI
-        href: static-web-apps-cli-deploy.md
+      - name: API Reference
+        href: static-web-apps-cli.yml
 - name: Samples & FAQs
   items:
   - name: Samples
