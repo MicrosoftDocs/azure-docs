@@ -8,6 +8,8 @@
     href: site-recovery-whats-new.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
+  - name: Disaster recovery for VMware
+    href: vmware-azure-about-disaster-recovery.md
 - name: Quickstarts
   expanded: true
   items:
@@ -171,8 +173,6 @@
     items:
     - name: Deprecation of classic experience
       href: vmware-physical-azure-classic-deprecation.md
-    - name: VMware disaster recovery overview
-      href: vmware-azure-about-disaster-recovery.md
     - name: About Site Recovery components (configuration/process/master target server)
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers
@@ -539,8 +539,6 @@
     href: vmware-azure-disaster-recovery-powershell.md
   - name: Set up disaster recovery of Hyper-V VMs to Azure using PowerShell
     href: hyper-v-azure-powershell-resource-manager.md
-  - name: Set up disaster recovery of Hyper-V VMs (with VMM) using PowerShell
-    href: hyper-v-vmm-powershell-resource-manager.md
   - name: Add automation runbooks to recovery plans
     href: site-recovery-runbook-automation.md
   - name: ARM Templates
