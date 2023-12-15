@@ -3,7 +3,7 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 12/05/2023
+ms.date: 12/15/2023
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -57,7 +57,7 @@ The following are examples of this command:
 * To specify an SSH public key file, specify it with the `--ssh-key-value` argument:
 
     ```azurecli
-    az aks create --name myAKSCluster --resource-group MyResourceGroup --generate-ssh-key --ssh-key-value ~/.ssh/id_rsa.pub
+    az aks create --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
     ```
 
 ## Update SSH public key (preview) on an existing AKS cluster
