@@ -11,7 +11,7 @@ ms.author: sehan
 ms.reviewer: mopeakande
 reviewer: msakande
 ms.custom: devplatv2
-ms.date: 12/13/2023
+ms.date: 12/15/2023
 ---
 
 # Authentication for managed online endpoints
@@ -24,6 +24,9 @@ A _user identity_ is a Microsoft Entra ID that you can use to create an endpoint
 
 An _endpoint identity_ is a Microsoft Entra ID that runs the user container in deployments. In other words, if the identity is associated with the endpoint and used for the user container for the deployment, then it's called an endpoint identity. The endpoint identity would also need proper permissions for the user container to interact with resources as needed. For example, the endpoint identity would need the proper permissions to pull images from the Azure Container Registry or to interact with other Azure services.
 
+## Limitation
+
+Microsoft Entra ID authentication (`aad_token`) is supported for managed online endpoints __only__. For Kubernetes online endpoints, you can use either a key or an Azure Machine Learning token (`aml_token`).
 
 ## Permissions needed for user identity
 
@@ -122,11 +125,6 @@ __Examples for endpoint identity__
 - To allow the user container to read blobs, consider using a built-in role `Storage Blob Data Reader` that includes the permission data action `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`.
 
 For more information on guidelines for control plane operations, see [Manage access to Azure Machine Learning](how-to-assign-roles.md). For more information on role definition, scope, and role assignment, see [Azure RBAC](/azure/role-based-access-control/overview). To understand the scope for assigned roles, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
-
-
-## Limitation
-
-Microsoft Entra ID authentication (`aad_token`) is supported for managed online endpoints __only__. For Kubernetes online endpoints, you can use either a key or an Azure Machine Learning token (`aml_token`).
 
 
 ## Related content
