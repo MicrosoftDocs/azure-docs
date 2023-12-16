@@ -96,6 +96,8 @@ items:
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
+      - name: Provisioned Deployments
+        href: ./how-to/ptu-getstarted.md
       - name: Role-based access control (Azure RBAC)
         href: ./how-to/role-based-access-control.md
       - name: Business continuity & disaster recovery (BCDR)
