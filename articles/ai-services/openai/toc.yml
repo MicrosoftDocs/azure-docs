@@ -96,8 +96,6 @@ items:
         href: ./how-to/monitoring.md
       - name: Plan and manage costs
         href: ./how-to/manage-costs.md
-      - name: Provisioned Deployments
-        href: ./how-to/ptu-getstarted.md
       - name: Performance & latency
         href: ./how-to/latency.md
       - name: Role-based access control (Azure RBAC)
