@@ -198,7 +198,7 @@ itemResponseMono.onErrorResume(throwable -> {
 ---
 
 ## Logging the diagnostics
-Java V4 SDK versions v4.43.0 and above support automatic logging of Cosmos Diagnostics for all requests or errors if they meet certain criteria. Application developers can define thresholds for latency (for point or non-point operations), request charge and payload size. If the requests exceed these defined thresholds, the cosmos diagnostics for those requests will be emitted automatically.
+Java V4 SDK versions v4.43.0 and above support automatic logging of Cosmos Diagnostics for all requests or errors if they meet certain criteria. Application developers can define thresholds for latency (for point (create, read, replace, upsert, patch) or non-point operations (query, change feed, bulk and batch)), request charge and payload size. If the requests exceed these defined thresholds, the cosmos diagnostics for those requests will be emitted automatically.
 
 By default, the Java v4 SDK logs these diagnostics automatically in a specific format. However, this can be changed by implementing `CosmosDiagnosticsHandler` interface and providing your own custom Diagnostics Handler.
 
