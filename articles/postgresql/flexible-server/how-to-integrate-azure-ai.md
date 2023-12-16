@@ -4,7 +4,7 @@ description: Integrate Azure AI capabilities into Azure Database for PostgreSQL 
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan, carols
-ms.date: 11/07/2023
+ms.date: 12/16/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom:
@@ -78,7 +78,7 @@ The `azure_ai` extension allows you to integrate Azure OpenAI and Azure Cognitiv
     SHOW azure.extensions;
     ```
 
-1. Install the `azure_ai` extension using the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
+1. In the database in which you plan to use the `azure_ai` extension, install it by using the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command.
 
     ```sql
     CREATE EXTENSION azure_ai;
@@ -180,7 +180,7 @@ Using the PostgreSQL [COPY command](https://www.postgresql.org/docs/current/sql-
 
 ### Enable vector support
 
-The `azure_ai` extension allows you to generate embeddings for input text. To enable the generated vectors to be stored alongside the rest of your data in the database, you must install the `pg_vector` extension by following the guidance in the [enable vector support in your database](/azure/postgresql/flexible-server/how-to-use-pgvector#enable-extension) documentation.
+The `azure_ai` extension allows you to generate embeddings for input text. To enable the generated vectors to be stored alongside the rest of your data in the database, you must install the `pgvector` extension by following the guidance in the [enable vector support in your database](/azure/postgresql/flexible-server/how-to-use-pgvector#enable-extension) documentation.
 
 With vector supported added to your database, add a new column to the `bill_summaries` table using the `vector` data type to store embeddings within the table. The `text-embedding-ada-002` model produces vectors with 1536 dimensions, so you must specify `1536` as the vector size.
 
@@ -210,11 +210,11 @@ The `Argument data types` property in the output of the `\df+ azure_openai.*` co
 | timeout_ms | `integer` | 3600000 | Timeout in milliseconds after which the operation is stopped. |
 | throw_on_error | `boolean` | true | Flag indicating whether the function should, on error, throw an exception resulting in a rollback of the wrapping transactions. |
 
-The first argument is the `deployment_name`, assigned when your embedding model was deployed in your Azure OpenAI account. To retrieve this value, go to your Azure OpenAI resource in the Azure portal. From there, select the **Model deployments** item under **Resource Management** in the left-hand navigation menu, then select **Manage Deployments** to open Azure OpenAI Studio. On the **Deployments** tab in Azure OpenAI Studio, copy the **Deployment name** value associated with the `text-embedding-ada-002` model deployment.
+The first argument is the `deployment_name`, assigned when your embedding model was deployed in your Azure OpenAI account. To retrieve this value, go to your Azure OpenAI resource in the Azure portal. From there, in the left-hand navigation menu, under **Resource Management** select the **Model deployments** item to open Azure OpenAI Studio. In Azure OpenAI Studio, on the **Deployments** tab, copy the **Deployment name** value associated with the `text-embedding-ada-002` model deployment.
 
 :::image type="content" source="media/how-to-integrate-azure-ai/azure-open-ai-studio-deployments-embeddings.png" alt-text="Screenshot of embedding deployments for integrating AI.":::
 
-Using this information, run a query to update each record in the `bill_summaries` table, inserting the generated vector embeddings for the `bill_text` field into the `bill_vector` column using the `azure_openai.create_embeddings()` function. Replace `{your-deployment-name}` with the **Deployment name** value you copied from the Azure OpenAI Studio **Deployments** page, and then run the following command:
+Using this information, run a query to update each record in the `bill_summaries` table, inserting the generated vector embeddings for the `bill_text` field into the `bill_vector` column using the `azure_openai.create_embeddings()` function. Replace `{your-deployment-name}` with the **Deployment name** value you copied from the Azure OpenAI Studio **Deployments** tab, and then run the following command:
 
 ```sql
 UPDATE bill_summaries b
@@ -233,7 +233,7 @@ Each embedding is a vector of floating point numbers, such that the distance bet
 
 Vector similarity is a method used to measure how similar two items are by representing them as vectors, which are series of numbers. Vectors are often used to perform searches using LLMs. Vector similarity is commonly calculated using distance metrics, such as Euclidean distance or cosine similarity. Euclidean distance measures the straight-line distance between two vectors in the n-dimensional space, while cosine similarity measures the cosine of the angle between two vectors.
 
-To enable more efficient searching over the `vector` field by creating an index on `bill_summaries` using cosine distance and [HNSW](https://github.com/pgvector/pgvector#hnsw), which is short for Hierarchical Navigable Small World. HNSW allows `pg_vector` to use the latest graph-based algorithms to approximate nearest-neighbor queries.
+To enable more efficient searching over the `vector` field by creating an index on `bill_summaries` using cosine distance and [HNSW](https://github.com/pgvector/pgvector#hnsw), which is short for Hierarchical Navigable Small World. HNSW allows `pgvector` to use the latest graph-based algorithms to approximate nearest-neighbor queries.
 
 ```sql
 CREATE INDEX ON bill_summaries USING hnsw (bill_vector vector_cosine_ops);
@@ -259,7 +259,7 @@ To review the complete Azure AI capabilities accessible through the extension, v
 
 ### Set the Azure AI Language service endpoint and key
 
-As with the `azure_openai` functions, to successfully make calls against Azure AI services using the `azure_ai` extension, you must provide the endpoint and a key for your Azure AI Language service. Retrieve those values by navigating to your Language service resource in the Azure portal and selecting the **Keys and Endpoint** item under **Resource Management** from the left-hand menu. Copy your endpoint and access key. You can use either `KEY1` or `KEY2`.
+As with the `azure_openai` functions, to successfully make calls against Azure AI services using the `azure_ai` extension, you must provide the endpoint and a key for your Azure AI Language service. Retrieve those values by navigating to your Language service resource in the Azure portal, from the left/hand menu, under **Resource Management**, select **Keys and Endpoint** item. Copy your endpoint and access key. You can use either `KEY1` or `KEY2`.
 
 In the command below, replace the `{endpoint}` and `{api-key}` tokens with values you retrieved from the Azure portal, then run the commands from the `psql` command prompt to add your values to the configuration table.
 
