@@ -33,7 +33,7 @@ Text data chunking strategies play a key role in optimizing the RAG response and
 
 * **Fixed-sized chunking**. Most chunking strategies used in RAG today are based on fix-sized text segments known as chunks. Fixed-sized chunking is quick, easy, and effective with text that doesn't have a strong semantic structure such as logs and data. However it isn't recommended for text that requires semantic understanding and precise context. The fixed-size nature of the window can result in severing words, sentences, or paragraphs impeding comprehension and disrupt the flow of information and understanding.
 
-* **Semantic chunking**. This method divides the text into chunks based on semantic understanding. Division boundaries are focused on sentence subject and use significant computational algorithmically complex resources. However, it has the distinct advantage of maintaining semantic consistency within each chunk.  It's useful for text summarization, sentiment analysis, and document classification tasks. For example, if you're looking for a specific section in a document, you can use semantic chunking to divide the document into smaller chunks based on the section headers helping you to find the section you're looking for quickly and easily. An effective semantic chunking strategy yields the following benefits:
+* **Semantic chunking**. This method divides the text into chunks based on semantic understanding. Division boundaries are focused on sentence subject and use significant computational algorithmically complex resources. However, it has the distinct advantage of maintaining semantic consistency within each chunk.  It's useful for text summarization, sentiment analysis, and document classification tasks. 
 
 ## Semantic chunking with Document Intelligence layout model
 
@@ -106,6 +106,41 @@ You can follow the [Document Intelligence studio quickstart](quickstarts/try-doc
 * Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. This [notebook](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Quickstart%20-%20Document%20Question%20and%20Answering%20with%20PDFs/) shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
 
 * The chat with your data solution accelerator[code sample](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) demonstrates an end-to-end baseline RAG pattern sample. It uses Azure AI Search as a retriever and Azure AI Document Intelligence for document loading and semantic chunking.
+
+## Use case
+
+If you're looking for a specific section in a document, you can use semantic chunking to divide the document into smaller chunks based on the section headers helping you to find the section you're looking for quickly and easily:
+
+```python
+
+# Using SDK targeting 2023-10-31-preview
+# pip install azure-ai-documentintelligence==1.0.0b1
+
+ from azure.ai.documentintelligence import DocumentIntelligenceClient
+ from azure.core.credentials import AzureKeyCredential
+ 
+ endpoint = "https://<my-custom-subdomain>.cognitiveservices.azure.com/"
+ credential = AzureKeyCredential("<api_key>")
+ 
+ document_intelligence_client = DocumentIntelligenceClient(
+     endpoint, credential)
+ 
+   from langchain.document_loaders.doc_intelligence import DocumentIntelligenceLoader
+   from langchain.text_splitter import MarkdownHeaderTextSplitter
+   # Initiate Azure AI Document Intelligence to load the document and split it into chunks
+   loader = DocumentIntelligenceLoader(file_path=<your file path>, credential, endpoint)
+   docs = loader.load()
+   # text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+   headers_to_split_on = [
+       ("#", "Header 1"),
+       ("##", "Header 2"),
+       ("###", "Header 3"),
+   ]
+   text_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
+   splits = text_splitter.split_text(docs_string)
+   splits
+
+```
 
 ## Next steps
 
