@@ -49,11 +49,11 @@ Markdown is a structured and formatted markup language and a popular input for e
 
 **Text image processed with Document Intelligence Studio using Layout model**
 
-:::image type="content" source="media/rag/markdown-text-output.png" alt-text="Screenshot of newspaper article processed by Layout model and outputted to Markdown.":::
+  :::image type="content" source="media/rag/markdown-text-output.png" alt-text="Screenshot of newspaper article processed by Layout model and outputted to Markdown.":::
 
 **Table image processed with Document Intelligence Studio using Layout model**
 
-:::image type="content" source="media/rag/markdown-table-output.png" alt-text="Screenshot of table processed by Layout model and outputted to Markdown.":::
+  :::image type="content" source="media/rag/markdown-table-output.png" alt-text="Screenshot of table processed by Layout model and outputted to Markdown.":::
 
 ## Get started
 
@@ -85,15 +85,11 @@ You can follow the [Document Intelligence Studio quickstart](quickstarts/try-doc
 
 * Select **Save**.
 
-:::image type="content" source="media/rag/rag-analyze-options.png" alt-text="Screenshot of Analyze options dialog window with RAG required options in the Document Intelligence studio.":::
+  :::image type="content" source="media/rag/rag-analyze-options.png" alt-text="Screenshot of Analyze options dialog window with RAG required options in the Document Intelligence studio.":::
 
-* Next, select the **Run analysis** button to view the output.
+* Select the **Run analysis** button to view the output.
 
-:::image type="content" source="media/rag/run-analysis.png" alt-text="Screenshot of the Run Analysis button in the Document Intelligence Studio.":::
-
-* The Markdown content is presented in the right-pane window:
-
-:::image type="content" source="media/rag/markdown-content.png" alt-text="Screenshot of the Layout model markdown output in the Document Intelligence Studio.":::
+  :::image type="content" source="media/rag/run-analysis.png" alt-text="Screenshot of the Run Analysis button in the Document Intelligence Studio.":::
 
 ### SDK or REST API
 
