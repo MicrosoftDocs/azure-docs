@@ -33,7 +33,7 @@ Here, you can add [Azure DevOps](quickstart-onboard-devops.md), [GitHub](quickst
 |Page section| Description |
 |--|--|
 | :::image type="content" source="media/defender-for-devops-introduction/security-overview.png" alt-text="Screenshot of the scan finding metrics sections of the page."::: | Total number of DevOps security scan findings (code, secret, dependency, infrastructure-as-code) grouped by severity level and by finding type. |
-| :::image type="content" source="media/defender-for-devops-introduction/connectors-section.png" alt-text="Screenshot of the DevOps environment posture management recommendation card."::: | Provides visibility into the number of DevOps environment posture management recommendations highlighting high severity findings and number of affected resources. |
+| :::image type="content" source="media/defender-for-devops-introduction/posture-management.png" alt-text="Screenshot of the DevOps environment posture management recommendation card."::: | Provides visibility into the number of DevOps environment posture management recommendations highlighting high severity findings and number of affected resources. |
 | :::image type="content" source="media/defender-for-devops-introduction/advanced-security.png" alt-text="Screenshot of DevOps advanced security coverage per source code management system onboarded."::: | Provides visibility into the number of DevOps resources with advanced security capabilities out of the total number of resources onboarded by environment. |
 
 ### Review your findings
