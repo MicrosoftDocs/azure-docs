@@ -100,7 +100,7 @@ During these steps, the SQL output can experience following types of errors:
 Once the timeout is above 15 minutes, the max batch size hint to `BulkCopy` is reduced to half until 100 events per batch are left.
 
     > [!IMPORTANT]
-    > For non-[network injected ASA jobs](./azure/stream-analytics/run-job-in-virtual-network), please do not rely on source IP address of connections coming from ASA in any way. They can be public or private IPs depending on service infrastructure operations that happen from time to time.
+    > For non-[network injected ASA jobs](./run-job-in-virtual-network.md), please do not rely on source IP address of connections coming from ASA in any way. They can be public or private IPs depending on service infrastructure operations that happen from time to time.
         
 ## Column names are lowercase in Azure Stream Analytics (1.0)
 
