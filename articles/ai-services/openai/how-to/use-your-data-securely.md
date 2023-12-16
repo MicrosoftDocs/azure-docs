@@ -64,7 +64,7 @@ Create a resource group, so you can organize all resources mentioned in this art
 
 ## Create virtual network
 
-The virtual network will have 2 subnets. The first subnet is what you created and will be used for the private IP of the 3 private endpoints. The second subnet will be created automatically when you create the virtual network gateway. See the virtual network architecture below.
+The virtual network will have 3 subnets. The first subnet is what you created and will be used for the private IPs of the 3 private endpoints. The second subnet will be created automatically when you create the virtual network gateway. See the virtual network architecture below. The third subnet will be created as an empty one for web app virtual network integration.
 
 :::image type="content" source="../media/use-your-data/virtual-network.png" alt-text="A diagram showing the virtual network architecture." lightbox="../media/use-your-data/virtual-network.png":::
 
@@ -183,11 +183,15 @@ So far you have already setup each resource work independently. Next you will ne
 See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignments-portal) for instructions on setting these roles in the Azure portal. You can use the [available script on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/role_assignment.sh) to add the role assignments programmatically. You need to have the `Owner` role on these resources to do role assignments.
 
 
-## Setup Gateway and Client
+## Configure Gateway and Client
+
+To access the Azure OpenAI service from your on-premises client machines, one of the approaches is to configure Azure VPN Gateway and Azure VPN Client.
 
 Follow [this guideline](/azure/vpn-gateway/tutorial-create-gateway-portal#VNetGateway) to create virtual network gateway for your virtual network.
 
 Follow [this guideline](/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication) to add point-to-site configuration, and enable Microsoft Entra ID based authentication. Download the Azure VPN Client profile configuration package, unzip, and import the `AzureVPN/azurevpnconfig.xml` file to your Azure VPN client.
+
+    :::image type="content" source="../media/use-your-data/vpn-client.png" alt-text="A screenshot showing where to import Azure VPN Client profile." lightbox="../media/use-your-data/vpn-client.png":::
 
 Configure your local machine `hosts` file point your resources host names to the private IPs in your virtual network. The `hosts` is at `C:\Windows\System32\drivers\etc` for Windows, and at `/etc/hosts` on Linux. Example:
 
@@ -196,6 +200,27 @@ Configure your local machine `hosts` file point your resources host names to the
 10.0.0.6 contoso.search.windows.net
 10.0.0.7 contoso.blob.core.windows.net
 ```
+
+## Azure OpenAI Studio
+
+You should be able to use all Azure OpenAI Studio features, including both ingestion and inference, from your on-premises client machines.
+
+## Web app
+The web app will only communicate with Azure OpenAI. Since your Azure OpenAI has public network disabled, the web app need to be set up to use the private endpoint in your virtual network to access your Azure OpenAI.
+
+Make sure your Azure OpenAI has enabled custom subdomain. If you created the Azure OpenAI via Azure portal, the custom subdomain should had been created already.
+
+The web app needs to resolve your Azure OpenAI host name to the private IP of the private endpoint for Azure OpenAI. So, you need to configure the private DNS zone for your virtual network first.
+
+1. [Create private DNS zone](/azure/dns/private-dns-getstarted-portal#create-a-private-dns-zone) in your resource group. 
+1. [Add A-record](/azure/dns/private-dns-getstarted-portal#create-an-additional-dns-record). The IP is the private IP of the private endpoint for your Azure OpenAI resource, and you can get the IP address from the network interface associated with the private endpoint for your Azure OpenAI.
+1. [Link the private DNS zone to your virtual network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network). So the web app integrated in this virtual network can use this private DNS zone.
+
+When deploying the web app from Azure OpenAI Studio, select the same location with the virtual network, and select a SKU that is above `Basic`, so it can support [virtual network integration feature](/azure/app-service/overview-vnet-integration). 
+
+After web app is deployed, from the Azure portal networking tab, configure the web app outbound traffic vitual network integration, choose the third subnet that you reserved for web app.
+
+    :::image type="content" source="../media/use-your-data/web-app-configure-outbound-traffic.png" alt-text="A screenshot showing outbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-outbound-traffic.png":::
 
 ## Using the API
 
@@ -285,32 +310,3 @@ curl -i -X POST https://my-resource.openai.azure.com/openai/deployments/turbo/ex
 }
 '
 ```
-
-## Azure OpenAI Studio
-
-You should be able to use all Azure OpenAI Studio features, including both ingestion and inference.
-
-## Web app
-The web app published from the Studio will only communicate with Azure OpenAI. Since your Azure OpenAI has public network disabled, the web app need to be set up coorespondingly to use the private endpoint in your virtual network to access your Azure OpenAI.
-
-
-### Create Private DNS Zone
- Add A-record
- Link to your virtual network
-
-### Public web app from Studio
-SKU requirement
-
-1. Configure web app outbound vitual network integration
-
-
-
-1. Set Azure OpenAI allow inbound traffic from your virtual network.
-
-    :::image type="content" source="../media/use-your-data/web-app-configure-inbound-traffic.png" alt-text="A screenshot showing inbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-inbound-traffic.png":::
-
-1. Configure the web app for outbound virtual network integration
-
-    :::image type="content" source="../media/use-your-data/web-app-configure-outbound-traffic.png" alt-text="A screenshot showing outbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-outbound-traffic.png":::
-
-
