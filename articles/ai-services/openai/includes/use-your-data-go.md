@@ -47,7 +47,6 @@ ms.date: 08/29/2023
    )
    
    func main() {
-   
    	azureOpenAIKey := os.Getenv("AOAIKey")
    	modelDeploymentID := os.Getenv("AOAIDeploymentId")
    
@@ -74,14 +73,10 @@ ms.date: 08/29/2023
    		//  TODO: Update the following line with your application specific error handling logic
    		log.Fatalf("ERROR: %s", err)
    	}
-   	inScope := true
-   	semanticConfiguration := "default"
    
    	resp, err := client.GetChatCompletions(context.TODO(), azopenai.ChatCompletionsOptions{
    		Messages: []azopenai.ChatRequestMessageClassification{
-   			&azopenai.ChatRequestUserMessage{
-   				Content: azopenai.NewChatRequestUserMessageContent("What are the differences between Azure Machine Learning and Azure AI services?"),
-   			},
+   			&azopenai.ChatRequestUserMessage{Content: azopenai.NewChatRequestUserMessageContent("What are the differences between Azure Machine Learning and Azure AI services?")},
    		},
    		MaxTokens: to.Ptr[int32](512),
    		AzureExtensionsOptions: []azopenai.AzureChatExtensionConfigurationClassification{
@@ -99,8 +94,6 @@ ms.date: 08/29/2023
    					Authentication: &azopenai.OnYourDataAPIKeyAuthenticationOptions{
    						Key: &searchAPIKey,
    					},
-   					InScope:               &inScope,
-   					SemanticConfiguration: &semanticConfiguration,
    				},
    			},
    		},
