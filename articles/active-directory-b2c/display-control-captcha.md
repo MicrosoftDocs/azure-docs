@@ -25,7 +25,7 @@ TODO - add screenshot
 
 ## CAPTCHA display control elements
 
-This table summarizes the elements that a CAPTCHA display control contains: 
+This table summarizes the elements that a CAPTCHA display control contains. 
 
 | Element | Required | Description |
 | --------- | -------- | ----------- |

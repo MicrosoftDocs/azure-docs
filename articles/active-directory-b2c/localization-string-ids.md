@@ -656,6 +656,8 @@ The following IDs are used for a [CAPTCHA display control](display-control-captc
 
 ### CAPTCHA display control example
 
+This example shows localized messages for CAPTCHA display control.
+
 ```xml
       <LocalizedResources Id="api.localaccountsignup.en">
         <LocalizedStrings>
