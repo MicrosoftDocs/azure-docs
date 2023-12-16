@@ -81,7 +81,7 @@ Please note the Microsoft managed virtual network is created by Microsoft, and y
 
 ## Configure Azure OpenAI
 
-### Enabled custom subdomain.
+### Enabled custom subdomain
 
 If you created the Azure OpenAI via Azure portal, the [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) should had been created already. The custom subdomain is required for Microsoft Entra ID based authentication, and private DNS zone.
 
@@ -193,9 +193,7 @@ So far you have already setup each resource work independently. Next you will ne
 | `Storage Blob Data Contributor` | Azure OpenAI | Storage Account | Reads from the input container, and writes the pre-process result to the output container. |
 | `Cognitive Services OpenAI Contributor` | Azure AI Search | Azure OpenAI | Custom skill |
 | `Storage Blob Data Contributor` | Azure AI Search | Storage Account | Reads blob and writes knowledge store |
-| `Cognitive Services OpenAI Contributor` | Signed-in User | Azure OpenAI | Calls public ingestion or inference API from Azure OpenAI Studio.|
-| `Contributor` | Signed-in User | Azure AI Search | List API-Keys to list indexes from Azure OpenAI Studio.|
-| `Contributor` | Signed-in User | Storage Account | List Account SAS to upload files from Azure OpenAI Studio.|
+
 
 In the above table, the `Assignee` means the system assigned managed identity of that resource.
 
@@ -203,11 +201,11 @@ The admin needs to have the `Owner` role on these resources to add role assignme
 
 See the [Azure RBAC documentation](/azure/role-based-access-control/role-assignments-portal) for instructions on setting these roles in the Azure portal. You can use the [available script on GitHub](https://github.com/microsoft/sample-app-aoai-chatGPT/blob/main/scripts/role_assignment.sh) to add the role assignments programmatically.
 
-To enable the developers to use these resources to build applications, the admin need to add the developers identity with the following role assignments to the resources.
+To enable the developers to use these resources to build applications, the admin needs to add the developers identity with the following role assignments to the resources.
 
 |Role| Resource | Description |
 |--|--|--|
-| `Cognitive Services OpenAI Contributor` | Azure OpenAI | Calls public ingestion API from Azure OpenAI Studio. The `Contributor` role is not enough, because if you only has `Contributor` role, you cannot call data plane API via Microsoft Entra ID authentication, and Microsoft Entra ID authentication is required in the secure setup described in this article. Using API key to call ingestion API will fail. |
+| `Cognitive Services OpenAI Contributor` | Azure OpenAI | Call public ingestion API from Azure OpenAI Studio. The `Contributor` role is not enough, because if you only has `Contributor` role, you cannot call data plane API via Microsoft Entra ID authentication, and Microsoft Entra ID authentication is required in the secure setup described in this article. Using API key to call ingestion API will fail. |
 | `Contributor` | Azure AI Search | List API-Keys to list indexes from Azure OpenAI Studio.|
 | `Contributor` | Storage Account | List Account SAS to upload files from Azure OpenAI Studio.|
 | `Contributor` | The resource group or Azure subscription where the developer need to deploy the web app to | Deploy web app to the developer's Azure subscription.|
