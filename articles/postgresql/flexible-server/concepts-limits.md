@@ -7,7 +7,7 @@ ms.reviewer: kabharati
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/15/2023
+ms.date: 12/16/2023
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -20,54 +20,52 @@ The following sections describe capacity and functional limits in the database s
 
 Below, you'll find the _default_ maximum number of connections for each pricing tier and vCore configuration. Please note, Azure Postgres reserves 15 connections for physical replication and monitoring of the Flexible Server. Consequently, the `max user connections` value listed in the table is reduced by 15 from the total `max connections`.
 
-|SKU Name                     |vCores|Memory Size|Max Connections|Max User Connections|
-|-----------------------------|------|-----------|---------------|--------------------|
-|**Burstable**                |      |           |               |                    |
-|B1ms                         |1     |2 GiB      |50             |35                  |
-|B2s                          |2     |4 GiB      |100            |85                  |
-|B2ms                         |2     |4 GiB      |100            |85                  |
-|B4ms                         |4     |8 GiB      |859            |844                 |
-|B8ms                         |8     |16 GiB     |1719           |1704                |
-|B12ms                        |12    |24 GiB     |2578           |2563                |
-|B16ms                        |16    |32 GiB     |3438           |3423                |
-|B20ms                        |20    |40 GiB     |4297           |4282                |
-|**General Purpose**          |      |           |               |                    |
-|D2s_v3 / D2ds_v4 / D2ds_v5   |2     |8 GiB      |859            |844                 |
-|D4s_v3 / D4ds_v4 / D4ds_v5   |4     |16 GiB     |1719           |1704                |
-|D8s_v3 / D8ds_V4 / D8ds_v5   |8     |32 GiB     |3438           |3423                |
-|D16s_v3 / D16ds_v4 / D16ds_v5|16    |64 GiB     |5000           |4985                |
-|D32s_v3 / D32ds_v4 / D32ds_v5|32    |128 GiB    |5000           |4985                |
-|D48s_v3 / D48ds_v4 / D48ds_v5|48    |192 GiB    |5000           |4985                |
-|D64s_v3 / D64ds_v4 / D64ds_v5|64    |256 GiB    |5000           |4985                |
-|D96ds_v5                     |96    |384 GiB    |5000           |4985                |
-|**Memory Optimized**         |      |           |               |                    |
-|E2s_v3 / E2ds_v4 / E2ds_v5   |2     |16 GiB     |1719           |1704                |
-|E4s_v3 / E4ds_v4 / E4ds_v5   |4     |32 GiB     |3438           |3423                |
-|E8s_v3 / E8ds_v4 / E8ds_v5   |8     |64 GiB     |5000           |4985                |
-|E16s_v3 / E16ds_v4 / E16ds_v5|16    |128 GiB    |5000           |4985                |
-|E20ds_v4 / E20ds_v5          |20    |160 GiB    |5000           |4985                |
-|E32s_v3 / E32ds_v4 / E32ds_v5|32    |256 GiB    |5000           |4985                |
-|E48s_v3 / E48ds_v4 / E48ds_v5|48    |384 GiB    |5000           |4985                |
-|E64s_v3 / E64ds_v4 / E64ds_v5|64    |432 GiB    |5000           |4985                |
-|E96ds_v5                     |96    |672 GiB    |5000           |4985                |
+|SKU Name                                 |vCores|Memory Size|Max Connections|Max User Connections|
+|-----------------------------------------|------|-----------|---------------|--------------------|
+|**Burstable**                            |      |           |               |                    |
+|B1ms                                     |1     |2 GiB      |50             |35                  |
+|B2s                                      |2     |4 GiB      |429            |414                 |
+|B2ms                                     |2     |8 GiB      |859            |844                 |
+|B4ms                                     |4     |16 GiB     |1718           |1703                |
+|B8ms                                     |8     |32 GiB     |3437           |3422                |
+|B12ms                                    |12    |48 GiB     |5000           |4985                |
+|B16ms                                    |16    |64 GiB     |5000           |4985                |
+|B20ms                                    |20    |80 GiB     |5000           |4985                |
+|**General Purpose**                      |      |           |               |                    |
+|D2s_v3 / D2ds_v4 / D2ds_v5 / D2ads_v5    |2     |8 GiB      |859            |844                 |
+|D4s_v3 / D4ds_v4 / D4ds_v5 / D4ads_v5    |4     |16 GiB     |1718           |1703                |
+|D8s_v3 / D8ds_V4 / D8ds_v5 / D8ads_v5    |8     |32 GiB     |3437           |3422                |
+|D16s_v3 / D16ds_v4 / D16ds_v5 / D16ads_v5|16    |64 GiB     |5000           |4985                |
+|D32s_v3 / D32ds_v4 / D32ds_v5 / D32ads_v5|32    |128 GiB    |5000           |4985                |
+|D48s_v3 / D48ds_v4 / D48ds_v5 / D48ads_v5|48    |192 GiB    |5000           |4985                |
+|D64s_v3 / D64ds_v4 / D64ds_v5 / D64ads_v5|64    |256 GiB    |5000           |4985                |
+|D96ds_v5 / D96ads_v5                     |96    |384 GiB    |5000           |4985                |
+|**Memory Optimized**                     |      |           |               |                    |
+|E2s_v3 / E2ds_v4 / E2ds_v5 / E2ads_v5    |2     |16 GiB     |1718           |1703                |
+|E4s_v3 / E4ds_v4 / E4ds_v5 / E4ads_v5    |4     |32 GiB     |3437           |3422                |
+|E8s_v3 / E8ds_v4 / E8ds_v5 / E8ads_v5    |8     |64 GiB     |5000           |4985                |
+|E16s_v3 / E16ds_v4 / E16ds_v5 / E16ads_v5|16    |128 GiB    |5000           |4985                |
+|E20ds_v4 / E20ds_v5 / E20ads_v5          |20    |160 GiB    |5000           |4985                |
+|E32s_v3 / E32ds_v4 / E32ds_v5 / E32ads_v5|32    |256 GiB    |5000           |4985                |
+|E48s_v3 / E48ds_v4 / E48ds_v5 / E48ads_v5|48    |384 GiB    |5000           |4985                |
+|E64s_v3 / E64ds_v4 / E64ds_v5 / E64ads_v5|64    |432 GiB    |5000           |4985                |
+|E96ds_v5 / E96ads_v5                     |96    |672 GiB    |5000           |4985                |
 
 > [!NOTE]
 > The reserved connection slots, presently at 15, could change. We advise regularly verifying the total reserved connections on the server. This is calculated by summing the values of 'reserved_connections' and 'superuser_reserved_connections' server parameters. The maximum available user connections is `max_connections - (reserved_connections + superuser_reserved_connections`).
 
+> [!NOTE]
+> That default value for the max_connections server parameter is calculated when the instance of Azure Database for PostgreSQL Flexible Server is first provisioned, based on the SKU name selected for its compute. Any subsequent changes of SKU to the compute supporting that flexible server, won't have any effect on the currently set neither on the default value chosen for max_connections server parameter of that instance. Therefore it is recommended that, whenever you change the SKU assigned to an instance, you also adjust the currently set value for the max_connections parameter as per the values provided in the table above.
+
 
 ### Changing the max_connections value
 
-Customers can change the value maximum number of connections using either of the following methods:
+The default value for the maximum number of connections is calculated upon provising of the instance and cannot be changed ever after.
 
-* Change the default value for the `max_connections` parameter using server parameter. This parameter is static and requires an instance restart.
+However, it is possible to change the current value for the maximum number of connections by altering the value assigned to the `max_connections` server parameter. This parameter is static and requires a restart of the instance to take effect.
 
 > [!CAUTION]
 > While it is possible to increase the value of `max_connections` beyond the default setting, it is not advisable. The rationale behind this recommendation is that instances may encounter difficulties when the workload expands and demands more memory. As the number of connections increases, memory usage also rises. Instances with limited memory may face issues such as crashes or high latency. Although a higher value for `max_connections` might be acceptable when most connections are idle, it can lead to significant performance problems once they become active. Instead, if you require additional connections, we suggest utilizing pgBouncer, Azure's built-in connection pool management solution, in transaction mode. To start, it is recommended to use conservative values by multiplying the vCores within the range of 2 to 5. Afterward, carefully monitor resource utilization and application performance to ensure smooth operation. For detailed information on pgBouncer, please refer to the [PgBouncer in Azure Database for PostgreSQL - Flexible Server](concepts-pgbouncer.md).
-
-* Scale your Azure Postgres instance up to a SKU with more memory size. 
-
-> [!NOTE]
-> Scaling up Azure Postgres instances impacts the account’s billing. To learn more, refer [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/).
 
 When connections exceed the limit, you may receive the following error:
 
@@ -119,7 +117,7 @@ When using PostgreSQL for a busy database with a large number of concurrent conn
    
 ### Stop/start operation
 
-- Once you stop the Flexible Server, it automatically starts after 7- days. 
+- Once you stop the Flexible Server, it automatically starts after 7 days. 
    
 ### Scheduled maintenance
 
