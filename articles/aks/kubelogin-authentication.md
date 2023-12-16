@@ -36,9 +36,9 @@ Most of the interaction with `kubelogin` is specific to the `convert-kubeconfig`
 
 The authentication modes that `kubelogin` implements are Microsoft Entra ID OAuth 2.0 token grant flows. Throughout `kubelogin` subcommands, you see below common flags. In general, these flags are already set up when you get the kubeconfig from AKS.
 
-* **--tenant-id**: Microsoft Entra ID tenant ID
-* **--client-id**: The application ID of the public client application. This client app is only used in device code, web browser interactive, and ropc log in modes.
-* **--server-id**: The application ID of the web app, or resource server. The token should be issued to this resource.
+* `--tenant-id`: Microsoft Entra ID tenant ID
+* `--client-id`: The application ID of the public client application. This client app is used only in device code, web browser interactive, and ropc log in modes.
+* `--server-id`: The application ID of the web app or resource server. The token should be issued to this resource.
 
 > [!NOTE]
 > With each authentication method, the token isn't cached on the file system.
@@ -49,9 +49,9 @@ Device code is the default authentication mode in `convert-kubeconfig` subcomman
 
 Before `kubelogin` and Exec plugin were introduced, the Azure authentication mode in `kubectl` only supported device code flow. It used an old library that produces the token with `audience` claim that has the `spn:` prefix, which isn't compatible with [AKS-managed Microsoft Entra ID][aks-managed-microsoft-entra-id] using [on-behalf-of][oauth-on-behalf-of] (OBO) flow. When you run the `convert-kubeconfig` subcommand, `kubelogin` removes the `spn:` (prefix in audience claim). If you require using the original functionality, add the `--legacy` argument.
 
-If you're using `kubeconfig` from legacy Azure AD cluster, `kubelogin` automatically adds the `--legacy` flag.
+If you're using `kubeconfig` from a legacy Azure AD cluster, `kubelogin` automatically adds the `--legacy` flag.
 
-In this sign in mode, the access token and refresh token are cached in the `${HOME}/.kube/cache/kubelogin` directory. This path can be overridden specifying the `--token-cache-dir` parameter.
+In this sign-in mode, the access token and the refresh token are cached in the *${HOME}/.kube/cache/kubelogin* directory. To override this path, include the `--token-cache-dir` parameter.
 
 If your Azure AD integrated cluster uses Kubernetes version 1.24 or earlier, you need to manually convert the kubeconfig format by running the following commands.
 
