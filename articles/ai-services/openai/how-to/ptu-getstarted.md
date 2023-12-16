@@ -45,12 +45,12 @@ After you have purchased a commitment on your quota, you can create a deployment
 
 | Field | Description |	Example |
 | -- | -- | --| 
-| Select a model|	Choose the specific model you wish to deploy	| GPT-4 |
-| Model version |	Version of the model to deploy	 | 0613 |
+| Select a model|	Choose the specific model you wish to deploy.	| GPT-4 |
+| Model version |	Choose the version of the model to deploy.	 | 0613 |
 | Deployment Name	 | The deployment name is used in your code to call the model by using the client libraries and the REST APIs.	| gpt-4|
-| Content filter	| Specify the filtering policy to apply to the deployment | 	Default |
-| Deployment Type	| Type of deployment you will enable. This impacts the throughput and performance. 	| Provisioned-Managed |
-| Provisioned Throughput Units |	Amount of throughput to provision. |	100 |
+| Content filter	| Specify the filtering policy to apply to the deployment. Learn more on our [Content Filtering](../concepts/content-filter.md) how-tow | 	Default |
+| Deployment Type	|This impacts the throughput and performance. Choose Provisioned-Managed for your provisioned deployment 	| Provisioned-Managed |
+| Provisioned Throughput Units |	Choose the amount of throughput you wish to provision. |	100 |
 
 
 If you wish to deploy your endpoint programmatically you can do so with the following Azure CLI command. You will just need to update the sku-capacity with the desired amout of provisioned throughput units.
@@ -67,7 +67,7 @@ az cognitiveservices account deployment create \
 --sku-name "Provisioned-Managed" 
 ```
 
-REST, ARM, Bicep and Terraform can also be used to create deployments.  Use the instructions in the public documentation for Standard deployments and replace the sku.name with “Provisioned-Managed” rather than “Standard”.  See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide.
+REST, ARM, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with “Provisioned-Managed” rather than “Standard”. 
 
 ## Make your first calls
 The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  If this is your first time using these models programmatically, we recommend starting with our [quickstart start guide](../quickstart.md). 
@@ -142,7 +142,7 @@ from openai import OpenAI
 # Configure the default for all requests:
 client = OpenAI(
     # default is 2
-    max_retries=0,
+    max_retries=5    ,
 )
 
 # Or, configure per-request:
@@ -176,8 +176,8 @@ We recommend the following workflow:
 * For more information on cloud application best practices, check out [Best practices in cloud applications](https://learn.microsoft.com/azure/architecture/best-practices/index-best-practices)
 * For more information on provisioned dployments, check out [What is provisioned throughput?](../concepts/provisioned-throughput.md)
 * For more information on retry logic within each SDK, check out:
-    * Python reference documetnation
-    * .NET reference documentation
-    * Java reference documentation
-    * Javascript reference documetnation
-    * GO reference documntation
+    * [Python reference documentation](https://github.com/openai/openai-python?tab=readme-ov-file#retries)
+    * [.NET reference documentation](https://learn.microsoft.com/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview)
+    * [Java reference documentation](https://learn.microsoft.com/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
+    * [JavaScript reference documetnation](https://learn.microsoft.com/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview#@azure-openai-openaiclientoptions-retryoptions)
+    * [GO reference documntation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#ChatCompletionsOptions)
