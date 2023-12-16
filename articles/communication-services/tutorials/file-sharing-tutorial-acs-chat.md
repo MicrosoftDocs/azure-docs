@@ -91,7 +91,7 @@ Use the `npm install` command to install the beta Azure Communication Services U
 
 ```bash
 
-npm install @azure/communication-react@1.5.1-beta.5
+npm install @azure/communication-react@1.11.0-beta.1
 
 ```
 
@@ -100,8 +100,8 @@ you can most consistently use the API from the core libraries in your applicatio
 
 ```bash
 
-npm install @azure/communication-calling@1.13.2-beta.1
-npm install @azure/communication-chat@1.3.2-beta.1
+npm install @azure/communication-calling@1.19.1-beta.2
+npm install @azure/communication-chat@1.4.0-beta.2
 
 ```
 
