@@ -4,7 +4,7 @@ description: Deploy a Linux-based web app to two different Azure regions using a
 ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.custom: "seodec18, mvc"
 ms.service: container-registry
 ---
