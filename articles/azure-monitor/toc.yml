@@ -35,6 +35,8 @@ items:
       href: essentials/tutorial-metrics.md
     - name: Collect and view resource logs
       href: essentials/tutorial-resource-logs.md 
+    - name: Alerting options
+      href: alerts/alert-options.md
   - name: Monitor applications with Application Insights
     items:
     - name: Application Insights overview
