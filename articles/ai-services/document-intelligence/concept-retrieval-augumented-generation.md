@@ -63,7 +63,7 @@ The Document Intelligence Layout model **2023-10-31-preview** supports the follo
 
 * [REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&branch=main&tabs=HTTP&preserve-view=true)
 
-* [.NET, Java, JavaScript, and Python programming language SDKs.](sdk-overview-v4-0.md#supported-programming-languages?view=doc-intel-4.0.0&preserve-view=true)
+* [.NET, Java, JavaScript, and Python programming language SDKs.](sdk-overview-v4-0.md#supported-programming-languages)
 
 **Ready to begin?**
 
