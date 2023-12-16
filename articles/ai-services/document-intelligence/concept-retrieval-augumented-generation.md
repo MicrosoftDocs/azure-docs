@@ -15,7 +15,7 @@ monikerRange: '>=doc-intel-3.0.0'
 
 <!-- markdownlint-disable MD036 -->
 
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v4.0 (preview)**
+**This content applies to:** ![checkmark](media/yes-icon.png) **v4.0 (preview)**
 
 Retrieval Augmented Generation (RAG) is a document generative AI solution that combines a pretrained Large Language Model (LLM) like ChatGPT with an external data retrieval system to generate an enhanced response incorporating new data outside of the original training data. Adding an information retrieval system to your applications enables you to chat with your documents, generate captivating content, and access the power of Azure OpenAI models for your data. You also have more control over the data used by the LLM as it formulates a response.
 
@@ -101,7 +101,7 @@ You can follow the [Document Intelligence studio quickstart](quickstarts/try-doc
 
 ## Build document chat with semantic chunking
 
-* [Azure OpenAI on your data](../openai/concepts/use-your-data) enables you to run supported chat on your documents.  Azure OpenAI on your data applies the Document Intelligence layout model to extract and parse document data by chunking long text based on tables and paragraphs. You can also customize your chunking strategy using [Azure OpenAI sample scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) located in our GitHub repo.
+* [Azure OpenAI on your data](../openai/concepts/use-your-data.md) enables you to run supported chat on your documents.  Azure OpenAI on your data applies the Document Intelligence layout model to extract and parse document data by chunking long text based on tables and paragraphs. You can also customize your chunking strategy using [Azure OpenAI sample scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) located in our GitHub repo.
 
 * Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. This [notebook](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Quickstart%20-%20Document%20Question%20and%20Answering%20with%20PDFs/) shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
 
