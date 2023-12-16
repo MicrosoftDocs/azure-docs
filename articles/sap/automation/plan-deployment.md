@@ -4,7 +4,7 @@ description: Prepare for using SAP Deployment Automation Framework. Steps includ
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 12/14/2023
 ms.topic: conceptual
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -12,35 +12,40 @@ ms.subservice: sap-automation
 
 # Plan your deployment of the SAP automation framework
 
-There are multiple considerations for planning an SAP deployment and running [SAP Deployment Automation Framework](deployment-framework.md) like deployment mechanisms, credentials management, and virtual network design.
+There are multiple considerations for planning SAP deployments using the [SAP Deployment Automation Framework](deployment-framework.md). These include subscription planning, credentials management virtual network design.
 
 For generic SAP on Azure design considerations, see [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap).
 
 > [!NOTE]
 > The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP Deployment Automation Framework repository](https://github.com/Azure/SAP-automation-samples/tree/main/Terraform/WORKSPACES). The templates use parameter files with your system-specific information to perform the deployment.
 
+## Subscription planning
+
+It's recommended to deploy the control plane and the workload zones in different subscriptions. The control plane should reside in a hub subscription that is used to host the management components of the SAP automation framework. 
+
+The SAP systems should be hosted in spoke subscriptions, which are dedicated to the SAP systems. An example of partitioning the systems would be to host the development systems in a separate subscription with a dedicated virtual network that would host the development systems, the production systems would be hosted in their own subscription with a dedicated virtual network for the production systems.
+
+This approach provides a both a security boundary and allows for clear separation of duties and responsibilities. For example, the SAP Basis team can deploy systems into the workload zones, and the infrastructure team can manage the control plane. 
+
+
 ## Control plane planning
 
-You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure-hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SAP Deployment Automation Framework](configure-control-plane.md).
+You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure-hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SAP Deployment Automation Framework](configure-devops.md). For setting up a Linux virtual machines as the deployer, see [Set up Linux virtual machines for SAP Deployment Automation Framework](deploy-control-plane.md).
 
 Before you design your control plane, consider the following questions:
 
-* In which regions do you need to deploy workloads?
+* In which regions do you need to deploy SAP systems?
 * Is there a dedicated subscription for the control plane?
 * Is there a dedicated deployment credential (service principal) for the control plane?
 * Are you deploying to an existing virtual network or creating a new virtual network?
 * How is outbound internet provided for the virtual machines?
 * Are you going to deploy Azure Firewall for outbound internet connectivity?
 * Are private endpoints required for storage accounts and the key vault?
-* Are you going to use an existing private DNS zone for the virtual machines or will you use the control plane for it?
+* Are you going to use an existing private DNS zone for the virtual machines or will you use the control plane for hosting Private DNS?
 * Are you going to use Azure Bastion for secure remote access to the virtual machines?
 * Are you going to use the SAP Deployment Automation Framework configuration web application for performing configuration and deployment activities?
 
 ### Control plane
-
-If you're supporting multiple workload zones in a region, use a unique identifier for your control plane. Don't use the same identifier as for the workload zone. For example, use `MGMT` for management purposes.
-
-The automation framework also supports having the control plane in separate subscriptions than the workload zones.
 
 The control plane provides the following services:
 
@@ -50,7 +55,7 @@ The control plane provides the following services:
 - Azure Bastion for providing secure remote access to the deployed virtual machines.
 - An SAP Deployment Automation Framework configuration Azure web application for performing configuration and deployment activities.
 
-The control plane is defined by using two configuration files.
+The control plane is defined by using two configuration files, one for the deployer and one for the SAP Library.
 
 The deployment configuration file defines the region, environment name, and virtual network information. For example:
 
@@ -70,14 +75,16 @@ management_firewall_subnet_address_prefix = "10.170.20.0/26"
 bastion_deployment = true
 management_bastion_subnet_address_prefix = "10.170.20.128/26"
 
+use_webapp = true
+
 webapp_subnet_address_prefix = "10.170.20.192/27"
 deployer_assign_subscription_permissions = true
 
 deployer_count = 2
 
-use_service_endpoint = true
-use_private_endpoint = true
-enable_firewall_for_keyvaults_and_storage = true
+use_service_endpoint = false
+use_private_endpoint = false
+public_network_access_enabled = true
 
 ```
 
@@ -106,11 +113,7 @@ The SAP library resource group provides storage for SAP installation media, Bill
 
 ## Workload zone planning
 
-Most SAP application landscapes are partitioned in different tiers. In SAP Deployment Automation Framework, these tiers are called workload zones. For example, you might have different workload zones for development, quality assurance, and production. For more information, see [Workload zones](deployment-framework.md#deployment-components).
-
-The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` is for a development environment hosted in the West Europe region by using the SAP01 virtual network. `PRD-WEEU-SAP02-INFRASTRUCTURE` is for a production environment hosted in the West Europe region by using the SAP02 virtual network.
-
-The `SAP01` and `SAP02` designations define the logical names for the Azure virtual networks. They can be used to further partition the environments. Suppose you need two Azure virtual networks for the same workload zone. For example, you might have a multi-subscription scenario where you host development environments in two subscriptions. You can use the different logical names for each virtual network. For example, you can use `DEV-WEEU-SAP01-INFRASTRUCTURE` and `DEV-WEEU-SAP02-INFRASTRUCTURE`.
+Most SAP application landscapes are partitioned in different tiers. In SAP Deployment Automation Framework, these tiers are called workload zones. For example, you might have different workload zones for development, quality assurance, and production systems. For more information, see [Workload zones](deployment-framework.md#deployment-components).
 
 The workload zone provides the following shared services for the SAP applications:
 
@@ -124,8 +127,11 @@ Before you design your workload zone layout, consider the following questions:
 * In which regions do you need to deploy workloads?
 * How many workload zones does your scenario require (development, quality assurance, and production)?
 * Are you deploying into new virtual networks or are you using existing virtual networks?
-* How is DNS configured (integrated with existing DNS or deployed a private DNS zone in the control plane)?
 * What storage type do you need for the shared storage (Azure Files NFS or Azure NetApp Files)?
+
+The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` is for a development environment hosted in the West Europe region by using the SAP01 virtual network. `PRD-WEEU-SAP02-INFRASTRUCTURE` is for a production environment hosted in the West Europe region by using the SAP02 virtual network.
+
+The `SAP01` and `SAP02` designations define the logical names for the Azure virtual networks. They can be used to further partition the environments. Suppose you need two Azure virtual networks for the same workload zone. For example, you might have a multi-subscription scenario where you host development environments in two subscriptions. You can use the different logical names for each virtual network. For example, you can use `DEV-WEEU-SAP01-INFRASTRUCTURE` and `DEV-WEEU-SAP02-INFRASTRUCTURE`.
 
 For more information, see [Configure a workload zone deployment for automation](deploy-workload-zone.md).
 
