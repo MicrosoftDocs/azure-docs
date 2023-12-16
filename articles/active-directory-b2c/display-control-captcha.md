@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Verify CAPTCHA code using CAPTCHA display control
 
-Use CAPTCHA display controls to generate a captcha code string, then verifies it by asking the user to enter what they see or hear. To display a CAPTCHA display control, you reference it from a [self-asserted technical profile](self-asserted-technical-profile.md), and you must set the self-asserted technical profile's `setting.enableCaptchaChallenge` metadata to *true*.
+Use CAPTCHA display controls to generate a captcha code string, then verify it by asking the user to enter what they see or hear. To display a CAPTCHA display control, you reference it from a [self-asserted technical profile](self-asserted-technical-profile.md), and you must set the self-asserted technical profile's `setting.enableCaptchaChallenge` metadata value to *true*.
 
 The screenshot shows the CAPTCHA display control shown on a sign-up page:
 
