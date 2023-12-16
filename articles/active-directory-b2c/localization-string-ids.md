@@ -652,16 +652,21 @@ The following IDs are used for a [CAPTCHA display control](display-control-captc
 | `captchatype_audio_help` | Enter the characters you hear | The placeholder text in the input box where the user inputs the CAPTCHA code if the user switches to audio mode. |
 | `charsnotmatched_error` | The characters did not match for CAPTCHA challenge. Please try again | The message to display to the user if they enter a wrong CAPTCHA code. |
 | `api_error` | Api error on CAPTCHA control | The message to display to the user if an error occurs while Azure AD B2C attempts to validate the CAPTCHA code. |
-| `captcha_resolved` | Success! | The characters did not match for CAPTCHA challenge. Please try again | The message to display to the user if they enter a correct CAPTCHA code. |
+| `captcha_resolved` | Success! | The message to display to the user if they enter a correct CAPTCHA code. |
 
 ### CAPTCHA display control example
 
 ```xml
       <LocalizedResources Id="api.localaccountsignup.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="" ElementId="" StringId=""></LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="">[Insert default message].</LocalizedString>
-         
+          <LocalizedString ElementType="UxElement" StringId="newCaptcha_arialabel">Create new CAPTCHA</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="switchCaptchaType_title">Switch CAPTCHA type to {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement"  StringId="captchatype_visual_help">Enter the characters you see</LocalizedString>
+          <LocalizedString ElementType="UxElement"  StringId="captchatype_audio_title">Press audio button to play the challenge</LocalizedString>
+          <LocalizedString ElementType="UxElement"  StringId="captchatype_audio_help"> Enter the characters you hear</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage"  StringId="charsnotmatched_error"> The characters did not match for CAPTCHA challenge. Please try again</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage"  StringId="api_error"> Api error on CAPTCHA control</LocalizedString>
+          <LocalizedString ElementType="UxElement"  StringId="captcha_resolved"> Success!</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
 ```
