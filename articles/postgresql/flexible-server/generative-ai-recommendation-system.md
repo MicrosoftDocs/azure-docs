@@ -15,7 +15,7 @@ ms.topic: tutorial
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This hands-on tutorial shows you how to build a recommender application using Azure Database for PostgreSQL Flexible Server and Azure OpenAI service. Recommendations have applications in different domains – service providers frequently tend to provide recommendations for products and services they offer based on prior history and contextual information collected from the customer and environment. 
+This hands-on tutorial shows you how to build a recommender application using Azure Database for PostgreSQL flexible server and Azure OpenAI service. Recommendations have applications in different domains – service providers frequently tend to provide recommendations for products and services they offer based on prior history and contextual information collected from the customer and environment. 
 
 There are different ways to model recommendation systems. This article explores the simplest form – recommendation based one product corresponding to, say, a prior purchase. This tutorial uses the recipe dataset used in the [Semantic Search](./generative-ai-semantic-search.md) article and the recommendation is for recipes based on a recipe a customer liked or searched for before. 
 
@@ -29,7 +29,7 @@ There are different ways to model recommendation systems. This article explores 
 
 ## Enable the `azure_ai` and `pgvector` extensions
 
-Before you can enable `azure_ai` and `pgvector` on your Flexible Server, you need to add them to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
+Before you can enable `azure_ai` and `pgvector` on your Azure Database for PostgreSQL flexible server instance, you need to add them to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
 
 Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
@@ -203,13 +203,13 @@ and explore the results:
 
 ## Next steps
 
-You learned how to perform semantic search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI.
+You learned how to perform semantic search with Azure Database for PostgreSQL flexible server and Azure OpenAI.
 
 > [!div class="nextstepaction"]
 > [Generate vector embeddings with Azure OpenAI](./generative-ai-azure-openai.md)
 
 > [!div class="nextstepaction"]
-> [Integrate Azure Database for PostgreSQL Flexible Server with Azure Cognitive Services](./generative-ai-azure-cognitive.md)
+> [Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services](./generative-ai-azure-cognitive.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about vector similarity search using `pgvector`](./how-to-use-pgvector.md)

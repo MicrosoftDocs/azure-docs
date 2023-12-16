@@ -16,9 +16,9 @@ ms.topic: how-to
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The `azure_ai` extension adds the ability to use [large language models](/training/modules/fundamentals-generative-ai/3-language%20models) (LLMs) and build [generative AI](/training/paths/introduction-generative-ai/) applications within an Azure Database for PostgreSQL Flexible Server database by integrating the power of [Azure AI services](/azure/ai-services/what-are-ai-services). Generative AI is a form of artificial intelligence in which LLMs are trained to generate original content based on natural language input. Using the `azure_ai` extension allows you to use generative AI's natural language query processing capabilities directly from the database.
+The `azure_ai` extension adds the ability to use [large language models](/training/modules/fundamentals-generative-ai/3-language%20models) (LLMs) and build [generative AI](/training/paths/introduction-generative-ai/) applications within an Azure Database for PostgreSQL flexible server database by integrating the power of [Azure AI services](/azure/ai-services/what-are-ai-services). Generative AI is a form of artificial intelligence in which LLMs are trained to generate original content based on natural language input. Using the `azure_ai` extension allows you to use generative AI's natural language query processing capabilities directly from the database.
 
-This tutorial showcases adding rich AI capabilities to an Azure Database for PostgreSQL Flexible Server using the `azure_ai` extension. It covers integrating both [Azure OpenAI](/azure/ai-services/openai/overview) and the [Azure AI Language service](/azure/ai-services/language-service/) into your database using the extension.
+This tutorial showcases adding rich AI capabilities to an Azure Database for PostgreSQL flexible server instance using the `azure_ai` extension. It covers integrating both [Azure OpenAI](/azure/ai-services/openai/overview) and the [Azure AI Language service](/azure/ai-services/language-service/) into your database using the extension.
 
 ## Prerequisites
 
@@ -30,15 +30,15 @@ This tutorial showcases adding rich AI capabilities to an Azure Database for Pos
 
    - An [Azure AI Language](/azure/ai-services/language-service/overview) service. If you don't have a resource, you can [create a Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal by following the instructions provided in the [quickstart for summarization](/azure/ai-services/language-service/summarization/custom/quickstart#create-a-new-resource-from-the-azure-portal) document. You can use the free pricing tier (`Free F0`) to try the service and upgrade later to a paid tier for production.
 
-   - An Azure Database for PostgreSQL Flexible Server instance in your Azure subscription. If you don't have a resource, use either the [Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal) or the [Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli) guide for creating one.
+   - An Azure Database for PostgreSQL flexible server instance in your Azure subscription. If you don't have a resource, use either the [Azure portal](/azure/postgresql/flexible-server/quickstart-create-server-portal) or the [Azure CLI](/azure/postgresql/flexible-server/quickstart-create-server-cli) guide for creating one.
 
 ## Connect to the database using `psql` in the Azure Cloud Shell
 
-Open the [Azure Cloud Shell](https://shell.azure.com/) in a web browser. Select **Bash** as the environment and, if prompted, select the subscription you used for your Azure Database for PostgreSQL Flexible Server database, then select **Create storage**.
+Open the [Azure Cloud Shell](https://shell.azure.com/) in a web browser. Select **Bash** as the environment and, if prompted, select the subscription you used for your Azure Database for PostgreSQL flexible server database, then select **Create storage**.
 
 To retrieve the database connection details:
 
-1. Navigate to your Azure Database for PostgreSQL Flexible Server resource in the [Azure portal](https://portal.azure.com/).
+1. Navigate to your Azure Database for PostgreSQL flexible server resource in the [Azure portal](https://portal.azure.com/).
 
 1. From the left-hand navigation menu, select **Connect** under **Settings** and copy the **Connection details** block.
 
@@ -70,7 +70,7 @@ To retrieve the database connection details:
 
 The `azure_ai` extension allows you to integrate Azure OpenAI and Azure Cognitive Services into your database. To enable the extension in your database, follow the steps below:
 
-1. Add the extension to your allowlist as described in [how to use PostgreSQL extensions](/azure/postgresql/flexible-server/concepts-extensions#how-to-use-postgresql-extensions).
+1. Add the extension to your allowlist as described in [Extensions - Azure Database for PostgreSQL - Flexible Server](concepts-extensions.md#how-to-use-postgresql-extensions).
 
 1. Verify that the extension was successfully added to the allowlist by running the following from the `psql` command prompt:
 
@@ -119,7 +119,7 @@ The `azure_ai.set_setting()` function lets you set the endpoint and critical val
 
 > [!IMPORTANT]
 >  
-> Because the connection information for Azure AI services, including API keys, is stored in a configuration table in the database, the `azure_ai` extension defines a role called `azure_ai_settings_manager` to ensure this information is protected and accessible only to users assigned that role. This role enables reading and writing of settings related to the extension. Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_setting()` and `azure_ai.set_setting()` functions. In the Azure Database for PostgreSQL Flexible Server, all admin users are assigned the `azure_ai_settings_manager` role.
+> Because the connection information for Azure AI services, including API keys, is stored in a configuration table in the database, the `azure_ai` extension defines a role called `azure_ai_settings_manager` to ensure this information is protected and accessible only to users assigned that role. This role enables reading and writing of settings related to the extension. Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_setting()` and `azure_ai.set_setting()` functions. In Azure Database for PostgreSQL flexible server, all admin users are assigned the `azure_ai_settings_manager` role.
 
 ## Generate vector embeddings with Azure OpenAI
 
@@ -255,7 +255,7 @@ The query uses the `<=>` [vector operator](https://github.com/pgvector/pgvector#
 
 The Azure AI services integrations included in the `azure_cognitive` schema of the `azure_ai` extension provide a rich set of AI Language features accessible directly from the database. The functionalities include sentiment analysis, language detection, key phrase extraction, entity recognition, and text summarization. Access to these capabilities is enabled through the [Azure AI Language service](/azure/ai-services/language-service/overview).
 
-To review the complete Azure AI capabilities accessible through the extension, view the [Integrate Azure Database for PostgreSQL Flexible Server with Azure Cognitive Services](generative-ai-azure-cognitive.md).
+To review the complete Azure AI capabilities accessible through the extension, view the [Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services](generative-ai-azure-cognitive.md).
 
 ### Set the Azure AI Language service endpoint and key
 
@@ -326,6 +326,7 @@ In the output, you might notice a warning about an invalid document for which an
 
 ```sql
 SELECT bill_id, one_sentence_summary FROM bill_summaries WHERE one_sentence_summary is NULL;
+```
 
 You can then query the `bill_summaries` table to view the new, one-sentence summaries generated by the `azure_ai` extension for the other records in the table.
 
@@ -339,7 +340,7 @@ Congratulations, you just learned how to use the `azure_ai` extension to integra
 
 ## Related content
 
-- [How to use PostgreSQL extensions in Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/concepts-extensions)
+- [How to use PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-extensions)
 - [Learn how to generate embeddings with Azure OpenAI](/azure/ai-services/openai/how-to/embeddings)
 - [Azure OpenAI Service embeddings models](/azure/ai-services/openai/concepts/models#embeddings-models-1)
 - [Understand embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)

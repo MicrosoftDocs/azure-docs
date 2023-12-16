@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article introduces common scenarios and root causes that might lead to high memory utilization in [Azure Database for PostgreSQL - Flexible Server](overview.md).
+This article introduces common scenarios and root causes that might lead to high memory utilization in [Azure Database for PostgreSQL flexible server](overview.md).
 
 In this article, you learn:
 
@@ -24,7 +24,7 @@ In this article, you learn:
 
 ## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal the probable root cause and recommendations to the mitigate high memory scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL flexible server portal the probable root cause and recommendations to the mitigate high memory scenario can be found. How to setup the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Tools to identify high memory utilization
 
@@ -76,7 +76,7 @@ For example, consider a scenario where there are three autovacuum workers runnin
 
 If `maintenance_work_mem` is set to 1 GB, then all sessions combined will use 3 GB of memory.
 
-A high `maintenance_work_mem` value along with multiple running sessions for vacuuming/index creation/adding foreign keys can cause high memory utilization. The maximum allowed value for the `maintenance_work_mem` server parameter in Azure Database for Flexible Server  is 2 GB.
+A high `maintenance_work_mem` value along with multiple running sessions for vacuuming/index creation/adding foreign keys can cause high memory utilization. The maximum allowed value for the `maintenance_work_mem` server parameter in Azure Database for PostgreSQL flexible server is 2 GB.
 
 #### Shared buffers
 
@@ -86,7 +86,7 @@ A reasonable setting for shared buffers is 25% of RAM. Setting a value of greate
 
 ### Max connections
 
-All new and idle connections on a Postgres database consume up to 2 MB of memory. One way to monitor connections is by using the following query:
+All new and idle connections on an Azure Database for PostgreSQL flexible server database consume up to 2 MB of memory. One way to monitor connections is by using the following query:
 
 ```postgresql
 select count(*) from pg_stat_activity;
@@ -102,7 +102,7 @@ For more details on PgBouncer, review:
 
 [Best Practices](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/connection-handling-best-practice-with-postgresql/ba-p/790883).
 
-Azure Database for Flexible Server offers PgBouncer as a built-in connection pooling solution. For more information, see [PgBouncer](./concepts-pgbouncer.md).
+Azure Database for PostgreSQL flexible server offers PgBouncer as a built-in connection pooling solution. For more information, see [PgBouncer](./concepts-pgbouncer.md).
 
 ### Explain Analyze
 

@@ -15,11 +15,11 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-Azure Database for PostgreSQL extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md) and [Azure Cognitive Services](https://azure.microsoft.com/products/ai-services/cognitive-search/) simplifying the development process allowing seamless integration into those services. 
+Azure Database for PostgreSQL flexible server extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md) and [Azure Cognitive Services](https://azure.microsoft.com/products/ai-services/cognitive-search/) simplifying the development process allowing seamless integration into those services. 
 
 ## Enable the `azure_ai` extension
 
-Before you can enable `azure_ai` on your Flexible Server, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
+Before you can enable `azure_ai` on your Azure Database for PostgreSQL flexible server instance, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
 
 > [!TIP]
 > You might also want to enable the [`pgvector` extension](./how-to-use-pgvector.md) as it is commonly used with `azure_ai`.
@@ -123,7 +123,7 @@ select azure_ai.version();
 
 ## Permissions
 
-The `azure_ai` extension defines a role called `azure_ai_settings_manager`, which enables reading and writing of settings related to the extension.  Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_settings` and `azure_ai.set_settings` functions. In PostgreSQL Flexible Server, all admin users have the `azure_ai_settings_manager` role assigned.
+The `azure_ai` extension defines a role called `azure_ai_settings_manager`, which enables reading and writing of settings related to the extension.  Only superusers and members of the `azure_ai_settings_manager` role can invoke the `azure_ai.get_settings` and `azure_ai.set_settings` functions. In Azure Database for PostgreSQL flexible server, all admin users have the `azure_ai_settings_manager` role assigned.
 
 ## Next steps
 

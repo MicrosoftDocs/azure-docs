@@ -15,19 +15,19 @@ ms.topic: how-to
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-This article describes how you can create a Microsoft Entra ID enabled database roles within an Azure Database for PostgreSQL server.
+This article describes how you can create a Microsoft Entra ID enabled database roles within an Azure Database for PostgreSQL flexible server instance.
 
 > [!NOTE]  
-> This guide assumes you already enabled Microsoft Entra authentication on your PostgreSQL Flexible server.
+> This guide assumes you already enabled Microsoft Entra authentication on your Azure Database for PostgreSQL flexible server instance.
 > See [How to Configure Microsoft Entra authentication](./how-to-configure-sign-in-azure-ad-authentication.md)
 
 If you like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 
 <a name='create-or-delete-azure-ad-administrators-using-azure-portal-or-azure-resource-manager-arm-api'></a>
 
-## Create or Delete Microsoft Entra administrators using Azure portal or Azure Resource Manager (ARM) API
+## Create or delete Microsoft Entra administrators using Azure portal or Azure Resource Manager (ARM) API
 
-1. Open **Authentication** page for your Azure Database for PostgreSQL Flexible Server in Azure portal
+1. Open the **Authentication** page for your Azure Database for PostgreSQL flexible server instance in the Azure portal.
 1. To add an administrator - select **Add Microsoft Entra Admin**  and select a user, group, application or a managed identity from the current Microsoft Entra tenant.
 1. To remove an administrator - select **Delete** icon for the one to remove.
 1. Select **Save** and wait for provisioning operation to completed.
@@ -42,18 +42,18 @@ If you like to learn about how to create and manage Azure subscription users and
 
 ## Manage Microsoft Entra roles using SQL
 
-Once first Microsoft Entra administrator is created from the Azure portal or API, you can use the administrator role to manage Microsoft Entra roles in your Azure Database for PostgreSQL Flexible Server.
+Once first Microsoft Entra administrator is created from the Azure portal or API, you can use the administrator role to manage Microsoft Entra roles in your Azure Database for PostgreSQL flexible server instance.
 
-We recommend getting familiar with [Microsoft identity platform](../../active-directory/develop/v2-overview.md). for best use of Microsoft Entra integration with Azure Database for PostgreSQL Flexible Servers.
+We recommend getting familiar with [Microsoft identity platform](../../active-directory/develop/v2-overview.md) for best use of Microsoft Entra integration with Azure Database for PostgreSQL flexible server.
 
-### Principal Types
+### Principal types
 
-Azure Database for PostgreSQL Flexible servers internally stores mapping between PostgreSQL database roles and unique identifiers of AzureAD objects.
+Azure Database for PostgreSQL flexible server internally stores mapping between PostgreSQL database roles and unique identifiers of AzureAD objects.
 Each PostgreSQL database role can be mapped to one of the following Microsoft Entra object types:
 
 1. **User** - Including Tenant local and guest users.
 1. **Service Principal**. Including [Applications and Managed identities](../../active-directory/develop/app-objects-and-service-principals.md)
-1. **Group**  When a PostgreSQL Role is linked to a Microsoft Entra group, any user or service principal member of this group can connect to the Azure Database for PostgreSQL Flexible Server instance with the group role.
+1. **Group**  When a PostgreSQL role is linked to a Microsoft Entra group, any user or service principal member of this group can connect to the Azure Database for PostgreSQL flexible server instance with the group role.
 
 <a name='list-azure-ad-roles-using-sql'></a>
 
@@ -107,7 +107,7 @@ For example: select * from pgaadauth_create_principal_with_oid('accounting_appli
 
 ## Enable Microsoft Entra authentication for an existing PostgreSQL role using SQL
 
-Azure Database for PostgreSQL Flexible Servers uses Security Labels associated with database roles to store Microsoft Entra ID mapping.
+Azure Database for PostgreSQL flexible server uses security labels associated with database roles to store Microsoft Entra ID mapping.
 
 You can use the following SQL to assign security label:
 

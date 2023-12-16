@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article provides an overview of the autovacuum feature for [Azure Database for PostgreSQL - Flexible Server](overview.md) and the feature troubleshooting guides that are available to monitor the database bloat, autovacuum blockers and also information around how far the database is from emergency or wraparound situation.
+This article provides an overview of the autovacuum feature for [Azure Database for PostgreSQL flexible server](overview.md) and the feature troubleshooting guides that are available to monitor the database bloat, autovacuum blockers and also information around how far the database is from emergency or wraparound situation.
 
 ## What is autovacuum
 
@@ -147,7 +147,7 @@ Continuously running autovacuum might affect CPU and IO utilization on the serve
 
 Autovacuum daemon uses `autovacuum_work_mem` that is by default set to `-1` meaning `autovacuum_work_mem` would have the same value as the parameter `maintenance_work_mem`. This document assumes `autovacuum_work_mem` is set to `-1` and `maintenance_work_mem` is used by the autovacuum daemon.
 
-If `maintenance_work_mem` is low, it might be increased to up to 2 GB on Flexible Server. A general rule of thumb is to allocate 50 MB to `maintenance_work_mem` for every 1 GB of RAM.
+If `maintenance_work_mem` is low, it might be increased to up to 2 GB on Azure Database for PostgreSQL flexible server. A general rule of thumb is to allocate 50 MB to `maintenance_work_mem` for every 1 GB of RAM.
 
 #### Large number of databases
 
@@ -286,7 +286,7 @@ Autovacuum will run on tables with an insert-only workload. Two new server p
 
 ## Troubleshooting guides
 
-Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL - Flexible Server portal it is possible to monitor bloat at database or individual schema level along with identifying potential blockers to autovacuum process. Two troubleshooting guides are available first one is autovacuum monitoring that can be used to monitor bloat at database or individual schema level. The second troubleshooting guide is autovacuum blockers and wraparound which helps to identify potential autovacuum blockers along with information on how far the databases on the server are from wraparound or emergency situation. The troubleshooting guides also share recommendations to mitigate potential issues. How to set up the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
+Using the feature troubleshooting guides which is available on the Azure Database for PostgreSQL flexible server portal it is possible to monitor bloat at database or individual schema level along with identifying potential blockers to autovacuum process. Two troubleshooting guides are available first one is autovacuum monitoring that can be used to monitor bloat at database or individual schema level. The second troubleshooting guide is autovacuum blockers and wraparound which helps to identify potential autovacuum blockers along with information on how far the databases on the server are from wraparound or emergency situation. The troubleshooting guides also share recommendations to mitigate potential issues. How to set up the troubleshooting guides to use them please follow [setup troubleshooting guides](how-to-troubleshooting-guides.md).
 
 ## Related content
 

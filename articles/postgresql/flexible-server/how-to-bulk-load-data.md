@@ -16,7 +16,7 @@ ms.custom: template-how-to
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article discusses various methods for loading data in bulk in Azure Database for PostgreSQL - Flexible Server, along with best practices for both initial data loads in empty databases and incremental data loads.
+This article discusses various methods for loading data in bulk in Azure Database for PostgreSQL flexible server, along with best practices for both initial data loads in empty databases and incremental data loads.
 
 ## Loading methods
 
@@ -78,20 +78,20 @@ To create an unlogged table or change an existing table to an unlogged table, us
 > [!NOTE]
 > Follow the recommendations here only if there's enough memory and disk space.
 
-* `maintenance_work_mem`: Can be set to a maximum of 2 gigabytes (GB) on a flexible server. `maintenance_work_mem` helps in speeding up autovacuum, index, and foreign key creation.
+* `maintenance_work_mem`: Can be set to a maximum of 2 gigabytes (GB) on an Azure Database for PostgreSQL flexible server instance. `maintenance_work_mem` helps in speeding up autovacuum, index, and foreign key creation.
 
-* `checkpoint_timeout`: On a flexible server, the `checkpoint_timeout` value can be increased to a maximum of 24 hours from the default setting of 5 minutes. We recommend that you increase the value to 1 hour before you load data initially on the flexible server.
+* `checkpoint_timeout`: On an Azure Database for PostgreSQL flexible server instance, the `checkpoint_timeout` value can be increased to a maximum of 24 hours from the default setting of 5 minutes. We recommend that you increase the value to 1 hour before you load data initially on the Azure Database for PostgreSQL flexible server instance.
 
 * `checkpoint_completion_target`: We recommend a value of 0.9.
 
-* `max_wal_size`: Can be set to the maximum allowed value on a flexible server, which is 64 GB while you're doing the initial data load.
+* `max_wal_size`: Can be set to the maximum allowed value on an Azure Database for PostgreSQL flexible server instance, which is 64 GB while you're doing the initial data load.
 
 * `wal_compression`: Can be turned on. Enabling this parameter can incur some extra CPU cost spent on the compression during write-ahead log (WAL) logging and on the decompression during WAL replay.
 
 
-### Flexible server recommendations
+### Azure Database for PostgreSQL flexible server recommendations
 
-Before you begin an initial data load on the flexible server, we recommend that you:
+Before you begin an initial data load on the Azure Database for PostgreSQL flexible server instance, we recommend that you:
 
 - Disable high availability on the server. You can enable it after the initial load is completed on the primary.
 - Create read replicas after the initial data load is completed.
@@ -183,9 +183,9 @@ The `number_of_scans`, `tuples_read`, and `tuples_fetched` columns would indicat
 > [!NOTE]
 > Follow the recommendations in the following parameters only if there's enough memory and disk space.
 
-* `maintenance_work_mem`: This parameter can be set to a maximum of 2 GB on the flexible server. `maintenance_work_mem` helps speed up index creation and foreign key additions.
+* `maintenance_work_mem`: This parameter can be set to a maximum of 2 GB on the Azure Database for PostgreSQL flexible server instance. `maintenance_work_mem` helps speed up index creation and foreign key additions.
 
-* `checkpoint_timeout`: On the flexible server, the `checkpoint_timeout` value can be increased to 10 or 15 minutes from the default setting of 5 minutes. Increasing `checkpoint_timeout` to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there's a crash. We recommend careful consideration before you make the change.
+* `checkpoint_timeout`: On the Azure Database for PostgreSQL flexible server instance, the `checkpoint_timeout` value can be increased to 10 or 15 minutes from the default setting of 5 minutes. Increasing `checkpoint_timeout` to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there's a crash. We recommend careful consideration before you make the change.
 
 * `checkpoint_completion_target`: We recommend a value of 0.9.
 

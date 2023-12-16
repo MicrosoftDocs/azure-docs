@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article shows you how to troubleshoot and identify slow-running queries using [Azure Database for PostgreSQL - Flexible Server](overview.md).
+This article shows you how to troubleshoot and identify slow-running queries using [Azure Database for PostgreSQL flexible server](overview.md).
 
 In a high CPU utilization scenario, in this article, you learn how to:
 
@@ -25,11 +25,11 @@ In a high CPU utilization scenario, in this article, you learn how to:
 
 ### Prerequisites
 
-One must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server. To enable troubleshooting guides, follow the steps mentioned [here](how-to-troubleshooting-guides.md).
+One must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL flexible server instance. To enable troubleshooting guides, follow the steps mentioned [here](how-to-troubleshooting-guides.md).
 
 To enable auto_explain extension, follow the steps below:
 
-1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters page on the Flexible Server portal
+1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters page on the Azure Database for PostgreSQL flexible server portal.
 
    
    :::image type="content" source="./media/how-to-identify-slow-queries/shared-preload-library.png" alt-text="Screenshot of server parameters page with shared preload libraries parameter." lightbox="./media/how-to-identify-slow-queries/shared-preload-library.png":::
@@ -37,7 +37,7 @@ To enable auto_explain extension, follow the steps below:
 > [!NOTE]  
 > Making this change will require a server restart.
 
-2. After the auto_explain extension is added to shared preload libraries and the server has restarted, change the below highlighted auto_explain server parameters to `ON` from the server parameters page on the Flexible Server portal and leave the remaining ones
+2. After the auto_explain extension is added to shared preload libraries and the server has restarted, change the below highlighted auto_explain server parameters to `ON` from the server parameters page on the Azure Database for PostgreSQL flexible server portal and leave the remaining ones
    with default values as shown below.
 
    :::image type="content" source="./media/how-to-identify-slow-queries/auto-explain-parameters.png" alt-text="Screenshot of server parameters page with auto_explain parameters." lightbox="./media/how-to-identify-slow-queries/auto-explain-parameters.png":::
@@ -51,7 +51,7 @@ With troubleshooting guides and auto_explain extension in place, we explain the 
 
 We have a scenario where CPU utilization has spiked to 90% and would like to know the root cause of the spike. To debug the scenario, follow the steps mentioned below.
 
-1. As soon as you're alerted by a CPU scenario, go to the troubleshooting guides available under the Help tab on the Flexible server portal overview page.
+1. As soon as you're alerted by a CPU scenario, go to the troubleshooting guides available under the Help tab on the Azure Database for PostgreSQL flexible server portal overview page.
 
       :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png" alt-text="Screenshot of troubleshooting guides menu." lightbox="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png":::
 
@@ -69,7 +69,7 @@ We have a scenario where CPU utilization has spiked to 90% and would like to kno
 
       :::image type="content" source="./media/how-to-identify-slow-queries/high-cpu-query.png" alt-text="Screenshot of troubleshooting guides menu - Top CPU consuming queries tab." lightbox="./media/how-to-identify-slow-queries/high-cpu-query.png":::
 
-5. Connect to azure_sys database and execute the query to retrieve actual query text using the script below
+5. Connect to azure_sys database and execute the query to retrieve actual query text using the following script.
 
 ```sql
     psql -h ServerName.postgres.database.azure.com -U AdminUsername -d azure_sys
@@ -88,7 +88,7 @@ GROUP BY c_w_id,c_id
 order by c_w_id;
 ```
 
-7. To understand what exact explain plan was generated, use Postgres logs. Auto explain extension would have logged an entry in the logs every time the query execution was completed during the interval. Select Logs section from the `Monitoring` tab from the Flexible server portal overview page.
+7. To understand what exact explain plan was generated, use Azure Database for PostgreSQL flexible server logs. Auto explain extension would have logged an entry in the logs every time the query execution was completed during the interval. Select Logs section from the `Monitoring` tab from the Azure Database for PostgreSQL flexible server portal overview page.
 
     :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu - Logs." lightbox="./media/how-to-identify-slow-queries/log-analytics-tab.png":::
  
@@ -97,7 +97,7 @@ order by c_w_id;
    
    :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-timerange.png" alt-text="Screenshot of troubleshooting guides menu - Logs Timerange." lightbox="./media/how-to-identify-slow-queries/log-analytics-timerange.png":::
 
-9. Execute the below query to retrieve the explain analyze output of the query identified.
+9. Execute the following query to retrieve the explain analyze output of the query identified.
 
 ```sql
 AzureDiagnostics
@@ -139,18 +139,18 @@ In the second scenario, a stored procedure execution time is found to be slow, a
 
 ### Prerequisites
 
-One must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL – Flexible Server as a prerequisite. To enable troubleshooting guides, follow the steps mentioned [here](how-to-troubleshooting-guides.md).
+One must enable troubleshooting guides and auto_explain extension on the Azure Database for PostgreSQL flexible server instance as a prerequisite. To enable troubleshooting guides, follow the steps mentioned [here](how-to-troubleshooting-guides.md).
 
 To enable auto_explain extension, follow the steps below:
 
-1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters page on the Flexible Server portal
+1. Add auto_explain extension to the shared preload libraries as shown below from the server parameters page on the Azure Database for PostgreSQL flexible server portal.
 
    :::image type="content" source="./media/how-to-identify-slow-queries/shared-preload-library.png" alt-text="Screenshot of server parameters page with shared preload libraries parameter - Procedure." lightbox="./media/how-to-identify-slow-queries/shared-preload-library.png":::
 
 > [!NOTE]  
 > Making this change will require a server restart.
 
-2. After the auto_explain extension is added to shared preload libraries and the server has restarted, change the below highlighted auto_explain server parameters to `ON` from the server parameters page on  the Flexible Server portal and leave the remaining ones
+2. After the auto_explain extension is added to shared preload libraries and the server has restarted, change the below highlighted auto_explain server parameters to `ON` from the server parameters page on  the Azure Database for PostgreSQL flexible server portal and leave the remaining ones
    with default values as shown below.
 
    :::image type="content" source="./media/how-to-identify-slow-queries/auto-explain-procedure-parameters.png" alt-text="Screenshot of server parameters blade with auto_explain parameters - Procedure." lightbox="./media/how-to-identify-slow-queries/auto-explain-procedure-parameters.png":::
@@ -165,7 +165,7 @@ With troubleshooting guides and auto_explain extension in place, we explain the 
 
 We have a scenario where CPU utilization has spiked to 90% and would like to know the root cause of the spike. To debug the scenario, follow the steps mentioned below.
 
-1. As soon as you're alerted by a CPU scenario, go to the troubleshooting guides available under the Help tab on the Flexible server portal overview page.
+1. As soon as you're alerted by a CPU scenario, go to the troubleshooting guides available under the Help tab on the Azure Database for PostgreSQL flexible server portal overview page.
 
       :::image type="content" source="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png" alt-text="Screenshot of troubleshooting guides menu." lightbox="./media/how-to-identify-slow-queries/troubleshooting-guides-blade.png":::
 
@@ -201,7 +201,7 @@ We have a scenario where CPU utilization has spiked to 90% and would like to kno
     call autoexplain_test ();
 ```
 
-7. To understand what exact explanations are generated for the queries that are part of the stored procedure, use Postgres logs. Auto explain extension would have logged an entry in the logs every time the query execution was completed during the interval. Select the Logs section from the `Monitoring` tab from the Flexible server portal overview page.
+7. To understand what exact explanations are generated for the queries that are part of the stored procedure, use Azure Database for PostgreSQL flexible server logs. Auto explain extension would have logged an entry in the logs every time the query execution was completed during the interval. Select the Logs section from the `Monitoring` tab from the Azure Database for PostgreSQL flexible server portal overview page.
 
     :::image type="content" source="./media/how-to-identify-slow-queries/log-analytics-tab.png" alt-text="Screenshot of troubleshooting guides menu - Logs." lightbox="./media/how-to-identify-slow-queries/log-analytics-tab.png":::
 
@@ -251,7 +251,7 @@ Finalize Aggregate (cost=180185.84..180185.85 rows=1 width=4) (actual time=10387
 ```
 
 > [!NOTE]  
-> please note for demonstration purpose explain analyze output of only few queries used in the procedure are shared. The idea is one can gather explain analyze output of all queries from the logs, and then identify the slowest of those and try to tune them.
+> Please note for demonstration purpose explain analyze output of only few queries used in the procedure are shared. The idea is one can gather explain analyze output of all queries from the logs, and then identify the slowest of those and try to tune them.
 
 ## Related content
 

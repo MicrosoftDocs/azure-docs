@@ -16,7 +16,7 @@ ms.date: 06/24/2022
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
 
-This article describes how you can configure an Azure Database for PostgreSQL server storage to grow without impacting the workload.
+This article describes how you can configure Azure Database for PostgreSQL server storage to grow without impacting the workload.
 
 For servers with more than 1 TiB of provisioned storage, the storage autogrow mechanism activates when the available space falls to less than 10% of the total capacity or 64 GiB of free space, whichever of the two values is smaller. Conversely, for servers with storage under 1 TB, this threshold is adjusted to 20% of the available free space or 64 GiB, depending on which of these values is smaller.
 
@@ -25,11 +25,11 @@ As an illustration, take a server with a storage capacity of 2 TiB ( greater tha
 
 ## Enable storage auto-grow for existing servers
 
-Follow these steps to enable Storage Autogrow on your Azure Database for PostgreSQL Flexible server.
+Follow these steps to enable Storage Autogrow on your Azure Database for PostgreSQL flexible server instance.
 
-1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL Flexible Server.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL flexible server instance.
 
-2. On the Flexible Server page, select **Compute + storage**
+2. On the Azure Database for PostgreSQL flexible server page, select **Compute + storage**
 
 3. In the **Storage Auto-growth** section, checkmark to enable storage autogrow.
 
