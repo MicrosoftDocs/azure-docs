@@ -182,6 +182,8 @@
       href: List-of-metrics-collected.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
+    - name: BareMetal Machine roles
+      href: reference-near-edge-baremetal-machine-roles.md
     - name: Near-edge storage
       href: reference-near-edge-storage.md
     - name: Limits & quotas

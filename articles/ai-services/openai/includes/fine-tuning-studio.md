@@ -17,7 +17,7 @@ keywords:
 - Read the [When to use Azure OpenAI fine-tuning guide](../concepts/fine-tuning-considerations.md).
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
-- An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models-preview) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
+- An Azure OpenAI resource that's located in a region that supports fine-tuning of the Azure OpenAI model. Check the [Model summary table and region availability](../concepts/models.md#fine-tuning-models) for the list of available models by region and supported functionality. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
 - If you do not already have access to view quota, and deploy models in Azure OpenAI Studio you will require [additional permissions](../how-to/role-based-access-control.md).  
 
@@ -32,7 +32,7 @@ The following models support fine-tuning:
 - `babbage-002`
 - `davinci-002`
 
-Fine-tuning of `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models-preview) to check which regions currently support fine-tuning.
+Fine-tuning of `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
 ## Review the workflow for Azure OpenAI Studio
 
@@ -150,7 +150,7 @@ You can create a custom model from one of the following available base models:
 - `davinci-002`
 - `gpt-35-turbo`
 
-For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md#fine-tuning-models-preview).
+For more information about our base models that can be fine-tuned, see [Models](../concepts/models.md#fine-tuning-models).
 
 :::image type="content" source="../media/fine-tuning/base-model.png" alt-text="Screenshot that shows how to select the base model in the Create custom model wizard in Azure OpenAI Studio." lightbox="../media/fine-tuning/base-model.png":::
 
@@ -368,4 +368,4 @@ In order to successfully access fine-tuning you need **Cognitive Services OpenAI
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
-- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models-preview)
+- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)
