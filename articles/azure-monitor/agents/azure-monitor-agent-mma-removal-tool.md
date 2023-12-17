@@ -2,7 +2,7 @@
 title: Azure Monitor Agent fMMA legacy agent removal tool
 description: This article describes a PowerShell script used to remove MMA agend from systems that have already been migrated to AMA.
 ms.topic: conceptual
-author: jeffwo-ms
+author: jeffreywolford
 ms.author: jeffwolford
 ms.reviewer: jeffwo
 ms.date: 12/16/2023 
@@ -17,7 +17,7 @@ The utility works in two steps
 2. Removal - Second the utility selects machines with both MMA and AMA and removes the MMA extension. You can disable this step and run after validating the list of machines. There is an option remove from machines that only have the MMA agent, but we recommended that you first migrate all dependencies to AMA and then remove MMA.  
 
 ## Prerequisites  
-You will do all the setup steps in a [PowerShell ISE console](PowerShellTips.md)  
+You will do all the setup steps in a [Visual Studio Code](https://code.visualstudio.com/) with the [PowerShell Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
  - Windows 10+ or Windows Server 2019+
  - PowerShell 5.0 or higher. Check the version by running `$PSVersionTable` and checking the PSVersion
  - PowerShell. The language must be set to mode `FullLanguage`. Check the mode by running `$ExecutionContext.SessionState.LanguageMode` in PowerShell. You can find more details [here](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes?source=recommendations&view=powershell-7.3) 
@@ -81,6 +81,7 @@ $SetupInstallation = Install-AzTSMMARemovalUtilitySolutionConsolidated `
 ```
 
 Parameters
+
 |Param Name | Description | Required |
 |:----|:----|:----:|
 |RemediationIdentityHostSubId| Subscription id to create remediation resources | Yes |
@@ -136,6 +137,7 @@ $Identity.Secret
 ```
 
 Parameters
+
 |Param Name| Description | Required |
 |:----|:----|:----:|
 | DisplayName | Display Name of the Remediation Identity| Yes |
@@ -161,6 +163,7 @@ $KeyVault.Outputs.logAnalyticsResourceId.Value
 ```
 
 Parameters
+
 |Param Name|Description|Required?
 |:----|:----|:----|
 | SubscriptionId | Subscription id where  keyvault is created.| Yes |
@@ -188,6 +191,7 @@ $Solution.Outputs.internalMIObjectId.Value
 ```
 
 Parameters
+
 | Param Name | Description | Required |
 |:----|:----|:----|
 | SubscriptionId | Subscription id where setup is created | Yes |
@@ -212,6 +216,7 @@ Grant-AzTSMMARemediationIdentityAccessOnKeyVault `
 ```
 
 Parameters
+
 | Param Name | Description | Required |
 |:----|:----|:----:|
 |SubscriptionId| Subscription id where setup will be created | Yes |
@@ -239,6 +244,7 @@ Set-AzTSMMARemovalUtilityRunbook `
 ```
 
 Parameters
+
 |Param Name |Description | Required|
 |:----|:----|:----|
 |SubscriptionId| Subscription id where the automation account and key vault are present.| Yes|
@@ -286,6 +292,7 @@ $ConfiguredTargetScopes = Set-AzTSMMARemovalUtilitySolutionScopes `
          -ScopesFilePath <ScopesFilePath>
 ```
 Parameters
+
 |Param Name|Description|Required|
 |:----|:----|:----:|
 |SubscriptionId| Your subscription id where setup is installed | Yes |
@@ -293,6 +300,7 @@ Parameters
 |ScopesFilePath| File path with target scope configurations. See scope configuration below | Yes |
 
 Scope configuration file is a CSV file with a header row and three columns
+
 | ScopeType | ScopeId | TenantId |
 |:---|:---|:---|
 | Subscription | /subscriptions/abb5301a-22a4-41f9-9e5f-99badff261f8 | 72f988bf-86f1-41af-91ab-2d7cd011db47 |
@@ -308,7 +316,8 @@ Update-AzTSMMARemovalUtilityDiscoveryTrigger `
     -StartExtensionDiscoveryAfterMinutes 30 
 ```
 
-**Parameters**
+Parameters
+
 |Param Name|Description|Required?
 |:----|:----|:----:|
 |SubscriptionId| Subscription id where you installed the Utility | Yes|
@@ -329,7 +338,8 @@ Update-AzTSMMARemovalUtilityRemovalTrigger `
     -RemovalCondition 'CheckForAMAPresence'
 ```
 
-**Parameters**
+Parameters
+
 | Param Name | Description | Required?
 |:----|:----|:----:|
 | SubscriptionId | Subscription id where you installed the Utility | Yes |
@@ -381,7 +391,8 @@ Remove-AzTSMMARemovalUtilitySolutionResources `
     -KeepInventoryAndProcessLogs
 ```
 
-### Parameters
+Parameters
+
 |Param Name|Description|Required|
 |:----|:----|:----:|
 |SubscriptionId| Subscription id that the Utility will be deleted| Yes|
