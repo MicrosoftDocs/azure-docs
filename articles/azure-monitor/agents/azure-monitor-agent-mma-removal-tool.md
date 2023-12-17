@@ -95,7 +95,7 @@ Parameters
 |Location| Location DC where your setup is created. Default value is 'EastUS2'| No|
 |AzureEnvironmentName| Azure environment in which solution needs to be installed: AzureCloud, AzureGovernmentCloud. Default value is 'AzureCloud'| No|
 
-### [Multi%20Tenant](#tab/Multi%20Tenant)
+### [MultiTenant](#tab/MultiTenant)
 In this section, we will walk you through the steps for setting up multi-tenant AzTS MMA Removal Utility. This setup may take up to 30 minutes and has 9 steps
 
 1. Load setup script
@@ -371,7 +371,7 @@ InventoryProcessingStatus_CL
 | project ResourceId, ProcessingStatus_s, ProcessErrorDetails_s
 ```
 
-## [Clean%20Up](#tab/Clean%20Up)
+## [CleanUp](#tab/CleanUp)
 
 The utility creates resources that you should clean up once you have remove MMA from your infrastructure. Execute the following steps to clean up.  
  1. Go to the folder containing the deployment package and load the cleanup script  
