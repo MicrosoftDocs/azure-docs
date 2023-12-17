@@ -27,5 +27,3 @@ AzureMigration.ps1
 
 # Pycharm
 .idea/*
-articles/azure-monitor/includes/waf-logs-reliability.md
-articles/azure-monitor/best-practices-logs.md
