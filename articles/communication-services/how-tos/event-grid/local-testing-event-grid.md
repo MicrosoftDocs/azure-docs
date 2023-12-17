@@ -20,12 +20,17 @@ Testing Event Grid triggered Azure Functions locally can be complicated. You don
 - Install [Postman](https://www.postman.com/downloads/).
 - Have a running Azure Function that can be triggered by Event Grid. If you don't have one, you can follow the [quickstart](../../../azure-functions/functions-bindings-event-grid-trigger.md?tabs=in-process%2Cextensionv3&pivots=programming-language-javascript) to create one.
 
-The Azure Function can be running either in Azure if you want to test it with some test events or if you want to test the entire flow locally (press `F5` in Visual Studio Code to run it locally). If you want to test the entire flow locally, you need to use [ngrok](https://ngrok.com/) to hook your locally running Azure Function. Configure ngrok by running the command:
+The Azure Function can be running either in Azure if you want to test it with some test events or if you want to test the entire flow locally (press `F5` in Visual Studio Code to run it locally). If you want to test the entire flow with externally triggered webhook, you need to use [ngrok](https://ngrok.com/) to expose your locally running Azure Function
+to public allowing it being triggered by internet sources (as example from Azure Event WebHooks). Configure ngrok by running the command:
 
 ```bash
 
 ngrok http 7071
 
+```
+It is worth to remember that exposing development resources publicly may not be considered as secure. That is why you can also run entire workflow locally without ngrok by invoking requests to:
+```
+http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 ```
 
 ## Configure Postman
