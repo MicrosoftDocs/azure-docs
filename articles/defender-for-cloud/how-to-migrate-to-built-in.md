@@ -9,18 +9,18 @@ ms.date: 12/17/2023
 
 # Transition from Qualys to Microsoft Defender Vulnerability Management
 
-With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using Qualys as a vulnerability assessment solution, this article provides instructions on transitioning to Microsoft Defender Vulnerability Management.
+With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using Qualys as a vulnerability assessment solution, this article provides instructions on transitioning to the integrated Microsoft Defender Vulnerability Management solution.
 
-To transition to Microsoft Defender Vulnerability Management, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
+To transition to the integrated Microsoft Defender Vulnerability Management solution, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
 
 - [Transition with Azure policy (for Azure VMs)](#transition-with-azure-policy-for-azure-vms)
 - [Transition with Defender for Cloud’s portal](#transition-with-defender-for-clouds-portal)
 - [Transition with REST API](#transition-with-rest-api)
 
 > [!IMPORTANT]
-> The Defender for Cloud servers vulnerability assessment powered by Qualys is now on a retirement path that starts on November 27th and completes on **May 1st, 2024**.
+> The Defender for Servers built-in vulnerability assessment powered by Qualys is now on a retirement path that starts on **December 18th** and completes on **May 1st, 2024**.
 >
-> If you are currently using the built-invulnerability assessment powered by Qualys on at least one machine within a tenant with either of the Defender for Servers plans enabled prior to **December 15th, 2023**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
+> If you are currently using the built-invulnerability assessment powered by Qualys on at least one machine within a tenant with either of the Defender for Servers plans enabled prior to **January 1st, 2024**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
 >
 > Check out this blog, to learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 >
@@ -76,7 +76,9 @@ In the Defender for Cloud portal, you have the ability to change the vulnerabili
 
 1. Select **Save**.
 
-After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
+## Remove the old vulnerability assessment solution
+
+After migrating to the built-in MDVM solution in Defender for Servers, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
 
 - [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
