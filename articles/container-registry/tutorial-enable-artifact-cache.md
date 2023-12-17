@@ -2,8 +2,9 @@
 title: Enable Artifact Cache - Azure portal
 description: Learn how to enable Registry Cache in your Azure Container Registry using Azure portal.
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
+ms.service: container-registry
 ---
 
 # Enable Artifact Cache - Azure portal

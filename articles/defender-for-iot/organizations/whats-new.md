@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 12/13/2023
+ms.date: 12/17/2023
 ms.custom: enterprise-iot
 ---
 
@@ -20,7 +20,8 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+| **OT networks** | - [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support)<br>- [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+
 
 ### New architecture for hybrid and air-gapped support
 
@@ -60,6 +61,14 @@ For more information, see:
 
 - [Transitioning from a legacy on-premises management console](ot-deploy/air-gapped-deploy.md#transitioning-from-a-legacy-on-premises-management-console).
 - [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
+
+### Live statuses for cloud-based sensor updates
+
+When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
+
+:::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/whats-new/sensor-version-update-bar.png":::
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### Streamlined alert records in the SecurityAlert table
 When integrating with Microsoft Sentinel, the Microsoft Sentinel **SecurityAlert** table is now updated immediately only for changes in alert status and severity. Other changes in alerts, such as last detection of an existing alert, are aggregated over several hours and display only the latest change made.

@@ -1,7 +1,7 @@
 ---
 title: Update Defender for IoT OT monitoring software versions
 description: Learn how to update (upgrade) Defender for IoT software on OT sensors and legacy on-premises management servers.
-ms.date: 02/14/2023
+ms.date: 12/17/2023
 ms.topic: upgrade-and-migration-article
 ---
 
@@ -26,7 +26,7 @@ To perform the procedures described in this article, make sure that you have:
     |---------|---------|
     |**On-premises management console**     |  If the OT sensors you want to update are connected to an on-premises management console, plan to [update your on-premises management console](#update-the-on-premises-management-console) *before* updating your sensors.|
     |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#update-ot-sensors) require that your OT sensor has version [22.2.3](release-notes.md#2223) or later already installed.       |
-    |**Locally-managed sensors**     |  Locally-managed sensors can be updated using a downloaded update package, either via a connected on-premises management console, or directly on an OT sensor console. |
+    |**Locally managed sensors**     |  Locally managed sensors can be updated using a downloaded update package, either via a connected on-premises management console, or directly on an OT sensor console. |
 
 - **Required access permissions**:
 
@@ -51,7 +51,7 @@ To perform the procedures described in this article, make sure that you have:
 
 - Make sure that your firewall rules are configured as needed for the new version you're updating to.
 
-    For example, the new version may require a new or modified firewall rule to support sensor access to the Azure portal. From the **Sites and sensors** page, select **More actions > Download sensor endpoint details** for the full list of endpoints required to access the Azure portal.
+    For example, the new version might require a new or modified firewall rule to support sensor access to the Azure portal. From the **Sites and sensors** page, select **More actions > Download sensor endpoint details** for the full list of endpoints required to access the Azure portal.
 
     For more information, see [Networking requirements](networking-requirements.md) and [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
@@ -69,7 +69,7 @@ On-premises management software is backwards compatible, and can connect to sens
 
 Select the update method you want to use:
 
-# [Azure portal (Public preview)](#tab/portal)
+# [Azure portal (Preview)](#tab/portal)
 
 This procedure describes how to send a software version update to one or more OT sensors, and then run the updates remotely from the Azure portal. Bulk updates are supported for up to 10 sensors at a time.
 
@@ -81,17 +81,19 @@ This procedure describes how to send a software version update to one or more OT
 
     :::image type="content" source="media/update-ot-software/filter-remote-update.png" alt-text="Screenshot of how to filter for OT sensors that are ready for remote update." lightbox="media/update-ot-software/filter-remote-update.png":::
 
-1. Select one or more sensors to update, and then select **Sensor update (Preview)** > **Remote update** > **Step one: Send package to sensor**.
+1. Select one or more sensors to update, and then select **Sensor update** > **Remote update** > **Step one: Send package to sensor**.
 
     For an individual sensor, the **Step one: Send package to sensor** option is also available from the **...** options menu to the right of the sensor row. For example:
 
     :::image type="content" source="media/update-ot-software/remote-update-step-1.png" alt-text="Screenshot of the Send package option." lightbox="media/update-ot-software/remote-update-step-1.png":::
 
-1. In the **Send package** pane that appears, check to make sure that you're sending the correct software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
+1. In the **Send package** pane that appears, check to make sure that you're sending the software to the sensor you want to update. To jump to the release notes for the new version, select **Learn more** at the top of the pane.
 
-1. When you're ready, select **Send package**. The software transfer to your sensor machine is started, and you can see the progress in the **Sensor version** column.
+1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage complete automatically updating in the progress bar, so you can see that the process has started and letting you track its progress until the transfer is complete. For example:
 
-    When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update**.
+    :::image type="content" source="media/update-ot-software/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/update-ot-software/sensor-version-update-bar.png":::
+
+    When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false" ::: **Ready to update**.
 
     Hover over the **Sensor version** value to see the source and target version for your update.
 
@@ -99,15 +101,19 @@ This procedure describes how to send a software version update to one or more OT
 
 Run the sensor update only when you see the :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false"::: **Ready to update** icon in the **Sensor version** column.
 
-1. Select one or more sensors to update, and then select **Sensor update (Preview)** > **Remote update** > **Step 2: Update sensor** from the toolbar.
+1. Select one or more sensors to update, and then select **Sensor update** > **Remote update** > **Step 2: Update sensor** from the toolbar.
 
     For an individual sensor, the **Step 2: Update sensor** option is also available from the **...** options menu. For example:
 
     :::image type="content" source="media/update-ot-software/remote-update-step-2.png" alt-text="Screenshot of the Update sensor option." lightbox="media/update-ot-software/remote-update-step-2.png":::
 
-1. In the **Update sensor (Preview)** pane that appears, verify your update details.
+1. In the **Update sensor** pane that appears, verify your update details.
 
-    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing** until the update is complete, when the value switches to the new sensor version number instead.
+    When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, and an update progress bar appears showing you the percentage complete. The bar automatically updates, so that you can track the progress until the installation is complete.
+
+    :::image type="content" source="media/update-ot-software/sensor-version-install-bar.png" alt-text="Screenshot of the install bar in the Sensor version column." lightbox="media/update-ot-software/sensor-version-install-bar.png":::
+
+    When completed, the sensor value switches to the new sensor version number instead.
 
 If a sensor fails to update for any reason, the software reverts back to the previous version installed, and a sensor health alert is triggered. For more information, see [Understand sensor health](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health) and [Sensor health message reference](sensor-health-messages.md).
 
@@ -123,7 +129,7 @@ This procedure describes how to manually download the new sensor software versio
 
 1. In the **Available versions** area of the **Local update** pane, select the version you want to download for your software update.
 
-    The **Available versions** area lists all update packages available for your specific update scenario. You may have multiple options, but there will always be one specific version marked as **Recommended** for you. For example:
+    The **Available versions** area lists all update packages available for your specific update scenario. You might have multiple options, but one specific version is marked as **Recommended** for you. For example:
 
     :::image type="content" source="media/update-ot-software/recommended-version.png" alt-text="Screenshot highlighting the recommended update version for the selected update scenario." lightbox="media/update-ot-software/recommended-version.png":::
 
@@ -141,7 +147,7 @@ This procedure describes how to manually download the new sensor software versio
 
     :::image type="content" source="media/update-ot-software/sensor-upload-file.png" alt-text="Screenshot of the Software update pane on the OT sensor." lightbox="media/update-ot-software/sensor-upload-file.png":::
 
-    The update process starts, and may take about 30 minutes and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
+    The update process starts, and might take about 30 minutes and include one or two reboots. If your machine reboots, make sure to sign in again as prompted.
 
 # [OT sensor CLI](#tab/cli)
 
