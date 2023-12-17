@@ -103,7 +103,7 @@ To learn how to connect a DCR to a DCE, see step 5 in [Create a data collection 
 > Only DCRs that are connected to the workspace's System DCE will enable replication and failover. This provides you with control over which log streams are replicated and which are not, which also impacts your replication costs.
 
 > [!WARNING]
-> DCRs connected to a workspace's System DCE should target only this specific worksace. They **must not** target other destinations, such as additional workspaces or storage accounts.
+> DCRs connected to a workspace's System DCE should target only this specific workspace. They **must not** target other destinations, such as additional workspaces or storage accounts.
 
 ## Monitoring your workspace and service health
 Ingestion latency or query failures are examples of issues that can often be handled by failing over to your secondary region. Such issues can be detected using Service Health notifications and log queries.
