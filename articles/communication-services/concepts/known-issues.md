@@ -230,7 +230,7 @@ The following are known issues in the Communication Services Call Automation API
 
 ## Group call limitations for JS web Calling SDK users		
 
-Up to 350 users can join a group call using the JS web calling SDK. Once the call size reaches 100+ particpants in the call, only the top 4 most dominant speakers that have their video camera turned on will be available to be seen. When the number of people on the call is 100+ the viewable number of incoming rendors will go from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100 people the number of supported incoming video goes back up to 3x3 (9 incoming videos).
+Up to 350 users can join a group call using the JS web calling SDK. Once the call size reaches 100+ participants in the call, only the top 4 most dominant speakers that have their video camera turned on will be available to be seen. When the number of people on the call is 100+ the viewable number of incoming renders will go from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100, the number of supported incoming video goes back up to 3x3 (9 incoming videos).
 
 ## Android API emulators
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  
