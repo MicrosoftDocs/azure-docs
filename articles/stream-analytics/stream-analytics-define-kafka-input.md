@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 11/30/2023
 ---
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
@@ -66,7 +66,7 @@ For a step-by-step tutorial on connecting to confluent cloud kakfa, visit the do
 
 > [!NOTE]
 > When using trust store certificates with mTLS or SASL_SSL security protocols, you must have Azure Key vault and managed identity configured for your Azure Stream Analytics job.
->
+> Check your key vault's network settings to ensure **Allow public access from all networks** is selected. Suppose your Key vault is in a VNET or only allows access from specific networks. In that case, you must inject your ASA job into a VNET containing the key vault or inject your ASA job into a VNET, then connect your key vault to the VNET containing the job using service endpoints.
 
 Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets.
 Certificates are stored as secrets in the key vault and must be in PEM format.

@@ -65,8 +65,6 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=us-employment-hours-earnings-national -->
 
- **[Download the notebook instead](https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=us-employment-hours-earnings-national)**.
-
 ```python
 # This is a package in preview.
 from azureml.opendatasets import UsLaborEHENational

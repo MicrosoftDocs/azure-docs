@@ -35,7 +35,7 @@
   items:
   - name: Confidential virtual machines
     items:
-    - name: About confidential VMs
+    - name: Azure Confidential VM options
       href: confidential-vm-overview.md
     - name: FAQ for confidential VMs
       href: confidential-vm-faq.yml
