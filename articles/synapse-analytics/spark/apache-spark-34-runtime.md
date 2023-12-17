@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.4 
 description: New runtime is in Public Preview. Try it and use Spark 3.4.1, Python 3.10, Delta Lake 2.4.
-author: winnyr
-ms.author: v-rajwinny
+author: ekote
+ms.author: eskot
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark

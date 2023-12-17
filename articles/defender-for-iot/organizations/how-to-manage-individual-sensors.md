@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes extra OT sensor maintenance activities that you might perform outside of a larger deployment process.
 
-OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), the [Azure portal](how-to-manage-sensors-on-the-cloud.md), and an [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).
+OT sensors can also be maintained from the OT sensor [CLI](cli-ot-sensor.md), the [Azure portal](how-to-manage-sensors-on-the-cloud.md), and an [on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md).
 
 [!INCLUDE [caution do not use manual configurations](includes/caution-manual-configurations.md)]
 
@@ -458,6 +458,6 @@ Log data is available for export in the **Dissection statistics** and **Dissecti
 
 For more information, see:
 
-- [Manage sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Manage sensors from the on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Track sensor activity](how-to-track-sensor-activity.md)
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)

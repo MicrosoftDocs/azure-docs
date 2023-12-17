@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 11/15/2023
+ms.date: 12/15/2023
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -97,7 +97,9 @@ Azure provides [multiple storage solutions](../../virtual-machines/disks-types.m
 | Azure files SMB | Not supported | | |
 
 Additional considerations that apply list like:
-1. No support for DIRECTIO with 4K Native sector size. **Do not set FILESYSTEMIO_OPTIONS for LVM configurations**
+1. No support for DIRECTIO with 4K Native sector size. Recommended settings for FILESYSTEMIO_OPTIONS for LVM configurations:
+   - LVM - If disks with 512/512e geometry are used, FILESYSTEMIO_OPTIONS = SETALL
+   - LVM - If disks with 4K Native geometry are used, FILESYSTEMIO_OPTIONS = ASYNC 
 2. Oracle 19c and higher fully supports 4K Native sector size with both ASM and LVM
 3. Oracle 19c and higher on Linux – when moving from 512e storage to 4K Native storage Log sector sizes must be changed  
 4. To migrate from 512/512e sector size to 4K Native Review (Doc ID 1133713.1) – see section “Offline Migration to 4Kb Sector Disks”

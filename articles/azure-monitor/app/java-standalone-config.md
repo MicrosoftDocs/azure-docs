@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 12/15/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -209,10 +209,12 @@ If you want to collect some other JMX metrics:
 In the preceding configuration example:
 
 * `name` is the metric name that is assigned to this JMX metric (can be anything).
-* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect.
+* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect.  Wildcard character asterisk (*) is supported.
 * `attribute` is the attribute name inside of the `JMX MBean` that you want to collect.
 
 Numeric and Boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false and `1` for true.
+
+See the [JMX metrics](./java-jmx-metrics-configuration.md) documentation for more details.
 
 ## Custom dimensions
 
