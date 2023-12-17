@@ -1,15 +1,17 @@
 ---
-title: Transition from built-in Qualys to the integrated Microsoft Defender Vulnerability Management
-description: Learn how to migrate to the built-in Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
+title: Transition from Qualys to Microsoft Defender Vulnerability Management
+description: Learn how to transition from Qualys to the Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 12/17/2023
 ---
 
-# Transition from built-in Qualys to the integrated Microsoft Defender Vulnerability Management
+# Transition from Qualys to Microsoft Defender Vulnerability Management
 
-There are three recommended methods to enable the built-in Microsoft Defender Vulnerability Management (MDVM) solution within Defender for Cloud:
+With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using Qualys as a vulnerability assessment solution, this article provides instructions on transitioning to Microsoft Defender Vulnerability Management.
+
+To transition to Microsoft Defender Vulnerability Management, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
 
 - [Transition with Azure policy (for Azure VMs)](#transition-with-azure-policy-for-azure-vms)
 - [Transition with Defender for Cloud’s portal](#transition-with-defender-for-clouds-portal)
@@ -161,9 +163,11 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
 }
 ```
 
+## Remove a vulnerability assessment solution
+
 After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
 
-- [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
+- [Delete the VM extension with powershell](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
 - Delete custom policy at scale.
 
