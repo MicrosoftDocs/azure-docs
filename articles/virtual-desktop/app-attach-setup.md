@@ -70,10 +70,14 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 - User accounts need to be hybrid accounts (created in AD DS and synchronized to Microsoft Entra ID). Groups can be hybrid or Microsoft Entra ID groups.
 ::: zone-end
 
+::: zone pivot="app-attach"
 - An SMB file share in the same Azure region as your session hosts. All session hosts in the host pool must have *read* access with their computer account. This file share is used to store your application images. For more information on the requirements for the file share, see [File share](app-attach-overview.md#file-share).
 
-::: zone pivot="app-attach"
    To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md). In a future update of the preview, you won't need to assign the **Azure Virtual Desktop ARM Provider** service principal.
+::: zone-end
+
+::: zone pivot="msix-app-attach"
+- An SMB file share in the same Azure region as your session hosts. All session hosts in the host pool must have *read* access with their computer account. This file share is used to store your application images. For more information on the requirements for the file share, see [File share](app-attach-overview.md#file-share).
 ::: zone-end
 
 ::: zone pivot="app-attach"
@@ -84,14 +88,7 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 - An MSIX image that you created from an application package and stored on the file share. For more information, see [Create an image](app-attach-create-msix-image.md), where you can also download a prebuilt MSIX package for testing.
 ::: zone-end
 
-- To add MSIX images, you need the following Azure role-based access control (RBAC) role assigned on the resource group as a minimum.
-
-   | Task | RBAC role(s) |
-   |--|--|
-   | Add MSIX images | Desktop Virtualization Contributor |
-   | Assign apps to users | User Access Administrator |
-
-- To assign users to the application group, you also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner). 
+- To add MSIX images, you need the [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) Azure role-based access control (RBAC) role assigned on the resource group as a minimum. To assign users to the application group, you also need `Microsoft.Authorization/roleAssignments/write` permissions on the application group. Built-in RBAC roles that include this permission are [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) and [Owner](../role-based-access-control/built-in-roles.md#owner). 
 
 - If you want to use Azure PowerShell locally, see [Use Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) and [Microsoft Graph](/powershell/microsoftgraph/installation) PowerShell modules installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 

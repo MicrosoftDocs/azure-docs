@@ -91,7 +91,7 @@ While the OT network sensor automatically learns the subnets in your network, we
 1. When you're done, select **Save** to save your updates.
 
 > [!TIP]
-> Once the **Auto subnet learning** setting is disabled and the subnet list has been edited to include only the locally monitored subnets that are in your IoT/OT scope, you can filter the Azure device inventory by *Network location* to view only the devices defined as *local*. For more information, see [View the device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#view-the-device-inventory).
+> Once the **Auto subnet learning** setting is disabled and the subnet list has been edited to include only the locally monitored subnets that are in your IoT/OT scope, you can filter the Azure device inventory by *Network location* to view only the devices defined as *local*. For more information, see [View the device inventory](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md#view-the-device-inventory).
 >
 
 ### Manually define a subnet as ICS
@@ -145,7 +145,7 @@ VLANs are either discovered automatically by the OT network sensor or added manu
 VLAN's support is based on 802.1q (up to VLAN ID 4094).
 
 > [!NOTE]
-> VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](../how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
+> VLAN names aren't synchronized between the OT network sensor and the on-premises management console. If you want to view customized VLAN names on the on-premises management console, [define the VLAN names](legacy-central-management/how-to-manage-the-on-premises-management-console.md#define-vlan-names) there as well.
 
 **To configure VLAN names on an OT network sensor:**
 

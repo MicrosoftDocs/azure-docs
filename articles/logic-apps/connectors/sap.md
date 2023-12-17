@@ -7,7 +7,7 @@ author: daviburg
 ms.author: daviburg
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/18/2023
+ms.date: 12/12/2023
 tags: connectors
 ---
 
@@ -164,7 +164,7 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 * By default, the SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
-* To use either the SAP managed connector trigger named **When a message is received from SAP** or the SAP built-in trigger named **Register SAP RFC server for trigger**, complete the following tasks:
+* To use either the SAP managed or built-in connector trigger named **When a message is received**, complete the following tasks:
 
   * Set up your SAP gateway security permissions or Access Control List (ACL). In the **Gateway Monitor** (T-Code SMGW) dialog box, which shows the **secinfo** and **reginfo** files, open the **Goto** menu, and select **Expert Functions** > **External Security** > **Maintenance of ACL Files**.
 
@@ -192,16 +192,16 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
   > [!NOTE]
   >
-  > In Consumption and Standard workflows, the SAP managed trigger named **When a message is received from SAP** 
+  > In Consumption and Standard workflows, the SAP managed trigger named **When a message is received** 
   > uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation 
   > uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior 
   > might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation 
   > is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
   >
-  > In Standard workflows, the SAP built-in trigger named **Register SAP RFC server for trigger** uses the Azure 
+  > In Standard workflows, the SAP built-in trigger named **When a message is received** uses the Azure 
   > Functions trigger instead, and shows only the actual callbacks from SAP.
 
-  * For the SAP built-in connector trigger named **Register SAP RFC server for trigger**, you have to enable virtual network integration and private ports by following the article at [Enabling Service Bus and SAP built-in connectors for stateful Logic Apps in Standard](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/enabling-service-bus-and-sap-built-in-connectors-for-stateful/ba-p/3820381). You can also run the workflow in Visual Studio Code to fire the trigger locally. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
+  * For the SAP built-in connector trigger named **When a message is received**, you have to enable virtual network integration and private ports by following the article at [Enabling Service Bus and SAP built-in connectors for stateful Logic Apps in Standard](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/enabling-service-bus-and-sap-built-in-connectors-for-stateful/ba-p/3820381). You can also run the workflow in Visual Studio Code to fire the trigger locally. For Visual Studio Code setup requirements and more information, see [Create a Standard logic app workflow in single-tenant Azure Logic Apps using Visual Studio Code](../create-single-tenant-workflows-visual-studio-code.md). You must also set up the following environment variables on the computer where you install Visual Studio Code:
  
    - **WEBSITE_PRIVATE_IP**: Set this environment variable value to **127.0.0.1** as the localhost address. 
    - **WEBSITE_PRIVATE_PORTS**: Set this environment variable value to two free and usable ports on your local computer, separating the values with a comma (**,**), for example, **8080,8088**.
@@ -526,7 +526,7 @@ For a Consumption workflow in multi-tenant Azure Logic Apps, the SAP managed con
 
 <a name="single-tenant-prerequisites"></a>
 
-For a Standard workflow in single-tenant Azure Logic Apps, use the SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway. For additional requirements regarding the SAP built-in connector trigger named **Register SAP RFC server for trigger**, see [Prerequisites](#prerequisites).
+For a Standard workflow in single-tenant Azure Logic Apps, use the SAP *built-in* connector to directly access resources that are protected by an Azure virtual network. You can also use other built-in connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
 
 1. To use the SAP connector, you need to download the following files and have them read to upload to your Standard logic app resource. For more information, see [SAP NCo client library prerequisites](#sap-client-library-prerequisites):
 

@@ -235,7 +235,7 @@ Here are two versions of a Language Detection function. The first returns the IS
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
+    language    = jsonresp [documents]{0}[detectedLanguage] [name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
