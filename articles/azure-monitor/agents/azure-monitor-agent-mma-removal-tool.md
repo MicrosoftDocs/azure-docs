@@ -1,3 +1,15 @@
+---
+title: Azure Monitor Agent fMMA legacy agent removal tool
+description: This article describes a PowerShell script used to remove MMA agend from systems that have already been migrated to AMA.
+ms.topic: conceptual
+author: jeffwo-ms
+ms.author: jeffwolford
+ms.reviewer: jeffwo
+ms.date: 12/16/2023 
+ms.custom:
+# Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from Log Analytics Agent to Azure Monitor Agent and track the status of the migration in my account.
+---
+
 # MMA Discovery and Removal Tool  
 After you migrate your machines to AMA you need to remove the MMA agent to avoid duplication of logs. AzTS MMA Discovery and Removal Utility can centrally remove MMA extension from Azure Virtual Machine (VMs), Virtual Machine Scale Sets (VMSS) and Azure Arc Servers from a tenant.  
 The utility works in two steps  
