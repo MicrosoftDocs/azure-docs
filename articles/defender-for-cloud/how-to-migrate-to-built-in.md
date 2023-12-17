@@ -9,9 +9,9 @@ ms.date: 12/17/2023
 
 # Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
 
-With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using a vulnerability assessment solution other than the Microsoft Defender Vulnerability Management vulnerability assessment solution, this article provides instructions on transitioning to the integrated Microsoft Defender Vulnerability Management solution.
+With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using a vulnerability assessment solution other than the Microsoft Defender Vulnerability Management vulnerability assessment solution, this article provides instructions on transitioning to the integrated Defender Vulnerability Management solution.
 
-To transition to the integrated Microsoft Defender Vulnerability Management solution, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
+To transition to the integrated Defender Vulnerability Management solution, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
 
 - [Transition with Azure policy (for Azure VMs)](#transition-with-azure-policy-for-azure-vms)
 - [Transition with Defender for Cloud’s portal](#transition-with-defender-for-clouds-portal)
@@ -42,13 +42,13 @@ To transition to the integrated Microsoft Defender Vulnerability Management solu
 
 1. Review the information you entered and select **Create**.
  
-This policy ensures that all Virtual Machines (VM) within a selected subscription are safeguarded with the built-in MDVM solution.
+This policy ensures that all Virtual Machines (VM) within a selected subscription are safeguarded with the built-in Defender Vulnerability Management solution.
 
-Once you complete the transition to the new Microsoft Defender Vulnerability Management vulnerability assessment solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
+Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
 
 ## Transition with Defender for Cloud’s portal 
 
-In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in MDVM solution. 
+In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in Defender Vulnerability Management solution. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -78,13 +78,13 @@ In the Defender for Cloud portal, you have the ability to change the vulnerabili
 
 1. Select **Save**.
 
-Once you complete the transition to the new Microsoft Defender Vulnerability Management vulnerability assessment solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
+Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
 
 ## Transition with REST API
 
 ### REST API for Azure VMs
 
-Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to Microsoft Defender Vulnerability Management.
+Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to the Defender Vulnerability Management solution.
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Security/serverVulnerabilityAssessmentsSettings/AzureServersSetting?api-version=2022-01-01-preview`
 
@@ -97,11 +97,11 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
  }
 ```
 
-Once you complete the transition to the new Microsoft Defender Vulnerability Management vulnerability assessment solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
+Once you complete the transition to the Defender Vulnerability Management solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
 
 ### REST API for multicloud VMs
 
-Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to Microsoft Defender Vulnerability Management.
+Using this REST API, you can easily migrate your subscription, at scale, from any vulnerability assessment solution to the Defender Vulnerability Management solution.
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Security/securityconnectors/{connectorName}?api-version=2022-08-01-preview`
 
@@ -159,7 +159,7 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
 
 ## Remove the old vulnerability assessment solution
 
-After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
+After migrating to the built-in Defender Vulnerability Management solution in Defender for Cloud, you need to offboard each VM from their old vulnerability assessment solution using either of the following methods:
 
 - [Delete the VM extension with PowerShell](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
