@@ -20,6 +20,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, event
 
 This article describes how to enable log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
+For streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
+
 ## Prerequisites
 
 - [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, minimum version 1.0.0. You can install the extension by using the following command: `az extension add --name spring`
@@ -153,7 +155,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
 1. Select the Azure Spring Apps service instance deployed in your virtual network, and then open the **Networking** tab in the navigation menu.
 
-1. Select the **Vnet injection** page.
+1. Select the **Vnet injection** tab.
 
 1. Switch the status of **Dataplane resources on public network** to **enable** to enable a log streaming endpoint on the public network. This process will take a few minutes.
 
@@ -194,3 +196,4 @@ The following table shows an example of a basic rule that we recommend. You can 
 
 - [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
 - [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
+- [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md)

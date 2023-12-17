@@ -237,8 +237,10 @@ items:
         href: tutorial-circuit-breaker.md
       - name: Analyze logs and metrics
         href: diagnostic-services.md
-      - name: Stream logs in real time
+      - name: Stream app logs in real time
         href: how-to-log-streaming.md
+      - name: Stream managed component logs in real time
+        href: how-to-managed-component-log-streaming.md
       - name: Resilience4J Circuit Breaker Metrics
         href: how-to-circuit-breaker-metrics.md
       - name: Structured application log

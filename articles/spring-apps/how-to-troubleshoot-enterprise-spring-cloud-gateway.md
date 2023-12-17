@@ -31,9 +31,37 @@ For more information on each supported metric, see the [Gateway](./concept-metri
 
 ## Check Gateway logs
 
-There are two components that make up the Spring Cloud Gateway for VMware Tanzu: the Gateway itself and the Gateway operator. You can infer from the name that the Gateway operator is for managing the Gateway, while the Gateway itself fulfills the features. The logs of both components are available. The following sections describe how to check these logs.
+There are two subcomponents that make up the Spring Cloud Gateway for VMware Tanzu: the `spring-cloud-gateway` and the `spring-cloud-gateway-operator`. You can infer from the name that the `spring-cloud-gateway-operator` is for managing the Gateway, while the `spring-cloud-gateway` fulfills the features. The logs of both subcomponents are available. The following sections describe how to check these logs.
 
-### Diagnostic settings for Log Analytics
+### Use real-time log streaming
+
+You can stream logs in real time with Azure CLI. Below is the example Azure CLI command to continuously stream the new logs. And you can read through [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md) and check out `spring-cloud-gateway` and `spring-cloud-gateway-operator` subcomponents to get more details.
+
+#### Stream logs for `spring-cloud-gateway`
+
+```azurecli
+az spring component logs \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name spring-cloud-gateway \
+    --all-instances \
+    --follow
+```
+
+#### Stream logs for `spring-cloud-gateway-operator`
+
+```azurecli
+az spring component logs \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name spring-cloud-gateway-operator \
+    --all-instances \
+    --follow
+```
+
+### Use Log Analytics
+
+#### Diagnostic settings for Log Analytics
 
 You must turn on System Logs and send to your Log Analytics before you query the logs for VMware Spring Cloud Gateway. To enable System Logs in the Azure portal, use the following steps:
 
@@ -44,25 +72,29 @@ You must turn on System Logs and send to your Log Analytics before you query the
 1. In the **Destination details** section, select **Send to Log Analytics workspace** and then select your workspace.
 1. Select **Save** to update the setting.
 
-### Check logs in Log Analytics
+#### Check logs in Log Analytics
 
-To check the logs by using the Azure portal, use the following steps:
+To check the logs of `spring-cloud-gateway` and `spring-cloud-gateway-operator` using the Azure portal, use the following steps:
 
 1. Make sure you turned on System Logs. For more information, see the [Diagnostic settings for Log Analytics](#diagnostic-settings-for-log-analytics) section.
 1. Open your Azure Spring Apps instance.
 1. Select **Logs** in the navigation pane, and then select **Overview**.
-1. Use one of the following sample queries in the query edit pane. Adjust the time range, then select **Run** to search for logs.
+1. Use the following sample queries in the query edit pane. Adjust the time range, then select **Run** to search for logs.
 
-   - Query logs for Gateway
+   - Query logs for `spring-cloud-gateway`
 
      ```Kusto
-     AppPlatformSystemLogs 
+     AppPlatformSystemLogs
      | where LogType in ("SpringCloudGateway")
-     | project TimeGenerated , ServiceName , LogType, Log , _ResourceId 
+     | project TimeGenerated , ServiceName , LogType, Log , _ResourceId
      | limit 100
      ```
 
-   - Query logs for Gateway Operator
+   - The following screenshot shows an example of the above query results:
+
+     :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal showing the query and result of logs for VMware Spring Cloud Gateway." lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png":::
+
+   - Query logs for `spring-cloud-gateway-operator`
 
      ```Kusto
      AppPlatformSystemLogs
@@ -71,9 +103,9 @@ To check the logs by using the Azure portal, use the following steps:
      | limit 100
      ```
 
-The following screenshot shows an example of the query results\:
+   - The following screenshot shows an example of the above query results:
 
-:::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png" alt-text="Screenshot of the Azure portal showing the query and result of logs for VMware Spring Cloud Gateway." lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway.png":::
+     :::image type="content" source="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway-operator.png" alt-text="Screenshot of the Azure portal showing the query and result of logs for VMware Spring Cloud Gateway operator." lightbox="media/how-to-troubleshoot-enterprise-spring-cloud-gateway/query-logs-of-spring-cloud-gateway-operator.png":::
 
 > [!NOTE]
 > There might be a 3-5 minutes delay before the logs are available in Log Analytics.
@@ -116,3 +148,4 @@ For some errors, a restart might help solve the issue. For more information, see
 ## Next steps
 
 - [How to Configure Spring Cloud Gateway](./how-to-configure-enterprise-spring-cloud-gateway.md)
+- [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md)

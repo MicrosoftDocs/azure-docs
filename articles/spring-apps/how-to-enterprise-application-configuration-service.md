@@ -25,6 +25,13 @@ With Application Configuration Service for Tanzu, you have a central place to ma
 
 Application Configuration Service is offered in two versions: Gen1 and Gen2. The Gen1 version mainly serves existing customers for backward compatibility purposes, and is supported only until April 30, 2024. New service instances should use Gen2. The Gen2 version uses [flux](https://fluxcd.io/) as the backend to communicate with Git repositories, and provides better performance compared to Gen1.
 
+The following table shows the subcomponent relationships.
+
+| Application Configuration Service generation | Subcomponents                                                      |
+| -------------------------------------------- | ------------------------------------------------------------------ |
+| Gen1                                         | `application-configuration-service`                                |
+| Gen2                                         | `application-configuration-service` <br/> `flux-source-controller` |
+
 The following table shows some benchmark data for your reference. However, the Git repository size is a key factor with significant impact on the performance data. We recommend that you store only the necessary configuration files in the Git repository in order to keep it small.
 
 | Application Configuration Service generation | Duration to refresh under 100 patterns | Duration to refresh under 250 patterns | Duration to refresh under 500 patterns |
@@ -323,6 +330,85 @@ az spring application-configuration-service delete \
 ```
 
 ---
+
+## Check logs
+
+### Use real-time log streaming
+
+You can stream logs in real time with Azure CLI. Below is the example Azure CLI command to continuously stream the new logs. And you can read through [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md) and check out `application-configuration-service` and `flux-source-controller` subcomponents to get more details.
+
+- Stream logs for `application-configuration-service`
+
+  ```azurecli
+  az spring component logs \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name application-configuration-service \
+      --all-instances \
+      --follow
+  ```
+
+- Stream logs for `flux-source-controller`
+
+  ```azurecli
+  az spring component logs \
+      --resource-group <resource-group-name> \
+      --service <Azure-Spring-Apps-instance-name> \
+      --name flux-source-controller \
+      --all-instances \
+      --follow
+  ```
+
+### Use Log Analytics
+
+#### Diagnostic settings for Log Analytics
+
+You must turn on System Logs and send to your Log Analytics before you query the logs for Application Configuration Service. To enable System Logs in the Azure portal, use the following steps:
+
+1. Open your Azure Spring Apps instance.
+1. Select **Diagnostics settings** in the navigation pane.
+1. Select **Add diagnostic setting** or select **Edit setting** for an existing setting.
+1. In the **Logs** section, select the **System Logs** category.
+1. In the **Destination details** section, select **Send to Log Analytics workspace** and then select your workspace.
+1. Select **Save** to update the setting.
+
+#### Check logs in Log Analytics
+
+To check the logs of `application-configuration-service` and `flux-source-controller` using the Azure portal, use the following steps:
+
+1. Make sure you turned on System Logs. For more information, see the [Diagnostic settings for Log Analytics](#diagnostic-settings-for-log-analytics) section.
+1. Open your Azure Spring Apps instance.
+1. Select **Logs** in the navigation pane, and then select **Overview**.
+1. Use the following sample queries in the query edit pane. Adjust the time range, then select **Run** to search for logs.
+
+   - Query logs for `application-configuration-service`
+
+     ```Kusto
+     AppPlatformSystemLogs
+     | where LogType in ("ApplicationConfigurationService")
+     | project TimeGenerated , ServiceName , LogType, Log , _ResourceId
+     | limit 100
+     ```
+
+   - The following screenshot shows an example of the above query results:
+
+     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png" alt-text="Screenshot of the Azure portal showing the query and result of logs for application-configuration-service." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-application-configuration-service.png":::
+
+   - Query logs for `flux-source-controller`
+
+     ```Kusto
+     AppPlatformSystemLogs
+     | where LogType in ("Flux")
+     | project TimeGenerated , ServiceName , LogType, Log , _ResourceId
+     | limit 100
+     ```
+
+   - The following screenshot shows an example of the above query results:
+
+     :::image type="content" source="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png" alt-text="Screenshot of the Azure portal showing the query and result of logs for flux-source-controller." lightbox="media/how-to-enterprise-application-configuration-service/query-logs-of-flux-source-controller.png":::
+
+> [!NOTE]
+> There might be a 3-5 minutes delay before the logs are available in Log Analytics.
 
 ## Next steps
 
