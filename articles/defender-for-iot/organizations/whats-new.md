@@ -39,7 +39,7 @@ Defender for IoT now provides new guidance for connecting to and monitoring hybr
 
 The following image shows a sample, high level architecture of our recommendations for monitoring and maintaining Defender for IoT systems, where each OT sensor connects to multiple security management systems in the cloud or on-premises.
 
-:::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support.":::
+:::image type="content" source="../media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support." lightbox="../media/on-premises-architecture/on-premises-architecture.png" border="false":::
 
 In this sample image, communication for alerts, syslog messages, and APIs is shown in a solid black line. On-premises management communication is shown in a solid purple line, and cloud / hybrid management communication is shown in a dotted black line.
 
