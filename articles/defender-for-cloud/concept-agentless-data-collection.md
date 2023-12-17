@@ -1,19 +1,19 @@
 ---
-title: Learn about agentless scanning for VMs
+title: Agentless machine scanning
 description: Learn how Defender for Cloud can gather information about your multicloud compute resources without installing an agent on your machines.
 author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 12/10/2023
+ms.date: 12/17/2023
 ms.custom: template-concept
 ---
 
-# Learn about agentless scanning
+# Agentless machine scanning
 
-Microsoft Defender for Cloud maximizes coverage on OS posture issues and extends beyond the reach of agent-based assessments. With agentless scanning for VMs, you can get frictionless, wide, and instant visibility on actionable posture issues without installed agents, network connectivity requirements, or machine performance impact.
+Microsoft Defender for Cloud maximizes coverage on operating system posture issues and extends beyond the reach of agent-based assessments. With agentless scanning for virtual machines (VM), you can get visibility on actionable posture issues without the need of installed agents, network connectivity requirements, or machine performance impact.
 
-Agentless scanning for VMs provides vulnerability assessment and software inventory, both powered by Microsoft Defender Vulnerability Management, in Azure and Amazon AWS environments. Agentless scanning is available in both [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) and [Defender for Servers P2](defender-for-servers-introduction.md).
+Agentless scanning for VMs provides vulnerability assessment and software inventory, powered by Microsoft Defender Vulnerability Management. Agentless scanning is available in both [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) and [Defender for Servers P2](plan-defender-for-servers-select-plan.md#plan-features).
 
 ## Availability
 
@@ -39,7 +39,7 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 
 ## Agentless malware scanning
 
-Defender for Cloud's agentless malware scanning for Virtual Machines (VM), utilizes Defender for Endpoint anti-virus engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts that allow you to investigate any detected threats.  
+Defender for Cloud's agentless malware scanning for VM, utilizes Defender for Endpoint anti-virus engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts that allow you to investigate any detected threats.  
 
 | Benefits of agent-based malware scanning | Benefits of agentless malware scanning |
 |--|--|
