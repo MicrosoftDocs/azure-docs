@@ -26,7 +26,7 @@ To perform the procedures described in this article, make sure that you have:
     |---------|---------|
     |**On-premises management console**     |  If the OT sensors you want to update are connected to an on-premises management console, plan to [update your on-premises management console](#update-the-on-premises-management-console) *before* updating your sensors.|
     |**Cloud-connected sensors**     |  Cloud connected sensors can be updated remotely, directly from the Azure portal, or manually using a downloaded update package.  <br><br>[Remote updates](#update-ot-sensors) require that your OT sensor has version [22.2.3](release-notes.md#2223) or later already installed.       |
-    |**Locally-managed sensors**     |  Locally-managed sensors can be updated using a downloaded update package, either via a connected on-premises management console, or directly on an OT sensor console. |
+    |**Locally managed sensors**     |  Locally managed sensors can be updated using a downloaded update package, either via a connected on-premises management console, or directly on an OT sensor console. |
 
 - **Required access permissions**:
 
@@ -156,7 +156,7 @@ This procedure describes how to manually download the new sensor software versio
 This procedure describes how to update several OT sensors simultaneously from an on-premises management console.
 
 > [!IMPORTANT]
-> If you're updating multiple, locally-managed OT sensors, make sure to [update the on-premises management console](#update-an-on-premises-management-console) *before* you update any connected sensors.
+> If you're updating multiple, locally managed OT sensors, make sure to [update the on-premises management console](#update-an-on-premises-management-console) *before* you update any connected sensors.
 >
 >
 The software version on your on-premises management console must be equal to that of your most up-to-date sensor version. Each on-premises management console version is backwards compatible to older, supported sensor versions, but can't connect to newer sensor versions.
