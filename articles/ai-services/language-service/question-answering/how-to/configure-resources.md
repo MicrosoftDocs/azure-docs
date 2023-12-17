@@ -11,9 +11,9 @@ ms.custom: language-service-question-answering, ignite-fall-2021
 
 # Configure custom question answering enabled resources
 
-You can configure question answering to use a different Cognitive Search resource.
+You can configure question answering to use a different Azure AI Search resource.
 
-## Change Cognitive Search resource
+## Change Azure AI Search resource
 
 > [!WARNING]
 > If you change the Azure Search service associated with your language resource, you will lose access to all the projects already present in it. Make sure you export the existing projects before you change the Azure Search service.
@@ -22,10 +22,10 @@ If you create a language resource and its dependencies (such as Search) through 
 
 1.  Go to your language resource in the Azure portal.
 
-2.  Select **Features** and select the Azure Cognitive Search service you want to link with your language resource.
+2.  Select **Features** and select the Azure AI Search service you want to link with your language resource.
     
     > [!NOTE]
-    > Your Language resource will retain your Azure Cognitive Search keys. If you update your search resource (for example, regenerating your keys), you will need to select **Update Azure Cognitive Search keys for the current search service**.
+    > Your Language resource will retain your Azure AI Search keys. If you update your search resource (for example, regenerating your keys), you will need to select **Update Azure AI Search keys for the current search service**.
     
     > [!div class="mx-imgBorder"]
     > ![Add QnA to TA](../media/configure-resources/update-custom-feature.png)

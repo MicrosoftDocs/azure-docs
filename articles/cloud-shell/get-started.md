@@ -1,7 +1,7 @@
 ---
 description: Learn how to start using Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 10/23/2023
+ms.date: 10/30/2023
 ms.topic: article
 tags: azure-resource-manager
 title: Get started with Azure Cloud Shell
@@ -41,6 +41,12 @@ To see all resource providers, and the registration status for your subscription
 
 1. Select the **Subscription** used to create the storage account and file share.
 1. Select **Create storage**.
+
+   > [!NOTE]
+   > By following these steps, Cloud Shell creates a standard storage account and allocates 5 GB of
+   > storage for the file share. You can also create a storage account manually and specify the
+   > storage account and file share to use. If you use a Premium storage account, Cloud Shell
+   > allocates 100 GB of storage for the file share.
 
 ### Select your shell environment
 

@@ -5,7 +5,7 @@ ms.topic: article
 ms.author: jukullam
 author: juliakm
 ms.date: 10/11/2023
-ms.custom: devops-pipelines-deploy
+ms.custom: devops-pipelines-deploy, devx-track-azurepowershell
 zone_pivot_groups: pipelines-version
 ---
 

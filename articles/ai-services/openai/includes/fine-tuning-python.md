@@ -2,7 +2,7 @@
 title: 'Customize a model with Azure OpenAI Service and the Python SDK'
 titleSuffix: Azure OpenAI
 description: Learn how to create your own customized model with Azure OpenAI Service by using the Python SDK.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
@@ -12,8 +12,9 @@ ms.author: mbullwin
 keywords: 
 ---
 
-<a href="https://github.com/openai/openai-python" target="_blank">Library source code</a> | <a href="https://pypi.org/project/openai/" target="_blank">Package (PyPi)</a> |
+## Prerequisites
 
+- Read the [When to use Azure OpenAI fine-tuning guide](../concepts/fine-tuning-considerations.md).
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 - Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
@@ -34,7 +35,7 @@ The following models support fine-tuning:
 - `babbage-002`
 - `davinci-002`
 
-Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models-preview) to check which regions currently support fine-tuning.
+Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
 ## Review the workflow for the Python SDK
 
@@ -104,7 +105,7 @@ OpenAI's CLI data preparation tool was developed for the previous generation of 
 To install the OpenAI CLI, run the following Python command:
 
 ```console
-pip install --upgrade openai 
+pip install openai==0.28.1
 ```
 
 To analyze your training data with the data preparation tool, run the following Python command. Replace the _\<LOCAL_FILE>_ argument with the full path and file name of the training data file to analyze:
@@ -129,8 +130,8 @@ After it guides you through the process of implementing suggested changes, the t
 
 The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. After you prepare your training data, you can upload your files to the service. There are two ways to upload training data:
 
-- [From a local file](/rest/api/cognitiveservices/azureopenaistable/files/upload)
-- [Import from an Azure Blob store or other web location](/rest/api/cognitiveservices/azureopenaistable/files/import)
+- [From a local file](/rest/api/azureopenai/files/upload)
+- [Import from an Azure Blob store or other web location](/rest/api/azureopenai/files/import)
 
 For large data files, we recommend that you import from an Azure Blob  store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](../../../storage/blobs/storage-blobs-overview.md)
 
@@ -138,6 +139,8 @@ For large data files, we recommend that you import from an Azure Blob  store. La
 > Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM). The file must be less than 100 MB in size.
 
 The following Python example uploads local training and validation files by using the Python SDK, and retrieves the returned file IDs.
+
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
 # Upload fine-tuning files
@@ -148,7 +151,7 @@ import os
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
 openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = 'azure'
-openai.api_version = '2023-09-15-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+openai.api_version = '2023-12-01-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 
 training_file_name = 'training_set.jsonl'
 validation_file_name = 'validation_set.jsonl'
@@ -169,11 +172,49 @@ print("Training file ID:", training_file_id)
 print("Validation file ID:", validation_file_id)
 ```
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# Upload fine-tuning files
+
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+)
+
+training_file_name = 'training_set.jsonl'
+validation_file_name = 'validation_set.jsonl'
+
+# Upload the training and validation dataset files to Azure OpenAI with the SDK.
+
+training_response = client.files.create(
+    file=open(training_file_name, "rb"), purpose="fine-tune"
+)
+training_file_id = training_response.id
+
+validation_response = client.files.create(
+    file=open(validation_file_name, "rb"), purpose="fine-tune"
+)
+validation_file_id = validation_response.id
+
+print("Training file ID:", training_file_id)
+print("Validation file ID:", validation_file_id)
+
+```
+
+---
+
 ## Create a customized model
 
 After you upload your training and validation files, you're ready to start the fine-tuning job.
 
 The following Python code shows an example of how to create a new fine-tune job with the Python SDK:
+
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
 
@@ -194,7 +235,30 @@ print(response)
 
 ```
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+response = client.fine_tuning.jobs.create(
+    training_file=training_file_id,
+    validation_file=validation_file_id,
+    model="gpt-35-turbo-0613", # Enter base model name. Note that in Azure OpenAI the model name contains dashes and cannot contain dot/period characters. 
+)
+
+job_id = response.id
+
+# You can use the job ID to monitor the status of the fine-tuning job.
+# The fine-tuning job will take some time to start and complete.
+
+print("Job ID:", response.id)
+print("Status:", response.id)
+print(response.model_dump_json(indent=2))
+```
+
+---
+
 ## Check fine-tuning job status
+
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
 #Retrieve training job ID
@@ -206,9 +270,21 @@ print("Status:", response["status"])
 print(response)
 ```
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+response = client.fine_tuning.jobs.retrieve(job_id)
+
+print("Job ID:", response.id)
+print("Status:", response.status)
+print(response.model_dump_json(indent=2))
+```
+
+---
+
 ## Deploy a customized model
 
-When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in the response body is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/cognitiveservices/azureopenaistable/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
+When the fine-tune job succeeds, the value of the `fine_tuned_model` variable in the response body is set to the name of your customized model. Your model is now also available for discovery from the [list Models API](/rest/api/azureopenai/models/list). However, you can't issue completion calls to your customized model until your customized model is deployed. You must deploy your customized model to make it available for use with completion calls.
 
 [!INCLUDE [Fine-tuning deletion](fine-tune.md)]
 
@@ -298,8 +374,9 @@ az cognitiveservices account deployment create
 
 After your custom model deploys, you can use it like any other deployed model. You can use the **Playgrounds** in [Azure OpenAI Studio](https://oai.azure.com) to experiment with your new deployment. You can continue to use the same parameters with your custom model, such as `temperature` and `max_tokens`, as you can with other deployed models. For fine-tuned `babbage-002` and `davinci-002` models you will use the Completions playground and the Completions API. For fine-tuned `gpt-35-turbo-0613` models you will use the Chat playground and the Chat completion API.
 
+# [OpenAI Python 0.28.1](#tab/python)
+
 ```python
-#Note: The openai-python library support for Azure OpenAI is in preview.
 import os
 import openai
 openai.api_type = "azure"
@@ -321,11 +398,40 @@ print(response)
 print(response['choices'][0]['message']['content'])
 ```
 
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+import os
+from openai import AzureOpenAI
+
+client = AzureOpenAI(
+  azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
+  api_key=os.getenv("AZURE_OPENAI_KEY"),  
+  api_version="2023-05-15"
+)
+
+response = client.chat.completions.create(
+    model="gpt-35-turbo-ft", # model = "Custom deployment name you chose for your fine-tuning model"
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Does Azure OpenAI support customer managed keys?"},
+        {"role": "assistant", "content": "Yes, customer managed keys are supported by Azure OpenAI."},
+        {"role": "user", "content": "Do other Azure AI services support this too?"}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+---
+
 ## Analyze your customized model
 
 Azure OpenAI attaches a result file named _results.csv_ to each fine-tune job after it completes. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model, and you can use the Python SDK to retrieve the file ID and download the result file for analysis.
 
 The following Python example retrieves the file ID of the first result file attached to the fine-tune job for your customized model, and then uses the Python SDK to download the file to your working directory for analysis.
+
+# [OpenAI Python 0.28.1](#tab/python)
 
 ```python
 # Retrieve the file ID of the first result file from the fine-tune job
@@ -343,6 +449,27 @@ with open(result_file_name, "wb") as file:
     result = openai.File.download(id=result_file_id)
     file.write(result)
 ```
+
+# [OpenAI Python 1.x](#tab/python-new)
+
+```python
+# Retrieve the file ID of the first result file from the fine-tune job
+# for the customized model.
+response = client.fine_tuning.jobs.retrieve(job_id)
+if response.status == 'succeeded':
+    result_file_id = response.result_files[0]
+
+retrieve = client.files.retrieve(result_file_id)
+
+# Download the result file.
+print(f'Downloading result file: {result_file_id}')
+
+with open(retrieve.filename, "wb") as file:
+    result = client.files.content(result_file_id).read()
+    file.write(result)
+```
+
+---
 
 The result file is a CSV file that contains a header row and a row for each training step performed by the fine-tune job. The result file contains the following columns:
 
@@ -383,7 +510,7 @@ Similarly, you can use various methods to delete your customized model:
 You can optionally delete training and validation files that you uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
 - [Azure OpenAI Studio](../how-to/fine-tuning.md?pivots=programming-language-studio#delete-your-training-files)
-- The [REST APIs](/rest/api/cognitiveservices/azureopenaistable/files/delete)
+- The [REST APIs](/rest/api/azureopenai/files/delete)
 - The Python SDK
 
 The following Python example uses the Python SDK to delete the training, validation, and result files for your customized model:
@@ -419,4 +546,4 @@ In order to successfully access fine-tuning you need **Cognitive Services OpenAI
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
-- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models-preview)
+- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)

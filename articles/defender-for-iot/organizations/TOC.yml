@@ -19,6 +19,9 @@
   - name: Add an OT plan to your Azure subscription
     href: getting-started.md
     displayName: onboard
+  - name: Get started with Enterprise IoT security
+    href: eiot-defender-for-endpoint.md
+    displayName: onboard
 - name: Concepts
   items:
     - name: Defender for IoT system components
@@ -48,108 +51,85 @@
       displayName: Microsoft Sentinel, modernize SOC
     - name: Securing enterprise IoT devices
       href: concept-enterprise.md
-      displayName: Microsoft Defender for Endpoint, MDE
-- name: Deploy
+      displayName: Microsoft Defender for Endpoint, MDE, frequently asked questions
+- name: Deploy OT monitoring
   items:
-  - name: Deploy OT monitoring
-    items:
-    - name: OT deployment path
-      href: ot-deploy/ot-deploy-path.md
-    - name: Plan and prepare for an OT deployment
-      items:    
-      - name: Plan your OT monitoring system
-        items:
-        - name: Overview
-          href: best-practices/plan-corporate-monitoring.md
-        - name: Azure connection methods
-          href: architecture-connections.md
-        - name: SSL/TLS certificate requirements
-          href: best-practices/certificate-requirements.md
-      - name: Prepare an OT site
-        items:
-        - name: Overview
-          href: best-practices/plan-prepare-deploy.md
-        - name: Defender for IoT and your network architecture
-          href: best-practices/understand-network-architecture.md
-        - name: Choose a traffic mirroring method
-          href: best-practices/traffic-mirroring-methods.md
-          displayName: SPAN port, TAP
-        - name: OT monitoring appliance catalog
-          items:
-          - name: Which appliances do I need?
-            href: ot-appliance-sizing.md
-          - name: Pre-configured appliances
-            href: ot-pre-configured-appliances.md
-          - name: OT monitoring with virtual appliances
-            href: ot-virtual-appliances.md 
-        - name: Create SSL/TLS certificates
-          href: ot-deploy/create-ssl-certificates.md  
-    - name: Onboard OT sensors to Azure
-      href: onboard-sensors.md
-    - name: Site networking setup
+  - name: OT deployment path
+    href: ot-deploy/ot-deploy-path.md
+  - name: Plan and prepare for an OT deployment
+    items:    
+    - name: Plan your OT monitoring system
       items:
-      - name: Configure traffic mirroring
+      - name: Overview
+        href: best-practices/plan-corporate-monitoring.md
+      - name: Azure connection methods
+        href: architecture-connections.md
+      - name: SSL/TLS certificate requirements
+        href: best-practices/certificate-requirements.md
+    - name: Prepare an OT site
+      items:
+      - name: Overview
+        href: best-practices/plan-prepare-deploy.md
+      - name: Defender for IoT and your network architecture
+        href: best-practices/understand-network-architecture.md
+      - name: Choose a traffic mirroring method
+        href: best-practices/traffic-mirroring-methods.md
+        displayName: SPAN port, TAP
+      - name: OT monitoring appliance catalog
         items:
-        - name: Overview
-          href: traffic-mirroring/traffic-mirroring-overview.md
-        - name: Configure a switch SPAN port
-          href: traffic-mirroring/configure-mirror-span.md
-        - name: Configure a remote SPAN (RSPAN)
-          href: traffic-mirroring/configure-mirror-rspan.md
-        - name: Configure active or passive aggregation (TAP)
-          href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
-        - name: Configure ERSPAN mirroring
-          href: traffic-mirroring/configure-mirror-erspan.md
-        - name: Configure mirroring with an ESXi vSwitch
-          href: traffic-mirroring/configure-mirror-esxi.md
-        - name: Configure mirroring with a Hyper-V vSwitch
-          href: traffic-mirroring/configure-mirror-hyper-v.md
-      - name: Provision for cloud management
-        href: ot-deploy/provision-cloud-management.md
-    - name: Deploy OT network sensors
-      items:
-      - name: Install sensor software
-        href: ot-deploy/install-software-ot-sensor.md
-      - name: Validate after installation
-        href: ot-deploy/post-install-validation-ot-software.md
-      - name: Configure initial settings and activate your sensor
-        href: ot-deploy/activate-deploy-sensor.md
-        displayName: SSL, TLS, certificate
-      - name: Configure proxy settings
-        href: connect-sensors.md
-    - name: Calibrate and fine-tune OT monitoring
-      items:
-      - name: Control OT traffic monitoring
-        href: how-to-control-what-traffic-is-monitored.md
-        displayName: VLAN, port name, subnets, DHCP
-      - name: Update detected device properties
-        href: ot-deploy/update-device-inventory.md
-      - name: Create a learned baseline of OT alerts
-        href: ot-deploy/create-learned-baseline.md
-  - name: Deploy air-gapped OT sensor management
+        - name: Which appliances do I need?
+          href: ot-appliance-sizing.md
+        - name: Pre-configured appliances
+          href: ot-pre-configured-appliances.md
+        - name: OT monitoring with virtual appliances
+          href: ot-virtual-appliances.md 
+      - name: Create SSL/TLS certificates
+        href: ot-deploy/create-ssl-certificates.md  
+  - name: Onboard OT sensors to Azure
+    href: onboard-sensors.md
+  - name: Site networking setup
     items:
-    - name: Air-gapped management deployment path
-      href: ot-deploy/air-gapped-deploy.md
-    - name: Prepare an appliance
-      href: ot-deploy/prepare-management-appliance.md
-    - name: Install an on-premises management console
-      href: ot-deploy/install-software-on-premises-management-console.md
-    - name: Activate and set up an on-premises management console
-      href: ot-deploy/activate-deploy-management.md
-    - name: Connect OT sensors to an on-premises management console
-      href: ot-deploy/connect-sensors-to-management.md
-    - name: Configure on-premises sites and zones
-      href: ot-deploy/sites-and-zones-on-premises.md
-      displayName: site, zone, Zero Trust
-  - name: Deploy Enterprise IoT monitoring
+    - name: Configure traffic mirroring
+      items:
+      - name: Overview
+        href: traffic-mirroring/traffic-mirroring-overview.md
+      - name: Configure a switch SPAN port
+        href: traffic-mirroring/configure-mirror-span.md
+      - name: Configure a remote SPAN (RSPAN)
+        href: traffic-mirroring/configure-mirror-rspan.md
+      - name: Configure active or passive aggregation (TAP)
+        href: best-practices/traffic-mirroring-methods.md#active-or-passive-aggregation-tap
+      - name: Configure ERSPAN mirroring
+        href: traffic-mirroring/configure-mirror-erspan.md
+      - name: Configure mirroring with an ESXi vSwitch
+        href: traffic-mirroring/configure-mirror-esxi.md
+      - name: Configure mirroring with a Hyper-V vSwitch
+        href: traffic-mirroring/configure-mirror-hyper-v.md
+    - name: Provision for cloud management
+      href: ot-deploy/provision-cloud-management.md
+  - name: Deploy OT network sensors
     items:
-    - name: Enable Enterprise IoT security
-      href: eiot-defender-for-endpoint.md
-      displayName: onboard
-    - name: Enterprise IoT networks FAQ
-      href: faqs-eiot.md
+    - name: Install sensor software
+      href: ot-deploy/install-software-ot-sensor.md
+    - name: Validate after installation
+      href: ot-deploy/post-install-validation-ot-software.md
+    - name: Configure initial settings and activate your sensor
+      href: ot-deploy/activate-deploy-sensor.md
+      displayName: SSL, TLS, certificate
+    - name: Configure proxy settings
+      href: connect-sensors.md
+  - name: Calibrate and fine-tune OT monitoring
+    items:
+    - name: Control OT traffic monitoring
+      href: how-to-control-what-traffic-is-monitored.md
+      displayName: VLAN, port name, subnets, DHCP
+    - name: Update detected device properties
+      href: ot-deploy/update-device-inventory.md
+    - name: Create a learned baseline of OT alerts
+      href: ot-deploy/create-learned-baseline.md
+  - name: Deploy in hybrid or air-gapped environments
+    href: ot-deploy/air-gapped-deploy.md
 - name: Tutorials
-  expanded: false
   items:
   - name: Onboard and activate a virtual OT sensor
     href: tutorial-onboarding.md
@@ -176,9 +156,6 @@
       - name: OT sensor console
         href: how-to-investigate-sensor-detections-in-a-device-inventory.md
         displayName: devices, assets, inventory, device
-      - name: On-premises management console
-        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-        displayName: devices, assets, inventory, device
     - name: View OT device mapping
       href: how-to-work-with-the-sensor-device-map.md
       displayName: notification, notifications
@@ -192,9 +169,6 @@
     - name: Sensor console
       href: how-to-view-alerts.md
       displayName: alert, alerts
-    - name: On-premises management console
-      displayName: alert, alerts
-      href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Accelerate on-premises alert workflows
       displayName: alerts, supression, exclusion
       href: how-to-accelerate-alert-incident-response.md
@@ -229,8 +203,6 @@
     - name: Stream cloud alerts to a partner SIEM
       href: integrations/send-cloud-data-to-partners.md
       displayName: Splunk
-    - name: Aruba ClearPass
-      href: tutorial-clearpass.md
     - name: CyberArk
       href: tutorial-cyberark.md
     - name: Forescout
@@ -243,27 +215,29 @@
       href: integrations/logrhythm.md
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
-    - name: Microsoft Sentinel (on-premises data)
-      href: integrations/on-premises-sentinel.md
-    - name: Palo Alto
-      href: tutorial-palo-alto.md
     - name: RSA NetWitness
       href: integrations/netwitness.md
-    - name: Splunk
-      href: tutorial-splunk.md
     - name: ServiceNow
+      href: tutorial-servicenow.md
+    - name: Legacy integrations
       items:
-      - name: ServiceNow integrations
-        href: tutorial-servicenow.md
-      - name: Legacy integration
+      - name: Aruba ClearPass
+        href: tutorial-clearpass.md
+      - name: Microsoft Sentinel
+        href: integrations/on-premises-sentinel.md
+      - name: Palo Alto
+        href: tutorial-palo-alto.md
+      - name: ServiceNow
         href: integrations/service-now-legacy.md
+      - name: Splunk
+        href: tutorial-splunk.md
   - name: Maintain your Defender for IoT system
     items:
-    - name: Manage plans on your Azure subscription
+    - name: Manage billing plans
       items:
-      - name: Manage OT plans
+      - name: Manage OT licenses
         href: how-to-manage-subscriptions.md
-      - name: Manage Enterprise IoT plans
+      - name: Manage enterprise IoT security monitoring
         href: manage-subscriptions-enterprise.md
     - name: Manage sensors from the Azure portal
       href: how-to-manage-sensors-on-the-cloud.md
@@ -274,9 +248,6 @@
         displayName: users, user
       - name: OT sensor console
         href: manage-users-sensor.md
-        displayName: users, user
-      - name: On-premises management console
-        href: manage-users-on-premises-management-console.md
         displayName: users, user
       - name: Audit user activity
         href: track-user-activity.md
@@ -306,16 +277,8 @@
           href: update-legacy-ot-software.md
           displayName: upgrade
       - name: Backup and restore
-        items:
-        - name: OT sensors from the sensor console
-          href: back-up-restore-sensor.md
-          displayName: backup, restore, back up
-        - name: OT sensors from an on-premises management console
-          href: back-up-sensors-from-management.md
-          displayName: backup, back up
-        - name: On-premises management console
-          href: back-up-restore-management.md
-          displayName: backup, restore, back up
+        href: back-up-restore-sensor.md
+        displayName: back up
       - name: OT sensor maintenance
         items:
         - name: Configure OT sensor settings from the Azure portal
@@ -332,17 +295,49 @@
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors
           href: how-to-troubleshoot-sensor.md
-      - name: System maintenance with an on-premises management console
+      - name: Legacy on-premises management
         items:
-        - name: Set up high availability
-          href: how-to-set-up-high-availability.md
-        - name: Manage sensors from the on-premises management console
-          href: how-to-manage-sensors-from-the-on-premises-management-console.md
-        - name: Maintain an on-premises management console
-          displayName: activation, SMTP, VLAN, hostname
-          href: how-to-manage-the-on-premises-management-console.md
-        - name: Troubleshoot on-premises management consoles
-          href: how-to-troubleshoot-on-premises-management-console.md
+        - name: Deploy air-gapped OT sensor management
+          items:
+          - name: Air-gapped management deployment path
+            href: legacy-central-management/legacy-air-gapped-deploy.md
+          - name: Prepare an appliance
+            href: legacy-central-management/prepare-management-appliance.md
+          - name: Install an on-premises management console
+            href: legacy-central-management/install-software-on-premises-management-console.md
+          - name: Activate and set up an on-premises management console
+            href: legacy-central-management/activate-deploy-management.md
+          - name: Connect OT sensors to an on-premises management console
+            href: legacy-central-management/connect-sensors-to-management.md
+          - name: Configure on-premises sites and zones
+            href: legacy-central-management/sites-and-zones-on-premises.md
+            displayName: site, zone, Zero Trust
+        - name: Manage devices from the on-premises management console
+          href: legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+          displayName: devices, assets, inventory, device
+        - name: Manage alerts from the on-premises management console
+          displayName: alert, alerts
+          href: legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md
+        - name: System maintenance with an on-premises management console
+          items:
+          - name: Manage users on the on-premises management console
+            href: legacy-central-management/install-software-on-premises-management-console.md
+            displayName: users, user
+          - name: Back up sensors from an on-premises management console
+            href: legacy-central-management/back-up-sensors-from-management.md
+            displayName: backup, back up
+          - name: Back up an on-premises management console
+            href: legacy-central-management/back-up-restore-management.md
+            displayName: backup, restore, back up
+          - name: Set up high availability
+            href: legacy-central-management/how-to-set-up-high-availability.md
+          - name: Manage sensors from the on-premises management console
+            href: legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md
+          - name: Maintain an on-premises management console
+            displayName: activation, SMTP, VLAN, hostname
+            href: legacy-central-management/how-to-manage-the-on-premises-management-console.md
+          - name: Troubleshoot on-premises management consoles
+            href: legacy-central-management/how-to-troubleshoot-on-premises-management-console.md
     - name: Maintain IoT on-premises resources
       items:
       - name: Discover Enterprise IoT devices
@@ -457,6 +452,8 @@
   items:
   - name: Frequently asked questions
     href: faqs-general.md
+  - name: Pricing page
+    href: https://www.microsoft.com/en-us/security/business/endpoint-security/microsoft-defender-iot-pricing
   - name: Architecture icons
     href: /azure/architecture/icons/
   - name: Compliance resources

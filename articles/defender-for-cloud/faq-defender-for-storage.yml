@@ -29,7 +29,7 @@ sections:
       - question: |
           How long does it take for subscription-level enablement to take effect?
         answer: |
-          Enabling Defender for Storage at the subscription level may take up to 24 hours to be fully enabled across all storage accounts.
+          Enabling Defender for Storage at the subscription level might take up to 24 hours to be fully enabled across all storage accounts.
 
 
       - question: |

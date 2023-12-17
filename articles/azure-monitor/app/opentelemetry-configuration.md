@@ -2,7 +2,7 @@
 title: Configure Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides configuration guidance for .NET, Java, Node.js, and Python applications.
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.date: 11/15/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -104,7 +104,7 @@ Use one of the following two ways to configure the connection string:
 
 ### [Java](#tab/java)
 
-[!INCLUDE [azure-monitor-app-insights-opentelemetry-java-connection-string](../includes/azure-monitor-app-insights-opentelemetry-java-connection-string.md)]
+To set the connection string, see [Connection string](java-standalone-config.md#connection-string).
 
 ### [Node.js](#tab/nodejs)
 
@@ -762,7 +762,7 @@ For more information about Java, see the [Java supplemental documentation](java-
     ```sh
         npm install @opentelemetry/api
         npm install @opentelemetry/exporter-trace-otlp-http
-        npm install @opentelemetry/@opentelemetry/sdk-trace-base
+        npm install @opentelemetry/sdk-trace-base
         npm install @opentelemetry/sdk-trace-node
     ```
 

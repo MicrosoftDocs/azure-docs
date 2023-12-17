@@ -2,7 +2,6 @@
 title: Use the Microsoft Audio Stack (MAS) - Speech service
 titleSuffix: Azure AI services
 description: An overview of the features, capabilities, and restrictions for audio processing using the Speech Software Development Kit (SDK).
-services: cognitive-services
 author: hasyashah
 manager: nitinme
 ms.service: azure-ai-speech
@@ -17,7 +16,10 @@ ms.custom: devx-track-csharp, ignite-fall-2021
 
 The Speech SDK integrates Microsoft Audio Stack (MAS), allowing any application or product to use its audio processing capabilities on input audio. See the [Audio processing](audio-processing-overview.md) documentation for an overview.
 
-In this article, you learn how to use the Microsoft Audio Stack (MAS) with the Speech SDK. 
+In this article, you learn how to use the Microsoft Audio Stack (MAS) with the Speech SDK.
+
+> [!IMPORTANT]
+> On Speech SDK for C++ and C# v1.33.0 and newer, the `Microsoft.CognitiveServices.Speech.Extension.MAS` package must be installed to use the Microsoft Audio Stack on Windows, and on Linux if you install the Speech SDK using NuGet.
 
 ## Default options
 

@@ -26,7 +26,7 @@ The following table lists the limits for the Microsoft Playwright Testing free t
 |-|-|
 | Duration of trial | 30 days |
 | Total test minutes¹ | 100 minutes |
-| Number of workspaces¹²³ | 1 |
+| Number of workspaces²³ | 1 |
 
 ¹ If you run a test that exceeds the free trial test minute limit, only the overage test minutes account towards the pay-as-you-go billing model.
 
@@ -34,7 +34,8 @@ The following table lists the limits for the Microsoft Playwright Testing free t
 
 ³ If you delete the free trial workspace, you can't create a new free trial workspace anymore.
 
-If you exceed any of these limits, the workspace is automatically converted to the pay-as-you-go billing model. Learn more about the [Microsoft Playwright Testing pricing](https://aka.ms/mpt/pricing).
+> [!CAUTION]
+> If you exceed any of these limits, the workspace is automatically converted to the pay-as-you-go billing model. Learn more about the [Microsoft Playwright Testing pricing](https://aka.ms/mpt/pricing).
 
 ## Create a workspace
 
@@ -56,7 +57,7 @@ To create a workspace in the Playwright portal:
     |---------|---------|
     |**Workspace name**     | Enter a unique name to identify your workspace.<BR>The name can only consist of alphanumerical characters, and have a length between 3 and 64 characters. |
     |**Azure subscription**     | Select the Azure subscription that you want to use for this Microsoft Playwright Testing workspace. |
-    |**Region**     | Select a geographic location to host your workspace. <BR>This is the location where the test run data is stored for the workspace. |
+    |**Region**     | Select a geographic location to host your workspace. <BR>This location is where the test run data is stored for the workspace. |
 
 1. Select **Create workspace**.
 

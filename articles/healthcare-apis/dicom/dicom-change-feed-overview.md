@@ -3,7 +3,7 @@ title:  Overview of DICOM change feed - Azure Health Data Services
 description: In this article, you learn the concepts of DICOM change feed.
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: conceptual
 ms.date: 10/9/2023
 ms.author: mmitrik
@@ -11,7 +11,7 @@ ms.author: mmitrik
 
 # Change feed overview
 
-The change feed provides logs of all the changes that occur in the DICOM&reg; service. The change feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The change feed offers the ability to go through the history of DICOM service and acts upon the creates and deletes in the service.
+The change feed provides logs of all the changes that occur in the DICOM&reg; service. The change feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The change feed offers the ability to go through the history of DICOM service and acts upon the creates, updates, and deletes in the service.
 
 Client applications can read these logs at any time in batches of any size. The change feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
 
@@ -38,7 +38,7 @@ Sequence            | long      | The unique ID per change event
 StudyInstanceUid    | string    | The study instance UID
 SeriesInstanceUid   | string    | The series instance UID
 SopInstanceUid      | string    | The sop instance UID
-Action              | string    | The action that was performed - either `create` or `delete`
+Action              | string    | The action that was performed - either `create`, `update`, or `delete`
 Timestamp           | datetime  | The date and time the action was performed in UTC
 State               | string    | [The current state of the metadata](#states)
 Metadata            | object    | Optionally, the current DICOM metadata if the instance exists
@@ -168,7 +168,7 @@ Content-Type: application/json
     "StudyInstanceUid": "{uid}",
     "SeriesInstanceUid": "{uid}",
     "SopInstanceUid": "{uid}",
-    "Action": "create|delete",
+    "Action": "create|update|delete",
     "Timestamp": "2020-03-05T07:13:16.4834Z",
     "State": "current|replaced|deleted",
     "Metadata": {

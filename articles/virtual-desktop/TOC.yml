@@ -64,9 +64,9 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Create and connect to a Windows 11 desktop
+  - name: Deploy a Windows 11 desktop
     displayName: tutorial
-    href: tutorial-create-connect-personal-desktop.md
+    href: tutorial-try-deploy-windows-11-desktop.md
 - name: Concepts
   items:
   - name: Deploy
@@ -98,9 +98,9 @@
       - name: Azure Private Link
         displayName: network connectivity, connections, private endpoints
         href: private-link-overview.md
-      - name: Required URL list
-        displayName: network, urls, firewall, connections, connectivity
-        href: safe-url-list.md
+      - name: Required FQDNs and endpoints
+        displayName: network, fqdn, endpoint, urls, firewall, connections, connectivity
+        href: required-fqdn-endpoint.md
       - name: Bandwidth considerations
         displayName: network, throughput, latency
         href: rdp-bandwidth.md
@@ -135,13 +135,9 @@
         href: store-fslogix-profile.md
     - name: Applications
       items:
-      - name: MSIX app attach
-        items:
-        - name: What is MSIX app attach?
-          displayName: applications, apps
-          href: what-is-app-attach.md
-        - name: MSIX app attach FAQ
-          href: app-attach-faq.yml
+      - name: App attach
+        displayName: applications, apps, msix app attach, app attach, app packages, appx packages
+        href: app-attach-overview.md
       - name: Microsoft Teams supported features
         displayName: applications, apps
         href: teams-supported-features.md
@@ -170,27 +166,32 @@
     - name: Disaster recovery concepts 
       displayName: bcdr, bc dr
       href: disaster-recovery-concepts.md
-    - name: Session host management
-      displayName: virtual machines, vms, intune, gpo, group policy, configuration manager, configmgr, sccm
-      href: management.md
-    - name: Scale session hosts
+    - name: Session hosts
       items:
-      - name: Autoscale
+      - name: Session host management
+        displayName: virtual machines, vms, intune, gpo, group policy, configuration manager, configmgr, sccm
+        href: management.md
+      - name: Session host status and health checks
+        displayName: troubleshooting, statuses, needs assistance, shutdown, unavailable, upgrade failed, upgrading
+        href: session-host-status-health-checks.md   
+      - name: Scale session hosts
         items:
-        - name: How autoscale works
-          displayName: virtual machines, vms, scale
-          href: autoscale-scenarios.md
-        - name: Autoscale glossary
-          displayName: scale
-          href: autoscale-glossary.md
-        - name: Autoscale FAQ
-          displayName: scale
-          href: autoscale-faq.yml
-      - name: Azure Automation and Azure Logic Apps
-        items:
-        - name: How the scaling tool works
-          displayName: scale
-          href: scaling-automation-logic-apps.md
+        - name: Autoscale
+          items:
+          - name: How autoscale works
+            displayName: virtual machines, vms, scale
+            href: autoscale-scenarios.md
+          - name: Autoscale glossary
+            displayName: scale
+            href: autoscale-glossary.md
+          - name: Autoscale FAQ
+            displayName: scale
+            href: autoscale-faq.yml
+        - name: Azure Automation and Azure Logic Apps
+          items:
+          - name: How the scaling tool works
+            displayName: scale
+            href: scaling-automation-logic-apps.md
     - name: Security
       items:
       - name: Security best practices
@@ -238,54 +239,60 @@
   items:
   - name: Deploy
     items:
-      - name: Create a host pool
-        displayName: deploy, get started
-        href: create-host-pool.md
-      - name: Create application group, workspace, and assign users
-        displayName: deploy, get started
-        href: create-application-group-workspace.md
-      - name: Add session hosts to a host pool
-        displayName: deploy, get started
-        href: add-session-hosts-host-pool.md
+      - name: Deploy Azure Virtual Desktop
+        displayName: deploy, create, get started, host pool, application group, workspace, assign users, azure stack hci
+        href: deploy-azure-virtual-desktop.md
       - name: Use the getting started feature
-        displayName: deploy, get started
+        displayName: deploy, create, get started
         href: getting-started-feature.md
-      - name: Enable GPU acceleration
-        displayName: graphics, multimedia, videos, cad
-        href: enable-gpu-acceleration.md
+      - name: Session hosts
+        items:
+        - name: Add session hosts to a host pool
+          displayName: deploy, get started
+          href: add-session-hosts-host-pool.md
+        - name: Enable GPU acceleration
+          displayName: graphics, multimedia, videos, cad, session hosts
+          href: enable-gpu-acceleration.md
+        - name: Customize session host images
+          items:
+          - name: Create custom images with Custom image templates
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: create-custom-image-templates.md
+          - name: Set up golden image in Azure
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: set-up-golden-image.md
+          - name: Set up a master VHD image
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: set-up-customize-master-image.md
+          - name: Install Office on a master VHD image
+            displayName: session hosts, virtual machines, vms, vhd, vhdx
+            href: install-office-on-wvd-master-image.md
+        - name: Add languages
+          items:
+          - name: Windows 10 multi-session images
+            displayName: languages, language packs
+            href: language-packs.md
+          - name: Windows 11 Enterprise images
+            displayName: languages, language packs
+            href: windows-11-language-packs.md
       - name: Applications
         items:
-        - name: Publish applications using Azure portal
-          displayName: deploy, get started, apps
-          href: manage-app-groups.md
-        - name: Publish applications using CLI and PowerShell
-          displayName: deploy, get started, apps
-          href: manage-app-groups-powershell.md
-        - name: Publish built-in apps
-          displayName: deploy, get started, applications
-          href: publish-apps.md
-        - name: MSIX app attach
+        - name: Publish applications
+          displayName: deploy, get started, apps, sandbox, Microsoft Store
+          href: publish-applications.md
+        - name: App attach
           items:
           - name: Create an MSIX image
-            displayName: msix app attach, applications, apps
-            href: msix-app-attach-create-msix-image.md
-          - name: Set up a file share
-            displayName: msix app attach, applications, apps
-            href: app-attach-file-share.md
-          - name: Use Azure NetApp Files and MSIX app attach
-            displayName: applications, apps
-            href: create-netapp-files.md
-          - name: Set up MSIX app attach with the Azure portal
-            displayName: applications, apps
-            href: app-attach-azure-portal.md
-          - name: Set up MSIX app attach with PowerShell
-            displayName: applications, apps
-            href: app-attach-powershell.md
-          - name: Test and troubleshoot MSIX packages
-            displayName: msix app attach, applications, apps
-            href: app-attach.md
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: app-attach-create-msix-image.md
+          - name: Add and manage app attach applications
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: app-attach-setup.md
+          - name: Test MSIX packages
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+            href: app-attach-test-msix-packages.md
           - name: MSIXMGR tool parameters
-            displayName: msix app attach, applications, apps
+            displayName: msix app attach, app attach, applications, apps, appx packages, app packages
             href: msixmgr-tool-syntax-description.md 
         - name: Specific applications
           items:
@@ -298,20 +305,6 @@
           - name: Set up Windows Sandbox
             displayName: applications, apps
             href: sandbox.md
-      - name: Customize session host images
-        items:
-        - name: Create custom images with Custom image templates
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: create-custom-image-templates.md
-        - name: Set up golden image in Azure
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: set-up-golden-image.md
-        - name: Set up a master VHD image
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: set-up-customize-master-image.md
-        - name: Install Office on a master VHD image
-          displayName: session hosts, virtual machines, vms, vhd, vhdx
-          href: install-office-on-wvd-master-image.md
       - name: Identity and access management
         items:
         - name: Enforce Microsoft Entra multifactor authentication
@@ -323,7 +316,7 @@
         - name: Configure single sign-on using AD FS
           displayName: identity, sso
           href: configure-adfs-sso.md
-        - name: Assign RBAC roles to the service principal
+        - name: Assign RBAC roles to the service principals
           displayName: identity, role-based access control, role based access control
           href: service-principal-assign-roles.md
         - name: Set up the KDC proxy
@@ -331,9 +324,9 @@
           href: key-distribution-center-proxy.md
       - name: Network connectivity
         items:
-        - name: Check access to required URLs
-          displayName: network, urls, firewall
-          href: required-url-check-tool.md
+        - name: Check access to required FQDNs and endpoints
+          displayName: network, fqdn, endpoint, urls, connections, connectivity
+          href: check-access-validate-required-fqdn-endpoint.md
         - name: Configure RDP Shortpath
           displayName: network, udp
           href: configure-rdp-shortpath.md
@@ -360,14 +353,6 @@
         - name: Use Azure Files and Microsoft Entra ID
           displayName: fslogix, user profiles
           href: create-profile-container-azure-ad.md
-      - name: Language packs
-        items:
-        - name: Windows 10 multi-session images
-          displayName: languages, language packs
-          href: language-packs.md
-        - name: Windows 11 Enterprise images
-          displayName: languages, language packs
-          href: windows-11-language-packs.md
       - name: Migrate from classic
         items:
         - name: Migrate automatically 
@@ -376,8 +361,6 @@
         - name: Migrate manually
           displayName: classic
           href: manual-migration.md
-      - name: Deploy on Azure Stack HCI
-        href: azure-stack-hci.md
   - name: Manage
     items:
     - name: Use Azure CLI and Azure PowerShell
@@ -566,9 +549,6 @@
   - name: Session host virtual machine configuration
     displayName: troubleshooting, vms
     href: troubleshoot-vm-configuration.md
-  - name: Session host statuses and health checks
-    displayName: troubleshooting
-    href: troubleshoot-statuses-checks.md
   - name: Management issues
     displayName: troubleshooting
     href: troubleshoot-management-issues.md
@@ -657,6 +637,9 @@
   - name: REST API
     displayName: reference
     href: /rest/api/desktopvirtualization/
+  - name: MSIXMGR tool parameters
+    displayName: msix app attach, app attach, applications, apps, appx packages, app packages
+    href: msixmgr-tool-syntax-description.md 
 - name: Resources
   items:
   - name: User experience estimator

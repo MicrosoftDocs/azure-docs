@@ -1,26 +1,26 @@
 ---
-title: Use Hive Catalog, Hive Read & Write demo on Apache Flink SQL
-description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink SQL
+title: Use Hive Catalog, Hive Read & Write demo on Apache Flink® 
+description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink® on HDInsight on AKS
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/27/2023
 ---
 
-# How to use Hive Catalog with Apache Flink SQL
+# How to use Hive Catalog with Apache Flink® on HDInsight on AKS
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This example uses Hive’s Metastore as a persistent catalog with Apache Flink’s HiveCatalog. We will use this functionality for storing Kafka table and MySQL table metadata on Flink across sessions. Flink uses Kafka table registered in Hive Catalog as a source, perform some lookup and sink result to MySQL database
+This example uses Hive’s Metastore as a persistent catalog with Apache Flink’s Hive Catalog. We use this functionality for storing Kafka table and MySQL table metadata on Flink across sessions. Flink uses Kafka table registered in Hive Catalog as a source, perform some lookup and sink result to MySQL database
 
 
 ## Prerequisites
 
-* [HDInsight on AKS Flink 1.16.0 with Hive Metastore 3.1.2](../flink/flink-create-cluster-portal.md) 
-* [HDInsight Kafka](../../hdinsight/kafka/apache-kafka-get-started.md)
-  * You're required to ensure the network settings are complete as described on [Using HDInsight Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS Flink and HDInsight Kafka are in the same VNet 
+* [Apache Flink Cluster on HDInsight on AKS with Hive Metastore 3.1.2](../flink/flink-create-cluster-portal.md) 
+* [Apache Kafka cluster on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
+  * You're required to ensure the network settings are complete as described on [Using Kafka](../flink/process-and-consume-data.md); that's to make sure HDInsight on AKS and HDInsight clusters are in the same VNet 
 * MySQL 8.0.33
 
-## Apache Hive on Flink
+## Apache Hive on Apache Flink
 
 Flink offers a two-fold integration with Hive.
 
@@ -29,7 +29,7 @@ Flink offers a two-fold integration with Hive.
 - The second is to offer Flink as an alternative engine for reading and writing Hive tables.
 - The HiveCatalog is designed to be “out of the box” compatible with existing Hive installations. You don't need to modify your existing Hive Metastore or change the data placement or partitioning of your tables.
 
-You may refer to this page for more details on [Apache Hive](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/overview/)
+For more information, see [Apache Hive](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/overview/)
 
 ## Environment preparation
 
@@ -151,7 +151,7 @@ wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.16.
 
 **Moving the planner jar**
 
-Move the jar flink-table-planner_2.12-1.16.0-0.0.18.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner-loader-1.16.0-0.0.18.jar from /lib. Please refer to [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
+Move the jar flink-table-planner_2.12-1.16.0-0.0.18.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner-loader-1.16.0-0.0.18.jar from /lib. Refer to [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
 
 ```
 mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.16.0-0.0.18.jar /opt/flink-webssh/lib/
@@ -279,3 +279,4 @@ FROM kafka_user_orders where product_id = 104;
 
 ### Reference
 * [Apache Hive](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/hive/overview/)
+* Apache, Apache Hive, Hive, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

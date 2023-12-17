@@ -4,7 +4,7 @@ description: This document provides details about the DICOM Conformance Statemen
 services: healthcare-apis
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik
@@ -34,6 +34,9 @@ Additionally, the following nonstandard API(s) are supported:
 
 * [Change Feed](dicom-change-feed-overview.md)
 * [Extended Query Tags](dicom-extended-query-tags-overview.md)
+* [Bulk Update](update-files.md)
+* [Bulk Import](import-files.md)
+* [Export](export-dicom-files.md)
 
 The service uses REST API versioning. The version of the REST API must be explicitly specified as part of the base URL, as in the following example:
 
@@ -86,7 +89,7 @@ The following DICOM elements are required to be present in every DICOM file atte
 * `PatientID`
 
 > [!NOTE]
-> All UIDs must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`. `PatientID` is validated based on its `LO` `VR` type.
+> All UIDs must be between 1 and 64 characters long, and only contain alpha numeric characters or the following special characters: `.`, `-`. `PatientID` continues to be a required tag and can have the value as null in the input. `PatientID` is validated based on its `LO` `VR` type.
 
 Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID`. The warning code `45070` is returned if a file with the same identifiers already exists.
 
@@ -309,6 +312,7 @@ The following `Accept` header(s) are supported for retrieving instances within a
 * `multipart/related; type="application/dicom";` (when transfer-syntax isn't specified, 1.2.840.10008.1.2.1 is used as default)
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
+- `*/*` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve an Instance
 
@@ -322,6 +326,7 @@ The following `Accept` header(s) are supported for retrieving a specific instanc
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.1`
 * `application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90`
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
+- `*/*` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/dicom`)
 
 #### Retrieve Frames
 
@@ -332,6 +337,7 @@ The following `Accept` headers are supported for retrieving frames:
 * `multipart/related; type="image/jp2";` (when transfer-syntax isn't specified, `1.2.840.10008.1.2.4.90` is used as default)
 * `multipart/related; type="image/jp2";transfer-syntax=1.2.840.10008.1.2.4.90`
 * `application/octet-stream; transfer-syntax=*` for single frame retrieval
+- `*/*` (when transfer-syntax is not specified, `1.2.840.10008.1.2.1` is used as default and mediaType defaults to `application/octet-stream`)
 
 #### Retrieve transfer syntax
 
@@ -389,6 +395,16 @@ When specifying a particular frame to return, frame indexing starts at 1.
 
 The `quality` query parameter is also supported. An integer value between `1` and `100` inclusive (1 being worst quality, and 100 being best quality) might be passed as the value for the query parameter. This parameter is used for images rendered as `jpeg`, and is ignored for `png` render requests. If not specified the parameter defaults to `100`.
 
+### Retrieve original version
+Using the [bulk update](update-files.md) operation will allow you to retrieve either the original and latest version of a study, series, or instance.  The latest version of a study, series, or instance is always returned by default.  The original version may be returned by setting the `msdicom-request-original` header to `true`.  An example request is shown below:
+
+```http 
+GET ../studies/{study}/series/{series}/instances/{instance}
+Accept: multipart/related; type="application/dicom"; transfer-syntax=*
+msdicom-request-original: true
+Content-Type: application/dicom
+ ```
+
 ### Retrieve response status codes
 
 | Code                         | Description |
@@ -423,8 +439,11 @@ The following `Accept` header(s) are supported for searching:
 * `application/dicom+json`
 
 ### Search changes from v1
-In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag returns `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings on [searchable tags](#searchable-attributes), subsequent searches containing these tags doesn't consider any DICOM SOP instance that produced a warning. This behavior might result in incomplete search results.
-To correct an attribute, delete the stored instance and upload the corrected data.
+In the v1 API and continued for v2, if an [extended query tag](dicom-extended-query-tags-overview.md) has any errors, because one or more of the existing instances had a tag value that couldn't be indexed, then subsequent search queries containing the extended query tag returns `erroneous-dicom-attributes` as detailed in the [documentation](dicom-extended-query-tags-overview.md#tag-query-status). However, tags (also known as attributes) with validation warnings from STOW-RS are **not** included in this header. If a store request results in validation warnings for [searchable attributes](#searchable-attributes) at the time the [instance was stored](#store-changes-from-v1), those attributes may not be used to search for the stored instance. However, any [searchable attributes](#searchable-attributes) that failed validation will be able to return results if the values are overwritten by instances in the same study/series that are stored after the failed one, or if the values are already stored correctly by a previous instance. If the attribute values aren't overwritten, then they won't produce any search results.
+
+An attribute can be corrected in the following ways:
+- Delete the stored instance and upload a new instance with the corrected data
+- Upload a new instance in the same study/series with corrected data
 
 ### Supported search parameters
 
@@ -458,6 +477,9 @@ We support searching the following attributes and search types.
 | `PerformedProcedureStepStartDate` |  | X | X | X | X |  |
 | `ManufacturerModelName` | | X | X | X | X |  |
 | `SOPInstanceUID` |  |  | X |  | X | X |
+
+> [!NOTE]
+> We do not support searching using empty string for any attributes.
 
 #### Search matching
 
@@ -889,6 +911,9 @@ We support searching on these attributes:
 |`ScheduledStationGeographicLocationCodeSequence.CodeValue`|
 |`ProcedureStepState`|
 |`StudyInstanceUID`|
+
+> [!NOTE]
+> We do not support searching using empty string for any attributes.
 
 ##### Search Matching
 

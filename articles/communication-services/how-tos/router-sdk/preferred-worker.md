@@ -14,8 +14,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Target a Preferred Worker
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 In the context of a call center, customers might be assigned an account manager or have a relationship with a specific worker. As such, You'd want to route a specific job to a specific worker if possible.
 
 ## Prerequisites
@@ -38,9 +36,9 @@ await client.CreateJobAsync(
     {
         RequestedWorkerSelectors =
         {
-            new RouterWorkerSelector(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("<preferred_worker_id>")) {
+            new RouterWorkerSelector(key: "Id", labelOperator: LabelOperator.Equal, value: new RouterValue("<preferred_worker_id>")) {
                 Expedite = true,
-                ExpireAfterSeconds = 45
+                ExpiresAfter = TimeSpan.FromSeconds(45)
             }
         }
     });
@@ -51,17 +49,19 @@ await client.CreateJobAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createJob("job1", {
-    channelId: "Xbox_Chat_Channel",
-    queueId: queue.id,
-    requestedWorkerSelectors: [
+await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        channelId: "Xbox_Chat_Channel",
+        queueId: queue.body.id,
+        requestedWorkerSelectors: [
         {
             key: "Id",
             labelOperator: "equal",
             value: "<preferred worker id>",
-            expireAfterSeconds: 45
-        }
-    ]
+            expiresAfterSeconds: 45
+        }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -70,18 +70,18 @@ await client.createJob("job1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_job(job_id = "job1", router_job = RouterJob(
+client.upsert_job(job_id = "job1",
     channel_id = "Xbox_Chat_Channel",
-    queue_id = queue1.id,
+    queue_id = queue.id,
     requested_worker_selectors = [
         RouterWorkerSelector(
             key = "Id",
             label_operator = LabelOperator.EQUAL,
             value = "<preferred worker id>",
-            expire_after_seconds = 45
+            expires_after_seconds = 45
         )
     ]
-))
+)
 ```
 
 ::: zone-end
@@ -91,8 +91,8 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 ```java
 client.createJob(new CreateJobOptions("job1", "Xbox_Chat_Channel", queue.getId())
     .setRequestedWorkerSelectors(List.of(
-        new RouterWorkerSelector("Id", LabelOperator.EQUAL, new LabelValue("<preferred_worker_id>"))
-          .setExpireAfterSeconds(45.0)
+        new RouterWorkerSelector("Id", LabelOperator.EQUAL, new RouterValue("<preferred_worker_id>"))
+          .setExpiresAfter(Duration.ofSeconds(45.0))
           .setExpedite(true))));
   ```
 

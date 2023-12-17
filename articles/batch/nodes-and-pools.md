@@ -215,4 +215,4 @@ If you add a certificate to an existing pool, you must reboot its compute nodes 
 ## Next steps
 
 - Learn about [jobs and tasks](jobs-and-tasks.md).
-- Learn how to to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).
+- Learn how to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).

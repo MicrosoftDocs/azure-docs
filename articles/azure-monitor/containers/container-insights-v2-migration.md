@@ -8,7 +8,7 @@ ms.reviewer: aul
 
 # Migrate from ContainerLog to ContainerLogV2
 
-With the upgraded offering of ContainerLogV2 becoming generally available, on 30th September 2026, the ContainerLog table will be retired. If you currently ingest container insights data to the ContainerLog table, please transition to using ContainerLogV2 prior to that date.
+With the upgraded offering of ContainerLogV2 becoming generally available, on 30th September 2026, the ContainerLog table will be retired. If you currently ingest container insights data to the ContainerLog table, transition to using ContainerLogV2 prior to that date.
 
 >[!NOTE]
 > Support for ingesting the ContainerLog table will be **retired on 30th September 2026**.
@@ -18,16 +18,16 @@ With the upgraded offering of ContainerLogV2 becoming generally available, on 30
 To transition to ContainerLogV2, we recommend the following approach.
 
 1. Learn about the feature differences between ContainerLog and ContainerLogV2
-2. Assess the impact migrating to ContainerLogV2 may have on your existing queries, alerts, or dashboards
+2. Assess the impact migrating to ContainerLogV2 might have on your existing queries, alerts, or dashboards
 3. [Enable the ContainerLogV2 schema](container-insights-logging-v2.md) through either the container insights data collection rules (DCRs) or ConfigMap
-4. Validate that you are now ingesting ContainerLogV2 to your Log Analytics workspace.
+4. Validate that you're now ingesting ContainerLogV2 to your Log Analytics workspace.
 
 ## ContainerLog vs ContainerLogV2 schema
 
 The following table highlights the key differences between using ContainerLog and ContainerLogV2 schema.
 
 >[!NOTE]
-> DCR based configuration is not supported for service principal based clusters. Please [migrate your clusters with service principal to managed identity](./container-insights-enable-aks.md#migrate-to-managed-identity-authentication) to use this experience.
+> DCR based configuration is not supported for service principal based clusters. [Migrate your clusters with service principal to managed identity](./container-insights-authentication.md) to use this experience.
 
 | Feature differences  | ContainerLog | ContainerLogV2 |
 | ------------------- | ----------------- | ------------------- |
@@ -40,9 +40,9 @@ The following table highlights the key differences between using ContainerLog an
 
 ## Assess the impact on existing alerts
 
-If you are currently using ContainerLog in your alerts, then migrating to ContainerLogV2 requires updates to your alert queries for them to continue functioning as expected.
+If you're currently using ContainerLog in your alerts, then migrating to ContainerLogV2 requires updates to your alert queries for them to continue functioning as expected.
 
-To scan for alerts that may be referencing the ContainerLog table, run the following Azure Resource Graph query:
+To scan for alerts that might be referencing the ContainerLog table, run the following Azure Resource Graph query:
 
 ```Kusto
 resources

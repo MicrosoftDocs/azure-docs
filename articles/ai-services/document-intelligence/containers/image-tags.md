@@ -5,29 +5,35 @@ description: A listing of all Document Intelligence container image tags.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 12/13/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 # Document Intelligence container tags
 
 <!-- markdownlint-disable MD051 -->
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.0](../includes/applies-to-v3-0.md)]
-::: moniker-end
+:::moniker range="doc-intel-2.1.0 || doc-intel-3.1.0||doc-intel-4.0.0"
 
-::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](../includes/applies-to-v2-1.md)]
-::: moniker-end
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` only:
+
+* [REST API `2022-08-31 (GA)`](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)
+* [SDKs targeting `REST API 2022-08-31 (GA)`](../sdk-overview-v3-0.md)
+
+✔️ See [**Document Intelligence container image tags**](?view=doc-intel-3.0.0&preserve-view=true) for supported container documentation.
+
+:::moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)**
 
 ## Microsoft container registry (MCR)
 
 Document Intelligence container images can be found within the [**Microsoft Artifact Registry** (also know as Microsoft Container Registry(MCR))](https://mcr.microsoft.com/catalog?search=document%20intelligence), the primary registry for all Microsoft published container images.
-
-:::moniker range=">=doc-intel-3.0.0"
 
 The following containers support DocumentIntelligence v3.0 models and features:
 
@@ -43,7 +49,7 @@ The following containers support DocumentIntelligence v3.0 models and features:
 | [**Read 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/read-3.0/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.0:latest`|
 | [**Receipt 3.0**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/receipt-3.0/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt-3.0:latest`|
 
-:::moniker-end
+::: moniker-end
 
 :::moniker range="doc-intel-2.1.0"
 
@@ -69,9 +75,9 @@ Document Intelligence containers support the following features:
 > [!IMPORTANT]
 > The Document Intelligence v1.0 container is retired.
 
-:::moniker-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Install and run Document Intelligence containers](install-run.md)
+:::moniker-end

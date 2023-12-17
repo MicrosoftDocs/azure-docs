@@ -192,7 +192,7 @@ Perf
 | summarize Value=max(CounterValue) by CounterName, TimeStamps=TimeGenerated
 ```
 
-## Next Steps
+## Related content
 
 - [Review integration runtime concepts in Azure Data Factory.](concepts-integration-runtime.md)
 - Learn how to [create a self-hosted integration runtime in the Azure portal.](create-self-hosted-integration-runtime.md)

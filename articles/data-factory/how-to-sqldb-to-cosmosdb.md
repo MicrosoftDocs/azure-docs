@@ -99,7 +99,7 @@ The resulting Azure Cosmos DB container will embed the inner query into a single
 
 If everything looks good, you are now ready to create a new pipeline, add this data flow activity to that pipeline and execute it. You can execute from debug or a triggered run. After a few minutes, you should have a new denormalized container of orders called "orders" in your Azure Cosmos DB database.
 
-## Next steps
+## Related content
 
 * Build the rest of your data flow logic by using mapping data flows [transformations](concepts-data-flow-overview.md).
 * [Download the completed pipeline template](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/SQL%20Orders%20to%20CosmosDB.zip) for this tutorial and import the template into your factory.

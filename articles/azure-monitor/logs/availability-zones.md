@@ -8,11 +8,11 @@ ms.author: guywild
 ms.date: 06/05/2023
 ms.custom: references_regions
 
-#customer-intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide so that can ensure my data and services are sufficiently protected in the event of datacenter failure.
+#customer-intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide to ensure my data and services are sufficiently protected in the event of datacenter failure.
 ---
 # Enhance data and service resilience in Azure Monitor Logs with availability zones
 
-[Azure availability zones](../../availability-zones/az-overview.md) protect applications and data from datacenter failures and can enhance the resilience of Azure Monitor features that rely on a Log Analytics workspace. This article describes the data and service resilience benefits Azure Monitor availability zones provide by default to [dedicated clusters](logs-dedicated-clusters.md) in supported regions.
+[Azure availability zones](../../reliability/availability-zones-overview.md) protect applications and data from datacenter failures and can enhance the resilience of Azure Monitor features that rely on a Log Analytics workspace. This article describes the data and service resilience benefits Azure Monitor availability zones provide by default to [dedicated clusters](logs-dedicated-clusters.md) in supported regions.
 
 ## Prerequisites
 
@@ -20,14 +20,17 @@ ms.custom: references_regions
 
     > [!NOTE]
     > Application Insights resources can use availability zones only if they're workspace-based and the workspace uses a dedicated cluster. Classic Application Insights resources can't use availability zones.
+
+## How availability zones enhance data and service resilience in Azure Monitor Logs
+
+Each Azure region that supports availability zones is made of one or more datacenters, or zones, equipped with independent power, cooling, and networking infrastructure. 
+
+Azure Monitor Logs availability zones are [zone-redundant](../../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services), which means that Microsoft manages spreading service requests and replicating data across different zones in supported regions. If one zone is affected by an incident, Microsoft manages failover to a different availability zone in the region automatically. You don't need to take any action because switching between zones is seamless. 
+
+A subset of the availability zones that support data resilience currently also support service resilience for Azure Monitor Logs, as listed in the [Service resilience - supported regions](#service-resilience---supported-regions) section. In regions that support service resilience, Azure Monitor Logs service operations - for example, log ingestion, queries, and alerts - can continue in the event of a zone failure. In regions that only support data resilience, your stored data is protected against zonal failures, but service operations might be impacted by regional incidents.
     
 ## Data resilience - supported regions
 
-Availability zones protect your data from datacenter failures by relying on datacenters in different physical locations, equipped with independent power, cooling, and networking. 
-
-> [!NOTE]
-> Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.
-    
 Azure Monitor currently supports data resilience for availability-zone-enabled dedicated clusters in these regions:
 
   | Americas | Europe | Middle East | Africa | Asia Pacific |
@@ -41,6 +44,9 @@ Azure Monitor currently supports data resilience for availability-zone-enabled d
   | West US 2 | Sweden Central | | |  |
   | West US 3 | Switzerland North | | |  |
   |  | Poland Central | | | |
+
+> [!NOTE]
+> Moving to a dedicated cluster in a region that supports availablility zones protects data ingested after the move, not historical data.
 
 ## Service resilience - supported regions
 

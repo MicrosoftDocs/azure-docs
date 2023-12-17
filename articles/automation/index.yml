@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Start/Stop VMs during off-hours
             url: automation-solution-vm-management.md
-          - text: Change tracking and inventory using Azure Monitoring Agent (Preview)
+          - text: Change tracking and inventory using Azure Monitoring Agent
             url:  change-tracking/overview-monitoring-agent.md
 
   - title: Manage Updates for VMs

@@ -55,7 +55,7 @@ Once your Azure Maps account is successfully created, retrieve the subscription 
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** and save it locally to use later in this tutorial.
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
+:::image type="content" border="false" source="./media/shared/get-key.png" alt-text="Screenshot showing your Azure Maps subscription key in the Azure portal." lightbox="./media/shared/get-key.png":::
 
 >[!NOTE]
 > This quickstart uses the [Shared Key] authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Microsoft Entra ID] authentication.
