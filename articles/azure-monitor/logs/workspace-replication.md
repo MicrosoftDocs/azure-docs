@@ -25,6 +25,14 @@ If you choose to fail over, the secondary workspace becomes active, and your pri
 ![Diagram that shows ingestion flows during normal and failover modes.](./media/workspace-replication/ingestion-flows.png)
 
 
+#### Replication scope
+When enabled, the workspace itself is replicated to another region, including its set configuration. Later, all new logs coming in can be replicated as they are being ingested.
+* Platform logs (Diagnostic logs) - all platform logs targetting a workspace are replicated if workspace replication is enabled on the target workspace.
+* Logs collected through MMA (the classic Microsoft Monitoring Agent) - all MMA logs are replicated if workspace replication is enabled on the target workspace.
+* Logs collected through AMA (Azure Monitoring agent) - logs coming from AMA are managed via Data Collection Rules (DCR). This provides better control over the scope of replication, as replication can be set **per DCR**. In other words, you can configure replication for one stream of logs (such as Security logs) while not replicating others (such as Perf logs). Replicating AMA logs requires enabling replication both on the target workspace, and per relevant DCR, as explained later.
+* Custom logs (v1) - logs sent through the Data Collector API are replicated if workspace replication is enabled on the target workspace.
+* Customer logs (v2) - custom logs and transformation logs configured through DCRs require enabling replication both on the target workspace and per DCR.
+
 
 ### Supported regions and region groups
 Each workspace has a primary location, which is the region in which the workspace resides. When enabling replication, you choose a secondary location - another region in which a "shadow" workspace is created, and that you can later switch to.
