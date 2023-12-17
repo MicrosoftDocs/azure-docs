@@ -73,7 +73,8 @@ This graphic and the following text show how the parts of this connector solutio
 
 ## Global prerequisites
 
-You must have write permission on your Microsoft Sentinel workspace.
+- You must have write permission on your Microsoft Sentinel workspace.
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Automatic setup
 
@@ -89,15 +90,11 @@ The script takes the following actions:
 
 - Configures any necessary IAM permissions policies and applies them to the IAM role created above.
 
-### Prerequisites
-
-- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content (Public preview)](sentinel-solutions-deploy.md).
+### Prerequisites for automatic setup
 
 - You must have PowerShell and the AWS CLI on your machine.
   - [Installation instructions for PowerShell](/powershell/scripting/install/installing-powershell)
   - [Installation instructions for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-
-
 
 ### Instructions
 
@@ -137,27 +134,26 @@ To run the script to set up the connector, use the following steps:
 
 Microsoft recommends using the automatic setup script to deploy this connector. If for whatever reason you do not want to take advantage of this convenience, follow the steps below to set up the connector manually.
 
-### Prerequisites
-
-- You must have an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
-
-    - Create an [S3 storage bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in AWS.
-
-- You must have an **SQS message queue** to which the S3 bucket will publish notifications.
-
-    - Create a [standard Simple Queue Service (SQS) queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/creating-sqs-standard-queues.html) in AWS.
-    - Configure your S3 bucket to [publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in AWS.
-
-- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
-
-### Instructions
-
-The manual setup consists of the following steps:
+- [Prepare your AWS resources](#prepare-your-aws-resources)
 - [Create an AWS assumed role and grant access to the AWS Sentinel account](#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account)
 - [Add the AWS role and queue information to the S3 data connector](#add-the-aws-role-and-queue-information-to-the-s3-data-connector)
 - [Configure an AWS service to export logs to an S3 bucket](#configure-an-aws-service-to-export-logs-to-an-s3-bucket)
 
-#### Create an AWS assumed role and grant access to the AWS Sentinel account
+### Prepare your AWS resources
+
+- Create an **S3 bucket** to which you will ship the logs from your AWS services - VPC, GuardDuty, CloudTrail, or CloudWatch.
+
+   - See the [instructions to create an S3 storage bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the AWS documentation.
+
+- Create a standard **Simple Queue Service (SQS) message queue** to which the S3 bucket will publish notifications.
+
+   - See the [instructions to create a standard Simple Queue Service (SQS) queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/creating-sqs-standard-queues.html) in the AWS documentation.
+
+- Configure your S3 bucket to send notification messages to your SQS queue. 
+
+   - See the [instructions to publish notifications to your SQS queue](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-event-notifications.html) in the AWS documentation.
+
+### Create an AWS assumed role and grant access to the AWS Sentinel account
 
 1. In Microsoft Sentinel, select **Data connectors** from the navigation menu.
 
@@ -188,7 +184,7 @@ The manual setup consists of the following steps:
 
     - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
 
-#### Add the AWS role and queue information to the S3 data connector
+### Add the AWS role and queue information to the S3 data connector
 
 1. In the browser tab open to the AWS console, enter the **Identity and Access Management (IAM)** service and navigate to the list of **Roles**. Select the role you created above.
 
@@ -204,7 +200,7 @@ The manual setup consists of the following steps:
 
    :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of adding an A W S role connection to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
 
-#### Configure an AWS service to export logs to an S3 bucket
+### Configure an AWS service to export logs to an S3 bucket
 
 See Amazon Web Services documentation (linked below) for the instructions for sending each type of log to your S3 bucket:
 
