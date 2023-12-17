@@ -1,17 +1,17 @@
 ---
-title: Upgrade from built-in Qualys to the integrated Microsoft Defender Vulnerability Management
+title: Transition from built-in Qualys to the integrated Microsoft Defender Vulnerability Management
 description: Learn how to migrate to the built-in Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 12/03/2023
+ms.date: 12/17/2023
 ---
 
-# Upgrade from built-in Qualys to the integrated Microsoft Defender Vulnerability Management
+# Transition from built-in Qualys to the integrated Microsoft Defender Vulnerability Management
 
 There are three recommended methods to enable the built-in Microsoft Defender Vulnerability Management (MDVM) solution within Defender for Cloud:
 
-## Azure policy (for Azure VMs) 
+## Transition with Azure policy (for Azure VMs) 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -29,7 +29,7 @@ There are three recommended methods to enable the built-in Microsoft Defender Vu
  
 This policy ensures that all Virtual Machines (VM) within a selected subscription are safeguarded with the built-in MDVM solution. 
 
-## Defender for Cloud’s portal 
+## Transition with Defender for Cloud’s portal 
 
 In the Defender for Cloud portal, you have the ability to change the vulnerability assessment solution to the built-in MDVM solution. 
 
@@ -67,7 +67,7 @@ After migrating to the built-in MDVM solution in Defender for Cloud, offboard ea
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
 - Delete custom policy at scale.
 
-## Migrate with REST API
+## Transition with REST API
 
 ### REST API for Azure VMs
 
