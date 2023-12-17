@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup support matrix
 description: This article provides a summary of support settings and limitations of Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 12/25/2023
 ms.custom:
   - references_regions
   - ignite-2023
@@ -17,7 +17,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Supported regions
 
-AKS backup is available in all the Azure public cloud regions: East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, and UAE North.
+- Operational Tier support for AKS backup is supported in all the following Azure public cloud regions: East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US 3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, and UAE North.
+
+- Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, East US 2, Central US, UK South, UK West, East Asia, and South-East Asia.
 
 ## Limitations
 
@@ -59,6 +61,13 @@ AKS backup is available in all the Azure public cloud regions: East US, North Eu
   | Number of backup instances per Backup vault | 5,000 |
   | Number of on-demand backups allowed in a day per backup instance | 10 |
   | Number of allowed restores per backup instance in a day | 10 |
+
+- Disaster Recovery  Feature is only available between Azure Paired Region (if backup is configured in a Geo Redundant Backup Vault), the backup data will only be available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup Vault, the backup data will also be available in West US for restore.
+
+- Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; otherwise, they will be skipped in the backup data. 
+
+- Only one scheduled recovery point will be available in Vault Tier per day that is providing an RPO of 24 hours. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours. 
+•	During restore from Vault Tier, the provided staging location should not have a Read/Delete Lock; otherwise, hydrated resources will not be cleaned after restore. 
 
 ## Next steps
 

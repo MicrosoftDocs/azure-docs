@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 08/17/2023
+ms.date: 12/25/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -100,6 +100,7 @@ Also, as part of the backup and restore operations, the following roles are assi
 | Reader | Backup vault | Snapshot resource group | Allows the Backup vault to perform *List* and *Read* operations on snapshot resource group. |
 | Contributor | AKS cluster | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group. |
 | Storage Account Contributor | Extension Identity | Storage account | Allows Backup Extension to store cluster resource backups in the blob container. |
+| Storage Blob Data Owner | Backup vault | Staging Storage Account | Allows Backup vault to copy cluster state in a blob container stored in Vault Tier. |
 
 >[!Note]
 >AKS backup allows you to assign these roles during backup and restore processes through the Azure portal with a single click.

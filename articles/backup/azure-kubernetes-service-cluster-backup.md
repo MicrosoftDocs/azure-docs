@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 11/14/2023
+ms.date: 12/25/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -18,7 +18,7 @@ You can use Azure Backup to back up AKS clusters (cluster resources and persiste
 
 ## Before you start
 
-- Currently, AKS backup supports only Azure Disk Storage-based persistent volumes (enabled by CSI driver). The backups are stored in an operational datastore only (backup data is stored in your tenant and is not moved to a vault). The Backup vault and AKS cluster must be in the same region.
+- Currently, AKS backup supports only Azure Disk Storage-based persistent volumes (enabled by CSI driver). The backups are stored in an operational datastore only (backup data is stored in your tenant and isn't moved to a vault). The Backup vault and AKS cluster must be in the same region.
 
 - AKS backup uses a blob container and a resource group to store the backups. The blob container holds the AKS cluster resources. Persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must be in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
@@ -34,12 +34,20 @@ For more information on supported scenarios, limitations, and availability, see 
 
 ## Create a Backup vault
 
-A Backup vault is a management entity that stores recovery points that are created over time. A Backup vault also provides an interface for you to perform backup operations. Operations include taking on-demand backups, performing restores, and creating backup policies. Although operational backup of an AKS cluster is a local backup and doesn't store data in the vault, the vault is required for various management operations. AKS backup requires the Backup vault and the AKS cluster to be in the same region.
+A Backup vault is a management entity that stores recovery points treated over time. A Backup vault also provides an interface to do the backup operations. Operations include taking on-demand backups, doing restores, and creating backup policies. AKS backup requires the Backup vault and the AKS cluster to be in the same region. Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
 
-> [!NOTE]
-> A Backup vault is a new resource that's used to back up newly supported workloads. A Backup vault is different from a Recovery Services vault.
+>[!Note]
+>A Backup vault is a new resource that's used to back up newly supported datasources. A Backup vault is different from a Recovery Services vault.
 
-Learn [how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).
+If you want to use AKS backup to protect your AKS clusters against disaster recovery: 
+
+1. Set the **Backup Storage Redundancy** parameter as **Globally-Redundant** during vault creation. Once the redundancy for a vault is set, you can't disable.
+
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enable-backup-storage-redundancy-parameter.png" alt-text="Screenshot shows how to enable the Backup Storage Redundance parameter.":::
+
+2. Set the **Cross Region Restore** parameter under **Vault Properties** as **Enabled**. Once this parameter is enabled, you can't disable it.
+
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enable-cross-region-restore-parameter.png" alt-text="Screenshot shows how to enable the Cross Region Restore parameter.":::
 
 ## Create a backup policy
 
@@ -63,15 +71,30 @@ To create a backup policy:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/enter-backup-policy-name.png" alt-text="Screenshot that shows providing the backup policy name.":::
 
-1. On the **Schedule + retention** tab, select the backup frequency (hourly or daily), and then choose the retention duration for the backups.
+1. On the **Schedule + retention** tab, define the *frequency of backups* and *how long they need to be retained* in Operational and Vault Tier (also called *datastore*).
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-frequency.png" alt-text="Screenshot that shows selection of backup frequency.":::
+   **Backup Frequency**: Select the *backup frequency* (hourly or daily), and then choose the *retention duration* for the backups.
 
-   You can edit the retention duration by modifying the default retention rule. You can't delete the default retention rule.
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-frequency.png" alt-text="Screenshot that shows selection of backup frequency.":::
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-retention-period.png" alt-text="Screenshot that shows selection of retention period.":::
+   **Retention Setting**: A new backup policy has two retention rules.
+
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-period.png" alt-text="Screenshot that shows selection of retention period.":::
 
    You can also create additional retention rules to store backups that are taken daily or weekly to be stored for a longer duration.
+
+
+   - **Default**: This  rule defines the default retention duration for all the operational tier backups taken. You can only edit this rule and  can’t delete it.
+
+   - **First successful backup taken every day**: In addition to the default rule, every first successful backup of the day can be retained in the Operational datastore and Vault-standard store. You can edit and delete this rule (if you want to retain backups in Operational datastore).
+
+     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-configuration-for-vault-operational-tiers.png" alt-text="Screenshot that shows the retention configuration for Vault Tier and Operational Tier.:::
+
+
+   You can also define similar rules for the *First successful backup taken every week, month, and year*.
+
+   >[!Note]
+   >By using retention rules, you can store the backup data in Operational and Vault-standard datastore or in Operational datastore only. 
 
 1. When the backup frequency and retention settings are configured, select **Next**.
 
@@ -161,7 +184,7 @@ To configure backups for AKS cluster:
 
 1. When role assignment is finished, select **Next**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/proceed-for-backup.png" alt-text="Screenshot that shows how to proceed to backup configuration.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/proceed-for-backup.png" alt-text="Screenshot that shows how to proceed to the backup configuration.":::
 
 1. Select **Configure backup**.
 
@@ -205,7 +228,7 @@ An application-consistent snapshot of a volume with MySQL deployed is taken by d
 1. A snapshot is taken of the volume as backup.
 1. The pod running MySQL is unfrozen so that transactions can be done again on the database.
 
-To enable a backup hook as part of the configure backup flow to back up MySQL:
+To enable a backup hook as part of the backup configuration flow to back up MySQL:
 
 1. Write the custom resource for backup hook with commands to freeze and unfreeze a PostgreSQL pod.
 
