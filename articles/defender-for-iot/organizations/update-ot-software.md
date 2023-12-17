@@ -90,7 +90,7 @@ This procedure describes how to send a software version update to one or more OT
 
 1. When you're ready, select **Send package**, and the software transfer to your sensor machine is started. You can see the transfer progress in the **Sensor version** column, with the percentage complete automatically updating in the progress bar, so you can see that the process has started and letting you track its progress until the transfer is complete. For example:
 
-    :::image type="content" source="media/update-ot-software/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-update-bar.png":::
+    :::image type="content" source="media/update-ot-software/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/update-ot-software/sensor-version-update-bar.png":::
 
     When the transfer is complete, the **Sensor version** column changes to :::image type="icon" source="media/update-ot-software/ready-to-update.png" border="false" ::: **Ready to update**.
 
@@ -110,7 +110,7 @@ Run the sensor update only when you see the :::image type="icon" source="media/u
 
     When you're ready, select **Update now** > **Confirm update**. In the grid, the **Sensor version** value changes to :::image type="icon" source="media/update-ot-software/installing.png" border="false"::: **Installing**, and an update progress bar appears showing you the percentage complete. The bar automatically updates, so that you can track the progress until the installation is complete.
 
-    :::image type="content" source="media/update-ot-software/sensor-version-install-bar.png" alt-text="Screenshot of the install bar in the Sensor version column" lightbox="media/update-ot-software/sensor-version-install-bar.png":::
+    :::image type="content" source="media/update-ot-software/sensor-version-install-bar.png" alt-text="Screenshot of the install bar in the Sensor version column." lightbox="media/update-ot-software/sensor-version-install-bar.png":::
 
     When completed, the sensor value switches to the new sensor version number instead.
 

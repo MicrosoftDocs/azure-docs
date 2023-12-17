@@ -26,7 +26,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
 
-:::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column" lightbox="media/whats-new/sensor-version-update-bar.png":::
+:::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/whats-new/sensor-version-update-bar.png":::
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
