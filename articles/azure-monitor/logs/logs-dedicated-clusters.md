@@ -204,10 +204,10 @@ The managed identity service generates the *principalId* GUID when you create th
 ## Link a workspace to a cluster
 
 > [!NOTE]
-> Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
-> Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
-> When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
-> Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
+> - Linking a workspace can be performed only after the completion of the Log Analytics cluster provisioning.
+> - Linking a workspace to a cluster involves syncing multiple backend components and cache hydration, which can take up to two hours.
+> - When linking a Log Analytics workspace workspace, the workspace billing plan in changed to *LACluster*, and you should remove sku in workspace template to prevent conflict during workspace deployment.
+> - Other than the billing aspects that is governed by the cluster plan, all workspace configurations and query aspects remain unchanged during and after the link.
 
 You need 'write' permissions to both the workspace and the cluster resource for workspace link operation:
 

@@ -2,7 +2,6 @@
 title: Batch synthesis API (Preview) for text to speech - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use the batch synthesis API for asynchronous synthesis of long-form text to speech.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
