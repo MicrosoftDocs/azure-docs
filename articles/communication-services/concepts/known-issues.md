@@ -109,7 +109,7 @@ Occasionally, microphone or camera devices won't be released on time, and that c
 
 Incoming video streams won't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps will still be required to re-start outgoing audio and video. 
 
-For iOS 15.4+, audio and video should be able to auto recover on most of the cases. On some edge cases, to unmute, an api to 'unmute' must be called by the application (can be as a result of user action) to recover the outgoing audio.
+For iOS 15.4+, audio and video should be able to auto recover on most of the cases. On some edge cases, to unmute, an API to 'unmute' must be called by the application (can be as a result of user action) to recover the outgoing audio.
 
 ### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
 
