@@ -31,7 +31,7 @@ For a list of data stores that are supported as sources/sinks, see [Supported da
 
 Specifically, this OData connector supports:
 
-- OData version 3.0 and 4.0.
+- OData version 2.0, 3.0, and 4.0.
 - Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **Microsoft Entra service principal**.
 
 ## Prerequisites

@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 09/05/2023
+ms.date: 12/15/2023
 ms.author: banders
 ms.reviewer: michm
 ---
@@ -345,7 +345,7 @@ The Azure Enterprise Reporting APIs enable Enterprise Azure customers to program
 
 ### Review Power BI setup
 
-Learn how to use Power BI with Microsoft Cost Management. For more information, see [Connect to Cost Management data in Power BI Desktop and Analyze Azure costs with the Power BI App](/power-bi/connect-data/desktop-connect-azure-cost-management).
+Learn how to use Power BI with Microsoft Cost Management. For more information, see [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
 ### Manage billing across tenants
 

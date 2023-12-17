@@ -233,7 +233,7 @@ AKS accepts both integer values and a percentage value for max surge. An integer
 
 #### Set node drain timeout value
 
-At times, you may have a long running workload on a certain pod and it cannot be rescheduled to another node during runtime, for example, a memory intensive stateful workload that must finish running. In these cases, you can configure a node drain timeout that AKS will respect in the upgrade workflow. If no node drain timeout value is specified, the default is 30 minutes.
+At times, you may have a long running workload on a certain pod and it cannot be rescheduled to another node during runtime, for example, a memory intensive stateful workload that must finish running. In these cases, you can configure a node drain timeout that AKS will respect in the upgrade workflow. If no node drain timeout value is specified, the default is 30 minutes. If the drain time out value elapses and pods have not yet finished running , then the upgrade operation is stopped. Any subsequent PUT operation shall resume the stopped upgrade. 
 
 
 * Set node drain timeout for new or existing node pools using the [`az aks nodepool add`][az-aks-nodepool-add] or [`az aks nodepool update`][az-aks-nodepool-update] command.
@@ -248,7 +248,7 @@ At times, you may have a long running workload on a certain pod and it cannot be
 
 #### Set node soak time value (preview)
 
-To stagger a node upgrade in a controlled manner and minimize application downtime during an upgrade, you can set the node soak time to a value between 0 and 30 minutes. If no node soak time value is specified, the default is 0 minutes.
+To allow for a duration of time to wait between draining a node and proceeding to reimage it and move on to the next node, you can set the soak time to a value between 0 and 30 minutes. If no node soak time value is specified, the default is 0 minutes.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -289,7 +289,9 @@ To stagger a node upgrade in a controlled manner and minimize application downti
     ...
     default 2m1s Normal Drain node/aks-nodepool1-96663640-vmss000001 Draining node: [aks-nodepool1-96663640-vmss000001]
     ...
-    default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surge node [aks-nodepool1-96663640-vmss000002 nodepool1] for agentpool %!s(MISSING)
+    default 1m45s Normal Upgrade node/aks-nodepool1-96663640-vmss000001   Soak duration 5m0s after draining node: aks-nodepool1-96663640-vmss000001
+    ...
+    default 9m22s Normal Surge node/aks-nodepool1-96663640-vmss000002 Created a surge node [aks-nodepool1-96663640-vmss000002 nodepool1] for agentpool nodepool1
     ...
     ```
 

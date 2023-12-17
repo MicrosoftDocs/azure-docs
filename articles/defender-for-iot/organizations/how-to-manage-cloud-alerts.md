@@ -14,9 +14,9 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 - [Integrate with Microsoft Sentinel](iot-solution.md) to view Defender for IoT alerts in Microsoft Sentinel and manage them together with security incidents.
 
-- If you have **Enterprise IoT security** [turned on in Microsoft 365 Defender](eiot-defender-for-endpoint.md), alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only.
+- If you have **Enterprise IoT security** [turned on in Microsoft Defender XDR](eiot-defender-for-endpoint.md), alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only.
 
-    For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
+    For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft Defender XDR](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
 
 > [!IMPORTANT]
 > The **Alerts** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

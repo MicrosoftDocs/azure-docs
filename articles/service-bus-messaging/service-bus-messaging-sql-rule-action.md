@@ -203,7 +203,7 @@ For examples, see [Service Bus filter examples](service-bus-filter-examples.md).
 ## Considerations
 
 - SET is used to create a new property or update the value of an existing property.
-- REMOVE is used to remove a property.
+- REMOVE is used to remove a user property. Only user properties can be removed, not system properties.
 - SET performs implicit conversion if possible when the expression type and the existing property type are different.
 - Action fails if nonexistent system properties were referenced.
 - Action doesn't fail if nonexistent user properties were referenced.
