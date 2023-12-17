@@ -530,7 +530,7 @@
             - name: Automatically enable a vulnerability assessment solution
               displayName: qualys, rapid7, vulnerability, auto provision
               href: auto-deploy-vulnerability-assessment.md
-            - name: Transition from Qualys to Microsoft Defender Vulnerability Management
+            - name: Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
               displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
               href: how-to-migrate-to-built-in.md
             - name: Common questions 

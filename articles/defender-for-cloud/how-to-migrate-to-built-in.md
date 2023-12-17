@@ -1,15 +1,15 @@
 ---
-title: Transition from Qualys to Microsoft Defender Vulnerability Management
-description: Learn how to transition from Qualys to the Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
+title: Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
+description: Learn how to transition to the Microsoft Defender Vulnerability Management solution in Microsoft Defender for Cloud
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 12/17/2023
 ---
 
-# Transition from Qualys to Microsoft Defender Vulnerability Management
+# Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
 
-With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using Qualys as a vulnerability assessment solution, this article provides instructions on transitioning to the integrated Microsoft Defender Vulnerability Management solution.
+With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using a vulnerability assessment solution other than the Microsoft Defender Vulnerability Management vulnerability assessment solution, this article provides instructions on transitioning to the integrated Microsoft Defender Vulnerability Management solution.
 
 To transition to the integrated Microsoft Defender Vulnerability Management solution, you can use the Azure portal, use an Azure policy definition (for Azure VMs), or use REST APIs.
 
@@ -42,7 +42,9 @@ To transition to the integrated Microsoft Defender Vulnerability Management solu
 
 1. Review the information you entered and select **Create**.
  
-This policy ensures that all Virtual Machines (VM) within a selected subscription are safeguarded with the built-in MDVM solution. 
+This policy ensures that all Virtual Machines (VM) within a selected subscription are safeguarded with the built-in MDVM solution.
+
+Once you complete the transition to the new Microsoft Defender Vulnerability Management vulnerability assessment solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
 
 ## Transition with Defender for Cloud’s portal 
 
@@ -76,13 +78,7 @@ In the Defender for Cloud portal, you have the ability to change the vulnerabili
 
 1. Select **Save**.
 
-## Remove the old vulnerability assessment solution
-
-After migrating to the built-in MDVM solution in Defender for Servers, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
-
-- [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
-- [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
-- Delete custom policy at scale.
+Once you complete the transition to the new Microsoft Defender Vulnerability Management vulnerability assessment solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
 
 ## Transition with REST API
 
@@ -101,11 +97,7 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
  }
 ```
 
-After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
-
-- [Delete the VM extension](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
-- [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
-- Delete custom policy at scale.
+Once you complete the transition to the new Microsoft Defender Vulnerability Management vulnerability assessment solution, you need to [Remove the old vulnerability assessment solution](#remove-the-old-vulnerability-assessment-solution)
 
 ### REST API for multicloud VMs
 
@@ -165,13 +157,12 @@ Using this REST API, you can easily migrate your subscription, at scale, from an
 }
 ```
 
-## Remove a vulnerability assessment solution
+## Remove the old vulnerability assessment solution
 
 After migrating to the built-in MDVM solution in Defender for Cloud, offboard each VM from the current vulnerability assessment solution. There are three ways to offboard a VM:
 
-- [Delete the VM extension with powershell](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
+- [Delete the VM extension with PowerShell](/powershell/module/az.compute/remove-azvmextension?view=azps-11.0.0).
 - [REST API DELETE request](/rest/api/compute/virtual-machine-extensions/delete?view=rest-compute-2023-07-01&tabs=HTTP).
-- Delete custom policy at scale.
 
 ## Next steps
 
