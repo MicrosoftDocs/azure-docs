@@ -88,7 +88,7 @@ To create a backup policy:
 
    - **First successful backup taken every day**: In addition to the default rule, every first successful backup of the day can be retained in the Operational datastore and Vault-standard store. You can edit and delete this rule (if you want to retain backups in Operational datastore).
 
-     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-configuration-for-vault-operational-tiers.png" alt-text="Screenshot that shows the retention configuration for Vault Tier and Operational Tier.:::
+     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-configuration-for-vault-operational-tiers.png" alt-text="Screenshot that shows the retention configuration for Vault Tier and Operational Tier.":::
 
 
    You can also define similar rules for the *First successful backup taken every week, month, and year*.
