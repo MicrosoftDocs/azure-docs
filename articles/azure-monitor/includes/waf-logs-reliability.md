@@ -19,7 +19,7 @@ Some availability features require a dedicated cluster. Since this requires a co
 > - If you require the workspace to be available in the case of a region failure, or you don't collect enough data for a dedicated cluster, configure data collection to send critical data to multiple workspaces in different regions.
 > - If you require data to be protected in the case of datacenter or region failure, configure data export from the workspace to save data in an alternate location.
 > - Create a health status alert rule for your Log Analytics workspace.
-
+ 
 ### Configuration recommendations
 
 | Recommendation | Benefit |
