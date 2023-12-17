@@ -13,8 +13,8 @@ This article provides architectural best practices for Azure Monitor Logs. The g
 
 
 
-## Resilience and reliability
-In the cloud, we acknowledge that failures happen. Our efforts are targetted at minimizng service failures on one hand, and enhancing service, workspace and data resilience on the other. Use the following information to increase the resilience of your Log Analytics workspaces and to protect the data they collect.
+## Reliability
+In the cloud, we acknowledge that failures happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
 
 [!INCLUDE [waf-logs-reliability](includes/waf-logs-reliability.md)]
 
