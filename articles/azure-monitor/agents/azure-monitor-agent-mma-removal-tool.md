@@ -3,7 +3,7 @@ title: Azure Monitor Agent fMMA legacy agent removal tool
 description: This article describes a PowerShell script used to remove MMA agend from systems that have already been migrated to AMA.
 ms.topic: conceptual
 author: jeffreywolford
-ms.author: jeffwolford
+ms.author: jeffwo
 ms.reviewer: jeffwo
 ms.date: 12/16/2023 
 ms.custom:
@@ -21,7 +21,7 @@ You will do all the setup steps in a [Visual Studio Code](https://code.visualstu
  - Windows 10+ or Windows Server 2019+
  - PowerShell 5.0 or higher. Check the version by running `$PSVersionTable` and checking the PSVersion
  - PowerShell. The language must be set to mode `FullLanguage`. Check the mode by running `$ExecutionContext.SessionState.LanguageMode` in PowerShell. You can find more details [here](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes?source=recommendations&view=powershell-7.3) 
- - Bicep. The setup scripts us Bicep to automate the installation. Check the installation by running `bicep --version`. See [install in powershell](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#azure-powershell) 
+ - Bicep. The setup scripts us Bicep to automate the installation. Check the installation by running `bicep --version`. See [install in powershell](https://learn.microsoft.com/azure/azure-resource-manager/bicep/install#azure-powershell) 
  - A [User-Assigned Managed Identity (MI)](https: //docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) which has 'Reader', Virtual Machine Contributor' and 'Azure Arc ScVmm VM Contributor' access on target scopes configured. 
  - A new Resource Group to contain all the Azure resources created automatically by the Setup automation.
  - For granting remediation user-assigned MI with above mentioned roles on the target scopes, 
@@ -95,7 +95,7 @@ Parameters
 |Location| Location DC where your setup is created. Default value is 'EastUS2'| No|
 |AzureEnvironmentName| Azure environment in which solution needs to be installed: AzureCloud, AzureGovernmentCloud. Default value is 'AzureCloud'| No|
 
-### [Multi Tenant](#tab/Multi%20Tenant)
+### [Multi%20Tenant](#tab/Multi%20Tenant)
 In this section, we will walk you through the steps for setting up multi-tenant AzTS MMA Removal Utility. This setup may take up to 30 minutes and has 9 steps
 
 1. Load setup script
@@ -371,7 +371,7 @@ InventoryProcessingStatus_CL
 | project ResourceId, ProcessingStatus_s, ProcessErrorDetails_s
 ```
 
-## [Clean Up](#tab/Clean%20Up)
+## [Clean%20Up](#tab/Clean%20Up)
 
 The utility creates resources that you should clean up once you have remove MMA from your infrastructure. Execute the following steps to clean up.  
  1. Go to the folder containing the deployment package and load the cleanup script  
