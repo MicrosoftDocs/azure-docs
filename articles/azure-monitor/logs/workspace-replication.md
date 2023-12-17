@@ -93,13 +93,17 @@ https://management.azure.com/subscriptions/<subscription_id>/resourceGroups/<res
 > For Sentinel enabled workspaces, it may take up to 12 days to fully replicate Watchlist and Threat Intelligence data to the secondary workspace.
 
 ### How to enable replication of Data Collection Rules (DCRs)
-When you enable replication on your workspace, a system [Data Collection Endpoint](../essentials/data-collection-endpoint-overview.md) (DCE) is created. If you use Data Collection Rules (DCRs) to send logs to this workspace, you must connect your DCRs to the newly created DCE, for failover to be supported. 
-The DCE created to support replication is named by the workspace ID. For example, if your workspace ID is "e56...c373", the DCE will be named "e56...c373".
+When you enable replication on your workspace, a System [Data Collection Endpoint](../essentials/data-collection-endpoint-overview.md) (DCE) is created. The DCE created to support replication is named by the workspace ID (For example, if your workspace ID is "e56...c373", the DCE will be named "e56...c373").
+**If you use Data Collection Rules (DCRs) to send logs to this workspace, you must connect each of your DCRs to the newly created DCE, for replication and failover to be supported.**
+
 
 To learn how to connect a DCR to a DCE, see step 5 in [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md?tabs=portal#create-a-data-collection-rule).
 
 > [!NOTE]
-> It is critical that you connect all the DCRs that target this workspace to the relevant DCE. You must also make sure these DCRs don't also target additional workspaces.
+> Only DCRs that are connected to the workspace's System DCE will enable replication and failover. This provides you with control over which log streams are replicated and which are not, which also impacts your replication costs.
+
+> [!WARNING]
+> DCRs connected to a workspace's System DCE should target only this specific worksace. They **must not** target other destinations, such as additional workspaces or storage accounts.
 
 ## Monitoring your workspace and service health
 Ingestion latency or query failures are examples of issues that can often be handled by failing over to your secondary region. Such issues can be detected using Service Health notifications and log queries.
