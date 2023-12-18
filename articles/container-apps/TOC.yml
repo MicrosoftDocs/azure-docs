@@ -216,7 +216,7 @@
       - name: Configure
         items:
         - name: Enable Dapr
-          href: dapr-enable.md
+          href: enable-dapr.md
         - name: Connect to Azure services via Dapr components
           href: dapr-component-connection.md
         - name: Dapr components
