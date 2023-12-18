@@ -31,6 +31,10 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
    :::image type="content" source="./media/trino-create-cluster/search-bar.png" alt-text="Screenshot showing search bar in Azure portal.":::
 
+1. Make sure to perform flag registration for 'AKS-AzureKeyVaultSecretsProvider, EnablePodIdentityPreview, KubeletDisk', see [Enable features](../prerequisites-subscription#enable-features).
+
+
+
 1. On the specific cluster pool page, click **+ New cluster** at the top left and then provide the following information:
   
    :::image type="content" source="./media/trino-create-cluster/trino-create-cluster-more-basic-details.png" alt-text="Screenshot showing more details of basic tab of create Trino cluster."::: 
