@@ -15,7 +15,7 @@ ms.date: 10/20/2023
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Azure Database for MySQL provides a range of metrics that you can use to identify resource bottlenecks and performance issues on the server. To determine whether your server is experiencing high CPU utilization, monitor metrics such as “Host CPU percent”, “Total Connections”, “Host Memory Percent”, and “IO Percent”. At times, viewing a combination of these metrics will provide insights into what might be causing the increased CPU utilization on your Azure Database for MySQL server.
+Azure Database for MySQL flexible server provides a range of metrics that you can use to identify resource bottlenecks and performance issues on the server. To determine whether your server is experiencing high CPU utilization, monitor metrics such as “Host CPU percent”, “Total Connections”, “Host Memory Percent”, and “IO Percent”. At times, viewing a combination of these metrics will provide insights into what might be causing the increased CPU utilization on your Azure Database for MySQL flexible server instance.
 
 For example, consider a sudden surge in connections that initiates surge of database queries that cause CPU utilization to shoot up.
 
@@ -49,7 +49,7 @@ Queries that are expensive to execute and scan a large number of rows without an
 
 ## Capturing details of the current workload
 
-The SHOW (FULL) PROCESSLIST command displays a list of all user sessions currently connected to the Azure Database for MySQL server. It also provides details about the current state and activity of each session.
+The SHOW (FULL) PROCESSLIST command displays a list of all user sessions currently connected to the Azure Database for MySQL flexible server instance. It also provides details about the current state and activity of each session.
 
 This command only produces a snapshot of the current session status and doesn't provide information about historical session activity.
 
@@ -91,7 +91,7 @@ The following example query that combines process list information with some of 
 mysql> select    p.id as session_id, p.user, p.host, p.db, p.command, p.time, p.state,    substring(p.info, 1, 50) as info,    t.trx_started, unix_timestamp(now()) - unix_timestamp(t.trx_started) as trx_age_seconds, t.trx_rows_modified, t.trx_isolation_level   from information_schema.processlist p    left join information_schema.innodb_trx t    on p.id = t.trx_mysql_thread_id \G
 ```
 
-The following example shows the output from this query below:
+The following example shows the output from this query:
 
 ```
 *************************** 1. row *************************** 
@@ -149,7 +149,7 @@ This state usually means the open table operation is consuming a long time. Usua
 
 ### Sending data
 
-While this state can mean that the thread is sending data through the network, it can also indicate that the query is reading data from the disk or memory. This state can be caused by a sequential table scan. You should check the values of the innodb_buffer_pool_reads and innodb_buffer_pool_read_requests to determine whether a large number of pages are being served from the disk into the memory. For more information, see [Troubleshoot low memory issues in Azure Database for MySQL](how-to-troubleshoot-low-memory-issues.md).
+While this state can mean that the thread is sending data through the network, it can also indicate that the query is reading data from the disk or memory. This state can be caused by a sequential table scan. You should check the values of the innodb_buffer_pool_reads and innodb_buffer_pool_read_requests to determine whether a large number of pages are being served from the disk into the memory. For more information, see [Troubleshoot low memory issues in Azure Database for MySQL flexible server](how-to-troubleshoot-low-memory-issues.md).
 
 ### Updating
 

@@ -19,9 +19,9 @@ Article tested with the following Terraform and Terraform provider versions:
 - [Terraform v1.2.7](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.3.20.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
+[!INCLUDE [azure-database-for-mysql-flexible-server-abstract](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
-This article shows how to use Terraform to deploy an Azure MySQL Flexible Server Database in a virtual network (VNet).
+This article shows how to use Terraform to deploy an Azure Database for MySQL flexible server instance and database in a virtual network (VNet).
 
 In this article, you learn how to:
 
@@ -32,7 +32,7 @@ In this article, you learn how to:
 > * Create an Azure subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
 > * Define a private DNS zone within an Azure DNS using [azurerm_private_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
 > * Define a private DNS zone VNet link using using [azurerm_private_dns_zone_virtual_network_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link)
-> * Deploy Flexible Server using [azurerm_mysql_flexible_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server)
+> * Deploy an Azure Database for MySQL flexible server instance using [azurerm_mysql_flexible_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server)
 > * Deploy a database using [azurerm_mysql_flexible_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_database)
 
 > [!NOTE]
@@ -84,7 +84,7 @@ In this article, you learn how to:
 
 #### [Azure CLI](#tab/azure-cli)
 
-Run [az mysql flexible-server db show](/cli/azure/mysql/flexible-server/db#az-mysql-flexible-server-db-show) to display the Azure MySQL database.
+Run [az mysql flexible-server db show](/cli/azure/mysql/flexible-server/db#az-mysql-flexible-server-db-show) to display the Azure Database for MySQL flexible server database.
 
 ```azurecli
 az mysql flexible-server db show \
@@ -99,7 +99,7 @@ az mysql flexible-server db show \
 
 #### [Azure PowerShell](#tab/azure-powershell)
 
-Run [Get-AzMySqlFlexibleServerDatabase](/powershell/module/az.mysql/get-azmysqlflexibleserverdatabase) to display the Azure MySQL database.
+Run [Get-AzMySqlFlexibleServerDatabase](/powershell/module/az.mysql/get-azmysqlflexibleserverdatabase) to display the Azure Database for MySQL flexible server database.
 
 ```azurepowershell
 Get-AzMySqlFlexibleServerDatabase `
@@ -125,4 +125,4 @@ Get-AzMySqlFlexibleServerDatabase `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect Azure Database for MySQL - Flexible Server with private access](./quickstart-create-connect-server-vnet.md)
+> [Connect Azure Database for MySQL flexible server with private access](./quickstart-create-connect-server-vnet.md)

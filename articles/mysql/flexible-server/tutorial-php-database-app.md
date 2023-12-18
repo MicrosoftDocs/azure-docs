@@ -15,7 +15,7 @@ ms.custom: mvc, build-2023, build-2023-dataai
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL - Flexible Server). When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
+[Azure App Service](../../app-service/overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure PHP app in Azure App Service that's connected to a MySQL database (using Azure Database for MySQL flexible server). When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-database-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/laravel-tasks.git
 
 If you want to run the application locally, do the following:
 
-- In **.env**, configure the database settings (like `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`) using settings in your local MySQL database. You need a local MySQL server to run this sample.
+- In **.env**, configure the database settings (like `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`) using settings in your local Azure Database for MySQL flexible server database. You need a local Azure Database for MySQL flexible server instance to run this sample.
 - From the root of the repository, start Laravel with the following commands:
 
     ```terminal
@@ -54,9 +54,9 @@ If you want to run the application locally, do the following:
     php artisan serve
     ```
 
-## 1 - Create App Service and MySQL resources
+## 1 - Create App Service and Azure Database for MySQL flexible server resources
 
-In this step, you create the Azure resources. The steps used in this tutorial create an App Service and Azure Database for MySQL - Flexible Server configuration that's secure by default. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps used in this tutorial create an App Service and Azure Database for MySQL flexible server configuration that's secure by default. For the creation process, you'll specify:
 
 * The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
 * The **Runtime** for the app. It's where you select the version of PHP to use for your app.
@@ -97,7 +97,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 ## 4 - Generate database schema
 
-The creation wizard puts the MySQL database server behind a private endpoint, so it's accessible only from the virtual network. Because the App Service app is already integrated with the virtual network, the easiest way to run database migrations with your database is directly from within the App Service container.
+The creation wizard puts the Azure Database for MySQL flexible server instance behind a private endpoint, so it's accessible only from the virtual network. Because the App Service app is already integrated with the virtual network, the easiest way to run database migrations with your database is directly from within the App Service container.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -140,7 +140,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 ## Frequently asked questions
 
 - [How much does this setup cost?](#how-much-does-this-setup-cost)
-- [How do I connect to a MySQL database that's secured behind a virtual network?](#how-do-i-connect-to-a-mysql-database-thats-secured-behind-a-virtual-network)
+- [How do I connect to an Azure Database for MySQL flexible server database that's secured behind a virtual network?](#how-do-i-connect-to-an-azure-database-for-mysql-flexible-server-database-thats-secured-behind-a-virtual-network)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [Why is the GitHub Actions deployment so slow?](#why-is-the-github-actions-deployment-so-slow)
 
@@ -149,14 +149,14 @@ When you're finished, you can delete all of the resources from your Azure subscr
 Pricing for the create resources is as follows:
 
 - The App Service plan is created in **Premium V2** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
-- The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. With an Azure free account, **B1ms** tier is free for 12 months, up to the monthly limits. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
+- The Azure Database for MySQL flexible server instance is created in **B1ms** tier and can be scaled up or down. With an Azure free account, **B1ms** tier is free for 12 months, up to the monthly limits. See [Azure Database for MySQL flexible server pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
 
-### How do I connect to a MySQL database that's secured behind a virtual network?
+### How do I connect to an Azure Database for MySQL flexible server database that's secured behind a virtual network?
 
-To connect to a MySQL database, you can use several methods based on the tools and environments at your disposal:
+To connect to an Azure Database for MySQL flexible server database, you can use several methods based on the tools and environments at your disposal:
 
 - **Command-line tool access**: 
    - Use the `mysql` command from the app's SSH terminal for basic access.
@@ -198,8 +198,8 @@ Most of the time taken by the two-job process is spent uploading and download ar
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default PHP and MySQL app in Azure
-> * Configure connection secrets to MySQL using app settings
+> * Create a secure-by-default PHP and Azure Database for MySQL flexible server app in Azure
+> * Configure connection secrets to Azure Database for MySQL flexible server using app settings
 > * Deploy application code using GitHub Actions
 > * Update and redeploy the app
 > * Run database migrations securely
