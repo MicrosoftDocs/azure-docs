@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 12/20/2023
 ---
 
 # Tutorial: Create a chat app with Azure Web PubSub service
@@ -596,31 +596,41 @@ In the above code, we simply print a message to console when a client is connect
 
 ## Set up the event handler
 
-### Expose localhost
+### Hanld event handler from your localhost
 
-Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. There are several tools available on the internet to expose localhost to the internet, for example, [ngrok](https://ngrok.com), [loophole](https://loophole.cloud/docs/), or [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Here we use [ngrok](https://ngrok.com/).
+Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. 
 
-1.  First download ngrok from https://ngrok.com/download, extract the executable to your local folder or your system bin folder.
-2.  Start ngrok
-    
-    ```bash
-    ngrok http 8080
-    ```
+There are two ways to route the traffic to your localhost, one is to expose localhost to be accessible on the internet using tools such as [ngrok](https://ngrok.com) or [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
 
-ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet. In above step we listens the `/eventhandler` path, so next we'd like the service to send events to `https://<domain-name>.ngrok.io/eventhandler`.
+# [awps-tunnel](#tab/awps-tunnel)
+
+#### 1. Download and install awps-tunnel
+The tool runs on [Node.js](https://nodejs.org/) version 16 or higher.
+
+```bash
+npm install -g @azure/web-pubsub-tunnel-tool
+```
+
+#### 2. Use the service connection string and run
+```bash
+export WebPubSubConnectionString="<your connection string>"
+awps-tunnel run --hub myHub1 --upstream http://localhost:8080
+```
+---
+
+Now, we need to let your Web PubSub resource know about this Webhook URL. You can set the event handlers either from Azure portal or Azure CLI. 
 
 ### Set event handler
 
-Then we update the service event handler and set the Webhook URL to `https://<domain-name>.ngrok.io/eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
+ When using `awps-tunnel` tool, the URL template uses `tunnel` scheme followed by the path: `tunnel:///eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
 
 Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
-  > Replace &lt;domain-name&gt; with the name ngrok printed.
 
 ```azurecli-interactive
-az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="tunnel:///eventHandler" user-event-pattern="*" system-event="connected"
 ```
 
 After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
@@ -631,7 +641,7 @@ Besides system events like `connected` or `disconnected`, client can also send m
 
 # [C#](#tab/csharp)
 
-Implement the OnMessageReceivedAsync() method in Sample_ChatApp.
+Implement the `OnMessageReceivedAsync()` method in `Sample_ChatApp`.
 
 1. Handle message event.
 
