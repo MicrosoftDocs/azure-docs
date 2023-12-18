@@ -44,8 +44,8 @@ Since the workspace managed virtual network can access internet in this configur
 1. Configure a workspace by following [Workspace managed network isolation](./how-to-managed-network.md#configure-a-managed-virtual-network-to-allow-only-approved-outbound). In step 3 of the tutorial when selecting **Workspace managed outbound access**, select **Allow Only Approved Outbound**.  
 2. If you set the public network access to the workspace to disabled, you can connect to the workspace using one of the methods as listed [in step 2 of the allow internet outbound section of this tutorial](#workspace-managed-virtual-network-to-allow-internet-outbound).
 3. The workspace manages virtual network is set to an allow only configuration. You must add a corresponding user-defined outbound rule to allow all the relevant FQDNs.
-       1. Follow this link for a list of FQDNs required for the [Curated by Azure AI collection](#language-models-in-curated-by-azure-ai-collection).
-       2. Follow this link for a list of FQDNs required for the [Hugging Face collection](#work-with-hugging-face-collection). 
+    1. Follow this link for a list of FQDNs required for the [Curated by Azure AI collection](#language-models-in-curated-by-azure-ai-collection).
+    2. Follow this link for a list of FQDNs required for the [Hugging Face collection](#work-with-hugging-face-collection). 
 
 ## Work with open source models curated by Azure Machine Learning
 
