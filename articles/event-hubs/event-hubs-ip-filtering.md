@@ -163,11 +163,18 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 Use [`az eventhubs namespace network-rule-set`](/cli/azure/eventhubs/namespace/network-rule-set) add, list, update, and remove commands to manage IP firewall rules for an Event Hubs namespace.
 
 ## Use Azure PowerShell
-Use the following Azure PowerShell commands to add, list, remove, update, and delete IP firewall rules. 
+Use the [`Set-AzEventHubNetworkRuleSet`](/powershell/module/az.eventhub/set-azeventhubnetworkruleset) cmdlet to add one or more IP firewall rules. An example from the article:
 
-- [`Add-AzEventHubIPRule`](/powershell/module/az.eventhub/add-azeventhubiprule) to add an IP firewall rule.
-- [`New-AzEventHubIPRuleConfig`](/powershell/module/az.eventhub/new-azeventhubipruleconfig) and [`Set-AzEventHubNetworkRuleSet`](/powershell/module/az.eventhub/set-azeventhubnetworkruleset) together to add an IP firewall rule
-- [`Remove-AzEventHubIPRule`](/powershell/module/az.eventhub/remove-azeventhubiprule) to remove an IP firewall rule.
+```azurepowershell-interactive
+$ipRule1 = New-AzEventHubIPRuleConfig -IPMask 2.2.2.2 -Action Allow
+$ipRule2 = New-AzEventHubIPRuleConfig -IPMask 3.3.3.3 -Action Allow
+$virtualNetworkRule1 = New-AzEventHubVirtualNetworkRuleConfig -SubnetId '/subscriptions/subscriptionId/resourcegroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/default'
+$networkRuleSet = Get-AzEventHubNetworkRuleSet -ResourceGroupName myResourceGroup -NamespaceName myNamespace
+$networkRuleSet.IPRule += $ipRule1
+$networkRuleSet.IPRule += $ipRule2
+$networkRuleSet.VirtualNetworkRule += $virtualNetworkRule1
+Set-AzEventHubNetworkRuleSet -ResourceGroupName myResourceGroup -NamespaceName myNamespace -IPRule $ipRule1,$ipRule2 -VirtualNetworkRule $virtualNetworkRule1,$virtualNetworkRule2,$virtualNetworkRule3
+```
 
 ## Default action and public network access 
 

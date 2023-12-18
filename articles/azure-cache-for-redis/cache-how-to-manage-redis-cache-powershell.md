@@ -13,9 +13,9 @@ ms.custom: devx-track-azurepowershell
 # Manage Azure Cache for Redis with Azure PowerShell
 
 > [!div class="op_single_selector"]
-
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
+> 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 11/27/2023
 ---
 
 # Dapr integration with Azure Container Apps

@@ -12,19 +12,17 @@ ms.topic: conceptual
 ms.date: 11/15/2023
 ---
 
-# Azure Confidential VM options on AMD and Intel
+# Azure Confidential VM options
 
 Azure offers multiple confidential VMs options leveraging Trusted Execution Environments (TEE) technologies from both AMD and Intel to harden the virtualization environment. These technologies enable you to provision confidential computing environments with excellent price-to-performance without code changes. 
 
 AMD confidential VMs leverage [Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) which was introduced with 3rd Gen AMD EPYC™ processors. Intel confidential VMs use [Trust Domain Extensions (TDX)](https://www.intel.com/content/dam/develop/external/us/en/documents/tdx-whitepaper-v4.pdf) which was introduced with 4th Gen Intel® Xeon® processors.
 
-
-
 ## Sizes
 
 You can create confidential VMs in the following size families:
 
-| Size family          | TEE | Description                                                                         |
+| Size Family          | TEE | Description                                                                         |
 | ------------------ | ------------ | ----------------------------------------------------------------------------------- |
 | **DCasv5-series** | AMD SEV-SNP | General purpose CVM with remote storage. No local temporary disk.                  |
 | **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |

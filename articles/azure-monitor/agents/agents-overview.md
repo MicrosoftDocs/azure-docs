@@ -71,7 +71,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
     | Data source | Destinations | Description |
     |:---|:---|:---|
-    | Performance | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+    | Performance | <ul><li>Azure Monitor Metrics (Public preview):<ul><li>For Windows - Virtual Machine Guest namespace</li><li>For Linux<sup>1</sup> - azure.vm.linux.guestmetrics namespace</li></ul></li><li>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table</li></ul> | Numerical values measuring performance of different aspects of operating system and workloads |
     | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
     | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
     |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
@@ -128,7 +128,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	|	✓ | ✓ |		|
-|		|	Microsoft Defender for Cloud - Olny uses MDE agent	|		|  |		|
+|		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |		|
 |		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |		|
 |   | Azure Stack HCI | ✓ |  |  |
 |		|	Update Manager - no longer uses agents	|	|		|		|

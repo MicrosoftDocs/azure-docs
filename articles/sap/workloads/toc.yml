@@ -221,7 +221,7 @@ items:
           href: high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md
     - name: Disaster recovery
       items: 
-      - name: Add HSR third site to HANA Pacemaker cluster on SUSE
+      - name: Add HSR third site to HANA Pacemaker cluster
         href: disaster-recovery-sap-hana-suse.md
     - name: Integration with Microsoft services
       items:

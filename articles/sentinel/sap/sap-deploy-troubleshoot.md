@@ -209,16 +209,21 @@ If you get an error message similar to: **..Missing Backend RFC Authorization..*
 
 ### Missing data in your workbooks or alerts
 
-If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file. 
+If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file.
 
 Use the **RSAU_CONFIG_LOG** transaction for this step.
-
 
 ### Missing SAP change request
 
 If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
 
 For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
+
+### No records / late records
+
+The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835](<https://me.sap.com/notes/481835/E>) for more details.
+
+
 
 ### Network connectivity issues
 
@@ -312,6 +317,14 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
     ```bash
     docker start sapcon-[SID]
     ```
+
+### Missing IP address or transaction code fields in the SAP audit log
+
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect additional fields in the ABAPAuditLog_CL and SAPAuditLog tables. If you are using SAP BASIS versions higher than 7.5 SP12 and missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). See [Retrieve additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) for more details.
+
+### No data is showing in the SAP table data log
+
+This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the ABAPTableDataLog_CL table. If no data is showing in the ABAPTableDataLog_CL, verify that the SAP system from which you are extracting the data contains the relevant change requests (transports). See [Retrieve additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional) for more details.
 
 ## Next steps
 
