@@ -34,7 +34,7 @@ Download for [Windows](https://download.microsoft.com/download/f/6/4/f64c574f-d3
 - Agent installation and upgrades apply more restrictive permissions to the agent's data directories on Windows
 - Improved reliability when detecting Azure Stack HCI as a cloud provider
 - Removed the log zipping feature introduced in version 1.37 for extension manager and machine configuration agent logs. Log files will still be rotated automatically.
-- Resolved CVE-2023-35624 - [Azure Connected Machine Agent Elevation of Privilege Vulnerability](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35624)
+- Resolved [Azure Connected Machine Agent Elevation of Privilege Vulnerability](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-35624)
 
 ## Version 1.36 - November 2023
 
