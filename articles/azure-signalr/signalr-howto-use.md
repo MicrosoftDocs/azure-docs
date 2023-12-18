@@ -10,15 +10,18 @@ ms.author: lianwei
 
 # Use Azure SignalR Service
 
+
+This article shows you how to use SDK in your app server side to connect to SignalR Service when you are using SignalR in your app server.
+
 ## Create an Azure SignalR Service instance
 
 Follow [Quickstart: Use an ARM template to deploy Azure SignalR](./signalr-quickstart-azure-signalr-service-arm-template.md) to create a SignalR service instance.
 
-## For ASP&#46;NET Core SignalR
+## For ASP.NET Core SignalR
 
-### 1. Install the SDK
+### Install the SDK
 
-Run the command to install SignalR Service SDK to your ASP&#46;NET Core project.
+Run the command to install SignalR Service SDK to your ASP.NET Core project.
 
 ```bash
 dotnet add package Microsoft.Azure.SignalR
@@ -42,7 +45,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-### 2. Configure Connection String
+### Configure connection string
 
 There are two approaches to configure SignalR Service's connection string in your application.
 
@@ -62,7 +65,7 @@ There are two approaches to configure SignalR Service's connection string in you
             .AddAzureSignalR(options => options.ConnectionString = "<replace with your connection string>");
     ```
 
-### 3. Configure options
+### Configure options
 
 There are a few [options](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/ServiceOptions.cs) you can customize when using Azure SignalR Service SDK.
 
@@ -106,7 +109,7 @@ You can increase this value to avoid client disconnect.
 #### `AccessTokenAlgorithm`
 
 - Default value is `HS256`
-- This option provides choice of [`SecurityAlgorithms`](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/dev/src/Microsoft.IdentityModel.Tokens/SecurityAlgorithms.cs) when generate access token. Now supported optional values are `HS256` and `HS512`. Note `HS512` is more secure but the generated token is comparatively longer than that using `HS256`.
+- This option provides choice of [`SecurityAlgorithms`](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/dev/src/Microsoft.IdentityModel.Tokens/SecurityAlgorithms.cs) when generate access token. Now supported optional values are `HS256` and `HS512`. Note that `HS512` is more secure but the generated token is comparatively longer than that using `HS256`.
 
 #### `ServerStickyMode`
 
@@ -145,7 +148,7 @@ You can increase this value to avoid client disconnect.
 - This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
 - The value is limited to `[1, 300]`.
 
-### 4. Sample
+### Sample
 
 You can configure above options like the following sample code.
 
@@ -162,15 +165,15 @@ services.AddSignalR()
             });
 ```
 
-## For the legacy ASP&#46;NET SignalR
+## For the legacy ASP.NET SignalR
 
 > [!NOTE]
 >
-> If it is your first time trying SignalR, we recommend you use the [ASP&#46;NET Core SignalR](/aspnet/core/signalr/introduction), it is **simpler, more reliable, and easier to use**.
+> If it is your first time trying SignalR, we recommend you use the [ASP.NET Core SignalR](/aspnet/core/signalr/introduction), it is **simpler, more reliable, and easier to use**.
 
-### 1. Install the SDK
+### Install the SDK
 
-Install SignalR Service SDK to your ASP&#46;NET project with **Package Manager Console**:
+Install SignalR Service SDK to your ASP.NET project with **Package Manager Console**:
 
 ```powershell
 Install-Package Microsoft.Azure.SignalR.AspNet
@@ -185,7 +188,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-### 2. Configure Connection String
+### Configure connection string
 
 Set the connection string in the `web.config` file, to the `connectionStrings` section:
 
@@ -198,7 +201,7 @@ Set the connection string in the `web.config` file, to the `connectionStrings` s
 </configuration>
 ```
 
-### 3. Configure options
+### Configure options
 
 There are a few [options](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/ServiceOptions.cs) you can customize when using Azure SignalR Service SDK.
 
@@ -241,7 +244,7 @@ You can increase this value to avoid client disconnect.
 #### `AccessTokenAlgorithm`
 
 - Default value is `HS256`
-- This option provides choice of [`SecurityAlgorithms`](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/dev/src/Microsoft.IdentityModel.Tokens/SecurityAlgorithms.cs) when generate access token. Now supported optional values are `HS256` and `HS512`. Note `HS512` is more secure but the generated token is comparatively longer than that using `HS256`.
+- This option provides choice of [`SecurityAlgorithms`](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/dev/src/Microsoft.IdentityModel.Tokens/SecurityAlgorithms.cs) when generate access token. Now supported optional values are `HS256` and `HS512`. Note that `HS512` is more secure but the generated token is comparatively longer than that using `HS256`.
 
 #### `ServerStickyMode`
 
@@ -271,7 +274,7 @@ app.Map("/signalr",subApp => subApp.RunAzureSignalR(this.GetType().FullName, new
 }));
 ```
 
-## Scale Out Application Server
+## Scale out application server
 
 With Azure SignalR Service, persistent connections are offloaded from application server so that you can focus on implementing your business logic in hub classes.
 But you still need to scale out application servers for better performance when handling massive client connections.
