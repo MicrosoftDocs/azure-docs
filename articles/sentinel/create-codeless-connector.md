@@ -425,7 +425,7 @@ These recommended variables help simplify the template. Use more or less as need
         "_solutionId": "azuresentinel.azure-sentinel-solution-azuresentinel.azure-sentinel-MySolution", // Enter a name for your solution with this format but exchange the 'MySolution' portion
         "dataConnectorVersionConnectorDefinition": "1.0.0",
         "dataConnectorVersionConnections": "1.0.0",
-        "_solutionTier": "Community", // This designates the appropriate support - all custom data connectors should "Community"
+        "_solutionTier": "Community", // This designates the appropriate support - all custom data connectors are "Community"
         "_dataConnectorContentIdConnectorDefinition": "MySolutionTemplateConnectorDefinition", // Enter a name for the connector
         "dataConnectorTemplateNameConnectorDefinition": "[concat(parameters('workspace'),'-dc-',uniquestring(variables('_dataConnectorContentIdConnectorDefinition')))]",
         "_dataConnectorContentIdConnections": "MySolutionTemplateConnections", // Enter a name for the connections this connector makes
