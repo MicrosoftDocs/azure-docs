@@ -48,7 +48,7 @@ The `az ml datastore` command can be used for managing Azure Machine Learning da
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](~/azureml-examples-main/cli/resources/datastore). Several are shown here:
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown here:
 
 ## YAML: identity-based access
 
