@@ -88,12 +88,11 @@ To complete this tutorial, you need:
     
     With private access, access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](./concepts-networking.md).
 
-   For the purposes of this tutorial, enable public access to connect to the server.
+    For the purposes of this tutorial, enable public access to connect to the server.
 
-> [!NOTE]
-> Azure Database for PostgreSQL - Flexible Server support for Private Endpoints in Preview requires enablement of **Enable Private Endpoints for PostgreSQL flexible servers** [preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). 
-> Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
-
+    > [!NOTE]
+    > Azure Database for PostgreSQL - Flexible Server support for Private Endpoints in Preview requires enablement of **Enable Private Endpoints for PostgreSQL flexible servers** [preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). 
+    > Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
 
 1. On the **Networking** tab, for **Connectivity method** select **Public access (allowed IP addresses) and Private endpoint**.
 
