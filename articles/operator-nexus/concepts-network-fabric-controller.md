@@ -58,6 +58,10 @@ To create an NFC, you must provide the following attributes:
     * Azure ARC resources
     * Virtual Networks
 
+:::image type="content" source="media/nfc-call-flow.png" alt-text="Network Fabric Controller (NFC) creation request.":::
+
+:::image type="content" source="media/nfc-architecture.png" alt-text="Network Fabric Controller (NFC) creation request.":::
+
 ## Payload examples
 Createa a Network Fabric Controller
 
@@ -71,7 +75,7 @@ Createa a Network Fabric Controller
   --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02"", "expressRouteAuthorizationKey": "<auth-key>"}]'
 
 ```
-Update Network Fabric Controller with two new ExR (Re-put):
+Update Network Fabric Controller with two new ExR:
  ```azurecli
 az networkfabric controller create \
 --resource-group "NFCResourceGroupName" \
@@ -95,6 +99,14 @@ az networkfabric controller delete --resource-group "NFCResourceGroupName" --res
 ## Portal examples
 
 :::image type="content" source="media/nfc-portal-1.png" alt-text="Configuration of Network Fabric Controller in Azure Portal.":::
+
+Network Fabrics that are associated with Network Fabric Controller.
+
+:::image type="content" source="media/nfc-portal-2.png" alt-text="Configuration of Network Fabric Controller in Azure Portal.":::
+
+Managed Resource Group
+
+:::image type="content" source="media/nfc-portal-3.png" alt-text="Configuration of Network Fabric Controller in Azure Portal.":::
 
 ## Provisioned NFC's JSON
 ```json
@@ -148,6 +160,9 @@ az networkfabric controller delete --resource-group "NFCResourceGroupName" --res
 }
 
 ```
+Activity log:
+
+:::image type="content" source="media/nfc-activity-log.png" alt-text="NFC activity log in Azure Portal.":::
 
 ## FAQs on Network Fabric Controller (NFC) Setup and Management
 
