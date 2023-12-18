@@ -10,7 +10,7 @@ ms.reviewer: osalzberg
 
 # Correlate data in Azure Data Explorer and Azure Resource Graph with data in a Log Analytics workspace
 
-You can correlate data in [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) and [Azure Resource Graph](../../governance/resource-graph/overview.md) with data in your Log Analytics workspace and Application Insights resources by using the `adx()` and `arg()` expressions. This enhances your analysis capabilities in [Azure Monitor Logs](../logs/data-platform-logs.md) and in [Microsoft Sentinel](../../sentinel/overview.md) and [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md), which also store data in Log Analytics workspaces. This article explains how to run cross-service queries from any service that stores data in a Log Analytics workspace.
+You can correlate data in [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) and [Azure Resource Graph](../../governance/resource-graph/overview.md) with data in your Log Analytics workspace and Application Insights resources by using the `adx()` and `arg()` expressions to enhance your  analysis in [Azure Monitor Logs](../logs/data-platform-logs.md). [Microsoft Sentinel](../../sentinel/overview.md), which also stores data in Log Analytics workspaces, supports cross-service queries to Azure Data Explorer but not to Azure Resource Graph. This article explains how to run cross-service queries from any service that stores data in a Log Analytics workspace.
 
 Run cross-service queries by using any client tools that support Kusto Query Language (KQL) queries, including the Log Analytics web UI, workbooks, PowerShell, and the REST API.
 
@@ -21,16 +21,6 @@ To run a cross-service query, you need:
 - `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](../logs/manage-access.md#log-analytics-reader), for example.
 - Reader permissions to the resources you query in Azure Resource Graph.
 - Viewer permissions to the tables you query in Azure Data Explorer.
-
-## Function supportability
-
-Azure Monitor cross-service queries support **only ".show"** functions for Application Insights, Log Analytics, Azure Data Explorer, and Azure Resource Graph.
-This capability enables cross-cluster queries to reference an Azure Monitor, Azure Data Explorer, or Azure Resource Graph tabular function directly.
-The following commands are supported with the cross-service query:
-
-* `.show functions`
-* `.show function {FunctionName}`
-* `.show database {DatabaseName} schema as json`
 
 ## Query data in Azure Data Explorer by using adx()
 
@@ -163,6 +153,13 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 
 ## Limitations
 ### General cross-service query limitations
+* Cross-service queries don’t support parameterized functions and functions whose definition includes other cross-workspace or cross-service expressions, including `adx()`, `arg()`, `resource()`, `workspace()`, and `app()`.
+* Cross-service queries support **only ".show"** functions.
+    This capability enables cross-cluster queries to reference an Azure Monitor, Azure Data Explorer, or Azure Resource Graph tabular function directly.
+    The following commands are supported with the cross-service query:
+    * `.show functions`
+    * `.show function {FunctionName}`
+    * `.show database {DatabaseName} schema as json`
 * Database names are case sensitive.
 * Identifying the Timestamp column in the cluster isn't supported. The Log Analytics Query API won't pass the time filter.
 * Cross-service queries support data retrieval only. 
@@ -170,11 +167,13 @@ To create a new alert rule based on a cross-service query, follow the steps in [
 * `mv-expand` is limited to 2000 records.
 
 ### Azure Resource Graph cross-service query limitations
-When you query Azure Resource Graph data from Azure Monitor:
-* The query returns the first 1000 records only.
-* Azure Monitor doesn't return Azure Resource Graph query errors.
-* The Log Analytics query editor marks valid Azure Resource Graph queries as syntax errors.
-* These operators aren't supported: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
+
+* Microsoft Sentinel does not support cross-service queries to Azure Resource Graph.
+* When you query Azure Resource Graph data from Azure Monitor:
+    * The query returns the first 1000 records only.
+    * Azure Monitor doesn't return Azure Resource Graph query errors.
+    * The Log Analytics query editor marks valid Azure Resource Graph queries as syntax errors.
+    * These operators aren't supported: `smv-apply()`, `rand()`, `arg_max()`, `arg_min()`, `avg()`, `avg_if()`, `countif()`, `sumif()`, `percentile()`, `percentiles()`, `percentilew()`, `percentilesw()`, `stdev()`, `stdevif()`, `stdevp()`, `variance()`, `variancep()`, `varianceif()`.
 
 ## Next steps
 * [Write queries](/azure/data-explorer/write-queries)
