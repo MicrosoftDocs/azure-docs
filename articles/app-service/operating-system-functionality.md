@@ -1,6 +1,6 @@
 ---
-title: Operating system functionality
-description: Learn what types of file, network, and registry access your Windows app gets when it runs on Azure App Service. 
+title: Operating system functionality in Azure App Service
+description: Learn what types of file, network, and registry access your Windows app gets when it runs in Azure App Service. 
 author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
@@ -9,12 +9,12 @@ ms.date: 01/21/2022
 ms.custom: UpdateFrequency3
 
 ---
-# Operating system functionality on Azure App Service
+# Operating system functionality in Azure App Service
 
 This article describes the baseline operating system functionality that's available to all Windows apps running on [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostics logs and events.
 
 > [!NOTE]
-> [Linux apps](overview.md#app-service-on-linux) on App Service run in their own containers. You have root access to the container but no access to the host operating system. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system.
+> [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. You have root access to the container but no access to the host operating system. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system.
 
 <a id="tiers"></a>
 
@@ -125,7 +125,7 @@ Named pipes are also supported as a mechanism for interprocess communication bet
 
 As noted earlier, apps run inside low-privileged worker processes by using a random application pool identity. Application code has access to the memory space associated with the worker process, along with any child processes that CGI processes or other applications might spawn. However, one app can't access the memory or data of another app, even if it's on the same virtual machine.
 
-Apps can run scripts or pages written with supported web development frameworks. App Service doesn't configure any web framework settings to more restricted modes. For example, ASP.NET apps running on App Service run in full trust, as opposed to a more restricted trust mode. Web frameworks, including both classic ASP and ASP.NET, can call in-process COM components (like ActiveX Data Objects) that are registered by default on the Windows operating system. Web frameworks can't call out-of-process COM components.
+Apps can run scripts or pages written with supported web development frameworks. App Service doesn't configure any web framework settings to more restricted modes. For example, ASP.NET apps running in App Service run in full trust, as opposed to a more restricted trust mode. Web frameworks, including both classic ASP and ASP.NET, can call in-process COM components (like ActiveX Data Objects) that are registered by default on the Windows operating system. Web frameworks can't call out-of-process COM components.
 
 An app can spawn and run arbitrary code, open a command shell, or run a PowerShell script. However, executable programs and scripts are still restricted to the privileges granted to the parent application pool. For example, an app can spawn an executable program that makes an outbound HTTP call, but that executable program can't attempt to unbind the IP address of a virtual machine from its network adapter. Making an outbound network call is allowed for low-privileged code, but trying to reconfigure network settings on a virtual machine requires administrative privileges.
 
@@ -137,7 +137,7 @@ Log information is another set of data that some apps try to access. The types o
 
 For example, app-generated W3C HTTP logs are available either:
 
-- On a log directory in the network share location created for the app
+- In a log directory in the network share location created for the app
 - In blob storage if a customer has set up W3C logging to storage
 
 The latter option enables apps to gather large amounts of logs without exceeding the file storage limits associated with a network share.

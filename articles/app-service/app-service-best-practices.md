@@ -1,6 +1,6 @@
 ---
-title: Best practices
-description: Learn best practices and the common troubleshooting scenarios for your app running in Azure App Service.
+title: Best practices for Azure App Service
+description: Learn best practices and common troubleshooting scenarios for your app running in Azure App Service.
 
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
 ms.topic: article
@@ -15,46 +15,48 @@ This article summarizes best practices for using [Azure App Service](./overview.
 
 ## <a name="colocation"></a>Colocation
 
-When Azure resources composing a solution such as a web app and a database are located in different regions, it can have the following effects:
+An Azure App Service solution consists of a web app and a database or storage account for holding content or data. When these resources are in different regions, the situation can have the following effects:
 
 * Increased latency in communication between resources
-* Monetary charges for outbound data transfer cross-region as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers).
+* Monetary charges for outbound data transfer across regions, as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers)
 
-Colocation in the same region is best for Azure resources composing a solution such as a web app and a database or storage account used to hold content or data. When creating resources, make sure they are in the same Azure region unless you have specific business or design reason for them not to be. You can move an App Service app to the same region as your database by using the [App Service cloning feature](app-service-web-app-cloning.md) currently available for Premium App Service Plan apps.
+Colocation is best for Azure resources that compose a solution. When you create resources, make sure they're in the same Azure region unless you have specific business or design reasons for them not to be. You can move an App Service app to the same region as your database by using the [App Service cloning feature](app-service-web-app-cloning.md) available in Premium App Service plans.
 
 ## <a name ="certificatepinning"></a>Certificate pinning
 
-Applications should never have a hard dependency or pin to the default \*.azurewebsites.net TLS certificate because the \*.azurewebsites.net TLS certificate could be rotated anytime given the nature of App Service as a Platform as a Service (PaaS).
+Certificate pinning is a practice in which an application allows only a specific list of acceptable certificate authorities (CAs), public keys, thumbprints, or any part of the certificate hierarchy.
 
-Certificate pinning is a practice where an application only allows a specific list of acceptable Certificate Authorities (CAs), public keys, thumbprints, or any part of the certificate hierarchy. In the event that the service rotates the App Service default wildcard TLS certificate, certificate pinned applications will break and disrupt the connectivity for applications that are hardcoded to a specific set of certificate attributes. The periodicity with which the \*.azurewebsites.net TLS certificate is rotated is also not guaranteed since the rotation frequency can change at any time.
+Applications should never have a hard dependency or pin to the default wildcard (`*.azurewebsites.net`) TLS certificate. App Service is a platform as a service (PaaS), so the default wildcard TLS certificate could be rotated anytime. If the service rotates the App Service default wildcard TLS certificate, certificate-pinned applications will break and disrupt the connectivity for applications that are hardcoded to a specific set of certificate attributes. The periodicity with which the default wildcard TLS certificate is rotated is also not guaranteed because the rotation frequency can change at any time.
 
-Note that applications which rely on certificate pinning should also not have a hard dependency on an App Service Managed Certificate. App Service Managed Certificates could be rotated anytime, leading to similar problems for applications that rely on stable certificate properties. It is best practice to provide a custom TLS certificate for applications that rely on certificate pinning.
+Applications that rely on certificate pinning should also not have a hard dependency on an App Service managed certificate. App Service managed certificates could be rotated anytime, leading to similar problems for applications that rely on stable certificate properties. It's a best practice to provide a custom TLS certificate for applications that rely on certificate pinning.
 
-If an application needs to rely on certificate pinning behavior, it is recommended to add a custom domain to a web app and provide a custom TLS certificate for the domain which can then be relied on for certificate pinning.
+If your application needs to rely on certificate pinning behavior, we recommend that you add a custom domain to a web app and provide a custom TLS certificate for the domain. The custom TLS certificate can then be relied on for certificate pinning.
 
 ## <a name="memoryresources"></a>Memory resources
 
-When you notice an app consumes more memory than expected as indicated via monitoring or service recommendations, consider the [App Service Auto-Healing feature](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). One of the options for the Auto-Healing feature is taking custom actions based on a memory threshold. Actions span the spectrum from email notifications to investigation via memory dump to on-the-spot mitigation by recycling the worker process. 
+When you notice, through monitoring or service recommendations, that an app consumes more memory than you expected, consider the [App Service auto-healing feature](/azure/app-service/overview-diagnostics#auto-healing). You can configure auto-healing by using *web.config*.
 
-Auto-healing can be configured via web.config and via a friendly user interface as described at in this blog post for the App Service Support Site Extension.
+One of the options for the auto-healing feature is taking custom actions based on a memory threshold. Actions range from email notifications to investigation via memory dump to on-the-spot mitigation by recycling the worker process.
 
 ## <a name="CPUresources"></a>CPU resources
 
-When you notice an app consumes more CPU than expected or experiences repeated CPU spikes as indicated via monitoring or service recommendations, consider scaling up or scaling out the App Service plan. If your application is stateful, scaling up is the only option, while if your application is stateless, scaling out gives you more flexibility and higher scale potential.
+When you notice, through monitoring or service recommendations, that an app consumes more CPU than you expected or experiences repeated CPU spikes, consider scaling up or scaling out the App Service plan. If your application is stateful, scaling up is the only option. If your application is stateless, scaling out gives you more flexibility and higher scale potential.
 
-For more information about App Service scaling and autoscaling options, see [Scale a Web App in Azure App Service](manage-scale-up.md).  
+For more information about App Service scaling and autoscaling options, see [Scale up an app in Azure App Service](manage-scale-up.md).  
 
 ## <a name="socketresources"></a>Socket resources
 
-A common reason for exhausting outbound TCP connections is the use of client libraries, which are not implemented to reuse TCP connections, or when a higher-level protocol such as HTTP - Keep-Alive is not used. Review the documentation for each of the libraries referenced by the apps in your App Service Plan to ensure they are configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such client libraries investigations are in progress, impact may be mitigated by scaling out to multiple instances.
+A common reason for exhausting outbound TCP connections is the use of client libraries that don't reuse TCP connections or don't use a higher-level protocol such as HTTP keep-alive.
+
+Review the documentation for each library that the apps in your App Service plan reference, to ensure that they're configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such investigations into client libraries are in progress, you can mitigate impact by scaling out to multiple instances.
 
 ### Node.js and outgoing HTTP requests
 
-When working with Node.js and many outgoing HTTP requests, dealing with HTTP - Keep-Alive is important. You can use the [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` package to make it easier in your code.
+When you're working with Node.js and many outgoing HTTP requests, dealing with HTTP keep-alive is important. You can use the [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` package to make it easier in your code.
 
-Always handle the `http` response, even if you do nothing in the handler. If you don't handle the response properly, your application gets stuck eventually because no more sockets are available.
+Always handle the `http` response, even if you do nothing in the handler. If you don't handle the response properly, your application eventually gets stuck because no more sockets are available.
 
-For example, when working with the `http` or `https` package:
+Here's an example of handling the response when you're working with the `http` or `https` package:
 
 ```javascript
 const request = https.request(options, function(response) {
@@ -62,9 +64,9 @@ const request = https.request(options, function(response) {
 });
 ```
 
-If you are running on App Service on Linux on a machine with multiple cores, another best practice is to use PM2 to start multiple Node.js processes to execute your application. You can do it by specifying a startup command to your container.
+If you're running App Service on a Linux machine that has multiple cores, another best practice is to use PM2 to start multiple Node.js processes to run your application. You can do it by specifying a startup command to your container.
 
-For example, to start four instances:
+For example, use this command to start four instances:
 
 ```
 pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
@@ -72,33 +74,37 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 
 ## <a name="appbackup"></a>App backup
 
-The two most common reasons why app backup fails are: invalid storage settings and invalid database configuration. These failures typically happen when there are changes to storage or database resources, or changes for how to access these resources (for example, credentials updated for the database selected in the backup settings). Backups typically run on a schedule and require access to storage (for outputting the backed-up files) and databases (for copying and reading contents to be included in the backup). The result of failing to access either of these resources would be consistent backup failure.
+Backups typically run on a schedule and require access to storage (for outputting the backed-up files) and databases (for copying and reading contents to be included in the backup). The result of failing to access either of these resources is consistent backup failure.
 
-When backup failures happen, review most recent results to understand which type of failure is happening. For storage access failures, review and update the storage settings used in the backup configuration. For database access failures, review and update your connections strings as part of app settings; then proceed to update your backup configuration to properly include the required databases. For more information on app backups, see [Back up a web app in Azure App Service](manage-backup.md).
+The two most common reasons why app backup fails are invalid storage settings and invalid database configuration. These failures typically happen after changes to storage or database resources, or after changes to credentials for accessing those resources. For example, credentials might be updated for the database that you selected in the backup settings.
+
+When backup failures happen, review the most recent results to understand which type of failure is happening. For storage access failures, review and update the storage settings in your backup configuration. For database access failures, review and update your connection strings as part of app settings. Then proceed to update your backup configuration to properly include the required databases.
+
+For more information on app backups, see [Back up and restore your app in Azure App Service](manage-backup.md).
 
 ## <a name="nodejs"></a>Node.js apps
 
-Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If configuration for your Node.js app would benefit from personalized tuning to improve performance or optimize resource usage for CPU/memory/network resources, see [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). This article describes the iisnode settings you may need to configure for your Node.js app, describes the various scenarios or issues that your app may be facing, and shows how to address these issues.
+The Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If you want to personalize the default configuration for your Node.js app to improve performance or optimize resource usage for CPU, memory, or network resources, see [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). That article describes the iisnode settings that you might need to configure for your Node.js app. It also explains how to address scenarios or problems with your app.
 
 ## <a name="iotdevices"></a>IoT devices
 
-There are a few scenarios where you can improve your environment when running Internet of Things (IoT) devices that are connected to App Service. 
+You can improve your environment when you're running Internet of Things (IoT) devices that are connected to App Service.
 
-One very common practice with IoT devices is "certificate pinning". To avoid any unforeseen downtime due to changes in the service's managed certificates, you should never pin certificates to the default \*.azurewebsites.net certificate nor to an App Service Managed Certificate. If your system needs to rely on certificate pinning behavior, it is recommended to add a custom domain to a web app and provide a custom TLS certificate for the domain which can then be relied on for certificate pinning. You can refer to the [certificate pinning](#certificatepinning) section of this article for more information.
+One common practice with IoT devices is certificate pinning. To avoid any unforeseen downtime due to changes in the service's managed certificates, you should never pin certificates to the default `*.azurewebsites.net` certificate or to an App Service managed certificate. If your system needs to rely on certificate pinning behavior, we recommend that you add a custom domain to a web app and provide a custom TLS certificate for the domain. The custom TLS certificate can then be relied on for certificate pinning. You can refer to the [certificate pinning](#certificatepinning) section of this article for more information.
 
-To increase resiliency in your environment, you should not rely on a single endpoint for all your devices. You should at least host your web apps in two different regions to avoid a single point of failure and be ready to failover traffic.
+To increase resiliency in your environment, don't rely on a single endpoint for all your devices. Host your web apps in at least two regions to avoid a single point of failure, and be ready to fail over traffic.
 
-On App Service, you can add identical custom domain to different web apps as long as these web apps are hosted in different regions. This ensures that if you need to pin certificates, you can also pin on the custom TLS certificate that you provided.
+In App Service, you can add identical custom domains to multiple web apps, as long as these web apps are hosted in different regions. This capability ensures that if you need to pin certificates, you can also pin on the custom TLS certificate that you provided.
 
-Another option would be to use a load balancer in front of the web apps, such as Azure Front Door or Traffic Manager, to ensure high availability for your web apps. You can refer to [Quickstart: Create a Front Door for a highly available global web application](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md) for more information.
+Another option is to use a load balancer in front of the web apps, such as Azure Front Door or Azure Traffic Manager, to ensure high availability for your web apps. For more information, see [Quickstart: Create a Front Door instance for a highly available global web application](../frontdoor/quickstart-create-front-door.md) or [Controlling Azure App Service traffic with Azure Traffic Manager](./web-sites-traffic-manager.md).
 
 ## Next steps
 
-For more information on best practices, visit [App Service Diagnostics](./overview-diagnostics.md) to find out actionable best practices specific to your resource.
+To get actionable best practices that are specific to your resource, use [App Service diagnostics](./overview-diagnostics.md):
 
 1. Go to your web app in the [Azure portal](https://portal.azure.com).
-1. Select **Diagnose and solve problems** in the left navigation, which opens App Service Diagnostics.
-1. Select the **Best Practices** homepage tile.
-1. Select **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
+1. Open App Service diagnostics by selecting **Diagnose and solve problems** on the left pane.
+1. Select the **Best Practices** tile.
+1. Select **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regard to these best practices.
 
-You can also use this link to directly open App Service Diagnostics for your resource: `https://portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+You can also use this link to directly open App Service diagnostics for your resource: `https://portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
