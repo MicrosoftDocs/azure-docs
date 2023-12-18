@@ -431,15 +431,15 @@ When your runbook has been published, you can schedule it for operation:
 
 You can recover a deleted runbook through PowerShell scripts. To recover a runbook, ensure that the following conditions are met:
 
-- You can restore runbooks that were deleted in past 29 days.
-- Ensure that the Automation account for that runbook should exist.
-- You should grant *Automation Contributor* role permission to the System-assigned managed identity of the Automation account.
+- The runbooks to be restored were deleted in the past 29 days.
+- The Automation account for that runbook exist.
+- The *Automation Contributor* role permission is granted to the System-assigned managed identity of the Automation account.
 
 ### PowerShell script
 
 - Execute the PowerShell script as a job in your Automation account to restore the deleted runbooks.
-- Download the PowerShell [script](https://github.com/azureautomation/Restore-Runbook) from GitHub. Alternatively, you can [import](#import-a-runbook-from-the-azure-portal) the PowerShell script named *Restore Automation runbook* from Runbook Gallery. Provide name of the runbook that is to be restored and run it as a job in Azure Automation to restore the deleted runbooks.
-- To identify names of the runbooks that were deleted in last 29 days, download the [script](https://github.com/azureautomation/List-Deleted-Runbooks) from GitHub or [import](#import-a-runbook-from-the-azure-portal) the PowerShell script named *List Deleted Automation Runbook* from Runbook Gallery.
+- Download the PowerShell [script](https://github.com/azureautomation/Restore-Runbook) from GitHub. Alternatively, you can [import](#import-a-runbook-from-the-azure-portal) the PowerShell script named *Restore Automation runbook* from Runbook Gallery. Provide the name of the runbook that is to be restored and run it as a job in Azure Automation to restore the deleted runbooks.
+- Download the [script](https://github.com/azureautomation/List-Deleted-Runbooks) from GitHub or [import](#import-a-runbook-from-the-azure-portal) the PowerShell script named *List Deleted Automation Runbook* from Runbook Gallery, to identify the names of the runbooks that were deleted in last 29 days.
 
 ## Obtain job statuses
 
