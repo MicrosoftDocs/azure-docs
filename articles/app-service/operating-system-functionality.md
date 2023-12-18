@@ -11,7 +11,7 @@ ms.custom: UpdateFrequency3
 ---
 # Operating system functionality in Azure App Service
 
-This article describes the baseline operating system functionality that's available to all Windows apps running on [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostics logs and events.
+This article describes the baseline operating system functionality that's available to all Windows apps running in [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostics logs and events.
 
 > [!NOTE]
 > [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. You have root access to the container but no access to the host operating system. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system.
@@ -20,7 +20,7 @@ This article describes the baseline operating system functionality that's availa
 
 ## App Service plan tiers
 
-App Service runs customer apps in a multitenant hosting environment. Apps deployed in the **Free** and **Shared** tiers run in worker processes on shared virtual machines (VMs). Apps deployed in the **Standard** and **Premium** tiers run on VMs dedicated specifically for the apps associated with a single customer.
+App Service runs customer apps in a multitenant hosting environment. Apps deployed in the Free and Shared tiers run in worker processes on shared virtual machines (VMs). Apps deployed in the Standard and Premium tiers run on VMs dedicated specifically for the apps associated with a single customer.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -32,7 +32,7 @@ Because App Service supports a seamless scaling experience between tiers, the se
 
 App Service pricing tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to apps. However, the breadth of framework functionality available to apps remains the same regardless of the scaling tiers.
 
-App Service supports various development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python. To simplify and normalize security configuration, App Service apps typically run the development frameworks with their default settings. The frameworks and runtime components that the platform provides are updated regularly to satisfy security and compliance requirements. For this reason, we don't guarantee specific minor/patch versions. We recommend that customers target major version as needed.
+App Service supports various development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python. To simplify and normalize security configuration, App Service apps typically run the development frameworks with their default settings. The frameworks and runtime components that the platform provides are updated regularly to satisfy security and compliance requirements. For this reason, we don't guarantee specific minor/patch versions. We recommend that customers target major versions as needed.
 
 The following sections summarize the general kinds of operating system functionality available to App Service apps.
 
@@ -48,10 +48,10 @@ Various drives exist within App Service, including local drives and network driv
 
 At its core, App Service is a service running on top of the Azure platform as a service (PaaS) infrastructure. As a result, the local drives that are associated with a virtual machine are the same drive types available to any worker role running in Azure. They include:
 
-- An operating system drive (`%SystemDrive%`) whose size varies depending on the size of the VM.
+- An operating system drive (`%SystemDrive%`) whose size depends on the size of the VM.
 - A resource drive (`%ResourceDrive%`) that App Service uses internally.
 
-A best practice is to always use the environment variables `%SystemDrive%` and `%ResourceDrive%` instead of hard-coded file paths.  The root path returned from these two environment variables has shifted over time from `d:\` to `c:\`.  However, older applications hard-coded with file path references to `d:\` continue to work because the App Service platform automatically remaps `d:\` to point at `c:\`. As noted earlier, we highly recommend that you always use the environment variables when building file paths and avoid confusion over platform changes to the default root file path.
+A best practice is to always use the environment variables `%SystemDrive%` and `%ResourceDrive%` instead of hard-coded file paths.  The root path returned from these two environment variables has shifted over time from `d:\` to `c:\`.  However, older applications hard-coded with file path references to `d:\` continue to work because App Service automatically remaps `d:\` to point at `c:\`. As noted earlier, we highly recommend that you always use the environment variables when building file paths and avoid confusion over platform changes to the default root file path.
 
 It's important to monitor your disk utilization as your application grows. Reaching the disk quota can have adverse effects on your application. For example:
 
@@ -70,7 +70,7 @@ Within App Service, UNC shares are created in each datacenter. A percentage of t
 
 Because of the way that Azure services work, the specific virtual machine responsible for hosting a UNC share changes over time. UNC shares are mounted by different virtual machines as they're brought up and down during the normal course of Azure operations. For this reason, apps should never make hard-coded assumptions that the machine information in a UNC file path will remain stable over time. Instead, they should use the convenient *faux* absolute path `%HOME%\site` that App Service provides.
 
-The faux absolute path is a portable method (that's not specific to any app or user) for referring to your own app. By using `%HOME%\site`, you can transfer shared files from app to app without having to configure a new absolute path for each transfer.
+The faux absolute path is a portable method for referring to your own app. It's not specific to any app or user. By using `%HOME%\site`, you can transfer shared files from app to app without having to configure a new absolute path for each transfer.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -80,7 +80,7 @@ The `%HOME%` directory in an app maps to a content share in Azure Storage dedica
 
 On the system drive, App Service reserves `%SystemDrive%\local` for app-specific temporary local storage. Changes to files in this directory are *not* persistent across app restarts. Although an app has full read and write access to its own temporary local storage, that storage isn't intended for direct use by the application code. Rather, the intent is to provide temporary file storage for IIS and web application frameworks.
 
-App Service limits the amount of storage in `%SystemDrive%\local` for each app to prevent individual apps from consuming excessive amounts of local file storage. For **Free**, **Shared**, and **Consumption** (Azure Functions) tiers, the limit is 500 MB. The following table lists other tiers:
+App Service limits the amount of storage in `%SystemDrive%\local` for each app to prevent individual apps from consuming excessive amounts of local file storage. For Free, Shared, and Consumption (Azure Functions) tiers, the limit is 500 MB. The following table lists other tiers:
 
 | Tier | Local file storage |
 | - | - |
@@ -127,7 +127,7 @@ As noted earlier, apps run inside low-privileged worker processes by using a ran
 
 Apps can run scripts or pages written with supported web development frameworks. App Service doesn't configure any web framework settings to more restricted modes. For example, ASP.NET apps running in App Service run in full trust, as opposed to a more restricted trust mode. Web frameworks, including both classic ASP and ASP.NET, can call in-process COM components (like ActiveX Data Objects) that are registered by default on the Windows operating system. Web frameworks can't call out-of-process COM components.
 
-An app can spawn and run arbitrary code, open a command shell, or run a PowerShell script. However, executable programs and scripts are still restricted to the privileges granted to the parent application pool. For example, an app can spawn an executable program that makes an outbound HTTP call, but that executable program can't attempt to unbind the IP address of a virtual machine from its network adapter. Making an outbound network call is allowed for low-privileged code, but trying to reconfigure network settings on a virtual machine requires administrative privileges.
+An app can spawn and run arbitrary code, open a command shell, or run a PowerShell script. However, executable programs and scripts are still restricted to the privileges granted to the parent application pool. For example, an app can spawn an executable program that makes an outbound HTTP call, but that executable program can't try to unbind the IP address of a virtual machine from its network adapter. Making an outbound network call is allowed for low-privileged code, but trying to reconfigure network settings on a virtual machine requires administrative privileges.
 
 <a id="Diagnostics"></a>
 

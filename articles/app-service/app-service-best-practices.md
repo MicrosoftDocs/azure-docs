@@ -26,11 +26,11 @@ Colocation is best for Azure resources that compose a solution. When you create 
 
 Certificate pinning is a practice in which an application allows only a specific list of acceptable certificate authorities (CAs), public keys, thumbprints, or any part of the certificate hierarchy.
 
-Applications should never have a hard dependency or pin to the default wildcard (`*.azurewebsites.net`) TLS certificate. App Service is a platform as a service (PaaS), so the default wildcard TLS certificate could be rotated anytime. If the service rotates the App Service default wildcard TLS certificate, certificate-pinned applications will break and disrupt the connectivity for applications that are hardcoded to a specific set of certificate attributes. The periodicity with which the default wildcard TLS certificate is rotated is also not guaranteed because the rotation frequency can change at any time.
+Applications should never have a hard dependency or pin to the default wildcard (`*.azurewebsites.net`) TLS certificate. App Service is a platform as a service (PaaS), so this certificate could be rotated anytime. If the service rotates the default wildcard TLS certificate, certificate-pinned applications will break and disrupt the connectivity for applications that are hardcoded to a specific set of certificate attributes. The periodicity with which the certificate is rotated is also not guaranteed because the rotation frequency can change at any time.
 
-Applications that rely on certificate pinning should also not have a hard dependency on an App Service managed certificate. App Service managed certificates could be rotated anytime, leading to similar problems for applications that rely on stable certificate properties. It's a best practice to provide a custom TLS certificate for applications that rely on certificate pinning.
+Applications that rely on certificate pinning also shouldn't have a hard dependency on an App Service managed certificate. App Service managed certificates could be rotated anytime, leading to similar problems for applications that rely on stable certificate properties. It's a best practice to provide a custom TLS certificate for applications that rely on certificate pinning.
 
-If your application needs to rely on certificate pinning behavior, we recommend that you add a custom domain to a web app and provide a custom TLS certificate for the domain. The custom TLS certificate can then be relied on for certificate pinning.
+If your application needs to rely on certificate pinning behavior, we recommend that you add a custom domain to a web app and provide a custom TLS certificate for the domain. The application can then rely on the custom TLS certificate for certificate pinning.
 
 ## <a name="memoryresources"></a>Memory resources
 
@@ -40,15 +40,15 @@ One of the options for the auto-healing feature is taking custom actions based o
 
 ## <a name="CPUresources"></a>CPU resources
 
-When monitoring or service recommendations indicate that an app consumes more CPU than you expected or experiences repeated CPU spikes, consider scaling up or scaling out the App Service plan. If your application is stateful, scaling up is the only option. If your application is stateless, scaling out gives you more flexibility and higher scale potential.
+When monitoring or service recommendations indicate that an app consumes more CPU than you expected or it experiences repeated CPU spikes, consider scaling up or scaling out the App Service plan. If your application is stateful, scaling up is the only option. If your application is stateless, scaling out gives you more flexibility and higher scale potential.
 
 For more information about App Service scaling and autoscaling options, see [Scale up an app in Azure App Service](manage-scale-up.md).  
 
 ## <a name="socketresources"></a>Socket resources
 
-A common reason for exhausting outbound TCP connections is the use of client libraries that don't reuse TCP connections or don't use a higher-level protocol such as HTTP keep-alive.
+A common reason for exhausting outbound TCP connections is the use of client libraries that don't reuse TCP connections or that don't use a higher-level protocol such as HTTP keep-alive.
 
-Review the documentation for each library that the apps in your App Service plan reference. Ensure that they're configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such investigations into client libraries are in progress, you can mitigate impact by scaling out to multiple instances.
+Review the documentation for each library that the apps in your App Service plan reference. Ensure that the libraries are configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such investigations into client libraries are in progress, you can mitigate impact by scaling out to multiple instances.
 
 ### Node.js and outgoing HTTP requests
 
@@ -64,7 +64,7 @@ const request = https.request(options, function(response) {
 });
 ```
 
-If you're running App Service on a Linux machine that has multiple cores, another best practice is to use PM2 to start multiple Node.js processes to run your application. You can do it by specifying a startup command to your container.
+If you're running your App Service app on a Linux machine that has multiple cores, another best practice is to use PM2 to start multiple Node.js processes to run your application. You can do it by specifying a startup command to your container.
 
 For example, use this command to start four instances:
 
@@ -90,7 +90,7 @@ The Azure App Service default configuration for Node.js apps is intended to best
 
 You can improve your environment when you're running Internet of Things (IoT) devices that are connected to App Service.
 
-One common practice with IoT devices is certificate pinning. To avoid any unforeseen downtime due to changes in the service's managed certificates, you should never pin certificates to the default `*.azurewebsites.net` certificate or to an App Service managed certificate. If your system needs to rely on certificate pinning behavior, we recommend that you add a custom domain to a web app and provide a custom TLS certificate for the domain. The custom TLS certificate can then be relied on for certificate pinning. You can refer to the [certificate pinning](#certificatepinning) section of this article for more information.
+One common practice with IoT devices is certificate pinning. To avoid any unforeseen downtime due to changes in the service's managed certificates, you should never pin certificates to the default `*.azurewebsites.net` certificate or to an App Service managed certificate. If your system needs to rely on certificate pinning behavior, we recommend that you add a custom domain to a web app and provide a custom TLS certificate for the domain. The application can then rely on the custom TLS certificate for certificate pinning. For more information, see the [certificate pinning](#certificatepinning) section of this article.
 
 To increase resiliency in your environment, don't rely on a single endpoint for all your devices. Host your web apps in at least two regions to avoid a single point of failure, and be ready to fail over traffic.
 
