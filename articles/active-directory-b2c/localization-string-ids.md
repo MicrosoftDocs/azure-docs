@@ -653,6 +653,7 @@ The following IDs are used for a [CAPTCHA display control](display-control-captc
 | `charsnotmatched_error` | The characters did not match for CAPTCHA challenge. Please try again | The message to display to the user if they enter a wrong CAPTCHA code. |
 | `api_error` | Api error on CAPTCHA control | The message to display to the user if an error occurs while Azure AD B2C attempts to validate the CAPTCHA code. |
 | `captcha_resolved` | Success! | The message to display to the user if they enter a correct CAPTCHA code. |
+|`DisplayName`| Help us beat the bots. | The CAPTCHA display control display name. | 
 
 ### CAPTCHA display control example
 
