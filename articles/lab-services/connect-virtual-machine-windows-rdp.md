@@ -44,7 +44,7 @@ The RDP client software has various settings for optimizing your connection expe
 
 Learn more about the [RDP client's **Experience** settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
 
-If you're using a Linux lab VM with a graphical desktop and the RDP client, the following settings may help to optimize performance:
+If your are using Linux lab VM with a graphical desktop and the RDP client, the following settings may help to optimize performance:
 
 - On the **Display** tab, set the color depth to **High Color (15 bit)**.
 
