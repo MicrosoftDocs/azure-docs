@@ -517,7 +517,7 @@
           href: ../../managed-instance-apache-cassandra/materialized-views.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Improve read performance with local disks
           href: ../../managed-instance-apache-cassandra/write-through-cache.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Run Jaeger with Azure Managed Instance for Apache Cassandra
+        - name: Using Jaeger with Azure Managed Instance for Apache Cassandra
           href: ../../managed-instance-apache-cassandra/jaeger.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Commands
           href: ../../managed-instance-apache-cassandra/dba-commands.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
