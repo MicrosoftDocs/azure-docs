@@ -669,6 +669,7 @@ This example shows localized messages for CAPTCHA display control.
           <LocalizedString ElementType="ErrorMessage"  StringId="charsnotmatched_error"> The characters did not match for CAPTCHA challenge. Please try again</LocalizedString>
           <LocalizedString ElementType="ErrorMessage"  StringId="api_error"> Api error on CAPTCHA control</LocalizedString>
           <LocalizedString ElementType="UxElement"  StringId="captcha_resolved"> Success!</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="captchaControlChallengeCode" StringId="DisplayName">Help us beat the bots</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
 ```
