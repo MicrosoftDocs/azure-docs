@@ -2,7 +2,7 @@
 title: Create pre and post events using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 11/21/2023
+ms.date: 12/07/2023
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -26,18 +26,6 @@ In this tutorial, you learn how to:
 > - Create an event subscription
 
 [!INCLUDE [pre-post-prerequisites.md](includes/pre-post-prerequisites.md)]
-
-
-## Register your subscription for public preview
-
-To self-register your subscription for public preview in Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-1. On the **All services** page, search for **Preview features**.
-1. On the **Preview Features** page, search and select **Pre and Post maintenance activity support for InGuest Patch**.
-1. Select the feature and then select **Register** to register the subscription.
-   
-   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
 
 
 ## Create and publish Automation runbook

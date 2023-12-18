@@ -154,33 +154,45 @@ items:
     - name: Get facial position with viseme
       href: how-to-speech-synthesis-viseme.md
       displayName: viseme, phoneme, phonetic
-    - name: Custom Neural Voice
+    - name: Custom neural voice
       items:
-        - name: What is Custom Neural Voice?
+        - name: What is custom neural voice?
           href: custom-neural-voice.md
           displayName: cnv
-        - name: Custom Neural Voice Lite
+        - name: Create a professional voice
+          items:
+          - name: Prerequisites for professional voice
+            items:
+            - name: Prepare training data
+              href: how-to-custom-voice-training-data.md
+            - name: Record voice samples
+              href: record-custom-voice-samples.md
+          - name: Create a professional voice project
+            displayName: custom voice, neural voice, cnv
+            href: professional-voice-create-project.md
+          - name: Add voice talent consent to your project
+            href: professional-voice-create-consent.md
+          - name: Add training datasets
+            href: professional-voice-create-training-set.md
+          - name: Train your voice model
+            href: professional-voice-train-voice.md
+          - name: Deploy and use your voice model
+            href: professional-voice-deploy-endpoint.md
+        - name: Custom neural voice lite (preview)
           href: custom-neural-voice-lite.md
         - name: Personal voice (preview)
-          href: personal-voice-overview.md
-          displayName: cnv
-        - name: Create a Custom Neural Voice 
           items:
-          - name: Create a project
-            displayName: custom voice, neural voice, cnv
-            href: how-to-custom-voice.md
-          - name: Set up voice talent
-            href: how-to-custom-voice-talent.md
-          - name: Prepare training data
-            href: how-to-custom-voice-prepare-data.md
-          - name: Train your voice model
-            href: how-to-custom-voice-create-voice.md
-          - name: Deploy and use your voice model
-            href: how-to-deploy-and-use-endpoint.md
-        - name: Training data types
-          href: how-to-custom-voice-training-data.md
-        - name: How to record voice samples
-          href: record-custom-voice-samples.md
+          - name: Personal voice overview
+            href: personal-voice-overview.md
+          - name: Create a personal voice project
+            href: personal-voice-create-project.md
+          - name: Add user consent to your project
+            href: personal-voice-create-consent.md
+          - name: Get a speaker profile ID
+            href: personal-voice-create-voice.md
+          - name: Use personal voice in your application
+            href: personal-voice-how-to-use.md
+            displayName: cnv
     - name: Text to speech avatar
       items:
       - name: What is text to speech avatar?
@@ -368,6 +380,8 @@ items:
       href: language-identification.md
     - name: Audio configuration
       items:
+      - name: Audio concepts
+        href: concepts/audio-concepts.md
       - name: How to use the audio input stream
         href: how-to-use-audio-input-streams.md
       - name: How to use compressed input audio
@@ -473,9 +487,11 @@ items:
             - name: Migration overview
               href: migration-overview-neural-voice.md
             - name: Migrate to custom neural voice 
-              href: how-to-migrate-to-custom-neural-voice.md  
+              href: how-to-migrate-to-custom-neural-voice.md
             - name: Migrate to prebuilt neural voice
-              href: how-to-migrate-to-prebuilt-neural-voice.md 
+              href: how-to-migrate-to-prebuilt-neural-voice.md
+            - name: Migrate to custom voice API
+              href: migrate-to-custom-voice-api.md
         - name: Speech to text REST API migration
           items:
           - name: From Speech to text v3.1 to v3.2
@@ -561,19 +577,17 @@ items:
         href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
       - name: Disclosure for voice and avatar talent
         href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context
-      - name: Custom neural voice
+      - name: Disclosure design guidelines
         items:
-        - name: Responsible deployment of synthetic speech
-          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/ai-services/speech-service/context/context
-        - name: Disclosure design guidelines
+        - name: Custom neural voice
           href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/ai-services/speech-service/context/context
-        - name: Disclosure design patterns
-          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context
-      - name: Text to speech avatar
-        items:
-        - name: Disclosure design guidelines
+        - name: Text to speech avatar
           href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines-avatar?context=/azure/ai-services/speech-service/context/context
-        - name: Disclosure design patterns
+      - name: Disclosure design patterns
+        items:
+        - name: Custom neural voice
+          href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/ai-services/speech-service/context/context
+        - name: Text to speech avatar
           href: /legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns-avatar?context=/azure/ai-services/speech-service/context/context
       - name: Data, privacy, and security
         href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/ai-services/speech-service/context/context
