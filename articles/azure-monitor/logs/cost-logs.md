@@ -101,7 +101,8 @@ In addition to data ingestion, there's a charge for the retention of data in eac
 
 For more information on data retention and archiving, including how to configure these settings and access archived data, see [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md).
 
-(Note that the Log Analytics Purge feature doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables.)
+>[!NOTE]
+>Deleting data from your Log Analytics workspace using the Log Analytics Purge feature doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables.
 
 ## Search jobs
 
