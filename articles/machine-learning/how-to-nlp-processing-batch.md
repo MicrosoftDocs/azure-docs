@@ -294,7 +294,7 @@ For testing our endpoint, we are going to use a sample of the dataset [BillSum: 
    
    # [Python](#tab/python)
    
-   > [!NOTE]
+   > [!TIP]
    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
 
    ```python

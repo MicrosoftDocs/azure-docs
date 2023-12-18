@@ -266,9 +266,10 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
 
     # [Python](#tab/sdk)
 
-    [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+    > [!TIP]
+    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
 
-    Call the `invoke` method with the required inputs specified as a dictionary:
+    Call the `invoke` method, using `inputs` to specify the required inputs:
 
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -279,7 +280,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     )
     ```
 
-    Further simplify the `invoke` call for a model deployment by specifying the location to the input data as a value to the `input` parameter:
+    Further simplify the `invoke` call for a model deployment, by using `input` to specify the location to the input data:
 
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -414,9 +415,11 @@ Data from Azure Machine Learning registered data stores can be directly referenc
    
     # [Python](#tab/sdk)
 
-    [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+    > [!TIP]
+    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
 
-    Call the `invoke` method with the required inputs specified as a dictionary:
+    Call the `invoke` method, using `inputs` to specify the required inputs:
+
 
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -427,7 +430,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     )
     ```
 
-    Further simplify the `invoke` call for a model deployment by specifying the location to the input data as a value to the `input` parameter:
+    Further simplify the `invoke` call for a model deployment, by using `input` to specify the location to the input data:
 
    
     ```python
@@ -557,9 +560,10 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
 
     # [Python](#tab/sdk)
 
-    [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+    > [!TIP]
+    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
 
-    Call the `invoke` method with the required inputs specified as a dictionary:
+    Call the `invoke` method, using `inputs` to specify the required inputs:
 
     ```python
     job = ml_client.batch_endpoints.invoke(
@@ -570,7 +574,7 @@ Azure Machine Learning batch endpoints can read data from cloud locations in Azu
     )
     ```
 
-    Further simplify the `invoke` call for a model deployment by specifying the location to the input data as a value to the `input` parameter:
+    Further simplify the `invoke` call for a model deployment, by using `input` to specify the location to the input data:
 
    
     ```python

@@ -197,7 +197,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
     # [Python](#tab/python)
 
-    > [!NOTE]
+    > [!TIP]
     > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
    
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=start_batch_scoring_job)]
