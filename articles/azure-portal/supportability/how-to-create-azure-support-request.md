@@ -35,11 +35,11 @@ To create a support request without a subscription, for example a Microsoft Entr
 
 To start a support request from anywhere in the Azure portal:
 
-1. Select the **?** in the global header. Enter a few words to describe your issue.
+1. Select the **?** in the global header, then enter a few words to describe your issue.
 
    :::image type="content" source="media/how-to-create-azure-support-request/support-menu-issue.png" alt-text="Screenshot of the Help menu from the global header in the Azure portal.":::
 
-1. Follow the prompts to share more details about your issue, including the specific resource, if applicable. We'll try to provide solutions to help you resolve the issue.
+1. Follow the prompts to share more details about your issue, including the specific resource, if applicable. We'll look for solutions that might help you resolve the issue.
 
    If none of the solutions resolve the problem you're having, select **Create a support request**.
 
@@ -53,7 +53,7 @@ To start a support request in the context of the resource you're currently worki
 
    :::image type="content" source="media/how-to-create-azure-support-request/resource-context-support.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
 
-1. Follow the prompts  to share more details about your issue. Some options may be preselected for you, based on the resource you were viewing when you selected **Support + Troubleshooting**. We'll try to provide solutions to help you resolve the issue.
+1. Follow the prompts  to share more details about your issue. Some options may be preselected for you, based on the resource you were viewing when you selected **Support + Troubleshooting**. We'll look for solutions that might help you resolve the issue.
 
   If none of the solutions resolve the problem you're having, select **Create a support request**.
 
@@ -76,7 +76,7 @@ After you provide all of the requested information, select **Next**.
 
 ### Recommended solution
 
-Based on the information you provided, we provide some recommended solutions that you can use to try and resolve the problem. In some cases, we may even run a quick diagnostic check. These solutions are written by Azure engineers and will solve most common problems.
+Based on the information you provided, we provide some recommended solutions that might be able to fix the problem. In some cases, we may even run a quick diagnostic check. These solutions are written by Azure engineers to solve most common problems.
 
 If you're still unable to resolve the issue, continue creating your support request by selecting **Return to support request**, then selecting **Next**.
 
@@ -92,7 +92,7 @@ Next, we collect more details about the problem. Providing thorough and detailed
 
 1. In the **Support method** section, select the **Severity** level, depending on the business impact. The [maximum available severity level and time to respond](https://azure.microsoft.com/support/plans/response/) depends on your [support plan](https://azure.microsoft.com/support/plans) and the country/region in which you're located, including the timing of business hours in that country/region.
 
-1. Provide your preferred contact method, your availability, and your preferred support language. Confirm that your country/region setting is accurate, as this affects the business hours in which a support engineer can work on your request.
+1. Provide your preferred contact method, your availability, and your preferred support language. Confirm that your country/region setting is accurate, as this setting affects the business hours in which a support engineer can work on your request.
 
 1. Complete the **Contact info** section so that we know how to reach you.
 
