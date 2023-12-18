@@ -9,17 +9,19 @@ ms.date: 11/22/2023
 ---
 # Create a legacy codeless connector for Microsoft Sentinel
 
-The Codeless Connector Platform (CCP) provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel. Connectors created via the CCP can be deployed via API, an ARM template, or as a solution in the Microsoft Sentinel [content hub](sentinel-solutions.md).
+> [!IMPORTANT]
+>There's a newer version of the Codeless Connector Platform (CCP). For more information on the **new CCP**, see [Create a codeless connector (Preview)](create-codeless-connector.md). Reference this document if you need to maintain or update a data connector based on this older version of the CCP.
+>
+
+The CCP provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel. Connectors created via the CCP can be deployed via API, an ARM template, or as a solution in the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
 Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
 
 Create your data connector by defining JSON configurations, with settings for how the data connector page in Microsoft Sentinel looks along with polling settings that define how the connection functions.
 
 > [!IMPORTANT]
-> This version of Codeless Connector Platform (CCP) was in PREVIEW, but is now considered LEGACY. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> This version of Codeless Connector Platform (CCP) is in PREVIEW, but is also considered **Legacy**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-
-For more information on the **new CCP**, see [Create a codeless connector](create-codeless-connector.md).
 
 **Use the following steps to create your CCP connector and connect to your data source from Microsoft Sentinel**:
 

@@ -525,7 +525,7 @@ There are 5 ARM deployment resources in this template guide which house the 4 CC
                             "kind": null,
                             "properties": 
 							{
-								// Enter your log analytics table schema here.
+								// Enter your log analytics table schema here. 
                                 //  Consider using this variable for the name property:
                                 //  "name": "[variables('_logAnalyticsTableId1')]",
 							}			
