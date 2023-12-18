@@ -68,11 +68,11 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The failover process (GRS/RA-GRS)
 
-To begin disaster recovery testing, initiate a failover of the storage account to the secondary region. During the failover process, the following occurs, as shown in the image that follows:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
 
 1. The original primary region becomes read only.
-1. All data finishes replicating from the primary region to the secondary region.
-1. The DNS entries for the storage service endpoints are changed such that those for the secondary region become the new primary endpoints for your storage account.
+1. Replication of all data from the primary region to the secondary region completes.
+1. DNS entries for storage service endpoints in the secondary region are promoted and become the new primary endpoints for your storage account.
 
 The failover typically takes about an hour.
 
@@ -88,7 +88,7 @@ While in the failover state, perform your disaster recovery testing.
 
 After testing is complete, perform another failover to failback to the original primary region. During the failover process, as shown in the following image:
 
-1. The current primary region becomes read only.
+1. The original primary region becomes read only.
 1. All data finishes replicating from the current primary region to the current secondary region.
 1. The DNS entries for the storage service endpoints are changed to point back to the region that was the primary before the initial failover was performed.
 
@@ -108,9 +108,9 @@ Under normal circumstances, a client writes data to a storage account in the pri
 
 ### The failover process (GZRS/RA-GZRS)
 
-To begin disaster recovery testing, initiate a failover of the storage account to the secondary region. During the failover process, the following occurs, as shown in the image that follows:
+Begin disaster recovery testing by initiating a failover of your storage account to the secondary region. The following steps describe the failover process, and the subsequent image provides illustration:
 
-1. The original primary region becomes read only.
+1. The current primary region becomes read only.
 1. All data finishes replicating from the primary region to the secondary region.
 1. Storage service endpoint DNS entries are switched. Your storage account's endpoints in the secondary region become your new primary endpoints.
 

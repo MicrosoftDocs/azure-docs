@@ -67,7 +67,7 @@ Azure Storage accounts support three types of failover:
 - [**Microsoft-managed failover**](#microsoft-managed-failover) - Potentially initiated by Microsoft due to a severe disaster in the primary region. <sup>1,2</sup>
 -->
 
-- [**Customer-managed planned failover (preview)**](#customer-managed-failover-for-testing-and-compliance-preview) - Customers can manage storage account failover to test their disaster recovery plan.
+- [**Customer-managed planned failover (preview)**](#customer-managed-planned-failover-preview) - Customers can manage storage account failover to test their disaster recovery plan.
 - [**Customer-managed failover**](#customer-managed-failover) - Customers can manage storage account failover if there's an unexpected service outage.
 - [**Microsoft-managed failover**](#microsoft-managed-failover) - Potentially initiated by Microsoft due to a severe disaster in the primary region. <sup>1,2</sup>
 
@@ -89,6 +89,23 @@ Each type of failover has a unique set of use cases, corresponding expectations 
 | Customer-managed planned failover      | Storage account | The storage service endpoints for the primary and secondary regions are available, and you want to perform disaster recovery testing. <br></br> The storage service endpoints for the primary region are available, but a networking or compute outage in the primary region is preventing your workloads from functioning properly. | [No](#anticipate-data-loss-and-inconsistencies)  | [Yes <br> *(In preview)*](#azure-data-lake-storage-gen2) |
 | Customer-managed failover              | Storage account | The storage service endpoints for the primary region become unavailable, but the secondary region is available. <br></br> You received an Azure Advisory in which Microsoft advises you to perform a failover operation of storage accounts potentially affected by an outage. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes <br> *(In preview)*](#azure-data-lake-storage-gen2) |
 | Microsoft-managed                      | Entire region or scale unit   | The primary region becomes unavailable due to a significant disaster, but the secondary region is available. | [Yes](#anticipate-data-loss-and-inconsistencies) | [Yes](#azure-data-lake-storage-gen2) |
+
+### Customer-managed planned failover (preview)
+
+> [!IMPORTANT]
+> Customer-managed planned failover is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name. The provider name for this preview feature is **Microsoft.Storage**.
+To test your disaster recovery plan, you can perform a planned failover of your storage account from the primary to the secondary region. During the failover process, the original secondary region becomes the new primary and the original primary becomes the new secondary. After the failover is complete, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions to perform a planned failover.
+
+<!--You can also use this type of failover if the storage service endpoints for the primary region are available, but a networking or compute outage in the primary region is preventing your workloads from functioning properly.-->
+
+You can also use this type of failover during a partial networking or compute outage in your primary region. This type of outage occurs, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
+
+During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. See [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies).
+
+To thoroughly understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How failover for disaster recovery testing (preview) works](storage-failover-customer-managed-planned.md).
 
 ### Customer-managed failover
 
@@ -126,23 +143,6 @@ If the data endpoints for the storage services in your storage account become un
 
 To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How customer-managed storage account failover works](storage-failover-customer-managed-unplanned.md).
 
-### Customer-managed planned failover
-
-> [!IMPORTANT]
-> Customer-managed planned failover is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name. The provider name for this preview feature is **Microsoft.Storage**.
-To test your disaster recovery plan, you can perform a planned failover of your storage account from the primary to the secondary region. During the failover process, the original secondary region becomes the new primary and the original primary becomes the new secondary. After the failover is complete, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions to perform a planned failover.
-
-<!--You can also use this type of failover if the storage service endpoints for the primary region are available, but a networking or compute outage in the primary region is preventing your workloads from functioning properly.-->
-
-You can also use this type of failover during a partial networking or compute outage in your primary region. This type of outage occurs, for example, when an outage in your primary region prevents your workloads from functioning properly, but leaves your storage service endpoints available.
-
-During customer-managed planned failover and failback, data loss isn't expected as long as the primary and secondary regions are available throughout the entire process. See [Anticipate data loss and inconsistencies](#anticipate-data-loss-and-inconsistencies).
-
-To thoroughly understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the failover and failback process. For details about how the process works, see [How failover for disaster recovery testing (preview) works](storage-failover-customer-managed-planned.md).
-
 ### Microsoft-managed failover
 
 <!--In extreme circumstances where the original primary region is deemed unrecoverable within a reasonable amount of time due to a major disaster, Microsoft **may** initiate a regional failover. In this case, no action on your part is required. Until the Microsoft-managed failover process is completed, you don't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS or RA-GZRS.-->
@@ -151,7 +151,7 @@ In extreme circumstances such as major disasters, Microsoft **may** initiate a r
 
 > [!IMPORTANT]
 > Your disaster recovery plan should be based on customer-managed failover. **Do not** rely on Microsoft-managed failover, which might only be used in extreme circumstances.
-> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively failover your individual storage accounts, use [customer-managed account failover to recover from an outage](#customer-managed-failover-to-recover-from-an-outage).
+> A Microsoft-managed failover would be initiated for an entire physical unit, such as a region, datacenter or scale unit. It can't be initiated for individual storage accounts, subscriptions, or tenants. If you need the ability to selectively failover your individual storage accounts, use [customer-managed planned failover](#customer-managed-planned-failover-preview).
 
 ### Anticipate data loss and inconsistencies
 
