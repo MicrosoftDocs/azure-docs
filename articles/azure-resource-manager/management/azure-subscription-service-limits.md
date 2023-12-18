@@ -275,6 +275,10 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
+## Azure Web PubSub limits
+
+[!INCLUDE [azure-web-pubsub-limits](../../../includes/azure-web-pubsub-limits.md)]
+
 ## Backup limits
 
 [!INCLUDE [azure-backup-limits](../../../includes/azure-backup-limits.md)]
