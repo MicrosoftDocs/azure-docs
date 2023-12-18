@@ -7,6 +7,7 @@ ms.author: msangapu
 ---
 
 > [!NOTE]
+> [NFS](../../../storage/files/files-nfs-protocol.md) support is now available for App Service on Linux.
 > You can also [configure Azure Storage in an ARM template](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json).
 >
 
@@ -63,7 +64,8 @@ Here are the three options to mount Azure storage to your app:
 - Don't map the storage mount to `/tmp` or its subdirectories as this action may cause a timeout during app startup.
 - Azure Storage isn't supported with [Docker Compose](../../configure-custom-container.md?pivots=container-linux#docker-compose-options) scenarios.
 - Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
-- Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) is currently unsupported for App Service on Linux. Only Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
+- Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) and Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
+- NFS support is only available for App Service on Linux. NFS isn't supported for Windows code and Windows containers. The web app and storage account need to be configured on the same VNET for NFS. The storage account used for file share should have "Premium" performance tier and "Filestorage" as the Account Kind.  Azure Key Vault is not applicable when using the NFS protocol.
 - With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
 
 ## Prepare for mounting
