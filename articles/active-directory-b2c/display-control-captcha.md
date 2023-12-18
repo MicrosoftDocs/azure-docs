@@ -14,14 +14,15 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Verify CAPTCHA code using CAPTCHA display control
+# Verify CAPTCHA challenge string using CAPTCHA display control
 
-Use CAPTCHA display controls to generate a captcha code string, then verify it by asking the user to enter what they see or hear. To display a CAPTCHA display control, you reference it from a [self-asserted technical profile](self-asserted-technical-profile.md), and you must set the self-asserted technical profile's `setting.enableCaptchaChallenge` metadata value to *true*.
+Use CAPTCHA display controls to generate a captcha challenge string, then verify it by asking the user to enter what they see or hear. To display a CAPTCHA display control, you reference it from a [self-asserted technical profile](self-asserted-technical-profile.md), and you must set the self-asserted technical profile's `setting.enableCaptchaChallenge` metadata value to *true*.
 
 The screenshot shows the CAPTCHA display control shown on a sign-up page:
 
-TODO - add screenshot
+:::image type="content" source="media/add-captcha/add-captcha.png" alt-text="Screenshot of captcha as it appears in the sign up page."::: 
 
+The sign-up page loads with the CAPTCHA display control. The user then inputs the characters they see or hear. The **Send verification code** button sends a verification code to the user's email, and isn't CAPTCHA display control element, but it causes the CAPTCHA challenge string to be verified.
 
 ## CAPTCHA display control elements
 
