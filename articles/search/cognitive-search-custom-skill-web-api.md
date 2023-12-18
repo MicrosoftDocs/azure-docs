@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 12/18/2023
 ---
 
 # Custom Web API skill in an Azure AI Search enrichment pipeline
@@ -207,7 +207,7 @@ In addition to your Web API being unavailable, or sending out non-successful sta
 
 * If the Web API returns a success status code but the response indicates that it is not `application/json` then the response is considered invalid and no enrichments will be performed.
 
-* If there are invalid records (for example, `recordId` is missing or duplicated) in the response `values` array, no enrichment will be performed for the invalid records.
+* If there are invalid records (for example, `recordId` is missing or duplicated) in the response `values` array, no enrichment will be performed for the invalid records. It's important to adhere to the Web API skill contract when developing custom skills. You can refer to [this example](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Common/WebAPISkillContract.cs) provided in the [Power Skill repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main) that follows the expected contract. 
 
 For cases when the Web API is unavailable or returns an HTTP error, a friendly error with any available details about the HTTP error will be added to the indexer execution history.
 
@@ -216,3 +216,4 @@ For cases when the Web API is unavailable or returns an HTTP error, a friendly e
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
++ [Power Skill repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main)

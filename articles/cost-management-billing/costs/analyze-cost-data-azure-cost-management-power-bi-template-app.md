@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2023
+ms.date: 12/15/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -25,6 +25,9 @@ The app limits customizability. If you want to modify and extend the default fil
 
 - A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) is required to install and use the app.
 - To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account. The Enterprise Administrator (read only) role is supported.
+
+>[!NOTE]
+> When you convert an EA enrollment to a Microsoft Customer Agreement (MCA), you can’t use the Cost Management Power BI template app any longer because the app doesn’t support MCA. However, the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) supports MCA accounts.
 
 ## Installation steps
 

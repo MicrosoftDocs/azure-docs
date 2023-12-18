@@ -6,7 +6,7 @@ author: hhunter-ms
 ms.service: container-apps
 ms.custom: event-tier1-build-2022, ignite-2022, build-2023
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 11/27/2023
 ---
 
 # Dapr integration with Azure Container Apps
@@ -58,12 +58,11 @@ Now that you've learned about Dapr and some of the challenges it solves:
 
 - [Enable Dapr in your container app](./enable-dapr.md)
 - [Learn how Dapr components work in Azure Container Apps](./dapr-components.md)
-- 
+
 <!-- Links Internal -->
 
 [dapr-quickstart]: ./microservices-dapr.md
 [dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
-[dapr-github-actions]: ./dapr-github-actions.md
 [dapr-bindings-tutorial]: ./microservices-dapr-bindings.md
 [dapr-token]: ./dapr-authentication-token.md
 [dapr-component-connection]: ./dapr-component-connection.md

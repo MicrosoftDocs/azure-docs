@@ -21,7 +21,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md#connect-your-aws-account)
 
-- Verify your Kubernetes nodes can access source repositories of your package manager.
+- Verify your Kubernetes nodes can access source repositories of your package manager. For information about the requirements, see [Network requirements](defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks&preserve-view=true#network-requirements).
 
 - Ensure the following [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md) are validated.
 
@@ -45,12 +45,17 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
     :::image type="content" source="media/tutorial-enable-containers-aws/aws-containers-enabled.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector." lightbox="media/tutorial-enable-containers-aws/aws-containers-enabled.png":::
 
-1. (Optional) To change the retention period for your audit logs, select **Settings**, enter the required time frame, and select **Save**.
+1. To change optional configurations for the plan, select **Settings**.
 
-    :::image type="content" source="media/tutorial-enable-containers-aws/retention-period.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="media/tutorial-enable-containers-aws/retention-period.png":::
+    :::image type="content" source="media/tutorial-enable-containers-aws/containers-settings.png" alt-text="Screenshot of Defender for Cloud's environment settings page showing the settings for the Containers plan." lightbox="media/tutorial-enable-containers-aws/containers-settings.png":::
 
-    > [!Note]
-    > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+    - To send Kubernetes audit logs to Microsoft Defender, toggle the setting to **On.** To change the retention period for your audit logs, enter the required time frame.
+
+        > [!NOTE]
+        > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
+    - To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
+    - To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
 
 1. Select **Next: Review and generate**.
 
