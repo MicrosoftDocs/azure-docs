@@ -15,10 +15,6 @@ ms.author: jacobjaygbay
 
 In this article, you learn how to get information and support for Oracle Database@Azure.
 
-## Azure support scope and contact information 
-
-In this article, you learn how to get information and support for Oracle Database@Azure.
-
 ## Azure Support scope and contact information
 
 Azure Support is your first line of support for all Oracle Database@Azure issues. Get help in the **Help + support** section of the Azure portal. Create an Azure support request for your issue, as you do with other Azure services.
