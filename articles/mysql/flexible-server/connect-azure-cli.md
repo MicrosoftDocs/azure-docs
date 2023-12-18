@@ -12,9 +12,9 @@ ms.date: 05/03/2023
 
 # Quickstart: Connect with Azure Database for MySQL - Flexible Server by using Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This quickstart demonstrates how to connect to an Azure Database for MySQL - Flexible Server using Azure CLI with ```az mysql flexible-server connect``` and execute single query or sql file with ```az mysql flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode.
+This quickstart demonstrates how to connect to Azure Database for MySQL flexible server using Azure CLI with `az mysql flexible-server connect` and execute single query or sql file with the `az mysql flexible-server execute` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode.
 
 ## Prerequisites
 
@@ -22,12 +22,12 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL - Fle
 
     [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or higher)
-- Log in using Azure CLI with ```az login``` command
-- Turn on parameter persistence with ```az config param-persist on```. Parameter persistence helps you use local context without having to repeat numerous arguments like resource group or location etc.
+- Log in using Azure CLI with the `az login` command
+- Turn on parameter persistence with `az config param-persist on`. Parameter persistence helps you use local context without having to repeat numerous arguments like resource group or location.
 
 ## Create a MySQL Flexible Server
 
-The first thing we create is a managed MySQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
+The first thing to create is a managed Azure Database for MySQL flexible server instance. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
 ```azurecli-interactive
 az mysql flexible-server create --public-access <your-ip-address>
@@ -162,7 +162,7 @@ test   200
 
 ## Run SQL File
 
-You can execute a sql file with the command using ```--file-path``` argument, ```-q```.
+You can execute a sql file with the command using `--file-path` argument, `-q`.
 
 ```azurecli-interactive
 az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
@@ -186,5 +186,5 @@ Closed the connection to mysqldemoserver.
 ## Next Steps
 
 > [!div class="nextstepaction"]
-* [Connect to Azure Database for MySQL - Flexible Server with encrypted connections](how-to-connect-tls-ssl.md)
+* [Connect to Azure Database for MySQL flexible server with encrypted connections](how-to-connect-tls-ssl.md)
 * [Manage the server](./how-to-manage-server-cli.md)

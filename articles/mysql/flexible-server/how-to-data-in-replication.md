@@ -13,24 +13,24 @@ ms.topic: how-to
 
 # How to configure Azure Database for MySQL - Flexible Server data-in replication
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article describes how to set up [Data-in replication](concepts-data-in-replication.md) in Azure Database for MySQL - Flexible Server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
+This article describes how to set up [Data-in replication](concepts-data-in-replication.md) in Azure Database for MySQL flexible server by configuring the source and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
 > [!NOTE]  
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-To create a replica in the Azure Database for MySQL Flexible Server, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services.  Data-in replication can be configured using either binary log (binlog) file position-based replication OR GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
+To create a replica in the Azure Database for MySQL flexible server instance, [Data-in replication](concepts-data-in-replication.md) synchronizes data from a source MySQL server on-premises, in virtual machines (VMs), or in cloud database services.  Data-in replication can be configured using either binary log (binlog) file position-based replication OR GTID based replication. To learn more about binlog replication, see the [MySQL Replication](https://dev.mysql.com/doc/refman/5.7/en/replication-configuration.html).
 
 Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
-## Create an Azure Database for MySQL - Flexible Server instance to use as a replica
+## Create an Azure Database for MySQL flexible server instance to use as a replica
 
-1. Create a new instance of Azure Database for MySQL - Flexible Server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL - Flexible Server server by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
+1. Create a new instance of Azure Database for MySQL flexible server (for example, `replica.mysql.database.azure.com`). Refer to [Create an Azure Database for MySQL flexible server instance by using the Azure portal](quickstart-create-server-portal.md) for server creation. This server is the "replica" server for Data-in replication.
 
 1. Create the same user accounts and corresponding privileges.
 
-   User accounts aren't replicated from the source server to the replica server. If you plan on providing users with access to the replica server, you need to create all accounts and corresponding privileges manually on this newly created Azure Database for MySQL - Flexible Server.
+   User accounts aren't replicated from the source server to the replica server. If you plan on providing users with access to the replica server, you need to create all accounts and corresponding privileges manually on this newly created Azure Database for MySQL flexible server instance.
 
 ## Configure the source MySQL server
 
@@ -92,12 +92,12 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
       
    SET @@GLOBAL.GTID_MODE = ON;
       
-   If the master server is another Azure Database for MySQL Flexible Server, then these server parameters can also be updated from the portal by navigating to server parameter page.
+   If the master server is another Azure Database for MySQL flexible server instance, then these server parameters can also be updated from the portal by navigating to server parameter page.
    
       
 1. Configure the source server settings.
       
-      Data-in replication requires the parameter `lower_case_table_names` to be consistent between the source and replica servers. This parameter is 1 by default in Azure Database for MySQL - Flexible Server.
+      Data-in replication requires the parameter `lower_case_table_names` to be consistent between the source and replica servers. This parameter is 1 by default in Azure Database for MySQL flexible server.
       
       ```sql
       SET GLOBAL lower_case_table_names = 1;
@@ -168,7 +168,7 @@ The results should appear similar to the following. Make sure to note the binary
 
 ## Dump and restore the source server
 
-1. Determine which databases and tables you want to replicate into Azure Database for MySQL - Flexible Server and perform the dump from the source server.
+1. Determine which databases and tables you want to replicate into Azure Database for MySQL flexible server and perform the dump from the source server.
 
     You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
@@ -185,7 +185,7 @@ The results should appear similar to the following. Make sure to note the binary
 
 3. Restore dump file to new server.
 
-   Restore the dump file to the server created in the Azure Database for MySQL - Flexible Server service. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL - Flexible Server server from the virtual machine.
+   Restore the dump file to the server created in Azure Database for MySQL flexible server. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL flexible server instance from the virtual machine.
 
 > [!NOTE]  
 > If you want to avoid setting the database to read only when you dump and restore, you can use [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
@@ -251,7 +251,7 @@ To link two servers and start replication, login to the target replica server in
    -----END CERTIFICATE-----'
    ```
 
-   Replication with SSL is set up between a source server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL - Flexible Server. This stored procedure is run on the replica.
+   Replication with SSL is set up between a source server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL flexible server. This stored procedure is run on the replica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
@@ -262,7 +262,7 @@ To link two servers and start replication, login to the target replica server in
 
    *Replication without SSL*
 
-   Replication without SSL is set up between a source server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL - Flexible Server. This stored procedure is run on the replica.
+   Replication without SSL is set up between a source server hosted in the domain "companya.com" and a replica server hosted in Azure Database for MySQL flexible server. This stored procedure is run on the replica.
 
    ```sql
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
@@ -325,6 +325,6 @@ To skip a replication error and allow replication to continue, use the following
 
 ## Next steps
 
-- Learn more about [Data-in replication](concepts-data-in-replication.md) for Azure Database for MySQL - Flexible Server.
+- Learn more about [Data-in replication](concepts-data-in-replication.md) for Azure Database for MySQL flexible server.
  
 

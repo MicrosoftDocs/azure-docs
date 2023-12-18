@@ -14,7 +14,7 @@ ms.date: 9/21/2020
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-This article shows you how to manage your Flexible Server deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+This article shows you how to manage your Azure Database for MySQL flexible server instance deployed in Azure. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Prerequisites
 

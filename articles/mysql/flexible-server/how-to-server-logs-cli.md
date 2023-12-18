@@ -11,7 +11,7 @@ ms.date: 08/05/2022
 ---
 # List and download Azure Database for MySQL - Flexible Server logs by using the Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article shows you how to list and download server flexible server using Azure CLI.
 

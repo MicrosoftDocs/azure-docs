@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Connect an App Services Web app to Azure Database for MySQL - Flexible Server in a virtual network
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This tutorial shows you how to create and connect an Azure App Service Web App to an Azure Database for MySQL - Flexible Server isolated inside same or different [virtual networks](../../virtual-network/virtual-networks-overview.md).
 

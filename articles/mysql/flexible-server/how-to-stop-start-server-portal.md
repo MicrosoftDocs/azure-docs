@@ -11,7 +11,7 @@ ms.date: 09/29/2020
 
 # Stop/Start an Azure Database for MySQL - Flexible Server instance
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article provides step-by-step procedure to perform Stop and Start of the flexible server.
 

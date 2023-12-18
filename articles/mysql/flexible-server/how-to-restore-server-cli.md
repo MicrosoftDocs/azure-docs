@@ -12,7 +12,7 @@ ms.date: 04/01/2021
 
 # Point-in-time restore in Azure Database for MySQL - Flexible Server with Azure CLI
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 
