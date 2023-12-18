@@ -615,8 +615,8 @@
             href: disable-vulnerability-findings-containers.md
           - name: REST API
             href: subassessment-rest-api.md
-          - name: Upgrade to Defender Vulnerability Management
-            href: upgrade-to-defender-vulnerability-management.md
+          - name: Transition to Defender Vulnerability Management
+            href: transition-to-defender-vulnerability-management.md
           - name: Common questions 
             href: common-questions-microsoft-defender-vulnerability-management.md
       - name: Vulnerability assessment for AWS powered by Trivy (deprecated)
