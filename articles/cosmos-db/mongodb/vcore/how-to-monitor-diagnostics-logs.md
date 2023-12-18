@@ -109,7 +109,11 @@ Platform metrics and Activity logs are gathered automatically. To collect resour
     > [!IMPORTANT]
     > By enabling the `--export-to-resource-specific true` setting, you ensure that the API for MongoDB vCore request log events are efficiently ingested into the `vCoreMongoRequests` table specifically designed with a dedicated schema.
     >
+    > If `--export-to-resource-specific true` is not configured, the API for MongoDB vCore request log events will be directed to the general `AzureDiagnostics` table.
+    > 
     > In contrast, neglecting to configure `--export-to-resource-specific true` would result in the API for MongoDB vCore request log events being routed to the general `AzureDiagnostics` table.
+    > 
+    > It's important to note that when creating the diagnostic setting through the Portal, log events will currently flow to the `AzureDiagnostics` table. For customers who prefer exporting logs to the resource-specific `VCoreMongoRequests` table, utilizing the Azure CLI with the `--export-to-resource-specific true` option is recommended.
 
 ### [Azure Storage account](#tab/azure-storage)
 
