@@ -1078,11 +1078,13 @@ items:
     - name: Using Azure Workbook templates
       href: visualize/workbooks-templates.md
     - name: Create interactive reports
-      href: visualize/workbooks-create-reports.md
+      href: visualize/workbooks-interactive-reports.md
     - name: Manage Azure Workbooks
       items:
+      - name: Manage Azure Workbooks
+        href: visualize/workbooks-manage.md
       - name: Workbook settings
-        href: visualize/workbooks-configurations.md
+        href: visualize/workbooks-settings.md
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
       - name: Bring your own storage
@@ -1124,7 +1126,9 @@ items:
           - name: Link actions
             href: visualize/workbooks-link-actions.md
           - name: Time range brushing
-            href: visualize/workbooks-time-brushing.md  
+            href: visualize/workbooks-time-brushing.md
+          - name: Visual indicators and icons
+            href: visualize/workbooks-traffic-lights.md  
         - name: Parameters
           items:
           - name: Workbook parameters
@@ -1143,8 +1147,6 @@ items:
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md               
-        - name: Commonly used components
-          href: visualize/workbooks-commonly-used-components.md
         - name: Workbook result limits
           href: visualize/workbooks-limits.md   
     - name: Access Troubleshooting guides

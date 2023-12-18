@@ -6080,6 +6080,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-configurations.md",
+            "redirect_url": "/articles/azure-monitor/visualize/workbooks-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-getting-started.md",
+            "redirect_url": "/articles/azure-monitor/visualize/workbooks-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/visualize/workbooks-commonly-used-components.md",
+            "redirect_url": "/articles/azure-monitor/visualize/workbooks-visualizations",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/export-telemetry.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/export-telemetry",
             "redirect_document_id": false
