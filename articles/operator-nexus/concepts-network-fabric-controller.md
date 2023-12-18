@@ -11,7 +11,8 @@ ms.topic: conceptual
 
 # Network Fabric Controller overview
 
-What is Network Fabric Controller?
+## What is Network Fabric Controller?
+
 The Network Fabric Controller (NFC) is an Azure resource that allows customers to establish on-premises network infrastructure and workloads using Azure within an Azure region. The NFC acts as a conduit, connecting the Azure control plane to your on-site network hardware, such as routers, switches, and storage appliances. It enables network functions like virtualization, firewall, and gateway, while also facilitating seamless management and configuration of your network infrastructure. Its main role is to manage multiple Network Fabric (NF) instances connected to Nexus on-premises instances. This setup allows for structured grouping of NF instances within a designated Azure region. Additionally, NFC can be used to establish and modify configurations for Network Fabrics, Isolation Domains, Network Racks, and Network Devices within each Azure Operator Nexus instance.
 
 The NFC is responsible for bootstrapping and managing network fabric instances. These NF instances are connected to the NFC through redundant ExpressRoute circuits. These circuits are linked to the management VPN, which is exclusively provided by the operator for management purposes. You can manage the lifecycle of a Network Fabric Controller through Azure using supported interfaces like Azure CLI and REST API. For example, you can create an NFC using Azure Command Line Interface (AzureCLI) and also check its status or delete it.
@@ -35,7 +36,6 @@ In summary, the NFC plays a pivotal role in overseeing on-site network devices a
 
 ## Resources
 To create an NFC, you must provide the following attributes:
-
 | Attribute                                | Description |
 |------------------------------------------|-------------|
 | **Resource Group**                       | The Resource Group attribute specifies the name of the group that encompasses the NFC. As a critical and mandatory parameter, this attribute requires definition at the point of creation and is immutable thereafter. It necessitates the existence of a corresponding resource group in the Command Line Interface (CLI) equipped with the requisite parameters. |
@@ -63,7 +63,7 @@ To create an NFC, you must provide the following attributes:
 :::image type="content" source="media/nfc-architecture.png" alt-text="A schematic of Azure's network architecture showing the Azure Resource Manager, Nexus Network Fabric RP, and a detailed Network Fabric Controller with management components. Below is a Nexus Instance connected to infrastructure and workload VPNs.":::
 
 ## Payload examples
-Createa a Network Fabric Controller
+Createa a Network Fabric Controller:
 
  ```azurecli
     az networkfabric controller create \
@@ -92,7 +92,7 @@ az networkfabric controller create \
 >[!NOTE]
 >There is no support for Patch yet.
 
-Delete a Network Fabric Controller
+Delete a Network Fabric Controller:
  ```azurecli
 az networkfabric controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
@@ -100,11 +100,11 @@ az networkfabric controller delete --resource-group "NFCResourceGroupName" --res
 
 :::image type="content" source="media/nfc-portal-1.png" alt-text="A screenshot of the Azure portal interface showing the overview of a Network Fabric Controller named 'nfc01', with a focus on the 'Properties' section highlighted in red, indicating the successful provisioning of the standard SKU.":::
 
-Network Fabrics that are associated with Network Fabric Controller.
+Network Fabrics that are associated with Network Fabric Controller:
 
 :::image type="content" source="media/nfc-portal-2.png" alt-text="A screenshot of the Azure portal interface highlighting the 'Network Fabrics' section of a Network Fabric Controller's properties page, with a provisioning state of 'Succeeded' and SKU listed as 'Standard'.":::
 
-Managed Resource Group
+Managed Resource Group:
 
 :::image type="content" source="media/nfc-portal-3.png" alt-text="A screenshot from the Azure portal showing the resource group 'nfc01-HostedResources-106DF6AD' with a list of resources such as network fabrics, connections, and cloud infrastructures. It indicates a successful deployment in the East US location.":::
 
