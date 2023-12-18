@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/11/2023
+ms.date: 12/18/2023
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions
@@ -71,7 +71,7 @@ Depending on your scenario from the [replication change table](#replication-chan
 
 ### Change the replication setting using the portal, PowerShell, or the CLI
 
-In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account. If you're initiating a zone redundancy conversion, you can change the setting from within the Azure portal, but not from PowerShell or the Azure CLI.
+In most cases you can use the Azure portal, PowerShell, or the Azure CLI to change the geo-redundant or read access (RA) replication setting for a storage account.
 
 Changing how your storage account is replicated in the Azure portal doesn't result in down time for your applications, including changes that require a conversion.
 
@@ -88,7 +88,9 @@ To change the redundancy option for your storage account in the Azure portal, fo
 
 # [PowerShell](#tab/powershell)
 
-To change the redundancy option for your storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and specify the `-SkuName` parameter:
+You can use Azure PowerShell to change the redundancy options for your storage account.
+
+To change between locally redundant and geo-redundant storage, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) cmdlet and specify the `-SkuName` parameter.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -96,15 +98,54 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -SkuName <sku>
 ```
 
+You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with Powershell, call the [Start-AzStorageAccountMigration](/powershell/module/az.storage/start-azstorageaccountmigration) command and specify the `-TargetSku` parameter:
+
+```powershell
+Start-AzStorageAccountMigration
+    -AccountName <String>
+    -ResourceGroupName <String>
+    -TargetSku <String>
+    -AsJob
+```
+
+To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+
+```powershell
+Get-AzStorageAccountMigration
+   -AccountName <String>
+   -ResourceGroupName <String>
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-To change the redundancy option for your storage account with Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
+You can use the Azure CLI to change the redundancy options for your storage account.
+
+To change between locally redundant and geo-redundant storage, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and specify the `--sku` parameter:
 
 ```azurecli-interactive
 az storage account update \
-    --name <storage-account>
+    --name <storage-account> \
     --resource-group <resource_group> \
     --sku <sku>
+```
+
+You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with Azure CLI, call the [az storage account migration start](/cli/azure/storage/account/migration#az-storage-account-migration-start) command and specify the `--sku` parameter:
+
+```azurecli-interactive
+az storage account migration start  \
+    -- account-name <string> \
+    -- g <string> \
+    --sku <string> \
+    --no-wait
+```
+
+To track the current migration status of the conversion initiated on your storage account with Azure CLI, use the [az storage account migration show](/cli/azure/storage/account/migration#az-storage-account-migration-show) command:
+
+```azurecli-interactive
+az storage account migration show 
+    --account-name <string>
+    - g <sting>
+    -n "default"
 ```
 
 ---
@@ -334,7 +375,7 @@ You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if 
 
 After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). [Initiate the failover](storage-initiate-account-failover.md#initiate-the-failover).
 
-If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even in the case of so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
+If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even for so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
 
 ## Downtime requirements
 
@@ -359,7 +400,7 @@ The costs associated with changing how data is replicated in your storage accoun
 
 If you add zone-redundancy in the primary region, there's no initial cost associated with making that conversion, but the ongoing data storage cost is higher due to the increased replication and storage space required.
 
-Adding geo-redundancy, however, incurrs an egress bandwidth charge at the time of the change because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region.
+Geo-redundancy incurs an egress bandwidth charge at the time of the change because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region.
 
 If you remove geo-redundancy (change from GRS to LRS), there's no cost for making the change, but your replicated data is deleted from the secondary location.
 
