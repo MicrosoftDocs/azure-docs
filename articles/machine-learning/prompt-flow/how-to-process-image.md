@@ -94,7 +94,7 @@ Assume you want to build a chatbot that can answer any questions about the image
 
 A batch run allows you to test the flow with an extensive dataset. There are three methods to represent image data: through an image file, a public image URL, or a Base64 string.
 
-- **Image file:**To test with image files in batch run, you need to prepare a **data folder**. This folder should contain a batch run entry file in `jsonl` format located in the root directory, along with all image files stored in the same folder or subfolders.
+- **Image file:** To test with image files in batch run, you need to prepare a **data folder**. This folder should contain a batch run entry file in `jsonl` format located in the root directory, along with all image files stored in the same folder or subfolders.
    :::image type="content" source="./media/how-to-process-image/batch-run-sample-data.png" alt-text="Screenshot of batch run sample data with images." lightbox = "./media/how-to-process-image/batch-run-sample-data.png":::
    In the entry file, you should use the format: `{"data:<mime type>;path": "<image relative path>"}` to reference each image file. For example, `{"data:image/png;path": "./images/1.png"}`.
 - **Public image URL:** You can also reference the image URL in the entry file using this format: `{"data:<mime type>;url": "<image URL>"}`. For example, `{"data:image/png;url": "https://www.example.com/images/1.png"}`.
