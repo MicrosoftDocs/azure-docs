@@ -31,7 +31,7 @@ Once the cluster pool deployment completes, continue to use the Azure portal to 
 
    :::image type="content" source="./media/trino-create-cluster/search-bar.png" alt-text="Screenshot showing search bar in Azure portal.":::
 
-1. Enable the feature for 'AKS-AzureKeyVaultSecretsProvider', 'EnablePodIdentityPreview' and 'KubeletDisk' at subscription level, see [Enable features](../prerequisites-subscription).
+1. Enable the feature for 'AKS-AzureKeyVaultSecretsProvider', 'EnablePodIdentityPreview' and 'KubeletDisk' at subscription level, see [Enable features](../prerequisites-subscription.md).
 
 
 
