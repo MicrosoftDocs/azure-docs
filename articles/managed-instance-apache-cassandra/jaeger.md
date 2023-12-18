@@ -22,7 +22,7 @@ The article specifically details the use of the sample application HotROD and Ja
 
 
 ## Running Jaeger with Azure Managed Instance for Apache Cassandra
-1. [Download the Jaeger repository](git@github.com:jaegertracing/jaeger.git).
+1. [Download the Jaeger repository](https://github.com/jaegertracing/jaeger.git).
 1. Navigate to the docker-compose folder `cd jaeger\docker-compose`.
 1. Add your Azure Managed Instance Cassandra cluster credentials to the `jaeger-collector and jaeger-query` section within the `jaeger-docker-compose.yml` file:
 
@@ -72,4 +72,4 @@ The article specifically details the use of the sample application HotROD and Ja
 If you encounter issues running or testing Jaeger, open a support ticket. Provide the subscription ID and account name where your Jaeger test is running.
 
 ## Next steps
-- Learn about [hybrid cluster configuration](configure-hybrid-cluster) in Azure Managed Instance for Apache Cassandra.
+- Learn about [hybrid cluster configuration](configure-hybrid-cluster.md) in Azure Managed Instance for Apache Cassandra.
