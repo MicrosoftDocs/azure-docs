@@ -26,7 +26,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
     az aks mesh get-upgrades --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
 
-    Note that if you expect to see a newer revision not returned by this command, you may need to upgrade your AKS cluster first so that it is compatible with the newest revision.
+    If you expect to see a newer revision not returned by this command, you may need to upgrade your AKS cluster first so that it's compatible with the newest revision.
 
 1. Initiate a canary upgrade from revision `asm-1-17` to `asm-1-18` using [az aks mesh upgrade start](/cli/azure/aks/mesh#az-aks-mesh-upgrade-start):
 
@@ -80,7 +80,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
     kubectl label namespace default istio.io/rev=asm-1-18 --overwrite
     ```
 
-    Relabelling will not impact your workloads until they are restarted.
+    Relabeling doesn't affect your workloads until they're restarted.
 
 1. Individually roll over each of your application workloads by restarting them. For example:
 
@@ -90,7 +90,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
 
 1. Check your monitoring tools and dashboards to determine whether your workloads are all running in a healthy state after the restart. Based on the outcome, you have two options:
 
-    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, run the following command to complete the canary upgrade and remove the previous revision's control plane:
+    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, the previous revision's control plane can be removed. Run the following command to complete the canary upgrade:
 
       ```bash
       az aks mesh upgrade complete --resource-group $RESOURCE_GROUP --name $CLUSTER
