@@ -176,7 +176,7 @@ az postgres flexible-server migration update --subscription 11111111-1111-1111-1
 
 This command is required to advance the migration when the flexible server is waiting in the `WaitingForLogicalReplicationSetupRequestOnSourceDB` state.
 
-:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of logical replication set up." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of logical replication setup." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
 
 To perform Online migration in any of the above regions, use:
 

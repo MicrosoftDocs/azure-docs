@@ -152,7 +152,7 @@ Get started with the Single to Flex migration tool by using any of the following
 
 Here, we go through the phases of an overall database migration journey, with guidance on how to use Single to Flex migration tool in the process.
 
-### Getting Started
+### Getting started
 
 #### Application compatibility
 

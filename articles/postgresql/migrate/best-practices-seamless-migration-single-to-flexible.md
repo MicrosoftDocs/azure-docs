@@ -1,6 +1,6 @@
 ---
-title: "Best Practices for a seamless migration using the Single to Flexible migration tool"
-description: Best Practices for a seamless migration using the Single to Flexible migration tool.
+title: "Best practices for a seamless migration using the Single to Flexible migration tool"
+description: Best practices for a seamless migration using the Single to Flexible migration tool.
 author: hariramt
 ms.author: hariramt
 ms.reviewer: shriramm
@@ -30,14 +30,14 @@ During initial base copy of data, multiple insert statements are executed on the
 > [!IMPORTANT]  
 > In both manual configuration and Storage Autogrow, storage size can't be reduced. Each step in the Storage configuration spectrum doubles in size so it's prudent to estimate the required storage beforehand.
 
-A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration. Additionally, it's recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamlessly.
+A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration. Additionally, it's recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamlessly.
 
 ## Set up Online migration parameters
 
 > [!NOTE]  
 > Online migration is currently supported in limited regions - India Central, India South, Australia Southeast and South East Asia. For Onlone migrations using Single servers running PostgreSQL 9.5 and 9.6 we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11.
 
-For Online migration, the Azure replication support should be set to Logical under the Replication settings of the Single server page in the Azure Portal. In addition, the Server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
+For Online migration, the Azure replication support should be set to Logical under the Replication settings of the Single server page in the Azure portal. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
 
 - ALTER SYSTEM SET wal_level = logical;
 - ALTER SYSTEM SET max_wal_senders = `number of databases to migrate`;
@@ -141,17 +141,17 @@ Over time, as data is added, updated, and deleted, PostgreSQL may accumulate dea
 
 PostgreSQL provides the VACUUM command to reclaim storage occupied by dead rows. Additionally, the `ANALYZE` option gathers statistics, further optimizing query planning. For tables with heavy write activity, the `VACUUM` process can be more aggressive by using `VACUUM FULL`, but it requires more time to execute.
 
--- Standard Vacuum
+- Standard Vacuum
 ```sql
 VACUUM your_table;
 ```
 
--- Vacuum with Analyze
+- Vacuum with Analyze
 ```sql
 VACUUM ANALYZE your_table;
 ```
 
--- Aggressive Vacuum for Heavy Write Tables
+- Aggressive Vacuum for Heavy Write Tables
 ```sql
 VACUUM FULL your_table;
 ```
@@ -160,7 +160,7 @@ In this example, replace your_table with the actual table name. The `VACUUM` com
 
 Some Databases store large objects such as images or documents that can contribute to database bloat over time. The `VACUUMLO` command is designed for large objects in PostgreSQL.
 
--- Vacuum Large Objects
+- Vacuum Large Objects
 ```sql
 VACUUMLO;
 ```
