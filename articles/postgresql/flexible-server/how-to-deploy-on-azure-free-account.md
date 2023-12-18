@@ -174,4 +174,4 @@ Alternatively, if you don't expect to need these resources in the future, you ca
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Deploy a Django app with App Service and PostgreSQL](../../app-service/tutorial-python-postgresql-app)
+>[Deploy a Django app with App Service and PostgreSQL](../../app-service/tutorial-python-postgresql-app.md)
