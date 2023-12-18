@@ -427,6 +427,20 @@ When your runbook has been published, you can schedule it for operation:
 1. Once the schedule is created, highlight it and click **OK**. It should now be linked to your runbook.
 1. Look for an email in your mailbox to notify you of the runbook status.
 
+## Restore deleted runbook
+
+You can recover a deleted runbook through PowerShell scripts. To recover a runbook, ensure that the following conditions are met:
+
+- You can restore runbooks that were deleted in past 29 days.
+- Ensure that the Automation account for that runbook should exist.
+- You should grant *Automation Contributor* role permission to the System-assigned managed identity of the Automation account.
+
+### PowerShell script
+
+- Execute the PowerShell script as a job in your Automation account to restore the deleted runbooks.
+- Download the PowerShell [script](https://github.com/azureautomation/Restore-Runbook) from GitHub. Alternatively, you can [import](#import-a-runbook-from-the-azure-portal) the PowerShell script named *Restore Automation runbook* from Runbook Gallery. Provide name of the runbook that is to be restored and run it as a job in Azure Automation to restore the deleted runbooks.
+- To identify names of the runbooks that were deleted in last 29 days, download the [script](https://github.com/azureautomation/List-Deleted-Runbooks) from GitHub or [import](#import-a-runbook-from-the-azure-portal) the PowerShell script named *List Deleted Automation Runbook* from Runbook Gallery.
+
 ## Obtain job statuses
 
 ### View statuses in the Azure portal
