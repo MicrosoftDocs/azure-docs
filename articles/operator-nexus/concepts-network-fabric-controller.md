@@ -36,6 +36,7 @@ In summary, the NFC plays a pivotal role in overseeing on-site network devices a
 
 ## Resources
 To create an NFC, you must provide the following attributes:
+
 | Attribute                                | Description |
 |------------------------------------------|-------------|
 | **Resource Group**                       | The Resource Group attribute specifies the name of the group that encompasses the NFC. As a critical and mandatory parameter, this attribute requires definition at the point of creation and is immutable thereafter. It necessitates the existence of a corresponding resource group in the Command Line Interface (CLI) equipped with the requisite parameters. |
