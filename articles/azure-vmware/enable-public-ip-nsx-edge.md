@@ -17,7 +17,7 @@ In this article, learn how to enable Public IP on the NSX-T Data Center Edge for
 Public IP on the NSX-T Data Center Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment.
 
 >[!IMPORTANT]
->The use of Public IPv4 addresses can be consumed directly in Azure VMware Solution and charged based on the Public IPv4 prefix shown on [Pricing - Virtual Machine IP Address Options.](https://azure.microsoft.com/pricing/details/ip-addresses/).
+>The use of Public IPv4 addresses can be consumed directly in Azure VMware Solution and charged based on the Public IPv4 prefix shown on [Pricing - Virtual Machine IP Address Options.](https://azure.microsoft.com/pricing/details/ip-addresses/). There are no data ingress or egress charges related to this service.
 
 The Public IP is configured in Azure VMware Solution through the Azure portal and the NSX-T Data Center interface within your Azure VMware Solution private cloud.
 

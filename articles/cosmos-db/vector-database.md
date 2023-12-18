@@ -14,17 +14,17 @@ ms.date: 12/11/2023
 
 [!INCLUDE[NoSQL, MongoDB vCore, PostgreSQL](includes/appliesto-nosql-mongodbvcore-postgresql.md)]
 
-You can augment your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG).
+Vector databases are used in numerous domains and situations across analytical and generative AI, including natural language processing, video and image recognition, recommendation system, search, etc.
 
-This approach allows you to:
+An increasingly popular use case is augmenting your applications with large language models (LLMs) and vector databases that can access your own data through retrieval-augmented generation (RAG). This approach allows you to:
 
 - Generate contextually relevant and accurate responses to user prompts from AI models
 - Overcome ChatGPT, GPT-3.5, or GPT-4’s token limits
 - Reduce the costs from frequent fine-tuning on updated data
 
-Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional relational and nonrelational databases. Instead of adding a separate vector database to your existing tech stack, you can achieve the same outcome using the vector database extensions for Azure Cosmos DB when working with multi-modal data. By doing so, you can keep your vector embeddings and original data together to achieve data consistency, scale, and performance while avoiding the extra cost of moving data to a separate vector database.
+Some RAG implementation tutorials demonstrate integrating vector databases that are distinct from traditional databases. Instead of adding a separate vector database, you can use our vector database extensions when working with multi-modal data. By doing so, you avoid the extra cost of moving data to a separate database. Moreover, this keeps your vector embeddings and original data together, and you can better achieve data consistency, scale, and performance. The latter reason is why OpenAI built its ChatGPT service on top of Azure Cosmos DB.
 
-Here's how:
+Here's how to implement our vector database extensions:
 
 | | Description |
 | --- | --- |
@@ -46,7 +46,7 @@ Here are multiple ways to implement RAG on your data by using our vector databas
 
 ## Implement vector database functionalities using our API for MongoDB vCore
 
-Use the native vector search feature in Azure Cosmos DB for MongoDB vCore, which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
+Use the native vector search feature in [Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 
 ### Vector database implementation code samples
 
@@ -56,7 +56,7 @@ Use the native vector search feature in Azure Cosmos DB for MongoDB vCore, which
 
 ## Implement vector database functionalities using our API for PostgreSQL
 
-Use the native vector search feature in Azure Cosmos DB for PostgreSQL, which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
+Use the native vector search feature in [Azure Cosmos DB for PostgreSQL](postgresql/howto-use-pgvector.md), which offers an efficient way to store, index, and search high-dimensional vector data directly alongside other application data. This approach removes the necessity of migrating your data to costlier alternative vector databases and provides a seamless integration of your AI-driven applications.
 
 ### Vector database implementation code samples
 
@@ -64,22 +64,13 @@ Use the native vector search feature in Azure Cosmos DB for PostgreSQL, which of
 
 ## Implement vector database functionalities using our NoSQL API and AI Search
 
-Implement RAG patterns with Azure Cosmos DB for NoSQL and Azure AI Search. This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications. Azure AI Search empowers you to efficiently index and query high-dimensional vector data, thereby meeting your vector database needs.
+The native vector search feature in our NoSQL API is under development. In the meantime, you may implement RAG patterns with Azure Cosmos DB for NoSQL and [Azure AI Search](../search/vector-search-overview.md). This approach enables powerful integration of your data residing in the NoSQL API into your AI-oriented applications.
 
 ### Vector database implementation code samples
 
-- [.NET RAG Pattern retail reference solution for NoSQL](https://github.com/Azure/Vector-Search-AI-Assistant-MongoDBvCore)
 - [.NET tutorial - recipe chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch)
 - [.NET tutorial - recipe chatbot w/ Semantic Kernel](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/C%23/CosmosDB-NoSQL_CognitiveSearch_SemanticKernel)
 - [Python notebook tutorial - Azure product chatbot](https://github.com/microsoft/AzureDataRetrievalAugmentedGenerationSamples/tree/main/Python/CosmosDB-NoSQL_CognitiveSearch)
-
-## Related content
-
-- [Vector search with Azure Cognitive Search](../search/vector-search-overview.md)
-- [Vector search with Azure Cosmos DB for MongoDB vCore](mongodb/vcore/vector-search.md)
-- [Vector search with Azure Cosmos DB PostgreSQL](postgresql/howto-use-pgvector.md)
-- Learn more about [Azure OpenAI embeddings](../ai-services/openai/concepts/understand-embeddings.md)
-- Learn how to [generate embeddings using Azure OpenAI](../ai-services/openai/tutorials/embeddings.md)
   
 ## Next step
 

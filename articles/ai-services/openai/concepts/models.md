@@ -115,7 +115,7 @@ See [model versions](../concepts/model-versions.md) to learn about how Azure Ope
 
 ### GPT-3.5 models
 
-GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo (0301) can also be used with the Completions API.  GPT3.5 Turbo (0613) only supports the Chat Completions API.
+GPT-3.5 Turbo is used with the Chat Completion API. GPT-3.5 Turbo version 0301 can also be used with the Completions API.  GPT-3.5 Turbo versions 0613 and 1106 only support the Chat Completions API.
 
 GPT-3.5 Turbo version 0301 is the first version of the model released.  Version 0613 is the second version of the model and adds function calling support.
 
@@ -155,7 +155,7 @@ These models can only be used with Embedding API requests.
 | dalle2 | East US | 1000 |
 | dalle3 | Sweden Central | 4000 |
 
-### Fine-tuning models (Preview)
+### Fine-tuning models
 
 `babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
 

@@ -130,6 +130,8 @@ Azure Communications Gateway also has limits on the SIP signaling.
 
 [!INCLUDE [communications-gateway-sip-behavior-restrictions](../../communications-gateway/includes/communications-gateway-sip-behavior-restrictions.md)]
 
+[!INCLUDE [limits on the Provisioning API](../../communications-gateway/includes/communications-gateway-provisioning-api-restrictions.md)]
+
 ## Azure Container Apps limits
 
 For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
@@ -272,6 +274,10 @@ To learn more about the creation limits for Azure subscriptions, see [Billing ac
 ## Azure VMware Solution limits
 
 [!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
+
+## Azure Web PubSub limits
+
+[!INCLUDE [azure-web-pubsub-limits](../../../includes/azure-web-pubsub-limits.md)]
 
 ## Backup limits
 

@@ -85,6 +85,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
 | Azure Media Services | [Media Services monitoring schemas](/azure/media-services/latest/monitoring/monitor-media-services#schemas) |
 | Network security groups |[Log Analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
+| Azure Operator Insights | [Monitoring Azure Operator Insights data reference](../../operator-insights/monitor-operator-insights-data-reference.md#schemas) |
 | Azure Power BI Embedded | [Logging for Power BI Embedded in Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data model for Azure Backup](../../backup/backup-azure-reports-data-model.md)|
 | Azure Service Bus |[Azure Service Bus logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
