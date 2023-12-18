@@ -4,7 +4,7 @@ description: Learn how to transition to the Microsoft Defender Vulnerability Man
 services: defender-for-cloud
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 12/17/2023
+ms.date: 12/18/2023
 ---
 
 # Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
@@ -16,15 +16,6 @@ To transition to the integrated Defender Vulnerability Management solution, you 
 - [Transition with Azure policy (for Azure VMs)](#transition-with-azure-policy-for-azure-vms)
 - [Transition with Defender for Cloud’s portal](#transition-with-defender-for-clouds-portal)
 - [Transition with REST API](#transition-with-rest-api)
-
-> [!IMPORTANT]
-> The Defender for Servers built-in vulnerability assessment powered by Qualys is now on a retirement path that starts on **December 18th** and completes on **May 1st, 2024**.
->
-> If you are currently using the built-invulnerability assessment powered by Qualys on at least one machine within a tenant with either of the Defender for Servers plans enabled prior to **January 1st, 2024**, you can continue to use the vulnerability assessment powered by Qualys until **May 1st, 2024**.
->
-> Check out this blog, to learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
->
-> The support for the Bring Your Own License vulnerability assessment solution powered by Qualys or Rapid7 will remain available.
 
 ## Transition with Azure policy (for Azure VMs) 
 
