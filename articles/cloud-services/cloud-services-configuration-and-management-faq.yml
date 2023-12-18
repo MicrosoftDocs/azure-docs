@@ -243,7 +243,7 @@ sections:
       - question: |
           I cannot remote desktop to Cloud Service VM  by using the RDP file. I get following error: An authentication error has occurred (Code: 0x80004005)
         answer: |
-          This error may occur if you use the RDP file from a machine that is joined to Azure Active Directory. To resolve this issue, follow these steps:
+          This error may occur if you use the RDP file from a machine that is joined to Microsoft Entra ID. To resolve this issue, follow these steps:
           
           1. Right-click the RDP file you downloaded and then select **Edit**.
           2. Add "&#92;" as prefix before the username. For example, use **.\username** instead of  **username**.

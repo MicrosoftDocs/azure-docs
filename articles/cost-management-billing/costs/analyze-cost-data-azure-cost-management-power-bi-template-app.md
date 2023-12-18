@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2023
+ms.date: 12/15/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,6 +26,9 @@ The app limits customizability. If you want to modify and extend the default fil
 - A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) is required to install and use the app.
 - To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account. The Enterprise Administrator (read only) role is supported.
 
+>[!NOTE]
+> When you convert an EA enrollment to a Microsoft Customer Agreement (MCA), you can’t use the Cost Management Power BI template app any longer because the app doesn’t support MCA. However, the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) supports MCA accounts.
+
 ## Installation steps
 
 To install the app:
@@ -39,14 +42,12 @@ To install the app:
 1. Select the app that you installed.
 1. On the Getting started page, select **Connect your data**.
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="Screenshot highlighting the Connect your data link." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
-1. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
-    >[!NOTE]
-    > The default value for Scope is `Enrollment Number`. Do not change the value, otherwise the initial data connection will fail.  
+1. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Enter "Enrollment Number" for **Scope**, then select **Next**.  
 
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Screenshot showing where you enter your E A enrollment information." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
-1. The next installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Leave all the default values. Select **Sign in and connect**.  
+1. The next installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Leave all the default values. Select **Sign in and continue**.  
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Screenshot showing the Connect to Cost Management App dialog box with default values to connect with." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
-1. The final dialog connects to Azure and gets data. *Leave the default values as configured* and select **Sign in and continue**.  
+1. The final dialog connects to Azure and gets data. *Leave the default values as configured* and select **Sign in and connect**.  
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Screenshot showing the Connect to Cost Management App dialog box with default values." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
 1. You are prompted to authenticate with your EA enrollment. Authenticate with Power BI. After you're authenticated, a Power BI data refresh starts.
     > [!NOTE]
@@ -83,7 +84,7 @@ Here's how values in the overview tiles are calculated.
 - The value shown in the **New purchase amount** tile is calculated as the sum of `newPurchases`.
 - The value shown in the **Total charges** tile is calculated as the sum of (`adjustments` + `ServiceOverage` + `chargesBilledseparately` + `azureMarketplaceServiceCharges`).
 
-The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure marketplace service charges as Total charges.
+The EA portal doesn't show the Total charges column. The Power BI template app includes Adjustments, Service Overage, Charges billed separately, and Azure Marketplace service charges as Total charges.
  
 The Prepayment Usage shown in the EA portal isn't available in the Template app as part of the total charges.
 
@@ -97,7 +98,7 @@ The Prepayment Usage shown in the EA portal isn't available in the Template app 
 
 :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" alt-text="Screenshot showing the full Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png" :::
 
-The report also identifies Windows VMs where Hybrid Benefit is **enabled** but there are _less than_ 8 vCPUs. It also shows where Hybrid Benefit is **not enabled** that have 8 _or more_ vCPUs. This information helps you fully use your Hybrid Benefit. Apply the benefit to your most expensive virtual machines to maximize your potential savings.
+The report also identifies Windows VMs where Hybrid Benefit is **enabled** but there are _fewer than_ 8 vCPUs. It also shows where Hybrid Benefit is **not enabled** that have 8 _or more_ vCPUs. This information helps you fully use your Hybrid Benefit. Apply the benefit to your most expensive virtual machines to maximize your potential savings.
 
 :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" alt-text="Screenshot showing the Less than 8 vCPUs and vCPUs not enabled area of the Azure Hybrid Benefits report." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png" :::
 

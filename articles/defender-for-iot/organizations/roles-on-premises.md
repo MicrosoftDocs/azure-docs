@@ -1,7 +1,7 @@
 ---
 title: On-premises users and roles for Defender for IoT - Microsoft Defender for IoT
 description: Learn about the on-premises user roles available for OT monitoring with Microsoft Defender for IoT network sensors and on-premises management consoles.
-ms.date: 09/19/2022
+ms.date: 08/27/2023
 ms.topic: concept-article
 ---
 
@@ -16,7 +16,7 @@ This article provides:
 
 ## Default privileged on-premises users
 
-By default, each [sensor](ot-deploy/install-software-ot-sensor.md) and [on-premises management console](ot-deploy/install-software-on-premises-management-console.md) is installed with a privileged *support* user. The on-premises management console is also installed with a default *cyberx* user.
+By default, each [sensor](ot-deploy/install-software-ot-sensor.md) and [on-premises management console](legacy-central-management/install-software-on-premises-management-console.md) is installed with a privileged *support* user. The on-premises management console is also installed with a default *cyberx* user.
 
 The privileged *support* and *cyberx* users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with the *support* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
 
@@ -44,7 +44,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | **Control map zoom views** | - | - | ✔ |
 | **View alerts** | ✔ | ✔ | ✔ |
 | **Manage alerts**: acknowledge, learn, and mute |-  | ✔ | ✔ |
-| **View events in a timeline** | - | ✔ | ✔ |
+| **View events in a timeline** | ✔ | ✔ | ✔ |
 | **Authorize devices**, known scanning devices, programming devices | - | ✔ | ✔ |
 | **Merge and delete devices** |-  |-  | ✔ |
 | **View investigation data** | ✔ | ✔ | ✔ |
@@ -90,5 +90,5 @@ For more information, see:
 
 - [Microsoft Defender for IoT user management](manage-users-overview.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+- [Create and manage users on an on-premises management console](legacy-central-management/install-software-on-premises-management-console.md)
 - [Azure user roles and permissions for Defender for IoT](roles-azure.md)

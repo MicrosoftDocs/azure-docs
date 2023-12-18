@@ -2,16 +2,13 @@
 title: 'Tutorial: Monitor network communication with virtual machine scale set - Azure portal'
 titleSuffix: Azure Network Watcher
 description: In this tutorial, you'll learn how to use Azure Network Watcher connection monitor tool to monitor network communication with a virtual machine scale set using the Azure portal.
-services: network-watcher
 author: halkazwini
-tags: azure-resource-manager
+ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.date: 01/25/2023
-ms.author: halkazwini
-ms.custom: template-tutorial, mvc, engagement-fy23
-# Customer intent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
+
+#CustomerIntent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
 ---
 
 # Tutorial: Monitor network communication with a virtual machine scale set using the Azure portal
@@ -306,21 +303,19 @@ Connection monitors have these scale limits:
 
 ## Clean up resources
 
-When you no longer need the resources, delete the resource group and all the resources it contains:
+When no longer needed, delete **myResourceGroup** resource group and all of the resources it contains:
 
-1. In the **Search** box at the top of the Azure portal, enter **myResourceGroup** and then, in the search results list, select it.
+1. In the search box at the top of the portal, enter ***myResourceGroup***. Select **myResourceGroup** from the search results.
+
 1. Select **Delete resource group**.
-1. For **Resource group name**, enter **myResourceGroup**, and then select **Delete**.
 
-## Next steps
+1. In **Delete a resource group**, enter ***myResourceGroup***, and then select **Delete**.
 
-In this tutorial, you learned how to monitor a connection between a virtual machine scale set and a VM. You learned that a network security group rule prevented communication to a VM. 
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-To learn about all the different responses a connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address. See also:
+## Next step
 
-* [Analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
-* [Diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network)
+To learn how to diagnose and troubleshoot problems with virtual network gateways, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
-

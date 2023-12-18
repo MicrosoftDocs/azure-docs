@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # Create and manage container leases with Python
 
+[!INCLUDE [storage-dev-guide-selector-lease-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-container.md)]
+
 This article shows how to create and manage container leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can use the client library to acquire, renew, release and break container leases.
 
 ## Prerequisites
@@ -43,7 +45,7 @@ You can also acquire a lease using the following method from the [ContainerClien
 
 The following example acquires a 30-second lease on a container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_acquire_container_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_acquire_container_lease":::
 
 ## Renew a lease
 
@@ -55,7 +57,7 @@ To renew a lease, use the following method:
 
 The following example renews a lease for a container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_renew_container_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_renew_container_lease":::
 
 ## Release a lease
 
@@ -67,7 +69,7 @@ You can release a lease by using the following method:
 
 The following example releases the lease on a container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_release_container_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_release_container_lease":::
 
 ## Break a lease
 
@@ -79,7 +81,7 @@ You can break a lease by using the following method:
 
 The following example breaks the lease on a container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_break_container_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_break_container_lease":::
 
 [!INCLUDE [storage-dev-guide-container-lease](../../../includes/storage-dev-guides/storage-dev-guide-container-lease.md)]
 
@@ -95,7 +97,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

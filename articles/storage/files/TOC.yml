@@ -47,17 +47,17 @@
     items:
     - name: Understanding performance
       href: understand-performance.md
-    - name: SMB Multichannel performance
-      href: storage-files-smb-multichannel-performance.md
-    - name: NFS nconnect performance
-      href: nfs-nconnect-performance.md
+    - name: SMB performance
+      href: smb-performance.md
+    - name: NFS performance
+      href: nfs-performance.md
     - name: Scalability and performance targets
       href: storage-files-scale-targets.md
   - name: Authentication and authorization
     items:
     - name: Identity-based authentication overview
       href: storage-files-active-directory-overview.md
-    - name: Authorize with Azure AD
+    - name: Authorize with Microsoft Entra ID
       href: authorize-oauth-rest.md
   - name: Understanding billing
     href: understanding-billing.md
@@ -131,9 +131,9 @@
         href: storage-files-identity-ad-ds-update-password.md
     - name: Use Azure Files with multiple AD DS forests
       href: storage-files-identity-multiple-forests.md
-    - name: Enable Azure AD DS authentication and authorization
+    - name: Enable Microsoft Entra Domain Services authentication and authorization
       href: storage-files-identity-auth-domain-services-enable.md
-    - name: Enable Azure AD Kerberos authentication for hybrid identities
+    - name: Enable Microsoft Entra Kerberos authentication for hybrid identities
       href: storage-files-identity-auth-hybrid-identities-enable.md
     - name: Enable AD Kerberos authentication for Linux clients (SMB)
       href: storage-files-identity-auth-linux-kerberos-enable.md
@@ -191,6 +191,10 @@
     items:
     - name: Monitor Azure Files
       href: storage-files-monitoring.md
+    - name: Analyze metrics
+      href: analyze-files-metrics.md
+    - name: Create alerts
+      href: files-monitoring-alerts.md           
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
@@ -295,6 +299,8 @@
       href: /troubleshoot/azure/azure-storage/files-troubleshoot-create-alerts?toc=/azure/storage/files/toc.json
     - name: Troubleshoot backing up file shares
       href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
+    - name: Troubleshoot ClientOtherErrors
+      href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json      
 - name: Reference
   items:
   - name: APIs for data access

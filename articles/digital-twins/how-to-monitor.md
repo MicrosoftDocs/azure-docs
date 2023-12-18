@@ -75,14 +75,16 @@ Metrics having to do with data ingress:
 | IngressEventsFailureRate | Ingress Events Failure Rate | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
 | IngressEventsLatency | Ingress Events Latency | Milliseconds | Average | The time from when an event arrives to when it's ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
 
-### Bulk operation metrics (from the Jobs API)
+### Bulk operation metrics (from the Jobs APIs)
 
-Metrics having to do with bulk operations from the [Jobs API](/rest/api/digital-twins/dataplane/jobs):
+Metrics having to do with bulk operations from the [Jobs APIs](/rest/api/digital-twins/dataplane/jobs):
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ImportJobLatency | Import Job Latency | Milliseconds | Average | Total time taken for an import job to complete. | Operation, <br>Authentication, <br>Protocol |
-| ImportJobEntityCount | Import Job Entity Count | Count | Total | The number of twins, models, or relationships processed by an import job. | Operation, <br>Result |              
+| ImportJobEntityCount | Import Job Entity Count | Count | Total | The number of twins, models, or relationships processed by an import job. | Operation, <br>Result |
+| DeleteJobLatency | Delete Job Latency | Milliseconds | Average | Total time taken for a delete job to complete. | Operation, <br>Authentication, <br>Protocol |
+| DeleteJobEntityCount | Delete Job Entity Count | Count | Total | The number of models, twins, and/or relationships deleted as part of a delete job. | Operation, <br>Result |
 
 ### Routing metrics
 

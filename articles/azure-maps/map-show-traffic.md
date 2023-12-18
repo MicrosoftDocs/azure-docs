@@ -2,9 +2,9 @@
 title: Show traffic on a map
 titleSuffix: Microsoft Azure Maps
 description: Find out how to add traffic data to maps. Learn about flow data, and see how to use the Azure Maps Web SDK to add incident data and flow data to maps.
-author: dubiety
-ms.author: yuchungchen
-ms.date: 06/15/2023
+author: sinnypan
+ms.author: sipa
+ms.date: 10/26/2023
 ms.topic: how-to
 ms.service: azure-maps
 ---
@@ -35,7 +35,7 @@ map.setTraffic({
 
 The [Traffic Overlay] sample demonstrates how to display the traffic overlay on a map. For the source code for this sample, see [Traffic Overlay source code].
 
-:::image type="content" source="./media/map-show-traffic/traffic-overlay.png"alt-text="A screenshot of map with the traffic overlay, showing current traffic.":::
+:::image type="content" source="./media/map-show-traffic/traffic-overlay.png" lightbox="./media/map-show-traffic/traffic-overlay.png" alt-text="A screenshot of map with the traffic overlay, showing current traffic.":::
 
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -45,7 +45,7 @@ The [Traffic Overlay] sample demonstrates how to display the traffic overlay on 
 
 The [Traffic Overlay Options] tool lets you switch between the different traffic overlay settings to see how the rendering changes. For the source code for this sample, see [Traffic Overlay Options source code].
 
-:::image type="content" source="./media/map-show-traffic/traffic-overlay-options.png"alt-text="A screenshot of map showing the traffic overlay options.":::
+:::image type="content" source="./media/map-show-traffic/traffic-overlay-options.png" lightbox="./media/map-show-traffic/traffic-overlay-options.png" alt-text="A screenshot of map showing the traffic overlay options.":::
 
 <!--------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result]
@@ -67,7 +67,7 @@ map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-l
 
 The [Traffic controls] sample is a fully functional map that shows how to display traffic data on a map. For the source code for this sample, see [Traffic controls source code].
 
-:::image type="content" source="./media/map-show-traffic/add-traffic-controls.png"alt-text="A screenshot of map with the traffic display button, showing current traffic.":::
+:::image type="content" source="./media/map-show-traffic/add-traffic-controls.png" lightbox="./media/map-show-traffic/add-traffic-controls.png" alt-text="A screenshot of map with the traffic display button, showing current traffic.":::
 
 <!--------------------------------------------------
 > [!VIDEO https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -95,7 +95,7 @@ Enhance your user experiences:
 > [Code sample page]
 
 [Building an accessible map]: map-accessibility.md
-[Code sample page]: https://aka.ms/AzureMapsSamples
+[Code sample page]: https://samples.azuremaps.com/
 [Map interaction with mouse events]: map-events.md
 [Map]: /javascript/api/azure-maps-control/atlas.map
 [Traffic controls source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Traffic/Traffic%20controls/Traffic%20controls.html

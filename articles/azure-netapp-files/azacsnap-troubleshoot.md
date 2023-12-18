@@ -334,7 +334,7 @@ To troubleshoot this error:
 
 ### Insufficient privilege error
 
-If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-installation.md#enable-communication-with-database). Verify the user's privileges with the following command:
+If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-installation.md#enable-communication-with-the-database). Verify the user's privileges with the following command:
 
 ```bash
 hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges " | grep -i -e GRANTEE -e azacsnap

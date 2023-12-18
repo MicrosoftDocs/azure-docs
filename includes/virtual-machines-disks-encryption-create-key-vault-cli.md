@@ -57,7 +57,7 @@ az disk-encryption-set create -n $diskEncryptionSetName \
 - Grant the DiskEncryptionSet resource access to the key vault. 
 
 > [!NOTE]
-> It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Azure Active Directory. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
+> It may take few minutes for Azure to create the identity of your DiskEncryptionSet in your Microsoft Entra ID. If you get an error like "Cannot find the Active Directory object" when running the following command, wait a few minutes and try again.
 
 ```azurecli
 desIdentity=$(az disk-encryption-set show -n $diskEncryptionSetName -g $rgName --query [identity.principalId] -o tsv)

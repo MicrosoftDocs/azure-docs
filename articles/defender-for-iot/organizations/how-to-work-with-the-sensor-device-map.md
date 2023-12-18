@@ -19,7 +19,7 @@ To perform the procedures in this article, make sure that you have:
 
 - Access to your OT sensor or on-premises management console. Users with the **Viewer** role can view data on the map. To import or export data or edit the map view, you need access as a **Security Analyst** or **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-To view devices across multiple sensors in a zone, you'll also need an on-premises management console [installed](ot-deploy/install-software-on-premises-management-console.md), [activated, and configured](ot-deploy/activate-deploy-management.md), with multiple sensors connected and assigned to sites and zones.
+To view devices across multiple sensors in a zone, you'll also need an on-premises management console [installed](legacy-central-management/install-software-on-premises-management-console.md), [activated, and configured](legacy-central-management/activate-deploy-management.md), with multiple sensors connected and assigned to sites and zones.
 
 ## View devices on OT sensor device map
 
@@ -214,7 +214,6 @@ The following table lists available responses for each notification, and when we
 | **No subnets configured** | No subnets are currently configured in your network. <br /><br /> We recommend configuring subnets for the ability to differentiate between OT and IT devices on the map. | - **Open Subnet Configuration** and [configure subnets](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration). <br />- **Dismiss**: Remove the notification. |**Dismiss** |
 | **Operating system changes** | One or more new operating systems have been associated with the device. | - Select the name of the new OS that you want to associate with the device.<br /> - **Dismiss**:  Remove the notification. | Set with new operating system only if not already configured manually. <br><br>If the operating system has already been configured: **Dismiss**. |
 | **New subnets** | New subnets were discovered. |-  **Learn**: Automatically add the subnet.<br />- **Open Subnet Configuration**: Add all missing subnet information.<br />- **Dismiss**: <br />Remove the notification. |**Dismiss** |
-| **Device type changes** | A new device type has been associated with the device. | - **Set as {…}**: Associate the new type with the device.<br />- **Dismiss**: Remove the notification. |No automatic handling|
 
 ## View a device map for a specific zone
 

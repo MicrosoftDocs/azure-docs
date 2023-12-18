@@ -1,14 +1,15 @@
 ---
-title: Azure Active Directory authorization proxy 
-description: Azure Active Directory authorization proxy 
+title: Microsoft Entra authorization proxy 
+description: Microsoft Entra authorization proxy 
 ms.topic: how-to
+ms.custom: devx-track-azurecli
 author: EdB-MSFT
 ms.author: edbaynash
 ms.date: 07/10/2022
 ---
 
-# Azure Active Directory authorization proxy 
-The Azure Active Directory authorization proxy is a reverse proxy, which can be used to authenticate requests using Azure Active Directory. This proxy can be used to authenticate requests to any service that supports Azure Active Directory authentication. Use this proxy to authenticate requests to Azure Monitor managed service for Prometheus. 
+# Microsoft Entra authorization proxy 
+The Microsoft Entra authorization proxy is a reverse proxy, which can be used to authenticate requests using Microsoft Entra ID. This proxy can be used to authenticate requests to any service that supports Microsoft Entra authentication. Use this proxy to authenticate requests to Azure Monitor managed service for Prometheus. 
 
 
 ## Prerequisites
@@ -22,7 +23,7 @@ The Azure Active Directory authorization proxy is a reverse proxy, which can be 
 
 The proxy can be deployed with custom templates using release image or as a helm chart. Both deployments contain the same customizable parameters. These parameters are described in the [Parameters](#parameters) table.  
 
-For for more information, see [Azure Active Directory authentication proxy](https://github.com/Azure/aad-auth-proxy) project.
+For for more information, see [Microsoft Entra authentication proxy](https://github.com/Azure/aad-auth-proxy) project.
 
 The following examples show how to deploy the proxy for remote write and for querying data from Azure Monitor.
 
@@ -90,76 +91,9 @@ Before deploying the proxy, find your managed identity and assign it the `Monito
 
     For more information about the parameters, see the [Parameters](#parameters) table.
 
-    proxy-ingestion.yaml
+    proxy-ingestion.yaml  
 
-    ```yml
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-        labels:
-            app: azuremonitor-ingestion
-        name: azuremonitor-ingestion
-        namespace: observability
-    spec:
-        replicas: 1
-        selector:
-            matchLabels:
-                app: azuremonitor-ingestion
-        template:
-            metadata:
-                labels:
-                    app: azuremonitor-ingestion
-                name: azuremonitor-ingestion
-            spec:
-                containers:
-                - name: aad-auth-proxy
-                  image: mcr.microsoft.com/azuremonitor/auth-proxy/prod/aad-auth-proxy/images/aad-auth-proxy:0.1.0-main-05-24-2023-b911fe1c
-                  imagePullPolicy: Always
-                  ports:
-                  - name: auth-port
-                    containerPort: 8081
-                  env:
-                  - name: AUDIENCE
-                    value: https://monitor.azure.com/.default
-                  - name: TARGET_HOST
-                    value: http://<workspace-endpoint-hostname>
-                  - name: LISTENING_PORT
-                    value: "8081"
-                  - name: IDENTITY_TYPE
-                    value: userAssigned
-                  - name: AAD_CLIENT_ID
-                    value: <clientId>
-                  - name: AAD_TOKEN_REFRESH_INTERVAL_IN_PERCENTAGE
-                    value: "10"
-                  - name: OTEL_GRPC_ENDPOINT
-                    value: <YOUR-OTEL-GRPC-ENDPOINT> # "otel-collector.observability.svc.cluster.local:4317"
-                  - name: OTEL_SERVICE_NAME
-                    value: <YOUE-SERVICE-NAME>
-                  livenessProbe:
-                    httpGet:
-                      path: /health
-                      port: auth-port
-                    initialDelaySeconds: 5
-                    timeoutSeconds: 5
-                  readinessProbe:
-                    httpGet:
-                      path: /ready
-                      port: auth-port
-                    initialDelaySeconds: 5
-                    timeoutSeconds: 5
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-        name: azuremonitor-ingestion
-        namespace: observability
-    spec:
-        ports:
-            - port: 80
-              targetPort: 8081
-        selector:
-            app: azuremonitor-ingestion
-    ```  
+      [!INCLUDE [prometheus-auth-proxy-yaml](../includes/prometheus-authorization-proxy-ingestion-yaml.md)]
 
 
  1. Deploy the proxy using commands:
@@ -375,7 +309,7 @@ A successful query returns a response similar to the following:
 
 | Image Parameter | Helm chart Parameter name | Description | Supported values | Mandatory |
 | --------- | --------- | --------------- | --------- | --------- |
-|  `TARGET_HOST` | `targetHost` | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Data collection rule` from the workspaces Overview page| | Yes |
+|  `TARGET_HOST` | `targetHost` | Target host where you want to forward the request to. <br>When sending data to an Azure Monitor workspace, use the `Metrics ingestion endpoint` from the workspaces Overview page. <br> When reading data from an Azure Monitor workspace, use the `Query endpoint` from the workspaces Overview page| | Yes |
 |  `IDENTITY_TYPE` | `identityType` | Identity type that is used to authenticate requests. This proxy supports three types of identities. | `systemassigned`, `userassigned`, `aadapplication` | Yes |
 | `AAD_CLIENT_ID` | `aadClientId` | Client ID of the identity used. This is used for `userassigned` and `aadapplication` identity types. Use `az aks show -g <AKS-CLUSTER-RESOURCE-GROUP> -n <AKS-CLUSTER-NAME> --query "identityProfile"` to retrieve the Client ID | | Yes for `userassigned` and `aadapplication` |
 | `AAD_TENANT_ID` | `aadTenantId` | Tenant ID  of the identity used. Tenant ID is used for `aadapplication` identity types. | | Yes for `aadapplication` |

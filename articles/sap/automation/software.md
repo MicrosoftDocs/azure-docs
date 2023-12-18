@@ -1,6 +1,6 @@
 ---
-title: Download SAP software for automation framework
-description: Download the SAP software to your Azure environment using Ansible playbooks to use the SAP on Azure Deployment Automation Framework.
+title: Download SAP software for the automation framework
+description: Download the SAP software to your Azure environment by using Ansible playbooks to use SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -13,14 +13,14 @@ ms.custom: devx-track-ansible
 
 # Download SAP software
 
-You need a copy of the SAP software before you can use [the SAP on Azure Deployment Automation Framework](deployment-framework.md). [Prepare your Azure environment](#configure-key-vault) so you can put the SAP media in your storage account. Then, [download the SAP software using Ansible playbooks](#download-sap-software).
+You need a copy of the SAP software before you can use [SAP Deployment Automation Framework](deployment-framework.md). [Prepare your Azure environment](#configure-a-key-vault) so that you can put the SAP media in your storage account. Then, [download the SAP software by using Ansible playbooks](#download-sap-software).
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP user account (SAP-User or S-User account) with software download privileges.
 
-## Configure key vault
+## Configure a key vault
 
 First, configure your deployer key vault secrets. For this example configuration, the resource group is `DEMO-EUS2-DEP00-INFRASTRUCTURE` or `DEMO-SCUS-DEP00-INFRASTRUCTURE`.
 
@@ -46,7 +46,7 @@ First, configure your deployer key vault secrets. For this example configuration
     az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
     ```
 
-1. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not.
+1. Two other secrets are needed in this step for the storage account. The automation framework automatically sets up `sapbits`. It's always a good practice to verify whether they existed in your deployer key vault or not.
 
     ```text
     sapbits-access-key
@@ -55,13 +55,13 @@ First, configure your deployer key vault secrets. For this example configuration
 
 ## Download SAP software
 
-Next, [configure your SAP parameters file](#configure-parameters-file) for the download process. Then, [download the SAP software using Ansible playbooks](#download-sap-software). 
+Next, [configure your SAP parameters file](#configure-the-parameters-file) for the download process. Then, [download the SAP software by using Ansible playbooks](#download-sap-software).
 
-### Configure parameters file
+### Configure the parameters file
 
-Configure the SAP parameters file:
+To configure the SAP parameters file:
 
-1. Create a new directory called `BOMS`:
+1. Create a new directory called `BOMS`.
 
     ```bash
     mkdir -p ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS; cd $_
@@ -90,11 +90,11 @@ Configure the SAP parameters file:
 
     1. Change the value of `kv_name` to the name of the deployer key vault.
    
-    1. (If needed) Change the value of `secret_prefix` to match the prefix in your environment (for example DEV-WEEU-SAP)
-   
-### Execute Ansible playbooks
+    1. (If needed) Change the value of `secret_prefix` to match the prefix in your environment (for example, `DEV-WEEU-SAP`).
 
-Then, execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu:
+### Run the Ansible playbooks
+
+You're ready to run the Ansible playbooks. One way you can run the playbooks is to use the validator test menu.
 
 1. Run the download menu script:
 
@@ -102,7 +102,7 @@ Then, execute the Ansible playbooks. One way you can execute the playbooks is to
     ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
     ```
 
-1. Select the playbook to execute. For example:
+1. Select the playbook to run. For example:
     
     ```text
     1) BoM Downloader
@@ -110,7 +110,7 @@ Then, execute the Ansible playbooks. One way you can execute the playbooks is to
     Please select playbook: 
     ```
 
-Another option is to execute the Ansible playbooks using the command `ansible-playbook`. 
+Another option is to run the Ansible playbooks by using the `ansible-playbook` command.
 
 ```bash
 ansible-playbook                                                                                   \
@@ -119,7 +119,7 @@ ansible-playbook                                                                
   ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
 ```
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Deploy the SAP Infrastructure](deploy-system.md)
+> [Deploy the SAP infrastructure](deploy-system.md)

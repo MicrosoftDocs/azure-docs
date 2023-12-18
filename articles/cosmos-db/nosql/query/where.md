@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 07/31/2023
+ms.date: 09/21/2023
 ms.custom: query-reference
 ---
 
@@ -66,7 +66,7 @@ In this final example, a property reference to a boolean property is used as the
   | **Comparison** | ``=``, ``!=``, ``<``, ``>``, ``<=``, ``>=``, ``<>`` |
   | **String** |  ``||`` *(concatenate)* |
 
-## Next steps
+## Related content
 
 - [``SELECT`` clause](select.md)
 - [``FROM`` clause](from.md)

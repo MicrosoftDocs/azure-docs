@@ -1,6 +1,6 @@
 ---
-title: Upgrading the SAP on Azure Deployment Automation Framework
-description: Overview of how to update the SAP on Azure Deployment Automation Framework.
+title: Upgrade SAP Deployment Automation Framework
+description: Learn how to update SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,25 +11,23 @@ ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
 ---
 
-# Upgrading the SAP on Azure Deployment Automation Framework
+# Upgrade SAP Deployment Automation Framework
 
-The SAP on Azure Deployment Automation Framework is updated regularly. This article describes how to update the framework.
+SAP Deployment Automation Framework is updated regularly. This article describes how to update the framework.
 
 ## Prerequisites
 
-Before upgrading the framework, make sure that you have backed up the following files:
+Before you upgrade the framework, make sure that you back up the remote state files from the `tfstate` storage account in the SAP library.
 
-- The remote state files from the 'tfstate' Storage account in the SAP Library.
+## Upgrade the pipelines
 
-## Upgrading the pipelines.
+You can upgrade the pipeline definitions by running the `Upgrade Pipelines` pipeline.
 
-You can upgrade the pipeline definitions by running the 'Upgrade Pipelines' pipeline.
+### Create the Upgrade Pipelines pipeline manually
 
-### Creating the 'Upgrade pipelines' pipeline manually
+If you don't have the `Upgrade Pipelines` pipeline, you can create it manually.
 
-If you don't have the 'Upgrade Pipelines' pipeline, you can create it manually by following these steps:
-
-Go to the pipelines folder in your repository and create the pipeline definition by choosing file from the New menu, name the file '21-update-pipelines.yml' and paste the following content into the file.
+Go to the pipelines folder in your repository and create the pipeline definition by selecting the file from the **New** menu. Name the file `21-update-pipelines.yml` and paste the following content into the file.
 
 ```yaml
 ---
@@ -141,27 +139,27 @@ Go to the pipelines folder in your repository and create the pipeline definition
 
 ```
 
-Commit the changes to save the file to the repository, and then create the pipeline in Azure DevOps.
+Commit the changes to save the file to the repository and create the pipeline in Azure DevOps.
 
-Create the 'Upgrade Pipelines' pipeline by choosing _New Pipeline_ from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipelines YAML File. Specify the pipeline with the following settings:
+Create the `Upgrade Pipelines`pipeline by selecting **New Pipeline** from the **Pipelines** section. Select `Azure Repos Git` as the source for your code. Configure your pipeline to use an existing Azure Pipelines YAML file. Specify the pipeline with the following settings.
 
 | Setting | Value                                        |
 | ------- | -------------------------------------------- |
-| Branch  | main                                         |
+| Branch  | Main                                         |
 | Path    | `deploy/pipelines/21-update-pipelines.yml`   |
 | Name    | Upgrade pipelines                            |
 
-Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Upgrade pipelines' by choosing 'Rename/Move' from the three-dot menu on the right.
+Save the pipeline. To see the **Save** option, select the chevron next to **Run**. Go to the **Pipelines** section and select the pipeline. Rename the pipeline to `Upgrade pipelines` by selecting **Rename/Move** from the ellipsis menu on the right.
 
 Run the pipeline to upgrade all pipeline definitions.
 
-## Upgrading the control plane.
+## Upgrade the control plane
 
-The control plane is the first component to be upgraded. You can upgrade the control plane by rerunning the 'Deploy Control Plane' pipeline or by rerunning the deploy_controlplane.sh script.
+The control plane is the first component you need to upgrade. To upgrade the control plane, rerun the `Deploy Control Plane` pipeline or rerun the `deploy_controlplane.sh` script.
 
-### Upgrading to version 3.8.1
+### Upgrade to version 3.8.1
 
-Run the following commands before performing the upgrade of the Control plane.
+Run the following commands before you perform the upgrade of the control plane.
 
 ```azurecli
 
@@ -178,7 +176,7 @@ The script removes the old deployer configuration and allows the new configurati
 
 ### Private DNS considerations
 
-If using Private DNS Zones from the control plane, run the following command before performing the upgrade.
+If you're using Private DNS zones from the control plane, run the following command before you perform the upgrade.
 
 ```azurecli
 
@@ -188,21 +186,19 @@ az network private-dns zone create --name privatelink.vaultcore.azure.net --reso
 
 ### Agent sign-in
 
-You can also configure the DevOps agent to perform the sign-in to Azure using the service principal by adding the following variable to the variable group used by the control plane pipeline, typically 'SDAF-MGMT'.
+You can also configure the Azure DevOps agent to perform the sign-in to Azure by using the service principal. Add the following variable to the variable group that's used by the control plane pipeline, which is typically `SDAF-MGMT`.
 
 | Name             | Value                                        |
 | ---------------- | -------------------------------------------- |
-| Logon_Using_SPN  | true                                         |
+| Logon_Using_SPN  | True                                         |
 
+## Upgrade the workload zone
 
-## Upgrading the workload zone.
+The workload zone is the second component you need to upgrade. To upgrade the control plane, rerun the `SAP Workload Zone deployment` pipeline or rerun the `install_workloadzone.sh` script.
 
-The workload zone is the second component to be upgraded. You can upgrade the control plane by rerunning the 'SAP Workload Zone deployment' pipeline or by rerunning the install_workloadzone.sh script.
+### Upgrade to version 3.8.1
 
-### Upgrading to version 3.8.1
-
-
-Prepare for the upgrade by first retrieving the private DNS zone resource ID and the key vault private endpoint name by running the following commands.
+Prepare for the upgrade by first retrieving the Private DNS zone resource ID and the key vault private endpoint name by running the following commands:
 
 ```azurecli
 
@@ -212,8 +208,7 @@ az network private-endpoint list  --resource-group <WorkloadZoneResourceGroup> -
 
 ```
 
-
-If you're using private endpoints, run the following command before performing the upgrade to update the DNS settings for the private endpoint. Replace the 'privateDNSzoneResourceId' and 'keyvaultEndpointName' placeholders with the values retrieved in the previous step.
+If you're using private endpoints, run the following command before you perform the upgrade to update the DNS settings for the private endpoint. Replace the `privateDNSzoneResourceId` and `keyvaultEndpointName` placeholders with the values retrieved in the previous step.
 
 ```azurecli
 
@@ -223,16 +218,13 @@ az network private-endpoint dns-zone-group create --resource-group <WorkloadZone
 
 ### Agent sign-in for workload zone and system deployments
 
-
-You can also configure the DevOps agent to perform the sign in to Azure using the service principal by adding the following variable to the variable group used by the control plane pipeline, typically 'SDAF-DEV'.
+You can also configure the Azure DevOps agent to perform the sign-in to Azure by using the service principal. Add the following variable to the variable group that's used by the control plane pipeline, which is typically `SDAF-DEV`.
 
 | Name             | Value                                        |
 | ---------------- | -------------------------------------------- |
-| Logon_Using_SPN  | true                                         |
-
-
+| Logon_Using_SPN  | True                                         |
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure the Control plane](configure-control-plane.md)
+> [Configure the control plane](configure-control-plane.md)

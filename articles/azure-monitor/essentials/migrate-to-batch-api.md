@@ -11,7 +11,7 @@ ms.author: edbaynash
 ---
 # How to migrate from the metrics API to the getBatch API
 
-Heavy use of the [metrics API](https://learn.microsoft.com/rest/api/monitor/metrics/list?tabs=HTTP) can result in throttling or performance problems. Migrating to the [metrics:getBatch](https://learn.microsoft.com/rest/api/monitor/metrics-data-plane/batch?tabs=HTTP) API allows you to query multiple resources in a single REST request. The two APIs share a common set of query parameter and response formats that make migration easy.
+Heavy use of the [metrics API](/rest/api/monitor/metrics/list?tabs=HTTP) can result in throttling or performance problems. Migrating to the [metrics:getBatch](/rest/api/monitor/metrics-batch/batch?tabs=HTTP) API allows you to query multiple resources in a single REST request. The two APIs share a common set of query parameter and response formats that make migration easy.
 
 ## Request format 
  The metrics:getBatch API request has the following format:
@@ -47,7 +47,7 @@ Consider the following restrictions on which resources can be batched together w
 - All resources in a batch must be in the same Azure region.
 - All resources in a batch must be the same resource type.
 
-To help identify groups of resources that meet these criteria, run the following Azure Resource Graph query using the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade), or via the [Azure Resource Manager Resources query API](https://learn.microsoft.com/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources?tabs=HTTP).
+To help identify groups of resources that meet these criteria, run the following Azure Resource Graph query using the [Azure Resource Graph Explorer](https://portal.azure.com/#view/HubsExtension/ArgQueryBlade), or via the [Azure Resource Manager Resources query API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources?tabs=HTTP).
 
 ```
     resources
@@ -74,7 +74,7 @@ GET https://management.azure.com/subscriptions/12345678-1234-1234-1234-123456789
     from `/subscriptions/12345678-1234-1234-1234-123456789abc/resourceGroups/sample-test/providers/Microsoft.Storage/storageAccounts/testaccount/providers/microsoft.Insights/metrics`  
      to `/subscriptions/12345678-1234-1234-1234-123456789abc/metrics:getBatch`
 
-1. The `metricNamespace` query param is required for metrics:getBatch. For Azure standard metrics, the namespace name is usually the resource type of the resources you've specified. To check the namespace value to use, see the [metrics namespaces API](https://learn.microsoft.com/rest/api/monitor/metric-namespaces/list?tabs=HTTP)
+1. The `metricNamespace` query param is required for metrics:getBatch. For Azure standard metrics, the namespace name is usually the resource type of the resources you've specified. To check the namespace value to use, see the [metrics namespaces API](/rest/api/monitor/metric-namespaces/list?tabs=HTTP)
 1. Update the api-version query parameter as follows: `&api-version=2023-03-01-preview`
 1. The filter query param isn't prefixed with a `$` in the metrics:getBatch API. Change the query param from `$filter=` to `filter=`.
 1.  The metrics:getBatch API is a POST call with a body that contains a comma-separated list of resourceIds in the following format:
@@ -618,7 +618,7 @@ How the top parameter works in the context of the batch API can be a little conf
 
 ### 401 authorization errors
 
-The individual metrics API requires a user have the [Monitoring Reader](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) permission on the resource being queried. Because the metrics:getBatch API is a subscription level API, users must have the Monitoring Reader permission for the queried subscription to use the batch API. Even if users have Monitoring Reader on all the resources being queried in the batch API, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
+The individual metrics API requires a user have the [Monitoring Reader](/azure/role-based-access-control/built-in-roles#monitoring-reader) permission on the resource being queried. Because the metrics:getBatch API is a subscription level API, users must have the Monitoring Reader permission for the queried subscription to use the batch API. Even if users have Monitoring Reader on all the resources being queried in the batch API, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
 
 ### 529 throttling errors
 

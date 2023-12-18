@@ -55,10 +55,12 @@ This table summarizes the `host.json` values that are used for the _target execu
 | Service Bus (Functions v2.x+, Single Dispatch)                 | extensions.serviceBus.messageHandlerOptions.maxConcurrentCalls    |       16      |
 | Service Bus (Functions v2.x+, Single Dispatch Sessions Based)  | extensions.serviceBus.sessionHandlerOptions.maxConcurrentSessions |       2000    |
 | Service Bus (Functions v2.x+, Batch Processing)                | extensions.serviceBus.batchOptions.maxMessageCount                |       1000    |
-| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       10      |
+| Event Hubs (Extension v5.x+)                                   | extensions.eventHubs.maxEventBatchSize                            |       100<sup>1</sup>      |
 | Event Hubs (Extension v3.x+)                                   | extensions.eventHubs.eventProcessorOptions.maxBatchSize           |       10      |
 | Event Hubs (if defined)                                        | extensions.eventHubs.targetUnprocessedEventThreshold              |       n/a     |
 | Storage Queue                                                  | extensions.queues.batchSize                                       |       16      |
+
+<sup>1</sup> The default `maxEventBatchSize` changed in [v6.0.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/6.0.0) of the `Microsoft.Azure.WebJobs.Extensions.EventHubs` package. In earlier versions, this was 10.
 
 For Azure Cosmos DB _target executions per instance_ is set in the function attribute:
 
@@ -229,7 +231,7 @@ Modify the `host.json` setting `maxEventBatchSize` to set _target executions per
     "version": "2.0",
     "extensions": {
         "eventHubs": {
-            "maxEventBatchSize" : 10
+            "maxEventBatchSize" : 100
         }
     }
 }
@@ -242,7 +244,7 @@ When defined in `host.json`, `targetUnprocessedEventThreshold` is used as _targe
     "version": "2.0",
     "extensions": {
         "eventHubs": {
-            "targetUnprocessedEventThreshold": 23
+            "targetUnprocessedEventThreshold": 153
         }
     }
 }

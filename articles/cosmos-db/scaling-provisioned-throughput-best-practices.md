@@ -113,7 +113,7 @@ In general, if you have a starting number of physical partitions `P`, and want t
 Increase your RU/s to: `10,000 * P * (2 ^ (ROUNDUP(LOG_2 (S/(10,000 * P))))`. This gives the closest RU/s to the desired value that will ensure all partitions are split evenly. 
 
 > [!NOTE]
-> When you increase the RU/s of a database or container, this can impact the minimum RU/s you can lower to in the future. Typically, the minimum RU/s is equal to MAX(400 RU/s, Current storage in GB * 10 RU/s, Highest RU/s ever provisioned / 100). For example, if the highest RU/s you've ever scaled to is 100,000 RU/s, the lowest RU/s you can set in the future is 1000 RU/s. Learn more about [minimum RU/s](concepts-limits.md#minimum-throughput-limits).
+> When you increase the RU/s of a database or container, this can impact the minimum RU/s you can lower to in the future. Typically, the minimum RU/s is equal to MAX(400 RU/s, Current storage in GB * 1 RU/s, Highest RU/s ever provisioned / 100). For example, if the highest RU/s you've ever scaled to is 100,000 RU/s, the lowest RU/s you can set in the future is 1000 RU/s. Learn more about [minimum RU/s](concepts-limits.md#minimum-throughput-limits).
 
 #### Step 2: Lower your RU/s to the desired RU/s
  

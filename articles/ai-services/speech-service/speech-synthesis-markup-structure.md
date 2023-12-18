@@ -2,11 +2,9 @@
 title: Speech Synthesis Markup Language (SSML) document structure and events - Speech service
 titleSuffix: Azure AI services
 description: Learn about the Speech Synthesis Markup Language (SSML) document structure.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: how-to
 ms.date: 11/30/2022
 ms.author: eur
@@ -38,6 +36,7 @@ Here's a subset of the basic structure and syntax of an SSML document:
         <lexicon uri="string"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML"></math>
         <mstts:audioduration value="string"/>
+        <mstts:ttsembedding speakerProfileId="string"></mstts:ttsembedding>
         <mstts:express-as style="string" styledegree="value" role="string"></mstts:express-as>
         <mstts:silence type="string" value="string"/>
         <mstts:viseme type="string"/>
@@ -61,6 +60,7 @@ Some examples of contents that are allowed in each element are described in the 
 - `math`: This element can only contain text and MathML elements.
 - `mstts:audioduration`: This element can't contain text or any other elements.
 - `mstts:backgroundaudio`: This element can't contain text or any other elements.
+- `mstts:embedding`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `mstts:express-as`: This element can contain text and the following elements: `audio`, `break`, `emphasis`, `lang`, `phoneme`, `prosody`, `say-as`, and `sub`.
 - `mstts:silence`: This element can't contain text or any other elements.
 - `mstts:viseme`: This element can't contain text or any other elements.
@@ -109,7 +109,7 @@ Here's the syntax for the `speak` element:
 | `xml:lang` | The language of the root document. The value can contain a language code such as `en` (English), or a locale such as `en-US` (English - United States). | Required |
 | `xmlns` | The URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is "http://www.w3.org/2001/10/synthesis". | Required |
 
-The `speak` element must contain at least one [voice element](speech-synthesis-markup-voice.md#voice-element).
+The `speak` element must contain at least one [voice element](speech-synthesis-markup-voice.md#use-voice-elements).
 
 ### speak examples
 

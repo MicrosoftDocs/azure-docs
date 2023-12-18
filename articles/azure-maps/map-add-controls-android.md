@@ -1,8 +1,8 @@
 ---
 title: Add controls to an Android map | Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps Android SDK.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps

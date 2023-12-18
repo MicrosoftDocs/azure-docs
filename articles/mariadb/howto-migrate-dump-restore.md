@@ -12,6 +12,8 @@ ms.date: 04/19/2023
 
 # Migrate your MariaDB database to an Azure database for MariaDB by using dump and restore
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 This article explains two common ways to back up and restore databases in your Azure database for MariaDB:
 
 - Dump and restore by using a command-line tool (using mysqldump).

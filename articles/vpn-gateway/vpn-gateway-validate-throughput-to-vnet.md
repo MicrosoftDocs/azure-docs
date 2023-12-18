@@ -39,7 +39,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 1. Determine your Azure VPN gateway throughput limits. For help, see the "Gateway SKUs" section of [About VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 1. Determine the [Azure VM throughput guidance](../virtual-machines/sizes.md) for your VM size.
 1. Determine your Internet Service Provider (ISP) bandwidth.
-1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8).
+1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8). This calculation gives you Megabytes-per-second. 
 
 If your calculated throughput does not meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/resize-vm.md). If you are not experiencing the expected Internet bandwidth, you may also contact your ISP.
 
@@ -48,9 +48,9 @@ If your calculated throughput does not meet your application's baseline throughp
 
 ## Validate network throughput by using performance tools
 
-This validation should be performed during non-peak hours, as VPN tunnel throughput saturation during testing does not give accurate results.
+This validation should be performed during nonpeak hours, as VPN tunnel throughput saturation during testing does not give accurate results.
 
-The tool we use for this test is iPerf, which works on both Windows and Linux and has both client and server modes. It is limited to 3Gbps for Windows VMs.
+The tool we use for this test is iPerf, which works on both Windows and Linux and has both client and server modes. It is limited to 3 Gbps for Windows VMs.
 
 This tool does not perform any read/write operations to disk. It solely produces self-generated TCP traffic from one end to the other. It generates statistics based on experimentation that measures the bandwidth available between client and server nodes. When testing between two nodes, one node acts as the server, and the other node acts as a client. Once this test is completed, we recommend that you reverse the roles of the nodes to test both upload and download throughput on both nodes.
 
@@ -79,7 +79,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
    ```
 
-   **Azure Linux:** Azure Linux images have permissive firewalls. If there is an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
+   **Azure Linux:** Azure Linux images have permissive firewalls. If there's an application listening on a port, the traffic is allowed through. Custom images that are secured may need ports opened explicitly. Common Linux OS-layer firewalls include `iptables`, `ufw`, or `firewalld`.
 
 1. On the server node, change to the directory where iperf3.exe is extracted. Then run iPerf in server mode, and set it to listen on port 5001 as the following commands:
 
@@ -98,7 +98,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
    iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
    ```
 
-   The client is directing thirty seconds of traffic on port 5001, to the server. The flag '-P ' indicates that we are making 32 simultaneous connections to the server node.
+   The client is directing 30 seconds of traffic on port 5001, to the server. The flag '-P ' indicates that we're making 32 simultaneous connections to the server node.
 
    The following screen shows the output from this example:
 
@@ -213,13 +213,13 @@ Make install is fast
 > Make sure there are no intermediate hops (e.g. Virtual Appliance) during the throughput testing in between the VM and Gateway.
 > If there are poor results (in terms of overall throughput) coming from the iPERF/NTTTCP tests above, please refer to [this article](../virtual-network/virtual-network-tcpip-performance-tuning.md) to understand the key factors behind the possible root causes of the problem: 
 
-In particular, analysis of packet capture traces (Wireshark/Network Monitor) collected in parallel from client and server during those tests will help in the assessments of bad performance. These traces can include packet loss, high latency, MTU size. fragmentation, TCP 0 Window, Out of Order fragments, and so on.
+In particular, analysis of packet capture traces (Wireshark/Network Monitor) collected in parallel from client and server during those tests help in the assessments of bad performance. These traces can include packet loss, high latency, MTU size. fragmentation, TCP 0 Window, Out of Order fragments, and so on.
 
 ## Address slow file copy issues
 
 Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/etc..) was good, you may experience slow file coping when either using Windows Explorer, or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
 
-* File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.
+* File copy applications, such as Windows Explorer and RDP, don't use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.
 
    ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -237,7 +237,7 @@ Mentioned the subnets of on-premises ranges that you would like Azure to reach v
 
 * **Policy Based Gateway**: Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
 
-* **UsePolicyBasedTrafficSelector** connections: ("UsePolicyBasedTrafficSelectors" to $True on a connection will configure the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to and from the Azure virtual network prefixes, instead of any-to-any.
+* **UsePolicyBasedTrafficSelector** connections: ("UsePolicyBasedTrafficSelectors" to $True on a connection configures the Azure VPN gateway to connect to policy-based VPN firewall on premises. If you enable PolicyBasedTrafficSelectors, you need to ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to and from the Azure virtual network prefixes, instead of any-to-any.
 
 Inappropriate configuration may lead to frequent disconnects within the tunnel, packet drops, bad throughput, and latency.
 

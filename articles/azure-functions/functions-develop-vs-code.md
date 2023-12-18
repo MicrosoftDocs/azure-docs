@@ -1,10 +1,17 @@
 ---
-title: Develop Azure Functions by using Visual Studio Code 
+title: Develop Azure Functions by using Visual Studio Code
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
 ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devdivchpfy22, vscode-azure-extension-update-complete
-ms.date: 06/19/2022
+ms.custom:
+  - devdivchpfy22
+  - vscode-azure-extension-update-complete
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - ignite-2023
+ms.date: 11/14/2023
+zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
 
@@ -18,21 +25,36 @@ The Azure Functions extension provides these benefits:
 * Publish your Azure Functions project directly to Azure.
 * Write your functions in various languages while taking advantage of the benefits of Visual Studio Code.
 
-The extension can be used with the following languages, which are supported by the Azure Functions runtime starting with version 2.x:
+::: zone pivot="programming-language-csharp"
+>You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+ 
+If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-csharp.md).
+::: zone-end
+::: zone pivot="programming-language-java"
+>You're viewing the Java version of this article. Make sure to select your preferred Functions programming language at the top of the article.
 
-* [C# compiled](functions-dotnet-class-library.md)
-* [C# script](functions-reference-csharp.md)<sup>*</sup>
-* [JavaScript](functions-reference-node.md?tabs=javascript)
-* [Java](functions-reference-java.md)
-* [PowerShell](functions-reference-powershell.md)
-* [Python](functions-reference-python.md)
-* [TypeScript](functions-reference-node.md?tabs=typescript)
-
-<sup>*</sup>Requires that you [set C# script as your default project language](#c-script-projects).
-
-In this article, examples are currently available only for JavaScript (Node.js) and C# class library functions.  
-
-This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [create your first function by using Visual Studio Code](./create-first-function-vs-code-csharp.md).
+If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-java.md).
+::: zone-end
+::: zone pivot="programming-language-javascript"
+>You're viewing the JavaScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+ 
+If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-node.md).
+::: zone-end
+::: zone pivot="programming-language-powershell"
+>You're viewing the PowerShell version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+ 
+If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-powershell.md).
+::: zone-end
+::: zone pivot="programming-language-python"
+>You're viewing the Python version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+ 
+If you want to get started right away, complete the [Visual Studio Code quickstart article](create-first-function-vs-code-python.md).
+::: zone-end
+::: zone pivot="programming-language-typescript"
+>You're viewing the TypeScript version of this article. Make sure to select your preferred Functions programming language at the top of the article.
+ 
+If you want to get started right away, complete the [Visual Studio Code quickstart article](./create-first-function-vs-code-typescript.md).
+::: zone-end
 
 > [!IMPORTANT]
 > Don't mix local development and portal development for a single function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
@@ -49,51 +71,35 @@ This article provides details about how to use the Azure Functions extension to 
 
 These prerequisites are only required to [run and debug your functions locally](#run-functions-locally). They aren't required to create or publish projects to Azure Functions.
 
-# [C\#](#tab/csharp)
++ The [Azure Functions Core Tools](functions-run-local.md), which enables an integrated local debugging experience. When using the Azure Functions extension, the easiest way to install Core Tools is by running the `Azure Functions: Install or Update Azure Functions Core Tools` command from the command pallet.    
+::: zone pivot="programming-language-csharp"    
++ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
 
-* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
++ [.NET (CLI)](/dotnet/core/tools/), which is included in the .NET SDK.
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
 
-* The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
++ [Java](/azure/developer/java/fundamentals/java-support-on-azure), one of the [supported versions](functions-reference-java.md#java-versions).
 
-* [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).  
++ [Maven 3 or later](https://maven.apache.org/).
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
++ [Node.js](https://nodejs.org/), one of the [supported versions](functions-reference-node.md#node-version). Use the `node --version` command to check your version.
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-# [Java](#tab/java)
++ [.NET 6.0 runtime](https://dotnet.microsoft.com/download).
 
-* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#python-version).
 
-* [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
++ [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
-* [Java](/azure/developer/java/fundamentals/java-support-on-azure), one of the [supported versions](functions-reference-java.md#java-versions).
-
-* [Maven 3 or later](https://maven.apache.org/).
-
-# [JavaScript](#tab/nodejs)
-
-* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools includes the entire Azure Functions runtime, so download and installation might take some time.
-
-* [Node.js](https://nodejs.org/), one of the [supported versions](functions-reference-node.md#node-version). Use the `node --version` command to check your version.
-
-# [PowerShell](#tab/powershell)
-
-* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
-
-* [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
-
-* [.NET 6.0 runtime](https://dotnet.microsoft.com/download).
-
-* The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
-
-# [Python](#tab/python)
-
-* The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 2.x or later. The Core Tools package is downloaded and installed automatically when you start the project locally. Core Tools include the entire Azure Functions runtime, so download and installation might take some time.
-
-* [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#python-version).
-
-* [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
-
-[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
-
----
+::: zone-end  
 
 ## Create an Azure Functions project
 
@@ -125,8 +131,6 @@ The Functions extension lets you create a function app project, along with your 
 
 1. A function is created in your chosen language and in the template for an HTTP-triggered function.
 
-    :::image type="content" source="./media/functions-develop-vs-code/new-function-created.png" alt-text="Screenshot for H T T P-triggered function template in Visual Studio Code.":::
-
 ### Generated project files
 
 The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
@@ -140,182 +144,163 @@ The project template creates a project in your chosen language and installs requ
 
 Depending on your language, these other files are created:
 
-# [C\#](#tab/csharp)
+::: zone pivot="programming-language-csharp"  
+An HttpExample.cs class library file, the contents of which vary depending on whether your project runs in an [isolated worker process](dotnet-isolated-process-guide.md#net-isolated-worker-model-project) or [in-process](functions-dotnet-class-library.md#functions-class-library-project) with the Functions host.
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.
 
-* [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
++ A [Functions.java file](functions-reference-java.md#triggers-and-annotations) in your src path that implements the function.
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript" 
+Files generated depend on the chosen Node.js programming model for Functions:
+### [v3](#tab/node-v3)
++ A package.json file in the root folder.
 
-# [Java](#tab/java)
++  An HttpExample folder that contains: 
 
-* A pom.xml file in the root folder that defines the project and deployment parameters, including project dependencies and the [Java version](functions-reference-java.md#java-versions). The pom.xml also contains information about the Azure resources that are created during a deployment.
+    + The [function.json definition file](functions-reference-node.md#folder-structure)
+    + An [index.js file](functions-reference-node.md#exporting-a-function), which contains the function code.
 
-* A [Functions.java file](functions-reference-java.md#triggers-and-annotations) in your src path that implements the function.
+### [v4](#tab/node-v4)
 
-# [JavaScript](#tab/nodejs)
++ A package.json file in the root folder.
 
-* A package.json file in the root folder.
-
-* An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
-
-# [PowerShell](#tab/powershell)
-
-* An HttpExample folder that contains the [function.json definition file](functions-reference-powershell.md#folder-structure) and the run.ps1 file, which contains the function code.
-
-# [Python](#tab/python)
-
-* A project-level requirements.txt file that lists packages required by Functions.
-
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#folder-structure) and the \_\_init\_\_.py file, which contains the function code.
++ A named .js file in the _src\functions_ folder, which contains both the function definition and your function code.
 
 ---
 
-At this point, you can [add input and output bindings](#add-input-and-output-bindings) to your function.
-You can also [add a new function to your project](#add-a-function-to-your-project).
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+An HttpExample folder that contains:
 
-## Install binding extensions
++ The [function.json definition file](functions-reference-powershell.md#folder-structure)
++ A run.ps1 file, which contains the function code.
 
-Except for HTTP and timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that need them. The process for installing binding extensions depends on your project's language.
+::: zone-end  
+::: zone pivot="programming-language-python"  
+Files generated depend on the chosen Python programming model for Functions:
+ 
+### [v2](#tab/python-v2)
 
-# [C\#](#tab/csharp)
++ A project-level requirements.txt file that lists packages required by Functions.
 
-Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following example demonstrates how you add a binding for an [in-process class library](functions-dotnet-class-library.md):
++ A function_app.py file that contains both the function definition and code.
 
-```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
-```
+### [v1](#tab/python-v1)
 
-The following example demonstrates how you add a binding for an [isolated-process class library](dotnet-isolated-process-guide.md):
++ A project-level requirements.txt file that lists packages required by Functions.
 
-```terminal
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
-```
-
-In either case, replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
-
-Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
-
-# [Java](#tab/java)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-# [JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-# [PowerShell](#tab/powershell)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-# [Python](#tab/python)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
++ An HttpExample folder that contains:
+    + The [function.json definition file](functions-reference-python.md#folder-structure)
+    + An \_\_init\_\_.py file, which contains the function code.
 
 ---
+
+::: zone-end  
+
+At this point, you can do one of these tasks:
+
++ [Add input or output bindings to an existing function](#add-input-and-output-bindings).
++ [Add a new function to your project](#add-a-function-to-your-project).
++ [Run your functions locally](#run-functions-locally).
++ [Publish your project to Azure](#publish-to-azure).
 
 ## Add a function to your project
 
 You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
 
-The results of this action depend on your project's language:
+::: zone pivot="programming-language-csharp"  
+The results of this action are that a new C# class library (.cs) file is added to your project.
+::: zone-end
+::: zone pivot="programming-language-java"
+The results of this action are that a new Java (.java) file is added to your project.
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+The results of this action depend on the Node.js model version.
 
-# [C\#](#tab/csharp)
-
-A new C# class library (.cs) file is added to your project.
-
-# [Java](#tab/java)
-
-A new Java (.java) file is added to your project.
-
-# [JavaScript](#tab/nodejs)
+### [v3](#tab/node-v3)
 
 A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
 
-# [PowerShell](#tab/powershell)
+### [v4](#tab/node-v4)
 
-A new folder is created in the project. The folder contains a new function.json file and the new PowerShell code file.
++ A package.json file in the root folder.
 
-# [Python](#tab/python)
-
-The results depend on the Python programming model. For more information, see the [Azure Functions Python developer guide](./functions-reference-python.md). 
-
-**Python v1**: A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
-
-**Python v2**: New function code is added either to the default function_app.py file or to another Python file you selected. 
++ A named .js file in the _src\functions_ folder, which contains both the function definition and your function code.
 
 ---
+::: zone-end
+::: zone pivot="programming-language-powershell"
+The results of this action are that a new folder is created in the project. The folder contains a new function.json file and the new PowerShell code file.
+::: zone-end
+::: zone pivot="programming-language-python"
+The results of this action depend on the Python model version.
+
+### [v2](#tab/python-v2)
+
+New function code is added either to the function_app.py file (the default behavior) or to another Python file you selected. 
+
+### [v1](#tab/python-v1)
+
+A new folder is created in the project. The folder contains a new function.json file and the new Python code file.
+
+---
+::: zone-end
 
 ## <a name="add-input-and-output-bindings"></a>Connect to services
 
-You can connect your function to other Azure services by adding input and output bindings. Bindings connect your function to other services without you having to write the connection code. The process for adding bindings depends on your project's language. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+You can connect your function to other Azure services by adding input and output bindings. Bindings connect your function to other services without you having to write the connection code. 
 
-The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
+::: zone pivot="programming-language-csharp"  
+For example, the way you define an output binding that writes data to a storage queue depends on your process model:
 
-# [C\#](#tab/csharp)
+### [Isolated process](#tab/isolated-process)
 
-Update the function method to add the following parameter to the `Run` method definition:
+Update the function method to add a binding parameter defined by using the `QueueOutput` attribute. You can use a `MultiResponse` object to return multiple messages or multiple output streams. 
 
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
+### [In-process](#tab/in-process)
 
-The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. The following code adds a message to the collection:
-
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="30-31":::
-
- Messages are sent to the queue when the function completes.
-
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=csharp) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=csharp).
-
-# [Java](#tab/java)
-
-Update the function method to add the following parameter to the `Run` method definition:
-
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="20-21":::
-
-The `msg` parameter is an `OutputBinding<T>` type, where `T` is a string that is written to an output binding when the function completes. The following code sets the message in the output binding:
-
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="33-34":::
-
-This message is sent to the queue when the function completes.
-
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=java) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=java).
-
-# [JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
-
-In your function code, the `msg` binding is accessed from the `context`, as in this example:
-
-:::code language="javascript" range="5-7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
-
-This message is sent to the queue when the function completes.
-
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=javascript) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=javascript).
-
-# [PowerShell](#tab/powershell)
-
-[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
-
-:::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
-
-This message is sent to the queue when the function completes.
-
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=powershell) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=powershell).
-
-# [Python](#tab/python)
-
-[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
-
-Update the `Main` definition to add an output parameter `msg: func.Out[func.QueueMessage]` so that the definition looks like the following example:
-
-:::code language="python" range="6" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
-
-The following code adds string data from the request to the output queue:
-
-:::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
-
-This message is sent to the queue when the function completes.
-
-To learn more, see the [Queue storage output binding reference article](functions-bindings-storage-queue-output.md?tabs=python) documentation. To learn more in general about which bindings can be added to a function, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md?tabs=python).
+Update the function method to add a binding parameter defined by using the `Queue` attribute. You can use an `ICollector<T>` type to represent a collection of messages.
 
 ---
+
+::: zone-end
+::: zone pivot="programming-language-java"
+For example, to add an output binding that writes data to a storage queue you update the function method to add a binding parameter defined by using the [`QueueOutput`](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation. The [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) object represents the messages that are written to an output binding when the function completes.
+::: zone-end
+::: zone pivot="programming-language-javascript"
+For example, the way you define the output binding that writes data to a storage queue depends on your Node.js model version:
+
+### [v3](#tab/node-v3)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+### [v4](#tab/node-v4)
+
+Using the Node.js v4 model, you must manually add a `return:` option in the function definition using the `storageQueue` function on the `output` object, which defines the storage queue to write the `return` output. Output is written when the function completes. 
+
+--- 
+
+::: zone-end
+::: zone pivot="programming-language-powershell"
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+::: zone-end
+::: zone pivot="programming-language-python"
+For example, the way you define the output binding that writes data to a storage queue depends on your Python model version:
+
+### [v2](#tab/python-v2)
+
+The `@queue_output` decorator on the function is used to define a named binding parameter for the output to the storage queue, where `func.Out` defines what output is written. 
+
+### [v1](#tab/python-v1)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+--- 
+
+::: zone-end
+[!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-languages.md)]
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -323,7 +308,7 @@ To learn more, see the [Queue storage output binding reference article](function
 
 Before you can publish your Functions project to Azure, you must have a function app and related resources in your Azure subscription to run your code. The function app provides an execution context for your functions. When you publish to a function app in Azure from Visual Studio Code, the project is packaged and deployed to the selected function app in your Azure subscription.
 
-When you create a function app in Azure, you can choose either a quick function app create path using defaults or an advanced path. This way you'll have more control over the remote resources created.
+When you create a function app in Azure, you can choose either a quick function app create path using defaults or an advanced path. This way you have more control over the remote resources created.
 
 ### Quick function app create
 
@@ -426,7 +411,7 @@ When the project is running, you can use the **Execute Function Now...** feature
 
 1. When the function runs locally and after the response is received, a notification is raised in Visual Studio Code. Information about the function execution is shown in **Terminal** panel.
 
-Running functions locally doesn't require using keys.
+Keys aren't required when running locally, which applies to both function keys and admin-level keys.
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -434,14 +419,28 @@ By default, these settings aren't migrated automatically when the project is pub
 
 Values in **ConnectionStrings** are never published.
 
-The function application settings values can also be read in your code as environment variables. For more information, see the Environment variables sections of these language-specific reference articles:
+::: zone pivot="programming-language-csharp"  
+### [Isolated process](#tab/isolated-process)
+The function application settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
-* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
-* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-* [Java](functions-reference-java.md#environment-variables)
-* [JavaScript](functions-reference-node.md#environment-variables)
-* [PowerShell](functions-reference-powershell.md#environment-variables)
-* [Python](functions-reference-python.md#environment-variables)
+### [In-process](#tab/in-process)
+The function application settings values can also be read in your code as environment variables as with any ASP.NET Core app. 
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-java"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-java.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-node.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-powershell"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-powershell.md#environment-variables).
+::: zone-end
+::: zone pivot="programming-language-python"
++ The function app settings values can also be read in your code as environment variables. For more information, see [Environment variables](functions-reference-python.md#environment-variables).
+::: zone-end
 
 ## Application settings in Azure
 
@@ -470,6 +469,45 @@ If you've created application settings in Azure, you can download them into your
 
 As with uploading, if the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed.
 
+## Install binding extensions
+
+Except for HTTP and timer triggers, bindings are implemented in extension packages. 
+
+::: zone pivot="programming-language-csharp"  
+You must explicitly install the extension packages for the triggers and bindings that need them. The specific package you install depends on your project's process model.
+
+### [Isolated process](#tab/isolated-process)
+
+Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. This template demonstrates how you add a binding for an [isolated-process class library](dotnet-isolated-process-guide.md):
+
+```terminal
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
+```
+
+### [In-process](#tab/in-process)
+
+Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. This template demonstrates how you add a binding for an [in-process class library](functions-dotnet-class-library.md):
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
+```
+
+---
+
+Replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
+
+Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to the current  Functions runtime are specified in the reference article for the binding.
+
+C# script uses [extension bundles](functions-bindings-register.md#extension-bundles).
+
+::: zone-end  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+If for some reason you can't use an extension bundle to install binding extensions for your project, see [Explicitly install extensions](functions-bindings-register.md#explicitly-install-extensions).
+::: zone-end  
+
+
 ## Monitoring functions
 
 When you [run functions locally](#run-functions-locally), log data is streamed to the Terminal console. You can also get log data when your Functions project is running in a function app in Azure. You can connect to streaming logs in Azure to see near-real-time log data. You should enable Application Insights for a more complete understanding of how your function app is behaving.
@@ -480,20 +518,13 @@ When you're developing an application, it's often useful to see logging informat
 
 :::image type="content" source="media/functions-develop-vs-code/streaming-logs-vscode-console.png" alt-text="Screenshot for streaming logs output for H T T P trigger.":::
 
-To learn more, see [Streaming logs](functions-monitoring.md#streaming-logs).
-
-[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
-
-> [!NOTE]
-> Streaming logs support only a single instance of the Functions host. When your function is scaled to multiple instances, data from other instances isn't shown in the log stream. [Live Metrics Stream](../azure-monitor/app/live-stream.md) in Application Insights does support multiple instances. While also in near-real time, streaming analytics is based on [sampled data](configure-monitoring.md#configure-sampling).
+To learn more, see [Streaming logs](functions-monitoring.md?tabs=vs-code#streaming-logs).
 
 ### Application Insights
 
-We recommend that you monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
+You should monitor the execution of your functions by integrating your function app with Application Insights. When you create a function app in the Azure portal, this integration occurs by default. When you create your function app during Visual Studio publishing, you need to integrate Application Insights yourself. To learn how, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 To learn more about monitoring using Application Insights, see [Monitor Azure Functions](functions-monitoring.md).
-
-[!INCLUDE [functions-x86-emulation-on-arm64](../../includes/functions-x86-emulation-on-arm64.md)]
 
 ### Enable emulation in Visual Studio Code
 
@@ -514,6 +545,8 @@ Now that you've configured the Terminal with Rosetta to run x86 emulation for Py
 
     ![Screenshot of starting a new Rosetta terminal in Visual Studio Code.](./media/functions-develop-vs-code/vs-code-rosetta.png)
 
+
+::: zone pivot="programming-language-csharp" 
 ## C\# script projects
 
 By default, all C# projects are created as [C# compiled class library projects](functions-dotnet-class-library.md). If you prefer to work with C# script projects instead, you must select C# script as the default language in the Azure Functions extension settings:
@@ -525,6 +558,7 @@ By default, all C# projects are created as [C# compiled class library projects](
 1. Select **C#Script** from **Azure Function: Project Language**.
 
 After you complete these steps, calls made to the underlying Core Tools include the `--csx` option, which generates and publishes C# script (.csx) project files. When you have this default language specified, all projects that you create default to C# script projects. You're not prompted to choose a project language when a default is set. To create projects in other languages, you must change this setting or remove it from the user settings.json file. After you remove this setting, you're again prompted to choose your language when you create a project.
+::: zone-end
 
 ## Command palette reference
 
@@ -545,7 +579,7 @@ The Azure Functions extension provides a useful graphical interface in the area 
 | **Disconnect from Repo**  | Removes the [continuous deployment](functions-continuous-deployment.md) connection between a function app in Azure and a source control repository. |
 | **Download Remote Settings** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Be sure to save changes to your local.settings.json file before you run this command. |
 | **Edit settings** | Changes the value of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file.  |
-| **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings). In this file, `IsEncrypted` is also set to `true`, which specifies that the local runtime will decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
+| **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings). In this file, `IsEncrypted` is also set to `true`, which specifies that the local runtime decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
 | **Execute Function Now** | Manually starts a function using admin APIs. This command is used for testing, both locally during debugging and against functions running in Azure. When a function in Azure starts, the extension first automatically obtains an admin key, which it uses to call the remote admin APIs that start functions in Azure. The body of the message sent to the API depends on the type of trigger. Timer triggers don't require you to pass any data. |
 | **Initialize Project for Use with VS Code** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project that you created by using Core Tools. |
 | **Install or Update Azure Functions Core Tools** | Installs or updates [Azure Functions Core Tools], which is used to run functions locally. |

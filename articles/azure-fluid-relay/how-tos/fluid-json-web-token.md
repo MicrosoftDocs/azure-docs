@@ -1,9 +1,6 @@
 ---
 title: Azure Fluid Relay token contract
 description: Better understand the JSON Web Token used in Azure Fluid Relay
-services: azure-fluid
-author: hickeys
-ms.author: hickeys
 ms.date: 10/05/2021
 ms.topic: reference
 ms.service: azure-fluid

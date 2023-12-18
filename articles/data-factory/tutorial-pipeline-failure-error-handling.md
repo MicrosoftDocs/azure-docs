@@ -7,7 +7,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: tutorial
-ms.date: 01/09/2023
+ms.date: 10/20/2023
 ---
 
 # Errors and Conditional execution
@@ -202,7 +202,7 @@ You can add multiple activities for error handling.
 
 
 
-## Next steps
+## Related content
 
 [Data Factory metrics and alerts](monitor-metrics-alerts.md)
 

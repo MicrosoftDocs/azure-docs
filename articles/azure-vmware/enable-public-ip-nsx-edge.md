@@ -3,7 +3,7 @@ title: Enable Public IP on the NSX-T Data Center Edge for Azure VMware Solution
 description: This article shows how to enable internet access for your Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 7/6/2023
+ms.date: 12/13/2023
 ms.custom: engagement-fy23
 ---
 
@@ -17,7 +17,7 @@ In this article, you'll learn how to enable Public IP on the NSX-T Data Center E
 Public IP on the NSX-T Data Center Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment.
 
 >[!IMPORTANT]
->The use of Public IPv4 addresses can be consumed directly in Azure VMware Solution and charged based on the Public IPv4 prefix shown on [Pricing - Virtual Machine IP Address Options.](https://azure.microsoft.com/pricing/details/ip-addresses/).
+>The use of Public IPv4 addresses can be consumed directly in Azure VMware Solution and charged based on the Public IPv4 prefix shown on [Pricing - Virtual Machine IP Address Options.](https://azure.microsoft.com/pricing/details/ip-addresses/). There are no data ingress or egress charges related to this service.
 
 The Public IP is configured in Azure VMware Solution through the Azure portal and the NSX-T Data Center interface within your Azure VMware Solution private cloud.
 
@@ -40,7 +40,7 @@ With this capability, you have the following features:
 ## Reference architecture
 
 The architecture shows internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX-T Data Center Edge.
-:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-expanded.png":::
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 >[!IMPORTANT]
 >The use of Public IP down to the NSX-T Data Center Edge is not compatible with reverse DNS Lookup. This includes not being able to support hosting a mail server in Azure VMware Solution.

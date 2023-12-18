@@ -26,7 +26,7 @@ If you use [Microsoft Defender for Cloud](../../security-center/index.yml), you'
 ![Microsoft Defender for Cloud disk encryption alert](../media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
+> - If you have previously used Azure Disk Encryption with Microsoft Entra ID to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Microsoft Entra ID (previous release)](disk-encryption-overview-aad.md) for details. 
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 > - Do not use BitLocker to manually decrypt a VM or disk that was encrypted through Azure Disk Encryption.
 
@@ -38,7 +38,7 @@ You can learn the fundamentals of Azure Disk Encryption for Windows in just a fe
 
 Windows VMs are available in a [range of sizes](../sizes-general.md). Azure Disk Encryption is supported on Generation 1 and Generation 2 VMs. Azure Disk Encryption is also available for VMs with premium storage.
 
-Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.  For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.  For more exceptions, see [Azure Disk Encryption: Restrictions](disk-encryption-windows.md#restrictions).
 
 ### Supported operating systems
 
@@ -55,7 +55,7 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 
 ## Networking requirements
 To enable Azure Disk Encryption, the VMs must meet the following network endpoint configuration requirements:
-  - To get a token to connect to your key vault, the Windows VM must be able to connect to an Azure Active Directory endpoint, \[login.microsoftonline.com\].
+  - To get a token to connect to your key vault, the Windows VM must be able to connect to a Microsoft Entra endpoint, \[login.microsoftonline.com\].
   - To write the encryption keys to your key vault, the Windows VM must be able to connect to the key vault endpoint.
   - The Windows VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
   -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).    
@@ -80,6 +80,7 @@ Azure Disk Encryption requires an Azure Key Vault to control and manage disk enc
 For details, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
 
 ## Terminology
+
 The following table defines some of the common terms used in Azure disk encryption documentation:
 
 | Terminology | Definition |

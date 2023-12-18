@@ -76,8 +76,7 @@ Finally, do you want to try it yourself? The Microsoft Sentinel All-In-One Accel
 
 Thousands of organizations and service providers are using Microsoft Sentinel. As is usual with security products, most organizations don't go public about it. Still, here are a few who have:
 
-* Find [public customer use cases](https://customers.microsoft.com/home).
-* [Insight](https://www.insightcdct.com/) released a use case about [an NBA team adopts Microsoft Sentinel](https://www.insightcdct.com/Resources/Case-Studies/Case-Studies/NBA-Team-Adopts-Azure-Sentinel-for-a-Modern-Securi).
+* Find [public customer use cases](https://customers.microsoft.com/).
 * Stuart Gregg, Security Operations Manager at ASOS, posted a much more detailed [blog post from the Microsoft Sentinel experience, focusing on hunting](https://medium.com/@stuart.gregg/proactive-phishing-with-azure-sentinel-part-1-b570fff3113).
  
 
@@ -92,9 +91,9 @@ Many organizations use Microsoft Sentinel as their primary SIEM. Most of the mod
 
 #### As part of the Microsoft Security stack
 
-Use Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft 365 Defender together to protect your Microsoft workloads, including Windows, Azure, and Office:
+Use Microsoft Sentinel, Microsoft Defender for Cloud, and Microsoft Defender XDR together to protect your Microsoft workloads, including Windows, Azure, and Office:
 
-* Read more about [our comprehensive SIEM+XDR solution combining Microsoft Sentinel and Microsoft 365 Defender](https://techcommunity.microsoft.com/t5/azure-sentinel/whats-new-azure-sentinel-and-microsoft-365-defender-incident/ba-p/2191090).
+* Read more about [our comprehensive SIEM+XDR solution combining Microsoft Sentinel and Microsoft Defender XDR](https://techcommunity.microsoft.com/t5/azure-sentinel/whats-new-azure-sentinel-and-microsoft-365-defender-incident/ba-p/2191090).
 * Read [The Azure Security compass](https://aka.ms/azuresecuritycompass) (now Microsoft Security Best Practices) to understand the Microsoft blueprint for your security operations.
 * Read and watch how such a setup helps detect and respond to a WebShell attack: [blog](https://techcommunity.microsoft.com/t5/azure-sentinel/analysing-web-shell-attacks-with-azure-defender-data-in-azure/ba-p/1724130) or [video demo](https://techcommunity.microsoft.com/t5/video-hub/webshell-attack-deep-dive/m-p/1698964).
 * View the Better Together webinar ["OT and IOT attack detection, investigation, and response."](https://youtu.be/S8DlZmzYO2s)
@@ -504,7 +503,7 @@ Another relevant solution area is *protecting remote work*. View our [Ignite ses
 
 * [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/monitoring-zoom-with-azure-sentinel/ba-p/1341516): custom connectors, analytic rules, and hunting queries.
 
-* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](../virtual-desktop/diagnostics-log-analytics.md): use Windows Security Events, Azure Active Directory (Azure AD) sign-in logs, Microsoft 365 Defender for Endpoints, and Azure Virtual Desktop diagnostics logs to detect and hunt for Azure Virtual Desktop threats.
+* [Monitoring Azure Virtual Desktop with Microsoft Sentinel](../virtual-desktop/diagnostics-log-analytics.md): use Windows Security Events, Microsoft Entra sign-in logs, Microsoft Defender XDR for Endpoints, and Azure Virtual Desktop diagnostics logs to detect and hunt for Azure Virtual Desktop threats.
 
 * [Monitor Microsoft Intune](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/secure-working-from-home-deep-insights-at-enrolled-mem-assets/ba-p/1424255) using queries and workbooks.
 

@@ -2,11 +2,10 @@
 title: Best practices for using the Multivariate Anomaly Detector API
 titleSuffix: Azure AI services
 description: Best practices for using the Anomaly Detector Multivariate API's to apply anomaly detection to your time series data.
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: anomaly-detector
+ms.service: azure-ai-anomaly-detector
 ms.topic: best-practice
 ms.date: 06/07/2022
 ms.custom: cogserv-non-critical-anomaly-detector
@@ -15,6 +14,8 @@ keywords: anomaly detection, machine learning, algorithms
 ---
 
 # Best practices for using the Multivariate Anomaly Detector API
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 This article provides guidance around recommended practices to follow when using the multivariate Anomaly Detector (MVAD) APIs. 
 In this tutorial, you'll:

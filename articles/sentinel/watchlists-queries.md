@@ -99,7 +99,7 @@ To use watchlists in analytics rules, create a rule using the _GetWatchlist('wat
 
 1. Complete the rest of the tabs in the **Analytics rule wizard**.
 
-For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
+Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md#query-scheduling-and-alert-threshold).
 
 ## View list of watchlist aliases
 

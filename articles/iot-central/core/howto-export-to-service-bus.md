@@ -116,6 +116,8 @@ To create the Service Bus destination in IoT Central on the **Data export** page
 
 1. Select **Save**.
 
+If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshoot-data-export.md).
+
 ---
 
 [!INCLUDE [iot-central-data-export-setup](../../../includes/iot-central-data-export-setup.md)]

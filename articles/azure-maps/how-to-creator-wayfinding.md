@@ -39,7 +39,7 @@ To create a routeset:
 1. Execute the following **HTTP POST request**:
 
     ```http
-    https://us.atlas.microsoft.com/routesets?api-version=2022-09-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets?api-version=2023-03-01-preview&datasetID={datasetId}&subscription-key={Your-Azure-Maps-Subscription-key} 
     
     ```
 
@@ -54,7 +54,7 @@ To check the status of the routeset creation process and retrieve the routesetId
 1. Execute the following **HTTP GET request**:
 
     ```http
-    https://us.atlas.microsoft.com/routesets/operations/{operationId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets/operations/{operationId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
  
     ```
 
@@ -63,7 +63,7 @@ To check the status of the routeset creation process and retrieve the routesetId
 
 1. Copy the value of the **Resource-Location** key from the responses header. It's the resource location URL and contains the `routesetId`:
 
-   > https://us.atlas.microsoft.com/routesets/**675ce646-f405-03be-302e-0d22bcfe17e8**?api-version=2022-09-01-preview
+   > https://us.atlas.microsoft.com/routesets/**675ce646-f405-03be-302e-0d22bcfe17e8**?api-version=2023-03-01-preview
 
 Make a note of the `routesetId`. It's required in all [wayfinding](#get-a-wayfinding-path) requests and when you [Get the facility ID].
 
@@ -74,7 +74,7 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 1. Execute the following **HTTP GET request**:
 
     ```http
-    https://us.atlas.microsoft.com/routesets/{routesetId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+    https://us.atlas.microsoft.com/routesets/{routesetId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
  
     ```
 
@@ -108,7 +108,7 @@ To create a wayfinding query:
 1. Execute the following **HTTP GET request** (replace {routesetId} with the routesetId obtained in the [Check the routeset creation status] section and the {facilityId} with the facilityId obtained in the [Get the facility ID] section):
 
     ```http
-    https://us.atlas.microsoft.com/wayfinding/path?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}&routesetid={routeset-ID}&facilityid={facility-ID}&fromPoint={lat,lon}&fromLevel={from-level}&toPoint={lat,lon}&toLevel={to-level}&minWidth={minimun-width}
+    https://us.atlas.microsoft.com/wayfinding/path?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}&routesetid={routeset-ID}&facilityid={facility-ID}&fromPoint={lat,lon}&fromLevel={from-level}&toPoint={lat,lon}&toLevel={to-level}&minWidth={minimun-width}
     ```
 
     > [!TIP]
@@ -135,5 +135,5 @@ The wayfinding service calculates the path through specific intervening points. 
 [wayfinding service]: creator-indoor-maps.md#wayfinding-preview
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 <!---------   REST API Links     --------------->
-[routeset]: /rest/api/maps/v20220901preview/routeset
-[wayfinding API]: /rest/api/maps/v20220901preview/wayfinding
+[routeset]: /rest/api/maps/2023-03-01-preview/routeset
+[wayfinding API]: /rest/api/maps/2023-03-01-preview/wayfinding

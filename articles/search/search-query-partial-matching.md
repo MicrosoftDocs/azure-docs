@@ -1,12 +1,14 @@
 ---
 title: Partial terms, patterns, and special characters
-titleSuffix: Azure Cognitive Search
-description: Use wildcard, regex, and prefix queries to match on whole or partial terms in an Azure Cognitive Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
+titleSuffix: Azure AI Search
+description: Use wildcard, regex, and prefix queries to match on whole or partial terms in an Azure AI Search query request. Hard-to-match patterns that include special characters can be resolved using full query syntax and custom analyzers.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 03/22/2023
 ---
@@ -25,7 +27,7 @@ If you need to support search scenarios that call for analyzed and non-analyzed 
 
 ## About partial term search
 
-Azure Cognitive Search scans for whole tokenized terms in the index and won't find a match on a partial term unless you include wildcard placeholder operators (`*` and `?`) , or format the query as a regular expression. 
+Azure AI Search scans for whole tokenized terms in the index and won't find a match on a partial term unless you include wildcard placeholder operators (`*` and `?`) , or format the query as a regular expression. 
 
 Partial terms are specified using these techniques:
 
@@ -294,6 +296,6 @@ This article explains how analyzers both contribute to query problems and solve 
 
 + [Tutorial: Create a custom analyzer for phone numbers](tutorial-create-custom-analyzer.md)
 + [Language analyzers](search-language-support.md)
-+ [Analyzers for text processing in Azure Cognitive Search](search-analyzers.md)
++ [Analyzers for text processing in Azure AI Search](search-analyzers.md)
 + [Analyze Text API (REST)](/rest/api/searchservice/test-analyzer)
 + [How full text search works (query architecture)](search-lucene-query-architecture.md)

@@ -102,11 +102,12 @@ The workspace and all its data are brought back after the recovery operation. Ho
 1. In the Azure portal, select **All services**. In the list of resources, enter **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**. You see the list of workspaces you have in the selected scope.
 1. Select **Open recycle bin** on the top left menu to open a page with workspaces in a soft-delete state that can be recovered.
 
-   ![Screenshot that shows the Log Analytics workspaces screen and Open recycle bin on the menu bar.](media/delete-workspace/recover-menu.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/delete-workspace/recover-menu.png" lightbox="media/delete-workspace/recover-menu.png" alt-text="Screenshot that shows the Log Analytics workspaces screen and Open recycle bin on the menu bar." border="false":::
 
 1. Select the workspace. Then select **Recover** to recover the workspace.
-
-   ![Screenshot that shows the Recycle bin with a workspace and the Recover button.](media/delete-workspace/recover-workspace.png)
+   <!-- convertborder later -->
+   :::image type="content" source="media/delete-workspace/recover-workspace.png" lightbox="media/delete-workspace/recover-workspace.png" alt-text="Screenshot that shows the Recycle bin with a workspace and the Recover button." border="false":::
 
 ### [REST API](#tab/rest-api)
 

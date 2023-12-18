@@ -2,8 +2,8 @@
 title: View Azure Monitor Agent Health
 description: Experience to view agent health at scale and troubleshoot issues related to data collection via agents
 ms.topic: conceptual
-author: shseth
-ms.author: shseth
+author: guywi-ms
+ms.author: guywild
 ms.date: 7/25/2023
 ms.custom:
 ms.reviewer: shseth

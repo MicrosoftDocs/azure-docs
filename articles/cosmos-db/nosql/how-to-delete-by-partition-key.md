@@ -99,7 +99,10 @@ For certain scenarios, the effects of a delete by partition key operation isn't 
 
 - Aggregate queries that use the index - for example, COUNT queries - that are issued during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
 - Queries issued against the [analytical store](../analytical-store-introduction.md) during an ongoing delete by partition key operation may contain the results of the documents to be deleted. This may occur until the delete operation is fully complete.
-- [Continuous backup (point in time restore)](../continuous-backup-restore-introduction.md) - a restore that is triggered during an ongoing delete by partition key operation may contain the results of the documents to be deleted in the restored collection. It isn't recommended to use this preview feature if you have a scenario that requires continuous backup. 
+- [Continuous backup (point in time restore)](../continuous-backup-restore-introduction.md) - a restore that is triggered during an ongoing delete by partition key operation may contain the results of the documents to be deleted in the restored collection. It isn't recommended to use this preview feature if you have a scenario that requires continuous backup.
+
+### Limitations
+- [Hierarchical partition keys](../hierarchical-partition-keys.md) deletion is not supported. This feature permits the deletion of items solely based on the last level of partition keys. For example, consider a scenario where a partition key consists of three hierarchical levels: country, state, and city. In this context, the delete by partition keys functionality can be employed effectively by specifying the complete partition key, encompassing all levels, namely country/state/city. Attempting to delete using intermediate partition keys, such as country/state or solely country, will result in an error.
 
 ## How to give feedback or report an issue/bug
 * Email cosmosPkDeleteFeedbk@microsoft.com with questions or feedback.

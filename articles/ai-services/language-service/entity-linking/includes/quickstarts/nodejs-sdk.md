@@ -3,8 +3,7 @@ title: "Quickstart: Entity Linking client library for Node.js | Microsoft Docs"
 description: Get started with the Entity Linking client library for Node.js.
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
 ms.date: 02/17/2023
 ms.author: aahi

@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 06/27/2023
+ms.date: 12/15/2023
 ms.topic: conceptual
 ms.author: davidsmatlak
 author: davidsmatlak
@@ -34,26 +34,26 @@ properties from related resource types. Here's the list of tables available in R
 
 |Resource Graph table |Can `join` other tables? |Description |
 |---|---|---|
-|Resources |Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
-|ResourceContainers |Yes |Includes management group (`Microsoft.Management/managementGroups`), subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
-|AdvisorResources |Yes (preview) |Includes resources _related_ to `Microsoft.Advisor`. |
-|AlertsManagementResources |Yes (preview) |Includes resources _related_ to `Microsoft.AlertsManagement`. |
-|DesktopVirtualizationResources |Yes |Includes resources _related_ to `Microsoft.DesktopVirtualization`. |
-|ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
-|GuestConfigurationResources |No |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
-|HealthResources|Yes (preview) |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
-|IoTSecurityResources |No |Includes resources _related_ to `Microsoft.IoTSecurity`. |
-|KubernetesConfigurationResources |No |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
-|MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |
-|PatchAssessmentResources|No |Includes resources _related_ to Azure Virtual Machines patch assessment. |
-|PatchInstallationResources|No |Includes resources _related_ to Azure Virtual Machines patch installation. |
-|PolicyResources |Yes |Includes resources _related_ to `Microsoft.PolicyInsights`. |
-|RecoveryServicesResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
-|SecurityResources |Yes (preview) |Includes resources _related_ to `Microsoft.Security`. |
-|ServiceHealthResources |No (preview) |Includes resources _related_ to `Microsoft.ResourceHealth/events`. |
-|WorkloadMonitorResources |No |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
+|Resources | Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
+|ResourceContainers | Yes |Includes management group (`Microsoft.Management/managementGroups`), subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|AdvisorResources | Yes |Includes resources _related_ to `Microsoft.Advisor`. |
+|AlertsManagementResources | Yes |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|DesktopVirtualizationResources | Yes |Includes resources _related_ to `Microsoft.DesktopVirtualization`. |
+|ExtendedLocationResources | Yes |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
+|GuestConfigurationResources | Yes |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
+|HealthResources| Yes |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
+|IoTSecurityResources | Yes |Includes resources _related_ to `Microsoft.IoTSecurity`. |
+|KubernetesConfigurationResources | Yes |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
+|MaintenanceResources | Yes |Includes resources _related_ to `Microsoft.Maintenance`. |
+|PatchAssessmentResources| Yes |Includes resources _related_ to Azure Virtual Machines patch assessment. |
+|PatchInstallationResources| Yes |Includes resources _related_ to Azure Virtual Machines patch installation. |
+|PolicyResources | Yes |Includes resources _related_ to `Microsoft.PolicyInsights`. |
+|RecoveryServicesResources | Yes |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
+|SecurityResources | Yes |Includes resources _related_ to `Microsoft.Security`. |
+|ServiceHealthResources | Yes |Includes resources _related_ to `Microsoft.ResourceHealth/events`. |
+|WorkloadMonitorResources | Yes |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
 
-For a complete list, including resource types, see [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
+For a complete list, including resource types, go to [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Resources_ is the default table. While querying the _Resources_ table, it isn't required to
@@ -101,7 +101,7 @@ Resources
 As a _preview_ feature, some of the resource types in Resource Graph have more type-related
 properties available to query beyond the properties provided by Azure Resource Manager. This set of
 values, known as _extended properties_, exists on a supported resource type in
-`properties.extended`. To see which resource types have _extended properties_, use the following
+`properties.extended`. To show which resource types have _extended properties_, use the following
 query:
 
 ```kusto
@@ -159,8 +159,7 @@ Resource Graph supports a subset of KQL [data types](/azure/data-explorer/kusto/
 [scalar functions](/azure/data-explorer/kusto/query/scalarfunctions),
 [scalar operators](/azure/data-explorer/kusto/query/binoperators), and
 [aggregation functions](/azure/data-explorer/kusto/query/any-aggfunction). Specific
-[tabular operators](/azure/data-explorer/kusto/query/queries) are supported by Resource Graph, some of which have
-different behaviors.
+[tabular operators](/azure/data-explorer/kusto/query/queries) are supported by Resource Graph, some of which have different behaviors.
 
 ### Supported tabular/top level operators
 
@@ -171,7 +170,7 @@ Here's the list of KQL tabular operators supported by Resource Graph with specif
 |[count](/azure/data-explorer/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
 |[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
-|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Limit of 3 `join` in a single query, 1 of which may be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then 3 cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, see [Resource Graph tables](#resource-graph-tables). |
+|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join). Limit of three `join` in a single query, one of which might be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
 |[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
 |[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. Limit of 2 `mv-expand` in a single query.|
@@ -183,12 +182,12 @@ Here's the list of KQL tabular operators supported by Resource Graph with specif
 |[summarize](/azure/data-explorer/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Simplified first page only |
 |[take](/azure/data-explorer/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[top](/azure/data-explorer/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
-|[union](/azure/data-explorer/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limit of 3 `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
+|[union](/azure/data-explorer/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: ```| union [kind= inner|outer] [withsource=ColumnName] Table```. Limit of three `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. Might be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
 |[where](/azure/data-explorer/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
 
-There's a default limit of 3 `join` and 3 `mv-expand` operators in a single Resource Graph SDK query. You can request an increase in these limits for your tenant through **Help + support**.
+There's a default limit of three `join` and three `mv-expand` operators in a single Resource Graph SDK query. You can request an increase in these limits for your tenant through **Help + support**.
 
-To support the "Open Query" portal experience, Azure Resource Graph Explorer has a higher global limit than Resource Graph SDK.
+To support the _Open Query_ portal experience, Azure Resource Graph Explorer has a higher global limit than Resource Graph SDK.
 
 ## Query scope
 
@@ -201,7 +200,7 @@ resources.
 The list of subscriptions or management groups to query can be manually defined to change the scope
 of the results. For example, the REST API `managementGroups` property takes the management group ID,
 which is different from the name of the management group. When `managementGroups` is specified,
-resources from the first 5,000 subscriptions in or under the specified management group hierarchy
+resources from the first 10,000 subscriptions in or under the specified management group hierarchy
 are included. `managementGroups` can't be used at the same time as `subscriptions`.
 
 Example: Query all resources within the hierarchy of the management group named `My Management
@@ -217,17 +216,17 @@ Group` with ID `myMG`.
 
   ```json
   {
-      "query": "Resources | summarize count()",
-      "managementGroups": ["myMG"]
+    "query": "Resources | summarize count()",
+    "managementGroups": ["myMG"]
   }
   ```
 
-The `AuthorizationScopeFilter` parameter enables you to list Azure Policy assignments and Azure RBAC role assignments in the `AuthorizationResources` table that are inherited from upper scopes. The `AuthorizationScopeFilter` parameter accepts the following values for the `PolicyResources` and `AuthorizationResources` tables:
+The `AuthorizationScopeFilter` parameter enables you to list Azure Policy assignments and Azure role-based access control (Azure RBAC) role assignments in the `AuthorizationResources` table that are inherited from upper scopes. The `AuthorizationScopeFilter` parameter accepts the following values for the `PolicyResources` and `AuthorizationResources` tables:
 
-- **AtScopeAndBelow** (default if not specified): Returns assignments for the given scope and all child scopes
-- **AtScopeAndAbove**: Returns assignments for the given scope and all parent scopes, but not child scopes
-- **AtScopeAboveAndBelow**: Returns assignments for the given scope, all parent scopes and all child scopes
-- **AtScopeExact**: Returns assignments  only for the given scope; no parent or child scopes are included
+- **AtScopeAndBelow** (default if not specified): Returns assignments for the given scope and all child scopes.
+- **AtScopeAndAbove**: Returns assignments for the given scope and all parent scopes, but not child scopes.
+- **AtScopeAboveAndBelow**: Returns assignments for the given scope, all parent scopes and all child scopes.
+- **AtScopeExact**: Returns assignments  only for the given scope; no parent or child scopes are included.
 
 > [!NOTE]
 > To use the `AuthorizationScopeFilter` parameter, be sure to use the **2021-06-01-preview** or later API version in your requests.
@@ -306,6 +305,5 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
 
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md).
-- See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn more about how to [explore resources](explore-resources.md).
+- Azure Resource graph query language [Starter queries](../samples/starter.md) and [Advanced queries](../samples/advanced.md).
+- Learn more about how to [explore Azure resources](explore-resources.md).

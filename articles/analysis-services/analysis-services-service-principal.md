@@ -11,11 +11,11 @@ ms.reviewer: minewiskan
 
 # Automation with service principals
 
-Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. They're a unique type of *user identity* with an application ID and password or certificate. A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it is assigned. 
+Service principals are a Microsoft Entra application resource you create within your tenant to perform unattended resource and service level operations. They're a unique type of *user identity* with an application ID and password or certificate. A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it is assigned. 
 
-In Analysis Services, service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks. For example, provisioning servers, deploying models, data refresh, scale up/down, and pause/resume can all be automated by using service principals. Permissions are assigned to service principals through role membership, much like regular Azure AD UPN accounts.
+In Analysis Services, service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks. For example, provisioning servers, deploying models, data refresh, scale up/down, and pause/resume can all be automated by using service principals. Permissions are assigned to service principals through role membership, much like regular Microsoft Entra UPN accounts.
 
-Analysis Services does not support operations performed by managed identities using service principals. To learn more, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).    
+Analysis Services does not support operations performed by managed identities using service principals. To learn more, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).    
 
 ## Create service principals
  

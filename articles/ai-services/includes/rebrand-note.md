@@ -1,10 +1,10 @@
 ---
  title: include file
  description: include file
- services: cognitive-services
+ #services: cognitive-services
  author: eur
  ms.author: eric-urban
- ms.service: cognitive-services
+ ms.service: azure-ai-services
  ms.topic: include
  ms.date: 07/18/2023
  ms.custom: include

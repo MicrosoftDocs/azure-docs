@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devguide-python
 
 # Create and manage blob leases with Python
 
+[!INCLUDE [storage-dev-guide-selector-lease-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-lease-blob.md)]
+
 This article shows how to create and manage blob leases using the [Azure Storage client library for Python](/python/api/overview/azure/storage). You can use the client library to acquire, renew, release, and break blob leases.
 
 ## Prerequisites
@@ -43,7 +45,7 @@ You can also acquire a lease on a blob by creating an instance of [BlobClient](/
 
 The following example acquires a 30-second lease for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_acquire_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs.py" id="Snippet_acquire_blob_lease":::
 
 ## Renew a lease
 
@@ -55,7 +57,7 @@ To renew a lease, use the following method:
 
 The following example renews a lease for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_renew_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs.py" id="Snippet_renew_blob_lease":::
 
 ## Release a lease
 
@@ -67,7 +69,7 @@ You can release a lease by using the following method:
 
 The following example releases the lease on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_release_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs.py" id="Snippet_release_blob_lease":::
 
 ## Break a lease
 
@@ -79,7 +81,7 @@ You can break a lease by using the following method:
 
 The following example breaks the lease on a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py" id="Snippet_break_blob_lease":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_blobs.py" id="Snippet_break_blob_lease":::
 
 [!INCLUDE [storage-dev-guide-blob-lease](../../../includes/storage-dev-guides/storage-dev-guide-blob-lease.md)]
 
@@ -95,7 +97,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-blobs.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_blobs.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

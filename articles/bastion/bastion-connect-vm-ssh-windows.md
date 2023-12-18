@@ -5,7 +5,7 @@ description: Learn how to use Azure Bastion to connect to Windows VM using SSH.
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/18/2022
+ms.date: 10/13/2023
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 This article shows you how to securely and seamlessly create an SSH connection to your Windows VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. You can also connect to a Windows VM using RDP. For information, see [Create an RDP connection to a Windows VM](bastion-connect-vm-rdp-windows.md).
 
-Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md).
+Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
 > [!NOTE]
 > If you want to create an SSH connection to a Windows VM, Azure Bastion must be configured using the Standard SKU.
@@ -47,7 +47,7 @@ In order to make a connection, the following roles are required:
 In order to connect to the Windows VM via SSH, you must have the following ports open on your VM:
 
 * Inbound port: SSH (22) *or*
-* Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
+* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion)
 
 See the [Azure Bastion FAQ](bastion-faq.md) for additional requirements.
 
@@ -61,7 +61,7 @@ Currently, Azure Bastion only supports connecting to Windows VMs via SSH using *
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connect.png" alt-text="Screenshot shows the overview for a virtual machine in Azure portal with Connect selected." lightbox="./media/bastion-connect-vm-ssh-windows/connect.png":::
 
-1. On the **Bastion** connection page, click the **Connection Settings** arrow to expand all the available settings. If you are using a Bastion **Standard** SKU, you have more available settings than a Basic SKU.
+1. On the **Bastion** connection page, click the **Connection Settings** arrow to expand all the available settings. Notice that if you're using the Bastion **Standard** SKU, you have more available settings.
 
    :::image type="content" source="./media/bastion-connect-vm-ssh-windows/connection-settings.png" alt-text="Screenshot shows connection settings.":::
 
@@ -129,7 +129,7 @@ Use the following steps to authenticate using a password from Azure Key Vault.
      * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md).
 
        > [!NOTE]
-       > Please store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience will interfere with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](../virtual-machines/extensions/vmaccess.md#update-ssh-key) to update access to your target VM with a new SSH key pair.
+       > Please store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience will interfere with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](../virtual-machines/extensions/vmaccess-linux.md#update-ssh-key) to update access to your target VM with a new SSH key pair.
        >
 
 1. To work with the VM in a new browser tab, select **Open in new browser tab**.
@@ -156,7 +156,7 @@ Use the following steps to authenticate using a private key stored in Azure Key 
      * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md).
 
        > [!NOTE]
-       > Please store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience will interfere with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](../virtual-machines/extensions/vmaccess.md#update-ssh-key) to update access to your target VM with a new SSH key pair.
+       > Please store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience will interfere with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](../virtual-machines/extensions/vmaccess-linux.md#update-ssh-key) to update access to your target VM with a new SSH key pair.
        >
 
    * **Azure Key Vault Secret**: Select the Key Vault secret containing the value of your SSH private key.

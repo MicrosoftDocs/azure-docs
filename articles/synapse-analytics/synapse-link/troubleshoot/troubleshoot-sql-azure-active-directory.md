@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting guide for Azure Synapse Link for Azure SQL Database and Azure Active Directory user impersonation
-description: Learn how to troubleshoot user impersonation issues with Azure Synapse Link for Azure SQL Database and Azure Active Directory 
+title: Troubleshooting guide for Azure Synapse Link for Azure SQL Database and Microsoft Entra user impersonation
+description: Learn how to troubleshoot user impersonation issues with Azure Synapse Link for Azure SQL Database and Microsoft Entra ID 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: imotiwala 
@@ -10,13 +10,13 @@ ms.subservice: synapse-link
 ms.date: 11/09/2022
 ---
 
-# Troubleshoot: Azure Synapse Link for Azure SQL Database and Azure Active Directory user impersonation
+# Troubleshoot: Azure Synapse Link for Azure SQL Database and Microsoft Entra user impersonation
 
-This article is a guide to troubleshoot Azure Synapse Link for Azure SQL Database and Azure Active Directory (Azure AD) user impersonation. This article applies only to databases in Azure SQL Database. 
+This article is a guide to troubleshoot Azure Synapse Link for Azure SQL Database and Microsoft Entra user impersonation. This article applies only to databases in Azure SQL Database. 
 
 ## Symptom
 
-If you create database using a login connected to Microsoft Azure Active Directory and then try to perform Azure Synapse Link database operations signed in with any SQL Authenticated principal, you will receive error messages due to an impersonation failure. The following sample errors are all a symptom of the same problem.
+If you create database using a login connected to Microsoft Entra ID and then try to perform Azure Synapse Link database operations signed in with any SQL Authenticated principal, you will receive error messages due to an impersonation failure. The following sample errors are all a symptom of the same problem.
 
 | Database Operation | Sample Error |
 |:--|:--|
@@ -26,7 +26,7 @@ If you create database using a login connected to Microsoft Azure Active Directo
 
 ## Resolution
 
-Sign in to the Azure SQL Database with an Azure AD database principal. It doesn't have to be the same Azure AD account that created the database. 
+Sign in to the Azure SQL Database with a Microsoft Entra database principal. It doesn't have to be the same Microsoft Entra account that created the database. 
 
 ## See also
 

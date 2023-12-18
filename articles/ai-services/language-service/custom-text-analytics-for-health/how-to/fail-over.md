@@ -2,11 +2,10 @@
 title: Back up and recover your custom Text Analytics for health models
 titleSuffix: Azure AI services
 description: Learn how to save and recover your custom Text Analytics for health models.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: conceptual
 ms.date: 04/14/2023
 ms.author: aahi

@@ -1,8 +1,7 @@
 ---
 title: Network isolation and Private Link -question answering
 description: Users can restrict public access to question answering resources.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback
@@ -44,16 +43,16 @@ Private endpoints are provided by [Azure Private Link](../../../../private-link/
 > [!div class="mx-imgBorder"]
 > ![Text Analytics networking](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
 
-This will establish a private endpoint connection between language resource and Azure Cognitive Search service instance. You can verify the Private endpoint connection on the *Networking* tab of the Azure Cognitive Search service instance. Once the whole operation is completed, you are good to use your language resource with question answering enabled.
+This will establish a private endpoint connection between language resource and Azure AI Search service instance. You can verify the Private endpoint connection on the *Networking* tab of the Azure AI Search service instance. Once the whole operation is completed, you are good to use your language resource with question answering enabled.
 
 ![Managed Networking Service](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
 ## Support details
- * We don't support changes to Azure Cognitive Search service once you enable private access to your language resources. If you change the Azure Cognitive Search service via 'Features' tab after you have enabled private access, the language resource will become unusable.
+ * We don't support changes to Azure AI Search service once you enable private access to your language resources. If you change the Azure AI Search service via 'Features' tab after you have enabled private access, the language resource will become unusable.
 
- * After establishing Private Endpoint Connection, if you switch Azure Cognitive Search Service Networking to 'Public', you won't be able to use the language resource. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work.
+ * After establishing Private Endpoint Connection, if you switch Azure AI Search Service Networking to 'Public', you won't be able to use the language resource. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work.
 
-## Restrict access to Cognitive Search resource
+## Restrict access to Azure AI Search resource
 
 Follow the steps below to restrict public access to question answering language resources. Protect an Azure AI services resource from public access by [configuring the virtual network](../../../cognitive-services-virtual-networks.md?tabs=portal).
 

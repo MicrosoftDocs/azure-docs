@@ -4,7 +4,7 @@ description: Learn about recent changes to the Remote Desktop client for Windows
 ms.topic: release-notes
 author: heidilohr
 ms.author: helohr
-ms.date: 08/01/2023
+ms.date: 11/20/2023
 ---
 
 # What's new in the Remote Desktop client for Windows
@@ -17,14 +17,79 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 1.2.4487       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.4487       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public  | 1.2.4763       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5018       | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.5018 (Insider) 
+
+*Published: November 20, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)
+
+In this release, we've made the following change:
+
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4763
+
+*Published: November 7, 2023*
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+
+In this release, we've made the following changes:
+
+- Added a link to the troubleshooting documentation to error messages to help users resolve minor issues without needing to contact Microsoft Support. 
+- Improved the connection bar user interface (UI). 
+- Fixed an issue that caused the client to stop responding when a user tries to resize the client window during a Teams video call. 
+- Fixed a bug that prevented the client from loading more than 255 workspaces.  
+- Fixed an authentication issue that allowed users to choose a different account whenever the client required more interaction. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.4677
+
+*Published: October 17, 2023*
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KN), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1d1KO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1cRm0)
+
+In this release, we've made the following changes:
+
+- Added new parameters for multiple monitor configuration when connecting to a remote resource using the [Uniform Resource Identifier (URI) scheme](uri-scheme.md).
+- Added support for the following languages: Czech (Czechia), Hungarian (Hungary), Indonesian (Indonesia), Korean (Korea), Portuguese (Portugal), Turkish (Türkiye).
+- Fixed a bug that caused a crash when using Teams Media Optimization. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+>[!NOTE]
+>This Insiders release was originally version 1.2.4675, but we made a hotfix for the vulnerability known as [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217). 
+
+## Updates for version 1.2.4583
+
+*Published: October 6, 2023*
+
+In this release, we've made the following change:
+
+- Fixed the [CVE-2023-5217](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-5217) security vulnerability.
+
+## Updates for version 1.2.4582
+
+*Published: September 19, 2023*
+
+In this release, we've made the following changes:
+
+- Fixed an issue when using the default display settings and a change is made to the system display settings, where the bar does not show when hovering over top of screen after it is hidden.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+- Accessibility improvements:
+   - Narrator now announces the view mode selector as "*View combo box*", instead of "*Tile view combo box*" or "*List view combo box*".
+   - Narrator now focuses on and announces **Learn more** hyperlinks.
+   - Keyboard focus is now set correctly when a warning dialog loads.
+   - Tooltip for the close button on the **About** panel now dismisses when keyboard focus moves.
+   - Keyboard focus is now properly displayed for certain drop-down selectors in the **Settings** panel for published desktops.
+
+> [!NOTE]
+> This release was originally version 1.2.4577, but we made a hotfix after reports that connections to machines with watermarking policy enabled were failing. Version 1.2.4582, which fixes this issue, has replaced version 1.2.4577.
 
 ## Updates for version 1.2.4487
 
-*Date published: July 21, 2023*
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
+*Published: July 21, 2023*
 
 In this release, we've made the following changes:
 
@@ -32,47 +97,45 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4485
 
-*Date published: July 11, 2023*
+*Published: July 11, 2023*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17f1J), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17mKo), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW17sgF)
+In this release, we've made the following changes:
 
-In this release, we've made the following changes: 
-
-- Added a new RDP file property called *allowed security protocols*. This property restricts the list of security protocols the client can negotiate. 
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Added a new RDP file property called *allowed security protocols*. This property restricts the list of security protocols the client can negotiate.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Accessibility improvements:
   - Narrator now describes the toggle button in the display settings side panel as *toggle button* instead of *button*.
-  - Control types for text now correctly say that they're *text* and not *custom*. 
-  - Fixed an issue where Narrator didn't read the error message that appears after the user selects **Delete**. 
-  - Added heading-level description to **Subscribe with URL**. 
+  - Control types for text now correctly say that they're *text* and not *custom*.
+  - Fixed an issue where Narrator didn't read the error message that appears after the user selects **Delete**.
+  - Added heading-level description to **Subscribe with URL**.
 - Dialog improvements:
-  - Updated **file** and **URI launch** dialog error handling messages to be more specific and user-friendly. 
+  - Updated **file** and **URI launch** dialog error handling messages to be more specific and user-friendly.
   - The client now displays an error message after unsuccessfully checking for updates instead of incorrectly notifying the user that the client is up to date.
   - Fixed an issue where, after having been automatically reconnected to the remote session, the **connection information** dialog gave inconsistent information about identity verification.
 
 ## Updates for version 1.2.4419
 
-*Date published: July 6, 2023*
+*Published: July 6, 2023*
 
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - General improvements to Narrator experience.
 - Fixed an issue that caused the text in the message for subscribing to workspaces to be cut off when the user increases the text size.
 - Fixed an issue that caused the client to sometimes stop responding when attempting to start new connections.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-## Updates for version 1.2.4337 
+## Updates for version 1.2.4337
 
-*Date published: June 13, 2023* 
+*Published: June 13, 2023*
 
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - Fixed the vulnerability known as [CVE-2023-29362](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29362).
 - Fixed the vulnerability known as [CVE-2023-29352](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-29352).
 
 ## Updates for version 1.2.4331
 
-*Date published: June 6, 2023*
+*Published: June 6, 2023*
 
 In this release, we've made the following changes:
 
@@ -80,23 +143,23 @@ In this release, we've made the following changes:
 - Fixed an application compatibility issue that affected preview versions of Windows.
 - Moved the identity verification method from the lock window message in the connection bar to the end of the connection info message.
 - Changed the error message that appears when the session host can't reach the authenticator to validate a user's credentials to be clearer.
-- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked. 
+- Added a reconnect button to the disconnect message boxes that appear whenever the local PC goes into sleep mode or the session is locked.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
-## Updates for version 1.2.4240 
+## Updates for version 1.2.4240
 
-*Date published: May 16, 2023*
+*Published: May 16, 2023*
 
-In this release, we've made the following changes: 
+In this release, we've made the following changes:
 
 - Fixed an issue where the connection bar remained visible on local sessions when the user changed their contrast themes.
-- Made minor changes to connection bar UI, including improved button sizing. 
-- Fixed an issue where the client stopped responding if closed from the system tray. 
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Made minor changes to connection bar UI, including improved button sizing.
+- Fixed an issue where the client stopped responding if closed from the system tray.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 
 ## Updates for version 1.2.4159
 
-*Date published: May 9, 2023*
+*Published: May 9, 2023*
 
 In this release, we've made the following changes:
 
@@ -106,13 +169,13 @@ In this release, we've made the following changes:
 - Fixed a bug where users aren't able to update the client if the client is installed with the flags *ALLUSERS=2* and *MSIINSTALLPERUSER=1*
 - Fixed an issue that made the client disconnect and display error message 0x3000018 instead of showing a prompt to reconnect if the endpoint doesn't let users save their credentials.
 - Fixed the vulnerability known as [CVE-2023-28267](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-28267).
-- Fixed an issue that generated duplicate Activity IDs for unique connections. 
+- Fixed an issue that generated duplicate Activity IDs for unique connections.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Fixed an application compatibility issue for preview versions of Windows.
 
 ## Updates for version 1.2.4066
 
-*Date published: March 28, 2023*
+*Published: March 28, 2023*
 
 In this release, we've made the following changes:
 
@@ -133,24 +196,24 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3918
 
-*Date published: February 7, 2023*
+*Published: February 7, 2023*
 
 In this release, we've made the following changes:
 
 - Fixed a bug where refreshes increased memory usage.
-- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
    - Bug fix for Background Effects persistence between Teams sessions.
 - Updates to MMR for Azure Virtual Desktop, including the following:
    - Various bug fixes for multimedia redirection (MMR) video playback redirection.
-   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available. 
+   - [Multimedia redirection for Azure Virtual Desktop](multimedia-redirection.md) is now generally available.
 
 >[!IMPORTANT]
 >This is the final version of the Remote Desktop client with Windows 7 support. After this version, if you try to use the Remote Desktop client with Windows 7, it may not work as expected. For more information about which versions of Windows the Remote Desktop client currently supports, see [Prerequisites](./users/connect-windows.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&tabs=subscribe#prerequisites).
 
 ## Updates for version 1.2.3770
 
-*Date published: December 14, 2022*
+*Published: December 14, 2022*
 
 In this release, we've made the following changes:
 
@@ -161,7 +224,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3667
 
-*Date published: November 30, 2022*
+*Published: November 30, 2022*
 
 In this release, we've made the following changes:
 
@@ -174,7 +237,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3577
 
-*Date published: October 10, 2022*
+*Published: October 10, 2022*
 
 In this release, we've made the following change:
 
@@ -182,7 +245,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3576
 
-*Date published: October 6, 2022*
+*Published: October 6, 2022*
 
 In this release, we've made the following change:
 
@@ -190,7 +253,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3575
 
-*Date published: October 4, 2022*
+*Published: October 4, 2022*
 
 In this release, we've made the following change:
 
@@ -198,7 +261,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3574
 
-*Date published: October 4, 2022*
+*Published: October 4, 2022*
 
 In this release, we've made the following changes:
 
@@ -211,7 +274,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3497
 
-*Date published: September 20, 2022*
+*Published: September 20, 2022*
 
 In this release, we've made the following changes:
 
@@ -225,7 +288,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3496
 
-*Date published: September 8, 2022*
+*Published: September 8, 2022*
 
 In this release, we've made the following change:
 
@@ -233,7 +296,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3401
 
-*Date published: August 2, 2022*
+*Published: August 2, 2022*
 
 In this release, we've made the following changes:
 
@@ -243,7 +306,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3317
 
-*Date published: July 12, 2022*
+*Published: July 12, 2022*
 
 In this release, we've made the following change:
 
@@ -251,7 +314,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.3316
 
-*Date published: July 6, 2022*
+*Published: July 6, 2022*
 
 In this release, we've made the following changes:
 
@@ -265,7 +328,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3213
 
-*Date published: June 2, 2022*
+*Published: June 2, 2022*
 
 In this release, we've made the following changes:
 
@@ -277,7 +340,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3130
 
-*Date published: May 10, 2022*
+*Published: May 10, 2022*
 
 In this release, we've made the following changes:
 
@@ -288,7 +351,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3128
 
-*Date published: May 3, 2022*
+*Published: May 3, 2022*
 
 In this release, we've made the following changes:
 
@@ -302,7 +365,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.3004
 
-*Date published: March 29, 2022*
+*Published: March 29, 2022*
 
 In this release, we've made the following changes:
 
@@ -316,7 +379,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2927
 
-*Date published: March 15, 2022*
+*Published: March 15, 2022*
 
 In this release, we've made the following change:
 
@@ -324,7 +387,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.2925
 
-*Date published: March 8, 2022*
+*Published: March 8, 2022*
 
 In this release, we've made the following changes:
 
@@ -334,7 +397,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2924
 
-*Date published: February 23, 2022*
+*Published: February 23, 2022*
 
 In this release, we've made the following changes:
 
@@ -348,7 +411,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2860
 
-*Date published: February 15, 2022*
+*Published: February 15, 2022*
 
 In this release, we've made the following changes:
 
@@ -357,7 +420,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2851
 
-*Date published: January 25, 2022*
+*Published: January 25, 2022*
 
 In this release, we've made the following changes:
 
@@ -370,7 +433,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2691
 
-*Date published: January 12, 2022*
+*Published: January 12, 2022*
 
 In this release, we've made the following changes:
 
@@ -381,7 +444,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2688
 
-*Date published: December 9, 2021*
+*Published: December 9, 2021*
 
 In this release, we've made the following change:
 
@@ -389,7 +452,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.2687
 
-*Date published: December 2, 2021*
+*Published: December 2, 2021*
 
 In this release, we've made the following changes:
 
@@ -413,7 +476,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2606
 
-*Date published: November 9, 2021*
+*Published: November 9, 2021*
 
 In this release, we've made the following changes:
 
@@ -423,7 +486,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2600
 
-*Date published: October 26, 2021*
+*Published: October 26, 2021*
 
 In this release, we've made the following changes:
 
@@ -432,7 +495,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2459
 
-*Date published: September 28, 2021*
+*Published: September 28, 2021*
 
 In this release, we've made the following changes:
 
@@ -444,7 +507,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2322
 
-*Date published: August 24, 2021*
+*Published: August 24, 2021*
 
 In this release, we've made the following changes:
 
@@ -456,7 +519,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2223
 
-*Date published: August 10, 2021*
+*Published: August 10, 2021*
 
 In this release, we've made the following change:
 
@@ -464,7 +527,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.2222
 
-*Date published: July 27, 2021*
+*Published: July 27, 2021*
 
 In this release, we've made the following changes:
 
@@ -474,7 +537,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2130
 
-*Date published: June 22, 2021*
+*Published: June 22, 2021*
 
 In this release, we've made the following changes:
 
@@ -485,7 +548,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.2061
 
-*Date published: May 25, 2021*
+*Published: May 25, 2021*
 
 In this release, we've made the following changes:
 
@@ -496,7 +559,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1954
 
-*Date published: May 13, 2021*
+*Published: May 13, 2021*
 
 In this release, we've made the following change:
 
@@ -504,7 +567,7 @@ In this release, we've made the following change:
 
 ## Updates for version 1.2.1953
 
-*Date published: May 6, 2021*
+*Published: May 6, 2021*
 
 In this release, we've made the following changes:
 
@@ -520,7 +583,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1844
 
-*Date published: March 23, 2021*
+*Published: March 23, 2021*
 
 In this release, we've made the following changes:
 
@@ -536,7 +599,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1755
 
-*Date published: February 23, 2021*
+*Published: February 23, 2021*
 
 In this release, we've made the following changes:
 
@@ -551,7 +614,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1672
 
-*Date published: January 26, 2021*
+*Published: January 26, 2021*
 
 In this release, we've made the following changes:
 
@@ -562,7 +625,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1525
 
-*Date published: December 1, 2020*
+*Published: December 1, 2020*
 
 In this release, we've made the following changes:
 
@@ -571,7 +634,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1446
 
-*Date published: October 27, 2020*
+*Published: October 27, 2020*
 
 In this release, we've made the following changes:
 
@@ -583,7 +646,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1364
 
-*Date published: September 22, 2020*
+*Published: September 22, 2020*
 
 In this release, we've made the following changes:
 
@@ -595,7 +658,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1275
 
-*Date published: August 25, 2020*
+*Published: August 25, 2020*
 
 In this release, we've made the following changes:
 
@@ -608,7 +671,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1186
 
-*Date published: July 28, 2020*
+*Published: July 28, 2020*
 
 In this release, we've made the following changes:
 
@@ -620,7 +683,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1104
 
-*Date published: June 23, 2020*
+*Published: June 23, 2020*
 
 In this release, we've made the following changes:
 
@@ -633,7 +696,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.1026
 
-*Date published: May 27, 2020*
+*Published: May 27, 2020*
 
 In this release, we've made the following changes:
 
@@ -654,7 +717,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.945
 
-*Date published: April 28, 2020*
+*Published: April 28, 2020*
 
 In this release, we've made the following changes:
 
@@ -676,7 +739,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.790
 
-*Date published: March 24, 2020*
+*Published: March 24, 2020*
 
 In this release, we've made the following changes:
 
@@ -690,7 +753,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.675
 
-*Date published: February 25, 2020*
+*Published: February 25, 2020*
 
 In this release, we've made the following changes:
 
@@ -703,7 +766,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.605
 
-*Date published: January 29, 2020*
+*Published: January 29, 2020*
 
 In this release, we've made the following changes:
 
@@ -716,7 +779,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.535
 
-*Date published: December 4, 2019*
+*Published: December 4, 2019*
 
 In this release, we've made the following changes:
 
@@ -729,7 +792,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.431
 
-*Date published: November 12, 2019*
+*Published: November 12, 2019*
 
 In this release, we've made the following changes:
 
@@ -749,7 +812,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.247
 
-*Date published: September 17, 2019*
+*Published: September 17, 2019*
 
 In this release, we've made the following changes:
 

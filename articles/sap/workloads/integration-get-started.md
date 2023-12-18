@@ -40,10 +40,10 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | [Microsoft Entra ID (formerly Azure Active Directory)](#microsoft-entra-id-formerly-azure-ad) | Ensure end-to-end SAP user authentication and authorization with Microsoft Entra ID. Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
-| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
+| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure AI services and more. |
 | [App Development in any language including ABAP and DevOps](#app-development-in-any-language-including-abap-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud, which connector to choose, tune performance, efficiently troubleshoot, and more. |
-| [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender for Cloud and the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution. Prevent incidents from happening, detect and respond to threats in real-time. |
+| [Threat Monitoring and Response Automation with Microsoft Security Services for SAP](#microsoft-security-for-sap) | Learn how to best secure your SAP workload with Microsoft Defender for Cloud, the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) Microsoft Sentinel solution, and immutable vault for Azure Backup. Prevent incidents from happening, detect, and respond to threats in real-time. |
 | [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
 ### Azure OpenAI service
@@ -115,18 +115,17 @@ For more information about integration with SAP Fiori, see the following resourc
 - [Introduction to the Application Gateway WAF Triage Workbook](https://techcommunity.microsoft.com/t5/azure-network-security-blog/introducing-the-application-gateway-waf-triage-workbook/ba-p/2973341). 
 
 Also see the following SAP resources:
-- [Azure CDN for SAPUI5 libraries](https://blogs.sap.com/2021/03/22/sap-fiori-using-azure-cdn-for-sapui5-libraries/)
 - [Web Application Firewall Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
 
 ### Microsoft Entra ID (formerly Azure AD)
 
-For more information about integration with Azure AD, see the following Azure documentation:
+For more information about integration with Microsoft Entra ID, see the following Azure documentation:
 
-- [Secure access with SAP Cloud Identity Services and Azure AD](../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
+- [Secure access with SAP Cloud Identity Services and Microsoft Entra ID](../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
 - [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
 - [Provision users from SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-- [Provision users from SAP SuccessFactors to Azure AD](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
-- [Write-back users from Azure AD to SAP SuccessFactors](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
+- [Provision users from SAP SuccessFactors to Microsoft Entra ID](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+- [Write-back users from Microsoft Entra ID to SAP SuccessFactors](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
 - [Provision users to SAP Cloud Identity Services - Identity Authentication](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md)
 
 For how to configure single sign-on, see the following Azure documentation and tutorials:
@@ -143,8 +142,8 @@ For how to configure single sign-on, see the following Azure documentation and t
 - [SAP Cloud for Customer](../../active-directory/saas-apps/sap-customer-cloud-tutorial.md)
 
 Also see the following SAP resources:
-- [Azure Application Gateway Setup for for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
-- [SAPGUI using Kerberos and Azure AD Domain Services](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
+- [Azure Application Gateway Setup for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
+- [SAPGUI using Kerberos and Microsoft Entra Domain Services](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
 
 ### Azure Integration Services
 
@@ -206,9 +205,35 @@ Protect your data, apps, and infrastructure against rapidly evolving cyber threa
 
 Use [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) to secure your cloud-infrastructure surrounding the SAP system including automated responses.
 
-Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system from within using signals from the SAP Audit Log among others.
+Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system and [SAP Business Technology Platform (BTP)](../../sentinel/sap/sap-btp-solution-overview.md) instance from within using signals from the SAP Audit Log among others.
 
 Learn more about identity focused integration capabilities that power the analysis on Defender and Sentinel via the [Microsoft Entra ID section](#microsoft-entra-id-formerly-azure-ad).
+
+Leverage the [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept) to protect your SAP data from ransomware attacks.
+
+See the Microsoft Security Copilot working with an SAP Incident in action [here](https://www.youtube.com/watch?v=snV2joMnSlc&t=234s).
+
+#### Microsoft Sentinel for SAP
+
+For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
+
+- [Microsoft Sentinel incident response playbooks for SAP](../../sentinel/sap/sap-incident-response-playbooks.md)
+- [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
+- [Deploy the Microsoft Sentinel solution for SAP](../../sentinel/sap/deploy-sap-security-content.md)
+- [Deploy Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/deploy-sap-btp-solution.md)
+- [Microsoft Sentinel SAP solution data reference](../../sentinel/sap/sap-solution-log-reference.md)
+- [Deploying Microsoft Sentinel SAP agent into an AKS/Kubernetes cluster](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/deploying-microsoft-sentinel-threat-monitoring-for-sap-agent/ba-p/3528040)
+
+Also see the following SAP resources:
+
+- [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-blog-series/)
+- [Deploy SAP user blocking based on suspicious activity on the SAP backend](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-youre-gonna-hear-me-soar-part-1/)
+- [Automatically trigger re-activation of the SAP audit log on malicious deactivation](https://blogs.sap.com/2023/05/23/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-3/)
+- [Automatically remediate Sentinel SAP Collector Agent attack](https://blogs.sap.com/2023/07/06/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-4/)
+
+See below video to experience the SAP security orchestration, automation and response workflow with Sentinel in action:
+
+> [!VIDEO https://www.youtube.com/embed/b-AZnR-nQpg]
 
 #### Microsoft Defender for Cloud
 
@@ -231,11 +256,13 @@ See SAP's recommendation to use AntiVirus software for SAP hosts and systems on 
 For more information about using Microsoft Defender for Endpoint (MDE) via Microsoft Defender for Server for SAP applications regarding `Next-generation protection` (AntiVirus) and `Endpoint Detection and Response` (EDR) see the following Microsoft resources:
 
 - [SAP Applications and Microsoft Defender for Linux | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-applications-and-microsoft-defender-for-linux/ba-p/3675480)
+- [SAP Applications and Microsoft Defender for Windows Server | Microsoft TechCommunity](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/microsoft-defender-endpoint-mde-for-sap-applications-on-windows/ba-p/3912268)
 - [Enable the Microsoft Defender for Endpoint integration](../../defender-for-cloud/integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
 - [Common mistakes to avoid when defining exclusions](/microsoft-365/security/defender-endpoint/common-exclusion-mistakes-microsoft-defender-antivirus)
 
 Also see the following SAP resources:
 
+- [3356389 - Antivirus or other security software affecting SAP operations](https://me.sap.com/notes/3356389)
 - [2808515 - Installing security software on SAP servers running on Linux](https://me.sap.com/notes/2808515)
 - [1730997 - Unrecommended versions of antivirus software](https://me.sap.com/notes/1730997)
 
@@ -251,26 +278,12 @@ Also see the following SAP resources:
 > [!Tip]
 > Microsoft Defender for Server includes Endpoint detection and response (EDR) features that are provided by Microsoft Defender for Endpoint Plan 2.
 
-#### Microsoft Sentinel for SAP
+#### Immutable vault for Azure Backup for SAP
 
-For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
+For more information about [immutable vault for Azure Backup](/azure/backup/backup-azure-immutable-vault-concept), see the following Azure documentation:
 
-- [Microsoft Sentinel incident response playbooks for SAP](../../sentinel/sap/sap-incident-response-playbooks.md)
-- [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
-- [Deploy the Microsoft Sentinel solution for SAP](../../sentinel/sap/deploy-sap-security-content.md)
-- [Microsoft Sentinel SAP solution data reference](../../sentinel/sap/sap-solution-log-reference.md)
-- [Deploying Microsoft Sentinel SAP agent into an AKS/Kubernetes cluster](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/deploying-microsoft-sentinel-threat-monitoring-for-sap-agent/ba-p/3528040)
-
-Also see the following SAP resources:
-
-- [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-blog-series/)
-- [Deploy SAP user blocking based on suspicious activity on the SAP backend](https://blogs.sap.com/2023/05/22/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-youre-gonna-hear-me-soar-part-1/)
-- [Automatically trigger re-activation of the SAP audit log on malicious deactivation](https://blogs.sap.com/2023/05/23/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-3/)
-- [Automatically remediate Sentinel SAP Collector Agent attack](https://blogs.sap.com/2023/07/06/from-zero-to-hero-security-coverage-with-microsoft-sentinel-for-your-critical-sap-security-signals-part-4/)
-
-See below video to experience the SAP security orchestration, automation and response workflow with Sentinel in action:
-
-> [!VIDEO https://www.youtube.com/embed/b-AZnR-nQpg]
+- [Backup and restore plan to protect against ransomware](/azure/security/fundamentals/backup-plan-to-protect-against-ransomware)
+- [Back up SAP HANA System Replication databases on Azure VMs](/azure/backup/sap-hana-database-with-hana-system-replication-backup#create-a-recovery-services-vault)
 
 ### SAP BTP
 

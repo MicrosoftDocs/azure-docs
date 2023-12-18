@@ -2,15 +2,15 @@
 title: Set up sign-up and sign-in with an Apple ID
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Apple ID in your applications using Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: garrodonnell
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: project-no-code
+ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -74,8 +74,7 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 ## Configure Apple as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as a global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **Apple**.
 1. For the **Name**, enter **Sign in with Apple**. 
@@ -150,8 +149,7 @@ The Azure function responds with a properly formatted and signed client secret J
 You need to store the client secret that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. On the **Overview** page, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
@@ -261,10 +259,9 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Customize your user interface
 
-Follow the guidelines how to [offer Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/introduction/). Apple provides several **Sign in with Apple** buttons you can use to let people set up an account and sign in. If necessary, create a custom button to offer Sign in with Apple. Learn how to [display a Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/).
+Follow the guidelines how to [offer Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple). Apple provides several **Sign in with Apple** buttons you can use to let people set up an account and sign in. If necessary, create a custom button to offer Sign in with Apple. Learn how to [display a Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/buttons).
 
 To align with the Apple user interface guidelines:
 
 - [Customize the user interface with HTML templates](customize-ui-with-html.md)
 - [Localize](language-customization.md) the identity provider name.
-
