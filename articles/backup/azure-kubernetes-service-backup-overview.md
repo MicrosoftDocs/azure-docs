@@ -29,10 +29,10 @@ To support public, private, and authorized IP-based clusters, AKS backup require
 
 After the Backup extension is installed and Trusted Access is enabled, you can configure scheduled backups for the clusters per your backup policy. You also can restore the backups to the original cluster or to an alternate cluster that's in the same subscription and region. You can choose a specific namespace or an entire cluster as a backup and restore configuration as you set up the specific operation.
 
-The backup solution enables the backup operations for your AKS datasources that are deployed in the cluster and for the data that's stored in the persistent volume for the cluster. The AKS datasources are stored in a blob container. The disk-based persistent volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob both combine to form a recovery point that is stored in your tenant called Operational Tier. You can also convert backups (first successful backup in a day, week, month, or year) in the Operational Tier  to blobs, and then move them to a Vault (outside your tenant) once a day.
+The backup solution enables the backup operations for your AKS datasources that are deployed in the cluster and for the data that's stored in the persistent volume for the cluster, and then store the backups in a blob container. The disk-based persistent volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob both combine to form a recovery point that is stored in your tenant called Operational Tier. You can also convert backups (first successful backup in a day, week, month, or year) in the Operational Tier  to blobs, and then move them to a Vault (outside your tenant) once a day.
 
 > [!NOTE]
-> Currently, the solution supports only persistent volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other persistent volume types, such as Azure File Share and blobs. Also, backups are eligible to be moved to the vault if the persistent volumes are of size less than or equal to 1 TB.
+> Currently, Azure Backup supports only persistent volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other persistent volume types, such as Azure File Share and blobs. Also, backups are eligible to be moved to the vault if the persistent volumes are of size less than or equal to 1 TB.
 
 ## Configure backup
 
@@ -181,9 +181,9 @@ Learn [how to use hooks during AKS backup](azure-kubernetes-service-cluster-back
 
 Azure Backup for AKS supports two storage tiers as backup datastores: 
 
-- Operational Tier: The Backup Extension installed in the AKS cluster first takes the backup by taking Volume snapshots via CSI Driver and stores cluster state in a blob container in your own tenant. This tier supports lower RPO with the minimum duration between two backups of four hours. Additionally, for Azure Disk-based volumes, Operational Tier supports quicker restores.
+- **Operational Tier**: The Backup Extension installed in the AKS cluster first takes the backup by taking Volume snapshots via CSI Driver and stores cluster state in a blob container in your own tenant. This tier supports lower RPO with the minimum duration between two backups of four hours. Additionally, for Azure Disk-based volumes, Operational Tier supports quicker restores.
 
-- Vault standard Tier: To store backup data for longer duration at lower cost than snapshots, AKS backup supports Vault standard datastore. As per the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention but also provides ransomware protection. You can also move backups stored in the Vault to another region (Azure Paired Region) for recovery. 
+- **Vault standard Tier**: To store backup data for longer duration at lower cost than snapshots, AKS backup supports Vault standard datastore. As per the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention but also provides ransomware protection. You can also move backups stored in the Vault to another region (Azure Paired Region) for recovery. 
 
 > [!Note]
 > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to Vault Tier. However,  you can move any number of on-demand backups to the Vault as per the rule selected.  

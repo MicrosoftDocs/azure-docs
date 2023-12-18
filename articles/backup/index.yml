@@ -52,7 +52,7 @@ landingContent:
         links:
           - text: Back up Azure VMs
             url: tutorial-backup-vm-at-scale.md
-          - text: Backup SQL Server on Azure VM
+          - text: Back up SQL Server on Azure VM
             url: tutorial-sql-backup.md
           - text: Backup files and folders on Windows Server
             url: tutorial-backup-windows-server-to-azure.md
