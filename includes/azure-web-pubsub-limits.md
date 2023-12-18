@@ -29,4 +29,4 @@ To request an update to your subscription's default limits, open a support ticke
 
 For more information about how connections and messages are counted in billing, see [Billing model in Azure Web PubSub Service](../articles/azure-web-pubsub/concept-billing-model.md).
 
-If your requirements exceed the limits of a single instance, add instances. For more information, see [How to use Geo-Replication in Azure Web PubSub?](../articles/azure-web-pubsub/howto-enable-geo-replication.md).
+If your requirements exceed the limits of a single instance, add instances. For more information, see [How to use Geo-Replication in Azure Web PubSub](../articles/azure-web-pubsub/howto-enable-geo-replication.md).
