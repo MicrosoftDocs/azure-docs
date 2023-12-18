@@ -32,7 +32,7 @@ Because App Service supports a seamless scaling experience between tiers, the se
 
 App Service pricing tiers control the amount of compute resources (CPU, disk storage, memory, and network egress) available to apps. However, the breadth of framework functionality available to apps remains the same regardless of the scaling tiers.
 
-App Service supports a variety of development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python. To simplify and normalize security configuration, App Service apps typically run the development frameworks with their default settings. The frameworks and runtime components that the platform provides are updated regularly to satisfy security and compliance requirements. For this reason, we don't guarantee specific minor/patch versions. We recommend that customers target major version as needed.
+App Service supports various development frameworks, including ASP.NET, classic ASP, Node.js, PHP, and Python. To simplify and normalize security configuration, App Service apps typically run the development frameworks with their default settings. The frameworks and runtime components that the platform provides are updated regularly to satisfy security and compliance requirements. For this reason, we don't guarantee specific minor/patch versions. We recommend that customers target major version as needed.
 
 The following sections summarize the general kinds of operating system functionality available to App Service apps.
 
@@ -137,12 +137,12 @@ Log information is another set of data that some apps try to access. The types o
 
 For example, app-generated W3C HTTP logs are available either:
 
-- In a log directory in the network share location created for the app
-- In blob storage if a customer has set up W3C logging to storage
+- In a log directory in the network share location that you created for the app
+- In blob storage if you set up W3C logging to storage
 
 The latter option enables apps to gather large amounts of logs without exceeding the file storage limits associated with a network share.
 
-Similarly, real-time diagnostics information from .NET apps can be logged through the .NET tracing and diagnostics infrastructure. You then have the option to write the trace information to either the app's network share or a blob storage location.
+Similarly, real-time diagnostics information from .NET apps can be logged through the .NET tracing and diagnostics infrastructure. You can then write the trace information to either the app's network share or a blob storage location.
 
 Areas of diagnostics logging and tracing that aren't available to apps are Windows Event Tracing for Windows (ETW) events and common Windows event logs (for example, system, application, and security event logs). Because ETW trace information can potentially be viewable across a machine (with the right access control lists), read access and write access to ETW events are blocked. API calls to read and write ETW events and common Windows event logs might seem to work, but in reality, the application code has no access to this event data.
 

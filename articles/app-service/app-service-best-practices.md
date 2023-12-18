@@ -34,13 +34,13 @@ If your application needs to rely on certificate pinning behavior, we recommend 
 
 ## <a name="memoryresources"></a>Memory resources
 
-When you notice, through monitoring or service recommendations, that an app consumes more memory than you expected, consider the [App Service auto-healing feature](/azure/app-service/overview-diagnostics#auto-healing). You can configure auto-healing by using *web.config*.
+When monitoring or service recommendations indicate that an app consumes more memory than you expected, consider the [App Service auto-healing feature](/azure/app-service/overview-diagnostics#auto-healing). You can configure auto-healing by using *web.config*.
 
 One of the options for the auto-healing feature is taking custom actions based on a memory threshold. Actions range from email notifications to investigation via memory dump to on-the-spot mitigation by recycling the worker process.
 
 ## <a name="CPUresources"></a>CPU resources
 
-When you notice, through monitoring or service recommendations, that an app consumes more CPU than you expected or experiences repeated CPU spikes, consider scaling up or scaling out the App Service plan. If your application is stateful, scaling up is the only option. If your application is stateless, scaling out gives you more flexibility and higher scale potential.
+When monitoring or service recommendations indicate that an app consumes more CPU than you expected or experiences repeated CPU spikes, consider scaling up or scaling out the App Service plan. If your application is stateful, scaling up is the only option. If your application is stateless, scaling out gives you more flexibility and higher scale potential.
 
 For more information about App Service scaling and autoscaling options, see [Scale up an app in Azure App Service](manage-scale-up.md).  
 
@@ -48,7 +48,7 @@ For more information about App Service scaling and autoscaling options, see [Sca
 
 A common reason for exhausting outbound TCP connections is the use of client libraries that don't reuse TCP connections or don't use a higher-level protocol such as HTTP keep-alive.
 
-Review the documentation for each library that the apps in your App Service plan reference, to ensure that they're configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such investigations into client libraries are in progress, you can mitigate impact by scaling out to multiple instances.
+Review the documentation for each library that the apps in your App Service plan reference. Ensure that they're configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such investigations into client libraries are in progress, you can mitigate impact by scaling out to multiple instances.
 
 ### Node.js and outgoing HTTP requests
 
