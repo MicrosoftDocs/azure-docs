@@ -2,7 +2,7 @@
 title: Tutorial - Enable Vault-Tier protection for AKS clusters and restore backups in secondary region using Azure Backup
 description: Learn how to enable Vault-Tier protection for AKS clusters and restore backups in secondary region using Azure Backup.
 ms.topic: tutorial
-ms.date: 11/14/2023
+ms.date: 12/25/2023
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -26,7 +26,7 @@ For backups to be available in Secondary region (Azure Paired Region), [create a
 
 To use AKS backup against regional disaster recovery, store the backups in Vault Tier. You can enable this capability by [creating a backup policy](azure-kubernetes-service-cluster-backup.md#create-a-backup-policy) with retention policy set for Vault-standard datastore.
 
-To set the retention policy in an backup policy, follow these steps:
+To set the retention policy in a backup policy, follow these steps:
 
 1. Select the *backup policy*.
 
@@ -52,14 +52,14 @@ To set the retention policy in an backup policy, follow these steps:
 
    You can also define similar rules for the *First successful backup taken every week, month, and year*.
 
-With the new bckup policy, you can [now [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backups) and then protect backups using the backup policy against regional disaster.
+With the new backup policy, you can [now [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backups) and then protect backups using the backup policy against regional disaster.
 
 
 ## Restore in secondary region
 
-## Restore the AKS clusters
+In case of a regional outage, you can use the recovery points stored in Vault Tier in secondary region to bring back the AKS cluster. 
 
-To restore the backed-up AKS cluster, follow these steps:
+Follow these steps:
 
 1. Go to **Backup center** and select **Restore**.
 
@@ -73,32 +73,25 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/choose-instances-for-restore.png" alt-text="Screenshot shows choosing instances for restore.":::
    
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/starting-kubernetes-restore.png" alt-text="Screenshot shows starting restore.":::
+   :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/restore=to-secondary-region.png" alt-text="Screenshot shows the selection of the secondary region.":::
 
 3. Click **Select restore point** to select the *restore point* you want to restore. 
 
    If the restore point is available in both Vault and Operation datastore, select the one you want to restore from.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-restore-points-for-kubernetes.png" alt-text="Screenshot shows how to view the restore points.":::
+   :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/select-restore-points.png" alt-text="Screenshot shows how to view the restore points.":::
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/choose-restore-points-for-kubernetes.png" alt-text="Screenshot shows selection of a restore point.":::
-
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/open-restore-page.png" alt-text="Screenshot shows how to go to the Restore page.":::
+   :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/choose-restore-points-for-kubernetes.png" alt-text="Screenshot shows selection of a restore point.":::
 
 
 4. In the **Restore parameters** section, click **Select Kubernetes Service** and select the *AKS cluster* to which you want to restore the backup to.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/parameter-selection.png" alt-text="Screenshot shows how to initiate parameter selection.":::
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-kubernetes-service-parameter.png" alt-text="Screenshot shows selection of parameter Kubernetes Service.":::
+   :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/select-kubernetes-service-instance.png" alt-text="Screenshot shows selection of AKS instance.":::
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/set-for-restore-after-parameter-selection.png" alt-text="Screenshot shows the Restore page with the selection of Kubernetes parameter.":::
 
-5. To select the *backed-up cluster resources* for restore, click **Select resources**.
-
-   Learn more about [restore configurations](#restore-configurations).
-
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-resources-to-restore-page.png" alt-text="Screenshot shows the Select Resources to restore page.":::
 
 6. If you have opted for restore from *Vault-standard datastore*, then provide a *snapshot resource group* and *storage account* as the staging location.
 
@@ -111,9 +104,9 @@ To restore the backed-up AKS cluster, follow these steps:
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/validate-restore-parameters.png" alt-text="Screenshot shows the validation of restore parameters.":::
 
 
-8. Once the validation is successful, select **Review + restore** and restore the backups to the selected cluster.
+8. Once the validation is successful, select **Restore** to trigger the restore operation.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/review-restore-tab.png" alt-text="Screenshot shows the Review + restore tab for restore.":::
+   :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/trigger-restore.png" alt-text="Screenshot shows how to start the restore operation.":::
 
 9. Track this restore operation by using the name **CrossRegionRestore**.
 
