@@ -8,15 +8,15 @@ ms.date: 11/28/2023
 
 # Use kubelogin to authenticate users in Azure Kubernetes Service
 
-Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra authentication. In kubelogin, you can access features that aren't available in the kubectl command-line tool.
+The kubelogin plugin in Azure is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra authentication. In kubelogin, you can access features that aren't available in the kubectl command-line tool.
 
 Azure Kubernetes Service (AKS) clusters that are integrated with Microsoft Entra ID and running Kubernetes versions 1.24 or later automatically use the kubelogin format.
 
-This article provides an overview of the following authentication methods, and it includes examples of how to use them:
+This article provides an overview and examples of how to use the following authentication methods:
 
 * Device code
 * Azure CLI
-* Interactive web browser
+* Web browser interactive
 * Service principal
 * Managed identity
 * Workflow identity
@@ -30,30 +30,30 @@ This article provides an overview of the following authentication methods, and i
 
 ## Authentication modes
 
-Most interaction with kubelogin is specific to the `convert-kubeconfig` subcommand. The subccommand uses the input kubeconfig that's specified in `--kubeconfig` or the `KUBECONFIG` environment variable to convert to the final kubeconfig in exec format based on the specified authentication mode.
+For most interactions with kubelogin, you use the `convert-kubeconfig` subcommand. The subcommand uses the kubeconfig file that's specified in `--kubeconfig` or in the `KUBECONFIG` environment variable to convert to the final kubeconfig file to exec format based on the specified authentication mode.
 
 ### How authentication works
 
-The authentication modes that kubelogin implements are Microsoft Entra OAuth 2.0 token grant flows. The following parameter flags are common to use in kubelogin subcommands. In general, these flags are already set up when you get the kubeconfig from AKS.
+The authentication modes that kubelogin implements are Microsoft Entra OAuth 2.0 token grant flows. The following parameter flags are common to use in kubelogin subcommands. In general, these flags are already set up when you get the kubeconfig file from AKS.
 
 * `--tenant-id`: The Microsoft Entra tenant ID.
-* `--client-id`: The application ID of the public client application. This client app is used only in the device code, interactive web browser, and OAuth 2.0 Resource Owner Password Credentials (ROPC) sign-in modes.
+* `--client-id`: The application ID of the public client application. This client app is used only in the device code, web browser interactive, and OAuth 2.0 Resource Owner Password Credentials (ROPC) (workflow identity) sign-in modes.
 * `--server-id`: The application ID of the web app or resource server. The token is issued to this resource.
 
 > [!NOTE]
 > In each authentication method, the token is not cached on the file system.
 
-### Device code
+## Device code
 
 Device code is the default authentication mode for the `convert-kubeconfig` subcommand. The `-l devicecode` parameter is optional. This authentication method prompts the device code for the user to sign in from a browser session.
 
-Before the kubelogin and exec plugins were introduced, the Azure authentication mode in kubectl supported only device code flow. It used an earlier version of a library that produces the token with the `audience` claim that has the `spn:` prefix. (`spn` refers to *Service Principal Name (SPN)*.) It isn't compatible with [AKS-managed Microsoft Entra ID][aks-managed-microsoft-entra-id] that uses an [on-behalf-of (OBO)][oauth-on-behalf-of] flow. When you run the `convert-kubeconfig` subcommand, kubelogin removes the `spn:` prefix from the audience claim.
+Before the kubelogin and exec plugins were introduced, the Azure authentication mode in kubectl supported only the device code flow. It used an earlier version of a library that produces the token with the `audience` claim that has the `spn:` prefix. (`spn` refers to *Service Principal Name (SPN)*.) It isn't compatible with [AKS managed Microsoft Entra ID][aks-managed-microsoft-entra-id], which uses an [on-behalf-of (OBO)][oauth-on-behalf-of] flow. When you run the `convert-kubeconfig` subcommand, kubelogin removes the `spn:` prefix from the audience claim.
 
-If your requirements include using earlier-version functionality, add the `--legacy` argument. If you're using `kubeconfig` in an earlier-version Azure Active Directory cluster, kubelogin automatically adds the `--legacy` flag.
+If your requirements include using earlier-version functionality, add the `--legacy` argument. If you're using the kubeconfig file in an earlier-version Azure Active Directory cluster, kubelogin automatically adds the `--legacy` flag.
 
 In this sign-in mode, the access token and the refresh token are cached in the *${HOME}/.kube/cache/kubelogin* directory. To override this path, include the `--token-cache-dir` parameter.
 
-If your AKS/Microsoft Entra integrated cluster uses Kubernetes 1.24 or earlier, you must manually convert the kubeconfig format by running the following commands:
+If your AKS Microsoft Entra integrated cluster uses Kubernetes 1.24 or earlier, you must manually convert the kubeconfig file format by running the following commands:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -75,12 +75,12 @@ kubelogin remove-tokens
 > [!NOTE]
 > The device code sign-in method doesn't work when a Conditional Access policy is configured on a Microsoft Entra tenant. In this scenario, use the [web browser interactive mode][web-browser-interactive-mode] instead.
 
-### Azure CLI
+## Azure CLI
 
 The Azure CLI method of authentication uses the signed-in context that the Azure CLI establishes to get the access token. The token is issued in the same Microsoft Entra tenant as `az login`. kubelogin doesn't write the tokens to the token cache file because it's already managed by the Azure CLI.
 
 > [!NOTE]
-> This authentication method works only with AKS-managed Microsoft Entra ID.
+> This authentication method works only with AKS managed Microsoft Entra ID.
 
 ```bash
 az login
@@ -98,13 +98,13 @@ kubectl get nodes
 
 When the Azure CLI config directory is outside the *${HOME}* directory, use the `--azure-config-dir` parameter with the `convert-kubeconfig` subcommand. It generates the kubeconfig with the environment variable configured. You can get the same configuration by setting the `AZURE_CONFIG_DIR` environment variable to this directory when you run a kubectl command.
 
-### Interactive web browser
+## Web browser interactive
 
-The interactive web browser mode of authentication automatically opens a web browser to sign in the user. After the user is authenticated, the browser redirects back to a local web server by using the verified credentials. This authentication method complies with Conditional Access policy.
+The web browser interactive mode of authentication automatically opens a web browser to sign in the user. After the user is authenticated, the browser redirects back to a local web server by using the verified credentials. This authentication method complies with Conditional Access policy.
 
 When you authenticate by using this method, the access token is cached in the *${HOME}/.kube/cache/kubelogin* directory. You can override this path by using the `--token-cache-dir` parameter.
 
-The following example shows how to use a bearer token with interactive flow:
+The following example shows how to use a bearer token with the web browser interactive flow:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -118,7 +118,7 @@ Run this kubectl command to get node information:
 kubectl get nodes
 ```
 
-The following example shows how to use PoP tokens with interactive flow:
+The following example shows how to use PoP tokens with the web browser interactive flow:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -132,14 +132,14 @@ Run this kubectl command to get node information:
 kubectl get nodes
 ```
 
-### Service principal
+## Service principal
 
-This authentication method uses a service principal to sign in. The credential can be provided by using an environment variable or in a command-line argument. The supported credentials are password and a Personal Information Exchange (PFX) client certificate.
+This authentication method uses a service principal to sign in. You can provide the credential by using an environment variable or by using it in a command-line argument. The supported credentials to use are a password or a Personal Information Exchange (PFX) client certificate.
 
 Before you use this method, consider the following limitations:
 
 * This method works only with managed Microsoft Entra ID.
-* The service principal can be a member of a maximum of [200 Microsoft Entra groups][microsoft-entra-group-membership].
+* The service principal can be a member of a maximum of 200 [Microsoft Entra groups][microsoft-entra-group-membership].
 
 The following examples show how to set up a client secret by using an environment variable:
 
@@ -157,6 +157,8 @@ Run this kubectl command to get node information:
 ```bash
 kubectl get nodes
 ```
+
+Then run this command:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -202,11 +204,13 @@ export AAD_SERVICE_PRINCIPAL_CLIENT_CERTIFICATE=/path/to/cert.pfx
 export AAD_SERVICE_PRINCIPAL_CLIENT_CERTIFICATE_PASSWORD=<PFX password>
 ```
 
-Run this kubectl command to get node information in ps output format:
+Run this kubectl command to get node information:
 
 ```bash
 kubectl get nodes
 ```
+
+Then run this command:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -224,7 +228,7 @@ Run this kubectl command to get node information:
 kubectl get nodes
 ```
 
-The following example shows how to set up a PoP token that uses a client secret from the environment variables:
+The following example shows how to set up a PoP token that uses a client secret that it gets from environment variables:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -241,9 +245,9 @@ Run this kubectl command to get node information:
 kubectl get nodes
 ```
 
-### Managed identity
+## Managed identity
 
-Use the [managed identity][managed-identity-overview] authentication method for applications that connect to resources that support Microsoft Entra authentication. Examples include accessing Azure resources like an Azure virtual machine, an Azure virtual machine scale set, and Azure Cloud Shell.
+Use the [managed identity][managed-identity-overview] authentication method for applications that connect to resources that support Microsoft Entra authentication. Examples include accessing Azure resources like an Azure virtual machine, a virtual machine scale set, or Azure Cloud Shell.
 
 The following example shows how to use the default managed identity:
 
@@ -273,9 +277,9 @@ Run this kubectl command to get node information:
 kubectl get nodes
 ```
 
-### Workload identity
+## Workload identity
 
-The workload identity authentication method uses identity credentials that are federated with Microsoft Entra to authenticate to AKS clusters. The method uses Microsoft Entra integrated authentication. It works by setting the following environment variables:
+The workload identity (ROPC) authentication method uses identity credentials that are federated with Microsoft Entra to authenticate access to AKS clusters. The method uses Microsoft Entra integrated authentication. It works by setting the following environment variables:
 
 * `AZURE_CLIENT_ID`: The Microsoft Entra application ID that is federated with the workload identity.
 * `AZURE_TENANT_ID`: The Microsoft Entra tenant ID.
@@ -298,24 +302,24 @@ Run this kubectl command to get node information:
 kubectl get nodes
 ```
 
-## Use kubelogin with AKS
+## How to use kubelogin with AKS
 
 AKS uses a pair of first-party Microsoft Entra applications. These application IDs are the same in all environments.
 
-The AKS Microsoft Entra server application ID that the server side uses is `6dae42f8-4368-4678-94ff-3960e28e3630`. The access token that accesses AKS clusters must be issued for this application. In most kubelogin authentication modes, `--server-id` is a parameter that you are required to use with `kubelogin get-token`.
+The AKS Microsoft Entra server application ID that the server side uses is `6dae42f8-4368-4678-94ff-3960e28e3630`. The access token that accesses AKS clusters must be issued for this application. In most kubelogin authentication modes, you must use `--server-id` with `kubelogin get-token`.
 
-The AKS Microsoft Entra client application ID that's used by kubelogin to perform public client authentication on behalf of the user is `80faf920-1908-4b52-b5ef-a8e7bedfc67a`. The client application ID is used in device code and interactive web browser authentication methods.
+The AKS Microsoft Entra client application ID that kubelogin uses to perform public client authentication on behalf of the user is `80faf920-1908-4b52-b5ef-a8e7bedfc67a`. The client application ID is used in device code and web browser interactive authentication methods.
 
 ## Related content
 
-* Learn how to integrate AKS with Microsoft Entra with our [AKS-managed Microsoft Entra integration][aks-managed-microsoft-entra-integration-guide] how-to guide.
+* Learn how to integrate AKS with Microsoft Entra ID in the [AKS managed Microsoft Entra ID integration][aks-managed-microsoft-entra-integration-guide] how-to article.
 * To get started with managed identities in AKS, see [Use a managed identity in AKS][use-managed-identity-aks].
 * To get started with workload identities in AKS, see [Use a workload identity in AKS][use-workload-identity-aks].
 
 <!-- LINKS - internal -->
 [aks-managed-microsoft-entra-id]: managed-azure-ad.md
 [oauth-on-behalf-of]: ../active-directory/develop/v2-oauth2-on-behalf-of-flow.md
-[web-browser-interactive-mode]: #interactive-web-browser
+[web-browser-interactive-mode]: #web-browser-interactive
 [microsoft-entra-group-membership]: /entra/identity/hybrid/connect/how-to-connect-fed-group-claims
 [managed-identity-overview]: /entra/identity/managed-identities-azure-resources/overview
 [workload-identity]: /entra/workload-id/workload-identities-overview
