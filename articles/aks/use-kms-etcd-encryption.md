@@ -416,23 +416,11 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
 <!-- LINKS - Internal -->
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az extension add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [turn-on-kms-for-a-public-key-vault]: #turn-on-kms-for-a-public-key-vault
 [turn-on-kms-for-a-private-key-vault]: #turn-on-kms-for-a-private-key-vault
 [update-a-key-vault-mode]: #update-a-key-vault-mode
-[install-azure-cli]: /cli/azure/install-azure-cli
 [api-server-vnet-integration]: api-server-vnet-integration.md
 [kms-v2-support]: use-kms-etcd-encryption.md#kms-v2-support
