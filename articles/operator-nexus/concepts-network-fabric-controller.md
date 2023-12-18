@@ -70,7 +70,7 @@ Createa a Network Fabric Controller
 --infra-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-01", "expressRouteAuthorizationKey": "<auth-key>"}]' \
   --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02"", "expressRouteAuthorizationKey": "<auth-key>"}]'
 
-    ```
+```
 
     To update Network fabric controller with two new ExR (Re-put):
  ```azurecli
@@ -84,7 +84,7 @@ az networkfabric controller create \
  --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"", "expressRouteAuthorizationKey": "<auth-key>"}]'
 --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-04"", "expressRouteAuthorizationKey": "<auth-key>"}]'
 --mrg name=<ManagedResourceGroupName> location=eastus
-    ```
+```
 
 >[!NOTE]
 >There is no support for Patch yet.
@@ -92,5 +92,88 @@ az networkfabric controller create \
 Delete a Network Fabric Controller
  ```azurecli
 az networkfabric controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
-     ```
+```
+## Portal examples
+TBD
 
+## Provisioned NFC's JSON
+```json
+{
+    "id": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/NFCResourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/nfcname",
+    "name": "NFCName",
+    "type": "microsoft.managednetworkfabric/networkfabriccontrollers",
+    "location": "eastus",
+    "systemData": {
+        "createdBy": "email@address.com",
+        "createdByType": "User",
+        "createdAt": "2023-XX-XXT09:38:34.8310058Z",
+        "lastModifiedBy": "d1bd24c7-b27f-477e-86dd-939e107873d7",
+        "lastModifiedByType": "Application",
+        "lastModifiedAt": "2023-XX-XXT09T11:48:34.3748593Z"
+    },
+    "properties": {
+        "infrastructureExpressRouteConnections": [
+            {
+                "expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02"
+            }
+        ],
+        "workloadExpressRouteConnections": [
+            {
+                "expressRouteCircuitId": "/subscriptions/b256be71-d296-4e0e-99a1-408d9edc8718/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-03"
+            }
+        ],
+        "ipv4AddressSpace": "10.245.224.0/19",
+        "managedResourceGroupConfiguration": {
+            "location": "eastus",
+            "name": "nfc01-HostedResources-106DF6AD"
+        },
+        "provisioningState": "Succeeded",
+        "workloadManagementNetwork": true,
+        "infrastructureServices": {
+            "ipv4AddressSpaces": [
+                "10.245.224.0/21"
+            ],
+            "ipv6AddressSpaces": []
+        },
+        "workloadServices": {
+            "ipv4AddressSpaces": [
+                "10.245.252.0/22"
+            ],
+            "ipv6AddressSpaces": []
+        },
+            "ipv6AddressSpace": "FC00::/59",
+        "isWorkloadManagementNetworkEnabled": "True",
+        "nfcSku": "Standard"
+    }
+}
+
+```
+
+## FAQs on Network Fabric Controller (NFC) Setup and Management
+
+**How many Express Routes are required by default to initialize a Network Fabric Controller?**
+
+To successfully set up a Network Fabric Controller, at least two Express Routes are necessary: one for the Infrastructure Network and another for the Tenant Network.
+
+**What are the recommended Express Route Circuits for the Infrastructure Network and Tenant Network?**
+
+For optimal performance and redundancy, it is recommended to utilize two Express Route Circuits for both the Infrastructure and Tenant Networks.
+
+**What types of NFC SKUs are available?**
+
+NFC supports various SKUs including Basic, Standard, and High Performance options.
+
+**Is it possible to update the NFC with a new Express Route Circuit?**
+
+Yes, once the NFC is successfully provisioned, it can be updated with a new Express Route Circuit.
+
+**What is the typical time frame for NFC creation?**
+
+The creation process of an NFC typically ranges from 45 to 60 minutes.
+
+**How long does it take to delete an NFC?**
+Similar to the creation process, deleting an NFC usually takes between 45 and 60 minutes.
+
+**What steps should be taken if the NFC fails to initialize on the first attempt?**
+
+If the NFC does not provision successfully on the first try, the recommended course of action is to clean up and recreate the NFC. This is due to the lack of support for updating the NFC during intermediate failures.
