@@ -81,16 +81,20 @@ To complete this tutorial, you need:
 1.	Select **Networking** tab to configure how to reach your server.
 
     Azure Database for PostgreSQL - Flexible Server provides two ways to connect:
-    - Public access (allowed IP addresses)
+    - Public access (allowed IP addresses) and Private endpoint
     - Private access (VNet Integration)
     
-    With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range.
+    With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule or to applications which can reach the instance of PostgreSQL via private endpoints. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range, or create a private endpoint.
     
-    With private access (VNet Integration), access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](./concepts-networking.md).
-    
+    With private access, access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](./concepts-networking.md).
+
+> [!NOTE]
+> Azure Database for PostgreSQL - Flexible Server support for Private Endpoints in Preview requires enablement of **Enable Private Endpoints for PostgreSQL flexible servers** [preview feature in your subscription](../../azure-resource-manager/management/preview-features.md). 
+> Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
+
     For the purposes of this tutorial, enable public access to connect to the server.
 
-1. On the **Networking** tab, for **Connectivity method** select **Public access**.
+1. On the **Networking** tab, for **Connectivity method** select **Public access (allowed IP addresses) and Private endpoint**.
 
 1. For configuring **Firewall rules**, select **Add current client IP address**.
     
