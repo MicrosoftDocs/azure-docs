@@ -32,7 +32,7 @@ OpenAI GPT-4V tool enables you to use OpenAI's GPT-4 with vision, also referred 
 
 ## Connection
 
-Setup connections to provisioned resources in prompt flow.
+Set up connections to provisioned resources in prompt flow.
 
 | Type        | Name     | API KEY  |
 |-------------|----------|----------|
