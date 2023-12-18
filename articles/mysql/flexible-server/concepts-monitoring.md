@@ -15,7 +15,7 @@ ms.date: 9/21/2020
 
 Azure Database for MySQL flexible server provides monitoring of servers through Azure Monitor. Monitoring data about your servers helps you troubleshoot and optimize for your workload.
 
-In this article, you'll learn about the various metrics available and Server logs for your flexible server that give insight into the behavior of your server.
+In this article, you learn about the various metrics available and Server logs for your flexible server that give insight into the behavior of your server.
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
@@ -42,7 +42,7 @@ These metrics are available for Azure Database for MySQL flexible server:
 |Active Connections|active_connection|Count|The number of active connections to the server. Active connections are the total number of [threads connected](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Threads_connected) to your server, which also includes threads from [azure_superuser](../single-server/how-to-create-users.md).|
 |Storage IO percent|io_consumption_percent|Percent|The percentage of IO in use over selected period. IO percent is for both read and write IOPS.|
 |Storage IO Count|storage_io_count|Count|The total count of I/O operations (both read and write) utilized by server per minute.|
-|Host Memory Percent|memory_percent|Percent|The total percentage of memory in use on the server, including memory utilization from both database workload and other Azure MySQL processes. This metric provides evaluation of the server's memory utilization, excluding re-usable memory like buffer and cache.|
+|Host Memory Percent|memory_percent|Percent|The total percentage of memory in use on the server, including memory utilization from both database workload and other Azure MySQL processes. This metric provides evaluation of the server's memory utilization, excluding reusable memory like buffer and cache.|
 |Available Memory Bytes|available_memory_bytes|Bytes|This metric represents the amount of memory that is currently available for use on the server.|
 |Total connections|total_connections|Count|The number of client connections to your Azure Database for MySQL flexible server instance. Total Connections is sum of connections by clients using TCP/IP protocol over a selected period.|
 |Aborted Connections|aborted_connections|Count|Total number of failed attempts to connect to your Azure Database for MySQL flexible server instance, for example, failed connection due to bad credentials. For more information on aborted connections, you can refer to this [documentation](https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html).|
@@ -107,7 +107,7 @@ These metrics are available for Azure Database for MySQL flexible server:
 |Metric display name|Metric|Unit|Description|
 |---|---|---|---|
 |InnoDB Row Lock Time|innodb_row_lock_time|Milliseconds|InnoDB row lock time measures the duration of time in milliseconds for InnoDB row-level locks.|
-|InnoDB Row Lock Waitss|innodb_row_lock_waits|Count|InnoDB row lock waits count the number of times a query had to wait for an InnoDB row-level lock.|
+|InnoDB Row Lock Waits|innodb_row_lock_waits|Count|InnoDB row lock waits count the number of times a query had to wait for an InnoDB row-level lock.|
 |Innodb_buffer_pool_reads|Innodb_buffer_pool_reads|Count|The total count of logical reads that InnoDB engine couldn't satisfy from the Innodb buffer pool, and had to be fetched from the disk.|
 |Innodb_buffer_pool_read_requests|Innodb_buffer_pool_read_requests|Count|The total count of logical read requests to read from the Innodb Buffer pool.|
 |Innodb_buffer_pool_pages_free|Innodb_buffer_pool_pages_free|Count|The total count of free pages in InnoDB buffer pool.|
@@ -118,17 +118,17 @@ These metrics are available for Azure Database for MySQL flexible server:
 
 ## Server logs
 
-In Azure Database for MySQL flexible server, users can configure and download server logs to assist with troubleshooting efforts. With this feature enabled, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal and Azure CLI to download the files to work with them.
+In Azure Database for MySQL flexible server, users can configure and download server logs to assist with troubleshooting efforts. With this feature enabled, an Azure Database for MySQL flexible server instance starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal and Azure CLI to download the files to work with them.
 The server logs feature is disabled by default. For information about how to enable server logs, see [How to enable and download server logs for Azure Database for MySQL flexible server](./how-to-server-logs-portal.md)
 
+Server logs support [slow query logs](./concepts-slow-query-logs.md) and [error logs](./concepts-error-logs.md) for enabling and downloading.
 To perform a historical analysis of your data, in the Azure portal, on the Diagnostics settings pane for your server, add a diagnostic setting to send the logs to Log Analytics workspace, Azure Storage, or event hubs. For more information, see [Set up diagnostics](./tutorial-query-performance-insights.md#set-up-diagnostics).
 
 **Server logs retention**
 
-When logging is enabled for Azure Database for MySQL flexible server, logs are available up to seven days from their creation.
-If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
+When logging is enabled for an Azure Database for MySQL flexible server instance, logs are available up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
 The 7-GB storage limit for server logs is available free of cost and can't be extended.
-Logs are rotated every 24 hours or 7 GB, whichever comes first.
+Logs are rotated every 24 hours or 500 MB, whichever comes first.
 
 
 ## Next steps
