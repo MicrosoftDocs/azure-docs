@@ -214,11 +214,11 @@ When you choose a name for your service principal, make sure that the name is un
 > [!IMPORTANT]
 > If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
-## Configure the Control Plane Web Application credentials
+## Configure the control plane web application credentials
 
 As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
 
-:::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Web app front page":::
+:::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Screenshot of Web app front page.":::
 
 
 ### Create an app registration
@@ -246,7 +246,7 @@ echo "App registration password:  ${webapp_client_secret}"
 rm manifest.json
 ```
 
-1. Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
+Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
 
     The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
@@ -417,7 +417,7 @@ You need to note some values for upcoming steps. Look for this text block in the
 #########################################################################################
 ```
 
-1. Go to the [Azure portal](https://portal.azure.com).
+2. Go to the [Azure portal](https://portal.azure.com).
 
     Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example, you might see `MGMT-[region]-DEP00-INFRASTRUCTURE` and `MGMT-[region]-SAP_LIBRARY`.
 

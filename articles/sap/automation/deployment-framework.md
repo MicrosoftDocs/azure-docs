@@ -102,7 +102,7 @@ The SAP system deployment consists of the VMs and the associated resources requi
 
 For more information about how to configure and deploy the SAP system, see [Configure the SAP system](configure-system.md) and [Deploy the SAP system](deploy-system.md).
 
-----
+
 ## Software acquisition process
 
 The framework also provides an Ansible playbook that can be used to download the software from SAP and persist it in the storage accounts in the control plane's SAP library resource group.
