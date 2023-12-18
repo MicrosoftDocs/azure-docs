@@ -97,11 +97,11 @@ RDP uses port 3389 for connecting to a VM. By default, Linux lab VMs only have t
 
 1. During [lab creation](quick-create-connect-lab.md#create-a-lab), use the **Enabled connection types settings** to check the **Client connection (RDP)** setting.  You must enable this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  If this option is left disabled, only the port for SSH is opened.  The enabled ports *can’t* be changed after a lab is created.
 
-     :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png" alt-text="Screenshot that shows the Lab policies window with the Client connection (RDP) setting during lab creation .":::
+     :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enable-rdp-connection-option-option.png" alt-text="Screenshot that shows the Lab policies window with the Client connection (RDP) setting during lab creation .":::
 
 1. On the **Enable Remote Desktop Connection** message box, select **Continue with Remote Desktop**.
 
-    :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png" alt-text="Screenshot that shows the Enable Remote Desktop Connection confirmation window.":::
+    :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enable-remote-desktop-connection-dialogp-connection-dialog.png" alt-text="Screenshot that shows the Enable Remote Desktop Connection confirmation window.":::
 
 1. [Connect to a lab's template VM](how-to-create-manage-template.md#update-a-template-vm) using SSH.
 
