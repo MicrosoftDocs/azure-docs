@@ -3,7 +3,7 @@ title: Manage Arc-enabled Azure VMware private cloud
 description: Learn how to manage your Arc-enabled Azure VMware private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/12/2023
+ms.date: 12/18/2023
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -51,11 +51,11 @@ The following command invokes the set credential for the specified appliance res
 
 ## Upgrade the Arc resource bridge
 
-Azure Arc-enabled Azure VMware Private Cloud requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the vCenter server. You must meet all upgrade [prerequisites](/azure/azure-arc/resource-bridge/upgrade?branch=main#prerequisites) before attempting to upgrade. The vCenter server must have the kubeconfig and appliance configuration files stored locally. If the cloudadmin credentials change after the initial deployment of the resource bridge, [update the Arc appliance credential](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution#update-arc-appliance-credential) before you attempt a manual upgrade.
+Azure Arc-enabled Azure VMware Private Cloud requires the Arc resource bridge to connect your VMware vSphere environment with Azure. Periodically, new images of Arc resource bridge are released to include security and feature updates. The Arc resource bridge can be manually upgraded from the vCenter server. You must meet all upgrade [prerequisites](https://review.learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade?branch=main#prerequisites) before attempting to upgrade. The vCenter server must have the kubeconfig and appliance configuration files stored locally. If the cloudadmin credentials change after the initial deployment of the resource bridge, [update the Arc appliance credential](/azure/azure-vmware/manage-arc-enabled-azure-vmware-solution#update-arc-appliance-credential) before you attempt a manual upgrade.
 
-Arc resource bridge can be manually upgraded from the management machine. The [manual upgrade](/azure/azure-arc/resource-bridge/upgrade?branch=main#manual-upgrade) generally takes between 30-90 minutes, depending on the network speed. The upgrade command takes your Arc resource bridge to the immediate next version, which might not be the latest available version. Multiple upgrades could be needed to reach a [supported version](/azure/azure-arc/resource-bridge/upgrade?branch=main#supported-versions). Verify your resource bridge version by checking the Azure resource of your Arc resource bridge. 
+Arc resource bridge can be manually upgraded from the management machine. The [manual upgrade](https://review.learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade?branch=main#manual-upgrade) generally takes between 30-90 minutes, depending on the network speed. The upgrade command takes your Arc resource bridge to the immediate next version, which might not be the latest available version. Multiple upgrades could be needed to reach a [supported version](https://review.learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade?branch=main#supported-versions). Verify your resource bridge version by checking the Azure resource of your Arc resource bridge. 
 
-Arc resource bridges, on a supported [private cloud provider](/azure/azure-arc/resource-bridge/upgrade?branch=main#private-cloud-providers) with an appliance version 1.0.15 or higher, are automatically opted in to [cloud-managed upgrade](/azure/azure-arc/resource-bridge/upgrade?branch=main#cloud-managed-upgrade).  
+Arc resource bridges, on a supported [private cloud provider](https://review.learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade?branch=main#private-cloud-providers) with an appliance version 1.0.15 or higher, are automatically opted in to [cloud-managed upgrade](https://review.learn.microsoft.com/azure/azure-arc/resource-bridge/upgrade?branch=main#cloud-managed-upgrade).  
 
 
 ## Collect logs from the Arc resource bridge
