@@ -11,7 +11,7 @@ ms.custom: references_regions
 ms.topic: conceptual
 ---
 
-# Migration tool - Azure Database for PostgreSQL Single Server to Flexible Server
+# Migration tool - Azure database for PostgreSQL Single Server to Flexible Server
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.custom: seo-lt-2023, references_regions
 ---
 
-# Best Practices for a seamless migration using the Single to Flexible migration tool
+# Best practices for a seamless migration using the Single to Flexible migration tool
 
 [!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
@@ -19,7 +19,7 @@ ms.custom: seo-lt-2023, references_regions
 
 This article explains common pitfalls encountered, and best practices to ensure a smooth and successful migration to the Azure Database for PostgreSQL Flexible Server.
 
-## Pre-Migration Validation
+## Pre-migration validation
 
 As a first step in the migration, run the pre-migration validation before you perform a migration. You can do this using the **Validate** and **Validate and Migrate** options in the migration setup page. Pre-migration validation conducts thorough checks against a predefined rule set. The goal is to identify any potential problems and provide actionable insights for remedial actions. Keep running pre migration validation until it results in **Succeeded** state. Click [Pre-migration validations](./concepts-single-to-flexible.md#pre-migration-validations) to know more.
 
@@ -30,9 +30,9 @@ During initial base copy of data, multiple insert statements are executed on the
 > [!IMPORTANT]  
 > In both manual configuration and Storage Autogrow, storage size can't be reduced. Each step in the Storage configuration spectrum doubles in size so it's prudent to estimate the required storage beforehand.
 
-A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed informatio about each server configuration. Additionally, it's recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamelessly.
+A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration. Additionally, it's recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamlessly.
 
-## Setup Online migration parameters
+## Set up Online migration parameters
 
 > [!NOTE]  
 > Online migration is currently supported in limited regions - India Central, India South, Australia Southeast and South East Asia. For Onlone migrations using Single servers running PostgreSQL 9.5 and 9.6 we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11.
@@ -45,9 +45,9 @@ For Online migration, the Azure replication support should be set to Logical und
 
 You'll need to restart the source Single server after completing all the Online migration prerequisites.
 
-## Migration Timeline
+## Migration timeline
 
-Each migration has a lifecycle of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifecycle of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there is no data loss. Similary, for Online migration, it's recommended to keep traffic low throughout the migration.
+Each migration has a lifecycle of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifecycle of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there is no data loss. Similarly, for Online migration, it's recommended to keep traffic low throughout the migration.
 
 In most cases, the non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For migration of production server, you need to know the time it would take to complete the migration to plan for it in advance.
 
@@ -79,7 +79,7 @@ Psql -h **myflexserver**.postgres.database.azure.com -u user1 -d db1
 
 While often a migration runs without a hitch, it's good practice to plan for contingencies if more time is required for debugging or if a migration needs to be restarted.
 
-## Migration Speed Benchmarking
+## Migration speed benchmarking
 
 The following table shows the time for performing migrations for databases of various sizes using the single to flex migration tool. The migration was performed using a flexible server with the SKU – **Standard_D4ds_v4(4 cores, 16GB Memory, 128GB disk and 500 iops)**
 
@@ -131,11 +131,11 @@ If any of the above conditions are satisfied, the table is migrated in multiple 
 
 In summary, the Single to Flexible migration tool migrates a table in parallel threads and reduce the migration time if:
 
-1. The table has a column with a simple primary key or unique index of type int or big int.
-2. The table has at least 10000000 (10 m) rows so that the difference between the minimum and maximum value of the primary key is more than 10000000 (10 m).
-3. The SKU used has idle cores, which can be used for migrating the table in parallel.
+- The table has a column with a simple primary key or unique index of type int or big int.
+- The table has at least 10000000 (10 m) rows so that the difference between the minimum and maximum value of the primary key is more than 10000000 (10 m).
+- The SKU used has idle cores, which can be used for migrating the table in parallel.
 
-## Vacuum Bloat in PostgreSQL Database
+## Vacuum bloat in the PostgreSQL database
 
 Over time, as data is added, updated, and deleted, PostgreSQL may accumulate dead rows and wasted storage space. This can lead to increased storage requirements and decreased query performance. Vacuuming is a crucial maintenance task that helps reclaim this wasted space and ensures the database operates efficiently. Vacuuming addresses issues such as dead rows and table bloat, ensuring efficient use of storage. More importantly, it helps ensure a quicker migration as the migration time taken is a function of the Database size.
 
@@ -169,7 +169,7 @@ Regularly incorporating these vacuuming strategies ensures a well-maintained Pos
 
 ## Conclusion
 
-Once the migration is complete, make sure you perform the recommended post-migration activities. Click [Post-migration activites](./concepts-single-to-flexible.md#post-migration) to know more.
+Once the migration is complete, make sure you perform the recommended post-migration activities. Click [Post-migration activities](./concepts-single-to-flexible.md#post-migration) to know more.
 
 ## Next steps
 

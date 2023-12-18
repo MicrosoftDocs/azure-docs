@@ -15,20 +15,9 @@ ms.custom: seo-lt-2023, devx-track-azurecli, references_regions
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 >[!NOTE]
-> Before you begin, it is highly recommended to go through some of the [best practices to sensure a seamless migration experience](best-practices-seamless-migration-single-to-flexible.md)
+> Before you begin, it is highly recommended to go through some of the [best practices to ensure a seamless migration experience](best-practices-seamless-migration-single-to-flexible.md)
 
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure Command Line Interface (CLI). In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure CLI.
-
-In this tutorial, you learn about:
-
-> [!div class="checklist"]
->
-> * Prerequisites
-> * Getting started
-> * Migration CLI commands
-> * Monitor the migration
-> * Cancel the migration
-> * Conclusion
 
 ## Prerequisites
 
