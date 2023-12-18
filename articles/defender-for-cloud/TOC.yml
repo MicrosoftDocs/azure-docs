@@ -945,7 +945,9 @@
         - name: Data security dashboard
           href: episode-thirty-eight.md
         - name: Defender for APIs reaches GA
-          href: episode-thirty-nine.md    
+          href: episode-thirty-nine.md
+        - name: Live from Microsoft Ignite 2023
+          href: episode-forty.md    
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation

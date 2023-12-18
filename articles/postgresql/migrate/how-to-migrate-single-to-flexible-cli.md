@@ -14,18 +14,10 @@ ms.custom: seo-lt-2023, devx-track-azurecli, references_regions
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
+>[!NOTE]
+> Before you begin, it is highly recommended to go through some of the [best practices to ensure a seamless migration experience](best-practices-seamless-migration-single-to-flexible.md)
+
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure Command Line Interface (CLI). In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure CLI.
-
-In this tutorial, you learn about:
-
-> [!div class="checklist"]
->
-> * Prerequisites
-> * Getting started
-> * Migration CLI commands
-> * Monitor the migration
-> * Cancel the migration
-> * Migration best practices
 
 ## Prerequisites
 
@@ -42,7 +34,7 @@ To complete this tutorial, you need to:
 > [!IMPORTANT]
 > To provide the best migration experience, performing migration using a burstable instance of Flexible server is not supported. Please use a general purpose or a memory optimized instance (4 VCore or higher) as your Target Flexible server to perform the migration. Once the migration is complete, you can downscale back to a burstable instance if necessary.
 
-4. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+4. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./best-practices-seamless-migration-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
 
 
 ## Getting started
@@ -184,7 +176,7 @@ az postgres flexible-server migration update --subscription 11111111-1111-1111-1
 
 This command is required to advance the migration when the flexible server is waiting in the `WaitingForLogicalReplicationSetupRequestOnSourceDB` state.
 
-:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of logical replication set up." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png" alt-text="Screenshot of logical replication setup." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-logical-replication.png":::
 
 To perform Online migration in any of the above regions, use:
 
@@ -314,6 +306,6 @@ The command gives you the following output:
 
 :::image type="content" source="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png" alt-text="Screenshot of Azure Command Line Interface Cancel." lightbox="./media/concepts-single-to-flexible/az-postgres-flexible-server-migration-update-cancel-help.png":::
 
-## Migration best practices
+## Conclusion
 
-- For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#best-practices).
+- For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration).

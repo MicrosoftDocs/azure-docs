@@ -56,7 +56,7 @@ For more information, see:
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Defender for Endpoint device discovery](/microsoft-365/security/defender-endpoint/device-discovery)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 ## Automatically consolidated devices
 
@@ -160,6 +160,6 @@ For more information, see:
 
 - [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
 - [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 - [Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols](concept-supported-protocols.md)
 - [Investigate devices on a device map](how-to-work-with-the-sensor-device-map.md)

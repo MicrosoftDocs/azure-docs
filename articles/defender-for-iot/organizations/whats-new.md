@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 12/06/2023
+ms.date: 12/17/2023
 ms.custom: enterprise-iot
 ---
 
@@ -20,10 +20,49 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+| **OT networks** | - [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support)<br>- [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+
+
+### New architecture for hybrid and air-gapped support
+
+Hybrid and air-gapped networks are common in many industries, such as government, financial services, or industrial manufacturing. Air-gapped networks are physically separated from other, unsecured external networks like enterprise networks or the internet, and are less vulnerable to cyber-attacks. However, air-gapped networks are still not completely secure, can still be breached, and must be secured and monitored carefully.
+
+Defender for IoT now provides new guidance for connecting to and monitoring hybrid and air-gapped networks. The new architecture guidance is designed to add efficiency, security, and reliability to your SOC operations, with fewer components to maintain and troubleshoot. The sensor technology used in the new architecture allows for on-premises processing that keeps data within your own network, reducing the need for cloud resources and improving performance.
+
+The following image shows a sample, high level architecture of our recommendations for monitoring and maintaining Defender for IoT systems, where each OT sensor connects to multiple security management systems in the cloud or on-premises.
+
+:::image type="content" source="media/on-premises-architecture/on-premises-architecture.png" alt-text="Diagram of the new architecture for hybrid and air-gapped support." lightbox="media/on-premises-architecture/on-premises-architecture.png" border="false":::
+
+In this sample image, communication for alerts, syslog messages, and APIs is shown in a solid black line. On-premises management communication is shown in a solid purple line, and cloud / hybrid management communication is shown in a dotted black line.
+
+We recommend that existing customers who are currently using an on-premises management console to manage OT sensors transition to the updated architecture guidance.
+
+For more information, see [Deploy hybrid or air-gapped OT sensor management](ot-deploy/air-gapped-deploy.md).
+
+#### On-premises management console retirement
+
+The [legacy on-premises management console](legacy-central-management/legacy-air-gapped-deploy.md) won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date.
+
+- Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
+
+- Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
+
+- Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console or using REST APIs.
+
+For more information, see:
+
+- [Transitioning from a legacy on-premises management console](ot-deploy/air-gapped-deploy.md#transitioning-from-a-legacy-on-premises-management-console).
+- [Versioning and support for on-premises software versions](release-notes.md#versioning-and-support-for-on-premises-software-versions)
+
+### Live statuses for cloud-based sensor updates
+
+When running a sensor update from the Azure portal, a new progress bar appears in the **Sensor version** column during the update process. As the update progresses the bar shows the percentage of the update completed, showing you that the process is ongoing, is not stuck or has failed. For example:
+
+:::image type="content" source="media/whats-new/sensor-version-update-bar.png" alt-text="Screenshot of the update bar in the Sensor version column." lightbox="media/whats-new/sensor-version-update-bar.png":::
+
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### Streamlined alert records in the SecurityAlert table
-
 When integrating with Microsoft Sentinel, the Microsoft Sentinel **SecurityAlert** table is now updated immediately only for changes in alert status and severity. Other changes in alerts, such as last detection of an existing alert, are aggregated over several hours and display only the latest change made.
 
 For more information, see [Understand multiple records per alert](iot-solution.md#understand-multiple-records-per-alert).
@@ -746,7 +785,7 @@ For more information, see [Understand sensor health](how-to-manage-sensors-on-th
 |Service area  |Updates  |
 |---------|---------|
 |**Enterprise IoT networks**     | - [Enterprise IoT and Defender for Endpoint integration in GA](#enterprise-iot-and-defender-for-endpoint-integration-in-ga)        |
-|**OT networks**     |**Sensor software version 22.2.4**: <br>- [Device inventory enhancements](#device-inventory-enhancements)<br>- [Enhancements for the ServiceNow integration API](#enhancements-for-the-servicenow-integration-api)<br><br>**Sensor software version 22.2.3**:<br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)<br>- [Sensor names shown in browser tabs](#sensor-names-shown-in-browser-tabs)<br><br>**Sensor software version 22.1.7**: <br>- [Same passwords for *cyberx_host* and *cyberx* users](#same-passwords-for-cyberx_host-and-cyberx-users)  |
+|**OT networks**     |**Sensor software version 22.2.4**: <br>- [Device inventory enhancements](#device-inventory-enhancements)<br>- [Enhancements for the ServiceNow integration API](#enhancements-for-the-servicenow-integration-api)<br><br>**Sensor software version 22.2.3**:<br>- [OT appliance hardware profile updates](#ot-appliance-hardware-profile-updates)<br>- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)<br>- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)<br>- [Sensor connections restored after certificate rotation](#sensor-connections-restored-after-certificate-rotation)<br>- [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)<br>- [Sensor names shown in browser tabs](#sensor-names-shown-in-browser-tabs)<br><br>**Sensor software version 22.1.7**: <br>- [Same passwords for *cyberx_host* and *cyberx* users](#same-passwords-for-cyberx_host-and-cyberx-users)  |
 |**Cloud-only features**     |  - [Microsoft Sentinel incident synch with Defender for IoT alerts](#microsoft-sentinel-incident-synch-with-defender-for-iot-alerts) |
 
 ### Enterprise IoT and Defender for Endpoint integration in GA
@@ -838,7 +877,7 @@ For more information, see:
 
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 - [View and manage alerts on your sensor](how-to-view-alerts.md)
-- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+- [Work with alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md)
 
 ### Sensor connections restored after certificate rotation
 
@@ -861,14 +900,6 @@ For more information, see:
 
 - [Download a diagnostics log for support](how-to-troubleshoot-sensor.md#download-a-diagnostics-log-for-support)
 - [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support)
-
-### Improved security for uploading protocol plugins
-
-This version of the sensor provides an improved security for uploading proprietary plugins you've created using the Horizon SDK.
-
-:::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page." lightbox="media/release-notes/horizon.png":::
-
-For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
 ### Sensor names shown in browser tabs
 
