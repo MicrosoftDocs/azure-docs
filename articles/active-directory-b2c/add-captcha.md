@@ -61,7 +61,7 @@ To enable CAPTCHA in your custom policy, you need to update your existing custom
 
 ### Declare claims
 
-You need additional claims to enable you enable CAPTCHA:
+You need more claims to enable CAPTCHA in your custom policy:
 
 1. In VS Code, open the *TrustFrameworkBase.XML* file.
 
@@ -226,7 +226,7 @@ In the *TrustFrameworkBase.XML* file, locate the `ClaimsProviders` element and a
 <!--<ClaimsProviders>-->
 ```
 
-The CAPTCHA technical profile that's configured with the *GetChallenge* operation generates and display the CAPTCHA code whereas the one that's configured with the *VerifyChallenge* verifies the code that the user inputs.
+The CAPTCHA technical profile that you configure with the *GetChallenge* operation generates and display the CAPTCHA challenge string. The CAPTCHA technical profile that you configure with the *VerifyChallenge* verifies the challenge string that the user inputs.
 
 ### Update content definition's page layouts
 
@@ -254,7 +254,7 @@ In the *TrustFrameworkBase.XML* file, under the `ContentDefinitions` element, lo
 ...
 <!---</ContentDefinitions>-->
 ```
-We've specified the selfasserted page layout version as *2.1.27*.
+We specify the selfasserted page layout version as *2.1.27*.
 
 Once you configure your technical profiles and display controls, you can specify the flow for which you want to enable CAPTCHA.
 
@@ -264,7 +264,7 @@ To enable CAPTCHA for your sign-up or sign-in flow, use the following steps:
 
 1. Inspect your sign-up sign-in user journey, such as *SignUpOrSignIn*, to identify the self asserted technical profile that displays your sign-up or sign-in experience. 
 
-1. In the technical profile, such as *LocalAccountSignUpWithLogonEmail*, add a metadata key and a display claim entries as shown in the following code:
+1. In the technical profile, such as *LocalAccountSignUpWithLogonEmail*, add a metadata key and a display claim entry as shown in the following code:
 
 ```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
