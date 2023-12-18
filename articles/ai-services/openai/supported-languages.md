@@ -1,7 +1,7 @@
 ---
 title: Azure OpenAI Service supported programming languages
 titleSuffix: Azure AI services
-description: Programming language support for Azure OpenAI
+description: Programming language support for Azure OpenAI.
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-openai
