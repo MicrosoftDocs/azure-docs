@@ -600,6 +600,8 @@
       href: how-to-use-openai-models-in-azure-ml.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
+    - name: Use Model Catalog collections with virtual network
+      href: how-to-network-isolation-model-catalog.md
 - name: Use Generative AI
   items:
     - name: Build AI solutions with prompt flow
@@ -896,7 +898,9 @@
               href: how-to-deploy-automl-endpoint.md
         - name: Security
           items:
-            - name: Authentication for endpoints
+            - name: Authentication for online endpoints
+              href: concept-endpoints-online-auth.md
+            - name: Authenticate clients for online endpoints
               href: how-to-authenticate-online-endpoint.md
             - name: Network isolation with managed online endpoints
               displayName: network, vnet, secure
