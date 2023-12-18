@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 12/07/2023
+ms.date: 12/18/2023
 ---
 
 # Create an Azure support request
@@ -20,42 +20,46 @@ Azure provides unlimited support for subscription management, which includes bil
 
 ## Getting started
 
-You can get to **Help + support** in the Azure portal. It's available from the Azure portal menu, the global header, or the resource menu for a service. Before you can file a support request, you must have appropriate permissions.
+You can open support requests in the Azure portal from the Azure portal menu, the global header, or the resource menu for a service. Before you can file a support request, you must have appropriate permissions.
 
 ### Azure role-based access control
 
-You must have the appropriate access to a subscription before you can create a support request for it. This means you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](../../role-based-access-control/resource-provider-operations.md#microsoftsupport), at the subscription level.
+You must have the appropriate access to a subscription in order to create a support request for it. This means you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](../../role-based-access-control/resource-provider-operations.md#microsoftsupport), at the subscription level.
 
 To create a support request without a subscription, for example a Microsoft Entra scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 > [!IMPORTANT]
 > If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor), or a custom role with the [Microsoft.Support/supportTickets/read](../../role-based-access-control/resource-provider-operations.md#microsoftsupport) permission).
 
-### Go to Help + support from the global header
+### Open a support request from the global header
 
 To start a support request from anywhere in the Azure portal:
 
-1. Select the **?** in the global header, then select **Help + support**.
+1. Select the **?** in the global header. Enter a few words to describe your issue.
 
-   :::image type="content" source="media/how-to-create-azure-support-request/helpandsupportnewlower.png" alt-text="Screenshot of the Help menu in the Azure portal.":::
+   :::image type="content" source="media/how-to-create-azure-support-request/support-menu-issue.png" alt-text="Screenshot of the Help menu from the global header in the Azure portal.":::
 
-1. Select **Create a support request**.
+1. Follow the prompts to share more details about your issue, including the specific resource, if applicable. We'll try to provide solutions to help you resolve the issue.
 
-   :::image type="content" source="media/how-to-create-azure-support-request/newsupportrequest2lower.png" alt-text="Screenshot of the Help + support page with Create a support request link.":::
+   If none of the solutions resolve the problem you're having, select **Create a support request**.
 
-### Go to Help + support from a resource menu
+   :::image type="content" source="media/how-to-create-azure-support-request/header-create-support-request.png" alt-text="Screenshot of the Help menu with Create a support request link.":::
+
+### Open a support request from a resource menu
 
 To start a support request in the context of the resource you're currently working with:
 
-1. From the resource menu, in the **Support + troubleshooting** section, select **New Support Request**.
+1. From the resource menu, in the **Help** section, select **Support + Troubleshooting**.
 
-   :::image type="content" source="media/how-to-create-azure-support-request/incontext2lower.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
+   :::image type="content" source="media/how-to-create-azure-support-request/resource-context-support.png" alt-text="Screenshot of the New Support Request option in the resource pane.":::
 
-   When you start the support request process from a resource, some options are preselected for you, based on that resource.
+1. Follow the prompts  to share more details about your issue. Some options may be preselected for you, based on the resource you were viewing when you selected **Support + Troubleshooting**. We'll try to provide solutions to help you resolve the issue.
+
+  If none of the solutions resolve the problem you're having, select **Create a support request**.
 
 ## Create a support request
 
-After you create a new support request, you'll need to provide some information to help us understand the problem. This information is gathered in a few separate sections.
+When you create a new support request, you'll need to provide some information to help us understand the problem. This information is gathered in a few separate sections.
 
 ### Problem description
 
@@ -66,7 +70,7 @@ The first step of the support request process is to select an issue type. You'll
 >
 > If the issue applies to multiple subscriptions, you can mention additional subscriptions in your description, or by [sending a message](how-to-manage-azure-support-request.md#send-a-message) later. However, the support engineer will only be able to work on [subscriptions to which you have access](#azure-role-based-access-control). If you don't have the required access for a subscription, we won't be able to work on it as part of your request.
 
-:::image type="content" source="media/how-to-create-azure-support-request/basics2lower.png" alt-text="Screenshot of the Problem description step of the support request process.":::
+:::image type="content" source="media/how-to-create-azure-support-request/support-request-problem-description.png" alt-text="Screenshot of the Problem description step of the support request process.":::
 
 After you provide all of the requested information, select **Next**.
 
