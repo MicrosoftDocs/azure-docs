@@ -136,9 +136,10 @@ The **object grounding** integration brings a new layer to data analysis and use
         "dataSources": [
         {
             "type": "AzureComputerVision",
-            "endpoint": " <your_computer_vision_endpoint> ",
-            "key": "<your_computer_vision_key>",
-            "indexName": "test-products"
+            "parameters": {
+                "endpoint": "<your_computer_vision_endpoint>",
+                "key": "<your_computer_vision_key>"
+            }
         }],
         "messages": [ 
             { "role": "system", "content": "You are a helpful assistant." }, 
