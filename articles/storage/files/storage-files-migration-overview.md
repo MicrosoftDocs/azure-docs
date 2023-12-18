@@ -3,8 +3,8 @@ title: Migrate to SMB Azure file shares
 description: Learn how to migrate to SMB Azure file shares and find your migration guide.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: how-to
-ms.date: 12/12/2023
+ms.topic: conceptual
+ms.date: 12/14/2023
 ms.author: kendownie
 ---
 
