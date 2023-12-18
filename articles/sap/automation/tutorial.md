@@ -158,7 +158,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     To run the automation framework, update to the following versions:
 
-    - `az` version 2.4.0 or higher.
+    - `az` version 2.5.0 or higher.
     - `terraform` version 1.5 or higher. [Upgrade by using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html), as necessary.
 
 ## Create a service principal
@@ -214,14 +214,56 @@ When you choose a name for your service principal, make sure that the name is un
 > [!IMPORTANT]
 > If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
+## Configure the control plane web application credentials
+
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
+
+:::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Screenshot of Web app front page.":::
+
+
+### Create an app registration
+
+If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
+
+Replace MGMT with your environment as necessary.
+
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
+
+app_registration_app_id=$(az ad app create    \
+    --display-name MGMT-webapp-registration   \
+    --enable-id-token-issuance true           \
+    --sign-in-audience AzureADMyOrg           \
+    --required-resource-access @manifest.json \
+    --query "appId" | tr -d '"')
+
+webapp_client_secret=$(az ad app credential reset \
+    --id $TF_VAR_app_registration_app_id --append \
+    --query "password" | tr -d '"')
+
+echo "App registration ID:  ${app_registration_app_id}"
+echo "App registration password:  ${webapp_client_secret}"
+
+rm manifest.json
+```
+
+Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
+
+The output maps to the following parameters. You use these parameters in later steps, with automation commands.
+
+| Parameter input name      | Output name                       |
+| ------------------------- | --------------------------------- |
+| `app_registration_app_id` | `App registration ID`             |
+| `webapp_client_secret`    | `App registration password`       |
+
 ## View configuration files
 
 1. Open Visual Studio Code from Cloud Shell.
 
-    ```cloudshell-interactive
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    code .
-    ```
+```cloudshell-interactive
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+code .
+```
 
 1. Expand the `WORKSPACES` directory. There are five subfolders: `CONFIGURATION`, `DEPLOYER`, `LANDSCAPE`, `LIBRARY`, `SYSTEM`, and `BOMS`. Expand each of these folders to find regional deployment configuration files.
 
@@ -376,7 +418,7 @@ You need to note some values for upcoming steps. Look for this text block in the
 #########################################################################################
 ```
 
-1. Go to the [Azure portal](https://portal.azure.com).
+2. Go to the [Azure portal](https://portal.azure.com).
 
     Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example, you might see `MGMT-[region]-DEP00-INFRASTRUCTURE` and `MGMT-[region]-SAP_LIBRARY`.
 
