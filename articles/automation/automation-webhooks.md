@@ -3,7 +3,7 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/01/2023
+ms.date: 18/12/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -11,9 +11,6 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 # Start a runbook from a webhook
 
 A webhook allows an external service to start a particular runbook in Azure Automation through a single HTTP request. External services include Azure DevOps Services, GitHub, Azure Monitor logs, and custom applications. Such a service can use a webhook to start a runbook without implementing the full Azure Automation API. You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](./start-runbooks.md).
-
-> [!NOTE]
-> Using a webhook to start a Python runbook is not supported.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
