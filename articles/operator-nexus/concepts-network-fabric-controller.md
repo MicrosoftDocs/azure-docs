@@ -1,5 +1,5 @@
 ---
-title: Azure Operator Nexus: Network Fabric Controller
+title: Azure Operator Nexus Network Fabric Controller
 description: Overview of Network Fabric Controller for Azure Operator Nexus.
 author: lnyswonger
 ms.author: lnyswonger
