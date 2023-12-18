@@ -60,4 +60,12 @@ The above Dapr configuration values are considered application-scope changes. Wh
 
 ## Next steps
 
-[Learn how to connect Dapr components using the Azure portal](./dapr-component-connection.md)
+[Learn how to connect Dapr components using the Azure portal][dapr-connect]
+
+<!-- Links External -->
+
+[dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
+
+<!-- Links Internal -->
+
+[dapr-connect]: ./dapr-component-connection.md

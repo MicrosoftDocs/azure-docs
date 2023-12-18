@@ -240,3 +240,14 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 ---
 
 ## Next steps
+
+
+<!-- Links Internal -->
+
+[dapr-component-connection]: ./dapr-component-connection.md
+[dapr-keda]: ./dapr-keda-scaling.md
+
+<!-- Links External -->
+
+[dapr-component]: https://docs.dapr.io/concepts/components-concept/
+[dapr-component-spec]: https://docs.dapr.io/reference/resource-specs/

@@ -56,19 +56,14 @@ Azure Container Apps offers fully-managed versions of the following _stable_ Dap
 
 Now that you've learned about Dapr and some of the challenges it solves:
 
-- [Enable Dapr in your container app](./enable-dapr.md)
-- [Learn how Dapr components work in Azure Container Apps](./dapr-components.md)
+- [Enable Dapr in your container app][dapr-enable]
+- [Learn how Dapr components work in Azure Container Apps][dapr-components]
 - 
 <!-- Links Internal -->
 
-[dapr-quickstart]: ./microservices-dapr.md
-[dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
-[dapr-github-actions]: ./dapr-github-actions.md
-[dapr-bindings-tutorial]: ./microservices-dapr-bindings.md
-[dapr-token]: ./dapr-authentication-token.md
-[dapr-component-connection]: ./dapr-component-connection.md
-[dapr-keda]: ./dapr-keda-scaling.md
 [dapr-faq]: ./faq.yml#dapr
+[dapr-enable]: ./enable-dapr.md
+[dapr-components]: ./dapr-components.md
 
 <!-- Links External -->
 
@@ -80,8 +75,3 @@ Now that you've learned about Dapr and some of the challenges it solves:
 [dapr-actors]: https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
 [dapr-secrets]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
 [dapr-config]: https://docs.dapr.io/developing-applications/building-blocks/configuration/
-[dapr-cncf]: https://www.cncf.io/projects/dapr/
-[dapr-args]: https://docs.dapr.io/reference/arguments-annotations-overview/
-[dapr-component]: https://docs.dapr.io/concepts/components-concept/
-[dapr-component-spec]: https://docs.dapr.io/reference/resource-specs/
-[dapr-release]: https://docs.dapr.io/operations/support/support-release-policy/#supported-versions
