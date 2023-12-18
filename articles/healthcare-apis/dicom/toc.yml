@@ -15,8 +15,12 @@ items:
   items: 
     - name: Get started with the DICOM service
       href: get-started-with-dicom.md
+    - name: Azure Data Lake Storage integration for the DICOM service (Preview)
+      href: dicom-data-lake.md
     - name: Deploy the DICOM service
       href: deploy-dicom-services-in-azure.md
+    - name: Deploy the DICOM service with Data Lake Storage (Preview)
+      href: deploy-dicom-services-in-azure-data-lake.md
     - name: Get an access token
       href: get-access-token.md
     - name: Register a client application
@@ -30,7 +34,11 @@ items:
       href: dicom-digital-pathology.md
 - name: Configuration & operations
   expanded: true
-  items: 
+  items:
+    - name: Customer-managed keys best practices
+      href: customer-managed-keys.md
+    - name: Configure customer-managed keys
+      href: configure-customer-managed-keys.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Azure RBAC
@@ -62,9 +70,11 @@ items:
           href: dicom-change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
+        - name: Bulk update
+          href: update-files.md
     - name: API versioning
       expanded: false
-      items:
+      items: 
         - name: API versioning policies
           href: api-versioning-dicom-service.md
         - name: DICOM service API v2 changes

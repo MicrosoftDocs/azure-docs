@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/08/2023
 ms.service: confidential-ledger
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom:
 ---
 
 # Activate members in an Azure Managed CCF resource

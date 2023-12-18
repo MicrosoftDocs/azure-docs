@@ -487,5 +487,5 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ]
 ```
 
-## Next steps
+## Related content
 For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

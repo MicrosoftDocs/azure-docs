@@ -120,3 +120,4 @@ Managed feature store provides the following security capabilities:
 
 - [Understanding top-level entities in managed feature store](concept-top-level-entities-in-managed-feature-store.md)
 - [Manage access control for managed feature store](how-to-setup-access-control-feature-store.md)
+- [Azure Machine Learning managed feature stores samples repository](https://github.com/Azure/azureml-examples/tree/main/sdk/python/featurestore_sample)

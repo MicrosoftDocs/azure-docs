@@ -50,10 +50,8 @@ Token credentials in credential manager consist of two parts: **management** and
 * The **management** part in credential manager takes care of setting up and configuring a *credential provider* for OAuth 2.0 tokens, enabling the consent flow for the identity provider, and setting up one or more *connections* to the credential provider for access to the credentials. For details, see [Management of connections](credentials-process-flow.md#management-of-connections).
 
 
-* The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store the connection's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Runtime of connections](credentials-process-flow.md#runtime-of-connections).  
+* The **runtime** part uses the [`get-authorization-context`](get-authorization-context-policy.md) policy to fetch and store the connection's access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it first validates if the existing authorization token is valid. If the authorization token has expired, API Management uses an OAuth 2.0 flow to refresh the stored tokens from the identity provider. Then the access token is used to authorize access to the backend service. For details, see [Runtime of connections](credentials-process-flow.md#runtime-of-connections).  
    
-    During the policy execution, access to the tokens is also validated using access policies.
-
 ## When to use credential manager?
 
 The following are three scenarios for using credential manager.
@@ -65,16 +63,16 @@ After configuring the credential provider and a connection, the API manager can 
 :::image type="content" source="media/credentials-overview/configuration-scenario.png" alt-text="Diagram of initial configuration scenario for credential manager.":::
 
 
-### Managed identity scenario
+### Unattended scenario
 
-By default when a connection is created, an access policy is preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured connection that's not related to the user context, the same data is returned to all users.
+By default when a connection is created, an access policy and connection are preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured connection that's not related to the user context, the same data is returned to all users.
 
 :::image type="content" source="media/credentials-overview/managed-identity-scenario.png" alt-text="Diagram of managed identity scenario for credential manager.":::
 
 
-### User-delegated scenario
+### Attended (user-delegated) scenario
 
-To enable a simplified authentication experience for users of client applications, such as static web apps, that call backend SaaS APIs that require a user context, you can enable access to a connection on behalf of a Microsoft Entra user or group identity. In this case, a configured user needs to login and provide consent only once, and the API Management instance will manage their connection after that. When API Management gets an incoming call to be forwarded to an external service, it attaches the access token from the connection to the request. This is ideal for when API requests and responses are geared towards an individual (for example, retrieving user-specific profile information).
+To enable a simplified authentication experience for users of client applications, such as static web apps, that call backend SaaS APIs that require a user context, you can enable access to a connection on behalf of a Microsoft Entra user or group identity. In this case, a configured user needs to login and provide consent only once, and the API Management instance will create and manage their connection after that. When API Management gets an incoming call to be forwarded to an external service, it attaches the access token from the connection to the request. This is ideal for when API requests and responses are geared towards an individual (for example, retrieving user-specific profile information).
 
 :::image type="content" source="media/credentials-overview/user-delegated-scenario.png" alt-text="Diagram of user-delegated scenario for credential manager.":::
 
@@ -139,7 +137,7 @@ All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-In the dedicated service tiers, the access token is cached by the API management until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
+In the dedicated service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
 
 Access tokens aren't cached in the Consumption tier.
 
@@ -147,4 +145,5 @@ Access tokens aren't cached in the Consumption tier.
 
 - Configure [credential providers](credentials-configure-common-providers.md) for connections
 - Configure and use a connection for the [Microsoft Graph API](credentials-how-to-azure-ad.md) or the [GitHub API](credentials-how-to-github.md)
+- Configure a connection for [user-delegated access](credentials-how-to-user-delegated.md)
 - Configure [multiple connections](configure-credential-connection.md) for a credential provider

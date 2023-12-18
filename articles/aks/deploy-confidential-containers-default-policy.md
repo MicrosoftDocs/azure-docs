@@ -201,7 +201,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
    Run the following command to set the scope:
 
     ```azurecli-interactive
-    AKV_SCOPE=`az keyvault show --name <AZURE_AKV_RESOURCE_NAME> --query id --output tsv` 
+    AKV_SCOPE=$(az keyvault show --name <AZURE_AKV_RESOURCE_NAME> --query id --output tsv) 
     ```
 
    Run the following command to assign the **Key Vault Crypto Officer** role.
@@ -338,7 +338,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 
     ```
 
-1. Prepare the RSA Encryption/Decryption key by [downloading][download-setup-key-script] the Bash script for the workload from GitHub. Save the file as `setup-key.sh`.
+1. Prepare the RSA Encryption/Decryption key by [https://github.com/microsoft/confidential-container-demos/blob/main/kafka/setup-key.sh] the Bash script for the workload from GitHub. Save the file as `setup-key.sh`.
 
 1. Set the `MAA_ENDPOINT` environmental variable to match the value for the `SkrClientMAAEndpoint` from the `consumer.yaml` manifest file by running the following command.
 
@@ -364,11 +364,11 @@ For this preview release, we recommend for test and evaluation purposes to eithe
 1. Deploy the `consumer` and `producer` YAML manifests using the files you saved earlier.
 
     ```bash
-    kubectl apply –f consumer.yaml
+    kubectl apply -f consumer.yaml
     ```
 
     ```bash
-    kubectl apply –f producer.yaml
+    kubectl apply -f producer.yaml
     ```
 
 1. Get the IP address of the web service using the following command:

@@ -3,7 +3,7 @@ title: Send data to Microsoft Fabric from a pipeline
 description: Configure a pipeline destination stage to send the pipeline output to Microsoft Fabric for storage and analysis.
 author: dominicbetts
 ms.author: dobett
-# ms.subservice: data-processor
+ms.subservice: data-processor
 ms.topic: how-to
 ms.custom:
   - ignite-2023

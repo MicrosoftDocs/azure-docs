@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learning how to transition your RAG created flows from cloud to local using the prompt flow VS Code extension.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: prompt-flow
 ms.topic: conceptual
 author: jiaochenlu
 ms.author: chenlujiao

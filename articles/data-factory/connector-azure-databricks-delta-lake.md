@@ -495,6 +495,6 @@ The same [copy activity monitoring experience](copy-activity-monitoring.md) is p
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by Copy activity, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

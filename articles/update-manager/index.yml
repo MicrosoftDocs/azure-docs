@@ -4,10 +4,10 @@ title: Azure Update Manager documentation
 metadata:
   title: Azure Update Manager documentation
   description: Learn how to use Update Manager in Azure to manage updates on machines across Azure and hybrid environments.
-  services: Update-manager
+  services: Azure-update-manager
   author: SnehaSudhir
   manager: jsuri
-  ms.service: Update-manager
+  ms.service: azure-update-manager
   ms.topic: landing-page
   ms.date: 07/04/2023
   ms.author: sudhirsneha

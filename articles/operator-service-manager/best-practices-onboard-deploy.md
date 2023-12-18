@@ -38,7 +38,7 @@ NFDG represents the smallest component that you plan to reuse independently acro
 
 For Containerized Network Function Definition Versions (CNF NFDVs), the networkFunctionApplications list can only contain helm packages. It's reasonable to include multiple helm packages if they're always deployed and deleted together.
 
-For Virtualized Network Function Definition Versions (VNF NFDVs), the networkFunctionApplications list must contain one VhdImageFile and one ARM template. The ARM template should deploy a single VM. To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM. 
+For Virtualized Network Function Definition Versions (VNF NFDVs), the networkFunctionApplications list must contain at least one VhdImageFile and one ARM template. The ARM template should deploy a single VM. To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM. 
 
 The ARM template can only deploy ARM resources from the following Resource Providers:
 
@@ -49,6 +49,9 @@ The ARM template can only deploy ARM resources from the following Resource Provi
 - Microsoft.NetworkFabric
 - Microsoft.Authorization
 - Microsoft.ManagedIdentity
+
+>[!NOTE] 
+> For ARM templates containing anything beyond the above list, all PUT calls and Re-PUT on the VNF will result in validation error. 
 
 ### Common use cases that trigger Network Function Design Version minor or major version update
 
@@ -232,11 +235,24 @@ During installation and upgrade by default, atomic and wait options are set to t
 In the ARM template add the following section:
 <pre>
 "roleOverrideValues": [
-"{\"name\":\"<<b>chart_name></b>\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"false\",\"wait\":\"true\",\"timeout\":\"100\"}}}}}}"
+    "{\"name\":\"<b>NF_component_name></b>\",\"deployParametersMappingRuleProfile\":{\"helmMappingRuleProfile\":{\"options\":{\"installOptions\":{\"atomic\":\"false\",\"wait\":\"true\",\"timeout\":\"100\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"4\"}}}}}"
 ]
 </pre>
 
-The chart name is defined in the NFDV.
+The component name is defined in the NFDV:
+<pre>
+     networkFunctionTemplate: {
+      nfviType: 'AzureArcKubernetes'
+      networkFunctionApplications: [
+        {
+          artifactType: 'HelmPackage'
+          <b>name: 'fed-crds'</b>
+          dependsOnProfile: null
+          artifactProfile: {
+            artifactStore: {
+              id: acrArtifactStore.id
+            }
+</pre>
 
 ## Clean up considerations
 

@@ -288,7 +288,7 @@ Get the local participant Id:
 ```js
 const participantId: string = call.info.participantId;
 ```
-*Note: An ACS identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the ACS identity raw Id.*
+*Note: An Azure Communication Services identity can use the web calling sdk in many endpoints, and each endpoint will have its own unique `participantId`. `participantId` is different from the Azure Communication Services identity raw Id.*
 
 Retrieve the thread ID if joining a Teams meeting:
 > [!NOTE]

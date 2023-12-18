@@ -2,7 +2,6 @@
 title: Generate a REST API client library - Speech service
 titleSuffix: Azure AI services
 description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. 
-#services: cognitive-services
 author: eric-urban
 ms.author: eur
 manager: nitinme

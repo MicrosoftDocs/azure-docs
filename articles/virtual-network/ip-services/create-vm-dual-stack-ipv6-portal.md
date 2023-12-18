@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 12/05/2023
 ms.custom: template-how-to, devx-track-linux
 ---
 
@@ -25,11 +25,11 @@ In this section, you create a dual-stack virtual network for the virtual machine
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-3. Select **+ Create**.
+1. Select **+ Create**.
 
-4. In the **Basics** tab of **Create virtual network**, enter or select the following information.
+1. In the **Basics** tab of **Create virtual network**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -40,29 +40,32 @@ In this section, you create a dual-stack virtual network for the virtual machine
     | Name | Enter **myVNet**. |
     | Region | Select **East US 2**. |
 
-5. Select the **IP Addresses** tab, or **Next: IP Addresses**.
+1. Select the **IP Addresses** tab, or **Next**>**Next**.
 
-6. Leave the default IPv4 address space of **10.1.0.0/16**. If the default is absent or different, enter an IPv4 address space of **10.1.0.0/16**.
+1. Leave the default IPv4 address space of **10.0.0.0/16**. If the default is absent or different, enter an IPv4 address space of **10.0.0.0/16**.
 
-7. Select the **Add IPv6 address space** box.
+1. Select the **default** subnet.
 
-8. In **IPv6 address space**, edit the default address space and change its value to **2404:f800:8000:122::/63**.
+1. On the **Edit subnet** page, enter **myBackendSubnet** in **Subnet name** and select **Save**.
 
-9. To add an IPv6 subnet, select **default** under **Subnet name**. If default is missing, select **+ Add subnet**.
+1. Select **Add IPv6 address space** from the dropdown menu.
 
-10. In **Subnet name**, enter **myBackendSubnet**.
+1. In **IPv6 address space**, edit the default address space and change its value to **2404:f800:8000:122::/63**.
 
-11. Leave the default IPv4 subnet of **10.1.0.0/24** in **Subnet address range**. Enter **10.1.0.0/24** if missing.
+1. To add an IPv6 subnet, select **+ Add a subnet** and enter or select the following information:
+   
+    | Setting | Value |
+    | ------- | ----- |
+    | **Subnet** |   |
+    | Subnet name | Enter **myBackendSubnet**. |
+    | Address range | Leave default of **2404:f800:8000:122::**. |
+    | Size | Leave the default of **/64**. |
 
-12. Select the box next to **Add IPv6 address space**.
+1.  Select **Add**.
 
-13. In **IPv6 address range**, enter **2404:f800:8000:122::/64**.
+1. Select the **Review + create**.
 
-14. Select **Save**. If creating a subnet, select **Add**.
-
-15. Select the **Review + create**.
-
-16. Select **Create**.
+1. Select **Create**.
 
 ## Create public IP addresses
 

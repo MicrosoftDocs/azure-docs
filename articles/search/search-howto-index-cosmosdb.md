@@ -28,7 +28,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 + An [automatic indexing policy](../cosmos-db/index-policy.md) on the Azure Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
-+ Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
++ Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure RBAC (Entra ID), make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) is assigned both **Cosmos DB Account Reader Role** and [**Cosmos DB Built-in Data Reader Role**](../cosmos-db/how-to-setup-rbac.md#built-in-role-definitions).
 
 + A REST client, such as [Postman](search-get-started-rest.md), to send REST calls that create the data source, index, and indexer. 
 

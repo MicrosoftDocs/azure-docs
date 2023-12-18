@@ -42,7 +42,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Regions and availability
 
-The IPv6 Application Gateway preview is available to all public cloud regions where Application Gateway v2 SKU is supported.
+The IPv6 Application Gateway preview is available to all public cloud regions where Application Gateway v2 SKU is supported. It's also available in [Microsoft Azure operated by 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ## Limitations
 

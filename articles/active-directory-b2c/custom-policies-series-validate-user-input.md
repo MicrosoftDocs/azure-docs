@@ -2,12 +2,12 @@
 title: Validate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
 description: Learn how to validate user inputs by using Azure Active Directory B2C custom policy. Learn how to validate user input by limiting user input options. Learn how to validate user input by using Predicates. Learn how to validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 11/06/2023

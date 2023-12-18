@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 11/15/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -24,18 +24,27 @@ ms.custom:
 
 Document Intelligence service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and our newest documentation.
 
+## December 2023
+
+The [Document Intelligence SDKs](sdk-overview-v4-0.md) targeting REST API **2023-10-31-preview** are now available for use!
+
 ## November 2023
 
-Document Intelligence **2023-10-31-preview**
+The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available. This preview API introduces new and updated capabilities:
 
-The Document Intelligence [**2023-10-31-preview**](https://westus.dev.cognitive.microsoft.com/docs/services?pattern=intelligence) REST API is now available for use! This preview API introduces new and updated capabilities:
+* Public preview version [**2023-10-31-preview**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) is currently only available in the following Azure regions:
+
+  * **East US**
+  * **West US2**
+  * **West Europe**
 
 * [Read model](concept-contract.md)
   * Language Expansion for Handwriting: Russian(`ru`), Arabic(`ar`), Thai(`th`).
   * Cyber EO compliance.
 * [Layout model](concept-layout.md)
+  * Support office and HTML files.
   * Markdown output support.
-  * Table extraction improvements.
+  * Table extraction, reading order, and section heading detection improvements.
   * With the Document Intelligence 2023-10-31-preview, the general document model (prebuilt-document) is deprecated. Going forward, to extract key-value pairs from documents, use the
     `prebuilt-layout` model with the optional query string parameter `features=keyValuePairs` enabled.
 * [Receipt model](concept-receipt.md)
@@ -98,7 +107,7 @@ The v3.1 API introduces new and updated capabilities:
 * Document Intelligence now supports more sophisticated analysis capabilities and the Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
 * Depending on the document extraction scenario, configure the analysis range, document page range, optional detection, and premium detection features.
 
-    :::image type="content" source="media/studio/analyze-options.gif" alt-text="Animated screenshot showing use of the analyze options button to configure options in Studio.":::
+    :::image type="content" source="media/studio/analyze-options.gif" alt-text="Animated screenshot showing use of the analyze-options button to configure options in Studio.":::
 
     > [!NOTE]
     > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles section of the JSON output for the font detection results.
@@ -172,7 +181,6 @@ The v3.1 API introduces new and updated capabilities:
 
 * [**Custom classification model**](concept-custom-classifier.md) is a new capability within Document Intelligence starting with the ```2023-02-28-preview``` API. Try the document classification capability using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document-classifier/projects) or the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-02-28-preview/operations/GetClassifyDocumentResult).
 * [**Query fields**](concept-query-fields.md) capabilities added to the General Document model, use Azure OpenAI models to extract specific fields from documents. Try the **General documents with query fields** feature using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio). Query fields are currently only active for resources in the `East US` region.
-* [**Read**](concept-read.md#barcode-extraction) and [**Layout**](concept-layout.md#data-extraction) models support **barcode** extraction with the ```2023-02-28-preview``` API.
 * [**Add-on capabilities**](concept-add-on-capabilities.md)
   * [**Font extraction**](concept-add-on-capabilities.md#font-property-extraction) is now recognized with the ```2023-02-28-preview``` API.
   * [**Formula extraction**](concept-add-on-capabilities.md#formula-extraction) is now recognized with the ```2023-02-28-preview``` API.
@@ -230,7 +238,7 @@ The v3.1 API introduces new and updated capabilities:
   * US Military ID
 
 > [!TIP]
-> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument).
+> All January 2023 updates are available with [REST API version **2022-08-31 (GA)**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP).
 
 * **[Prebuilt receipt model](concept-receipt.md#supported-languages-and-locales)—additional language support**:
 
@@ -481,7 +489,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * Document Intelligence v3.0 generally available
 
-  * **Document Intelligence REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument).
+  * **Document Intelligence REST API v3.0 is now generally available and ready for use in production applications!** Update your applications with [**REST API version 2022-08-31**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP).
 
 * Document Intelligence Studio updates
   > [!div class="checklist"]

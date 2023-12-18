@@ -17,6 +17,8 @@ You can ask Microsoft Copilot for Azure (preview) questions to get information f
 
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
+[!INCLUDE [preview-note](includes/preview-note.md)]
+
 ## Sample prompts
 
 Here are a few examples of the kinds of prompts you can use to get service health information. Modify these prompts based on your real-life scenarios, or try additional prompts about specific service health events.

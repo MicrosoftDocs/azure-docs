@@ -1,6 +1,6 @@
 ---
 title: Configure credential providers - Azure API Management | Microsoft Docs
-description: Learn how to configure common credential providers in Azure API Management's credential manager. Example providers are Microsoft Entra ID and generic OAuth 2.0.  
+description: Learn how to configure common credential providers in Azure API Management's credential manager. Example providers are Microsoft Entra and generic OAuth 2.0.  
 services: api-management
 author: dlepow
 ms.service: api-management
@@ -34,7 +34,7 @@ To configure any of the supported providers in API Management, first configure a
 
 ## Microsoft Entra provider
 
-API credentials support the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
+API credential manager supports the Microsoft Entra identity provider, which is the identity service in Microsoft Azure that provides identity management and access control capabilities. It allows users to securely sign in using industry-standard protocols.
 
 * **Supported grant types**: authorization code, client credentials
 
@@ -78,4 +78,4 @@ Required settings for these providers differ from provider to provider but are s
 ## Related content
 
 * Learn more about managing [connections](credentials-overview.md) in API Management.
-* Create a connection for [Microsoft Entra ID](authorizations-how-to-azure-ad.md) or [GitHub](authorizations-how-to-github.md).
+* Create a connection for [Microsoft Entra ID](credentials-how-to-azure-ad.md) or [GitHub](credentials-how-to-github.md).

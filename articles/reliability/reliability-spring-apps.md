@@ -71,7 +71,7 @@ az spring create \
 
 To create a service in Azure Spring Apps with zone-redundancy enabled using the Azure portal, select the **Zone Redundant** option when you create the instance.
 
-:::image type="content" source="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png":::
+:::image type="content" source="media/reliability-spring-apps/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="media/reliability-spring-apps/availability-zone-portal.png":::
 
 ---
 
@@ -139,7 +139,7 @@ Azure Front Door is a global, scalable entry point that uses the Microsoft globa
 
 The following diagram shows the architecture of a multi-region redundancy, virtual-network-integrated Azure Spring Apps service instance. The diagram shows the correct reverse proxy configuration for Application Gateway and Front Door with a custom domain. This architecture is based on the scenario described in [Expose applications with end-to-end TLS in a virtual network](../spring-apps/expose-apps-gateway-end-to-end-tls.md). This approach combines two Application-Gateway-integrated Azure Spring Apps virtual-network-injection instances into a geo-redundant instance.
 
-:::image type="content" source="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png" alt-text="Diagram showing the architecture of a multi-region Azure Spring Apps service instance." lightbox="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png":::
+:::image type="content" source="media/reliability-spring-apps/multi-region-spring-apps-reference-architecture.png" alt-text="Diagram showing the architecture of a multi-region Azure Spring Apps service instance." lightbox="media/reliability-spring-apps/multi-region-spring-apps-reference-architecture.png":::
 
 ## Next steps
 

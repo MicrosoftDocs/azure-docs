@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 11/20/2023
 ms.service: backup
 ms.custom:
   - ignite-2023
@@ -19,6 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - November 2023
+  - [Encryption using Customer Managed Keys for Backup vaults (preview)](#encryption-using-customer-managed-keys-for-backup-vaults-preview)
   - [Back up Azure Database for PostgreSQL-Flexible server (preview)](#back-up-azure-database-for-postgresql-flexible-server-preview)
   - [Azure Kubernetes Service backup is now generally available](#azure-kubernetes-service-backup-is-now-generally-available)
   - [Manage protection of datasources using Azure Business Continuity center (preview)](#manage-protection-of-datasources-using-azure-business-continuity-center-preview)
@@ -77,6 +78,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+
+## Encryption using Customer Managed Keys for Backup vaults (preview)
+
+Azure Backup Vault now allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which are enabled by default. This feature enables you to control data access using the key and Key Vault you provide.
+
+For more information, see [Encryption of backup data in the Backup vault using customer-managed keys (preview)](encryption-at-rest-with-cmk-for-backup-vault.md).
 
 ## Back up Azure Database for PostgreSQL-Flexible server (preview) 
 
@@ -385,7 +392,7 @@ Azure Backup now provides enhanced capabilities (in preview) to manage encryptio
 >[!NOTE]
 >- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 >- You can use the audit policy for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021.  
->- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policies-to-audit-and-enforce-encryption-with-customer-managed-keys-in-preview).
+>- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policy-to-audit-and-enforce-encryption-via-customer-managed-keys-in-preview).
 
 For more information, see [Encryption for Azure Backup using customer-managed keys](encryption-at-rest-with-cmk.md). 
 

@@ -4,7 +4,7 @@ metadata:
   titleSuffix: Azure AI Studio
   description: Get answers to the most popular questions about Azure AI services
   manager: nitinme
-  ms.service: azure-ai-services
+  ms.service: azure-ai-studio
   ms.topic: faq
   ms.date: 11/15/2023
   ms.author: eur

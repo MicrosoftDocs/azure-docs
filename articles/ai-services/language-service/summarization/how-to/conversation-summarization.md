@@ -542,7 +542,7 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversat
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
 
-Example narrative summarization JSON response:
+Example recap and follow-up summarization JSON response:
 
 ```json
 {

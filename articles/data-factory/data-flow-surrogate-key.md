@@ -79,6 +79,6 @@ AggregateDayStats
     ) ~> SurrogateKey1
 ```
 
-## Next steps
+## Related content
 
 These examples use the [Join](data-flow-join.md) and [Derived Column](data-flow-derived-column.md) transformations.

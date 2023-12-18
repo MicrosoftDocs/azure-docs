@@ -5,12 +5,15 @@ ms.service: stream-analytics
 author: enkrumah
 ms.author: ebnkruma
 ms.topic: conceptual
-ms.date: 11/13/2023
+ms.date: 11/20/2023
 ms.custom:
 ---
 # Parse Protobuf in Azure Stream Analytics
 
 Azure Stream Analytics supports processing events in Protocol Buffer (Protobuf) data formats. You can use the built-in Protobuf deserializer when configuring your inputs. To use the built-in deserializer, specify the Protobuf definition file, message type, and prefix style.
+
+>[!NOTE]
+> Azure Stream Analytics does not support schema registry for Protocol Buffer (Protobuf) data formats.
 
 ## Steps to configure a Stream Analytics job
 
@@ -45,14 +48,24 @@ To learn more about Protobuf data types, see the [official Protocol Buffers docu
 - Enumerations aren't supported. If the Protobuf definition file contains enumerations, the `enum` field is empty when the Protobuf events deserialize. This condition leads to data loss.
 
 - Maps in Protobuf aren't supported. Maps in Protobuf result in an error about missing a string key.
-
+  
 - When a Protobuf definition file contains a namespace or package, the message type must include it. For example:
 
     :::image type="content" source="./media/protobuf/proto-namespace-example.png" alt-text=" Screenshot that shows an example of a Protobuf definition file with a namespace." lightbox="./media/protobuf/proto-namespace-example.png" :::
 
-    In the Protobuf deserializer in the portal, the message type must be `namespacetest.Volunteer` instead of the usual `Volunteer`.
+    In the Protobuf deserializer in the portal, the message type must be `Namespacetest.Volunteer` instead of the usual `Volunteer`.
+  
+- If the original package or namespace is all uppercase or lowercase, the message type must include it with the first character of the package or namespace in uppercase. For example, if the namespace is `nameSpaceTest`, use `nameSpaceTest.Volunteer`. This rule applies to a message type without a namespace or package.
 
-- When you're sending messages that were serialized via `google.protobuf`, the prefix type should be set to `base128` because that's the most cross-compatible type.
+- You must specify your message in your protobuf definition file without the `Optional` keyword. In Proto 3, all fields are optional. For example:
+
+    :::image type="content" source="./media/protobuf/proto-with-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file with optional keyword in the message." lightbox="./media/protobuf/proto-with-optional-keyword.png" :::
+
+    This Protobuf definition file shows a message that has `Optional` keyword. To deserialize correctly, you must remove the keyword: 
+
+    :::image type="content" source="./media/protobuf/proto-without-optional-keyword.png" alt-text="Screenshot that shows an example of a Protobuf definition file without optional keyword in the message." lightbox="./media/protobuf/proto-without-optional-keyword.png" :::
+
+- When sending messages that were serialized via `google.protobuf`, the prefix type should be set to `base128` because that's the most cross-compatible type.
 
 - Service messages aren't supported in the Protobuf deserializers. Your job throws an exception if you try to use a service message. For example:
 

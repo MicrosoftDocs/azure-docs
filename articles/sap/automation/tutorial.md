@@ -4,7 +4,7 @@ description: Learn how to use SAP Deployment Automation Framework.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
-ms.date: 12/14/2021
+ms.date: 12/15/2023
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -158,7 +158,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     To run the automation framework, update to the following versions:
 
-    - `az` version 2.4.0 or higher.
+    - `az` version 2.5.0 or higher.
     - `terraform` version 1.5 or higher. [Upgrade by using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html), as necessary.
 
 ## Create a service principal
@@ -210,16 +210,60 @@ When you choose a name for your service principal, make sure that the name is un
       --scope /subscriptions/${ARM_SUBSCRIPTION_ID}
     ```
 
-If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
+
+> [!IMPORTANT]
+> If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
+
+## Configure the control plane web application credentials
+
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
+
+:::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Screenshot of Web app front page.":::
+
+
+### Create an app registration
+
+If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
+
+Replace MGMT with your environment as necessary.
+
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
+
+app_registration_app_id=$(az ad app create    \
+    --display-name MGMT-webapp-registration   \
+    --enable-id-token-issuance true           \
+    --sign-in-audience AzureADMyOrg           \
+    --required-resource-access @manifest.json \
+    --query "appId" | tr -d '"')
+
+webapp_client_secret=$(az ad app credential reset \
+    --id $TF_VAR_app_registration_app_id --append \
+    --query "password" | tr -d '"')
+
+echo "App registration ID:  ${app_registration_app_id}"
+echo "App registration password:  ${webapp_client_secret}"
+
+rm manifest.json
+```
+
+Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
+
+The output maps to the following parameters. You use these parameters in later steps, with automation commands.
+
+| Parameter input name      | Output name                       |
+| ------------------------- | --------------------------------- |
+| `app_registration_app_id` | `App registration ID`             |
+| `webapp_client_secret`    | `App registration password`       |
 
 ## View configuration files
 
 1. Open Visual Studio Code from Cloud Shell.
 
-    ```cloudshell-interactive
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    code .
-    ```
+```cloudshell-interactive
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+code .
+```
 
 1. Expand the `WORKSPACES` directory. There are five subfolders: `CONFIGURATION`, `DEPLOYER`, `LANDSCAPE`, `LIBRARY`, `SYSTEM`, and `BOMS`. Expand each of these folders to find regional deployment configuration files.
 
@@ -276,7 +320,6 @@ If you don't assign the User Access Administrator role to the service principal,
     # public_network_access_enabled controls if storage account and key vaults have public network access enabled
     public_network_access_enabled = true
 
-
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
@@ -323,7 +366,14 @@ export       ARM_TENANT_ID="<tenantId>"
 
 ```
 
-1. Create the deployer and the SAP library. Add the service principal details to the deployment key vault.
+If you are running the script from a workstation that is not part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
+
+```bash
+export TF_VAR_Agent_IP=<your-public-ip-address>
+```
+
+
+1. Create the deployer and the SAP library and add the service principal details to the deployment key vault using this script.
 
 ```bash
 
@@ -334,7 +384,6 @@ export         region_code="<region_code>"
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 
-
 cd $CONFIG_REPO_PATH
 
 deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
@@ -342,7 +391,7 @@ library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-S
 
 ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --deployer_parameter_file "${deployer_parameter_file}"         \
-    --library_parameter_file "${library_parameter_file}"            \
+    --library_parameter_file "${library_parameter_file}"           \
     --subscription "${ARM_SUBSCRIPTION_ID}"                        \
     --spn_id "${ARM_CLIENT_ID}"                                    \
     --spn_secret "${ARM_CLIENT_SECRET}"                            \
@@ -369,7 +418,7 @@ You need to note some values for upcoming steps. Look for this text block in the
 #########################################################################################
 ```
 
-1. Go to the [Azure portal](https://portal.azure.com).
+2. Go to the [Azure portal](https://portal.azure.com).
 
     Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example, you might see `MGMT-[region]-DEP00-INFRASTRUCTURE` and `MGMT-[region]-SAP_LIBRARY`.
 
@@ -437,7 +486,9 @@ To connect to your deployer VM:
 1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the public IP address you noted earlier and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configure-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
 
 > [!NOTE]
->The default username is *azureadm*.
+>The default username is *azureadm*. 
+>
+> Ensure that the file you use to save the ssh key can save the file using the correct format, i.e without Carrage Return (CR) characters. Use Visual Studio Code or Notepad++.
 
 After you're connected to the deployer VM, you can download the SAP software by using the Bill of Materials (BOM).
 
@@ -473,6 +524,8 @@ The rest of the tasks must be executed on the deployer.
 ## Securing the control plane
 
 The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
+
+You should update the control plane tfvars file to enable private endpoints and to block public access to the storage accounts and key vaults. 
 
 To copy the control plane configuration files to the deployer VM, you can use the `sync_deployer.sh` script. Sign in to the deployer VM and run the following commands:
 

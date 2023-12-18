@@ -176,7 +176,9 @@ You need to be able to mitigate downtime for your application even when you're n
 Yes, read replicas are supported for HA servers.</br>
 
 - **Can I use Data-in Replication for HA servers?**</br>
-Yes, support for data-in replication for high availability (HA) enabled server is available only through GTID-based replication.
+Support for data-in replication for high availability (HA) enabled server is available only through GTID-based replication.
+The stored procedure for replication using GTID is available on all HA-enabled servers by the name `mysql.az_replication_with_gtid`.
+
 - **To reduce downtime, can I fail over to the standby server during server restarts or while scaling up or down?** </br>
 Currently, Azure MySQL Flexible Server has utlized Planned Failover to optmize the HA operations including scaling up/down, and planned maintenance to help reduce the downtime.
 When such operations started, it would operate on the original standby instance first, followed by triggering a planned failover operation, and then operate on the original primary instance. </br>

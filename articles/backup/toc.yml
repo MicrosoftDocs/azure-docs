@@ -705,7 +705,11 @@
     - name: Encryption in Azure Backup
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
-      href: encryption-at-rest-with-cmk.md
+      items:
+      - name: Recovery Services vault
+        href: encryption-at-rest-with-cmk.md
+      - name: Backup vault
+        href: encryption-at-rest-with-cmk-for-backup-vault.md
     - name: Transport Layer Security
       href: transport-layer-security.md
     - name: Security controls by Azure Policy

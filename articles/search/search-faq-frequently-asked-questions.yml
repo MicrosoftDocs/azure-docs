@@ -11,7 +11,7 @@ metadata:
   ms.custom:
     - ignite-2023
   ms.topic: faq
-  ms.date: 10/25/2023
+  ms.date: 12/12/2023
 title: Azure AI Search Frequently Asked Questions
 summary:  Find answers to commonly asked questions about Azure AI Search.
 
@@ -21,10 +21,10 @@ sections:
       - question: |
           What is Azure AI Search?
         answer: | 
-          Azure AI Search is a service on Azure that provides a dedicated search engine and persistent storage of your searchable content for full text and vector search scenarios. It also includes optional, integrated AI to extract more text and structure from raw content, and to chunk and vectorize content for vector search.
+          Azure AI Search provides a dedicated search engine and persistent storage of your searchable content for full text and vector search scenarios. It also includes optional, integrated AI to extract more text and structure from raw content, and to chunk and vectorize content for vector search.
 
       - question: |
-          How do I work with AI Search?
+          How do I work with Azure AI Search?
         answer: | 
           The primary workflow is create, load, and query an index. Although you can use the portal for most tasks, Azure AI Search is intended to be used programmatically, handling requests from client code. Programmatic support is provided through REST APIs and client libraries in .NET, Python, Java, and JavaScript SDKs for Azure.
 
@@ -46,7 +46,7 @@ sections:
       - question: |
           Is there functional parity across the various APIs?
         answer: |
-          Not always. The REST API is always the first to implement new features in preview API versions, and the generally available versions support all programmatic operations. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
+          Not always. The REST API is always the first to implement new features in preview API versions. The client libraries in Azure SDKs will pick up new features over time, but are released on their own schedule.
 
           Although the REST APIs are first out with newest features, the Azure SDKs provide more coding support, and are recommended over REST unless a required feature is unavailable.
 

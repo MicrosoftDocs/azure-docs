@@ -390,7 +390,7 @@ items:
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
       displayName: timeout
-    - name: Azure Cognitive Search
+    - name: Azure AI Search
       href: connector-azure-search.md
     - name: Azure Cosmos DB analytical store
       href: connector-azure-cosmos-analytical-store.md
@@ -467,7 +467,7 @@ items:
       href: connector-ftp.md
     - name: GitHub
       href: connector-github.md
-    - name: Google AdWords
+    - name: Google Ads
       href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
@@ -1220,8 +1220,8 @@ items:
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting
-      - name: Google AdWords
-        href: connector-troubleshoot-google-adwords.md
+      - name: Google Ads
+        href: connector-troubleshoot-google-adwords.md          
         displayName: troubleshooting
       - name: Hive
         href: connector-troubleshoot-hive.md

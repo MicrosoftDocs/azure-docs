@@ -22,8 +22,8 @@
             href: migrate/how-to-migrate-single-to-flexible-portal.md
           - name: Single to Flexible server migration tool - Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
-          - name: Common errors
-            href: migrate/common-errors-and-special-scenarios-fms.md
+          - name: Best practices for a seamless migration
+            href: migrate/best-practices-seamless-migration-single-to-flexible.md
           - name: Troubleshooting Networking and Connectivity issues
             href: migrate/troubleshooting-networking-and-connectivity-issues.md  
       - name: Migrate data with pg_dump and pg_restore
@@ -103,6 +103,8 @@
       href: flexible-server/concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Scaling resources
+      href: flexible-server/concepts-scaling-resources.md
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
     - name: Networking
@@ -310,6 +312,10 @@
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-stop-start-server-cli.md
+      - name: Configure Server Logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-server-logs-portal.md
     - name: Encryption with CMK
       items:
       - name: Azure CLI
@@ -334,6 +340,8 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-manage-virtual-network-private-endpoint-portal.md
+        - name: Connect to managed data factory via Private Endpoint
+          href: flexible-server/howto-connect-to-data-factory-private-endpoint.md
       - name: Public access (allowed IP addresses)
         items:
         - name: Azure portal
@@ -387,12 +395,9 @@
             href: flexible-server/how-to-enable-intelligent-performance-cli.md
     - name: Replication
       items:
-      - name: Azure portal
+      - name: Azure portal, REST API
         href: flexible-server/how-to-read-replicas-portal.md
         displayName: replica
-      - name: Azure REST API
-        href: flexible-server/how-to-read-replicas-rest-api.md
-        displayName: replica rest api
   - name: Extensions
     items:
     - name: Overview

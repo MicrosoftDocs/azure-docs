@@ -252,7 +252,7 @@ You might notice other data factories (on different tenants) as you're attemptin
 The self-hosted IR can't be shared across tenants.
 
 
-## Next steps
+## Related content
 
 For more help with troubleshooting, try the following resources:
 

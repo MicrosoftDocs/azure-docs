@@ -10,7 +10,7 @@ ms.date: 10/12/2022
 This article describes how to use Microsoft Entra ID to secure the connection between your **event subscription** and your **webhook endpoint**. It uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
 
 > [!IMPORTANT]
-> Additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. Reconfigure your Microsoft Entra Application following the new instructions below.For an overview of Microsoft Entra applications and service principals, see [Microsoft identity platform (v2.0) overview](../active-directory/develop/v2-overview.md).
+> Additional access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. Reconfigure your Microsoft Entra Application following the new instructions below.For an overview of Microsoft Entra applications and service principals, see [Microsoft identity platform (v2.0) overview](/entra/identity-platform/v2-overview).
 
 ## Scenarios
 This article explains how to implement the following two scenarios in detail: 
@@ -54,14 +54,14 @@ This section shows how to configure the event subscription by using a Microsoft 
     PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
     ```
 
-4. Open the [following script](scripts/powershell-webhook-secure-delivery-azure-ad-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
+4. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-user.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterUserPrincipalName** with your identifiers, then continue to run the script.
 
     - Variables:
         - **$webhookAppObjectId**: Microsoft Entra application ID created for the webhook
         - **$eventSubscriptionWriterUserPrincipalName**: Azure user principal name of the user who creates event subscription
 
     > [!NOTE]
-    > You don't need to modify the value of **$eventGridAppId**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for the **$eventGridRoleName**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
+    > You don't need to modify the value of **$eventGridAppId**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for the **$eventGridRoleName**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
     If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
@@ -110,14 +110,14 @@ This section shows how to configure the event subscription by using a Microsoft 
     PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
     ```
 
-7. Open the [following script](scripts/powershell-webhook-secure-delivery-azure-ad-app.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
+7. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md) and update the values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
 
     - Variables:
         - **$webhookAppObjectId**: Microsoft Entra application ID created for the webhook
         - **$eventSubscriptionWriterAppId**: Microsoft Entra application ID for Event Grid subscription writer app.
 
     > [!NOTE]
-    > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** as set for the **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
+    > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** as set for the **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
 8. Sign-in as the Event Grid subscription writer Microsoft Entra Application by running the command.
 
@@ -153,7 +153,7 @@ Based on the diagram, follow next steps to configure both tenants.
 
 Do the following steps in **Tenant A**: 
 
-1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with any Microsoft Entra directory (Multi-tenant).
+1. Create a Microsoft Entra application for the Event Grid subscription writer configured to work with any Microsoft Entra directory (multitenant).
 
 2. Create a secret for the Microsoft Entra application, and save the value (you need this value later).
 
@@ -173,14 +173,14 @@ Do the following steps in **Tenant B**:
         PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
         PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
         ```
-7. Open the [following script](scripts/powershell-webhook-secure-delivery-azure-ad-app.md), and update values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
+7. Open the [following script](scripts/powershell-webhook-secure-delivery-microsoft-entra-app.md), and update values of **$webhookAppObjectId** and **$eventSubscriptionWriterAppId** with your identifiers, then continue to run the script.
 
     - Variables:
         - **$webhookAppObjectId**: Microsoft Entra application ID created for the webhook
         - **$eventSubscriptionWriterAppId**: Microsoft Entra application ID for Event Grid subscription writer
 
             > [!NOTE]
-            > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](../active-directory/roles/permissions-reference.md#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
+            > You don't need to modify the value of **```$eventGridAppId```**. In this script, **AzureEventGridSecureWebhookSubscriber** is set for **```$eventGridRoleName```**. Remember, you must be a member of the [Microsoft Entra Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#all-roles) or be an owner of the service principal of webhook app in Microsoft Entra ID to execute this script.
 
     If you see the following error message, you need to elevate to the service principal. An extra access check has been introduced as part of create or update of event subscription on March 30, 2021 to address a security vulnerability. The subscriber client's service principal needs to be either an owner or have a role assigned on the destination application service principal. 
     
