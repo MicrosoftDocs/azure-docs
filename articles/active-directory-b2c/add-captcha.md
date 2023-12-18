@@ -314,6 +314,13 @@ To enable CAPTCHA in MFA flow, you need to make an update in two technical profi
     ...
 </TechnicalProfile>
 ```
+::: zone-end
+
+> [!NOTE]
+> - You can't add CAPTCHA to an MFA step in Sign up only user flow.
+> - In an MFA flow, CAPTCHA is applicable where the MFA method selected is SMS or phone call, SMS only or Phone call only.
+
+::: zone pivot="b2c-user-flow"
 ## Upload the custom policy files
 
 Use the steps in [Upload the policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy&branch=pr-en-us-260336#upload-the-policies) to upload your custom policy files.
