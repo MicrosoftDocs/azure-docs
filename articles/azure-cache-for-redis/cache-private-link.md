@@ -7,7 +7,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 12/15/2023
 
 ---
 
@@ -34,6 +34,7 @@ You can restrict public access to the private endpoint of your cache by disablin
 
 > [!IMPORTANT]
 > Currently, portal console support, and persistence to firewall storage accounts are not supported.
+> When using private link, you cannot export or import a cache that to a [storage account](/azure/storage/common/storage-network-security) that has firewall enabled.
 >
 
 ## Create a private endpoint with a new Azure Cache for Redis instance
@@ -87,10 +88,10 @@ To create a cache instance, follow these steps:
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string must contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string must contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* is *\<DNS name>.redis.cache.windows.net*. |
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-   | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
+   | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your cache. |
    | **Pricing tier** | Drop down and select a [Pricing tier](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
 1. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
@@ -127,7 +128,7 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 ## Create a private endpoint with an existing Azure Cache for Redis instance
 
-In this section, you'll add a private endpoint to an existing Azure Cache for Redis instance.
+In this section, you add a private endpoint to an existing Azure Cache for Redis instance.
 
 ### Create a virtual network for your existing cache
 
@@ -146,7 +147,7 @@ To create a virtual network, follow these steps:
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this virtual network. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your virtual network and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Name** | Enter a virtual network name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and contain only letters, numbers, underscores, periods, or hyphens. |
-   | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your virtual network. |
+   | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your virtual network. |
 
 1. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -185,7 +186,7 @@ To create a private endpoint, follow these steps:
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this private endpoint. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your private endpoint and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Name** | Enter a private endpoint name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and can contain only letters, numbers, underscores, periods, or hyphens. |
-   | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your private endpoint. |
+   | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your private endpoint. |
 
 1. Select the **Next: Resource** button at the bottom of the page.
 
@@ -353,7 +354,7 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 
 ### What features aren't supported with private endpoints?
 
-- Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
+- Trying to connect from the Azure portal console is an unsupported scenario where you see a connection failure.
 - Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
 
 ### How do I verify if my private endpoint is configured correctly?
@@ -376,8 +377,8 @@ To change the value in the Azure portal, follow these steps:
   1. On the left side of the screen, select **Private Endpoint**.
 
   1. Select the **Enable public network access** button.
-    
-To change the value through a RESTful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
+
+To change the value through a RESTful API PATCH request, use the following code and edit the value to reflect the flag you want for your cache.
   
   ```http
   PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
