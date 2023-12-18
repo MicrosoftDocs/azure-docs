@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 01/10/2023
+ms.date: 12/13/2023
 ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer or IT admin, I want to configure the complexity requirements for passwords, so that I can enforce strong password policies and customize password complexity rules for my user flows and custom policies.
 ---
 
 # Configure complexity requirements for passwords in Azure Active Directory B2C

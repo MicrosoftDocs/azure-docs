@@ -39,7 +39,7 @@ An additional scenario (scenario 1, below) is a candidate for VM/Virtual core li
 
 ### License limits
 
-Each WS2012 ESU license can cover up to and including 10,000 cores. If you need ESUs for more than 10,000 cores, split the total number of cores across multiple licenses.
+Each WS2012 ESU license can cover up to and including 10,000 cores. If you need ESUs for more than 10,000 cores, split the total number of cores across multiple licenses. Additionally, only 800 licenses can be created in a single resource group. Use additional resource groups if you need to create more than 800 license resources.
 
 ### SA/SPLA conformance
 

@@ -77,8 +77,10 @@ This documentation contains the following article types:
 Conversation summarization supports the following features:
 
 * **Issue/resolution summarization**: A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
-* **Chapter title summarization**: Gives suggested chapter titles of the input conversation.
-* **Narrative summarization**: Gives call notes, meeting notes or chat summaries of the input conversation.
+* **Chapter title summarization**: Segments a conversation into chapters based on the topics discussed in the conversation, and gives suggested chapter titles of the input conversation.
+* **Recap**: Summarizes a conversation into a brief paragraph.
+* **Narrative summarization**: Generates detail call notes, meeting notes or chat summaries of the input conversation.
+* **Follow-up tasks**: Gives a list of follow-up tasks discussed in the input conversation.
 
 ## When to use issue and resolution summarization
 
