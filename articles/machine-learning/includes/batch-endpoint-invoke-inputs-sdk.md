@@ -6,7 +6,7 @@ ms.date: 12/18/2023
 ms.author: mopeakande
 ---
 
-__What's the different between `inputs` and `input` when you invoke an endpoint?__
+__What's the difference between `inputs` and `input` when you invoke an endpoint?__
 
 In general, you can use a dictionary `inputs = {}` with the `invoke` method to provide an arbitrary number of required inputs to a batch endpoint that contains a _model deployment_ or a _pipeline deployment_.
 
