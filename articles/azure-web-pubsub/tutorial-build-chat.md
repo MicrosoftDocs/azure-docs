@@ -150,7 +150,7 @@ In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the
 
   `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
 
-4.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
+3.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
 
     ```csharp
     app.UseEndpoints(endpoints =>
@@ -173,7 +173,7 @@ In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the
 
   You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it gives you the full url of the Azure Web PubSub with an access token.
 
-5.  Then update `index.html` to include the following script to get the token from server and connect to service.
+4.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
     ```html
     <html>
@@ -599,23 +599,20 @@ In the above code, we simply print a message to console when a client is connect
 
 Then we need to set the Webhook URL in the service so it can know where to call when there's a new event. But there's a problem that our server is running on localhost so doesn't have an internet accessible endpoint. 
 
-There are two ways to route the traffic to your localhost, one is to expose localhost to be accessible on the internet using tools such as [ngrok](https://ngrok.com) or [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
+There are two ways to route the traffic to your localhost, one is to expose localhost to public, another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
 
-# [awps-tunnel](#tab/awps-tunnel)
-
-#### 1. Download and install awps-tunnel
+#### Download and install awps-tunnel
 The tool runs on [Node.js](https://nodejs.org/) version 16 or higher.
 
 ```bash
 npm install -g @azure/web-pubsub-tunnel-tool
 ```
 
-#### 2. Use the service connection string and run
+#### Use the service connection string and run
 ```bash
 export WebPubSubConnectionString="<your connection string>"
 awps-tunnel run --hub myHub1 --upstream http://localhost:8080
 ```
----
 
 Now, we need to let your Web PubSub resource know about this Webhook URL. You can set the event handlers either from Azure portal or Azure CLI. 
 
