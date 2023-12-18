@@ -226,6 +226,7 @@ As a part of the SAP automation framework control plane, you can optionally crea
 If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
 
 Replace MGMT with your environment as necessary.
+
 ```bash
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
 
@@ -259,10 +260,10 @@ The output maps to the following parameters. You use these parameters in later s
 
 1. Open Visual Studio Code from Cloud Shell.
 
-    ```cloudshell-interactive
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    code .
-    ```
+```cloudshell-interactive
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+code .
+```
 
 1. Expand the `WORKSPACES` directory. There are five subfolders: `CONFIGURATION`, `DEPLOYER`, `LANDSCAPE`, `LIBRARY`, `SYSTEM`, and `BOMS`. Expand each of these folders to find regional deployment configuration files.
 
