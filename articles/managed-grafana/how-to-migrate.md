@@ -7,13 +7,13 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 12/06/2023
-# CustomerIntent: As a developer or data analyst, I want know how I can migrate my Grafana workspace to Azure Managed Grafana.
+# CustomerIntent: As a developer or data analyst, I want know how I can migrate my Grafana to Azure Managed Grafana.
 # self-managed, self-hosted, Grafana Cloud
 --- 
 
-# Migrate a self-hosted Grafana workspace to Azure Managed Grafana
+# Migrate a self-hosted Grafana to Azure Managed Grafana
 
-This guide shows how to migrate a self-managed Grafana workspace to Azure Managed Grafana, by moving your data sources and dashboards to your new workspace.
+This guide shows how to migrate a self-managed Grafana to Azure Managed Grafana, by moving your data sources and dashboards to your new workspace.
 
 This guide walks you through the process of exporting self-hosted Grafana dashboards, importing them into Azure Managed Grafana, adding data source plugins, and configuring your data sources in your new workspace.
 
