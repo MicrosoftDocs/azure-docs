@@ -493,7 +493,7 @@
     },     
     {  "source_path_from_root": "/articles/healthcare-apis/dicom/update-files.md",
        "redirect_url": "/azure/healthcare-apis/dicom/overview",
-       "redirect_document_id": true     
+       "redirect_document_id": false     
     },
       {
           "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
