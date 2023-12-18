@@ -248,7 +248,7 @@ rm manifest.json
 
 Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
 
-    The output maps to the following parameters. You use these parameters in later steps, with automation commands.
+The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
     | Parameter input name     | Output name                      |
     | -------------------------|--------------------------------- |
