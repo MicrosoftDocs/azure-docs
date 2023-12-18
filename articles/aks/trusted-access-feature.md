@@ -137,7 +137,7 @@ Use the Azure CLI to list all the Trusted Access role bindings for a cluster:
 az aks trustedaccess rolebinding list --resource-group <AKS resource group> --cluster-name <AKS cluster name>
 ```
 
-## Delete the Trusted Access role binding for a cluster
+## Delete a Trusted Access role binding for a cluster
 
 > [!WARNING]
 > Deleting an existing Trusted Access role binding disconnects the AKS cluster from the Azure service.
