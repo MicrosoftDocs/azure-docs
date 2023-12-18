@@ -595,7 +595,7 @@ In the above code, we simply print a message to console when a client is connect
 
 ## Set up the event handler
 
-### Hand event handler from your localhost
+### Handle events from your localhost
 
 Then we need to set the Webhook URL in the service so it can know where to call when there's a new event. But there's a problem that our server is running on localhost so doesn't have an internet accessible endpoint. 
 
