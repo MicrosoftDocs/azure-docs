@@ -11,7 +11,7 @@ ms.date: 12/20/2023
 
 # Tutorial: Create a chat app with Azure Web PubSub service
 
-In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), you've learned the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial, you'll learn the event system of Azure Web PubSub so use it to build a complete web application with real-time communication functionality. 
+In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), you learn the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial, you learn the event system of Azure Web PubSub so use it to build a complete web application with real-time communication functionality. 
 
 In this tutorial, you learn how to:
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
-Copy the fetched **ConnectionString** and it will be used later in this tutorial as the value of `<connection_string>`.
+Copy the fetched **ConnectionString** and it's used later in this tutorial as the value of `<connection_string>`.
 
 ## Set up the project
 
@@ -65,11 +65,11 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 In Azure Web PubSub, there are two roles, server and client. This concept is similar to the server and client roles in a web application. Server is responsible for managing the clients, listen, and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
 
-In this tutorial, we'll build a real-time chat web application. In a real web application, server's responsibility also includes authenticating clients and serving static web pages for the application UI. 
+In this tutorial, we build a real-time chat web application. In a real web application, server's responsibility also includes authenticating clients and serving static web pages for the application UI. 
 
 # [C#](#tab/csharp)
 
-We'll use [ASP.NET Core 6](/aspnet/core) to host the web pages and handle incoming requests.
+We use [ASP.NET Core 6](/aspnet/core) to host the web pages and handle incoming requests.
 
 First let's create an empty ASP.NET Core app.
 
@@ -95,7 +95,7 @@ First let's create an empty ASP.NET Core app.
     });
     ```
 
-3.  Also create an HTML file and save it as `wwwroot/index.html`, we'll use it for the UI of the chat app later.
+3.  Also create an HTML file and save it as `wwwroot/index.html`, we use it for the UI of the chat app later.
 
     ```html
     <html>
@@ -107,7 +107,7 @@ First let's create an empty ASP.NET Core app.
     
 You can test the server by running `dotnet run --urls http://localhost:8080` and access http://localhost:8080/index.html in browser.
 
-You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
+In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. It isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1.  Install dependencies.
 
@@ -171,7 +171,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
   This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
-  You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+  You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it gives you the full url of the Azure Web PubSub with an access token.
 
 5.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
@@ -193,11 +193,11 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-  If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+  If you're using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you see `connected` being printed in browser console.
 
 # [JavaScript](#tab/javascript)
 
-We'll use [express.js](https://expressjs.com/), a popular web framework for Node.js to achieve this job.
+We use [express.js](https://expressjs.com/), a popular web framework for Node.js to achieve this job.
 
 First create an empty express app.
 
@@ -218,7 +218,7 @@ First create an empty express app.
     app.listen(8080, () => console.log('server started'));
     ```
 
-3.  Also create an HTML file and save it as `public/index.html`, we'll use it for the UI of the chat app later.
+3.  Also create an HTML file and save it as `public/index.html`, we use it for the UI of the chat app later.
 
     ```html
     <html>
@@ -233,7 +233,7 @@ First create an empty express app.
 You can test the server by running `node server` and access http://localhost:8080 in browser.
 
 
-You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
+In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. It isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1.  Install Azure Web PubSub SDK
 
@@ -278,7 +278,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     node server
     ```
 
-    Access `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+    Access `http://localhost:8080/negotiate?id=<user-id>` and it gives you the full url of the Azure Web PubSub with an access token.
 
 3.  Then update `index.html` with the following script to get the token from server and connect to service
  
@@ -301,11 +301,11 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-    If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+    If you're using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you see `connected` being printed in browser console.
 
 # [Java](#tab/java)
 
-We will use the [Javalin](https://javalin.io/) web framework to host the web pages and handle incoming requests.
+We use the [Javalin](https://javalin.io/) web framework to host the web pages and handle incoming requests.
 
 1. First let's use Maven to create a new app `webpubsub-tutorial-chat` and switch into the *webpubsub-tutorial-chat* folder:
 
@@ -367,7 +367,7 @@ We will use the [Javalin](https://javalin.io/) web framework to host the web pag
     </build>
     ```
 
-4. Let's create an HTML file and save it into */src/main/resources/public/index.html*. We'll use it for the UI of the chat app later.
+4. Let's create an HTML file and save it into */src/main/resources/public/index.html*. We use it for the UI of the chat app later.
 
     ```html
     <html>
@@ -383,8 +383,7 @@ You can test the server by running the following command under the directory con
 ```console
 mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false
 ```
-
-You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
+In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1. Add Azure Web PubSub SDK dependency into the `dependencies` node of `pom.xml`:
 
@@ -449,7 +448,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
     This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we call `setUserId` method to set the user ID when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
-    You can test this API by running the following command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use), and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+    You can test this API by running the following command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use), and accessing `http://localhost:8080/negotiate?id=<user-id>` and it gives you the full url of the Azure Web PubSub with an access token.
 
     ```console
     mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>'"
@@ -475,13 +474,13 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </html>
     ```
 
-    If you are using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
+    If you're using Chrome, you can test it by opening the home page, input your user name. Press F12 to open the Developer Tools window, switch to **Console** table and you see `connected` being printed in browser console.
 
 ---
 
 ## Handle events
 
-In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service will send notifications to server so it can react to these events.
+In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service sends notifications to server so it can react to these events.
 
 Events are delivered to server in the form of Webhook. Webhook is served and exposed by the application server and registered at the Azure Web PubSub service side. The service invokes the webhooks whenever an event happens.
 
@@ -489,7 +488,7 @@ Azure Web PubSub follows [CloudEvents](./reference-cloud-events.md) to describe 
 
 # [C#](#tab/csharp)
 
-Here we're using Web PubSub middleware SDK, there is already an implementation to parse and process CloudEvents schema, so we don't need to deal with these details. Instead, we can focus on the inner business logic in the hub methods. 
+Here we're using Web PubSub middleware SDK, there's already an implementation to parse and process CloudEvents schema, so we don't need to deal with these details. Instead, we can focus on the inner business logic in the hub methods. 
 
 1. Add event handlers inside `UseEndpoints`. Specify the endpoint path for the events, let's say `/eventhandler`. The `UseEndpoints` should look like follows:
     ```csharp
@@ -534,7 +533,7 @@ In the above code, we use the service client to broadcast a notification message
 
 # [JavaScript](#tab/javascript)
 
-If you use Web PubSub SDK, there is already an implementation to parse and process CloudEvents schema so you don't need to deal with these details.
+If you use Web PubSub SDK, there's already an implementation to parse and process CloudEvents schema so you don't need to deal with these details.
 
 Add the following code to expose a REST API at `/eventhandler` (which is done by the express middleware provided by Web PubSub SDK) to handle the client connected event:
 
@@ -596,9 +595,9 @@ In the above code, we simply print a message to console when a client is connect
 
 ## Set up the event handler
 
-### Hanld event handler from your localhost
+### Hand event handler from your localhost
 
-Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. 
+Then we need to set the Webhook URL in the service so it can know where to call when there's a new event. But there's a problem that our server is running on localhost so doesn't have an internet accessible endpoint. 
 
 There are two ways to route the traffic to your localhost, one is to expose localhost to be accessible on the internet using tools such as [ngrok](https://ngrok.com) or [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
 
@@ -622,7 +621,7 @@ Now, we need to let your Web PubSub resource know about this Webhook URL. You ca
 
 ### Set event handler
 
- When using `awps-tunnel` tool, the URL template uses `tunnel` scheme followed by the path: `tunnel:///eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
+ When `awps-tunnel` tool is used locally, the URL template set in Web PubSub uses a special format with `tunnel` scheme followed by the path: `tunnel:///eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
 
 Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub
 
@@ -637,7 +636,7 @@ After the update is completed, open the home page http://localhost:8080/index.ht
 
 ## Handle Message events
 
-Besides system events like `connected` or `disconnected`, client can also send messages through the WebSocket connection and these messages will be delivered to server as a special type of event called `message` event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
+Besides system events like `connected` or `disconnected`, client can also send messages through the WebSocket connection and these messages are delivered to server as a special type of event called `message` event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
 
 # [C#](#tab/csharp)
 
@@ -669,7 +668,7 @@ Implement the `OnMessageReceivedAsync()` method in `Sample_ChatApp`.
     }
     ```
 
-    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware will deliver the exception message to service and service will drop current client connection. Do not forget to include the `using Microsoft.Azure.WebPubSub.Common;` statement at the begining of the `Program.cs` file.
+    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware delivers the exception message to service and service drops current client connection. Don't forget to include the `using Microsoft.Azure.WebPubSub.Common;` statement at the beginning of the `Program.cs` file.
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
@@ -734,7 +733,7 @@ The complete code sample of this tutorial can be found [here][code-csharp-net6],
 
     This event handler uses `WebPubSubServiceClient.sendToAll()` to broadcast the received message to all clients.
 
-    You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (note this call is required even you don't want to return anything back to client, otherwise the WebHook never returns and client connection will be closed).
+    You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (note this call is required even you don't want to return anything back to client, otherwise the WebHook never returns and client connection is closed).
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
@@ -936,7 +935,7 @@ The complete code sample of this tutorial can be found [here][code-java].
 
 ## Next steps
 
-This tutorial provides you a basic idea of how the event system works in Azure Web PubSub service.
+This tutorial provides you with a basic idea of how the event system works in Azure Web PubSub service.
 
 Check other tutorials to further dive into how to use the service.
 
