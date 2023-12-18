@@ -211,10 +211,6 @@ All gateways that are still using Standard or High Performance SKUs will be migr
 
 Final communication will be sent before initiating migration on any gateways.  
 
-### Will I see a sudden stop in my gateway flow after the announcement?
-
-No, there will be no impact on existing gateways.
-
 ## <a name="s2s"></a>Site-to-site connections and VPN devices
 
 ### What should I consider when selecting a VPN device?

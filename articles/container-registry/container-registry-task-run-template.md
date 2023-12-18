@@ -5,7 +5,8 @@ ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-arm-template
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: container-registry
 ---
 
 # Run ACR Tasks using Resource Manager templates

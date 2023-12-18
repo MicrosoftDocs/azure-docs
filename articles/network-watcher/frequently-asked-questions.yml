@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 11/30/2023
+  ms.date: 12/12/2023
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
@@ -201,6 +201,11 @@ sections:
           4. Enable NSG flow logs by creating a flow log for your target network security group using the storage account. For more information, see [Create a flow log](nsg-flow-logging.md#create-a-flow-log).
           
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
+
+      - question: |
+          Why do I see some 403 errors in storage account activity logs?
+        answer: |
+          Network Watcher has a built-in fallback mechanism that it uses when connecting to a storage account behind a firewall (firewall enabled). It tries to connect to the storage account using a key, and if that fails, it switches to a token. In this case, a 403 error is logged in the storage account activity log.
 
       - question: |
           Can NSG flow logs send data to a storage account using an Azure Private Endpoint?

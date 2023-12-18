@@ -3,13 +3,13 @@ title: Publish applications with RemoteApp in Azure Virtual Desktop portal - Azu
 description: How to publish applications with RemoteApp in Azure Virtual Desktop using the Azure portal and Azure PowerShell.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 08/10/2023
+ms.date: 12/08/2023
 ms.author: daknappe
 ---
 
 # Publish applications with RemoteApp in Azure Virtual Desktop
 
-There are two ways to make applications available to users in Azure Virtual Desktop: as part of a full desktop or as individual applications with RemoteApp. You publish application by adding them to an application group, which is associated with a host pool and workspace, and assigned to users. For more information about application groups, see [Terminology](terminology.md#application-groups).
+There are two ways to make applications available to users in Azure Virtual Desktop: as part of a full desktop or as individual applications with RemoteApp. You publish applications by adding them to an application group, which is associated with a host pool and workspace, and assigned to users. For more information about application groups, see [Terminology](terminology.md#application-groups).
 
 You publish applications in the following scenarios:
 
@@ -323,6 +323,8 @@ Here's how to publish a Microsoft Store application using the Windows user inter
    ----
    myappgroup/Microsoft Paint
    ```
+
+---
 
 ## Publish Windows Sandbox
 
