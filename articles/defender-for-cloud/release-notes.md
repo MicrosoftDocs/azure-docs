@@ -24,7 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-|December 18 | [Classic connectors for multicloud is retired](#classic-connectors-for-multicloud-is-retired) |
+|December 18 | [Retirement of Classic connectors for multicloud](#retirement-of-classic-connectors-for-multicloud) |
 | December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
 | December 13 | [Agentless container posture for AWS in Defender for Containers and Defender CSPM (Preview)](#agentless-container-posture-for-aws-in-defender-for-containers-and-defender-cspm-preview) |
 | December 13 | [Deny effect - replacing deprecated policies](#deny-effect---replacing-deprecated-policies) |
@@ -32,7 +32,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 | December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
 
-### Classic connectors for multicloud is retired
+### Retirement of Classic connectors for multicloud
 
 December 18, 2023
 
@@ -87,7 +87,7 @@ Learn how to [Enable Microsoft Defender for open-source relational databases](de
 
 ### Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless
 
-December12, 2023
+December 12, 2023
 
 Container vulnerability assessment powered by Microsoft Defender Vulnerability Management have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
 
