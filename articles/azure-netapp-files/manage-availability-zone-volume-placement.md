@@ -102,15 +102,15 @@ The populate availability zone features requires a `zone` property on the volume
 
 1. Navigate to the Terraform module `terraform.tfstate`. The `"zone"` property should be an empty string. 
 1. In the Terraform-managed volume's configuration file (`main.tf`), locate the lifecycle configuration block. Modify the block with `ignore_changes = [zone]`. If no lifecycle configuration block exists, add it:
-```cli
-lifecycle {
-    ignore_changes = [zone]
-}
-```
+    ```
+    lifecycle {
+        ignore_changes = [zone]
+    }
+    ```
 1. In the Azure portal, locate the Terraform module. In the volume **Overview**, select **Populate availability zone** and make note of the availability zone. Do _not_ select save. 
 
-:::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone menu." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
-
+    :::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone menu." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
+    
 1. In the volume's configuration file (`main.tf`), add a value for `zone`, entering the numerical value you retrieved in the previous step. For example, if the volume's availability zone is 2, enter `zone = 2`. Save the file. 
 1. Return to the Azure portal. Select **Save** to populate the availability zone. 
 1. Run `terraform plan` to confirm that no changes will be made to your volume. The CLI output should display: `No changes. Your infrastructure matches the configuration.`
