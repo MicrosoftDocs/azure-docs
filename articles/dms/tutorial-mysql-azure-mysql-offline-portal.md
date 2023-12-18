@@ -63,10 +63,19 @@ To complete this tutorial, you need to:
 
 * Azure Database for MySQL supports only InnoDB tables. To convert MyISAM tables to InnoDB, see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html)
 * The user must have the privileges to read data on the source database.
+* To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
+  * “READ” privilege on the source database.
+  * “SELECT” privilege for the ability to select objects from the database
+  * If migrating views, the user must have the “SHOW VIEW” privilege.
+  * If migrating triggers, the user must have the “TRIGGER” privilege.
+  * If migrating routines (procedures and/or functions), the user must be named in the definer clause of the routine. Alternatively, based on version, the user must have the following privilege:
+    * For 5.7, have “SELECT” access to the “mysql.proc” table.
+    * For 8.0, have “SHOW_ROUTINE” privilege or have the “CREATE ROUTINE,” “ALTER ROUTINE,” or “EXECUTE” privilege granted at a scope that includes the routine.
+  * If migrating events, the user must have the “EVENT” privilege for the database from which the events are to be shown.
 
 ## Sizing the target Azure Database for MySQL instance
 
-To prepare the target Azure Database for MySQL server for faster data loads using the Azure Database Migration Service, the following server parameters and configuration changes are recommended. 
+To prepare the target Azure Database for MySQL server for faster data loads using the Azure Database Migration Service, the following server parameters and configuration changes are recommended.
 
 * max_allowed_packet – set to 1073741824 (i.e. 1GB) to prevent any connection issues due to large rows. 
 * slow_query_log – set to OFF to turn off the slow query log. This will eliminate the overhead caused by slow query logging during data loads.
@@ -78,6 +87,23 @@ To prepare the target Azure Database for MySQL server for faster data loads usin
 	* In the Single Server deployment option, for faster loads, we recommend increasing the storage tier to increase the IOPs provisioned. 
 	* In the Flexible Server deployment option, we recommend you can scale (increase or decrease) IOPS irrespective of the storage size. 
 	* Note that storage size can only be scaled up, not down.
+* Select the compute size and compute tier for the target flexible server based on the source single server’s pricing tier and VCores based on the detail in the following table.
+
+    | Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
+    | ------------- | ------------- |:-------------:|:-------------:|
+    | Basic\* | 1 | General Purpose | Standard_D16ds_v4 |
+    | Basic\* | 2 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose\* | 4 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose\* | 8 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose | 16 | General Purpose | Standard_D16ds_v4 |
+    | General Purpose | 32 | General Purpose | Standard_D32ds_v4 |
+    | General Purpose | 64 | General Purpose | Standard_D64ds_v4 |
+    | Memory Optimized | 4 | Business Critical | Standard_E4ds_v4 |
+    | Memory Optimized | 8 | Business Critical | Standard_E8ds_v4 |
+    | Memory Optimized | 16 | Business Critical | Standard_E16ds_v4 |
+    | Memory Optimized | 32 | Business Critical | Standard_E32ds_v4 |
+
+\* For the migration, select General Purpose 16 vCores compute for the target flexible server for faster migrations. Scale back to the desired compute size for the target server after migration is complete by following the compute size recommendation in the Performing post-migration activities section later in this article.
 
 Once the migration is complete, you can revert back the server parameters and configuration to values required by your workload.
 
