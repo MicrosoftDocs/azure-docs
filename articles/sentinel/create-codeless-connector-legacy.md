@@ -10,8 +10,10 @@ ms.date: 11/22/2023
 # Create a legacy codeless connector for Microsoft Sentinel
 
 > [!IMPORTANT]
->There's a newer version of the Codeless Connector Platform (CCP). For more information on the **new CCP**, see [Create a codeless connector (Preview)](create-codeless-connector.md). Reference this document if you need to maintain or update a data connector based on this older version of the CCP.
+>There's a newer version of the Codeless Connector Platform (CCP). For more information on the **new CCP**, see [Create a codeless connector (Preview)](create-codeless-connector.md).
 >
+
+Reference this document if you need to maintain or update a data connector based on this older, legacy version of the CCP.
 
 The CCP provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel. Connectors created via the CCP can be deployed via API, an ARM template, or as a solution in the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
