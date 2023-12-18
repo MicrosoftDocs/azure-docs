@@ -1061,6 +1061,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/hyper-v-vmm-powershell-resource-manager.md",
+            "redirect_url": "/azure/site-recovery/site-recovery-runbook-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-secondary-support-matrix.",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/unregister-vmm-server-script.md",
+            "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-secondary-support-matrix.md",
+            "redirect_url": "/azure/site-recovery/azure-to-azure-autoupdate",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
             "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
             "redirect_document_id": false

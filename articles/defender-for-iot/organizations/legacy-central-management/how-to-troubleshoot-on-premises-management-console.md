@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 06/15/2022
+ms.date: 08/07/2023
 ms.topic: troubleshooting
 ---
-# Troubleshoot the on-premises management console
+# Troubleshoot the on-premises management console (Legacy)
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 This article describes basic troubleshooting tools for the on-premises management console. In addition to the items described here, you can forward alerts about failed sensor backups and disconnected sensors.
 
@@ -14,7 +16,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 To perform the procedures in this article, make sure that you have:
 
-- Access to the on-premises management console as a **Support** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+- Access to the on-premises management console as a **Support** user. For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Check system health
 
@@ -26,11 +28,11 @@ Check your system health from the on-premises management console.
 
 1. Select **System Settings** > **System Statistics**.
 
-    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
+    :::image type="icon" source="../media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
 1. System health data appears. Select an item to view more details in the box. For example:
 
-    :::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
+    :::image type="content" source="../media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
 
 System health checks include the following:
 
@@ -59,7 +61,7 @@ If you don't see an expected alert on the on-premises **Alerts** page, do the fo
 
 - Verify whether the alert is already listed as a reaction to a different security instance. If it is, and that alert hasn't yet been handled, a new alert isn't shown elsewhere.
 
-- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
+- Verify that the alert isn't being excluded by **Alert Exclusion** rules. For more information, see [Create alert exclusion rules on an on-premises management console](../how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 
 ## Tweak the Quality of Service (QoS)
 
@@ -71,7 +73,7 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 **To tweak the Quality of Service (QoS)**:
 
-1. Sign into your on-premises management console via SSH to access the [CLI](references-work-with-defender-for-iot-cli-commands.md).
+1. Sign into your on-premises management console via SSH to access the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
 
 1. Verify the default values:
 
@@ -121,9 +123,9 @@ For further troubleshooting, you may want to export logs to send to the support 
 
     For example:
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
+    :::image type="content" source="../media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png" alt-text="Screenshot of the Export Troubleshooting Information dialog in the on-premises management console." lightbox="../media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-logs-on-premises-management-console.png":::
 
-1. Select the file link to download the exported log, and also select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
+1. Select the file link to download the exported log, and also select the :::image type="icon" source="../media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view its one-time password.
 
 1. To open the exported logs, forward the downloaded file and the one-time password to the support team. Exported logs can be opened only together with the Microsoft support team.
 
@@ -131,6 +133,6 @@ For further troubleshooting, you may want to export logs to send to the support 
 
 ## Next steps
 
-- [View alerts](how-to-view-alerts.md)
+- [View alerts](../how-to-view-alerts.md)
 
-- [Track on-premises user activity](track-user-activity.md)
+- [Track on-premises user activity](../track-user-activity.md)

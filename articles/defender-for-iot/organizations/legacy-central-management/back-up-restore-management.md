@@ -1,11 +1,13 @@
 ---
 title: Back up and restore the on-premises management console - Microsoft Defender for IoT
 description: Learn how to back up and restore the Microsoft Defender for IoT on-premises management console.
-ms.date: 07/31/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
-# Back up and restore the on-premises management console
+# Back up and restore the on-premises management console (Legacy)
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 Back up and restore your on-premises management console to help protect against hard drive failures and data loss. In this article, learn how to:
 
