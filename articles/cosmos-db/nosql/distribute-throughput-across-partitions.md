@@ -15,7 +15,7 @@ ms.date: 12/18/2023
 
 By default, Azure Cosmos DB distributes the provisioned throughput of a database or container equally across all physical partitions. However, scenarios may arise where due to a skew in the workload or choice of partition key, certain logical (and thus physical) partitions need more throughput than others. For these scenarios, Azure Cosmos DB gives you the ability to redistribute your provisioned throughput across physical partitions. Redistributing throughput across partitions helps you achieve better performance without having to configure your overall throughput based on the hottest partition. 
 
-The throughput redistributing feature applies to databases and containers using provisioned throughput (manual and autoscale) and doesn't apply to serverless containers. You can change the throughput per physical partition using the Azure Cosmos DB PowerShell commands.
+The throughput redistributing feature applies to databases and containers using provisioned throughput (manual and autoscale) and doesn't apply to serverless containers. You can change the throughput per physical partition using the Azure Cosmos DB PowerShell or Azure CLI commands.
 
 ## When to use this feature
 
@@ -109,19 +109,19 @@ az extension add \
 
 #### [API for NoSQL](#tab/nosql/azure-powershell)
 
-Use the `Get-AzCosmosDBSqlContainerPerPartitionThroughput` command to read the current RU/s on each physical partition.
+Use the `Get-AzCosmosDBSqlContainerPerPartitionThroughput` or `Get-AzCosmosDBSqlDatabasePerPartitionThroughput` command to read the current RU/s on each physical partition.
 
 ```azurepowershell-interactive
 
 // Container with dedicated RU/s
-$somePartitionsDedicatedContainer = Get-AzCosmosDBSqlContainerPerPartitionThroughput `
+$somePartitionsDedicatedRUContainer = Get-AzCosmosDBSqlContainerPerPartitionThroughput `
                     -ResourceGroupName "<resource-group-name>" `
                     -AccountName "<cosmos-account-name>" `
                     -DatabaseName "<cosmos-database-name>" `
                     -Name "<cosmos-container-name>" `
                     -PhysicalPartitionIds ("<PartitionId>", "<PartitionId">)
 
-$allPartitionsDedicatedContainer = Get-AzCosmosDBSqlContainerPerPartitionThroughput `
+$allPartitionsDedicatedRUContainer = Get-AzCosmosDBSqlContainerPerPartitionThroughput `
                     -ResourceGroupName "<resource-group-name>" `
                     -AccountName "<cosmos-account-name>" `
                     -DatabaseName "<cosmos-database-name>" `
@@ -166,18 +166,18 @@ az cosmosdb sql container retrieve-partition-throughput \
 
 #### [API for MongoDB](#tab/mongodb/azure-powershell)
 
-Use the `AzCosmosDBMongoDBCollectionPerPartitionThroughput` command to read the current RU/s on each physical partition.
+Use the `Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput` command to read the current RU/s on each physical partition.
 
 ```azurepowershell-interactive
 // Container with dedicated RU/s
-$somePartitionsDedicatedContainer = Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput `
+$somePartitionsDedicatedRUContainer = Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput `
                     -ResourceGroupName "<resource-group-name>" `
                     -AccountName "<cosmos-account-name>" `
                     -DatabaseName "<cosmos-database-name>" `
                     -Name "<cosmos-collection-name>" `
                     -PhysicalPartitionIds ("<PartitionId>", "<PartitionId">, ...)
 
-$allPartitionsDedicatedContainer = Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput `
+$allPartitionsDedicatedRUContainer = Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput `
                     -ResourceGroupName "<resource-group-name>" `
                     -AccountName "<cosmos-account-name>" `
                     -DatabaseName "<cosmos-database-name>" `
@@ -363,7 +363,7 @@ Use the `Update-AzCosmosDBSqlContainerPerPartitionThroughput` command for contai
 ```azurepowershell-interactive
 
 // Container with dedicated RU/s
-$resetPartitionsDedicatedContainer = Update-AzCosmosDBSqlContainerPerPartitionThroughput `
+$resetPartitionsDedicatedRUContainer = Update-AzCosmosDBSqlContainerPerPartitionThroughput `
                     -ResourceGroupName "<resource-group-name>" `
                     -AccountName "<cosmos-account-name>" `
                     -DatabaseName "<cosmos-database-name>" `
