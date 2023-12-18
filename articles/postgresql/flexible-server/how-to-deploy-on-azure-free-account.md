@@ -96,6 +96,8 @@ To complete this tutorial, you need:
 
 1. On the **Networking** tab, for **Connectivity method** select **Public access (allowed IP addresses) and Private endpoint**.
 
+1. Leave **Allow public access to this resource through the internet using a public IP address** enabled in this case, since you want the instance to be accessible from the public IP address with which your workstation navigates on the Internet. By disabling this check box, the only incoming traffic which would be permitted would be the one coming through private endpoints.
+
 1. For configuring **Firewall rules**, select **Add current client IP address**.
     
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/networking-postgresql.png" alt-text="Screenshot that shows the networking options to be chosen, and highlights the add current client IP address button.":::
