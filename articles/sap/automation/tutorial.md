@@ -594,145 +594,6 @@ ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --vault "${vault_name}"
 ```
 
-
-
-## Get SAP software by using the Bill of Materials
-
-The automation framework gives you tools to download software from SAP by using the SAP BOM. The software is downloaded to the SAP library, which acts as the archive for all media required to deploy SAP.
-
-The SAP BOM mimics the SAP maintenance planner. There are relevant product identifiers and a set of download URLs.
-
-A sample extract of a BOM file looks like this example:
-
-```yaml
-
----
-name:    'S41909SPS03_v0010'
-target:  'S/4 HANA 1909 SPS 03'
-version: 7
-
-product_ids:
-  dbl:       NW_ABAP_DB:S4HANA1909.CORE.HDB.ABAP
-  scs:       NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAP
-  scs_ha:    NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAPHA
-  pas:       NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAP
-  pas_ha:    NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAPHA
-  app:       NW_DI:S4HANA1909.CORE.HDB.PD
-  app_ha:    NW_DI:S4HANA1909.CORE.HDB.ABAPHA
-  web:       NW_Webdispatcher:NW750.IND.PD
-  ers:       NW_ERS:S4HANA1909.CORE.HDB.ABAP
-  ers_ha:    NW_ERS:S4HANA1909.CORE.HDB.ABAPHA
-
-materials:
-  dependencies:
-    - name:     HANA_2_00_055_v0005ms
-
-  media:
-    # SAPCAR 7.22
-    - name:         SAPCAR
-      archive:      SAPCAR_1010-70006178.EXE
-      checksum:     dff45f8df953ef09dc560ea2689e53d46a14788d5d184834bb56544d342d7b
-      filename:     SAPCAR
-      permissions:  '0755'
-      url:          https://softwaredownloads.sap.com/file/0020000002208852020
-
-    # Kernel
-    - name:         "Kernel Part I ; OS: Linux on x86_64 64bit ; DB: Database independent"
-```
-
-For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name contains `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
-
-1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
-
-1. Add a secret with the username for your SAP user account. Replace `<vaultID>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
-
-    ```bash
-    export key_vault=<vaultID>
-    sap_username=<sap-username>
-
-    az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
-    ```
-
-1. Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name and replace `<sap-password>` with your SAP password.
-
-    > [!NOTE]
-    > The use of single quotation marks when you set `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results.
-
-    ```azurecli
-    sap_user_password='<sap-password>'
-
-    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
-    ```
-
-1. Check the version number of the S/4 1909 SPS03 BOM for the active version.
-
-    Record the results.
-
-    ```bash
-
-    ls -d ${DEPLOYMENT_REPO_PATH}/deploy/ansible/BOM-catalog/S41909SPS03* | xargs basename
-
-    ```
-
-1. Configure your SAP parameters file for the download process. Then, download the SAP software by using Ansible playbooks. Run the following commands:
-
-    ```bash
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    cp -Rp ../sap-automation/training-materials/WORKSPACES/BOMS .
-    cd BOMS
-
-    vi sap-parameters.yaml
-    ```
-
-1. Update the `bom_base_name` with the name BOM previously identified.
-
-    Your file should look similar to the following example configuration:
-
-    ```yaml
-
-    bom_base_name:                 S4HANA_2021_FP01_v0001ms
-
-    ```
-
-1. Replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault.
-
-    Your file should look similar to the following example configuration:
-
-    ```yaml
-
-    bom_base_name:                 S4HANA_2021_FP01_v0001ms
-    deployer_kv_name:              <Deployer KeyVault Name>
-
-    ```
-
-1. Ensure that `check_storage_account` is present and set to `false`. This value controls if the SAP library is checked for the file before it's downloaded from SAP.
-
-    Your file should look similar to the following example configuration:
-
-    ```yaml
-
-    bom_base_name:                 S4HANA_2021_FP01_v0001ms
-    deployer_kv_name:              <Deployer KeyVault Name>
-    BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
-
-    ```
-
-1. Run the Ansible playbooks. One way you can run the playbooks is to use the **Downloader** menu. Run the `download_menu` script.
-
-    ```bash
-    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
-    ```
-
-1. Select which playbooks to run.
-
-    ```bash
-    1) BoM Downloader
-    3) Quit
-    Please select playbook:
-    ```
-
-    Select the playbook `1) BoM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
-
 ## Collect workload zone information
 
 1. Collect the following information in a text editor. This information was collected at the end of the "Deploy the control plane" phase.
@@ -899,6 +760,114 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
 
 Check that the system resource group is now in the Azure portal.
 
+## Get SAP software by using the Bill of Materials
+
+The automation framework gives you tools to download software from SAP by using the SAP BOM. The software is downloaded to the SAP library, which acts as the archive for all media required to deploy SAP.
+
+The SAP BOM mimics the SAP maintenance planner. There are relevant product identifiers and a set of download URLs.
+
+A sample extract of a BOM file looks like this example:
+
+```yaml
+
+---
+name:    'S41909SPS03_v0010'
+target:  'S/4 HANA 1909 SPS 03'
+version: 7
+
+product_ids:
+  dbl:       NW_ABAP_DB:S4HANA1909.CORE.HDB.ABAP
+  scs:       NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAP
+  scs_ha:    NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAPHA
+  pas:       NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAP
+  pas_ha:    NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAPHA
+  app:       NW_DI:S4HANA1909.CORE.HDB.PD
+  app_ha:    NW_DI:S4HANA1909.CORE.HDB.ABAPHA
+  web:       NW_Webdispatcher:NW750.IND.PD
+  ers:       NW_ERS:S4HANA1909.CORE.HDB.ABAP
+  ers_ha:    NW_ERS:S4HANA1909.CORE.HDB.ABAPHA
+
+materials:
+  dependencies:
+    - name:     HANA_2_00_055_v0005ms
+
+  media:
+    # SAPCAR 7.22
+    - name:         SAPCAR
+      archive:      SAPCAR_1010-70006178.EXE
+      checksum:     dff45f8df953ef09dc560ea2689e53d46a14788d5d184834bb56544d342d7b
+      filename:     SAPCAR
+      permissions:  '0755'
+      url:          https://softwaredownloads.sap.com/file/0020000002208852020
+
+    # Kernel
+    - name:         "Kernel Part I ; OS: Linux on x86_64 64bit ; DB: Database independent"
+```
+
+For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name contains `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
+
+1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
+
+1. Add a secret with the username for your SAP user account. Replace `<vaultID>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
+
+    ```bash
+    export key_vault=<vaultID>
+    sap_username=<sap-username>
+
+    az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
+    ```
+
+1. Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name and replace `<sap-password>` with your SAP password.
+
+    > [!NOTE]
+    > The use of single quotation marks when you set `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results.
+
+    ```azurecli
+    sap_user_password='<sap-password>'
+
+    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
+    ```
+
+1. Configure your SAP parameters file for the download process. Then, download the SAP software by using Ansible playbooks. Run the following commands:
+
+    ```bash
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+    mkdir BOMS
+    cd BOMS
+
+    vi sap-parameters.yaml
+    ```
+
+1. Update the `bom_base_name` with the name BOM amd replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault..
+
+    Your file should look similar to the following example configuration:
+
+    ```yaml
+
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
+    deployer_kv_name:              <Deployer KeyVault Name>
+    BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
+
+    ```
+
+
+1. Run the Ansible playbook to download the software. One way you can run the playbooks is to use the **Downloader** menu. Run the `download_menu` script.
+
+    ```bash
+    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
+    ```
+
+1. Select which playbooks to run.
+
+    ```bash
+    1) BoM Downloader
+    3) Quit
+    Please select playbook:
+    ```
+
+    Select the playbook `1) BoM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
+
+
 ## SAP application installation
 
 The SAP application installation happens through Ansible playbooks.
@@ -945,6 +914,10 @@ This playbook installs the HANA database instances.
 
 This playbook invokes the database load task from the primary application server.
 
+### Playbook: HANA HA playbook
+
+This playbook configures HANA system replication and Pacemaker for the HANA database.
+
 ### Playbook: PAS install
 
 This playbook installs the primary application server.
@@ -955,9 +928,6 @@ This playbook installs the application servers.
 
 You've now deployed and configured a standalone HANA system. If you need to configure a highly available (HA) SAP HANA database, run the HANA HA playbook.
 
-### Playbook: HANA HA playbook
-
-This playbook configures HANA system replication and Pacemaker for the HANA database.
 
 ## Clean up installation
 
