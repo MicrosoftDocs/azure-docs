@@ -20,9 +20,9 @@ Working with data pipelines in Airflow requires you to create or update your DAG
 
 ### Continuous Integration (CI) 
 
-Continuous Integration (CI) is a software development practice that emphasizes frequent and automated integration of code changes into a shared repository. It involves developers regularly committing their code, and upon each commit, an automated CI pipeline builds the code, runs tests, and performs validation checks. The primary goal is to detect and address integration issues early in the development process, providing rapid feedback to developers. CI ensures that the codebase remains in a constantly testable and deployable state. This practise leads to enhanced code quality, collaboration, and the ability to catch and fix bugs before they become significant problems. 
+Continuous Integration (CI) is a software development practice that emphasizes frequent and automated integration of code changes into a shared repository. It involves developers regularly committing their code, and upon each commit, an automated CI pipeline builds the code, runs tests, and performs validation checks. The primary goal is to detect and address integration issues early in the development process, providing rapid feedback to developers. CI ensures that the codebase remains in a constantly testable and deployable state. This practice leads to enhanced code quality, collaboration, and the ability to catch and fix bugs before they become significant problems. 
 
-### Continuous Deployment 
+### Continuous Deployment (CD)
 
 Continuous Deployment (CD) is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice helps organizations release software updates quickly and reliably. It reduces mistakes in manual deployment and ensures that approved code changes are delivered to end-users swiftly. 
 
@@ -37,7 +37,8 @@ When a pull request (PR) is made from a feature branch to the Development branch
 - **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
 - **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
 - **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
-- **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
+- **Unit Tests for Airflow custom operators, hooks, sensors and triggers.**
+
 If any of these checks fail, the pipeline terminates, signaling that the developer needs to address the issues identified. 
 
 #### Git-sync with Production IR: Map your Managed Airflow environment with your Git repository’s Production branch. 
@@ -182,6 +183,7 @@ steps:
 For more information, See [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up)
 
 ### Using GitHub Actions
+
 **Step 2.1:** Create a `.github/workflows` directory in your GitHub repository. 
 
 **Step 2.2:** In the `.github/workflows` directory, create a file named `github-actions-ci-cd.yml` 
@@ -298,7 +300,7 @@ def test_requires_approved_tag(dagbag):
 
 **Step 4:** Now, when you raise pull request to dev branch, GitHub Actions triggers the CI pipeline to run all the tests. 
 
-#### For More Information: 
+#### For more information:
 
 - [https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html](https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html) 
 
