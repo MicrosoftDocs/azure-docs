@@ -7,7 +7,7 @@ ms.author: rosemalcolm
 ms.service: deployment-environments
 ms.custom: ignite-2023
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 12/18/2023
 ---
 
 # Create an environment by using the Azure Developer CLI
@@ -38,43 +38,34 @@ You can see a list of supported Azure services here: [Supported Azure compute se
 
 To get help with AZD compatibility, see [Make your project compatible with Azure Developer CLI](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create).  
 
-
 ## Prepare to work with AZD 
 
 When you work with AZD for the first time, there are some one-time setup tasks you need to complete. These tasks include installing the Azure Developer CLI, signing in to your Azure account, and enabling AZD support for Azure Deployment Environments.
 
-# [Azure Developer CLI](#tab/azure-developer-cli)
+### Install the Azure Developer CLI extension for Visual Studio Code
 
-### Install the Azure Developer CLI
-
-```powershell
-powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
-```
-
-### Sign in with Azure Developer CLI
-
-```powershell
- azd auth login
-```
-
-### Enable AZD support for ADE
-
-```powershell
-azd config set platform.type devcenter
-
-```
+When you install azd, the azd tools are installed within azd scope rather than globally, and are removed if azd is uninstalled. You can install azd in Visual Studio Code or from the command line.
 
 # [Visual Studio Code](#tab/visual-studio-code)
-
-### Install the Azure Developer CLI extension for Visual Studio Code
 
 To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension, version v0.8.0-alpha.1-beta.3173884. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-create-environment-with-azure-developer/install-azure-developer-cli-large.png":::
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+
+```bash
+powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' | Invoke-Expression"
+```
+
+---
+
 ### Sign in with Azure Developer CLI
 
 Sign in to AZD using the command palette:
+
+# [Visual Studio Code](#tab/visual-studio-code)
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-developer-sign-in.png" alt-text="Screenshot of Visual Studio Code, showing the Extensions pane with the Azure Developer CLI and Install highlighted." lightbox="media/how-to-create-environment-with-azure-developer/azure-developer-sign-in.png":::
 
@@ -82,11 +73,29 @@ The output of commands issued from the command palette is displayed in an **azd 
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/press-any-key.png" alt-text="Screenshot of the azd dev terminal, showing the press any key to close message." lightbox="media/how-to-create-environment-with-azure-developer/press-any-key.png":::
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+
+```bash
+ azd auth login
+```
+
+---
+
 ### Enable AZD support for ADE
 
 You can configure AZD to provision and deploy resources to your deployment environments using standard commands such as `azd up` or `azd provision`. When `platform.type` is set to `devcenter`, all AZD remote environment state and provisioning uses dev center components. AZD uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the *infra* folder in your local templates isn’t used. 
 
+# [Visual Studio Code](#tab/visual-studio-code)
+
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-developer-enable-support.png" alt-text="Screenshot of Visual Studio Code, showing the Enable support command in the command palette." lightbox="media/how-to-create-environment-with-azure-developer/azure-developer-enable-support.png":::
+
+
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+```bash
+ azd config set platform.type devcenter
+```
 
 ---
 
@@ -99,12 +108,6 @@ Now you're ready to create an environment to work in. You can begin with code in
 Initializing a new application creates the files and folders that are required for AZD to work with your application.
 
 AZD uses an *azure.yaml* file to define the environment. The azure.yaml file defines and describes the apps and types of Azure resources that the application uses. To learn more about azure.yaml, see [Azure Developer CLI's azure.yaml schema](/azure/developer/azure-developer-cli/azd-schema).
-
-# [Azure Developer CLI](#tab/azure-developer-cli)
-
-```powershell
-azd init
-```
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -126,17 +129,16 @@ azd init
 
 AZD creates an *azure.yaml* file in the root of your project. 
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+```bash
+azd init
+```
 ---
 
 ### Provision infrastructure to Azure Deployment Environment
 
 When you're ready, you can provision your local environment to a remote Azure Deployment Environments environment in Azure. This process provisions the infrastructure and resources defined in the environment definition in your dev center catalog.
-
-# [Azure Developer CLI](#tab/azure-developer-cli)
-
-```powershell
-azd provision
-```
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -144,7 +146,7 @@ azd provision
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-developer-menu-environment-provision.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and Provision environment highlighted." lightbox="media/how-to-create-environment-with-azure-developer/azure-developer-menu-environment-provision.png":::
 
-1. AZD scans Azure Deployment Environments for projects that you have access to. In the AZD terminal, select or enter the following:
+1. AZD scans Azure Deployment Environments for projects that you have access to. In the AZD terminal, select or enter the following information:
     1. Project
     1. Environment definition
     1. Environment name
@@ -154,17 +156,17 @@ azd provision
  
 1. You can view the resources created in the Azure portal or in the [developer portal](https://devportal.microsoft.com).
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+```bash
+azd provision
+```
+
 ---
 
 ### List existing environments (optional)
 
 Verify that your environment is created by listing the existing environments.
-
-# [Azure Developer CLI](#tab/azure-developer-cli)
-
-```powershell
-azd env list
-```
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -174,19 +176,18 @@ In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (
 
 You're prompted to select a project and an environment definition.
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+```bash
+azd env list
+```
 ---
 
 ### Deploy code to Azure Deployment Environments
 
-# [Azure Developer CLI](#tab/azure-developer-cli)
-
-```powershell
-azd env deploy
-```
+When your environment is provisioned, you can deploy your code to the environment.
 
 # [Visual Studio Code](#tab/visual-studio-code)
-
-When your environment is provisioned, you can deploy your code to the environment.
 
 1. In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (azd)** > **Deploy Azure Resources (deploy)**.
  
@@ -194,17 +195,16 @@ When your environment is provisioned, you can deploy your code to the environmen
  
 1. You can verify that your code is deployed by selecting the end point URLs listed in the AZD terminal.
 
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+```bash
+azd env deploy
+```
 ---
 
 ## Clean up resources
 
 When you're finished with your environment, you can delete the Azure resources.
-
-# [Azure Developer CLI](#tab/azure-developer-cli)
-
-```powershell
-azd down
-```
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -213,6 +213,13 @@ In Explorer, right-click **azure.yaml**, and then select **Azure Developer CLI (
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-developer-menu-environment-down.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and Delete Deployment and Resources (down) highlighted." lightbox="media/how-to-create-environment-with-azure-developer/azure-developer-menu-environment-down.png":::
 
 Confirm that you want to delete the environment by entering `y` when prompted.
+
+# [Azure Developer CLI](#tab/azure-developer-cli)
+
+```bash
+azd down --environment <environmentName>
+```
+---
 
 ## Related content
 - [Create and configure a dev center](/azure/deployment-environments/quickstart-create-and-configure-devcenter)
