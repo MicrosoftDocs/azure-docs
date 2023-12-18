@@ -280,11 +280,11 @@ This dashboard is based on the Top 25 Common Weakness Enumeration (CWE) list pro
 [![Screenshot of CWE Top 25 Software Weaknesses dashboard.](media/dashboards-28.png)](media/dashboards-28-expanded.png#lightbox) 
 
 
-## CISA known exploits
+## CISA Known Exploits
 
 While there are hundreds of thousands of identified CVE vulnerabilities, only a small subset has been identified by the Cybersecurity & Infrastructure Security Agency (CISA) as recently exploited by threat actors. This list includes less than .5% of all identified CVEs; for this reason, it is instrumental to helping security professionals prioritize the remediation of the greatest risks to their organization. Those who remediate threats based on this list operate with the upmost efficiency because they’re prioritizing the vulnerabilities that have resulted in real security incidents.  
 
-![Screenshot of CWE Top 25 Software Weaknesses dashboard.](media/Dashboards-29.png)
+![Screenshot of CISA Known Exploits dashboard.](media/Dashboards-29.png)
 
 
 
