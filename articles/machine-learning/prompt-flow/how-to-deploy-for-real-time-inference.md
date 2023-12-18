@@ -66,6 +66,8 @@ Then you need also specify the image to the `environment` in the `flow.dag.yaml`
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
+Please note if you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
+
 ## Create an online deployment
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 
