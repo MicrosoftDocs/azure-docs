@@ -30,10 +30,10 @@ az ml workspace provision-network --subscription <sub_id> -g <resource_group_nam
 
      * [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) - Connects on-premises networks to the virtual network over a private connection. Connection is made over the public internet. There are two types of VPN gateways that you might use: 
 
-     * [Point-to-site](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal): Each client computer uses a VPN client to connect to the virtual network. 
-     * [Site-to-site](/azure/vpn-gateway/tutorial-site-to-site-portal): A VPN device connects the virtual network to your on-premises network. 
+        * [Point-to-site](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal): Each client computer uses a VPN client to connect to the virtual network. 
+        * [Site-to-site](/azure/vpn-gateway/tutorial-site-to-site-portal): A VPN device connects the virtual network to your on-premises network. 
 
-    * [ExpressRoute](https://azure.microsoft.com/products/expressroute/) - Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. 
+        * [ExpressRoute](https://azure.microsoft.com/products/expressroute/) - Connects on-premises networks into the cloud over a private connection. Connection is made using a connectivity provider. 
 
     * [Azure Bastion](/azure/bastion/bastion-overview) - In this scenario, you create an Azure Virtual Machine (sometimes called a jump box) inside the virtual network. You then connect to the VM using Azure Bastion. Bastion allows you to connect to the VM using either an RDP or SSH session from your local web browser. You then use the jump box as your development environment. Since it is inside the virtual network, it can directly access the workspace.
 3. Since the workspace managed virtual network can access internet in this configuration, you can work with all the Collections in the Model Catalog from within the workspace. 
@@ -46,7 +46,7 @@ az ml workspace provision-network --subscription <sub_id> -g <resource_group_nam
 
 ## Work with open source models curated by Azure Machine Learning
 
-Workspace managed virtual network to allow only approved outbound uses a Service Endpoint Policy to Azure Machine managed storage accounts, to help access the models in the collections curated by Azure Machine Learning in an out-of-the-box manner. This mode of workspace configuration also has default outbound to Microsoft Container Registry where the docker image used to deploy the models is present. 
+Workspace managed virtual network to allow only approved outbound uses a Service Endpoint Policy to Azure Machine Learning managed storage accounts, to help access the models in the collections curated by Azure Machine Learning in an out-of-the-box manner. This mode of workspace configuration also has default outbound to Microsoft Container Registry where the docker image used to deploy the models is present. 
 
 ### Language models in 'Curated by Azure AI' collection
 

@@ -26,6 +26,8 @@
             href: migrate/how-to-migrate-single-to-flexible-cli.md
           - name: Common errors
             href: migrate/common-errors-and-special-scenarios-fms.md
+          - name: Best practices for a seamless migration
+            href: migrate/best-practices-seamless-migration-single-to-flexible.md
           - name: Troubleshoot networking and connectivity issues
             href: migrate/troubleshooting-networking-and-connectivity-issues.md  
       - name: Migrate data with pg_dump and pg_restore

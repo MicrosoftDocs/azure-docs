@@ -109,7 +109,7 @@ Occasionally, microphone or camera devices won't be released on time, and that c
 
 Incoming video streams won't stop rendering if the user is on iOS 15.2+ and is using SDK version 1.4.1-beta.1+, the unmute/start video steps will still be required to re-start outgoing audio and video. 
 
-For iOS 15.4+, audio and video should be able to auto recover on most of the cases. On some edge cases, to unmute, an api to 'unmute' must be called by the application (can be as a result of user action) to recover the outgoing audio.
+For iOS 15.4+, audio and video should be able to auto recover on most of the cases. On some edge cases, to unmute, an API to 'unmute' must be called by the application (can be as a result of user action) to recover the outgoing audio.
 
 ### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
 
@@ -230,7 +230,7 @@ The following are known issues in the Communication Services Call Automation API
 
 ## Group call limitations for JS web Calling SDK users		
 
-Up to 100 users can join a group call using the JS web calling SDK. 
+Up to 350 users can join a group call using the JS web calling SDK. Once the call size reaches 100+ participants in the call, only the top 4 most dominant speakers that have their video camera turned on will be available to be seen. When the number of people on the call is 100+ the viewable number of incoming renders will go from 3x3 (9 incoming videos) down to 2x2 (4 incoming videos). When the number of users goes below 100, the number of supported incoming video goes back up to 3x3 (9 incoming videos).
 
 ## Android API emulators
 When utilizing Android API emulators on Android 5.0 (API level 21) and Android 5.1 (API level 22) some crashes are expected.  

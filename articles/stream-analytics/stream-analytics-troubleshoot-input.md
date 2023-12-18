@@ -1,11 +1,11 @@
 ---
 title: Troubleshooting Inputs for Azure Stream Analytics
 description: This article describes techniques to troubleshoot your input connections in Azure Stream Analytics jobs.
-author: an-emma
-ms.author: raan
+author: ahartoon
+ms.author: anboisve
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 01/17/2023
+ms.date: 12/15/2023
 ms.custom: seodec18
 ---
 
