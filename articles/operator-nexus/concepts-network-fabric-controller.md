@@ -71,7 +71,7 @@ Createa a Network Fabric Controller
   --workload-er-connections '[{"expressRouteCircuitId": "/subscriptions/xxxxxx-xxxxxx-xxxx-xxxx-xxxxxx/resourceGroups/ER-Dedicated-WUS2-AFO-Circuits/providers/Microsoft.Network/expressRouteCircuits/MSFT-ER-Dedicated-PvtPeering-WestUS2-AFO-Ckt-02"", "expressRouteAuthorizationKey": "<auth-key>"}]'
 
 ```
-To update Network fabric controller with two new ExR (Re-put):
+Update Network Fabric Controller with two new ExR (Re-put):
  ```azurecli
 az networkfabric controller create \
 --resource-group "NFCResourceGroupName" \
