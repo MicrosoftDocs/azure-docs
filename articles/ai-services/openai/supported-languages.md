@@ -28,4 +28,4 @@ Azure OpenAI supports the following programming languages.
 ## Next steps
 
 - Explore each programming language in our step-by-step [quickstarts](./chatgpt-quickstart.md)
-- To see what models are currently supported, check out the [models page](./concepts/models.md)
+- To see what models are currently supported, check out the [Azure OpenAI models page](./concepts/models.md)
