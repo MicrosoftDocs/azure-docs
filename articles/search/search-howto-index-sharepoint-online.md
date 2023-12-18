@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 12/16/2023
+ms.date: 12/18/2023
 ---
 
 # Index data from SharePoint document libraries
@@ -60,7 +60,6 @@ Here are the limitations of this feature:
 
 + SharePoint supports a granular authorization model that determines per-user access at the document level. The indexer doesn't pull these permissions into the index, and Azure AI Search doesn't support document-level authorization. When a document is indexed from SharePoint into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should consider [security filters to trim results](search-security-trimming-for-azure-search-with-aad.md) and automate copying the permissions at a file level to a field in the index.
 
-+ (Known issue) Support for delegated permissions is currently broken. For now, use app-based permissions as a workaround. However, once user-delegated permissions do become operational, a new behavior enforces token expiration every 75 minutes, per the libraries used to implement delegated permissions. An expired token requires manual indexing using [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). For this reason, you might want app-based permissions as a permanent solution.
 
 Here are the considerations when using this feature:
 
@@ -98,7 +97,7 @@ We recommend app-based permissions. See [limitations](#limitations-and-considera
 
 + Application permissions (recommended), where the indexer runs under the [identity of the SharePoint tenant](/sharepoint/dev/solution-guidance/security-apponly-azureacs) with access to all sites and files. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 
-+ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the caller has access. To support delegated permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user.
++ Delegated permissions, where the indexer runs under the identity of the user or app sending the request. Data access is limited to the sites and files to which the caller has access. To support delegated permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to sign in on behalf of the user. User-delegated permissions enforces token expiration every 75 minutes, per the most recent security libraries used to implement this authentication type. This is not a behavior that can be adjusted. An expired token requires manual indexing using [Run Indexer (preview)](/rest/api/searchservice/indexers/run?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). For this reason, you might want app-based permissions instead.
 
 If your Microsoft Entra organization has [conditional access enabled](../active-directory/conditional-access/overview.md) and your administrator isn't able to grant any device access for delegated permissions, you should consider app-based permissions instead. For more information, see [Microsoft Entra Conditional Access policies](./search-indexer-troubleshooting.md#azure-active-directory-conditional-access-policies).
 

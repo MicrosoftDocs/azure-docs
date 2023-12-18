@@ -42,7 +42,7 @@ A search service uses Azure Storage as an indexer data source and as a data sink
 
 <sup>2</sup> One method for specifying an enrichment cache is in the Import data wizard. Currently, the wizard doesn't accept a managed identity connection string for enrichment cache. However, after the wizard completes, you can update the connection string in the indexer JSON definition to specify either a system or user-assigned managed identity, and then rerun the indexer.
 
-<sup>3</sup> Note that [disabling keys in the Azure storage account](/storage/common/shared-key-authorization-prevent) is not currently supported for Azure Table used as a data source. Although managed identity is used to not provide the storage keys explicitly, the AI search service still uses the keys for this implementation. 
+<sup>3</sup> Note that [disabling keys in the Azure storage account](../storage/common/shared-key-authorization-prevent.md) is not currently supported for Azure Table used as a data source. Although managed identity is used to not provide the storage keys explicitly, the AI search service still uses the keys for this implementation. 
 
 ## Create a system managed identity
 
