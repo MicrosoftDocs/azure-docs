@@ -423,7 +423,7 @@ This version includes the following new updates and fixes:
 - [New integration APIs](api/management-integration-apis.md)
 - [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
 - [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
+- [Export alert enhancements](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
 
 ### 10.5.2
 
@@ -435,7 +435,7 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
+- [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates)
 

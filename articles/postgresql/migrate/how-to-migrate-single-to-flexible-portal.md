@@ -35,7 +35,7 @@ In this tutorial, you learn to:
 
 2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
 
-3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./best-practices-seamless-migration-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
 
 ## Configure the migration task
 

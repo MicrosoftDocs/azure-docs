@@ -4,7 +4,7 @@ description: Learn how to use SAP Deployment Automation Framework.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
-ms.date: 12/13/2023
+ms.date: 12/15/2023
 ms.topic: tutorial
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -158,7 +158,7 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
 
     To run the automation framework, update to the following versions:
 
-    - `az` version 2.4.0 or higher.
+    - `az` version 2.5.0 or higher.
     - `terraform` version 1.5 or higher. [Upgrade by using the Terraform instructions](https://www.terraform.io/upgrade-guides/0-12.html), as necessary.
 
 ## Create a service principal
@@ -214,14 +214,56 @@ When you choose a name for your service principal, make sure that the name is un
 > [!IMPORTANT]
 > If you don't assign the User Access Administrator role to the service principal, you can't assign permissions by using the automation.
 
+## Configure the control plane web application credentials
+
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
+
+:::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Screenshot of Web app front page.":::
+
+
+### Create an app registration
+
+If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure Cloud Shell and execute the following commands:
+
+Replace MGMT with your environment as necessary.
+
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
+
+app_registration_app_id=$(az ad app create    \
+    --display-name MGMT-webapp-registration   \
+    --enable-id-token-issuance true           \
+    --sign-in-audience AzureADMyOrg           \
+    --required-resource-access @manifest.json \
+    --query "appId" | tr -d '"')
+
+webapp_client_secret=$(az ad app credential reset \
+    --id $TF_VAR_app_registration_app_id --append \
+    --query "password" | tr -d '"')
+
+echo "App registration ID:  ${app_registration_app_id}"
+echo "App registration password:  ${webapp_client_secret}"
+
+rm manifest.json
+```
+
+Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
+
+The output maps to the following parameters. You use these parameters in later steps, with automation commands.
+
+| Parameter input name      | Output name                       |
+| ------------------------- | --------------------------------- |
+| `app_registration_app_id` | `App registration ID`             |
+| `webapp_client_secret`    | `App registration password`       |
+
 ## View configuration files
 
 1. Open Visual Studio Code from Cloud Shell.
 
-    ```cloudshell-interactive
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    code .
-    ```
+```cloudshell-interactive
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+code .
+```
 
 1. Expand the `WORKSPACES` directory. There are five subfolders: `CONFIGURATION`, `DEPLOYER`, `LANDSCAPE`, `LIBRARY`, `SYSTEM`, and `BOMS`. Expand each of these folders to find regional deployment configuration files.
 
@@ -278,7 +320,6 @@ When you choose a name for your service principal, make sure that the name is un
     # public_network_access_enabled controls if storage account and key vaults have public network access enabled
     public_network_access_enabled = true
 
-
     ```
 
     Note the Terraform variable file locations for future edits during deployment.
@@ -325,7 +366,14 @@ export       ARM_TENANT_ID="<tenantId>"
 
 ```
 
-1. Create the deployer and the SAP library. Add the service principal details to the deployment key vault.
+If you are running the script from a workstation that is not part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
+
+```bash
+export TF_VAR_Agent_IP=<your-public-ip-address>
+```
+
+
+1. Create the deployer and the SAP library and add the service principal details to the deployment key vault using this script.
 
 ```bash
 
@@ -336,7 +384,6 @@ export         region_code="<region_code>"
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/WORKSPACES"
 
-
 cd $CONFIG_REPO_PATH
 
 deployer_parameter_file="${CONFIG_REPO_PATH}/DEPLOYER/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
@@ -344,7 +391,7 @@ library_parameter_file="${CONFIG_REPO_PATH}/LIBRARY/${env_code}-${region_code}-S
 
 ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --deployer_parameter_file "${deployer_parameter_file}"         \
-    --library_parameter_file "${library_parameter_file}"            \
+    --library_parameter_file "${library_parameter_file}"           \
     --subscription "${ARM_SUBSCRIPTION_ID}"                        \
     --spn_id "${ARM_CLIENT_ID}"                                    \
     --spn_secret "${ARM_CLIENT_SECRET}"                            \
@@ -371,7 +418,7 @@ You need to note some values for upcoming steps. Look for this text block in the
 #########################################################################################
 ```
 
-1. Go to the [Azure portal](https://portal.azure.com).
+2. Go to the [Azure portal](https://portal.azure.com).
 
     Select **Resource groups**. Look for new resource groups for the deployer infrastructure and library. For example, you might see `MGMT-[region]-DEP00-INFRASTRUCTURE` and `MGMT-[region]-SAP_LIBRARY`.
 
@@ -439,7 +486,9 @@ To connect to your deployer VM:
 1. Connect to the deployer VM through any SSH client, such as Visual Studio Code. Use the public IP address you noted earlier and the SSH key you downloaded. For instructions on how to connect to the deployer by using Visual Studio Code, see [Connect to the deployer by using Visual Studio Code](tools-configuration.md#configure-visual-studio-code). If you're using PuTTY, convert the SSH key file first by using PuTTYGen.
 
 > [!NOTE]
->The default username is *azureadm*.
+>The default username is *azureadm*. 
+>
+> Ensure that the file you use to save the ssh key can save the file using the correct format, i.e without Carrage Return (CR) characters. Use Visual Studio Code or Notepad++.
 
 After you're connected to the deployer VM, you can download the SAP software by using the Bill of Materials (BOM).
 
@@ -475,6 +524,8 @@ The rest of the tasks must be executed on the deployer.
 ## Securing the control plane
 
 The control plane is the most critical part of the SAP automation framework. It's important to secure the control plane. The following steps help you secure the control plane.
+
+You should update the control plane tfvars file to enable private endpoints and to block public access to the storage accounts and key vaults. 
 
 To copy the control plane configuration files to the deployer VM, you can use the `sync_deployer.sh` script. Sign in to the deployer VM and run the following commands:
 
@@ -542,145 +593,6 @@ ${SAP_AUTOMATION_REPO_PATH}/deploy/scripts/deploy_controlplane.sh  \
     --storageaccountname "${storage_accountname}"                  \
     --vault "${vault_name}"
 ```
-
-
-
-## Get SAP software by using the Bill of Materials
-
-The automation framework gives you tools to download software from SAP by using the SAP BOM. The software is downloaded to the SAP library, which acts as the archive for all media required to deploy SAP.
-
-The SAP BOM mimics the SAP maintenance planner. There are relevant product identifiers and a set of download URLs.
-
-A sample extract of a BOM file looks like this example:
-
-```yaml
-
----
-name:    'S41909SPS03_v0010'
-target:  'S/4 HANA 1909 SPS 03'
-version: 7
-
-product_ids:
-  dbl:       NW_ABAP_DB:S4HANA1909.CORE.HDB.ABAP
-  scs:       NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAP
-  scs_ha:    NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAPHA
-  pas:       NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAP
-  pas_ha:    NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAPHA
-  app:       NW_DI:S4HANA1909.CORE.HDB.PD
-  app_ha:    NW_DI:S4HANA1909.CORE.HDB.ABAPHA
-  web:       NW_Webdispatcher:NW750.IND.PD
-  ers:       NW_ERS:S4HANA1909.CORE.HDB.ABAP
-  ers_ha:    NW_ERS:S4HANA1909.CORE.HDB.ABAPHA
-
-materials:
-  dependencies:
-    - name:     HANA_2_00_055_v0005ms
-
-  media:
-    # SAPCAR 7.22
-    - name:         SAPCAR
-      archive:      SAPCAR_1010-70006178.EXE
-      checksum:     dff45f8df953ef09dc560ea2689e53d46a14788d5d184834bb56544d342d7b
-      filename:     SAPCAR
-      permissions:  '0755'
-      url:          https://softwaredownloads.sap.com/file/0020000002208852020
-
-    # Kernel
-    - name:         "Kernel Part I ; OS: Linux on x86_64 64bit ; DB: Database independent"
-```
-
-For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name contains `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
-
-1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
-
-1. Add a secret with the username for your SAP user account. Replace `<vaultID>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
-
-    ```bash
-    export key_vault=<vaultID>
-    sap_username=<sap-username>
-
-    az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
-    ```
-
-1. Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name and replace `<sap-password>` with your SAP password.
-
-    > [!NOTE]
-    > The use of single quotation marks when you set `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results.
-
-    ```azurecli
-    sap_user_password='<sap-password>'
-
-    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
-    ```
-
-1. Check the version number of the S/4 1909 SPS03 BOM for the active version.
-
-    Record the results.
-
-    ```bash
-
-    ls -d ${DEPLOYMENT_REPO_PATH}/deploy/ansible/BOM-catalog/S41909SPS03* | xargs basename
-
-    ```
-
-1. Configure your SAP parameters file for the download process. Then, download the SAP software by using Ansible playbooks. Run the following commands:
-
-    ```bash
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
-    cp -Rp ../sap-automation/training-materials/WORKSPACES/BOMS .
-    cd BOMS
-
-    vi sap-parameters.yaml
-    ```
-
-1. Update the `bom_base_name` with the name BOM previously identified.
-
-    Your file should look similar to the following example configuration:
-
-    ```yaml
-
-    bom_base_name:                 S4HANA_2021_FP01_v0001ms
-
-    ```
-
-1. Replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault.
-
-    Your file should look similar to the following example configuration:
-
-    ```yaml
-
-    bom_base_name:                 S4HANA_2021_FP01_v0001ms
-    deployer_kv_name:              <Deployer KeyVault Name>
-
-    ```
-
-1. Ensure that `check_storage_account` is present and set to `false`. This value controls if the SAP library is checked for the file before it's downloaded from SAP.
-
-    Your file should look similar to the following example configuration:
-
-    ```yaml
-
-    bom_base_name:                 S4HANA_2021_FP01_v0001ms
-    deployer_kv_name:              <Deployer KeyVault Name>
-    BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
-
-    ```
-
-1. Run the Ansible playbooks. One way you can run the playbooks is to use the **Downloader** menu. Run the `download_menu` script.
-
-    ```bash
-    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
-    ```
-
-1. Select which playbooks to run.
-
-    ```bash
-    1) BoM Downloader
-    3) Quit
-    Please select playbook:
-    ```
-
-    Select the playbook `1) BoM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
 
 ## Collect workload zone information
 
@@ -848,6 +760,114 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
 
 Check that the system resource group is now in the Azure portal.
 
+## Get SAP software by using the Bill of Materials
+
+The automation framework gives you tools to download software from SAP by using the SAP BOM. The software is downloaded to the SAP library, which acts as the archive for all media required to deploy SAP.
+
+The SAP BOM mimics the SAP maintenance planner. There are relevant product identifiers and a set of download URLs.
+
+A sample extract of a BOM file looks like this example:
+
+```yaml
+
+---
+name:    'S41909SPS03_v0010'
+target:  'S/4 HANA 1909 SPS 03'
+version: 7
+
+product_ids:
+  dbl:       NW_ABAP_DB:S4HANA1909.CORE.HDB.ABAP
+  scs:       NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAP
+  scs_ha:    NW_ABAP_ASCS:S4HANA1909.CORE.HDB.ABAPHA
+  pas:       NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAP
+  pas_ha:    NW_ABAP_CI:S4HANA1909.CORE.HDB.ABAPHA
+  app:       NW_DI:S4HANA1909.CORE.HDB.PD
+  app_ha:    NW_DI:S4HANA1909.CORE.HDB.ABAPHA
+  web:       NW_Webdispatcher:NW750.IND.PD
+  ers:       NW_ERS:S4HANA1909.CORE.HDB.ABAP
+  ers_ha:    NW_ERS:S4HANA1909.CORE.HDB.ABAPHA
+
+materials:
+  dependencies:
+    - name:     HANA_2_00_055_v0005ms
+
+  media:
+    # SAPCAR 7.22
+    - name:         SAPCAR
+      archive:      SAPCAR_1010-70006178.EXE
+      checksum:     dff45f8df953ef09dc560ea2689e53d46a14788d5d184834bb56544d342d7b
+      filename:     SAPCAR
+      permissions:  '0755'
+      url:          https://softwaredownloads.sap.com/file/0020000002208852020
+
+    # Kernel
+    - name:         "Kernel Part I ; OS: Linux on x86_64 64bit ; DB: Database independent"
+```
+
+For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name contains `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
+
+1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
+
+1. Add a secret with the username for your SAP user account. Replace `<vaultID>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
+
+    ```bash
+    export key_vault=<vaultID>
+    sap_username=<sap-username>
+
+    az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
+    ```
+
+1. Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name and replace `<sap-password>` with your SAP password.
+
+    > [!NOTE]
+    > The use of single quotation marks when you set `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results.
+
+    ```azurecli
+    sap_user_password='<sap-password>'
+
+    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
+    ```
+
+1. Configure your SAP parameters file for the download process. Then, download the SAP software by using Ansible playbooks. Run the following commands:
+
+    ```bash
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
+    mkdir BOMS
+    cd BOMS
+
+    vi sap-parameters.yaml
+    ```
+
+1. Update the `bom_base_name` with the name BOM amd replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault..
+
+    Your file should look similar to the following example configuration:
+
+    ```yaml
+
+    bom_base_name:                 S4HANA_2021_FP01_v0001ms
+    deployer_kv_name:              <Deployer KeyVault Name>
+    BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
+
+    ```
+
+
+1. Run the Ansible playbook to download the software. One way you can run the playbooks is to use the **Downloader** menu. Run the `download_menu` script.
+
+    ```bash
+    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
+    ```
+
+1. Select which playbooks to run.
+
+    ```bash
+    1) BoM Downloader
+    3) Quit
+    Please select playbook:
+    ```
+
+    Select the playbook `1) BoM Downloader` to download the SAP software described in the BOM file into the storage account. Check that the `sapbits` container has all your media for installation.
+
+
 ## SAP application installation
 
 The SAP application installation happens through Ansible playbooks.
@@ -894,6 +914,10 @@ This playbook installs the HANA database instances.
 
 This playbook invokes the database load task from the primary application server.
 
+### Playbook: HANA HA playbook
+
+This playbook configures HANA system replication and Pacemaker for the HANA database.
+
 ### Playbook: PAS install
 
 This playbook installs the primary application server.
@@ -904,9 +928,6 @@ This playbook installs the application servers.
 
 You've now deployed and configured a standalone HANA system. If you need to configure a highly available (HA) SAP HANA database, run the HANA HA playbook.
 
-### Playbook: HANA HA playbook
-
-This playbook configures HANA system replication and Pacemaker for the HANA database.
 
 ## Clean up installation
 
