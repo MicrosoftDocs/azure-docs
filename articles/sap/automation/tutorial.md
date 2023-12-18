@@ -251,10 +251,10 @@ Copy down the output details. Make sure to save the values for `appId`, `passwor
 
 The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
-    | Parameter input name     | Output name                      |
-    | -------------------------|--------------------------------- |
-    | `app_registration_app_id`| `App registration ID`            |
-    | `webapp_client_secret`   | `App registration password`      |
+| Parameter input name      | Output name                       |
+| ------------------------- | --------------------------------- |
+| `app_registration_app_id` | `App registration ID`             |
+| `webapp_client_secret`    | `App registration password`       |
 
 ## View configuration files
 
