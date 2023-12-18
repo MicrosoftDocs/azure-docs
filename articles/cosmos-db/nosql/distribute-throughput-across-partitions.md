@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.reviewer: dech
-ms.date: 12/11/2023
+ms.date: 12/18/2023
 ---
 
 # Redistribute throughput across partitions (preview)

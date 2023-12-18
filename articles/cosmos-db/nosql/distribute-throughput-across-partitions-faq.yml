@@ -8,7 +8,7 @@ metadata:
   ms.custom: event-tier1-build-2022
   ms.topic: faq
   ms.reviewer: dech
-  ms.date: 05/09/2022
+  ms.date: 12/18/2023
 title: Frequently asked questions on distributing throughput across partitions in Azure Cosmos DB (preview)
 summary: |
   [!INCLUDE[NoSQL, MongoDB](../includes/appliesto-nosql-mongodb.md)]
@@ -29,7 +29,7 @@ sections:
       - question: |
           Which version of the Azure Cosmos DB functionality in Azure PowerShell and Azure CLI supports this feature?
         answer: |
-          The ability to redistribute RU/s across physical partitions is only supported in the latest preview version of Azure PowerShell and latest preview version of the Azure CLI.
+          The ability to redistribute RU/s across physical partitions is only supported in the  preview version of Azure PowerShell (version 2.0.2-preview or higher)[https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.2-preview] and latest preview version of the Azure CLI.
       - question: |
           What is the maximum number of physical partitions I can change in one request?
         answer: |
