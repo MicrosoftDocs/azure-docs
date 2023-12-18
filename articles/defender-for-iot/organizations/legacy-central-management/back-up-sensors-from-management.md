@@ -1,11 +1,13 @@
 ---
 title: Back up OT network sensors from the on-premises management console - Microsoft Defender for IoT
 description: Learn how to back up Microsoft Defender for IoT OT network sensors from the on-premises management console.
-ms.date: 03/09/2023
+ms.date: 08/07/2023
 ms.topic: how-to
 ---
 
-# Back up OT network sensors from the on-premises management console
+# Back up OT network sensors from the on-premises management console (Legacy)
+
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
 
 Back up your OT network sensors from the on-premises management console to help protect against hard drive failures and data loss. In this article, learn how to:
 
@@ -23,7 +25,7 @@ The on-premises management console can store up to nine backup files for each co
 
 Backup files are copied from the OT sensor to the on-premises management console over an encrypted channel.
 
-For more information, see [Set up backup and restore files](back-up-restore-sensor.md#set-up-backup-and-restore-files).
+For more information, see [Set up backup and restore files](../back-up-restore-sensor.md#set-up-backup-and-restore-files).
 
 ## Configure OT sensor backup settings
 
@@ -35,14 +37,14 @@ For more information, see [Set up backup and restore files](back-up-restore-sens
 
 1. Enter the number of GB you want to allocate for backup storage. When the configured limit is exceeded, the oldest backup file is deleted.
 
-    **If you're storing backup files on the on-premises management console**, supported values are defined based on your [hardware profiles](ot-appliance-sizing.md). For example:
+    **If you're storing backup files on the on-premises management console**, supported values are defined based on your [hardware profiles](../ot-appliance-sizing.md). For example:
     
     |Hardware profile  |Backup storage availability  |
     |---------|---------|
     |**E1800**     |Default storage is 40 GB; limit is 100 GB.        |
     |**L500**     |   Default storage is 20 GB; limit is 50 GB.     |
     |**L100**     |  Default storage is 10 GB; limit is 25 GB.       |
-    |**L60** [*](ot-appliance-sizing.md#l60)        |    Default storage is 10 GB; limit is 25 GB.     |
+    |**L60** [*](../ot-appliance-sizing.md#l60)        |    Default storage is 10 GB; limit is 25 GB.     |
 
     **If you're storing backup files on an external server**, there's no maximum storage. However, keep in mind:
 
@@ -77,7 +79,7 @@ To check for backup notifications on the on-premises management console:
 
 1. In the **Sensor Backup Schedule** dialog, check for details about recent backup activities for each sensor listed. For example:
 
-    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="View your sensors and where they're located and all relevant information.":::
+    :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/sensor-location.png" alt-text="Screenshot of the Sensor Backup Schedule dialog.":::
 
 Backup failures might occur for any of the following scenarios:
 
@@ -88,7 +90,7 @@ Backup failures might occur for any of the following scenarios:
 > [!TIP]
 > You may want to send alerts about backup notifications to partner services. 
 >
-> To do this, [create a forwarding alert rule](how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**. 
+> To do this, [create a forwarding alert rule](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console) on your on-premises management console. In the **Create Forwarding Rule** dialog box, make sure to select **Report System Notifications**. 
 
 ## Save your backup file to an external server (SMB)
 
@@ -140,4 +142,4 @@ For more information, see:
 
 [Manage sensors from the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 
-[Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md)
+[Back up and restore OT network sensors from the sensor console](../back-up-restore-sensor.md)

@@ -1,13 +1,15 @@
 ---
 title: Connect OT network sensors to an on-premises management console - Microsoft Defender for IoT 
 description: Learn how to connect your OT network sensors to an on-premises management console.
-ms.date: 01/16/2023
+ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
-# Connect OT network sensors to the on-premises management console
+# Connect OT network sensors to the on-premises management console (Legacy)
 
-This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
+
+This article is one in a series of articles describing the [deployment path](legacy-air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 
 :::image type="content" source="../media/deployment-paths/management-connect.png" alt-text="Diagram of a progress bar with Connect OT sensors highlighted." border="false":::
 
@@ -19,7 +21,7 @@ To perform the procedures in this article, make sure that you have:
 
 - An on-premises management console [installed](install-software-on-premises-management-console.md), [activated, and configured](activate-deploy-management.md)
 
-- One or more OT sensors [installed](install-software-ot-sensor.md), [configured, and activated](activate-deploy-sensor.md). To assign your OT sensor to a site and zone, make sure that you have at least one site and zone configured.
+- One or more OT sensors [installed](../ot-deploy/install-software-ot-sensor.md), [configured, and activated](../ot-deploy/activate-deploy-sensor.md). To assign your OT sensor to a site and zone, make sure that you have at least one site and zone configured.
 
 - Access to both your on-premises management console and OT sensors as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
@@ -53,7 +55,7 @@ After you've connected your OT sensors to your on-premises management console, y
 
 You might want to enhance your system security by preventing the on-premises management console to access OT sensors directly.
 
-In such cases, configure [proxy tunneling](air-gapped-deploy.md#access-ot-network-sensors-via-proxy-tunneling) on your on-premises management console to allow users to connect to OT sensors via the on-premises management console. No configuration is needed on the sensor.
+In such cases, configure [proxy tunneling](legacy-air-gapped-deploy.md#access-ot-network-sensors-via-proxy-tunneling) on your on-premises management console to allow users to connect to OT sensors via the on-premises management console. No configuration is needed on the sensor.
 
 While the default port used to access OT sensors via proxy tunneling is `9000`, modify this value to a different port as needed.
 

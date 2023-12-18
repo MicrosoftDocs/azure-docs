@@ -1,13 +1,15 @@
 ---
 title: Activate and set up an on-premises management console - Microsoft Defender for IoT 
 description: Learn how to activate and set up an on-premises management console when deploying your Microsoft Defender for IoT system for OT network monitoring.
-ms.date: 05/17/2023
+ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
-# Activate and set up an on-premises management console
+# Activate and set up an on-premises management console (Legacy)
 
-This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
+
+This article is one in a series of articles describing the [deployment path](legacy-air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 
 :::image type="content" source="../media/deployment-paths/management-activate.png" alt-text="Diagram of a progress bar with Activate and initial setup highlighted." border="false":::
 
@@ -23,7 +25,7 @@ Before performing the procedures in this article, you need to have:
 
 - Access to the on premises management console as one of the [privileged users supplied during installation](install-software-on-premises-management-console.md#users)
 
-- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
+- An SSL/TLS certificate. We recommend using a CA-signed certificate, and not a self-signed certificate. For more information, see [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md).
 
 - Access to the Azure portal as a [Security Admin](../../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../../role-based-access-control/built-in-roles.md#owner) user
 
@@ -40,7 +42,7 @@ For more information, see [Default privileged on-premises users](../roles-on-pre
 In a browser, go to the on-premises management console's IP address, and enter the username and password.
 
 > [!NOTE]
-> If you forgot your password, select **Password recovery** to reset the password. For more information, see [Recover a privileged user password](../how-to-manage-the-on-premises-management-console.md#recover-a-privileged-user-password).
+> If you forgot your password, select **Password recovery** to reset the password. For more information, see [Recover a privileged user password](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#recover-a-privileged-user-password).
 >
 
 ## Activate the on-premises management console
@@ -73,7 +75,7 @@ Activate your on-premises management console using a downloaded file from the Az
 > [!NOTE]
 > You'll need to upload a new activation file in specific cases, such as if you purchase a new license for a different site size after having uploaded your initial activation file.
 >
-> For more information, see [Upload a new activation file](../how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
+> For more information, see [Upload a new activation file](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#upload-a-new-activation-file).
 
 ### Activation files for legacy OT plans
 
@@ -88,7 +90,7 @@ The following procedures describe how to deploy an SSL/TLS certificate on your O
 The requirements for SSL/TLS certificates are the same for OT sensors and on-premises management consoles. For more information, see:
 
 - [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md)
-- [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md)
+- [Create SSL/TLS certificates for OT appliances](../ot-deploy/create-ssl-certificates.md)
 
 **To upload a CA-signed certificate**:
 
@@ -102,7 +104,7 @@ The requirements for SSL/TLS certificates are the same for OT sensors and on-pre
 
 1. Select **SAVE** to save your certificate settings.
 
-For more information, see [Troubleshoot certificate upload errors](../how-to-manage-the-on-premises-management-console.md#troubleshoot-certificate-upload-errors).
+For more information, see [Troubleshoot certificate upload errors](../legacy-central-management/how-to-manage-the-on-premises-management-console.md#troubleshoot-certificate-upload-errors).
 
 ## Next steps
 

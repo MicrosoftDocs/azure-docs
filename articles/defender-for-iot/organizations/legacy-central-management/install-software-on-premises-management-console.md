@@ -1,13 +1,15 @@
 ---
 title: Install Microsoft Defender for IoT on-premises management console software - Microsoft Defender for IoT
 description: Learn how to install Microsoft Defender for IoT on-premises management console software. Use this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
-ms.date: 04/18/2023
+ms.date: 08/07/2023
 ms.topic: install-set-up-deploy
 ---
 
-# Install Microsoft Defender for IoT on-premises management console software
+# Install Microsoft Defender for IoT on-premises management console software (Legacy)
 
-This article is one in a series of articles describing the [deployment path](air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
+[!INCLUDE [on-premises-management-deprecation](../includes/on-premises-management-deprecation.md)]
+
+This article is one in a series of articles describing the [deployment path](legacy-air-gapped-deploy.md) for a Microsoft Defender for IoT on-premises management console for air-gapped OT sensors.
 
 :::image type="content" source="../media/deployment-paths/management-install.png" alt-text="Diagram of a progress bar with Install software highlighted." border="false" lightbox="../media/deployment-paths/management-install.png":::
 
@@ -137,7 +139,7 @@ This command causes the light on the port to flash for the specified time period
 
 ## Next steps
 
-For more information, see [Troubleshoot the on-premises management console](../how-to-troubleshoot-on-premises-management-console.md).
+For more information, see [Troubleshoot the on-premises management console](../legacy-central-management/how-to-troubleshoot-on-premises-management-console.md).
 
 > [!div class="step-by-step"]
 > [« Prepare an on-premises management console appliance](prepare-management-appliance.md)
