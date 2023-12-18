@@ -14,17 +14,19 @@ This article addresses upgrade experiences for Istio-based service mesh add-on f
 
 ### Minor version upgrade
 
-Istio add-on allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new revision is deployed alongside the old revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't obersve any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
+Istio add-on allows upgrading the minor version using [canary upgrade process][istio-canary-upstream]. When an upgrade is initiated, the control plane of the new (canary) revision is deployed alongside the old (stable) revision's control plane. You can then manually roll over data plane workloads while using monitoring tools to track the health of workloads during this process. If you don't observe any issues with the health of your workloads, you can complete the upgrade so that only the new revision remains on the cluster. Else, you can roll back to the previous revision of Istio.
 
-If the cluster is currently using a supported minor version of Istio, upgrades are only allowed one minor version at a time. If the cluster is using an old version of Istio that's outside the supported versions, then the upgrade first needs to be done to the least supported minor version of Istio for that Kubernetes version. After that, upgrades can again be done one minor version at a time.
+If the cluster is currently using a supported minor version of Istio, upgrades are only allowed one minor version at a time. If the cluster is using an old version of Istio that is no longer supported, then the only upgrade possible is to the lowest supported minor version of Istio for that Kubernetes version. After that, upgrades can again be done one minor version at a time.
 
-The following example illustrates how to upgrade from revision `asm-1-17` to `asm-1-18`. The steps are the same for upgrades between any two successive revisions:
+The following example illustrates how to upgrade from revision `asm-1-17` to `asm-1-18`. The steps are the same for all minor upgrades.
 
 1. Use the [az aks mesh get-upgrades](/cli/azure/aks/mesh#az-aks-mesh-get-upgrades) command to check which revisions are available for the cluster as upgrade targets:
 
     ```bash
     az aks mesh get-upgrades --resource-group $RESOURCE_GROUP --name $CLUSTER
     ```
+
+    Note that if you expect to see a newer revision not returned by this command, you may need to upgrade your AKS cluster first so that it is compatible with the newest revision.
 
 1. Initiate a canary upgrade from revision `asm-1-17` to `asm-1-18` using [az aks mesh upgrade start](/cli/azure/aks/mesh#az-aks-mesh-upgrade-start):
 
@@ -52,7 +54,7 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
         istiod-asm-1-18-f85f46bf5-8p9qx             1/1     Running   0          51m
         ```
 
-    * Verify ingress pods:
+    * If ingress is enabled, verify ingress pods:
 
         ```bash
         kubectl get pods -n aks-istio-ingress
@@ -78,15 +80,17 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
     kubectl label namespace default istio.io/rev=asm-1-18 --overwrite
     ```
 
+    Relabelling will not impact your workloads until they are restarted.
+
 1. Individually roll over each of your application workloads by restarting them. For example:
 
     ```bash
-    kubectl rollout restart deployment <deployment name>
+    kubectl rollout restart deployment <deployment name> -n <deployment namespace>
     ```
 
 1. Check your monitoring tools and dashboards to determine whether your workloads are all running in a healthy state after the restart. Based on the outcome, you have two options:
 
-    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, run the following command to complete the canary upgrade:
+    * **Complete the canary upgrade**: If you're satisfied that the workloads are all running in a healthy state as expected, run the following command to complete the canary upgrade and remove the previous revision's control plane:
 
       ```bash
       az aks mesh upgrade complete --resource-group $RESOURCE_GROUP --name $CLUSTER
@@ -96,21 +100,21 @@ The following example illustrates how to upgrade from revision `asm-1-17` to `as
 
       * Relabel the namespace to the older revision
 
-      ```bash
-      kubectl label namespace default istio.io/rev=asm-1-17 --overwrite
-      ```
+          ```bash
+          kubectl label namespace default istio.io/rev=asm-1-17 --overwrite
+          ```
 
       * Roll back the workloads to use the sidecar corresponding to the older Istio revision by restarting these workloads again:
 
-      ```bash
-      kubectl rollout restart deployment <deployment name>
-      ```
+          ```bash
+          kubectl rollout restart deployment <deployment name> -n <deployment namespace>
+          ```
 
-      * Roll back the workloads to use the sidecar corresponding to the older Istio revision by restarting these workloads again:
+      * Roll back the control plane to the previous revision:
 
-      ```
-      az aks mesh upgrade rollback --resource-group $RESOURCE_GROUP --name $CLUSTER
-      ```
+          ```
+          az aks mesh upgrade rollback --resource-group $RESOURCE_GROUP --name $CLUSTER
+          ```
 
 ### Patch version upgrade
 
