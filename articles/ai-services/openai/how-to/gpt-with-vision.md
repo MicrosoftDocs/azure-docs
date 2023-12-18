@@ -54,7 +54,9 @@ The following is a sample request body. The format is the same as the chat compl
 	            },
 	            {
 	                "type": "image_url",
-	                "image_url": "<URL or base-64-encoded image>" 
+	                "image_url": {
+                        "url": "<URL or base-64-encoded image>"
+                    }
                 } 
            ] 
         }
@@ -204,7 +206,9 @@ You must also include the `enhancements` and `dataSources` objects. `enhancement
 	            },
 	            {
 	                "type": "image_url",
-	                "image_url": "<URL or base-64-encoded image>" 
+	                "image_url": {
+                        "url":"<URL or base-64-encoded image>" 
+                    }
                 }
            ] 
         }

@@ -68,8 +68,10 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
                     "text": "Describe this picture:" 
                 },
                 { 
-                    "type": "image_url", 
-                    "image_url": "<URL or base 64 encoded image>" # Can url or data url with base64 image string
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "<URL or base 64 encoded image>"
+                    }
                 }
             ] } 
         ], 
@@ -150,7 +152,9 @@ The **object grounding** integration brings a new layer to data analysis and use
                 },
                 { 
                     "type": "image_url", 
-                    "image_url": "<URL or base 64 encoded image>" # Can be url or data url with base64 image string
+                    "image_url": {
+                        "url" : "<URL or base 64 encoded image>"
+                    }
                 }
             ]} 
         ], 
