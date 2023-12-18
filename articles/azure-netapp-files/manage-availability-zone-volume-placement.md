@@ -36,6 +36,9 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 [!INCLUDE [Availability Zone volumes have the same level of support as other volumes in the subscription](includes/availability-zone-service-callout.md)]
 
+>[!IMPORTANT]
+>It's not recommended that you use availability zones for Terraform-managed volumes. If you do, you must [add the zone property to your volume](#populate-availability-zone-for-terraform-managed-volumes).
+
 ## Create a volume with an availability zone 
 
 1.	Select **Volumes** from your capacity pool. Then select **+ Add volume** to create a volume.
@@ -84,13 +87,34 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 1. Navigate to the volume that you want to populate with availability zone information.
 1. Select **Populate availability zone**.
 1. The Populate Availability Zone window appears and displays the availability zone in which the Azure NetApp Files volume is deployed.
-1. Click **Save** if you want to populate this availability zone to the volume, or click **Cancel** if you want to keep the volume regional.
+1. Select **Save** if you want to populate this availability zone to the volume, or select **Cancel** if you want to keep the volume regional.
 
     > [!IMPORTANT]
     > Availability zone information can only be populated as provided. You can't select an availability zone or move the volume to another availability zone by using this feature. If you want to move this volume to another availability zone, consider using [cross-zone replication](create-cross-zone-replication.md) (after populating the volume with the availability zone information). 
     >
     > :::image type="content" source="../media/azure-netapp-files/populate-availability-zone.png" alt-text="Screenshot of the Populate Availability Zone window." lightbox="../media/azure-netapp-files/populate-availability-zone.png":::
-    
+
+## Populate availability zone for Terraform-managed volumes
+
+The Populate Availability Zone feature for Azure NetApp Files volumes cannot be supported in Terraform because the “zone” property of a volume is settable in the terraform configuration file at creation time, but not updatable in the future. Therefore, if you initially created a volume without the “zone” property, but later decided to add the “zone” property to its configuration, Terraform may potentially destroy the volume if the zone you specified is not the same as the true zone where the remote volume resides
+
+The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you cannot modify it. Adding the `zone` property after the volume has been created can cause Terraform to destroy the volume if the specified zone is not the same as the 
+
+1. Navigate to the Terraform module `terraform.tfstate`. The `"zone"` property should be an empty string. 
+1. In the Terraform-managed volume's configuration file (`main.tf`), locate the lifecycle configuration block. Modify the block with `ignore_changes = [zone]`. If no lifecycle configuration block exists, add it:
+```cli
+lifecycle {
+    ignore_changes = [zone]
+}
+```
+1. In the Azure portal, locate the Terraform module. In the volume **Overview**, select **Populate availability zone** and make note of the availability zone. Do _not_ select save. 
+1. In the volume's configuration file (`main.tf`), add a value for `zone`, entering the numerical value you retrieved in the previous step. For example, if the volume's availability zone is 2, enter `zone = 2`. Save the file. 
+1. Return to the Azure portal. Select **Save** to populate the availability zone. 
+1. Run `terraform plan` to confirm that no changes will be made to your volume. The CLI output should display: `No changes. Your infrastructure matches the configuration.`
+1. Run `terraform apply` to apply the changes. You should see the same CLI output as in the previous step. 
+
+If you need to delete and recreate the volume in a different availability zone, remove the `ignore_changes = [zone]` line in the configuration file then run `terraform plan`. If the output indicates that no changes will be made to the volume, you can successfully populate the availability zone.
+ 
 ## Next steps  
 
 * [Use availability zones for high availability](use-availability-zones.md)
