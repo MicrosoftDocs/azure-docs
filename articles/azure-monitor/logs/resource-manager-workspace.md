@@ -10,9 +10,21 @@ ms.date: 08/08/2023
 
 # Resource Manager template samples for Log Analytics workspaces in Azure Monitor
 
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure [Log Analytics workspaces](./log-analytics-workspace-overview.md) in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
+
+##  Prerequisites
+
+Verify that your Azure subscription allows you to create Log Analytics workspaces in the target region.
+
+## Permissions required
+
+| Action | Permissions required |
+|:---|:---|
+| Deploy ARM templates. | `Microsoft.Resources/deployments/*` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Create a Log Analytics workspace. | `Microsoft.OperationalInsights/workspaces/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Configure data collection for Log Analytics workspace. | `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/workspaces/dataSources/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 
 ## Template references
 
@@ -21,7 +33,7 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 ## Create a Log Analytics workspace
 
-The following sample creates a new empty Log Analytics workspace. A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different resource groups.
+The following sample creates a new empty [Log Analytics workspace](./log-analytics-workspace-insights-overview.md). A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different [resource groups](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
 ### Notes
 
@@ -933,7 +945,7 @@ The following sample adds collection of [text logs](../agents/data-sources-custo
 
 #### Notes
 
-- The configuration of delimiters and extractions can be complex. For help, you can define a text log using the Azure portal and the retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
+- The configuration of delimiters and extractions can be complex. For help, you can [define a text log](../agents/data-sources-custom-logs.md#define-a-custom-log-table) using the Azure portal and retrieve its configuration using [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) with **-Kind** set to **CustomLog**.
 
 #### Template file
 
@@ -1285,6 +1297,10 @@ resource IISLogDataSource 'Microsoft.OperationalInsights/workspaces/datasources@
   }
 }
 ```
+
+## Deploy the sample templates
+
+See [Deploy the sample templates](../resource-manager-samples.md).
 
 ## Next steps
 
