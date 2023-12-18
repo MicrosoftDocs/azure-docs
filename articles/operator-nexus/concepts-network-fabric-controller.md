@@ -9,7 +9,7 @@ ms.service: azure-operator-nexus
 ms.topic: conceptual
 ---
 
-# Network Fabric Controller Overview
+# Network Fabric Controller overview
 
 What is Network Fabric Controller?
 The Network Fabric Controller (NFC) is an Azure resource that allows customers to establish on-premises network infrastructure and workloads using Azure within an Azure region. The NFC acts as a conduit, connecting the Azure control plane to your on-site network hardware, such as routers, switches, and storage appliances. It enables network functions like virtualization, firewall, and gateway, while also facilitating seamless management and configuration of your network infrastructure. Its main role is to manage multiple Network Fabric (NF) instances connected to Nexus on-premises instances. This setup allows for structured grouping of NF instances within a designated Azure region. Additionally, NFC can be used to establish and modify configurations for Network Fabrics, Isolation Domains, Network Racks, and Network Devices within each Azure Operator Nexus instance.
@@ -93,7 +93,8 @@ Delete a Network Fabric Controller
 az networkfabric controller delete --resource-group "NFCResourceGroupName" --resource-name "nfcname"
 ```
 ## Portal examples
-TBD
+
+:::image type="content" source="media/nfc-portal-1.png" alt-text="Configuration of Network Fabric Controller in Azure Portal.":::
 
 ## Provisioned NFC's JSON
 ```json

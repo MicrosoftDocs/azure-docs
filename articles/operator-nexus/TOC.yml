@@ -14,7 +14,7 @@
     - name: Storage overview
       href: concepts-storage.md
     - name: Network Fabric
-      expanded: true
+      expanded: false
       items:
         - name: Network Fabric overview
           href: concepts-network-fabric.md
