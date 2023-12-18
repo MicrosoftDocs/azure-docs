@@ -39,7 +39,7 @@ items:
   - name: Map
     expanded: false
     items:
-    - name: Use the Mapping debugger
+    - name: Use the Mapping debugger (Preview)
       href: how-to-use-mapping-debugger.md
     - name: Device
       expanded: false
@@ -63,7 +63,7 @@ items:
     - name: Use the monitoring and health checks tabs
       href: how-to-use-monitoring-and-health-checks-tabs.md
     - name: Configure metrics
-      href: how-to-configure-metrics.md
+      href: configure-metrics.md
     - name: Enable diagnostic settings
       href: how-to-enable-diagnostic-settings.md
   - name: Troubleshoot
@@ -89,3 +89,4 @@ items:
     href: frequently-asked-questions.md
   - name: Open-source projects
     href: git-projects.md
+    

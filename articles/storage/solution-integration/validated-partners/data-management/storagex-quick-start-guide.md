@@ -12,7 +12,7 @@ ms.subservice: storage-partner-integration
 
 # Migrate data to Azure with Data Dynamics StorageX
 
-This article helps you deploy Data Dynamics StorageX in Microsoft Azure. We introduce key concepts around how StorageX works, deployment prerequisites, installation process, and how-tos for operational guidance. For more in-depth information, visit [Data Dynamics Customer Portal](https://www.datdynsupport.com/).
+This article helps you deploy Data Dynamics StorageX in Microsoft Azure. We introduce key concepts around how StorageX works, deployment prerequisites, installation process, and how-tos for operational guidance. For more in-depth information, visit [Data Dynamics Customer Portal](https://ddsupport.datadynamicsinc.com/).
 
 Data Dynamics StorageX is a Unified Unstructured Data Management platform that allows analyzing, managing, and moving data across heterogenous storage environments. Basic capabilities are:
 - Data Movement capabilities
@@ -219,9 +219,9 @@ If issues occur, Microsoft and Data Dynamics can provide help using regular supp
 
 In the [Azure portal](https://portal.azure.com) search for support in the search bar at the top. Select **Help + support** -> **New Support Request**.
 
-### How to open a case with Data Dynamics
+### How to open a case with Data Dynamics	
 
-Go to the [Data Dynamics Support Portal](https://www.datdynsupport.com/). If you have not registered, provide your email address, and our Support team will create an account for you. Once you have signed in, open a user request. If you have already opened an Azure support case, note support request number when creating the request.
+Go to the [Data Dynamics Support Portal](https://ddsupport.datadynamicsinc.com/). If you have not registered, provide your email address, and our Support team will create an account for you. Once you have signed in, open a user request. If you have already opened an Azure support case, note support request number when creating the request.	
 
 ## Next steps
 
@@ -229,5 +229,5 @@ Various resources are available to learn more:
 
 - [Storage migration overview](../../../common/storage-migration-overview.md)
 - Features supported by Data Dynamics StorageX in [migration tools comparison matrix](./migration-tools-comparison.md)
-- [Data Dynamics](https://www.datadynamicsinc.com/)
-- [Data Dynamics Customer Portal](https://www.datdynsupport.com/) contains full documentation for StorageX
+- [Data Dynamics](https://ddsupport.datadynamicsinc.com/)
+- [Data Dynamics Customer Portal](https://ddsupport.datadynamicsinc.com/) contains full documentation for StorageX

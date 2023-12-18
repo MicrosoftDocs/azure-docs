@@ -34,13 +34,17 @@ az group create --name myResourceGroup --location eastus
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
 
 ## Create a scale set
+
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](
+https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist:
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
-  --orchestration-mode flexible \
   --image <SKU image> \
   --admin-username azureuser \
   --generate-ssh-keys
@@ -155,7 +159,6 @@ az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image <SKU image> \
-  --orchestration-mode flexible \
   --vm-sku Standard_F1 \
   --admin-user azureuser \
   --generate-ssh-keys

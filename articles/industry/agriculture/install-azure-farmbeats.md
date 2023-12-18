@@ -1,10 +1,10 @@
 ---
 title: Install Azure FarmBeats
 description: This article describes how to install Azure FarmBeats in your Azure subscription
-author: usha-rathnavel
+author: gourdsay
 ms.topic: article
-ms.date: 1/17/2020
-ms.author: atinb
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
 # Install Azure FarmBeats
@@ -13,8 +13,10 @@ This article describes how to install Azure FarmBeats in your Azure subscription
 
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace. It enables aggregation of agriculture data sets across providers and generation of actionable insights. Azure FarmBeats does so by enabling you to build artificial intelligence (AI) or machine learning (ML) models based on fused data sets. The two main components of Azure FarmBeats are:
 
-> [!NOTE]
-> Azure FarmBeats is on path to be retired. We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 - **Data hub**: An API layer that enables aggregation, normalization, and contextualization of various agriculture data sets across different providers.
 

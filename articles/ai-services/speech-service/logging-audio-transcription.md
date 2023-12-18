@@ -2,7 +2,6 @@
 title: How to log audio and transcriptions for speech recognition
 titleSuffix: Azure AI services
 description: Learn how to use audio and transcription logging for speech to text and speech translation.
-services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: azure-ai-speech

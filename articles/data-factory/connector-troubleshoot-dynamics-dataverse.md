@@ -186,7 +186,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 
 - **Recommendation**: Enable the staging and retry.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

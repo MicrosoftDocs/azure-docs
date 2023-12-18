@@ -8,8 +8,6 @@
     href: support-matrix.md
   - name: What's New 
     href: whats-new.md
-  - name: What's upcoming
-    href: whats-upcoming.md
   - name: FAQ
     href: update-manager-faq.md
 - name: Quickstarts
@@ -18,10 +16,18 @@
     href: quickstart-on-demand.md
 - name: Tutorials
   items:
-  - name: Schedule updates dynamically and at scale using dynamic scope
-    href: tutorial-dynamic-grouping-for-scheduled-patching.md
   - name: Schedule updates and enable periodic assessment at scale using policy
     href: tutorial-assessment-deployment-using-policy.md
+  - name: Dynamic scope
+    items:
+      - name: Schedule updates dynamically and at scale using dynamic scope
+        href: tutorial-dynamic-grouping-for-scheduled-patching.md
+  - name: Pre and Post Events (preview)
+    items:
+      - name: Create pre and post events using a webhook with Automation Runbooks
+        href: tutorial-webhooks-using-runbooks.md
+      - name: Create pre and post events using Azure Functions
+        href: tutorial-using-functions.md
 - name: Concepts
   items:
   - name: Update options and orchestration
@@ -50,12 +56,24 @@
       href: configure-wu-agent.md
   - name: Manage
     items:
-    - name: SQL Server Patching
+    - name: SQL Server patching
       items:
       - name: Overview
         href: guidance-patching-sql-server-azure-vm.md
       - name: Guidance on patching for SQL Server on Azure VMs
-        href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-center/toc.json
+        href: /azure/azure-sql/virtual-machines/azure-update-manager-sql-vm?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
+    - name: Azure Stack HCI patching
+      href: /azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json
+    - name: Create alerts (preview)
+      href: manage-alerts.md
+    - name: Pre and Post Events (preview)
+      items:
+      - name: Overview
+        href: pre-post-scripts-overview.md
+      - name: Manage pre and post events (preview)
+        href: manage-pre-post-events.md  
+      - name: FAQ
+        href: pre-post-events-common-scenarios.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Deploy updates and track results

@@ -13,13 +13,13 @@ Currently, Elastic SAN Preview is only available in the following regions with t
 
 - France Central - LRS & ZRS
 - Southeast Asia - LRS
-- Australia East - LRS (Doesn't currently support encryption with customer-managed keys or PublicNetworkAccess)
+- Australia East - LRS
 - North Europe - LRS & ZRS
-- West Europe - LRS & ZRS (Doesn't currently support encryption with customer-managed keys or PublicNetworkAccess)
+- West Europe - LRS & ZRS 
 - UK South - LRS
-- East US - LRS (Doesn't currently support encryption with customer-managed keys or PublicNetworkAccess)
+- East US - LRS 
 - South Central US - LRS
-- East US 2 - LRS (Doesn't currently support encryption with customer-managed keys or PublicNetworkAccess)
+- East US 2 - LRS 
 - West US 2 - LRS & ZRS
 - West US 3 - LRS
 - Sweden Central - LRS

@@ -167,6 +167,6 @@ Confirm that the new column **PersonalEmail** appears in the Delta sink. You now
 
 :::image type="content" source="media/adf-cdc/change-data-capture-resource-128.png" alt-text="Screenshot of a Delta file with a schema change." lightbox="media/adf-cdc/change-data-capture-resource-128.png":::
 
-## Next steps
+## Related content
 
 * [Learn more about the CDC resource](concepts-change-data-capture-resource.md)

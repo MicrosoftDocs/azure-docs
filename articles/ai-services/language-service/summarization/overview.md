@@ -1,8 +1,8 @@
 ---
-title: What is document and conversation summarization (preview)?
+title: What is document and conversation summarization?
 titleSuffix: Azure AI services
 description: Learn about summarizing text.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
@@ -77,8 +77,10 @@ This documentation contains the following article types:
 Conversation summarization supports the following features:
 
 * **Issue/resolution summarization**: A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
-* **Chapter title summarization**: Gives suggested chapter titles of the input conversation.
-* **Narrative summarization**: Gives call notes, meeting notes or chat summaries of the input conversation.
+* **Chapter title summarization**: Segments a conversation into chapters based on the topics discussed in the conversation, and gives suggested chapter titles of the input conversation.
+* **Recap**: Summarizes a conversation into a brief paragraph.
+* **Narrative summarization**: Generates detail call notes, meeting notes or chat summaries of the input conversation.
+* **Follow-up tasks**: Gives a list of follow-up tasks discussed in the input conversation.
 
 ## When to use issue and resolution summarization
 
@@ -142,7 +144,6 @@ As you use document summarization in your applications, see the following refere
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
-|REST API     | [REST API documentation](https://go.microsoft.com/fwlink/?linkid=2211684)        |         |
 |C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
 | Java     | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
 |JavaScript     | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |

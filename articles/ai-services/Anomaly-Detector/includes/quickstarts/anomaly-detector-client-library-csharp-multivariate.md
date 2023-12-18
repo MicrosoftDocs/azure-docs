@@ -1,7 +1,7 @@
 ---
 title: Anomaly Detector .NET multivariate client library quickstart
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 ms.service: azure-ai-anomaly-detector
@@ -174,6 +174,7 @@ internal class Program
                 Console.WriteLine(string.Format("Result ID: {0}", result.ResultId.ToString()));
                 Console.WriteLine(string.Format("Result summary: {0}", result.Summary.ToString()));
                 Console.WriteLine(string.Format("Result length: {0}", result.Results.Count));
+                Console.WriteLine(string.Format("Anomalies found: {0}", result.Results.Where(r => r.Value.IsAnomaly).Count()));
             }
 
             // delete
@@ -215,11 +216,11 @@ internal class Program
                 // Wait until the model is ready. It usually takes several minutes
                 ModelStatus? model_status = null;
                 int tryout_count = 1;
-                response = client.GetMultivariateModelValue(trained_model_id);
+                response = client.GetMultivariateModel(trained_model_id);
                 while (tryout_count < max_tryout & model_status != ModelStatus.Ready & model_status != ModelStatus.Failed)
                 {
                     Thread.Sleep(1000);
-                    response = client.GetMultivariateModelValue(trained_model_id);
+                    response = client.GetMultivariateModel(trained_model_id);
                     model_status = response.ModelInfo.Status;
                     Console.WriteLine(string.Format("try {0}, model_id: {1}, status: {2}.", tryout_count, trained_model_id, model_status));
                     tryout_count += 1;
@@ -267,13 +268,13 @@ internal class Program
                 Console.WriteLine(string.Format("result id is: {0}", result_id));
 
                 // get detection result
-                MultivariateDetectionResult resultResponse = client.GetMultivariateBatchDetectionResultValue(result_id);
+                MultivariateDetectionResult resultResponse = client.GetMultivariateBatchDetectionResult(result_id);
                 MultivariateBatchDetectionStatus result_status = resultResponse.Summary.Status;
                 int tryout_count = 0;
                 while (tryout_count < max_tryout & result_status != MultivariateBatchDetectionStatus.Ready & result_status != MultivariateBatchDetectionStatus.Failed)
                 {
                     Thread.Sleep(1000);
-                    resultResponse = client.GetMultivariateBatchDetectionResultValue(result_id);
+                    resultResponse = client.GetMultivariateBatchDetectionResult(result_id);
                     result_status = resultResponse.Summary.Status;
                     Console.WriteLine(string.Format("try: {0}, result id: {1} Detection status is {2}", tryout_count, result_id, result_status.ToString()));
                     Console.Out.Flush();

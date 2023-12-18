@@ -47,7 +47,7 @@ Workbooks support many visualizations and Azure integrations. For more informati
 1.  Select **New**.
 1.	In the new workbook, select **Add**, and select **Add query** from the dropdown.
 :::image type="content" source="./media/prometheus-workbooks/prometheus-workspace-add-query.png" lightbox="./media/prometheus-workbooks/prometheus-workspace-add-query.png" alt-text="A screenshot showing the add content dropdown in a blank workspace.":::    
-1. Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus-preview) to set the source scope the data they present. To query Prometheus metrics, select the  **Data source** dropdown, and choose **Prometheus** .
+1. Azure Workbooks use [data sources](../visualize/workbooks-data-sources.md#prometheus) to set the source scope the data they present. To query Prometheus metrics, select the  **Data source** dropdown, and choose **Prometheus** .
 1.	From the **Azure Monitor workspace** dropdown, select your workspace.
 1.	Select your query type from **Prometheus query type** dropdown.
 1.	Write your PromQL query in the **Prometheus Query** field. 

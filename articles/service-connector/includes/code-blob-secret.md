@@ -2,14 +2,14 @@
 author: yungezz
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 11/24/2023
 ms.author: yungezz
 ---
 
 
 ### [.NET](#tab/dotnet)
 
-Get blob storage connection string from the environment variable added by Service Connector.
+Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
 
 Install dependencies
 ```bash
@@ -21,7 +21,7 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System; 
 
-// get blob connection string
+// get Blob connection string
 var connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_CONNECTIONSTRING");
 
 // Create a BlobServiceClient object 
@@ -38,7 +38,7 @@ var blobServiceClient = new BlobServiceClient(connectionString);
         <artifactId>azure-storage-blob</artifactId>
     </dependency>
     ```
-1. Get the connection string from the environment variable to connect to the blob storage:
+1. Get the connection string from the environment variable to connect to Azure Blob Storage:
 
     ```java
     String connectionStr = System.getenv("AZURE_STORAGEBLOB_CONNECTIONSTRING");
@@ -47,13 +47,16 @@ var blobServiceClient = new BlobServiceClient(connectionString);
         .buildClient();
     ```
 
+### [SpringBoot](#tab/springBoot)
+Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) and set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Two sets of configuration properties are provided according to the version of Spring Cloud Azure (below 4.0 and above 4.0). For more information about library changes of Spring Cloud Azure, refer to [Spring Cloud Azure Migration Guide](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#_from_azure_spring_boot_starter_storage_to_spring_cloud_azure_starter_storage_blob).
+
 
 ### [Python](#tab/python)
 1. Install dependencies
    ```bash
    pip install azure-storage-blob
    ```
-1. Get blob storage connection string from the environment variable added by Service Connector.
+1. Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
    ```python
    from azure.storage.blob import BlobServiceClient
    import os
@@ -84,7 +87,7 @@ var blobServiceClient = new BlobServiceClient(connectionString);
    ```bash
    go get "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    ```
-2. Get blob storage connection string from the environment variable added by Service Connector.
+2. Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
    ```go
    import (
      "context"
@@ -105,7 +108,7 @@ var blobServiceClient = new BlobServiceClient(connectionString);
    ```bash
    npm install @azure/storage-blob
    ```
-2. Get blob storage connection string from the environment variable added by Service Connector.
+2. Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
    ```javascript
    const { BlobServiceClient } = require("@azure/storage-blob");
    
@@ -113,5 +116,5 @@ var blobServiceClient = new BlobServiceClient(connectionString);
    const blobServiceClient = BlobServiceClient.fromConnectionString(connection_str);
    ```
 
-### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).
+### [Other](#tab/none)
+For other languages, you can use the Azure Blob Storage account url and other properties that Service Connector sets to the environment variables to connect to Azure Blob Storage. For environment variable details, see [Integrate Azure Blob Storage with Service Connector](../how-to-integrate-storage-blob.md).

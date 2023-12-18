@@ -134,8 +134,7 @@ Data connectors are available as part of the following offerings:
 
 ## Cisco Systems, Inc.
 
-- [[Deprecated] Cisco Firepower eStreamer via Legacy Agent](data-connectors/deprecated-cisco-firepower-estreamer-via-legacy-agent.md)
-- [[Recommended] Cisco Firepower eStreamer via Legacy Agent via AMA](data-connectors/recommended-cisco-firepower-estreamer-via-legacy-agent-via-ama.md)
+- [Cisco Firepower eStreamer](data-connectors/cisco-firepower-estreamer.md)
 - [Cisco Software Defined WAN](data-connectors/cisco-software-defined-wan.md)
 
 ## Citrix
@@ -149,9 +148,9 @@ Data connectors are available as part of the following offerings:
 
 ## Cloud Software Group
 
-- [[Deprecated] Citrix WAF (Web App Firewall) via Legacy Agent](data-connectors/deprecated-citrix-waf-web-app-firewall-via-legacy-agent.md)
-- [[Recommended] Citrix WAF (Web App Firewall) via AMA](data-connectors/recommended-citrix-waf-web-app-firewall-via-ama.md)
+- [Citrix WAF (Web App Firewall)](data-connectors/deprecated-citrix-waf-web-app-firewall-via-legacy-agent.md)
 - [CITRIX SECURITY ANALYTICS](data-connectors/citrix-security-analytics.md)
+
 ## Cloudflare
 
 - [Cloudflare (Preview) (using Azure Functions)](data-connectors/cloudflare-using-azure-functions.md)
@@ -165,8 +164,7 @@ Data connectors are available as part of the following offerings:
 
 ## Contrast Security
 
-- [[Deprecated] Contrast Protect via Legacy Agent](data-connectors/deprecated-contrast-protect-via-legacy-agent.md)
-- [[Recommended] Contrast Protect via AMA](data-connectors/recommended-contrast-protect-via-ama.md)
+- [Contrast Protect](data-connectors/contrast-protect.md)
 
 ## Corelight Inc.
 
@@ -183,13 +181,16 @@ Data connectors are available as part of the following offerings:
 
 ## CyberArk
 
-- [[Deprecated] CyberArk Enterprise Password Vault (EPV) Events via Legacy Agent](data-connectors/deprecated-cyberark-enterprise-password-vault-epv-events-via-legacy-agent.md)
-- [[Recommended] CyberArk Enterprise Password Vault (EPV) Events via AMA](data-connectors/recommended-cyberark-enterprise-password-vault-epv-events-via-ama.md)
+- [CyberArk Enterprise Password Vault (EPV) Events](data-connectors/cyberark-enterprise-password-vault-epv-events.md)
 - [CyberArkEPM (using Azure Functions)](data-connectors/cyberarkepm-using-azure-functions.md)
 
 ## Cybersixgill
 
 - [Cybersixgill Actionable Alerts (using Azure Functions)](data-connectors/cybersixgill-actionable-alerts-using-azure-functions.md)
+
+## Cyborg Security, Inc.
+
+- [Cyborg Security HUNTER Hunt Packages](data-connectors/cyborg-security-hunter-hunt-packages.md)
 
 ## Cynerio
 
@@ -199,19 +200,22 @@ Data connectors are available as part of the following offerings:
 
 - [Darktrace Connector for Microsoft Sentinel REST API](data-connectors/darktrace-connector-for-microsoft-sentinel-rest-api.md)
 
+## Dataminr, Inc.
+
+- [Dataminr Pulse Alerts Data Connector (using Azure Functions)](data-connectors/dataminr-pulse-alerts-data-connector-using-azure-functions.md)
+
 ## Darktrace plc
 
-- [[Deprecated] AI Analyst Darktrace via Legacy Agent](data-connectors/deprecated-ai-analyst-darktrace-via-legacy-agent.md)
-- [[Recommended] AI Analyst Darktrace via AMA](data-connectors/recommended-ai-analyst-darktrace-via-ama.md)
+- [AI Analyst Darktrace](data-connectors/ai-analyst-darktrace.md)
 
 ## Defend Limited
 
+- [Atlassian Beacon Alerts](data-connectors/atlassian-beacon-alerts.md)
 - [Cortex XDR - Incidents](data-connectors/cortex-xdr-incidents.md)
 
 ## Delinea Inc.
 
-- [[Deprecated] Delinea Secret Server via Legacy Agent](data-connectors/deprecated-delinea-secret-server-via-legacy-agent.md)
-- [[Recommended] Delinea Secret Server via AMA](data-connectors/recommended-delinea-secret-server-via-ama.md)
+- [Delinea Secret Server](data-connectors/delinea-secret-server.md)
 
 ## Derdack
 
@@ -242,13 +246,11 @@ Data connectors are available as part of the following offerings:
 
 ## ExtraHop Networks, Inc.
 
-- [[Deprecated] ExtraHop Reveal(x) via Legacy Agent](data-connectors/deprecated-extrahop-reveal-x-via-legacy-agent.md)
-- [[Recommended] ExtraHop Reveal(x) via AMA](data-connectors/recommended-extrahop-reveal-x-via-ama.md)
+- [ExtraHop Reveal(x)](data-connectors/extrahop-reveal-x.md)
 
 ## F5, Inc.
 
-- [[Deprecated] F5 Networks via Legacy Agent](data-connectors/deprecated-f5-networks-via-legacy-agent.md)
-- [[Recommended] F5 Networks via AMA](data-connectors/recommended-f5-networks-via-ama.md)
+- [F5 Networks](data-connectors/f5-networks.md)
 - [F5 BIG-IP](data-connectors/f5-big-ip.md)
 
 ## Facebook
@@ -277,6 +279,10 @@ Data connectors are available as part of the following offerings:
 
 - [Fortinet](data-connectors/fortinet.md)
 
+## Gigamon, Inc
+
+- [Gigamon AMX Data Connector](data-connectors/gigamon-amx-data-connector.md)
+
 ## GitLab
 
 - [GitLab](data-connectors/gitlab.md)
@@ -289,14 +295,18 @@ Data connectors are available as part of the following offerings:
 - [Google Cloud Platform IAM (using Azure Functions)](data-connectors/google-cloud-platform-iam-using-azure-functions.md)
 - [Google Workspace (G Suite) (using Azure Functions)](data-connectors/google-workspace-g-suite-using-azure-functions.md)
 
+## Greynoise Intelligence, Inc.
+
+- [GreyNoise Threat Intelligence (using Azure Functions)](data-connectors/greynoise-threat-intelligence-using-azure-functions-using-azure-functions.md)
+
 ## H.O.L.M. Security Sweden AB
 
 - [Holm Security Asset Data (using Azure Functions)](data-connectors/holm-security-asset-data-using-azure-functions.md)
 
 ## iboss inc
 
-- [[Deprecated] iboss via Legacy Agent](data-connectors/deprecated-iboss-via-legacy-agent.md)
-- [[Recommended] iboss via AMA](data-connectors/recommended-iboss-via-ama.md)
+- [iboss](data-connectors/iboss.md)
+
 
 ## Illumio
 
@@ -305,8 +315,8 @@ Data connectors are available as part of the following offerings:
 
 ## Illusive Networks
 
-- [[Deprecated] Illusive Platform via Legacy Agent](data-connectors/deprecated-illusive-platform-via-legacy-agent.md)
-- [[Recommended] Illusive Platform via AMA](data-connectors/recommended-illusive-platform-via-ama.md)
+- [Illusive Platform](data-connectors/illusive-platform.md)
+
 
 ## Imperva
 
@@ -384,7 +394,7 @@ Data connectors are available as part of the following offerings:
 - [Microsoft Entra ID Protection](data-connectors/azure-active-directory-identity-protection.md)
 - [Azure Activity](data-connectors/azure-activity.md)
 - [Azure Batch Account](data-connectors/azure-batch-account.md)
-- [Azure Cognitive Search](data-connectors/azure-cognitive-search.md)
+- [Azure AI Search](data-connectors/azure-cognitive-search.md)
 - [Azure Data Lake Storage Gen1](data-connectors/azure-data-lake-storage-gen1.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
@@ -400,7 +410,7 @@ Data connectors are available as part of the following offerings:
 - [DNS](data-connectors/dns.md)
 - [Fortinet FortiWeb Web Application Firewall](data-connectors/fortinet-fortiweb-web-application-firewall.md)
 - [Microsoft 365 (formerly, Office 365)](data-connectors/microsoft-365.md)
-- [Microsoft 365 Defender](data-connectors/microsoft-365-defender.md)
+- [Microsoft Defender XDR](data-connectors/microsoft-365-defender.md)
 - [Microsoft 365 Insider Risk Management](data-connectors/microsoft-365-insider-risk-management.md)
 - [Microsoft Defender for Cloud](data-connectors/microsoft-defender-for-cloud.md)
 - [Microsoft Defender for Cloud Apps](data-connectors/microsoft-defender-for-cloud-apps.md)
@@ -442,9 +452,17 @@ Data connectors are available as part of the following offerings:
 - [[Recommended] Forcepoint CASB via AMA](data-connectors/recommended-forcepoint-casb-via-ama.md)
 - [[Recommended] Forcepoint CSG via AMA](data-connectors/recommended-forcepoint-csg-via-ama.md)
 - [[Recommended] Forcepoint NGFW via AMA](data-connectors/recommended-forcepoint-ngfw-via-ama.md)
+- [Barracuda CloudGen Firewall](data-connectors/barracuda-cloudgen-firewall.md)
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector-using-azure-functions.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)
+
+## Mimecast North America
+
+- [Mimecast Audit & Authentication (using Azure Functions)](data-connectors/mimecast-audit-authentication-using-azure-functions.md)
+- [Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel-using-azure-functions.md)
+- [Mimecast Secure Email Gateway (using Azure Functions)](data-connectors/mimecast-secure-email-gateway-using-azure-functions.md)
+- [Mimecast Targeted Threat Protection (using Azure Functions)](data-connectors/mimecast-targeted-threat-protection-using-azure-functions.md)
 
 ## MongoDB
 
@@ -452,8 +470,7 @@ Data connectors are available as part of the following offerings:
 
 ## Morphisec
 
-- [[Deprecated] Morphisec UTPP via Legacy Agent](data-connectors/deprecated-morphisec-utpp-via-legacy-agent.md)
-- [[Recommended] Morphisec UTPP via AMA](data-connectors/recommended-morphisec-utpp-via-ama.md)
+- [Morphisec UTPP](data-connectors/morphisec-utpp.md)
 
 ## MuleSoft
 
@@ -494,6 +511,7 @@ Data connectors are available as part of the following offerings:
 - [NXLog AIX Audit](data-connectors/nxlog-aix-audit.md)
 - [NXLog BSM macOS](data-connectors/nxlog-bsm-macos.md)
 - [NXLog DNS Logs](data-connectors/nxlog-dns-logs.md)
+- [NXLog FIM](data-connectors/nxlog-fim.md)
 - [NXLog LinuxAudit](data-connectors/nxlog-linuxaudit.md)
 
 ## Okta
@@ -603,8 +621,7 @@ Data connectors are available as part of the following offerings:
 
 ## SonicWall Inc
 
-- [[Deprecated] SonicWall Firewall via Legacy Agent](data-connectors/deprecated-sonicwall-firewall-via-legacy-agent.md)
-- [[Recommended] SonicWall Firewall via AMA](data-connectors/recommended-sonicwall-firewall-via-ama.md)
+- [SonicWall Firewall](data-connectors/sonicwall-firewall.md)
 
 ## Sonrai Security
 
@@ -664,8 +681,7 @@ Data connectors are available as part of the following offerings:
 
 ## vArmour Networks
 
-- [[Deprecated] vArmour Application Controller via Legacy Agent](data-connectors/deprecated-varmour-application-controller-via-legacy-agent.md)
-- [[Recommended] vArmour Application Controller via AMA](data-connectors/recommended-varmour-application-controller-via-ama.md)
+- [vArmour Application Controller](data-connectors/varmour-application-controller.md)
 
 ## Vectra AI, Inc
 
@@ -685,8 +701,8 @@ Data connectors are available as part of the following offerings:
 
 ## WireX Systems
 
-- [[Deprecated] WireX Network Forensics Platform via Legacy Agent](data-connectors/deprecated-wirex-network-forensics-platform-via-legacy-agent.md)
-- [[Recommended] WireX Network Forensics Platform via AMA](data-connectors/recommended-wirex-network-forensics-platform-via-ama.md)
+- [WireX Network Forensics Platform](data-connectors/wirex-network-forensics-platform.md)
+
 
 ## WithSecure
 
