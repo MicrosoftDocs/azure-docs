@@ -166,7 +166,7 @@ First, start from the flow authoring page that you want to evaluate on. For exam
 :::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluate-button.png" alt-text="Screenshot of evaluation button." lightbox = "./media/how-to-develop-an-evaluation-flow/evaluate-button.png":::
 
 
-Then, similar to the steps of submit a batch run as mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md/#submit-batch-run-and-evaluate-a-flow), follow the first few steps to prepare the dataset to run the flow. 
+Then, similar to the steps of submit a batch run as mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md#submit-batch-run-and-evaluate-a-flow), follow the first few steps to prepare the dataset to run the flow. 
 
 Then in the `Evaluation settings - Select evaluation` step, along with the built-in evaluations, the customized evaluations are also available for selection. This lists all your evaluation flows in your flow list that you created, cloned, or customized. **Evaluation flows created by others in the same project will not show up in this section.** 
 
@@ -176,7 +176,7 @@ Then in the `Evaluation settings - Select evaluation` step, along with the built
 Next in the `Evaluation settings - Configure evaluation` step, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. 
 
 
-To run an evaluation, you can indicate the sources of these required inputs in **"input mapping"** section when submitting an evaluation. This process is same as the configuration mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md/#submit-batch-run-and-evaluate-a-flow).
+To run an evaluation, you can indicate the sources of these required inputs in **"input mapping"** section when submitting an evaluation. This process is same as the configuration mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md#submit-batch-run-and-evaluate-a-flow).
 
 - If the data source is from your run output, the source is indicated as `${run.output.[OutputName]}`
 - If the data source is from your test dataset, the source is indicated as `${data.[ColumnName]}`
