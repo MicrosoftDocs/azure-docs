@@ -14,7 +14,8 @@ ms.author: JialinXin
 | Resource | Default limit | Maximum limit | 
 | --- | --- | --- |
 | Azure Web PubSub Service units per instance for Free tier |1 |1 |
-| Azure Web PubSub Service units per instance for Standard tier |100 |100 |
+| Azure Web PubSub Service units per instance for Standard/Premium_P1 tier |100 |100 |
+| Azure Web PubSub Service units per instance for Premium_P2 tier |1000 |1000 |
 | Azure Web PubSub Service units per subscription per region for Free tier|5 |5 |
 | Total Azure Web PubSub Service unit counts per subscription per region |150 |Unlimited |
 | Concurrent connections per unit for Free tier |20 |20 |
