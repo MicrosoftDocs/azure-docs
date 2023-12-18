@@ -39,7 +39,7 @@ spec:
       value: [METADATA-VALUE]
 ```
 
-In Container Apps, the above schema has been slightly simplified to support Dapr components and remove unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
+In Container Apps, the above schema is slightly simplified to support Dapr components and remove unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
 
 ```yaml
 componentType: [COMPONENT-TYPE]
@@ -53,7 +53,7 @@ metadata:
 
 ## Component scopes
 
-By default, all Dapr-enabled container apps within the same environment load the full set of deployed components. To ensure components are loaded at runtime by only the appropriate container apps, application scopes should be used. In the example below, the component is only loaded by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`:
+By default, all Dapr-enabled container apps within the same environment load the full set of deployed components. To ensure only the appropriate container apps load components at runtime, application scopes should be used. In the following example, the component is only loaded by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`:
 
 > [!NOTE]
 > Dapr component scopes correspond to the Dapr application ID of a container app, not the container app name.
@@ -148,7 +148,7 @@ scopes:
 
 ### Referencing Dapr secret store components
 
-Once you've created a Dapr secret store using one of the above approaches, you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified above, where the `sb-root-connectionstring` is stored.
+Once you create a Dapr secret store using one of the previous approaches, you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified in the previous examples, where the `sb-root-connectionstring` is stored.
 
 ```yaml
 componentType: pubsub.azure.servicebus.queue

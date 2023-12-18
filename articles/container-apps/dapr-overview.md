@@ -25,11 +25,11 @@ Configure Dapr for your container apps environment with a Dapr-enabled container
 | ----- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1     | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring a set of Dapr arguments. These values apply to all revisions of a given container app when running in multiple revisions mode.                                                                                           |
 | 2     | Dapr                             | The fully managed Dapr APIs are exposed to each container app through a Dapr sidecar. The Dapr APIs can be invoked from your container app via HTTP or gRPC. The Dapr sidecar runs on HTTP port 3500 and gRPC port 50001.                                                         |
-| 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps will load a given component at runtime. |
+| 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps load a given component at runtime. |
 
 ## Supported Dapr APIs
 
-Azure Container Apps offers fully-managed versions of the following _stable_ Dapr APIs (building blocks). To learn more about using alpha APIs and features, [see the Dapr FAQ][dapr-faq].
+Azure Container Apps offers fully managed versions of the following _stable_ Dapr APIs (building blocks). To learn more about using alpha APIs and features, [see the Dapr FAQ][dapr-faq].
 
 :::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
@@ -47,18 +47,16 @@ Azure Container Apps offers fully-managed versions of the following _stable_ Dap
 ## Limitations
 
 - **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
-- **Any Dapr sidecar annotations not listed above**
-- **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, refer to the [Dapr FAQ][dapr-faq].
+- **Any Dapr sidecar annotations not listed in [the Dapr enablement guide][dapr-enable]**
+- **Alpha APIs and components**: Azure Container Apps doesn't guarantee the availability of Dapr alpha APIs and features. For more information, see the [Dapr FAQ][dapr-faq].
 - **Actor reminders**: Require a minReplicas of 1+ to ensure reminders is always active and fires correctly.
 - **Jobs**: Dapr isn't supported for jobs.
 
 ## Next Steps
 
-Now that you've learned about Dapr and some of the challenges it solves:
-
 - [Enable Dapr in your container app][dapr-enable]
 - [Learn how Dapr components work in Azure Container Apps][dapr-components]
-- 
+
 <!-- Links Internal -->
 
 [dapr-faq]: ./faq.yml#dapr
