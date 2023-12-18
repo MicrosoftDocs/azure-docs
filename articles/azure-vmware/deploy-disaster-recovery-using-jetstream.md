@@ -262,14 +262,14 @@ Once JetStream DR MSA and JetStream VIB are installed on the Azure VMware Soluti
 
 1. [Deploy a JetStream DRVA appliance](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/deploy-a-dr-virtual-appliance/). 
 
-1. [Create a JetStream replication log store volume](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/create-a-replication-log-store-volume/) using one of the datastores available to the Azure VMware Solution cluster. 
+1. Create a JetStream replication log store volume using one of the datastores available to the Azure VMware Solution cluster. 
 
    >[!TIP]
    >Fast local storage, such as vSAN datastore, is preferred for the replication log volume. 
  
 1. [Create a JetStream protected domain](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/create-a-protected-domain/). Provide the Azure Blob Storage site, JetStream DRVA instance, and replication log volume created in previous steps. 
 
-1. [Select the VMs](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/select-vms-for-protection/) you want to protect and then [start VM protection](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/start-vm-protection/).
+1. Select the VMs you want to protect, then start VM protection.
 
  
 For remaining configuration steps for JetStream DR, such as creating a failover runbook, invoking failover to the DR site, and invoking failback to the primary site, see the [JetStream Admin Guide documentation](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/).  
