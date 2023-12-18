@@ -1,21 +1,21 @@
 ---
-title: Using Kubelogin with Azure Kubernetes Service (AKS)
-description: Learn about using Kubelogin to enable all of the supported Azure Active Directory authentication methods with Azure Kubernetes Service (AKS). 
+title: Using kubelogin with Azure Kubernetes Service
+description: Learn how to use the kubelogin plugin to use all supported authentication methods with Azure Kubernetes Service (AKS). 
 ms.topic: article
 ms.date: 11/28/2023
 
 ---
 
-# Use Kubelogin with Azure Kubernetes Service (AKS)
+# Use kubelogin with Azure Kubernetes Service
 
-Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra ID authentication. This plugin provides features that are not available in kubectl.
+Kubelogin is a client-go credential [plugin][client-go-cred-plugin] that implements Microsoft Entra ID authentication. In kubelogin, you can access features that aren't available in the kubectl command-line tool.
 
-Azure Kubernetes Service (AKS) clusters integrated with Microsoft Entra ID, running Kubernetes versions 1.24 and higher, automatically use the `kubelogin` format.
+Azure Kubernetes Service (AKS) clusters that are integrated with Microsoft Entra ID and running Kubernetes versions 1.24 or later automatically use the kubelogin format.
 
-This article provides an overview of the following authentication methods and examples on how to use them:
+This article provides an overview of the following authentication methods, and it includes examples of how to use them:
 
 * Device code
-* The Azure CLI
+* Azure CLI
 * Interactive web browser
 * Service principal
 * Managed identity
@@ -23,7 +23,7 @@ This article provides an overview of the following authentication methods and ex
 
 ## Limitations
 
-* A maximum of 200 groups are included in the Microsoft Entra ID JSON Web Token (JWT). For more than 200 groups, consider using [Application Roles][entra-id-application-roles].
+* You can include a maximum of 200 groups in a Microsoft Entra JSON Web Token (JWT) claim. For more than 200 groups, consider using [Application Roles][entra-id-application-roles].
 * Groups created in Microsoft Entra ID are only included by their ObjectID and not by their display name. `sAMAccountName` is only available for groups synchronized from on-premises Active Directory.
 * On AKS, service principal authentication method only works with managed Microsoft Entra ID, not legacy Azure Active Directory.
 * Device code authentication method doesn't work when Conditional Access policy is configured on a Microsoft Entra tenant. Use web browser interactive authentication instead.
@@ -60,7 +60,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
@@ -92,7 +92,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig -l azurecli
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
@@ -114,7 +114,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig -l interactive
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
@@ -128,22 +128,22 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig -l interactive --pop-enabled --pop-claims "u=/ARM/ID/OF/CLUSTER"
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
 ```
 
-## Using a service principal
+## Use a service principal
 
 This authentication method uses a service principal to sign in. The credential may be provided using an environment variable or command-line argument. The supported credentials are password and pfx client certificate.
 
-The following are limitations to consider before using this method:
+Consider the following limitations before you use this method:
 
-* This only works with managed Microsoft Entra ID
-* The service principal can be member of a maximum of [200 Microsoft Entra ID groups][microsoft-entra-group-membership].
+* This method works only with managed Microsoft Entra ID.
+* The service principal can be a member of a maximum of [200 Microsoft Entra ID groups][microsoft-entra-group-membership].
 
-The following examples show how to set up a client secret using an environment variable.
+The following examples show how to set up a client secret by using an environment variable:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -154,7 +154,7 @@ export AAD_SERVICE_PRINCIPAL_CLIENT_ID=<spn client id>
 export AAD_SERVICE_PRINCIPAL_CLIENT_SECRET=<spn secret>
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
@@ -169,7 +169,7 @@ export AZURE_CLIENT_ID=<spn client id>
 export AZURE_CLIENT_SECRET=<spn secret>
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
@@ -183,7 +183,7 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig -l spn --client-id <spn client id> --client-secret <spn client secret>
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
@@ -220,7 +220,7 @@ export AZURE_CLIENT_CERTIFICATE_PATH=/path/to/cert.pfx
 export AZURE_CLIENT_CERTIFICATE_PASSWORD=<pfx password>
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
@@ -237,17 +237,17 @@ export AAD_SERVICE_PRINCIPAL_CLIENT_ID=<spn client id>
 export AAD_SERVICE_PRINCIPAL_CLIENT_SECRET=<spn secret>
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
 ```
 
-## Using a managed identity
+## Use a managed identity
 
-The [managed identity][managed-identity-overview] authentication method should be used for applications to use when connecting to resources that support Microsoft Entra authentication. For example, accessing Azure services such as Azure Virtual Machine, Azure Virtual Machine Scale Sets, Azure Cloud Shell, etc.
+Use the [managed identity][managed-identity-overview] authentication method for applications to use when they connect to resources that support Microsoft Entra authentication. Examples include accessing Azure services like Azure Virtual Machines, Azure Virtual Machine scale sets, and the Azure Cloud Shell.
 
-The following example shows how to use the default managed identity.
+The following example shows how to use the default managed identity:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -255,13 +255,13 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig -l msi
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
 ```
 
-The following example shows how to use a managed identity with a specific identity.
+The following example shows how to use a managed identity with a specific identity:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -269,24 +269,24 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig -l msi --client-id <msi-client-id>
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
 ```
 
-## Using a workload identity
+## Use a workload identity
 
-This authentication method uses Microsoft Entra ID federated identity credentials to authenticate to Kubernetes clusters with Microsoft Entra ID integration. It works by setting the environment variables:
+This authentication method uses Microsoft Entra ID federated identity credentials to authenticate to Kubernetes clusters with Microsoft Entra ID integration. It works by setting the following environment variables:
 
-* **AZURE_CLIENT_ID**: the Microsoft Entra ID application ID that is federated with workload identity
-* **AZURE_TENANT_ID**: the Microsoft Entra ID tenant ID
-* **AZURE_FEDERATED_TOKEN_FILE**: the file containing signed assertion of workload identity. For example, Kubernetes projected service account (jwt) token
-* **AZURE_AUTHORITY_HOST**: the base URL of a Microsoft Entra ID authority. For example, `https://login.microsoftonline.com/`.
+* **AZURE_CLIENT_ID**: The Microsoft Entra ID application ID that is federated with workload identity.
+* **AZURE_TENANT_ID**: The Microsoft Entra ID tenant ID.
+* **AZURE_FEDERATED_TOKEN_FILE**: The file that contains a signed assertion of workload identity, like a Kubernetes projected service account (JWT) token.
+* **AZURE_AUTHORITY_HOST**: The base URL of a Microsoft Entra ID authority. For example, `https://login.microsoftonline.com/`.
 
-With [workload identity][workload-identity], it's possible to access Kubernetes clusters from CI/CD system such as GitHub, ArgoCD, etc. without storing Service Principal credentials in those external systems. To configure OIDC federation from GitHub, see the following [example][oidc-federation-github].
+You can use [workload identity][workload-identity] to access Kubernetes clusters from CI/CD systems like GitHub or ArgoCD without storing service principal credentials in those external systems. To configure OIDC federation from GitHub, see the OIDC federation [example][oidc-federation-github].
 
-The following example shows how to use a workload identity.
+The following example shows how to use a workload identity:
 
 ```bash
 export KUBECONFIG=/path/to/kubeconfig
@@ -294,21 +294,21 @@ export KUBECONFIG=/path/to/kubeconfig
 kubelogin convert-kubeconfig -l workloadidentity
 ```
 
-Run `kubectl` command to get node information.
+Run this `kubectl` command to get node information:
 
 ```bash
 kubectl get nodes
 ```
 
-## Using Kubelogin with AKS
+## Use kubelogin with AKS
 
-AKS uses a pair of first party Azure AD applications. These application IDs are the same in all environments.
+AKS uses a pair of first-party Azure AD applications. These application IDs are the same in all environments.
 
-The AKS Microsoft Entra ID Server application ID used by the server side is: `6dae42f8-4368-4678-94ff-3960e28e3630`. The access token accessing AKS clusters need to be issued for this application. In most of kubelogin authentication modes, `--server-id` is a required parameter with `kubelogin get-token`.
+The AKS Microsoft Entra ID Server application ID used by the server side is `6dae42f8-4368-4678-94ff-3960e28e3630`. The access token that accesses AKS clusters must be issued for this application. In most kubelogin authentication modes, `--server-id` is a required parameter to use with `kubelogin get-token`.
 
-The AKS Microsoft Entra ID client application ID used by kubelogin to perform public client authentication on behalf of the user is: `80faf920-1908-4b52-b5ef-a8e7bedfc67a`. The client application ID is used as part of device code and web browser interactive authentication methods.
+The AKS Microsoft Entra ID client application ID that's used by kubelogin to perform public client authentication on behalf of the user is `80faf920-1908-4b52-b5ef-a8e7bedfc67a`. The client application ID is used as part of device code and web browser interactive authentication methods.
 
-## Next steps
+## Related content
 
 * Learn how to integrate AKS with Microsoft Entra ID with our [AKS-managed Microsoft Entra integration][aks-managed-microsoft-entra-integration-guide] how-to guide.
 * To get started with managed identities in AKS, see [Use a managed identity in AKS][use-managed-identity-aks].
