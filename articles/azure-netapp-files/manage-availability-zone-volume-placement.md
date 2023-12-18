@@ -96,9 +96,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
 
 ## Populate availability zone for Terraform-managed volumes
 
-The Populate Availability Zone feature for Azure NetApp Files volumes cannot be supported in Terraform because the “zone” property of a volume is settable in the terraform configuration file at creation time, but not updatable in the future. Therefore, if you initially created a volume without the “zone” property, but later decided to add the “zone” property to its configuration, Terraform may potentially destroy the volume if the zone you specified is not the same as the true zone where the remote volume resides
-
-The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you cannot modify it. Adding the `zone` property after the volume has been created can cause Terraform to destroy the volume if the specified zone is not the same as the 
+The populate availability zone features requires a `zone` property on the volume. You can set the zone property only when you create the Terraform-managed volume, but you cannot modify it. Adding the `zone` property after the volume has been created can cause data loss or loss of the volume if the specified zone value does not match the availability zone. 
 
 1. Navigate to the Terraform module `terraform.tfstate`. The `"zone"` property should be an empty string. 
 1. In the Terraform-managed volume's configuration file (`main.tf`), locate the lifecycle configuration block. Modify the block with `ignore_changes = [zone]`. If no lifecycle configuration block exists, add it:
