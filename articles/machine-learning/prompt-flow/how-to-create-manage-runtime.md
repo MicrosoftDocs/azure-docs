@@ -126,7 +126,7 @@ You can also customize environment used to run this flow.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime (preview) on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
 
-If you want to use private feed in Azure devops, please add the Managed Identity in the Azure DevOps organization. (Note: If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.) To learn more, see [Use service principals & managed identities](http://learn.microsoft.com/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
+If you want to use private feed in Azure devops, please add the Managed Identity in the Azure DevOps organization. (Note: If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.) To learn more, see [Use service principals & managed identities](https://learn.microsoft.com/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
 
 You need add `{private}` to your private feed url. Such as if you want to install `test_package` from `test_feed` in Azure devops, you need add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
 
