@@ -99,7 +99,7 @@ You can manage automatic runtime in the flow page. Here are options you can use:
 
 :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions on automatic runtime on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
 
-You can also customize environment used to run this flow. 
+You can also customize the environment used to run this flow. 
 
 - You can easily customize the environment by adding packages in `requirements.txt` file in flow folder. After you add more packages in this file, you can choose either save and install or save only. Save and install will trigger the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install. Save only will only save the `requirements.txt` file, you can install the packages later by yourself.
 
