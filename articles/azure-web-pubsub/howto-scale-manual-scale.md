@@ -19,11 +19,11 @@ The scale settings take a few minutes to apply. In rare cases, it may take aroun
 For information about the pricing and capacities of individual Web PubSub Service, see [Azure Web PubSub Service Pricing Details](https://azure.microsoft.com/pricing/details/web-pubsub/).  
 
 > [!NOTE]
-> Changing Web PubSub Service from **Free** tier to **Standard** or **Premium** tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. 
+> Changing Web PubSub Service from **Free** tier to **Standard** or **Premium** tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. Chaning tiers between  **Standard** and **Premium** will not change the public IP.
 > Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
 
 
-## Scale Up on Azure portal
+## Scale up on Azure portal
 
 1. In your browser, open the [Azure portal](https://portal.azure.com).
 
@@ -31,12 +31,12 @@ For information about the pricing and capacities of individual Web PubSub Servic
    
 3. Click **Change** and select **Premium_P1** Tier in the pop out blade.
    
-    ![Screenshot of scaling up on Portal.](./media/howto-scale-manual-scale/webpubsub-howto-scale-up.png)
+    ![Screenshot of scaling up on Portal.](./media/howto-scale-manual-scale/web-pubsub-howto-scale-up.png)
 
 4. Select **Save**.
 
 
-## Scale Out on Azure portal
+## Scale out on Azure portal
 
 1. In your browser, open the [Azure portal](https://portal.azure.com).
 
@@ -44,7 +44,7 @@ For information about the pricing and capacities of individual Web PubSub Servic
    
 3. Choose the unit in the **Manual scale** sector.
 
-    ![Screenshot of scaling out on Portal.](./media/howto-scale-manual-scale/webpubsub-howto-scale-out.png)
+    ![Screenshot of scaling out on Portal.](./media/howto-scale-manual-scale/web-pubsub-howto-scale-out.png)
 
 4. Select **Save**.
 
@@ -68,7 +68,7 @@ For detailed information, such as included messages and connections for each pri
 For a table of service limits, quotas, and constraints in each tier, see [Web PubSub Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-web-pubsub-limits).
 
 
-## Enhanced Large Instance Support with Premium_P2 SKU
+## Enhanced large instance support with Premium_P2 SKU
 The new Premium_P2 SKU (currently in Preview) is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single Web PubSub Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
 
 You can scale up the SKU to Premium_P2 using Azure portal or Azure CLI.
