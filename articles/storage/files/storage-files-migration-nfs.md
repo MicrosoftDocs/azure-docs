@@ -4,16 +4,16 @@ description: Learn how to migrate from Linux file servers to NFS Azure file shar
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 12/18/2023
+ms.date: 12/19/2023
 ms.author: kendownie
 ---
 
 # Migrate to NFS Azure file shares
 
-This article covers the basic aspects of migrating from Linux file servers to NFS Azure file shares, which are only available as Premium file shares (FileStorage account kind). We'll also compare the open source file copy tools fpsync and rsync to understand how they perform in different situations when copying data to Azure file shares.
+This article covers the basic aspects of migrating from Linux file servers to NFS Azure file shares, which are only available as Premium file shares (FileStorage account kind). We'll also compare the open source file copy tools fpsync and rsync to understand how they perform when copying data to Azure file shares.
 
 > [!NOTE]
-> The open source tools mentioned in this article are well-known third-party solutions. They aren't developed, owned, or supported by Microsoft, either directly or indirectly. It's the customer's responsibility to examine the software license and support statement provided in the third party's documentation.
+> Azure Files doesn't support NFS access control lists (ACLs).
 
 ## Applies to
 
@@ -91,8 +91,8 @@ Make sure your destination (target) Azure file share is mounted to a Linux VM. S
 
 If you're doing a full migration, you'll copy your data in three phases:
 
-1. **Baseline copy:** Copy from source to destination when no data exists on the destination.
-1. **Incremental copy:** Copy only the incremental changes from source to destination. This should be done multiple times in order to capture all the changes.
+1. **Baseline copy:** Copy from source to destination when no data exists on the destination. For baseline copy, we recommend using fpsync with cpio as the copy tool.
+1. **Incremental copy:** Copy only the incremental changes from source to destination. For incremental sync, we recommend using fpsync with rsync as the copy tool. This should be done multiple times in order to capture all the changes.
 1. **Final pass:** A final pass is needed to delete any files on the destination that don't exist at the source.
 
 Copying data with fpsync always involves some version of this command:
@@ -103,7 +103,7 @@ fpsync -m <specify copy tool - rsync/cpio/tar> -n <parallel transfers> <absolute
 
 ### Baseline copy
 
-For baseline copy, we recommend using fpsync with cpio as the copy tool.
+For baseline copy, use fpsync with cpio.
 
 ```bash
 fpsync -m cpio –n <parallel transfers> <absolute source path> <absolute destination path>
@@ -113,7 +113,7 @@ For more information, see [Cpio and Tar support](http://www.fpart.org/fpsync/#cp
 
 ### Incremental copy
 
-For incremental sync, we recommend using fpsync with the default copy tool (rsync). To capture all the changes, we recommend running this several times.
+For incremental sync, use fpsync with the default copy tool (rsync). To capture all the changes, we recommend running this several times.
 
 ```bash
 fpsync –n <parallel transfers> <absolute source path> <absolute destination path>
@@ -142,7 +142,7 @@ The following table lists the different datasets we used to compare copy tool pe
 
 The tests were performed on Azure Standard_D8s_v3 VMs with 8 vCPUs, 32 GiB of memory, and more than 1 TiB of disk space for large datasets. For the target, we configured NFS Azure File shares with more than 1 TiB provisioned size.
 
-### Experiments and results: rsync vs. fpsync+cpio
+### Experiments and results: rsync vs. fpsync
 
 Based on our experiments with the above configurations, we observed that fpsync performed best when used with 64 threads with rsync and 16 threads with cpio for an Azure NFS file share mounted with `nconnect=8`. Actual results will vary based on your configuration and datasets.
 
@@ -188,6 +188,10 @@ The following table summarizes the results:
 | 1.2 (incremental) | 1 million      | 1                   | 0-32 KiB      | 18 GiB         | 84.02 mins         | 3.25 MiB/s           | 7.5 mins            | 36.41 MiB/s           | 1,020%              |
 | 2 (baseline)      | 191,345        | 3,906               | 0-32 KiB      | 3 GiB          | 191.86 mins        | 0.27 MiB/s           | 8.47 mins           | 6.04 MiB/s            | 2,164%              |
 | 3 (baseline)      | 5,000          | 1                   | 10 MiB        | 50 GiB         | 8.12 mins          | 105.04 MiB/s         | 2.76 mins           | 308.90 MiB/s          | 194%                |
+
+## Third-party information disclaimer
+
+The open source tools mentioned in this article are well-known third-party solutions. They aren't developed, owned, or supported by Microsoft, either directly or indirectly. It's the customer's responsibility to examine the software license and support statement provided in the third party's documentation.
 
 ## Next steps
 
