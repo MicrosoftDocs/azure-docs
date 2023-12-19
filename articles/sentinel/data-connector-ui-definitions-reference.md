@@ -1,5 +1,6 @@
 ---
 title: Data connector definitions reference for the Codeless Connector Platform
+titleSuffix: Microsoft Sentinel
 description: This article provides a supplemental reference for creating the connectorUIConfig JSON section for the Data Connector Definitions API as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum

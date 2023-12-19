@@ -48,7 +48,7 @@ Before building a connector, understand your data source and how Microsoft Senti
 
    It's important to understand the shape of your data stream and the fields you want to include in the output table. Reference your data source documentation or analyze sufficient output examples.
 
-Research the following components and verify support for them in the [Data Connector API reference](restapipoller-data-connector-reference.md):
+Research the following components and verify support for them in the [Data Connector API reference](data-connector-connection-rules-reference.md):
 
 1. HTTP request and response structure to the data source
 
@@ -76,8 +76,8 @@ Each component has a section detailing the process to create and validate. Take 
 
 If your data source doesn't conform to the schema of a standard table, you have two options:
 
-1. create a custom table for all the data
-1. create a custom table for some data and split conforming data out to a standard table
+- Create a custom table for all the data
+- Create a custom table for some data and split conforming data out to a standard table
 
 Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. If you create the custom table using the [Tables API](/rest/api/loganalytics/tables/create-or-update) or another programmatic method, add the `_CL` suffix manually to the table name. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table).
 
@@ -103,7 +103,7 @@ To understand how to create a complex DCR with multiple data flows, see the [DCR
 
 This component renders the UI for the data connector in the Microsoft Sentinel data connector gallery. Each data connector may have only one UI definition. 
 
-Build the data connector user interface with the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API. Use the [Data connector definitions reference](connectorUIConfig-supplemental-reference.md) as a supplement to explain the API elements in greater detail.
+Build the data connector user interface with the [**Data Connector Definition**](/rest/api/securityinsights/preview/data-connector-definitions/create-or-update) API. Use the [Data connector definitions reference](data-connector-ui-definitions-reference.md) as a supplement to explain the API elements in greater detail.
 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.
@@ -112,7 +112,7 @@ Notes:
 
 Use Postman to call the data connector definitions API to create the data connector UI in order to validate it in the data connectors gallery.
 
-To learn from an example, see the [Data connector definitions reference example section](connectorUIConfig-supplemental-reference.md#example-data-connector-definition).
+To learn from an example, see the [Data connector definitions reference example section](data-connector-ui-definitions-reference.md#example-data-connector-definition).
 
 ### Data connection rules
 
@@ -121,9 +121,9 @@ This portion defines the connection rules including:
 - authentication
 - paging
 
-For more information on building this section, see the [Data connector connection rules reference](restapipoller-data-connector-reference.md).
+For more information on building this section, see the [Data connector connection rules reference](data-connector-connection-rules-reference.md).
 
-To learn from an example, see the [Data connector connection rules reference example](restapipoller-data-connector-reference.md#example-ccp-data-connector).
+To learn from an example, see the [Data connector connection rules reference example](data-connector-connection-rules-reference.md#example-ccp-data-connector).
 
 Use Postman to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
@@ -155,8 +155,8 @@ Each step in building the codeless connector is represented in the following exa
 - [Example data](#example-data)
 - [Example custom table](#example-custom-table)
 - [Example data collection rule](#example-data-collection-rule)
-- [Example data connector UI definition](connectorUIConfig-supplemental-reference.md#example-data-connector-definition)
-- [Example data connection rules](restapipoller-data-connector-reference.md#example-ccp-data-connector)
+- [Example data connector UI definition](data-connector-ui-definitions-reference.md#example-data-connector-definition)
+- [Example data connection rules](data-connector-connection-rules-reference.md#example-ccp-data-connector)
 - [Use example data with example template](#example-arm-template)
 
 To demonstrate a complex data source with ingestion to more than one table, this example features an output table schema and a DCR with multiple output streams. The DCR example puts these together along with its KQL transforms. The data connector UI definition and connection rules examples continue from this same example data source. Finally, the solution template uses all these example components to show end to end how to create the example CCP data connector.
@@ -335,11 +335,11 @@ To create this DCR in a test environment, follow the [Data Collection Rules API]
 
 ### Example data connector UI definition
 
-This example is located in the [Data connector definitions reference](connectorUIConfig-supplemental-reference.md#example-data-connector-definition).
+This example is located in the [Data connector definitions reference](data-connector-ui-definitions-reference.md#example-data-connector-definition).
 
 ### Example data connector connection rules
 
-This example is located in the [Data connectors reference](restapipoller-data-connector-reference.md#example-ccp-data-connector).
+This example is located in the [Data connectors reference](data-connector-connection-rules-reference.md#example-ccp-data-connector).
 
 ### Example ARM template
 

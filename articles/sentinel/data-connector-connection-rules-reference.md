@@ -1,5 +1,6 @@
 ---
 title: Data connectors reference for the Codeless Connector Platform
+titleSuffix: Microsoft Sentinel
 description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum
