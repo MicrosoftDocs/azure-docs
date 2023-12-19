@@ -60,7 +60,7 @@ The following scenarios are supported in Azure Arc-enabled SCVMM:
 - Administrators can install Arc agents on SCVMM VMs at-scale and install corresponding extensions to use Azure management services like Microsoft Defender for Cloud, Azure Update Manager, Azure Monitor, etc.  
 
 >[!NOTE]
-> Azure Arc-enabled SCVMM doesn't support VMware vCenter VMs managed by SCVMM. To onboard VMware VMs to Azure Arc, you must use [Azure Arc-enabled VMware vSphere](../vmware-vsphere/overview.md). 
+> Azure Arc-enabled SCVMM doesn't support VMware vCenter VMs managed by SCVMM. To onboard VMware VMs to Azure Arc, we recommend you to use [Azure Arc-enabled VMware vSphere](../vmware-vsphere/overview.md). 
 
 ### Supported VMM versions
 
