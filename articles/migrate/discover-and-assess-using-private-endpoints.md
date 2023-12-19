@@ -53,7 +53,7 @@ In the **Advanced** configuration section, provide the following details to crea
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
 > [!Note]
-> If you have deployed an appliance using a template (OVA for servers on a VMware environment and VHD for a Hyper-V environment), you can use the same appliance and register it with an Azure Migrate project with private endpoint connectivity. Projects with private endpoints do not offer the ability to download OVA or VHD templates. You will need to run the Azure Migrate installer script and select the private endpoint connectivity option mentioned in the instructions below. 
+> Projects with private endpoints do not offer the ability to download OVA or VHD templates. If you have deployed an appliance using a template (OVA for servers on a VMware environment and VHD for a Hyper-V environment), you can use the same appliance and register it with an Azure Migrate project with private endpoint connectivity. You will need to run the Azure Migrate installer script and select the private endpoint connectivity option mentioned in the instructions below. 
 
 To set up the appliance:
   1. Download the zipped file that contains the installer script from the portal.
