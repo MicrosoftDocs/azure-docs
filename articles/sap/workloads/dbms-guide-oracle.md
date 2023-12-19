@@ -105,7 +105,7 @@ Additional considerations that apply list like:
 4. To migrate from 512/512e sector size to 4K Native Review (Doc ID 1133713.1) – see section “Offline Migration to 4Kb Sector Disks”
 5. No support for ASM on Windows platforms
 6. No support for 4K Native sector size for Log volume on Windows platforms.  SSDv2 and Ultra Disk must be changed to 512e via the “Edit Disk” pencil icon in the Azure Portal
-7. 4K Native sector size is supported only on Data volumes for Windows platforms.  4K is not supported for Log volumes on Windows
+7. 4K Native sector size is supported only on Data volumes for Windows platforms.  4K isn't supported for Log volumes on Windows
 8. It's recommended to review these MOS articles:
     - Oracle Linux: File System's Buffer Cache versus Direct I/O (Doc ID 462072.1)
     - Supporting 4K Sector Disks (Doc ID 1133713.1)
