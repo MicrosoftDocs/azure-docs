@@ -50,9 +50,7 @@ To set the retention policy in a backup policy, follow these steps:
      :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-configuration-for-vault-operational-tiers.png" alt-text="Screenshot that shows the retention configuration for Vault Tier and Operational Tier.":::
 
 
-   You can also define similar rules for the *First successful backup taken every week, month, and year*.
-
-With the new backup policy, you can [now [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backups) and then protect backups using the backup policy against regional disaster.
+With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backups). Now, your backups will be stored in both Operational Tier as snapshot and in Vault Tier as blobs. The backups stored in the vault will be available in the Secondary Region (an [Azure paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions)) for restore. Thus, you can use your backups against regional disaster.
 
 
 ## Restore in secondary region
@@ -67,7 +65,7 @@ Follow these steps:
 
 2. On the next page, click **Select backup instance**, and then select the *instance* that you want to restore.
 
-   If the instance is available in both *Primary* and *Secondary Region*, select the *region to restore* too, and then select **Continue**.
+   In case of disaster recovery, select **Secondary Region**. This allows you to choose recovery points available in the [Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions). 
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backup-instance-for-restore.png" alt-text="Screenshot shows selection of backup instance for restore.":::
 
@@ -108,7 +106,7 @@ Follow these steps:
 
    :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/trigger-restore.png" alt-text="Screenshot shows how to start the restore operation.":::
 
-9. Track this restore operation by using the name **CrossRegionRestore**.
+9. You can track this restore operation by the **Backup Job** named as **CrossRegionRestore**.
 
 ## Next steps
 

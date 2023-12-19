@@ -21,6 +21,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, East US 2, Central US, UK South, UK West, East Asia, and South-East Asia.
 
+  >[!Note]
+  >If Cross Region Restore is enabled, backups stored in Vault Tier will be available in the Azure Paired region. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+
 ## Limitations
 
 - AKS backup supports AKS clusters with Kubernetes version *1.22* or later. This version has Container Storage Interface (CSI) drivers installed.
@@ -29,7 +32,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - AKS backups don't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](../aks/csi-migrate-in-tree-volumes.md).
 
-- Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). Also, these persistent volumes should be dynamically provisioned as static volumes are not supported.
+- Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). Both static and dynamically provisioned volumes are supported. For backup of static disks, the persistent volumes specification should have the *storage class* defined in the **YAML** file, otherwise such persistent volumes will be skipped from the backup operation.
 
 - Azure Files shares and Azure Blob Storage persistent volumes are currently not supported by AKS backup due to lack of CSI Driver-based snapshotting capability. If you're using said persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions. For more information, see [Azure file share backup](azure-file-share-backup-overview.md) and [Azure Blob Storage backup](blob-backup-overview.md).
 
@@ -45,7 +48,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - The Backup vault and the AKS cluster should be in the same region and subscription.
 
-- Azure Backup provides operational (snapshot) tier backup of AKS clusters with support for multiple backups per day. The backups aren't copied to the Backup vault.
+- Azure Backup for AKS provides both Operation Tier (Snapshot) and Vault Tier backup. Multiple backups per day can be stored in Operational Tier, with only one backup per day to be stored in the Vault.
 
 - Currently, the modification of a backup policy and the modification of a snapshot resource group (assigned to a backup instance during configuration of the AKS cluster backup) aren't supported.
 
