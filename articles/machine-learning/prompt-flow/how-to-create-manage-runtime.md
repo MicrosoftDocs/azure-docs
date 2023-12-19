@@ -61,7 +61,7 @@ Automatic is the default option for runtime, you can start automatic runtime (pr
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow on the start automatic with default settings on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::    
 
-2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it will be used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we'll use user identity as default. Learn more about [how to create update user assigned identities to workspace](../how-to-identity-based-service-authentication#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it will be used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we'll use user identity as default. Learn more about [how to create update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow on the start automatic with advanced setting on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::    
 
@@ -128,7 +128,7 @@ You can also customize environment used to run this flow.
 
 #### Add packages in private feed in Azure devops
 
-If you want to use private feed in Azure devops, please add the Managed Identity in the Azure DevOps organization. (Note: If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.) To learn more, see [Use service principals & managed identities](https://learn.microsoft.com/azure/devops/integrate/get-started/authentication/service-principal-managed-identity.md)
+If you want to use private feed in Azure devops, please add the Managed Identity in the Azure DevOps organization. (Note: If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.) To learn more, see [Use service principals & managed identities](/devops/integrate/get-started/authentication/service-principal-managed-identity)
 
 You need add `{private}` to your private feed url. Such as if you want to install `test_package` from `test_feed` in Azure devops, you need add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
 
