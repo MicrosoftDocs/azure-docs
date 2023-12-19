@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to group costs using tag inheritance.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/15/2023
+ms.date: 12/18/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -45,6 +45,9 @@ Here's an example diagram showing how a tag is inherited.
 ## Enable tag inheritance
 
 You can enable the tag inheritance setting in the Azure portal. You apply the setting at the EA billing account, MCA billing profile, and subscription scopes.
+
+>[!NOTE]
+> If you don't see the Configuration page, or if you don't see the **Tag Inheritance** option, make sure that you have have a supported scope selected and that you have the correct permissions to the scope.
 
 ### To enable tag inheritance in the Azure portal for an EA billing account
 

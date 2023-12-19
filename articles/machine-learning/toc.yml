@@ -644,6 +644,8 @@
               href: ./prompt-flow/how-to-integrate-with-langchain.md
             - name: Tune prompts using variants
               href: ./prompt-flow/how-to-tune-prompts-using-variants.md
+            - name: Incorporate images into prompt flow
+              href: ./prompt-flow/how-to-process-image.md
         - name: Evaluate flows
           items:
             - name: Submit batch run and evaluate a flow 
@@ -696,6 +698,8 @@
               href: ./prompt-flow/tools-reference/serp-api-tool.md
             - name: Open Model LLM tool
               href: ./prompt-flow/tools-reference/open-model-llm-tool.md
+            - name: OpenAI GPT-4V tool
+              href: ./prompt-flow/tools-reference/openai-gpt-4v-tool.md
             - name: Troubleshoot Guidance
               href: ./prompt-flow/tools-reference/troubleshoot-guidance.md
     - name: Retrieval Augmented Generation (RAG)

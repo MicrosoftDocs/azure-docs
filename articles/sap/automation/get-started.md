@@ -19,10 +19,10 @@ Get started quickly with [SAP Deployment Automation Framework](deployment-framew
 To get started with SAP Deployment Automation Framework, you need:
 
 - An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The ability to [download the SAP software](software.md) in your Azure environment.
-- An [Azure CLI](/cli/azure/install-azure-cli) installation on your local computer.
-- An [Azure PowerShell](/powershell/azure/install-az-ps#update-the-azure-powershell-module) installation on your local computer.
+- An SAP USer account with permissions to [download the SAP software](software.md) in your Azure environment. See [SAP S-User](https://support.sap.com/en/my-support/users/welcome.html) for more information.
+- An [Azure CLI](/cli/azure/install-azure-cli) installation.
 - A service principal to use for the control plane deployment.
+- A service principal to use for the workload zone deployment.
 - An ability to create an Azure DevOps project if you want to use Azure DevOps for deployment.
 
 Some of the prerequisites might already be installed in your deployment environment. Both Azure Cloud Shell and the deployer have Terraform and the Azure CLI installed.
