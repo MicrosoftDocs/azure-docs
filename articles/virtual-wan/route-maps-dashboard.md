@@ -25,7 +25,8 @@ The following steps walk you through how to navigate to the Route Map dashboard.
 1. Go to the **Azure portal -> your Virtual WAN**.
 1. On your Virtual WAN, in the left pane, under Connectivity, select **Hubs**.
 1. On the hubs page, you can see the hubs that are connected to your Virtual WAN. Select the hub that you want to view.
-1. In the left pane, under Routing, select **Route-Maps** to open the **Route Map Dashboard**.
+1. In the left pane, under Routing, select **Route-Maps**.
+1. Select **Route Map Dashboard** from the Settings section.
 
    :::image type="content" source="./media/route-maps-dashboard/dashboard-view.png" alt-text="Screenshot shows the Route Map dashboard page." lightbox="./media/route-maps-dashboard/dashboard-view.png":::
 
