@@ -53,19 +53,11 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
-Use this table as a guide:
-
-| Storage type | Currently supported method of authorization |
-|--|--|
-|**Blob storage** | Microsoft Entra ID & SAS |
-|**Blob storage (hierarchical   namespace)** | Microsoft Entra ID & SAS |
-|**File storage** | SAS only |
-
 <a name='option-1-use-azure-active-directory'></a>
 
 #### Option 1: Use Microsoft Entra ID
 
-This option is available for blob Storage only. By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
 
 #### Option 2: Use a SAS token
 

@@ -12,7 +12,7 @@ ms.custom: template-overview,ignite-fall-2021, kr2b-contr-experiment
 
 # What is Azure Chaos Studio?
 
-[Azure Chaos Studio](https://azure.microsoft.com/services/chaos-studio) is a managed service that uses chaos engineering to help you measure, understand, and improve your cloud application and service resilience. Chaos engineering is a methodology by which you inject real-world faults into your application to run controlled fault injection experiments.
+[Azure Chaos Studio](https://azure.microsoft.com/services/chaos-studio) is a managed service that uses chaos engineering to help you measure, understand, and improve your cloud application and service resilience. [Chaos engineering](/azure/well-architected/reliability/testing-strategy) is a methodology by which you inject real-world faults into your application to run controlled fault injection experiments.
 
 Resilience is the capability of a system to handle and recover from disruptions. Application disruptions can cause errors and failures that can adversely affect your business or mission. Whether you're developing, migrating, or operating Azure applications, it's important to validate and improve your application's resilience.
 

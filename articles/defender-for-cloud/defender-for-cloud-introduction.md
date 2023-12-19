@@ -24,7 +24,6 @@ The Microsoft 365 Defender portal helps security teams investigate attacks acros
 
 You can learn more about the [integration between Microsoft Defender for Cloud and Microsoft Defender XDR](concept-integration-365.md).
 
-
 ## Secure cloud applications
 
 Defender for Cloud helps you to incorporate good security practices early during the software development process, or DevSecOps. You can protect your code management environments and your code pipelines, and get insights into your development environment security posture from a single location. Defender for Cloud empowers security teams to manage DevOps security across multi-pipeline environments.

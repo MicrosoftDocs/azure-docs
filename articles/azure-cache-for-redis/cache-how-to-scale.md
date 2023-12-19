@@ -78,6 +78,7 @@ You can scale out/in with the following restrictions:
 - _Scale out_ is only supported on the **Premium**, **Enterprise**, and **Enterprise Flash** tiers.
 - _Scale in_ is only supported on the **Premium** tier.
 - On the **Premium** tier, clustering must be enabled first before scaling in or out.
+- On the **Premium** tier, there is GA support for scale out up to 10 shards. Support for up to 30 shards is in preview. (For caches with two replicas, the shard limit is 20. With three replicas, shard limit is 15.)  
 - Only the **Enterprise** and **Enterprise Flash** tiers can scale up and scale out simultaneously.
 
 ## How to scale - Basic, Standard, and Premium tiers
@@ -149,7 +150,7 @@ Clustering is enabled during cache creation from the working pane, when you crea
 
     :::image type="content" source="media/cache-how-to-scale/redis-cache-clustering.png" alt-text="Screenshot showing the clustering toggle.":::
 
-    You can have up to 10 shards in the cluster. After selecting **Enable**, slide the slider or type a number between 1 and 10 for **Shard count** and select **OK**.
+    You can have up to 30 shards in the cluster. After selecting **Enable**, slide the slider or type a number between 1 and 30 for **Shard count** and select **OK**.
 
     Each shard is a primary/replica cache pair managed by Azure. The total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier.
 
@@ -175,7 +176,7 @@ To change the cluster size on a premium cache that you created earlier, and is a
 
 :::image type="content" source="media/cache-how-to-scale/redis-cache-redis-cluster-size.png" alt-text="Screenshot of working pane with Cluster size selected. ":::
 
-To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
+To change the cluster size, use the slider or type a number between 1 and 30 in the **Shard count** text box. Then, select **OK** to save.
 
 Increasing the cluster size increases max throughput and cache size. Increasing the cluster size doesn't increase the max. connections available to clients.
 

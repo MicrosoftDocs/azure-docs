@@ -9,11 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 12/16/2022
+ms.date: 12/13/2023
 ms.custom: "b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer, I want to customize the user interface of my application, so that I can provide a seamless and branded user experience for sign-up, sign-in, profile editing, and password resetting.
 ---
 
 # Customize the user interface in Azure Active Directory B2C
@@ -38,19 +40,19 @@ Azure AD B2C provide several built-in templates you can choose from to give your
 
 ### Ocean Blue
 
-Example of the Ocean Blue template rendered on sign up and sign in page:
+Example of the Ocean Blue template rendered on sign-up and sign-in page:
 
 ![Ocean Blue template screenshot](media/customize-ui/template-ocean-blue.png)
 
 ### Slate Gray
 
-Example of the Slate Gray template rendered on sign up sign in page:
+Example of the Slate Gray template rendered on sign-up sign-in page:
 
 ![Slate Gray template screenshot](media/customize-ui/template-slate-gray.png)
 
 ### Classic
 
-Example of the Classic template rendered on sign up sign in page:
+Example of the Classic template rendered on sign-up sign-in page:
 
 ![Classic template screenshot](media/customize-ui/template-classic.png)
 
@@ -58,7 +60,7 @@ Example of the Classic template rendered on sign up sign in page:
 
 You can customize your Azure AD B2C pages with a banner logo, background image, and background color by using Microsoft Entra ID [Company branding](../active-directory/fundamentals/how-to-customize-branding.md). The company branding includes signing up, signing in, profile editing, and password resetting. 
 
-The following example shows a *Sign up and sign in* page with a custom logo, background image, using Ocean Blue template:
+The following example shows a *Sign-up and sign-in* page with a custom logo, background image, using Ocean Blue template:
 
 ![Branded sign-up/sign-in page served by Azure AD B2C](media/customize-ui/template-ocean-blue-branded.png)
 
