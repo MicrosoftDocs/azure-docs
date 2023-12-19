@@ -12,7 +12,7 @@ ms.date: 12/19/2023
 
 # Request host quota for Azure VMware Solution
 
-In this article, learn how to request host quota/capacity for [Azure VMware Solution](introduction.md). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
+In this article, learn how to request host quota/capacity for [Azure VMware Solution](../azure-vmware/introduction?branch=main). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
 
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, follow the same process.
 
@@ -54,7 +54,7 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 ## Request host quota for CSP customers 
 
-CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
+CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enable Azure VMware Solution for their customers. This article uses [CSP Azure plan](https://learn.microsoft.com/partner-center/azure-plan-lp) as an example to illustrate the purchase procedure for partners.
 
 Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
 
@@ -65,17 +65,17 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
    1. In **Partner Center**, select **CSP** to access the **Customers** area.
    
-      :::image type="content" source="media/pre-deployment/csp-customers-screen.png" alt-text="Screenshot showing the Microsoft Partner Center customer area." lightbox="media/pre-deployment/csp-customers-screen.png":::
+      :::image type="content" source="media/pre-deployment/csp-customers-screen.png" alt-text="Screenshot shows the Microsoft Partner Center customer area." lightbox="media/pre-deployment/csp-customers-screen.png":::
    
    1. Select your customer and then select **Add products**.
    
-      :::image type="content" source="media/pre-deployment/csp-partner-center.png" alt-text="Screenshot showing Azure plan selected in the Microsoft Partner Center." lightbox="media/pre-deployment/csp-partner-center.png":::
+      :::image type="content" source="media/pre-deployment/csp-partner-center.png" alt-text="Screenshot shows Azure plan selected in the Microsoft Partner Center." lightbox="media/pre-deployment/csp-partner-center.png":::
    
    1. Select **Azure plan** and then select **Add to cart**. 
    
-   1. Review and finish the general setup of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](/partner-center/azure-plan-manage).
+   1. Review and finish the general setup of the Azure plan subscription for your customer. For more information, see [Microsoft Partner Center documentation](https://learn.microsoft.com/partner-center/azure-plan-manage).
 
-1. After you configure the Azure plan and you have the needed [Azure RBAC permissions](/partner-center/azure-plan-manage) in place for the subscription, you'll request the quota for your Azure plan subscription. 
+1. After you configure the Azure plan and you have the needed [Azure RBAC permissions](https://learn.microsoft.com/partner-center/azure-plan-manage) in place for the subscription, you'll request the quota for your Azure plan subscription. 
 
    1. Access Azure portal from [Microsoft Partner Center](https://partner.microsoft.com) using the **Admin On Behalf Of** (AOBO) procedure.
    
@@ -90,13 +90,13 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
       - **Resource:** General question 
       - **Summary:** Need capacity
       - **Problem type:** Capacity Management Issues
-      - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
+      - **Problem subtype:** Customer Request for more Host Quota/Capacity
    
    1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
    
       - Region Name
       - Number of hosts
-      - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
+      - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
       - Is intended to host multiple customers?
    
       >[!NOTE]
