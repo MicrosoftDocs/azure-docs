@@ -23,7 +23,7 @@ The following table outlines the regions ultra disks are available in, as well a
 | Redundancy options | Regions |
 |--------------------|---------|
 | **Single VMs** | Australia Central<br/>Brazil South<br/>Central India<br/>East Asia<br/>Germany West Central<br/>Korea Central<br/>Korea South<br/>UK West <br/>North Central US, South Central US, West US<br/>US Gov Arizona, US Gov Texas, US Gov Virginia |
-| **One availability zone** | Brazil Southeast <br/> UAE North |
+| **One availability zone** | Brazil Southeast <br/> Poland Central <br/> UAE North |
 | **Two availability zones** | South Africa North <br/> China North 3 <br/>France Central <br/>Qatar Central <br/> Switzerland North |
 | **Three availability zones** | Australia East<br/>Canada Central<br/>North Europe, West Europe<br/>Japan East<br/>Southeast Asia<br/>Sweden Central<br/>UK South<br/>Central US, East US, East US 2, West US 2, West US 3 |
 

@@ -41,15 +41,15 @@ Here are a few examples of the kinds of prompts you can use to generate Azure Re
 
 ## Examples
 
-You can Ask Microsoft Copilot for Azure (preview) to write queries with prompts like "Write a query to list my virtual machines with their public interface and public IP.
+You can Ask Microsoft Copilot for Azure (preview) to write queries with prompts like "**Write a query to list my virtual machines with their public interface and public IP.**"
 
 :::image type="content" source="media/get-information-resource-graph/azure-resource-graph-explorer-list-vms.png" alt-text="Screenshot of Microsoft Copilot for Azure responding to a request to list VMs.":::
 
-If the generated query isn't exactly what you want, you can ask Microsoft Copilot for Azure (preview) to make changes. In this example, the first prompt is "Write a KQL query to list my VMs by OS." After the query is shown, the additional prompt "Sorted alphabetically" results in a revised query that lists the OS alphabetically by name.
+If the generated query isn't exactly what you want, you can ask Microsoft Copilot for Azure (preview) to make changes. In this example, the first prompt is "**Write a KQL query to list my VMs by OS.**" After the query is shown, the additional prompt "Sorted alphabetically" results in a revised query that lists the OS alphabetically by name.
 
 :::image type="content" source="media/get-information-resource-graph/azure-resource-graph-query-refine.png" alt-text="Screenshot of Microsoft Copilot for Azure (preview) generating and then revising a query to list VMs by OS.":::
 
-You can view the generated query in Azure Resource Graph Explorer by selecting **Run**. For example, you can ask "What resources were created in the last 24 hours?" After Microsoft Copilot for Azure (preview) generates the query, select **Run** to see the query and results in Azure Resource Graph Explorer.
+You can view the generated query in Azure Resource Graph Explorer by selecting **Run**. For example, you can ask "**What resources were created in the last 24 hours?**" After Microsoft Copilot for Azure (preview) generates the query, select **Run** to see the query and results in Azure Resource Graph Explorer.
 
 :::image type="content" source="media/get-information-resource-graph/azure-resource-graph-last-24-hours.png" lightbox="media/get-information-resource-graph/azure-resource-graph-last-24-hours.png" alt-text="Screenshot showing Microsoft Copilot for Azure generating a query and showing results in Azure Resource Graph Explorer.":::
 
