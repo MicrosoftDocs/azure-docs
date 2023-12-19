@@ -53,7 +53,7 @@ To set the retention policy in a backup policy, follow these steps:
 With the new backup policy, you can [configure protection for the AKS cluster](azure-kubernetes-service-cluster-backup.md#configure-backups). Now, your backups will be stored in both Operational Tier as snapshot and in Vault Tier as blobs. The backups stored in the vault will be available in the Secondary Region (an [Azure paired region](../reliability/cross-region-replication-azure.md#azure-paired-regions)) for restore. Thus, you can use your backups against regional disaster.
 
 
-## Restore in secondary region (oreview)
+## Restore in secondary region (preview)
 
 In case of a regional outage, you can use the recovery points stored in Vault Tier in secondary region to bring back the AKS cluster. 
 
