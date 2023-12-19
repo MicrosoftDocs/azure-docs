@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 11/06/2023
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.custom: template-concept; references_regions
 ---
 

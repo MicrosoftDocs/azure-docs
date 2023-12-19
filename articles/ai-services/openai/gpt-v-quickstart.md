@@ -26,3 +26,9 @@ zone_pivot_groups: openai-quickstart-gpt-v
 [!INCLUDE [REST API quickstart](includes/gpt-v-rest.md)]
 
 ::: zone-end
+
+## Next steps
+
+* Learn more about these APIs in the [GPT-4 Turbo with Vision how-to guide](./gpt-v-quickstart.md)
+* [GPT-4 Turbo with Vision frequently asked questions](./faq.yml#gpt-4-turbo-with-vision)
+* [GPT-4 Turbo with Vision API reference](https://aka.ms/gpt-v-api-ref)
