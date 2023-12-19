@@ -29,7 +29,6 @@ Log Analytics Dedicated Clusters use a commitment tier pricing model of at least
 ## Prerequisites
 
 - Dedicated clusters require a minimum ingestion commitment of 500 GB per day.
-- To link a workspace to a dedicated cluster, you need a workspace that isn't linked to any clusters.
 - When creating a dedicated cluster, you can't name it with the same name as a cluster that was deleted within the past two weeks.
 
 ## Required permissions
@@ -40,7 +39,7 @@ To perform cluster-related actions, you need these permissions:
 |-|-|
 | Create a dedicated cluster |`Microsoft.Resources/deployments/*`and `Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
 | Change cluster properties |`Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
-| Link workspaces to a cluster | `Microsoft.OperationalInsights/clusters/write` and `Microsoft.OperationalInsights/workspaces/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
+| Link workspaces to a cluster | `Microsoft.OperationalInsights/clusters/write`, `Microsoft.OperationalInsights/workspaces/write`, and `Microsoft.OperationalInsights/workspaces/linkedservices/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example | 
 | Check workspace link status | `Microsoft.OperationalInsights/workspaces/read` permissions to the workspace, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example |
 | Get clusters or check a cluster's provisioning status | `Microsoft.OperationalInsights/clusters/read` permissions, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example | 
 | Update commitment tier or billingType in a cluster | `Microsoft.OperationalInsights/clusters/write` permissions, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |

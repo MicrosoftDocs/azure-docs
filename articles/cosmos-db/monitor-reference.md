@@ -34,6 +34,8 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **A
 | MongoRequestCharge (Mongo Request Charge) | Count (Total) |Mongo Request Units Consumed| DatabaseName, CollectionName, Region, CommandName, ErrorCode| All |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Used to monitor Mongo resource RUs in a minute.|
 | TotalRequestUnits (Total Request Units)| Count (Total) | Request Units consumed| DatabaseName, CollectionName, Region, StatusCode |All| TotalRequestUnits| Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Sum aggregation at minute interval/level and divide by 60.|
 | ProvisionedThroughput (Provisioned Throughput)| Count (Maximum) |Provisioned throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor provisioned throughput per container.|
+| AutoscaleMaxThroughput (Autoscale Max Throughput)| Count (Maximum) |Autoscale max throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor autoscale max throughput per container.|
+| PhysicalPartitionThroughputInfo (Physical Partition Throughput Info)| Count (Maximum) |Provisioned throughput at physical partition granularity| DatabaseName, ContainerName, PhysicalPartitionId, Region| 5M| | Used to monitor provisioned throughput per physical partition. If resource is autoscale, represents autoscale max RU/s per physical partition. To see provisioned throughput for all physical partitions, split by dimension Physical Partition Id.|
 
 ### Storage metrics
 
@@ -44,6 +46,7 @@ All the metrics corresponding to Azure Cosmos DB are stored in the namespace **A
 | IndexUsage (Index Usage) | Bytes (Total) |Total Index usage reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M| Index Size| Used to monitor total data usage at container and region, minimum granularity should be 5 minutes. |
 | DocumentQuota (Document Quota) | Bytes (Total) | Total storage quota reported at 5-minutes granularity per region.| DatabaseName, CollectionName, Region| 5M |Storage Capacity| Used to monitor total quota at container and region, minimum granularity should be 5 minutes.|
 | DocumentCount (Document Count) | Count (Total) |Total document count reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Document Count|Used to monitor document count at container and region, minimum granularity should be 5 minutes.|
+| PhysicalPartitionSizeInfo (Physical Partition Size Info) | Count (Maximum) | Storage at physical partition granularity| DatabaseName, ContainerName, PhysicalPartitionId, Region| 5M | |Used to monitor physical partition size (bytes) at physical partition granularity. To see storage for all physical partitions, split by dimension Physical Partition Id.|
 
 ### Latency metrics
 
