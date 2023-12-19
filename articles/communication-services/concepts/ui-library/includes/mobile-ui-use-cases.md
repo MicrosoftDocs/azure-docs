@@ -85,19 +85,14 @@ UI Library provides the capability to join a call skipping the setup screen of t
 
 UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature](../../../how-tos/ui-library-sdk/orientation.md)
 
-### Picture-in-Picture (Beta)
-While being in the call, user is presented with full screen UI, which prevents user from multitasking in the App while still on the call.
-
-There are two ways to enable user to multitask in the App:
-- Enabling multitasking - user is able to click Back button which takes user back to the preivious screen. No Calling UI is visible to user while still on the call.
-- Enable Picute-in-Picture, in additions, will display a system Picute-in-Picture with ougoing call. Please note PiP is using system provided PiP feature and is a subject of the feature support on the device, CPU load, RAM availability, battery state etc.
+### Multitasking and Picture-in-Picture (Beta)
+UI Library supports picture in picture mode for call screen. While being in the call, user can click back button on call screen to enable multitasking which will take user back to previous screen. If Picture-in-Picture is enabled, a system Picture-in-Picture will be displayed for call. To learn more about the multitasking and Picture-in-Picture for both Android and iOS platform and usage of the API, see [How to use Picture-in-Picture](../../../how-tos/ui-library-sdk/multitasking.md)
 
 ### CallKit Support (Beta)
-CallKit Integration in the Azure Communication Services iOS SDK handles interaction with CallKit for us. 
+UI Library supports CallKit Integration to handles interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit](../../../how-tos/ui-library-sdk/callkit.md)
 
-### One-to-one call (Beta)
-A one-to-one call on Azure Communication Services happens when one of your users connects to another user using one of our SDKs. The call can be either VoIP or PSTN.
-
+### One-to-one call and PUSH Notification (Beta)
+UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications](../../../how-tos/ui-library-sdk/onetoonecall.md)
 
 ## Chat use cases
 
