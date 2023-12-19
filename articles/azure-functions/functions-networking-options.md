@@ -212,7 +212,7 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 ### Premium plan with virtual network triggers
 
-When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Runtime Scale Monitoring** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
+The Premium plan supports functions that are triggered by services inside a virtual network. These non-HTTP triggers are known as virtual network triggers. To enable dynamic scaling for function apps triggered by them, the **Runtime Sclae Monitoring** setting must be turned on. The setting can be found in the [Azure Portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -237,9 +237,9 @@ $Resource | Set-AzResource -Force
 ---
 
 > [!TIP]
-> Enabling virtual network triggers may have an impact on the performance of your application since your App Service plan instances will need to monitor your triggers to determine when to scale. This impact is likely to be very small.
+> Enabling virtual network triggers may have an impact on the performance of your application since your App Service plan instances monitor your triggers to determine when to scale. Though, this impact is likely to be very small.
 
-Virtual network triggers are supported in version 2.x and above of the Functions runtime. The following non-HTTP trigger types are supported.
+Virtual network triggers are supported in Functions runtime version 2.x and above. The table below contains the non-HTTP trigger types that are supported. We recommend upgrading to versions that also support [target-based scaling](functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled) to get the best scaling performance.
 
 | Extension | Minimum version |
 |-----------|---------| 
