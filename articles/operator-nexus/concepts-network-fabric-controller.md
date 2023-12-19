@@ -11,8 +11,6 @@ ms.topic: conceptual
 
 # Network Fabric Controller overview
 
-## What is Network Fabric Controller?
-
 The Network Fabric Controller (NFC) is an Azure resource that allows customers to establish on-premises network infrastructure and workloads using Azure within an Azure region. The NFC acts as a conduit, connecting the Azure control plane to your on-site network hardware, such as routers, switches, and storage appliances. It enables network functions like virtualization, firewall, and gateway, while also facilitating seamless management and configuration of your network infrastructure. Its main role is to manage multiple Network Fabric (NF) instances connected to Nexus on-premises instances. This setup allows for structured grouping of NF instances within a designated Azure region. Additionally, NFC can be used to establish and modify configurations for Network Fabrics, Isolation Domains, Network Racks, and Network Devices within each Azure Operator Nexus instance.
 
 The NFC is responsible for bootstrapping and managing network fabric instances. These NF instances are connected to the NFC through redundant ExpressRoute circuits. These circuits are linked to the management VPN, which is exclusively provided by the operator for management purposes. You can manage the lifecycle of a Network Fabric Controller through Azure using supported interfaces like Azure CLI and REST API. For example, you can create an NFC using Azure Command Line Interface (AzureCLI) and also check its status or delete it.
@@ -22,7 +20,7 @@ An NFC is a crucial component of the Azure Operator Nexus solution, a service th
 - Manage the network fabric, which comprises physical network devices like CE routers, Top of the Rack switches, Management Switches, Network Packet Broker devices, Terminal Servers, and storage appliances.
 - Enable essential network functions, including virtualization, firewall, and gateway, which provide services and security at the logical layer of the network.
 
-## Functionality
+## Key capabilities of Network Fabric Controller
 
 The Network Fabric Controller (NFC) plays a critical role in managing network fabric instances in the following ways:
 
@@ -59,12 +57,12 @@ To create an NFC, you must provide the following attributes:
     * Azure ARC resources
     * Virtual Networks
 
-:::image type="content" source="media/nfc-call-flow.png" alt-text="A four-step flowchart for creating a Network Fabric Controller in Azure, detailing the progression from user request to successful creation with associated Azure resources.":::
+:::image type="content" source="media/network-fabric-controller-call-flow.png" alt-text="A four-step flowchart for creating a Network Fabric Controller in Azure, detailing the progression from user request to successful creation with associated Azure resources.":::
 
-:::image type="content" source="media/nfc-architecture.png" alt-text="A schematic of Azure's network architecture showing the Azure Resource Manager, Nexus Network Fabric RP, and a detailed Network Fabric Controller with management components. Below is a Nexus Instance connected to infrastructure and workload VPNs.":::
+:::image type="content" source="media/network-fabric-controller-architecture.png" alt-text="A flowchart for creating a Network Fabric Controller in Azure, detailing the progression from user request to the associated Azure resources.":::
 
 ## Payload examples
-Createa a Network Fabric Controller:
+Create a a Network Fabric Controller:
 
  ```azurecli
     az networkfabric controller create \
@@ -99,15 +97,15 @@ az networkfabric controller delete --resource-group "NFCResourceGroupName" --res
 ```
 ## Portal examples
 
-:::image type="content" source="media/nfc-portal-1.png" alt-text="A screenshot of the Azure portal interface showing the overview of a Network Fabric Controller named 'nfc01', with a focus on the 'Properties' section highlighted in red, indicating the successful provisioning of the standard SKU.":::
+:::image type="content" source="media/network-fabric-controller-portal-1.png" alt-text="A screenshot of the Azure portal interface showing the overview of a Network Fabric Controller.":::
 
 Network Fabrics that are associated with Network Fabric Controller:
 
-:::image type="content" source="media/nfc-portal-2.png" alt-text="A screenshot of the Azure portal interface highlighting the 'Network Fabrics' section of a Network Fabric Controller's properties page, with a provisioning state of 'Succeeded' and SKU listed as 'Standard'.":::
+:::image type="content" source="media/network-fabric-controller-portal-2.png" alt-text="A screenshot of the Azure portal interface highlighting the 'Network Fabrics' section of a Network Fabric Controller's properties page.":::
 
 Managed Resource Group:
 
-:::image type="content" source="media/nfc-portal-3.png" alt-text="A screenshot from the Azure portal showing the resource group 'nfc01-HostedResources-106DF6AD' with a list of resources such as network fabrics, connections, and cloud infrastructures. It indicates a successful deployment in the East US location.":::
+:::image type="content" source="media/network-fabric-controller-portal-3.png" alt-text="A screenshot from the Azure portal showing a successful deployment in the East US location.":::
 
 ## Provisioned NFC's JSON
 ```json
@@ -163,7 +161,7 @@ Managed Resource Group:
 ```
 Activity log:
 
-:::image type="content" source="media/nfc-activity-log.png" alt-text="A screenshot of the Azure portal displaying the 'Activity log' for the resource group 'op2labnfc01-HostedResources-106DF6AD'. The log records various 'Update' and 'List' operations related to cluster resources, all marked as 'Succeeded', with timestamps and initiated by 'K8 Bridge' and 'KCS-UserRP'.":::
+:::image type="content" source="media/network-fabric-controller-activity-log.png" alt-text="A screenshot of the Azure portal displaying the 'Activity log' for the resource group.":::
 
 ## FAQs on Network Fabric Controller (NFC) Setup and Management
 
