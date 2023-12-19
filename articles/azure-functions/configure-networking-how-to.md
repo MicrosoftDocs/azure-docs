@@ -37,7 +37,7 @@ Use Bicep or Azure Resource Manager (ARM) [quickstart templates](https://github.
 
 When you have an existing function app, you can't directly secure the storage account currently being used by the app. You must instead swap-out the existing storage account for a new, secured storage account.
 
-As a pre-requisite, you'll need to enable virtual network integration for your function app.
+As a prerequisite, you need to enable virtual network integration for your function app.
 
 1. Choose a function app with a storage account that doesn't have service endpoints or private endpoints enabled.
 
@@ -51,15 +51,15 @@ Set up a secured storage account for your function app:
 
 1. Secure the new storage account in one of the following ways:
 
-    * [Create a private endpoint](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint). When using private endpoint connections, the storage account must have private endpoints for the `file` and `blob` subresources. For Durable Functions, you must also make `queue` and `table` subresources accessible through private endpoints. Ensure that your function app has access to the virtual network containing the private endpoints. 
+    * [Create a private endpoint](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint). When you set up private endpoint connections, create private endpoints for the `file` and `blob` subresources. For Durable Functions, you must also make `queue` and `table` subresources accessible through private endpoints. Double check that your function app has access to the virtual network containing the private endpoints. 
 
-    * [Restrict traffic to specific subnets](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Ensure that one of the allowed subnets is the one which your function app is network integrated with. Double check that the subnet has a service endpoint to Microsoft.Storage.
+    * [Restrict traffic to specific subnets](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Ensure that one of the allowed subnets is the one your function app is network integrated with. Double check that the subnet has a service endpoint to Microsoft.Storage.
 
-1. Copy the file and blob content from the current storage account used by the function app to the newly secured storage account and file share. [AzCopy](../storage/common/storage-use-azcopy-blobs-copy) and [Azure Storage Explorer](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-tips-and-tricks-how-to-move-azure-storage-blobs-between/ba-p/3545304) are common methods. If you use Azure Storage Explorer, you may need to whitelist your client IP address
+1. Copy the file and blob content from the current storage account used by the function app to the newly secured storage account and file share. [AzCopy](../storage/common/storage-use-azcopy-blobs-copy) and [Azure Storage Explorer](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-tips-and-tricks-how-to-move-azure-storage-blobs-between/ba-p/3545304) are common methods. If you use Azure Storage Explorer, you may need to allow your client IP address into your storage account's firewall. 
 
-1. Copy the connection string for this storage account. You'll need this for later.
+1. Copy the connection string for this storage account. You need this string for later.
 
-Now you are ready to configure your function app to communicate with your secured storage account:
+Now you're ready to configure your function app to communicate with your secured storage account:
 
 1. [Enable content share routing](../app-service/configure-vnet-integration-routing#content-share) to have your function app communicate with your storage account through its virtual network. 
 
