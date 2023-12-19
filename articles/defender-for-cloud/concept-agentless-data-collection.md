@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 12/17/2023
+ms.date: 12/19/2023
 ms.custom: template-concept
 ---
 
@@ -37,18 +37,26 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 
 :::image type="content" source="media/concept-agentless-data-collection/agentless-scanning-process.png" alt-text="Diagram of the process for collecting operating system data through agentless scanning.":::
 
-## Agentless malware scanning
+## Agentless malware scanning (Preview)
 
 Defender for Cloud's agentless malware scanning for VM, utilizes Defender for Endpoint anti-virus engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts that allow you to investigate any detected threats.  
+
+Agentless malware scanning afford many benefits that are often missed by using an agent based scanner alone. With an agentless scanner, you no longer need to worry about the gap in time that takes place between a device being deployed by a security agent to the time the workload owners onboards the agent to every device that is added to an environment. You no longer need to worry about vulnerabilities that may exist in files and folders that were exempted by resource owners due to the fear of performance impact on their machines. Agentless scanning doesn't have an effect on your machines performance because the scan takes place in the cloud.
+
+By combining the benefits of both the agent-based scanner along with the agentless scanner you are afforded the benefits of both services and covering the gap that is often created when an agent-based system is used alone.
 
 | Benefits of agent-based malware scanning | Benefits of agentless malware scanning |
 |--|--|
 | Real time protection | Frictionless onboarding |
 | Behavioral analysis and response | Results within hours |
-| Remediation and response capabilities | No effect on performance |
-| - | No presence on the machine |
+| Remediation and response capabilities | No effect on performance due to no presence on the machine |
+| Threat detection | No dependency on workload owners|
+|-| No limitation due to incompatible operating systems or machines |
 
-By combining agent-based and agentless scanning, y
+Defender for Cloud's utilizes the same malware scanner as Microsoft Defender for Endpoint. The scanner performs daily quick scans, weekly full scans, heuristic and signature based threat detection, signature updates, cloud protection and more. once a scan completes, and detected threats are sent to the Security alerts page where they cam be [managed and remediated](managing-and-responding-alerts.md). You can also [export security alerts to Sentinel](export-to-siem.md).
+
+Learn how to [enable agentless scanning for VMs](enable-agentless-scanning-vms.md).
+
 
 ## Next steps
 

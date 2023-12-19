@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Servers plan in Mi
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 06/11/2023
+ms.date: 12/19/2023
 ---
 
 # Defender for Servers support
@@ -36,20 +36,21 @@ Validate the following endpoints are configured for outbound access so that Azur
 
 This table summarizes Azure cloud support for Defender for Servers features.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**<br/>**21Vianet**
+| **Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**<br/>**21Vianet** |
 --- | --- | --- | ---
-[Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
-[Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA
-[Microsoft Cloud Security Benchmark recommendations for OS hardening](apply-security-baseline.md) | GA | GA | GA
-[VM vulnerability scanning-agentless](concept-agentless-data-collection.md) | GA | NA | NA
-[VM vulnerability scanning - Microsoft Defender for Endpoint sensor](deploy-vulnerability-assessment-defender-vulnerability-management.md) | GA | NA | NA
-[VM vulnerability scanning - Qualys](deploy-vulnerability-assessment-vm.md) | GA | NA | NA
-[Just-in-time VM access](./just-in-time-access-usage.md) | GA | GA | GA
-[File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA
-[Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
-[Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA
-[Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA 
-[Agentless secret scanning](secret-scanning.md) | GA | NA | NA
+| [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA |
+| [Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA |
+| [Microsoft Cloud Security Benchmark recommendations for OS hardening](apply-security-baseline.md) | GA | GA | GA |
+| [VM vulnerability scanning-agentless](concept-agentless-data-collection.md) | GA | NA | NA |
+| [VM vulnerability scanning - Microsoft Defender for Endpoint sensor](deploy-vulnerability-assessment-defender-vulnerability-management.md) | GA | NA | NA |
+| [VM vulnerability scanning - Qualys](deploy-vulnerability-assessment-vm.md) | GA | NA | NA |
+| [Just-in-time VM access](./just-in-time-access-usage.md) | GA | GA | GA |
+| [File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA |
+| [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA |
+| [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA |
+| [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA |
+| [Agentless secret scanning](secret-scanning.md) | GA | NA | NA |
+| [Agentless malware scanning](agentless-malware-scanning.md) | Preview | NA | NA | 
 
 ## Windows machine support
 
