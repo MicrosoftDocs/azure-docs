@@ -4720,7 +4720,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/insights/container-insights-agent-config.md",
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-agent-config.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-configmap-config",
             "redirect_document_id": false
         },
