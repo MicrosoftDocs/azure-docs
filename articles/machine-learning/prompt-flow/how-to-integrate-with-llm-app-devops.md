@@ -16,7 +16,7 @@ ms.date: 11/02/2023
 
 # Integrate prompt flow with LLM-based application DevOps
 
-In this article, you'll learn about the integration of prompt flow with LLM-based application DevOps in Azure Machine Learning. Prompt flow offers a developer-friendly and easy-to-use code-first experience for flow developing and iterating with your entire LLM-based application development workflow.
+In this article, you learn about the integration of prompt flow with LLM-based application DevOps in Azure Machine Learning. Prompt flow offers a developer-friendly and easy-to-use code-first experience for flow developing and iterating with your entire LLM-based application development workflow.
 
 It provides an **prompt flow SDK and CLI**, an **VS code extension**, and the new UI of **flow folder explorer** to facilitate the local development of flows, local triggering of flow runs and evaluation runs, and transitioning flows from local to cloud (Azure Machine Learning workspace) environments.
 
@@ -49,10 +49,10 @@ Overview of the flow folder structure and the key files it contains:
 - **flow.dag.yaml**: This primary flow definition file, in YAML format, includes information about inputs, outputs, nodes, tools, and variants used in the flow. It's integral for authoring and defining the prompt flow.
 - **Source code files (.py, .jinja2)**: The flow folder also includes user-managed source code files, which are referred to by the tools/nodes in the flow.
     - Files in Python (.py) format can be referenced by the python tool for defining custom python logic.
-    - Files in Jinja2 (.jinja2) format can be referenced by the prompt tool or LLM tool for defining prompt context.
-- **Non-source files**: The flow folder can also contain non-source files such as utility files and data files that can be included in the source files.
+    - Files in Jinja 2 (.jinja2) format can be referenced by the prompt tool or LLM tool for defining prompt context.
+- **Non-source files**: The flow folder can also contain nonsource files such as utility files and data files that can be included in the source files.
 
-Once the flow is created, you can navigate to the Flow Authoring Page to view and operate the flow files in the right file explorer. This allows you to view, edit, and manage your files. Any modifications made to the files will be directly reflected in the file share storage.
+Once the flow is created, you can navigate to the Flow Authoring Page to view and operate the flow files in the right file explorer. This allows you to view, edit, and manage your files. Any modifications made to the files are directly reflected in the file share storage.
 
 :::image type="content" source="./media/how-to-integrate-with-llm-app-devops/flow-file-explorer.png" alt-text="Screenshot of standard flow highlighting the files explorer. " lightbox = "./media/how-to-integrate-with-llm-app-devops/flow-file-explorer.png":::
 
@@ -68,7 +68,7 @@ Alternatively, you can access all the flow folders directly within the Azure Mac
 
 ## Versioning prompt flow in code repository
 
-To check in your flow into your code repository, you can easily export the flow folder from the flow authoring page to your local system. This will download a package containing all the files from the explorer to your local machine, which you can then check into your code repository.
+To check in your flow into your code repository, you can easily export the flow folder from the flow authoring page to your local system. This downloads a package containing all the files from the explorer to your local machine, which you can then check into your code repository.
 
 :::image type="content" source="./media/how-to-integrate-with-llm-app-devops/flow-export.png" alt-text="Screenshot of showing the download button in the file explorer." lightbox = "./media/how-to-integrate-with-llm-app-devops/flow-export.png":::
 
@@ -102,7 +102,6 @@ import json
 
 # Import required libraries
 from azure.identity import DefaultAzureCredential, InteractiveBrowserCredential
-from azure.ai.ml import MLClient
 
 # azure version promptflow apis
 from promptflow.azure import PFClient
@@ -116,10 +115,10 @@ except Exception as ex:
     # Fall back to InteractiveBrowserCredential in case DefaultAzureCredential not work
     credential = InteractiveBrowserCredential()
 
-# Get a handle to workspace
-ml_client = MLClient.from_config(credential=credential)
-
-pf = PFClient(ml_client)
+# Get a handle to workspace, it will use config.json in current and parent directory.
+pf = PFClient.from_config(
+    credential=credential,
+)
 ```
 
 ---
@@ -137,7 +136,15 @@ column_mapping:
   url: ${data.url}
 
 # define cloud resource
-runtime: <runtime_name>
+# if omitted, it will use the automatic runtime, you can also specify the runtime name, specify automatic will also use the automatic runtime.
+runtime: <runtime_name> 
+
+
+# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# resources:
+#   instance_type: <instance_type>
+
+# overrides connections 
 connections:
   classify_with_llm:
     connection: <connection_name>
@@ -147,7 +154,7 @@ connections:
     deployment_name: <deployment_name>
 ```
 
-You can specify the connection and deployment name for each tool in the flow. If you don't specify the connection and deployment name, it will use the one connection and deployment on the `flow.dag.yaml` file. To format of connections:
+You can specify the connection and deployment name for each tool in the flow. If you don't specify the connection and deployment name, it uses the one connection and deployment on the `flow.dag.yaml` file. To format of connections:
 
 ```yaml
 ...
@@ -170,8 +177,13 @@ pfazure run create --file run.yml
 flow = "<path_to_flow>"
 data = "<path_to_flow>/data.jsonl"
 
+
 # define cloud resource
 runtime = <runtime_name>
+# define instance type
+# resources = {"instance_type": <instance_type>}
+
+# overrides connections 
 connections = {"classify_with_llm":
                   {"connection": <connection_name>,
                   "deployment_name": <deployment_name>},
@@ -183,7 +195,8 @@ connections = {"classify_with_llm":
 base_run = pf.run(
     flow=flow,
     data=data,
-    runtime=runtime, 
+    runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
     column_mapping={
         "url": "${data.url}"
     }, 
@@ -209,7 +222,15 @@ column_mapping:
   prediction: ${run.outputs.category}
 
 # define cloud resource
-runtime: <runtime_name>
+# if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+runtime: <runtime_name> 
+
+
+# define instance type only work for automatic runtime, will be ignored if you specify the runtime name.
+# resources:
+#   instance_type: <instance_type>
+
+# overrides connections 
 connections:
   classify_with_llm:
     connection: <connection_name>
@@ -233,6 +254,10 @@ data = "<path_to_flow>/data.jsonl"
 
 # define cloud resource
 runtime = <runtime_name>
+# define instance type
+# resources = {"instance_type": <instance_type>}
+
+# overrides connections 
 connections = {"classify_with_llm":
                   {"connection": <connection_name>,
                   "deployment_name": <deployment_name>},
@@ -250,7 +275,8 @@ eval_run = pf.run(
         "groundtruth": "${data.answer}",
         "prediction": "${run.outputs.category}",
     },
-    runtime=runtime,
+    runtime=runtime, # if omitted, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+#    resources = resources, # only work for automatic runtime, will be ignored if you specify the runtime name.
     connections=connections
 )
 ```
@@ -329,7 +355,7 @@ To use the extension:
 1. Open a prompt flow folder in VS Code Desktop.
 2. Open the ```flow.dag.yaml`` file in notebook view.
 3. Use the visual editor to make any necessary changes to your flow, such as tune the prompts in variants, or add more tools.
-4. To test your flow, select the **Run Flow** button at the top of the visual editor. This will trigger a flow test.
+4. To test your flow, select the **Run Flow** button at the top of the visual editor. This triggers a flow test.
 
 :::image type="content" source="./media/how-to-integrate-with-llm-app-devops/run-flow-visual-editor.png" alt-text="Screenshot of VS Code showing running the flow in the visual editor. " lightbox = "./media/how-to-integrate-with-llm-app-devops/run-flow-visual-editor.png":::
 
@@ -427,7 +453,7 @@ The introduction of the prompt flow **SDK/CLI** and the **Visual Studio Code Ext
 
     - The first step of this collaborative process involves using a code repository as the base for your project code, which includes the prompt flow code. 
         - This centralized repository enables efficient organization, tracking of all code changes, and collaboration among team members.
-    - Once the repository is set up, team members can leverage the VSC extension for local authoring and single input testing of the flow.
+    - Once the repository is set up, team members can use the VSC extension for local authoring and single input testing of the flow.
         - This standardized integrated development environment fosters collaboration among multiple members working on different aspects of the flow.
         :::image type="content" source="media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png" alt-text="Screenshot of local development. " lightbox = "media/how-to-integrate-with-llm-app-devops/prompt-flow-local-develop.png":::
 1. Cloud-based experimental batch testing and evaluation - prompt flow CLI/SDK and workspace portal UI
@@ -441,7 +467,7 @@ The introduction of the prompt flow **SDK/CLI** and the **Visual Studio Code Ext
         :::image type="content" source="media/how-to-integrate-with-llm-app-devops/cloud-run-list.png" alt-text="Screenshot of run list in workspace. " lightbox = "media/how-to-integrate-with-llm-app-devops/cloud-run-list.png":::
         :::image type="content" source="media/how-to-integrate-with-llm-app-devops/cloud-run-compare.png" alt-text="Screenshot of run comparison in workspace. " lightbox = "media/how-to-integrate-with-llm-app-devops/cloud-run-compare.png":::
 1. Local iterative development or one-step UI deployment for production
-    - Following the analysis of experiments, team members can return to the code repository for additional development and fine-tuning. Subsequent runs can then be submitted to the cloud in an iterative manner. 
+    - Following the analysis of experiments, team members can return to the code repository for another development and fine-tuning. Subsequent runs can then be submitted to the cloud in an iterative manner. 
         - This iterative approach ensures consistent enhancement until the team is satisfied with the quality ready for production.
     - Once the team is fully confident in the quality of the flow, it can be seamlessly deployed via a UI wizard as an online endpoint in Azure Machine Learning. Once the team is entirely confident in the flow's quality, it can be seamlessly transitioned into production via a UI deploy wizard as an online endpoint in a robust cloud environment.
         - This deployment on an online endpoint can be based on a run snapshot, allowing for stable and secure serving, further resource allocation and usage tracking, and log monitoring in the cloud.

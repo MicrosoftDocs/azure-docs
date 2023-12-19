@@ -79,7 +79,7 @@ Alternately, you can also use the [EICAR](https://www.eicar.org/download-anti-ma
 After the Microsoft Defender for Endpoint agent is installed on your machine, as part of Defender for Servers integration, follow these steps from the machine where you want to be the attacked resource of the alert:
 
 1. Open a Terminal window, copy and run the following command:
-`curl -o ~/Downloads/eicar.com.txt`
+`curl -O https://secure.eicar.org/eicar.com.txt`
 
 1. The Command Prompt window closes automatically. If successful, a new alert should appear in Defender for Cloud Alerts blade in 10 minutes.
 

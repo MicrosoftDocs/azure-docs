@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: container-registry
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Audit compliance of Azure container registries using Azure Policy

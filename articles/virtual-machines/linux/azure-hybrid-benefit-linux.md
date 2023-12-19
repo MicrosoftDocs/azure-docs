@@ -2,7 +2,7 @@
 title: Azure Hybrid Benefit for Linux virtual machines
 description: Learn how Azure Hybrid Benefit can save you money on Linux virtual machines.
 services: virtual-machines
-author: Dhiraj3030
+author: vvarshney06
 manager: gachandw
 ms.service: virtual-machines
 ms.subservice: billing
@@ -10,7 +10,7 @@ ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/02/2023
-ms.author: dkulkarni
+ms.author: vvarshney
 ms.reviewer: mattmcinnes
 ms.custom: kr2b-contr-experiment, devx-track-linux, devx-track-azurecli
 ---
@@ -124,7 +124,7 @@ You can view the Azure Hybrid Benefit status of a virtual machine by using the A
    az vm get-instance-view -g MyResourceGroup -n MyVm
    ```
 
-1. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the following, your virtual machine has Azure Hybrid Benefit enabled:
+1. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the following, your virtual machine does not have Azure Hybrid Benefit enabled:
 
    - For RHEL: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
    - For SLES: `SLES`, `SLES_SAP`, or `SLES_HPC`

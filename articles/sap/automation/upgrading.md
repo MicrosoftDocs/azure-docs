@@ -190,7 +190,33 @@ You can also configure the Azure DevOps agent to perform the sign-in to Azure by
 
 | Name             | Value                                        |
 | ---------------- | -------------------------------------------- |
-| Logon_Using_SPN  | True                                         |
+| Logon_Using_SPN  | true                                         |
+
+### Upgrading Terraform on the agents
+
+You can upgrade Terraform on the agents by running the following script:
+
+```bash
+
+tfversion="1.6.5"
+
+# Terraform installation directories
+tf_base=/opt/terraform
+tf_dir="${tf_base}/terraform_${tfversion}"
+tf_bin="${tf_base}/bin"
+tf_zip="terraform_${tfversion}_linux_amd64.zip"
+
+#
+# Install terraform for all users
+#
+sudo mkdir -p \
+    "${tf_dir}" \
+    "${tf_bin}"
+wget -nv -O /tmp/"${tf_zip}" "https://releases.hashicorp.com/terraform/${tfversion}/${tf_zip}"
+sudo unzip -o /tmp/"${tf_zip}" -d "${tf_dir}"
+sudo ln -vfs "../$(basename "${tf_dir}")/terraform" "${tf_bin}/terraform"
+
+```
 
 ## Upgrade the workload zone
 
@@ -222,7 +248,7 @@ You can also configure the Azure DevOps agent to perform the sign-in to Azure by
 
 | Name             | Value                                        |
 | ---------------- | -------------------------------------------- |
-| Logon_Using_SPN  | True                                         |
+| Logon_Using_SPN  | true                                         |
 
 ## Next step
 
