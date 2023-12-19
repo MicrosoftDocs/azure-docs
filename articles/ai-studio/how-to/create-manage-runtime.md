@@ -112,7 +112,7 @@ If you want to use private feed in Azure DevOps, add the Managed Identity in the
 > [!NOTE]
 >  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
 
-You need add `{private}` to your private feed url. Such as if you want to install `test_package` from `test_feed` in Azure devops, you need add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
 
 ```txt
 -i https://{private}@{test_feed_url_in_azure_devops}
