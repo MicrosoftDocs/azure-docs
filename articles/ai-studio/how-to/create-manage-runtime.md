@@ -20,7 +20,34 @@ In Azure AI Studio, you can create and manage prompt flow runtimes. You need a r
 
 Prompt flow runtime has the computing resources required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, the runtime is also utilized to validate and ensure the accuracy and functionality of the tools incorporated within the flow, when you make updates to the prompt or code content.
 
+We support following types of runtimes:
+
+|Runtime type|Underlying compute type|Life cycle management|Customize environment              |
+|------------|----------------------|---------------------|---------------------|
+|automatic runtime        |Serverless compute| Automatically | Customized by image + requirements.txt in `flow.dag.yaml`|
+|Compute instance runtime | Compute instance | Manually | Manually via Azure Machine Learning environment|
+
+For new users, we would recommend using the automatic runtime  that can be used out of box, and you can easily customize the environment by adding packages in `requirements.txt` file in `flow.dag.yaml` in flow folder. For  users, who already familiar with compute instance, your can use existing compute instance to build your compute instance runtime.
+
 ## Create a runtime
+
+### Create automatic runtime in flow page
+
+Automatic is the default option for runtime, you can start automatic runtime in runtime dropdown in flow page. 
+
+> [!IMPORTANT]
+> Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+1. Start creates automatic runtime using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the project.
+
+    :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow on the start automatic with default settings on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::    
+
+2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it's used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we use user identity as default. Learn more about [how to create update user assigned identities to project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+
+    :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow on the start automatic with advanced setting on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::    
+
+### Create compute instance runtime in runtime page
 
 A runtime requires a compute instance. If you don't have a compute instance, you can [create one in Azure AI Studio](./create-manage-compute.md).
 
@@ -64,6 +91,38 @@ To create a prompt flow runtime in Azure AI Studio:
 
 
 ## Update runtime from UI
+
+### Update automatic runtime in flow page
+
+You can operation automatic runtime in flow page. Here are options you can use:
+- Install packages, this triggers the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install.
+- Reset, will delete current runtime and create a new one with the same environment. If you encounter package conflict issue, you can try this option.
+- Edit, will open runtime config page, you can define the VM side and idle time for the runtime.
+- Stop, will delete current runtime. If there's no active runtime on underlining compute, compute resource will also be deleted.
+
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions on automatic runtime on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
+
+You can also customize environment used to run this flow. 
+
+- You can easily customize the environment by adding packages in `requirements.txt` file in flow folder. After you add more packages in this file, you can choose either save and install or save only. Save and install will trigger the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install. Save only will only save the `requirements.txt` file, you can install the packages later by yourself.
+
+    :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+
+#### Add packages in private feed in Azure DevOps
+
+If you want to use private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
+
+> [!NOTE]
+>  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
+
+You need add `{private}` to your private feed url. Such as if you want to install `test_package` from `test_feed` in Azure devops, you need add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+
+```txt
+-i https://{private}@{test_feed_url_in_azure_devops}
+test_package
+```
+
+### Update compute instance runtime in runtime page
 
 Azure AI Studio gets regular updates to the base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. You should periodically update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list) to get the best experience and performance.
 
