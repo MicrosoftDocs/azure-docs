@@ -128,7 +128,10 @@ You can also customize environment used to run this flow.
 
 #### Add packages in private feed in Azure devops
 
-If you want to use private feed in Azure devops, please add the Managed Identity in the Azure DevOps organization. (Note: If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.) To learn more, see [Use service principals & managed identities](/devops/integrate/get-started/authentication/service-principal-managed-identity)
+If you want to use private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
+
+> [!NOTE]
+>  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
 
 You need add `{private}` to your private feed url. Such as if you want to install `test_package` from `test_feed` in Azure devops, you need add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
 
