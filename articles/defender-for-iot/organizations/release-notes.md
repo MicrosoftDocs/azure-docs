@@ -107,7 +107,7 @@ To understand whether a feature is supported in your sensor version, check the r
 
 This version includes the following updates and enhancements:
 
-- [Create alert suppression rules on the Azure portal](how-to-accelerate-alert-incident-response.md#create-alert-suppression-rules-on-the-azure-portal-preview)
+- [Create alert suppression rules on the Azure portal](how-to-accelerate-alert-incident-response.md#create-alert-suppression-rules-on-the-azure-portal-public-preview)
 
 ## Versions 23.1.x
 

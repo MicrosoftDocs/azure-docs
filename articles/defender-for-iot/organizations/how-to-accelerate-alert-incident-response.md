@@ -48,7 +48,7 @@ Configure your OT sensors to suppress alerts for specific traffic on your networ
 - For locally managed sensors, create alert exclusion rules on the on-premises management console, either using the UI or the API.
 
 > [!IMPORTANT]
-> Rules configured on the Azure portal override any rules configured for the same sensor on the on-premises management console. If you're currently using alert exclusion rules on your on-premises management console, we recommend that you [migrate them to the Azure portal](#migrate-rules-from-an-on-premises-management-console-public-preview) as suppression rules before you start.
+> Rules configured on the Azure portal override any rules configured for the same sensor on the on-premises management console. If you're currently using alert exclusion rules on your on-premises management console, we recommend that you [migrate them to the Azure portal](#migrate-suppression-rules-from-an-on-premises-management-console-public-preview) as suppression rules before you start.
 >
 ### Create alert suppression rules on the Azure portal (Public Preview)
 
