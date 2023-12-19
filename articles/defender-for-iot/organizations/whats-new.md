@@ -238,7 +238,7 @@ In new sensor installations of version 23.1.2, only the privileged *support* use
 In sensors that have been updated from previous versions to 23.1.2, the *cyberx* and *cyberx_host* users remain enabled as before.
 
 > [!TIP]
-> To run CLI commands that are available only to the *cyberx* or *cyberx_host* users when signed in as the *support* user, make sure to first access the host machine's system root. For more information, see [Access the system root as a *support* user](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-a-support-user).
+> To run CLI commands that are available only to the *cyberx* or *cyberx_host* users when signed in as the *support* user, make sure to first access the host machine's system root. For more information, see [Access the system root as an *admin* user](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user).
 
 ### Migrate to site-based licenses
 
