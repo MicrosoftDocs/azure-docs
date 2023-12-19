@@ -4,7 +4,7 @@ description: Learn how to request host quota/capacity for Azure VMware Solution.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.service: azure-vmware
-ms.date: 06/20/2023
+ms.date: 12/19/2023
 
 #Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
 
@@ -12,16 +12,16 @@ ms.date: 06/20/2023
 
 # Request host quota for Azure VMware Solution
 
-In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
+In this article, learn how to request host quota/capacity for [Azure VMware Solution](introduction.md). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
 
-If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
+If you have an existing Azure VMware Solution private cloud and want more hosts allocated, follow the same process.
 
 >[!IMPORTANT]
 > It can take up to five business days to allocate the hosts, depending on the number requested. Therefore, request what you need for provisioning to avoid the delays associated with making additional quota increase requests.
 
 ## Eligibility criteria
 
-You'll need an Azure account in an Azure subscription that adheres to one of the following criteria:
+You need an Azure account in an Azure subscription that adheres to one of the following criteria:
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
@@ -43,7 +43,7 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
    - Region Name
    - Number of hosts
    - Host SKU type
-   - Any other details, including Availability Zone requirements for integrating with other Azure services (e.g. Azure NetApp Files, Azure Blob Storage)
+   - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
 
    >[!NOTE]
    > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
