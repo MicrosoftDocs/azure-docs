@@ -9,7 +9,7 @@ ms.custom: engagement-fy23
 
 # Save costs with Azure VMware Solution
 
-When you commit to a reserved instance of [Azure VMware Solution](../azure-vmware/introduction?branch=main), you save money. The reservation discount automatically applies to the running Azure VMware Solution hosts that match the reservation scope and attributes. In addition, a reserved instance purchase covers only the compute part of your usage and includes software licensing costs.
+When you commit to a reserved instance of [Azure VMware Solution](https://review.learn.microsoft.com/azure/azure-vmware/introduction?branch=main), you save money. The reservation discount automatically applies to the running Azure VMware Solution hosts that match the reservation scope and attributes. In addition, a reserved instance purchase covers only the compute part of your usage and includes software licensing costs.
 
 ## Purchase restriction considerations
 
