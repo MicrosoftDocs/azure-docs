@@ -65,27 +65,6 @@ The following example uses [Publish-AzWebapp](/powershell/module/az.websites/pub
 Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath <zip-package-path> 
 ```
 
-# [ARM template](#tab/arm)
-
-The following example configures the location of the ZIP package in an ARM template. Replace the placeholders `<app-name>` and `<zip-package-uri>`. The <zip-package-uri> can be a public endpoint, but it's best to use blob storage with a SAS key to protect it.
-
-```Bicep
-{
-    "apiVersion": "2021-03-01",
-    "name": "onedeploy",
-    "type": "Extensions",
-    "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', <app-name>')]"
-    ],
-    "properties": {
-        "packageUri": "<zip-package-uri>",
-        "type":"zip"
-     }
-}
-```
-
-For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](https://learn.microsoft.com/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template).
-
 # [Kudu API](#tab/api)
 
 The following example uses the cURL tool to deploy a ZIP package. Replace the placeholders `<username>`, `<password>`, `<zip-package-path>`, and `<app-name>`. Use the [deployment credentials](deploy-configure-credentials.md) for authentication.
@@ -121,6 +100,28 @@ When deployment is in progress, an icon in the top right corner shows you the pr
 The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml) instead.
 
 -----
+
+> [!NOTE]
+> To deploy a ZIP package in an [ARM template](), upload the ZIP package to an internet-accessible location, then add a `onedeploy` resource like the following JSON. Replace the placeholders `<app-name>` and `<zip-package-uri>`. 
+> 
+> ```ARM template
+> {
+>     "type": "Microsoft.Web/sites/extensions",
+>     "apiVersion": "2021-03-01",
+>     "name": "onedeploy",
+>     "dependsOn": [
+>         "[resourceId('Microsoft.Web/Sites', <app-name>')]"
+>     ],
+>     "properties": {
+>         "packageUri": "<zip-package-uri>",
+>         "type":"zip"
+>      }
+> }
+> ```
+>
+> The \<zip-package-uri> can be a public endpoint, but it's best to use blob storage with a SAS key to protect it. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](https://learn.microsoft.com/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template).
+>
+>
 
 ## Enable build automation for ZIP deploy
 
