@@ -36,8 +36,9 @@ This prompt flow tool supports two different LLM API types:
 
 ## Prerequisites: Model deployment
 
-1. Pick the model that matched your scenario from the [Azure Machine Learning model catalog](https://ml.azure.com/model/catalog).
-1. Use the **Deploy** button to deploy the model to an Azure Machine Learning online inference endpoint. 2.1. Use one of the Pay as you go deployment options.
+- Pick the model that matched your scenario from the [Azure Machine Learning model catalog](https://ml.azure.com/model/catalog).
+- Use the **Deploy** button to deploy the model to an Azure Machine Learning online inference endpoint.
+   - Use one of the Pay as you go deployment options.
 
 To learn more, see [Deploy foundation models to endpoints for inferencing](../../how-to-use-foundation-models.md#deploying-foundation-models-to-endpoints-for-inferencing).
 
@@ -49,9 +50,9 @@ In order for prompt flow to use your deployed model, you need to connect to it. 
 
 Once your flow is associated to an Azure Machine Learning or Azure AI Studio workspace, the Open Model LLM tool can use the endpoints on that workspace.
 
-1. **Using Azure Machine Learning or Azure AI Studio workspaces**: If you're using prompt flow in one of the web page based browsers workspaces, the online endpoints available on that workspace who up automatically.
+- **Using Azure Machine Learning or Azure AI Studio workspaces**: If you're using prompt flow in one of the web page based browsers workspaces, the online endpoints available on that workspace who up automatically.
 
-2. **Using VS Code or code first**: If you're using prompt flow in VS Code or one of the Code First offerings, you need to connect to the workspace. The Open Model LLM tool uses the azure.identity DefaultAzureCredential client for authorization. One way is through [setting environment credential values](https://learn.microsoft.com/python/api/azure-identity/azure.identity.environmentcredential).
+- **Using VS Code or code first**: If you're using prompt flow in VS Code or one of the Code First offerings, you need to connect to the workspace. The Open Model LLM tool uses the azure.identity DefaultAzureCredential client for authorization. One way is through [setting environment credential values](https://learn.microsoft.com/python/api/azure-identity/azure.identity.environmentcredential).
 
 ### Custom connections
 
