@@ -1,24 +1,31 @@
 ---
 title: "Quickstart: Document Intelligence (formerly Form Recognizer) Python SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library SDKs v3.1 or v3.0 
+description: Form and document processing, data extraction, and analysis using Document Intelligence Python client library SDKs v3.1 or v3.0
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/16/2023
+ms.date: 12/18/2023
 ms.author: lajanuar
-monikerRange: '>=doc-intel-3.0.0'
 ---
 <!-- markdownlint-disable MD025 -->
 
-[Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-1.md)
+:::moniker range="doc-intel-4.0.0"
+    [Client library](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-documentintelligence/latest/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-documentintelligence/1.0.0b1/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples) | [Supported REST API versions](../../sdk-overview-v4-0.md#supported-programming-languages)
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+    [Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-1.md#supported-programming-languages)
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+    [Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-previous&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-0.md#supported-programming-languages)
+:::moniker-end
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
 
-* [**General document**](#general-document-model)—Analyze and extract text, tables, structure, and key-value pairs.
-
-* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes, and key-value pairs, without the need to train a model.
 
 * [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pretrained model.
 
@@ -41,19 +48,36 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
-
 ## Set up
 
 Open a terminal window in your local environment and install the Azure AI Document Intelligence client library for Python with pip:
+
+:::moniker range="doc-intel-4.0.0"
+
+```console
+pip install azure-ai-documentintelligence==1.0.0b1
+
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
 
 ```console
 pip install azure-ai-formrecognizer==3.3.0
 ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=setup) -->
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+```console
+
+pip install azure-ai-formrecognizer==3.2.0b6
+
+```
+
+:::moniker-end
 
 ## Create your Python application
 
@@ -63,8 +87,6 @@ To interact with the Document Intelligence service, you need to create an instan
 
 1. Open the **doc_intel_quickstart.py** file and select one of the following code samples to copy and paste into your application:
 
-    * [**General document**](#general-document-model)
-
     * [**Layout**](#layout-model)
 
     * [**Prebuilt Invoice**](#prebuilt-model)
@@ -73,173 +95,6 @@ To interact with the Document Intelligence service, you need to create an instan
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
 
 <!-- markdownlint-disable MD036 -->
-
-## General document model
-
-Extract text, tables, structure, and key-value pairs from documents.
-
-> [!div class="checklist"]
->
-> * For this example, you'll need a **document file from a URL**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-document` as the model Id. The returned value is a `result` object containing data about the submitted document.
-> * We've added the file URL value to the `docUrl` variable in the `analyze_general_documents` function.
-
-<!-- markdownlint-disable MD036 -->
-**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
-
-```python
-
-# import libraries
-import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
-from azure.core.credentials import AzureKeyCredential
-
-# set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-endpoint = "<your-endpoint>"
-key = "<your-key>"
-
-def format_bounding_region(bounding_regions):
-    if not bounding_regions:
-        return "N/A"
-    return ", ".join("Page #{}: {}".format(region.page_number, format_polygon(region.polygon)) for region in bounding_regions)
-
-def format_polygon(polygon):
-    if not polygon:
-        return "N/A"
-    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
-
-
-def analyze_general_documents():
-    # sample document
-    docUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
-
-    # create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    document_analysis_client = DocumentAnalysisClient(endpoint=endpoint, credential=AzureKeyCredential(key))
-
-    poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-document", docUrl)
-    result = poller.result()
-
-    for style in result.styles:
-        if style.is_handwritten:
-            print("Document contains handwritten content: ")
-            print(",".join([result.content[span.offset:span.offset + span.length] for span in style.spans]))
-
-    print("----Key-value pairs found in document----")
-    for kv_pair in result.key_value_pairs:
-        if kv_pair.key:
-            print(
-                    "Key '{}' found within '{}' bounding regions".format(
-                        kv_pair.key.content,
-                        format_bounding_region(kv_pair.key.bounding_regions),
-                    )
-                )
-        if kv_pair.value:
-            print(
-                    "Value '{}' found within '{}' bounding regions\n".format(
-                        kv_pair.value.content,
-                        format_bounding_region(kv_pair.value.bounding_regions),
-                    )
-                )
-
-    for page in result.pages:
-        print("----Analyzing document from page #{}----".format(page.page_number))
-        print(
-            "Page has width: {} and height: {}, measured with unit: {}".format(
-                page.width, page.height, page.unit
-            )
-        )
-
-        for line_idx, line in enumerate(page.lines):
-            print(
-                "...Line # {} has text content '{}' within bounding box '{}'".format(
-                    line_idx,
-                    line.content,
-                    format_polygon(line.polygon),
-                )
-            )
-
-        for word in page.words:
-            print(
-                "...Word '{}' has a confidence of {}".format(
-                    word.content, word.confidence
-                )
-            )
-
-        for selection_mark in page.selection_marks:
-            print(
-                "...Selection mark is '{}' within bounding box '{}' and has a confidence of {}".format(
-                    selection_mark.state,
-                    format_polygon(selection_mark.polygon),
-                    selection_mark.confidence,
-                )
-            )
-
-    for table_idx, table in enumerate(result.tables):
-        print(
-            "Table # {} has {} rows and {} columns".format(
-                table_idx, table.row_count, table.column_count
-            )
-        )
-        for region in table.bounding_regions:
-            print(
-                "Table # {} location on page: {} is {}".format(
-                    table_idx,
-                    region.page_number,
-                    format_polygon(region.polygon),
-                )
-            )
-        for cell in table.cells:
-            print(
-                "...Cell[{}][{}] has content '{}'".format(
-                    cell.row_index,
-                    cell.column_index,
-                    cell.content,
-                )
-            )
-            for region in cell.bounding_regions:
-                print(
-                    "...content on page {} is within bounding box '{}'\n".format(
-                        region.page_number,
-                        format_polygon(region.polygon),
-                    )
-                )
-    print("----------------------------------------")
-
-
-if __name__ == "__main__":
-    analyze_general_documents()
-```
-
-**Run the application**
-
-Once you've added a code sample to your application, build and run your program:
-
-1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
-1. Type the following command in your terminal:
-
-    ```console
-    python doc_intel_quickstart.py
-    ```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-general-document) -->
-
-### General document model output
-
-Here's a snippet of the expected output:
-
-```console
-  ----Key-value pairs found in document----
-  Key '☒' found within 'Page #1: [0.6694, 1.7746], [0.7764, 1.7746], [0.7764, 1.8833], [0.6694, 1.8833]' bounding regions
-  Key 'QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934' found within 'Page #1: [0.996, 1.7804], [7.8449, 1.7804], [7.8449, 2.0559], [0.996, 2.0559]' bounding regions
-  Value ':selected:' found within 'Page #1: [0.6694, 1.7746], [0.7764, 1.7746], [0.7764, 1.8833], [0.6694, 1.8833]' bounding regions
-
-  Key 'For the Quarterly Period Ended March 31, 2020' found within 'Page #1: [0.9982, 2.1626], [3.4543, 2.1626], [3.4543, 2.2665], [0.9982, 2.2665]' bounding regions
-  Value 'OR' found within 'Page #1: [4.1471, 2.2972], [4.3587, 2.2972], [4.3587, 2.4049], [4.1471, 2.4049]' bounding regions
-```
-
-To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-general-document-output.md)
 
 ## Layout model
 
@@ -252,6 +107,74 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
 **Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+
+:::moniker range="doc-intel-4.0.0"
+
+```python
+
+# import libraries
+import os
+from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+
+# set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+endpoint = "<your-endpoint>"
+key = "<your-key>"
+
+def analyze_layout():
+    # sample document
+    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+
+    document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+
+    poller = document_intelligence_client.begin_analyze_document_from_url(
+            "prebuilt-layout", formUrl)
+    result = poller.result()
+
+    if any([style.is_handwritten for style in result.styles]):
+        print("Document contains handwritten content")
+    else:
+        print("Document does not contain handwritten content")
+
+    for page in result.pages:
+        print(f"----Analyzing layout from page #{page.page_number}----")
+        print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
+
+        for line_idx, line in enumerate(page.lines):
+            words = get_words(page, line)
+            print(
+                f"...Line # {line_idx} has word count {len(words)} and text '{line.content}' "
+                f"within bounding polygon '{line.polygon}'"
+            )
+
+            for word in words:
+                print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+
+        for selection_mark in page.selection_marks:
+            print(
+                f"Selection mark is '{selection_mark.state}' within bounding polygon "
+                f"'{selection_mark.polygon}' and has a confidence of {selection_mark.confidence}"
+            )
+
+    for table_idx, table in enumerate(result.tables):
+        print(f"Table # {table_idx} has {table.row_count} rows and " f"{table.column_count} columns")
+        for region in table.bounding_regions:
+            print(f"Table # {table_idx} location on page: {region.page_number} is {region.polygon}")
+        for cell in table.cells:
+            print(f"...Cell[{cell.row_index}][{cell.column_index}] has text '{cell.content}'")
+            for region in cell.bounding_regions:
+                print(f"...content on page {region.page_number} is within bounding polygon '{region.polygon}'")
+
+    print("----------------------------------------")
+
+if __name__ == "__main__":
+    analyze_layout()
+
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
 
 ```python
 
@@ -372,9 +295,6 @@ Once you've added a code sample to your application, build and run your program:
     python doc_intel_quickstart.py
     ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-layout) -->
-
 ### Layout model output
 
 Here's a snippet of the expected output:
@@ -397,6 +317,115 @@ Here's a snippet of the expected output:
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-layout-output.md)
 
+::: moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+```python
+
+# import libraries
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+endpoint = "<your-endpoint>"
+key = "<your-key>"
+
+def analyze_layout():
+    # sample document
+    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+
+    document_analysis_client = DocumentAnalysisClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
+
+    poller = document_analysis_client.begin_analyze_document_from_url(
+            "prebuilt-layout", formUrl)
+    result = poller.result()
+
+    for idx, style in enumerate(result.styles):
+        print(
+            "Document contains {} content".format(
+                "handwritten" if style.is_handwritten else "no handwritten"
+            )
+        )
+
+    for page in result.pages:
+        print("----Analyzing layout from page #{}----".format(page.page_number))
+        print(
+            "Page has width: {} and height: {}, measured with unit: {}".format(
+                page.width, page.height, page.unit
+            )
+        )
+
+        for line_idx, line in enumerate(page.lines):
+            words = line.get_words()
+            print(
+                "...Line # {} has word count {} and text '{}' within bounding polygon '{}'".format(
+                    line_idx,
+                    len(words),
+                    line.content,
+                    format_polygon(line.polygon),
+                )
+            )
+
+            for word in words:
+                print(
+                    "......Word '{}' has a confidence of {}".format(
+                        word.content, word.confidence
+                    )
+                )
+
+        for selection_mark in page.selection_marks:
+            print(
+                "...Selection mark is '{}' within bounding polygon '{}' and has a confidence of {}".format(
+                    selection_mark.state,
+                    format_polygon(selection_mark.polygon),
+                    selection_mark.confidence,
+                )
+            )
+
+    for table_idx, table in enumerate(result.tables):
+        print(
+            "Table # {} has {} rows and {} columns".format(
+                table_idx, table.row_count, table.column_count
+            )
+        )
+        for region in table.bounding_regions:
+            print(
+                "Table # {} location on page: {} is {}".format(
+                    table_idx,
+                    region.page_number,
+                    format_polygon(region.polygon),
+                )
+            )
+        for cell in table.cells:
+            print(
+                "...Cell[{}][{}] has content '{}'".format(
+                    cell.row_index,
+                    cell.column_index,
+                    cell.content,
+                )
+            )
+            for region in cell.bounding_regions:
+                print(
+                    "...content on page {} is within bounding polygon '{}'".format(
+                        region.page_number,
+                        format_polygon(region.polygon),
+                    )
+                )
+
+    print("----------------------------------------")
+
+
+if __name__ == "__main__":
+    analyze_layout()
+
+```
+
+:::moniker-end
+
 ___
 
 ## Prebuilt model
@@ -414,6 +443,190 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
 **Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+
+:::moniker range="doc-intel-4.0.0"
+
+```python
+# import libraries
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+endpoint = "<your-endpoint>"
+key = "<your-key>"
+
+from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+
+def analyze_invoice()
+
+    # sample document
+
+    invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
+
+    document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+
+    poller = document_intelligence_client.begin_analyze_document_from_url(
+            "prebuilt-invoice", invoiceUrl)
+    invoices = poller.result()
+
+    for idx, invoice in enumerate(invoices.documents):
+        print(f"--------Analyzing invoice #{idx + 1}--------")
+        vendor_name = invoice.fields.get("VendorName")
+        if vendor_name:
+            print(f"Vendor Name: {vendor_name.get('content')} has confidence: {vendor_name.get('confidence')}")
+        vendor_address = invoice.fields.get("VendorAddress")
+        if vendor_address:
+            print(f"Vendor Address: {vendor_address.get('content')} has confidence: {vendor_address.get('confidence')}")
+        vendor_address_recipient = invoice.fields.get("VendorAddressRecipient")
+        if vendor_address_recipient:
+            print(
+                f"Vendor Address Recipient: {vendor_address_recipient.get('content')} has confidence: {vendor_address_recipient.get('confidence')}"
+            )
+        customer_name = invoice.fields.get("CustomerName")
+        if customer_name:
+            print(f"Customer Name: {customer_name.get('content')} has confidence: {customer_name.get('confidence')}")
+        customer_id = invoice.fields.get("CustomerId")
+        if customer_id:
+            print(f"Customer Id: {customer_id.get('content')} has confidence: {customer_id.get('confidence')}")
+        customer_address = invoice.fields.get("CustomerAddress")
+        if customer_address:
+            print(
+                f"Customer Address: {customer_address.get('content')} has confidence: {customer_address.get('confidence')}"
+            )
+        customer_address_recipient = invoice.fields.get("CustomerAddressRecipient")
+        if customer_address_recipient:
+            print(
+                f"Customer Address Recipient: {customer_address_recipient.get('content')} has confidence: {customer_address_recipient.get('confidence')}"
+            )
+        invoice_id = invoice.fields.get("InvoiceId")
+        if invoice_id:
+            print(f"Invoice Id: {invoice_id.get('content')} has confidence: {invoice_id.get('confidence')}")
+        invoice_date = invoice.fields.get("InvoiceDate")
+        if invoice_date:
+            print(f"Invoice Date: {invoice_date.get('content')} has confidence: {invoice_date.get('confidence')}")
+        invoice_total = invoice.fields.get("InvoiceTotal")
+        if invoice_total:
+            print(f"Invoice Total: {invoice_total.get('content')} has confidence: {invoice_total.get('confidence')}")
+        due_date = invoice.fields.get("DueDate")
+        if due_date:
+            print(f"Due Date: {due_date.get('content')} has confidence: {due_date.get('confidence')}")
+        purchase_order = invoice.fields.get("PurchaseOrder")
+        if purchase_order:
+            print(f"Purchase Order: {purchase_order.get('content')} has confidence: {purchase_order.get('confidence')}")
+        billing_address = invoice.fields.get("BillingAddress")
+        if billing_address:
+            print(
+                f"Billing Address: {billing_address.get('content')} has confidence: {billing_address.get('confidence')}"
+            )
+        billing_address_recipient = invoice.fields.get("BillingAddressRecipient")
+        if billing_address_recipient:
+            print(
+                f"Billing Address Recipient: {billing_address_recipient.get('content')} has confidence: {billing_address_recipient.get('confidence')}"
+            )
+        shipping_address = invoice.fields.get("ShippingAddress")
+        if shipping_address:
+            print(
+                f"Shipping Address: {shipping_address.get('content')} has confidence: {shipping_address.get('confidence')}"
+            )
+        shipping_address_recipient = invoice.fields.get("ShippingAddressRecipient")
+        if shipping_address_recipient:
+            print(
+                f"Shipping Address Recipient: {shipping_address_recipient.get('content')} has confidence: {shipping_address_recipient.get('confidence')}"
+            )
+        print("Invoice items:")
+        for idx, item in enumerate(invoice.fields.get("Items").get("valueArray")):
+            print(f"...Item #{idx + 1}")
+            item_description = item.get("valueObject").get("Description")
+            if item_description:
+                print(
+                    f"......Description: {item_description.get('content')} has confidence: {item_description.get('confidence')}"
+                )
+            item_quantity = item.get("valueObject").get("Quantity")
+            if item_quantity:
+                print(
+                    f"......Quantity: {item_quantity.get('content')} has confidence: {item_quantity.get('confidence')}"
+                )
+            unit = item.get("valueObject").get("Unit")
+            if unit:
+                print(f"......Unit: {unit.get('content')} has confidence: {unit.get('confidence')}")
+            unit_price = item.get("valueObject").get("UnitPrice")
+            if unit_price:
+                unit_price_code = (
+                    unit_price.get("valueCurrency").get("currencyCode")
+                    if unit_price.get("valueCurrency").get("currencyCode")
+                    else ""
+                )
+                print(
+                    f"......Unit Price: {unit_price.get('content')}{unit_price_code} has confidence: {unit_price.get('confidence')}"
+                )
+            product_code = item.get("valueObject").get("ProductCode")
+            if product_code:
+                print(
+                    f"......Product Code: {product_code.get('content')} has confidence: {product_code.get('confidence')}"
+                )
+            item_date = item.get("valueObject").get("Date")
+            if item_date:
+                print(f"......Date: {item_date.get('content')} has confidence: {item_date.get('confidence')}")
+            tax = item.get("valueObject").get("Tax")
+            if tax:
+                print(f"......Tax: {tax.get('content')} has confidence: {tax.get('confidence')}")
+            amount = item.get("valueObject").get("Amount")
+            if amount:
+                print(f"......Amount: {amount.get('content')} has confidence: {amount.get('confidence')}")
+        subtotal = invoice.fields.get("SubTotal")
+        if subtotal:
+            print(f"Subtotal: {subtotal.get('content')} has confidence: {subtotal.get('confidence')}")
+        total_tax = invoice.fields.get("TotalTax")
+        if total_tax:
+            print(f"Total Tax: {total_tax.get('content')} has confidence: {total_tax.get('confidence')}")
+        previous_unpaid_balance = invoice.fields.get("PreviousUnpaidBalance")
+        if previous_unpaid_balance:
+            print(
+                f"Previous Unpaid Balance: {previous_unpaid_balance.get('content')} has confidence: {previous_unpaid_balance.get('confidence')}"
+            )
+        amount_due = invoice.fields.get("AmountDue")
+        if amount_due:
+            print(f"Amount Due: {amount_due.get('content')} has confidence: {amount_due.get('confidence')}")
+        service_start_date = invoice.fields.get("ServiceStartDate")
+        if service_start_date:
+            print(
+                f"Service Start Date: {service_start_date.get('content')} has confidence: {service_start_date.get('confidence')}"
+            )
+        service_end_date = invoice.fields.get("ServiceEndDate")
+        if service_end_date:
+            print(
+                f"Service End Date: {service_end_date.get('content')} has confidence: {service_end_date.get('confidence')}"
+            )
+        service_address = invoice.fields.get("ServiceAddress")
+        if service_address:
+            print(
+                f"Service Address: {service_address.get('content')} has confidence: {service_address.get('confidence')}"
+            )
+        service_address_recipient = invoice.fields.get("ServiceAddressRecipient")
+        if service_address_recipient:
+            print(
+                f"Service Address Recipient: {service_address_recipient.get('content')} has confidence: {service_address_recipient.get('confidence')}"
+            )
+        remittance_address = invoice.fields.get("RemittanceAddress")
+        if remittance_address:
+            print(
+                f"Remittance Address: {remittance_address.get('content')} has confidence: {remittance_address.get('confidence')}"
+            )
+        remittance_address_recipient = invoice.fields.get("RemittanceAddressRecipient")
+        if remittance_address_recipient:
+            print(
+                f"Remittance Address Recipient: {remittance_address_recipient.get('content')} has confidence: {remittance_address_recipient.get('confidence')}"
+            )
+
+if __name__ == "__main__":
+    analyze_invoice()
+
+    ```
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
 
 ```python
 # import libraries
@@ -712,9 +925,6 @@ Once you've added a code sample to your application, build and run your program:
     python doc_intel_quickstart.py
     ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=python&Product=FormRecognizer&Page=quickstart&Section=run-prebuilt) -->
-
 ### Prebuilt model output
 
 Here's a snippet of the expected output:
@@ -735,3 +945,117 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/v3-python-sdk-prebuilt-invoice-output.md)
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+```python
+
+    # import libraries
+    import os
+    from azure.ai.formrecognizer import DocumentAnalysisClient
+    from azure.core.credentials import AzureKeyCredential
+
+    # set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+    endpoint = "<your-endpoint>"
+    key = "<your-key>"
+
+    def format_polygon(polygon):
+      if not polygon:
+          return "N/A"
+      return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
+
+    def analyze_layout():
+      # sample document
+      formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+
+      document_analysis_client = DocumentAnalysisClient(
+          endpoint=endpoint, credential=AzureKeyCredential(key)
+      )
+
+      poller = document_analysis_client.begin_analyze_document_from_url(
+              "prebuilt-layout", formUrl)
+      result = poller.result()
+
+      for idx, style in enumerate(result.styles):
+        print(
+            "Document contains {} content".format(
+                "handwritten" if style.is_handwritten else "no handwritten"
+            )
+        )
+
+    for page in result.pages:
+        print("----Analyzing layout from page #{}----".format(page.page_number))
+        print(
+            "Page has width: {} and height: {}, measured with unit: {}".format(
+                page.width, page.height, page.unit
+            )
+        )
+
+        for line_idx, line in enumerate(page.lines):
+            words = line.get_words()
+            print(
+                "...Line # {} has word count {} and text '{}' within bounding polygon '{}'".format(
+                    line_idx,
+                    len(words),
+                    line.content,
+                    format_polygon(line.polygon),
+                )
+            )
+
+            for word in words:
+                print(
+                    "......Word '{}' has a confidence of {}".format(
+                        word.content, word.confidence
+                    )
+                )
+
+        for selection_mark in page.selection_marks:
+            print(
+                "...Selection mark is '{}' within bounding polygon '{}' and has a confidence of {}".format(
+                    selection_mark.state,
+                    format_polygon(selection_mark.polygon),
+                    selection_mark.confidence,
+                )
+            )
+
+    for table_idx, table in enumerate(result.tables):
+        print(
+            "Table # {} has {} rows and {} columns".format(
+                table_idx, table.row_count, table.column_count
+            )
+        )
+        for region in table.bounding_regions:
+            print(
+                "Table # {} location on page: {} is {}".format(
+                    table_idx,
+                    region.page_number,
+                    format_polygon(region.polygon),
+                )
+            )
+        for cell in table.cells:
+            print(
+                "...Cell[{}][{}] has content '{}'".format(
+                    cell.row_index,
+                    cell.column_index,
+                    cell.content,
+                )
+            )
+            for region in cell.bounding_regions:
+                print(
+                    "...content on page {} is within bounding polygon '{}'".format(
+                        region.page_number,
+                        format_polygon(region.polygon),
+                    )
+                )
+
+    print("----------------------------------------")
+
+
+if __name__ == "__main__":
+    analyze_layout()
+
+```
+
+:::moniker-end

@@ -12,7 +12,7 @@ ms.custom:
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
-ms.date: 08/15/2023
+ms.date: 12/18/2023
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
@@ -26,12 +26,33 @@ zone_pivot_groups: programming-languages-set-formre
 > * Some platforms are still awaiting the renaming update.
 > * All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
+:::moniker range="doc-intel-4.0.0"
+
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v4.0 (preview)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.1 (GA)](?view=doc-intel-3.1.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v3.0 (GA)](?view=doc-intel-3.0.0&preserve-view=true)
+
+* Get started with Azure AI Document Intelligence latest preview version (2023-10-31-preview).
+
+:::moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
 
 **This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.0](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
-* Get started with Azure AI Document Intelligence latest GA version (v3.1).
+* Get started with Azure AI Document Intelligence latest GA version (2023-07-31).
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+
+**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** **Newer version:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.1](?view=doc-intel-3.1.0&preserve-view=true)   ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
+
+> [!TIP]
+>
+> * For an enhance experience and advanced model quality, try the [Document Intelligence v3.1 (GA) quickstart](?view=doc-intel-3.1.0&preserve-view=true#get-started-with-document-intelligence) and [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) API version: 2023-07-31 (3.1 General Availability).
+
+* Get started with Azure AI Document Intelligence our legacy GA version (2022-08-31).
+
+::: moniker-end
 
 * Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents.
 
@@ -40,22 +61,6 @@ zone_pivot_groups: programming-languages-set-formre
 * For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
-
-::: moniker-end
-
-::: moniker range="doc-intel-3.0.0"
-
-**This content applies to:** ![checkmark](../media/yes-icon.png) **v3.0 (GA)** **Newer version:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.1](?view=doc-intel-3.1.0&preserve-view=true)   ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
-
-Get started with Azure AI Document Intelligence GA version (3.0). Azure AI Document Intelligence is a cloud-based Azure AI service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Document Intelligence models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
-
-To learn more about Document Intelligence features and development options, visit our [Overview](../overview.md) page.
-
-> [!TIP]
->
-> * For an enhance experience and advanced model quality, try the [Document Intelligence v3.1 (GA) quickstart](?view=doc-intel-3.1.0&preserve-view=true#get-started-with-document-intelligence) and [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) API version: 2023-07-31 (3.1 General Availability).
-
-::: moniker-end
 
 ::: zone pivot="programming-language-csharp"
 
