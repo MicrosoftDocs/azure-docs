@@ -440,7 +440,7 @@ az vm install-patches --resource-group myResourceGroup --name myVM --maximum-dur
 
 Azure will store the package related updates within the customer repository for up to 90 days, depending on the available space. This allows customers to update their fleet leveraging Strict Safe Deployment for VMs that are up to 3 months behind on updates.
 
-There is no action required for customers that have enabled Auto Patching. The platform will install a package that is snapped to a point-in-time by default. In the event a snapshot-based update cannot be installed, Azure will apply the latest package on the VM to ensure the VM remains secure. The point-in-time updates will be consistent on all VMs across regions to ensure homogeneity. Customers can view the published date information related to the applied update in [Azure Resource Graph](../azure/governance/resource-graph/overview) and the [Instance View](../powershell/module/az.compute/get-azvm) of the VM.  
+There is no action required for customers that have enabled Auto Patching. The platform will install a package that is snapped to a point-in-time by default. In the event a snapshot-based update cannot be installed, Azure will apply the latest package on the VM to ensure the VM remains secure. The point-in-time updates will be consistent on all VMs across regions to ensure homogeneity. Customers can view the published date information related to the applied update in [Azure Resource Graph](/azure/governance/resource-graph/overview) and the [Instance View](/powershell/module/az.compute/get-azvm) of the VM.  
 
 ## Image End-of-Life (EOL)
 
