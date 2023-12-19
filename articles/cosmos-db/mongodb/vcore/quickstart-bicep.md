@@ -50,7 +50,7 @@ resource cluster 'Microsoft.DocumentDB/mongoClusters@2022-10-15-preview' = {
   properties: {
     administratorLogin: adminUsername
     administratorLoginPassword: adminPassword
-    shardGroupSpecs: [
+    nodeGroupSpecs: [
         {
             kind: 'Shard'
             shardCount: 1
@@ -71,6 +71,8 @@ resource firewallRules 'Microsoft.DocumentDB/mongoClusters/firewallRules@2022-10
   }
 }
 ```
+> [!NOTE]
+> Kindly note that in the above code, shardGroupSpecs is called nodeGroupSpecs. 
 
 Two Azure resources are defined in the Bicep file:
 
