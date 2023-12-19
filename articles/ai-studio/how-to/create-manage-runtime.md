@@ -25,7 +25,7 @@ We support following types of runtimes:
 |Runtime type|Underlying compute type|Life cycle management|Customize environment              |
 |------------|----------------------|---------------------|---------------------|
 |automatic runtime        |Serverless compute| Automatically | Customized by image + requirements.txt in `flow.dag.yaml`|
-|Compute instance runtime | Compute instance | Manually | Manually via Azure Machine Learning environment|
+|Compute instance runtime | Compute instance | Manually | Manually via Azure AI Studio environment.|
 
 For new users, we would recommend using the automatic runtime  that can be used out of box, and you can easily customize the environment by adding packages in `requirements.txt` file in `flow.dag.yaml` in flow folder. For  users, who already familiar with compute instance, your can use existing compute instance to build your compute instance runtime.
 
