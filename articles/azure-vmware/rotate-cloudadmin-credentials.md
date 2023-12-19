@@ -47,8 +47,6 @@ To begin using Azure CLI:
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
 
-
-
 ---
 
 ### Update HCX Connector 
