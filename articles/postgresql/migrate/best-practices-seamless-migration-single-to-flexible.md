@@ -176,6 +176,9 @@ Regularly incorporating these vacuuming strategies ensures a well-maintained Pos
 
 The [postgres_fdw module](https://www.postgresql.org/docs/current/postgres-fdw.html) provides the foreign-data wrapper postgres_fdw, which can be used to access data stored in external PostgreSQL servers. In case, your database uses this extension, the following steps have to be performed to ensure a successful migration.
 
+> [!NOTE]  
+> Steps 2 and 4 should be executed only if the [Migration of users/roles, ownerships and privileges](./concepts-single-to-flexible.md#migration-of-usersroles-ownerships-and-privileges) is not enabled for your server.
+
 1. Temporarily remove (unlink) Foreign data wrapper on the source.
 2. Remove foreign roles/users on source.
 3. Perform data migration of rest using the Migration Tool.
