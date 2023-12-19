@@ -1,5 +1,5 @@
 ---
-title: Detect anomalies in a manufacturing process
+title: Detect anomalies in your manufacturing process
 description: Learn how to detect anomalies in real time in your manufacturing process by using Azure IoT Operations, Azure Data Explorer, and Azure Managed Grafana.
 author: dominicbetts
 ms.author: dobett
@@ -27,33 +27,65 @@ Contoso Bakery also wants to reduce the amount of data at the edge and send the 
 
 ## Prerequisite
 
-<!-- TODO: Clarify all of these and provide detailed links - maybe use includes from quickstarts? -->
+- Follow the steps in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
 
-- Install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
+- An Azure Data Explorer cluster and database. Follow the steps in [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database?tabs=free) to create a free cluster and database to use in this tutorial. Name your database `bakery_ops`
 
-- Create a service principal and make a note of the display name, client ID, tenant ID, and password.
+- An Azure Managed Grafana workspace. You can use either the [Azure portal](../../managed-grafana/quickstart-managed-grafana-portal.md) or [Azure CLI](../../managed-grafana/quickstart-managed-grafana-cli.md) to create the workspace. Make a note of the endpoint URL, you need it later in this tutorial.
 
-- Create secrets in Azure Key Vault and load them onto the cluster.
+## Prepare your environment
 
-- Install an MQTT client such as [MQTT Explorer](https://mqtt-explorer.com/)
+Complete the following tasks to prepare your environment:
 
-- Create an [Azure Data Explorer cluster](https://learn.microsoft.com/azure/data-explorer/create-cluster-and-database?tabs=free#create-a-cluster)
+### Create a service principal
 
-- [Create a database in Azure Data Explorer](https://learn.microsoft.com/azure/data-explorer/create-cluster-and-database?tabs=free#create-a-database)
+[!INCLUDE [create-service-principal-fabric](../includes/create-service-principal-fabric.md)]
 
-- [Grant service principals admin access to Azure Data Explorer](https://learn.microsoft.com/azure/data-explorer/provision-azure-ad-app)
+### Grant access to your Azure Data Explorer database
 
-- Create an instance of [Azure managed Grafana.](https://learn.microsoft.com/azure/managed-grafana/overview)
+To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of when you created the service principal:
 
-- Your own fork of the [Azure-Samples/explore-iot-operations: Open source tools, samples, tutorials, and scripts for Azure IoT Operations. (github.com)](https://github.com/Azure-Samples/explore-iot-operations/tree/main) cloned locally to your machine.
+```kusto
+.add database ['bakery_ops'] admins ('aadapp=<app-id>;<tenant-id>');
+```
 
-- Run the manufacturing plant simulation setup to simulate the plant source data and deploy a sample workload for anomaly detection calculation.
+<!-- TODO: Do we need admins or can we go for something more restrictive? https://learn.microsoft.com/en-us/azure/data-explorer/kusto/access-control/role-based-access-control -->
+
+### Add a table to your database
+
+To add a table to the `bakery_ops` database to store the anomaly data, navigate to the Azure Data Explorer portal and run the following query on your database:
+
+```kusto
+.create table edge_data  (
+['AssetID']:string,
+['Timestamp']:datetime,
+['Name']:string,
+['SerialNumber']:string,
+['Status']:bool,
+['Maintenance']:string,
+['Location']:string,
+['OperatingTime']:int,
+['Humidity']:decimal,
+['HumidityAnomalyFactor']:decimal,
+['HumidityAnomaly']:bool,
+['Temperature']:decimal,
+['TemperatureAnomalyFactor']:decimal,
+['TemperatureAnomaly']:bool,
+['Vibration']:decimal,
+['VibrationAnomalyFactor']:decimal,
+['VibrationAnomaly']:bool
+)
+```
+
+### Add a secret to your cluster
+
+[!INCLUDE [add-cluster-secret](../includes/add-cluster-secret.md)]
 
 ## Assets and measurements
 
 In this tutorial, you simulate the Contoso Bakery sites and production lines. Contoso Bakery has three types of asset on its production lines: ovens, mixers, and slicers:
 
-:::image type="content" source="media/tutorial-anomaly-detection/contoso-bakery-production-lines.png" alt-text="Diagram that shows the Contoso Bakery sites, production lines and assets.":::
+:::image type="content" source="media/tutorial-anomaly-detection/contoso-bakery-production-lines.svg" alt-text="Diagram that shows the Contoso Bakery sites, production lines and assets." border="false":::
 
 The production line assets generate multiple real-time measurements such as humidity, pressure, and temperature. This tutorial uses these simulated measurements to detect anomalies in the manufacturing process.
 
@@ -63,7 +95,7 @@ The simulation generates data and measurements from the following two sources fo
 
 _Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso Bakery production lines contain _oven_, _mixer_, and _slicer_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
 
-In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [configuration file](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/industrial-data-simulator/configs/simple) determines how the industrial data simulator generates the measurements.
+In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/anomaly-detection/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
 The following snippet shows an example of the measurements the simulator sends to MQ:
 
@@ -114,29 +146,38 @@ _Enterprise resource planning data (ERP)_ is contextual data for the operations 
 ```json
 [  
   {  
-    "asset_id": "Sea_O1",  
-    "serial_number": "SN001",  
+    "assetID": "Sea_O1",  
+    "serialNumber": "SN001",  
     "name": "Contoso",  
     "site": "Seattle",  
-    "maintenance_status": "Done"  
+    "maintenanceStatus": "Done"  
   },  
   {  
-    "asset_id": "Red_O1",  
-    "serial_number": "SN002",  
+    "assetID": "Red_O1",  
+    "serialNumber": "SN002",  
     "name": "Contoso",  
     "site": "Redmond",  
-    "maintenance_status": "Upcoming"  
+    "maintenanceStatus": "Upcoming"  
   }
 ]
 ```
 
 ## Set up the data simulator and HTTP call-out samples
 
-Use your local clone of the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository to set up the industrial data simulator and the ERP data HTTP endpoint:
+Run the following command to deploy the industrial data simulator to your cluster with the configuration for this sample:
 
-- To set up the industrial data simulator, follow the instructions in the [Industrial Data Simulator](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/industrial-data-simulator/README.md) readme file. Apply the anomaly detection "config.yml" file to simulate the measurement data for this tutorial.
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/industrial-data-simulator/manifests/anomaly-detection/manifest.yml
+```
 
-- To simulate the ERP data HTTP endpoint, navigate to the "http-grpc-callout" folder in your local copy of the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository. Follow the instructions in [GRPC/HTTP Callout Server](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/http-grpc-callout/README.md) readme file.
+> [!CAUTION]
+> The previous configuration adds an insecure **BrokerListener** to connect the simulator to the MQTT broker. Don't use this configuration in a production environment.
+
+Run the following command to deploy the GRPC callout service that returns simulated ERP data to your cluster:
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/http-grpc-callout/manifest.yml
+```
 
 ## Deploy the anomaly detection custom workload
 
@@ -145,8 +186,6 @@ To deploy the anomaly detection custom workload pods to your Kubernetes cluster,
 ```console
 kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/anomaly-detection/manifest.yml
 ```
-
-<!-- Or you can fork the repo from the [Azure Samples repo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/anomaly-detection) and follow the instructions under the [anomaly detection section](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/anomaly-detection). -->
 
 The anomaly detection service applies the exponential weighted moving average (EWMA) method to detect anomalies in process variables such as temperature, humidity, and vibration. The EWMA method is a statistical technique for anomaly detection used to find anomalies in the mean of time series data. The EWMA method acts as a filter that gives more importance to recent data points and less importance to older data points.
 
@@ -181,16 +220,16 @@ To create the _erp-data_ dataset:
 
 1. Select your instance and then select **Data pipelines**. Here, you can author the Data Processor pipelines, create the reference data sets, and deploy them to your Azure Arc-enabled Kubernetes cluster.
 
-1. Select **Reference datasets**. Then select **Create dataset**.
+1. Select **Reference datasets**. Then select **Create reference dataset**.
 
-1. Enter the information from the following table and select **Create dataset**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
+1. Enter the information from the following table and select **Create**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
 
     | Field         | Value             |
     |---------------|-------------------|
     | Name          | `erp-data`        |
     | Property Name | `ID`              |
-    | Property Path | `.asset_id`       |
-    | Primary Key   | `True`            |
+    | Property Path | `.assetID`        |
+    | Primary Key   | Yes               |
 
 1. Select **Create**.
 
@@ -210,15 +249,15 @@ To create the ERP reference data pipeline that ingests the data from the HTTP en
     | API Request – Request Body | `{}`                                    |
     | Request Interval           | `30m`                                   |
 
-1. Select **Add pipeline stage** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the stage.
 
-1. To connect the source and destination stages, select the blue dot at the bottom of the source stage and drag it to the blue dot at the top of the destination stage.
+1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
 1. Select **Add destination** and then select **Reference datasets**.
 
 1. Select **erp-data** in the **Dataset** field, select **Apply**.
 
-1. Name your pipeline _reference-data-pipeline_ and then select **Save** to save it.
+1. Name your pipeline _erp-reference-data-pipeline_ and then select **Save** to save it.
 
 You now have a pipeline that queries an HTTP endpoint every 30 minutes for ERP reference data to store in a reference dataset.
 
@@ -241,8 +280,8 @@ To create the _opcua-anomaly-pipeline_ pipeline:
     |-----------------|------------------------------------|
     | Broker          | `tls://aio-mq-dmqtt-frontend:8883` |
     | Topic           | `ContosoLLC/#`                     |
-    | Data format     | `Json`                             |
-    
+    | Data format     | `JSON`                             |
+
     The simulated production line assets send measurements to the MQ broker in the cluster. This input stage configuration subscribes to all the topics under the `ContosoLLC` topic in the MQ broker. This topic receives measurement data from the Redmond, Seattle, and Tacoma sites.
 
 1. Add a transform stage after the source stage with the following JQ expressions and select **Apply**. This transform reorganizes the data and makes it easier to read:
@@ -254,16 +293,16 @@ To create the _opcua-anomaly-pipeline_ pipeline:
     .payload.Payload.asset_name = .payload.DataSetWriterName |
     del(.payload.DataSetWriterName) |
     .payload.Payload |= with_entries (
-      if (.key | startswith("Tacoma")) then
-        .key |= capture("^(Tacoma)_[a-zA-Z0-9]+__[a-zA-Z0-9]+_(?\<name\>.+)__0").name
-      elif (.key | startswith("Seattle")) then
-        .key |= capture("^(Seattle)_[a-zA-Z0-9]+__[a-zA-Z0-9]+_(?\<name\>.+)__0").name
-      elif (.key | startswith("Redmond")) then
-        .key |= capture("^(Redmond)_[a-zA-Z0-9]+__[a-zA-Z0-9]+_(?\<name\>.+)__0").name
-      else
-        .
-      end
-      )
+        if (.key | startswith("Tacoma")) then
+            .key |= capture("^(Tacoma)_[a-zA-Z0-9]+__[a-zA-Z0-9]+_(?<name>.+)__0").name
+        elif (.key | startswith("Seattle")) then
+            .key |= capture("^(Seattle)_[a-zA-Z0-9]+__[a-zA-Z0-9]+_(?<name>.+)__0").name
+        elif (.key | startswith("Redmond")) then
+            .key |= capture("^(Redmond)_[a-zA-Z0-9]+__[a-zA-Z0-9]+_(?<name>.+)__0").name
+        else
+            .
+        end
+        )
     ```
 
 1. Add an enrich stage after the source stage and select it. This stage enriches the measurements from the simulated production line assets with reference data from the `erp-data` dataset. This stage uses a condition to determine when to add the ERP data. Select **Add condition**, add the following information, and select **Apply**:
@@ -272,9 +311,9 @@ To create the _opcua-anomaly-pipeline_ pipeline:
     |-------------|----------------------------|
     | Dataset     | `erp-data`                 |
     | Output path | `.payload.Payload.enrich`  |
-    | Operator    | `keyMatch`                 |
-    | Input path  | `.payload.Payload.assetID` |
-    | Property    | `ID`                       |
+    | Condition Operator   | `Key match`                 |
+    | Condition Input path | `.payload.Payload.asset_id` |
+    | Condition Property   | `ID`                        |
 
 1. Add transform stage after the enrich stage with the following JQ expressions and select **Apply**. This transform stage reorganizes the data and makes it easier to read. These JQ expressions move the enrichment data to the same flat path as the real-time data to make it easier to export to Azure Data Explorer:
 
@@ -285,58 +324,58 @@ To create the _opcua-anomaly-pipeline_ pipeline:
 
 1. Add an HTTP call out stage after the transform stage and select it. This HTTP call out stage calls a custom module running in the Kubernetes cluster that exposes an HTTP API. The anomaly detection service detects anomalies in the time-series data and how large they are. To configure the stage, select **Add condition**, enter the information from the following table, and select **Apply**:
 
-    | Field           | Value                            |
-    |-----------------|----------------------------------|
-    | Name            | Call out HTTP - Anomaly          |
-    | Method          | POST                             |
-    | URL             | http://anomaly-svc:3333/anomaly  |
-    | Authentication  | None                             |
-    | API Request - Data format  | JSON                  |
-    | API Request - Path         | .payload              |
-    | API Response - Data format | JSON                  |
-    | API Response - Path        | .                     |
+    | Field           | Value                                    |
+    |-----------------|------------------------------------------|
+    | Name            | `Call out HTTP - Anomaly`                |
+    | Method          | `POST`                                   |
+    | URL             | `http://anomaly-svc:3333/anomaly`        |
+    | Authentication  | None                                     |
+    | API Request - Data format  | `JSON`                        |
+    | API Request - Path         | `.`                           |
+    | API Response - Data format | `JSON`                        |
+    | API Response - Path        | `.`                           |
 
-1. Select the output stage and then select **MQ**.
+1. Select the destination stage and then select **MQ**.
 
 1. Add the following configuration, select **Apply**, and then select **Save** to save your pipeline:
 
-    | Field       | Value                            |
-    |-------------|----------------------------------|
-    | Broker      | tls://aio-mq-dmqtt-frontend:8883 |
-    | Data format | json                             |
-    | Path        | .payload                         |
-    | Topic       | processed-output                 |
+    | Field       | Value                              |
+    |-------------|------------------------------------|
+    | Broker      | `tls://aio-mq-dmqtt-frontend:8883` |
+    | Data format | `JSON`                             |
+    | Path        | `.payload`                         |
+    | Topic       | `processed-output`                 |
 
 1. To save your pipeline, select **Save**.
 
-<!-- TODO: Review use of MQTT explorer -->
+[!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
 
-1. In MQTT Explorer select the `processed-output` topic to see the transformed and enriched data along with the anomaly detection information. The following JSON shows an example message:
+The following example shows a message in the _processed-output_ topic:
 
-    ```json
-    {
-      "payload": {
-        "asset_id": "Sea_S1",
-        "asset_name": "Seattle_Slicer_Seattle_Slicer__asset_0",
-        "humidity": 82.88225244364277,
-        "humidity_anomaly": true,
-        "humidity_anomaly_factor": 68.48042507750309,
-        "machine_status": 0,
-        "maintainence_status": "Upcoming",
-        "name": "Contoso",
-        "operating_time": 162,
-        "serial_number": "SN004",
-        "site": "Seattle",
-        "source_timestamp": "2023-12-09T01:08:58.852Z",
-        "temperature": 92.97592214422629,
-        "temperature_anomaly": false,
-        "temperature_anomaly_factor": 84.1659459093868,
-        "vibration": 54.79910570367032,
-        "vibration_anomaly": false,
-        "vibration_anomaly_factor": 52.154975528663186
-      }
-    }
-    ```
+```json
+{
+  "payload": {
+    "assetId": "Sea_S1",
+    "assetName": "Seattle_Slicer_Seattle_Slicer__asset_0",
+    "humidity": 82.88225244364277,
+    "humidityAnomaly": true,
+    "humidityAnomalyFactor": 68.48042507750309,
+    "machineStatus": 0,
+    "maintainenceStatus": "Upcoming",
+    "name": "Contoso",
+    "operatingTime": 162,
+    "serialNumber": "SN004",
+    "site": "Seattle",
+    "sourceTimestamp": "2023-12-09T01:08:58.852Z",
+    "temperature": 92.97592214422629,
+    "temperatureAnomaly": false,
+    "temperatureAnomalyFactor": 84.1659459093868,
+    "vibration": 54.79910570367032,
+    "vibrationAnomaly": false,
+    "vibrationAnomalyFactor": 52.154975528663186
+  }
+}
+```
 
 After it passes through the pipeline stages, the data:
 
@@ -355,92 +394,68 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 1. Select the title of the pipeline on the top left corner and rename the pipeline to _adx_pipeline_.
 
-1. Select the input stage, then select **Configure source**, enter the information from the following table, and then select **Apply**:
+1. Select the **MQ** input source, enter the information from the following table, and select **Apply**:
 
     | Field       | Value                            |
     |-------------|----------------------------------|
     | Name        | processed-mq-data                |
     | Broker      | tls://aio-mq-dmqtt-frontend:8883 |
     | Topic       | processed-output                 |
-    | Data Format | json                             |
+    | Data Format | JSON                             |
 
-1. Select **Add pipeline stage** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the stage.
 
-1. To connect the source and destination stages, select the blue dot at the bottom of the source stage and drag it to the blue dot at the top of the destination stage.
+1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
-1. Select the output stage and then select Azure Data Explorer. Specify the connection details of the Azure Data Explorer database you created previously. To find the information, navigate to your [Azure Data Explorer cluster](https://dataexplorer.azure.com), right-click on the cluster, and then select **Edit connection**. <!-- TODO: Check if this is necessary if the prerequisites were followed. -->
+1. Select the destination stage and then select Azure Data Explorer.
 
-<!-- TODO: Can we script this? Can we do this earlier on?-->
-1. Create a Kusto table in the Azure Data Explorer database with the schema shown in the following table:
-
-    | ColumnName               | ColumnType |
-    |--------------------------|------------|
-    | AssetID                  | string     |
-    | Name                     | string     |
-    | Humidity                 | decimal    |
-    | Status                   | bool       |
-    | Maintenance              | string     |
-    | Pressure                 | decimal    |
-    | SerialNumber             | string     |
-    | Location                 | string     |
-    | Timestamp                | datetime   |
-    | Temperature              | decimal    |
-    | Vibration                | decimal    |
-    | HumidityAnomaly          | bool       |
-    | HumidityAnomalyFactor    | decimal    |
-    | OperatingTime            | int        |
-    | TemperatureAnomaly       | bool       |
-    | TemperatureAnomalyFactor | decimal    |
-    | VibrationAnomaly         | bool       |
-    | VibrationAnomalyFactor   | decimal    |
-
-1. Use the information in the following table to configure the output stage, select **Apply**, and then select **Save** to save your pipeline:
+1. Use the information in the following table to configure the destination stage, select **Apply**, and then select **Save** to save your pipeline:
 
     | Field       | Value                            |
     |-------------|----------------------------------|
-    | Cluster URL | `<The URI of your ADX database (This value isn't the data ingestion URI).>` |
-    | Database    | `<name of your Azure Data Explorer Database>` |
-    | Table       | `<name of your Azure Data Explorer Database’s Table>` |
+    | Cluster URL | To find this value, navigate to your cluster at [Azure Data Explorer](https://dataexplorer.azure.com) and select **Edit connection**. |
+    | Database    | `bakery_ops` |
+    | Table       | `edge_data` |
     | Authentication | Service Principal |
-    | Tenant ID   | `<tenant id of your created service principal>` |
-    | Client ID   | `<client id of your created service principal>` |
-    | Secret      | `<client secret that is stored in Azure Key Vault>` |
+    | Tenant ID   | The tenant ID you made a note of when you created the service principal. |
+    | Client ID   | The app ID you made a note of when you created the service principal. |
+    | Secret      | `AIOFabricSecret` |
     | Batching > Batch time | `5s` |
-    | Batching > Batch path | `.payload.Payload` |
+    | Batching > Batch path | `.payload.payload` |
     | Column > Name | `AssetID` |
     | Column > Path | `.asset_id` |
-    | Column > Name | `Maintenance` |
-    | Column > Path | `.maintainence_status` |
-    | Column > Name | `Name` |
-    | Column > Path | `.name` |
-    | Column > Name | `SerialNumber` |
-    | Column > Path | `.serial_number` |
-    | Column > Name | `Location` |
-    | Column > Path | `.site` |
     | Column > Name | `Timestamp` |
     | Column > Path | `.source_timestamp` |
-    | Column > Name | `operating_time` |
-    | Column > Path | `.operating_time` |
+    | Column > Name | `Name` |
+    | Column > Path | `.asset_name` |
+    | Column > Name | `SerialNumber` |
+    | Column > Path | `.serialNumber` |
     | Column > Name | `Status` |
-    | Column > Path | `.machine_status` |
+    | Column > Path | `.machineStatus` |
+    | Column > Name | `Maintenance` |
+    | Column > Path | `.maintainence_status` |
+    | Column > Name | `Location` |
+    | Column > Path | `.site` |
+    | Column > Name | `OperatingTime` |
+    | Column > Path | `.operating_time` |
     | Column > Name | `Humidity` |
     | Column > Path | `.humidity` |
+    | Column > Name | `HumidityAnomalyFactor` |
+    | Column > Path | `.humidityAnomalyFactor` |
+    | Column > Name | `HumidityAnomaly` |
+    | Column > Path | `.humidityAnomaly` |
     | Column > Name | `Temperature` |
     | Column > Path | `.temperature` |
+    | Column > Name | `TemperatureAnomalyFactor` |
+    | Column > Path | `.temperatureAnomalyFactor` |
+    | Column > Name | `TemperatureAnomaly` |
+    | Column > Path | `.temperatureAnomaly` |
     | Column > Name | `Vibration` |
     | Column > Path | `.vibration` |
-    | Column > Name | `HumidityAnomalyFactor` |
-    | Column > Path | `.humidity_anomaly_factor` |
-    | Column > Name | `HumidityAnomaly` |
-    | Column > Path | `.humidity_anomaly` |
-    | Column > Name | `TemperatureAnomalyFactor` |
-    | Column > Path | `.temperature_anomaly_factor` |
-    | Column > Name | `TemperatureAnomaly` |
-    | Column > Path | `.temperature_anomaly` |
     | Column > Name | `VibrationAnomalyFactor` |
-    | Column > Path | `.vibration_anomaly_factor` |
+    | Column > Path | `.vibrationAnomalyFactor` |
     | Column > Name | `VibrationAnomaly` |
-    | Column > Path | `.vibration_anomaly` |
+    | Column > Path | `.vibrationAnomaly` |
 
 1. Save the pipeline.
 
@@ -449,7 +464,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 You can use Azure Data Explorer to query your data. Navigate to your [Azure Data Explorer cluster](https://dataexplorer.azure.com) and use the following command to confirm that the data is flowing from your pipeline:
 
 ```kusto
-<table name>
+edge_data
 | take 10
 ```
 
@@ -473,46 +488,48 @@ To visualize anomalies and process data, you can use Azure Managed Grafana. Use 
 
 1. Select **Add your first data source** to connect your Grafana instance to Azure Data Explorer.
 
-1. In **Add source**, search for and select **Azure Data Explorer**.
+1. In **Add source**, search for and select **Azure Data Explorer Datasource**.
 
-1. In the **Authentication** section, enter the cluster URL and your service principle details.
+1. In the **Connection Details** section, add your Azure Data Explorer cluster URI.
+
+1. In the **Authentication** section, select **App Registration** and enter your service principal details. You made a note of these values when you created your service principal.
 
 1. To test the connection to the Azure Data Explorer database, select **Save & test**.
 
 Now that your Grafana instance is connected to your Azure Data Explorer database, you can build a dashboard:
 
-1. On the Grafana homepage, select **Create new dashboard**.
+1. On the Grafana homepage, select **Home > Dashboards**.
 
-1. Now create a dashboard to display the data from your Azure Data Explorer table. The goal is to evaluate the quality of manufacturing process by detecting anomalies in real-time at the three Contoso Bakery sites. Use visualization widgets on the dashboard to display and examine the data. To add a visualization, select the three dots on the right-hand corner, then select  **Add > Visualization** and choose the visualization you want to use:
+1. Then select **New > Import**.
 
-    :::image type="content" source="media/tutorial-anomaly-detection/grafana-add-visualization.png" alt-text="Screenshot that shows how to add a visualization in Grafana.":::
+1. In another browser tab, navigate to [https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/dashboard/grafanaPredictiveMaintenance.json](https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/dashboard/grafanaPredictiveMaintenance.json). Copy the JSON definition of the dashboard.
 
-The sample [Contoso Bakery dashboard](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/dashboard/grafanaPredictiveMaintenance.json) is available in the samples repository.
+1. Paste the dashboard JSON definition into the **Import via panel definition** text box and then select **Load**.
+
+1. On the **Import dashboard** page, in the **Azure Data Explorer Datasource** drop-down list, select the Azure Data Explorer data source you created previously. Then select **Import**.
+
+1. To view data on the dashboard, use the **Asset** drop-down list to select an asset and make sure that the **Time range** is set to **Last 30 minutes**.
+
+:::image type="content" source="media/tutorial-anomaly-detection/grafana-filters.png" alt-text="A screenshot that shows the Grafana dashboard with filters applied.":::
+
+> [!NOTE]
+> This dashboard uses the variables feature to create the drop-down list of assets.
 
 The sample dashboard has three sections:
 
-<!-- TODO: Add a full screenshot that displays all three sections -->
+:::image type="content" source="media/tutorial-anomaly-detection/grafana-sections.png" alt-text="A screenshot that shows the three sections of the Grafana dashboard.":::
 
-The first section displays the process variables, anomalies, number of anomalies, and the ratio of anomalies of the selected asset.
+The **Asset View** section displays the process variables, anomalies, number of anomalies, and the ratio of anomalies of the selected asset.
 
 This view also displays the name of the asset that has the highest number of anomalies ratio within a given time period. This asset should be either inspected or replaced as soon as possible.
 
 This view also displays the name of the asset that has the highest number of vibration anomalies ratio within a given time period. The Contoso Bakery plant maintenance crew should prioritize this asset for predictive maintenance.
 
-:::image type="content" source="media/tutorial-anomaly-detection/grafana-asset-view.png" alt-text="Screenshot that shows the asset view in Grafana.":::
-
-> [!TIP]
-> This dashboard uses the variables feature to create the drop-down list of assets.
-
 The industrial data simulator generates deliberately noisy data for demonstration purposes and the anomaly detection is sensitive. Therefore, you see lots of anomalies. You can configure the sensitivity of the anomaly detection service and the noisiness of the industrial data simulator by editing their manifest files.
 
-The second section of the dashboard lets you visualize the current oven process parameters in the three Contoso Bakery locations. It charts the process parameters over a selected time period and shows temperature and humidity anomalies. You can use this anomaly data to predict abnormal oven process parameters that could result in a bad product. This section is valuable to the plant operators of the plant as it helps them to monitor the health of the ovens and take any necessary actions to preserve the quality of the products.
+The **Vibration Analysis** section of the dashboard charts the real-time vibrations coming from moving assets such as slicers and mixers. It also charts the average of the anomaly detection factor metric that lets operators know when the vibration anomalies are over the set limit. This information helps operators identify assets that require predictive maintenance. This section is valuable to the plant operators as it helps them monitor asset health and take necessary actions to prevent potential downtime or asset damage.
 
-:::image type="content" source="media/tutorial-anomaly-detection/grafana-data-process-view.png" alt-text="Screenshot that shows the oven process parameters in a Grafana dashboard.":::
-
-The third section of the dashboard charts the real-time vibrations coming from moving assets such as slicers and mixers. It also charts the average of the anomaly detection factor metric that lets operators know when the vibration anomalies are over the set limit. This information helps operators identify assets that require predictive maintenance. This section is valuable to the plant operators as it helps them monitor asset health and take necessary actions to prevent potential downtime or asset damage.
-
-:::image type="content" source="media/tutorial-anomaly-detection/grafana-vibration-analysis.png" alt-text="Screenshot that shows the vibration analysis on the Grafana dashboard.":::
+The **Oven Process Parameters** section of the dashboard lets you visualize the current oven process parameters in the three Contoso Bakery locations. It charts the process parameters over a selected time period and shows temperature and humidity anomalies. You can use this anomaly data to predict abnormal oven process parameters that could result in a bad product. This section is valuable to the plant operators of the plant as it helps them to monitor the health of the ovens and take any necessary actions to preserve the quality of the products.
 
 You can also create your own dashboard with Kusto Queries.
 
@@ -531,7 +548,7 @@ This tutorial shows you how to do anomaly detection with the Contos Bakery manuf
 ## Related content
 
 - [Tutorial: Calculate overall equipment effectiveness](tutorial-overall-equipment-effectiveness.md)
-- [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)
-- [Build event-driven apps with Dapr](tutorial-event-driven-with-dapr.md)
+- [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+- [Build event-driven apps with Dapr](../develop/tutorial-event-driven-with-dapr.md)
 - [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
 - [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)

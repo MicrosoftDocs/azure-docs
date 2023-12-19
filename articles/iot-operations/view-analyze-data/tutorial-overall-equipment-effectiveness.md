@@ -25,35 +25,46 @@ To achieve these goals, Contoso Bakery needs to:
 
 ## Prerequisites
 
-<!-- TODO: Clarify all of these and provide detailed links - maybe use includes from quickstarts? -->
+- Follow the steps in [Quickstart: Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
 
-- Install Azure IoT operations on an Azure Arc-enabled Kubernetes cluster.
+- A Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
-- Create a service principal and make a note of the display name, client ID, tenant ID, and password.
+  - [Allow service principals to use Power BI APIs](/fabric/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
+  - [Users can access data stored in OneLake with apps external to Fabric](/fabric/admin/service-admin-portal-onelake#users-can-access-data-stored-in-onelake-with-apps-external-to-fabric)
 
-- Create secrets in Azure Key Vault and load them onto the cluster.
+  To learn more, see [Microsoft Fabric > About tenant settings](/fabric/admin/tenant-settings-index).
 
-- Install an MQTT client such as [MQTT Explorer](https://mqtt-explorer.com/)
+- Download and sign into [Power BI Desktop.](/power-bi/fundamentals/desktop-what-is-desktop/) <!-- TODO: Clarify if we need desktop? -->
 
-- Sign up for a [Microsoft Fabric Trial](https://learn.microsoft.com/fabric/get-started/fabric-trial)
+## Prepare your environment
 
-- Create a [new workspace in Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/data-warehouse/tutorial-create-workspace)
+Complete the following tasks to prepare your environment:
 
-- Create a [lakehouse](https://learn.microsoft.com/fabric/data-engineering/create-lakehouse)
+### Create a service principal
 
-- Download and sign into [Power BI Desktop.](https://learn.microsoft.com/power-bi/fundamentals/desktop-what-is-desktop)
+[!INCLUDE [create-service-principal-fabric](../includes/create-service-principal-fabric.md)]
 
-- [Set up permissions and secrets for your workspace in Fabric](https://learn.microsoft.com/en-us/azure/iot-operations/connect-to-cloud/howto-configure-destination-fabric#set-up-microsoft-fabric)
+### Grant access to your Microsoft Fabric workspace
 
-  - Make sure to keep note of the service principal Tenant ID, Client ID and Secret reference.
+[!INCLUDE [grant-service-principal-fabric-access](../includes/grant-service-principal-fabric-access.md)]
 
-- Your own fork of the [Azure-Samples/explore-iot-operations: Open source tools, samples, tutorials, and scripts for Azure IoT Operations. (github.com)](https://github.com/Azure-Samples/explore-iot-operations/tree/main) cloned locally to your machine.
+### Create a lakehouse
+
+[!INCLUDE [create-lakehouse](../includes/create-lakehouse.md)]
+
+Make a note of your workspace ID and lakehouse ID, you need them later. You can find these values in the URL that you use to access your lakehouse:
+
+`https://msit.powerbi.com/groups/<your workspace ID>/lakehouses/<your lakehouse ID>?experience=data-engineering`
+
+### Add a secret to your cluster
+
+[!INCLUDE [add-cluster-secret](../includes/add-cluster-secret.md)]
 
 ## Understand the scenario and data
 
 In this tutorial, you simulate the Redmond and Seattle sites. Each site has two production lines producing baked goods:
 
-:::image type="content" source="media/tutorial-overall-equipment-effectiveness/contoso-bakery-production-lines.png" alt-text="Diagram that shows the Contoso Bakery production lines." border=false:::
+:::image type="content" source="media/tutorial-overall-equipment-effectiveness/contoso-bakery-production-lines.svg" alt-text="Diagram that shows the Contoso Bakery production lines." border="false":::
 
 To calculate OEE for Contoso Bakery, you need data from the following three data sources:
 
@@ -61,7 +72,7 @@ To calculate OEE for Contoso Bakery, you need data from the following three data
 
 _Production line assets_ have sensors that generate measurements as the baked goods are produced. Contoso Bakery production lines contain _assembly_, _test_, and _packaging_ assets. As a product moves through each asset, the system captures measurements of values that can affect the final product. The system sends these measurements to Azure IoT MQ.
 
-In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [configuration file](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/industrial-data-simulator/configs/simple) determines how the industrial data simulator generates the measurements.
+In this tutorial, the industrial data simulator simulates the assets that generate measurements. A [manifest](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/industrial-data-simulator/manifests/oee/manifest.yml) file determines how the industrial data simulator generates the measurements.
 
 The following snippet shows an example of the measurements the simulator sends to MQ:
 
@@ -163,19 +174,19 @@ There are three shifts in each 24-hour facility. An operator supervises each shi
 ```json
 [
   {
-    "Shift": 1,
+    "Shift": 0,
     "Operator": "Bob",
     "PerformanceTarget": 45,
     "PackagedProductTarget": 12960
   },
   {
-    "Shift": 2,
+    "Shift": 1,
     "Operator": "Anne",
     "PerformanceTarget": 60,
     "PackagedProductTarget": 17280
   },
   {
-    "Shift": 3,
+    "Shift": 2,
     "Operator": "Cameron",
     "PerformanceTarget": 50,
     "PackagedProductTarget": 14400
@@ -186,13 +197,26 @@ There are three shifts in each 24-hour facility. An operator supervises each shi
 
 ## Set up the data simulator and HTTP call-out samples
 
-Use your local clone of the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository to set up the industrial data simulator, the production data HTTP endpoint, and the operator data HTTP endpoint:
+Run the following command to deploy the industrial data simulator to your cluster with the configuration for this sample:
 
-- To set up the industrial data simulator, follow the instructions in the [Industrial Data Simulator](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/industrial-data-simulator/README.md) readme file. Apply the OEE "config.yml" file to simulate the measurement data for this tutorial.
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/industrial-data-simulator/manifests/oee/manifest.yml
+```
 
-- To simulate the production data HTTP endpoint, navigate to the "http-grpc-callout" folder in your local copy of the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository. Follow the instructions in [GRPC/HTTP Callout Server](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/http-grpc-callout/README.md) readme file.
+> [!CAUTION]
+> The previous configuration adds an insecure **BrokerListener** to connect the simulator to the MQTT broker. Don't use this configuration in a production environment.
 
-- To simulate the shift data HTTP endpoint, navigate to the "http-grpc-shift-calculation" folder in your local copy of the [Explore IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository. Follow the instructions in [GRPC/HTTP Shift Calculator](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/http-grpc-shift-calculation/README.md) readme file.
+Run the following command to deploy the GRPC callout service that returns simulated production and operator data to your cluster:
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/http-grpc-callout/manifest.yml
+```
+
+Run the following command to deploy the shift calculation simulator to your cluster:
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/http-grpc-shift-calculation/manifest.yml
+```
 
 ## Transform and enrich the data
 
@@ -218,7 +242,7 @@ To create the _production-data_ dataset:
 
 1. Select your instance and then select **Data pipelines**. Here, you can author the Data Processor pipelines, create the reference data sets, and deploy them to your Azure Arc-enabled Kubernetes cluster.
 
-1. Select **Reference datasets**. Then select **Create dataset**.
+1. Select **Reference datasets**. Then select **Create reference dataset**.
 
 1. Enter the information from the following table and select **Create dataset**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
 
@@ -227,7 +251,7 @@ To create the _production-data_ dataset:
     | Name            | `production-data` |
     | Property Name 1 | `Line`            |
     | Property Path 1 | `.Line`           |
-    | Primary Key 1   | `True`            |
+    | Primary Key 1   | `Yes`             |
 
 1. Select **Create**.
 
@@ -235,7 +259,7 @@ To create the _production-data-reference_ pipeline that ingests the data from th
 
 1. Navigate to **Data pipelines** and select **Create pipeline**.
 
-1. Select the **HTTP Endpoint** input source, enter the information from the following table, and select **Apply**:
+1. Select the **HTTP Endpoint** input source, use the information from the following table to configure it, and select **Apply**:
 
     | Field                      | Value                                         |
     |----------------------------|-----------------------------------------------|
@@ -247,9 +271,9 @@ To create the _production-data-reference_ pipeline that ingests the data from th
     | API Request – Request Body | `{}`                                          |
     | Request Interval           | `1m`                                          |
 
-1. Select **Add pipeline stage** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the stage.
 
-1. To connect the source and destination stages, select the blue dot at the bottom of the source stage and drag it to the blue dot at the top of the destination stage.
+1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
 1. Select **Add destination** and then select **Reference datasets**.
 
@@ -271,7 +295,7 @@ To create the _operations-data_ dataset:
 
 1. Select your instance and then select **Data pipelines**. Here, you can author the data processing pipeline, create the reference data sets, and deploy them to your Azure Arc-enabled Kubernetes cluster.
 
-1. Select **Reference datasets**. Then select **Create dataset**.
+1. Select **Reference datasets**. Then select **Create reference dataset**.
 
 1. Enter the information from the following table and select **Create dataset**. It can take up to a minute for the reference dataset to deploy to the Kubernetes cluster and show up in the portal.
 
@@ -280,7 +304,7 @@ To create the _operations-data_ dataset:
     | Name            | `operations-data` |
     | Property Name 1 | `Shift`           |
     | Property Path 1 | `.Shift`          |
-    | Primary Key 1   | `True`            |
+    | Primary Key 1   | `Yes`             |
 
 1. Select **Create**.
 
@@ -300,9 +324,9 @@ To create the _operations-data-reference_ pipeline that ingests the data from th
     | API Request – Request Body | `{}`                                          |
     | Request Interval           | `1m`                                          |
 
-1. Select **Add pipeline stage** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the stage.
 
-1. To connect the source and destination stages, select the blue dot at the bottom of the source stage and drag it to the blue dot at the top of the destination stage.
+1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
 
 1. Select **Add destination** and then select **Reference datasets**.
 
@@ -331,7 +355,7 @@ To create the _oee-process-pipeline_ pipeline:
     |-----------------|------------------------------------|
     | Broker          | `tls://aio-mq-dmqtt-frontend:8883` |
     | Topic           | `Contoso/#`                        |
-    | Data format     | `Json`                             |
+    | Data format     | `JSON`                             |
 
     The simulated production line assets send measurements to the MQ broker in the cluster. This input stage configuration subscribes to all the topics under the `Contoso` topic in the MQ broker.
 
@@ -353,7 +377,7 @@ To create the _oee-process-pipeline_ pipeline:
     .payload.Payload.Site = (.topic | split("/")[1])
     ```
 
-1. Add an aggregate stage after the transform stage and select it. In this pipeline, you use the aggregate stage to down sample the measurements from the production line assets. You configure the stage to aggregate data for 10 seconds. Then for the relevant data, calculate the average or pick the latest value. Select the **Advanced** tab in the aggregate stage, paste in the following configuration and select **Save**:
+1. Add an aggregate stage after the transform stage and select it. In this pipeline, you use the aggregate stage to down sample the measurements from the production line assets. You configure the stage to aggregate data for 10 seconds. Then for the relevant data, calculate the average or pick the latest value. Select the **Advanced** tab in the aggregate stage, paste in the following configuration and select **Save**: <!-- TODO: Need to double check this - can we avoid error associated with "next"? -->
 
     ```json
     {
@@ -475,7 +499,7 @@ To create the _oee-process-pipeline_ pipeline:
     |-----------------|----------------------------------|
     | Dataset         | operations-data                  |
     | Output path     | .payload.operatorData            |
-    | Operator        | keyMatch                         |
+    | Operator        | Key match                        |
     | Input path      | .payload.shift                   |
     | Property        | Shift                            |
 
@@ -485,7 +509,7 @@ To create the _oee-process-pipeline_ pipeline:
     |-----------------|----------------------------------|
     | Dataset         | production-data                  |
     | Output path     | .payload.productionData          |
-    | Operator        | keyMatch                         |
+    | Operator        | Key match                        |
     | Input path      | .payload.Line                    |
     | Property        | Line                             |
 
@@ -513,8 +537,9 @@ To create the _oee-process-pipeline_ pipeline:
 
 1. To save your pipeline, select **Save**.
 
-<!-- TODO: Review use of MQTT explorer -->
-1. In MQTT Explorer select the _Oee-processed-output_ topic to see the transformed and enriched measurement data. The following JSON shows a sample message published to the _Oee-processed-output_ topic:
+[!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
+
+The following example shows a message in the _Oee-processed-output_ topic:
 
 ```json
 {
@@ -562,20 +587,20 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 1. Navigate to **Data pipelines** and select **Create pipeline**.
 
-1. Select the title of the pipeline on the top left corner and rename the pipeline to _fabric-pipeline_.
-
-1. Select the input stage, then select **Configure source**, enter the information from the following table, and then select **Apply**:
+1. Select the **MQ** input source, enter the information from the following table, and select **Apply**:
 
     | Field       | Value                            |
     |-------------|----------------------------------|
     | Name        | processed-oee-data               |
     | Broker      | tls://aio-mq-dmqtt-frontend:8883 |
     | Topic       | Oee-processed-output             |
-    | Data Format | json                             |
+    | Data Format | JSON                             |
 
-1. Select **Add pipeline stage** and then select **Delete** to delete the stage.
+1. Select **Add stages** and then select **Delete** to delete the stage.
 
-1. Select the output stage and then select **Microsoft Fabric Lakehouse**. Select the **Advanced** tab and then paste in the following configuration:
+1. To connect the source and destination stages, select the red dot at the bottom of the source stage and drag it to the red dot at the top of the destination stage.
+
+1. Select the destination stage and then select **Fabric Lakehouse**. Select the **Advanced** tab and then paste in the following configuration:
 
     ```json
     {
@@ -690,20 +715,20 @@ The next step is to create a Data Processor pipeline that sends the transformed 
         "clientSecret": ""
       },
       "batch": {
-        "path": ".payload.payload"
+        "path": ".payload"
       }
     }
     ```
 
-1. Navigate to the **Basic** tag and fill in the following fields by using the information you made a note of previously. Then select **Apply**
+1. Then navigate to the **Basic** tag and fill in the following fields by using the information you made a note of previously. Then select **Apply**:
 
-    - Tenant ID
-    - Client ID
-    - Secret
-    - Workspace
-    - Lakehouse
-
-1. To connect the source and destination stages, select the blue dot at the bottom of the source stage and drag it to the blue dot at the top of the destination stage.
+    | Field | Value |
+    |-------|-------|
+    | Tenant ID | The tenant ID you made a note of when you created the service principal. |
+    | Client ID | The app ID you made a note of when you created the service principal. |
+    | Secret    | `AIOFabricSecret` |
+    | Workspace | The Microsoft Fabric workspace ID you made a note of when you created the lakehouse. |
+    | Lakehouse | The Microsoft Fabric lakehouse ID you made a note of when you created the lakehouse. |
 
 1. Save the pipeline as **oee-fabric**.
 
@@ -715,7 +740,6 @@ Navigate to your Microsoft Fabric lakehouse and select the _OEE_ table. It looks
 
 ## Use Power BI to calculate OEE
 
-<!-- TODO: Check correct naming here -->
 1. Open Power BI Desktop and sign in.
 
 1. Select **Get data** followed by **Microsoft Fabric**:
@@ -732,7 +756,7 @@ Navigate to your Microsoft Fabric lakehouse and select the _OEE_ table. It looks
 
 1. Select **DirectQuery** as the connection setting and then select **OK**.
 
-    You can now create measurements and tiles to display OEE for your production lines by using the following formulae:
+    You can now create measurements and tiles to display OEE for your production lines by using formulae such as:
 
     `OEE = Availability\*performance\*Quality`
 
@@ -745,12 +769,7 @@ Navigate to your Microsoft Fabric lakehouse and select the _OEE_ table. It looks
 1. Select **New measure** and enter the following data analysis expression into the main text field:
 
     ```dax
-    OEE = 
-    DIVIDE(AVERAGE(OEE[TotalUnitsProduced]),10)
-    *
-    DIVIDE(AVERAGE(OEE[TotalOperatingTime]),AVERAGE(OEE[PlannedProductionTime]))
-    *
-    (DIVIDE(AVERAGE(OEE[TotalGoodUnitsProduced]), AVERAGE(OEE[TotalUnitsProduced])))
+    OEE = DIVIDE(AVERAGE(OEE[TotalUnitsProduced]),10) * DIVIDE(AVERAGE(OEE[TotalOperatingTime]),AVERAGE(OEE[PlannedProductionTime])) * (DIVIDE(AVERAGE(OEE[TotalGoodUnitsProduced]), AVERAGE(OEE[TotalUnitsProduced])))
     ```
 
 1. Change the **Name** to _OEE_, the **Format** to _Percentage_, and the number of decimals to `2`.
@@ -758,6 +777,8 @@ Navigate to your Microsoft Fabric lakehouse and select the _OEE_ table. It looks
 1. Select the checkmark to save your measurement:
 
     :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-measurement.png" alt-text="Screenshot that shows how to save a Power BI measurement.":::
+
+    The new OEE measurement now appears in the **Data** panel.
 
 1. Select the **Card (new)** icon in the visualizations panel and select the **OEE** measurement you created. You're now using the most recent asset measurement data to calculate OEE for your production lines.
 
@@ -783,7 +804,7 @@ To create a filter that lets you calculate OEE for each Contoso Bakery site and 
 
 1. Select the **Slicer** icon in the visualizations panel and select **Site**. The slicer lets you filter by the site to calculate OEE, performance, and availability, for individual sites. You can also create a slicer based on asset ID.
 
-1. Select the **Table** icon in the visualizations panel and select **AssetID**, **Manufacturer**, **Customer**, and **Product**. The dashboard now displays enrichment data for each asset.
+1. Select the **Table** icon in the visualizations panel and select **AssetID**, **Manufacturer**, **Customer**, and **ProductId**. The dashboard now displays enrichment data for each asset.
 
 1. Select the **Map** icon in the visualizations panel, select **Site**, and drag the site box inside the visualizations panel into the **Location** field.
 
@@ -797,12 +818,14 @@ To create a filter that lets you calculate OEE for each Contoso Bakery site and 
 
     :::image type="content" source="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png" alt-text="Screenshot that shows line charts on a Power BI dashboard.":::
 
-1. Save your dashboard, select **Publish** in the top navigation plane, and enter your workspace as the destination. You now can share your dashboard with your coworkers.
+1. Save your dashboard.
+
+To share your dashboard with your coworkers, select **Publish** in the top navigation plane, and enter your Microsoft Fabric workspace as the destination.
 
 ## Related content
 
 - [Tutorial: Detect anomalies in real time](tutorial-anomaly-detection.md)
-- [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](tutorial-connect-event-grid.md)
-- [Build event-driven apps with Dapr](tutorial-event-driven-with-dapr.md)
+- [Tutorial: Configure MQTT bridge between IoT MQ and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+- [Build event-driven apps with Dapr](../develop/tutorial-event-driven-with-dapr.md)
 - [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
 - [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)
