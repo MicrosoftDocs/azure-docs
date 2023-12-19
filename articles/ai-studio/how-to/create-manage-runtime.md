@@ -109,7 +109,7 @@ You can also customize the environment used to run this flow.
 
 #### Add packages in private feed in Azure DevOps
 
-If you want to use private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
+If you want to use a private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
 
 > [!NOTE]
 >  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
