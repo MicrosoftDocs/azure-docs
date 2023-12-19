@@ -1,7 +1,7 @@
 ---
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 06/16/2023
+ms.date: 12/16/2023
 ms.topic: conceptual
 ms.service: azure-functions
 ---
@@ -87,7 +87,13 @@ Target-based scaling introduces faster scaling, and uses defaults for _target ex
 
 ## Supported extensions
 
-The way in which you configure target-based scaling in your host.json file depends on the specific extension type. This section provides the configuration details for the extensions that currently support target-based scaling.
+The way in which you configure target-based scaling in your host.json file depends on the specific extension type. This section provides the configuration details for the extensions that currently support target-based scaling, which include these extensions:
+
++ [Apache Kafka](#apache_kafka)
++ [Azure Cosmos DB](#azure-cosmos-db)
++ [Azure Event Hubs](#event-hubs)
++ [Azure Queue Storage](#storage-queues)
++ [Azure Service Bus](#service-bus-queues-and-topics)
 
 ### Service Bus queues and topics
 
@@ -297,7 +303,6 @@ For **v2.x+** of the Storage extension, modify the `host.json` setting `batchSiz
 > [!NOTE]
 > **Scale efficiency:** For the storage queue extension, messages with [visibilityTimeout](/rest/api/storageservices/put-message#uri-parameters) are still counted in _event source length_ by the Storage Queue APIs. This can cause overscaling of your function app. Consider using Service Bus queues que scheduled messages, [limiting scale out](event-driven-scaling.md#limit-scale-out), or not using visibilityTimeout for your solution.
 
-
 ### Azure Cosmos DB
 
 Azure Cosmos DB uses a function-level attribute, `MaxItemsPerInvocation`. The way you set this function-level attribute depends on your function language.
@@ -365,6 +370,10 @@ Examples for the Python v2 programming model and the JavaScript v4 programming m
 
 > [!NOTE]
 > Since Azure Cosmos DB is a partitioned workload, the target instance count for the database is capped by the number of physical partitions in your container. To learn more about Azure Cosmos DB scaling, see [physical partitions](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling) and [lease ownership](../cosmos-db/nosql/change-feed-processor.md#dynamic-scaling).
+
+### Apache Kafka
+
+The Kafka extension doesn't require any specific configuration to use target-based scaling.
 
 ## Next steps
 
