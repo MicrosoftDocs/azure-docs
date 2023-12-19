@@ -367,7 +367,7 @@
           displayName: map, network map
           href: protect-network-resources.md
         - name: Lock down logins with multifactor authentication
-          displayName: identity, access, AAD, active directory, multi-factor,
+          displayName: identity, access, AAD, active directory, multifactor,
             authentication, multifactor, users, passwords
           href: multi-factor-authentication-enforcement.md
         - name: Other threat protections
@@ -615,6 +615,10 @@
             href: disable-vulnerability-findings-containers.md
           - name: REST API
             href: subassessment-rest-api.md
+          - name: Transition to Defender Vulnerability Management
+            href: transition-to-defender-vulnerability-management.md
+          - name: Common questions 
+            href: common-questions-microsoft-defender-vulnerability-management.md
       - name: Vulnerability assessment for AWS powered by Trivy (deprecated)
         displayName: AWS, ECR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-elastic.md
