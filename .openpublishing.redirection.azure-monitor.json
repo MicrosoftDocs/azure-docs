@@ -6308,8 +6308,7 @@
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-logging-v2.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-logs-schema",
             "redirect_document_id": false
-        },        
-        ,
+        },
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-onboard.md",
             "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
@@ -6353,6 +6352,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-openshift-v4.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-cost-config.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-data-collection-dcr",
             "redirect_document_id": false
         },
         {

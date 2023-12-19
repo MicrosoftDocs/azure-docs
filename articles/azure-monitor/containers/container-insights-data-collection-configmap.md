@@ -64,18 +64,14 @@ Use the following procedure to configure and deploy your ConfigMap configuration
 
 ### Data collection settings
 
-The following tables describes the settings you can configure to control data collection.
+The following table describes the settings you can configure to control data collection.
 
 
 | Setting | Data type | Value | Description |
 |:---|:---|:---|:---|
 | `schema-version` | String (case sensitive) | v1 | Used by the agent when parsing this ConfigMap. Currently supported schema-version is v1. Modifying this value isn't supported and will be rejected when the ConfigMap is evaluated. |
 | `config-version` | String |  | Allows you to keep track of this config file's version in your source control system/repository. Maximum allowed characters are 10, and all other characters are truncated. | 
-
-**[log_collection_settings]**
-
-| Setting | Data type | Value | Description |
-|:---|:---|:---|:---|
+| **[log_collection_settings]** | | | |
 | `[stdout] enabled` | Boolean | true<br>false | Controls whether stdout container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection, stdout logs will be collected from all containers across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. |
 | `[stdout] exclude_namespaces` | String | Comma-separated array | Array of Kubernetes namespaces for which stdout logs won't be collected. This setting is effective only if `enabled` is set to `true`. If not specified in the ConfigMap, the default value is<br> `["kube-system","gatekeeper-system"]`. |
 | `[stderr] enabled` | Boolean | true<br>false | Controls whether stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stderr log collection, stderr logs will be collected from all containers across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. |
@@ -85,17 +81,9 @@ The following tables describes the settings you can configure to control data co
 | `[collect_all_kube_events] enabled` | Boolean | true<br>false| Controls whether Kube events of all types are collected. By default, the Kube events with type **Normal** aren't collected. When this setting is `true`, the **Normal** events are no longer filtered, and all events are collected. If not specified in the ConfigMap, the default value is `false`. |
 | `[schema] containerlog_schema_version` | String (case sensitive) | v2<br>v1 | Sets the log ingestion format. If `v2`, the **ContainerLogV2** table is used. If `v1`, the **ContainerLog** table is used (this table has been deprecated). For clusters enabling container insights using Azure CLI version 2.54.0 or greater, the default setting is `v2`. See [Container insights log schema](./container-insights-logs-schema.md) for details. |
 | `[enable_multiline_logs] enabled` | Boolean | true<br>false | Controls whether multiline container logs are enabled. See [Multi-line logging in Container Insights](./container-insights-logs-schema.md#multi-line-logging-in-container-insights) for details. If not specified in the ConfigMap, the default value is `false`. This requires the `schema` setting to be `v2`. |
-
-**[metric_collection_settings]**
-
-| Setting | Data type | Value | Description |
-|:---|:---|:---|:---|
+| **[metric_collection_settings]** | | | |
 | `[collect_kube_system_pv_metrics] enabled` | Boolean | true<br>false | Allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace aren't collected. When this setting is set to `true`, PV usage metrics for all namespaces are collected. If not specified in the ConfigMap, the default value is `false`. |
-
-**[agent_settings]**
-
-| Setting | Data type | Value | Description |
-|:---|:---|:---|:---|
+| **[agent_settings]** | | | |
 | `[proxy_config] ignore_proxy_settings` | Boolean | true<br>false | When `true`, proxy settings are ignored. For both AKS and Arc-enabled Kubernetes environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as with AMPLS + Proxy, you might want the proxy configuration to be ignored. If not specified in the ConfigMap, the default value is `false`. |
 
 
