@@ -136,7 +136,7 @@ From the log file above, you can see sample1.csv has been skipped because it fai
 
 
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

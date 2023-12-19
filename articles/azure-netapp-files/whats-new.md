@@ -67,10 +67,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2023
 
-* [Azure NetApp Files customer-managed keys for Azure NetApp Files volume encryption is now available in select US Gov regions (Preview)](configure-customer-managed-keys.md#supported-regions)
-
-    Customer keys are protected from attacks for maximum security of their Azure NetApp File volumes. This capability is now available US Gov Virginia (preview). This increased security complements the additional security for deployments in US Gov. Healthcare, Finance, Government, and many other customers can now protect their customer-managed encryption keys within the secure confines of US Gov Virginia region.
-
 * [Standard network features in select US Gov regions (Preview)](azure-netapp-files-network-topologies.md)
 
     Azure NetApp Files now supports Standard network features for new volumes in select US Gov regions. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files. You can now choose Standard or Basic network features when creating a new Azure NetApp Files volume. This feature is Generally Available in Azure commercial regions and public preview US Gov region(s).
@@ -113,7 +109,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) (Preview)
 
-    We are excited to announce the addition of double encryption at rest for Azure NetApp Files volumes. This new feature provides an extra layer of protection for your critical data, ensuring maximum confidentiality and mitigating potential liabilities. Double encryption at rest is ideal for industries such as finance, military, healthcare, and government, where breaches of confidentiality can have catastrophic consequences. By combining hardware-based encryption with encrypted SSD drives and software-based encryption at the volume level, your data remains secure throughout its lifecycle. You can select **double** as the encryption type during capacity pool creation to easily enable this advanced security layer.      
+    We're excited to announce the addition of double encryption at rest for Azure NetApp Files volumes. This new feature provides an extra layer of protection for your critical data, ensuring maximum confidentiality and mitigating potential liabilities. Double encryption at rest is ideal for industries such as finance, military, healthcare, and government, where breaches of confidentiality can have catastrophic consequences. By combining hardware-based encryption with encrypted SSD drives and software-based encryption at the volume level, your data remains secure throughout its lifecycle. You can select **double** as the encryption type during capacity pool creation to easily enable this advanced security layer.      
 
 * Availability zone volume placement enhancement - [Populate existing volumes](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) (Preview)
 
@@ -127,8 +123,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard network features - Edit volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes) (Preview)
 
-    Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Azure Virtual Network (VNet) experience through various security and connectivity features that are available on Azure VNets to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to): 
-    * Increased number of client IPs in a virtual network (including immediately peered VNets) accessing Azure NetApp Files volumes - the [same as Azure VMs](azure-netapp-files-resource-limits.md#resource-limits)
+    Azure NetApp Files volumes have been supported with Standard network features since [October 2021](#october-2021), but only for newly created volumes. This new *edit volumes* capability lets you change *existing* volumes that were configured with Basic network features to use Standard network features. This capability provides an enhanced, more standard, Microsoft Azure Virtual Network experience through various security and connectivity features that are available on Virtual Networks to Azure services. When you edit existing volumes to use Standard network features, you can start taking advantage of networking capabilities, such as (but not limited to): 
+    * Increased number of client IPs in a virtual network (including immediately peered Virtual Networks) accessing Azure NetApp Files volumes - the [same as Azure VMs](azure-netapp-files-resource-limits.md#resource-limits)
     * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on Azure NetApp Files delegated subnets
     * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) to and from Azure NetApp Files delegated subnets
     * Connectivity over Active/Active VPN gateway setup
@@ -270,7 +266,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
 
-    Standard network features now includes Global VNet peering. 
+    Standard network features now includes Global virtual network peering. 
 
     Regular billing for Standard network features on Azure NetApp Files began November 1, 2022.
     
@@ -385,7 +381,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     Azure NetApp Files now supports **Standard** network features for volumes that customers have been asking for since the inception. This capability is a result of innovative hardware and software integration. Standard network features provide an enhanced virtual networking experience through various features for a seamless and consistent experience with security posture of all their workloads including Azure NetApp Files.
     
     You can now choose *Standard* or *Basic* network features when creating a new Azure NetApp Files volume. Upon choosing Standard network features, you can take advantage of the following supported features for Azure NetApp Files volumes and delegated subnets:   
-    * Increased IP limits for the VNets with Azure NetApp Files volumes at par with VMs
+    * Increased IP limits for the virtual networks with Azure NetApp Files volumes at par with VMs
     * Enhanced network security with support for [network security groups](../virtual-network/network-security-groups-overview.md) on the Azure NetApp Files delegated subnet
     * Enhanced network control with support for [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) to and from Azure NetApp Files delegated subnets
     * Connectivity over Active/Active VPN gateway setup
@@ -439,9 +435,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure NetApp Files storage service add-ons](storage-service-add-ons.md)
 
-    The new Azure NetApp Files **Storage service add-ons** menu option provides an Azure portal “launching pad” for available third-party, ecosystem add-ons to the Azure NetApp Files storage service. With this new portal menu option, you can enter a landing page by clicking an add-on tile to quickly access the add-on.  
+    The new Azure NetApp Files **Storage service add-ons** menu option provides an Azure portal “launching pad” for available third-party, ecosystem add-ons to the Azure NetApp Files storage service. With this new portal menu option, you can enter a landing page by selecting an add-on tile to quickly access the add-on.  
 
-    **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to NetApp Cloud Data Sense. Clicking the **Cloud Data Sense** tile opens a new browser and directs you to the add-on installation page. 
+    **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to NetApp Cloud Data Sense. Selecting the **Cloud Data Sense** tile opens a new browser and directs you to the add-on installation page. 
 
 * [Manual QoS capacity pool](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) now generally available (GA)   
 
@@ -463,7 +459,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes](configure-ldap-over-tls.md) (Preview) 
 
-    By default, LDAP communications between client and server applications aren't encrypted. This setting means that it's possible to use a network-monitoring device or software to view the communications between an LDAP client and server computers. This scenario might be problematic in non-isolated or shared VNets when an LDAP simple bind is used, because the credentials (username and password) used to bind the LDAP client to the LDAP server are passed over the network unencrypted. LDAP over TLS (also known as LDAPS) is a protocol that uses TLS to secure communication between LDAP clients and LDAP servers. Azure NetApp Files now supports the secure communication between an Active Directory Domain Server (AD DS) using LDAP over TLS. Azure NetApp Files can now use LDAP over TLS for setting up authenticated sessions between the Active Directory-integrated LDAP servers. You can enable the LDAP over TLS feature for NFS, SMB, and dual-protocol volumes. By default, LDAP over TLS is disabled on Azure NetApp Files.  
+    By default, LDAP communications between client and server applications aren't encrypted. This setting means that it's possible to use a network-monitoring device or software to view the communications between an LDAP client and server computers. This scenario might be problematic in non-isolated or shared virtual networks when an LDAP simple bind is used, because the credentials (username and password) used to bind the LDAP client to the LDAP server are passed over the network unencrypted. LDAP over TLS (also known as LDAPS) is a protocol that uses TLS to secure communication between LDAP clients and LDAP servers. Azure NetApp Files now supports the secure communication between an Active Directory Domain Server (AD DS) using LDAP over TLS. Azure NetApp Files can now use LDAP over TLS for setting up authenticated sessions between the Active Directory-integrated LDAP servers. You can enable the LDAP over TLS feature for NFS, SMB, and dual-protocol volumes. By default, LDAP over TLS is disabled on Azure NetApp Files.  
 
 * Support for throughput [metrics](azure-netapp-files-metrics.md)    
 
@@ -502,7 +498,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption) (Preview) 
 
-    You can now enable SMB3 Protocol Encryption on Azure NetApp Files SMB and dual-protocol volumes. This feature enables encryption for in-flight SMB3 data, using the [AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) connections. SMB clients not using SMB3 encryption can't access this volume. Data at rest is encrypted regardless of this setting. SMB encryption further enhances security. However, it might impact the client (CPU overhead for encrypting and decrypting messages). It might also impact storage resource utilization (reductions in throughput). You should test the encryption performance impact against your applications before deploying workloads into production.
+    You can now enable SMB3 Protocol Encryption on Azure NetApp Files SMB and dual-protocol volumes. This feature enables encryption for in-flight SMB3 data, using the [AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) connections. SMB clients not using SMB3 encryption can't access this volume. Data at rest is encrypted regardless of this setting. SMB encryption further enhances security. However, it might affect the client (CPU overhead for encrypting and decrypting messages). It might also affect storage resource utilization (reductions in throughput). You should test the encryption performance impact against your applications before deploying workloads into production.
 
 * [Active Directory Domain Services (AD DS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) (Preview)   
 
@@ -576,7 +572,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Dynamic volume service level change](dynamic-change-volume-service-level.MD) (Preview) 
 
-    Cloud promises flexibility in IT spending. You can now change the service level of an existing Azure NetApp Files volume by moving the volume to another capacity pool that uses the service level you want for the volume. This in-place service-level change for the volume doesn't require that you migrate data. It also doesn't impact the data plane access to the volume. You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies). It's currently in preview. You can register for the feature preview by following the [dynamic volume service level change documentation](dynamic-change-volume-service-level.md).
+    Cloud promises flexibility in IT spending. You can now change the service level of an existing Azure NetApp Files volume by moving the volume to another capacity pool that uses the service level you want for the volume. This in-place service-level change for the volume doesn't require that you migrate data. It also doesn't affect the data plane access to the volume. You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. This feature is free of charge (normal [Azure NetApp Files storage cost](https://azure.microsoft.com/pricing/details/netapp/) still applies). It's currently in preview. You can register for the feature preview by following the [dynamic volume service level change documentation](dynamic-change-volume-service-level.md).
 
 * [Volume snapshot policy](snapshots-manage-policy.md) (Preview) 
 

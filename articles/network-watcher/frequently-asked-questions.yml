@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: network-watcher
   ms.topic: faq
-  ms.date: 11/27/2023
+  ms.date: 12/12/2023
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
@@ -168,7 +168,7 @@ sections:
       - question: |
           What does NSG flow logs do?
         answer: |
-          NSG flow logs enable you to log 5-tuple flow information about network traffic that passes through your [network security groups](../virtual-network/network-security-groups-overview.md). The raw flow logs are written to an Azure storage account. From there, you can further process, analyze, query, or export them as needed.
+          Flow logs enable you to log 5-tuple flow information about your Azure IP traffic that passes through a network security group or Azure virtual network. The raw flow logs are written to an Azure storage account. From there, you can further process, analyze, query, or export them as needed.
 
       - question: |
           Do flow logs affect network latency or performance?
@@ -181,9 +181,14 @@ sections:
           No, NSG flow logs don't support ESP and AH protocols.
 
       - question: |
-          Can I log ICMP traffic using Network Watcher flow logs?
+          Can I log ICMP traffic using flow logs?
         answer: |
           No. NSG flow logs and VNet flow logs don't support ICMP protocol.
+
+      - question: |
+          Can I use a storage account in a different subscription than the network security group or virtual network that the flow log is enabled for?
+        answer: |
+          Yes, you can use a storage account from a different subscription as long as this subscription is associated with the same Microsoft Entra tenant of the network security group or virtual network's subscription.
 
       - question: |
           How do I use NSG flow logs with a storage account behind a firewall?
@@ -198,9 +203,14 @@ sections:
           You can check the storage logs after a few minutes. You should see an updated TimeStamp or a new JSON file created.
 
       - question: |
+          Why do I see some 403 errors in storage account activity logs?
+        answer: |
+          Network Watcher has a built-in fallback mechanism that it uses when connecting to a storage account behind a firewall (firewall enabled). It tries to connect to the storage account using a key, and if that fails, it switches to a token. In this case, a 403 error is logged in the storage account activity log.
+
+      - question: |
           Can NSG flow logs send data to a storage account using an Azure Private Endpoint?
         answer: |
-          Yes, Network Watcher support sending NSG flow logs data to a storage account enabled with a private endpoint.
+          Yes, Network Watcher supports sending NSG flow logs data to a storage account enabled with a private endpoint.
 
       - question: |
           How do I use NSG flow logs with a storage account behind a Service Endpoint?

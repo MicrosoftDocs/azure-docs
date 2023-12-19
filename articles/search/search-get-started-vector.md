@@ -490,7 +490,7 @@ api-key: {{admin-api-key}}
     "count": true,
     "select": "HotelName, Tags, Description",
     "filter": "Tags/any(tag: tag eq 'free wifi')",
-    "vectorFilterMode": "PreFilter",
+    "vectorFilterMode": "preFilter",
     "vectorQueries": [
         {
             "vector": [ VECTOR OMITTED ],
@@ -499,7 +499,7 @@ api-key: {{admin-api-key}}
             "kind": "vector",
             "exhaustive": true
         },
-    ]
+    ]n
 }
 ``` 
 

@@ -5,10 +5,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.workload: infrastructure
 ms.topic: how-to
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/7/2023
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Automatic Extension Upgrade for VMs and Scale Sets in Azure

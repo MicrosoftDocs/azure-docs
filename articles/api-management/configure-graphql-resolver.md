@@ -27,10 +27,6 @@ Currently, API Management supports resolvers that can access the following data 
 * Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
 * You can configure API-scoped policies for a GraphQL API, independent of the resolver-scoped policies. For example, add a [validate-graphql-request](validate-graphql-request-policy.md) policy to the `inbound` scope to validate the request before the resolver is invoked. Configure API-scoped policies on the **API policies** tab for the API.
 
-> [!IMPORTANT]
-> * If you use the preview `set-graphql-resolver` policy in policy definitions, you should migrate to the managed resolvers described in this article.
-> * After you configure a managed resolver for a GraphQL field, the gateway will skip the `set-graphql-resolver` policy in any policy definitions. You can't combine use of managed resolvers and the `set-graphql-resolver` policy in your API Management instance.
-
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).

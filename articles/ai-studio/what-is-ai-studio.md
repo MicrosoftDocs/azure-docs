@@ -5,7 +5,7 @@ description: Azure AI Studio brings together capabilities from across multiple A
 author: eric-urban
 manager: nitinme
 keywords: Azure AI services, cognitive
-ms.service: azure-ai-services
+ms.service: azure-ai-studio
 ms.topic: overview
 ms.date: 11/15/2023
 ms.author: eur

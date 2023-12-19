@@ -15,14 +15,14 @@ ms.date: 11/27/2023
 
 # Upgrade to the latest REST API in Azure AI Search
 
-Use this article to migrate data plane REST API calls to newer *stable* versions of the [**Search REST API**](/rest/api/searchservice/).
+Use this article to migrate data plane calls to newer *stable* versions of the [**Search REST API**](/rest/api/searchservice/).
 
 + [**2023-11-01**](/rest/api/searchservice/search-service-api-versions#2023-11-01) is the most recent stable version. Semantic ranking and vector search support are generally available in this version.
 
-+ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. Integrated data chunking and vectorization using the [Text Split](cognitive-search-skill-textsplit.md) skill and [AzureOpenAiEmbedding](cognitive-search-skill-azure-openai-embedding.md) skill are introduced in this version. There's no migration guidance for preview API versions, but you can review code samples and walkthroughs for guidance. See [Integrated vectorization (preview)](vector-search-integrated-vectorization.md) for your first step.
++ [**2023-10-01-preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-preview) is the most recent preview version. [Integrated data chunking and vectorization](vector-search-integrated-vectorization.md) using the [Text Split](cognitive-search-skill-textsplit.md) skill and [Azure OpenAI Embedding](cognitive-search-skill-azure-openai-embedding.md) skill are introduced in this version. *There's no migration guidance for preview API versions*, but you can review [code samples](https://github.com/Azure/azure-search-vector-samples) and [walkthroughs](vector-search-how-to-configure-vectorizer.md) for help with new features.
 
 > [!NOTE]
-> New filter controls on the table of contents provide version-specific API reference pages. To get the right information, open a reference page and then apply the filter.
+> API reference docs are now versioned. To get the right content, open a reference page and then apply the version-specific filter located above the table of contents.
 
 <a name="UpgradeSteps"></a>
 
@@ -42,14 +42,14 @@ If any of these situations apply to you, change your code to maintain existing f
 
 This version has breaking changes and behavioral differences for semantic ranking and vector search support. 
 
-[Semantic ranking](semantic-search-overview.md) no longer uses `queryLanguage`. It also requires a `semanticConfiguration` definition. If you're migrating from 2020-06-30-preview, a semantic configuration replaces `searchFields`. See [Migrate from preview version](semantic-how-to-query-request.md#migrate-from-preview-versions) for steps.
++ [Semantic ranking](semantic-search-overview.md) no longer uses `queryLanguage`. It also requires a `semanticConfiguration` definition. If you're migrating from 2020-06-30-preview, a semantic configuration replaces `searchFields`. See [Migrate from preview version](semantic-how-to-query-request.md#migrate-from-preview-versions) for steps.
 
-[Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm and query-time exhaustive k-NN flag. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
++ [Vector search](vector-search-overview.md) support was introduced in [Create or Update Index (2023-07-01-preview)](/rest/api/searchservice/preview-api/create-or-update-index). If you're migrating from that version, there are new options and several breaking changes. New options include vector filter mode, vector profiles, and an exhaustive K-nearest neighbors algorithm and query-time exhaustive k-NN flag. Breaking changes include renaming and restructuring the vector configuration in the index, and vector query syntax.
 
-If you added vector support using 2023-10-01-preview, there are no breaking changes. There's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter. Change the API version and test your code to confirm the migration from the previous preview version (2023-07-01-preview). 
+If you added vector support using 2023-10-01-preview, there are no breaking changes, but there's one behavior difference: the `vectorFilterMode` default changed from postfilter to prefilter for [filter expressions](vector-search-filters.md). The default is  prefilter for indexes created after 2023-10-01. Indexes created before that date only support postfilter, regardless of how you set the filter mode. 
 
 > [!TIP]
-> You can upgrade a 2023-07-01-preview index in the Azure portal. The portal detects the previous version and provides a **Migrate** button. Select **Edit JSON** to review the updated schema before selecting **Migrate**. The new and changed schema conforms to the steps described in this section. Portal migration only handles indexes with one vector field. Indexes with more than one vector field require manual migration.
+> Azure portal supports a one-click upgrade path for 2023-07-01-preview indexes. The portal detects 2023-07-01-preview indexes and provides a **Migrate** button. Before selecting **Migrate**, select **Edit JSON** to review the updated schema first. You should find a schema that conforms to the changes described in this section. Portal migration only handles indexes with one vector search algorithm configuration, creating a default profile that maps to the algorithm. Indexes with multiple configurations require manual migration.
 
 Here are the steps for migrating from 2023-07-01-preview:
 
@@ -104,7 +104,7 @@ Here are the steps for migrating from 2023-07-01-preview:
       }
     ```
 
-1. Modify vector field definitions, replacing `vectorSearchConfiguration` with `vectorSearchProfile`. Other vector field properties remain unchanged. For example, they can't be filterable, sortable, or facetable, nor use analyzers or normalizers or synonym maps.
+1. Modify vector field definitions, replacing `vectorSearchConfiguration` with `vectorSearchProfile`. Make sure the profile name resolves to a new vector profile definition, and not the algorithm configuration name. Other vector field properties remain unchanged. For example, they can't be filterable, sortable, or facetable, nor use analyzers or normalizers or synonym maps.
 
     **Before (2023-07-01-preview)**:
 
@@ -163,7 +163,8 @@ Here are the steps for migrating from 2023-07-01-preview:
     ```http
     {
         "search": (this parameter is ignored in vector search),
-        "vectors": [{
+        "vectors": [
+          {
             "value": [
                 0.103,
                 0.0712,
@@ -173,7 +174,8 @@ Here are the steps for migrating from 2023-07-01-preview:
             ],
             "fields": "contentVector",
             "k": 5
-        }],
+          }
+        ],
         "select": "title, content, category"
     }
     ```
@@ -218,7 +220,7 @@ Existing code written against earlier API versions will break on api-version=202
 
 ### Behavior changes
 
-* [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
+* [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. Services created after 2019 use this algorithm automatically. For older services, you must set parameters to use the new algorithm.  
 
 * Ordered results for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, be aware of this change.
 

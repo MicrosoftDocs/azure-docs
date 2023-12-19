@@ -15,21 +15,15 @@ Azure Premium SSD v2 is designed for IO-intense enterprise workloads that requir
 
 Premium SSD v2 support a 4k physical sector size by default, but can be configured to use a 512E sector size as well. While most applications are compatible with 4k sector sizes, some require 512 byte sector sizes. Oracle Database, for example, requires release 12.2 or later in order to support 4k native disks.
 
-## Limitations
-
-[!INCLUDE [disks-prem-v2-limitations](../../includes/disks-prem-v2-limitations.md)]
-
-### Regional availability
-
-[!INCLUDE [disks-premv2-regions](../../includes/disks-premv2-regions.md)]
-
 ## Prerequisites
 
 - Install either the latest [Azure CLI](/cli/azure/install-azure-cli) or the latest [Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 
 ## Determine region availability programmatically
 
-To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. To determine regions, and zones support premium SSD v2, replace `yourSubscriptionId` then run the following command:
+To use a Premium SSD v2, you need to determine the regions and zones where it's supported. Not every region and zones support Premium SSD v2. For a list of regions, see [Regional availability](#regional-availability).
+
+To determine regions, and zones support premium SSD v2, replace `yourSubscriptionId` then run the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -214,6 +208,14 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 Currently, adjusting disk performance is only supported with Azure CLI or the Azure PowerShell module.
 
 ---
+
+## Limitations
+
+[!INCLUDE [disks-prem-v2-limitations](../../includes/disks-prem-v2-limitations.md)]
+
+### Regional availability
+
+[!INCLUDE [disks-premv2-regions](../../includes/disks-premv2-regions.md)]
 
 ## Next steps
 

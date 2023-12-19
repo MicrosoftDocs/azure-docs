@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/22/2023
+ms.date: 11/28/2023
 ms.author: kendownie
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 recommendations: false
@@ -310,7 +310,7 @@ Sign in to the domain-joined VM using the Microsoft Entra identity to which you 
 
 Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to persistently mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. Because you've been authenticated, you won't need to provide the storage account key. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace `<storage-account-name>` and `<file-share-name>` with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
-Always mount Azure file shares using `file.core.windows.net`, even if you set up a private endpoint for your share.
+Unless you're using [custom domain names](storage-files-identity-ad-ds-mount-file-share.md#mount-file-shares-using-custom-domain-names), you should mount Azure file shares using the suffix `file.core.windows.net`, even if you set up a private endpoint for your share.
 
 ```powershell
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
