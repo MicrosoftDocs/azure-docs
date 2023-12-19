@@ -18,11 +18,20 @@ The benefits of custom-mounted storage include:
 - Make static content like video and images readily available for your App Service app. 
 - Write application log files or archive older application log to Azure File shares.  
 - Share content across multiple apps or with other Azure services.
+- Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) and Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
+- Azure Blobs (read-only) are supported.
+- Up to five mount points per app are supported.
 
-The following features are supported for Linux containers:
-- Azure Files (read/write).
-- Azure Blobs (read-only).
-- Up to five mount points per app.
+The limitations of custom-mounted storage include:
+- [Storage firewall](../../../storage/common/storage-network-security.md) is supported only through [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../../../storage/common/storage-private-endpoints.md) (when [VNET integration](../../overview-vnet-integration.md) is used).
+- FTP/FTPS access to custom-mounted storage isn't supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
+- Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
+- Mapping `/` or `/home` to custom-mounted storage isn't supported.
+- Don't map the storage mount to `/tmp` or its subdirectories as this action may cause a timeout during app startup.
+- Azure Storage isn't supported with [Docker Compose](../../configure-custom-container.md?pivots=container-linux#docker-compose-options) scenarios.
+- Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
+- NFS support is only available for App Service on Linux. NFS isn't supported for Windows code and Windows containers. The web app and storage account need to be configured on the same VNET for NFS. The storage account used for file share should have "Premium" performance tier and "Filestorage" as the Account Kind.  Azure Key Vault is not applicable when using the NFS protocol.
+- With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
 
 Here are the three options to mount Azure storage to your app:
 
@@ -55,21 +64,7 @@ Here are the three options to mount Azure storage to your app:
 
 ---
 
-## Limitations
-
-- [Storage firewall](../../../storage/common/storage-network-security.md) is supported only through [service endpoints](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) and [private endpoints](../../../storage/common/storage-private-endpoints.md) (when [VNET integration](../../overview-vnet-integration.md) is used).
-- FTP/FTPS access to custom-mounted storage isn't supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
-- Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
-- Mapping `/` or `/home` to custom-mounted storage isn't supported.
-- Don't map the storage mount to `/tmp` or its subdirectories as this action may cause a timeout during app startup.
-- Azure Storage isn't supported with [Docker Compose](../../configure-custom-container.md?pivots=container-linux#docker-compose-options) scenarios.
-- Storage mounts aren't included in [backups](../../manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts.
-- Azure Files [NFS](../../../storage/files/files-nfs-protocol.md) and Azure Files [SMB](../../../storage/files/files-smb-protocol.md) are supported.
-- NFS support is only available for App Service on Linux. NFS isn't supported for Windows code and Windows containers. The web app and storage account need to be configured on the same VNET for NFS. The storage account used for file share should have "Premium" performance tier and "Filestorage" as the Account Kind.  Azure Key Vault is not applicable when using the NFS protocol.
-- With VNET integration on your app, the mounted drive uses an RFC1918 IP address and not an IP address from your VNET.
-
 ## Prepare for mounting
-
 
 ### [Basic](#tab/basic)
 
