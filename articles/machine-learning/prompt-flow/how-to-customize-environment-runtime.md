@@ -115,7 +115,7 @@ You can also find the image in environment detail page and use it as base image 
 To learn more about environment CLI, see [Manage environments](../how-to-manage-environments-v2.md#manage-environments).
 
 
-## Customize environment with flow folder for automatic runtime
+## Customize environment with flow folder for automatic runtime (preview)
 
 In `flow.dag.yaml` file in prompt flow folder, you can use `environment` section we can define the environment for the flow. It include two parts:
 - image: which is the base image for the flow, if ommitted, it will use the latest version of prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If you want to customize the environment, you can use the image you created in previous section.
