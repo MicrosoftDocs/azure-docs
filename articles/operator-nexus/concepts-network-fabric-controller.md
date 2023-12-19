@@ -62,7 +62,7 @@ To create an NFC, you must provide the following attributes:
 :::image type="content" source="media/network-fabric-controller-architecture.png" alt-text="A flowchart for creating a Network Fabric Controller in Azure, detailing the progression from user request to the associated Azure resources.":::
 
 ## Payload examples
-Create a a Network Fabric Controller:
+Create a Network Fabric Controller:
 
  ```azurecli
     az networkfabric controller create \
