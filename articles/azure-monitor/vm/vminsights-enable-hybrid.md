@@ -15,7 +15,7 @@ For Linux hybrid machines, use [Azure Arc for servers](../../azure-arc/servers/o
 
 ## Prerequisites
 
-- [Create a Log Analytics workspace](../logs/quick-create-workspace.md).
+- [Log Analytics workspace](../logs/quick-create-workspace.md).
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
 ## Firewall requirements
@@ -27,69 +27,11 @@ Azure Monitor Agent transmits data to the Azure Monitor service directly or thro
 
 ## Install Azure Monitor Agent and Dependency agent
 
-To enable VM insights on virtual machines outside of Azure, install the agents manually, or using other methods, on the guest operating system: 
+To enable VM insights on Windows virtual machines outside of Azure: 
 
-1. [Install Azure Monitor Agent](../agents/azure-monitor-agent-windows-client.md). 
-1. Optionally, to use the [Map feature of VM insights](vminsights-maps.md), install Dependency agent using the installer or PowerShell script:
-
-    - To install Dependency agent using the installer: 
-
-        Download [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) and install the agent manually on by running `InstallDependencyAgent-Windows.exe`. If you run this executable file without any options, it starts a setup wizard that you can follow to install the agent interactively. You require Administrator privileges on the guest OS to install or uninstall the agent.
-        
-        The agent setup command supports these parameters from the command line:
-        
-        | Parameter | Description |
-        |:--|:--|
-        | /? | Returns a list of the command-line options. |
-        | /S | Performs a silent installation with no user interaction. |
-        
-        For example, to run the installation program with the `/?` parameter, enter **InstallDependencyAgent-Windows.exe /?**.
-    
-        Files for the Windows Dependency agent are installed in *C:\Program Files\Microsoft Dependency Agent* by default. If the Dependency agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\Microsoft Dependency Agent\logs*.
-
-    - To install Dependency agent using PowerShell:
-
-        - Use this sample PowerShell script to download and install the agent:
-        
-            ```powershell
-            Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
-            
-            .\InstallDependencyAgent-Windows.exe /S
-            ```
-        
-        - To deploy the Dependency agent by using Desired State Configuration (DSC), you can use the `xPSDesiredStateConfiguration` module with the following sample code:
-        
-            ```powershell
-            configuration VMInsights {
-            
-                Import-DscResource -ModuleName xPSDesiredStateConfiguration
-            
-                $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
-            
-                Node localhost
-                {
-                    # Download and install the Dependency agent
-                    xRemoteFile DAPackage
-                    {
-                        Uri = "https://aka.ms/dependencyagentwindows"
-                        DestinationPath = $DAPackageLocalPath
-                    }
-            
-                    xPackage DA
-                    {
-                        Ensure="Present"
-                        Name = "Dependency Agent"
-                        Path = $DAPackageLocalPath
-                        Arguments = '/S'
-                        ProductId = ""
-                        InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
-                        InstalledCheckRegValueName = "DisplayName"
-                        InstalledCheckRegValueData = "Dependency Agent"
-                        DependsOn = "[xRemoteFile]DAPackage"
-                    }
-                }
-            }
-            ```
+1. If you don't have an existing VM insights data collection rule, [Deploy a VM insights data collection rule using ARM templates](vminsights-enable-resource-manager.md#deploy-data-collection-rule). The data collection rule must be in the same region as your Log Analytics workspace.
+1. Install Azure Monitor Agent on your machine using the client installer, create a monitored object, and associate the monitored object to your VM insights data collection rule, as described in [Azure Monitor Agent on Windows client devices](../agents/azure-monitor-agent-windows-client.md). 
+1. Optionally, to use the [Map feature of VM insights](vminsights-maps.md), install Dependency Agent on your machine manually.
         
 ## Troubleshooting
 
