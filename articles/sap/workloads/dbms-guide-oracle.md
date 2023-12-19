@@ -255,7 +255,6 @@ Oracle DBAs that aren't familiar with Oracle ASM follow the training materials a
 - [<u>What is Oracle ASM to Azure IaaS? - Simple Talk (red-gate.com)</u>](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)
 - [ASM Command-Line Utility (ASMCMD) (oracle.com)](https://docs.oracle.com/cd/B19306_01/server.102/b14215/asm_util.htm)
 - [Useful asmcmd commands - DBACLASS DBACLASS](https://dbaclass.com/article/useful-asmcmd-commands-oracle-cluster/)
-- [Moving your SAP Database to Oracle Automatic Storage Management 11g Release 2 - A Best Practices Guide](https://www.sap.com/documents/2016/08/f2e8c029-817c-0010-82c7-eda71af511fa.html)
 - [Installing and Configuring Oracle ASMLIB Software](https://docs.oracle.com/en/database/oracle/oracle-database/19/ladbi/installing-and-configuring-oracle-asmlib-software.html#GUID-79F9D58F-E5BB-45BD-A664-260C0502D876)
 
 ## Azure NetApp Files (ANF) with Oracle dNFS (Direct NFS)
