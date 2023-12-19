@@ -346,7 +346,7 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
 
 1. You can also view the provisioning state of your image in the Azure portal. Go to your gallery and view the image definition.
 
-   :::image type="content" source="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png" alt-text="Screenshot that shows the provisioning state of the customized image version." lightbox="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png:::
+   :::image type="content" source="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png" alt-text="Screenshot that shows the provisioning state of the customized image version." lightbox="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png":::
 
 ## Configure the gallery
 
@@ -358,4 +358,4 @@ After the gallery images are available in the dev center, you can use the custom
 
 ## Related content
 
-- [Create a dev box definition](quickstart-configure-dev-box-service.md#2-create-a-dev-box-definition)
+- [Create a dev box definition](quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
