@@ -19,7 +19,7 @@ This article will guide you through the process of using a template to export, m
 ## Prerequisites
 
 - Make sure that the Azure Data Share account is in the Azure region from which you want to move.
-- Azure Data Share accounts can’t be moved between regions. You’ll have to readd datasets to sent shares and resend invitations to Data Share recipients. For any received shares, you'll need to request that the data provider sends you a new invitation.
+- Azure Data Share accounts can’t be moved between regions. You’ll have to re-add datasets to sent shares and resend invitations to Data Share recipients. For any received shares, you'll need to request that the data provider sends you a new invitation.
 
 ## Prepare and move
 

@@ -19,12 +19,12 @@ With Azure Data Share service, you can share data without exchanging credentials
 
 To create shares in Azure Data share, a user will need these permissions:
 
-1. **Contributor** permissions on the data share account.
-1. **Reader** permissions on the resource group where your storage accounts or databases live. (This gives you permission to browse for them in the portal.)
-1. Source permissions, depending on the source:
-    1. [Storage and data lake sharing](#storage-and-data-lake-sharing)
-    1. [Azure SQL sharing](#sql-database-sharing)
-    1. [Azure Synapse analytics sharing](#azure-synapse-analytics-sharing)
+- **Contributor** permissions on the data share account.
+- **Reader** permissions on the resource group where your storage accounts or databases live. (This gives you permission to browse for them in the portal.)
+- Source permissions, depending on the source:
+    - [Storage and data lake sharing](#storage-and-data-lake-sharing)
+    - [Azure SQL sharing](#sql-database-sharing)
+    - [Azure Synapse analytics sharing](#azure-synapse-analytics-sharing)
 
 ### Storage and data lake sharing
 
