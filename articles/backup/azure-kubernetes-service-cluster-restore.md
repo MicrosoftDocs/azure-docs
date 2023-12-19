@@ -16,6 +16,9 @@ This article describes how to restore backed-up Azure Kubernetes Service (AKS).
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
+>[!Note]
+>Vaulted backup and Cross Region Restore for AKS using Azure Backup is now in preview.
+
 ## Before you start
 
 - AKS backup allows you to restore to original AKS cluster (that was backed up) and to an alternate AKS cluster. AKS backup allows you to perform a full restore and item-level restore. You can utilize [restore configurations](#restore-configurations) to define parameters based on the cluster resources that will be picked up during the restore.
