@@ -22,7 +22,7 @@ Prompt flow runtime has the computing resources required for the application to 
 
 We support following types of runtimes:
 
-|Runtime type|Underlying compute type|Life cycle management|Customize environment              |
+|Runtime type|Underlying compute type|Life cycle management| Customize packages              |
 |------------|----------------------|---------------------|---------------------|
 |automatic runtime        |Serverless compute| Automatically | Customized by image + requirements.txt in `flow.dag.yaml`|
 |Compute instance runtime | Compute instance | Manually | Manually via Azure AI Studio environment.|
