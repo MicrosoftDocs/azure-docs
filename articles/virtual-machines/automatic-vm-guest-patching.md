@@ -434,6 +434,14 @@ Example to install all Critical and Security patches on a Windows VM, while excl
 ```azurecli-interactive
 az vm install-patches --resource-group myResourceGroup --name myVM --maximum-duration PT2H --reboot-setting IfRequired --classifications-to-include-win Critical Security --exclude-kbs-requiring-reboot true
 ```
+## Strict Safe Deployment on Canonical Images (Preview)
+
+[Microsoft and Canonical have partnered](https://ubuntu.com/blog/ubuntu-snapshots-on-azure-ensuring-predictability-and-consistency-in-cloud-deployments) to make it easier for our customers to stay current with Linux OS updates and increase the security and resiliency of their Ubuntu workloads on Azure. By leveraging Canonical’s snapshot service, Azure will now apply the same set of Ubuntu updates consistently to your fleet across regions. 
+
+Azure will store the package related updates within the customer repository for up to 90 days, depending on the available space. This allows customers to update their fleet leveraging Strict Safe Deployment for VMs that are up to 3 months behind on updates.
+
+There is no action required for customers that have enabled Auto Patching. The platform will install a package that is snapped to a point-in-time by default. In the event a snapshot-based update cannot be installed, Azure will apply the latest package on the VM to ensure the VM remains secure. The point-in-time updates will be consistent on all VMs across regions to ensure homogeneity. Customers can view the published date information related to the applied update in [Azure Resource Graph](../azure/governance/resource-graph/overview) and the [Instance View](../powershell/module/az.compute/get-azvm) of the VM.  
+
 ## Image End-of-Life (EOL)
 
 Publishers may no longer support generating new updates for their images after a certain date. This is commonly referred to as End-of-life (EOL) for the image. Azure does not recommend using images after their EOL date, since it will expose the service to security vulnerabilities or performance issues. The Azure Guest Patching Service (AzGPS) will communicate necessary steps for customers and impacted partners. AzGPS will remove the image from the support list after the EOL date. VMs that use an end of life image on Azure might continue to work beyond their date. However, any issues experienced by these VMs are not eligible for support.
