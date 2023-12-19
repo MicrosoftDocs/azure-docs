@@ -119,7 +119,7 @@ The above endpoint does not work for Linux App Services at this time. Consider u
 > }
 > ```
 >
-> The \<zip-package-uri> can be a public endpoint, but it's best to use blob storage with a SAS key to protect it. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](https://learn.microsoft.com/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template).
+> The \<zip-package-uri> can be a public endpoint, but it's best to use blob storage with a SAS key to protect it. For more information, see [Microsoft.Web sites/extensions 'onedeploy' 2021-03-01](/azure/templates/microsoft.web/2021-03-01/sites/extensions-onedeploy?pivots=deployment-language-arm-template).
 >
 >
 
