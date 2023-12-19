@@ -199,7 +199,7 @@ Displays a group of instructions, with various parameters and the ability to nes
 
 #### OAuthForm
 
-This component requires that the `OAuth2` type is present in the [`auth` property of the data connector template](restapipoller-data-connector-reference.md#authentication-configuration).
+This component requires that the `OAuth2` type is present in the [`auth` property of the data connector template](data-connector-connection-rules-reference.md#authentication-configuration).
 
 ```json
 "instructions": [
@@ -216,7 +216,7 @@ This component requires that the `OAuth2` type is present in the [`auth` propert
 ```
 #### Textbox
 
-Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Platform](restapipoller-data-connector-reference.md#authentication-configuration). For each of the 4 types, each has `label`, `placeholder`, and `name`.
+Here are some examples of the `Textbox` type. These examples correspond to the parameters used in the example `auth` section in [Data connectors reference for the Codeless Connector Platform](data-connector-connection-rules-reference.md#authentication-configuration). For each of the 4 types, each has `label`, `placeholder`, and `name`.
 
 ```json
 "instructions": [

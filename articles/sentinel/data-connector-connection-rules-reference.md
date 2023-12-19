@@ -98,7 +98,7 @@ In order to create the deployment template which also uses parameters, you need 
 - For more information, see [Template expressions escape characters](../azure-resource-manager/templates/template-expressions.md#escape-characters).
 
 To enable the credentials to be entered from the UI, the `connectorUIConfig` section requires `instructions` with the desired parameters.
-- For more information, see [Data connector definitions reference for the Codeless Connector Platform](connectorUIConfig-supplemental-reference.md#instructions).
+- For more information, see [Data connector definitions reference for the Codeless Connector Platform](data-connector-ui-definitions-reference.md#instructions).
 
 #### Basic auth
 
