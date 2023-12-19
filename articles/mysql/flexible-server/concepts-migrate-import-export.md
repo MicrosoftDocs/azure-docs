@@ -1,21 +1,21 @@
 ---
-title: Import and export - Azure Database for MySQL
-description: This article explains common ways to import and export databases in Azure Database for MySQL, by using tools such as MySQL Workbench.
+title: Import and export
+description: This article explains common ways to import and export databases in Azure Database for MySQL - Flexible Server, by using tools such as MySQL Workbench.
 author: aditivgupta
 ms.author: adig
 ms.service: mysql
-ms.subservice: migration-guide
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 06/20/2022
 ---
 
-# Migrate your MySQL database by using import and export
+# Migrate your Azure Database for MySQL - Flexible Server database by using import and export
 
-[!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-This article explains two common approaches to importing and exporting data to an Azure Database for MySQL server by using MySQL Workbench.
+This article explains two common approaches to importing and exporting data to an Azure Database for MySQL flexible server instance by using MySQL Workbench.
 
 For detailed and comprehensive migration guidance, see the [migration guide resources](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
@@ -25,18 +25,18 @@ For other migration scenarios, see the [Database Migration Guide](/data-migratio
 
 Before you begin migrating your MySQL database, you need to:
 
-- Create an [Azure Database for MySQL server by using the Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md).
+- Create an [Azure Database for MySQL flexible server instance by using the Azure portal](../single-server/quickstart-create-mysql-server-database-using-azure-portal.md).
 - Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool for importing and exporting.
 
-## Create a database on the Azure Database for MySQL server
+## Create a database on the Azure Database for MySQL flexible server instance
 
-Create an empty database on the Azure Database for MySQL server by using MySQL Workbench, Toad, or Navicat. The database can have the same name as the database that contains the dumped data, or you can create a database with a different name.
+Create an empty database on the Azure Database for MySQL flexible server instance by using MySQL Workbench, Toad, or Navicat. The database can have the same name as the database that contains the dumped data, or you can create a database with a different name.
 
 To get connected, do the following:
 
-1. In the Azure portal, look for the connection information on the **Overview** pane of your Azure Database for MySQL.
+1. In the Azure portal, look for the connection information on the **Overview** pane of your Azure Database for MySQL flexible server instance.
 
-   :::image type="content" source="./media/concepts-migrate-import-export/1-server-overview-name-login.png" alt-text="Screenshot of the Azure Database for MySQL server connection information in the Azure portal.":::
+   :::image type="content" source="./media/concepts-migrate-import-export/1-server-overview-name-login.png" alt-text="Screenshot of the Azure Database for MySQL flexible server instance connection information in the Azure portal.":::
 
 1. Add the connection information to MySQL Workbench.
 
@@ -49,12 +49,12 @@ To get connected, do the following:
 
 In the following scenarios, use MySQL tools to import and export databases into your MySQL database. For other tools, go to the "Migration Methods" section (page 22) of the [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
-- When you need to selectively choose a few tables to import from an existing MySQL database into your Azure MySQL database, it's best to use the import and export technique. By doing so, you can omit any unneeded tables from the migration to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switch with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables), and the `--tables` switch with [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
+- When you need to selectively choose a few tables to import from an existing MySQL database into your Azure Database for MySQL flexible server database, it's best to use the import and export technique. By doing so, you can omit any unneeded tables from the migration to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switch with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables), and the `--tables` switch with [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - When you're moving database objects other than tables, explicitly create those objects. Include constraints (primary key, foreign key, and indexes), views, functions, procedures, triggers, and any other database objects that you want to migrate.
 - When you're migrating data from external data sources other than a MySQL database, create flat files and import them by using [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 > [!Important]
-> Both Single Server and Flexible Server support only the InnoDB storage engine. Make sure that all tables in the database use the InnoDB storage engine when you're loading data into your Azure database for MySQL.
+> Both Azure Database for MySQL single server and Azure Database for MySQL flexible server support only the InnoDB storage engine. Make sure that all tables in the database use the InnoDB storage engine when you're loading data into your Azure Database for MySQL flexible server instance.
 >
 > If your source database uses another storage engine, convert to the InnoDB engine before you migrate the database. For example, if you have a WordPress or web app that uses the MyISAM engine, first convert the tables by migrating the data into InnoDB tables. Use the clause `ENGINE=INNODB` to set the engine for creating a table, and then transfer the data into the compatible table before the migration.
 
@@ -77,10 +77,10 @@ For optimal data import and export performance, we recommend that you do the fol
 There are two ways to export and import data in MySQL Workbench: from the object browser context menu or from the Navigator pane. Each method serves a different purpose.
 
 > [!NOTE]
-> If you're adding a connection to MySQL single server or Flexible Server on MySQL Workbench, do the following:
+> If you're adding a connection to Azure Database for MySQL single server or Azure Database for MySQL flexible server on MySQL Workbench, do the following:
 >
-> - For MySQL single server, make sure that the user name is in the format *\<username@servername>*.
-> - For MySQL Flexible Server, use *\<username>* only. If you use *\<username@servername>* to connect, the connection will fail.
+> - For Azure Database for MySQL single server, make sure that the user name is in the format *\<username@servername>*.
+> - For Azure Database for MySQL flexible server, use *\<username>* only. If you use *\<username@servername>* to connect, the connection will fail.
 
 ### Run the table data export and import wizards from the object browser context menu
 
@@ -146,5 +146,5 @@ You can use the **Data Import** pane to import or restore exported data from the
 
 ## Next steps
 
-- For another migration approach, see [Migrate your MySQL database to an Azure database for MySQL by using dump and restore](concepts-migrate-dump-restore.md).
-- For more information about migrating databases to an Azure database for MySQL, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
+- For another migration approach, see [Migrate your MySQL database to Azure Database for MySQL flexible server by using dump and restore](concepts-migrate-dump-restore.md).
+- For more information about migrating databases to Azure Database for MySQL flexible server, see the [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide).
