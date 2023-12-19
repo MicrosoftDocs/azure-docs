@@ -20,6 +20,8 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
   
 ## November 2023
 
@@ -50,8 +52,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#supported-regions) in US Gov regions
   
     Azure NetApp Files now supports [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md?tabs=azure-portal) in US Gov Arizona and US Gov Virginia regions. Azure NetApp Files datastores for Azure VMware Solution provide the ability to scale storage independently of compute and can go beyond the limits of the local instance storage provided by vSAN reducing total cost of ownership.
-
-* [Customer-managed keys](configure-customer-managed-keys.md) is now generally available (GA).
 
 ## October 2023
 
