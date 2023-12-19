@@ -32,16 +32,16 @@ To create shares in Azure Data share, a user will need these permissions:
 |--|--|--|--|--|
 |Azure Blob Storage|Share data|Storage Blob Data Contributor|||
 ||Receive Data||Storage Blob Data Contributor||
-||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-MI-permissions-manually)|
-||Automatically assign MI permissions to receive||A role with *Microsoft.Authorization/role assignments/write*\*|Optional. Instead, you could [assign the MI permissions manually.](#assign-MI-permissions-manually)|
+||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
+||Automatically assign MI permissions to receive||A role with *Microsoft.Authorization/role assignments/write*\*|Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 |Azure Data Lake Gen 1|Share data|[Access and write permissions on the files you want to share.](../data-lake-store/data-lake-store-access-control.md#permissions)|||
 ||Receive Data|||Not Supported|
-||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-MI-permissions-manually)|
+||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 ||Automatically assign MI permissions to receive|||Not supported.|
 |Azure Data Lake Gen 2|Share data|Storage Blob Data Contributor|||
 ||Receive Data||Storage Blob Data Contributor||
-||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-MI-permissions-manually)|
-||Automatically assign MI permissions to receive||A role with *Microsoft.Authorization/role assignments/write*\*|Optional. Instead, you could [assign the MI permissions manually.](#assign-MI-permissions-manually)|
+||Automatically assign MI permissions to share|A role with *Microsoft.Authorization/role assignments/write*\*||Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
+||Automatically assign MI permissions to receive||A role with *Microsoft.Authorization/role assignments/write*\*|Optional. Instead, you could [assign the MI permissions manually.](#assign-mi-permissions-manually)|
 
 \* This permission exists in the **Owner** role.
 
@@ -287,7 +287,6 @@ This section describes custom roles and permissions required within the custom r
 
 * For storage and data lake snapshot-based sharing, to add a dataset in Azure Data Share, the provider data share resource's managed identity needs to be granted access to the source Azure data store.  For example, if using a storage account, the data share resource's managed identity is granted the Storage Blob Data Reader role.  
 * To receive data into a storage account, the consumer data share resource's managed identity needs to be granted access to the target storage account. The data share resource's managed identity needs to be granted the Storage Blob Data Contributor role.  
-* See the [Data Provider](#data-provider) and [Data Consumer](#data-consumer) sections of this article for more specific steps. 
 * You might also need to manually register the Microsoft.DataShare resource provider into your Azure subscription for some scenarios. See in [Resource provider registration](#resource-provider-registration) section of this article for specific details. 
 
 ### Create custom roles and required permissions
