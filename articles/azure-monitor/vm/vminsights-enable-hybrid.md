@@ -26,9 +26,9 @@ For hybrid virtual machines and Linux client machines, use [Azure Arc for server
 
 Azure Monitor Agent transmits data to the Azure Monitor service directly or through the [Operations Management Suite gateway](../../azure-monitor/agents/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
-## Install Azure Monitor Agent and Dependency agent
+## Deploy VM insights data collection rule and install agents
 
-To enable VM insights on Windows virtual machines outside of Azure: 
+To enable VM insights on Windows client machines: 
 
 1. If you don't have an existing VM insights data collection rule, [deploy a VM insights data collection rule using ARM templates](vminsights-enable-resource-manager.md#deploy-data-collection-rule). The data collection rule must be in the same region as your Log Analytics workspace.
 1. Follow the steps described in [Install Azure Monitor Agent on Windows client devices](../agents/azure-monitor-agent-windows-client.md) to:
