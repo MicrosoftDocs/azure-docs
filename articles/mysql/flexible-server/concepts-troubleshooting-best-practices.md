@@ -1,21 +1,21 @@
 ---
-title: Troubleshooting best practices - Azure Database for MySQL
-description: This article describes some recommendations for troubleshooting your Azure Database for MySQL server.
+title: Troubleshooting best practices
+description: This article describes some recommendations for troubleshooting Azure Database for MySQL - Flexible Server.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 author: code-sidd 
 ms.author: sisawant
 ms.date: 10/20/2023
 ---
 
-# Best practices for troubleshooting your Azure Database for MySQL server
+# Best practices for troubleshooting Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Use the following sections to keep your MySQL databases running smoothly and use this information as guiding principles for ensuring that the schemas are designed optimally and provide the best performance for your applications.
+Use the following sections to keep your Azure Database for MySQL flexible server databases running smoothly and use this information as guiding principles for ensuring that the schemas are designed optimally and provide the best performance for your applications.
 
 ## Check the number of indexes
 
@@ -77,7 +77,7 @@ ORDER BY sum_timer_wait DESC
 
 ## Review the primary key design
 
-Azure Database for MySQL uses the InnoDB storage engine for all nontemporary tables. With InnoDB, data is stored within a clustered index using a B-Tree structure. The table is physically organized based on primary key values, which means that rows are stored in the primary key order.
+Azure Database for MySQL flexible server uses the InnoDB storage engine for all nontemporary tables. With InnoDB, data is stored within a clustered index using a B-Tree structure. The table is physically organized based on primary key values, which means that rows are stored in the primary key order.
 
 Each secondary key entry in an InnoDB table contains a pointer to the primary key value in which the data is stored.  In other words, a secondary index entry contains a copy of the primary key value to which the entry is pointing. Therefore, primary key choices have a direct effect on the amount of storage overhead in your tables.
 

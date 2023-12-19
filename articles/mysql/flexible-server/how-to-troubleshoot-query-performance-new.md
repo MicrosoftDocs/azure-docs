@@ -1,23 +1,23 @@
 ---
-title: Troubleshoot query performance in Azure Database for MySQL 
-description: Learn how to troubleshoot query performance in Azure Database for MySQL.
+title: Troubleshoot query performance
+description: Learn how to troubleshoot query performance in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
 ms.topic: troubleshooting
 ms.date: 10/20/2023
 ---
 
-# Troubleshoot query performance in Azure Database for MySQL
+# Troubleshoot query performance in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Query performance can be impacted by multiple factors, so it’s first important to look at the scope of the symptoms you’re experiencing in your Azure Database for MySQL server. For example, is query performance slow for:
+Query performance can be impacted by multiple factors, so it’s first important to look at the scope of the symptoms you’re experiencing in your Azure Database for MySQL flexible server instance. For example, is query performance slow for:
 
-* All queries running on the Azure Database for MySQL server?
+* All queries running on the Azure Database for MySQL flexible server instance?
 * A specific set of queries?
 * A specific query?
 
@@ -27,11 +27,11 @@ Also keep in mind that any recent changes to the structure or underlying data of
 
 Before analyzing individual queries, you need to define query benchmarks. With this information, you can implement logging functionality on the database server to trace queries that exceed a threshold you specify based on the needs of the application.
 
-With Azure Database for MySQL, it’s recommended to use the slow query log feature to identify queries that take longer than *N* seconds to run. After you've identified the queries from the slow query log, you can use MySQL diagnostics to troubleshoot these queries.
+Azure Database for MySQL flexible server, it’s recommended to use the slow query log feature to identify queries that take longer than *N* seconds to run. After you've identified the queries from the slow query log, you can use MySQL diagnostics to troubleshoot these queries.
 
 Before you can begin to trace long running queries, you need enable the `slow_query_log` parameter by using the Azure portal or Azure CLI. With this parameter enabled, you should also configure the value of the `long_query_time` parameter to specify the number of seconds that queries can run before being identified as “slow running” queries. The default value of the parameter is 10 seconds, but you can adjust the value to address the needs of your application’s SLA.
 
-[ ![Flexible Server slow query log interface.](media/how-to-troubleshoot-query-performance-new/slow-query-log.png) ](media/how-to-troubleshoot-query-performance-new/slow-query-log.png#lightbox)
+[ ![Azure Database for MySQL flexible server slow query log interface.](media/how-to-troubleshoot-query-performance-new/slow-query-log.png) ](media/how-to-troubleshoot-query-performance-new/slow-query-log.png#lightbox)
 
 While the slow query log is a great tool for tracing long running queries, there are certain scenarios in which it might not be effective. For example, the slow query log:
 
@@ -42,7 +42,7 @@ While the slow query log is a great tool for tracing long running queries, there
 
 Logs are available for up to seven days from their creation. You can list and download slow query logs via the Azure portal or Azure CLI. In the Azure portal, navigate to your server, under **Monitoring**, select **Server logs**, and then select the downward arrow next to an entry to download the logs associated with the date and time you’re investigating.
 
-[ ![Flexible Server retrieving data from the logs.](media/how-to-troubleshoot-query-performance-new/retrieving-information-logs.png) ](media/how-to-troubleshoot-query-performance-new/retrieving-information-logs.png#lightbox)
+[ ![Azure Database for MySQL flexible server retrieving data from the logs.](media/how-to-troubleshoot-query-performance-new/retrieving-information-logs.png) ](media/how-to-troubleshoot-query-performance-new/retrieving-information-logs.png#lightbox)
   
 In addition, if your slow query logs are integrated with Azure Monitor logs through Diagnostic logs, you can run queries in an editor to analyze them further:
 
@@ -55,7 +55,7 @@ AzureDiagnostics
 ```
 
 > [!NOTE]
-> For more examples to get you started with diagnosing slow query logs via Diagnostic logs, see [Analyze logs in Azure Monitor Logs](./concepts-server-logs.md#analyze-logs-in-azure-monitor-logs).
+> For more examples to get you started with diagnosing slow query logs via Diagnostic logs, see [Analyze logs in Azure Monitor Logs](../single-server/concepts-server-logs.md#analyze-logs-in-azure-monitor-logs).
 >
 
 The following snapshot depicts a sample slow query.
@@ -84,7 +84,7 @@ EXPLAIN <QUERY>
 ```
 
 > [!NOTE]
-> For more information about using EXPLAIN statements, see [How to use EXPLAIN to profile query performance in Azure Database for MySQL](./how-to-troubleshoot-query-performance.md).
+> For more information about using EXPLAIN statements, see [How to use EXPLAIN to profile query performance in Azure Database for MySQL flexible server](./how-to-troubleshoot-query-performance.md).
 >
 
 In addition to creating an EXPLAIN plan for a query, you can use the SHOW PROFILE command, which allows you to diagnose the execution of statements that have been run within the current session.
@@ -161,9 +161,9 @@ mysql> SHOW PROFILE FOR QUERY 1;
 
 ## Listing the most used queries on the database server
 
-Whenever you're troubleshooting query performance, it’s helpful to understand which queries are most often run on your MySQL server.  You can use this information to gauge if any of the top queries are taking longer than usual to run. In addition, a developer or DBA could use this information to identify if any query has a sudden increase in query execution count and duration.
+Whenever you're troubleshooting query performance, it’s helpful to understand which queries are most often run on your Azure Database for MySQL flexible server instance.  You can use this information to gauge if any of the top queries are taking longer than usual to run. In addition, a developer or DBA could use this information to identify if any query has a sudden increase in query execution count and duration.
 
-To list the top 10 most executed queries against your Azure Database for MySQL server, run the following query:
+To list the top 10 most executed queries against your Azure Database for MySQL flexible server instance, run the following query:
 
 ```
 SELECT digest_text AS normalized_query,
@@ -274,7 +274,7 @@ When interpreting HLL values, consider the guidelines listed in the following ta
 
 ### Addressing excessive HLL values
 
-If the HLL shows large spikes or exhibits a pattern of periodic growth, investigate the queries and transactions running on your Azure Database for MySQL instance immediately. Then you can resolve any workload issues that might be preventing the progress of the garbage collection process. While it’s not expected for the database to be free of purge lag, you must not let the lag grow uncontrollably.
+If the HLL shows large spikes or exhibits a pattern of periodic growth, investigate the queries and transactions running on your Azure Database for MySQL flexible server instance immediately. Then you can resolve any workload issues that might be preventing the progress of the garbage collection process. While it’s not expected for the database to be free of purge lag, you must not let the lag grow uncontrollably.
 
 To obtain transaction information from the `information_schema.innodb_trx` table, for example, run the following commands:
 
