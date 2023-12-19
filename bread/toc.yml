@@ -1138,6 +1138,16 @@ items:
   - name: Azure Spring Apps
     tocHref: /azure/spring-apps/
     topicHref: /azure/spring-apps/index
+    items:
+      - name: Enterprise plan
+        tocHref: /azure/spring-apps/enterprise/
+        topicHref: /azure/spring-apps/enterprise/index
+      - name: Basic/Standard plan
+        tocHref: /azure/spring-apps/basic-standard/
+        topicHref: /azure/spring-apps/basic-standard/index
+      - name: Standard consumption and dedicated plan
+        tocHref: /azure/spring-apps/consumption-dedicated/
+        topicHref: /azure/spring-apps/consumption-dedicated/index
   - name: Dev Box
     tocHref: /azure/dev-box/
     topicHref: /azure/dev-box/overview-what-is-microsoft-dev-box

@@ -140,6 +140,6 @@ sections:
          No. When autoscale is ready to deallocate a personal desktop due to the user session being signed out or disconnected, autoscale doesn't put the session host in drain mode. If the user tries to connect while autoscale is deallocating the session host, they'll receive an error message that says "No resources available."
 
       - question: |
-         What happens if I opt for personal desktops to get hibernated in my scaling plan, but my personal desktops don’t have hibernate enabled?
+         What happens if I opt for personal desktops to get hibernated in my scaling plan, but my personal desktops don't have hibernate enabled?
         answer: |
-         If you opt to have personal desktops hibernated in your personal scaling plan schedule, but the personal desktops don’t have hibernate enabled or hibernate is not enabled for your subscription, autoscale will not do anything to your session hosts (won’t hibernate them and won’t deallocate them).  
+         If you opt to have personal desktops hibernated in your personal scaling plan schedule, but the personal desktops don't have hibernate enabled or hibernate is not enabled for your subscription, autoscale won't do anything to your session hosts (won't hibernate them and won't deallocate them).

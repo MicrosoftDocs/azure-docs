@@ -130,7 +130,7 @@ Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsu
 
 ### Can I deploy a DHCP server in a virtual network?
 
-Azure virtual networks provide DHCP service and DNS to VMs and client/server DHCP (source port UDP/68, destination port UDP/67) not supported in a virtual network.
+Azure virtual networks provide DHCP service and DNS to VMs. Client/server DHCP traffic (source port UDP/68, destination port UDP/67) is not supported in a virtual network.
 
 You can't deploy your own DHCP service to receive and provide unicast or broadcast client/server DHCP traffic for endpoints inside a virtual network. Deploying a DHCP server VM with the intent to receive unicast DHCP relay (source port UDP/67, destination port UDP/67) traffic is also an *unsupported* scenario.
 

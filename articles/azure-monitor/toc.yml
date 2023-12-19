@@ -7,10 +7,10 @@ items:
       href: overview.md
     - name: Multicloud monitoring
       href: best-practices-multicloud.md
+    - name: AIOps and machine learning in Azure Monitor
+      href: logs/aiops-machine-learning.md
     - name: What's new?
       href: whats-new.md
-    - name: FAQ
-      href: overview.md#frequently-asked-questions
 - name: Getting started
   items:
   - name: Get started with Azure Monitor
@@ -410,8 +410,6 @@ items:
           href: vm/vminsights-enable-hybrid.md
         - name: Dependency Agent
           href: vm/vminsights-dependency-agent-maintenance.md
-        - name: Configure workspace 
-          href: vm/vminsights-configure-workspace.md
         - name: Migrate from deprecated VM insights policies 
           href: vm/vminsights-migrate-deprecated-policies.md          
       - name: Map dependencies
@@ -734,7 +732,7 @@ items:
         href: agents/data-collection-snmp-data.md
       - name: Collect syslog data
         href: agents/data-collection-syslog.md
-      - name: Forward syslog data with Sentinel
+      - name: Configure a syslog forwarder
         href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json        
       - name: Send data to Event Hubs and Storage
         href: agents/azure-monitor-agent-send-data-to-event-hubs-and-storage.md
@@ -1147,12 +1145,6 @@ items:
         href: visualize/workbooks-move-region.md
       - name: Move Workbook templates to another region
         href: visualize/workbook-templates-move-region.md
-    - name: Transition from View Designer
-      items:
-      - name: Move from View Designer to Workbooks
-        href: visualize/workbooks-view-designer-conversion-overview.md
-      - name: Sample JSON to covert View Designer views
-        href: visualize/workbooks-view-designer-conversions.md 
     - name: Retrieve legacy workbooks
       href: visualize/workbooks-retrieve-legacy-workbooks.md
     - name: Access Troubleshooting guides
@@ -1206,6 +1198,8 @@ items:
         href: /azure/data-explorer/kusto/query?toc=/azure/azure-monitor/toc.json
       - name: Detect and analyze anomalies in log data
         href: logs/kql-machine-learning-azure-monitor.md
+      - name: Analyze data in Azure Monitor Logs using a notebook
+        href: logs/notebooks-azure-monitor-logs.md      
       - name: Standard columns
         href: logs/log-standard-columns.md
       - name: Query Basic logs
@@ -1220,17 +1214,11 @@ items:
         href: logs/parse-text.md
       - name: Computer groups
         href: logs/computer-groups.md
-      - name: Cross resource queries
+      - name: Cross-service and cross-resource queries
         items:
-        - name: Overview
+        - name: Query data across workspaces and resources
           displayName: cross-resource queries
           href: logs/cross-workspace-query.md
-        - name: app expression
-          href: logs/app-expression.md
-        - name: workspace expression
-          href: logs/workspace-expression.md
-        - name: resource expression
-          href: logs/resource-expression.md
         - name: Query data in Azure Data Explorer or Resource Graph
           displayName: arg(), adx()        
           href: logs/azure-monitor-data-explorer-proxy.md
@@ -1282,7 +1270,7 @@ items:
     items:
     - name: Overview
       href: alerts/alerts-overview.md
-    - name: Alert types
+    - name: Choosing the type of alert rule
       href: alerts/alerts-types.md
     - name: Best practices
       href: best-practices-alerts.md
@@ -1290,16 +1278,22 @@ items:
       items:
         - name: Set up alert rules
           items:
-          - name: Create or edit an alert rule
-            href: alerts/alerts-create-new-alert-rule.md
-          - name: Create Prometheus alert rules
+          - name: Metric alert rules
+            href: alerts/alerts-create-metric-alert-rule.md
+          - name: Log alert rules
+            href: alerts/alerts-create-log-alert-rule.md
+          - name: Activity log, service health or resource health alert rules
+            href: alerts/alerts-create-activity-log-alert-rule.md
+          - name: Prometheus alert rules
             href: alerts/prometheus-alerts.md
-          - name: Create a metric alert rule with dynamic thresholds
+          - name: Metric alert rule with dynamic thresholds
             href: alerts/alerts-dynamic-thresholds.md
-          - name: Create a metric alert on Azure Monitor Logs
+          - name: Metric alert on Azure Monitor Logs
             href: alerts/alerts-metric-logs.md
           - name: Create one alert rule for multiple time series
             href: alerts/alerts-metric-multiple-time-series-single-rule.md
+          - name: Create alert rules using CLI, PowerShell, or ARM templates
+            href: alerts/alerts-create-rule-cli-powershell-arm.md
           - name: Optimize log alert queries
             href: alerts/alerts-log-query.md
         - name: Set up action groups
@@ -1311,6 +1305,8 @@ items:
           items:
           - name: The alerts common schema
             href: alerts/alerts-common-schema.md
+          - name: Non-common alerts schema
+            href: alerts/alerts-non-common-schema-definitions.md
           - name: Integrate with Logic apps
             href: alerts/alerts-logic-apps.md
           - name: Integrate with webhooks
@@ -1399,11 +1395,6 @@ items:
         href: alerts/alerts-log-api-switch.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
-
-
-
-
- 
   - name: AutoScale
     items:
       - name: Overview
@@ -1436,16 +1427,6 @@ items:
         href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-  - name: AIOps and machine learning
-    items:
-      - name: AIOps and machine learning in Azure Monitor
-        href: logs/aiops-machine-learning.md
-      - name: Machine learning in Azure Monitor Logs
-        items:
-        - name: Detect and analyze anomalies in log data with KQL
-          href: logs/kql-machine-learning-azure-monitor.md
-        - name: Analyze data in Azure Monitor Logs using a notebook
-          href: logs/notebooks-azure-monitor-logs.md      
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -1572,10 +1553,8 @@ items:
       href: /cli/azure/monitor/log-analytics
   - name: REST API
     items:
-    - name: Azure Monitor
-      href: /rest/api/monitor/
-    - name: Azure Monitor Logs
-      href: /rest/api/loganalytics/
+    - name: Azure Monitor REST API index
+      href: azure-monitor-rest-api-index.md
     - name: REST API Walkthrough
       displayName: metrics, analyze
       href: essentials/rest-api-walkthrough.md

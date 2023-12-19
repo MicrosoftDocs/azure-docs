@@ -81,4 +81,4 @@ When you update the configuration of a load test, all future test runs will use 
 
 - Learn how to [set up a high-scale load test](./how-to-high-scale-load.md).
 
-- Learn how to [configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
+- Learn how to [configure automated performance testing](./quickstart-add-load-test-cicd.md).
