@@ -51,7 +51,7 @@ To begin using Azure CLI:
 
 ### Update HCX Connector 
 
-1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
+1. Go to the on-premises HCX Connector and sign in using the new credentials.
 
    Be sure to use port **443**. 
 
