@@ -116,7 +116,7 @@ Run:
 system shell
 ```
 
-OT sensor versions earlier than [23.2.0](whats-new.md#default-user-is-now-admin-instead-of-support) include the *support* privileged user instead of the *admin* user. If you're using an older version of the sensor software, any commands that are listed as supported for the *admin* user are also supported for the legacy *support* user.
+OT sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support) include the *support* privileged user instead of the *admin* user. If you're using an older version of the sensor software, any commands that are listed as supported for the *admin* user are also supported for the legacy *support* user.
 
 ## Sign out of the CLI
 
