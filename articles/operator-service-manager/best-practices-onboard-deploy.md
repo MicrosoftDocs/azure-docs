@@ -242,7 +242,7 @@ Azure Operator Service Manager is a regional service deployed across availabilit
 
 During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During onboarding, we recommend that you set the atomic flag to `false` to prevent the Helm rollback upon failure. The optimal way to accomplish that is in the ARM template of the NF.
 
-In the ARM template, add the following section:
+In the ARM template, add the following section: 
 
 <pre>
 "roleOverrideValues": [
