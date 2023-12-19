@@ -1,7 +1,7 @@
 ---
 title: On-premises users and roles for Defender for IoT - Microsoft Defender for IoT
 description: Learn about the on-premises user roles available for OT monitoring with Microsoft Defender for IoT network sensors and on-premises management consoles.
-ms.date: 08/27/2023
+ms.date: 12/19/2023
 ms.topic: concept-article
 ---
 
@@ -14,13 +14,21 @@ This article provides:
 - A description of the default, privileged users that come with Defender for IoT software installation
 - A reference of the actions available for each on-premises user role, on both OT network sensors and the on-premises management console
 
+[!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
+
 ## Default privileged on-premises users
 
-By default, each [sensor](ot-deploy/install-software-ot-sensor.md) and [on-premises management console](legacy-central-management/install-software-on-premises-management-console.md) is installed with a privileged *support* user. The on-premises management console is also installed with a default *cyberx* user.
+By default, each [sensor](ot-deploy/install-software-ot-sensor.md) is installed with a default, privileged *admin* user, with access to advanced tools for troubleshooting and setup, such as the CLI. 
 
-The privileged *support* and *cyberx* users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with the *support* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
+When first setting up your sensor, sign in with the *admin* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
 
-In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).
+### Legacy users
+
+|Legacy scenario  |Description  |
+|---------|---------|
+|**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new.md#default-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. <br><br>If you've updated your sensor software from an earlier version, you can continue to use the *support* user. Newer installations include only the *admin* user by default. <br><br>Documentation mostly refers to the *admin* user to match the latest versions of the software.      |
+|**Sensor software versions earlier than 23.1.x**     |   In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also available. <br><br>In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), [change their passwords](manage-users-sensor.md#change-a-sensor-users-password).      |
+|**On-premises management consoles**     | The [on-premises management console](legacy-central-management/install-software-on-premises-management-console.md) is installed with privileged *support* and *cyberx* users. <br><br> When first setting up an on-premises management console, first sign in with the *support* user, create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.        |
 
 ## On-premises user roles
 

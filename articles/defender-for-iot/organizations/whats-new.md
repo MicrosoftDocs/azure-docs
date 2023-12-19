@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 12/17/2023
+ms.date: 12/19/2023
 ms.custom: enterprise-iot
 ---
 
@@ -20,7 +20,33 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support)<br>- [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+| **OT networks** | **Version 23.2.0**: - [OT network sensors now run on Debian 11](#ot-network-sensors-now-run-on-debian-11)<br>-  [Default privileged user is now admin instead of support](#default-privileged-user-is-now-admin-instead-of-support) <br><br>[New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) <br><br> **Cloud features**:<br>- [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+
+### OT network sensors now run on Debian 11
+
+Sensor versions 23.2.0 run on a Debian 11 operating system instead of Ubuntu. Debian is a Linux-based operating system that's widely used for servers and embedded devices, and is known for being leaner than other operating systems, and its stability, security, and extensive hardware support.
+
+Using Debian as the base for our sensor software helps reduce the number of packages installed on the sensors, increasing efficiency and security of your systems.
+
+Due to the operating system switch, the software update from your legacy version to version 23.2.0 may be longer and heavier than usual. 
+
+For more information, see [Back up and restore OT network sensors from the sensor console](back-up-restore-sensor.md) and [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### Default privileged user is now admin instead of support
+
+Starting with version 23.2.0, the default privileged user installed with new OT sensor installations is the *admin* user instead of the *support* user. 
+
+While Defender for IoT software is backwards compatible and continues to support existing *support* users from older versions, the documentation now refers mainly to the *admin* user only to match the most recent version.
+
+For example, use the default *admin* user in the following scenarios:
+
+- Signing into a new sensor for the first time after installation. For more information, see [Configure and activate your OT sensor](ot-deploy/activate-deploy-sensor.md).
+
+- Using the Defender for IoT CLI. For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
+- Accessing the sensor's **Support** page.
+
+For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 
 ### New architecture for hybrid and air-gapped support
