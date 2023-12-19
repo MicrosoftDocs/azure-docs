@@ -86,10 +86,18 @@ UI Library provides the capability to join a call skipping the setup screen of t
 UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature](../../../how-tos/ui-library-sdk/orientation.md)
 
 ### Picture-in-Picture (Beta)
+While being in the call, user is presented with full screen UI, which prevents user from multitasking in the App while still on the call.
+
+There are two ways to enable user to multitask in the App:
+- Enabling multitasking - user is able to click Back button which takes user back to the preivious screen. No Calling UI is visible to user while still on the call.
+- Enable Picute-in-Picture, in additions, will display a system Picute-in-Picture with ougoing call. Please note PiP is using system provided PiP feature and is a subject of the feature support on the device, CPU load, RAM availability, battery state etc.
 
 ### CallKit Support (Beta)
+CallKit Integration in the Azure Communication Services iOS SDK handles interaction with CallKit for us. 
 
 ### One-to-one call (Beta)
+A one-to-one call on Azure Communication Services happens when one of your users connects to another user using one of our SDKs. The call can be either VoIP or PSTN.
+
 
 ## Chat use cases
 
