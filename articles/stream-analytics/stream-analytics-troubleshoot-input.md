@@ -27,6 +27,10 @@ This article describes common issues with Azure Stream Analytics input connectio
 
 3.  Ensure that you have selected a time range in the input preview. Choose **Select time range**, and then enter a sample duration before testing your query.
 
+    > [!IMPORTANT]
+    > For non-[network injected ASA jobs](./run-job-in-virtual-network.md), please do not rely on source IP address of connections coming from ASA in any way. They can be public or private IPs depending on service infrastructure operations that happen from time to time.
+        
+
 ## Malformed input events causes deserialization errors 
 
 Deserialization issues are caused when the input stream of your Stream Analytics job contains malformed messages. For example, a malformed message could be caused by a missing parenthesis, or brace, in a JSON object or an incorrect timestamp format in the time field. 
