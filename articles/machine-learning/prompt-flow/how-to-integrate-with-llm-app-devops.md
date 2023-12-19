@@ -136,7 +136,7 @@ column_mapping:
   url: ${data.url}
 
 # define cloud resource
-# if ommited, it will use the automatic runtime, you can also specify the runtime name, specif automatic will also use the automatic runtime.
+# if omitted, it will use the automatic runtime, you can also specify the runtime name, specify automatic will also use the automatic runtime.
 runtime: <runtime_name> 
 
 
