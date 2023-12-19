@@ -13,9 +13,9 @@ ms.date: 06/23/2022
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This article describes how you can enable or disable high availability configuration in your flexible server in both zone-redundant and same-zone deployment models.
+This article describes how you can enable or disable high availability configuration in your Azure Database for PostgreSQL flexible server instance in both zone-redundant and same-zone deployment models.
 
-High availability feature provisions physically separate primary and standby replica with the same zone or across zones depending on the deployment model. For more details, see [high availability concepts documentation](./concepts-high-availability.md). You may choose to enable high availability at the time of flexible server creation or after the creation.
+High availability feature provisions physically separate primary and standby replica with the same zone or across zones depending on the deployment model. For more details, see [high availability concepts documentation](./concepts-high-availability.md). You may choose to enable high availability at the time of Azure Database for PostgreSQL flexible server instance creation or after the creation.
 
 This page provides guidelines how you can enable or disable high availability. This operation does not change your other settings including VNET configuration, firewall settings, and backup retention. Similarly, enabling and disabling of high availability is an online operation and does not impact your application connectivity and operations.
 
@@ -26,13 +26,13 @@ This page provides guidelines how you can enable or disable high availability. T
 
 ## Enable high availability during server creation
 
-This section provides details specifically for HA-related fields. You can follow these steps to deploy high availability while creating your flexible server.
+This section provides details specifically for HA-related fields. You can follow these steps to deploy high availability while creating your Azure Database for PostgreSQL flexible server instance.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose Flexible Server and click create.  For details on how to fill details such as **Subscription**, **Resource group**, **server name**, **region**, and other fields, see how-to documentation for the server creation.
+1.  In the [Azure portal](https://portal.azure.com/), choose Azure Database for PostgreSQL flexible server and click create.  For details on how to fill details such as **Subscription**, **Resource group**, **server name**, **region**, and other fields, see how-to documentation for the server creation.
    
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Screenshot of subscription and region selection.":::
 
-2.  Choose your **availability zone**. This is useful if you want to collocate your application in the same availability zone as the database to reduce latency. Choose **No Preference** if you want the flexible server to deploy the primary server on any availability zone. Note that only if you choose the availability zone for the primary in a zone-redundant HA deployment, you will be allowed to choose the standby availability zone.
+2.  Choose your **availability zone**. This is useful if you want to collocate your application in the same availability zone as the database to reduce latency. Choose **No Preference** if you want the Azure Database for PostgreSQL flexible server instance to deploy the primary server on any availability zone. Note that only if you choose the availability zone for the primary in a zone-redundant HA deployment, you will be allowed to choose the standby availability zone.
 
      :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Screenshot of availability zone selection.":::  
 
@@ -62,11 +62,11 @@ This section provides details specifically for HA-related fields. You can follow
 
 ## Enable high availability post server creation
 
-Follow these steps to enable high availability for your existing flexible server.
+Follow these steps to enable high availability for your existing Azure Database for PostgreSQL flexible server instance.
 
-1.  In the [Azure portal](https://portal.azure.com/), select your existing PostgreSQL flexible server.
+1.  In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL flexible server instance.
 
-2.  On the flexible server page, click **High Availability** from the left panel to open high availability page.
+2.  On the Azure Database for PostgreSQL flexible server instance page, click **High Availability** from the left panel to open high availability page.
    
      :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Left panel selection screen."::: 
 
@@ -84,11 +84,11 @@ Follow these steps to enable high availability for your existing flexible server
 
 ## Disable high availability
 
-Follow these steps to disable high availability for your flexible server that is already configured with high availability.
+Follow these steps to disable high availability for your Azure Database for PostgreSQL flexible server instance that is already configured with high availability.
 
-1.  In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL - Flexible Server.
+1.  In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL flexible server instance.
 
-2.  On the flexible server page, click **High Availability** from the front panel to open high availability page.
+2.  On the Azure Database for PostgreSQL flexible server instance page, click **High Availability** from the front panel to open high availability page.
    
     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Left panel selection screenshot."::: 
 
@@ -104,10 +104,10 @@ Follow these steps to disable high availability for your flexible server that is
 
 ## Forced failover
 
-Follow these steps to force failover your primary to the standby flexible server. This will immediately bring the primary down and triggers a failover to the standby server. This is useful for cases like testing the unplanned outage failover time for your workload.
+Follow these steps to force failover your primary to the standby Azure Database for PostgreSQL flexible server instance. This will immediately bring the primary down and triggers a failover to the standby server. This is useful for cases like testing the unplanned outage failover time for your workload.
 
-1.	In the [Azure portal](https://portal.azure.com/), select your existing flexible server that has high availability feature already enabled.
-2.	On the flexible server page, click High Availability from the front panel to open high availability page.
+1.	In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL flexible server instance that has high availability feature already enabled.
+2.	On the Azure Database for PostgreSQL flexible server instance page, click High Availability from the front panel to open high availability page.
 3.	Check the Primary availability zone and the Standby availability zone
 4.	Click on Forced Failover to initiate the manual failover procedure. A pop up will inform you on the potential downtime until the failover is complete. Read the message and click Ok.
 5.	A notification will show up mentioning that failover is in progress.
@@ -123,9 +123,9 @@ Follow these steps to force failover your primary to the standby flexible server
 
 ## Planned failover
 
-Follow these steps to perform a planned failover from your primary to the standby flexible server. This will first prepare the standby server and performs the failover. This provides the least downtime as this performs a graceful failover to the standby server for situations like after a failover event, you want to bring the primary back to the preferred availability zone.
-1.	In the [Azure portal](https://portal.azure.com/), select your existing flexible server that has high availability feature already enabled.
-2.	On the flexible server page, click High Availability from the front panel to open high availability page.
+Follow these steps to perform a planned failover from your primary to the standby Azure Database for PostgreSQL flexible server instance. This will first prepare the standby server and performs the failover. This provides the least downtime as this performs a graceful failover to the standby server for situations like after a failover event, you want to bring the primary back to the preferred availability zone.
+1.	In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for PostgreSQL flexible server instance that has high availability feature already enabled.
+2.	On the Azure Database for PostgreSQL flexible server instance page, click High Availability from the front panel to open high availability page.
 3.	Check the Primary availability zone and the Standby availability zone
 4.	Click on Planned Failover to initiate the manual failover procedure. A pop up will inform you the process. Read the message and click Ok.
 5.	A notification will show up mentioning that failover is in progress.
@@ -148,7 +148,7 @@ There are Azure regions that do not support availability zones. If you have alre
 1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restore-to-the-latest-restore-point). Choose **Latest restore point**. 
 2. Choose a server name, availability zone.
 3. Click **Review+Create**".
-4. A new Flexible server will be created from the backup. 
+4. A new Azure Database for PostgreSQL flexible server instance is created from the backup. 
 5. Once the new server is created, from the overview page of the server, follow the [guide](#enable-high-availability-post-server-creation) to enable HA.
 6. After data verification, you can optionally [delete](how-to-manage-server-portal.md#delete-a-server) the old server. 
 7. Make sure your clients connection strings are modified to point to your new HA-enabled server.

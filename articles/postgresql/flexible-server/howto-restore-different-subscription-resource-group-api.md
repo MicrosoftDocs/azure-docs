@@ -13,14 +13,14 @@ ms.date: 10/04/2023
 # Cross subscription and cross resource group  restore in Azure Database for PostgreSQL Flexible Server using Azure REST API
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
-In this article, you learn how to restore a flexible server to a different subscription or resource group using the REST API [Azure REST API](/rest/api/azure/). To learn more about backup and restore see the [overview](concepts-backup-restore.md).
+In this article, you learn how to restore an Azure Database for PostgreSQL flexible server instance to a different subscription or resource group using the REST API [Azure REST API](/rest/api/azure/). To learn more about backup and restore see the [overview](concepts-backup-restore.md).
 
 ## Prerequisites
-An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to be the primary server.
+An [Azure Database for PostgreSQL flexible server instance](quickstart-create-server-portal.md) to be the primary server.
 
 ### Restore to a different Subscription or Resource group
 
- 1. Browse to the PostgreSQL [Create Server REST API Page](/rest/api/postgresql/flexibleserver/servers/create) and select the **Try It** tab highlighted in green. Sign in with your Azure account.
+ 1. Browse to the [Azure Database for PostgreSQL flexible server Create Server REST API Page](/rest/api/postgresql/flexibleserver/servers/create) and select the **Try It** tab highlighted in green. Sign in with your Azure account.
 
 2. Provide the **resourceGroupName**(Target Resource group name), **serverName** (Target server name), **subscriptionId** (Target subscription) properties. Please use the latest api-version that is available. For this example we're using 2023-06-01-preview.
 
@@ -62,7 +62,7 @@ An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to
 
     The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for 
    - **Subscription** = Your Subscription
-   - **Resource Type** = Azure Database for PostgreSQL Flexible servers (Microsoft.DBforPostgreSQL/flexibleServers) 
+   - **Resource Type** = Azure Database for PostgreSQL flexible servers (Microsoft.DBforPostgreSQL/flexibleServers) 
    - **Operation** =  Update PostgreSQL Server Create
 
 
