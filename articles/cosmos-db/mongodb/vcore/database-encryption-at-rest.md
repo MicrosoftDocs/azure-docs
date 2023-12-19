@@ -22,7 +22,7 @@ We provide this feature while we continue to meet our [availability and performa
 
 Encryption at rest is implemented by using several security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Systems that decrypt and process data have to communicate with systems that manage keys. The diagram shows how storage of encrypted data and the management of keys is separated.
 
-<!-- :::image type="content" source="./media/database-encryption-at-rest/design-diagram.png" alt-text="Diagram that shows data storage and key management design." border="false"::: -->
+:::image type="content" source="./media/database-encryption-at-rest/design-diagram.png" alt-text="Diagram that shows data storage and key management design." border="false":::
 
 The basic flow of a user request is:
 
