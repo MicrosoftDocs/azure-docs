@@ -25,7 +25,7 @@ We support following types of runtimes:
 |Runtime type|Underlying compute type|Life cycle management| Customize packages              |
 |------------|----------------------|---------------------|---------------------|
 |automatic runtime        |Serverless compute| Automatically | Easily customize python packages|
-|Compute instance runtime | Compute instance | Manually | Manually via Azure AI Studio environment.|
+|Compute instance runtime | Compute instance | Manually | |
 
 If you're a new user, we recommend using the automatic runtime that can be used out of box.  You can easily customize the environment for this runtime.  
 
