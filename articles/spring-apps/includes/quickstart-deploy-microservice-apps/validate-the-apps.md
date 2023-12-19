@@ -23,13 +23,13 @@ Using the URL information in the deployment log output, open the URL exposed by 
 
 After you browse each function of the Pet Clinic, the Log Analytics workspace collects logs of each application. You can check the logs by using custom queries, as shown in the following screenshot:
 
-:::image type="content" source="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png" alt-text="Screenshot of the Azure portal showing the Logs page of the query on PetClinic application and the results." lightbox="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png":::
+:::image type="content" source="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png" alt-text="Screenshot of the Azure portal that shows the Logs page of the query on PetClinic application and the results." lightbox="../../media/quickstart-deploy-microservice-apps/azure-spring-apps-log-query.png":::
 
 ### 5.3. Monitor the applications
 
 Application Insights monitors the application dependencies, as shown by the following application tracing map:
 
-:::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal showing the Application map page for an Application Insights." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-map.png":::
+:::image type="content" source="../../media/quickstart-deploy-microservice-apps/application-insights-map.png" alt-text="Screenshot of the Azure portal that shows the Application map page for an Application Insights." lightbox="../../media/quickstart-deploy-microservice-apps/application-insights-map.png":::
 
 Open the URL exposed by the app `admin-server` to manage the applications through the Spring Boot Admin Server, as shown in the following screenshot:
 
