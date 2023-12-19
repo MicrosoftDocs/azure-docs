@@ -146,7 +146,7 @@ VMs on Azure now support the following patch orchestration modes:
 - For Windows VMs, setting this mode also disables the native Automatic Updates on the Windows virtual machine to avoid duplication.
 - To use this mode on Linux VMs, set the property `osProfile.linuxConfiguration.patchSettings.patchMode=AutomaticByPlatform` in the VM template.
 - To use this mode on Windows VMs, set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` in the VM template.
-- Enabling this mode will set the SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate RegKey to 1 
+- Enabling this mode will set the Registry Key SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate to 1 
 
 **AutomaticByOS:**
 - This mode is supported only for Windows VMs.
@@ -154,7 +154,7 @@ VMs on Azure now support the following patch orchestration modes:
 - This mode does not support availability-first patching.
 - This mode is set by default if no other patch mode is specified for a Windows VM.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=true`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` in the VM template.
-- Enabling this mode will set the SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate RegKey to 0
+- Enabling this mode will set the Registry Key SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate to 0
 
 **Manual:**
 - This mode is supported only for Windows VMs.
@@ -162,7 +162,7 @@ VMs on Azure now support the following patch orchestration modes:
 - This mode does not support availability-first patching.
 - This mode should be set when using custom patching solutions.
 - To use this mode on Windows VMs, set the property `osProfile.windowsConfiguration.enableAutomaticUpdates=false`, and set the property  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` in the VM template.
-- Enabling this mode will set the SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate RegKey to 1 
+- Enabling this mode will set the Registry Key SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU\NoAutoUpdate to 1 
 
 **ImageDefault:**
 - This mode is supported only for Linux VMs.
@@ -183,7 +183,7 @@ VMs on Azure now support the following patch orchestration modes:
 - The virtual machine must be able to access the configured update endpoints. If your virtual machine is configured to use private repositories for Linux or Windows Server Update Services (WSUS) for Windows VMs, the relevant update endpoints must be accessible.
 - Use Compute API version 2021-03-01 or higher to access all functionality including on-demand assessment and on-demand patching.
 - Custom images aren't currently supported.
-- VMSS Flexible Orchestration require the installation of [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md). This is optional for IaaS VMs. 
+- VMSS Flexible Orchestration requires the installation of [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md). This is optional for IaaS VMs. 
 
 ## Enable automatic VM guest patching
 Automatic VM guest patching can be enabled on any Windows or Linux VM that is created from a supported platform image.  
