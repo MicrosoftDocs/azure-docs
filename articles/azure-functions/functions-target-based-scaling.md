@@ -1,7 +1,7 @@
 ---
 title: Target-based scaling in Azure Functions
 description: Explains target-based scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 06/16/2023
+ms.date: 12/19/2023
 ms.topic: conceptual
 ms.service: azure-functions
 ---
@@ -72,7 +72,7 @@ To learn more, see the [example configurations for the supported extensions](#su
 
 ## Premium plan with runtime scale monitoring enabled
 
-When [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#premium-plan-with-virtual-network-triggers) is enabled, the extensions handle dyanmic scaling. This is because the scale controller does not have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to the minimum versions below to unlock the additional target-based scaling logic. 
+When [runtime scale monitoring](functions-networking-options.md?tabs=azure-cli#premium-plan-with-virtual-network-triggers) is enabled, the extensions handle dynamic scaling. This is because the [scale controller](event-driven-scaling.md#runtime-scaling) does not have access to services secured by a virtual network. After you enable runtime scale monitoring, you'll need to upgrade your extension packages to the minimum versions below to unlock the additional target-based scaling functionality. 
 
 | Extension Name | Minimum Version Needed | 
 | -------------- | ---------------------- |
