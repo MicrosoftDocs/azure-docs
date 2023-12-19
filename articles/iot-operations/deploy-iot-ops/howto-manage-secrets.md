@@ -26,11 +26,11 @@ Azure IoT Operations supports Azure Key Vault for storing secrets and certificat
 
 For more information, see [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
 
-## Configure a Service Principal and Key Vault upfront
+## Configure service principal and Azure Key Vault upfront
 
-In case your Azure account executing the `az iot ops init` command does not have permissions to query the Azure Resource Graph and create Service Principal, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
+If the Azure account executing the `az iot ops init` command does not have permissions to query the Azure Resource Graph and create service principals, you can prepare these upfront and use extra arguments when running the CLI command as described in [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli).
 
-### Configure Service Principal interact with Key Vault via Microsoft Entra ID
+### Configure service principal for interacting with Azure Key Vault via Microsoft Entra ID
 
 Follow these steps to create a new Application Registration that will be used by the AIO application to authenticate to Key Vault.
 
@@ -54,9 +54,9 @@ First, register an application with Microsoft Entra ID.
 
    When your application is created, you are directed to its resource page.
 
-1. Copy the **Application (client) ID** from the app registration overview page. You'll use this value in the next section.
+1. Copy the **Application (client) ID** from the app registration overview page. You'll use this value as an argument when running Azure IoT Operations deployment.
 
-Next, give your application permissions for your key vault.
+Next, give your application permissions for key vault.
 
 1. On the resource page for your app, select **API permissions** from the **Manage** section of the app menu.
 
@@ -80,29 +80,33 @@ Create a client secret that will be added to your Kubernetes cluster to authenti
 
 1. Copy the **Value** and **Secret ID** from your new secret. You'll use these values later below.
 
-1. In the App Registration home screen, click on the **Application name** link under **Managed application in local directory**. This opens the Enterprise Application properties. Copy the Object ID to use later.
+Retrieve the service principal Object Id
+
+1. On the **Overview** page for your app, under the section **Essentials**, click on the **Application name** link under **Managed application in local directory**. This opens the Enterprise Application properties. Copy the Object Id to use later.
 
 ### Create an Azure Key Vault
 
-1. Create a new Azure Key Vault account and ensure it has the **Permission Model** to Vault access policy.
+Create a new Azure Key Vault service and ensure it has the **Permission Model** to Vault access policy.
 
 ```bash
 az keyvault create --enable-rbac-authorization false --name "<your unique key vault name>" --resource-group "<the name of the resource group>"
 ```
-1. If you have an existing Key Vault, you can change the Permission Model by executing the following:
+If you have an existing Key Vault, you can change the Permission Model by executing the following:
 
 ```bash
 az keyvault update --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --enable-rbac-authorization false 
 ```
-1. You will need the Key Vault Resource ID below, to retrieve it run:
+You will need the Key Vault Resource ID below, to retrieve it run:
 
 ```bash
 az keyvault show --name "<your unique key vault name>" --resource-group "<the name of the resource group>" --query id  -o tsv
 ```
 
-### Set Service Principal's Access Policy in Key Vault
+### Set service principal access policy in Azue Key Vault
 
-The newly created Service Principal needs **Secret** `list` and `get` access policy in order for the Azure IoT Operations to work with the secret store. Run the following to assign **secret** `get` and `list` permissions to the Service Principal.
+The newly created service principal needs **Secret** `list` and `get` access policy for the Azure IoT Operations to work with the secret store. 
+
+Run the following to assign **secret** `get` and `list` permissions to the service principal.
 
 ```bash
 
@@ -110,10 +114,11 @@ az keyvault set-policy --name "<your unique key vault name>" --resource-group "<
 
 ```
 
-### Passing in Service Principal and Key Vault arguments when running Azure IoT Operations deployment
+### Passing in service principal and Azure Key Vault arguments when running Azure IoT Operations deployment
 
-When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli), you will need to pass in additional flags to the `az iot ops init` command in order to use the pre-configured Service Principal and Key Vault.
-For example, the following shows how to prepare the cluster for Azure IoT Operations without fully deploying it.
+When following the guide [Deploy Azure IoT Operations extensions](./howto-deploy-iot-operations.md?tabs=cli), you will need to pass in additional flags to the `az iot ops init` command in order to use the pre-configured service principal and key vault.
+
+For example, the following shows how to prepare the cluster for Azure IoT Operations without fully deploying it by using `--no-deploy` flag. You can also run the command without this argument for a default Azure IoT Operations deployment.
 
 ```bash
 
