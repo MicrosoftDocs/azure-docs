@@ -64,7 +64,7 @@ The article specifically details the use of the sample application HotROD and Ja
 1. Verify by inspecting your Azure Managed Instance cluster.
     :::image type="content" source="./media/jaeger/jaeger-table-1.png" alt-text="Screenshot Jaeger tables in managed instance cluster" lightbox="./media/jaeger/jaeger-table-1.png" border="true":::
 
-1.  You can also view the traces from step 7 in the table.
+1.  Refer to the traces table to view the data related to step 7.
     :::image type="content" source="./media/jaeger/jaeger-table-2.png" alt-text="Screenshot Jaeger trace table." lightbox="./media/jaeger/jaeger-table-2.png" border="true":::
 
 
