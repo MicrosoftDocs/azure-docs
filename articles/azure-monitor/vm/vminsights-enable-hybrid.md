@@ -16,6 +16,7 @@ For Linux hybrid machines, use [Azure Arc for servers](../../azure-arc/servers/o
 ## Prerequisites
 
 - [Log Analytics workspace](../logs/quick-create-workspace.md).
+- A Windows device that's domain joined to your Microsoft Entra tenant. The device must be able to connect to the internet.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported.
 
 ## Firewall requirements
@@ -29,9 +30,16 @@ Azure Monitor Agent transmits data to the Azure Monitor service directly or thro
 
 To enable VM insights on Windows virtual machines outside of Azure: 
 
-1. If you don't have an existing VM insights data collection rule, [Deploy a VM insights data collection rule using ARM templates](vminsights-enable-resource-manager.md#deploy-data-collection-rule). The data collection rule must be in the same region as your Log Analytics workspace.
-1. Install Azure Monitor Agent on your machine using the client installer, create a monitored object, and associate the monitored object to your VM insights data collection rule, as described in [Azure Monitor Agent on Windows client devices](../agents/azure-monitor-agent-windows-client.md). 
-1. Optionally, to use the [Map feature of VM insights](vminsights-maps.md), install Dependency Agent on your machine manually.
+1. If you don't have an existing VM insights data collection rule, [deploy a VM insights data collection rule using ARM templates](vminsights-enable-resource-manager.md#deploy-data-collection-rule). The data collection rule must be in the same region as your Log Analytics workspace.
+1. Follow the steps described in [Install Azure Monitor Agent on Windows client devices](../agents/azure-monitor-agent-windows-client.md) to:
+
+    - Install Azure Monitor Agent on your machine using the client installer.
+    - Create a monitored object. 
+    - Associate the monitored object to your VM insights data collection rule. 
+    
+    The monitored object automatically associates your VM insights data collection rule to all Windows devices in your tenant on which you install the Azure Monitor Agent using the client installer.
+    
+1. Optionally, to use the [Map feature of VM insights](vminsights-maps.md), install [Dependency Agent on your machine manually](vminsights-dependency-agent-maintenance.md#install-or-upgrade-dependency-agent).
         
 ## Troubleshooting
 
