@@ -19,11 +19,12 @@ Azure AI Language is updated on an ongoing basis. To stay up-to-date with recent
 ## December 2023
 
 * [Text Analytics for Health](./text-analytics-for-health/overview.md) new model 2023-12-01 is now available.
-   *New Relation Type: BodySiteOfExamination
-  ![image](https://github.com/MicrosoftDocs/azure-docs/assets/85431724/05e537a4-15fa-41dc-ab28-72d7d3dfc2ad)
-   *Quality enhancements to support radiology documents
-   *Significant latency improvements
-   *Various bug fixes: Improvements across NER, Entity Linking, Relations and Assertion Detection
+* New Relation Type: BodySiteOfExamination
+
+   ![image](https://github.com/MicrosoftDocs/azure-docs/assets/85431724/05e537a4-15fa-41dc-ab28-72d7d3dfc2ad)
+ * Quality enhancements to support radiology documents
+ * Significant latency improvements
+ * Various bug fixes: Improvements across NER, Entity Linking, Relations and Assertion Detection
 
 ## November 2023
 
