@@ -5,7 +5,7 @@ author: sidontha
 ms.author: sidontha
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 12/18/2023
+ms.date: 12/19/2023
 ms.custom: subject-rbac-steps
 ---
 
@@ -130,7 +130,7 @@ You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or t
 - SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to the SQL server and select **Firewalls and virtual networks**.
     1. Select **Yes** for **Allow Azure services and resources to access this server**.
-    1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
+    1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
 For more information about sharing to and from Azure SQL, see [the article to share and receive data from Azure SQL Database.](how-to-share-from-sql.md)
@@ -156,7 +156,7 @@ For more information about sharing to and from Azure SQL, see [the article to sh
 - Synapse workspace Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to Synapse workspace. Select **Firewalls** from left navigation.
     1. Select **ON** for **Allow Azure services and resources to access this workspace**.
-    1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
+    1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
 #### Receive
@@ -263,7 +263,7 @@ For SQL-based target, a SQL user needs to be created from an external provider i
 
 ## Resource provider registration 
 
-You may need to manually register the Microsoft.DataShare resource provider into your Azure subscription in the following scenarios: 
+You might need to manually register the Microsoft.DataShare resource provider into your Azure subscription in the following scenarios: 
 
 * View Azure Data Share invitation for the first time in your Azure tenant
 * Share data from an Azure data store in a different Azure subscription from your Azure Data Share resource
@@ -288,7 +288,7 @@ This section describes custom roles and permissions required within the custom r
 * For storage and data lake snapshot-based sharing, to add a dataset in Azure Data Share, the provider data share resource's managed identity needs to be granted access to the source Azure data store.  For example, if using a storage account, the data share resource's managed identity is granted the Storage Blob Data Reader role.  
 * To receive data into a storage account, the consumer data share resource's managed identity needs to be granted access to the target storage account. The data share resource's managed identity needs to be granted the Storage Blob Data Contributor role.  
 * See the [Data Provider](#data-provider) and [Data Consumer](#data-consumer) sections of this article for more specific steps. 
-* You may also need to manually register the Microsoft.DataShare resource provider into your Azure subscription for some scenarios. See in [Resource provider registration](#resource-provider-registration) section of this article for specific details. 
+* You might also need to manually register the Microsoft.DataShare resource provider into your Azure subscription for some scenarios. See in [Resource provider registration](#resource-provider-registration) section of this article for specific details. 
 
 ### Create custom roles and required permissions
 
