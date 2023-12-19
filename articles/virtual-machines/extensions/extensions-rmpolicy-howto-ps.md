@@ -6,9 +6,9 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.collection: windows
-ms.date: 04/11/2023 
+ms.date: 04/11/2023
 ms.custom: devx-track-azurepowershell, devx-track-linux
 ---
 
