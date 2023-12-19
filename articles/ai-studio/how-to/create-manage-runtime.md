@@ -96,7 +96,7 @@ To create a prompt flow runtime in Azure AI Studio:
 You can manage automatic runtime in the flow page. Here are options you can use:
 -** Install packages** triggers the `pip install -r requirements.txt` in the flow folder. It takes minutes depends on the packages you install.
 - **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter package conflict issue, you can try this option.
-- Edit, will open runtime config page, you can define the VM side and idle time for the runtime.
+- **Edit** opens the runtime config page where you can define the VM side and idle time for the runtime.
 - Stop, will delete current runtime. If there's no active runtime on underlining compute, compute resource will also be deleted.
 
 :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png" alt-text="Screenshot of actions on automatic runtime on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-actions.png":::
