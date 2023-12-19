@@ -220,7 +220,7 @@ For the changes to take effect, server restart would be required.
 Use the **Save and Restart** option and wait for the flexible server to restart.
 
 > [!NOTE]  
-> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
 
 ##### Create Azure Active Directory users on target server
 > [!NOTE]  
