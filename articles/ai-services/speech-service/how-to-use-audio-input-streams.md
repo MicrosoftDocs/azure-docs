@@ -2,7 +2,7 @@
 title: Speech SDK audio input stream concepts
 titleSuffix: Azure AI services
 description: An overview of the capabilities of the Speech SDK audio input stream.
-services: cognitive-services
+#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

@@ -12,7 +12,7 @@ ms.custom: service-connector, devx-track-azurecli
 
 # Connect a container app to a cloud service with Service Connector
 
-Azure Container Apps allows you to use Service Connector to connect to cloud services in just a few steps. Service Connector manages the configuration of the network settings and connection information between different services. To view all supported services, [learn more about Service Connector](../service-connector/overview.md#what-services-are-supported-in-service-connector).
+Azure Container Apps allows you to use Service Connector to connect to cloud services in just a few steps. Service Connector manages the configuration of the network settings and connection information between different services. To view all supported services, [learn more about Service Connector](../service-connector/overview.md#what-services-are-supported-by-service-connector).
 
 In this article, you learn to connect a container app to Azure Blob Storage.
 

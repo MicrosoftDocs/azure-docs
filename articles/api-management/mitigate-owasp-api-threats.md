@@ -15,7 +15,7 @@ The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) Fo
 The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique *vulnerabilities and security risks of APIs*. In this article, we'll discuss recommendations to use Azure API Management to mitigate the top 10 API threats identified by OWASP.
 
 > [!NOTE]
-> In addition to following the recommendations in this article, you can enable [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction) (preview), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), for API security insights, recommendations, and threat detection. [Learn more about using Defender for APIs with API Management](protect-with-defender-for-apis.md)
+> In addition to following the recommendations in this article, you can enable [Defender for APIs](/azure/defender-for-cloud/defender-for-apis-introduction), a capability of [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), for API security insights, recommendations, and threat detection. [Learn more about using Defender for APIs with API Management](protect-with-defender-for-apis.md)
 
 ## Broken object level authorization 
 
@@ -295,7 +295,7 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 
 * Monitor API traffic with [Azure Monitor](api-management-howto-use-azure-monitor.md). 
 
-* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/transaction-diagnostics.md) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
+* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-diagnostics) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md). 
 
 * If needed, forward custom events to [Event Hubs](api-management-howto-log-event-hubs.md). 
 

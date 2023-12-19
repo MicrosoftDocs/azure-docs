@@ -37,8 +37,8 @@ The following network and FQDN/application rules are required for an AKS cluster
 * IP address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic).
 * FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 * Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your AKS cluster based on a number of qualifiers.
-* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system. This ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP.
-* If you have an app or solution that needs to talk to the API server, you must add an **additional** network rule to allow **TCP communication to port 443 of your API server's IP**.
+* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system. This ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP.  You can get the same behavior on your own pods, in any namespace, by annotating the pod spec with an annotation named `kubernetes.azure.com/set-kube-service-host-fqdn`. If that annotation is present, AKS will set the KUBERNETES_SERVICE_HOST variable to the domain name of the API server instead of the in-cluster service IP. This is useful in cases where the cluster egress is via a layer 7 firewall.
+* If you have an app or solution that needs to talk to the API server, you must either add an **additional** network rule to allow **TCP communication to port 443 of your API server's IP** **OR** , if you have a layer 7 firewall configured to allow traffic to the API Server's domain name, set `kubernetes.azure.com/set-kube-service-host-fqdn` in your pod specs.
 * On rare occasions, if there's a maintenance operation, your API server IP might change. Planned maintenance operations that can change the API server IP are always communicated in advance.
 * Under certain circumstances, it might happen that traffic towards "md-*.blob.storage.azure.net" is required. This dependency is due to some internal mechanisms of Azure Managed Disks. You might also want to use the Storage [service tag](../virtual-network/service-tags-overview.md).
 
@@ -214,8 +214,14 @@ There are two options to provide access to Azure Monitor for containers:
 | **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
 | **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 |**`arcmktplaceprod.azurecr.io`**|**`HTTPS:443`**|This address is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.centralindia.data.azurecr.io`** | **`HTTPS:443`** | This address is for the Central India regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.japaneast.data.azurecr.io`** | **`HTTPS:443`** | This address is for the East Japan regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.westus2.data.azurecr.io`** | **`HTTPS:443`** | This address is for the West US2 regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.westeurope.data.azurecr.io`** | **`HTTPS:443`** | This address is for the West Europe regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
+| **`arcmktplaceprod.eastus.data.azurecr.io`** | **`HTTPS:443`** | This address is for the East US regional data endpoint and is required to pull container images for installing marketplace extensions on AKS cluster.|
 |**`*.ingestion.msftcloudes.com, *.microsoftmetrics.com`**|**`HTTPS:443`**|This address is used to send agents metrics data to Azure.|
 |**`marketplaceapi.microsoft.com`**|**`HTTPS: 443`**|This address is used to send custom meter-based usage to the commerce metering API.|
+
 
 #### Azure US Government required FQDN / application rules
 
@@ -237,4 +243,6 @@ If you want to restrict how pods communicate between themselves and East-West tr
 <!-- LINKS - internal -->
 
 [private-clusters]: ./private-clusters.md
+
 [use-network-policies]: ./use-network-policies.md
+

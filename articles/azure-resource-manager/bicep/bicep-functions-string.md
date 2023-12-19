@@ -167,7 +167,7 @@ The following example shows a comparison between using interpolation and using t
 ```bicep
 param prefix string = 'prefix'
 
-output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+output concatOutput string = concat(prefix, 'And', uniqueString(resourceGroup().id))
 output interpolationOutput string = '${prefix}And${uniqueString(resourceGroup().id)}'
 ```
 
@@ -638,7 +638,7 @@ The output from the preceding example with the default values is:
 | firstOutput | String | "one,two,three" |
 | secondOutput | String | "one;two;three" |
 
-This function requires **Bicep version 0.8.2 or later**.
+This function requires [Bicep CLI version 0.8.X or higher](./install.md).
 
 <a id="json"></a>
 

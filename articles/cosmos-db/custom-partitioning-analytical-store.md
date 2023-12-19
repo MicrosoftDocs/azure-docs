@@ -4,24 +4,24 @@ description: Custom partitioning enables you to partition the analytical store d
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 10/24/2023
 ms.author: rosouz
 ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Custom partitioning in Azure Synapse Link for Azure Cosmos DB
-[!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 
-In this article, you'll learn how to partition your data in Azure Cosmos DB analytical store using keys that are critical for your analytical workloads. It also explains how to take advantage of the improved query performance with partition pruning. You'll also learn how the partitioned store helps to improve the query performance when your workloads have a significant number of updates or deletes.
+In this article, you learn how to partition your data in Azure Cosmos DB analytical store using keys that are critical for your analytical workloads. It also explains how to take advantage of the improved query performance with partition pruning. You also learn how custom partitioning improves the queries performance when your workloads have a significant number of updates or deletes.
 
 > [!NOTE]
 > Azure Cosmos DB accounts and containers should have [Azure Synapse Link](synapse-link.md) enabled to take advantage of custom partitioning.
 
 ## How does it work?
 
-Analytical store partitioning is independent of partitioning in the transactional store. By default, analytical store isn't partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. you leverage custom partitioning to create a separate partitioned store based on these keys. You can choose a single field or a combination of fields from your dataset as the analytical store partition key.
+Analytical store partitioning is independent of partitioning in the transactional store. By default, analytical store isn't partitioned. If you want to query analytical store frequently based on fields such as Date, Time, Category etc. you can use custom partitioning to create a separate partitioned store based on these keys. You can choose a single field or a combination of fields from your dataset as the analytical store partition key.
 
 You can trigger partitioning from an Azure Synapse Spark notebook using Azure Synapse Link. You can schedule it to run as a background job, once or twice a day but can be executed more often, if needed. 
 
@@ -30,7 +30,7 @@ You can trigger partitioning from an Azure Synapse Spark notebook using Azure Sy
 
 :::image type="content" source="./media/custom-partitioning-analytical-store/partitioned-store-architecture.png" alt-text="Architecture of partitioned store in Azure Synapse Link for Azure Cosmos DB" lightbox="./media/custom-partitioning-analytical-store/partitioned-store-architecture.png" border="false":::
 
-The partitioned store contains Azure Cosmos DB analytical data until the last timestamp you ran your partitioning job. When you query your analytical data using the partition key filters in Synapse Spark, Synapse Link will automatically merge the data in partitioned store with the most recent data from the analytical store. This way it gives you the latest results for your queries. Although it merges the data before querying, the delta isn’t written back to the partitioned store. As the delta between data in analytical store and partitioned store widens, the query times on partitioned data may vary. Triggering partitioning job more frequently will reduce this delta. Each time you execute the partition job, only incremental changes in the analytical store will be processed, instead of the full data set.
+The partitioned store contains Azure Cosmos DB analytical data until the last timestamp you ran your partitioning job. When you query analytical data using the partition key filters, Synapse Link automatically merges partitioned store data with the most recent changes in analytical store. This way it gives you the latest results for your queries. Although it merges the data before querying, the delta isn’t written back to the partitioned store. As the delta between data in analytical store and partitioned store widens, the query times on partitioned data may vary. Triggering partitioning job more frequently reduces this delta. Each time you execute the partition job, only incremental changes in the analytical store are processed, instead of the full data set.
 
 ## When to use?
 
@@ -41,7 +41,7 @@ Using partitioned store is optional when querying analytical data in Azure Cosmo
 * High volume of update or delete operations
 * Slow data ingestion 
 
-Except for the workloads that meet above requirements, if you are querying live data using query filters that are different from the partition keys, we recommend that you query  directly from the analytical store. This is especially true if the partitioning jobs aren't scheduled to run frequently.
+If you are querying live data using query filters different from partition keys, we recommend that you query analytical store directly.
 
 ## Benefits
 
@@ -51,13 +51,13 @@ Because the data corresponding to each unique partition key is colocated in the 
 
 ### Flexibility to partition your analytical data
 
-You can have multiple partitioning strategies for a given analytical store container. You could use composite or separate partition keys based on your query requirements. Please see partition strategies for guidance on this. 
+You can have multiple partitioning strategies for a given analytical store container. You could use composite or separate partition keys based on your query requirements.
 
 ### Query performance improvements
 
 In addition to the query improvements from partition pruning, custom partitioning also results in improved query performance for the following workloads:
 
-* **Update/delete heavy workloads** - Instead of keeping track of multiple versions of records in the analytical store and loading them during each query execution, the partitioned  store only contains the latest version of the data. This significantly improves the query performance when you have update/delete heavy workloads.
+* **Update/delete heavy workloads** - Instead of keeping track of multiple versions of records in the analytical store and loading them during each query execution, the partitioned  store only contains the latest version of the data. This capability significantly improves the query performance when you have update/delete heavy workloads.
 
 * **Slow data ingestion workloads** - Partitioning compacts analytical data and so, if your workload has slow data ingestion, this compaction could result in better query performance
 
@@ -67,19 +67,19 @@ It is important to note that custom partitioning ensures complete transactional 
 
 ## Security
 
-If you configured [managed private endpoints](analytical-store-private-endpoints.md) for your analytical store, to ensure network isolation for partitioned store, we recommend that you also add managed private endpoints for the partitioned store. The partitioned store is primary storage account associated with your Synapse workspace.
+If you configured [managed private endpoints](analytical-store-private-endpoints.md) for your analytical store, we recommend to add managed private endpoints for the partitioned store too. The partitioned store is primary storage account associated with your Synapse workspace.
 
 Similarly, if you configured [customer-managed keys on analytical store](how-to-setup-cmk.md#is-it-possible-to-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store), you must directly enable it on the Synapse workspace primary storage account, which is the partitioned store, as well.
 
 ## Partitioning strategies
-You could use one or more partition keys for your analytical data. If you are using multiple partition keys, below are some recommendations on how to partition the data: 
+You could use one or more partition keys for your analytical data. If you are using multiple partition keys, here are some recommendations on how to partition the data: 
    - **Using composite keys:**
 
      Say, you want to frequently query based on Key1 and Key2. 
       
      For example, "Query for all records where  ReadDate = ‘2021-10-08’ and Location = ‘Sydney’". 
        
-     In this case, using composite keys will be more efficient, to look up all records that match the ReadDate and the records that match Location within that ReadDate. 
+     In this case, using composite keys are more efficient, to look up all records that match the ReadDate and the records that match Location within that ReadDate. 
        
      Sample configuration options:      
      ```python
@@ -87,8 +87,8 @@ You could use one or more partition keys for your analytical data. If you are us
      .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
      ```
       
-     Now, on above partitioned store, if you want to only query based on "Location" filter:      
-     * You may want to query analytical store directly. Partitioned store will scan all records by ReadDate first and then by Location. 
+     Now can query based on "Location" filter:      
+     * You may want to query analytical store directly. Partitioned store scans all records by ReadDate first and then by Location. 
      So, depending on your workload and cardinality of your analytical data, you may get better results by querying analytical store directly. 
      * You could also run another partition job to also partition based on ‘Location’ on the same partitioned store.
                            
@@ -112,8 +112,7 @@ You could use one or more partition keys for your analytical data. If you are us
      .option("spark.cosmos.asns.partition.keys", "Location String") \
      .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
      ```        
-     Please note that it's not efficient to now frequently query based on "ReadDate" and "Location" filters together, on above partitioning. Composite keys will give 
-     better query performance in that case. 
+     Note that it's not efficient to now frequently query based on "ReadDate" and "Location" filters together, on above partitioning. Composite keys allow better query performance in that case. 
       
 ## Limitations
 
@@ -125,11 +124,11 @@ You could use one or more partition keys for your analytical data. If you are us
 
 ## Pricing
 
-In addition to the [Azure Synapse Link pricing](synapse-link.md#pricing), you'll incur the following charges when using custom partitioning:
+In addition to the [Azure Synapse Link pricing](synapse-link.md#pricing), you incur the following charges when using custom partitioning:
 
 * You are [billed](https://azure.microsoft.com/pricing/details/synapse-analytics/#pricing) for using Synapse Apache Spark pools when you run partitioning jobs on analytical store.
 
-* The partitioned data is stored in the primary Azure Data Lake Storage Gen2 account associated with your Azure Synapse Analytics workspace. You'll incur the costs associated with using the ADLS Gen2 storage and transactions. These costs are determined by the storage required by partitioned analytical data and data processed for analytical queries in Synapse respectively. For more information on pricing, please visit the [Azure Data Lake Storage pricing page](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+* The partitioned data is stored in the primary Azure Data Lake Storage Gen2 account associated with your Azure Synapse Analytics workspace. You incur the costs associated with using the ADLS Gen2 storage and transactions. These costs are determined by the storage required by partitioned analytical data and data processed for analytical queries in Synapse respectively. For more information on pricing, please visit the [Azure Data Lake Storage pricing page](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## Frequently asked questions
 

@@ -1,12 +1,12 @@
 ---
-title: Integrate security solutions
-description: Learn about how Microsoft Defender for Cloud integrates with partners to enhance the overall security of your Azure resources.
+title: Integrate security solutions in Microsoft Defender for Cloud
+description: Learn about how Microsoft Defender for Cloud integrates with partner solutions. 
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.date: 01/10/2023
 ---
 
-# Integrate security solutions in Microsoft Defender for Cloud
+# Integrate security solutions in Defender for Cloud
 
 This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
 
@@ -54,7 +54,7 @@ The status of a security solution can be:
 * **Healthy** (green) - no health issues.
 * **Unhealthy** (red) - there's a health issue that requires immediate attention.
 * **Stopped reporting** (orange) - the solution has stopped reporting its health.
-* **Not reported** (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status may be unreported if it was connected recently and is still deploying.
+* **Not reported** (gray) - the solution hasn't reported anything yet and no health data is available. A solution's status might be unreported if it was connected recently and is still deploying.
 
 > [!NOTE]
 > If health status data is not available, Defender for Cloud shows the date and time of the last event received to indicate whether the solution is reporting or not. If no health data is available and no alerts were received within the last 14 days, Defender for Cloud indicates that the solution is unhealthy or not reporting.

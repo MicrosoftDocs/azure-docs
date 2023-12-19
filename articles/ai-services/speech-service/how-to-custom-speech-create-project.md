@@ -2,7 +2,6 @@
 title: Create a Custom Speech project - Speech service
 titleSuffix: Azure AI services
 description: Learn about how to create a project for Custom Speech. 
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

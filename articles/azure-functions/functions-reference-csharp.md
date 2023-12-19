@@ -11,15 +11,16 @@ ms.date: 08/15/2023
 
 This article is an introduction to developing Azure Functions by using C# script (*.csx*).
 
+> [!IMPORTANT]
+> C# script is supported primarily to provide a convenient in-portal experience to help you quickly get started creating and running C# functions. For production-quality apps, you should instead develop your C# functions locally as a compiled C# class library project. To learn how to migrate a C# script project to a C# class library (isolated worker) project, see [Convert a C# script app to a C# project](#convert-a-c-script-app-to-a-c-project).
+
 Azure Functions lets you develop functions using C# in one of the following ways:
 
 | Type | Execution process | Code extension | Development environment | Reference |
 | --- | ---- | --- | --- | --- | 
 | C# script | in-process | .csx | [Portal](functions-create-function-app-portal.md)<br/>[Core Tools](functions-run-local.md) | This article | 
-| C# class library | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |
-| C# class library (isolated worker process)| in an isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
-
-This article assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
+| C# class library (isolated worker) | isolated worker process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md) | [.NET isolated worker process functions](dotnet-isolated-process-guide.md) | 
+| C# class library (in-process) | in-process | .cs | [Visual Studio](functions-develop-vs.md)<br/>[Visual Studio Code](functions-develop-vs-code.md)<br />[Core Tools](functions-run-local.md)| [In-process C# class library functions](functions-dotnet-class-library.md) |  
 
 ## How .csx works
 
@@ -660,7 +661,7 @@ These instructions show you how to convert C# script functions (which run in-pro
 
    ---
     
-1. If your original C# script code includes an `extensions.csproj` file or any `function.proj` files, copy the package references from these file and add them to the new project's `.csproj` file in the same `ItemGroup` with the Functions core dependencies.
+2. If your original C# script code includes an `extensions.csproj` file or any `function.proj` files, copy the package references from these file and add them to the new project's `.csproj` file in the same `ItemGroup` with the Functions core dependencies.
 
     >[!TIP]
     >Conversion provides a good opportunity to update to the latest versions of your dependencies. Doing so may require additional code changes in a later step.
@@ -1172,7 +1173,7 @@ The following table explains the binding configuration properties for C# script 
 |**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
 |**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](./functions-bindings-storage-table-input.md#connections). |
 
-he following example shows a table input binding in a *function.json* file and C# script code that uses the binding. The function uses a queue trigger to read a single table row. 
+The following example shows a table input binding in a *function.json* file and C# script code that uses the binding. The function uses a queue trigger to read a single table row. 
 
 The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value `{queueTrigger}` indicates that the row key comes from the queue message string.
 
@@ -1683,7 +1684,7 @@ The following table explains the binding configuration properties that you set i
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](./functions-bindings-service-bus-trigger.md#connections).|
 |**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
+|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a C# script function that uses the binding. The function reads message metadata and logs a Service Bus queue message.
 

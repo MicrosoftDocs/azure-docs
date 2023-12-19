@@ -1,7 +1,7 @@
 ---
 title: "Monitor Azure Communication Services direct routing"
 ms.author: bobazile
-ms.date: 06/22/2023
+ms.date: 11/27/2023
 author: boris-bazilevskiy
 manager: rcole
 audience: ITPro
@@ -10,11 +10,11 @@ ms.service: azure-communication-services
 description: Learn how to monitor Azure Communication Services direct routing configuration, including Session Border Controllers, cloud components, and Telecom trunks.
 ---
 
-# Monitor direct routing
+# Monitor Direct Routing
 
 This article describes how to monitor your direct routing configuration.
 
-The ability to make and receive calls by using direct routing involves the following components:
+The process of making and receiving calls through direct routing involves the following components:
 
 - Session Border Controllers (SBCs)
 - Direct routing components in the Microsoft Cloud
@@ -24,7 +24,7 @@ If you have difficulties troubleshooting issues, you can open a support case wit
 
 Microsoft is working on providing more tools for troubleshooting and monitoring. Check the documentation periodically for updates.
 
-## Monitoring availability of Session Border Controllers using Session Initiation Protocol (SIP) OPTIONS messages
+## Monitoring Availability of Session Border Controllers using Session Initiation Protocol (SIP) OPTIONS Messages
 
 Azure Communication Services direct routing uses SIP OPTIONS sent by the Session Border Controller to monitor SBC health. There are no actions required from the Azure administrator to enable the SIP OPTIONS monitoring. The collected information is taken into consideration when routing decisions are made.
 
@@ -46,26 +46,27 @@ When a call is made, the following logic applies:
 
 Direct routing takes the regular interval OPTIONS three times (the regular interval is one minute). If OPTIONS were sent during the last three minutes, the SBC is considered healthy.
 
-If the SBC in the example sent OPTIONS at any period between 11:12 AM and 11:15 AM (the time the call was made), it's considered healthy. If not, the SBC is demoted from the route.
+If the SBC in the example sent OPTIONS at any period between 10:12 AM and 10:15 AM (the time the call was made), it's considered healthy. If not, the SBC is demoted from the route.
 
-Demotion means that the SBC isn't tried first. For example, we have `sbc.contoso.com` and `sbc2.contoso.com` with equal priority in the same voice route.  
+Demotion means that the SBC isn't tried. For example, we have `sbc.contoso.com` and `sbc2.contoso.com` with equal priority in the same voice route, and `sbc3.contoso.com` in the lower priority route.  
 
-If `sbc.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call because of the error codes 408, 503, or 504, the `sbc.contoso.com` (demoted) is tried again before a failure is generated. 
-If both `sbc.contoso.com` and `sbc2.contoso.com` don't send OPTIONS, direct routing tries to place a call to both anyway, and then `sbc3.contoso.com` is tried.
+If `sbc.contoso.com` doesn't send SIP OPTIONS on a regular interval as previously described, it's demoted. Next, `sbc2.contoso.com` tries for the call. If `sbc2.contoso.com` can't deliver the call because of the error codes 408, 503, or 504, the `sbc3.contoso.com` is tried. 
+
+When an SBC stops sending OPTIONS but not yet marked as demoted, Azure tries to establish a call to it from three different datacenters before failover to another voice route. When an SBC is marked as demoted, it isn't tried until it starts sending OPTIONS again.
 
 If two (or more) SBCs in one route are considered healthy and equal, Fisher-Yates shuffle is applied to distribute the calls between the SBCs.
 
-## Monitor with Azure portal and SBC logs
+## Monitor with Azure Portal and SBC logs
 
-In some cases, especially during the initial pairing, there might be issues related to misconfiguration of the SBCs or the direct routing service.
+During the initial pairing phase, there may be issues related particularly to misconfiguration of the SBCs or the direct routing service.
 
-You can use the following tools to monitor your configuration:  
+The following tools can be used to monitor your configuration:  
 
 - Azure portal
 - SBC logs
 
 In the direct routing section of Azure portal, you can check [SBC connection status](../direct-routing-provisioning.md#session-border-controller-connection-status).
-If calls can be made, you can also check [Azure monitors logs](../../analytics/logs/voice-and-video-logs.md) that provide descriptive SIP error codes
+If calls can be made, [Azure monitors logs](../../analytics/logs/voice-and-video-logs.md) can help provide descriptive SIP error codes
 
 SBC logs also is a great source of data for troubleshooting. Reach out to your SBC vendor's documentation on how to configure and collect those logs.
 

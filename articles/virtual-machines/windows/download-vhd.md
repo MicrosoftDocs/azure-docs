@@ -6,7 +6,7 @@ ms.author: rogarana
 ms.service: azure-disk-storage
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/03/2023
+ms.date: 10/17/2023
 ---
 
 # Download a Windows VHD from Azure

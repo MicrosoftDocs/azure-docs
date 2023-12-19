@@ -664,9 +664,10 @@ You need the **Resource ID** for **vnet-2** from the previous steps to set up th
     | ------- | ----- |
     | **This virtual network** |  |
     | Peering link name | Enter **vnet-1-to-vnet-2**. |
-    | Allow access to remote virtual network | Leave the default of selected.  |
-    | Allow traffic to remote virtual network | Select the checkbox. |
-    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | Leave the default of cleared. |
+    | Allow 'vnet-1' to access 'vnet-2' | Leave the default of selected.  |
+    | Allow 'vnet-1' to receive forwarded traffic from 'vnet-2' | Select the checkbox. |
+    | Allow gateway in 'vnet-1' to forward traffic to 'vnet-2' | Leave the default of cleared. |
+    | Enable 'vnet-1' to use 'vnet-2' remote gateway | Leave the default of cleared. |
     | Use remote virtual network gateway or route server | Leave the default of cleared. |
     | **Remote virtual network** |  |
     | Peering link name | Leave blank. |
@@ -841,10 +842,10 @@ You need the **Resource IDs** for **vnet-1** from the previous steps to set up t
     | ------- | ----- |
     | **This virtual network** |  |
     | Peering link name | Enter **vnet-2-to-vnet-1**. |
-    | Allow access to remote virtual network | Leave the default of selected.  |
-    | Allow traffic to remote virtual network | Select the checkbox. |
-    | Allow traffic forwarded from the remote virtual network (allow gateway transit) | Leave the default of cleared. |
-    | Use remote virtual network gateway or route server | Leave the default of cleared. |
+    | Allow 'vnet-2' to access 'vnet-1' | Leave the default of selected.  |
+    | Allow 'vnet-2' to receive forwarded traffic from 'vnet-1' | Select the checkbox. |
+    | Allow gateway in 'vnet-2' to forward traffic to 'vnet-1' | Leave the default of cleared. |
+    | Enable 'vnet-2' to use 'vnet-1's' remote gateway | Leave the default of cleared. |
     | **Remote virtual network** |  |
     | Peering link name | Leave blank. |
     | Virtual network deployment model | Select **Resource manager**. |

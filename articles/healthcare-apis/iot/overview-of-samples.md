@@ -12,11 +12,7 @@ ms.author: jasteppe
 
 # Overview of the MedTech service scenario-based mappings samples
 
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
-
-
-The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. Theses samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
+The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR&reg; destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. Theses samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
 
 ## Sample resources
 
@@ -40,16 +36,14 @@ Each MedTech service scenario-based sample contains the following resources:
 
 ## Next steps
 
-In this article, you learned about the MedTech service scenario-based mappings samples.
+[What is MedTech service?](overview.md)
 
-* To learn about the MedTech service, see [What is MedTech service?](overview.md)
+[Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md)
 
-* To learn about the MedTech service device data processing stages, see [Overview of the MedTech service device data processing stages](overview-of-device-data-processing-stages.md).
+[Choose a deployment method for the MedTech service](deploy-choose-method.md)
 
-* To learn about the different deployment methods for the MedTech service, see [Choose a deployment method for the MedTech service](deploy-choose-method.md).
+[Overview of the MedTech service device mapping](overview-of-device-mapping.md)
 
-* For an overview of the MedTech service device mapping, see [Overview of the MedTech service device mapping](overview-of-device-mapping.md).
+[Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-* For an overview of the MedTech service FHIR destination mapping, see [Overview of the MedTech service FHIR destination mapping](overview-of-fhir-destination-mapping.md).
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

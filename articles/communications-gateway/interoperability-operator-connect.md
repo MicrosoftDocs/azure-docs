@@ -20,11 +20,11 @@ Azure Communications Gateway can manipulate signaling and media to meet the requ
 
 Azure Communications Gateway sits at the edge of your fixed line and mobile networks. It connects these networks to the Microsoft Phone System, allowing you to support Operator Connect (for fixed line networks) and Teams Phone Mobile (for mobile networks). The following diagram shows where Azure Communications Gateway sits in your network.
 
-:::image type="complex" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks":::
-    Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile IMS core. Azure Communications Gateway contains certified SBC function and the MCP application server for anchoring mobile calls.
+:::image type="complex" source="media/azure-communications-gateway-architecture-operator-connect.svg" alt-text="Architecture diagram for Azure Communications Gateway connecting to fixed and mobile networks" lightbox="media/azure-communications-gateway-architecture-operator-connect.svg":::
+    Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a fixed line deployment and a mobile IMS core. Azure Communications Gateway contains SBC function, the MCP application server for anchoring Teams Phone Mobile calls and a provisioning API.
 :::image-end:::
 
-Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
+Calls flow from Microsoft Teams clients through the Microsoft Phone System and Azure Communications Gateway into your network.
 
 ## Compliance with Certified SBC specifications
 
@@ -69,7 +69,7 @@ You can arrange more interworking function as part of your initial network desig
 
 [!INCLUDE [microsoft-phone-system-requires-e164-numbers](includes/communications-gateway-e164-for-phone-system.md)]
 
-[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)]
+[!INCLUDE [communications-gateway-multitenant](includes/communications-gateway-multitenant.md)] By default, traffic for Operator Connect or Teams Phone Mobile contains an X-MS-TenantID header. This header identifies the enterprise that is sending the traffic and can be used by your billing systems.
 
 ## RTP and SRTP media
 
@@ -77,7 +77,7 @@ The Microsoft Phone System typically requires SRTP for media. Azure Communicatio
 
 ### Media handling for calls
 
-You must select the codecs that you want to support when you deploy Azure Communications Gateway. If the Microsoft Phone System doesn't support these codecs, Azure Communications Gateway can perform transcoding (converting between codecs) on your behalf.
+You must select the codecs that you want to support when you deploy Azure Communications Gateway.
 
 Operator Connect and Teams Phone Mobile require core networks to support ringback tones (ringing tones) during call transfer. Core networks must also support comfort noise. If your core networks can't meet these requirements, Azure Communications Gateway can inject media into calls.
 
@@ -94,8 +94,6 @@ For full details of the media interworking features available in Azure Communica
 ## Number Management Portal for provisioning with Operator Connect APIs
 
 Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communications Gateway's Number Management Portal instead. This Azure portal feature enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project.
-
-The Number Management Portal is available as part of the optional API Bridge feature.
 
 For more information, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal for Operator Connect and Teams Phone Mobile](manage-enterprise-operator-connect.md).
 

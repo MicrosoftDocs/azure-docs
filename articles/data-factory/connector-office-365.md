@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 11/28/2022
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Copy and transform data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
@@ -29,7 +29,7 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 ADF Microsoft 365 (Office 365) connector and Microsoft Graph Data Connect enables at scale ingestion of different types of datasets from Exchange Email enabled mailboxes, including address book contacts, calendar events, email messages, user information, mailbox settings, and so on.  Refer [here](/graph/data-connect-datasets) to see the complete list of datasets available.
 
@@ -361,5 +361,5 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 
 6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

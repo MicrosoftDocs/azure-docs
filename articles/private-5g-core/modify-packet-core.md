@@ -40,13 +40,13 @@ The following changes will trigger components of the packet core software to res
   - Static UE IP pool prefixes
   - Network address and port translation parameters
   - DNS addresses
+- Changing the UE Maximum Transmission Unit (MTU) signaled by the packet core.
 
 The following changes will trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
 
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
 - Changing the N2, N3 or N6 interface configuration on an attached data network.
-- Changing the UE Maximum Transmission Unit (MTU).
 
 The following changes require you to manually perform a reinstall, during which your service will be unavailable for up to two hours, before they take effect:
 
@@ -99,6 +99,9 @@ To modify the packet core and/or access network configuration:
   
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
+   - If you want to enable UE Metric monitoring, use the information collected in [Collect UE Usage Tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+    > [!NOTE]
+    > You must reinstall the packet core control pane** in order to use UE Metric monitoring if it was not already configured.
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
@@ -169,7 +172,7 @@ This change will require a manual packet core reinstall to take effect, see [Nex
 
 ## Remove data network resource
 
-If you removed an attached data network from the packet core and it is no longer attached to any packet cores or referenced by any SIM policies, you may remove the data network from the resource group:  
+If you removed an attached data network from the packet core and it is no longer attached to any packet cores or referenced by any SIM policies, you can remove the data network from the resource group:  
 > [!NOTE]
 > The data network that you want to delete must have no SIM policies associated with it. If the data network has one or more associated SIM policies data network removal will be prevented.
 

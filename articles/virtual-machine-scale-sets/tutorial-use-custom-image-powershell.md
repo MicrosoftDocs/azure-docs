@@ -74,7 +74,7 @@ $gallery = New-AzGallery `
 ## Create an image definition 
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -120,6 +120,9 @@ It can take a while to replicate the image to all of the target regions.
 ## Create a scale set from the image
 Now create a scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss) that uses the `-ImageName` parameter to define the custom VM image created in the previous step. To distribute traffic to the individual VM instances, a load balancer is also created. The load balancer includes rules to distribute traffic on TCP port 80, as well as allow remote desktop traffic on TCP port 3389 and PowerShell remoting on TCP port 5985. When prompted, provide your own desired administrative credentials for the VM instances in the scale set:
 
+> [!IMPORTANT]
+>Starting November 2023, VM scale sets created using PowerShell and Azure CLI will default to Flexible Orchestration Mode if no orchestration mode is specified. For more information about this change and what actions you should take, go to [Breaking Change for VMSS PowerShell/CLI Customers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-compute-blog/breaking-change-for-vmss-powershell-cli-customers/ba-p/3818295)
+
 ```azurepowershell-interactive
 # Define variables for the scale set
 $resourceGroupName = "myScaleSet"
@@ -133,7 +136,6 @@ New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
 $vmssConfig = New-AzVmssConfig `
    -Location $location `
    -SkuCapacity 2 `
-   -OrchestrationMode Flexible `
    -SkuName "Standard_D2s_v3"
 
 # Reference the image version

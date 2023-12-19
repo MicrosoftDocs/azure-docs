@@ -8,6 +8,8 @@
     href: site-recovery-whats-new.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
+  - name: Disaster recovery for VMware
+    href: vmware-azure-about-disaster-recovery.md
 - name: Quickstarts
   expanded: true
   items:
@@ -131,12 +133,12 @@
       href: vmware-physical-azure-support-matrix.md
     - name: On-premises Hyper-V VMs to Azure
       href: hyper-v-azure-support-matrix.md
-    - name: Hyper-V VMs to a secondary site
-      href: hyper-v-vmm-secondary-support-matrix.md
     - name: Backup center support matrix
       href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
     - name: Support requirements for Azure Site Recovery replication appliance
       href: replication-appliance-support-matrix.md
+    - name: Using Site Recovery with Azure Backup
+      href: site-recovery-backup-interoperability.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: Azure to Azure disaster recovery
@@ -155,10 +157,6 @@
     items:
     - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
-    - name: Common questions about Azure to Azure disaster recovery
-      href: azure-to-azure-common-questions.md
-    - name: Using Site Recovery with Azure Backup
-      href: site-recovery-backup-interoperability.md
     - name: Configure Failover for Multiple IP addresses
       href: concepts-multiple-ip-address-failover.md
     - name: Accelerated networking for Azure VM disaster recovery
@@ -167,16 +165,12 @@
       href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Azure VM Disaster Recovery - High Churn Support
       href: concepts-azure-to-azure-high-churn-support.md
-  - name: About moving Azure VMs to another region
-    href: azure-to-azure-move-overview.md
-  - name: Migrate to availability zone support
-    href: ../availability-zones/migrate-recovery-services-vault.md
+    - name: About moving Azure VMs to another region
+      href: azure-to-azure-move-overview.md
   - name: About VMware VM disaster recovery
     items:
     - name: Deprecation of classic experience
       href: vmware-physical-azure-classic-deprecation.md
-    - name: VMware disaster recovery overview
-      href: vmware-azure-about-disaster-recovery.md
     - name: About Site Recovery components (configuration/process/master target server)
       href: vmware-physical-azure-config-process-server-overview.md
     - name: Support requirements for configuration and process servers
@@ -191,12 +185,6 @@
       href: vmware-azure-architecture.md
     - name: Modernized
       href: vmware-azure-architecture-modernized.md
-  - name: About excluding disks from replication
-    href: exclude-disks-replication.md
-  - name: Failback location options from Azure to VMware
-    href: concepts-types-of-failback.md
-  - name: Multi-tenant support for VMware disaster recovery
-    href: vmware-azure-multi-tenant-overview.md
   - name: About Hyper-V VM disaster recovery
     items:
     - name: Hyper-V to Azure architecture
@@ -231,17 +219,10 @@
       href: failover-failback-overview.md
     - name: Modernized
       href: failover-failback-overview-modernized.md
-  - name: About recovery plans
-    href: recovery-plan-overview.md
-  - name: About migration to Azure
-    href: migrate-overview.md
-  - name: About role-based access control with Site Recovery
-    href: site-recovery-role-based-linked-access-control.md
   - name: About disaster recovery to a secondary on-premises site
     items:
     - name: Architecture for VMware VM/physical server to a secondary site
       href: vmware-physical-secondary-architecture.md
-
     - name: Architecture for Hyper-V VM to a secondary site
       href: hyper-v-vmm-architecture.md
   - name: Security
@@ -250,6 +231,18 @@
       href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
     - name: Transport Layer Security
       href: transport-layer-security.md
+  - name: Failback location options from Azure to VMware
+    href: concepts-types-of-failback.md
+  - name: Multitenant support for VMware disaster recovery
+    href: vmware-azure-multi-tenant-overview.md
+  - name: About recovery plans
+    href: recovery-plan-overview.md
+  - name: About migration to Azure
+    href: migrate-overview.md
+  - name: About role-based access control with Site Recovery
+    href: site-recovery-role-based-linked-access-control.md
+  - name: Migrate to availability zone support
+    href: ../availability-zones/migrate-recovery-services-vault.md
 - name: How-to Guides
   items:
   - name: Use Backup center
@@ -544,8 +537,6 @@
     href: vmware-azure-disaster-recovery-powershell.md
   - name: Set up disaster recovery of Hyper-V VMs to Azure using PowerShell
     href: hyper-v-azure-powershell-resource-manager.md
-  - name: Set up disaster recovery of Hyper-V VMs (with VMM) using PowerShell
-    href: hyper-v-vmm-powershell-resource-manager.md
   - name: Add automation runbooks to recovery plans
     href: site-recovery-runbook-automation.md
   - name: ARM Templates

@@ -29,7 +29,7 @@ Registering your Azure confidential ledger application establishes a trust relat
 Follow these steps to create the app registration:
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../active-directory/develop/media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Microsoft Entra ID**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a display **Name** for your application. Users of your application might see the display name when they use the app, for example during sign-in.

@@ -13,10 +13,6 @@ ms.date: 09/29/2023
 
 # Copy and transform data in Azure Blob Storage by using Azure Data Factory or Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> - [Version 1](v1/data-factory-azure-blob-connector.md)
-> - [Current version](connector-azure-blob-storage.md)
-
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob Storage. It also describes how to use the Data Flow activity to transform data in Azure Blob Storage. To learn more, read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
@@ -30,13 +26,13 @@ This Azure Blob Storage connector is supported for the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ <small> Exclude storage account V1|
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
-|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
-|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ <small> Exclude storage account V1|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ Exclude storage account V1|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ Exclude storage account V1|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ Exclude storage account V1|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ Exclude storage account V1|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|✓ Exclude storage account V1|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For the Copy activity, this Blob storage connector supports:
 
@@ -892,6 +888,6 @@ Azure Data Factory can get new or changed files only from Azure Blob Storage by 
  
 . 
 
-## Next steps
+## Related content
 
 For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

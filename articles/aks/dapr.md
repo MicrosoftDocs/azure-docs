@@ -11,9 +11,9 @@ ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, refere
 
 # Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
-As a portable, event-driven runtime, [Dapr](https://dapr.io/) simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. With its sidecar architecture, Dapr helps you tackle the challenges that come with building microservices and keeps your code platform agnostic. In particular, it helps solve problems around services:
+[Dapr](./dapr-overview.md) simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. With Dapr's sidecar architecture, you can keep your code platform agnostic while tackling challenges around building microservices, like:
 - Calling other services reliably and securely
-- Building event-driven apps with pub-sub
+- Building event-driven apps with pub/sub
 - Building applications that are portable across multiple cloud services and hosts (for example, Kubernetes vs. a VM)
 
 [Using the Dapr extension to provision Dapr on your AKS or Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/conceptual-extensions.md) eliminates the overhead of:
@@ -157,21 +157,50 @@ When installing the Dapr extension, use the flag value that corresponds to your 
 > [!NOTE]
 > If you're using Dapr OSS on your AKS cluster and would like to install the Dapr extension for AKS, read more about [how to successfully migrate to the Dapr extension][dapr-migration]. 
 
-Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. For example, for an AKS cluster:
+Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. 
+
+For example, install the latest version of Dapr via the Dapr extension on your AKS cluster:
+```azurecli
+az k8s-extension create --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version false
+```
+
+### Targeting a specific Dapr version
+
+> [!NOTE]
+> Dapr is supported with a rolling window, including only the current and previous versions. It is your operational responsibility to remain up to date with these supported versions. If you have an older version of Dapr, you may have to do intermediate upgrades to get to a supported version.
+
+The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension installs the latest version of Dapr. For example, to use Dapr X.X.X:
 
 ```azurecli
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
 --name dapr \
---extension-type Microsoft.Dapr
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version false \
+--version X.X.X
 ```
 
-You have the option of allowing Dapr to auto-update its minor version by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `true`:
+### Configuring automatic updates to Dapr control plane
+
+> [!WARNING]
+> You can enable automatic updates to the Dapr control plane only in dev or test environments. Auto-upgrade is not suitable for production environments.
+
+If you install Dapr without specifying a version, `--auto-upgrade-minor-version` *is automatically enabled*, configuring the Dapr control plane to automatically update its minor version on new releases.
+You can disable auto-update by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `false`. 
+[Dapr versioning is in `MAJOR.MINOR.PATCH` format](https://docs.dapr.io/operations/support/support-versioning/#versioning), which means `1.11.0` to `1.12.0` is a _minor_ version upgrade.
 
 ```azurecli
 --auto-upgrade-minor-version true
 ```
+
+
+### Choosing a release train
 
 When configuring the extension, you can choose to install Dapr from a particular `--release-train`. Specify one of the two release train values:
 
@@ -184,23 +213,6 @@ For example:
 
 ```azurecli
 --release-train stable
-```
-
-## Targeting a specific Dapr version
-
-> [!NOTE]
-> Dapr is supported with a rolling window, including only the current and previous versions. It is your operational responsibility to remain up to date with these supported versions. If you have an older version of Dapr, you may have to do intermediate upgrades to get to a supported version.
-
-The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension installs the latest version of Dapr. For example, to use Dapr X.X.X: 
-
-```azurecli
-az k8s-extension create --cluster-type managedClusters \
---cluster-name myAKSCluster \
---resource-group myResourceGroup \
---name dapr \
---extension-type Microsoft.Dapr \
---auto-upgrade-minor-version false \
---version X.X.X
 ```
 
 ## Troubleshooting extension errors

@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 04/07/2023
+ms.date: 10/17/2023
 ms.author: cherylmc
 
 ---
@@ -18,7 +18,7 @@ This article helps you configure a VPN client for a computer running macOS 10.15
 > * The Azure VPN client for macOS is currently not available in France and China due to local regulations and requirements.
 >
 
-For every computer that you want to connect to a VNet using a Point-to-Site VPN connection, you need to do the following:
+For every computer that you want to connect to a virtual network using a Point-to-Site VPN connection, you need to do the following:
 
 * Download the Azure VPN Client to the computer.
 * Configure a client profile that contains the VPN settings. 
@@ -27,7 +27,7 @@ If you want to configure multiple computers, you can create a client profile on 
 
 ## Prerequisites
 
-Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md).
+Before you can connect and authenticate using Microsoft Entra ID, you must first configure your Microsoft Entra tenant. For more information, see [Configure a Microsoft Entra tenant](openvpn-azure-ad-tenant.md). Also, if your device is running MacOS M1 or MacOS M2, you must install Rosetta software if it is not already installed on the device, see instructions [here](https://support.apple.com/en-us/HT211861).
 
 ## Download the Azure VPN Client
 
@@ -41,6 +41,9 @@ Before you can connect and authenticate using Microsoft Entra ID, you must first
 
 ## Import VPN client profile configuration files
 
+> [!NOTE]
+> [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
+
 1. On the Azure VPN Client page, select **Import**.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/import-1.png" alt-text="Screenshot of Azure VPN Client import selection.":::
@@ -53,7 +56,7 @@ Before you can connect and authenticate using Microsoft Entra ID, you must first
 1. In the VPN connections pane, select the connection profile that you saved. Then, click **Connect**.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/import-4.png" alt-text="Screenshot of Azure VPN Client clicking Connect.":::
-1. Once connected, the status will change to **Connected**. To disconnect from the session, click **Disconnect**.
+1. Once connected, the status changes to **Connected**. To disconnect from the session, click **Disconnect**.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/import-5.png" alt-text="Screenshot of Azure VPN Client connected status and disconnect button.":::
 
@@ -70,7 +73,7 @@ Before you can connect and authenticate using Microsoft Entra ID, you must first
    Configure the following settings:
 
    * **Connection Name:** The name by which you want to refer to the connection profile.
-   * **VPN Server:** This name is the name that you want to use to refer to the server. The name you choose here does not need to be the formal name of a server.
+   * **VPN Server:** This name is the name that you want to use to refer to the server. The name you choose here doesn't need to be the formal name of a server.
    * **Server Validation**
      * **Certificate Information:** The certificate CA.
      * **Server Secret:** The server secret.
@@ -85,7 +88,7 @@ Before you can connect and authenticate using Microsoft Entra ID, you must first
 1. Using your credentials, sign in to connect.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/add-4.png" alt-text="Screenshot of Azure VPN Client sign in to connect.":::
-1. Once connected, you will see the **Connected** status. When you want to disconnect, click **Disconnect** to disconnect the connection.
+1. Once connected, you'll see the **Connected** status. When you want to disconnect, click **Disconnect** to disconnect the connection.
 
    :::image type="content" source="media/openvpn-azure-ad-client-mac/add-5.png" alt-text="Screenshot of Azure VPN Client connected and disconnect button.":::
 

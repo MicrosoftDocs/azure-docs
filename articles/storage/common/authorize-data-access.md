@@ -3,12 +3,11 @@ title: Authorize operations for data access
 titleSuffix: Azure Storage
 description: Learn about the different ways to authorize access to data in Azure Storage. Azure Storage supports authorization with Microsoft Entra ID, Shared Key authorization, or shared access signatures (SAS), and also supports anonymous access to blobs.
 services: storage
-author: akashdubey-ms
-
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: conceptual
 ms.date: 05/31/2023
-ms.author: akashdubey
 ms.reviewer: nachakra
 ms.subservice: storage-common-concepts
 ---
@@ -53,7 +52,7 @@ Each authorization option is briefly described below:
 
 - **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over SMB through AD DS. Your AD DS environment can be hosted in on-premises machines or in Azure VMs. SMB access to Files is supported using AD DS credentials from domain joined machines, either on-premises or in Azure. You can use a combination of Azure RBAC for share level access control and NTFS DACLs for directory/file level permission enforcement. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
 
-- **anonymous read access** for blob data is supported, but not recommended. When anonymous access is configured, clients can read blob data without authorization. We recommend that you disable anonymous access for all of your storage accounts. For more information, see [Overview: Remediating anonymous read access for blob data](../blobs/anonymous-read-access-overview.md).
+- **Anonymous read access** for blob data is supported, but not recommended. When anonymous access is configured, clients can read blob data without authorization. We recommend that you disable anonymous access for all of your storage accounts. For more information, see [Overview: Remediating anonymous read access for blob data](../blobs/anonymous-read-access-overview.md).
 
 - **Storage Local Users** can be used to access blobs with SFTP or files with SMB. Storage Local Users support container level permissions for authorization. See [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md) for more information on how Storage Local Users can be used with SFTP.
 

@@ -81,6 +81,9 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
+    * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
+        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+
     * **Virtual network**  
         Specify the Azure virtual network (VNet) from which you want to access the volume.  
 
@@ -91,8 +94,6 @@ Before creating an SMB volume, you need to create an Active Directory connection
         The subnet you specify must be delegated to Azure NetApp Files. 
         
         If you haven't delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information, and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
- 
-        ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
@@ -140,8 +141,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
       
-        >[!IMPORTANT]
-        >You should enable Continuous Availability for Citrix App Layering, SQL Server, and [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md). Using SMB Continuous Availability shares for workloads other than Citrix App Layering, SQL Server, and FSLogix user profile containers is *not* supported. This feature is currently supported on Windows SQL Server. Linux SQL Server is not currently supported. If you are using a non-administrator (domain) account to install SQL Server, ensure that the account has the required security privilege assigned. If the domain account does not have the required security privilege (`SeSecurityPrivilege`), and the privilege cannot be set at the domain level, you can grant the privilege to the account by using the **Security privilege users** field of Active Directory connections. See [Create an Active Directory connection](create-active-directory-connections.md#create-an-active-directory-connection).
+        [!INCLUDE [SMB Continuous Availability warning](includes/smb-continuous-availability.md)]
 
         **Custom applications are not supported with SMB Continuous Availability.**
 

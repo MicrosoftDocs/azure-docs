@@ -5,7 +5,7 @@ metadata:
   author: Heidilohr
   ms.topic: faq
   ms.service: virtual-desktop
-  ms.date: 04/27/2023
+  ms.date: 10/23/2023
   ms.author: helohr 
   ms.custom:
   manager: femila
@@ -196,3 +196,7 @@ sections:
          What happens when you try to add more than 200 VMs to an availability set in Azure Virtual Desktop? 
         answer: |
          If you try to go over 200 VMs in an availability set in Azure Virtual Desktop, you'll receive an error message that says "Can't create VM because the limit of 200 VMs has already been reached." For more information, see the [Availability sets overview](../virtual-machines/availability-set-overview.md).
+
+      - question: Can I do an in-place upgrade of a session host's operating system?
+        answer: |
+          Yes. For more information, see [In-place upgrade for supported VMs running Windows in Azure](/troubleshoot/azure/virtual-machines/in-place-system-upgrade) and [In-place upgrade for VMs running Windows Server in Azure](../virtual-machines/windows-in-place-upgrade.md).

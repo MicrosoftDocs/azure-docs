@@ -1,8 +1,8 @@
 ---
 title: IP addresses used by Azure Monitor | Microsoft Docs
 description: This article discusses server firewall exceptions that are required by Azure Monitor
-ms.topic: conceptual
-ms.date: 08/11/2023
+ms.topic: reference
+ms.date: 11/15/2023
 ms.reviewer: saars
 ---
 
@@ -10,14 +10,12 @@ ms.reviewer: saars
 
 [Azure Monitor](../overview.md) uses several IP addresses. Azure Monitor is made up of core platform metrics and logs in addition to Log Analytics and Application Insights. You might need to know IP addresses if the app or infrastructure that you're monitoring is hosted behind a firewall.
 
-:::image type="content" source="https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
+:::image type="content" source="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png" alt-text="A diagram illustrating the ingestion flow of telemetry" lightbox="/troubleshoot/azure/azure-monitor/app-insights/media/investigate-missing-telemetry/telemetry-processing-pipeline.png":::
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhook action groups, which also require inbound firewall rules.
 
 You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you're using Azure network security groups. If you're managing access for hybrid/on-premises resources, you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files), which are updated each week. To cover all the exceptions in this article, use the service tags `ActionGroup`, `ApplicationInsightsAvailability`, and `AzureMonitor`.
-
-Alternatively, you can subscribe to this page as an RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-monitor/app/ip-addresses.md to your favorite RSS/ATOM reader to get notified of the latest changes.
 
 ## Outgoing ports
 

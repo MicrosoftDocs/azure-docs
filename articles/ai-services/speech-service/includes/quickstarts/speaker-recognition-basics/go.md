@@ -25,7 +25,7 @@ Follow these steps to create a new GO module.
 1. Replace the contents of `independent-identification.go` with the following code. 
 
     ```go
-    package speaker_recognition
+    package main
 
     import (
         "bufio"
@@ -203,7 +203,7 @@ Follow these steps to create a new GO module.
 1. Replace the contents of `independent-verification.go` with the following code. 
 
     ```go
-    package speaker_recognition
+    package main
 
     import (
         "bufio"

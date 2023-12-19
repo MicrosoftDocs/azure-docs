@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Connected Machine agent
 description: Release notes for Azure Connected Machine agent versions older than six months
 ms.topic: overview
-ms.date: 08/01/2023
+ms.date: 12/06/2023
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,40 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.33 - August 2023
+
+Download for [Windows](https://download.microsoft.com/download/0/c/7/0c7a484b-e29e-42f9-b3e9-db431df2e904/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Security fix
+
+Agent version 1.33 contains a fix for [CVE-2023-38176](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2023-38176), a local elevation of privilege vulnerability. Microsoft recommends upgrading all agents to version 1.33 or later to mitigate this vulnerability. Azure Advisor can help you [identify servers that need to be upgraded](https://portal.azure.com/#view/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/9d5717d2-4708-4e3f-bdda-93b3e6f1715b/recommendationStatus). Learn more about CVE-2023-38176 in the [Security Update Guide](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2023-38176).
+
+### Known issue
+
+[azcmagent check](azcmagent-check.md) validates a new endpoint in this release: `<geography>-ats.his.arc.azure.com`. This endpoint is reserved for future use and not required for the Azure Connected Machine agent to operate successfully. However, if you're using a private endpoint, this endpoint will fail the network connectivity check. You can safely ignore this endpoint in the results and should instead confirm that all other endpoints are reachable.
+
+This endpoint will be removed from `azcmagent check` in a future release.
+
+### Fixed
+
+- Fixed an issue that could cause a VM extension to disappear in Azure Resource Manager if it's installed with the same settings twice. After upgrading to agent version 1.33 or later, reinstall any missing extensions to restore the information in Azure Resource Manager.
+- You can now set the [agent mode](security-overview.md#agent-modes) before connecting the agent to Azure.
+- The agent now responds to instance metadata service (IMDS) requests even when the connection to Azure is temporarily unavailable.
+
+## Version 1.32 - July 2023
+
+Download for [Windows](https://download.microsoft.com/download/7/e/5/7e51205f-a02e-4fbe-94fe-f36219be048c/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### New features
+
+- Added support for the Debian 12 operating system
+- [azcmagent show](azcmagent-show.md) now reflects the "Expired" status when a machine has been disconnected long enough for the managed identity to expire. Previously, the agent only showed "Disconnected" while the Azure portal and API showed the correct state, "Expired."
+
+### Fixed
+
+- Fixed an issue that could result in high CPU usage if the agent was unable to send telemetry to Azure.
+- Improved local logging when there are network communication errors
 
 ## Version 1.31 - June 2023
 
@@ -253,7 +287,7 @@ Download for [Windows](https://download.microsoft.com/download/8/9/f/89f80a2b-32
 - Resolved an issue that could cause the extension manager to hang during extension installation, update, and removal operations.
 - Improved support for TLS 1.3
 
-## Version 1.18 - might 2022
+## Version 1.18 - May 2022
 
 Download for [Windows](https://download.microsoft.com/download/2/5/6/25685d0f-2895-4b80-9b1d-5ba53a46097f/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
@@ -283,7 +317,7 @@ Download for [Windows](https://download.microsoft.com/download/a/3/4/a34bb824-d5
 
 - If you attempt to run `azcmagent connect` on a server already connected to Azure, the resource ID is shown on the console to help you locate the resource in Azure.
 - Extended the `azcmagent connect` timeout to 10 minutes.
-- `azcmagent show` no longer prints the private link scope ID. You can check if the server is associated with an Azure Arc private link scope by reviewing the machine details in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/servers), [CLI](/cli/azure/connectedmachine?view=azure-cli-latest#az-connectedmachine-show&preserve-view=true), [PowerShell](/powershell/module/az.connectedmachine/get-azconnectedmachine), or [REST API](/rest/api/hybridcompute/machines/get).
+- `azcmagent show` no longer prints the private link scope ID. You can check if the server is associated with an Azure Arc private link scope by reviewing the machine details in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/servers), [CLI](/cli/azure/connectedmachine?view=azure-cli-latest#az-connectedmachine-show&preserve-view=true), or [PowerShell](/powershell/module/az.connectedmachine/get-azconnectedmachine).
 - `azcmagent logs` collects only the two most recent logs for each service to reduce ZIP file size.
 - `azcmagent logs` collects Guest Configuration logs again.
 
@@ -425,7 +459,7 @@ Download for [Windows](https://download.microsoft.com/download/6/1/c/61c69f31-8e
   - Onboarding continues instead of aborting if OS information isn't available
 - Improved reliability when installing the Log Analytics agent for Linux extension on Red Hat and CentOS systems
 
-## Version 1.6 - might 2021
+## Version 1.6 - May 2021
 
 Download for [Windows](https://download.microsoft.com/download/d/3/d/d3df034a-d231-4ca6-9199-dbaa139b1eaf/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 

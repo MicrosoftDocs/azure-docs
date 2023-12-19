@@ -2,7 +2,7 @@
 title: Export & delete data - LUIS
 titleSuffix: Azure AI services
 description: You have full control over viewing, exporting, and deleting their data. Delete customer data to ensure privacy and compliance.
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 author: aahill
 manager: nitinme

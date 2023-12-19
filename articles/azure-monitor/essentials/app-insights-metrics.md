@@ -15,13 +15,13 @@ Application Insights log-based metrics let you analyze the health of your monito
 * [Log-based metrics](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](/azure/kusto/query/) from stored events.
 * [Standard metrics](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
 
-Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](./metrics-getting-started.md#create-your-first-metric-chart) to switch between log-based and standard metrics in [metrics explorer](./metrics-getting-started.md).
+Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](./metrics-custom-overview.md#namespace) to switch between log-based and standard metrics in [metrics explorer](./analyze-metrics.md).
 
 ## Interpret and use queries from this article
 
 This article lists metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements. For convenience, each query uses defaults for time granularity, chart type, and sometimes splitting dimension which simplifies using the query in Log Analytics without any need for modification.
 
-When you plot the same metric in [metrics explorer](./metrics-getting-started.md), there are no defaults - the query is dynamically adjusted based on your chart settings:
+When you plot the same metric in [metrics explorer](./analyze-metrics.md), there are no defaults - the query is dynamically adjusted based on your chart settings:
 
 - The selected **Time range** is translated into an additional *where timestamp...* clause to only pick the events from selected time range. For example, a chart showing data for the most recent 24 hours, the query includes *| where timestamp > ago(24 h)*.
 

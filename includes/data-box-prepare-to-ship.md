@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 07/21/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start this process.

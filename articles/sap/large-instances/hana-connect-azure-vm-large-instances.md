@@ -142,8 +142,6 @@ At the end of the deployment process, Microsoft delivers the following data to y
      - ExpressRoute PeerID
 - Data for accessing HANA Large Instances after you establish the ExpressRoute circuit and Azure virtual network.
 
-You can also find the sequence of connecting HANA Large Instances in the document [SAP HANA on Azure (Large Instances) Setup](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Many of the steps are shown in an example deployment in that document. 
-
 ## Next steps
 
 Learn about connecting a virtual network to HANA Large Instance ExpressRoute.

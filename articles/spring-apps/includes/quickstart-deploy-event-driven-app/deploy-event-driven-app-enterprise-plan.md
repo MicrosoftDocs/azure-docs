@@ -20,6 +20,12 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
 
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+Use the following steps to prepare the sample locally:
+
+[!INCLUDE [prepare-spring-project-git-event-driven](prepare-spring-project-git-event-driven.md)]
+
 ### [Azure CLI](#tab/Azure-CLI)
 
 Use the following steps to prepare the sample locally:
@@ -30,11 +36,61 @@ Use the following steps to prepare the sample locally:
 
 ## 3. Prepare the cloud environment
 
-The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. Use the following steps to create these resources.
+The main resources you need to run this sample are an Azure Spring Apps instance and an Azure Service Bus instance. The following sections describe how to create these resources.
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-env-enterprise-azure-portal.md)]
+[!INCLUDE [prepare-cloud-environment-on-azure-portal](event-driven-prepare-cloud-environment-enterprise-azure-portal.md)]
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+### 3.1. Sign in to the Azure portal
+
+Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
+
+### 3.2. Create a Service Bus instance
+
+[!INCLUDE [provision-service-bus](provision-service-bus.md)]
+
+8. Select **Queues** on the navigation menu, then select **Queue**.
+
+1. On the **Create Queue** page, enter *lower-case* for **Name** and then select **Create**.
+
+1. Create another queue by repeating the previous step using *upper-case* for **Name**.
+
+### 3.3. Create an Azure Spring Apps instance
+
+[!INCLUDE [provision-enterprise-azure-spring-apps](provision-enterprise-azure-spring-apps.md)]
+
+### 3.4. Connect app instance to Service Bus instance
+
+Use the following steps to connect your service instances:
+
+1. Go to your Azure Spring Apps instance in the Azure portal.
+
+1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+
+1. On the **Create App** page, for the app name, use *simple-event-driven-app* and leave all the other fields with their default values.
+
+1. Select **Create** to finish creating the app and then select the app to view the details.
+
+1. Select **Service Connector** from the navigation pane and then select **Create** to create a new service connection.
+
+1. Fill out the **Basics** tab with the following information:
+
+   - **Service type**: Select **Service Bus**.
+   - **Connection name**: Populated with an automatically generated name that you can modify.
+   - **Subscription**: Select your subscription.
+   - **Namespace**: Select the namespace you created.
+   - **Client type**: Select **SpringBoot**.
+
+1. Configure the **Next: Authentication** tab with the following information:
+
+   - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
+
+1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service**.
+
+1. Select **Next: Review and Create** to review your selections, then select **Create** to create the connection.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
@@ -119,26 +175,28 @@ az spring app create \
 
 ### 3.5. Create a Service Bus instance
 
-Use the following command to create a Service Bus namespace:
+Use the following steps to create a Service Bus instance:
 
-```azurecli
-az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
-```
+1. Use the following command to create a Service Bus namespace:
 
-Then, use the following commands to create two queues named `lower-case` and `upper-case`:
+   ```azurecli
+   az servicebus namespace create --name ${SERVICE_BUS_NAME_SPACE}
+   ```
 
-```azurecli
-az servicebus queue create \
-    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-    --name lower-case
-az servicebus queue create \
-    --namespace-name ${SERVICE_BUS_NAME_SPACE} \
-    --name upper-case
-```
+1. Use the following commands to create two queues named `lower-case` and `upper-case`:
+
+   ```azurecli
+   az servicebus queue create \
+       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+       --name lower-case
+   az servicebus queue create \
+       --namespace-name ${SERVICE_BUS_NAME_SPACE} \
+       --name upper-case
+   ```
 
 ### 3.6. Connect app instance to Service Bus instance
 
-Now, both the Service Bus and the app in Azure Spring Apps have been created, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app:
+You've now created both the Service Bus and the app in Azure Spring Apps, but the app can't connect to the Service Bus. Use the following steps to enable the app to connect to the Service Bus, and then deploy the app:
 
 1. Get the Service Bus's connection string by using the following command:
 
@@ -168,6 +226,27 @@ Now, both the Service Bus and the app in Azure Spring Apps have been created, bu
 ### [Azure portal](#tab/Azure-portal-ent)
 
 The **Deploy to Azure** button in the previous section launches an Azure portal experience that includes application deployment, so nothing else is needed.
+
+### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
+
+[!INCLUDE [event-driven-spring-apps-maven-plugin](event-driven-spring-apps-maven-plugin.md)]
+
+2. Use the following command to deploy the app:
+
+   ```bash
+   ./mvnw azure-spring-apps:deploy
+   ```
+
+   The following list describes the command interaction:
+
+   - **OAuth2 login**: You need to authorize the sign in to Azure based on the OAuth2 protocol.
+
+   After the command is executed, you can see from the following log messages that the deployment was successful:
+
+   ```output
+   [INFO] Starting Spring App after deploying artifacts...
+   [INFO] Deployment Status: Running
+   ```
 
 ### [Azure CLI](#tab/Azure-CLI)
 

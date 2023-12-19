@@ -33,7 +33,7 @@ This article focuses on general guidance for running your Linux distribution on 
 
 * The maximum size allowed for the VHD is 1,023 GB.
 
-* When you're installing the Linux system, we recommend that you use standard partitions rather than Logical Volume Manager (LVM). LMV is the default for many installations.
+* When you're installing the Linux system, we recommend that you use standard partitions rather than Logical Volume Manager (LVM). LVM is the default for many installations.
 
   Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. You can use [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) on data disks.
 

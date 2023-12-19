@@ -95,6 +95,6 @@ Using the activity runtime will create a new cluster using the settings specifie
 
 :::image type="content" source="media/iterative-development-debugging/iterative-development-dataflow.png" alt-text="Running a pipeline with a dataflow":::
 
-## Next steps
+## Related content
 
 After testing your changes, promote them to higher environments using [continuous integration and deployment](continuous-integration-delivery.md).

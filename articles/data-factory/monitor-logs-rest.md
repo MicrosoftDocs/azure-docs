@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 01/18/2023
+ms.date: 10/20/2023
 ---
 
 # Set up diagnostic logs via the Azure Monitor REST API
@@ -216,6 +216,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 For more information, see [Diagnostic settings](/rest/api/monitor/diagnosticsettings).
 
-## Next steps
+## Related content
 
 [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)

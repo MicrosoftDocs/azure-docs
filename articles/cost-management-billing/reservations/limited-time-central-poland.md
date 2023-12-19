@@ -6,7 +6,7 @@ ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 11/17/2023
 ms.author: banders
 ms.custom: references_regions
 ---
@@ -144,7 +144,7 @@ These terms and conditions (hereinafter referred to as "terms") govern the limit
 |`F8s`|`F8s v2`|`Fsv2 Type2`|`Fsv2 Type3`|
 |`Fsv2 Type4`|`SQLG7_AMD_IaaS`|`SQLG7_AMD_NVME`| |
  
-The 66 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Central region running for 36 months at a pay-as-you-go rate as of September 2023. Actual savings vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs.
+The 66 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Central region running for 36 months at a pay-as-you-go rate as of September 2023. Actual savings vary based on location, term commitment, instance type, or usage. The savings doesn't include operating system costs. For more information about how the savings are calculated, see [Poland Central reservation savings](/legal/cost-management-billing/reservations/poland-central-limited-time).
 
 **Eligibility** - The Offer is open to individuals who meet the following criteria:
 
