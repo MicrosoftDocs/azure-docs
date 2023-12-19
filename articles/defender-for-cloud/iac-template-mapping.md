@@ -16,7 +16,7 @@ To allow Microsoft Defender for Cloud to map Infrastructure as Code template to 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure DevOps](quickstart-onboard-devops.md) environment onboarded into Microsoft Defender for Cloud.
 - [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) enabled.
-- Configure your Azure pipelines to run [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- Configure your Azure Pipelines to run [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
 - Tag your supported Infrastructure as Code templates and your cloud resources. (Open-source tools like [Yor_trace](https://github.com/bridgecrewio/yor) can be used to automatically tag Infrastructure as Code templates)
    - Supported cloud platforms: AWS, Azure, GCP.
    - Supported source code management systems: Azure DevOps.
