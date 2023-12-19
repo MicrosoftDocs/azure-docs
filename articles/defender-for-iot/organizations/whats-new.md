@@ -36,7 +36,7 @@ For more information, see [Back up and restore OT network sensors from the senso
 
 Starting with version 23.2.0, the default privileged user installed with new OT sensor installations is the *admin* user instead of the *support* user. 
 
-While Defender for IoT software is backwards compatible and continues to support existing *support* users from older versions, the documentation now refers mainly to the *admin* user only to match the most recent version.
+While Defender for IoT software is backwards compatible and continues to support existing *support* users from older versions, the documentation now refers mainly to the *admin* user only to match the most recent version. When updating your software from legacy systems, the *support*, *cyberx*, and *cyberx_host* users are not removed.
 
 For example, use the default *admin* user in the following scenarios:
 
