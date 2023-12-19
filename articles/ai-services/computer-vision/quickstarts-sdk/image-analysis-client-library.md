@@ -2,7 +2,7 @@
 title: "Quickstart: Image Analysis"
 titleSuffix: Azure AI services
 description: Learn how to tag images in your application using Image Analysis through a native client library in the language of your choice.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision

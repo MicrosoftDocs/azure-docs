@@ -48,7 +48,7 @@ stringify(mydata = body.properties.periods ? string,
 	format: 'json') ~> Stringify1
 ```
 
-## Next steps
+## Related content
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Parse transformation](data-flow-parse.md) to convert complex embedded types to separate columns.

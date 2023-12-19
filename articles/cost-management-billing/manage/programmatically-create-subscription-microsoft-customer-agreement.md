@@ -23,6 +23,8 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
+
 ## Prerequisites
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. You can also give the same role to a service principal name (SPN). For more information about roles and assigning permission to them, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).

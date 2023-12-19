@@ -1,5 +1,5 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 author: aahill
 ms.author: aahi
@@ -12,7 +12,7 @@ ms.date: 08/11/2023
 
 ## Example cURL commands
 
-The Azure OpenAI chat models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure Cognitive Search index, and enables Azure OpenAI models to respond using your data.
+The Azure OpenAI chat models are optimized to work with inputs formatted as a conversation. The `messages` variable passes an array of dictionaries with different roles in the conversation delineated by system, user, tool, and assistant. The `dataSources` variable connects to your Azure AI Search index, and enables Azure OpenAI models to respond using your data.
 
 To trigger a response from the model, you should end with a user message indicating that it's the assistant's turn to respond.
 

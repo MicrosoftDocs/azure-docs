@@ -1,8 +1,8 @@
 ---
 title: Creating Enterprise Azure Dev/Test subscriptions
 description: Create Enterprise and Organizational Azure Dev/Test subscriptions for teams and large organizations.
-author: jenp
-ms.author: jenp
+author: ntrogh
+ms.author: nicktrog
 ms.prod: visual-studio-family
 ms.technology: vs-subscriptions
 ms.topic: how-to
@@ -83,7 +83,7 @@ After you've chosen the account to create an enterprise Azure dev/test subscript
     1. You must have access and permissions associated with your identity.
     1. You must designate the Account as a dev/test account within the enrollment portal.
 
-### Next steps  
+## Related content  
 
 - [Azure EA portal administration](../../cost-management-billing/manage/ea-portal-administration.md)
 - [Get started with the Azure Enterprise portal](../../cost-management-billing/manage/ea-portal-get-started.md)

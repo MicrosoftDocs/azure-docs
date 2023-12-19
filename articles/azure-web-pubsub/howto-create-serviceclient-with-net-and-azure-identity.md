@@ -18,15 +18,21 @@ This how-to guide shows you how to create a `WebPubSubServiceClient` using Micro
 - Install [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) from nuget.org.
 
   ```bash
-  Install-Package Azure.Identity
+  dotnet add package Azure.Identity
   ```
 
 - Install [Azure.Messaging.WebPubSub](https://www.nuget.org/packages/Azure.Messaging.WebPubSub) from nuget.org
 
   ```bash
-  Install-Package Azure.Messaging.WebPubSub
+  dotnet add package Azure.Messaging.WebPubSub
   ```
 
+- If using DependencyInjection, install [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) from nuget.org
+
+  ```bash
+  dotnet add package Microsoft.Extensions.Azure
+  ```
+  
 ## Sample codes
 
 1. Create a `TokenCredential` with Azure Identity SDK.

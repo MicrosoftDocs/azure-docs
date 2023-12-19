@@ -6,7 +6,7 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/05/2023
+ms.date: 11/21/2023
 
 ---
 
@@ -47,6 +47,8 @@ In this section, you'll create a virtual network (VNet) using the following valu
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+
+After you create your VNet, you can optionally configure Azure DDos Protection. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
 
 ## <a name="VNetGateway"></a>Create a VPN gateway
 
@@ -139,7 +141,7 @@ You can configure additional settings for your connection, if necessary. Otherwi
 
 ### <a name="resize"></a>Resize a gateway SKU
 
-There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
+There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
 
 [!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 

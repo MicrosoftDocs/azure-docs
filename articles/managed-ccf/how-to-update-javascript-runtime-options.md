@@ -6,7 +6,7 @@ ms.author: settiy
 ms.date: 09/08/2023
 ms.service: confidential-ledger
 ms.topic: how-to
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Update the runtime options of the JavaScript execution engine on an Azure Managed CCF resource

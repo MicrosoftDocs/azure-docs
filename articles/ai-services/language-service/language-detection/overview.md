@@ -2,7 +2,7 @@
 title: What is language detection in Azure AI Language?
 titleSuffix: Azure AI services
 description: An overview of language detection in Azure AI services, which helps you detect the language that text is written in by returning language codes.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language

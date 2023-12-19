@@ -31,7 +31,7 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 ## What happens during migration?
 
-API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/api configuration persisted in the storage layer.
+API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer.
 
 * The upgrade process involves creating a new compute in parallel the old compute. Both instances coexist for 48 hours.
 * The API Management status in the Portal will be "Updating".
@@ -81,6 +81,8 @@ Run the following Azure CLI commands, setting variables where indicated with the
 > [!NOTE]
 > The Migrate to `stv2` REST API is available starting in API Management REST API version `2022-04-01-preview`.
 
+> [!NOTE]
+> The following script is written for the bash shell. To run the script in PowerShell, prefix the variable names with the `$` character. Example: `$APIM_NAME`.
 
 ```azurecli
 #!/bin/bash

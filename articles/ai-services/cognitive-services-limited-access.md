@@ -2,7 +2,7 @@
 title: Limited Access features for Azure AI services
 titleSuffix: Azure AI services
 description: Azure AI services that are available with Limited Access are described below.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-services

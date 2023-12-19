@@ -5,10 +5,11 @@ description: Document processing models for OCR, document layout, invoices, iden
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
-ms.date: 09/20/2023
+ms.date: 11/21/2023
 ms.author: lajanuar
-monikerRange: '<=doc-intel-3.1.0'
 ---
 
 
@@ -18,12 +19,22 @@ monikerRange: '<=doc-intel-3.1.0'
 
 # Document processing models
 
-::: moniker range=">=doc-intel-3.0.0"
-[!INCLUDE [applies to v3.1 and v3.0](includes/applies-to-v3-1-v3-0.md)]
+::: moniker range="doc-intel-4.0.0"
+[!INCLUDE [preview-version-notice](includes/preview-notice.md)]
+
+[!INCLUDE [applies to v4.0](includes/applies-to-v40.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+[!INCLUDE [applies to v3.1](includes/applies-to-v31.md)]
+::: moniker-end
+
+::: moniker range="doc-intel-3.0.0"
+[!INCLUDE [applies to v3.0](includes/applies-to-v30.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"
-[!INCLUDE [applies to v2.1](includes/applies-to-v2-1.md)]
+[!INCLUDE [applies to v2.1](includes/applies-to-v21.md)]
 ::: moniker-end
 
 ::: moniker range=">=doc-intel-2.1.0"
@@ -32,6 +43,30 @@ monikerRange: '<=doc-intel-3.1.0'
 
 ## Model overview
 
+The following table shows the available models for each current preview and stable API:
+
+|Model|[2023-10-31-preview](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP)|[2023-07-31 (GA)](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)|[2022-08-31 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)|[v2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)|
+|----------------|-----------|---|--|---|
+|[Add-on capabilities](concept-add-on-capabilities.md)    | ✔️| ✔️| n/a| n/a|
+|[Business card](concept-business-card.md)                | deprecated|✔️|✔️|✔️ |
+|[Contract](concept-contract.md)                          | ✔️| ✔️| n/a| n/a|
+|[Custom classifier](concept-custom-classifier.md)        | ✔️| ✔️| n/a| n/a|
+|[Custom composed](concept-composed-models.md)            | ✔️| ✔️| ✔️| ✔️|
+|[Custom neural](concept-custom-neural.md)                | ✔️| ✔️| ✔️| n/a|
+|[Custom template](concept-custom-template.md)            | ✔️| ✔️| ✔️| ✔️|
+|[General document](concept-general-document.md)          | deprecated| ✔️| ✔️| n/a|
+|[Health insurance card](concept-health-insurance-card.md)| ✔️| ✔️| ✔️| n/a|
+|[ID document](concept-id-document.md)                    | ✔️| ✔️| ✔️| ✔️|
+|[Invoice](concept-invoice.md)                            | ✔️| ✔️| ✔️| ✔️|
+|[Layout](concept-layout.md)                              | ✔️| ✔️| ✔️| ✔️|
+|[Read](concept-read.md)                                  | ✔️| ✔️| ✔️| n/a|
+|[Receipt](concept-receipt.md)                            | ✔️| ✔️| ✔️| ✔️|
+|[US 1098 Tax](concept-tax-document.md)                   | ✔️| ✔️| n/a| n/a|
+|[US 1098-E Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|[US 1098-T Tax](concept-tax-document.md)                 | ✔️| ✔️| n/a| n/a|
+|[US 1099 Tax](concept-tax-document.md)                 | ✔️| n/a| n/a| n/a|
+|[US W2 Tax](concept-tax-document.md)                     | ✔️| ✔️| ✔️| n/a|
+
 ::: moniker range=">=doc-intel-3.0.0"
 
 | **Model**   | **Description**   |
@@ -39,7 +74,6 @@ monikerRange: '<=doc-intel-3.1.0'
 |**Document analysis models**||
 | [Read OCR](#read-ocr) | Extract print and handwritten text including words, locations, and detected languages.|
 | [Layout analysis](#layout-analysis)  | Extract text and document layout elements like tables, selection marks, titles, section headings, and more.|
-| [General document](#general-document) | Extract key-value pairs in addition to text and document structure information.|
 |**Prebuilt models**||
 | [Health insurance card](#health-insurance-card) | Automate healthcare processes by extracting insurer, member, prescription, group number and other key information from US health insurance cards.|
 | [US Tax document models](#us-tax-documents) | Process US tax forms to extract employee, employer, wage, and other information.  |
@@ -54,12 +88,39 @@ monikerRange: '<=doc-intel-3.1.0'
 | [Custom classification model](#custom-classifier)| The **Custom classification model** can classify each page in an input file to identify the document(s) within and can also identify multiple documents or multiple instances of a single document within an input file.
 | [Composed models](#composed-models) | Combine several custom models into a single model to automate processing of diverse document types with a single composed model.
 
-For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are four add-on capabilities available for the `2023-07-31` (GA) API version:
+For all models, except Business card model, Document Intelligence now supports add-on capabilities to allow for more sophisticated analysis. These optional capabilities can be enabled and disabled depending on the scenario of the document extraction. There are seven add-on capabilities available for the `2023-07-31` (GA) and later API version:
 
-* [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
-* [`ocr.formula`](concept-add-on-capabilities.md#formula-extraction)
-* [`ocr.font`](concept-add-on-capabilities.md#font-property-extraction)
-* [`ocr.barcode`](concept-add-on-capabilities.md#barcode-extraction)
+* [`ocrHighResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
+* [`formulas`](concept-add-on-capabilities.md#formula-extraction)
+* [`styleFont`](concept-add-on-capabilities.md#font-property-extraction)
+* [`barcodes`](concept-add-on-capabilities.md#barcode-property-extraction)
+* [`languages`](concept-add-on-capabilities.md#language-detection)
+* [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs) (2023-10-31-preview)
+* [`queryFields`](concept-add-on-capabilities.md#query-fields) (2023-31-preview)
+
+## Analysis features
+
+|Model ID|Content Extraction|Query fields|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|
+|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|prebuilt-read|✓| | | | | |O|O| |O|O|O|
+|prebuilt-layout|✓|✓|✓|✓|✓|✓| |O|O| |O|O|O|
+|prebuilt-document|✓|✓|✓|✓|✓|✓|✓|O|O| |O|O|O|
+|prebuilt-businessCard|✓|✓| | | | | | | |✓| | | |
+|prebuilt-idDocument|✓|✓|| | | | |O|O|✓|O|O|O|
+|prebuilt-invoice|✓|✓| | |✓|✓|O|O|O|✓|O|O|O|
+|prebuilt-receipt|✓|✓| | | | | |O|O|✓|O|O|O|
+|prebuilt-healthInsuranceCard.us|✓|✓| | | | | |O|O|✓|O|O|O|
+|prebuilt-tax.us.w2|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098E|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1098T|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-tax.us.1099(variations)|✓|✓| | |✓| | |O|O|✓|O|O|O|
+|prebuilt-contract|✓|✓|✓|✓| | |O|O|✓|O|O|O|
+|{ customModelName }|✓|✓|✓|✓|✓|✓| |O|O|✓|O|O|O|
+
+✓ - Enabled</br>
+O - Optional</br>
+\* - Premium features incur extra costs
 
 ### Read OCR
 
@@ -88,19 +149,6 @@ The Layout analysis model analyzes and extracts text, tables, selection marks, a
 >
 > [Learn more: layout model](concept-layout.md)
 
-### General document
-
-:::image type="icon" source="media/studio/general-document.png":::
-
-The general document model is ideal for extracting common key-value pairs from forms and documents. It's a pretrained model and can be directly invoked via the REST API and the SDKs. You can use the general document model as an alternative to training a custom model.
-
-***Sample document processed using the [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/document)***:
-
-:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot of general document analysis in the Document Intelligence Studio.":::
-
-> [!div class="nextstepaction"]
-> [Learn more: general document model](concept-general-document.md)
-
 ### Health insurance card
 
 :::image type="icon" source="media/studio/health-insurance-logo.png":::
@@ -126,7 +174,8 @@ The US tax document models analyze and extract key fields and line items from a 
   |US Tax 1098|Extract mortgage interest details.|**prebuilt-tax.us.1098**|
   |US Tax 1098-E|Extract student loan interest details.|**prebuilt-tax.us.1098E**|
   |US Tax 1098-T|Extract qualified tuition details.|**prebuilt-tax.us.1098T**|
-
+  |US Tax 1099|Extract Information from 1099 forms.|**prebuilt-tax.us.1099(variations)**|
+  
 ***Sample W-2 document processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
 :::image type="content" source="./media/studio/w-2.png" alt-text="Screenshot of a sample W-2.":::
@@ -138,7 +187,7 @@ The US tax document models analyze and extract key fields and line items from a 
 
 :::image type="icon" source="media/overview/icon-contract.png":::
 
- The contract model analyzes and extracts key fields and line items from contract agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
+ The contract model analyzes and extracts key fields and line items from contractual agreements including parties, jurisdictions, contract ID, and title. The model currently supports English-language contract documents.
 
 ***Sample contract processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=contract)***:
 
@@ -186,19 +235,6 @@ Use the Identity document (ID) model to process U.S. Driver's Licenses (all 50 s
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-id-document.md)
 
-### Business card
-
-:::image type="icon" source="media/studio/business-card.png":::
-
-Use the business card model to scan and extract key information from business card images.
-
-***Sample business card processed using [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)***:
-
-:::image type="content" source="./media/studio/analyze-business-card.png" alt-text="Screenshot of a sample business card." lightbox="./media/overview-business-card.jpg":::
-
-> [!div class="nextstepaction"]
-> [Learn more: business card model](concept-business-card.md)
-
 ### Custom models
 
 :::image type="icon" source="media/studio/custom.png":::
@@ -234,7 +270,7 @@ Custom extraction model can be one of two types, **custom template** or **custom
 
 :::image type="icon" source="media/studio/custom-classifier.png":::
 
-The custom classification model enables you to identify the document type prior to invoking the extraction model.  The classification model is available starting with the 2023-02-28-preview. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
+The custom classification model enables you to identify the document type prior to invoking the extraction model.  The classification model is available starting with the `2023-07-31 (GA)` API. Training a custom classification model requires at least two distinct classes and a minimum of five samples per class.
 
 > [!div class="nextstepaction"]
 > [Learn more: custom classification model](concept-custom-classifier.md)
@@ -254,19 +290,20 @@ A composed model is created by taking a collection of custom models and assignin
 
 | **Model ID** | **Text extraction** | **Language detection** | **Selection Marks** | **Tables** | **Paragraphs** | **Structure** | **Key-Value pairs** | **Fields** |
 |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| [prebuilt-read](concept-read.md#data-detection-and-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
-| [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.1098E](concept-tax-document.md#field-extraction-1098-e) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-tax.us.1098T](concept-tax-document.md#field-extraction-1098-t) | ✓  |   |  ✓  |  | ✓ |    |  | ✓ |
-| [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  |    | ✓  |  |
+| [prebuilt-read](concept-read.md#read-model-data-extraction) | ✓ | ✓ |  |  | ✓ |   |  |   |
+| [prebuilt-healthInsuranceCard.us](concept-health-insurance-card.md#field-extraction) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.w2](concept-tax-document.md#field-extraction-w-2) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098](concept-tax-document.md#field-extraction-1098) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098E](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1098T](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-tax.us.1099(variations)](concept-tax-document.md) | ✓  |   |  ✓  |  | ✓ ||  | ✓ |
+| [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |   |  ✓ | ✓ | ✓  || ✓  |  |
 | [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   | ✓ | ✓ | ✓  | ✓  |  |  |
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ |   | ✓  | ✓ | ✓ |   | ✓ | ✓ |
 | [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ |
 | [prebuilt-idDocument](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
 | [prebuilt-businessCard](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ |
-| [Custom](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ |
+| [Custom](concept-custom.md#compare-model-features) | ✓  ||  ✓ | ✓ | ✓  |   | | ✓ |
 
 ## Input requirements
 
@@ -302,7 +339,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ***Sample document processed using the [Sample Labeling tool](https://fott-2-1.azurewebsites.net/layout-analyze)***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of layout analysis using the Sample Labeling tool.":::
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot of `layout` analysis using the Sample Labeling tool.":::
 
 > [!div class="nextstepaction"]
 >
@@ -387,7 +424,7 @@ A composed model is created by taking a collection of custom models and assignin
 | [Receipt](concept-receipt.md#field-extraction)  | ✓  |   |  |  | ✓ |   |  | ✓ |
 | [ID Document](concept-id-document.md#field-extractions) | ✓ |   |   |  | ✓ |   |  | ✓ |
 | [Business Card](concept-business-card.md#field-extractions)  | ✓  |   |   |  | ✓ |   |  | ✓ |
-| [Custom Form](concept-custom.md#compare-model-features)             | ✓  |    |  ✓ | ✓ | ✓  |   | | ✓ |
+| [Custom Form](concept-custom.md#compare-model-features) | ✓  ||  ✓ | ✓ | ✓  |   | | ✓ |
 
 ## Input requirements
 

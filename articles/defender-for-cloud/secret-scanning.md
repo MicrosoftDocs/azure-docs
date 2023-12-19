@@ -1,26 +1,82 @@
 ---
-title: Manage secrets with agentless secret scanning (preview)
+title: Manage secrets with agentless secret scanning
 description: Learn how to scan your servers for secrets with Defender for Server's agentless secret scanning.
 ms.topic: overview
-ms.date: 08/15/2023
+ms.date: 11/27/2023
 ---
 
-# Manage secrets with agentless secret scanning (preview)
+# Manage secrets with agentless secret scanning
 
 Attackers can move laterally across networks, find sensitive data, and exploit vulnerabilities to damage critical information systems by accessing internet-facing workloads and exploiting exposed credentials and secrets.
 
 Defender for Cloud's agentless secret scanning for Virtual Machines (VM) locates plaintext secrets that exist in your environment. If secrets are detected, Defender for Cloud can assist your security team to prioritize and take actionable remediation steps to minimize the risk of lateral movement, all without affecting your machine's performance.
 
-By using agentless secret scanning, you can proactively discover the following types of secrets across your environments:
+By using agentless secret scanning, you can proactively discover the following types of secrets across your environments (in Azure, AWS and GCP cloud providers): 
 
-- **Insecure SSH private keys (Azure, AWS, GCP)** - supports RSA algorithm for PuTTy files, PKCS#8 and PKCS#1 standards
-- **Plaintext Azure SQL connection strings (Azure, AWS)** - supports SQL PAAS
-- **Plaintext Azure storage account connection strings (Azure, AWS)**
-- **Plaintext Azure storage account SAS tokens (Azure, AWS)**
-- **Plaintext AWS access keys (Azure, AWS)**
-- **Plaintext AWS RDS SQL connection string (Azure, AWS)** -supports SQL PAAS
+- Insecure SSH private keys:
+    - Supports RSA algorithm for PuTTy files.
+    - PKCS#8 and PKCS#1 standards.
+    - OpenSSH standard.
+- Plaintext Azure SQL connection strings, supports SQL PAAS.
+- Plaintext Azure database for PostgreSQL.
+- Plaintext Azure database for MySQL.
+- Plaintext Azure database for MariaDB.
+- Plaintext Azure Cosmos DB, including PostgreSQL, MySQL and MariaDB.
+- Plaintext AWS RDS connection string, supports SQL PAAS:
+    - Plaintext Amazon Aurora with Postgres and MySQL flavors.
+    - Plaintext Amazon custom RDS with Oracle and SQL Server flavors.
+- Plaintext Azure storage account connection strings.
+- Plaintext Azure storage account SAS tokens.
+- Plaintext AWS access keys.
+- Plaintext AWS S3 pre-signed URL.
+- Plaintext Google storage signed URL.
+- Plaintext Azure AD Client Secret.
+- Plaintext Azure DevOps Personal Access Token.
+- Plaintext GitHub Personal Access Token.
+- Plaintext Azure App Configuration Access Key.
+- Plaintext Azure Cognitive Service Key.
+- Plaintext Azure AD User Credentials.
+- Plaintext Azure Container Registry Access Key.
+- Plaintext Azure App Service Deployment Password.
+- Plaintext Azure Databricks Personal Access Token.
+- Plaintext Azure SignalR Access Key.
+- Plaintext Azure API Management Subscription Key.
+- Plaintext Azure Bot Framework Secret Key.
+- Plaintext Azure Machine Learning Web Service API Key.
+- Plaintext Azure Communication Services Access Key.
+- Plaintext Azure EventGrid Access Key.
+- Plaintext Amazon Marketplace Web Service (MWS) Access Key.
+- Plaintext Azure Maps Subscription Key.
+- Plaintext Azure Web PubSub Access Key.
+- Plaintext OpenAI API Key.
+- Plaintext Azure Batch Shared Access Key.
+- Plaintext NPM Author Token.
+- Plaintext Azure Subscription Management Certificate. 
 
-In addition to detecting SSH private keys, the agentless scanner verifies whether they can be used to move laterally in the network. Keys that we didn't successfully verify are categorized as **unverified** in the **Recommendation** pane.
+Secret findings can be found using the [Cloud Security Explorer](#remediate-secrets-with-cloud-security-explorer) and the [Secrets tab](#remediate-secrets-from-your-asset-inventory) with their metadata like secret type, file name, file path, last access time, and more.
+
+The following secrets can also be accessed from the `Security Recommendations` and `Attack Path`, across Azure, AWS and GCP cloud providers: 
+
+- Insecure SSH private keys: 
+    - Supporting RSA algorithm for PuTTy files.
+    - PKCS#8 and PKCS#1 standards.
+    - OpenSSH standard.
+- Plaintext Azure database connection string: 
+    - Plaintext Azure SQL connection strings, supports SQL PAAS.
+    - Plaintext Azure database for PostgreSQL.
+    - Plaintext Azure database for MySQL.
+    - Plaintext Azure database for MariaDB.
+    - Plaintext Azure Cosmos DB, including PostgreSQL, MySQL and MariaDB.
+- Plaintext AWS RDS connection string, supports SQL PAAS:
+    - Plaintext Amazon Aurora with Postgres and MySQL flavors.
+    - Plaintext Amazon custom RDS with Oracle and SQL Server flavors.
+- Plaintext Azure storage account connection strings.
+- Plaintext Azure storage account SAS tokens.
+- Plaintext AWS access keys.
+- Plaintext AWS S3 pre-signed URL.
+- Plaintext Google storage signed URL. 
+
+The agentless scanner verifies whether SSH private keys can be used to move laterally in your network. Keys that aren't successfully verified are categorized as `unverified` on the Recommendation page. 
 
 ## Prerequisites
 

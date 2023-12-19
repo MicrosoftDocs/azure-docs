@@ -92,7 +92,7 @@ ms.author: wchi
         .buildClient();
     ```
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 
 Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identities](/azure/spring-apps/tutorial-managed-identities-key-vault?tabs=system-assigned-managed-identity) to set up your Spring application. Two sets of configuration properties are added to Spring Apps by Service Connector, according to Spring Cloud Azure version below 4.0 and above 4.0. For more information, check [Migration Guide for 4.0](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#configuration-spring-cloud-azure-starter-keyvault-secrets)
 
@@ -159,5 +159,5 @@ Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identit
     const client = new SecretClient(url, credential);
     ```
 
-### [Other](#tab/other)
-For other languages, you can use the connection information that Service Connector sets to the environment variables to connect Azure Key Vault. For environment variable details, see [Integrate Azure Key Vault with Service Connector](../how-to-integrate-key-vault.md).
+### [Other](#tab/none)
+For other languages, you can use the connection information that Service Connector sets to the environment variables to connect to Azure Key Vault. For environment variable details, see [Integrate Azure Key Vault with Service Connector](../how-to-integrate-key-vault.md).

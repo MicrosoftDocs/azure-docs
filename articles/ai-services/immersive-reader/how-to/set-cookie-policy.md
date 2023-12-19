@@ -2,7 +2,7 @@
 title: "Set Immersive Reader Cookie Policy"
 titleSuffix: Azure AI services
 description: This article will show you how to set the cookie policy for the Immersive Reader.
-services: cognitive-services
+#services: cognitive-services
 author: rwallerms
 manager: nitinme
 

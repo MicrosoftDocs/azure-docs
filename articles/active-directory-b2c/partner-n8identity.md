@@ -2,12 +2,12 @@
 title: Configure TheAccessHub Admin Tool by using Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Configure TheAccessHub Admin Tool with Azure Active Directory B2C for customer account migration and customer service request (CSR) administration
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 12/6/2022
 ms.author: gasinh

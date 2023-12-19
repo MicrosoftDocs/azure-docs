@@ -3,7 +3,6 @@ metadata:
   title: "Voice Assistants on Windows - FAQ"
   titleSuffix: Azure AI services
   description: Common questions that frequently come up during Windows voice agent development.
-  services: cognitive-services
   author: cfogg6
   manager: trrwilson
   ms.service: azure-ai-speech

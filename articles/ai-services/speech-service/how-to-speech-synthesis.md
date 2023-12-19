@@ -2,7 +2,6 @@
 title: "How to synthesize speech from text - Speech service"
 titleSuffix: Azure AI services
 description: Learn how to convert text to speech, including object construction and design patterns, supported audio output formats, and custom configuration options.
-services: cognitive-services
 author: eric-urban
 ms.author: eur
 manager: nitinme
@@ -60,5 +59,5 @@ keywords: text to speech
 ## Next steps
 
 * [Try the text to speech quickstart](get-started-text-to-speech.md)
-* [Get started with Custom Neural Voice](how-to-custom-voice.md)
+* [Get started with custom neural voice](professional-voice-create-project.md)
 * [Improve synthesis with SSML](speech-synthesis-markup.md)

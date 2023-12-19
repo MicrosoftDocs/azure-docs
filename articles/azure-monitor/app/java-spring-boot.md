@@ -9,6 +9,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Using Azure Monitor Application Insights with Spring Boot
 
+> [!NOTE]
+> With _Spring Boot native image applications_, you can use [this project](https://aka.ms/AzMonSpringNative).
+
 There are two options for enabling Application Insights Java with Spring Boot: JVM argument and programmatically.
 
 ## Enabling with JVM argument 

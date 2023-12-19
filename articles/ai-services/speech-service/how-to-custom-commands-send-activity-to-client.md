@@ -2,7 +2,6 @@
 title: 'Send Custom Commands activity to client application'                           
 titleSuffix: Azure AI services
 description: In this article, you learn how to send activity from a Custom Commands application to a client application running the Speech SDK.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
