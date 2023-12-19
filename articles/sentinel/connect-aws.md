@@ -35,6 +35,22 @@ Make sure that the logs from your selected AWS service use the format accepted b
 - **AWS CloudTrail**: .json file in a GZIP format.
 - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
 
+## Architecture overview
+
+This graphic and the following text show how the parts of this connector solution interact.
+
+:::image type="content" source="media/connect-aws/s3-connector-architecture.png" alt-text="Screenshot of A W S S 3 connector architecture.":::
+
+- AWS services are configured to send their logs to S3 (Simple Storage Service) storage buckets.
+
+- The S3 bucket sends notification messages to the SQS (Simple Queue Service) message queue whenever it receives new logs.
+
+- The Microsoft Sentinel AWS S3 connector polls the SQS queue at regular, frequent intervals. If there is a message in the queue, it will contain the path to the log files.
+
+- The connector reads the message with the path, then fetches the files from the S3 bucket.
+
+- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses AWS credentials and connection information embedded in the AWS S3 connector's configuration. The AWS credentials are configured with a role and a permissions policy giving them access to those resources. Similarly, the Microsoft Sentinel workspace ID is embedded in the AWS configuration, so there is in effect two-way authentication.
+
 ## Connect the S3 connector
 
 - In your AWS environment:
@@ -54,22 +70,6 @@ Make sure that the logs from your selected AWS service use the format accepted b
 Each side's process produces information used by the other side. This sharing creates secure communication.
 
 We have made available, in our GitHub repository, a script that **automates the AWS side of this process**. See the instructions for [automatic setup](#automatic-setup) later in this document.
-
-## Architecture overview
-
-This graphic and the following text show how the parts of this connector solution interact.
-
-:::image type="content" source="media/connect-aws/s3-connector-architecture.png" alt-text="Screenshot of A W S S 3 connector architecture.":::
-
-- AWS services are configured to send their logs to S3 (Simple Storage Service) storage buckets.
-
-- The S3 bucket sends notification messages to the SQS (Simple Queue Service) message queue whenever it receives new logs.
-
-- The Microsoft Sentinel AWS S3 connector polls the SQS queue at regular, frequent intervals. If there is a message in the queue, it will contain the path to the log files.
-
-- The connector reads the message with the path, then fetches the files from the S3 bucket.
-
-- To connect to the SQS queue and the S3 bucket, Microsoft Sentinel uses AWS credentials and connection information embedded in the AWS S3 connector's configuration. The AWS credentials are configured with a role and a permissions policy giving them access to those resources. Similarly, the Microsoft Sentinel workspace ID is embedded in the AWS configuration, so there is in effect two-way authentication.
 
 ## Global prerequisites
 
