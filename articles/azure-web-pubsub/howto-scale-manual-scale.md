@@ -2,7 +2,7 @@
 title: Scale an instance of Azure Web PubSub Service
 description: Learn how to scale an Azure Web PubSub Service instance to add or reduce capacity, through Azure portal or Azure CLI.
 author: biqian
-ms.service: webpubsub
+ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: biqian 
@@ -65,7 +65,7 @@ az webpubsub update \
 
 For detailed information, such as included messages and connections for each pricing tier, see [Web PubSub Service Pricing Details](https://azure.microsoft.com/pricing/details/web-pubsub/).
 
-For a table of service limits, quotas, and constraints in each tier, see [Web PubSub Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-web-pubsub-service-limits).
+For a table of service limits, quotas, and constraints in each tier, see [Web PubSub Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-web-pubsub-limits).
 
 
 ## Enhanced Large Instance Support with Premium_P2 SKU
