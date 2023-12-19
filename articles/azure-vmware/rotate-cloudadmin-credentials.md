@@ -3,24 +3,24 @@ title: Rotate the cloudadmin credentials for Azure VMware Solution
 description: Learn how to rotate the vCenter Server credentials for your Azure VMware Solution private cloud. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.custom: devx-track-azurecli
-ms.date: 8/16/2023
+ms.custom: devx-track-azurecli, engagement-fy23
+ms.date: 12/19/2023
 # Customer intent: As an Azure service administrator, I want to rotate my cloudadmin credentials so that the HCX Connector has the latest vCenter Server CloudAdmin credentials.
 ---
 
 # Rotate the cloudadmin credentials for Azure VMware Solution
 
 
-In this article, you'll rotate the cloudadmin credentials (vCenter Server and NSX-T *CloudAdmin* credentials) for your Azure VMware Solution private cloud.  Although the password for this account doesn't expire, you can generate a new one at any time.
+In this article, learn how to rotate the cloudadmin credentials (vCenter Server and NSX-T *CloudAdmin* credentials) for your Azure VMware Solution private cloud. Although the password for this account doesn't expire, you can generate a new one at any time.
 
 >[!CAUTION]
 >If you use your cloudadmin credentials to connect services to vCenter Server or NSX-T in your private cloud, those connections will stop working once you rotate your password. Those connections will also lock out the cloudadmin account unless you stop those services before rotating the password.
 
 ## Prerequisites
 
-Consider and determine which services connect to vCenter Server as *cloudadmin@vsphere.local* or NSX-T as cloudadmin before you rotate the password. These services may include VMware services such as HCX, vRealize Orchestrator, vRealize Operations Manager, VMware Horizon, or other third-party tools used for monitoring or provisioning. 
+Consider and determine which services connect to vCenter Server as *cloudadmin@vsphere.local* or NSX-T as cloudadmin before you rotate the password. Services can include VMware services like: HCX, vRealize Orchestrator, vRealize Operations Manager, VMware Horizon, or other non-Microsoft tools used for monitoring or provisioning. 
 
-One way to determine which services authenticate to vCenter Server with the cloudadmin user is to inspect vSphere events using the vSphere Client for your private cloud. After you identify such services, and before rotating the password, you must stop these services. Otherwise, the services won't work after you rotate the password. You'll also experience temporary locks on your vCenter Server CloudAdmin account, as these services continuously attempt to authenticate using a cached version of the old credentials. 
+One way to determine which services authenticate to vCenter Server with the cloudadmin user is to inspect vSphere events using the vSphere Client for your private cloud. After you identify such services, and before rotating the password, you must stop these services. Otherwise, the services won't work after you rotate the password. You can also experience temporary locks on your vCenter Server CloudAdmin account, as these services continuously attempt to authenticate using a cached version of the old credentials. 
 
 Instead of using the cloudadmin user to connect services to vCenter Server or NSX-T Data Center, we recommend individual accounts for each service. For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
