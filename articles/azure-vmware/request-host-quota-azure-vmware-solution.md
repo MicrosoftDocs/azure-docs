@@ -12,7 +12,7 @@ ms.date: 12/19/2023
 
 # Request host quota for Azure VMware Solution
 
-In this article, learn how to request host quota/capacity for [Azure VMware Solution](../azure-vmware/introduction?branch=main). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
+In this article, learn how to request host quota/capacity for [Azure VMware Solution](https://review.learn.microsoft.com/azure/azure-vmware/introduction?branch=main). You learn how to submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
 
 If you have an existing Azure VMware Solution private cloud and want more hosts allocated, follow the same process.
 
