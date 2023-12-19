@@ -1,22 +1,22 @@
 ---
-title: Troubleshoot common errors - Azure Database for MySQL
-description: Learn how to troubleshoot common migration errors encountered by users new to the Azure Database for MySQL service
+title: Troubleshoot common errors
+description: Learn how to troubleshoot common migration errors encountered by users new to Azure Database for MySQL - Flexible Server.
 author: sudheeshgh
 ms.author: sunaray
 ms.service: mysql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 06/20/2022
 ---
 
-# Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL
+# Troubleshoot errors commonly encountered during or post migration to Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 [!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
-Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you'll see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL for the first time.
+Azure Database for MySQL flexible server is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you'll see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL flexible server for the first time.
 
 ## Common Connection Errors
 
@@ -24,7 +24,7 @@ Azure Database for MySQL is a fully managed service powered by the community ver
 
 The above error occurs after successful sign-in but before executing any command when session is established. The above message indicates you have set an incorrect value of `init_connect` server parameter, which is causing the session initialization to fail.
 
-There are some server parameters like `require_secure_transport` that aren't supported at the session level, and so trying to change the values of these parameters using `init_connect` can result in Error 1184 while connecting to the MySQL server as shown below:
+There are some server parameters like `require_secure_transport` that aren't supported at the session level, and so trying to change the values of these parameters using `init_connect` can result in Error 1184 while connecting to the Azure Database for MySQL flexible server instance as shown below:
 
 mysql> show databases;
 ERROR 2006 (HY000): MySQL server has gone away
@@ -53,7 +53,7 @@ BEGIN
 END;
 ```
 
-**Resolution**:  To resolve the error, set `log_bin_trust_function_creators` to 1 from [server parameters](how-to-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects. You can continue to maintain `log_bin_trust_function_creators` to 1 for your server to avoid the error in future. Our recommendation is to set `log_bin_trust_function_creators` as the security risk highlighted in [MySQL community documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) is minimal in Azure Database for MySQL as bin log isn't exposed to any threats.
+**Resolution**:  To resolve the error, set `log_bin_trust_function_creators` to 1 from [server parameters](../single-server/how-to-server-parameters.md) blade in portal, execute the DDL statements or import the schema to create the desired objects. You can continue to maintain `log_bin_trust_function_creators` to 1 for your server to avoid the error in future. Our recommendation is to set `log_bin_trust_function_creators` as the security risk highlighted in [MySQL community documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) is minimal in Azure Database for MySQL flexible server as bin log isn't exposed to any threats.
 
 #### ERROR 1227 (42000) at line 101: Access denied; you need (at least one of) the SUPER privilege(s) for this operation. Operation failed with exitcode 1
 
@@ -82,7 +82,7 @@ DELIMITER ;
 
 #### ERROR 1227 (42000) at line 295: Access denied; you need (at least one of) the SUPER or SET_USER_ID privilege(s) for this operation
 
-The above error may occur while executing CREATE VIEW with DEFINER statements as part of importing a dump file or running a script. Azure Database for MySQL doesn't allow SUPER privileges or the SET_USER_ID privilege to any user.
+The above error may occur while executing CREATE VIEW with DEFINER statements as part of importing a dump file or running a script. Azure Database for MySQL flexible server doesn't allow SUPER privileges or the SET_USER_ID privilege to any user.
 
 **Resolution**:
 
@@ -95,7 +95,7 @@ The above error may occur while executing CREATE VIEW with DEFINER statements as
 
 #### ERROR 1227 (42000) at line 18: Access denied; you need (at least one of) the SUPER privilege(s) for this operation
 
-The above error may occur if you're using trying to import the dump file from MySQL server with GTID enabled to the target Azure Database for MySQL server. Mysqldump adds SET @@SESSION.sql_log_bin=0 statement to a dump file from a server where GTIDs are in use, which disables binary logging while the dump file is being reloaded.
+The above error may occur if you're using trying to import the dump file from an Azure Database for MySQL flexible server instance with GTID enabled to the target Azure Database for MySQL flexible server instance. Mysqldump adds SET @@SESSION.sql_log_bin=0 statement to a dump file from a server where GTIDs are in use, which disables binary logging while the dump file is being reloaded.
 
 **Resolution**:
 To resolve this error while importing, remove or comment out the below lines in your mysqldump file and run import again to ensure it's successful.
@@ -107,7 +107,7 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 
 ## Common connection errors for server admin sign-in
 
-When an Azure Database for MySQL server is created, a server admin sign-in is provided by the end user during the server creation. The server admin sign-in allows you to create new databases, add new users and grant permissions. If the server admin sign-in is deleted, its permissions are revoked or its password is changed, you may start to see connections errors in your application while connections. Following are some of the common errors
+When an Azure Database for MySQL flexible server instance is created, a server admin sign-in is provided by the end user during the server creation. The server admin sign-in allows you to create new databases, add new users and grant permissions. If the server admin sign-in is deleted, its permissions are revoked or its password is changed, you may start to see connections errors in your application while connections. Following are some of the common errors.
 
 ### ERROR 1045 (28000): Access denied for user 'username'@'IP address' (using password: YES)
 
@@ -119,19 +119,19 @@ The above error occurs if:
 
 **Resolution**:
 
-* Validate if "username" exists as a valid user in the server or is accidentally deleted. You can execute the following query by logging into the Azure Database for MySQL user:
+* Validate if "username" exists as a valid user in the server or is accidentally deleted. You can execute the following query by logging into the Azure Database for MySQL flexible server user:
 
   ```sql
   select user from mysql.user;
   ```
 
-* If you can't sign in to the MySQL to execute the above query itself, we recommend you to [reset the admin password using Azure portal](how-to-create-manage-server-portal.md). The reset password option from Azure portal will help recreate the user, reset the password, and restore the admin permissions, which will allow you to sign in using the server admin and perform further operations.
+* If you can't sign in to the Azure Database for MySQL flexible server instance to execute the above query itself, we recommend you to [reset the admin password using Azure portal](../single-server/how-to-create-manage-server-portal.md). The reset password option from Azure portal will help recreate the user, reset the password, and restore the admin permissions, which will allow you to sign in using the server admin and perform further operations.
 
 ## Next steps
 
 If you didn't find the answer you're looking for, consider the following options:
 
 * Post your question on [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
-* Send an email to the Azure Database for MySQL Team [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). This email address isn't a technical support alias.
+* Send an email to the Azure Database for MySQL flexible server team [@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com). This email address isn't a technical support alias.
 * Contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). To fix an issue with your account, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 * To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
