@@ -45,7 +45,7 @@ To learn more, see [Deploy foundation models to endpoints for inferencing](../..
 
 In order for prompt flow to use your deployed model, you need to connect to it. There are several ways to connect.
 
-### 1. Endpoint connections
+### Endpoint connections
 
 Once your flow is associated to an Azure Machine Learning or Azure AI Studio workspace, the Open Model LLM tool can use the endpoints on that workspace.
 
@@ -53,24 +53,24 @@ Once your flow is associated to an Azure Machine Learning or Azure AI Studio wor
 
 2. **Using VS Code or code first**: If you're using prompt flow in VS Code or one of the Code First offerings, you need to connect to the workspace. The Open Model LLM tool uses the azure.identity DefaultAzureCredential client for authorization. One way is through [setting environment credential values](https://learn.microsoft.com/python/api/azure-identity/azure.identity.environmentcredential).
 
-### 2. Custom connections
+### Custom connections
 
 The Open Model LLM tool uses the CustomConnection. Prompt flow supports two types of connections:
 
-1. **Workspace connections** - Connections that are stored as secrets on an Azure Machine Learning workspace. While these connections can be used, in many places, the are commonly created and maintained in the Studio UI.
+- **Workspace connections** - Connections that are stored as secrets on an Azure Machine Learning workspace. While these connections can be used, in many places, the are commonly created and maintained in the Studio UI.
 
-2. **Local connections** - Connections that are stored locally on your machine. These connections aren't available in the Studio UX, but can be used with the VS Code extension.
+- **Local connections** - Connections that are stored locally on your machine. These connections aren't available in the Studio UX, but can be used with the VS Code extension.
 
 To learn how to create a workspace or local Custom Connection, see [Create a connection](https://microsoft.github.io/promptflow/how-to-guides/manage-connections.html#create-a-connection).
 
 The required keys to set are:
 
-1. **endpoint_url**
+- **endpoint_url**
     - This value can be found at the previously created Inferencing endpoint.
-2. **endpoint_api_key**
+- **endpoint_api_key**
     - Ensure to set it as a secret value.
     - This value can be found at the previously created Inferencing endpoint.
-3. **model_family**
+- **model_family**
     - Supported values: LLAMA, DOLLY, GPT2, or FALCON
     - This value is dependent on the type of deployment you're targeting.
 
