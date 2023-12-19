@@ -674,7 +674,7 @@ export tfstate_storage_account="<storageaccountName>"
 export       deployer_env_code="MGMT"
 export            sap_env_code="DEV"
 export             region_code="<region_code>"
-export               key_vault="<vaultID>"
+export               key_vault="<vaultName>"
 
 export      deployer_vnet_code="DEP01"
 export               vnet_code="SAP02"
@@ -808,16 +808,16 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
 1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
-1. Add a secret with the username for your SAP user account. Replace `<vaultID>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
+1. Add a secret with the username for your SAP user account. Replace `<vaultName>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
 
     ```bash
-    export key_vault=<vaultID>
+    export key_vault=<vaultName>
     sap_username=<sap-username>
 
     az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
     ```
 
-1. Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name and replace `<sap-password>` with your SAP password.
+1. Add a secret with the password for your SAP user account. Replace `<vaultName>` with your deployer key vault name and replace `<sap-password>` with your SAP password.
 
     > [!NOTE]
     > The use of single quotation marks when you set `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results.
@@ -825,7 +825,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     ```azurecli
     sap_user_password='<sap-password>'
 
-    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
+    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value="${sap_user_password}";
     ```
 
 1. Configure your SAP parameters file for the download process. Then, download the SAP software by using Ansible playbooks. Run the following commands:
@@ -845,7 +845,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     ```yaml
 
     bom_base_name:                 S4HANA_2021_FP01_v0001ms
-    deployer_kv_name:              <Deployer KeyVault Name>
+    deployer_kv_name:              <vaultName>
     BOM_directory:                 ${HOME}/Azure_SAP_Automated_Deployment/samples/SAP
 
     ```

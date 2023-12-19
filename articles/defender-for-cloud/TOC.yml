@@ -530,6 +530,12 @@
             - name: Automatically enable a vulnerability assessment solution
               displayName: qualys, rapid7, vulnerability, auto provision
               href: auto-deploy-vulnerability-assessment.md
+            - name: Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
+              displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
+              href: how-to-transition-to-built-in.md
+            - name: Common questions 
+              displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
+              href: faq-scanner-detection.yml
         - name: Enable just-in-time access on VMs
           displayName: jit, management, ports
           href: just-in-time-access-usage.md
