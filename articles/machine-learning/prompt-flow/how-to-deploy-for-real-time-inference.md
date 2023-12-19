@@ -60,11 +60,11 @@ When you deploy prompt flow to managed online endpoint in UI, by default the dep
 
 If you are using the customer environment to create compute instance runtime, you can find the image in environment detail page in Azure Machine Learning studio. To learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
 
-:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-image-environment.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png":::
 
 Then you need also specify the image to the `environment` in the `flow.dag.yaml` in flow folder.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png":::
 
 > [!NOTE]
 > If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops) first and select custom environment to deploy in UI.

@@ -117,11 +117,11 @@ To learn more about environment CLI, see [Manage environments](../how-to-manage-
 
 ## Customize environment with flow folder for automatic runtime (preview)
 
-In `flow.dag.yaml` file in prompt flow folder, you can use `environment` section we can define the environment for the flow. It include two parts:
-- image: which is the base image for the flow, if ommitted, it will use the latest version of prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If you want to customize the environment, you can use the image you created in previous section.
+In `flow.dag.yaml` file in prompt flow folder, you can use `environment` section we can define the environment for the flow. It includes two parts:
+- image: which is the base image for the flow, if omitted, it uses the latest version of prompt flow base image `mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable:<newest_version>`. If you want to customize the environment, you can use the image you created in previous section.
 - You can also specify packages `requirements.txt`, Both automatic runtime and flow deployment from UI will use the environment defined in `flow.dag.yaml` file.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
+:::image type="content" source="./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-customize-environment-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
 If you want to use private feeds in Azure devops, see [Add packages in private feed in Azure devops](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops).
 

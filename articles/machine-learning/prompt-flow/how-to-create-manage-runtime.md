@@ -38,7 +38,7 @@ To use the runtime, assigning the `AzureML Data Scientist` role of workspace to 
 
 ## Permissions/roles for deployments
 
-After deploying a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This can be done at any point after the endpoint has been created.
+After deploying a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This operation can be done at any point after the endpoint has been created.
 
 ## Create runtime in UI
 
@@ -61,7 +61,7 @@ Automatic is the default option for runtime, you can start automatic runtime (pr
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow on the start automatic with default settings on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::    
 
-2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it will be used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we'll use user identity as default. Learn more about [how to create update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it's used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we use user identity as default. Learn more about [how to create update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow on the start automatic with advanced setting on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::    
 
@@ -74,7 +74,7 @@ If you don't have a compute instance, create a new one: [Create and manage an Az
 1. Select compute instance you want to use as runtime.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of add compute instance runtime with select compute instance highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
     Because compute instances is isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
-1. Authenticate on the compute instance. You only need to do auth one time per region in six month.
+1. Authenticate on the compute instance. You only need to do auth one time per region in six months.
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-authentication.png" alt-text="Screenshot of doing the authentication on compute instance. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-authentication.png":::
 1. Select create new custom application or existing custom application as runtime.
     1. Select create new custom application as runtime.
@@ -126,7 +126,7 @@ You can also customize environment used to run this flow.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime (preview) on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
 
-#### Add packages in private feed in Azure devops
+#### Add packages in private feed in Azure DevOps
 
 If you want to use private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
 
@@ -140,7 +140,7 @@ You need add `{private}` to your private feed url. Such as if you want to instal
 test_package
 ```
 
-- By default, we'll use latest prompt flow image as base image. If you want to use a different base image, you can build custom base image learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime), then you can use put it under `environment` in `flow.dag.yaml` file in flow folder. You need `reset` runtime to use the new base image, this takes several minutes as it pulls the new base image and install packages again. 
+- By default, we use latest prompt flow image as base image. If you want to use a different base image, you can build custom base image learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime), then you can use put it under `environment` in `flow.dag.yaml` file in flow folder. You need `reset` runtime to use the new base image, this takes several minutes as it pulls the new base image and install packages again. 
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-image-flow-dag.png":::
 
