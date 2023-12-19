@@ -3,7 +3,7 @@ title: 'Tutorial: Send email with Azure Logic Apps'
 description: Learn how to invoke business processes from your App Service app. Send emails, tweets, and Facebook posts, add to mailing lists, and much more.
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.devlang: csharp, javascript, php, python, ruby
+ms.devlang: csharp, javascript, php, python
 ms.custom: devx-track-csharp, mvc, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
