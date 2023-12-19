@@ -290,7 +290,7 @@ To enable a backup hook as part of the backup configuration flow to back up MySQ
    > :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/custom-resource-name-and-namespace.png" alt-text="Screenshot that shows how to add the namespace for the backup configuration." lightbox="./media/azure-kubernetes-service-cluster-backup/custom-resource-name-and-namespace.png":::
    >
 
-## Related content
+## Next steps
 
 - [Restore an Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)

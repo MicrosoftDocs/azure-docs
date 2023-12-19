@@ -73,7 +73,7 @@ Follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/choose-instances-for-restore.png" alt-text="Screenshot shows choosing instances for restore.":::
    
-   :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/restore=to-secondary-region.png" alt-text="Screenshot shows the selection of the secondary region.":::
+   :::image type="content" source="./media/tutorial-restore-aks-backups-across-regions/restore-to-secondary-region.png" alt-text="Screenshot shows the selection of the secondary region.":::
 
 3. Click **Select restore point** to select the *restore point* you want to restore. 
 
@@ -110,7 +110,7 @@ Follow these steps:
 
 9. Track this restore operation by using the name **CrossRegionRestore**.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Restore a backup for an AKS cluster](./azure-kubernetes-service-cluster-restore.md)
