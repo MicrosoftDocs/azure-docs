@@ -134,7 +134,7 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
 
 1. Finally, enter a name for your local AZD environment. 
 
-AZD creates an *azure.yaml* file in the root of your project. 
+   AZD creates an *azure.yaml* file in the root of your project. 
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -151,7 +151,7 @@ AZD creates an *azure.yaml* file in the root of your project.
 
    AZD scans the current directory and gathers more information depending on the type of app you're building. Follow the prompts to configure your AZD environment.
 
-1. `azd init` identifies the services defined in your app code and prompts you to confirm and continue, remove a service, or add a service. Select ***Confirm and continue initializing my app***  
+1. `azd init` identifies the services defined in your app code and prompts you to confirm and continue, remove a service, or add a service. Select ***Confirm and continue initializing my app***.  
  
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-services.png" alt-text="Screenshot showing the AZD init prompt to confirm and continue, remove a service, or add a service." lightbox="media/how-to-create-environment-with-azure-developer/init-services.png":::
 
@@ -161,7 +161,7 @@ AZD creates an *azure.yaml* file in the root of your project.
  
 1. Finally, enter a name for your local AZD environment. 
 
-AZD creates an *azure.yaml* file in the root of your project. 
+   AZD creates an *azure.yaml* file in the root of your project. 
 ---
 
 ### Provision infrastructure to Azure Deployment Environment
@@ -209,6 +209,7 @@ azd provision
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/provision-progress.png" alt-text="Screenshot showing the AZD provisioning progess." lightbox="media/how-to-create-environment-with-azure-developer/provision-progress.png":::
  
 1. You can view the resources created in the Azure portal or in the [developer portal](https://devportal.microsoft.com).
+
 ---
 
 ### List existing environments (optional)
@@ -290,7 +291,7 @@ Confirm that you want to delete the environment by entering `y` when prompted.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-Delete the Azure resources by using the following command:
+Delete your Azure resources by using the following command:
 
 ```bash
 azd down --environment <environmentName>
