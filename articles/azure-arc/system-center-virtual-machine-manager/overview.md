@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected System Center Virtual Machine Manager 
 description: This article provides a detailed overview of the Azure Arc-enabled System Center Virtual Machine Manager.
-ms.date: 11/27/2023
+ms.date: 12/19/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
@@ -58,6 +58,9 @@ The following scenarios are supported in Azure Arc-enabled SCVMM:
 - Administrators can provide app teams/developers fine-grained permissions on those SCVMM resources through Azure RBAC.
 - App teams can use Azure interfaces (portal, CLI, or REST API) to manage the lifecycle of on-premises VMs they use for deploying their applications (CRUD, Start/Stop/Restart).
 - Administrators can install Arc agents on SCVMM VMs at-scale and install corresponding extensions to use Azure management services like Microsoft Defender for Cloud, Azure Update Manager, Azure Monitor, etc.  
+
+>[!NOTE]
+> Azure Arc-enabled SCVMM doesn't support VMware vCenter VMs managed by SCVMM. To onboard VMware VMs to Azure Arc, you must use [Azure Arc-enabled VMware vSphere](../vmware-vsphere/overview.md). 
 
 ### Supported VMM versions
 
