@@ -50,14 +50,15 @@ Before you begin, you must have the following prerequisites:
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
 ::: zone pivot="nodejs-model-v3" 
-In a suitable folder, run the [`func init`](functions-core-tools-reference.md#func-init) command, as follows, to create a TypeScript Node.js v3 project in the current folder:
+1. In a suitable folder, run the [`func init`](functions-core-tools-reference.md#func-init) command, as follows, to create a TypeScript Node.js v3 project in the current folder:
 
     ```console
     func init --typescript --model V3
     ```
+    
     This folder now contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
-3. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
     ```console
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
@@ -94,7 +95,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     func init --typescript
     ```
 
-  This folder now contains various files for the project, including configurations files named *local.settings.json* and *host.json*. Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file. Required npm packages are also installed in *node_modules*. 
+    This folder now contains various files for the project, including configurations files named *local.settings.json* and *host.json*. Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file. Required npm packages are also installed in *node_modules*. 
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
