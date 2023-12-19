@@ -74,8 +74,27 @@ The following tables list the billable resources when CSPM is enabled on Azure s
 
 | Service | Resource types | Notes |
 |---|---|---|
-| Compute | Microsoft.Compute/virtualMachines<br/>Microsoft.Compute/virtualMachineScaleSets/virtualMachines<br/>Microsoft.ClassicCompute/virtualMachines | Includes : | 
-| Storage | 
+| Compute | Microsoft.Compute/virtualMachines<br/>Microsoft.Compute/virtualMachineScaleSets/virtualMachines<br/>Microsoft.ClassicCompute/virtualMachines | **Including**:<br/>- AKS nodes<br/><br/>**Excluding**:<br/>- Deallocated VMs<br/>- Databricks |
+| Storage | Microsoft.Storage/storageAccounts | **Including**:<br/>- only storage accounts with blob containers or file shares |
+| DBs | Microsoft.Sql/servers<br/>Microsoft.DBforPostgreSQL/servers<br/>Microsoft.DBforMySQL/servers<br/>Microsoft.Sql/managedInstances<br/>Microsoft.DBforMariaDB/servers<br/>Microsoft.Synapse/workspaces | --- |
+
+### AWS security connector with “DefenderCspm” offering enabled
+
+The following resources are billable for every AWS security connector with "DefenderCspm” offering enabled
+
+| Service | Resource types | Notes |
+|---|---|---|
+| Compute | EC2/instance | **Including**:<br/>- EKS nodes<br/><br/>**Excluding**:<br/>- Deallocated VMs |
+| Storage | S3/Bucket | ---|
+| DBs | RDS.instance| ---|
+
+### GCP projects billable resources
+
+| Service | Resource types | Notes |
+|---|---|---|
+| Compute |  - Google Compute instances<br/>- Google Instance Group | **Including**:<br/>- GKE nodes<br/>- Instances with "Running" state<br/><br/>**Excluding**:<br/>- Instances with ‘non-Running’ state |
+| Storage | Storage buckets | **Including**:<br/> - Buckets from class ‘standard’<br/>- Buckets from the following regions: europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1<br/><br/>**Excluding**:<br/>- Buckets from classes: ‘nearline’, ‘coldline’, ‘archive’<br/>- Buckets from other regions than written above |
+|DBs | Cloud SQL Instances | --- |
 
 ## Azure cloud support
 
