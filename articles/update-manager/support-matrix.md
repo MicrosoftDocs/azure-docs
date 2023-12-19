@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 12/12/2023
+ms.date: 12/19/2023
 ms.topic: overview
 ms.custom: references_regions 
 ---
@@ -91,7 +91,7 @@ Brazil | Brazil South
 Canada | Canada Central </br> Canada East
 Europe | North Europe </br> West Europe
 France | France Central
-Germany | West Central
+Germany | Germany West Central
 India | Central India
 Japan | Japan East
 Korea | Korea Central
@@ -167,6 +167,7 @@ The following table lists the images (from which the VMs are created) that aren'
 |OpenLogic | CentOS | 8* |
 |OpenLogic | centos-hpc| * |
 |Oracle | Oracle-Linux | 8, 8-ci, 81, 81-ci , 81-gen2, ol82, ol8_2-gen2,ol82-gen2, ol83-lvm, ol83-lvm-gen2, ol84-lvm,ol84-lvm-gen2 |
+|Red Hat | RHEL-BYOS | *|
 |Red Hat | RHEL | 74-gen2 |
 |Red Hat | RHEL-HANA | 7.4, 7.5, 7.6, 8.1, 81_gen2 |
 |Red Hat | 	RHEL-SAP | 7.4, 7.5, 7.7 |

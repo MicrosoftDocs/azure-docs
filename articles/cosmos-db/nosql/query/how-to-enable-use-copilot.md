@@ -31,19 +31,14 @@ Microsoft Copilot for Azure in Cosmos DB (preview) can assist with authoring Azu
 - An existing Azure Cosmos DB for NoSQL account
   - If you don't have an Azure subscription, [create an account for free](https://azure.microsoft.com/free).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for NoSQL account](../quickstart-portal.md).
+ 
+> [!IMPORTANT]
+> Review these [preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/#AzureOpenAI-PoweredPreviews) before using query Copilot for NoSQL.
 
 ## Access the feature
+Microsoft Copilot for Azure in Cosmos DB (preview) is now enabled for all Azure Cosmos DB NoSQL Customers in the Data Explorer. 
 
-Before starting with Copilot, you must first enable the feature in your subscription and access the feature in the Data Explorer for your target API for NoSQL account.
-
-1. Navigate to the [Azure portal](https://portal.azure.com).
-
-    > [!IMPORTANT]
-    > Review these [preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/#AzureOpenAI-PoweredPreviews) before using query Copilot for NoSQL.
-
-1. Enable the **Copilot** in Azure Feature Enablement Control (AFEC). For more information, see [enable preview features](../../../azure-resource-manager/management/preview-features.md).
-
-1. Navigate to any API for NoSQL resource.
+1. Navigate to any Azure Cosmos DB NoSQL resource.
 
 1. Select **Data Explorer** from the navigation pane.
 
@@ -51,7 +46,7 @@ Before starting with Copilot, you must first enable the feature in your subscrip
 
 1. Next, open the query editor experience from one of two ways:
 
-   - Select the **Query faster with Copilot** card on the Data Explorer's welcome screen. This option includes the `CopilotSampledb` database and `SampleContainer` container, which contains sample data for you to use with Copilot.
+   - Select the **Query faster with Copilot** card on the Data Explorer's welcome screen. This option includes the `CopilotSampleDb` database and `SampleContainer` container, which contains sample data for you to use with Copilot. This database is managed by Microsoft and does not interact or connect to your other databases. `CopoilotSampleDb` is free for all Azure Cosmos DB NoSQL customers.
 
    - Select an existing API for NoSQL database and container. Then, select **New SQL Query** from the menu bar.
 
