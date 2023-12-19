@@ -47,11 +47,11 @@ In order for prompt flow to use your deployed model, you need to connect to it. 
 
 ### 1. Endpoint connections
 
-Once associated to an Azure Machine Learning or Azure AI Studio workspace, the Open Model LLM tool can use the endpoints on that workspace.
+Once your flow is associated to an Azure Machine Learning or Azure AI Studio workspace, the Open Model LLM tool can use the endpoints on that workspace.
 
-1. **Using Azure Machine Learning or Azure AI Studio workspaces**: If you are using prompt flow in one of the web page based browsers workspaces, the online endpoints available on that workspace who up automatically.
+1. **Using Azure Machine Learning or Azure AI Studio workspaces**: If you're using prompt flow in one of the web page based browsers workspaces, the online endpoints available on that workspace who up automatically.
 
-2. **Using VScode or code first**: If you are using prompt flow in VScode or one of the Code First offerings, you will need to connect to the workspace. The Open Model LLM tool uses the azure.identity DefaultAzureCredential client for authorization. One way is through [setting environment credential values](https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.environmentcredential?view=azure-python).
+2. **Using VS Code or code first**: If you're using prompt flow in VS Code or one of the Code First offerings, you need to connect to the workspace. The Open Model LLM tool uses the azure.identity DefaultAzureCredential client for authorization. One way is through [setting environment credential values](https://learn.microsoft.com/python/api/azure-identity/azure.identity.environmentcredential).
 
 ### 2. Custom connections
 
@@ -59,7 +59,7 @@ The Open Model LLM tool uses the CustomConnection. Prompt flow supports two type
 
 1. **Workspace connections** - Connections that are stored as secrets on an Azure Machine Learning workspace. While these connections can be used, in many places, the are commonly created and maintained in the Studio UI.
 
-2. **Local connections** - Connections that are stored locally on your machine. These connections are not available in the Studio UX, but can be used with the VScode extension.
+2. **Local connections** - Connections that are stored locally on your machine. These connections aren't available in the Studio UX, but can be used with the VS Code extension.
 
 To learn how to create a workspace or local Custom Connection, see [Create a connection](https://microsoft.github.io/promptflow/how-to-guides/manage-connections.html#create-a-connection).
 
@@ -72,7 +72,7 @@ The required keys to set are:
     - This value can be found at the previously created Inferencing endpoint.
 3. **model_family**
     - Supported values: LLAMA, DOLLY, GPT2, or FALCON
-    - This value is dependent on the type of deployment you are targeting.
+    - This value is dependent on the type of deployment you're targeting.
 
 ## Running the tool: Inputs
 
@@ -98,4 +98,4 @@ The Open Model LLM tool has many parameters, some of which are required. See the
 
 ## Deploying to an online endpoint
 
-When you deploy a flow containing the Open Model LLM tool to an online endpoint, there is an extra step to set up permissions. During deployment through the web pages, there is a choice between System-assigned and User-assigned Identity types. Either way, using the Azure Portal (or a similar functionality), add the "Reader" Job function role to the identity on the Azure Machine Learning workspace or Ai Studio project, which is hosting the endpoint. The prompt flow deployment may need to be refreshed.
+When you deploy a flow containing the Open Model LLM tool to an online endpoint, there's an extra step to set up permissions. During deployment through the web pages, there's a choice between System-assigned and User-assigned Identity types. Either way, using the Azure portal (or a similar functionality), add the "Reader" Job function role to the identity on the Azure Machine Learning workspace or Ai Studio project, which is hosting the endpoint. The prompt flow deployment may need to be refreshed.
