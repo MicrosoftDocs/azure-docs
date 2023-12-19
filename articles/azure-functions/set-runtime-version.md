@@ -9,7 +9,7 @@ ms.date: 05/17/2023
 
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. There have been four major versions: [4.x, 3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
+A function app runs on a specific [version of the Azure Functions runtime](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
 The way that you manually target a specific version depends on whether you're running Windows or Linux.
 
@@ -28,18 +28,14 @@ When a new version is publicly available, a prompt in the portal gives you the c
 
 The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each major version to enable automatic updates:
 
-| Major version  | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
+| Major version<sup>2</sup>  | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
 | -------------  | ----------------------------------- | ------------------------- |
 | 4.x            | `~4`                                | [On Windows, enable .NET 6](./migrate-version-3-version-4.md#upgrade-your-function-app-in-azure)<sup>1</sup> |
-| 3.x<sup>2</sup>| `~3`                                |                           |
-| 2.x<sup>2</sup>| `~2`                                |                           |
 | 1.x<sup>3</sup>| `~1`                                |                           |
 
-<sup>1</sup> If using a later version with the .NET Isolated worker model, instead enable that version.
-
-<sup>2</sup>Reached the end of life (EOL) for extended support on December 13, 2022. For a detailed support statement about end-of-life versions, see [this migration article](migrate-version-3-version-4.md).
-
-<sup>3</sup>[Support for version 1.x of the Azure Functions runtime ends on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). Before that date, [migrate your version 1.x apps to version 4.x](./migrate-version-1-version-4.md) to maintain full support.
+<sup>1</sup> If using a later version with the .NET Isolated worker model, instead enable that version.  
+<sup>2</sup>Reached the end of life (EOL) for extended support on December 13, 2022. For a detailed support statement about end-of-life versions, see [this migration article](migrate-version-3-version-4.md).  
+<sup>3</sup>[Support for version 1.x of the Azure Functions runtime ends on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). Before that date, [migrate your version 1.x apps to version 4.x](./migrate-version-1-version-4.md) to maintain full support.  
 
 A change to the runtime version causes a function app to restart. 
 
