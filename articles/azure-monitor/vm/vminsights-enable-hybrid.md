@@ -1,17 +1,17 @@
 ---
-title: Enable Azure Monitor for a hybrid environment
-description: This article describes how you enable VM insights for a hybrid cloud environment that contains one or more virtual machines.
+title: Enable VM insights on a Windows client machine
+description: This article describes how you enable VM insights on a Windows client machine.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.date: 12/11/2023
-# Customer-intent: As a cloud administrator, I want to enable VM insights on Windows virtual machines in a hybrid cloud environment without using Azure Arc, so that I can monitor the performance and dependencies of my virtual machines.
+# Customer-intent: As a cloud administrator, I want to enable VM insights on Windows client machine, so that I can monitor the performance and dependencies of my machine.
 
 ---
 
-# Enable VM insights for a hybrid virtual machine
+# Enable VM insights on a Windows client machine
 
-For Linux hybrid machines, use [Azure Arc for servers](../../azure-arc/servers/overview.md) and onboard your virtual machines in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). Azure Arc doesn't currently support Windows hybrid machines. This article describes how to enable VM insights on a Widows virtual machine outside of Azure, including on-premises and other cloud environments, without using Azure Arc, which doesn't currently support Windows.
+For hybrid virtual machines and Linux client machines, use [Azure Arc for servers](../../azure-arc/servers/overview.md) to onboard machine in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). This article describes how to enable VM insights on a Widows client machine, without using Azure Arc, which doesn't currently support managing Windows client machines.
 
 ## Prerequisites
 
