@@ -1,14 +1,16 @@
 ---
-title: Configure Container insights data collection
-description: This article describes how you can configure the Container insights agent to control stdout/stderr and environment variables log collection.
+title: Configure Container insights data collection using ConfigMap
+description: Describes how you can configure other data collection for Container insights using ConfigMap.
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 12/19/2023
 ms.reviewer: aul
 ---
 
 # Configure data collection in Container insights using ConfigMap
 
-This article describes how to configure data collection in Container insights using ConfigMap. [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as configuration file or environment variables. The ConfigMap is primarily used to configure data collection of the container logs and environment variables of the cluster. You can individually configure the stdout and stderr logs and also enable multiline logging.
+This article describes how to configure data collection in Container insights using ConfigMap. [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) are a Kubernetes mechanism that allow you to store non-confidential data such as configuration file or environment variables. 
+
+The ConfigMap is primarily used to configure data collection of the container logs and environment variables of the cluster. You can individually configure the stdout and stderr logs and also enable multiline logging.
 
 Specific configuration you can perform with the ConfigMap includes:
 
@@ -19,6 +21,8 @@ Specific configuration you can perform with the ConfigMap includes:
 - Enable/disable multiline logging
 - Ignore proxy settings  
 
+> [!NOTE]
+> See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) to configure data collection using a DCR which allows you to configure different settings.
 
 ## Prerequisites 
 - ConfigMap is a global list and there can be only one ConfigMap applied to the agent for Container insights. You can't have another ConfigMap overruling the collections.
@@ -51,33 +55,48 @@ Use the following procedure to configure and deploy your ConfigMap configuration
     ```
 
 
-The configuration change can take a few minutes to finish before taking effect. Then all Azure Monitor Agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor Agent pods, so not all of them restart at the same time. When the restarts are finished, you'll receive a message similar to the following result: 
-
-```output
-configmap "container-azm-ms-agentconfig" created`.
-``````
+    The configuration change can take a few minutes to finish before taking effect. Then all Azure Monitor Agent pods in the cluster will restart. The restart is a rolling restart for all Azure Monitor Agent pods, so not all of them restart at the same time. When the restarts are finished, you'll receive a message similar to the following result: 
+    
+    ```output
+    configmap "container-azm-ms-agentconfig" created`.
+    ``````
 
 
 ### Data collection settings
 
-The following table describes the settings you can configure to control data collection.
+The following tables describes the settings you can configure to control data collection.
 
 
-| Key | Data type | Value | Description |
-|--|--|--|--|
+| Setting | Data type | Value | Description |
+|:---|:---|:---|:---|
 | `schema-version` | String (case sensitive) | v1 | Used by the agent when parsing this ConfigMap. Currently supported schema-version is v1. Modifying this value isn't supported and will be rejected when the ConfigMap is evaluated. |
-| `config-version` | String |  | Allows you to keep track of this config file's version in your source control system/repository. Maximum allowed characters are 10, and all other characters are truncated. |
-| `[log_collection_settings.stdout]`<br>`enabled` | Boolean | true<br>false | Controls whether stdout container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection, stdout logs will be collected from all containers across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. |
-| `[log_collection_settings.stdout]`<br>`exclude_namespaces` | String | Comma-separated array | Array of Kubernetes namespaces for which stdout logs won't be collected. This setting is effective only if `enabled` is set to `true`. If not specified in the ConfigMap, the default value is<br> `["kube-system","gatekeeper-system"]`. |
-| `[log_collection_settings.stderr]`<br>`enabled` | Boolean | true<br>false | Controls whether stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stderr log collection, stderr logs will be collected from all containers across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. |
-| `[log_collection_settings.stderr]`<br>`exclude_namespaces` | String | Comma-separated array | Array of Kubernetes namespaces for which stderr logs won't be collected. This setting is effective only if `enabled` is set to `true`. If not specified in the ConfigMap, the default value is<br> `["kube-system","gatekeeper-system"]`. |
-| `[log_collection_settings.env_var]`<br>`enabled` | Boolean | true<br>false | This setting controls environment variable collection across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to `False` either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the `env:` section. If collection of environment variables is globally disabled, you can't enable collection for a specific container. The only override that can be applied at the container level is to disable collection when it's already enabled globally. |
-| `[log_collection_settings.enrich_container_logs]`<br>`enabled` | Boolean | true<br>false | Controls container log enrichment to populate the `Name` and `Image` property values for every log record written to the **ContainerLogV2** or **ContainerLog** table for all container logs in the cluster. If not specified in the ConfigMap, the default value is `false`. |
-| `[log_collection_settings.collect_all_kube_events]`<br>`enabled` | Boolean | true<br>false| Controls whether Kube events of all types are collected. By default, the Kube events with type **Normal** aren't collected. When this setting is `true`, the **Normal** events are no longer filtered, and all events are collected. If not specified in the ConfigMap, the default value is `false`. |
-| `[log_collection_settings.schema]`<br>`enabled` | String (case sensitive) | v2<br>v1 | Sets the log ingestion format. If `v2`, the **ContainerLogV2** table is used. If `v1`, the **ContainerLog** table is used (this table has been deprecated). For clusters enabling container insights using Azure CLI version 2.54.0 or greater, the default setting is `v2`. See [Container insights log schema](./container-insights-logs-schema.md) for details. |
-| `[log_collection_settings.enable_multiline_logs] enabled` | Boolean | true<br>false | Controls whether multiline container logs are enabled. See [Multi-line logging in Container Insights](./container-insights-logs-schema.md#multi-line-logging-in-container-insights) for details. If not specified in the ConfigMap, the default value is `false`. This requires the `schema` setting to be `v2`. |
-| `[metric_collection_settings.collect_kube_system_pv_metrics]`<br>`enabled` | Boolean | true<br>false | Allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace aren't collected. When this setting is set to `true`, PV usage metrics for all namespaces are collected. If not specified in the ConfigMap, the default value is `false`. |
-| `[agent_settings.proxy_config]`<br>`ignore_proxy_settings` | Boolean | true<br>false | When `true`, proxy settings are ignored. For both AKS and Arc-enabled Kubernetes environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as with AMPLS + Proxy, you might want the proxy configuration to be ignored. If not specified in the ConfigMap, the default value is `false`. |
+| `config-version` | String |  | Allows you to keep track of this config file's version in your source control system/repository. Maximum allowed characters are 10, and all other characters are truncated. | 
+
+**[log_collection_settings]**
+
+| Setting | Data type | Value | Description |
+|:---|:---|:---|:---|
+| `[stdout] enabled` | Boolean | true<br>false | Controls whether stdout container log collection is enabled. When set to `true` and no namespaces are excluded for stdout log collection, stdout logs will be collected from all containers across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. |
+| `[stdout] exclude_namespaces` | String | Comma-separated array | Array of Kubernetes namespaces for which stdout logs won't be collected. This setting is effective only if `enabled` is set to `true`. If not specified in the ConfigMap, the default value is<br> `["kube-system","gatekeeper-system"]`. |
+| `[stderr] enabled` | Boolean | true<br>false | Controls whether stderr container log collection is enabled. When set to `true` and no namespaces are excluded for stderr log collection, stderr logs will be collected from all containers across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. |
+| `[stderr] exclude_namespaces` | String | Comma-separated array | Array of Kubernetes namespaces for which stderr logs won't be collected. This setting is effective only if `enabled` is set to `true`. If not specified in the ConfigMap, the default value is<br> `["kube-system","gatekeeper-system"]`. |
+| `[env_var] enabled` | Boolean | true<br>false | This setting controls environment variable collection across all pods and nodes in the cluster. If not specified in the ConfigMap, the default value is `true`. If collection of environment variables is globally enabled, you can disable it for a specific container by setting the environment variable `AZMON_COLLECT_ENV` to `False` either with a Dockerfile setting or in the [configuration file for the Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under the `env:` section. If collection of environment variables is globally disabled, you can't enable collection for a specific container. The only override that can be applied at the container level is to disable collection when it's already enabled globally. |
+| `[enrich_container_logs] enabled` | Boolean | true<br>false | Controls container log enrichment to populate the `Name` and `Image` property values for every log record written to the **ContainerLogV2** or **ContainerLog** table for all container logs in the cluster. If not specified in the ConfigMap, the default value is `false`. |
+| `[collect_all_kube_events] enabled` | Boolean | true<br>false| Controls whether Kube events of all types are collected. By default, the Kube events with type **Normal** aren't collected. When this setting is `true`, the **Normal** events are no longer filtered, and all events are collected. If not specified in the ConfigMap, the default value is `false`. |
+| `[schema] containerlog_schema_version` | String (case sensitive) | v2<br>v1 | Sets the log ingestion format. If `v2`, the **ContainerLogV2** table is used. If `v1`, the **ContainerLog** table is used (this table has been deprecated). For clusters enabling container insights using Azure CLI version 2.54.0 or greater, the default setting is `v2`. See [Container insights log schema](./container-insights-logs-schema.md) for details. |
+| `[enable_multiline_logs] enabled` | Boolean | true<br>false | Controls whether multiline container logs are enabled. See [Multi-line logging in Container Insights](./container-insights-logs-schema.md#multi-line-logging-in-container-insights) for details. If not specified in the ConfigMap, the default value is `false`. This requires the `schema` setting to be `v2`. |
+
+**[metric_collection_settings]**
+
+| Setting | Data type | Value | Description |
+|:---|:---|:---|:---|
+| `[collect_kube_system_pv_metrics] enabled` | Boolean | true<br>false | Allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace aren't collected. When this setting is set to `true`, PV usage metrics for all namespaces are collected. If not specified in the ConfigMap, the default value is `false`. |
+
+**[agent_settings]**
+
+| Setting | Data type | Value | Description |
+|:---|:---|:---|:---|
+| `[proxy_config] ignore_proxy_settings` | Boolean | true<br>false | When `true`, proxy settings are ignored. For both AKS and Arc-enabled Kubernetes environments, if your cluster is configured with forward proxy, then proxy settings are automatically applied and used for the agent. For certain configurations, such as with AMPLS + Proxy, you might want the proxy configuration to be ignored. If not specified in the ConfigMap, the default value is `false`. |
 
 
 
@@ -137,12 +156,7 @@ Output similar to the following example appears with the annotation schema-versi
 
 The log collection from containers in the kube-system namespace is disabled by default. You can enable log collection by setting an environment variable on Azure Monitor Agent. See the [Container insights GitHub page](https://aka.ms/azuremonitor-containers-helm-chart).
 
-
-
 ## Next steps
 
-- Container insights doesn't include a predefined set of alerts. Review the [Create performance alerts with Container insights](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
-- With monitoring enabled to collect health and resource utilization of your Azure Kubernetes Service or hybrid cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
-- View [log query examples](container-insights-log-query.md) to see predefined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
-
+- See [Configure data collection in Container insights using data collection rule](container-insights-data-collection-dcr.md) to configure data collection using DCR instead of ConfigMap.
 

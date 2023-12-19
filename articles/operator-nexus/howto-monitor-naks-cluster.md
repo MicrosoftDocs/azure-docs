@@ -285,7 +285,7 @@ Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extensi
 
 #### Customize logs & metrics collection
 
-Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](../azure-monitor/containers/container-insights-agent-config.md).
+Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](../azure-monitor/containers/container-insights-data-collection-configmap.md).
 
 ## Extra resources
 

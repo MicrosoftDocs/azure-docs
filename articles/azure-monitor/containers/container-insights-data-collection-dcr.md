@@ -1,8 +1,8 @@
 ---
-title: Configure Container insights data collection
-description: This article describes how you can configure the Container insights agent to control stdout/stderr and environment variables log collection.
+title: Configure Container insights data collection using data collection rule
+description: Describes how you can configure cost optimization and other data collection for Container insights using a data collection rule.
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 12/19/2023
 ms.reviewer: aul
 ---
 
@@ -20,7 +20,8 @@ Specific configuration you can perform with the DCR includes:
 - Enable/disable Syslog collection
 - Select log schema
 
-
+> [!NOTE]
+> See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) to configure data collection using a DCR which allows you to configure different settings.
 
 ## Prerequisites
 
@@ -28,8 +29,8 @@ Specific configuration you can perform with the DCR includes:
 
 
 
-## Enable cost settings
-Following are the details for using different methods to enable cost optimization settings for each supported cluster configuration. See [Data collection parameters](#data-collection-parameters) for details about the different available settings.
+## Configure data collection
+The DCR that gets created when you enable Container insights is named *MSCI-\<cluster-region\>-\<cluster-name\>*. You can view it in the Azure portal by selecting the **Data Collection Rules** option in the **Monitor** menu in the Azure portal. Rather than directly modifying the DCR, you should use one of the methods described below to configure data collection. See [Data collection parameters](#data-collection-parameters) for details about the different available settings used by each method.
 
 > [!WARNING]
 > The default Container insights experience depends on all the existing data streams. Removing one or more of the default streams makes the Container insights experience unavailable, and you need to use other tools such as Grafana dashboards and log queries to analyze collected data.
@@ -57,7 +58,7 @@ You can use the Azure portal to enable cost optimization on your existing cluste
 
 
 ### Cost presets
-When you use the Azure portal to configure cost optimization, you can select from the following preset configurations. You can select one of these or provide your own customized settings. By default, Container insights uses the Standard preset.
+When you use the Azure portal to configure cost optimization, you can select from the following preset configurations. You can select one of these or provide your own customized settings. By default, Container insights uses the *Standard* preset.
 
 | Cost preset | Collection frequency | Namespace filters | Syslog collection |
 | --- | --- | --- | --- |
@@ -66,17 +67,18 @@ When you use the Azure portal to configure cost optimization, you can select fro
 | Syslog | 1 m | None | Enabled by default |
 
 ### Collected data
-The **Collected data** option in the Azure portal allows you to select the tables that are collected from the cluster. This is the equivalent of the `streams` parameter when performing the configuration with CLI or ARM. If you select any option other than **All (Default)**, the Container insights experience becomes unavailable, and you must use Grafana or other methods to analyze collected data.
+The **Collected data** option allows you to select the tables that are populated for the cluster. This is the equivalent of the `streams` parameter when performing the configuration with CLI or ARM. If you select any option other than **All (Default)**, the Container insights experience becomes unavailable, and you must use Grafana or other methods to analyze collected data.
+
+:::image type="content" source="media/container-insights-cost-config/collected-data-options.png" alt-text="Screenshot that shows the collected data options." lightbox="media/container-insights-cost-config/collected-data-options.png" :::
 
 | Grouping | Tables | Notes |
 | --- | --- | --- |
-| All (Default) | All standard container insights tables | Required for enabling the default container insights visualizations |
+| All (Default) | All standard container insights tables | Required for enabling the default Container insights visualizations |
 | Performance | Perf, InsightsMetrics | |
 | Logs and events | ContainerLog or ContainerLogV2, KubeEvents, KubePodInventory | Recommended if you have enabled managed Prometheus metrics |
 | Workloads, Deployments, and HPAs | InsightsMetrics, KubePodInventory, KubeEvents, ContainerInventory, ContainerNodeInventory, KubeNodeInventory, KubeServices | |
 | Persistent Volumes | InsightsMetrics, KubePVInventory | |
 
-:::image type="content" source="media/container-insights-cost-config/collected-data-options.png" alt-text="Screenshot that shows the collected data options." lightbox="media/container-insights-cost-config/collected-data-options.png" :::
 
 
 ## [CLI](#tab/cli)
@@ -206,8 +208,6 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 The following table describes the supported data collection settings and the name used for each for different onboarding options.
 
->[!NOTE]
->This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-data-collection-configmap.md).
 
 | Name | Description |
 |:---|:---|
@@ -217,8 +217,8 @@ The following table describes the supported data collection settings and the nam
 | Enable ContainerLogV2<br>CLI: `enableContainerLogV2`<br>ARM: `enableContainerLogV2` | Boolean flag to enable ContainerLogV2 schema. If set to true, the stdout/stderr Logs are ingested to [ContainerLogV2](container-insights-logs-schema.md) table. If not, the container logs are ingested to **ContainerLog** table, unless otherwise specified in the ConfigMap. When specifying the individual streams, you must include the corresponding table for ContainerLog or ContainerLogV2. |
 | Collected Data<br>CLI: `streams`<br>ARM: `streams` | An array of container insights table streams. See the supported streams above to table mapping. |
 
-### Applicable tables
-The settings for **collection frequency** and **namespace filtering** don't apply to all Container insights data. The following table lists the tables in the Log Analytics workspace used by Container insights and the settings that apply to each. 
+## Applicable tables and metrics
+The settings for **collection frequency** and **namespace filtering** don't apply to all Container insights data. The following tables list the tables in the Log Analytics workspace used by Container insights and the metrics it collects along with the settings that apply to each. 
 
 >[!NOTE]
 >This feature configures settings for all container insights tables except for ContainerLog and ContainerLogV2. To configure settings for these tables, update the ConfigMap described in [agent data collection settings](../containers/container-insights-data-collection-configmap.md).
@@ -236,7 +236,6 @@ The settings for **collection frequency** and **namespace filtering** don't appl
 | Perf | Yes | Yes | Data collection setting for namespaces isn't applicable for the Kubernetes Node related metrics since the Kubernetes Node isn't a namespace scoped object. |
 | InsightsMetrics| Yes | Yes | Data collection settings are only applicable for the metrics collecting the following namespaces: container.azm.ms/kubestate, container.azm.ms/pv and container.azm.ms/gpu |
 
-### Applicable metrics
 
 | Metric namespace | Interval? | Namespaces? | Remarks |
 |:---|:---:|:---:|:---|
@@ -249,6 +248,9 @@ The settings for **collection frequency** and **namespace filtering** don't appl
 
 ## Stream values
 When you specify the tables to collect using CLI or ARM, you specify a stream name that corresponds to a particular table in the Log Analytics workspace. The following table lists the stream name for each table.
+
+> [!NOTE]
+> If your familiar with the [structure of a data collection rule](../essentials/data-collection-rule-structure.md), the stream names in this table are specified in the [dataFlows](../essentials/data-collection-rule-structure.md#dataflows) section of the DCR.
 
 | Stream | Container insights table |
 | --- | --- |
@@ -264,9 +266,6 @@ When you specify the tables to collect using CLI or ARM, you specify a stream na
 | Microsoft-KubePVInventory | KubePVInventory |
 | Microsoft-KubeServices | KubeServices |
 | Microsoft-Perf | Perf |
-
-
-
 
 
 ## Impact on visualizations and alerts
@@ -287,10 +286,8 @@ resources
 | order by tolower(name) asc
 ```
 
-Reference the [Limitations](./container-insights-cost-config.md#limitations) section for information on migrating your Recommended alerts.
 
 
-## Limitations
+## Next steps
 
-- Recommended alerts don't work as intended if the Data collection interval is configured more than 1-minute interval. To continue using Recommended alerts, migrate to the [Prometheus metrics addon](../essentials/prometheus-metrics-overview.md)
-- There might be gaps in Trend Line Charts of Deployments workbook if configured Data collection interval more than time granularity of the selected Time Range.
+- See [Configure data collection in Container insights using ConfigMap](container-insights-data-collection-configmap.md) to configure data collection using ConfigMap instead of the DCR.
