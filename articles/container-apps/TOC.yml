@@ -213,12 +213,14 @@
       items:
       - name: Overview
         href: dapr-overview.md
-      - name: Configure
+      - name: Get started
         items:
         - name: Enable Dapr
           href: enable-dapr.md
         - name: Connect to Azure services via Dapr components
-          href: dapr-component-connection.md
+          href: dapr-component-connection.md        
+      - name: Configure
+        items:
         - name: Dapr components
           href: dapr-components.md
         - name: Dapr component resiliency (preview)

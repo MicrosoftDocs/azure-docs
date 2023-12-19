@@ -11,13 +11,11 @@ ms.date: 11/27/2023
 
 # Dapr integration with Azure Container Apps
 
-[Distributed Application Runtime (Dapr)][dapr-concepts] provides APIs that run as a sidecar process that helps you write and implement simple, portable, resilient, and secured microservices. Dapr works as an abstraction layer, simplifying common complexities related to application intercommunication. Enabling Dapr on your container app creates a secondary process alongside your application code that enables communication with Dapr via HTTP or gRPC.
-
-Dapr works together with Azure Container Apps to provide a low-maintenance, serverless, and scalable platform. This guide provides insight into core Dapr concepts and details regarding the Dapr interaction model in Azure Container Apps.
+[Distributed Application Runtime (Dapr)][dapr-concepts] provides APIs that run as a sidecar process that helps you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance, serverless, and scalable platform. [Enabling Dapr on your container app][enable-dapr] creates a secondary process alongside your application code that simplifies application intercommunication with Dapr via HTTP or gRPC.
 
 ## Dapr in Azure Container Apps
 
-Configure Dapr for your container apps environment with a Dapr-enabled container app, a Dapr component configured for your solution, and a Dapr sidecar invoking communication between them. The following diagram demonstrates these core concepts related to Dapr in Azure Container Apps.
+Configure Dapr for your container apps environment with a [Dapr-enabled container app][enable-dapr], a [Dapr component configured for your solution][dapr-component], and a Dapr sidecar invoking communication between them. The following diagram demonstrates these core concepts related to Dapr in Azure Container Apps.
 
 :::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works in Container Apps.":::
 
