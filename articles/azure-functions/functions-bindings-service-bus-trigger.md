@@ -56,7 +56,7 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch":::
 
-This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages, writes it to the logs, and then settles the message as completed:
+This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a single Service Bus queue message, writes it to the logs, and then settles the message as completed:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_message_actions":::
 
