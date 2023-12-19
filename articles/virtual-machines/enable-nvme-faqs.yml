@@ -84,7 +84,7 @@ sections:
       - question: |
           How can I check if a given image is tagged as NVMe? 
         answer: |
-          To check if a given image is tagged as NVMe, use the follow command: 
+          To check if a given image is tagged as NVMe, use the following command: 
             ```
             az vm image show --urn URN_OF_IMAGE
             ```
