@@ -26,7 +26,7 @@ The following table lists the current versions available for the public and Insi
 
 ## Updates for version 1.2.4577 (Insider)
 
-*Date published: August 29, 2023*
+*Published: August 29, 2023*
 
 In this release, we've made the following changes:
 
@@ -41,7 +41,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4487
 
-*Date published: July 21, 2023*
+*Published: July 21, 2023*
 
 In this release, we've made the following changes:
 
@@ -49,7 +49,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4485
 
-*Date published: July 11, 2023*
+*Published: July 11, 2023*
 
 In this release, we've made the following changes: 
 
@@ -67,7 +67,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4419
 
-*Date published: July 6, 2023*
+*Published: July 6, 2023*
 
 In this release, we've made the following changes: 
 
@@ -78,7 +78,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4337 
 
-*Date published: June 13, 2023* 
+*Published: June 13, 2023* 
 
 In this release, we've made the following changes: 
 
@@ -87,7 +87,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4331
 
-*Date published: June 6, 2023*
+*Published: June 6, 2023*
 
 In this release, we've made the following changes:
 
@@ -100,7 +100,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4240 
 
-*Date published: May 16, 2023*
+*Published: May 16, 2023*
 
 In this release, we've made the following changes: 
 
@@ -111,7 +111,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4159
 
-*Date published: May 9, 2023*
+*Published: May 9, 2023*
 
 In this release, we've made the following changes:
 
@@ -127,7 +127,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.2.4066
 
-*Date published: March 28, 2023*
+*Published: March 28, 2023*
 
 In this release, we've made the following changes:
 

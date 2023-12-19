@@ -1,4 +1,4 @@
-items: 
+items:
 - name: Data Factory Documentation
   href: index.yml
 - name: Switch to Data Factory in Microsoft Fabric documentation
@@ -158,7 +158,7 @@ items:
     - name: Azure PowerShell
       href: tutorial-deploy-ssis-packages-azure-powershell.md
     - name: Join virtual network
-      href: tutorial-deploy-ssis-virtual-network.md  
+      href: tutorial-deploy-ssis-virtual-network.md
   - name: Lineage
     items:
     - name: Push Data Factory lineage data to Microsoft Purview
@@ -172,7 +172,7 @@ items:
     - name: Access on premises SQL Server
       href: tutorial-managed-virtual-network-on-premise-sql-server.md
     - name: Access SQL Managed Instance
-      href: tutorial-managed-virtual-network-sql-managed-instance.md 
+      href: tutorial-managed-virtual-network-sql-managed-instance.md
     - name: Move an existing Azure integration runtime to a managed virtual network
       href: tutorial-managed-virtual-network-migrate.md
   - name: Self-hosted integration runtime
@@ -193,7 +193,7 @@ items:
   - name: Pipeline parameters and variables
     href: concepts-parameters-variables.md
   - name: Annotations and user properties
-    href: concepts-annotations-user-properties.md 
+    href: concepts-annotations-user-properties.md
   - name: Nested activities
     href: concepts-nested-activities.md
     displayName: nested, nesting
@@ -271,7 +271,7 @@ items:
             displayName: add, addDays, addMonths, between, currentDate, currentTimestamp, currentUTC, dayOfMonth, dayOfWeek, dayOfYear, days, fromUTC, hour, hours, isDate, isTimestamp, lastDayOfMonth, millisecond, milliseconds, minus, minute, minutes, month, monthsBetween, second, seconds, subDays, subMonths, toDate, toTimestamp, toUTC, weekOfYear, weeks, year, convert, timezone
           - name: Expression functions
             href: data-flow-expression-functions.md
-            displayName: abs, acos, add, and, asin, assertErrorMessages, atan, atan2, between, bitwiseAnd, bitwiseOr, bitwiseXor, blake2b, blake2bBinary, case, cbrt, ceil, coalesce, columnNames, columns, compare, concat, concatWS, cos, cosh, crc32, degrees, divide, dropLeft, dropRight, endsWith, equals, equalsIgnoreCase, escape, expr, factorial, false, floor, fromBase64, greater, greaterOrEqual, greatest, hasColumn, hasError, iif, iifNull, initCap, instr, isDelete, isError, isIgnore, isInsert, isMatch, isNull, isUpdate, isUpsert, jaroWinkler, least, left, length, lesser, lesserOrEqual, levenshtein, like, locate, log, log10, lower, lpad, ltrim, md5, minus, mod, multiply, negate, nextSequence, normalize, not, notEquals, notNull, null, or, pMod, partitionId, power, radians, random, regexExtract, regexMatch, regexReplace, regexSplit, replace, reverse, right, rlike, round, rpad, rtrim, sha1, sha2, sin, sinh, soundex, split, sqrt, startsWith, substring, tan, tanh, translate, trim, true, typeMatch, unescape, upper, uuid, xor   
+            displayName: abs, acos, add, and, asin, assertErrorMessages, atan, atan2, between, bitwiseAnd, bitwiseOr, bitwiseXor, blake2b, blake2bBinary, case, cbrt, ceil, coalesce, columnNames, columns, compare, concat, concatWS, cos, cosh, crc32, degrees, divide, dropLeft, dropRight, endsWith, equals, equalsIgnoreCase, escape, expr, factorial, false, floor, fromBase64, greater, greaterOrEqual, greatest, hasColumn, hasError, iif, iifNull, initCap, instr, isDelete, isError, isIgnore, isInsert, isMatch, isNull, isUpdate, isUpsert, jaroWinkler, least, left, length, lesser, lesserOrEqual, levenshtein, like, locate, log, log10, lower, lpad, ltrim, md5, minus, mod, multiply, negate, nextSequence, normalize, not, notEquals, notNull, null, or, pMod, partitionId, power, radians, random, regexExtract, regexMatch, regexReplace, regexSplit, replace, reverse, right, rlike, round, rpad, rtrim, sha1, sha2, sin, sinh, soundex, split, sqrt, startsWith, substring, tan, tanh, translate, trim, true, typeMatch, unescape, upper, uuid, xor
           - name: Map functions
             href: data-flow-map-functions.md
             displayName: associate, keyValues, mapAssociation, reassociate
@@ -297,7 +297,7 @@ items:
   - name: Change data capture
     items:
     - name: Change data capture
-      href: concepts-change-data-capture.md    
+      href: concepts-change-data-capture.md
     - name: Change data capture resource
       href: concepts-change-data-capture-resource.md
   - name: Roles and permissions
@@ -306,7 +306,7 @@ items:
     href: naming-rules.md
   - name: Data redundancy
     href: concepts-data-redundancy.md
-- name: How-to guides 
+- name: How-to guides
   items:
   - name: Create Data Factory Programmatically
     items:
@@ -362,7 +362,7 @@ items:
         href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
       href: continuous-integration-delivery-improvements.md
-      displayName: CICD, 
+      displayName: CICD,
     - name: Deploy linked ARM templates with VSTS
       href: deploy-linked-arm-templates-with-vsts.md
   - name: Connectors
@@ -373,8 +373,8 @@ items:
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
       href: connector-amazon-rds-for-oracle.md
-    - name: Amazon RDS for SQL Server 
-      href: connector-amazon-rds-for-sql-server.md          
+    - name: Amazon RDS for SQL Server
+      href: connector-amazon-rds-for-sql-server.md
     - name: Amazon Redshift
       href: connector-amazon-redshift.md
     - name: Amazon S3
@@ -384,7 +384,7 @@ items:
     - name: AppFigures
       href: connector-appfigures.md
     - name: Asana
-      href: connector-asana.md     
+      href: connector-asana.md
     - name: Avro format
       href: format-avro.md
     - name: Azure Blob Storage
@@ -467,14 +467,14 @@ items:
       href: connector-ftp.md
     - name: GitHub
       href: connector-github.md
-    - name: Google AdWords
+    - name: Google Ads
       href: connector-google-adwords.md
     - name: Google BigQuery
       href: connector-google-bigquery.md
     - name: Google Cloud Storage
       href: connector-google-cloud-storage.md
     - name: Google Sheets
-      href: connector-google-sheets.md   
+      href: connector-google-sheets.md
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -584,8 +584,8 @@ items:
     - name: SFTP
       href: connector-sftp.md
     - name: SharePoint Online List
-      href: connector-sharepoint-online-list.md     
-      displayName: timeout 
+      href: connector-sharepoint-online-list.md
+      displayName: timeout
     - name: Shopify
       href: connector-shopify.md
     - name: Smartsheet
@@ -698,13 +698,13 @@ items:
     - name: HDInsight Streaming activity
       href: transform-data-using-hadoop-streaming.md
     - name: Machine Learning Execute Pipeline activity
-      href: transform-data-machine-learning-service.md      
+      href: transform-data-machine-learning-service.md
     - name: Machine Learning Studio (classic) Batch Execution activity
       href: transform-data-using-machine-learning.md
     - name: Machine Learning Studio (classic) Update Resource activity
       href: update-machine-learning-models.md
     - name: Mapping data flows
-      href: tutorial-data-flow.md      
+      href: tutorial-data-flow.md
     - name: Stored Procedure activity
       href: transform-data-using-stored-procedure.md
     - name: Script activity
@@ -714,7 +714,7 @@ items:
     - name: Synapse Notebook activity
       href: transform-data-synapse-notebook.md
     - name: Synapse Spark job definition activity
-      href: transform-data-synapse-spark-job-definition.md     
+      href: transform-data-synapse-spark-job-definition.md
   - name: Control flow
     items:
     - name: Append Variable activity
@@ -774,7 +774,7 @@ items:
       href: data-flow-alter-row.md
       displayName: upsert, update, insert, delete
     - name: Assert
-      href: data-flow-assert.md   
+      href: data-flow-assert.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Cast
@@ -843,7 +843,7 @@ items:
       href: control-flow-system-variables.md
     - name: Parameterizing mapping data flows
       href: parameters-data-flow.md
-    - name: How to parameterize 
+    - name: How to parameterize
       href: how-to-expression-language-functions.md
       displayName: formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content, user properties, format date
   - name: Security
@@ -851,7 +851,7 @@ items:
     - name: Data movement security considerations
       href: data-movement-security-considerations.md
     - name: Data access strategies
-      href: data-access-strategies.md        
+      href: data-access-strategies.md
     - name: Azure integration runtime IP addresses
       href: azure-integration-runtime-ip-addresses.md
     - name: Store credentials in Azure Key Vault
@@ -877,7 +877,7 @@ items:
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
   - name: Settings
-    items: 
+    items:
     - name: Manage Azure Data Factory settings and preferences
       href: how-to-manage-settings.md
     - name: Manage Azure Data Factory studio preview experience
@@ -990,7 +990,7 @@ items:
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
       items:
-        - name: Overview      
+        - name: Overview
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Virtual network configuration
           href: azure-ssis-integration-runtime-virtual-network-configuration.md
@@ -1062,7 +1062,7 @@ items:
     - name: Discover and explore data in ADF using Microsoft Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
-    items: 
+    items:
     - name: Send email from a pipeline
       href: how-to-send-email.md
     - name: Send Microsoft Teams notifications from a pipeline
@@ -1137,16 +1137,16 @@ items:
       href: data-flow-understand-reservation-charges.md
     - name: Better understand different integration runtime charges
       href: better-understand-different-integration-runtime-charges.md
-    - name: Plan and manage costs     
-      href: plan-manage-costs.md 
+    - name: Plan and manage costs
+      href: plan-manage-costs.md
       displayName: diu
     - name: FinOps in Azure Data Factory
       href: apply-finops.md
-    - name: Pricing examples     
+    - name: Pricing examples
       items:
       - name: Pricing overview
         href: pricing-concepts.md
-        displayName: diu 
+        displayName: diu
       - name: Copy data from AWS S3 to Azure Blob storage
         href: pricing-examples-s3-to-blob.md
       - name: Copy data and transform with Azure Databricks
@@ -1216,18 +1216,18 @@ items:
         displayName: troubleshooting
       - name: File system
         href: connector-troubleshoot-file-system.md
-        displayName: troubleshooting        
+        displayName: troubleshooting
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting
-      - name: Google AdWords
+      - name: Google Ads
         href: connector-troubleshoot-google-adwords.md          
         displayName: troubleshooting
       - name: Hive
-        href: connector-troubleshoot-hive.md  
+        href: connector-troubleshoot-hive.md
         displayName: troubleshooting
       - name: MongoDB
-        href: connector-troubleshoot-mongodb.md  
+        href: connector-troubleshoot-mongodb.md
         displayName: troubleshooting
       - name: Oracle
         href: connector-troubleshoot-oracle.md
@@ -1253,8 +1253,8 @@ items:
       - name: XML format
         href: connector-troubleshoot-xml.md
         displayName: troubleshooting
-    - name: Pipeline Triggers 
-      href: pipeline-trigger-troubleshoot-guide.md 
+    - name: Pipeline Triggers
+      href: pipeline-trigger-troubleshoot-guide.md
       displayName: orchestration
     - name: Data Flows
       items:
@@ -1264,8 +1264,8 @@ items:
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
         displayName: troubleshooting
-    - name: Continuous Integration and Deployment 
-      href: ci-cd-github-troubleshoot-guide.md      
+    - name: Continuous Integration and Deployment
+      href: ci-cd-github-troubleshoot-guide.md
       displayName: troubleshooting
     - name: Security and access control
       href: security-and-access-control-troubleshoot-guide.md
@@ -1306,7 +1306,7 @@ items:
     - name: Manage the SAP CDC process
       href: sap-change-data-capture-management.md
     - name: Advanced topics
-      href: sap-change-data-capture-advanced-topics.md    
+      href: sap-change-data-capture-advanced-topics.md
       displayName: SAP, change data capture, CDC
 - name: Managed Airflow
   items:
@@ -1324,7 +1324,7 @@ items:
       href: create-managed-airflow-environment.md
     - name: Import Dags using Azure Blob Storage
       href: airflow-import-dags-blob-storage.md
-    - name: Delete Dags 
+    - name: Delete Dags
       href: delete-dags-in-managed-airflow.md
     - name: How to change the Airflow password
       href: password-change-airflow.md
@@ -1338,12 +1338,14 @@ items:
       href: rest-apis-for-airflow-integrated-runtime.md
     - name: Retrieve the IP address of an Airflow cluster
       href: airflow-get-ip-airflow-cluster.md
-    - name: Sync a GitHub repository with Airflow
+    - name: Sync a GitHub repository
       href: airflow-sync-github-repository.md
     - name: Diagnostic logs and metrics
       href: how-to-diagnostic-logs-and-metrics-for-managed-airflow.md
     - name: CI/CD Patterns with Managed Airflow
       href: ci-cd-pattern-with-airflow.md
+    - name: Airflow Configurations
+      href: airflow-configurations.md
   - name: Pricing
     href: airflow-pricing.md
 - name: Reference
@@ -1393,4 +1395,4 @@ items:
     href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
-    
+

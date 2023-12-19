@@ -101,6 +101,9 @@ In addition to data ingestion, there's a charge for the retention of data in eac
 
 For more information on data retention and archiving, including how to configure these settings and access archived data, see [Configure data retention and archive policies in Azure Monitor Logs](data-retention-archive.md).
 
+>[!NOTE]
+>Deleting data from your Log Analytics workspace using the Log Analytics Purge feature doesn't affect your retention costs. To lower retention costs, decrease the retention period for the workspace or for specific tables.
+
 ## Search jobs
 
 Searching against archived logs uses [search jobs](search-jobs.md). Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. Search jobs are billed by the number of GB of data scanned on each day that's accessed to perform the search.
@@ -308,5 +311,4 @@ This query isn't an exact replication of how usage is calculated, but it provide
 - See [Analyze usage in Log Analytics workspace](analyze-usage.md) for details on analyzing the data in your workspace to determine the source of any higher-than-expected usage and opportunities to reduce your amount of data collected.
 - See [Set daily cap on Log Analytics workspace](daily-cap.md) to control your costs by configuring a maximum volume that might be ingested in a workspace each day.
 - See [Azure Monitor best practices - Cost management](../best-practices-cost.md) for best practices on configuring and managing Azure Monitor to minimize your charges.
-
 

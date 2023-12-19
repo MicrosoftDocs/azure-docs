@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 11/01/2021
+ms.date: 12/20/2023
 ---
 
 # Tutorial: Create a chat app with Azure Web PubSub service
 
-In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), you have learned the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial, you learn the event system of Azure Web PubSub so use it to build a complete web application with real-time communication functionality. 
+In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), you learn the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial, you learn the event system of Azure Web PubSub so use it to build a complete web application with real-time communication functionality. 
 
 In this tutorial, you learn how to:
 
@@ -107,7 +107,7 @@ First let's create an empty ASP.NET Core app.
     
 You can test the server by running `dotnet run --urls http://localhost:8080` and access http://localhost:8080/index.html in browser.
 
-You might remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string. This token is then used to connect to the service. This process isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side. Now, client can call this API to request an access token to connect every time without holding the connection string.
+In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. It isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1.  Install dependencies.
 
@@ -150,7 +150,7 @@ You might remember in the [publish and subscribe message tutorial](./tutorial-pu
 
   `AddWebPubSubServiceClient<THub>()` is used to inject the service client `WebPubSubServiceClient<THub>`, with which we can use in negotiation step to generate client connection token and in hub methods to invoke service REST APIs when hub events are triggered.
 
-4.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
+3.  Add a `/negotiate` API to the server inside `app.UseEndpoints` to generate the token.
 
     ```csharp
     app.UseEndpoints(endpoints =>
@@ -173,7 +173,7 @@ You might remember in the [publish and subscribe message tutorial](./tutorial-pu
 
   You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it gives you the full url of the Azure Web PubSub with an access token.
 
-5.  Then update `index.html` to include the following script to get the token from server and connect to service.
+4.  Then update `index.html` to include the following script to get the token from server and connect to service.
  
     ```html
     <html>
@@ -233,7 +233,7 @@ First create an empty express app.
 You can test the server by running `node server` and access http://localhost:8080 in browser.
 
 
-You might remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string. This token is then used to connect to the service. This process isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side. Now, client can call this API to request an access token to connect every time without holding the connection string.
+In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. It isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1.  Install Azure Web PubSub SDK
 
@@ -383,8 +383,7 @@ You can test the server by running the following command under the directory con
 ```console
 mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false
 ```
-
-You might remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string. This token is then used to connect to the service. This process isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side. Now, client can call this API to request an access token to connect (every time) without holding the connection string.
+In [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This isn't safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1. Add Azure Web PubSub SDK dependency into the `dependencies` node of `pom.xml`:
 
@@ -596,31 +595,38 @@ In the above code, we simply print a message to console when a client is connect
 
 ## Set up the event handler
 
-### Expose localhost
+### Handle events from your localhost
 
-Then we need to set the Webhook URL in the service so it can know where to call when there's a new event. But there's a problem that our server is running on localhost so doesn't have an internet accessible endpoint. There are several tools available on the internet to expose localhost to the internet, for example, [ngrok](https://ngrok.com), [loophole](https://loophole.cloud/docs/), or [TunnelRelay](https://github.com/OfficeDev/microsoft-teams-tunnelrelay). Here we use [ngrok](https://ngrok.com/).
+Then we need to set the Webhook URL in the service so it can know where to call when there's a new event. But there's a problem that our server is running on localhost so doesn't have an internet accessible endpoint. 
 
-1.  First download ngrok from https://ngrok.com/download, extract the executable to your local folder or your system bin folder.
-2.  Start ngrok
-    
-    ```bash
-    ngrok http 8080
-    ```
+There are two ways to route the traffic to your localhost, one is to expose localhost to public, another way, and also the recommended way is to use [awps-tunnel](./howto-web-pubsub-tunnel-tool.md) to tunnel the traffic from Web PubSub service through the tool to your local server.
 
-ngrok prints a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet. In the first step, we listen the `/eventhandler` path, so next we'd like the service to send events to `https://<domain-name>.ngrok.io/eventhandler`.
+#### Download and install awps-tunnel
+The tool runs on [Node.js](https://nodejs.org/) version 16 or higher.
+
+```bash
+npm install -g @azure/web-pubsub-tunnel-tool
+```
+
+#### Use the service connection string and run
+```bash
+export WebPubSubConnectionString="<your connection string>"
+awps-tunnel run --hub myHub1 --upstream http://localhost:8080
+```
+
+Now, we need to let your Web PubSub resource know about this Webhook URL. You can set the event handlers either from Azure portal or Azure CLI. 
 
 ### Set event handler
 
-Then we update the service event handler and set the Webhook URL to `https://<domain-name>.ngrok.io/eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
+ When `awps-tunnel` tool is used locally, the URL template set in Web PubSub uses a special format with `tunnel` scheme followed by the path: `tunnel:///eventhandler`. Event handlers can be set from either the portal or the CLI as [described in this article](howto-develop-eventhandler.md#configure-event-handler), here we set it through CLI.
 
 Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az-webpubsub-hub-update) command to create the event handler settings for the chat hub
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
-  > Replace &lt;domain-name&gt; with the name ngrok printed.
 
 ```azurecli-interactive
-az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name "Sample_ChatApp" --event-handler url-template="tunnel:///eventHandler" user-event-pattern="*" system-event="connected"
 ```
 
 After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
@@ -631,7 +637,7 @@ Besides system events like `connected` or `disconnected`, client can also send m
 
 # [C#](#tab/csharp)
 
-Implement the OnMessageReceivedAsync() method in Sample_ChatApp.
+Implement the `OnMessageReceivedAsync()` method in `Sample_ChatApp`.
 
 1. Handle message event.
 

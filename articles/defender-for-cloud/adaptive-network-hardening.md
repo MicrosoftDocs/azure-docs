@@ -136,4 +136,6 @@ To delete an adaptive network hardening rule for your current session:
 
 ## Next steps
 
-- View common question about [adaptive network hardening](faq-defender-for-servers.yml)
+- View common questions about [adaptive network hardening](faq-defender-for-servers.yml#which-ports-are-supported-by-adaptive-network-hardening-)
+
+
