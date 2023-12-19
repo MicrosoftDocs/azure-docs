@@ -112,7 +112,7 @@ When performing evaluation, you can use the original runtime in the flow or chan
 
 ### Update automatic runtime (preview) in flow page
 
-You can operation automatic runtime (preview) in flow page. Here are options you can use:
+You can operate automatic runtime (preview) in flow page. Here are options you can use:
 - Install packages, this triggers the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install.
 - Reset, will delete current runtime and create a new one with the same environment. If you encounter package conflict issue, you can try this option.
 - Edit, will open runtime config page, you can define the VM side and idle time for the runtime.
