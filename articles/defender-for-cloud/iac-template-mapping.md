@@ -41,7 +41,7 @@ To see the mapping between your IaC template and your cloud resources in the [Cl
 
 Alternatively, you can use the built-in template named “Cloud resources provisioned by IaC templates with high severity misconfigurations”.
 
-![IaC Mapping Cloud Security Explorer template.](media/iac-template-mapping/iac-mapping.png)
+![Screenshot of IaC Mapping Cloud Security Explorer template.](media/iac-template-mapping/iac-mapping.png)
 
 > [!NOTE]
 > Please note that mapping between your Infrastructure as Code templates to your cloud resources can take up to 12 hours to appear in the Cloud Security Explorer.
