@@ -15,18 +15,10 @@ items:
     - name: Set up Dev Box with an ARM template
       displayName: Resource Manager
       href: quickstart-configure-dev-box-arm-template.md  
-    - name: Create a dev box
+    - name: Spin up a new dev box
       href: quickstart-create-dev-box.md
-- name: Tutorials
-  expanded: false
-  items:
-    - name: Connect with Remote Desktop App 
-      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
 - name: Concepts
-  expanded: false
-  items:
-  - name: Key concepts
-    href: concept-dev-box-concepts.md
+  href: concept-dev-box-concepts.md
 - name: Configure resources
   expanded: true
   items:
@@ -70,6 +62,13 @@ items:
     href: how-to-configure-azure-compute-gallery.md
   - name: Provision a Custom Image with Azure Image Builder
     href: how-to-customize-devbox-azure-image-builder.md
+- name: Connect to a dev box
+  expanded: false
+  items:
+    - name: Connect with Remote Desktop App 
+      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+    - name: Troubleshoot dev box connectivity issues
+      href: how-to-troubleshoot-repair-dev-box.md
 - name: Authenticate to REST APIs
   href: how-to-authenticate.md
 - name: Install Azure CLI devcenter extension
@@ -78,18 +77,12 @@ items:
   href: how-to-generate-visual-studio-caches.md
 - name: Configure Azure Diagnostic Logs
   href: how-to-configure-dev-box-azure-diagnostic-logs.md
-- name: Troubleshooting and support
-  items:
-    - name: Troubleshoot dev box connectivity issues
-      href: how-to-troubleshoot-repair-dev-box.md
-    - name: Get support for Microsoft Dev Box
-      href: how-to-get-help.md
 - name: Reference
   items:
-    - name: Azure CLI - devcenter
-      href: https://aka.ms/CLI-reference
+    - name: Azure CLI - az devcenter
+      href: /cli/azure/service-page/microsoft%20dev%20box%20and%20azure%20deployment%20environments
     - name: REST API
-      href: https://aka.ms/dev-box/restapidocs
+      href: /rest/api/devcenter/
     - name: Monitoring Microsoft DevCenter data reference
       href: monitor-reference.md  
 - name: Resources
@@ -100,6 +93,8 @@ items:
       href: https://azure.microsoft.com/regions/services/
     - name: FAQ
       href: dev-box-faq.yml
+    - name: Get support for Microsoft Dev Box
+      href: how-to-get-help.md
     - name: Report a problem
       href: https://aka.ms/devbox/report
     - name: Suggest a feature
