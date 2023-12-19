@@ -128,7 +128,7 @@ sections:
       - question: |
          What happens if the OS I use isn't tagged as NVMe support? 
         answer: |         
-          To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image is not supported for NVMe, you'll see an error message that reads: “The selected image isn't supported for NVMe. See supported VM images”.  
+          To launch VMs with an NVMe interface in the Ebsv5 or Ebdsv5 VM families, it's essential to choose one of the supported OS images tagged as NVMe. If your current OS image isn't supported for NVMe, you'll see an error message that reads: “The selected image isn't supported for NVMe. See supported VM images”.  
                     
           :::image type="content" source="./media/enable-nvme/nvme-faq-2.png" alt-text="Screenshot of example of choosing one of the supported OS images on NVMe":::
       - question: |
@@ -138,7 +138,7 @@ sections:
       - question: |
           What are the implications of using a Gen 1 image in Azure?    
         answer: |
-          Using a Gen 2 image is a pre-requisite to enable NVMe interface on the Ebsv5 or Ebdsv5 VM series. If you use a Gen 1 VM image, you'll receive an error message that reads:” The selected image isn't supported for NVMe. See supported VM images”.
+          Using a Gen 2 image is a prerequisite to enable NVMe interface on the Ebsv5 or Ebdsv5 VM series. If you use a Gen 1 VM image, you'll receive an error message that reads:” The selected image isn't supported for NVMe. See supported VM images”.
           
           :::image type="content" source="./media/enable-nvme/nvme-faq-3.png" alt-text="Screenshot of example of choosing one of the supported OS images on NVMe interface for Gen 2.":::
       - question: |
@@ -220,7 +220,7 @@ sections:
       - question: |
           How can I try before purchasing this VM series? Is preview still available?  
         answer: |
-          The preview period for this offer has ended, and it is now generally available for purchase. You can request a quota for one of the available Azure regions to try out the new NVMe Ebsv5 or Ebdsv5 sizes.
+          The preview period for this offer has ended, and it's now generally available for purchase. You can request a quota for one of the available Azure regions to try out the new NVMe Ebsv5 or Ebdsv5 sizes.
   - name: Known Issues
     questions:
       - question: |
