@@ -52,7 +52,7 @@ Model Catalog collections are made available to users using the underlying regis
 
     :::image type="content" source="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png" alt-text="Screenshot of Assign policy parameters tab within Azure Policy home page." lightbox="./media/how-to-regulate-registry-deployments/assign-policy-parameters.png":::
 
-    If no model asset IDs are set in the *Restricted Model AssetIds* parameter during the policy assignment, this policy only allows deploying all models from the model registry specified in *Allowed Registry Name' parameter.
+    If no model asset IDs are set in the *Restricted Model AssetIds* parameter during the policy assignment, this policy only allows deploying all models from the model registry specified in *Allowed Registry Name* parameter.
 
 7. Select **Review + Create** to finalize your policy assignment. The policy assignment takes approximately 15 minutes until it's active for new resources. 
 

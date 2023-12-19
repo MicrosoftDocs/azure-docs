@@ -1,7 +1,7 @@
 ---
 title: View and manage service providers
 description: Customers can view info about Azure Lighthouse service providers, service provider offers, and delegated resources in the Azure portal.
-ms.date: 03/01/2023
+ms.date: 12/18/2023
 ms.topic: how-to
 ---
 
@@ -70,7 +70,7 @@ Delegations represent an association of specific customer resources (subscriptio
 Filters at the top of the page let you sort and group your delegation information. You can also filter by specific service providers, offers, or keywords.
 
 > [!NOTE]
-> When [viewing role assignments for the delegated scope in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs, customers won't see role assignments or any users from the service provider tenant who have access through Azure Lighthouse.
+> When [viewing role assignments for the delegated scope in the Azure portal](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) or via APIs, customers won't see role assignments or any users from the service provider tenant who have access through Azure Lighthouse. Similarly, users in the service provider tenant won't see role assignments for users in a customer's tenant, regardless of the role they've been assigned.
 
 ## Audit and restrict delegations in your environment
 

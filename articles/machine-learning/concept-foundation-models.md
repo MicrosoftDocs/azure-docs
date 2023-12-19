@@ -44,8 +44,8 @@ Thousands of models from the HuggingFace hub are accessible via the 'Hugging Fac
 > Models in model catalog are covered by third party licenses. Understand the license of the models you plan to use and verify that license allows your use case.
 > Some models in the model catalog are currently in preview. 
 > Models are in preview if one or more of the following statements apply to them:  
-> The model is not usable (can be deployed, fine-tuned, and evaluated) within an isolated network.   
-> Model packaging and inference schema is subject to change for newer versions of the model. 
+  * The model is not usable (can be deployed, fine-tuned, and evaluated) within an isolated network.   
+  * Model packaging and inference schema is subject to change for newer versions of the model. 
 > For more information on preview, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
