@@ -201,7 +201,7 @@ sections:
         answer: |
           Launch PowerShell and use the following command: `wmic diskdrive get model,scsilogicalunit`
 
-          :::image type="content" source="./media/enable-nvme/nvme-faq-7.png" alt-text="Screenshot of an example of Powershell command example to launch NVMe on Windows.":::
+          :::image type="content" source="./media/enable-nvme/nvme-faq-7.png" alt-text="Screenshot of an example of PowerShell command example to launch NVMe on Windows.":::
         
           The ASAP attached disks are presented in the guest with model string “Virtual_Disk NVME Premium” and the SCSI Logical Unit will have value portal visible LUN ID incremented by 1.   
           Here's a snapshot of how NVMe disks will be seen in NVMe enabled Windows VM: 
