@@ -66,6 +66,17 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
 
 - For subscriptions that use both Defender CSPM and Defender for Containers plans, free vulnerability assessment is calculated based on free image scans provided via the Defender for Containers plan, as summarized [in the Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
+## CSPM billable resources
+
+The following tables list the billable resources when CSPM is enabled on Azure subscriptions, AWS accounts, and GCP projects.
+
+### Azure subscriptions with “CloudPosture” bundle enabled
+
+| Service | Resource types | Notes |
+|---|---|---|
+| Compute | Microsoft.Compute/virtualMachines<br/>Microsoft.Compute/virtualMachineScaleSets/virtualMachines<br/>Microsoft.ClassicCompute/virtualMachines | Includes : | 
+| Storage | 
+
 ## Azure cloud support
 
 For commercial and national cloud coverage, review [features supported in Azure cloud environments](support-matrix-cloud-environment.md).
