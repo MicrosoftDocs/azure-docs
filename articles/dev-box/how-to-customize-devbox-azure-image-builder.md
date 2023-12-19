@@ -344,7 +344,7 @@ To use VM Image Builder with Azure Compute Gallery, you need to have an existing
    Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup | Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState 
    ```
 
-1. You can also view the provisioning state of your image in the Azure portal. Go to your gallery and view the image definition.
+   You can also view the provisioning state of your image in the Azure portal. Go to your gallery and view the image definition.
 
    :::image type="content" source="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png" alt-text="Screenshot that shows the provisioning state of the customized image version." lightbox="media/how-to-customize-devbox-azure-image-builder/image-version-provisioning-state.png":::
 
