@@ -121,14 +121,18 @@ from azure.ai.documentintelligence import DocumentIntelligenceClient
 endpoint = "<your-endpoint>"
 key = "<your-key>"
 
+
 def analyze_layout():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-    document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+    document_intelligence_client = DocumentIntelligenceClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
 
     poller = document_intelligence_client.begin_analyze_document_from_url(
-            "prebuilt-layout", formUrl)
+        "prebuilt-layout", formUrl
+    )
     result = poller.result()
 
     if any([style.is_handwritten for style in result.styles]):
@@ -138,7 +142,9 @@ def analyze_layout():
 
     for page in result.pages:
         print(f"----Analyzing layout from page #{page.page_number}----")
-        print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
+        print(
+            f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}"
+        )
 
         for line_idx, line in enumerate(page.lines):
             words = get_words(page, line)
@@ -148,7 +154,9 @@ def analyze_layout():
             )
 
             for word in words:
-                print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+                print(
+                    f"......Word '{word.content}' has a confidence of {word.confidence}"
+                )
 
         for selection_mark in page.selection_marks:
             print(
@@ -157,18 +165,29 @@ def analyze_layout():
             )
 
     for table_idx, table in enumerate(result.tables):
-        print(f"Table # {table_idx} has {table.row_count} rows and " f"{table.column_count} columns")
+        print(
+            f"Table # {table_idx} has {table.row_count} rows and "
+            f"{table.column_count} columns"
+        )
         for region in table.bounding_regions:
-            print(f"Table # {table_idx} location on page: {region.page_number} is {region.polygon}")
+            print(
+                f"Table # {table_idx} location on page: {region.page_number} is {region.polygon}"
+            )
         for cell in table.cells:
-            print(f"...Cell[{cell.row_index}][{cell.column_index}] has text '{cell.content}'")
+            print(
+                f"...Cell[{cell.row_index}][{cell.column_index}] has text '{cell.content}'"
+            )
             for region in cell.bounding_regions:
-                print(f"...content on page {region.page_number} is within bounding polygon '{region.polygon}'")
+                print(
+                    f"...content on page {region.page_number} is within bounding polygon '{region.polygon}'"
+                )
 
     print("----------------------------------------")
 
+
 if __name__ == "__main__":
     analyze_layout()
+
 
 ```
 
@@ -332,6 +351,7 @@ from azure.core.credentials import AzureKeyCredential
 endpoint = "<your-endpoint>"
 key = "<your-key>"
 
+
 def analyze_layout():
     # sample document
     formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
@@ -341,7 +361,8 @@ def analyze_layout():
     )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-layout", formUrl)
+        "prebuilt-layout", formUrl
+    )
     result = poller.result()
 
     for idx, style in enumerate(result.styles):
@@ -422,6 +443,7 @@ def analyze_layout():
 if __name__ == "__main__":
     analyze_layout()
 
+
 ```
 
 :::moniker-end
@@ -447,6 +469,7 @@ Analyze and extract common fields from specific document types using a prebuilt 
 :::moniker range="doc-intel-4.0.0"
 
 ```python
+
 # import libraries
 import os
 from azure.ai.formrecognizer import DocumentAnalysisClient
@@ -459,26 +482,33 @@ key = "<your-key>"
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.documentintelligence import DocumentIntelligenceClient
 
-def analyze_invoice()
 
+def analyze_invoice():
     # sample document
 
     invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf"
 
-    document_intelligence_client = DocumentIntelligenceClient(endpoint=endpoint, credential=AzureKeyCredential(key))
+    document_intelligence_client = DocumentIntelligenceClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
 
     poller = document_intelligence_client.begin_analyze_document_from_url(
-            "prebuilt-invoice", invoiceUrl)
+        "prebuilt-invoice", invoiceUrl
+    )
     invoices = poller.result()
 
     for idx, invoice in enumerate(invoices.documents):
         print(f"--------Analyzing invoice #{idx + 1}--------")
         vendor_name = invoice.fields.get("VendorName")
         if vendor_name:
-            print(f"Vendor Name: {vendor_name.get('content')} has confidence: {vendor_name.get('confidence')}")
+            print(
+                f"Vendor Name: {vendor_name.get('content')} has confidence: {vendor_name.get('confidence')}"
+            )
         vendor_address = invoice.fields.get("VendorAddress")
         if vendor_address:
-            print(f"Vendor Address: {vendor_address.get('content')} has confidence: {vendor_address.get('confidence')}")
+            print(
+                f"Vendor Address: {vendor_address.get('content')} has confidence: {vendor_address.get('confidence')}"
+            )
         vendor_address_recipient = invoice.fields.get("VendorAddressRecipient")
         if vendor_address_recipient:
             print(
@@ -486,10 +516,14 @@ def analyze_invoice()
             )
         customer_name = invoice.fields.get("CustomerName")
         if customer_name:
-            print(f"Customer Name: {customer_name.get('content')} has confidence: {customer_name.get('confidence')}")
+            print(
+                f"Customer Name: {customer_name.get('content')} has confidence: {customer_name.get('confidence')}"
+            )
         customer_id = invoice.fields.get("CustomerId")
         if customer_id:
-            print(f"Customer Id: {customer_id.get('content')} has confidence: {customer_id.get('confidence')}")
+            print(
+                f"Customer Id: {customer_id.get('content')} has confidence: {customer_id.get('confidence')}"
+            )
         customer_address = invoice.fields.get("CustomerAddress")
         if customer_address:
             print(
@@ -502,19 +536,29 @@ def analyze_invoice()
             )
         invoice_id = invoice.fields.get("InvoiceId")
         if invoice_id:
-            print(f"Invoice Id: {invoice_id.get('content')} has confidence: {invoice_id.get('confidence')}")
+            print(
+                f"Invoice Id: {invoice_id.get('content')} has confidence: {invoice_id.get('confidence')}"
+            )
         invoice_date = invoice.fields.get("InvoiceDate")
         if invoice_date:
-            print(f"Invoice Date: {invoice_date.get('content')} has confidence: {invoice_date.get('confidence')}")
+            print(
+                f"Invoice Date: {invoice_date.get('content')} has confidence: {invoice_date.get('confidence')}"
+            )
         invoice_total = invoice.fields.get("InvoiceTotal")
         if invoice_total:
-            print(f"Invoice Total: {invoice_total.get('content')} has confidence: {invoice_total.get('confidence')}")
+            print(
+                f"Invoice Total: {invoice_total.get('content')} has confidence: {invoice_total.get('confidence')}"
+            )
         due_date = invoice.fields.get("DueDate")
         if due_date:
-            print(f"Due Date: {due_date.get('content')} has confidence: {due_date.get('confidence')}")
+            print(
+                f"Due Date: {due_date.get('content')} has confidence: {due_date.get('confidence')}"
+            )
         purchase_order = invoice.fields.get("PurchaseOrder")
         if purchase_order:
-            print(f"Purchase Order: {purchase_order.get('content')} has confidence: {purchase_order.get('confidence')}")
+            print(
+                f"Purchase Order: {purchase_order.get('content')} has confidence: {purchase_order.get('confidence')}"
+            )
         billing_address = invoice.fields.get("BillingAddress")
         if billing_address:
             print(
@@ -550,7 +594,9 @@ def analyze_invoice()
                 )
             unit = item.get("valueObject").get("Unit")
             if unit:
-                print(f"......Unit: {unit.get('content')} has confidence: {unit.get('confidence')}")
+                print(
+                    f"......Unit: {unit.get('content')} has confidence: {unit.get('confidence')}"
+                )
             unit_price = item.get("valueObject").get("UnitPrice")
             if unit_price:
                 unit_price_code = (
@@ -568,19 +614,29 @@ def analyze_invoice()
                 )
             item_date = item.get("valueObject").get("Date")
             if item_date:
-                print(f"......Date: {item_date.get('content')} has confidence: {item_date.get('confidence')}")
+                print(
+                    f"......Date: {item_date.get('content')} has confidence: {item_date.get('confidence')}"
+                )
             tax = item.get("valueObject").get("Tax")
             if tax:
-                print(f"......Tax: {tax.get('content')} has confidence: {tax.get('confidence')}")
+                print(
+                    f"......Tax: {tax.get('content')} has confidence: {tax.get('confidence')}"
+                )
             amount = item.get("valueObject").get("Amount")
             if amount:
-                print(f"......Amount: {amount.get('content')} has confidence: {amount.get('confidence')}")
+                print(
+                    f"......Amount: {amount.get('content')} has confidence: {amount.get('confidence')}"
+                )
         subtotal = invoice.fields.get("SubTotal")
         if subtotal:
-            print(f"Subtotal: {subtotal.get('content')} has confidence: {subtotal.get('confidence')}")
+            print(
+                f"Subtotal: {subtotal.get('content')} has confidence: {subtotal.get('confidence')}"
+            )
         total_tax = invoice.fields.get("TotalTax")
         if total_tax:
-            print(f"Total Tax: {total_tax.get('content')} has confidence: {total_tax.get('confidence')}")
+            print(
+                f"Total Tax: {total_tax.get('content')} has confidence: {total_tax.get('confidence')}"
+            )
         previous_unpaid_balance = invoice.fields.get("PreviousUnpaidBalance")
         if previous_unpaid_balance:
             print(
@@ -588,7 +644,9 @@ def analyze_invoice()
             )
         amount_due = invoice.fields.get("AmountDue")
         if amount_due:
-            print(f"Amount Due: {amount_due.get('content')} has confidence: {amount_due.get('confidence')}")
+            print(
+                f"Amount Due: {amount_due.get('content')} has confidence: {amount_due.get('confidence')}"
+            )
         service_start_date = invoice.fields.get("ServiceStartDate")
         if service_start_date:
             print(
@@ -620,8 +678,12 @@ def analyze_invoice()
                 f"Remittance Address Recipient: {remittance_address_recipient.get('content')} has confidence: {remittance_address_recipient.get('confidence')}"
             )
 
+        print("----------------------------------------")
+
+
 if __name__ == "__main__":
     analyze_invoice()
+
 
     ```
 :::moniker-end
@@ -638,10 +700,15 @@ from azure.core.credentials import AzureKeyCredential
 endpoint = "<your-endpoint>"
 key = "<your-key>"
 
+
 def format_bounding_region(bounding_regions):
     if not bounding_regions:
         return "N/A"
-    return ", ".join("Page #{}: {}".format(region.page_number, format_polygon(region.polygon)) for region in bounding_regions)
+    return ", ".join(
+        "Page #{}: {}".format(region.page_number, format_polygon(region.polygon))
+        for region in bounding_regions
+    )
+
 
 def format_polygon(polygon):
     if not polygon:
@@ -658,7 +725,8 @@ def analyze_invoice():
     )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-invoice", invoiceUrl)
+        "prebuilt-invoice", invoiceUrl
+    )
     invoices = poller.result()
 
     for idx, invoice in enumerate(invoices.documents):
@@ -908,10 +976,12 @@ def analyze_invoice():
                 )
             )
 
+        print("----------------------------------------")
+
 if __name__ == "__main__":
     analyze_invoice()
 
-    print("----------------------------------------")
+
 ```
 
 **Run the application**
@@ -952,109 +1022,114 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 
 ```python
 
-    # import libraries
-    import os
-    from azure.ai.formrecognizer import DocumentAnalysisClient
-    from azure.core.credentials import AzureKeyCredential
+# import libraries
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
 
-    # set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-    endpoint = "<your-endpoint>"
-    key = "<your-key>"
+# set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+endpoint = "<your-endpoint>"
+key = "<your-key>"
 
-    def format_polygon(polygon):
-      if not polygon:
-          return "N/A"
-      return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
 
-    def analyze_layout():
-      # sample document
-      formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+def format_polygon(polygon):
+    if not polygon:
+        return "N/A"
+    return ", ".join(["[{}, {}]".format(p.x, p.y) for p in polygon])
 
-      document_analysis_client = DocumentAnalysisClient(
-          endpoint=endpoint, credential=AzureKeyCredential(key)
-      )
 
-      poller = document_analysis_client.begin_analyze_document_from_url(
-              "prebuilt-layout", formUrl)
-      result = poller.result()
+def analyze_layout():
+    # sample document
+    formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
-      for idx, style in enumerate(result.styles):
+    document_analysis_client = DocumentAnalysisClient(
+        endpoint=endpoint, credential=AzureKeyCredential(key)
+    )
+
+    poller = document_analysis_client.begin_analyze_document_from_url(
+        "prebuilt-layout", formUrl
+    )
+    result = poller.result()
+
+    for idx, style in enumerate(result.styles):
         print(
             "Document contains {} content".format(
                 "handwritten" if style.is_handwritten else "no handwritten"
             )
         )
 
-    for page in result.pages:
-        print("----Analyzing layout from page #{}----".format(page.page_number))
+
+for page in result.pages:
+    print("----Analyzing layout from page #{}----".format(page.page_number))
+    print(
+        "Page has width: {} and height: {}, measured with unit: {}".format(
+            page.width, page.height, page.unit
+        )
+    )
+
+    for line_idx, line in enumerate(page.lines):
+        words = line.get_words()
         print(
-            "Page has width: {} and height: {}, measured with unit: {}".format(
-                page.width, page.height, page.unit
+            "...Line # {} has word count {} and text '{}' within bounding polygon '{}'".format(
+                line_idx,
+                len(words),
+                line.content,
+                format_polygon(line.polygon),
             )
         )
 
-        for line_idx, line in enumerate(page.lines):
-            words = line.get_words()
+        for word in words:
             print(
-                "...Line # {} has word count {} and text '{}' within bounding polygon '{}'".format(
-                    line_idx,
-                    len(words),
-                    line.content,
-                    format_polygon(line.polygon),
+                "......Word '{}' has a confidence of {}".format(
+                    word.content, word.confidence
                 )
             )
 
-            for word in words:
-                print(
-                    "......Word '{}' has a confidence of {}".format(
-                        word.content, word.confidence
-                    )
-                )
-
-        for selection_mark in page.selection_marks:
-            print(
-                "...Selection mark is '{}' within bounding polygon '{}' and has a confidence of {}".format(
-                    selection_mark.state,
-                    format_polygon(selection_mark.polygon),
-                    selection_mark.confidence,
-                )
-            )
-
-    for table_idx, table in enumerate(result.tables):
+    for selection_mark in page.selection_marks:
         print(
-            "Table # {} has {} rows and {} columns".format(
-                table_idx, table.row_count, table.column_count
+            "...Selection mark is '{}' within bounding polygon '{}' and has a confidence of {}".format(
+                selection_mark.state,
+                format_polygon(selection_mark.polygon),
+                selection_mark.confidence,
             )
         )
-        for region in table.bounding_regions:
+
+for table_idx, table in enumerate(result.tables):
+    print(
+        "Table # {} has {} rows and {} columns".format(
+            table_idx, table.row_count, table.column_count
+        )
+    )
+    for region in table.bounding_regions:
+        print(
+            "Table # {} location on page: {} is {}".format(
+                table_idx,
+                region.page_number,
+                format_polygon(region.polygon),
+            )
+        )
+    for cell in table.cells:
+        print(
+            "...Cell[{}][{}] has content '{}'".format(
+                cell.row_index,
+                cell.column_index,
+                cell.content,
+            )
+        )
+        for region in cell.bounding_regions:
             print(
-                "Table # {} location on page: {} is {}".format(
-                    table_idx,
+                "...content on page {} is within bounding polygon '{}'".format(
                     region.page_number,
                     format_polygon(region.polygon),
                 )
             )
-        for cell in table.cells:
-            print(
-                "...Cell[{}][{}] has content '{}'".format(
-                    cell.row_index,
-                    cell.column_index,
-                    cell.content,
-                )
-            )
-            for region in cell.bounding_regions:
-                print(
-                    "...content on page {} is within bounding polygon '{}'".format(
-                        region.page_number,
-                        format_polygon(region.polygon),
-                    )
-                )
 
-    print("----------------------------------------")
+print("----------------------------------------")
 
 
 if __name__ == "__main__":
     analyze_layout()
+
 
 ```
 
