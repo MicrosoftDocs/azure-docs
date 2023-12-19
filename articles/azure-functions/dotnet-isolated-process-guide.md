@@ -23,13 +23,13 @@ Use the following links to get started right away building .NET isolated worker 
 |--|--|--| 
 | <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
-To learn specfically about deploying an isolated worker model project to Azure, see [Deploy to Azure Functions](#deploy-to-azure-functions). 
+To learn just about deploying an isolated worker model project to Azure, see [Deploy to Azure Functions](#deploy-to-azure-functions). 
 
 ## Benefits of the isolated worker model
 
 There are two modes in which you can run your .NET class library functions: either [in the same process](functions-dotnet-class-library.md) as the Functions host runtime (_in-process_) or in an isolated worker process. When your .NET functions run in an isolated worker process, you can take advantage of the following benefits: 
 
-+ **Fewer conflicts:** Because your functions run in a separate process, assemblies used in your app won't conflict with different version of the same assemblies used by the host process. 
++ **Fewer conflicts:** Because your functions run in a separate process, assemblies used in your app don't conflict with different version of the same assemblies used by the host process. 
 + **Full control of the process**: You control the start-up of the app, which means that you can manage the configurations used and the middleware started.
 + **Standard dependency injection:** Because you have full control of the process, you can use current .NET behaviors for dependency injection and incorporating middleware into your function app.
 + **.NET version flexibility:** Running outside of the host process means that your functions can on versions of .NET not natively supported by the Functions runtime, including the .NET Framework.  
@@ -67,7 +67,7 @@ The following packages are required to run your .NET functions in an isolated wo
 
 Because .NET isolated worker process functions use different binding types, they require a unique set of binding extension packages. 
 
-You'll find these extension packages under [Microsoft.Azure.Functions.Worker.Extensions](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions).
+You find these extension packages under [Microsoft.Azure.Functions.Worker.Extensions](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions).
 
 ## Start-up and configuration 
 
@@ -82,9 +82,9 @@ This code requires `using Microsoft.Extensions.DependencyInjection;`.
 Before calling `Build()` on the `HostBuilder`, you should:
 
 - Call either `ConfigureFunctionsWebApplication()` if using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
-    If you're writing your application using F#, some trigger and binding extensions require extra configuration here. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] if you plan to use this in your app.
+    If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
 - Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
-    If you are planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+    If you're planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
 
 If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
 
@@ -111,13 +111,13 @@ The [ConfigureFunctionsWorkerDefaults] method is used to add the settings requir
 
 Having access to the host builder pipeline means that you can also set any app-specific configurations during initialization. You can call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add the configurations required by your function app. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
-These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you'll still need to use the [host.json file](functions-host-json.md).   
+These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you still need to use the [host.json file](functions-host-json.md).   
 
 ### Dependency injection
 
 Dependency injection is simplified when compared to .NET in-process functions, which requires you to create a startup class to register services. 
 
-For a .NET isolated process app, you simply use the .NET standard way of call [ConfigureServices] on the host builder and use the extension methods on [IServiceCollection] to inject specific services. 
+For a .NET isolated process app, you use the .NET standard way of call [ConfigureServices] on the host builder and use the extension methods on [IServiceCollection] to inject specific services. 
 
 The following example injects a singleton service dependency:  
  
@@ -184,7 +184,7 @@ namespace MyFunctionApp
 }
 ```
 
-The [`ILogger<T>`][ILogger&lt;T&gt;] in this example was also obtained through dependency injection. It is registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
+The [`ILogger<T>`][ILogger&lt;T&gt;] in this example was also obtained through dependency injection, so it's registered automatically. To learn more about configuration options for logging, see [Logging](#logging).
 
 > [!TIP]
 > The example used a literal string for the name of the client in both `Program.cs` and the function. Consider instead using a shared constant string defined on the function class. For example, you could add `public const string CopyStorageClientName = nameof(_copyContainerClient);` and then reference `BlobCopier.CopyStorageClientName` in both locations. You could similarly define the configuration section name with the function rather than in `Program.cs`.
@@ -207,13 +207,13 @@ The following extension methods on [FunctionContext] make it easier to work with
 | **`GetHttpResponseData`** | Gets the `HttpResponseData` instance when called by an HTTP trigger. |
 |  **`GetInvocationResult`** | Gets an instance of `InvocationResult`, which represents the result of the current function execution. Use the `Value` property to get or set the value as needed. |
 |  **`GetOutputBindings`** | Gets the output binding entries for the current function execution. Each entry in the result of this method is of type `OutputBindingData`. You can use the `Value` property to get or set the value as needed. | 
-|  **`BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be accessed or updated by your middleware. |
+|  **`BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, you can use this method when you have a function with a `BlobInput` input binding that needs to be used by your middleware. |
 
-The following is an example of a middleware implementation that reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution. This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header.
+This is an example of a middleware implementation that reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution:
  
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/StampHttpHeaderMiddleware.cs" id="docsnippet_middleware_example_stampheader" :::
  
-For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
+This middleware checks for the presence of a specific request header(x-correlationId), and when present uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that for stamping the response header. For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
 ## Methods recognized as functions
 
@@ -229,23 +229,23 @@ The `Function` attribute marks the method as a function entry point. The name mu
 
 Here are some of the parameters that you can include as part of a function method signature:
 
-- [Bindings](#bindings), marked as such by decorating the parameters as attributes. The function must contain exactly one trigger parameter.
-- An [execution context object](#execution-context) which provides information about the current invocation.
-- A [cancellation token](#cancellation-tokens) for graceful shutdown.
+- [Bindings](#bindings), which are marked as such by decorating the parameters as attributes. The function must contain exactly one trigger parameter.
+- An [execution context object](#execution-context), which provides information about the current invocation.
+- A [cancellation token](#cancellation-tokens), used for graceful shutdown.
 
 ### Execution context
 
-.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use depenedcy injection. To learn more, see [Logging](#logging). 
+.NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [`ILogger`][ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. You can use this context to obtain an [`ILogger`][ILogger] without having to use dependency injection. To learn more, see [Logging](#logging). 
 
 ### Cancellation tokens
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request has been received:
+Cancellation tokens are supported in .NET functions when running in an isolated worker process. The following example raises an exception when a cancellation request is received:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_throw":::
  
-The following example performs clean-up actions if a cancellation request has been received:
+The following example performs clean-up actions when a cancellation request is received:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/EventHubCancellationToken.cs" id="docsnippet_cancellation_token_cleanup":::
 
@@ -253,7 +253,7 @@ The following example performs clean-up actions if a cancellation request has be
 
 Bindings are defined by using attributes on methods, parameters, and return types. Bindings can provide data as strings, arrays, and serializable types, such as plain old class objects (POCOs). For some binding extensions, you can also [bind to service-specific types](#sdk-types) defined in service SDKs. 
 
-For HTTP triggers, see the [HTTP trigger](#http-trigger) section below.
+For HTTP triggers, see the [HTTP trigger](#http-trigger) section.
 
 For a complete set of reference samples using triggers and bindings with isolated worker process functions, see the [binding extensions reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions). 
 
@@ -277,26 +277,26 @@ The response from an HTTP trigger is always considered an output, so a return va
 
 ### SDK types
 
-For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide additional capability beyond what a serialized string or plain-old CLR object (POCO) can offer. To use the newer types, your project needs to be updated to use newer versions of core dependencies.
+For some service-specific binding types, binding data can be provided using types from service SDKs and frameworks. These provide more capability beyond what a serialized string or plain-old CLR object (POCO) can offer. To use the newer types, your project needs to be updated to use newer versions of core dependencies.
 
 | Dependency | Version requirement |
 |-|-|
 |[Microsoft.Azure.Functions.Worker]| 1.18.0 or later |
 |[Microsoft.Azure.Functions.Worker.Sdk]| 1.13.0 or later |
 
-When testing SDK types locally on your machine, you will also need to use [Azure Functions Core Tools version 4.0.5000 or later](./functions-run-local.md). You can check your current version using the command `func version`.
+When testing SDK types locally on your machine, you also need to use [Azure Functions Core Tools](./functions-run-local.md), version 4.0.5000 or later. You can check your current version using the `func version` command.
 
-Each trigger and binding extension also has its own minimum version requirement, which is described in the extension reference articles. The following service-specific bindings offer additional SDK types:
+Each trigger and binding extension also has its own minimum version requirement, which is described in the extension reference articles. The following service-specific bindings provide SDK types:
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|
 | [Azure Blobs][blob-sdk-types] | **Generally Available** | **Generally Available** | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Queues][queue-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Service Bus][servicebus-sdk-types] | **Generally Available**  | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding does not exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Queues][queue-sdk-types] | **Generally Available** | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Service Bus][servicebus-sdk-types] | **Generally Available**  | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Event Hubs][eventhub-sdk-types] | **Generally Available** | _Input binding doesn't exist_ | _SDK types not recommended.<sup>1</sup>_ | 
 | [Azure Cosmos DB][cosmos-sdk-types] | _SDK types not used<sup>2</sup>_ | **Generally Available**  |  _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Tables][tables-sdk-types] | _Trigger does not exist_ | **Generally Available** |  _SDK types not recommended.<sup>1</sup>_ | 
-| [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding does not exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Tables][tables-sdk-types] | _Trigger doesn't exist_ | **Generally Available** |  _SDK types not recommended.<sup>1</sup>_ | 
+| [Azure Event Grid][eventgrid-sdk-types] | **Generally Available** | _Input binding doesn't exist_ |  _SDK types not recommended.<sup>1</sup>_ | 
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?tabs=isolated-process%2Cextensionv4&pivots=programming-language-csharp#binding-types
@@ -306,7 +306,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 [eventhub-sdk-types]: ./functions-bindings-event-hubs.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 [servicebus-sdk-types]: ./functions-bindings-service-bus.md?tabs=isolated-process%2Cextensionv5&pivots=programming-language-csharp#binding-types
 
-<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for an example of how to do this with dependency injection.
+<sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for a dependency injection example.
 
 <sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
@@ -318,11 +318,11 @@ Each trigger and binding extension also has its own minimum version requirement,
 [HTTP triggers](./functions-bindings-http-webhook-trigger.md) allow a function to be invoked by an HTTP request. There are two different approaches that can be used:
 
 - An [ASP.NET Core integration model](#aspnet-core-integration) that uses concepts familiar to ASP.NET Core developers
-- A [built-in model](#built-in-http-model) which does not require additional dependencies and uses custom types for HTTP requests and responses. This approach is maintained for backward compatibility with previous .NET isolated worker apps.
+- A [built-in model](#built-in-http-model), which doesn't require extra dependencies and uses custom types for HTTP requests and responses. This approach is maintained for backward compatibility with previous .NET isolated worker apps.
 
 ### ASP.NET Core integration
 
-This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. This model isn't available to [apps targeting .NET Framework][supported-versions], which should instead leverage the [built-in model](#built-in-http-model).
+This section shows how to work with the underlying HTTP request and response objects using types from ASP.NET Core including [HttpRequest], [HttpResponse], and [IActionResult]. This model isn't available to [apps targeting .NET Framework][supported-versions], which should instead use the [built-in model](#built-in-http-model).
 
 > [!NOTE]
 > Not all features of ASP.NET Core are exposed by this model. Specifically, the ASP.NET Core middleware pipeline and routing capabilities are not available. ASP.NET Core integration requires you to use updated packages.
@@ -349,7 +349,7 @@ To enable ASP.NET Core integration for HTTP:
     host.Run();
     ```
 
-1. Update any existin HTTP-triggered functions to use the ASP.NET Core types. This example shows the standard `HttpRequest` and an `IActionResult` used for a simple "hello, world" function:
+1. Update any existing HTTP-triggered functions to use the ASP.NET Core types. This example shows the standard `HttpRequest` and an `IActionResult` used for a simple "hello, world" function:
 
     ```csharp
     [Function("HttpFunction")]
@@ -362,7 +362,7 @@ To enable ASP.NET Core integration for HTTP:
 
 ### Built-in HTTP model
 
-In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but is not directly connected to the underlying HTTP listener or the received message. 
+In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but isn't directly connected to the underlying HTTP listener or the received message. 
 
 Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
 
@@ -432,7 +432,7 @@ var host = new HostBuilder()
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net). This replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs), and is recommended because it gives you control over how those logs are emitted. 
+You can configure your isolated process application to emit logs directly [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs), and is recommended because it gives you control over how those logs are emitted. 
 
 #### Install packages
 
@@ -450,7 +450,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights
 
 #### Configure startup
 
-With the packages installe you must call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file, as in this example:
+With the packages installed, you must call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file, as in this example:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -523,7 +523,7 @@ The following snippet shows this configuration in the context of a project file:
 
 ### Placeholders
 
-Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. To use this optimization, you must expliticly enable placeholders using these steps:
+Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. To use this optimization, you must explicitly enable placeholders using these steps:
 
 1. Update your project configuration to use the latest dependency versions, as detailed in the previous section.
 
@@ -533,7 +533,7 @@ Placeholders are a platform capability that improves cold start for apps targeti
     az functionapp config appsettings set -g <groupName> -n <appName> --settings 'WEBSITE_USE_PLACEHOLDER_DOTNETISOLATED=1'
     ```
 
-    In this example, rplace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. 
+    In this example, replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. 
  
 1. Make sure that the [`netFrameworkVersion`](./functions-app-settings.md#netframeworkversion) property of the function app matches your project's target framework, which must be .NET 6 or later. You can do this by using this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
 
@@ -554,13 +554,13 @@ Placeholders are a platform capability that improves cold start for apps targeti
 
 ### Optimized executor 
 
-The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No additional configuration is required.
+The function executor is a component of the platform that causes invocations to run. An optimized version of this component is enabled by default starting with version 1.16.2 of the SDK. No other configuration is required.
 
 ### ReadyToRun
 
 You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
 
-ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from the table below:
+ReadyToRun requires you to build the project against the runtime architecture of the hosting app. **If these are not aligned, your app will encounter an error at startup.** Select your runtime identifier from this table:
 
 |Operating System | App is 32-bit<sup>1</sup> | Runtime identifier |
 |-|-|-|
@@ -594,13 +594,13 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 </PropertyGroup>
 ```
 
-If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publish gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command would be:
+If you don't want to set the `<RuntimeIdentifier>` as part of the project file, you can also configure this as part of the publishing gesture itself. For example, with a Windows 64-bit function app, the .NET CLI command would be:
 
 ```dotnetcli
 dotnet publish --runtime win-x64
 ```
 
-In Visual Studio, the "Target Runtime" option in the publish profile should be set to the correct runtime identifier. If it is set to the default value "Portable", ReadyToRun will not be used.
+In Visual Studio, the **Target Runtime** option in the publish profile should be set to the correct runtime identifier. When set to the default value of **Portable**, ReadyToRun isn't used.
 
 ## Deploy to Azure Functions
 
@@ -653,7 +653,7 @@ When you create your function app in Azure using the methods in the previous sec
 
 ## Debugging
 
-When running locally using Visual Studio or Visual Studio Code, you are able to debug your .NET isolated worker project as normal. However, there are two debugging scenarios that do not work as expected.   
+When running locally using Visual Studio or Visual Studio Code, you're able to debug your .NET isolated worker project as normal. However, there are two debugging scenarios that don't work as expected.   
 
 ### Remote Debugging using Visual Studio
 
@@ -663,7 +663,7 @@ Because your isolated worker process app runs outside the Functions runtime, you
 
 If your isolated project targets .NET Framework 4.8, the current preview scope requires manual steps to enable debugging. These steps aren't required if using another target framework.
 
-Your app should start with a call to `FunctionsDebugger.Enable();` as its first operation. This occurs in the `Main()` method before initializing a HostBuilder. Your `Program.cs` file should look similar to the following:
+Your app should start with a call to `FunctionsDebugger.Enable();` as its first operation. This occurs in the `Main()` method before initializing a HostBuilder. Your `Program.cs` file should look similar to this:
 
 ```csharp
 using System;
@@ -698,7 +698,7 @@ In your project directory (or its build output directory), run:
 func host start --dotnet-isolated-debug
 ```
 
-This will start your worker, and the process will stop with the following message:
+This starts your worker, and the process stops with the following message:
 
 ```azurecli
 Azure Functions .NET Worker (PID: <process id>) initialized in debug mode. Waiting for debugger to attach...
@@ -710,11 +710,11 @@ After the debugger is attached, the process execution resumes, and you'll be abl
 
 ## Preview .NET versions
 
-Before a generally available release, a .NET version might be released in a "Preview" or "Go-live" state. See the [.NET Official Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for details on these states.
+Before a generally available release, a .NET version might be released in a _Preview_ or _Go-live_ state. See the [.NET Official Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) for details on these states.
 
-While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with "Preview" or "Go-live" releases noted in this section.
+While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with Preview or Go-live releases noted in this section.
 
-Azure Functions does not currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
 ### Using a preview .NET SDK
 
@@ -723,7 +723,7 @@ To use Azure Functions with a preview version of .NET, you need to update your p
 1. Installing the relevant .NET SDK version in your development
 1. Changing the `TargetFramework` setting in your `.csproj` file
 
-When deploying to a function app in Azure, you also need to ensure that the framework is made available to the app. To do so on Windows, you can use the following CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as "v8.0".
+When deploying to a function app in Azure, you also need to ensure that the framework is made available to the app. To do so on Windows, you can use the following CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as `v8.0`.
 
 ```azurecli
 az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
@@ -742,8 +742,8 @@ Keep these considerations in mind when using Functions with preview versions of 
 
 + During a preview period, your development environment might have a more recent version of the .NET preview than the hosted service. This can cause your function app to fail when deployed. To address this, you can specify the version of the SDK to use in [`global.json`](/dotnet/core/tools/global-json). 
 
-    1. Run the `dotnet --list-sdks` command and note the preview version you are currently using during local development. 
-    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you are using locally. For example, `dotnet new globaljson --sdk-version dotnet-sdk-8.0.100-preview.7.23376.3 --force` causes the system to use the .NET 8 Preview 7 SDK when building your project.
+    1. Run the `dotnet --list-sdks` command and note the preview version you're currently using during local development. 
+    1. Run the `dotnet new globaljson --sdk-version <SDK_VERSION> --force` command, where `<SDK_VERSION>` is the version you're using locally. For example, `dotnet new globaljson --sdk-version dotnet-sdk-8.0.100-preview.7.23376.3 --force` causes the system to use the .NET 8 Preview 7 SDK when building your project.
 
 > [!NOTE] 
 > Because of the just-in-time loading of preview frameworks, function apps running on Windows can experience increased cold start times when compared against earlier GA versions.
