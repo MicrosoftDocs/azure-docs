@@ -35,9 +35,6 @@ For new users, we would recommend using the automatic runtime  that can be used 
 
 Automatic is the default option for runtime, you can start automatic runtime in runtime dropdown in flow page. 
 
-> [!IMPORTANT]
-> Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 1. Start creates automatic runtime using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the project.
 
