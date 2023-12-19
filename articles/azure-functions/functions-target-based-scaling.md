@@ -10,10 +10,11 @@ ms.service: azure-functions
 
 Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for the following extensions:
 
-- Service Bus queues and topics
-- Storage Queues
-- Event Hubs
-- Azure Cosmos DB
+- [Apache Kafka](#apache-kafka)
+- [Azure Cosmos DB](#azure-cosmos-db)
+- [Azure Event Hubs](#event-hubs)
+- [Azure Queue Storage](#storage-queues)
+- [Azure Service Bus (queue and topics)](#service-bus-queues-and-topics)
 
 Target-based scaling replaces the previous Azure Functions incremental scaling model as the default for these extension types. Incremental scaling added or removed a maximum of one worker at [each new instance rate](event-driven-scaling.md#understanding-scaling-behaviors), with complex decisions for when to scale. In contrast, target-based scaling allows scale up of four instances at a time, and the scaling decision is based on a simple target-based equation:
 
@@ -87,13 +88,7 @@ Target-based scaling introduces faster scaling, and uses defaults for _target ex
 
 ## Supported extensions
 
-The way in which you configure target-based scaling in your host.json file depends on the specific extension type. This section provides the configuration details for the extensions that currently support target-based scaling, which include these extensions:
-
-+ [Apache Kafka](#apache_kafka)
-+ [Azure Cosmos DB](#azure-cosmos-db)
-+ [Azure Event Hubs](#event-hubs)
-+ [Azure Queue Storage](#storage-queues)
-+ [Azure Service Bus](#service-bus-queues-and-topics)
+The way in which you configure target-based scaling in your host.json file depends on the specific extension type. This section provides the configuration details for the extensions that currently support target-based scaling.
 
 ### Service Bus queues and topics
 
