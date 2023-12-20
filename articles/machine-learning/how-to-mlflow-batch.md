@@ -156,7 +156,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
 
 ## Testing out the deployment
 
-For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in multiple type of locations.
+For testing our endpoint, we are going to use a sample of unlabeled data located in this repository and that can be used with the model. Batch endpoints can only process data that is located in the cloud and that is accessible from the Azure Machine Learning workspace. In this example, we are going to upload it to an Azure Machine Learning data store. Particularly, we are going to create a data asset that can be used to invoke the endpoint for scoring. However, notice that batch endpoints accept data that can be placed in various locations.
 
 1. Let's create the data asset first. This data asset consists of a folder with multiple CSV files that we want to process in parallel using batch endpoints. You can skip this step is your data is already registered as a data asset or you want to use a different input type.
 
@@ -196,6 +196,9 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
     > The utility `jq` may not be installed on every installation. You can get installation instructions in [this link](https://stedolan.github.io/jq/download/).
    
     # [Python](#tab/python)
+
+    > [!TIP]
+    > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
    
     [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/heart-classifier-mlflow/mlflow-for-batch-tabular.ipynb?name=start_batch_scoring_job)]
     
