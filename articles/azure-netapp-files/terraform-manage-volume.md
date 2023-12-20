@@ -21,7 +21,7 @@ Although it's not recommended that you modify Terraform-managed resources outsid
 
 Terraform-managed resources store their state in the `terraform.tfstate` located in either Terraform Cloud of the local Terraform module. The state contains all properties of the remote resource relevant to Terraform. When a Terraform-managed resource is modified outside of Terraform, the Terraform state does not match the remote resource's properties. In its attempt to resolve the mismatch, Terraform might destroy and recreate the remote resource, resulting in data loss.  
 
-In Azure NetApp Files, the following features require you to follow the procedure outlined here to update the Terraform-managed resource.  
+The following table displays the properties that correspond to Azure NetApp Files features for which there are specific instructions for updating the Terraform-managed resource.
 
 | Feature | Property |
 | - | - | 
@@ -30,7 +30,16 @@ In Azure NetApp Files, the following features require you to follow the procedur
 
 ## Protect Terraform-managed resources with lifecycle 
 
-To prevent data loss on any Azure resource that includes volatile resources, you should use the [`prevent_destroy` lifecycle argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#prevent_destroy) in storage accounts, key vaults, and Azure NetApp Files volumes to safeguard resources from accidental data loss. 
+To prevent data loss on any Azure resource that includes volatile resources, you should use the [`prevent_destroy` lifecycle argument](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle#prevent_destroy) in the Terraform configuration file. For example:
+
+```
+resource "azure_netapp_volume" "example {
+    lifecycle{
+        prevent_destroy = true
+    }
+
+}
+```
 
 ## Modify a Terraform-managed resource outside of Terraform
 
