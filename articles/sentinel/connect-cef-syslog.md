@@ -23,7 +23,7 @@ Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agen
 >
 > On **February 28th 2023**, we introduced changes to the CommonSecurityLog table schema. Following this change, you might need to review and update custom queries. For more details, see the [recommended actions section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/upcoming-changes-to-the-commonsecuritylog-table/ba-p/3643232) in this blog post. Out-of-the-box content (detections, hunting queries, workbooks, parsers, etc.) has been updated by Microsoft Sentinel.   
 
-Read more about [CEF](connect-cef-ama.md#what-is-cef-collection) and [Syslog](connect-syslog.md#architecture) collection in Microsoft Sentinel. 
+Read more about [CEF](connect-cef-ama.md#what-is-common-event-format-cef) and [Syslog](connect-syslog.md#architecture) collection in Microsoft Sentinel. 
 
 ## Prerequisites
 
