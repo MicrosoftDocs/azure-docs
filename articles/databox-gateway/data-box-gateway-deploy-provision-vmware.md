@@ -81,14 +81,14 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 1. Sign in to the ESXi server via a browser at this URL: `https://<IP address of the ESXi server>`. You need to have administrator privileges to create a virtual machine.
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 1. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image2-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected." lightbox="media/data-box-gateway-deploy-provision-vmware/image2.png":::
 1. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK.
     - The datastore can be either VMFS5 or VMFS6. Databox Gateway has been tested with VMWare with the VMFS5 and VMFS6 Datastore.
     - The datastore must also have enough free space for the OS and data disks.
 1. Right-click and select **Browse Datastore**.
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image3-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the user opening the datastore context menu." lightbox="media/data-box-gateway-deploy-provision-vmware/image3.png":::
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image3-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the user opening the datastore context menu." lightbox="media/data-box-gateway-deploy-provision-vmware/image3.png":::
 1. A **Datastore Browser** window appears.
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image4-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the datastore browser."  lightbox="media/data-box-gateway-deploy-provision-vmware/image4.png":::
    ![Datastore browser](./media/data-box-gateway-deploy-provision-vmware/image4.png)
@@ -140,22 +140,22 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
      ![Customize settings - Add a hard disk](./media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk.png)
 
-     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk-sml.png" alt-text="Screenshot of the Customize Settings region highlighting the Add a new hard disk options."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk.png":::
 
     Scroll down until you see the **New hard disk** and expand it to view the settings. Set the **Virtual Device Node** to **IDE controller 0**.
 
      ![Customize settings - Configure a new hard disk](./media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk.png)
 
-     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-sml.png" alt-text="Screenshot of the Customize Settings region highlighting the Configure a new hard disk options."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk.png":::
 
 17. (Optional) *Perform this step only if you are running VMware ESXi Server 6.7*. On the **Customize settings** page, click **VM options**. Go to **Boot options > Firmware** and change it to **BIOS**. By default, the value is set to EFI. Click **Next**.
 
     ![Customize settings page if running VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi-sml.png" alt-text="Screenshot of the Customize Settings page if the user is running VMware ESXi Server 6.7."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png":::
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi-sml.png" alt-text="Screenshot of the Customize Settings page when the user is running VMware ESXi Server 6.7."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png":::
 
 18. On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Verify that CPU is 4, memory is 8192 MB, network interface is 1 and Hard disk 2 has IDE controller 0. Click **Finish**.
-   
+
     ![Ready to Complete page](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![Ready to Complete page 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
