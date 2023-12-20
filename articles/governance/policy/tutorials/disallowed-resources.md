@@ -118,7 +118,7 @@ the policy assignments or definitions created in this tutorial:
 In this tutorial, you successfully accomplished the following tasks:
 
 > [!div class="checklist"]
-> - Assigned a built-in policy that denies creation of disallowed resource types.
+> - Assigned a built-in policy that denies creation of disallowed resource types
 > - Created an exemption for a subscope
 
 ## Next steps
