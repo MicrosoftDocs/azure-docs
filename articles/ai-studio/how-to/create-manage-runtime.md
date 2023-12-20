@@ -94,7 +94,8 @@ To create a prompt flow runtime in Azure AI Studio:
 ### Update automatic runtime in flow page
 
 You can manage automatic runtime in the flow page. Here are options you can use:
--** Install packages** triggers the `pip install -r requirements.txt` in the flow folder. It takes minutes depends on the packages you install.
+
+- **Install packages** triggers the `pip install -r requirements.txt` in the flow folder. It takes minutes depending on the packages you install.
 - **Reset** deletes the current runtime and creates a new one with the same environment. If you encounter package conflict issue, you can try this option.
 - **Edit** opens the runtime config page where you can define the VM side and idle time for the runtime.
 - **Stop** deletes the current runtime. If there's no active runtime on the underlining compute, the compute resource will also be deleted.
