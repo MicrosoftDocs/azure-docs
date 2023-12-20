@@ -17,7 +17,7 @@ This article describes how to restore backed-up Azure Kubernetes Service (AKS).
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
 >[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup is now in preview.
+>Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## Before you start
 
@@ -110,6 +110,10 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
      If the *Namespace* doesn't exist in the AKS cluster, it gets created. If a conflict occurs during the cluster resources restore, you can skip or patch the conflicting resources.
    
      :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backed-up-namespace-for-migrate.png" alt-text="Screenshot shows the selection of namespace for migration.":::
+
+## Restore in secondary region (preview)
+
+To restore the AKS cluster in the secondary region, [configure Geo redundancy and Cross Region Restore in the Backup vault](azure-kubernetes-service-cluster-backup.md#create-a-backup-vault), and then [trigger restore](tutorial-restore-aks-backups-across-regions.md#restore-in-secondary-region-preview).
 
 ## Next steps
 

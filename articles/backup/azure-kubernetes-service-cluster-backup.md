@@ -17,7 +17,7 @@ This article describes how to configure and back up Azure Kubernetes Service (AK
 You can use Azure Backup to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) by using the Backup extension, which must be installed in the cluster. The Backup vault communicates with the cluster via the Backup extension to perform backup and restore operations.
 
 >[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup is now in preview.
+>Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## Before you start
 
@@ -42,7 +42,7 @@ A Backup vault is a management entity that stores recovery points treated over t
 >[!Note]
 >A Backup vault is a new resource that's used to back up newly supported datasources. A Backup vault is different from a Recovery Services vault.
 
-If you want to use AKS backup to protect your AKS clusters against disaster recovery: 
+If you want to use Azure Backup to protect your AKS clusters from any regional outage: 
 
 1. Set the **Backup Storage Redundancy** parameter as **Globally-Redundant** during vault creation. Once the redundancy for a vault is set, you can't disable.
 
@@ -84,7 +84,7 @@ To create a backup policy:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-period.png" alt-text="Screenshot that shows selection of retention period.":::
 
-   You can also create additional retention rules to store backups that are taken daily or weekly to be stored for a longer duration.
+   You can also create additional retention rules to store backups for a longer duration that are taken daily or weekly.
 
 
    - **Default**: This  rule defines the default retention duration for all the operational tier backups taken. You can only edit this rule and  can’t delete it.
@@ -97,7 +97,10 @@ To create a backup policy:
    You can also define similar rules for the *First successful backup taken every week, month, and year*.
 
    >[!Note]
-   >By using retention rules, you can store the backup data in Operational and Vault-standard datastore or in Operational datastore only. 
+   >- In addition to first successful backup of the day, you can define the retention rules for first successful backup of the week, month, and year. In terms of priority, the order is year, month, week, and day.
+   >- The backups stored in the Vault Tier are also copied in the secondary region (Azure Paired region) which you can use to restore AKS clusters to a secondary region during primary region outage.
+
+
 
 1. When the backup frequency and retention settings are configured, select **Next**.
 

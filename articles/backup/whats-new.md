@@ -83,9 +83,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Vaulted backup and Cross Region Restore for support for AKS (preview)
  
-Azure Backup now supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. in addition, this feature will allow you to back up data for long term with regard to compliance and regulatory requirements. With this new feature, your snapshot-based AKS backups stored in Operational Tier are now converted into blobs and moved to a Vault standard tier outside of your tenant. You can enable/disable this feature by updating the retention rules of your Backup Policy.
+Azure Backup supports storing AKS backups offsite, which is protected against tenant compromise, malicious attacks and ransomware threats. Along with backup stored in a vault, you can also use the backups in a regional disaster scenario and recover backups.
 
-Along with backup stored in a Vault, now you can also use the backups in a regional disaster scenario and recover backups. You can now enable a Backup Vault to be Globally redundant with Cross region restore and then your vaulted backups will be available in an Azure Paired region for restore. In case of a regional outage, you can use these backups to restore your AKS clusters in a secondary region.
+Once the feature is enabled, your snapshot-based AKS backups stored in Operational Tier are converted into blobs and moved to a Vault-standard tier outside of your tenant. You can enable/disable this feature by updating the retention rules of your backup policy. This feature also allows you to back up data for long term storage as per the compliance and regulatory requirements. With this feature, you can also enable a Backup vault to be *Globally redundant* with *Cross Region Restore*, and then your vaulted backups will be available in an Azure Paired region for restore. In case of primary region outage, you can use these backups to restore your AKS clusters in a secondary region.
 
 For more information, see [Overview of AKS backup](azure-kubernetes-service-backup-overview.md).
 

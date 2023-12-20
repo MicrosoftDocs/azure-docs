@@ -16,7 +16,7 @@ ms.author: v-abhmallick
 You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernetes Service (AKS). This article summarizes region availability, supported scenarios, and limitations.
 
 >[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup is now in preview.
+>Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## Supported regions
 
@@ -68,12 +68,15 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
   | Number of on-demand backups allowed in a day per backup instance | 10 |
   | Number of allowed restores per backup instance in a day | 10 |
 
-- Disaster Recovery  Feature is only available between Azure Paired Region (if backup is configured in a Geo Redundant Backup Vault), the backup data will only be available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup Vault, the backup data will also be available in West US for restore.
+### Additional limitations for Vaulted backup and Cross Region Restore (preview)
 
-- Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; otherwise, they will be skipped in the backup data. 
+- Only Azure Disk with Persistent Volumes of size <= 1 TB are eligible to be moved to the Vault Tier; otherwise, they are skipped in the backup data. 
 
-- Only one scheduled recovery point will be available in Vault Tier per day that is providing an RPO of 24 hours. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours. 
-•	During restore from Vault Tier, the provided staging location should not have a Read/Delete Lock; otherwise, hydrated resources will not be cleaned after restore. 
+- *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault, the backup data is also available in West US for restore.
+
+- Only one scheduled recovery point is available in Vault Tier per day that is providing an RPO of 24 hours. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours.
+
+- During restore from Vault Tier, the provided staging location shouldn't have a *Read*/*Delete Lock*; otherwise, hydrated resources aren't cleaned after restore. 
 
 ## Next steps
 
