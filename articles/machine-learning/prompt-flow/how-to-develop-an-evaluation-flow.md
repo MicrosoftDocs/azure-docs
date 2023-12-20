@@ -11,7 +11,7 @@ ms.topic: how-to
 author: ZikeiWong
 ms.author: ziqiwang
 ms.reviewer: lagayhar
-ms.date: 11/02/2023
+ms.date: 12/19/2023
 ---
 
 # Customize evaluation flow and metrics
@@ -68,7 +68,7 @@ Then this description is displayed to when using this evaluation method in batch
 
 The outputs of an evaluation are the results that measure the performance of the flow being tested. The output usually contains metrics such as scores, and may also include text for reasoning and suggestions.
 
-#### Evaluation outputs—Instance-level scores
+#### Evaluation outputs—instance-level scores
 
 In prompt flow, the flow processes one row of data at a time and generates an output record. Similarly, in most evaluation cases, there is a score for each output, allowing you to check how the flow performs on each individual data.
 
@@ -161,35 +161,35 @@ Then you need to log the metrics with `promptflow.logmetrics()` function. You ca
 ## Use a customized evaluation flow
 After the creation of your own evaluation flow and metrics, you can then use this flow to assess the performance of your standard flow. 
 
-First, start from the flow authoring page that you want to evaluate on. For example, a QnA flow that you yet knowing how it performs on a large dataset and want to test with. Click `Evaluate` button and choose `Custom evaluation`.
+1. First, start from the flow authoring page that you want to evaluate on. For example, a QnA flow that you yet knowing how it performs on a large dataset and want to test with. Click `Evaluate` button and choose `Custom evaluation`.
+    
+    :::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluate-button.png" alt-text="Screenshot of evaluation button." lightbox = "./media/how-to-develop-an-evaluation-flow/evaluate-button.png":::
+    
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluate-button.png" alt-text="Screenshot of evaluation button." lightbox = "./media/how-to-develop-an-evaluation-flow/evaluate-button.png":::
+2. Then, similar to the steps of submit a batch run as mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md#submit-batch-run-and-evaluate-a-flow), follow the first few steps to prepare the dataset to run the flow. 
 
+3. Then in the `Evaluation settings - Select evaluation` step, along with the built-in evaluations, the customized evaluations are also available for selection. This lists all your evaluation flows in your flow list that you created, cloned, or customized. **Evaluation flows created by others in the same project will not show up in this section.** 
 
-Then, similar to the steps of submit a batch run as mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md#submit-batch-run-and-evaluate-a-flow), follow the first few steps to prepare the dataset to run the flow. 
-
-Then in the `Evaluation settings - Select evaluation` step, along with the built-in evaluations, the customized evaluations are also available for selection. This lists all your evaluation flows in your flow list that you created, cloned, or customized. **Evaluation flows created by others in the same project will not show up in this section.** 
-
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/select-customized-evaluation.png" alt-text="Screenshot of selecting customized evaluation." lightbox = "./media/how-to-develop-an-evaluation-flow/select-customized-evaluation.png":::
-
-
-Next in the `Evaluation settings - Configure evaluation` step, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. 
+    :::image type="content" source="./media/how-to-develop-an-evaluation-flow/select-customized-evaluation.png" alt-text="Screenshot of selecting customized evaluation." lightbox = "./media/how-to-develop-an-evaluation-flow/select-customized-evaluation.png":::
 
 
-To run an evaluation, you can indicate the sources of these required inputs in **"input mapping"** section when submitting an evaluation. This process is same as the configuration mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md#submit-batch-run-and-evaluate-a-flow).
-
-- If the data source is from your run output, the source is indicated as `${run.output.[OutputName]}`
-- If the data source is from your test dataset, the source is indicated as `${data.[ColumnName]}`
+4. Next in the `Evaluation settings - Configure evaluation` step, you need to specify the sources of the input data that are needed for the evaluation method. For example, ground truth column might come from a dataset. 
 
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png":::
+    To run an evaluation, you can indicate the sources of these required inputs in **"input mapping"** section when submitting an evaluation. This process is same as the configuration mentioned in [Submit batch run and evaluate a flow in prompt flow](how-to-bulk-test-evaluate-flow.md#submit-batch-run-and-evaluate-a-flow).
+    
+    - If the data source is from your run output, the source is indicated as `${run.output.[OutputName]}`
+    - If the data source is from your test dataset, the source is indicated as `${data.[ColumnName]}`
+    
 
-> [!NOTE]
-> If your evaluation doesn't require data from the dataset, you do not need to reference any dataset columns in the input mapping section, indicating the dataset selection is an optional configuration. Dataset selection won't affect evaluation result.
+    :::image type="content" source="./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png" alt-text="Screenshot of evaluation input mapping." lightbox = "./media/how-to-develop-an-evaluation-flow/bulk-test-evaluation-input-mapping.png":::
+    
+    > [!NOTE]
+    > If your evaluation doesn't require data from the dataset, you do not need to reference any dataset columns in the input mapping section, indicating the dataset selection is an optional configuration. Dataset selection won't affect evaluation result.
 
-When this evaluation method is used to evaluate another flow, the instance-level score can be viewed in the **Overview ->Output** tab.
+5. When this evaluation method is used to evaluate another flow, the instance-level score can be viewed in the **Overview ->Output** tab.
 
-:::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png" alt-text="Screenshot of the output tab with evaluation result appended and highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png":::
+    :::image type="content" source="./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png" alt-text="Screenshot of the output tab with evaluation result appended and highlighted. " lightbox = "./media/how-to-develop-an-evaluation-flow/evaluation-output-bulk.png":::
 
 ## Next steps
 
