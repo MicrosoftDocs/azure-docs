@@ -32,9 +32,9 @@ In prompt flow, a flow is a sequence of nodes that process an input and generate
 
 Some special features of evaluation flows are:
 
-1. They usually run after the run to be tested by receiving its outputs. It uses the outputs to calculate the scores and metrics. The outputs of an evaluation flow are the results that measure the performance of the flow being tested. 
-1. They may have an aggregation node that calculates the overall performance of the flow being tested over the test dataset.
-1. They can log metrics using `log_metric()` function.
+- They usually run after the run to be tested by receiving its outputs. It uses the outputs to calculate the scores and metrics. The outputs of an evaluation flow are the results that measure the performance of the flow being tested. 
+- They may have an aggregation node that calculates the overall performance of the flow being tested over the test dataset.
+- They can log metrics using `log_metric()` function.
 
 We'll introduce how the inputs and outputs should be defined in developing evaluation methods.
 
@@ -120,7 +120,7 @@ There are two ways to develop your own evaluation methods:
 
 ### Calculate scores for each data
 
-As mentioned, evaluation is run to calculate scores and metrics based a flow that run on a dataset. Therefore, the first step in evaluation flows are calculating scores for each individual output. 
+As mentioned, evaluation is run to calculate scores and metrics based a flow that run on a dataset. Therefore, the first step in evaluation flows is calculating scores for each individual output. 
 
 Take the built-in evaluation flow `Classification Accuracy Evaluation` as an example, the score `grade`, which measures the accuracy of each flow-generated output to its corresponding ground truth, is calculated in `grade` node. If you create an evaluation flow and edit from scratch when creating by type, this score is calculated in `line_process` node in the template. You can also replace the `line_process` python node with an LLM node to use LLM to calculate the score, or use multiple nodes to perform the calculation.
 
