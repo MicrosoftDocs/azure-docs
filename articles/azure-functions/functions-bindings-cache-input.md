@@ -26,11 +26,24 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
+More samples for the Azure SQL input binding are available in the GitHub repository.
+<!-- link to redis samples -->
+
+This section contains the following examples:
+<!-- list of samples -->
+
+The examples refer to a 
+<!-- fill in the details superficially. -->
+
 # [In-process](#tab/in-process)
 
 <!--Content and samples from the C# tab in ##Examples go here.-->
+Not available in preview.
 
 # [Isolated process](#tab/isolated-process)
+
+Not available in preview.
+
 
 <!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:
 
@@ -42,20 +55,80 @@ For information on setup and configuration details, see the [overview](functions
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
+Not available in preview.
+
 <!--Content and samples from the Java tab in ##Examples go here.-->
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+Not available in preview.
+
+Not available in preview.
 
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
+Not available in preview.
+
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
+
+This section contains the following examples:
+
+- Sample 1
+- Sample 2
+
+### Sample 1
+
+Sample 1 refers to trigger-redislist:
+
+The following is sample Python code:
+
+The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
+
+Here's the `__init__.py` file:
+
+```python
+import logging
+
+def main(entry: str):
+    logging.info(entry)
+```
+
+From `function.json`, here's the binding data:
+
+```json
+{
+  "bindings": [
+    {
+      "type": "redisListTrigger",
+      "listPopFromBeginning": true,
+      "connectionStringSetting": "redisLocalhost",
+      "key": "listTest",
+      "pollingIntervalInMs": 1000,
+      "messagesPerWorker": 100,
+      "count": 10,
+      "name": "entry",
+      "direction": "in"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
+```
+
+
+The [configuration](#configuration) section explains these properties.
+
+The following is sample Python code:
+
+
+### Sample 2
+Sample 2 refers to:
 
 <!--Content and samples from the Python tab in ##Examples go here.-->
 
@@ -95,10 +168,24 @@ The attribute's constructor takes the following parameters:
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file. 
-<!-- this get more complex when you support the Python v2 model. -->
+### [v1](#tab/python-v1)
+
+The following table explains the binding configuration properties that you set in the function.json file.
+
+| function.json Property | Description                                                                                                                                                 | Optional | Default |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
+| `type`                 | Name of the trigger.                                                                                                                                        | No       |         |
+| `listPopFromBeginning` | Whether to delete the stream entries after the function has run. Set to `true`.                                                                             | Yes      | `true`  |
+| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` | No       |         |
+| `key`                  | This field can be resolved using `INameResolver`.                                                                                                           | No       |         |
+| `pollingIntervalInMs`  | How often to poll Redis in milliseconds.                                                                                                                    | Yes      | `1000`  |
+| `messagesPerWorker`    | How many messages each functions instance should process. Used to determine how many instances the function should scale to.                                | Yes      | `100`   |
+| `count`                | Number of entries to read from the cache at one time. These are processed in parallel.                                                                      | Yes      | `10`    |
+| `name`                 | ?                                                                                                                                                           | Yes      |         |
+| `direction`            | Set to `in`.                                                                                                                                                | No       |         |
 
 <!-- suggestion 
 
@@ -108,6 +195,14 @@ The following table explains the binding configuration properties that you set i
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code for the parameter that receives the event data. |
 -->
+
+### [v2](#tab/python-v2)
+
+<!-- this get more complex when you support the Python v2 model. -->
+
+The Python v2 programming model example isn't available in preview.
+
+---
 
 ::: zone-end  
 
