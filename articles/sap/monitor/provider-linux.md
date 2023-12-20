@@ -37,7 +37,7 @@ For example - https://github.com/prometheus/node_exporter/releases/download/v1.6
 
 1. Run `./node_exporter --web.listen-address=":9100" &`
 
-1. The node exporter now starts collecting data. You can export the data at `http://IP:9100/metrics`.
+1. The node exporter now starts collecting data. You can export the data at `http://<ip>:9100/metrics`.
 
 ## Script to set up the node exporter
 
@@ -52,18 +52,42 @@ cd node_exporter-<xxx>linux-amd64
 nohup ./node_exporter --web.listen-address=":9100" &
 ```
 
-### Set up a cron job to start node exporter on a VM restart
+### Set up a systemctl service to start node exporter on a Virtual Machine restart
 
-1. If the target VM is restarted or stopped, node exporter is also stopped. It must be manually started again to continue monitoring.
-1. Run the `sudo crontab -e` command to open a cron file.
-1. Add the command `@reboot cd <"add path of node exporter"> && nohup ./node_exporter &` at the end of cron file. This starts node exporter on VM reboot.
+1. If the target VM is restarted or stopped, node exporter service is stopped. It must be manually started again to continue monitoring.
+1. Run the below commands to enable node exporter to run as a service.
+Note - Replace this 'xxxx' with the version of node exporter for example - 1.6.1
+
 
     ```shell
-    # If you do not have a crontab file already, create one by running the command: sudo crontab -e
-    sudo crontab -l > crontab_new
-    echo "@reboot cd <"add path of node exporter"> && nohup ./node_exporter &" >> crontab_new
-    sudo crontab crontab_new
-    sudo rm crontab_new
+    # Change to the directory where node exporter bits are downloaded and copy the node_exporter folder to path /usr/bin
+    sudo mv node_exporter-<xxxx>.linux-amd64 /usr/bin
+    # Create a node_exporter as a service file under etc/systemd/system
+    sudo tee /etc/systemd/system/node_exporter.service<<EOF
+    [Unit]
+    Description=Node Exporter
+    After=network.target
+    [Service]
+    Type=simple
+    Restart=always
+    ExecStart=/usr/bin/node_exporter-<xxxx>.linux-amd64/node_exporter $ARGS
+    ExecReload=/bin/kill -HUP $MAINPID
+    [Install]
+    WantedBy=multi-user.target
+    EOF
+    # Reload the system daemon and start the node exporter service.
+
+    sudo systemctl daemon-reload
+    sudo systemctl start node_exporter
+    sudo systemctl enable node_exporter
+
+    # Check the status of node exporter if it is running in active(running) state.
+    sudo systemctl status node_exporter
+
+    # To test the node exporter running as a service
+    # NOTE - Downtime impacts the Business application running on VM
+    # Crash/Re-start the Virtual Machine, login back into VM and check node exporter status to be active(running)
+    sudo systemctl status node_exporter
     ```
 
 ## Prerequisites to enable secure communication
