@@ -41,7 +41,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
 
-The mount is created with the `nofail` option to ensure that the boot will continue even if the mount is not completed successfully.
+The mount is created with the `nofail` option to ensure that the boot process continues even if the mount is not completed successfully.
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -86,7 +86,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
 
-Once the file has been generated, append a line to the `/etc/systemd/system.conf` file with following contents:
+Next, append a line to the `/etc/systemd/system.conf` file with following content:
 
 ```config
 DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"
@@ -124,7 +124,7 @@ Filename                Type        Size    Used    Priority
 
 ## Next steps
 
-For additional cloud-init examples of configuration changes, see the following:
+For more cloud-init examples of configuration changes, see the following:
 
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)
 - [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md)
