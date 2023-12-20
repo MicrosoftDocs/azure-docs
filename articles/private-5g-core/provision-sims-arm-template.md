@@ -64,7 +64,7 @@ Each IP address must come from the pool you assigned for static IP address alloc
 
 Use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to create one or more JSON arrays containing properties for up to 1000 of the SIMs you want to provision. The following is an example of an array containing properties for two SIMs (`SIM1` and `SIM2`).
 
-If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicyId` and/or `staticIpConfiguration` parameters.
+If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicy` and/or `staticIpConfiguration` parameters.
 
 > [!IMPORTANT]
 > Bulk SIM provisioning is limited to 1000 SIMs. If you want to provision more that 1000 SIMs, you must create multiple SIM arrays with no more than 1000 SIMs in any one array and repeat the provisioning process for each SIM array.

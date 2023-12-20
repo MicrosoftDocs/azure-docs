@@ -27,7 +27,7 @@ zone_pivot_groups: ap5gc-portal-powershell
 
   - Importing one or more JSON files containing values for up to 1000 SIM resources each. This option is best if you're provisioning a large number of SIMs. You'll need a good JSON editor if you want to use this option.
   
-  - Importing an encrypted JSON file containing values for one or more vendor provided SIM resources. This option is required for any vendor provided SIMs. You'll need a good JSON editor if you want to edit any fields within the encrypted JSON file when using this option.
+  - Importing an encrypted JSON file containing values for one or more SIM resources provided by select partner vendors. This option is required for any vendor-provided SIMs. You'll need a good JSON editor if you want to edit any fields within the encrypted JSON file when using this option.
 
 - Decide on the SIM group to which you want to add your SIMs. You can create a new SIM group when provisioning your SIMs, or you can choose an existing SIM group. See [Manage SIM groups - Azure portal](manage-sim-groups.md) for information on viewing your existing SIM groups.
 
@@ -125,7 +125,7 @@ If you are creating plaintext SIMs, use the following example. It contains the p
 
 ### Encrypted SIMs
 
-If you are editing an encrypted JSON file provided by a SIM vendor, use the following example. If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicyId` and/or `staticIpConfiguration` parameters.
+If you are editing an encrypted JSON file provided by a partner SIM vendor, use the following example. If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicy` and/or `staticIpConfiguration` parameters.
 
 ```json
 {
