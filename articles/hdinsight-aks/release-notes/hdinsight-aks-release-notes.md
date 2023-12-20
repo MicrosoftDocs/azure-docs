@@ -14,13 +14,6 @@ This article provides information about the **most recent**- Azure HDInsight on 
 
 Azure HDInsight on AKS is a new version of HDInsight, which runs on Kubernetes and brings in the best of the open source on Kubernetes. It's gaining popularity among enterprise customers for open-source analytics on Azure Kubernetes Services.
 
-## Release date: October 10, 2023
-
-**This release applies to the following**
-
-- Cluster Pool Version: 1.0
-- Cluster Version: 1.0.6
-
 > [!NOTE]
 > To understand about HDInsight on AKS versioning and support, refer to the **[versioning page](../versions.md)**.
 
@@ -28,6 +21,22 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ## Release Information
 
+### Release date: December 13, 2023
+
+**This hotfix release applies to the following**
+
+- Cluster Pool Version: 1.0
+- Cluster Version: 1.0.6
+
+#### Known Issue
+
+- **Secure Tenants User Interface Support**
+  -   This release addresses an issue where the open source component web URLs for HDInsight on AKS Clusters were inaccessible.
+ 
+  **How to apply the Hotfix**
+  -  Recreate Your Cluster
+    -  To apply this hotfix, existing users are required to recreate their [cluster](../quickstart-create-cluster.md) on an existing cluster pool. 
+ 
 ### Operating System version
 
 - Mariner OS 2.0
