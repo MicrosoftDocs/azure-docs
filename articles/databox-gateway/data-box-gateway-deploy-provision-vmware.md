@@ -81,7 +81,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 1. Sign in to the ESXi server via a browser at this URL: `https://<IP address of the ESXi server>`. You need to have administrator privileges to create a virtual machine.
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 1. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image2-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected." lightbox="media/data-box-gateway-deploy-provision-vmware/image2.png":::
 1. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK.
