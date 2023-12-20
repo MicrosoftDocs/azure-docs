@@ -15,7 +15,7 @@ ms.author: jodowns
 
 Each Front Door profile has a *composite route limit*.
 
-Your Front Door profile's composite route metric is derived from the number of routes, as well as the front end domains, protocols, and paths associated with that route.
+Your Front Door profile's composite route metric is derived from the number of routes, and the front end domains, protocols, and paths associated with that route.
 
 The composite route metric for each Front Door profile can't exceed 5000.
 
@@ -38,7 +38,7 @@ The composite limit of a profile is the sum of the composite routes and the comp
 
 ### Composite route overrides calculation
 
-The composite route overrides metric is similar to the composite route metrics, but instead of multiplying the number of domains by the number of paths, you multiply the number of domains by the number of route overrides present in the list of rules for the route.
+The composite route overrides metric is a variation of the composite route metrics, where the number of domains is multiplied by the number of route overrides instead of the number of paths. The list of rules for each route determines the route overrides.
 
 1. Select a route from your profile. Let **n** be the number of route overrides present in the list of rules for this route.
     1. Multiply the number of HTTP domains by **n**.
@@ -46,13 +46,13 @@ The composite route overrides metric is similar to the composite route metrics, 
     1. Add the results of steps 1a and 1b together to give the composite override route metric for this individual route.
 1. Repeat these steps for each route in your profile.
 
-Add together all of the composite route and route override metrics for each route. This is your profile's composite limit.
+Add together all of the composite route and route override metrics for each route. This number is your profile's composite limit.
 
 ### Example
 
 Suppose you have two routes in your Front Door profile. The routes are named *Route 1* and *Route 2*. You plan to configure the routes as follows:
-* *Route 1* will have 50 domains associated to it, and requires HTTPS for all inbound requests. *Route 1* specifies 80 paths. *Route 1* also has 2 route overrides, which specify 2 additional paths.
-* *Route 2* will have 25 domains associated to it. *Route 2* specifies 25 paths, and supports both the HTTP and HTTPS protocols. *Route 2* also has 1 route override, which specifies 1 additional path.
+* *Route 1* has 50 domains associated to it, and requires HTTPS for all inbound requests. *Route 1* specifies 80 paths. *Route 1* also has two route overrides, which specify two extra paths.
+* *Route 2* has 25 domains associated to it. *Route 2* specifies 25 paths, and supports both the HTTP and HTTPS protocols. *Route 2* also has one route override, which specifies one extra path.
 
 The following calculation illustrates how to determine the composite route metric for this scenario:
 
