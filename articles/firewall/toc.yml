@@ -81,12 +81,16 @@ items:
         href: fqdn-tags.md
       - name: Service tags
         href: service-tags.md
-    - name: Logs
+    - name: Logs and metrics
       items:
       - name: Structured Firewall Logs
         href: firewall-structured-logs.md
-      - name: Logs and metrics
+      - name: Logs and metrics overview
         href: logs-and-metrics.md
+      - name: Metrics and alerts
+        href: metrics.md
+      - name: Diagnostic logs (legacy)
+        href: diagnostic-logs.md
     - name: Policy
       items:
       - name: Policy rule sets
@@ -131,6 +135,8 @@ items:
       href: firewall-multi-hub-spoke.md
     - name: Azure Firewall with Microsoft Sentinel
       href: firewall-sentinel-overview.md
+    - name: Best practices for performance
+      href: firewall-best-practices.md
 - name: How-to guides
   items:
   - name: Deploy

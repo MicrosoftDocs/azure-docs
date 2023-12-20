@@ -2,7 +2,7 @@
 title: 'Speech to text with Azure OpenAI Service'
 titleSuffix: Azure OpenAI
 description: Use the Azure OpenAI Whisper model for speech to text.
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: quickstart
@@ -10,6 +10,7 @@ author: eric-urban
 ms.author: eur
 ms.date: 09/15/2023
 recommendations: false
+zone_pivot_groups: openai-whisper
 ---
 
 # Quickstart: Speech to text with the Azure OpenAI Whisper model
@@ -76,8 +77,17 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 ---
 
 
+::: zone pivot="rest-api"
+
 [!INCLUDE [REST API quickstart](includes/whisper-rest.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell quickstart](includes/whisper-powershell.md)]
+
+::: zone-end
 
 ## Clean up resources
 

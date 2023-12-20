@@ -45,7 +45,7 @@ ms.custom: devx-track-csharp
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Microsoft Entra ID</li><li>Federation - Identity Server</li></ul><p>Consider using a standard authentication mechanism to identify the source process</p>|
+| Details | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which might be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Microsoft Entra ID</li><li>Federation - Identity Server</li></ul><p>Consider using a standard authentication mechanism to identify the source process</p>|
 
 ## <a id="handle-failed-authn"></a>Applications must handle failed authentication scenarios securely
 
@@ -100,7 +100,7 @@ ms.custom: devx-track-csharp
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Password and account policy in compliance with organizational policy and best practices should be implemented.</p><p>To defend against brute-force and dictionary based guessing: Strong password policy must be implemented to ensure that users create complex password (e.g., 12 characters minimum length, alphanumeric and special characters).</p><p>Account lockout policies may be implemented in the following manner:</p><ul><li>**Soft lock-out:** This can be a good option for protecting your users against brute force attacks. For example, whenever the user enters a wrong password three times the application could lock down the account for a minute in order to slow down the process of brute forcing their password making it less profitable for the attacker to proceed. If you were to implement hard lock-out countermeasures for this example you would achieve a "DoS" by permanently locking out accounts. Alternatively, application may generate an OTP (One Time Password) and send it out-of-band (through email, sms etc.) to the user. Another approach may be to implement CAPTCHA after a threshold number of failed attempts is reached.</li><li>**Hard lock-out:** This type of lockout should be applied whenever you detect a user attacking your application and counter them by means of permanently locking out their account until a response team had time to do their forensics. After this process you can decide to give the user back their account or take further legal actions against them. This type of approach prevents the attacker from further penetrating your application and infrastructure.</li></ul><p>To defend against attacks on default and predictable accounts, verify that all keys and passwords are replaceable, and are generated or replaced after installation time.</p><p>If the application has to auto-generate passwords, ensure that the generated passwords are random and have high entropy.</p>|
+| Details | <p>Password and account policy in compliance with organizational policy and best practices should be implemented.</p><p>To defend against brute-force and dictionary based guessing: Strong password policy must be implemented to ensure that users create complex password (e.g., 12 characters minimum length, alphanumeric and special characters).</p><p>Account lockout policies might be implemented in the following manner:</p><ul><li>**Soft lock-out:** This can be a good option for protecting your users against brute force attacks. For example, whenever the user enters a wrong password three times the application could lock down the account for a minute in order to slow down the process of brute forcing their password making it less profitable for the attacker to proceed. If you were to implement hard lock-out countermeasures for this example you would achieve a "DoS" by permanently locking out accounts. Alternatively, application might generate an OTP (One Time Password) and send it out-of-band (through email, sms etc.) to the user. Another approach might be to implement CAPTCHA after a threshold number of failed attempts is reached.</li><li>**Hard lock-out:** This type of lockout should be applied whenever you detect a user attacking your application and counter them by means of permanently locking out their account until a response team had time to do their forensics. After this process you can decide to give the user back their account or take further legal actions against them. This type of approach prevents the attacker from further penetrating your application and infrastructure.</li></ul><p>To defend against attacks on default and predictable accounts, verify that all keys and passwords are replaceable, and are generated or replaced after installation time.</p><p>If the application has to auto-generate passwords, ensure that the generated passwords are random and have high entropy.</p>|
 
 ## <a id="controls-username-enum"></a>Implement controls to prevent username enumeration
 
@@ -119,7 +119,7 @@ ms.custom: devx-track-csharp
 | ----------------------- | ------------ |
 | **Component**               | Database |
 | **SDL Phase**               | Build |
-| **Applicable Technologies** | OnPrem |
+| **Applicable Technologies** | On-premises |
 | **Attributes**              | SQL Version - All |
 | **References**              | [SQL Server - Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) |
 | **Steps** | Windows Authentication uses Kerberos security protocol, provides password policy enforcement with regard to complexity validation for strong passwords, provides support for account lockout, and supports password expiration.|
@@ -152,16 +152,16 @@ ms.custom: devx-track-csharp
 | ----------------------- | ------------ |
 | **Component**               | Database |
 | **SDL Phase**               | Build |
-| **Applicable Technologies** | OnPrem, SQL Azure |
+| **Applicable Technologies** | On-premises, SQL Azure |
 | **Attributes**              | SQL Version - MSSQL2012, SQL Version - V12 |
 | **References**              | [Security Best Practices with Contained Databases](/sql/relational-databases/databases/security-best-practices-with-contained-databases) |
-| **Steps** | The absence of an enforced password policy may increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication. |
+| **Steps** | The absence of an enforced password policy might increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication. |
 
 ## <a id="authn-sas-tokens"></a>Use per device authentication credentials using SaS tokens
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Event Hub |
+| **Component**               | Azure Event Hubs |
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
@@ -337,7 +337,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **Steps** | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Microsoft Entra ID</li><li>Federation - Identity Server</li></ul><p>Links in the references section provide low-level details on how each of the authentication schemes can be implemented to secure a Web API.</p>|
+| **Steps** | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which might be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Microsoft Entra ID</li><li>Federation - Identity Server</li></ul><p>Links in the references section provide low-level details on how each of the authentication schemes can be implemented to secure a Web API.</p>|
 
 ## <a id="authn-aad"></a>Use standard authentication scenarios supported by Microsoft Entra ID
 
@@ -347,7 +347,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Authentication Scenarios for Microsoft Entra ID](../../active-directory/develop/authentication-vs-authorization.md), [Microsoft Entra code Samples](/azure/active-directory/azuread-dev/sample-v1-code), [Microsoft Entra developer's guide](../../active-directory/develop/index.yml) |
+| **References**              | [Authentication Scenarios for Microsoft Entra ID](/entra/identity-platform/authentication-vs-authorization), [Microsoft Entra code Samples](/entra/identity-platform/sample-v2-code), [Microsoft Entra developer's guide](/entra/identity-platform/index) |
 | **Steps** | <p>Microsoft Entra ID simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect. Below are the five primary application scenarios supported by Microsoft Entra ID:</p><ul><li>Web Browser to Web Application: A user needs to sign in to a web application that is secured by Microsoft Entra ID</li><li>Single Page Application (SPA): A user needs to sign in to a single page application that is secured by Microsoft Entra ID</li><li>Native Application to Web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Microsoft Entra ID</li><li>Web Application to Web API: A web application needs to get resources from a web API secured by Microsoft Entra ID</li><li>Daemon or Server Application to Web API: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Microsoft Entra ID</li></ul><p>Please refer to the links in the references section for low-level implementation details</p>|
 
 ## <a id="msal-distributed-cache"></a>Override the default MSAL token cache with a distributed cache
@@ -358,7 +358,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Token cache serialization in MSAL.NET](../../active-directory/develop/msal-net-token-cache-serialization.md)  |
+| **References**              | [Token cache serialization in MSAL.NET](/entra/msal/dotnet/how-to/token-cache-serialization)  |
 | **Steps** | <p>The default cache that MSAL (Microsoft Authentication Library) uses is an in-memory cache, and is scalable. However there are different options available that you can use as an alternative, such as a distributed token cache. These have L1/L2 mechanisms, where L1 is in memory and L2 is the distributed cache implementation. These can be accordingly configured to limit L1 memory, encrypt or set eviction policies. Other alternatives include Redis, SQL Server or Azure Comsos DB caches. An implementation of a distributed token cache can be found in the following [Tutorial: Get started with ASP.NET Core MVC](/aspnet/core/tutorials/first-mvc-app/start-mvc).</p>|
 
 ## <a id="tokenreplaycache-msal"></a>Ensure that TokenReplayCache is used to prevent the replay of MSAL authentication tokens
@@ -420,7 +420,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 }
 ```
 
-Please note that to test the effectiveness of this configuration, login into your local OIDC-protected application and capture the request to `"/signin-oidc"` endpoint in fiddler. When the protection is not in place, replaying this request in fiddler will set a new session cookie. When the request is replayed after the TokenReplayCache protection is added, the application will throw an exception as follows: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
+Please note that to test the effectiveness of this configuration, sign in into your local OIDC-protected application and capture the request to `"/signin-oidc"` endpoint in fiddler. When the protection is not in place, replaying this request in fiddler will set a new session cookie. When the request is replayed after the TokenReplayCache protection is added, the application will throw an exception as follows: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
 ## <a id="msal-oauth2"></a>Use MSAL libraries to manage token requests from OAuth2 clients to Microsoft Entra ID (or on-premises AD)
 
@@ -430,7 +430,7 @@ Please note that to test the effectiveness of this configuration, login into you
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [MSAL](../../active-directory/develop/msal-overview.md) |
+| **References**              | [MSAL](/entra/identity-platform/msal-overview) |
 | **Steps** | <p>The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS. 
 
 MSAL gives you many ways to get tokens, with a consistent API for many platforms. There is no need to directly use the OAuth libraries or code against the protocol in your application, and can acquire tokens on behalf of a user or application (when applicable to the platform). 
@@ -568,7 +568,7 @@ await deviceClient.SendEventAsync(message);
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Blob |
 | **References**              | [Manage anonymous read access to containers and blobs](../../storage/blobs/anonymous-read-access-configure.md), [Shared Access Signatures, Part 1: Understanding the SAS model](../../storage/common/storage-sas-overview.md) |
-| **Steps** | <p>By default, a container and any blobs within it may be accessed only by the owner of the storage account. To give anonymous users read permissions to a container and its blobs, one can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.</p><p>Containers provide the following options for managing container access:</p><ul><li>Full public read access: Container and blob data can be read via anonymous request. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.</li><li>Public read access for blobs only: Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request</li><li>No public read access: Container and blob data can be read by the account owner only</li></ul><p>Anonymous access is best for scenarios where certain blobs should always be available for anonymous read access. For finer-grained control, one can create a shared access signature, which enables to delegate restricted access using different permissions and over a specified time interval. Ensure that containers and blobs, which may potentially contain sensitive data, are not given anonymous access accidentally</p>|
+| **Steps** | <p>By default, a container and any blobs within it might be accessed only by the owner of the storage account. To give anonymous users read permissions to a container and its blobs, one can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.</p><p>Containers provide the following options for managing container access:</p><ul><li>Full public read access: Container and blob data can be read via anonymous request. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.</li><li>Public read access for blobs only: Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request</li><li>No public read access: Container and blob data can be read by the account owner only</li></ul><p>Anonymous access is best for scenarios where certain blobs should always be available for anonymous read access. For finer-grained control, one can create a shared access signature, which enables to delegate restricted access using different permissions and over a specified time interval. Ensure that containers and blobs, which might potentially contain sensitive data, are not given anonymous access accidentally</p>|
 
 ## <a id="limited-access-sas"></a>Grant limited access to objects in Azure storage using SAS or SAP
 

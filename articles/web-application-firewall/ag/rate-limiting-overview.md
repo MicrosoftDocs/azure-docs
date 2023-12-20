@@ -1,21 +1,17 @@
 ---
-title: Azure Web Application Firewall (WAF) rate limiting (preview)
+title: Azure Web Application Firewall (WAF) rate limiting
 description: This article is an overview of Azure Web Application Firewall (WAF) on Application Gateway rate limiting.
 services: web-application-firewall
 ms.topic: overview
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/16/2023
+ms.date: 11/01/2023
 ms.author: victorh
 ---
 
-# What is rate limiting for Web Application Firewall on Application Gateway (preview)?
+# What is rate limiting for Web Application Firewall on Application Gateway?
 
-> [!IMPORTANT]
-> Rate limiting for Web Application Firewall on Application Gateway is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Rate limiting for Web Application Firewall on Application Gateway (preview) allows you to detect and block abnormally high levels of traffic destined for your application. By using rate limiting on Application Gateway WAF_v2, you can mitigate many types of denial-of-service attacks, protect against clients that have accidentally been misconfigured to send large volumes of requests in a short time period, or control traffic rates to your site from specific geographies.
+Rate limiting for Web Application Firewall on Application Gateway allows you to detect and block abnormally high levels of traffic destined for your application. By using rate limiting on Application Gateway WAF_v2, you can mitigate many types of denial-of-service attacks, protect against clients that have accidentally been misconfigured to send large volumes of requests in a short time period, or control traffic rates to your site from specific geographies.
 
 ## Rate limiting policies
 
@@ -46,4 +42,4 @@ The  sliding window algorithm blocks all matching traffic for the first window i
 
 ## Next step
 
-- [Create rate limiting custom rules for Application Gateway WAF v2 (preview)](rate-limiting-configure.md)
+- [Create rate limiting custom rules for Application Gateway WAF v2](rate-limiting-configure.md)

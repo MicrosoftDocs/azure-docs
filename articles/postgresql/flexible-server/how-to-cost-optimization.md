@@ -72,7 +72,7 @@ Consolidating databases can be a cost-saving strategy for Azure Database for Pos
 
 Consolidating databases can help you save costs by reducing the number of Flexible Server instances you need to run and by enabling you to use larger instances that are more cost-effective than smaller instances. It is important to evaluate the impact of consolidation on your databases' performance and ensure that the consolidated Flexible Server instance is appropriately sized to meet all database needs.
 
-To learn more, refer [Improve the performance of Azure applications by using Azure Advisor](../../advisor/advisor-reference-performance-recommendations.md#postgresql)
+To learn more, refer [Improve the performance of Azure applications by using Azure Advisor](../../advisor/advisor-reference-performance-recommendations.md#databases)
 
 ## 6. Place test servers in cost-efficient geo-regions
 

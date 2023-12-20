@@ -4,7 +4,7 @@ description: Learn how to deploy S/4HANA infrastructure with Azure Center for SA
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 02/22/2023
+ms.date: 10/30/2023
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -45,7 +45,7 @@ There are three deployment options that you can select for your infrastructure, 
 
 ## Supported software
 
-Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, and S/4HANA 2021 ISS 00.
+Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 and S/4HANA 2022 ISS 00.
 
 The following operating system (OS) software versions are compatible with these SAP software versions:
 
@@ -59,7 +59,7 @@ The following operating system (OS) software versions are compatible with these 
 | SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP5 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
 | SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP4 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
 
-- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment may fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
+- You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment might fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
 
 
     ```Powershell
@@ -71,6 +71,7 @@ The following operating system (OS) software versions are compatible with these 
     $offerName="RHEL-SAP-HA"
     $skuName="82sapha-gen2"
     ```
+- Azure Center for SAP solutions now supports deployment of SAP system VMs with custom OS images along with the Azure Marketplace images. For deployment using custom OS images, follow the steps [here](deploy-s4hana.md#using-a-custom-os-image).
   
 ## Create deployment
 
@@ -106,11 +107,19 @@ The following operating system (OS) software versions are compatible with these 
 
     1. For **Application subnet** and **Database subnet**, map the IP address ranges as required. It's recommended to use a different subnet for each deployment. The names including AzureFirewallSubnet, AzureFirewallManagementSubnet, AzureBastionSubnet and GatewaySubnet are reserved names within Azure. Please do not use these as the subnet names.
 
-1. Under **Operating systems**, enter the OS details.
+1. Under **Operating systems**, select the source of the image.
 
-    1. For **Application OS image**, select the OS image for the application server.
 
+1. If you're using Azure Marketplace OS images, use these settings: 
+
+    1. For **Application OS image**, select the OS image for the application server. 
+    
     1. For **Database OS image**, select the OS image for the database server.
+    1. If you're using [custom OS images](deploy-s4hana.md#using-a-custom-os-image), use these settings:
+        
+        1. For **Application OS image**, select the image version from the Azure Compute Gallery.
+
+        1. For **Database OS image**, select the image version from the Azure Compute Gallery.
 
 1. Under **Administrator account**, enter your administrator account details.
 
@@ -134,7 +143,7 @@ The following operating system (OS) software versions are compatible with these 
 
     1. For **SAP Transport Options**, you can choose to **Create a new SAP transport Directory** or **Use an existing SAP transport Directory** or completely skip the creation of transport directory by choosing **Don't include SAP transport directory** option. Currently, only NFS on AFS storage account fileshares is supported.
 
-    1. If you choose to **Create a new SAP transport Directory**, this will create and mount a new transport fileshare on the SID. By Default, this option will create an NFS on AFS storage account and a transport fileshare in the resource group where SAP system will be deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**. You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** will create the storage account with service default name **""SIDname""nfs""random characters""** in the chosen transport resource group. Creating a new transport directory will create a ZRS based replication for zonal deployments and LRS based replication for non-zonal deployments. If your region doesn't support ZRS replication deploying a zonal VIS will lead to a failure. In such cases, you can deploy a transport fileshare outside ACSS with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the pre-created fileshare.
+    1. If you choose to **Create a new SAP transport Directory**, this will create and mount a new transport fileshare on the SID. By Default, this option will create an NFS on AFS storage account and a transport fileshare in the resource group where SAP system will be deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**. You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** will create the storage account with service default name **""SIDname""nfs""random characters""** in the chosen transport resource group. Creating a new transport directory will create a ZRS based replication for zonal deployments and LRS based replication for non-zonal deployments. If your region doesn't support ZRS replication deploying a zonal VIS will lead to a failure. In such cases, you can deploy a transport fileshare outside Azure Center for SAP Solutions with ZRS replication and then create a zonal VIS where you select **Use an existing SAP transport Directory** to mount the pre-created fileshare.
    
     1. If you choose to **Use an existing SAP transport Directory**, select the pre - existing NFS fileshare under **File share name** option. The existing transport fileshare will be only mounted on this SID. The selected fileshare shall be in the same region as that of SAP system being created. Currently, file shares existing in a different region cannot be selected. Provide the associated private endpoint of the  storage account where the selected fileshare exists under **Private Endpoint** option.
     
@@ -148,7 +157,7 @@ The following operating system (OS) software versions are compatible with these 
 
     1. For **Managed identity source**, choose if you want the service to create a new managed identity or you can instead use an existing identity. If you wish to allow the service to create a managed identity, acknowledge the checkbox which asks for your consent for the identity to be created and the contributor role access to be added for all resource groups.
 
-    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY. If you wish to later install the SAP system using ACSS, we also recommend giving the **Storage Blob Data Reader and Reader** and **Data Access roles** on the Storage Account which has the SAP software media.
+    1. For **Managed identity name**, enter a name for a new identity you want to create or select an existing identity from the drop down menu. If you are selecting an existing identity, it should have **Contributor** role access on the Subscription or on Resource Groups related to this SAP system you are trying to deploy. That is, it requires Contributor access to the SAP application Resource Group, Virtual Network Resource Group and Resource Group which has the existing SSHKEY. If you wish to later install the SAP system using Azure Center for SAP Solutions, we also recommend giving the **Storage Blob Data Reader and Reader** and **Data Access roles** on the Storage Account which has the SAP software media.
 
 1. Select **Next: Virtual machines**.
 
@@ -180,7 +189,7 @@ The following operating system (OS) software versions are compatible with these 
 
     1. Optionally, click and drag resources or containers to move them around visually.
 
-    1. Click on **Reset** to reset the visualization to its default state. That is, revert any changes you may have made to the position of resources or containers.
+    1. Click on **Reset** to reset the visualization to its default state. That is, revert any changes you might have made to the position of resources or containers.
 
     1. Click on **Scale to fit** to reset the visualization to its default zoom level.
 
@@ -210,6 +219,36 @@ The following operating system (OS) software versions are compatible with these 
 
 1. Wait for the infrastructure deployment to complete. Numerous resources are deployed and configured. This process takes approximately 7 minutes.
 
+## Using a Custom OS Image
+
+You can use custom images for deployment in Azure Center for SAP Solutions from the [Azure Compute Gallery](../../virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)
+### Custom image prerequisites
+
+- Make sure that you've met the [general SAP deployment prerequisites](#prerequisites), [downloaded the SAP media](../../sap/center-sap-solutions/get-sap-installation-media.md#prerequisites), and [installed the SAP software](../../sap/center-sap-solutions/install-software.md#install-sap-software).
+- Before you use an image from Azure Marketplace for customization, check the [list of supported OS image](#deployment-types) versions in Azure Center for SAP Solutions. BYOI is supported on the OS version supported by Azure Center for SAP Solutions. Make sure that Azure Center for SAP Solutions has support for the image, or else the deployment will fail with the following error:
+   *The resource ID provided consists of an OS image which is not supported in ACSS. Please ensure that the OS image version is supported in ACSS for a successful installation.* 
+
+- Refer to SAP installation documentation to ensure the operating system prerequisites are met for the deployment to be successful. 
+
+- Check that the user-assigned managed identity has the **Reader role** on the gallery of the custom OS image. Otherwise, the deployment will fail.  
+
+- [Create and upload a VM to a gallery in Azure Compute Gallery](../../virtual-machines/capture-image-portal.md#capture-a-vm-in-the-portal)  
+
+- Before beginning the deployment, make sure the image is available in Azure Compute Gallery. 
+
+- Verify that the image is in same subscription as the deployment. 
+
+- Check that the image VM is of the **Standard** security type.
+
+
+### Deploying using Custom Operating System Image
+- Select the **Use a custom image** option during deployment. Choose which image to use for the application and database OS.
+
+- Azure Center for SAP Solutions validates the base operating system version of the custom OS Image is available in the supportability matrix in Azure Center for SAP Solutions. If the versions are unsupported, the deployment fails. To fix this problem, delete the VIS and infrastructure resources from the resource group, then deploy again with a supported image.
+
+
+- Make sure the image version that you're using is [compatible with the SAP software version](#deployment-types).
+  
 ## Confirm deployment
 
 To confirm a deployment is successful:

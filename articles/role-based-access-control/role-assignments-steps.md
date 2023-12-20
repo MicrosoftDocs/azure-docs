@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/09/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ---
 
@@ -56,9 +56,10 @@ Privileged administrator roles are roles that grant privileged administrator acc
 | --- | --- |
 | [Owner](built-in-roles.md#owner) | <ul><li>Grants full access to manage all resources</li><li>Assign roles in Azure RBAC</li></ul> |
 | [Contributor](built-in-roles.md#contributor) | <ul><li>Grants full access to manage all resources</li><li>Can't assign roles in Azure RBAC</li><li>Can't manage assignments in Azure Blueprints or share image galleries</li></ul> |
+| [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li><li>Can't manage access using other ways, such as Azure Policy</li></ul> |
 | [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |
 
-It's a best practice to grant users the least privilege to get their work done. You should avoid assigning a privileged administrator role when a job function role can be assigned instead. If you must assign a privileged administrator role, use a narrow scope, such as resource group or resource, instead of a broader scope, such as management group or subscription.
+For best practices when using privileged administrator role assignments, see [Best practices for Azure RBAC](best-practices.md#limit-privileged-administrator-role-assignments). For more information, see [Privileged administrator role definition](./role-definitions.md#privileged-administrator-role-definition).
 
 ## Step 3: Identify the needed scope
 
@@ -76,7 +77,7 @@ When you assign a role at a parent scope, those permissions are inherited to the
 
 ## Step 4: Check your prerequisites
 
-To assign roles, you must be signed in with a user that is assigned a role that has role assignments write permission, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role. Similarly, to remove a role assignment, you must have the role assignments delete permission.
+To assign roles, you must be signed in with a user that is assigned a role that has role assignments write permission, such as [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) at the scope you are trying to assign the role. Similarly, to remove a role assignment, you must have the role assignments delete permission.
 
 - `Microsoft.Authorization/roleAssignments/write`
 - `Microsoft.Authorization/roleAssignments/delete`

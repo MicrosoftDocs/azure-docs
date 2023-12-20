@@ -2,7 +2,7 @@
 title: Deploy a Custom sentiment analysis model
 titleSuffix: Azure AI services
 description: Learn about deploying a model for Custom sentiment analysis.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language

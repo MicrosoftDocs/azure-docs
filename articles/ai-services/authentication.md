@@ -2,7 +2,7 @@
 title: Authentication in Azure AI services
 titleSuffix: Azure AI services
 description: "There are three ways to authenticate a request to an Azure AI services resource: a resource key, a bearer token, or a multi-service subscription. In this article, you'll learn about each method, and how to make a request."
-services: cognitive-services
+#services: cognitive-services
 author: mgreenegit
 manager: nitinme
 ms.service: azure-ai-services

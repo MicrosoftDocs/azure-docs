@@ -85,6 +85,6 @@ NameNorm2, TypeConversions
     ) ~> checkForChanges
 ```
 
-## Next steps
+## Related content
 
 Similar transformations are [Lookup](data-flow-lookup.md) and [Join](data-flow-join.md).

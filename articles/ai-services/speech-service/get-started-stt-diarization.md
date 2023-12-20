@@ -2,7 +2,6 @@
 title: "Real-time diarization quickstart - Speech service"
 titleSuffix: Azure AI services
 description: In this quickstart, you convert speech to text continuously from a file. The service transcribes the speech and identifies one or more speakers.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

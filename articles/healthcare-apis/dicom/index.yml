@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: DICOM service documentation
-summary: DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It's backed by a managed Platform as a Service (PaaS) offering with complete PHI compliance. You can upload PHI data to the DICOM service and exchange it through secure networks.
+summary: The DICOM® service is a managed service in Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb-enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It's backed by a managed Platform as a Service (PaaS) offering with complete PHI compliance. You can upload PHI data to the DICOM service and exchange it through secure networks.
 metadata:
   title: Azure Health Data Services DICOM service 
   description: DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It's backed by a managed Platform as a Service (PaaS) offering with complete PHI compliance. You can upload PHI data to the DICOM service and exchange it through secure networks.
@@ -22,18 +22,22 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: DICOM service overview
+          - text: What is the DICOM service?
             url: dicom-services-overview.md
-      - linkListType: quickstart
-        links:
           - text: Get started with DICOM service
             url: get-started-with-dicom.md
-      - linkListType: deploy
-        links:
           - text: Deploy DICOM Services using the Azure portal
-            url: deploy-dicom-services-in-azure.md
+            url: deploy-dicom-services-in-azure.md            
+  - title: Use cases
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Use the DICOM service in analytics workloads
+          url: get-started-with-analytics-dicom.md
+        - text: Use the DICOM service for digital pathology
+          url: dicom-digital-pathology.md
 
-  - title: Using the DICOM service
+  - title: API reference
     linkLists:
       - linkListType: tutorial
         links:
@@ -46,11 +50,9 @@ landingContent:
 
   - title: DICOM change feed 
     linkLists:
-      - linkListType: learn
-        links:
-          - text: What is DICOM change feed? 
-            url: dicom-change-feed-overview.md
       - linkListType: how-to-guide
         links:
+          - text: What is the DICOM change feed? 
+            url: dicom-change-feed-overview.md
           - text: Pull DICOM changes using the change feed
             url: pull-dicom-changes-from-change-feed.md

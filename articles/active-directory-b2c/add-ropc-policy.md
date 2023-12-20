@@ -2,18 +2,20 @@
 title: Set up a resource owner password credentials flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up the resource owner password credentials (ROPC) flow in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 12/16/2022
-ms.custom: project-no-code
+ms.date: 12/16/2023
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer intent: As a developer integrating Azure AD B2C into my application, I want to set up the resource owner password credentials flow, so that my application can exchange valid credentials for tokens and authenticate users.
 ---
 
 # Set up a resource owner password credentials flow in Azure Active Directory B2C
@@ -38,9 +40,9 @@ The following flows aren't supported:
 - **Server-to-server**: The identity protection system needs a reliable IP address gathered from the caller (the native client) as part of the interaction. In a server-side API call, only the server’s IP address is used. If a dynamic threshold of failed authentications is exceeded, the identity protection system may identify a repeated IP address as an attacker.
 - **Confidential client flow**: The application client ID is validated, but the application secret isn't validated.
 
-When using the ROPC flow, consider the following:
+When using the ROPC flow, consider the following limitations:
 
-- ROPC doesn’t work when there's any interruption to the authentication flow that needs user interaction. For example, when a password has expired or needs to be changed, [multifactor authentication](multi-factor-authentication.md) is required, or when more information needs to be collected during sign-in (for example, user consent).
+- ROPC doesn’t work when there's any interruption to the authentication flow that needs user interaction. For example, when a password expires or needs to be changed, [multifactor authentication](multi-factor-authentication.md) is required, or when more information needs to be collected during sign-in (for example, user consent).
 - ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, Twitter, AD-FS, or Facebook.
 - [Session Management](session-behavior.md), including [keep me signed-in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi), isn't applicable.
 
@@ -54,9 +56,7 @@ When using the ROPC flow, consider the following:
 ##  Create a resource owner user flow
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the **global administrator** of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant:
-    1. Select the **Directories + subscriptions** icon in the portal toolbar.
-    1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**, and select **New user flow**.
 1. Select **Sign in using resource owner password credentials (ROPC)**.
@@ -70,13 +70,14 @@ When using the ROPC flow, consider the following:
 
 ::: zone pivot="b2c-custom-policy"
 
-## Pre-requisite 
-If you've not done so, learn about custom policy starter pack in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
+## Prerequisite 
+If you've not done so, learn how to use the custom policy starter pack in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md).
 
 ##  Create a resource owner policy
 
 1. Open the *TrustFrameworkExtensions.xml* file.
-2. If it doesn't exist already, add a **ClaimsSchema** element and its child elements as the first element under the **BuildingBlocks** element:
+ 
+1. Under the **BuildingBlocks** element, locate the **ClaimsSchema** element, then add the following claims types:  
 
     ```xml
     <ClaimsSchema>
@@ -374,12 +375,8 @@ A successful response looks like the following example:
 
 * **Symptom** - You run the ROPC flow, and get the following message: *AADB2C90057: The provided application isn't configured to allow the 'OAuth' Implicit flow*.
 * **Possible causes** - The implicit flow isn't allowed for your application.
-* **Resolution**: When creating your [app registration](#register-an-application) in Azure AD B2C, you need to manually edit the application manifest and set the value of the `oauth2AllowImplicitFlow` property to `true`. After you configure the `oauth2AllowImplicitFlow` property, it can take a few minutes (typically no more than five) for the change to take affect. 
+* **Resolution**: When creating your [app registration](#register-an-application) in Azure AD B2C, you need to manually edit the application manifest and set the value of the `oauth2AllowImplicitFlow` property to `true`. After you configure the `oauth2AllowImplicitFlow` property, it can take a few minutes (typically no more than five) for the change to take effect. 
 
 ## Use a native SDK or App-Auth
 
 Azure AD B2C meets OAuth 2.0 standards for public client resource owner password credentials and should be compatible with most client SDKs. For the latest information, see [Native App SDK for OAuth 2.0 and OpenID Connect implementing modern best practices](https://appauth.io/).
-
-## Next steps
-
-Download working samples that have been configured for use with Azure AD B2C from GitHub, [for Android](https://aka.ms/aadb2cappauthropc) and [for iOS](https://aka.ms/aadb2ciosappauthropc).

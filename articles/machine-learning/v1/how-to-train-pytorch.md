@@ -117,8 +117,6 @@ except ComputeTargetException:
 
 If you instead want to create a CPU cluster, provide a different VM size to the vm_size parameter, such as STANDARD_D2_V2.
 
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
-
 For more information on compute targets, see the [what is a compute target](../concept-compute-target.md) article.
 
 ### Define your environment

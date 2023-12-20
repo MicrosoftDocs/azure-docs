@@ -1060,6 +1060,18 @@
             "source_path_from_root": "/articles/data-factory/v1/how-to-invoke-ssis-package-stored-procedure-activity.md",
             "redirect_url": "/azure/data-factory/",
             "redirect_document_id": false
-          },          
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/connector-microsoft-fabric-lakehouse-files.md",
+            "redirect_url": "/azure/data-factory/connector-microsoft-fabric-lakehouse",
+            "redirect_document_id": false
+          }, 
+          {
+            "source_path_from_root": "/articles/data-factory/connector-microsoft-fabric-lakehouse-table.md",
+            "redirect_url": "/azure/data-factory/connector-microsoft-fabric-lakehouse",
+            "redirect_document_id": false
+          }           
     ]
-}
+}                    
+
+

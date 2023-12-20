@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -25,8 +25,10 @@ Azure service: [Azure Chaos Studio](../../../chaos-studio/index.yml)
 > | Microsoft.Chaos/experiments/read | Gets all Chaos Experiments in a resource group. |
 > | Microsoft.Chaos/experiments/start/action | Starts a Chaos Experiment to inject faults. |
 > | Microsoft.Chaos/experiments/cancel/action | Cancels a running Chaos Experiment to stop the fault injection. |
-> | Microsoft.Chaos/experiments/executionDetails/read | Gets all chaos experiment execution details for a given chaos experiment. |
-> | Microsoft.Chaos/experiments/statuses/read | Gets all chaos experiment execution statuses for a given chaos experiment. |
+> | Microsoft.Chaos/experiments/executions/read | Gets all chaos experiment executions for a given chaos experiment. |
+> | Microsoft.Chaos/experiments/executions/getExecutionDetails/action | Gets details of a chaos experiment execution for a given chaos experiment. |
+> | Microsoft.Chaos/locations/operationResults/read | Gets an Operation Result. |
+> | Microsoft.Chaos/locations/operationStatuses/read | Gets an Operation Status. |
 > | Microsoft.Chaos/locations/targetTypes/read | Gets all TargetTypes. |
 > | Microsoft.Chaos/locations/targetTypes/capabilityTypes/read | Gets all CapabilityType. |
 > | Microsoft.Chaos/operations/read | Read the available Operations for Chaos Studio. |
@@ -53,6 +55,10 @@ Azure service: [Azure Managed Grafana](../../../managed-grafana/index.yml)
 > | Microsoft.Dashboard/grafana/write | Write grafana |
 > | Microsoft.Dashboard/grafana/delete | Delete grafana |
 > | Microsoft.Dashboard/grafana/PrivateEndpointConnectionsApproval/action | Approve PrivateEndpointConnection |
+> | Microsoft.Dashboard/grafana/managedPrivateEndpoints/action | Operations on Private Endpoints |
+> | Microsoft.Dashboard/grafana/managedPrivateEndpoints/read | Read Managed Private Endpoints |
+> | Microsoft.Dashboard/grafana/managedPrivateEndpoints/write | Write Managed Private Endpoints |
+> | Microsoft.Dashboard/grafana/managedPrivateEndpoints/delete | Delete Managed Private Endpoints |
 > | Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/validate/action | Validate PrivateEndpointConnectionProxy |
 > | Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/read | Get PrivateEndpointConnectionProxy |
 > | Microsoft.Dashboard/grafana/privateEndpointConnectionProxies/write | Create/Update PrivateEndpointConnectionProxy |
@@ -89,15 +95,9 @@ Azure service: [Azure Digital Twins](../../../digital-twins/index.yml)
 > | Microsoft.DigitalTwins/digitalTwinsInstances/endpoints/delete | Delete any Endpoint of a Digital Twins resource |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/endpoints/read | Read any Endpoint of a Digital Twins resource |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/endpoints/write | Create or Update any Endpoint of a Digital Twins resource |
-> | Microsoft.DigitalTwins/digitalTwinsInstances/ingressEndpoints/delete | Delete any Ingress Endpoint of a Digital Twins resource |
-> | Microsoft.DigitalTwins/digitalTwinsInstances/ingressEndpoints/read | Read any Ingress Endpoint of a Digital Twins resource |
-> | Microsoft.DigitalTwins/digitalTwinsInstances/ingressEndpoints/write | Create or Update any Ingress Endpoint of a Digital Twins resource |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/logDefinitions/read | Gets the log settings for the resource's Azure Monitor |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/metricDefinitions/read | Gets the metric settings for the resource's Azure Monitor |
-> | Microsoft.DigitalTwins/digitalTwinsInstances/networkSecurityPerimeterAssociationProxies/read | Read NetworkSecurityPerimeterAssociationProxies resource |
-> | Microsoft.DigitalTwins/digitalTwinsInstances/networkSecurityPerimeterAssociationProxies/write | Write NetworkSecurityPerimeterAssociationProxies resource |
-> | Microsoft.DigitalTwins/digitalTwinsInstances/networkSecurityPerimeterAssociationProxies/delete | Delete NetworkSecurityPerimeterAssociationProxies resource |
-> | Microsoft.DigitalTwins/digitalTwinsInstances/operationsResults/read | Read any Operation Result |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/operationResults/read | Read any Operation Result |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnectionProxies/validate/action | Validate PrivateEndpointConnectionProxies resource |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnectionProxies/read | Read PrivateEndpointConnectionProxies resource |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnectionProxies/write | Write PrivateEndpointConnectionProxies resource |
@@ -108,8 +108,12 @@ Azure service: [Azure Digital Twins](../../../digital-twins/index.yml)
 > | Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections/delete | Delete PrivateEndpointConnection resource |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/privateEndpointConnections/operationResults/read | Get the result of an async operation on a private endpoint connection |
 > | Microsoft.DigitalTwins/digitalTwinsInstances/privateLinkResources/read | Reads PrivateLinkResources for Digital Twins |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections/delete | Delete any time series database connection of a Digital Twins resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections/read | Read any time series database connection of a Digital Twins resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/timeSeriesDatabaseConnections/write | Create any time series database connection of a Digital Twins resource |
 > | Microsoft.DigitalTwins/locations/checkNameAvailability/action | Check Name Availability of a resource in the Digital Twins Resource Provider |
-> | Microsoft.DigitalTwins/locations/operationsResults/read | Read any Operation Result |
+> | Microsoft.DigitalTwins/locations/operationResults/read | Read any Operation Result |
+> | Microsoft.DigitalTwins/locations/operationsStatuses/read | Read any Operation Status |
 > | Microsoft.DigitalTwins/operations/read | Read all Operations |
 > | **DataAction** | **Description** |
 > | Microsoft.DigitalTwins/query/action | Query any Digital Twins Graph |
@@ -123,9 +127,12 @@ Azure service: [Azure Digital Twins](../../../digital-twins/index.yml)
 > | Microsoft.DigitalTwins/eventroutes/read | Read any Event Route |
 > | Microsoft.DigitalTwins/eventroutes/delete | Delete any Event Route |
 > | Microsoft.DigitalTwins/eventroutes/write | Create or Update any Event Route |
-> | Microsoft.DigitalTwins/jobs/import/read | Read any Bulk Import Job |
-> | Microsoft.DigitalTwins/jobs/import/write | Create any Bulk Import Job |
-> | Microsoft.DigitalTwins/jobs/import/delete | Delete any Bulk Import Job |
+> | Microsoft.DigitalTwins/jobs/delete/read | Read any Bulk Delete Job |
+> | Microsoft.DigitalTwins/jobs/delete/write | Create any Bulk Delete Job |
+> | Microsoft.DigitalTwins/jobs/imports/read | Read any Bulk Import Job |
+> | Microsoft.DigitalTwins/jobs/imports/write | Create any Bulk Import Job |
+> | Microsoft.DigitalTwins/jobs/imports/delete | Delete any Bulk Import Job |
+> | Microsoft.DigitalTwins/jobs/imports/cancel/action | Cancel any Bulk Import Job |
 > | Microsoft.DigitalTwins/models/read | Read any Model |
 > | Microsoft.DigitalTwins/models/write | Create or Update any Model |
 > | Microsoft.DigitalTwins/models/delete | Delete any Model |
