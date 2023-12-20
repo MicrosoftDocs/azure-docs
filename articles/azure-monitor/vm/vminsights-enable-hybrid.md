@@ -11,7 +11,7 @@ ms.date: 12/11/2023
 
 # Enable VM insights on a Windows client machine
 
-For hybrid virtual machines and Linux client machines, use [Azure Arc for servers](../../azure-arc/servers/overview.md) to onboard machine in the same way you [enable VM insights on Azure VMs](vminsights-enable-portal.md). This article describes how to enable VM insights on a Widows client machine, without using Azure Arc, which doesn't currently support managing Windows client machines.
+The process of onboarding hybrid virtual machines and Linux client machines managed using [Azure Arc for servers](../../azure-arc/servers/overview.md) is the same as [enabling VM insights on Azure VMs](vminsights-enable-portal.md). This article describes how to enable VM insights on a Widows client machine, without using Azure Arc, which doesn't currently support managing Windows client machines.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Azure Monitor Agent transmits data to the Azure Monitor service directly or thro
 
 ## Deploy VM insights data collection rule and install agents
 
-To enable VM insights on Windows client machines: 
+To enable VM insights on a Windows client machine: 
 
 1. If you don't have an existing VM insights data collection rule, [deploy a VM insights data collection rule using ARM templates](vminsights-enable-resource-manager.md#deploy-data-collection-rule). The data collection rule must be in the same region as your Log Analytics workspace.
 1. Follow the steps described in [Install Azure Monitor Agent on Windows client devices](../agents/azure-monitor-agent-windows-client.md) to:
@@ -39,7 +39,7 @@ To enable VM insights on Windows client machines:
     
     The monitored object automatically associates your VM insights data collection rule to all Windows devices in your tenant on which you install the Azure Monitor Agent using the client installer.
     
-1. Optionally, to use the [Map feature of VM insights](vminsights-maps.md), install [Dependency Agent on your machine manually](vminsights-dependency-agent-maintenance.md#install-or-upgrade-dependency-agent).
+1. To use the [Map feature of VM insights](vminsights-maps.md), install [Dependency Agent on your machine manually](vminsights-dependency-agent-maintenance.md#install-or-upgrade-dependency-agent).
         
 ## Troubleshooting
 
