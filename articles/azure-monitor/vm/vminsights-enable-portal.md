@@ -50,15 +50,15 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
 1. On the **Insights Onboarding** page, select **Enable**. 
  
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#data-collection-rule) from the **Data collection rule** dropdown. 
-![vm-insights-monitoring-configuration](media/vminsights-enable-portal/vm-insights-monitoring-configuration1.png)
+[Screenshot of VM Insights Monitoring Configuration Page.]![vm-insights-monitoring-configuration](media/vminsights-enable-portal/vm-insights-monitoring-configuration1.png)
 
 1.  The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
 
-   - **Guest performance** enabled.
-   - **Processes and dependencies** disabled.
+    - **Guest performance** enabled.
+    - **Processes and dependencies** disabled.
    1.  Select **Create new** to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the [VM insights Map feature](vminsights-maps.md).
 
-   1.  :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
+     :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
        > [!NOTE]
        > If you select a data collection rule with Map enabled and your virtual machine is not [supported by the Dependency Agent](../vm/vminsights-dependency-agent-maintenance.md), Dependency Agent will be installed and will run in degraded mode.
@@ -77,7 +77,7 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
     :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration to Azure Monitor agent to monitored machine.":::
 
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a rule from the **Data collection rule** dropdown. 
-![enable-monitored-configure-azure-monitor-agent](enable-monitored-configure-azure-monitor-agent1.png)
+[Screenshot of VM Insights Agent Configuration Page]![enable-monitored-configure-azure-monitor-agent](enable-monitored-configure-azure-monitor-agent1.png)
 
 
 1. The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
@@ -90,7 +90,7 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
        > Selecting a data collection rule that does not use the Map feature does not uninstall Dependency Agent from the machine. If you do not need the Map feature, [uninstall Dependency Agent manually](../vm/vminsights-dependency-agent-maintenance.md#uninstall-dependency-agent).
    1.  With both agents installed, Azure Monitor displays a warning that you may be collecting duplicate data.
 
-       :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed":::
+       [Screenshot showing warning message for both agents installed]:::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed":::
 
        > [!WARNING]
        > Collecting duplicate data from a single machine with both the Azure Monitor agent and Log Analytics agent can result in:
