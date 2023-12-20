@@ -26,7 +26,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 1. Navigate to [Not allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6c112d4e-5bc7-47ae-a041-ea2d9dccd749) in Portal.
 
-   :::image type="content" source="../media/disallowed-resources/definition-details.jpg" alt-text="Screenshot of definition details screen for 'Not allowed resource types' policy." border="false":::
+   :::image source="../media/disallowed-resources/definition-details-red-outline.png" alt-text="Screenshot of definition details screen for 'Not allowed resource types' policy.":::
 
 1. Click the **Assign** button on the top of the page. 
 
@@ -74,7 +74,7 @@ Now that you've assigned a built-in policy definition, navigate to [All Services
 > _**Policy changed by admin**
 > Your administrator has made changes to the policies for your account. It is recommended that you refresh the portal to use the updated policies._
 
-   :::image type="content" source="../media/disallowed-resources/disabled-resources.jpg" alt-text="Screenshot of disallowed resources in All Services blade." border="false":::
+   :::image source="../media/disallowed-resources/disabled-resources.png" alt-text="Screenshot of disallowed resources in All Services blade.":::
 
 
 ## Create an exemption
