@@ -63,6 +63,41 @@ az vm create \
 > [!NOTE]
 > Replace **myResourceGroup**, **vmName**, and **imageCIURN** values accordingly. Make sure an image with Cloud-init is chosen.
 
+## Modify an already running machine
+
+If you already provisioned your server and wish to modify the mount point of the ephemeral storage and want to configure a part of the disk as swap space, use the following steps.
+
+Create cloud-init configuration file named `00-azure-swap.cfg` in the `/etc/cloud/cloud.cfg.d` directory with the following contents:
+
+```yaml
+#cloud-config
+disk_setup:
+  ephemeral0:
+    table_type: gpt
+    layout: [66, [33,82]]
+    overwrite: true
+fs_setup:
+  - device: ephemeral0.1
+    filesystem: ext4
+  - device: ephemeral0.2
+    filesystem: swap
+mounts:
+  - ["ephemeral0.1", "/mnt"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
+```
+
+Once the file has been generated, append a line to the `/etc/systemd/system.conf` file with following contents:
+
+```config
+DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"
+```
+
+> [!NOTE]
+> The name of the file is totally arbitrary, it can be replaced with any particular name of your preference, it just needs the .cfg suffix and make sure to reflect the changes in the CLOUD_CFG parameter line as well.
+
+After the changes are done, the machine needs to be deallocated or re-deployed for the changes to take effect.
+
+
 ## Verify swap partition was created
 
 SSH to the public IP address of your VM shown in the output from the preceding command. Enter your own **user** and **publicIpAddress** as follows:
