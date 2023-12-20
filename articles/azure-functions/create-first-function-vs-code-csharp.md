@@ -4,7 +4,8 @@ description: "Learn how to create a C# function, then publish the local project 
 ms.topic: quickstart
 ms.date: 01/05/2023
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete
+ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create a C# function in Azure using Visual Studio Code
@@ -14,6 +15,11 @@ This article creates an HTTP triggered function that runs on .NET 6 in an isolat
 There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+This video shows you how to create a C# function in Azure using VS Code.
+> [!VIDEO be75e388-1b74-4051-8a62-132b069a3ec9]
+
+The steps in the video are also described in the following sections.
 
 ## Configure your environment
 
