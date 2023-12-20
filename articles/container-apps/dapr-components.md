@@ -77,9 +77,10 @@ scopes:
 
 There are a few approaches supported in container apps to securely establish connections to external services for Dapr components.
 
-1. [Using Managed Identity](#using-managed-identity)
-2. [Using a Dapr Secret Store component reference](#using-a-dapr-secret-store-component-reference)
-3. [Using Platform-managed Kubernetes secrets](#using-platform-managed-kubernetes-secrets)
+1. [Using managed identity](#using-managed-identity)
+1. Using a Dapr secret store component reference by creating either:
+   - [An Azure Key Vault secret store](#azure-key-vault-secret-store-example), which uses managed identity, or
+   - [Platform-Managed Kubernetes secrets](#platform-managed-kubernetes-secrets)
 
 ### Using managed identity
 
@@ -101,8 +102,8 @@ To set up a reference:
 
 When creating a secret store component in Azure Container Apps, you can provide sensitive information in the metadata section in either of the following ways:
 
-- [For an **Azure Key Vault secret store**,](#azure-key-vault-secret-store) use managed identity to establish the connection. 
-- [For **non-Azure secret stores**,](#platform-managed-kubernetes-secrets) use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
+- [For an **Azure Key Vault secret store**,](#using-managed-identity) use managed identity to establish the connection. 
+- [For **non-Azure secret stores**,](#using-platform-managed-kubernetes-secrets) use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
 
 ##### Azure Key Vault secret store
 
@@ -153,7 +154,7 @@ scopes:
 
 #### Referencing Dapr secret store components
 
-Once you create a Dapr secret store using one of the previous approaches, you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified in the previous examples, where the `sb-root-connectionstring` is stored.
+Once you [create a Dapr secret store using one of the previous approaches](#creating-a-dapr-secret-store-component), you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified in the previous examples, where the `sb-root-connectionstring` is stored.
 
 ```yaml
 componentType: pubsub.azure.servicebus.queue
