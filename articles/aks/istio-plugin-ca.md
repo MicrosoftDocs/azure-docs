@@ -1,0 +1,241 @@
+---
+title: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service (preview)
+description: Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service (preview)
+ms.topic: conceptual
+ms.date: 12/04/2023
+
+---
+
+# Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service (preview)
+
+In the Istio-based service mesh addon for Azure Kubernetes Service (preview), by default the Istio CA generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA which runs on a secure machine offline, and use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust. This article addresses how to bring your own certificates and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service (preview).
+
+By default the Istio CA generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA which runs on a secure machine offline, and use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust.
+
+[ ![Diagram that shows root and intermediate CA with Istio.](./media/istio/istio-byo-ca.png) ](./media/istio/istio-byo-ca.png#lightbox)
+
+This article addresses how you can configure the Istio certificate authority (CA) with a root certificate, signing certificate and key provided as inputs using Azure Key Vault to the Istio-based service mesh add-on.
+
+## Before you begin
+
+### Set up Azure Key Vault
+
+1. You'll need an [Azure Key Vault resource][akv-quickstart] to supply the certificate and key inputs to the Istio add-on.
+
+1. Create secrets in Azure Key Vault using the certificates and key:
+
+    ```bash
+    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    ```
+
+1. Enable [Azure Key Vault provider for Secret Store CSI Driver for your cluster][akv-addon]:
+
+    ```bash
+    az aks enable-addons --addons azure-keyvault-secrets-provider --resource-group $RESOURCE_GROUP --name $CLUSTER
+    ```
+
+    > [!NOTE]
+    > When rotating certificates, to control how quickly the secrets are synced down to the cluster, you can use the `--rotation-poll-interval` parameter of the Azure Key Vault Secrets Provider addon. For example:
+    > `az aks addon update --resource-group $RESOURCE_GROUP --name $CLUSTER --addon azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 20s`
+
+1. Authorize the user assigned managed identity of the addon to have access to the Azure Key Vault resource:
+
+    ```bash
+    OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
+
+    az keyvault set-policy --name $AKV_NAME --object-id $OBJECT_ID --secret-permissions get list
+    ```
+
+## Set up Istio-based service mesh addon with plug-in CA certificates
+
+1. Enable the Istio service mesh addon for your AKS cluster while referencing the Azure Key Vault secrets that were created earlier:
+
+    ```bash
+    az aks mesh enable --resource-group $RESOURCE_GROUP --name $CLUSTER \
+    --root-cert-object-name test-root-cert \
+    --ca-cert-object-name test-ca-cert \
+    --ca-key-object-name test-ca-key \
+    --cert-chain-object-name test-cert-chain \
+    --key-vault-id /subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$AKV_NAME
+    ```
+
+1. Verify that the `cacerts` gets created on the cluster:
+
+    ```bash
+    kubectl get secret -n aks-istio-system
+    ```
+
+    Expected output:
+
+    ```bash
+    NAME                                                         TYPE                 DATA   AGE
+    cacerts                                                      opaque               4      13h
+    sh.helm.release.v1.azure-service-mesh-istio-discovery.v380   helm.sh/release.v1   1      2m15s
+    sh.helm.release.v1.azure-service-mesh-istio-discovery.v381   helm.sh/release.v1   1      8s    
+    ```
+
+1. Verify that the Istio control plane picked up the custom certificate authority:
+
+    ```bash
+    kubectl logs deploy/istiod-asm-1-17 -c discovery -n aks-istio-system | grep -v validationController | grep x509
+    ```
+
+    Expected output should be similar to:
+
+    ```bash
+    2023-11-06T15:49:15.493732Z     info    x509 cert - Issuer: "CN=Intermediate CA - A1,O=Istio,L=cluster-A1", Subject: "", SN: e191d220af347c7e164ec418d75ed19e, NotBefore: "2023-11-06T15:47:15Z", NotAfter: "2033-11-03T15:49:15Z"
+    2023-11-06T15:49:15.493764Z     info    x509 cert - Issuer: "CN=Root A,O=Istio", Subject: "CN=Intermediate CA - A1,O=Istio,L=cluster-A1", SN: 885034cba2894f61036f2956fd9d0ed337dc636, NotBefore: "2023-11-04T01:40:02Z", NotAfter: "2033-11-01T01:40:02Z"
+    2023-11-06T15:49:15.493795Z     info    x509 cert - Issuer: "CN=Root A,O=Istio", Subject: "CN=Root A,O=Istio", SN: 18e2ee4089c5a7363ec306627d21d9bb212bed3e, NotBefore: "2023-11-04T01:38:27Z", NotAfter: "2033-11-01T01:38:27Z"
+    ```
+
+## Certificate authority rotation
+
+### Intermediate certificate authority rotation
+
+1. You can rotate the intermediate CA while keeping the root CA the same. Update the secrets in Azure Key Vault resource with the new certificate and key files:
+
+    ```bash
+    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    ```
+
+1. Wait for the duration of `--rotation-poll-interval` and check if the `cacerts` secret has been refreshed on the cluster based on the new intermediate CA that was updated on the Azure Key Vault resource:
+
+    ```bash
+    kubectl logs deploy/istiod-asm-1-17 -c discovery -n aks-istio-system | grep -v validationController
+    ```
+
+    Expected output should be similar to:
+
+    ```bash
+    2023-11-07T06:16:21.091844Z     info    Update Istiod cacerts
+    2023-11-07T06:16:21.091901Z     info    Using istiod file format for signing ca files
+    2023-11-07T06:16:21.354423Z     info    Istiod has detected the newly added intermediate CA and updated its key and certs accordingly
+    2023-11-07T06:16:21.354910Z     info    x509 cert - Issuer: "CN=Intermediate CA - A2,O=Istio,L=cluster-A2", Subject: "", SN: b2753c6a23b54d8364e780bf664672ce, NotBefore: "2023-11-07T06:14:21Z", NotAfter: "2033-11-04T06:16:21Z"
+    2023-11-07T06:16:21.354967Z     info    x509 cert - Issuer: "CN=Root A,O=Istio", Subject: "CN=Intermediate CA - A2,O=Istio,L=cluster-A2", SN: 17f36ace6496ac2df88e15878610a0725bcf8ae9, NotBefore: "2023-11-04T01:40:22Z", NotAfter: "2033-11-01T01:40:22Z"
+    2023-11-07T06:16:21.355007Z     info    x509 cert - Issuer: "CN=Root A,O=Istio", Subject: "CN=Root A,O=Istio", SN: 18e2ee4089c5a7363ec306627d21d9bb212bed3e, NotBefore: "2023-11-04T01:38:27Z", NotAfter: "2033-11-01T01:38:27Z"
+    2023-11-07T06:16:21.355012Z     info    Istiod certificates are reloaded
+    ```
+
+1. The workloads receive certificates from Istio control plane that are valid for 24 hours by default. So if you don't restart the pods, all the workloads will obtain new leaf certificates based on the new intermediate CA in 24 hours. If you want to force all these workloads to obtain new leaf certificates right away from the new intermediate CA, then you need to restart the workloads
+
+    ```bash
+    kubectl rollout restart deployment <deployment name> -n <deployment namespace>
+    ```
+
+### Root certificate authority rotation
+
+Rotation of root certificates is a multi-step process. First, you'll need to update Azure Key Vault secrets with the concatenated inputs of the old and the new CAs. Second, you'll either need to wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads to ensure that all of them recognize both the old and the new certificate authorities for mTLS verification. Lastly, you can update Azure Key Vault secrets with only the new CA (without the old CA) followed by either waiting 24 hours or forcing restart of all workloads to make them obtain new leaf ceritifcates based only on the new CA.
+
+1. You'll need to update Azure Key Vault secrets with the root certificate file having the concatenation of the old and the new root certiificate:
+
+    ```bash
+    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    ```
+
+    Contents of `root-cert.pem` will follow this format:
+
+    ```
+    -----BEGIN CERTIFICATE-----
+    <contents of old root ceritificate>
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+    <contents of new root ceritificate>
+    -----END CERTIFICATE-----
+    ```
+
+    The add-on includes a `CronJob` running every 10 minutes on the cluster to check for updates to root certificate. If it detects an update, it'll restart the Istio control plane (`istiod` deployment) to pick up the same. You can check its logs to confirm that the root cerificate update was detected and that the Istio control plane was restarted:
+
+    ```bash
+    kubectl logs -n aks-istio-system $(kubectl get pods -n aks-istio-system | grep 'istio-cert-validator-cronjob-' | sort -k8 | tail -n 1 | awk '{print $1}')
+    ```
+
+    Expected output:
+
+    ```bash
+    Root certificate update detected. Restarting deployment...
+    deployment.apps/istiod-asm-1-17 restarted
+    Deployment istiod-asm-1-17 restarted.
+    ```
+
+    After `istiod` was restarted, it should indicate that 2 certificates were added to the trust domain:
+
+    ```bash
+    kubectl logs deploy/istiod-asm-1-17 -c discovery -n aks-istio-system 
+    ```
+
+    Expected output:
+
+    ```bash
+    2023-11-07T06:42:00.287916Z     info    Using istiod file format for signing ca files
+    2023-11-07T06:42:00.287928Z     info    Use plugged-in cert at etc/cacerts/ca-key.pem
+    2023-11-07T06:42:00.288254Z     info    x509 cert - Issuer: "CN=Intermediate CA - A2,O=Istio,L=cluster-A2", Subject: "", SN: 286451ca8ff7bf9e6696f56bef829d42, NotBefore: "2023-11-07T06:40:00Z", NotAfter: "2033-11-04T06:42:00Z"
+    2023-11-07T06:42:00.288279Z     info    x509 cert - Issuer: "CN=Root A,O=Istio", Subject: "CN=Intermediate CA - A2,O=Istio,L=cluster-A2", SN: 17f36ace6496ac2df88e15878610a0725bcf8ae9, NotBefore: "2023-11-04T01:40:22Z", NotAfter: "2033-11-01T01:40:22Z"
+    2023-11-07T06:42:00.288298Z     info    x509 cert - Issuer: "CN=Root A,O=Istio", Subject: "CN=Root A,O=Istio", SN: 18e2ee4089c5a7363ec306627d21d9bb212bed3e, NotBefore: "2023-11-04T01:38:27Z", NotAfter: "2033-11-01T01:38:27Z"
+    2023-11-07T06:42:00.288303Z     info    Istiod certificates are reloaded
+    2023-11-07T06:42:00.288365Z     info    spiffe  Added 2 certs to trust domain cluster.local in peer cert verifier
+    ```
+
+1. You'll either need to wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads on the cluster to ensure that all of them recognize both the old and the new certificate authorities for mTLS verification.
+
+    ```bash
+    kubectl rollout restart deployment <deployment name> -n <deployment namespace>
+    ```
+
+1. You can now update Azure Key Vault secrets with only the new CA (without the old CA):
+
+    ```bash
+    az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-cert --file <path-to-folder/ca-cert.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-ca-key --file <path-to-folder/ca-key.pem>
+    az keyvault secret set --vault-name $AKV_NAME --name test-cert-chain --file <path/cert-chain.pem>
+    ```
+
+    Check the logs of the `CronJob` to confirm detection of root certificate update and the restart of `istiod`:
+
+
+    ```bash
+    kubectl logs -n aks-istio-system $(kubectl get pods -n aks-istio-system | grep 'istio-cert-validator-cronjob-' | sort -k8 | tail -n 1 | awk '{print $1}')
+    ```
+
+    Expected output:
+
+    ```bash
+    Root certificate update detected. Restarting deployment...
+    deployment.apps/istiod-asm-1-17 restarted
+    Deployment istiod-asm-1-17 restarted.
+    ```
+
+    After `istiod` was updated, it should only confirm the usage of new root CA:
+
+    ```bash
+    kubectl logs deploy/istiod-asm-1-17 -c discovery -n aks-istio-system | grep -v validationController
+    ```
+
+    Expected output:
+
+    ```bash
+    2023-11-07T08:01:17.780299Z     info    x509 cert - Issuer: "CN=Intermediate CA - B1,O=Istio,L=cluster-B1", Subject: "", SN: 1159747c72cc7ac7a54880cd49b8df0a, NotBefore: "2023-11-07T07:59:17Z", NotAfter: "2033-11-04T08:01:17Z"
+    2023-11-07T08:01:17.780330Z     info    x509 cert - Issuer: "CN=Root B,O=Istio", Subject: "CN=Intermediate CA - B1,O=Istio,L=cluster-B1", SN: 2aba0c438652a1f9beae4249457023013948c7e2, NotBefore: "2023-11-04T01:42:12Z", NotAfter: "2033-11-01T01:42:12Z"
+    2023-11-07T08:01:17.780345Z     info    x509 cert - Issuer: "CN=Root B,O=Istio", Subject: "CN=Root B,O=Istio", SN: 3f9da6ddc4cb03749c3f43243a4b701ce5eb4e96, NotBefore: "2023-11-04T01:41:54Z", NotAfter: "2033-11-01T01:41:54Z"
+    ```
+
+    From the example outputs shown in this article, you'll see that we moved from Root A (used when enabling the addon) to Root B as shown above.
+
+
+1. You can either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads to immediately start using obtain leaf certificates from the new root CA.
+
+    ```bash
+    kubectl rollout restart deployment <deployment name> -n <deployment namespace>
+    ```
+
+[akv-quickstart]: ../key-vault/general/quick-create-cli
+[akv-addon]: ./csi-secrets-store-driver.md
