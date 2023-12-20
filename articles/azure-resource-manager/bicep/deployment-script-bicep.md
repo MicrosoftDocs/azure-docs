@@ -37,7 +37,7 @@ If you prefer to learn about deployment scripts through step-by-step guidance, s
 
 ## Configure the minimum permissions
 
-For deployment script API version *2020-10-01* or later, two principals are involved in deployment script execution:
+For deployment script API version `2020-10-01` or later, two principals are involved in deployment script execution:
 
 - **Deployment principal**: This principal is used to deploy the Bicep file. It creates underlying resources that are required for the deployment script resource to run—a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
