@@ -1,21 +1,30 @@
 ---
 title: "Quickstart: Document Intelligence (formerly Form Recognizer) Java SDK (beta) | v3.1 | v3.0"
 titleSuffix: Azure AI services
-description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.1 or v3.0 
+description: Form and document processing, data extraction, and analysis using Document Intelligence Java client library SDKs v3.1 or v3.0
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/17/2023
+ms.date: 12/19/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD036 -->
 
-[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../sdk-overview-v3-1.md)
+:::moniker range="doc-intel-4.0.0"
+    [Client library](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-documentintelligence/1.0.0-beta.1/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/src/samples#examples) |[Supported REST API versions](../../sdk-overview-v4-0.md)
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+   [Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../sdk-overview-v3-1.md)
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+    [Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API versions](../../sdk-overview-v3-0.md)
+:::moniker-end
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
-
-* [**General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in documents, without the need to train a model.
 
@@ -47,12 +56,11 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
-
 ## Set up
 
 ### Create a new Gradle project
+
+:::moniker range="doc-intel-4.0.0"
 
 1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **doc-intel-app**, and navigate to it.
 
@@ -74,34 +82,104 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 1. Accept the default project name (doc-intel-app) by selecting **Return** or **Enter**.
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the setup.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=create-gradle-project) -->
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
+1. In console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognize-app**, and navigate to it.
+
+    ```console
+    mkdir form-recognize-app && form-recognize-app
+    ```
+
+    ```powershell
+    mkdir form-recognize-app; cd form-recognize-app
+    ```
+
+1. Run the `gradle init` command from your working directory. This command creates essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+
+    ```console
+    gradle init --type basic
+    ```
+
+1. When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Accept the default project name (form-recognize-app) by selecting **Return** or **Enter**.
+
+:::moniker-end
 
 ### Install the client library
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-1. Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
+:::moniker range="doc-intel-4.0.0"
+     Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
-    ```kotlin
-    plugins {
-        java
-        application
-    }
-    application {
-        mainClass.set("DocIntelligence")
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '4.1.0'
+  ```kotlin
+     plugins {
+         java
+         application
+     }
+     application {
+         mainClass.set("DocIntelligence")
+     }
+     repositories {
+         mavenCentral()
+     }
+     dependencies {
+         implementation group: 'com.azure', name: 'azure-ai-documentintelligence', version: '1.0.0-beta.1'
 
-    }
-    ```
+     }
+  ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with installing the client library.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=install-library) -->
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+  Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
+
+  ```kotlin
+     plugins {
+         java
+         application
+     }
+     application {
+         mainClass.set("FormRecognizer")
+     }
+     repositories {
+         mavenCentral()
+     }
+     dependencies {
+         implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '4.1.0'
+
+     }
+  ```
+
+::: moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+  Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
+
+  ```kotlin
+     plugins {
+         java
+         application
+     }
+     application {
+         mainClass.set("FormRecognizer")
+     }
+     repositories {
+         mavenCentral()
+     }
+     dependencies {
+         implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '4.0.0'
+
+
+     }
+  ```
+
+:::moniker-end
 
 ## Create a Java application
 
@@ -117,6 +195,8 @@ To interact with the Document Intelligence service, you need to create an instan
 
     :::image type="content" source="../../media/quickstarts/java-directories-2.png" alt-text="Screenshot of Java directory structure":::
 
+:::moniker range="doc-intel-4.0.0"
+
 1. Navigate to the `java` directory and create a file named **`DocIntelligence.java`**.
 
     > [!TIP]
@@ -127,44 +207,59 @@ To interact with the Document Intelligence service, you need to create an instan
 
 1. Open the `DocIntelligence.java` file and select one of the following code samples to copy and paste into your application:
 
-    * [**General document**](#general-document-model)
+    * [**Layout**](#layout-model)
+
+    * [**Prebuilt Invoice**](#prebuilt-model)
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
+1. Navigate to the `java` directory and create a file named **`FormRecognizer.java`**.
+
+    > [!TIP]
+    >
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item FormRecognizer.java**.
+
+1. Open the `FormRecognizer.java` file and select one of the following code samples to copy and paste into your application:
 
     * [**Layout**](#layout-model)
 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
+:::moniker-end
+
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
 
-## General document model
+## Layout model
 
-Extract text, tables, structure, and key-value pairs from documents.
+Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
 > * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-document` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
+> * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
+
+:::moniker range="doc-intel-4.0.0"
 
 **Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
 
-import com.azure.ai.formrecognizer.*;
+import com.azure.ai.documentintelligence;
 
-import com.azure.ai.formrecognizer.documentanalysis.models.*;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
-import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
-
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.DocumentTable;
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Arrays;
-import java.time.LocalDate;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class FormRecognizer {
 
@@ -174,69 +269,68 @@ public class FormRecognizer {
 
   public static void main(String[] args) {
 
-    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-    DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
-      .credential(new AzureKeyCredential(key))
-      .endpoint(endpoint)
-      .buildClient();
+  // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+  DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
+            .credential(new AzureKeyCredential(key))
+            .endpoint(endpoint)
+            .buildClient();
 
-    // sample document
+  // sample document
     String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
-    String modelId = "prebuilt-document";
-    SyncPoller < OperationResult, AnalyzeResult > analyzeDocumentPoller =
+    String modelId = "prebuilt-layout";
+
+   SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
       client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
 
-    AnalyzeResult analyzeResult = analyzeDocumentPoller.getFinalResult();
+ AnalyzeResult analyzeLayoutResult = analyzeLayoutPoller.getFinalResult().getAnalyzeResult();
 
-    // pages
-    analyzeResult.getPages().forEach(documentPage -> {
-      System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
-        documentPage.getWidth(),
-        documentPage.getHeight(),
-        documentPage.getUnit());
+        // pages
+        analyzeLayoutResult.getPages().forEach(documentPage -> {
+            System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+                documentPage.getWidth(),
+                documentPage.getHeight(),
+                documentPage.getUnit());
 
-      // lines
-      documentPage.getLines().forEach(documentLine ->
-        System.out.printf("Line %s is within a bounding polygon %s.%n",
-          documentLine.getContent(),
-          documentLine.getBoundingPolygon().toString()));
+            // lines
+            documentPage.getLines().forEach(documentLine ->
+                System.out.printf("Line '%s' is within a bounding polygon %s.%n",
+                    documentLine.getContent(),
+                    documentLine.getPolygon()));
 
-      // words
-      documentPage.getWords().forEach(documentWord ->
-        System.out.printf("Word %s has a confidence score of %.2f%n.",
-          documentWord.getContent(),
-          documentWord.getConfidence()));
-    });
+            // words
+            documentPage.getWords().forEach(documentWord ->
+                System.out.printf("Word '%s' has a confidence score of %.2f.%n",
+                    documentWord.getContent(),
+                    documentWord.getConfidence()));
 
-    // tables
-    List < DocumentTable > tables = analyzeResult.getTables();
-    for (int i = 0; i < tables.size(); i++) {
-      DocumentTable documentTable = tables.get(i);
-      System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
-        documentTable.getColumnCount());
-      documentTable.getCells().forEach(documentTableCell -> {
-        System.out.printf("Cell '%s', has row index %d and column index %d.%n",
-          documentTableCell.getContent(),
-          documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
-      });
-      System.out.println();
+            // selection marks
+            documentPage.getSelectionMarks().forEach(documentSelectionMark ->
+                System.out.printf("Selection mark is '%s' and is within a bounding polygon %s with confidence %.2f.%n",
+                    documentSelectionMark.getState().toString(),
+                    documentSelectionMark.getPolygon(),
+                    documentSelectionMark.getConfidence()));
+        });
+
+        // tables
+        List<DocumentTable> tables = analyzeLayoutResult.getTables();
+        for (int i = 0; i < tables.size(); i++) {
+            DocumentTable documentTable = tables.get(i);
+            System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
+                documentTable.getColumnCount());
+            documentTable.getCells().forEach(documentTableCell -> {
+                System.out.printf("Cell '%s', has row index %d and column index %d.%n", documentTableCell.getContent(),
+                    documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+            });
+            System.out.println();
+        }
+
+        // styles
+        analyzeLayoutResult.getStyles().forEach(documentStyle
+            -> System.out.printf("Document is handwritten %s.%n", documentStyle.isHandwritten()));
     }
-
-    // Key-value pairs
-    analyzeResult.getKeyValuePairs().forEach(documentKeyValuePair -> {
-      System.out.printf("Key content: %s%n", documentKeyValuePair.getKey().getContent());
-      System.out.printf("Key content bounding region: %s%n",
-        documentKeyValuePair.getKey().getBoundingRegions().toString());
-
-      if (documentKeyValuePair.getValue() != null) {
-        System.out.printf("Value content: %s%n", documentKeyValuePair.getValue().getContent());
-        System.out.printf("Value content bounding region: %s%n", documentKeyValuePair.getValue().getBoundingRegions().toString());
-      }
-    });
-  }
 }
+
 ```
-<!-- markdownlint-disable MD036 -->
 
 **Build and run the application**
 
@@ -254,42 +348,11 @@ Once you've added a code sample to your application, navigate back to your main 
     gradle run
     ```
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-general-document) -->
+:::moniker-end
 
-### General document model output
+:::moniker range="doc-intel-3.1.0"
 
-Here's a snippet of the expected output:
-
-```console
-Key content: For the Transition Period From
-Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@14c053c6]
-Key content: to Commission File Number
-Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@6c2d4cc6]
-Value content: 001-37845
-Value content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@30865a90]
-Key content: (I.R.S. ID)
-Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@6134ac4a]
-Value content: 91-1144442
-Value content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@777c9dc9]
-Key content: Securities registered pursuant to Section 12(g) of the Act:
-Key content bounding region: [com.azure.ai.formrecognizer.models.BoundingRegion@71b1a49c]
-Value content: NONE
-```
-
-To view the entire output, visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-general-document-output.md).
-
-## Layout model
-
-Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
-
-> [!div class="checklist"]
->
-> * For this example, you'll need a **document file at a URI**. You can use our [sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
-> * We've added the file URI value to the `documentUrl` variable in the main method.
-
-**Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
 
@@ -383,7 +446,7 @@ public class FormRecognizer {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognize-app**.
 
 1. Build your application with the `build` command:
 
@@ -396,9 +459,6 @@ Once you've added a code sample to your application, navigate back to your main 
     ```console
     gradle run
     ```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-layout) -->
 
 ### Layout model output
 
@@ -424,6 +484,12 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output,visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-layout-output.md).
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+    {content}
+:::moniker-end
 
 ## Prebuilt model
 
@@ -610,9 +676,6 @@ Once you've added a code sample to your application, navigate back to your main 
     ```console
     gradle run
     ```
-
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue when running the application.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=java&Product=FormRecognizer&Page=quickstart&Section=build-run-prebuilt) -->
 
 ### Prebuilt model output
 

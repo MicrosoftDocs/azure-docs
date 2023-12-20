@@ -71,9 +71,11 @@ This reference article provides a version-based description of Document Intellig
 
 [**Package (PyPi)**](https://pypi.org/project/azure-ai-documentintelligence/)
 
-[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/7c42462ac662522a6fd21b17d2a20f4cd40d0356/sdk/documentintelligence/azure-ai-documentintelligence/README.md)
+[**ReadMe**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/README.md)
 
 [**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples)
+
+[**Form Recognizer → to → Document Intelligence migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
 
 ---
 

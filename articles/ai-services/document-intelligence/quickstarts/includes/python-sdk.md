@@ -12,6 +12,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD025 -->
 
 :::moniker range="doc-intel-4.0.0"
+    [**Form Recognizer → to → Document Intelligence migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
     [Client library](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-documentintelligence/latest/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-documentintelligence/1.0.0b1/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples) | [Supported REST API versions](../../sdk-overview-v4-0.md#supported-programming-languages)
 :::moniker-end
 
@@ -190,6 +191,17 @@ if __name__ == "__main__":
 
 
 ```
+
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python doc_intel_quickstart.py
+    ```
 
 :::moniker-end
 
@@ -446,6 +458,17 @@ if __name__ == "__main__":
 
 ```
 
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python doc_intel_quickstart.py
+    ```
+
 :::moniker-end
 
 ___
@@ -685,7 +708,19 @@ if __name__ == "__main__":
     analyze_invoice()
 
 
+```
+
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python doc_intel_quickstart.py
     ```
+
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -1132,5 +1167,16 @@ if __name__ == "__main__":
 
 
 ```
+
+**Run the application**
+
+Once you've added a code sample to your application, build and run your program:
+
+1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Type the following command in your terminal:
+
+    ```console
+    python doc_intel_quickstart.py
+    ```
 
 :::moniker-end
