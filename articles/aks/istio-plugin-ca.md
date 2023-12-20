@@ -10,8 +10,6 @@ ms.date: 12/04/2023
 
 In the Istio-based service mesh addon for Azure Kubernetes Service (preview), by default the Istio CA generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA, which runs on a secure machine offline. You can use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust. This article addresses how to bring your own certificates and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service (preview).
 
-By default the Istio CA generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA which runs on a secure machine offline, and use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust.
-
 [ ![Diagram that shows root and intermediate CA with Istio.](./media/istio/istio-byo-ca.png) ](./media/istio/istio-byo-ca.png#lightbox)
 
 This article addresses how you can configure the Istio certificate authority (CA) with a root certificate, signing certificate and key provided as inputs using Azure Key Vault to the Istio-based service mesh add-on.
@@ -130,7 +128,7 @@ This article addresses how you can configure the Istio certificate authority (CA
 
 ### Root certificate authority rotation
 
-1. You'll need to update Azure Key Vault secrets with the root certificate file having the concatenation of the old and the new root certificates:
+1. You need to update Azure Key Vault secrets with the root certificate file having the concatenation of the old and the new root certificates:
 
     ```bash
     az keyvault secret set --vault-name $AKV_NAME --name test-root-cert --file <path-to-folder/root-cert.pem>
@@ -182,7 +180,7 @@ This article addresses how you can configure the Istio certificate authority (CA
     2023-11-07T06:42:00.288365Z     info    spiffe  Added 2 certs to trust domain cluster.local in peer cert verifier
     ```
 
-1. You'll either need to wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. This ensure that all workloads recognize both the old and the new certificate authorities for mTLS verification.
+1. You need to either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. This way all workloads will recognize both the old and the new certificate authorities for mTLS verification.
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
@@ -226,14 +224,14 @@ This article addresses how you can configure the Istio certificate authority (CA
     2023-11-07T08:01:17.780345Z     info    x509 cert - Issuer: "CN=Root B,O=Istio", Subject: "CN=Root B,O=Istio", SN: 3f9da6ddc4cb03749c3f43243a4b701ce5eb4e96, NotBefore: "2023-11-04T01:41:54Z", NotAfter: "2033-11-01T01:41:54Z"
     ```
 
-    From the example outputs shown in this article, you'll see that we moved from Root A (used when enabling the addon) to Root B as shown above.
+    From the example outputs shown in this article, you can observe that we moved from Root A (used when enabling the addon) to Root B.
 
 
-1. You can either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads to immediately obtain leaf certificates from the new root CA.
+1. You can either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. Forcing restart will make the workloads obtain new leaf certificates from the new root CA immediately.
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
     ```
 
-[akv-quickstart]: ../key-vault/general/quick-create-cli
+[akv-quickstart]: ../key-vault/general/quick-create-cli.md
 [akv-addon]: ./csi-secrets-store-driver.md
