@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 9/01/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
 ---
 # High availability setup in SUSE using the fencing device
