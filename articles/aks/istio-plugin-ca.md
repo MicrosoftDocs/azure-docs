@@ -8,11 +8,13 @@ ms.date: 12/04/2023
 
 # Plug in CA certificates for Istio-based service mesh add-on on Azure Kubernetes Service (preview)
 
-In the Istio-based service mesh addon for Azure Kubernetes Service (preview), by default the Istio CA generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA, which runs on a secure machine offline. You can use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust. This article addresses how to bring your own certificates and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service (preview).
+In the Istio-based service mesh addon for Azure Kubernetes Service (preview), by default the Istio certificate authority (CA) generates a self-signed root certificate and key and uses them to sign the workload certificates. To protect the root CA key, you should use a root CA, which runs on a secure machine offline. You can use the root CA to issue intermediate certificates to the Istio CAs that run in each cluster. An Istio CA can sign workload certificates using the administrator-specified certificate and key, and distribute an administrator-specified root certificate to the workloads as the root of trust. This article addresses how to bring your own certificates and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
 
 [ ![Diagram that shows root and intermediate CA with Istio.](./media/istio/istio-byo-ca.png) ](./media/istio/istio-byo-ca.png#lightbox)
 
-This article addresses how you can configure the Istio certificate authority (CA) with a root certificate, signing certificate and key provided as inputs using Azure Key Vault to the Istio-based service mesh add-on.
+This article addresses how you can configure the Istio certificate authority with a root certificate, signing certificate and key provided as inputs using Azure Key Vault to the Istio-based service mesh add-on.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -36,10 +38,10 @@ This article addresses how you can configure the Istio certificate authority (CA
     ```
 
     > [!NOTE]
-    > When rotating certificates, to control how quickly the secrets are synced down to the cluster, you can use the `--rotation-poll-interval` parameter of the Azure Key Vault Secrets Provider addon. For example:
+    > When rotating certificates, to control how quickly the secrets are synced down to the cluster you can use the `--rotation-poll-interval` parameter of the Azure Key Vault Secrets Provider add-on. For example:
     > `az aks addon update --resource-group $RESOURCE_GROUP --name $CLUSTER --addon azure-keyvault-secrets-provider --enable-secret-rotation --rotation-poll-interval 20s`
 
-1. Authorize the user assigned managed identity of the addon to have access to the Azure Key Vault resource:
+1. Authorize the user-assigned managed identity of the add-on to have access to the Azure Key Vault resource:
 
     ```bash
     OBJECT_ID=$(az aks show --resource-group $RESOURCE_GROUP --name $CLUSTER --query 'addonProfiles.azureKeyvaultSecretsProvider.identity.objectId' -o tsv)
@@ -78,7 +80,7 @@ This article addresses how you can configure the Istio certificate authority (CA
 1. Verify that the Istio control plane picked up the custom certificate authority:
 
     ```bash
-    kubectl logs deploy/istiod-asm-1-17 -c discovery -n aks-istio-system | grep -v validationController | grep x509
+    kubectl logs deploy/istiod-asm-1-18 -c discovery -n aks-istio-system | grep -v validationController | grep x509
     ```
 
     Expected output should be similar to:
@@ -120,7 +122,8 @@ This article addresses how you can configure the Istio certificate authority (CA
     2023-11-07T06:16:21.355012Z     info    Istiod certificates are reloaded
     ```
 
-1. The workloads receive certificates from Istio control plane that are valid for 24 hours by default. So if you don't restart the pods, all the workloads obtain new leaf certificates based on the new intermediate CA in 24 hours. If you want to force all these workloads to obtain new leaf certificates right away from the new intermediate CA, then you need to restart the workloads
+1. The workloads receive certificates from the Istio control plane that are valid for 24 hours by default. If you don't restart the pods, all the workloads obtain new leaf certificates based on the new intermediate CA in 24 hours. If you want to force all these workloads to obtain new leaf certificates right away from the new intermediate CA, then you need to restart the workloads.
+
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
@@ -148,7 +151,7 @@ This article addresses how you can configure the Istio certificate authority (CA
     -----END CERTIFICATE-----
     ```
 
-    The add-on includes a `CronJob` running every 10 minutes on the cluster to check for updates to root certificate. If it detects an update, it restarts the Istio control plane (`istiod` deployment) to pick up the same. You can check its logs to confirm that the root certificate update was detected and that the Istio control plane was restarted:
+    The add-on includes a `CronJob` running every ten minutes on the cluster to check for updates to root certificate. If it detects an update, it restarts the Istio control plane (`istiod` deployment) to pick up the updates. You can check its logs to confirm that the root certificate update was detected and that the Istio control plane was restarted:
 
     ```bash
     kubectl logs -n aks-istio-system $(kubectl get pods -n aks-istio-system | grep 'istio-cert-validator-cronjob-' | sort -k8 | tail -n 1 | awk '{print $1}')
@@ -180,7 +183,7 @@ This article addresses how you can configure the Istio certificate authority (CA
     2023-11-07T06:42:00.288365Z     info    spiffe  Added 2 certs to trust domain cluster.local in peer cert verifier
     ```
 
-1. You need to either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. This way all workloads recognize both the old and the new certificate authorities for mTLS verification.
+1. You need to either wait for 24 hours (the default time for leaf certificate validity) or force a restart of all the workloads. This way, all workloads recognize both the old and the new certificate authorities for mTLS verification.
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
@@ -227,7 +230,7 @@ This article addresses how you can configure the Istio certificate authority (CA
     From the example outputs shown in this article, you can observe that we moved from Root A (used when enabling the addon) to Root B.
 
 
-1. You can either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. Forcing restart makes the workloads obtain new leaf certificates from the new root CA immediately.
+1. You can either again wait for 24 hours or force a restart of all the workloads. Forcing a restart makes the workloads obtain new leaf certificates from the new root CA immediately.
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
