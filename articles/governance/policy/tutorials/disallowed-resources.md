@@ -13,7 +13,7 @@ One popular goal of cloud governance is restricting what resource types are allo
 |[Allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa08ec900-254a-4555-9bf5-e42af04b5c5c) |This policy enables you to specify the resource types that your organization can deploy. Only resource types that support 'tags' and 'location' are affected by this policy. To restrict all resources, duplicate this policy and change the 'mode' to 'All'. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/AllowedResourceTypes_Deny.json) |
 |[Not allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6c112d4e-5bc7-47ae-a041-ea2d9dccd749) |Restrict which resource types can be deployed in your environment. Limiting resource types can reduce the complexity and attack surface of your environment while also helping to manage costs. Compliance results are only shown for non-compliant resources. |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/InvalidResourceTypes_Deny.json) |
 
-In this tutorial, you apply the **Not allowed resource types** policy and manage resource types at scale through Azure Portal.
+In this tutorial, you apply the **Not allowed resource types** policy and manage resource types at scale through Microsoft Azure portal.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ before you begin.
 
 The first step in disabling resource types is to assign the **Not allowed resource types** policy definition.
 
-1. Navigate to [Not allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6c112d4e-5bc7-47ae-a041-ea2d9dccd749) in Portal.
+1. Navigate to [Not allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6c112d4e-5bc7-47ae-a041-ea2d9dccd749) in Azure portal.
 
    :::image source="../media/disallowed-resources/definition-details-red-outline.png" alt-text="Screenshot of definition details screen for 'Not allowed resource types' policy.":::
 
@@ -64,9 +64,9 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 1. Review your selections, then select **Create** at the bottom of the page.
 
-## View disabled resource types in portal
+## View disabled resource types in Azure portal
 
-Now that you've assigned a built-in policy definition, navigate to [All Services](https://ms.portal.azure.com/#allservices/category/All). Azure Portal is aware of the existence of allowed and not allowed resource type policy assignments and disables resources in the **All Services** page accordingly.
+Now that you've assigned a built-in policy definition, navigate to [All Services](https://ms.portal.azure.com/#allservices/category/All). Azure portal is aware of the existence of allowed and not allowed resource type policy assignments and disables resources in the **All Services** page accordingly.
 
 > [!NOTE]
 > If you assign this policy definition to your root management group, users will see the following notification when they log in for the first time or if the policy changes after they have logged in:
@@ -82,7 +82,7 @@ Now that you've assigned a built-in policy definition, navigate to [All Services
 Now suppose that one subscope should be allowed to have the resource types disabled by this policy. Let's create an exemption on this scope so that otherwise restricted resources can be deployed there. 
 
 > [!WARNING]
-> If you assign this policy definition to your *root management group* scope, Portal is unable to detect exemptions at lower level scopes from the All Services list. Resources disallowed by the policy assignment will still show as disabled from this view even if an exemption is in place at a lower scope. However, if the user has permissions on the exempt subscope, they will not be prevented from navigating to the service and performing actions there. At this point the false disabled status should no longer be present.
+> If you assign this policy definition to your *root management group* scope, Azure portal is unable to detect exemptions at lower level scopes from the All Services list. Resources disallowed by the policy assignment will still show as disabled from this view even if an exemption is in place at a lower scope. However, if the user has permissions on the exempt subscope, they will not be prevented from navigating to the service and performing actions there. At this point the false disabled status should no longer be present.
 
 1. Select **Assignments** under **Authoring** in the left side of the Azure Policy page.
 
