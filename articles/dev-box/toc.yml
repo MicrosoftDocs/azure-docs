@@ -3,13 +3,13 @@ items:
   href: index.yml
 - name: Overview
   expanded: true
-  items: 
+  items:
     - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
       href: overview-what-is-microsoft-dev-box.md
 - name: Quickstarts
   expanded: true
-  items: 
+  items:
     - name: Set up Dev Box service (Azure portal)
       href: quickstart-configure-dev-box-service.md
     - name: Set up Dev Box service (ARM template)
@@ -18,14 +18,14 @@ items:
     - name: Spin up a new dev box
       href: quickstart-create-dev-box.md
 - name: Concepts
-  items: 
+  items:
     - name: Architecture overview
       displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
       href: concept-dev-box-architecture.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
 - name: Configure resources
-  items: 
+  items:
   - name: Manage a dev center
     href: how-to-manage-dev-center.md
   - name: Manage network connections
@@ -47,7 +47,7 @@ items:
   - name: Configure Azure Diagnostic Logs
     href: how-to-configure-dev-box-azure-diagnostic-logs.md    
 - name: Create & connect to dev boxes
-  items: 
+  items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Remote Desktop App 
