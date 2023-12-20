@@ -1,6 +1,6 @@
 ---
-title: Use Azure SignalR Service Management SDK
-description: Learn how to use Azure SignalR Service Management SDK
+title: Use Azure SignalR Management SDK
+description: Learn how to use Azure SignalR Management SDK
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
@@ -8,9 +8,9 @@ ms.date: 12/23/2023
 ms.author: lianwei 
 ---
 
-# Use Azure SignalR Service Management SDK
+# Use Azure SignalR Management SDK
 
-Azure SignalR Service Management SDK helps you to manage SignalR clients through Azure SignalR Service directly such as broadcast messages. Therefore, this SDK could be but not limited to be used in [serverless](https://azure.microsoft.com/solutions/serverless/) environments. You could use this SDK to manage SignalR clients connected to your Azure SignalR Service in any environment, such as in a console app, in an Azure function or in a web server.
+Azure SignalR Management SDK helps you to manage SignalR clients through Azure SignalR Service directly such as broadcast messages. Therefore, this SDK could be but not limited to be used in [serverless](https://azure.microsoft.com/solutions/serverless/) environments. You could use this SDK to manage SignalR clients connected to your Azure SignalR Service in any environment, such as in a console app, in an Azure function or in a web server.
 
 > [!NOTE]
 > 
@@ -47,7 +47,7 @@ Azure SignalR Service Management SDK helps you to manage SignalR clients through
 
 * More details about different modes can be found [here](#transport-type).
 
-* [For a full sample on management SDK, please go here](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Management).
+* A full sample on management SDK can be found [here](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Management).
 
 ## Usage
 
@@ -71,7 +71,7 @@ var serviceManager = new ServiceManagerBuilder()
 
 You can use `ServiceManager` to check the Azure SignalR endpoint health and create service hub context. The following [section](#create-service-hub-context) provides details about creating service hub context.
 
-To check the Azure SignalR endpoint health, you can use `ServiceManager.IsServiceHealthy` method. Note that if you have multiple Azure SignalR endpoints, only the first endpoint will be checked.
+To check the Azure SignalR endpoint health, you can use `ServiceManager.IsServiceHealthy` method. If you have multiple Azure SignalR endpoints, only the first endpoint is checked.
 
 ```cs
 var health = await serviceManager.IsServiceHealthy(cancellationToken);
@@ -87,7 +87,7 @@ var serviceHubContext = await serviceManager.CreateHubContextAsync("<Your Hub Na
 
 ### Negotiation
 
-In [default mode](concept-service-mode.md#default-mode), an endpoint `/<Your Hub Name>/negotiate` is exposed for negotiation by Azure SignalR Service SDK. SignalR clients will reach this endpoint and then redirect to Azure SignalR Service later.
+In [default mode](concept-service-mode.md#default-mode), an endpoint `/<Your Hub Name>/negotiate` is exposed for negotiation by Azure SignalR Service SDK. SignalR clients reach this endpoint and then redirect to Azure SignalR Service later.
 
 In [serverless mode](concept-service-mode.md#serverless-mode), we recommend you hosting a negotiation endpoint to serve the SignalR clients' negotiate request and redirect the clients to Azure SignalR Service.
 
@@ -97,13 +97,13 @@ In [serverless mode](concept-service-mode.md#serverless-mode), we recommend you 
 
 Both of endpoint and access token are useful when you want to redirect SignalR clients to your Azure SignalR Service.
 
-You ccould use the instance of `ServiceHubContext` to generate the endpoint url and corresponding access token for SignalR clients to connect to your Azure SignalR Service.
+You could use the instance of `ServiceHubContext` to generate the endpoint url and corresponding access token for SignalR clients to connect to your Azure SignalR Service.
 
 ```C#
 var negotiationResponse = await serviceHubContext.NegotiateAsync(new (){UserId = "<Your User Id>"});
 ```
 
-Suppose your hub endpoint is `http://<Your Host Name>/<Your Hub Name>`, then your negotiation endpoint will be `http://<Your Host Name>/<Your Hub Name>/negotiate`. Once you host the negotiation endpoint, you can use the SignalR clients to connect to your hub like this:
+Suppose your hub endpoint is `http://<Your Host Name>/<Your Hub Name>`, then your negotiation endpoint is `http://<Your Host Name>/<Your Hub Name>/negotiate`. Once you host the negotiation endpoint, you can use the SignalR clients to connect to your hub like this:
 
 ``` c#
 var connection = new HubConnectionBuilder().WithUrl("http://<Your Host Name>/<Your Hub Name>").Build();
@@ -114,7 +114,7 @@ The sample on how to use Management SDK to redirect SignalR clients to Azure Sig
 
 ### Send Messages and Manage Groups
 
-The `ServiceHubContext` we build from `ServiceHubContextBuilder` is a class that implements and extends `IServiceHubContext`. You could use it to send messages to your clients as well as managing your groups.
+The `ServiceHubContext` we build from `ServiceHubContextBuilder` is a class that implements and extends `IServiceHubContext`. You could use it to send messages to your clients and managing your groups.
 
 ```C#
 try
@@ -153,7 +153,7 @@ public interface IChatClient
 }
 ```
 
-And then you create a strongly typed hub context which implements `IHubContext<Hub<T>, T>`, `T` is your client method interface:
+And then you create a strongly typed hub context, which implements `IHubContext<Hub<T>, T>`, `T` is your client method interface:
 
 ```cs
 ServiceHubContext<IChatClient> serviceHubContext = await serviceManager.CreateHubContextAsync<IChatClient>(hubName, cancellationToken);
@@ -167,30 +167,30 @@ await Clients.All.ReceiveMessage(user, message);
 
 Except for the difference of sending messages, you could negotiate or manage groups with `ServiceHubContext<T>` just like `ServiceHubContext`.
 
-[To read more on strongly typed hubs in the ASP.NET Core docs, go here.](/aspnet/core/signalr/hubs#strongly-typed-hubs)
+Read more on strongly typed hubs in the ASP.NET Core docs [here](/aspnet/core/signalr/hubs#strongly-typed-hubs).
 
 ### Transport Type
 
 This SDK can communicates to Azure SignalR Service with two transport types:
 
-* Transient: Create a Http request Azure SignalR Service for each message sent. The SDK simply wrap up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It is useful when you are unable to establish a WebSockets connection.
-* Persistent: Create a WebSockets connection first and then send all messages in this connection. It is useful when you send large amount of messages.
+* Transient: Create an Http request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
+* Persistent: Create a WebSockets connection first and then send all messages in this connection. It's useful when you send large number of messages.
 
 ### Summary of Serialization behaviors of the Arguments in Messages
 
 | Serialization                  | Transient          | Persistent                        |
 | ------------------------------ | ------------------ | --------------------------------- |
-| Default JSON library           | `Newtonsoft.Json`  | The same as Asp.Net Core SignalR: <br>`Newtonsoft.Json` for .NET Standard 2.0; <br>`System.Text.Json` for .NET Core App 3.1 and above  |
+| Default JSON library           | `Newtonsoft.Json`  | The same as ASP.NET Core SignalR: <br>`Newtonsoft.Json` for .NET Standard 2.0; <br>`System.Text.Json` for .NET Core App 3.1 and above  |
 | MessagePack clients support    |  since v1.21.0   |  since v1.20.0                    |
 
 #### Json serialization
-In Management SDK, the method arguments sent to clients are serialized into JSON. We have several ways to customize JSON serialization. We will show all the ways in the order from the most recommended to the least recommended.
+In Management SDK, the method arguments sent to clients are serialized into JSON. We have several ways to customize JSON serialization. We show all the ways in the order from the most recommended to the least recommended.
 
 ##### `ServiceManagerOptions.UseJsonObjectSerializer(ObjectSerializer objectSerializer)`
 The most recommended way is to use a general abstract class [`ObjectSerializer`](/dotnet/api/azure.core.serialization.objectserializer), because it supports different JSON serialization libraries such as `System.Text.Json` and `Newtonsoft.Json` and it applies to all the transport types. Usually you don't need to implement `ObjectSerializer` yourself, as handy JSON implementations for `System.Text.Json` and `Newtonsoft.Json` are already provided.
 
 * When using `System.Text.Json` as JSON processing library
-    The builtin [`JsonObjectSerializer`](/dotnet/api/azure.core.serialization.jsonobjectserializer) uses `System.Text.Json.JsonSerializer` to for serialization/deserialization. Here is a sample to use camel case naming for JSON serialization:
+    The builtin [`JsonObjectSerializer`](/dotnet/api/azure.core.serialization.jsonobjectserializer) uses `System.Text.Json.JsonSerializer` to for serialization/deserialization. Here's a sample to use camel case naming for JSON serialization:
 
     ```cs
     var serviceManager = new ServiceManagerBuilder()
@@ -207,13 +207,13 @@ The most recommended way is to use a general abstract class [`ObjectSerializer`]
     ```
 
 * When using `Newtonsoft.Json` as JSON processing library
-    First install the package `Microsoft.Azure.Core.NewtonsoftJson` from Nuget using .NET CLI:
+    First install the package `Microsoft.Azure.Core.NewtonsoftJson` from NuGet using .NET CLI:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.Core.NewtonsoftJson
     ```
 
-    Here is a sample to use camel case naming with [`NewtonsoftJsonObjectSerializer`](/dotnet/api/azure.core.serialization.newtonsoftjsonobjectserializer):
+    Here's a sample to use camel case naming with [`NewtonsoftJsonObjectSerializer`](/dotnet/api/azure.core.serialization.newtonsoftjsonobjectserializer):
 
     ```cs
     var serviceManager = new ServiceManagerBuilder()
@@ -236,7 +236,7 @@ The most recommended way is to use a general abstract class [`ObjectSerializer`]
     * [API reference of `JsonObjectSerializer`](/dotnet/api/azure.core.serialization.jsonobjectserializer)
 
 ##### `ServiceManagerBuilder.WithNewtonsoftJson(Action<NewtonsoftServiceHubProtocolOptions> configure)`
-This method is only for `Newtonsoft.Json` users. Here is a sample to use camel case naming:
+This method is only for `Newtonsoft.Json` users. Here's a sample to use camel case naming:
 ```cs
 var serviceManager = new ServiceManagerBuilder()
     .WithNewtonsoftJson(o =>
@@ -287,13 +287,13 @@ For the **transient** mode, this SDK provides the capability to automatically re
 
 In particular, the following types of requests are retried:
 
-* For message requests that send messages to SignalR clients, the SDK retries the request if the HTTP response status code is greater than 500. Note that when the HTTP response code is equal to 500, it may indicate a timeout on the service side, and retrying the request could result in duplicate messages.
+* For message requests that send messages to SignalR clients, the SDK retries the request if the HTTP response status code is greater than 500. When the HTTP response code is equal to 500, it might indicate a timeout on the service side, and retrying the request could result in duplicate messages.
 
 * For other types of requests, such as adding a connection to a group, the SDK retries the request under the following conditions:
     1. The HTTP response status code is in the 5xx range, or the request timed out with a status code of 408 (Request Timeout).
     2. The request timed out with a duration longer than the timeout length configured in `ServiceManagerOptions.HttpClientTimeout`.
 
-Please note that the SDK can only retry idempotent requests, which are requests that have no additional effect if they are repeated. If your requests are not idempotent, you may need to handle retries manually.
+The SDK can only retry idempotent requests, which are requests that have no other effect if they're repeated. If your requests aren't idempotent, you might need to handle retries manually.
 
 ## Next steps
 

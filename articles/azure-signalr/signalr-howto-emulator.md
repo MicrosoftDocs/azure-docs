@@ -10,7 +10,7 @@ ms.author: lianwei
 
 # Use Azure SignalR Local Emulator for serverless development
 
-When developing serverless applications, we provide an Azure SignalR Local Emulator to make the local development and integration easier. Note that the emulator works only for serverless scenarios, for *Default* mode that the Azure SignalR Service acts as a proxy, you can directly use self-host SignalR to do local development. Also note that emulator only works for **Transient** transport type (the default one) and doesn't support *Persistent* transport type.
+When developing serverless applications, we provide an Azure SignalR Local Emulator to make the local development and integration easier. The emulator works only for serverless scenarios, for *Default* mode that the Azure SignalR Service acts as a proxy, you can directly use self-host SignalR to do local development. Also note that emulator only works for **Transient** transport type (the default one) and doesn't support *Persistent* transport type.
 
 ## Features available
 * Auth
@@ -32,7 +32,7 @@ Take this serverless sample for example https://github.com/Azure/azure-functions
     ```
     dotnet tool install  -g Microsoft.Azure.SignalR.Emulator
     ```
-    Or update the emulator to the latest preview version if it is already installed:
+    Or update the emulator to the latest preview version if it's already installed:
     ```
     dotnet tool update -g Microsoft.Azure.SignalR.Emulator
     ```
@@ -46,7 +46,7 @@ Take this serverless sample for example https://github.com/Azure/azure-functions
     asrs-emulator upstream init
     ```
 
-    It inits a default `settings.json` into the current folder, with a default upstream `UrlTemplate` as `http://localhost:7071/runtime/webhooks/signalr`, which is the URL for SignalR's **local** function trigger:
+    It in its a default `settings.json` into the current folder, with a default upstream `UrlTemplate` as `http://localhost:7071/runtime/webhooks/signalr`, which is the URL for SignalR's **local** function trigger:
     ```json
     {
     "UpstreamSettings": {
@@ -62,7 +62,7 @@ Take this serverless sample for example https://github.com/Azure/azure-functions
     }
     ```
 
-    You could edit the file to make the pattern more restricted, for example, change `HubPattern` from `*` to `chat`. When the file is modified, its change will be hot loaded into the emulator.
+    You could edit the file to make the pattern more restricted, for example, change `HubPattern` from `*` to `chat`. When the file is modified, its change is hot-loaded into the emulator.
 
 5. Start the emulator
     ```
