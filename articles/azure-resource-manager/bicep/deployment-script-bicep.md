@@ -145,7 +145,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Monitor and troubleshoot a deployment script
 
-When you deploy a deployment script resource, you need a storage account to store the user script, the execution results, and the `stdout` file. You can specify your own storage account. For more information, see [Use an existing storage account](./deployment-script-develop.md#use-existing-storage-account).
+When you deploy a deployment script resource, you need a storage account to store the user script, the execution results, and the `stdout` file. You can specify your own storage account. For more information, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account).
 
 An alternative to specifying your own storage account involves setting `cleanupPreference` to `OnExpiration`. You then configure `retentionInterval` for a duration that allows ample time for reviewing the outputs before the storage account is removed. For more information, see [Clean up deployment script resources](./deployment-script-develop.md#clean-up-deployment-script-resources).
 
@@ -408,7 +408,7 @@ The following table lists the error codes for the deployment script:
 | `DeploymentScriptContainerGroupContainsInvalidContainers` | A container group that the deployment script service created was externally modified, and invalid containers were added. |
 | `DeploymentScriptContainerGroupInNonterminalState` | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them hasn't finished its execution yet. |
 | `DeploymentScriptStorageAccountInvalidKind` | The existing storage account of the `BlobBlobStorage` or `BlobStorage` type doesn't support file shares and can't be used. |
-| `DeploymentScriptStorageAccountInvalidKindAndSku` | The existing storage account doesn't support file shares. For a list of supported types of storage accounts, see [Use an existing storage account](./deployment-script-develop.md#use-existing-storage-account). |
+| `DeploymentScriptStorageAccountInvalidKindAndSku` | The existing storage account doesn't support file shares. For a list of supported types of storage accounts, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). |
 | `DeploymentScriptStorageAccountNotFound` | The storage account doesn't exist, or an external process or tool deleted it. |
 | `DeploymentScriptStorageAccountWithServiceEndpointEnabled` | The specified storage account has a service endpoint. A storage account with a service endpoint isn't supported. |
 | `DeploymentScriptStorageAccountInvalidAccessKey` | An invalid access key was specified for the existing storage account. |

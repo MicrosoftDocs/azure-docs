@@ -100,7 +100,7 @@ resource <symbolic-name> 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 
 In your deployment script, specify these property values:
 
-- `tags`: Specify deployment script tags. If the deployment script service creates the two supporting resources (a storage account and a container instance), the tags are passed to both resources. You can use the tags to identify the resources. Another way to identify these supporting resources is through their suffixes, which contain *azscripts*. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-bicep.md#monitor-and-troubleshoot-deployment-script).
+- `tags`: Specify deployment script tags. If the deployment script service creates the two supporting resources (a storage account and a container instance), the tags are passed to both resources. You can use the tags to identify the resources. Another way to identify these supporting resources is through their suffixes, which contain *azscripts*. For more information, see [Monitor and troubleshoot deployment scripts](./deployment-script-bicep.md#monitor-and-troubleshoot-a-deployment-script).
 - <a id='identity'></a>`identity`: For deployment script API version `2020-10-01` or later, a user-assigned managed identity is optional unless you need to [perform any Azure-specific actions](#access-azure-resources) in the script or you're [running the deployment script in a private network](./deployment-script-vnet.md). API version `2019-10-01-preview` requires a managed identity because the deployment script service uses it to run the scripts.
 
   When you specify the `identity` property, the script service calls `Connect-AzAccount -Identity` before invoking the user script. Currently, only a user-assigned managed identity is supported. To log in with a different identity in the deployment script, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
@@ -213,7 +213,7 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2023-08-01' = {
 }
 ```
 
-You can control how Azure PowerShell responds to non-terminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable in your script. If you don't set the variable in your deployment script, the script service uses the default value `Continue`. Setting the value to `Stop` makes errors easier to debug.
+You can control how Azure PowerShell responds to nonterminating errors by using the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable in your script. If you don't set the variable in your deployment script, the script service uses the default value `Continue`. Setting the value to `Stop` makes errors easier to debug.
 
 The script service sets the resource provisioning state to `Failed` when the script encounters an error, despite the setting of `$ErrorActionPreference`.
 
