@@ -1,9 +1,9 @@
 ---
 title: Query Store - Azure Database for PostgreSQL - Flexible Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
-author: markingmyname
-ms.author: maghan
-ms.date: 11/30/2023
+author: varun-dhawan
+ms.author: varundhawan
+ms.date: 12/20/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -17,13 +17,14 @@ The Query Store feature in Azure Database for PostgreSQL provides a way to track
 > [!IMPORTANT]  
 > Do not modify the **azure_sys** database or its schema. Doing so will prevent Query Store and related performance features from functioning correctly.
 
-## Enable Query Store
+## Enable the Query Store
 
-Query Store is an opt-in feature, so it isn't enabled by default on a server. Query store is enabled or disabled globally for all databases on a given server and can't be turned on or off per database.
+Query Store is available in all regions with no additional charges. It is an opt-in feature, so it isn't enabled by default on a server. Query store can be enabled or disabled globally for all databases on a given server and can't be turned on or off per database.
+
 > [!IMPORTANT]  
 > Do not enable Query Store on Burstable pricing tier as it would cause performance impact.
 
-### Enable Query Store
+### Enable Query Store in Azure portal
 
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 1. Select **Server Parameters** in the **Settings** section of the menu.
@@ -38,11 +39,11 @@ Allow up to 20 minutes for the first batch of data to persist in the azure_sys d
 
 ## Information in Query Store
 
-Query Store has two stores:
-- A runtime stats store for persisting the query execution statistics information.
-- A wait stats store for persisting wait statistics information.
+#### Query Store consists of two stores:
+1. A runtime stats store for persisting the query execution statistics information.
+1. A wait stats store for persisting wait statistics information.
 
-Common scenarios for using Query Store include:
+#### Common scenarios for using Query Store include:
 - Determining the number of times a query was executed in a given time window
 - Comparing the average execution time of a query across time windows to see large deltas
 - Identifying longest running queries in the past few hours
@@ -189,3 +190,4 @@ This view returns the query plan that was used to execute a query. There's one r
 
 - [scenarios where Query Store can be especially helpful](concepts-query-store-scenarios.md)
 - [best practices for using Query Store](concepts-query-store-best-practices.md)
+- [visualizing data from Query Store via Query Performance Insight Interface](./concepts-query-performance-insight.md)
