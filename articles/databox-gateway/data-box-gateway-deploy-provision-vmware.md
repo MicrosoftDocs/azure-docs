@@ -1,5 +1,5 @@
 ---
-title: Tutorial on provision Azure Data Box Gateway in VMware | Microsoft Docs
+title: Tutorial to provision Azure Data Box Gateway in VMware | Microsoft Docs
 description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in VMware.
 services: databox
 author: stevenmatthew
@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 11/10/2021
+ms.date: 12/19/2023
 ms.author: shaas
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
 ---
@@ -15,9 +15,9 @@ ms.author: shaas
 
 ## Overview
 
-This tutorial describes how to provision a Data Box Gateway on a host system running VMware ESXi 6.0, 6.5, or 6.7. 
+This tutorial describes how to provision a Data Box Gateway on a host system running VMware ESXi 6.7, 7.0 or 8.0.
 
-You need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete. 
+You need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 In this tutorial, you learn how to:
 
@@ -28,10 +28,9 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
 ## Prerequisites
 
-The prerequisites to provision a virtual device on a host system running VMware ESXi 6.0, 6.5, or 6.7, are as follows.
+The prerequisites to provision a virtual device on a host system running VMware ESXi 6.7, 7.0, or 8.0, are as follows.
 
 ### For the Data Box Gateway resource
 
@@ -47,7 +46,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
-* You have access to a host system running VMware (ESXi 6.0, 6.5, or 6.7) that can be used to a provision a device.
+* You have access to a host system running VMware (ESXi 6.7, 7.0 or 8.0) that can be used to a provision a device.
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
@@ -67,55 +66,39 @@ Before you begin:
 
 To create a virtual device, you need:
 
-* Access to a host system running VMware ESXi Server 6.0, 6.5, or 6.7. The host system is able to dedicate the following resources to your virtual device:
- 
+* Access to a host system running VMware ESXi Server 6.7, 7.0 or 8.0. The host system is able to dedicate the following resources to your virtual device:
+
   * A minimum of 4 virtual processors.
-  * At least 8 GB of RAM. 
+  * At least 8 GB of RAM.
   * One network interface connected to the network capable of routing traffic to Internet.
   * A 250 GB OS disk.
   * A 2 TB virtual disk for data.
 * VMware vSphere client on your system to manage the ESXi host.
-
 
 ## Provision a virtual device in hypervisor
 
 Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
+1. Sign in to the ESXi server via a browser at this URL: `https://<IP address of the ESXi server>`. You need to have administrator privileges to create a virtual machine.
 
-2. Sign in to the ESXi server via a browser at this URL: `https://<IP address of the ESXi server>`. You need to have administrator privileges to create a virtual machine.
-
-   ![Sign in page](./media/data-box-gateway-deploy-provision-vmware/image1.png)
-  
-3. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
-
-   ![Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
-
-4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
-
-    - The datastore must be type VMFS5. Databox Gateway has been tested with VMWare with the VMFS5 Datastore. Later Datastore versions, including VMFS6, are not supported.
-
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+1. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image2-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected."  lightbox="media/data-box-gateway-deploy-provision-vmware/image2.png":::
+1. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK.
+    - The datastore can be either VMFS5 or VMFS6. Databox Gateway has been tested with VMWare with the VMFS5 and VMFS6 Datastore.
     - The datastore must also have enough free space for the OS and data disks.
-   
-5. Right-click and select **Browse Datastore**.
-
-   ![Browse datastore](./media/data-box-gateway-deploy-provision-vmware/image3.png)
-
-6. A **Datastore Browser** window appears.
-
+1. Right-click and select **Browse Datastore**.
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image3-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the user opening the datastore context menu."  lightbox="media/data-box-gateway-deploy-provision-vmware/image3.png":::
+1. A **Datastore Browser** window appears.
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image4-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the datastore browser."  lightbox="media/data-box-gateway-deploy-provision-vmware/image4.png":::
    ![Datastore browser](./media/data-box-gateway-deploy-provision-vmware/image4.png)
-
-7. In the tool bar, click **Create directory** icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **Create directory**.
-
-   ![Create directory](./media/data-box-gateway-deploy-provision-vmware/image5.png)
-
-8. The new folder appears in the left pane of the **Datastore Browser**. Click the **Upload** icon and select **Upload File**.
-
-    ![Upload file](./media/data-box-gateway-deploy-provision-vmware/image6.png)
-
-9. Browse and point to the VMDK files that you downloaded. There are two files. Select a file to upload.
-
-    ![Select file to upload](./media/data-box-gateway-deploy-provision-vmware/image7.png)
+1. In the tool bar, click **Create directory** icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **Create directory**.
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image5-sml.png" alt-text="Screenshot of the user creating a directory."  lightbox="media/data-box-gateway-deploy-provision-vmware/image5.png":::
+1. The new folder appears in the left pane of the **Datastore Browser**. Click the **Upload** icon and select **Upload File**.
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image6-sml.png" alt-text="Screenshot of a user uploading a file."  lightbox="media/data-box-gateway-deploy-provision-vmware/image6.png":::
+1. Browse and point to the VMDK files that you downloaded. There are two files. Select a file to upload.
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image7-sml.png" alt-text="Screenshot of a user selecting the file to upload."  lightbox="media/data-box-gateway-deploy-provision-vmware/image7.png":::
 
 10. Click **Open**. The upload of the VMDK file to the specified datastore starts. It may take several minutes for the file to upload.
 11. After the upload is complete, you see the file in the datastore in the folder you created. Now upload the second VMDK file to the same datastore. Once both the files are uploaded, the two files are merged into a single file. You then see a single file in the directory.
