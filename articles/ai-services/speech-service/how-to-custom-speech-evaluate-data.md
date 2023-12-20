@@ -6,9 +6,8 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/29/2022
+ms.date: 12/20/2023
 ms.author: eur
-ms.custom: ignite-fall-2021
 zone_pivot_groups: speech-studio-cli-rest
 show_latex: true
 no-loc: [$$, '\times', '\over']
@@ -425,7 +424,7 @@ By analyzing individual files, you can determine what type of errors exist, and 
 
 ## Evaluate token error rate (TER)
 
-Besides [word error rate](#evaluate-word-error-rate-wer-wer), you can also use the extended measurement of **Token Error Rate (TER)** to evaluate quality on the final end-to-end display format. In addition to the lexical format (`That will cost $900.` instead of `that will cost nine hundred dollars`), TER takes into account the display format aspects such as punctuation, capitalization, and ITN. Learn more about [Display output formatting with speech to text](display-text-format.md). 
+Besides [word error rate](#evaluate-word-error-rate-wer), you can also use the extended measurement of **Token Error Rate (TER)** to evaluate quality on the final end-to-end display format. In addition to the lexical format (`That will cost $900.` instead of `that will cost nine hundred dollars`), TER takes into account the display format aspects such as punctuation, capitalization, and ITN. Learn more about [Display output formatting with speech to text](display-text-format.md). 
 
 TER counts the number of incorrect tokens identified during recognition, and divides the sum by the total number of tokens provided in the human-labeled transcript (N).
 
