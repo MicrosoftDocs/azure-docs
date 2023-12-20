@@ -45,7 +45,7 @@ To enable VM insights on a Windows client machine:
 
 This section offers troubleshooting tips for common issues.
 
-### VM doesn't appear on the map
+### Machine doesn't appear on the map
 
 If your Dependency agent installation succeeded but you don't see your computer on the map, diagnose the problem by following these steps:
 
@@ -61,7 +61,7 @@ If your Dependency agent installation succeeded but you don't see your computer 
 
     Did it return one or more results? Is the data recent? If so, your the agent is operating correctly and communicating with the service. If not, check the agent on your server. See [Troubleshooting Azure Monitor Agent on Windows virtual machines and scale sets](../agents/azure-monitor-agent-troubleshoot-windows-vm.md) or [Log Analytics agent for Linux troubleshooting](../agents/agent-linux-troubleshoot.md).
 
-#### Computer appears on the map but has no processes
+#### Machine appears on the map but has no processes
 
 You see your server on the map, but it has no process or connection data. In this case, the Dependency agent is installed and running, but the kernel driver didn't load.
 
