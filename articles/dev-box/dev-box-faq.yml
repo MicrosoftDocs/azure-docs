@@ -58,7 +58,7 @@ sections:
 
           For best results, we recommend that admins ask the developers to use the [Azure Virtual Desktop Experience Estimator](https://aka.ms/avd-estimator). This tool estimates the connection round trip time (RTT) from the developer’s physical location, through the Azure Virtual Desktop service, to each Azure region in which you can deploy your dev box. The highlighted region is the region with the lowest RTT from your current location. This is the region where the developer will experience optimal connectivity.  
 
-          If that region is not available, we recommend working with your admin to create a new pool in that region or choosing the next best option according to the estimator.  
+          If there isn't a pool for that region yet, we recommend that you create a new pool for that region or for the next best option according to the estimator.  
      
       - question: How are backup, high-availability, and disaster recovery implemented in Microsoft Dev Box? 
         answer: |
