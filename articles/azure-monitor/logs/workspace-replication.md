@@ -222,8 +222,8 @@ By default, queries targeting your workspace are sent to its active region. The 
 Yet, in some cases you may want to intentionally query the inactive region. For example, before triggering failover you may want to ensure your secondary workspace has logs ingested to it.
 
 ### How to query the inactive workspace
-To see which logs are available on the inactive workspace, go to the Azure Portal, and open your Workspace's Logs blade.
-Click the ‘…’ on the upper right area to open this menu, and turn on the “Query inactive region” option to run a query on your secondary region.
+To see which logs are available on the inactive workspace, go to the Azure Portal and open your Workspace's Logs blade.
+Click the ‘…’ on the upper right area and turn on the “Query inactive region” option.
 
 ![Diagram that shows how to query the inactive region through the workspace Logs blade](./media/workspace-replication/query_inactive_region.png)
 
