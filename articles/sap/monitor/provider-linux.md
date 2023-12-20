@@ -56,8 +56,9 @@ nohup ./node_exporter --web.listen-address=":9100" &
 
 1. If the target VM is restarted or stopped, node exporter service is stopped. It must be manually started again to continue monitoring.
 1. Run the below commands to enable node exporter to run as a service.
-Note - Replace this 'xxxx' with the version of node exporter for example - 1.6.1
 
+   > [!NOTE]
+   > Replace this `xxxx` with the version of node exporter. For example, `1.6.1`.
 
     ```shell
     # Change to the directory where node exporter bits are downloaded and copy the node_exporter folder to path /usr/bin
