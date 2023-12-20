@@ -1,12 +1,11 @@
 ---
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 03/17/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-clu 
 ---

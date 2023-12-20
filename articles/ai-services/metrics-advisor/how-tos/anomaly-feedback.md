@@ -4,14 +4,15 @@ titleSuffix: Azure AI services
 description: Learn how to send feedback on anomalies found by your Metrics Advisor instance, and tune the results. 
 author: mrbullwinkle
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: metrics-advisor
+ms.service: azure-ai-metrics-advisor
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.author: mbullwin
 ---
 
 # Provide anomaly feedback
+
+[!INCLUDE [Deprecation announcement](../includes/deprecation.md)]
 
 User feedback is one of the most important methods to discover defects within the anomaly detection system. Here we provide a way for users to mark incorrect detection results directly on a time series, and apply the feedback immediately. In this way, a user can teach the anomaly detection system how to do anomaly detection for a specific time series through active interactions. 
 

@@ -5,7 +5,7 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/02/2023
 ms.author: pauljewell
@@ -14,6 +14,8 @@ ms.custom: devx-track-python, devguide-python
 ---
 
 # Manage container properties and metadata with Python
+
+[!INCLUDE [storage-dev-guide-selector-manage-properties-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-container.md)]
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
@@ -41,7 +43,7 @@ To retrieve container properties, use the following method:
 
 The following code example fetches a container's system properties and writes the property values to a console window:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_get_container_properties":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_get_container_properties":::
 
 ## Set and retrieve metadata
 
@@ -53,7 +55,7 @@ Setting container metadata overwrites all existing metadata associated with the 
 
 The following code example sets metadata on a container:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_set_container_metadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_set_container_metadata":::
 
 To retrieve metadata, call the following method:
 
@@ -61,7 +63,7 @@ To retrieve metadata, call the following method:
 
 The following example reads in metadata values: 
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py" id="Snippet_get_container_metadata":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py" id="Snippet_get_container_metadata":::
 
 ## Resources
 
@@ -79,6 +81,6 @@ The `get_container_properties` method retrieves container properties and metadat
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-containers.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_containers.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]

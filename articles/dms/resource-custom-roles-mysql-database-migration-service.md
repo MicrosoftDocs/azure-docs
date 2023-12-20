@@ -7,6 +7,8 @@ ms.author: karlaescobar
 ms.date: 08/07/2023
 ms.service: dms
 ms.topic: conceptual
+ms.custom:
+  - sql-migration-content
 ---
 
 # Custom roles for MySQL to Azure Database for MySQL migrations using Database Migration Service

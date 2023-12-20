@@ -2,13 +2,12 @@
 title: What is the Text Analytics for health in Azure AI Language?
 titleSuffix: Azure AI services
 description: An overview of Text Analytics for health in Azure AI services, which helps you extract medical information from unstructured text, like clinical documents.
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 01/06/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -30,7 +29,7 @@ Text Analytics for health performs four key functions which are named entity rec
 
 [!INCLUDE [Text Analytics for health](includes/features.md)]
 
-Text Analytics for health can receive unstructured text in English as part of its generally available offering. Additional languages such as German, French, Italian, Spanish, Portuguese, and Hebrew are currently supported in preview.
+Text Analytics for health can receive unstructured text in English, German, French, Italian, Spanish, Portuguese, and Hebrew.
 
 Additionally, Text Analytics for health can return the processed output using the Fast Healthcare Interoperability Resources (FHIR) structure which enables the service's integration with other electronic health systems.  
 

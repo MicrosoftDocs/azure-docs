@@ -1,11 +1,10 @@
 ---
 title: Use Document Translation APIs programmatically
 description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python and the REST API"
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.topic: quickstart
 ms.date: 07/18/2023
 ms.author: lajanuar

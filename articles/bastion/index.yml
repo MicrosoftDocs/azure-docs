@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 05/17/2023
+  ms.date: 10/16/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -42,12 +42,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy Bastion with default settings
+          - text: Deploy Bastion automatically - Basic SKU
             url: quickstart-host-portal.md
+          - text: Deploy Bastion automatically - Developer SKU
+            url: quickstart-developer-sku.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy Bastion manually - specify settings
+            url: tutorial-create-host-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Bastion using manual settings
-            url: ./tutorial-create-host-portal.md
           - text: Connect to a virtual machine (Linux)
             url: bastion-connect-vm-ssh-linux.md
           - text: Connect to a virtual machine (Windows)

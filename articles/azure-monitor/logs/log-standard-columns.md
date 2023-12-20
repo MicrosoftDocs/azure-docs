@@ -11,7 +11,7 @@ ms.date: 02/18/2022
 # Standard columns in Azure Monitor Logs
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../logs/data-platform-logs.md), each with a particular data type that has a unique set of columns. Many data types will have standard columns that are common across multiple types. This article describes these columns and provides examples of how you can use them in queries.
 
-Workspace-based applications in Application Insights store their data in a Log Analytics workspace and use the same standard columns as other other tables in the workspace. Classic applications store their data separately and have different standard columns as specified in this article.
+Workspace-based applications in Application Insights store their data in a Log Analytics workspace and use the same standard columns as other tables in the workspace. Classic applications store their data separately and have different standard columns as specified in this article.
 
 > [!NOTE]
 > Some of the standard columns will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the column in the output.
@@ -46,7 +46,7 @@ Event
 The **\_TimeReceived** column contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](../logs/data-ingestion-time.md) for more details.
 
 > [!NOTE]
-> The **\_TimeReceived** column is calculate each time it is used. This process is resource intensive. Refine from using it to filter large number of records. Using this function recurrently can lead to increased query execution duration.
+> The **\_TimeReceived** column is calculate each time it is used. This process is resource intensive. Refrain from using it to filter large number of records. Using this function recurrently can lead to increased query execution duration.
 
 
 The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and the total time for the record to be available for log queries.
@@ -130,7 +130,7 @@ It is always more efficient to use the \_SubscriptionId column than extracting i
 ## \_SubscriptionId
 The **\_SubscriptionId** column holds the subscription ID of the resource that the record is associated with. This gives you a standard column to use to scope your query to only records from a particular subscription, or to compare different subscriptions.
 
-For Azure resources, the value of **__SubscriptionId** is the subscription part of the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is limited to Azure resources, including [Azure Arc](../../azure-arc/overview.md) resources, or to custom logs that indicated the Resource ID during ingestion.
+For Azure resources, the value of **__SubscriptionId** is the subscription part of the [Azure resource ID URL](../../azure-resource-manager/templates/template-functions-resource.md). The column is limited to Azure resources, including [Azure Arc](../../azure-arc/overview.md) resources, or to custom logs that indicated the Subscription ID during ingestion.
 
 > [!NOTE]
 > Some data types already have fields that contain Azure subscription ID . While these fields are kept for backward compatibility, it is recommended to use the \_SubscriptionId column to perform cross correlation since it will be more consistent.

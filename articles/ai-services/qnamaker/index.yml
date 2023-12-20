@@ -8,9 +8,9 @@ metadata:
   ms.date: 01/11/2022
   ms.author: jboback
   author: jboback
-  ms.service: cognitive-services
-  ms.subservice: qna-maker
-  services: cognitive-services
+  ms.service: azure-ai-language
+  ms.subservice: azure-ai-qna-maker
+  #services: cognitive-services
   title: QnA Maker Documentation
   description: QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. The QnA Maker service answers your users' natural language questions by matching it with the best possible answer from the QnAs in your Knowledge .
 

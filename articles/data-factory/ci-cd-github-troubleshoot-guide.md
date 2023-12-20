@@ -37,7 +37,7 @@ The token was obtained from the original tenant, but the service is in guest ten
 
 #### Recommendation
 
-You should use the token issued from guest tenant. For example, you have to assign the same Azure Active Directory to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
+You should use the token issued from guest tenant. For example, you have to assign the same Microsoft Entra ID to be your guest tenant and your DevOps, so it can correctly set token behavior and use the correct tenant.
 
 ### Template parameters in the parameters file aren't  valid
 
@@ -367,7 +367,7 @@ Dynamic content isn't written as per expression language requirements.
 * For debug run, check expressions in pipeline within current git branch.
 * For Triggered run, check expressions in pipeline within *Live* mode.
  
-## Next steps
+## Related content
 
 For more help with troubleshooting, try the following resources:
 

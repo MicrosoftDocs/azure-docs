@@ -69,9 +69,9 @@ Read more about [how to choose the right compute service on Azure](/azure/archit
 
 ## Enhance functionalities in the application
 
-### Azure Cognitive Search
-Azure Cognitive Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
-Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure Cognitive Search.
+### Azure AI Search
+Azure AI Search is fully managed cloud search service that provides auto-complete, geospatial search, filtering and faceting capabilities for a rich user experience.
+Here's how you can [index data from the Azure Cosmos DB for MongoDB account](../../search/search-howto-index-cosmosdb-mongodb.md) to use with Azure AI Search.
 
 ## Improve database security
 
@@ -88,9 +88,11 @@ You can use Azure Key Vault to -
 * [Secure Azure Cosmos DB for MongoDB account credentials.](../store-credentials-key-vault.md)
 * [Configure customer-managed keys for your account.](../how-to-setup-cmk.md)
 
-### Azure AD
+<a name='azure-ad'></a>
 
-Azure AD managed identities eliminate the need for developers to manage credentials. Here's how you can [create a managed identity for Azure Cosmos DB accounts](../how-to-setup-managed-identity.md).
+### Microsoft Entra ID
+
+Microsoft Entra managed identities eliminate the need for developers to manage credentials. Here's how you can [create a managed identity for Azure Cosmos DB accounts](../how-to-setup-managed-identity.md).
 
 ## Next steps
 

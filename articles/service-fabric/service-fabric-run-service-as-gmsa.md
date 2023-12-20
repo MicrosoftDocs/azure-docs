@@ -16,7 +16,7 @@ On a Windows Server standalone cluster, you can run a service as a *group manage
 The following example shows how to create a gMSA account called *svc-Test$*, how to deploy that managed service account to the cluster nodes, and how to configure the user principal.
 
 > [!NOTE]
-> Using a gMSA with a standalone Service Fabric cluster requires Active Directory on-premises within your domain (rather than Azure Active Directory (Azure AD)).
+> Using a gMSA with a standalone Service Fabric cluster requires Active Directory on-premises within your domain (rather than Microsoft Entra ID).
 
 Pre-requisites:
 

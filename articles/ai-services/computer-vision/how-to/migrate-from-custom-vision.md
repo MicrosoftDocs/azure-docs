@@ -2,10 +2,10 @@
 title: "Migrate a Custom Vision project to Image Analysis 4.0"
 titleSuffix: Azure AI services
 description: Learn how to generate an annotation file from an old Custom Vision project, so you can train a custom Image Analysis model on previous training data.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-ms.service: cognitive-services
+ms.service: azure-ai-vision
 ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 02/06/2023

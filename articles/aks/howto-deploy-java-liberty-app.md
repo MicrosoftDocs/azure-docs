@@ -14,13 +14,15 @@ This article demonstrates how to:
 
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime.
 * Build the application Docker image using Open Liberty or WebSphere Liberty container images.
-* Deploy the containerized application to an AKS cluster using the Open Liberty Operator.
+* Deploy the containerized application to an AKS cluster using the Open Liberty Operator or WebSphere Liberty Operator.
 
-The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
+The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With the Open Liberty or WebSphere Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps.
 
 For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 This article uses the Azure Marketplace offer for Open/WebSphere Liberty to accelerate your journey to AKS. The offer automatically provisions a number of Azure resources including an Azure Container Registry (ACR) instance, an AKS cluster, an Azure App Gateway Ingress Controller (AGIC) instance, the Liberty Operator, and optionally a container image including Liberty and your application. To see the offer, visit the [Azure portal](https://aka.ms/liberty-aks). If you prefer manual step-by-step guidance for running Liberty on AKS that doesn't utilize the automation enabled by the offer, see [Manually deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/howto-deploy-java-liberty-app-manual).
+
+This article is intended to help you quickly get to deployment. Before going to production, you should explore [Tuning Liberty](https://www.ibm.com/docs/was-liberty/base?topic=tuning-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -110,7 +112,7 @@ There are a few samples in the repository. We'll use *java-app/*. Here's the fil
 ```azurecli-interactive
 git clone https://github.com/Azure-Samples/open-liberty-on-aks.git
 cd open-liberty-on-aks
-git checkout 20230723
+git checkout 20230830
 ```
 
 If you see a message about being in "detached HEAD" state, this message is safe to ignore. It just means you have checked out a tag.
@@ -146,10 +148,10 @@ Now that you've gathered the necessary properties, you can build the application
 cd <path-to-your-repo>/java-app
 
 # The following variables will be used for deployment file generation into target.
-export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
-export REGISTRY_NAME=<Azure_Container_Registery_Name>
-export USER_NAME=<Azure_Container_Registery_Username>
-export PASSWORD=<Azure_Container_Registery_Password>
+export LOGIN_SERVER=<Azure_Container_Registry_Login_Server_URL>
+export REGISTRY_NAME=<Azure_Container_Registry_Name>
+export USER_NAME=<Azure_Container_Registry_Username>
+export PASSWORD=<Azure_Container_Registry_Password>
 export DB_SERVER_NAME=<Server name>.database.windows.net
 export DB_NAME=<Database name>
 export DB_USER=<Server admin login>@<Server name>
@@ -209,7 +211,7 @@ You can now use the following steps to test the Docker image locally before depl
 
 ### Upload image to ACR
 
-Now, we upload the built image to the ACR created in the offer.
+Upload the built image to the ACR created in the offer.
 
 ```bash
 docker tag javaee-cafe:v1 ${LOGIN_SERVER}/javaee-cafe:v1
@@ -273,6 +275,8 @@ The following steps deploy and test the application.
       export APP_URL=https://$(kubectl get ingress | grep javaee-cafe-cluster-agic-ingress | cut -d " " -f14)/
       echo $APP_URL
       ```
+
+      If the web page doesn't render correctly or returns a `502 Bad Gateway` error, that's because the app is still starting in the background. Wait for a few minutes and then try again.
 
 ## Clean up resources
 

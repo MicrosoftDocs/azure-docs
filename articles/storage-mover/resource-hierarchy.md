@@ -58,7 +58,7 @@ Your agents appear in your storage mover after they've been registered. Registra
 > The proximity and network quality between your migration agent and the target storage in Azure determine migration velocity in early stages of your migration. The region of the storage mover resource you've deployed doesn't play a role for performance.
 
 > [!NOTE]
-> In order to minimize downtime for your workload, you may decide to copy multiple times from source to target. In later copy runs, migration velocity is often influenced more by the speed at which the migration agent can evaluate if a file needs to be copied or not. That means local compute and memory resources on an agent can become more important to the migration velocity than network quality.
+> In order to minimize downtime for your workload, you might decide to copy multiple times from source to target. In later copy runs, migration velocity is often influenced more by the speed at which the migration agent can evaluate if a file needs to be copied or not. That means local compute and memory resources on an agent can become more important to the migration velocity than network quality.
 
 ## Migration project
 
@@ -66,7 +66,7 @@ A project allows you to organize your larger scale cloud migrations into smaller
 
 The smallest unit of a migration can be defined as the contents of one source moving into one target, but data center migrations are rarely that simple. Often multiple sources support one workload and must be migrated together for timely failover of the workload to the new cloud storage locations in Azure.
 
-In a different example, one source may even need to be split into multiple target locations. The reverse is also possible, where you need to combine multiple sources into subpaths of the same target location in Azure.
+In a different example, one source might even need to be split into multiple target locations. The reverse is also possible, where you need to combine multiple sources into subpaths of the same target location in Azure.
 
 :::image type="content" source="media/resource-hierarchy/project-illustration.png" alt-text="an image showing the nested relationship of a project into a storage mover resource. It also shows child objects of the resource, called job definitions, described later in this article." lightbox="media/resource-hierarchy/project-illustration-large.png":::
 
@@ -82,7 +82,7 @@ A Job definition is contained within a project. The job definition describes a s
 > [!IMPORTANT]
 > After a job definition is created, source and target information cannot be changed. However, migration settings can be changed any time. A change won't affect a running migration job, but will take effect the next time you start a migration job.
 
-It may not seem immediately logical that changing source and target information in an existing job definition isn't permitted. By way of example, imagine you define *Share A* as the migration source and that run several copy operations. Imagine also that you change the migration source to *Share B*. This change could have potentially dangerous consequences.
+It might not seem immediately logical that changing source and target information in an existing job definition isn't permitted. By way of example, imagine you define *Share A* as the migration source and that run several copy operations. Imagine also that you change the migration source to *Share B*. This change could have potentially dangerous consequences.
 
 *Mirroring* is a common migration setting that creates a "mirror" image of a source within a target. If this setting is applied to our example, files from *Share A* might get deleted in the target when the copy operation begins migrating files from *Share B*. To prevent mistakes and maintain the integrity of a job run history, you can't edit a provisioned job definition's source or target. Source, target, and their optional subpath information are locked when a job definition is created. If you want to reuse the same target but use a different source (or vice versa), you're required to create a new job definition.
 
@@ -114,15 +114,15 @@ Learn more about telemetry, metrics and logs in the job definition monitoring ar
 
 Migrations require well defined source and target locations. While the term *endpoint* is often used in networking, here it describes a storage location to a high level of detail. An endpoint contains the path to the storage location and additional information.
 
-While there's a single endpoint resource, the properties of each endpoint may vary, based on the type of endpoint. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
+While only a single endpoint resource exists, the properties of each individual endpoint can vary, based on the type of endpoint. For example, NFS shares, SMB shares, and Azure Storage blob container endpoints each require fundamentally different information.
 
-Endpoints are used in the creation of a job definition. Only certain types of endpoints may be used as a source or a target, respectively. Refer to the [Supported sources and targets](service-overview.md#supported-sources-and-targets) section in the Azure Storage Mover overview article.
+Endpoints are used in the creation of a job definition. Only certain types of endpoints can be used as a source or a target, respectively. Refer to the [Supported sources and targets](service-overview.md#supported-sources-and-targets) section in the Azure Storage Mover overview article.
 
 Endpoints are parented to the top-level storage mover resource and can be reused across different job definitions.
 
 ## Next steps
 
-After understanding the resources involved in an Azure Storage Mover deployment, it's a good idea to start a proof-of-concept deployment. These articles may be good, next reads:
+After understanding the resources involved in an Azure Storage Mover deployment, it's a good idea to start a proof-of-concept deployment. These articles are good, next reads:
 
 - [Deploy a storage mover resource in your subscription.](storage-mover-create.md)
 - [Deploy an Azure Storage Mover agent VM.](agent-deploy.md)

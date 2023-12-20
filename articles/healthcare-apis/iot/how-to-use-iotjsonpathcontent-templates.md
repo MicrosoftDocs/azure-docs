@@ -3,16 +3,13 @@ title: How to use IotJsonPathContent templates with the MedTech service device m
 description: Learn how to use IotJsonPathContent templates with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: iomt
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: jasteppe
 ---
 
 # How to use IotJsonPathContent templates with the MedTech service device mapping
-
-> [!NOTE]
-> [Fast Healthcare Interoperability Resources (FHIR&#174;)](https://www.hl7.org/fhir/) is an open healthcare specification.
 
 This article provides an overview of how to use IotJsonPathContent templates within a MedTech service device mapping.
 
@@ -51,7 +48,7 @@ The IotJsonPathContent templates allow matching on and extracting values from a 
 |typeMatchExpression|The expression that the MedTech service evaluates against the device message payload. If the service finds a matching token value, it considers the template a match.|`$..[?(@heartRate)]`|
 |patientIdExpression|The expression to extract the patient identifier. *Required* when the MedTech services's **Resolution type** is set to **Create**, and *optional* when the MedTech service's **Resolution type** is set to **Lookup**.|`$.SystemProperties.iothub-connection-device-id`|
 |encounterIdExpression|*Optional*: The expression to extract the encounter identifier.|`$.Body.encounterId`|
-|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR destination mapping.|`$.Body.correlationId`|
+|correlationIdExpression|*Optional*: The expression to extract the correlation identifier. You can use this output to group values into a single observation in the FHIR&reg; destination mapping.|`$.Body.correlationId`|
 |values[].valueExpression|The expression to extract the wanted value.|`$.Body.heartRate`|
 
 > [!IMPORTANT]
@@ -165,21 +162,10 @@ The resulting normalized message will look like this after the normalization sta
 
 ## Next steps
 
-In this article, you learned how to use IotJsonPathContent templates with the MedTech service device mapping.
+[Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md) 
 
-To deploy the MedTech service with device message routing enabled through an Azure IoT Hub, see
+[Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
 
-> [!div class="nextstepaction"]
-> [Receive device messages through Azure IoT Hub](device-messages-through-iot-hub.md) 
+[Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
 
-For an overview of the MedTech service FHIR destination mapping, see
-
-> [!div class="nextstepaction"]
-> [Overview of the FHIR destination mapping](overview-of-fhir-destination-mapping.md)
-
-For an overview of the MedTech service scenario-based mappings samples, see
-
-> [!div class="nextstepaction"]
-> [Overview of the MedTech service scenario-based mappings samples](overview-of-samples.md)
-
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

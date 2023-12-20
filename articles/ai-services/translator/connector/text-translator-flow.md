@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Use Microsoft Translator V3 connector and Power Automate to configure a Text Translation flow.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: translator-text
+ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: how-to
 ms.date: 07/18/2023

@@ -4,10 +4,11 @@ description: In this quickstart, you will learn how to use the Azure Blob Storag
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 11/09/2022
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
+ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Azure Blob Storage client library for .NET
@@ -15,6 +16,11 @@ ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 Get started with the Azure Blob Storage client library for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow these steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
 [API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples)
+
+This video shows you how to start using the Azure Blob Storage client library for .NET.
+> [!VIDEO cdae65e7-1892-48fe-934a-70edfbe147be]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 

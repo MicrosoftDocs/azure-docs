@@ -3,13 +3,13 @@ title: Migrate from Azure Monitor Application Insights classic URL ping tests to
 description: How to migrate from Azure Monitor Application Insights classic availability URL ping tests to standard tests.
 ms.topic:    conceptual
 ms.custom: devx-track-azurepowershell
-ms.date:     07/19/2023
+ms.date: 11/15/2023
 ms.reviewer: cogoodson
 ---
 
 # Migrate availability tests
 
-In this article, we guide you through the process of migrating from [classic URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) to the modern and efficient [standard tests](availability-standard-tests.md) .
+In this article, we guide you through the process of migrating from [classic URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) to the modern and efficient [standard tests](availability-standard-tests.md).
 
 We simplify this process by providing clear step-by-step instructions to ensure a seamless transition and equip your applications with the most up-to-date monitoring capabilities.
 
@@ -17,9 +17,12 @@ We simplify this process by providing clear step-by-step instructions to ensure 
 
 The following steps walk you through the process of creating [standard tests](availability-standard-tests.md) that replicate the functionality of your [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability). It allows you to more easily start using the advanced features of [standard tests](availability-standard-tests.md) using your previously created [URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability).
 
-> [!NOTE]
-> A cost is associated with running [standard tests](availability-standard-tests.md). Once you create a [standard test](availability-standard-tests.md), you will be charged for test executions.
-> Refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing) before starting this process.
+> [!IMPORTANT]
+> 
+> On September 30th, 2026, **[URL ping tests](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) retire**. Transition to **[standard tests](/editor/availability-standard-tests.md)** before then.
+> 
+> - A cost is associated with running **[standard tests](/editor/availability-standard-tests.md)**. Once you create a **[standard test](/editor/availability-standard-tests.md)**, you will be charged for test executions.
+> - Refer to **[Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/#pricing)** before starting this process.
 
 ### Prerequisites
 
@@ -29,17 +32,21 @@ The following steps walk you through the process of creating [standard tests](av
 ### Steps
 
 1.	Connect to your subscription with Azure PowerShell (Connect-AzAccount + Set-AzContext).
-2.	List all URL ping tests in a resource group:
+
+2.	List all URL ping tests in the current subscription:
 
     ```azurepowershell
-    $resourceGroup = "myResourceGroup";
-    Get-AzApplicationInsightsWebTest -ResourceGroupName $resourceGroup | `
-        Where-Object { $_.WebTestKind -eq "ping" };
+    Get-AzApplicationInsightsWebTest | `
+    Where-Object { $_.WebTestKind -eq "ping" } | `
+    Format-Table -Property ResourceGroupName,Name,WebTestKind,Enabled;
     ```
-3.	Find the URL ping Test you want to migrate and record its name.
+
+3.	Find the URL Ping Test you want to migrate and record its resource group and name.
+
 4.	The following commands create a standard test with the same logic as the URL ping test:
 
     ```azurepowershell
+    $resourceGroup = "pingTestResourceGroup";
     $appInsightsComponent = "componentName";
     $pingTestName = "pingTestName";
     $newStandardTestName = "newStandardTestName";
@@ -85,8 +92,7 @@ The following steps walk you through the process of creating [standard tests](av
 
 #### When should I use these commands?
 
-We recommend using these commands to migrate a URL ping test to a standard test and take advantage of the available capabilities. Remember, this migration is optional.
-
+Migrate URL ping tests to standard tests now to take advantage of new capabilities.
 
 #### Do these steps work for both HTTP and HTTPS endpoints?
 

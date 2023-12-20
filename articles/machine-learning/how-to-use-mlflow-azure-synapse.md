@@ -21,8 +21,6 @@ In this article, learn how to enable MLflow to connect to Azure Machine Learning
 
 If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
-[!INCLUDE [machine-learning-mlflow-projects-deprecation](includes/machine-learning-mlflow-projects-deprecation.md)]
-
 ## Prerequisites
 
 * An [Azure Synapse Analytics workspace and cluster](../synapse-analytics/quickstart-create-workspace.md).

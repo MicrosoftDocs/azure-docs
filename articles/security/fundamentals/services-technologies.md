@@ -42,7 +42,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |[Azure StorSimple Virtual Array](../../storsimple/storsimple-ova-overview.md)| An integrated storage solution that manages storage tasks between an on-premises virtual array running in a hypervisor and Microsoft Azure cloud storage.|
 |[Client-Side encryption for blobs](../../storage/blobs/client-side-encryption.md)| A client-side encryption solution that supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. |
 | [Azure Storage shared access signatures](../../storage/common/storage-sas-overview.md)|A shared access signature (SAS) provides delegated access to resources in your storage account.  |
-|[Azure Storage Account Keys](../../storage/common/storage-account-create.md)| An access control method for Azure storage that is used authorize requests to the storage account using either the account access keys or an Azure Active Directory (Azure AD) account (default). |
+|[Azure Storage Account Keys](../../storage/common/storage-account-create.md)| An access control method for Azure storage that is used authorize requests to the storage account using either the account access keys or a Microsoft Entra account (default). |
 |[Azure File shares](../../storage/files/storage-files-introduction.md)| A storage security technology that offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol, Network File System (NFS) protocol, and Azure Files REST AP. |
 |[Azure Storage Analytics](../../storage/common/storage-analytics.md)| A logging and metrics-generating technology for data in your storage account. |
 
@@ -62,10 +62,10 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |Service|Description|
 |------|--------|
 | [Azure&nbsp;role-based&nbsp;access control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
-| [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based identity and access management service that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
+| [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based identity and access management service that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)| A customer identity access management (CIAM) solution that enables control over how customers sign-up, sign-in, and manage their profiles when using Azure-based applications.   |
-| [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services that provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos/NTLM authentication. |
-| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
+| [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services that provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos/NTLM authentication. |
+| [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
 
 ## Backup and disaster recovery
 |Service|Description|
@@ -83,7 +83,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)|A TCP/UDP application network load balancer. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| A feature that lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| A DNS-based traffic load balancer.|
-| [Azure Active Directory Application Proxy](../../active-directory/app-proxy/application-proxy.md)| An authenticating front-end used to secure remote access to on-premises web applications. |
+| [Microsoft Entra application proxy](../../active-directory/app-proxy/application-proxy.md)| An authenticating front-end used to secure remote access to on-premises web applications. |
 |[Azure Firewall](../../firewall/overview.md)|A cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure.|
 |[Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
 |[Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)| Provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. |

@@ -2,13 +2,12 @@
 title: How to build an orchestration project schema
 description: Learn how to define intents for your orchestration workflow project.
 titleSuffix: Azure AI services
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-orchestration
 ---

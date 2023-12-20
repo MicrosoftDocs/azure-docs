@@ -2,7 +2,7 @@
 
 title: Azure Active Directory for developers
 summary: |
-  Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps that sign in users with a Microsoft work or school account. Azure AD supports building single-tenant line-of-business (LOB) apps as well as multi-tenant apps.
+  Microsoft Entra ID is a cloud identity service that allows developers to build apps that sign in users with a Microsoft work or school account. Microsoft Entra ID supports building single-tenant line-of-business (LOB) apps as well as multi-tenant apps.
 
   IMPORTANT: This content is for the older Azure AD v1.0 endpoint, use the Microsoft identity platform (https://aka.ms/identityplatform) for new projects.
 

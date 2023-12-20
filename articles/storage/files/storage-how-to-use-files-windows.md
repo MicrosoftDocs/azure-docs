@@ -6,10 +6,17 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: kendownie
+ms.custom: ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Mount SMB Azure file share on Windows
 [Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be seamlessly used in Windows and Windows Server. This article discusses the considerations for using an Azure file share with Windows and Windows Server.
+
+This video shows you how to mount an SMB Azure file share on Windows.
+> [!VIDEO c057ece1-3ba7-409b-8cee-5492a4ad4ee4]
+
+The steps in the video are also described in the following sections.
 
 In order to use an Azure file share via the public endpoint outside of the Azure region it's hosted in, such as on-premises or in a different Azure region, the OS must support SMB 3.x. Older versions of Windows that support only SMB 2.1 can't mount Azure file shares via the public endpoint.
 
@@ -113,7 +120,9 @@ You don't need to mount the Azure file share to a particular drive letter to use
 
 `\\storageaccountname.file.core.windows.net\myfileshare`
 
-You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share.
+You'll be asked to sign in with your network credentials. Sign in with the Azure subscription under which you've created the storage account and file share. If you do not get prompted for credentials you can add the credentials using the following command:
+
+`cmdkey /add:StorageAccountName.file.core.windows.net /user:localhost\StorageAccountName /pass:StorageAccountKey`
 
 For Azure Government Cloud, simply change the servername to:
 

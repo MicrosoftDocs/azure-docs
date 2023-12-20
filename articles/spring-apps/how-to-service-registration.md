@@ -83,4 +83,4 @@ The Spring Cloud Service Registry server endpoint is injected as an environment 
 
 ## Next steps
 
-In this article, you learned how to register your application using Spring Cloud Service Registry. To learn how to access the Spring Cloud Service Registry using Azure Active Directory (Azure AD) role-based access control (RBAC), see [Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md).
+In this article, you learned how to register your application using Spring Cloud Service Registry. To learn how to access the Spring Cloud Service Registry using Microsoft Entra role-based access control (RBAC), see [Access Config Server and Service Registry](how-to-access-data-plane-azure-ad-rbac.md).

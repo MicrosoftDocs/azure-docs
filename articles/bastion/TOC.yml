@@ -7,16 +7,16 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Bastion with default settings
+  - name: Deploy Bastion automatically - Basic SKU
     href: quickstart-host-portal.md
+  - name: Deploy Bastion automatically - Developer SKU
+    href: quickstart-developer-sku.md
   - name: Deploy Bastion - ARM template
     href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
   - name: Deploy Bastion with manual settings
     href: tutorial-create-host-portal.md
-  - name: Deploy Bastion with DDoS protection
-    href: tutorial-protect-bastion-host.md
 - name: Concepts
   items:
   - name: Support for working remotely
@@ -47,6 +47,8 @@
       href: bastion-create-host-powershell.md
     - name: Azure CLI
       href: create-host-cli.md
+    - name: Developer SKU
+      href: quickstart-developer-sku.md
   - name: Configure Bastion settings
     items:
     - name: View or upgrade SKU
@@ -73,8 +75,6 @@
         href: bastion-connect-vm-ssh-windows.md
     - name: Linux VM
       items: 
-      - name: RDP connection
-        href: bastion-connect-vm-rdp-linux.md
       - name: SSH connection
         href: bastion-connect-vm-ssh-linux.md
   - name: Connect to a VM - native client

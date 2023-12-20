@@ -2,12 +2,11 @@
 title: Model customization concepts - Image Analysis 4.0
 titleSuffix: Azure AI services
 description: Concepts related to the custom model feature of the Image Analysis 4.0 API.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 
-ms.service: cognitive-services
-ms.subservice: computer-vision
+ms.service: azure-ai-vision
 ms.topic: conceptual
 ms.date: 02/06/2023
 ms.author: pafarley
@@ -22,6 +21,12 @@ Model customization lets you train a specialized Image Analysis model for your o
 
 > [!div class="nextstepaction"]
 > [Python SDK quickstart](./how-to/model-customization.md?tabs=python)
+
+
+> [!IMPORTANT]
+> You can train a custom model using either the [Custom Vision service](/azure/ai-services/custom-vision-service/overview) or the Image Analysis 4.0 service with model customization. The following table compares the two services.
+>
+> [!INCLUDE [custom-vision-ia-compare](includes/custom-vision-ia-compare.md)]
 
 
 ## Scenario components

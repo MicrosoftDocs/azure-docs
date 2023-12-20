@@ -39,7 +39,7 @@ To use NAT gateway with Azure App services, follow these steps:
 
 5. Assign NAT gateway to the same subnet being used for Virtual network integration with your application(s).  
 
-To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](../app-service/networking/nat-gateway-integration.md#configuring-nat-gateway-integration) 
+To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](../app-service/networking/nat-gateway-integration.md#configure-nat-gateway-integration) 
 
 Important notes about the NAT gateway and Azure App Services integration:  
 

@@ -3,9 +3,9 @@ ms.author: jboback
 author: jboback
 ms.topic: include
 ms.custom: include file, ignite-fall-2021
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.date: 03/30/2022
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
+ms.date: 12/19/2023
 ---
 
 > [!NOTE]

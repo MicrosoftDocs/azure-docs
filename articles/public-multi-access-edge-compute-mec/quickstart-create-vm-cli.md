@@ -56,7 +56,7 @@ In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual mac
    The following example creates a VM named myVMEdge and adds a user account named azureuser at Azure public MEC:
 
    ```azurecli
-   az vm create \--resource-group myResourceGroup \--name myVMEdge \--image UbuntuLTS \--admin-username azureuser \--admin-password <password> \--edge-zone <edgezone ID> \--public-ip-sku Standard
+   az vm create \--resource-group myResourceGroup \--name myVMEdge \--image Ubuntu2204 \--admin-username azureuser \--admin-password <password> \--edge-zone <edgezone ID> \--public-ip-sku Standard
    ```
 
    The `--edge-zone` parameter determines the Azure public MEC location where the VM and its associated resources are created. Because Azure public MEC supports only standard SKU for a public IP, you must specify `Standard` for the `--public-ip-sku` parameter.
@@ -98,7 +98,7 @@ To use SSH to connect to the VM in Azure public MEC, the best method is to deplo
    The following example creates a VM named myVMRegion in the region:
 
     ```azurecli
-    az vm create --resource-group myResourceGroup --name myVMRegion --image UbuntuLTS --admin-username azureuser --admin-password <password> --vnet-name MyVnetRegion --subnet MySubnetRegion --public-ip-sku Standard
+    az vm create --resource-group myResourceGroup --name myVMRegion --image Ubuntu2204 --admin-username azureuser --admin-password <password> --vnet-name MyVnetRegion --subnet MySubnetRegion --public-ip-sku Standard
     ```
 
 1. Note your `publicIpAddress` value in the output from the myVMregion VM. Use this address to access the VM in the next sections.

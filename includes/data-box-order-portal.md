@@ -1,10 +1,10 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
 ms.date: 06/06/2022
-ms.author: alkohli
+ms.author: shaas
 ms.custom: contperf-fy22q3
 ---
 
@@ -273,3 +273,4 @@ Do the following steps in the Azure portal to order a device:
     The order takes a few minutes to be created. Your completed order will look similar to this one. You can select **Go to resource** to open the order.
 
     ![Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.](media/data-box-order-portal/data-box-import-11.png)
+

@@ -4,7 +4,7 @@ description: Learn how to create clusters for HDInsight by using Resource Manage
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 07/31/2023
+ms.date: 08/22/2023
 ---
 
 # Create Apache Hadoop clusters in HDInsight by using Resource Manager templates

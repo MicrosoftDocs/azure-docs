@@ -7,13 +7,15 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 04/21/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
 # Download a blob with JavaScript
+
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
 
 This article shows how to download a blob using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). You can download blob data to various destinations, including a local file path, stream, or text string.
 
@@ -38,7 +40,7 @@ The following example downloads a blob by using a file path with the [BlobClient
 ```javascript
 async function downloadBlobToFile(containerClient, blobName, fileNameWithPath) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
     
     await blobClient.downloadToFile(fileNameWithPath);
     console.log(`download of ${blobName} success`);
@@ -52,7 +54,7 @@ The following example downloads a blob by creating a Node.js writable stream obj
 ```javascript
 async function downloadBlobAsStream(containerClient, blobName, writableStream) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 
@@ -69,7 +71,7 @@ The following Node.js example downloads a blob to a string with [BlobClient.down
 
 async function downloadBlobToString(containerClient, blobName) {
 
-    const blobClient = await containerClient.getBlobClient(blobName);
+    const blobClient = containerClient.getBlobClient(blobName);
 
     const downloadResponse = await blobClient.download();
 

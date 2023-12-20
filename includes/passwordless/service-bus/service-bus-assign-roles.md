@@ -23,9 +23,11 @@ For Azure Service Bus, the management of namespaces and all related resources th
 
 If you want to create a custom role, see [Rights required for Service Bus operations](../../../articles/service-bus-messaging/service-bus-sas.md#rights-required-for-service-bus-operations).
 
-### Add Azure AD user to Azure Service Bus Owner role
+<a name='add-azure-ad-user-to-azure-service-bus-owner-role'></a>
 
-Add your Azure AD user name to the **Azure Service Bus Data Owner** role at the Service Bus namespace level. It will allow an app running in the context of your user account to send messages to a queue or a topic, and receive messages from a queue or a topic's subscription. 
+### Add Microsoft Entra user to Azure Service Bus Owner role
+
+Add your Microsoft Entra user name to the **Azure Service Bus Data Owner** role at the Service Bus namespace level. It will allow an app running in the context of your user account to send messages to a queue or a topic, and receive messages from a queue or a topic's subscription. 
 
 > [!IMPORTANT]
 > In most cases, it will take a minute or two for the role assignment to propagate in Azure. In rare cases, it may take up to **eight minutes**. If you receive authentication errors when you first run your code, wait a few moments and try again.
@@ -40,5 +42,5 @@ Add your Azure AD user name to the **Azure Service Bus Data Owner** role at the 
 1. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
     
-1. In the dialog, search for your Azure AD username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog. 
+1. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog. 
 1. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.

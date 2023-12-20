@@ -1,13 +1,13 @@
 ---
 title: Design knowledge base - QnA Maker concepts
 description: Learn how to design a knowledge base - QnA Maker.
-ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.service: azure-ai-language
+ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.date: 01/27/2020
+ms.date: 12/19/2023
 ---
 
 # Question and answer pair concepts

@@ -32,9 +32,9 @@ Partners need to be authenticated and authorized to access the Data Manager for 
 Hence to enable authentication & authorization, partners need to do the following
 
 1. **Create an Azure account** (If you don't have one already created.)
-2. **Create a multi-tenant Azure Active Directory app** - The multi-tenant Azure Active Directory app as the name signifies, has access to multiple customers’ tenants, if the customers have given explicit consent to the partner app (explained in the role assignment step).
+2. **Create a multi-tenant Microsoft Entra app** - The multi-tenant Microsoft Entra app as the name signifies, has access to multiple customers’ tenants, if the customers have given explicit consent to the partner app (explained in the role assignment step).
 
-Partners can access the APIs in customer tenant using the multi-tenant Azure Active Directory App, registered in Azure Active Directory. App registration is done on the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application that in turn accesses Data Manager for Agriculture.
+Partners can access the APIs in customer tenant using the multi-tenant Microsoft Entra App, registered in Microsoft Entra ID. App registration is done on the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application that in turn accesses Data Manager for Agriculture.
 
 Follow the steps provided in [App Registration](/azure/active-directory/develop/quickstart-register-app#register-an-application) **until the Step 8** to generate the following information:
 
@@ -50,7 +50,7 @@ Follow the steps provided in [Add a client secret](/azure/active-directory/devel
 
 ### Registration
 
-Once the partner has created a multi-tenant Azure Active Directory app successfully, partners manually share the APP ID and Partner ID with Data Manager for Agriculture by emailing madma@microsoft.com alias. Using this information Data Manager for Agriculture validates if it’s an authentic partner and creating a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners are enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data that they push.
+Once the partner has created a multi-tenant Microsoft Entra app successfully, partners manually share the APP ID and Partner ID with Data Manager for Agriculture by emailing madma@microsoft.com alias. Using this information Data Manager for Agriculture validates if it’s an authentic partner and creating a partner identity (sensorPartnerId) using the internal APIs. As part of the registration process, partners are enabled to use their partner ID (sensorPartnerId) while creating the sensor/devices object and also as part of the sensor data that they push.
 
 Getting the partner ID marks the completion of partner-Data Manager for Agriculture integration. Now, the partner waits for input from any of their sensor customers to initiate their data ingestion into Data Manager for Agriculture.
 
@@ -63,7 +63,7 @@ Based on the sensors that customers use and their respective sensor partner’s 
 
 Customers who choose to onboard to a specific partner should have the app ID of that specific partner. Using the app ID customer needs to do the following things in sequence.
 
-1. **Consent** – Since the partner’s app resides in a different tenant and the customer wants the partner to access certain APIs in their Data Manager for Agriculture instance, the customers are required to call a specific endpoint `https://login.microsoft.com/common/adminconsent/clientId=[client_id]` and replace the [client_id] with the partners’ app ID. This enables the customers’ Azure Active Directory to recognize this APP ID whenever they use it for role assignment.
+1. **Consent** – Since the partner’s app resides in a different tenant and the customer wants the partner to access certain APIs in their Data Manager for Agriculture instance, the customers are required to call a specific endpoint `https://login.microsoft.com/common/adminconsent/clientId=[client_id]` and replace the [client_id] with the partners’ app ID. This enables the customers’ Microsoft Entra ID to recognize this APP ID whenever they use it for role assignment.
 
 2. **Identity Access Management (IAM)** – As part of Identity access management, customers create a new role assignment to the above app ID, which was provided consent. Data Manager for Agriculture creates a new role called Sensor Partner (In addition to the existing Admin, Contributor, Reader roles). Customers choose the sensor partner role and add the partner app ID and provide access.
 

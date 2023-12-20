@@ -6,15 +6,15 @@ services: virtual-wan
 author: erjosito
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/08/2022
+ms.date: 08/24/2023
 ms.author: jomore
 ---
 
 # Virtual WAN routing deep dive
 
-[Azure Virtual WAN][virtual-wan-overview] is a networking solution that allows creating sophisticated networking topologies easily: it encompasses routing across Azure regions between Azure VNets and on-premises locations via Point-to-Site VPN, Site-to-Site VPN, [ExpressRoute][er] and [integrated SDWAN appliances][virtual-wan-nva], including the option to [secure the traffic][virtual-wan-secured-hub]. In most scenarios, it is not required any deep knowledge of how Virtual WAN internal routing works, but in certain situations it can be useful to understand Virtual WAN routing concepts.
+[Azure Virtual WAN][virtual-wan-overview] is a networking solution that allows creating sophisticated networking topologies easily: it encompasses routing across Azure regions between Azure VNets and on-premises locations via Point-to-Site VPN, Site-to-Site VPN, [ExpressRoute][er] and [integrated SDWAN appliances][virtual-wan-nva], including the option to [secure the traffic][virtual-wan-secured-hub]. In most scenarios, it isn't required that you have deep knowledge of how Virtual WAN internal routing works, but in certain situations it can be useful to understand Virtual WAN routing concepts.
 
-This document explores sample Virtual WAN scenarios that explain some of the behaviors that organizations might encounter when interconnecting their VNets and branches in complex networks. The scenarios shown in this article are by no means design recommendations, they are just sample topologies designed to demonstrate certain Virtual WAN functionalities.
+This document explores sample Virtual WAN scenarios that explain some of the behaviors that organizations might encounter when interconnecting their VNets and branches in complex networks. The scenarios shown in this article are by no means design recommendations, they're just sample topologies designed to demonstrate certain Virtual WAN functionalities.
 
 ## Scenario 1: topology with default routing preference
 
@@ -22,7 +22,7 @@ The first scenario in this article analyzes a topology with two Virtual WAN hubs
 
 In each hub, the VPN and SDWAN appliances serve a dual purpose: on one side they advertise their own individual prefixes (`10.4.1.0/24` over VPN in hub 1 and `10.5.3.0/24` over SDWAN in hub 2), and on the other they advertise the same prefixes as the ExpressRoute circuits in the same region (`10.4.2.0/24` in hub 1 and `10.5.2.0/24` in hub 2). This difference will be used to demonstrate how the [Virtual WAN hub routing preference][virtual-wan-hrp] works.
 
-All VNet and branch connections are associated and propagating to the default route table. Although the hubs are secured (there is an Azure Firewall deployed in every hub), they are not configured to secure private or Internet traffic. Doing so would result in all connections propagating to the `None` route table, which would remove all non-static routes from the `Default` route table and defeat the purpose of this article since the effective route blade in the portal would be almost empty (except for the static routes to send traffic to the Azure Firewall).
+All VNet and branch connections are associated and propagating to the default route table. Although the hubs are secured (there is an Azure Firewall deployed in every hub), they aren't configured to secure private or Internet traffic. Doing so would result in all connections propagating to the `None` route table, which would remove all non-static routes from the `Default` route table and defeat the purpose of this article since the effective route blade in the portal would be almost empty (except for the static routes to send traffic to the Azure Firewall).
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits and two V P N branches." :::
 
@@ -41,7 +41,7 @@ The NVA in VNet 12 injects the route 10.1.20.0/22 over BGP, as the Next Hop Type
 
 In hub 2 there is an integrated SDWAN Network Virtual Appliance. For more details on supported NVAs for this integration please visit [About NVAs in a Virtual WAN hub][virtual-wan-nva]. Note that the route to the SDWAN branch `10.5.3.0/24` has a next hop of `VPN_S2S_Gateway`. This type of next hop can indicate today either routes coming from an Azure Virtual Network Gateway or from NVAs integrated in the hub.
 
-In hub 2, the route for `10.2.20.0/22` to the indirect spokes VNet 221 (10.2.21.0/24) and VNet 222 (10.2.22.0/24) is installed as a static route, as indicated by the origin `defaultRouteTable`. If you check in the effective routes for hub 1, that route is not there. The reason is because static routes are not propagated via BGP, but need to be configured in every hub. Hence, a static route is required in hub 1 to provide connectivity between the VNets and branches in hub 1 to the indirect spokes in hub 2 (VNets 221 and 222):
+In hub 2, the route for `10.2.20.0/22` to the indirect spokes VNet 221 (10.2.21.0/24) and VNet 222 (10.2.22.0/24) is installed as a static route, as indicated by the origin `defaultRouteTable`. If you check in the effective routes for hub 1, that route isn't there. The reason is because static routes aren't propagated via BGP, but need to be configured in every hub. Hence, a static route is required in hub 1 to provide connectivity between the VNets and branches in hub 1 to the indirect spokes in hub 2 (VNets 221 and 222):
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1-add-route.png" alt-text="Screenshot that shows how to add a static route to a Virtual WAN hub." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1-add-route-expanded.png":::
 
@@ -51,7 +51,7 @@ After adding the static route, hub 1 will contain the `10.2.20.0/22` route as we
 
 ## Scenario 2: Global Reach and hub routing preference
 
-Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.5.2.0/24`) and hub 2 knows the ExpressRoute prefix from circuit 1 (`10.4.2.0/24`), ExpressRoute routes from remote regions are not advertised back to on-premises ExpressRoute links. Consequently, [ExpressRoute Global Reach][er-gr] is required for the ExpressRoute locations to communicate to each other:
+Even if hub 1 knows the ExpressRoute prefix from circuit 2 (`10.5.2.0/24`) and hub 2 knows the ExpressRoute prefix from circuit 1 (`10.4.2.0/24`), ExpressRoute routes from remote regions aren't advertised back to on-premises ExpressRoute links. Consequently, [ExpressRoute Global Reach][er-gr] is required for the ExpressRoute locations to communicate to each other:
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-2.png" alt-text="Diagram showing a Virtual WAN design with two ExpressRoute circuits with Global Reach and two V P N branches.":::
 
@@ -100,7 +100,7 @@ Hub 2 will show a similar table for the effective routes, where the VNets and br
 
 ## Scenario 3: Cross-connecting the ExpressRoute circuits to both hubs
 
-In order to add direct links between the Azure regions and the on-premises locations connected via ExpressRoute, it is often desirable connecting a single ExpressRoute circuit to multiple Virtual WAN hubs in a topology some times described as "bow tie", as the following topology shows:
+In order to add direct links between the Azure regions and the on-premises locations connected via ExpressRoute, it's often desirable connecting a single ExpressRoute circuit to multiple Virtual WAN hubs in a topology some times described as "bow tie", as the following topology shows:
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits in bow tie with Global Reach and two V P N branches." :::
 
@@ -111,7 +111,7 @@ Virtual WAN shows that both circuits are connected to both hubs:
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-circuits.png" alt-text="Screenshot of Virtual WAN showing both ExpressRoute circuits connected to both virtual hubs." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-circuits-expanded.png":::
 
-Going back to the default hub routing preference of ExpressRoute, the routes to remote branches and VNets in hub 1 will show again ExpressRoute as next hop. Although this time the reason is not Global Reach, but the fact that the ExpressRoute circuits bounce back the route advertisements they get from one hub to the other. For example, the effective routes of hub 1 with hub routing preference of ExpressRoute are as follows:
+Going back to the default hub routing preference of ExpressRoute, the routes to remote branches and VNets in hub 1 will show again ExpressRoute as next hop. Although this time the reason isn't Global Reach, but the fact that the ExpressRoute circuits bounce back the route advertisements they get from one hub to the other. For example, the effective routes of hub 1 with hub routing preference of ExpressRoute are as follows:
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-er-hub-1.png" alt-text="Screenshot of effective routes in Virtual hub 1 in bow tie design with Global Reach and routing preference ExpressRoute." lightbox="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-3-er-hub-1-expanded.png":::
 

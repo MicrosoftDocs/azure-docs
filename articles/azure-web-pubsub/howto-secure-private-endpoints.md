@@ -123,8 +123,3 @@ The Azure Web PubSub service free tier instance cannot integrate with private en
 Clients in VNets with existing private endpoints face constraints when accessing other Azure Web PubSub service instances that have private endpoints. For instance, suppose a VNet N1 has a private endpoint for an Azure Web PubSub service instance W1. If Azure Web PubSub service W2 has a private endpoint in a VNet N2, then clients in VNet N1 must also access Azure Web PubSub service W2 using a private endpoint. If Azure Web PubSub service W2 does not have any private endpoints, then clients in VNet N1 can access Azure Web PubSub service in that account without a private endpoint.
 
 This constraint is a result of the DNS changes made when Azure Web PubSub service W2 creates a private endpoint.
-
-### Network Security Group rules for subnets with private endpoints
-
-Currently, you can't configure [Network Security Group](../virtual-network/network-security-groups-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are applied to the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
-

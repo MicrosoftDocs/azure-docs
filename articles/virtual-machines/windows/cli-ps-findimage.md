@@ -45,24 +45,19 @@ $domainNameLabel = "d" + $rgname
 $securePassword = <Password> | ConvertTo-SecureString -AsPlainText -Force
 $username = <Username>
 $credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)
-New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -Image CentOS85Gen2 -Credential $credential -DomainNameLabel $domainNameLabel
+New-AzVM -ResourceGroupName $rgname -Location $location -Name $vmName -image CentOS85Gen285Gen2 -Credential $credential -DomainNameLabel $domainNameLabel
 ```
 
 The Linux image alias names and their details are:
 ```output
 Alias                     Architecture    Offer                         Publisher               Sku                                 Urn                                                                            Version
 -----------------------   --------------  ----------------------------  ----------------------  ----------------------------------  ------------------------------------------------------------------------------ ---------
-CentOS                    x64             CentOS                        OpenLogic               7.5                                 OpenLogic:CentOS:7.5:latest                                                    latest
 CentOS85Gen2              x64             CentOS                        OpenLogic               8_5-gen2                            OpenLogic:CentOS:8_5-gen2:latest                                               latest
 Debian11                  x64             Debian-11                     Debian                  11-backports-gen2                   Debian:debian-11:11-backports-gen2:latest                                      latest
-Debian10                  x64             Debian-10                     Debian                  10                                  Debian:debian-10:10:latest                                                     latest
 FlatcarLinuxFreeGen2      x64             flatcar-container-linux-free  kinvolk                 stable                              kinvolk:flatcar-container-linux-free:stable:latest                             latest
-openSUSE-Leap             x64             opensuse-leap-15-3            SUSE                    gen2                                SUSE:opensuse-leap-15-3:gen2:latest                                            latest
 OpenSuseLeap154Gen2       x64             opensuse-leap-15-4            SUSE                    gen2                                SUSE:opensuse-leap-15-4:gen2:latest                                            latest
-RHEL                      x64             RHEL                          RedHat                  7-LVM                               RedHat:RHEL:7-LVM:latest                                                       latest
 RHELRaw8LVMGen2           x64             RHEL                          RedHat                  8-lvm-gen2                          RedHat:RHEL:8-lvm-gen2:latest                                                  latest
 SLES                      x64             sles-15-sp3                   SUSE                    gen2                                SUSE:sles-15-sp3:gen2:latest                                                   latest
-UbuntuLTS                 x64             UbuntuServer                  Canonical               16.04-LTS                           Canonical:UbuntuServer:16.04-LTS:latest                                        latest
 Ubuntu2204                x64             0001-com-ubuntu-server-jammy  Canonical               22_04-lts-gen2                      Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest                   latest
 ```
 

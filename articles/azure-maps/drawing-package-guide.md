@@ -223,6 +223,17 @@ The following snippet shows the unit property object that is associated with the
 
 You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be zipped into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the zipped package. All other files can be in any directory of the zipped package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package].
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
+> [Tutorial: Creating a Creator indoor map]
+
 :::zone-end
 
 :::zone pivot="drawing-package-v2"
@@ -328,28 +339,30 @@ Defining text properties enables you to associate text entities that fall inside
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/dwg-layers.png" alt-text="Screenshot showing the 'create a new manifest' screen of the onboarding tool.":::
 
 > [!IMPORTANT]
-> The following feature class should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
+> The following feature classes should be defined (not case sensitive) in order to use [wayfinding]. `Wall` will be treated as an obstruction for a given path request. `Stair` and `Elevator` will be treated as level connectors to navigate across floors:
 >
-> 1. Wall
-> 2. Stair
-> 3. Elevator
+> * Wall
+> * Stair
+> * Elevator
 
-### Download
+### Review + Create
 
-When finished, select the **Download** button to view the manifest. When you finished verifying that it's ready, select the **Download** button to save it locally so that you can include it in the drawing package to import into your Azure Maps Creator resource.
+When finished, select the **Create + Download** button to download a copy of the drawing package and start the map creation process. For more information on the map creation process, see [Create indoor map with the onboarding tool].
 
 :::image type="content" source="./media/creator-indoor-maps/onboarding-tool/review-download.png" alt-text="Screenshot showing the manifest JSON.":::
-
-## Step 4: Prepare the drawing package
-
-You should now have all the DWG drawings prepared to meet Azure Maps Conversion service requirements. A manifest file has also been created to help describe the facility. All files need to be compressed into a single archive file, with the `.zip` extension. It's important that the manifest file is named `manifest.json` and is placed in the root directory of the drawing package. All other files can be in any directory of the drawing package if the filename includes the relative path to the manifest. For an example of a drawing package, see the [sample drawing package v2].
-
-:::zone-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
+> [Create indoor map with the onboarding tool]
+
+:::zone-end
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
 [sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0
@@ -364,3 +377,7 @@ You should now have all the DWG drawings prepared to meet Azure Maps Conversion 
 [manifest files]: drawing-requirements.md#manifest-file-1
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 [facility level]: drawing-requirements.md#facility-level
+[Create indoor map with the onboarding tool]: creator-onboarding-tool.md
+
+[What is Azure Maps Creator?]: about-creator.md
+[Creator for indoor maps]: creator-indoor-maps.md

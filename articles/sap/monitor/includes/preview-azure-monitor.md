@@ -1,5 +1,5 @@
 ---
-author: lauradolan
+author: ju-shim
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: include

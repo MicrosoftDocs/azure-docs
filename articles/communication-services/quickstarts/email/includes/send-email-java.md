@@ -121,7 +121,9 @@ EmailClient emailClient = new EmailClientBuilder()
     .buildClient();
 ```
 
-#### [Azure Active Directory](#tab/aad)
+<a name='azure-active-directory'></a>
+
+#### [Microsoft Entra ID](#tab/aad)
 
 A [DefaultAzureCredential](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/identity/azure-identity#defaultazurecredential) object must be passed to the `EmailClientBuilder` via the `credential()` method. An endpoint must also be set via the `endpoint()` method.
 
@@ -173,6 +175,7 @@ try
     PollResponse<EmailSendResult> pollResponse = null;
 
     Duration timeElapsed = Duration.ofSeconds(0);
+    Duration POLLER_WAIT_TIME = Duration.ofSeconds(10);
 
     while (pollResponse == null
             || pollResponse.getStatus() == LongRunningOperationStatus.NOT_STARTED
