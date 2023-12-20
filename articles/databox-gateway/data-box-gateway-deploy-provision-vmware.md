@@ -92,14 +92,23 @@ Perform the following steps to provision a virtual device in your hypervisor.
     - The datastore can be either VMFS5 or VMFS6. Databox Gateway has been tested with VMWare with the VMFS5 and VMFS6 Datastore.
     - The datastore must also have enough free space for the OS and data disks.
 1. Right-click and select **Browse Datastore**.
+
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image3-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the user opening the datastore context menu." lightbox="media/data-box-gateway-deploy-provision-vmware/image3.png":::
+
 1. A **Datastore Browser** window appears.
+
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image4-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the datastore browser."  lightbox="media/data-box-gateway-deploy-provision-vmware/image4.png":::
+
 1. In the tool bar, click **Create directory** icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **Create directory**.
+
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image5-sml.png" alt-text="Screenshot of the user creating a directory."  lightbox="media/data-box-gateway-deploy-provision-vmware/image5.png":::
+
 1. The new folder appears in the left pane of the **Datastore Browser**. Click the **Upload** icon and select **Upload File**.
+
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image6-sml.png" alt-text="Screenshot of a user uploading a file."  lightbox="media/data-box-gateway-deploy-provision-vmware/image6.png":::
+
 1. Browse and point to the VMDK files that you downloaded. There are two files. Select a file to upload.
+
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image7-sml.png" alt-text="Screenshot of a user selecting the file to upload."  lightbox="media/data-box-gateway-deploy-provision-vmware/image7.png":::
 
 10. Click **Open**. The upload of the VMDK file to the specified datastore starts. It may take several minutes for the file to upload.
