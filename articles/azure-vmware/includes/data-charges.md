@@ -3,18 +3,18 @@ title: Azure VMware Solution data charges
 description: Azure VMware Solution data charges description.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 10/14/2023
+ms.date: 12/20/2023
 author: rvandenbedem
 ms.author: rvandenbedem
 ---
 
 <!-- Used in faq.yml -->
 
-Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. No billing for any Azure VMware Solution ExpressRoute circuit, or for Global Reach charges between Azure VMware Solution private clouds, or Azure VMware Solution to on-premises, other than standard egress charges for traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans. 
+Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. No billing for any Azure VMware Solution ExpressRoute circuit, or for Global Reach charges between Azure VMware Solution private clouds, or Azure VMware Solution to on-premises, other than standard egress charges for traffic from your Azure ExpressRoute circuit connecting to your on-premises to Azure is charged according to Azure ExpressRoute pricing plans (Metered Billing Model). If you are using the Azure ExpressRoute Unlimited Billing Model, you will not pay any egress traffic charges. 
 
 - **Azure VMware Solution to VNet** is through an internal ExpressRoute circuit and is free of cost, regardless of region location (same region or cross-region).
 
-- **Azure VMware Solution to on-premises** is done through VNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free aside from the standard egress charges from the ExpressRoute to on-premises network. 
+- **Azure VMware Solution to on-premises** is done through VNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free aside from the standard egress charges (Metered Billing Model) from the ExpressRoute to on-premises network. For the Unlimited Billing Model, there are no data charges. 
 
 For example:
           
