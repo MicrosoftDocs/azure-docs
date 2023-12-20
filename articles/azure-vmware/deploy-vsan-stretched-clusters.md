@@ -3,8 +3,8 @@ title: Deploy vSAN stretched clusters
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/16/2023
-ms.custom: references_regions
+ms.date: 12/11/2023
+ms.custom: references_regions, engagement-fy23 
 ---
 
 # Deploy vSAN stretched clusters
@@ -13,7 +13,7 @@ In this article, learn how to implement a vSAN stretched cluster for an Azure VM
 
 ## Background
 
-Azure’s global infrastructure is broken up into Regions. Each region supports the services for a given geography. Within each region, Azure builds isolated, and redundant islands of infrastructure called availability zones (AZ). An AZ acts as a boundary for resource management. The compute and other resources available to an AZ are finite and may become exhausted by customer demands. An AZ is built to be independently resilient, meaning failures in one AZ doesn't affect other AZs.
+Azure’s global infrastructure is broken up into Regions. Each region supports the services for a given geography. Within each region, Azure builds isolated, and redundant islands of infrastructure called availability zones (AZ). An AZ acts as a boundary for resource management. The compute and other resources available to an AZ are finite and can become exhausted by customer demands. An AZ is built to be independently resilient, meaning failures in one AZ doesn't affect other AZs.
 
 With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster traditionally reside in a single Azure Availability Zone (AZ) and are protected by vSphere high availability (HA). However, it doesn't protect the workloads against an Azure AZ failure. To protect against an AZ failure, a single vSAN cluster can be enabled to span two separate availability zones, called a [vSAN stretched cluster](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vsan-planning.doc/GUID-4172337E-E25F-4C6B-945E-01623D314FDA.html?hWord=N4IghgNiBcIG4GcwDsAECAuAnAphgxgBY4Amq+EArpjliAL5A).
 
@@ -76,11 +76,11 @@ Follow the [Request Host Quota](/azure/azure-vmware/request-host-quota-azure-vmw
 
 ## Deploy a stretched cluster private cloud
 
-When the request support details are received, quota will be reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email will be sent to the designated point of contact within two business days upon which you should be able to [self-deploy a stretched cluster private cloud via the Azure portal](./tutorial-create-private-cloud.md?tabs=azure-portal#create-a-private-cloud). Be sure to select **Hosts in two availability zones** to ensure that a stretched cluster gets deployed in the region of your choice.
+When the request support details are received, quota is reserved for a stretched cluster environment in the region requested. The subscription gets enabled to deploy a stretched cluster SDDC through the Azure portal. A confirmation email is sent to the designated point of contact within two business days upon which you should be able to [self-deploy a stretched cluster private cloud via the Azure portal](./tutorial-create-private-cloud.md?tabs=azure-portal#create-a-private-cloud). Be sure to select **Hosts in two availability zones** to ensure that a stretched cluster gets deployed in the region of your choice.
 
 :::image type="content" source="media/stretch-clusters/stretched-clusters-hosts-two-availability-zones.png" alt-text="Screenshot shows where to select hosts in two availability zones.":::
 
-Once the private cloud is created, you can peer both availability zones (AZs) to your on-premises ExpressRoute circuit with Global Reach that helps connect your on-premises data center to the private cloud. Peering both the AZs will ensure that an AZ failure doesn't result in a loss of connectivity to your private cloud. Since an ExpressRoute Auth Key is valid for only one connection, repeat the [Create an ExpressRoute auth key in the on-premises ExpressRoute circuit](./tutorial-expressroute-global-reach-private-cloud.md#create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit) process to generate another authorization.
+Once the private cloud is created, you can peer both availability zones (AZs) to your on-premises ExpressRoute circuit with Global Reach that helps connect your on-premises data center to the private cloud. Peering both the AZs ensures that an AZ failure doesn't result in a loss of connectivity to your private cloud. Since an ExpressRoute Auth Key is valid for only one connection, repeat the [Create an ExpressRoute auth key in the on-premises ExpressRoute circuit](./tutorial-expressroute-global-reach-private-cloud.md#create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit) process to generate another authorization.
 
 :::image type="content" source="media/stretch-clusters/express-route-availability-zones.png" alt-text="Screenshot shows how to generate Express Route authorizations for both availability zones."lightbox="media/stretch-clusters/express-route-availability-zones.png":::
 
@@ -95,12 +95,12 @@ The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" a
 - Site disaster tolerance settings (PFTT):
     - Dual site mirroring
     - None - keep data on preferred
-    - None - keep data on non-preferred
+    - None - keep data on nonpreferred
 - Local failures to tolerate (SFTT):
     - 1 failure – RAID 1 (Mirroring)
-    - 1 failure – RAID 5 (Erasure coding), requires a minimum of 4 hosts in each AZ
+    - 1 failure – RAID 5 (Erasure coding), requires a minimum of four hosts in each AZ
     - 2 failures – RAID 1 (Mirroring)
-    - 2 failures – RAID 6 (Erasure coding), requires a minimum of 6 hosts in each AZ
+    - 2 failures – RAID 6 (Erasure coding), requires a minimum of six hosts in each AZ
     - 3 failures – RAID 1 (Mirroring)
 
 ## FAQ
@@ -112,9 +112,9 @@ Currently, there are [four regions supported](#stretched-clusters-region-availab
 ### What kind of SLA does Azure VMware Solution provide with the stretched clusters?
 
 A private cloud created with a vSAN stretched cluster is designed to offer a 99.99% infrastructure availability commitment when the following conditions exist:
-- A minimum of 6 nodes are deployed in the cluster (3 in each availability zone)
-- When a VM storage policy of PFTT of "Dual-Site Mirroring" and an SFTT of 1 is used by the workload VMs
-- Compliance with the **Additional Requirements** captured in the [SLA details of Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) is required to achieve the availability goals
+- A minimum of six nodes are deployed in the cluster (3 in each availability zone).
+- When a VM storage policy of PFTT of "Dual-Site Mirroring" and an SFTT of 1 is used by the workload VMs.
+- Compliance with the **Additional Requirements** captured in the [SLA details of Azure VMware Solution](https://azure.microsoft.com/support/legal/sla/azure-vmware/v1_1/) is required to achieve the availability goals.
 
 ### Do I get to choose the availability zone in which a private cloud is deployed?
 
@@ -122,8 +122,8 @@ No. A stretched cluster is created between two availability zones, while the thi
 
 ### What are the limitations I should be aware of?
 
-- Once a private cloud has been created with a stretched cluster, it can't be changed to a standard cluster private cloud. Similarly, a standard cluster private cloud can't be changed to a stretched cluster private cloud after creation.
-- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment. For more details, refer to [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
+- Once a private cloud is created with a stretched cluster, it can't be changed to a standard cluster private cloud. Similarly, a standard cluster private cloud can't be changed to a stretched cluster private cloud after creation.
+- Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of six nodes and a maximum of 16 nodes are supported in a stretched cluster environment. For more information, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
 - Currently not supported in a stretched cluster environment:
@@ -139,12 +139,12 @@ vSAN stretched clusters operate within a 5-milliseconds round trip time (RTT) an
 
 ### Can I mix stretched and standard clusters in my private cloud?
 
-No. A mix of stretched and standard clusters aren't supported within the same private cloud. A stretched or standard cluster environment is selected when you create the private cloud. Once a private cloud has been created with a stretched cluster, it's assumed that all clusters created within that private cloud are stretched in nature.
+No. A mix of stretched and standard clusters aren't supported within the same private cloud. A stretched or standard cluster environment is selected when you create the private cloud. Once a private cloud gets created with a stretched cluster, the assumption is that all clusters created within that private cloud are stretched in nature.
 
 ### How much does the solution cost?
 
-Customers will be charged based on the number of nodes deployed within the private cloud.
+Customers are charged based on the number of nodes deployed within the private cloud.
 
-### Will I be charged for the witness node and for inter-AZ traffic?
+### Am I charged for the witness node and for inter-AZ traffic?
 
-No. Customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.
+No. Customers don't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed through Microsoft.
