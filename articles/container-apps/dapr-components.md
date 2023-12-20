@@ -1,5 +1,5 @@
 ---
-title: Using Dapr components in Azure Container Apps
+title: Dapr components in Azure Container Apps
 description: Learn more about how Dapr components work on your Azure Container App service to develop applications.
 ms.author: hannahhunter
 author: hhunter-ms
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/18/2023
 ---
 
-# Using Dapr components in Azure Container Apps
+# Dapr components in Azure Container Apps
 
 Dapr uses a modular design where functionality is delivered as a [component][dapr-component]. The use of Dapr components is optional and dictated exclusively by the needs of your application.
 
@@ -19,9 +19,11 @@ Dapr components in container apps are environment-level resources that:
 - Can be shared across container apps or scoped to specific container apps.
 - Can use Dapr secrets to securely retrieve configuration metadata.
 
+In this guide, you learn how to configure Dapr components for your Azure Container Apps services. 
+
 ## Component schema
 
-All Dapr OSS components conform to the following basic [schema][dapr-component-spec].
+In the Dapr open-source project, all components conform to the following basic [schema][dapr-component-spec].
 
 ```yaml
 apiVersion: dapr.io/v1alpha1
@@ -39,7 +41,7 @@ spec:
       value: [METADATA-VALUE]
 ```
 
-In Container Apps, the above schema is slightly simplified to support Dapr components and remove unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
+In Azure Container Apps, the above schema is slightly simplified to support Dapr components and remove unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
 
 ```yaml
 componentType: [COMPONENT-TYPE]
@@ -118,7 +120,7 @@ scopes:
 ```
 
 > [!NOTE]
-> Kubernetes secrets, Local environment variables and Local file Dapr secret stores aren't supported in Container Apps. As an alternative for the upstream Dapr default Kubernetes secret store, container apps provides a platform-managed approach for creating and leveraging Kubernetes secrets.
+> Kubernetes secrets, Local environment variables, and Local file Dapr secret stores aren't supported in Container Apps. As an alternative for the upstream Dapr default Kubernetes secret store, container apps provides a platform-managed approach for creating and leveraging Kubernetes secrets.
 
 ### Using Platform-managed Kubernetes secrets
 
