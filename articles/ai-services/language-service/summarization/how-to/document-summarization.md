@@ -7,7 +7,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom:
   - language-service-summarization
@@ -86,8 +86,6 @@ You can also use the `sortby` parameter to specify in what order the extracted s
 |Offset    | Keeps the original order in which the sentences appear in the input document.        |
 
 ### Try document abstractive summarization
-
-<!-- [Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684) -->
 
 The following example gets you started with document abstractive summarization:
 

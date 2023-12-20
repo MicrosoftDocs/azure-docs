@@ -21,7 +21,7 @@ The Msv3 and Mdsv3 Medium Memory(MM) series, powered by 4<sup>th</sup> generatio
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Restricted Support<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>

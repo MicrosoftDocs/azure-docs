@@ -5,7 +5,7 @@ description: Learn how to perform administrative tasks for the Apache Hadoop clu
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 12/05/2023
 ---
 # Manage Apache Hadoop clusters in HDInsight by using .NET SDK
 

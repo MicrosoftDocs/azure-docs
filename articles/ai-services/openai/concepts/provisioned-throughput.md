@@ -20,7 +20,7 @@ The provisioned throughput capability allows you to specify the amount of throug
 
 - **Predictable performance:** stable max latency and throughput for uniform workloads.
 - **Reserved processing capacity:** A deployment configures the amount of throughput. Once deployed, the throughput is available whether used or not.
-- **Cost savings:** High throughput workloads will result in cost savings vs token-based consumption.
+- **Cost savings:** High throughput workloads may provide cost savings vs token-based consumption.
 
 An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. A deployment provides customer access to a model for inference and integrates additional features like Content Moderation ([See content moderation documentation](content-filter.md)).
 

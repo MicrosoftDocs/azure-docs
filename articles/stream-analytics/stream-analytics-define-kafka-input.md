@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 11/30/2023
 ---
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
@@ -43,7 +43,7 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 > [!NOTE]
 > For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
-> > You must upload certificates as secrets to key vault using Azure CLI.
+> You must upload certificates as secrets to key vault using Azure CLI.
 
 |Property name   |Description   |
 |----------|-----------|
@@ -66,7 +66,7 @@ For a step-by-step tutorial on connecting to confluent cloud kakfa, visit the do
 
 > [!NOTE]
 > When using trust store certificates with mTLS or SASL_SSL security protocols, you must have Azure Key vault and managed identity configured for your Azure Stream Analytics job.
->
+> Check your key vault's network settings to ensure **Allow public access from all networks** is selected. Suppose your Key vault is in a VNET or only allows access from specific networks. In that case, you must inject your ASA job into a VNET containing the key vault or inject your ASA job into a VNET, then connect your key vault to the VNET containing the job using service endpoints.
 
 Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets.
 Certificates are stored as secrets in the key vault and must be in PEM format.
@@ -101,7 +101,7 @@ Follow the following to grant admin access:
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
 Make sure you have Azure CLI configured locally with PowerShell.
-You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
+You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 
 **Login to Azure CLI:**
 ```PowerShell
@@ -175,10 +175,10 @@ Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network docum
 
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
-> [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
-> [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
+
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Stream data from confluent cloud Kafka with Azure Stream Analytics](confluent-kafka-input.md)
+* [Stream data from Azure Stream Analytics into confluent cloud](confluent-kafka-output.md)
 
 
 <!--Link references-->

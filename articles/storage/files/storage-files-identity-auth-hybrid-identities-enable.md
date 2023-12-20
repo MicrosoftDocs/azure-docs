@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/25/2023
+ms.date: 11/21/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -14,7 +14,7 @@ recommendations: false
 
 This article focuses on enabling and configuring Microsoft Entra ID (formerly Azure AD) for authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID. Cloud-only identities aren't currently supported.
 
-This configuration allows hybrid users to access Azure file shares using Kerberos authentication, using Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined clients. However, configuring Windows access control lists (ACLs)/directory and file-level permissions for a user or group requires line-of-sight to the on-premises domain controller.
+This configuration allows hybrid users to access Azure file shares using Kerberos authentication, using Microsoft Entra ID to issue the necessary Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet without requiring unimpeded network connectivity to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined clients. However, configuring Windows access control lists (ACLs)/directory and file-level permissions for a user or group requires unimpeded network connectivity to the on-premises domain controller.
 
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md). For more information, see [this deep dive](https://techcommunity.microsoft.com/t5/itops-talk-blog/deep-dive-how-azure-ad-kerberos-works/ba-p/3070889).
 
@@ -76,7 +76,7 @@ To enable Microsoft Entra Kerberos authentication using the [Azure portal](https
 
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" alt-text="Screenshot of the Azure portal showing Active Directory configuration settings for a storage account. Microsoft Entra Kerberos is selected." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/enable-azure-ad-kerberos.png" border="true":::
 
-1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need line-of-sight to the on-premises AD.
+1. **Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, then you need to specify the domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlet from an on-premises AD-joined client: `Get-ADDomain`. Your domain name should be listed in the output under `DNSRoot` and your domain GUID should be listed under `ObjectGUID`. If you'd prefer to configure directory and file-level permissions using icacls, you can skip this step. However, if you want to use icacls, the client will need unimpeded network connectivity to the on-premises AD.
 
 1. Select **Save**.
 
@@ -177,12 +177,12 @@ To set share-level permissions, follow the instructions in [Assign share-level p
 
 ## Configure directory and file-level permissions
 
-Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with line-of-sight to an on-premises AD**. To use Windows File Explorer, the device also needs to be domain-joined.  
+Once share-level permissions are in place, you can assign directory/file-level permissions to the user or group. **This requires using a device with unimpeded network connectivity to an on-premises AD**. To use Windows File Explorer, the device also needs to be domain-joined.  
 
 There are two options for configuring directory and file-level permissions with Microsoft Entra Kerberos authentication:
 
 - **Windows File Explorer:** If you choose this option, then the client must be domain-joined to the on-premises AD.
-- **icacls utility:** If you choose this option, then the client doesn't need to be domain-joined, but needs line-of-sight to the on-premises AD.
+- **icacls utility:** If you choose this option, then the client doesn't need to be domain-joined, but needs unimpeded network connectivity to the on-premises AD.
 
 To configure directory and file-level permissions through Windows File Explorer, you also need to specify domain name and domain GUID for your on-premises AD. You can get this information from your domain admin or from an on-premises AD-joined client. If you prefer to configure using icacls, this step is not required.
 
@@ -201,8 +201,8 @@ Enable the Microsoft Entra Kerberos functionality on the client machine(s) you w
 Use one of the following three methods:
 
 - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 1
-- Configure this group policy on the client(s): `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
-- Create the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
+- Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+- Set the following registry value on the client(s) by running this command from an elevated command prompt: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
 Changes are not instant, and require a policy refresh or a reboot to take effect.
 
@@ -225,11 +225,11 @@ Add an entry for each storage account that uses on-premises AD DS integration. U
 
 ## Undo the client configuration to retrieve Kerberos tickets
 
-If you no longer want to use a client machine for Microsoft Entra Kerberos authentication, you can disable the Microsoft Entra Kerberos functionality on that machine. Use one of the following three methods:
+If you no longer want to use a client machine for Microsoft Entra Kerberos authentication, you can disable the Microsoft Entra Kerberos functionality on that machine. Use one of the following three methods, depending on how you enabled the functionality:
 
 - Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 0
-- Configure this group policy on the client(s): `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
-- Create the following registry value on the client(s): `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 0`
+- Configure this group policy on the client(s) to "Disabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+- Set the following registry value on the client(s) by running this command from an elevated command prompt: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 0`
 
 Changes are not instant, and require a policy refresh or a reboot to take effect.
 

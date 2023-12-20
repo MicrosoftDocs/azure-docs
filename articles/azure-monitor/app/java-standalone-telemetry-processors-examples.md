@@ -2,7 +2,7 @@
 title: Telemetry processor examples - Azure Monitor Application Insights for Java
 description: Explore examples that show telemetry processors in Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 12/15/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -534,7 +534,7 @@ Let's assume the input log message body is `User account with userId 123456xx fa
         "body": {
           "toAttributes": {
             "rules": [
-              "^User account with userId (?<redactedUserId>\\d+) .*"
+              "userId (?<redactedUserId>[0-9a-zA-Z]+)"
             ]
           }
         }

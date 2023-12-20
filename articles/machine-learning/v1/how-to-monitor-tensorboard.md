@@ -141,8 +141,6 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
-[!INCLUDE [low-pri-note](../includes/machine-learning-low-pri-vm.md)]
-
 ### Configure and submit training job
 
 Configure a training job by creating a ScriptRunConfig object.

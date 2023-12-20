@@ -1,16 +1,19 @@
 ---
 title: Manage users in Azure FarmBeats
 description: This article describes how to manage users in Azure FarmBeats.
-author: RiyazPishori
+author: gourdsay
 ms.topic: article
-ms.date: 12/02/2019
-ms.author: riyazp
+ms.date: 11/29/2023
+ms.author: angour
 ---
 
-
 # Manage users
-
 Azure FarmBeats includes user management for people who are part of your Microsoft Entra instance. You can add users to your Azure FarmBeats instance to access the APIs, view the generated maps, and access sensor telemetry from the farm.
+
+> [!IMPORTANT]
+> Azure FarmBeats is retired. You can see the public announcement [**here**](https://azure.microsoft.com/updates/project-azure-farmbeats-will-be-retired-on-30-sep-2023-transition-to-azure-data-manager-for-agriculture/).
+>
+> We have built a new agriculture focused service, it's name is Azure Data Manager for Agriculture and it's now available as a preview service. For more information see public documentation [**here**](../../data-manager-for-agri/overview-azure-data-manager-for-agriculture.md) or write to us at madma@microsoft.com. 
 
 ## Prerequisites
 

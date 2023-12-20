@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway 
 ms.topic: reference
-ms.date: 01/11/2023 
+ms.date: 10/10/2023
 ---
 
 # Azure Communications Gateway limits, quotas and restrictions
@@ -31,6 +31,10 @@ Azure Communications Gateway applies restrictions to individual fields in SIP me
 ### SIP behavior restrictions
 
 [!INCLUDE [communications-gateway-sip-behavior-restrictions](includes/communications-gateway-sip-behavior-restrictions.md)]
+
+## Provisioning API limits
+
+[!INCLUDE [limits on the Provisioning API](includes/communications-gateway-provisioning-api-restrictions.md)]
 
 ## Next steps
 

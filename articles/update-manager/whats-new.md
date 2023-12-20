@@ -5,19 +5,25 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 11/13/2023
+ms.date: 12/05/2023
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
+## December 2023
+
+### Pre and Post Events (preview)
+
+Azure Update Manager allows you to create and manage pre and post events on scheduled maintenance configurations. [Learn more](pre-post-scripts-overview.md).
+
 ## November 2023
 
-## Alerting (preview)
-Azure Update Manager allows you to enable alerts to address events as captured in updates data.
+### Alerting (preview)
+Azure Update Manager allows you to enable alerts to address events as captured in updates data. [Learn more](manage-alerts.md).
 
-## Azure Stack HCI patching (preview)
+### Azure Stack HCI patching (preview)
 
 Azure Update Manager allows you to patch Azure Stack HCI cluster. [Learn more](/azure-stack/hci/update/azure-update-manager-23h2?toc=/azure/update-manager/toc.json&bc=/azure/update-manager/breadcrumb/toc.json)
 

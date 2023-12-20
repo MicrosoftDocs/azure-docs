@@ -249,7 +249,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 1. Select **Next**, and your user, and a system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *support*, or *cyberx* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
+    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *support*, or *cyberx* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](legacy-central-management/manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
 
 ## Investigate a lack of traffic
 
@@ -356,4 +356,4 @@ For further troubleshooting, you may want to export logs to send to the support 
 
 - [Set up SNMP MIB health monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md)
 
-- [Monitor disconnected OT sensors](how-to-manage-sensors-from-the-on-premises-management-console.md#monitor-disconnected-ot-sensors)
+- [Monitor disconnected OT sensors](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md#monitor-disconnected-ot-sensors)

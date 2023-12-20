@@ -14,7 +14,7 @@ ms.date: 01/31/2023
 
 # Knowledge store in Azure AI Search
 
-Knowledge store is a data sink created by a [Azure AI Search enrichment pipeline](cognitive-search-concept-intro.md) that stores AI-enriched content in tables and blob containers in Azure Storage for independent analysis or downstream processing in non-search scenarios like knowledge mining.
+Knowledge store is a data sink created by an [Azure AI Search enrichment pipeline](cognitive-search-concept-intro.md) that stores AI-enriched content in tables and blob containers in Azure Storage for independent analysis or downstream processing in non-search scenarios like knowledge mining.
 
 If you've used cognitive skills in the past, you already know that enriched content is created by *skillsets*. Skillsets move a document through a sequence of enrichments that invoke atomic transformations, such as recognizing entities or translating text. 
 

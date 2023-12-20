@@ -73,12 +73,10 @@ ms.author: yungez
    user = os.getenv('AZURE_MYSQL_USER')
    password = os.getenv('AZURE_MYSQL_PASSWORD')
    database = os.getenv('Azure_MYSQL_NAME')
-   port = int(os.getenv('AZURE_MYSQL_PORT'))
    
    cnx = mysql.connector.connect(user=user, password=password,
                                  host=host,
-                                 database=database,
-                                 port=port)
+                                 database=database)
    
    cnx.close()
    ```
@@ -96,7 +94,6 @@ ms.author: yungez
    user = os.getenv('AZURE_MYSQL_USER')
    password = os.getenv('AZURE_MYSQL_PASSWORD')
    database = os.getenv('AZURE_MYSQL_NAME')
-   port = int(os.getenv('AZURE_MYSQL_PORT'))
    
    DATABASES = {
        'default': {
@@ -104,8 +101,7 @@ ms.author: yungez
            'NAME': database,
            'USER': user,
            'PASSWORD': password,
-           'HOST': host,
-           'PORT': port
+           'HOST': host
        }
    }
    ```
@@ -198,7 +194,7 @@ ms.author: yungez
    
    client = Mysql2::Client.new(
      host: ENV['AZURE_MYSQL_HOST'],
-     username: ENV['AZURE_MYSQL_USER'],
+     username: ENV['AZURE_MYSQL_USERNAME'],
      password: ENV['AZURE_MYSQL_PASSWORD'],
      database: ENV['AZURE_MYSQL_DATABASE'],
      # sslca: ca_path
@@ -206,3 +202,6 @@ ms.author: yungez
    
    client.close
    ```
+
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).

@@ -1,13 +1,13 @@
 ---
-title: VM sizes 
+title: VM sizes
 description: Lists the different sizes available for virtual machines in Azure.
-author: lauradolan
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/06/2023
-ms.author: ladolan
+ms.author: jushiman
 ---
 
 # Sizes for virtual machines in Azure

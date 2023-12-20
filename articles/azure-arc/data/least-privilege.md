@@ -190,7 +190,7 @@ kubectl logs <pod name> --namespace arc
 #kubectl logs control-2g7b1 --namespace arc
 ```
 
-## Next steps
+## Related content
 
 You have several additional options for creating the Azure Arc data controller:
 

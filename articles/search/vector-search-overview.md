@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/01/2023
+ms.date: 12/05/2023
 ---
 
 # Vector search in Azure AI Search
@@ -38,11 +38,13 @@ The following diagram shows the indexing and query workflows for vector search.
 
 :::image type="content" source="media/vector-search-overview/vector-search-architecture-diagram-3.svg" alt-text="Architecture of vector search workflow." border="false" lightbox="media/vector-search-overview/vector-search-architecture-diagram-3-high-res.png":::
 
-On the indexing side, prepare source documents that contain embeddings. Although integrated vectorization is in public preview, the generally available version of Azure AI Search doesn't generate embeddings. If you're bound to a no-preview feature policy, your solution should include calls to Azure OpenAI or other models that can transform image, audio, text, and other content into vector representations. Add a *vector field* to your index definition on Azure AI Search. Load the index with a documents payload that includes the vectors. Your index is now ready to query.
+On the indexing side, Azure AI Search takes vector embeddings and uses a [nearest neighbors algorithm](vector-search-ranking.md) to co-locate similar vectors together in the search index (vectors about popular movies are closer than vectors about popular dog breeds). 
 
-On the query side, in your client application, collect the query input. Add a step that converts the input into a vector, and then send the vector query to your index on Azure AI Search for a similarity search. Azure AI Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
+How you get embeddings from your source content depends on your approach and whether you can use preview features. You can vectorize or generate embeddings using models from OpenAI, Azure OpenAI, and any number of providers, over a wide range of source content including text, images, videos, and audio. You can then push pre-vectorized content to [vector fields](vector-search-how-to-create-index.md) in a search index. That's the generally available approach. If you can use preview features, Azure AI Search provides [integrated data chunking and vectorization](vector-search-integrated-vectorization.md) in an indexer pipeline. You still provide the resources (endpoints and connection information), but Azure AI Search makes all of the calls and handles the transitions.
 
-You can index vector data as fields in documents alongside alphanumeric content. Vector queries can be issued singly or in combination with filters and other query types, including term queries (hybrid search) and semantic ranking in the same search request.
+On the query side, in your client application, collect the query input from a user. You can then add an encoding step that converts the input into a vector, and then send the vector query to your index on Azure AI Search for a similarity search. As with indexing, you can deploy the [integrated vectorization (preview)](vector-search-integrated-vectorization.md) to convert text inputs to a vector. For either approach, Azure AI Search returns documents with the requested `k` nearest neighbors (kNN) in the results.
+
+Azure AI Search supports [hybrid scenarios](hybrid-search-overview.md). You can index vector data as fields in documents alongside alphanumeric content. Vector queries can be issued singly or in combination with filters and other query types, including term queries and semantic ranking in the same search request.
 
 ## Availability and pricing
 

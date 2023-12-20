@@ -10,7 +10,7 @@ ms.date: 08/17/2023
 ms.author: lajanuar
 ---
 
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) | [Azure SDKS](../../sdk-overview-v3-1.md) | [Supported SDKs](../../sdk-overview-v3-1.md)
+| [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKS](../../sdk-overview-v3-1.md) | [Supported SDKs](../../sdk-overview-v3-1.md)
 
 In this quickstart you'll, use the Document Intelligence REST API to analyze and extract data and values from documents:
 
@@ -94,7 +94,7 @@ You receive a `202 (Success)` response that includes a read-only **Operation-Loc
 
 ### Get analyze results (GET Request)
 
-After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2023-07-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{resultID}` Operation-Location header from the [POST response](#post-response-resultid).
 

@@ -92,7 +92,7 @@ To use an HDInsight Streaming activity to a pipeline, complete the following ste
 | arguments         | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       | 
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)
