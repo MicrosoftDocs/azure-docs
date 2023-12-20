@@ -1,12 +1,12 @@
 ---
-title: Access private virtual network | Microsoft Docs
-description: Access private virtual network from Bicep deployment script.
+title: Access a private virtual network from a Bicep deployment script
+description: Learn how to run and test Bicep deployment scripts in private networks.
 ms.custom: devx-track-bicep
 ms.topic: conceptual
 ms.date: 12/13/2023
 ---
 
-# Access private virtual network
+# Access a private virtual network from a Bicep deployment script
 
 With Microsoft.Resources/deploymentScripts version `2023-08-01`, you can run deployment scripts in private networks with some additional configurations.
 
