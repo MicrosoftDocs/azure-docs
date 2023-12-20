@@ -2,7 +2,7 @@
 title: Live from Microsoft Ignite 2023 | Defender for Cloud in the Field 
 description: Learn about the Defender for Cloud innovations released at Microsoft Ignite 2023.
 ms.topic: reference
-ms.date: 12/14/2023
+ms.date: 12/20/2023
 ---
 
 # Live from Microsoft Ignite 2023
@@ -31,4 +31,4 @@ ms.date: 12/14/2023
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Native Integration with ServiceNow | Defender for Cloud in the Field](episode-forty-one.md)
