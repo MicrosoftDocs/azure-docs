@@ -103,6 +103,8 @@ items:
             href: customize-pronunciation.md
           - name: Online transcription editor
             href: how-to-custom-speech-transcription-editor.md
+          - name: Display text format training data
+            href: how-to-custom-speech-display-text-format.md
         - name: Custom Speech model lifecycle
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech

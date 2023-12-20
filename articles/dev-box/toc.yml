@@ -27,6 +27,9 @@ items:
 - name: Concepts
   expanded: false
   items:
+    - name: Architecture overview
+      displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
+      href: concept-dev-box-architecture.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
 - name: How-to guides

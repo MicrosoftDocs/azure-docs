@@ -288,9 +288,6 @@
           displayName: activation, time zone, SMTP, PCAP, SSH, ERSPAN
         - name: Configure SNMP monitoring
           href: how-to-set-up-snmp-mib-monitoring.md
-        - name: Add support for proprietary protocols
-          href: resources-manage-proprietary-protocols.md
-          displayName: Horizon
         - name: Maintain threat intelligence packages
           href: how-to-work-with-threat-intelligence-packages.md
         - name: Troubleshoot OT sensors

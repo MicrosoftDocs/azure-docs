@@ -28,7 +28,7 @@ The following steps set up and configure your Managed Airflow environment.
    > [!IMPORTANT]
    > When using **Basic** authentication, remember the username and password specified in this screen. It will be needed to login later in the Managed Airflow UI. The default option is **Azure AD** and it does not require creating username/ password for your Airflow environment, but instead uses the logged in user's credential to Azure Data Factory to login/ monitor DAGs.
 1. **Enable git sync"** Allow your Airflow environment to automatically sync with a git repository instead of manually importing DAGs. Refer to [Sync a GitHub repository in Managed Airflow](airflow-sync-github-repository.md)
-1. **Airflow configuration overrides** You can override any Airflow configurations that you set in `airflow.cfg`. For example, ``name: AIRFLOW__VAR__FOO``, ``value: BAR``. For more information, see [Airflow Configurations](https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html)
+1. **Airflow configuration overrides** You can override any Airflow configurations that you set in `airflow.cfg`. For example, ``name: AIRFLOW__VAR__FOO``, ``value: BAR``. For more information, see [Airflow Configurations](airflow-configurations.md)
 1. **Environment variables** a simple key value store within Airflow to store and retrieve arbitrary content or settings.
 1. **Requirements** can be used to preinstall python libraries. You can update these requirements later as well.
 1. **Kubernetes secrets** Custom Kubernetes secret you wish to add in your Airflow environment. For Example: [Private registry credentials to pull images for KubernetesPodOperator](kubernetes-secret-pull-image-from-private-container-registry.md)
