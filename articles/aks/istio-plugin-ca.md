@@ -180,7 +180,7 @@ This article addresses how you can configure the Istio certificate authority (CA
     2023-11-07T06:42:00.288365Z     info    spiffe  Added 2 certs to trust domain cluster.local in peer cert verifier
     ```
 
-1. You need to either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. This way all workloads will recognize both the old and the new certificate authorities for mTLS verification.
+1. You need to either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. This way all workloads recognize both the old and the new certificate authorities for mTLS verification.
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
@@ -227,7 +227,7 @@ This article addresses how you can configure the Istio certificate authority (CA
     From the example outputs shown in this article, you can observe that we moved from Root A (used when enabling the addon) to Root B.
 
 
-1. You can either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. Forcing restart will make the workloads obtain new leaf certificates from the new root CA immediately.
+1. You can either wait for 24 hours (default time for leaf certificate validity) or force a restart of all the workloads. Forcing restart makes the workloads obtain new leaf certificates from the new root CA immediately.
 
     ```bash
     kubectl rollout restart deployment <deployment name> -n <deployment namespace>
