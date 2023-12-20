@@ -3,7 +3,7 @@ title: Manage SSH access on Azure Kubernetes Service cluster nodes
 titleSuffix: Azure Kubernetes Service
 description: Learn how to configure SSH and manage SSH keys on Azure Kubernetes Service (AKS) cluster nodes.
 ms.topic: article
-ms.date: 12/15/2023
+ms.date: 12/20/2023
 ---
 
 # Manage SSH for secure access to Azure Kubernetes Service (AKS) nodes
@@ -20,8 +20,13 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 
 ## Before you begin
 
-* You need the Azure CLI version 2.46.0 or later installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* This feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
+* You need the Azure CLI version 2.46.0 or later installed and configured.
+   * The Disable SSH preview feature requires the Azure CLI version 2.55.0 or later installed and configured.
+   
+   If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+* The Create and Update SSH feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
+* The Disable SSH feature does not support node pools running the Windows Server operating system.
 
 ## Install the `aks-preview` Azure CLI extension
 
@@ -130,12 +135,28 @@ Use the [az aks create][az-aks-create] command to create a new cluster, and incl
 az aks create -g myResourceGroup -n myManagedCluster --ssh-access disabled
 ```
 
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following example resembles the output and the results related to disabling SSH:
+
+```output
+"securityProfile": {
+"sshAccess": "Disabled"
+},
+```
+
 ### Disable SSH on an existing cluster
 
 Use the [az aks update][az-aks-update] command to update an existing cluster, and include the `--ssh-access disabled` argument to disable SSH (preview) on all the node pools in the cluster.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --ssh-access disabled
+```
+
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following example resembles the output and the results related to disabling SSH:
+
+```output
+"securityProfile": {
+"sshAccess": "Disabled"
+},
 ```
 
 For the change to take effect, you need to reimage all node pools by using the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command.
@@ -155,9 +176,12 @@ Use the [az aks nodepool add][az-aks-nodepool-add] command to add a node pool, a
 az aks nodepool add --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --ssh-access disabled  
 ```
 
-The following example output shows that *mynodepool* has been successfully created and SSH is disabled.
+After a few minutes, the command completes and returns JSON-formatted information about the cluster indicating *mynodepool* has been successfully created. The following example resembles the output and the results related to disabling SSH:
 
 ```output
+"securityProfile": {
+"sshAccess": "Disabled"
+},
 ```
 
 ### Disable SSH for an existing node pool
@@ -168,9 +192,12 @@ Use the [az aks nodepool update][az-aks-nodepool-update] command to update a nod
 az aks nodepool update --cluster-name myManagedCluster --name mynodepool --resource-group myResourceGroup --ssh-access disabled
 ```
 
-The following example output shows that *mynodepool* has been successfully updated to disable SSH.
+After a few minutes, the command completes and returns JSON-formatted information about the cluster indicating *mynodepool* has been successfully created. The following example resembles the output and the results related to disabling SSH:
 
 ```output
+"securityProfile": {
+"sshAccess": "Disabled"
+},
 ```
 
 For the change to take effect, you need to reimage the node pool by using the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command.
@@ -184,16 +211,24 @@ az aks nodepool upgrade --cluster-name myManagedCluster --name mynodepool --reso
 Use the [az aks update][az-aks-update] command to update an existing cluster, and include the `--ssh-access localuser` argument to re-enable SSH (preview) on all the node pools in the cluster.
 
 ```azurecli-interactive
-z aks update -g myResourceGroup -n myManagedCluster –-ssh-access localuser
+az aks update -g myResourceGroup -n myManagedCluster --ssh-access localuser
 ```
 
-After re-enabling SSH, the nodes aren't be reimaged automatically. The Azure CLI returns the following message:  
+The following message is returned while the process is performed:
 
 ```output
-Do you want to reimage the nodes now? The nodes will be unavailable during reimage Y/N?
+Only after all the nodes are reimaged, does the disable/enable SSH Access operation take effect."
 ```
 
-If you select **Y**, all the nodes are reimaged. Otherwise, at any time you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
+After re-enabling SSH, the nodes aren't be reimaged automatically. The Azure CLI returns the following results in the message:  
+
+```output
+"securityProfile": {
+"sshAccess": "Disabled"
+},
+```
+
+At any time you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
 
 >[!IMPORTANT]
 >During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
@@ -203,16 +238,22 @@ If you select **Y**, all the nodes are reimaged. Otherwise, at any time you can 
 Use the [az aks update][az-aks-update] command to update a specific node pool, and include the `--ssh-access localuser` argument to re-enable SSH (preview) on that node pool in the cluster. In the following example, *nodepool1* is the target node pool.
 
 ```azurecli-interactive
-az aks nodepool update --cluster-name myManagedCluster --name nodepool1 --resource-group myResourceGroup –-ssh-access localuser 
+az aks nodepool update --cluster-name myManagedCluster --name nodepool1 --resource-group myResourceGroup --ssh-access localuser 
 ```
 
-After re-enabling SSH, the nodes in the pool aren't be reimaged automatically. The Azure CLI returns the following message:  
+The following message is returned while the process is performed:
 
 ```output
-Do you want to reimage the nodes now? The nodes will be unavailable during reimage Y/N?
+Only after all the nodes are reimaged, does the disable/enable SSH Access operation take effect."
 ```
 
-If you select **Y**, all the nodes are reimaged. Otherwise, at any time you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
+The Azure CLI returns the following results in the message:  
+
+```output
+"securityProfile": {
+"sshAccess": "Disabled"
+},
+```
 
 >[!IMPORTANT]
 >During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
