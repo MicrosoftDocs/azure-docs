@@ -39,19 +39,19 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 
 ## Agentless malware scanning
 
-Defender for Cloud's agentless malware scanning for VM, utilizes Defender for Endpoint anti-virus engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts that allow you to investigate any detected threats.
+Defender for Cloud's agentless malware scanning for VMs, uses [Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) anti-virus engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts in Defender for Cloud that allow you to investigate any detected threats.
 
-Agentless malware scanning afford many benefits that are often missed by using an agent based scanner alone. With an agentless scanner, you no longer need to worry about the gap in time that takes place between a device being deployed by a security agent to the time the workload owners onboards the agent to every device that is added to an environment. You no longer need to worry about vulnerabilities that may exist in files and folders that were exempted by resource owners due to the fear of performance impact on their machines. Agentless scanning doesn't have an effect on your machines performance because the scan takes place in the cloud.
+An agentless approach to malware scanning provides several advantages that are often overlooked when relying solely on an agent-based scanner. By using an agentless scanner, you can eliminate concerns about the time gap that occurs between a device being deployed and the workload owners onboarding the agent to every device added to the environment. Additionally, you can avoid worrying about vulnerabilities that may exist in files and folders that were exempted by resource owners due to concerns about performance impact on their machines. Additionally, agentless scanning doesn't affect machine performance since the scan takes place in the cloud.
 
 By combining the benefits of both the agent-based scanner along with the agentless scanner you are afforded the benefits of both services and covering the gap that is often created when an agent-based system is used alone.
 
 | Benefits of agent-based malware scanning | Benefits of agentless malware scanning |
 |--|--|
-| Real time protection | Frictionless onboarding |
+| Real time monitoring and detection of attacks | Frictionless onboarding |
 | Behavioral analysis and response | Results within hours |
 | Remediation and response capabilities | No effect on performance due to no presence on the machine |
-| Threat detection | No dependency on workload owners|
-|-| No limitation due to incompatible operating systems or machines |
+| Deep Os visibility and threat detection abilities, such as processes, communications and more | No dependency on workload owners|
+|Active ability to enforce policies, you can prevent, respond and remediate attacks| No limitation due to incompatible operating systems or machines |
 
 Learn how to [enable agentless scanning for VMs](enable-agentless-scanning-vms.md).
 
