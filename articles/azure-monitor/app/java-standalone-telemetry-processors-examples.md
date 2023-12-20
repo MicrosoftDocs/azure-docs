@@ -406,6 +406,95 @@ Second configuration example with regular expression group name:
   }
 }
 ```
+### Non-string attributes samples
+
+Starting 3.4.19 GA, telemetry processors support non-string types of attributes:
+`boolean`, `double`, `long`, `boolean-array`, `double-array`, `long-array`, and `string-array`.
+
+When `attributes.type` is not provided in the json, it's default to `string`.
+
+The following sample will insert the new attribute `{"myNewAttributeKeyStrict": "myNewAttributeValueStrict"}` into spans and logs where the atrributes match the following:
+`{"myLongAttributeKey": 1234}`
+`{"myBooleanAttributeKey": true}`
+`{"myDoubleArrayAttributeKey": [1.0, 2.0, 3.0, 4.0]}`
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "include": {
+          "matchType": "strict",
+          "attributes": [
+            {
+              "key": "myLongAttributeKey",
+              "value": 1234,
+              "type": "long"
+            },
+            {
+              "key": "myBooleanAttributeKey",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "key": "myDoubleArrayAttributeKey",
+              "value": [1.0, 2.0, 3.0, 4.0],
+              "type": "double-array"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "key": "myNewAttributeKeyStrict",
+            "value": "myNewAttributeValueStrict",
+            "action": "insert"
+          }
+        ],
+        "id": "attributes/insertMyNewAttributeKeyStrict"
+      }
+    ]
+  }
+}
+
+```
+
+Additionally, it also support `regexp` in non-string type of attributes. 
+
+The following sample will insert the new attribute `{"myNewAttributeKeyRegex": "myNewAttributeValueRegex"}` into spans and logs where the attribute `myLongRegexAttributeKey` matches the value from `400` to `499`.
+
+```json
+{
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "preview": {
+    "processors": [
+      {
+        "type": "attribute",
+        "include": {
+          "matchType": "regexp",
+          "attributes": [
+            {
+              "key": "myLongRegexAttributeKey",
+              "value": "4[0-9][0-9]",
+              "type": "long"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "key": "myNewAttributeKeyRegex",
+            "value": "myNewAttributeValueRegex",
+            "action": "insert"
+          }
+        ],
+        "id": "attributes/insertMyNewAttributeKeyRegex"
+      }
+    ]
+  }
+}
+
+```
 
 ## Span processor samples
 
