@@ -37,7 +37,6 @@
   - name: Query data in the Azure Operator Insights Data Product
     href: data-query.md
   - name: Deploy Ingestion Agents for MCC protobuf EDRs
-    expanded: true
     items:
     - name: Create and configure MCC EDR Ingestion Agents
       href: how-to-install-mcc-edr-agent.md
@@ -48,7 +47,6 @@
     - name: MCC EDR Ingestion Agent configuration reference
       href: mcc-edr-agent-configuration.md
   - name: Deploy Ingestion Agents for SFTP files
-    expanded: true
     items:
     - name: Overview
       href: sftp-agent-overview.md

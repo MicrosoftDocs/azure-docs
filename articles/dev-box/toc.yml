@@ -10,15 +10,20 @@ items:
 - name: Quickstarts
   expanded: true
   items: 
-    - name: Set up Dev Box with Azure portal
+    - name: Set up Dev Box service (Azure portal)
       href: quickstart-configure-dev-box-service.md
-    - name: Set up Dev Box with an ARM template
+    - name: Set up Dev Box service (ARM template)
       displayName: Resource Manager
       href: quickstart-configure-dev-box-arm-template.md  
     - name: Spin up a new dev box
       href: quickstart-create-dev-box.md
 - name: Concepts
-  href: concept-dev-box-concepts.md
+  items:
+    - name: Architecture overview
+      displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
+      href: concept-dev-box-architecture.md
+    - name: Key concepts
+      href: concept-dev-box-concepts.md
 - name: Configure resources
   items:
   - name: Manage a dev center
@@ -42,7 +47,6 @@ items:
   - name: Configure Azure Diagnostic Logs
     href: how-to-configure-dev-box-azure-diagnostic-logs.md    
 - name: Create & connect to dev boxes
-  items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Remote Desktop App 
