@@ -13,9 +13,9 @@ ms.date: 12/18/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-You can use server logs to help monitor and troubleshoot an instance of Azure Database for PostgreSQL - Flexible Server, and to gain detailed insights into the activities that have run on your servers.
+You can use server logs to help monitor and troubleshoot an instance of Azure Database for PostgreSQL flexible server, and to gain detailed insights into the activities that have run on your servers.
 
-By default, the server logs feature in Azure Database for PostgreSQL - Flexible Server is disabled. However, after you enable the feature, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal or the Azure CLI to download the files to assist with your troubleshooting efforts. This article explains how to enable the server logs feature in Azure Database for PostgreSQL - Flexible Server and download server log files. It also provides information about how to disable the feature.
+By default, the server logs feature in Azure Database for PostgreSQL flexible server is disabled. However, after you enable the feature, Azure Database for PostgreSQL flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal or the Azure CLI to download the files to assist with your troubleshooting efforts. This article explains how to enable the server logs feature in Azure Database for PostgreSQL flexible server and download server log files. It also provides information about how to disable the feature.
 
 In this tutorial, you’ll learn how to:
 - Enable the server logs feature.
@@ -24,17 +24,17 @@ In this tutorial, you’ll learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an existing Azure Database for PostgreSQL - Flexible Server. If you need to create a new server, see [Create an Azure Database for PostgreSQL - Flexible Server](./quickstart-create-server-portal.md).
+To complete this tutorial, you need an Azure Database for PostgreSQL flexible server instance. If you need to create a new server, see [Create an Azure Database for PostgreSQL - Flexible Server](./quickstart-create-server-portal.md).
 
 ## Enable Server logs
 
 To enable the server logs feature, perform the following steps.
 
-1. In the [Azure portal](https://portal.azure.com), select your PostgreSQL flexible server.
+1. In the [Azure portal](https://portal.azure.com), select your Azure Database for PostgreSQL flexible server instance.
 
 2. On the left pane, under **Monitoring**, select **Server logs**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-server-log.png" alt-text="Screenshot showing Azure Database for PostgreSQL - Server Logs.":::
+    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-server-log.png" alt-text="Screenshot showing Azure Database for PostgreSQL flexible server logs.":::
 
 3. To enable server logs, under **Server logs**, select **Enable**.
 

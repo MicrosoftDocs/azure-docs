@@ -16,7 +16,7 @@ ms.custom: mvc, devx-track-azurecli
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this tutorial you'll learn how to deploy a Django application in Azure using App Services and Azure Database for PostgreSQL - Flexible Server in a virtual network.
+In this tutorial you learn how to deploy a Django application in Azure using App Services and Azure Database for PostgreSQL flexible server in a virtual network.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli) command. Note the **id** property from the command output for the corresponding subscription name.
+You need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli) command. Note the **id** property from the command output for the corresponding subscription name.
 
 ```azurecli
 az login
@@ -67,16 +67,16 @@ The djangoapp sample contains the data-driven Django polls app you get by follow
 The sample is also modified to run in a production environment like App Service:
 
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
-- The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
+- The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the Azure Database for PostgreSQL flexible server database configuration.
 
 These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
 
 ## Create a PostgreSQL Flexible Server in a new virtual network
 
-Create a private flexible server and a database inside a virtual network (VNET) using the following command:
+Create a private Azure Database for PostgreSQL flexible server instance and a database inside a virtual network (VNET) using the following command:
 
 ```azurecli
-# Create Flexible server in a private virtual network (VNET) 
+# Create Azure Database for PostgreSQL flexible server instance in a private virtual network (VNET) 
 
 az postgres flexible-server create --resource-group myresourcegroup  --vnet myvnet --location westus2
 ```
@@ -85,22 +85,22 @@ This command performs the following actions, which may take a few minutes:
 
 - Create the resource group if it doesn't already exist.
 - Generates a server name if it isn't provided.
-- Create a new virtual network for your new postgreSQL server, if you choose to do so after prompted. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
+- Create a new virtual network for your new Azure Database for PostgreSQL flexible server instance, if you choose to do so after prompted. **Make a note of virtual network name and subnet name** created for your server since you need to add the web app to the same virtual network.
 - Creates admin username, password for your server if not provided. **Make a note of the username and password** to use in the next step.
-- Create a database ```postgres``` that can be used for development. You can run [**psql** to connect to the database](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql) to create a different database.
+- Create a database `postgres` that can be used for development. You can [run psql to connect to the database](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql) to create a different database.
 
 > [!NOTE]
-> Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using `az postgres flexible-server update` command
+> Make a note of your password that's generated for you if not provided. If you forget the password you have to reset the password using the `az postgres flexible-server update` command.
 
 ## Deploy the code to Azure App Service
 
-In this section, you create app host in App Service app, connect this app to the Postgres database, then deploy your code to that host.
+In this section, you create app host in App Service app, connect this app to the Azure Database for PostgreSQL flexible server database, then deploy your code to that host.
 
 ### Create the App Service web app in a virtual network
 
 In the terminal, make sure you're in the repository root (`djangoapp`) that contains the app code.
 
-Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command:
+Create an App Service app (the host process) with the [az webapp up](/cli/azure/webapp#az-webapp-up) command:
 
 ```azurecli
 # Create a web app
@@ -109,23 +109,23 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan DjangoPo
 
 # Enable VNET integration for web app.
 
-# Replace <vnet-name> and <subnet-name> with the virtual network and subnet name that the flexible server is using.
+# Replace <vnet-name> and <subnet-name> with the virtual network and subnet name that the Azure Database for PostgreSQL flexible server instance is using.
 
 az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
 
 # Configure database information as environment variables
 
-# Use the postgres server name , database name , username , password for the database created in the previous steps
+# Use the Azure Database for PostgreSQL flexible server instance name, database name , username , password for the database created in the previous steps
 
 az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>"
 ```
 - For the `--location` argument, use the same location as you did for the database in the previous section.
-- Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://\<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
+- Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
 - Create the [App Service plan](../../app-service/overview-hosting-plans.md) *DjangoPostgres-tutorial-plan* in the Basic pricing tier (B1), if it doesn't exist. `--plan` and `--sku` are optional.
 - Create the App Service app if it doesn't exist.
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
-- **az webapp vnet-integration** command adds the web app in the same virtual network as the postgres server.
+- **az webapp vnet-integration** command adds the web app in the same virtual network as the Azure Database for PostgreSQL flexible server instance.
 - The app code expects to find database information in many environment variables. To set environment variables in App Service, you create "app settings" with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 > [!TIP]
@@ -133,9 +133,9 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 
 ### Run Django database migrations
 
-Django database migrations ensure that the schema in the PostgreSQL on Azure database match those described in your code.
+Django database migrations ensure that the schema in the Azure Database for PostgreSQL flexible server database match those described in your code.
 
-1. Open an SSH session in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host* and sign in with your Azure account credentials (not the database server credentials).
+1. Open an SSH session in the browser by navigating to `https://<app-name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account credentials (not the database server credentials).
 
 2. In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
 
@@ -156,13 +156,13 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
 ### Create a poll question in the app
 
-1. In a browser, open the URL *http:\//\<app-name>.azurewebsites.net*. The app should display the message "No polls are available" because there are no specific polls yet in the database.
+1. In a browser, open the URL `http://<app-name>.azurewebsites.net`. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-2. Browse to *http:\//\<app-name>.azurewebsites.net/admin*. Sign in using superuser credentials from the previous section (`root` and `postgres1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
+2. Browse to `http://<app-name>.azurewebsites.net/admin`. Sign in using superuser credentials from the previous section (`root` and `postgres1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
-3. Browse again to *http:\//\<app-name>.azurewebsites.net/* to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
+3. Browse again to `http://<app-name>.azurewebsites.net/` to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
-**Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
+**Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Azure Database for PostgreSQL flexible server database.
 
 > [!NOTE]
 > App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](../../app-service/configure-language-python.md).
@@ -194,17 +194,17 @@ python manage.py createsuperuser
 
 python manage.py runserver
 ```
-Once the web app is fully loaded, the Django development server provides the local app URL in the message, "Starting development server at http://127.0.0.1:8000/. Quit the server with CTRL-BREAK".
+Once the web app is fully loaded, the Django development server provides the local app URL in the message, "Starting development server at `http://127.0.0.1:8000/`. Quit the server with CTRL-BREAK".
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/django-dev-server-output.png" alt-text="Example Django development server output":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/django-dev-server-output.png" alt-text="Example Django development server output.":::
 
 Test the app locally with the following steps:
 
-1. Go to *http:\//localhost:8000* in a browser, which should display the message "No polls are available".
+1. Go to `http://localhost:8000` in a browser, which should display the message "No polls are available".
 
-2. Go to *http:\//localhost:8000/admin* and sign in using the admin user you created previously. Under **Polls**, again select **Add** next to **Questions** and create a poll question with some choices.
+2. Go to `http://localhost:8000/admin` and sign in using the admin user you created previously. Under **Polls**, again select **Add** next to **Questions** and create a poll question with some choices.
 
-3. Go to *http:\//localhost:8000* again and answer the question to test the app.
+3. Go to `http://localhost:8000` again and answer the question to test the app.
 
 4. Stop the Django server by pressing **Ctrl**+**C**.
 
@@ -215,7 +215,7 @@ When running locally, the app is using a local Sqlite3 database and doesn't inte
 In `polls/models.py`, locate the line that begins with `choice_text` and change the `max_length` parameter to 100:
 
 ```python
-# Find this lie of code and set max_length to 100 instead of 200
+# Find this line of code and set max_length to 100 instead of 200
 
 choice_text = models.CharField(max_length=100)
 ```
@@ -227,7 +227,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Run the development server again with `python manage.py runserver` and test the app at to *http:\//localhost:8000/admin*:
+Run the development server again with `python manage.py runserver` and test the app at to `http://localhost:8000/admin`:
 
 Stop the Django web server again with **Ctrl**+**C**.
 
@@ -246,7 +246,7 @@ This command uses the parameters cached in the *.azure/config* file. Because App
 
 Because you made changes to the data model, you need to rerun database migrations in App Service.
 
-Open an SSH session again in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host*. Then run the following commands:
+Open an SSH session again in the browser by navigating to `https://<app-name>.scm.azurewebsites.net/webssh/host`. Then run the following commands:
 
 ```
 cd site/wwwroot
@@ -261,7 +261,7 @@ python manage.py migrate
 
 ### Review app in production
 
-Browse to *http:\//\<app-name>.azurewebsites.net* and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creating a question.)
+Browse to `http://\<app-name>.azurewebsites.net` and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creating a question.)
 
 > [!TIP]
 > You can use [django-storages](https://django-storages.readthedocs.io/en/latest/backends/azure.html) to store static & media assets in Azure storage. You can use Azure CDN for gzipping for static files.
@@ -271,11 +271,11 @@ Browse to *http:\//\<app-name>.azurewebsites.net* and test the app again in prod
 
 In the [Azure portal](https://portal.azure.com), search for the app name and select the app in the results.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Navigate to your Python Django app in the Azure portal":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Navigate to your Python Django app in the Azure portal.":::
 
 By default, the portal shows your app's **Overview** page, which provides a general performance view. Here, you can also perform basic management tasks like browse, stop, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Manage your Python Django app in the Overview page in the Azure portal":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Manage your Python Django app in the Overview page in the Azure portal.":::
 
 ## Clean up resources
 

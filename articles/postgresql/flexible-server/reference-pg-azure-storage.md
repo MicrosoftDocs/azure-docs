@@ -16,7 +16,7 @@ ms.topic: reference
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL - Flexible Server  Containers with access level "Private" or "Blob" requires adding private access key.  
+The [pg_azure_storage extension](./concepts-storage-extension.md) allows you to import  or export data in multiple file formats directly between Azure blob storage and your Azure Database for PostgreSQL flexible server instance. Containers with access level "Private" or "Blob" requires adding private access key.  
 You can create the extension by running:
 
 ```sql
@@ -469,7 +469,7 @@ CREATE TABLE IF NOT EXISTS public.events
 
 ### Add access key of storage account (mandatory for access level = private)
 
-The example illustrates adding of access key for the storage account to get access for querying from a session on the Azure Cosmos DB for Postgres cluster.
+The example illustrates adding of access key for the storage account to get access for querying from a session on the Azure Database for PostgreSQL flexible server cluster.
 
 ```sql
 SELECT azure_storage.account_add('pgquickstart', 'SECRET_ACCESS_KEY');

@@ -13,7 +13,7 @@ ms.date: 03/21/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this article, you'll learn how to use Troubleshooting guides for Azure Database for PostgreSQL from the Azure portal. To learn more about Troubleshooting guides, see the [overview](concepts-troubleshooting-guides.md).
+In this article, you learn how to use troubleshooting guides for Azure Database for PostgreSQL flexible server from the Azure portal. To learn more about troubleshooting guides, see the [overview](concepts-troubleshooting-guides.md).
 
 ## Prerequisites
 
@@ -21,19 +21,19 @@ To effectively troubleshoot specific issue, you need to make sure you have all t
 Each troubleshooting guide requires a specific set of data, which is sourced from three separate features: [Diagnostic settings](howto-configure-and-access-logs.md), [Query Store](concepts-query-store.md), and [Enhanced Metrics](concepts-monitoring.md#enabling-enhanced-metrics).
 All troubleshooting guides require logs to be sent to the Log Analytics workspace, but the specific category of logs to be captured may vary depending on the particular guide. 
 
-Please follow the steps described in the [Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server](howto-configure-and-access-logs.md) article to configure diagnostic settings and send the logs to the Log Analytics workspace.
-Query Store, and Enhanced Metrics are configured via the Server Parameters. Please follow the steps described in the "Configure server parameters in Azure Database for PostgreSQL - Flexible Server" articles for [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).  
+Please follow the steps described in [Configure and Access Logs - Azure Database for PostgreSQL - Flexible Server](howto-configure-and-access-logs.md) to configure diagnostic settings and send the logs to the Log Analytics workspace.
+Query Store, and Enhanced Metrics are configured via the Server Parameters. Please follow the steps described in the configure server parameters in Azure Database for PostgreSQL flexible server articles for [Azure portal](howto-configure-server-parameters-using-portal.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).  
 
 The table below provides information on the required log categories for each troubleshooting guide, as well as the necessary Query Store, Enhanced Metrics and Server Parameters prerequisites.
 
 | Troubleshooting guide | Diagnostic settings log categories                                                                                  | Query Store                                  | Enhanced Metrics                    | Server Parameters |
 |:----------------------|:--------------------------------------------------------------------------------------------------------------------|----------------------------------------------|-------------------------------------|-------------------|
-| Autovacuum Blockers   | PostgreSQL Sessions, PostgreSQL Database Remaining Transactions                                                     | N/A                                          | N/A                                 | N/A               |
-| Autovacuum Monitoring | PostgreSQL Server Logs, PostgreSQL Tables Statistics, PostgreSQL Database Remaining Transactions                    | N/A                                          | N/A                                 | log_autovacuum_min_duration |
-| High CPU Usage        | PostgreSQL Server Logs, PostgreSQL Sessions, AllMetrics                                                             | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
-| High IOPS Usage       | PostgreSQL Query Store Runtime, PostgreSQL Server Logs, PostgreSQL Sessions, PostgreSQL Query Store Wait Statistics | pgms_wait_sampling.query_capture_mode to ALL | metrics.collector_database_activity | track_io_timing to ON          |
-| High Memory Usage     | PostgreSQL Server Logs, PostgreSQL Sessions, PostgreSQL Query Store Runtime                                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
-| High Temporary Files  | PostgreSQL Sessions, PostgreSQL Query Store Runtime, PostgreSQL Query Store Wait Statistics                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
+| Autovacuum Blockers   | Azure Database for PostgreSQL flexible server Sessions, Azure Database for PostgreSQL flexible server Database Remaining Transactions                                                     | N/A                                          | N/A                                 | N/A               |
+| Autovacuum Monitoring | Azure Database for PostgreSQL flexible server Logs, PostgreSQL Tables Statistics, Azure Database for PostgreSQL flexible server Database Remaining Transactions                    | N/A                                          | N/A                                 | log_autovacuum_min_duration |
+| High CPU Usage        | Azure Database for PostgreSQL flexible server Logs, Azure Database for PostgreSQL flexible server Sessions, AllMetrics                                                             | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
+| High IOPS Usage       | Azure Database for PostgreSQL flexible server Query Store Runtime, Azure Database for PostgreSQL flexible server Logs, Azure Database for PostgreSQL flexible server Sessions, Azure Database for PostgreSQL flexible server Query Store Wait Statistics | pgms_wait_sampling.query_capture_mode to ALL | metrics.collector_database_activity | track_io_timing to ON          |
+| High Memory Usage     | Azure Database for PostgreSQL flexible server Logs, Azure Database for PostgreSQL flexible server Sessions, Azure Database for PostgreSQL flexible server Query Store Runtime                                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
+| High Temporary Files  | Azure Database for PostgreSQL flexible server Sessions, Azure Database for PostgreSQL flexible server Query Store Runtime, Azure Database for PostgreSQL flexible server Query Store Wait Statistics                         | pg_qs.query_capture_mode to TOP or ALL       | metrics.collector_database_activity | N/A               |
 
 
 > [!NOTE]
@@ -43,7 +43,7 @@ The table below provides information on the required log categories for each tro
 
 To use troubleshooting guides, follow these steps:
 
-1. Open the Azure portal and find a Postgres instance that you want to examine.
+1. Open the Azure portal and find an Azure Database for PostgreSQL flexible server instance that you want to examine.
 
 2. From the left-side menu, open Help > Troubleshooting guides.
 
@@ -60,7 +60,7 @@ To use troubleshooting guides, follow these steps:
 ### Retrieving the Query Text
 
 Due to privacy considerations, certain information such as query text and usernames may not be displayed within the Azure portal. 
-To retrieve the query text, you will need to log in to your Azure Database for PostgreSQL - Flexible Server instance. 
+To retrieve the query text, you need to log in to your Azure Database for PostgreSQL flexible server instance. 
 Access the `azure_sys` database using the PostgreSQL client of your choice, where query store data is stored. 
 Once connected, query the `query_store.query_texts_view view` to retrieve the desired query text.
 

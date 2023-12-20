@@ -17,14 +17,14 @@ ms.date: 12/11/2023
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Flexible Server - PostgreSQL.
+This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant to Azure Database for PostgreSQL flexible server.
 
 ## Release: December 2023
 * Public preview of [Server logs](./how-to-server-logs-portal.md).
 * General availability of [TLS Version 1.3 support](./concepts-networking-ssl-tls.md#tls-versions).
 
 ## Release: November 2023
-* General availability of PostgreSQL 16 for Azure Database for PostgreSQL – Flexible Server.
+* General availability of PostgreSQL 16 for Azure Database for PostgreSQL flexible server.
 * General availability of [near-zero downtime scaling](./concepts-scaling-resources.md).
 * General availability of [Pgvector 0.5.1](concepts-extensions.md) extension.
 * Public preview of Italy North region.
@@ -38,66 +38,66 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: October 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.4, 14.9, 13.12, 12.16, 11.21 <sup>$</sup>
-* General availability of [Grafana Monitoring Dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Grafana Monitoring Dashboard](https://grafana.com/grafana/dashboards/19556-azure-azure-postgresql-flexible-server-monitoring/) for Azure Database for PostgreSQL flexible server.
 
 ## Release: September 2023
-* General availability of [Storage auto-grow](./concepts-compute-storage.md) for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [Cross Subscription and Cross Resource Group Restore](how-to-restore-to-different-subscription-or-resource-group.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Storage auto-grow](./concepts-compute-storage.md) for Azure Database for PostgreSQL flexible server.
+* General availability of [Cross Subscription and Cross Resource Group Restore](how-to-restore-to-different-subscription-or-resource-group.md) for Azure Database for PostgreSQL flexible server.
   
 ## Release: August 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.3, 14.8, 13.11, 12.15, 11.20 <sup>$</sup>
-* General availability of [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics), [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics), [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) and [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics), [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics), [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) and [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL flexible server.
 
 ## Release: July 2023
-* General Availability of PostgreSQL 15 for Azure Database for PostgreSQL – Flexible Server.
-* Public preview of [Automation Tasks](./create-automation-tasks.md) for Azure Database for PostgreSQL – Flexible Server.
+* General Availability of PostgreSQL 15 for Azure Database for PostgreSQL flexible server.
+* Public preview of [Automation Tasks](./create-automation-tasks.md) for Azure Database for PostgreSQL flexible server.
 
 ## Release: June 2023
 * Support for [minor versions](./concepts-supported-versions.md) 15.2 (preview), 14.7, 13.10, 12.14, 11.19 <sup>$</sup>
-* General availability of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [Restore a dropped server](how-to-restore-dropped-server.md) for Azure Database for PostgreSQL – Flexible Server.
-* Public preview of [Storage auto-grow](./concepts-compute-storage.md) for Azure Database for PostgreSQL – Flexible Server.
+* General availability of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL flexible server.
+* General availability of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
+* General availability of [Restore a dropped server](how-to-restore-dropped-server.md) for Azure Database for PostgreSQL flexible server.
+* Public preview of [Storage auto-grow](./concepts-compute-storage.md) for Azure Database for PostgreSQL flexible server.
 
 ## Release: May 2023
-* Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL – Flexible Server.
-* PostgreSQL 15 is now available in public preview for Azure Database for PostgreSQL – Flexible Server in limited regions (West Europe, East US, West US2, South East Asia, UK South, North Europe, Japan east).
+* Public preview of [Database availability metric](./concepts-monitoring.md#database-availability-metric) for Azure Database for PostgreSQL flexible server.
+* PostgreSQL 15 is now available in public preview for Azure Database for PostgreSQL flexible server in limited regions (West Europe, East US, West US2, South East Asia, UK South, North Europe, Japan east).
 * General availability: [Pgvector extension](how-to-use-pgvector.md) for Azure Database for PostgreSQL - Flexible Server.
-* General availability :[Azure Key Vault Managed HSM](./concepts-data-encryption.md#using-azure-key-vault-managed-hsm) with Azure Database for PostgreSQL- Flexible server
-* General availability  [32 TB Storage](./concepts-compute-storage.md) with Azure Database for PostgreSQL- Flexible server
-* Support for [Ddsv5 and Edsv5 SKUs](./concepts-compute-storage.md) with Azure Database for PostgreSQL- Flexible server.
+* General availability :[Azure Key Vault Managed HSM](./concepts-data-encryption.md#using-azure-key-vault-managed-hsm) with Azure Database for PostgreSQL flexible server.
+* General availability  [32 TB Storage](./concepts-compute-storage.md) with Azure Database for PostgreSQL flexible server.
+* Support for [Ddsv5 and Edsv5 SKUs](./concepts-compute-storage.md) with Azure Database for PostgreSQL flexible server.
 
 ## Release: April 2023
-* Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL – Flexible Server.
-* Public preview of: [Power BI integration](./connect-with-power-bi-desktop.md) for Azure Database for PostgreSQL – Flexible Server.
-* Public preview of [Troubleshooting guides](./concepts-troubleshooting-guides.md) for Azure Database for PostgreSQL – Flexible Server.
+* Public preview of [Query Performance Insight](./concepts-query-performance-insight.md) for Azure Database for PostgreSQL flexible server.
+* Public preview of: [Power BI integration](./connect-with-power-bi-desktop.md) for Azure Database for PostgreSQL flexible server.
+* Public preview of [Troubleshooting guides](./concepts-troubleshooting-guides.md) for Azure Database for PostgreSQL flexible server.
 
 ## Release: March 2023
-* General availability of [Read Replica](concepts-read-replicas.md) for Azure Database for PostgreSQL – Flexible Server.
-* Public preview of [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) for Azure Database for PostgreSQL – Flexible Server.
-* General availability of [Azure Monitor workbooks](./concepts-workbooks.md) for Azure Database for PostgreSQL – Flexible Server
+* General availability of [Read Replica](concepts-read-replicas.md) for Azure Database for PostgreSQL flexible server.
+* Public preview of [PgBouncer Metrics](./concepts-monitoring.md#pgbouncer-metrics) for Azure Database for PostgreSQL flexible server.
+* General availability of [Azure Monitor workbooks](./concepts-workbooks.md) for Azure Database for PostgreSQL flexible server
 
 ## Release: February 2023
-* Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL – Flexible Server.
+* Public preview of [Autovacuum Metrics](./concepts-monitoring.md#autovacuum-metrics) for Azure Database for PostgreSQL flexible server.
 * Support for [extension](concepts-extensions.md) semver with new servers<sup>$</sup>
-* Public Preview of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL – Flexible Server.
+* Public Preview of [Major Version Upgrade](concepts-major-version-upgrade.md) for Azure Database for PostgreSQL flexible server.
 * Support for [Geo-redundant backup feature](./concepts-backup-restore.md#geo-redundant-backup-and-restore) when using [Disk Encryption with Customer Managed Key (CMK)](./concepts-data-encryption.md#how-data-encryption-with-a-customer-managed-key-work) feature.
 * Support for [minor versions](./concepts-supported-versions.md) 14.6, 13.9, 12.13, 11.18 <sup>$</sup>
 
 ## Release: January 2023
-* General availability of [Azure Active Directory Support](./concepts-azure-ad-authentication.md) for Azure Database for PostgreSQL - Flexible Server in all Azure Public Regions
-* General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL - Flexible Server in all Azure public regions
+* General availability of [Azure Active Directory Support](./concepts-azure-ad-authentication.md) for Azure Database for PostgreSQL flexible server in all Azure Public Regions
+* General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL flexible server in all Azure public regions
 
 ## Release: December 2022
 
 * Support for [extensions](concepts-extensions.md) pg_hint_plan with new servers<sup>$</sup>
-* General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL - Flexible Server in Canada East, Canada Central, Southeast Asia, Switzerland North, Switzerland West, Brazil South and East Asia Azure regions
+* General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL flexible server in Canada East, Canada Central, Southeast Asia, Switzerland North, Switzerland West, Brazil South and East Asia Azure regions
 
 ## Release: November 2022
 
-* Public preview of [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics) for Azure Database for PostgreSQL – Flexible Server
+* Public preview of [Enhanced Metrics](./concepts-monitoring.md#enhanced-metrics) for Azure Database for PostgreSQL flexible server
 * Support for [minor versions](./concepts-supported-versions.md) 14.5, 13.8, 12.12, 11.17. <sup>$</sup>
-* General availability of Azure Database for PostgreSQL - Flexible Server in China North 3 & China East 3 Regions.
+* General availability of Azure Database for PostgreSQL flexible server in China North 3 & China East 3 Regions.
 
 
 ## Release: October 2022
@@ -105,7 +105,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [Read Replica](./concepts-read-replicas.md) feature in public preview.
 * Support for [Azure Active Directory](concepts-azure-ad-authentication.md) authentication in public preview.
 * Support for [Customer managed keys](concepts-data-encryption.md) in public preview.
-* Published [Security and compliance certifications](./concepts-compliance.md) for Flexible Server.
+* Published [Security and compliance certifications](./concepts-compliance.md) for Azure Database for PostgreSQL flexible server.
 * Postgres 14 is now the default PostgreSQL version.
 
 ## Release: September 2022
@@ -132,7 +132,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for choosing [standby availability zone](./how-to-manage-high-availability-portal.md) when deploying zone-redundant high availability.
 * Support for [extensions](concepts-extensions.md) PLV8, pgrouting with new servers<sup>$</sup>
 * Version updates for [extension](concepts-extensions.md) PostGIS.
-* General availability of Azure Database for PostgreSQL - Flexible Server in Canada East and Jio India West regions.
+* General availability of Azure Database for PostgreSQL flexible server in Canada East and Jio India West regions.
 
 <sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
@@ -143,7 +143,7 @@ This page provides latest news and updates regarding feature additions, engine v
 ## Release: April 2022
 
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.6, 12.10 and 11.15 with new server creates<sup>$</sup>.
-* Support for updating Private DNS Zone for [Azure Database for PostgreSQL - Flexible Server private networking](./concepts-networking.md) for existing servers<sup>$</sup>.
+* Support for updating Private DNS Zone for [Azure Database for PostgreSQL flexible server private networking](./concepts-networking.md) for existing servers<sup>$</sup>.
 
 <sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
 
@@ -160,7 +160,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: November 2021
 
-* Azure Database for PostgreSQL is [**Generally Available**](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/azure-database-for-postgresql-flexible-server-is-now-ga/ba-p/2987030).
+* Azure Database for PostgreSQL flexible server is [**Generally Available**](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/azure-database-for-postgresql-flexible-server-is-now-ga/ba-p/2987030).
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.4, 12.8 and 11.13 with new server creates<sup>$</sup>.
 * Support for [Geo-redundant backup and restore](concepts-backup-restore.md) feature in preview in selected paired regions - East US 2, Central US, North Europe, West Europe, Japan East, and Japan West.
 *  Support for [new regions](overview.md#azure-regions) North Central US, Sweden Central, and West US 3.
@@ -182,7 +182,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for [new regions](overview.md#azure-regions) Central India and Japan West.
 * Support for non-SSL mode of connectivity using a new `require_secure_transport` server parameter.
 * Support for `log_line_prefix` server parameter, which adds the string at the beginning of each log line.
-* Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Flexible server health diagnosis and to get support.
+* Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Azure Database for PostgreSQL flexible server health diagnosis and to get support.
 * Several bug fixes, stability, and performance improvements.
 
 ## Release: July 2021
@@ -226,14 +226,14 @@ This page provides latest news and updates regarding feature additions, engine v
 
 ## Release: October 2020 - March 2021
 
-*  Improved experience to [connect](connect-azure-cli.md) to the Flexible server using Azure CLI with the `az postgres flexible- server connect` command.
+*  Improved experience to [connect](connect-azure-cli.md) to the Azure Database for PostgreSQL flexible server instance using Azure CLI with the `az postgres flexible- server connect` command.
 *  Support for [new regions](overview.md#azure-regions).
 *  Several portal improvements, including display of minor versions, summary of metrics on the overview blade.
 *  Several bug fixes, stability, and performance improvements.
 
 ## Contacts
 
-For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL Team ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address isn't a technical support alias.
+For any questions or suggestions you might have on Azure Database for PostgreSQL flexible server, send an email to the Azure Database for PostgreSQL flexible server Team ([@Ask Azure Database for PostgreSQL flexible server](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Please note that this email address isn't a technical support alias.
 
 In addition, consider the following points of contact as appropriate:
 
@@ -243,9 +243,9 @@ In addition, consider the following points of contact as appropriate:
 
 ## Frequently Asked Questions
 
- Will Flexible Server, replace Single Server or Will Single Server be retired soon?
+Will Azure Database for PostgreSQL flexible server replace Azure Database for PostgreSQL single server or Will Azure Database for PostgreSQL single server be retired soon?
 
-We continue to support Single Server and encourage you to adopt Flexible Server, which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you'll receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
+We continue to support Azure Database for PostgreSQL single server and encourage you to adopt Azure Database for PostgreSQL flexible server, which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you'll receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
 
 
 ## Next steps
