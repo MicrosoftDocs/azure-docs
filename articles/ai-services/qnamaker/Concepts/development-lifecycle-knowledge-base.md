@@ -7,7 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 12/19/2023
 ---
 
 # Knowledge base lifecycle in QnA Maker

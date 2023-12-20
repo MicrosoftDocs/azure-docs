@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to 
-ms.date: 03/23/2023
+ms.date: 12/18/2023
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -118,7 +118,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 1. Once you select **Connection events**, send your logs to your preferred destination. Select the information in the working pane.
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-connection-events.png" alt-text="Screenshot showing Connection events being checked in working pane.":::
 
-    
+
 ---
 
 ## Enable connection logging using the REST API
