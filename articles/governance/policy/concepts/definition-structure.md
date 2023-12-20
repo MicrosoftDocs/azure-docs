@@ -514,16 +514,32 @@ certain criteria can be formed using a **field** expression. The following field
     apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
   - Example: `tags['''My.Apostrophe.Tag''']` where **'My.Apostrophe.Tag'** is the name of the tag.
+
+  > [!NOTE]
+  > `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
+  > declaring a tags field. However, the preferred expressions are those listed above.
 - property aliases - for a list, see [Aliases](#aliases).
+  > [!NOTE]
+  > In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
+  > individually with logical **and** between elements. For more information, see
+  > [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
-> [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
-> declaring a tags field. However, the preferred expressions are those listed above.
 
-> [!NOTE]
-> In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
-> individually with logical **and** between elements. For more information, see
-> [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`. For example, this is no longer supported:
+```json
+{
+    "source": "action",
+    "like": "Microsoft.Network/publicIPAddresses/*"
+}
+```
+
+But the desired behavior can be achieved using `field` logic:
+```json
+{
+    "field": "type",
+    "equals": "Microsoft.Network/publicIPAddresses"
+}
+``````
 
 #### Use tags with parameters
 
