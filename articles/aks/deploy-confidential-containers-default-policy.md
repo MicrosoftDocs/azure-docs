@@ -270,7 +270,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
           command:
             - /bin/skr
           volumeMounts:
-            - mountPath: /opt/confidential-containers/share/kata-containers/reference-info-base64d
+            - mountPath: /opt/confidential-containers/share/kata-containers/reference-info-base64
               name: endor-loc
         - image: "mcr.microsoft.com/acc/samples/kafka/consumer:1.0"
           imagePullPolicy: Always
@@ -296,7 +296,7 @@ For this preview release, we recommend for test and evaluation purposes to eithe
       volumes:
         - name: endor-loc
           hostPath:
-            path: /opt/confidential-containers/share/kata-containers/reference-info-base64d
+            path: /opt/confidential-containers/share/kata-containers/reference-info-base64
     ---
     apiVersion: v1
     kind: Service
