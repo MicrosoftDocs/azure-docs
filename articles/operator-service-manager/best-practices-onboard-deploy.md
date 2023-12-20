@@ -40,7 +40,7 @@ Network Function Definition Group (NFDG) represents the smallest component that 
 
 For Containerized Network Function Definition Versions (CNF NFDVs), the `networkFunctionApplications` list can only contain helm packages. It's reasonable to include multiple helm packages if they're always deployed and deleted together.
 
-For Virtualized Network Function Definition Versions (VNF NFDVs), the `networkFunctionApplications` list must contain at least one `VhdImageFile` and one ARM template. The ARM template should deploy a single VM. To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM.
+For Virtualized Network Function Definition Versions (VNF NFDVs), the `networkFunctionApplications` list must contain at least one `VhdImageFile` and one ARM template. The ARM template should deploy a single virtual machine (VM). To deploy multiple VMs for a single VNF, make sure to use separate ARM templates for each VM.
 
 The ARM template can only deploy Resource Manager resources from the following resource providers:
 
@@ -53,7 +53,7 @@ The ARM template can only deploy Resource Manager resources from the following r
 - Microsoft.ManagedIdentity
 
 >[!NOTE]
-> For ARM templates containing anything beyond the preceding list, all PUT calls and Re-PUT on the VNF will result in validation error.
+> For ARM templates containing anything beyond the preceding list, all PUT calls and Re-PUT on the VNF result in a validation error.
 
 ### Common use cases that trigger Network Function Design Version minor or major version update
 
@@ -81,7 +81,7 @@ These five components form a single NSDG. A single NSDG can have multiple NSDVs.
 
 ### Common use cases that trigger Network Service Design Version minor or major version update
 
-- Creating or deleting CGSes.
+- Creating or deleting CGSs.
 - Changes in the NF ARM template associated with one of the NFs being deployed.
 - Changes in the infrastructure ARM template, for example, AKS/NAKS or VM.
 
@@ -90,7 +90,7 @@ These five components form a single NSDG. A single NSDG can have multiple NSDVs.
 
 ## Configuration Group Schema considerations
 
-We recommend that you always start with a single CGS for the entire NF. If there are site-specific or instance-specific parameters, we still recommend that you keep them in a single CGS. We recommend splitting into multiple CGSes when there are multiple components (rarely NFs, more commonly, infrastructure) or configurations that are shared across multiple NFs. The number of CGSes defines the number of CGVs.
+We recommend that you always start with a single CGS for the entire NF. If there are site-specific or instance-specific parameters, we still recommend that you keep them in a single CGS. We recommend splitting into multiple CGSs when there are multiple components (rarely NFs, more commonly, infrastructure) or configurations that are shared across multiple NFs. The number of CGSs defines the number of CGVs.
 
 ### Scenario
 
@@ -103,7 +103,7 @@ In this scenario, we recommend that you use a single global CGS to expose the co
 
 - CGS should only have parameters that are used by NFs (day 0/N configuration) or shared components.
 - Parameters that are rarely configured should have default values defined.
-- If multiple CGSes are used, we recommend little to no overlap between the parameters. If overlap is required, make sure the parameter names are clearly distinguishable between the CGSes.
+- If multiple CGSs are used, we recommend little to no overlap between the parameters. If overlap is required, make sure the parameter names are clearly distinguishable between the CGSs.
 - What can be defined via API (Azure Operator Nexus, Azure Operator Service Manager) should be considered for CGS. As opposed to, for example, defining those configuration values via CloudInit files.
 - When unsure, a good starting point is to expose the parameter and have a reasonable default specified in the CGS. The following example shows the sample CGS and corresponding CGV payloads.
 - A single user-assigned managed identity should be used in all the NF ARM templates and should be exposed via CGS.
@@ -174,10 +174,10 @@ Resources breakdown:
 
 - **NFDG**: If components can be used independently, two NFDGs, one per component. If components are always deployed together, then a single NFDG.
 - **NFDV**: As needed based on the use cases mentioned in the preceding "Common use cases" sections that trigger NFDV minor or major version updates.
-- **NSDG**: Single. Combines the NFs and the K8s cluster definitions.
+- **NSDG**: Single. Combines the NFs and the Kubernetes cluster definitions.
 - **NSDV**: As needed based on the use cases mentioned in the preceding "Common use cases" sections that trigger NSDV minor or major version updates.
 - **CGS**: Single. We recommend that CGS has subsections for each component and infrastructure being deployed for easier management, and includes the versions for NFDs.
-- **CGV**: Single based on the number of CGSes.
+- **CGV**: Single based on the number of CGSs.
 - **SNS**: Single per NSDV.
 
 ### Scenario: Multiple network functions
@@ -190,13 +190,13 @@ Resources breakdown:
     - NFDG for all shared components.
     - NFDG for every independent component or NF.
 - **NFDV**: Multiple per each NFDG per use case mentioned in the preceding "Common use cases" sections that trigger NFDV minor or major version updates.
-- **NSDG**: Single. Combines all NFs, shared and independent components, and infrastructure (K8s cluster or any supporting VMs).
+- **NSDG**: Single. Combines all NFs, shared and independent components, and infrastructure (Kubernetes cluster or any supporting VMs).
 - **NSDV**: As needed based on the use cases mentioned in the preceding "Common use cases" sections that trigger NSDV minor or major version updates.
 - **CGS**:
   - Single. Global for all components that have shared configuration values.
   - NF CGS per NF, including the version of the NFD.
-  - Depending on the total number of parameters, consider combining all the CGSes into a single CGS.
-- **CGV**: Equal to the number of CGSes.
+  - Depending on the total number of parameters, consider combining all the CGSs into a single CGS.
+- **CGV**: Equal to the number of CGSs.
 - **SNS**: Single per NSDV.
 
 ## Software upgrade considerations
@@ -218,6 +218,9 @@ For VNFs:
 ## High availability and disaster recovery considerations
 
 Azure Operator Service Manager is a regional service deployed across availability zones in regions that support them. For all regions where Azure Operator Service Manager is available, see [Azure products by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=operator-service-manager,azure-network-function-manager&regions=all). For the list of Azure regions that have availability zones, see [Choose the right Azure region for you](https://azure.microsoft.com/explore/global-infrastructure/geographies/#geographies).
+
+Consider the following high-availability and disaster recovery requirements:
+
 - To provide geo-redundancy, make sure you have a publisher in every region where you're planning to deploy NFs. Consider using pipelines to make sure publisher artifacts and resources are kept in sync across the regions.
 - The publisher name must be unique per region per Microsoft Entra tenant.
 
@@ -242,7 +245,7 @@ Azure Operator Service Manager is a regional service deployed across availabilit
 
 During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During onboarding, we recommend that you set the atomic flag to `false` to prevent the Helm rollback upon failure. The optimal way to accomplish that is in the ARM template of the NF.
 
-In the ARM template, add the following section: 
+In the ARM template, add the following section:
 
 <pre>
 "roleOverrideValues": [
