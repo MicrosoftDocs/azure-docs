@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 10/20/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
