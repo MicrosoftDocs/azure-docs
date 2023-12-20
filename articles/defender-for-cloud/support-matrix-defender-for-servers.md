@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Servers plan in Mi
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 12/19/2023
+ms.date: 12/20/2023
 ---
 
 # Defender for Servers support
@@ -56,51 +56,51 @@ This table summarizes Azure cloud support for Defender for Servers features.
 
 The following table shows feature support for Windows machines in Azure, Azure Arc, and other clouds.
 
-| **Feature**                                                                                                                       | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
-| --------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------: | :-------------------------------------: |
-| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               |                                                                                          ✔</br>(on supported versions)                                                                                          |               ✔               |                   Yes                   |
-| [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)                                                 |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Fileless security alerts](alerts-reference.md#alerts-windows)                                                                    |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Network-based security alerts](other-threat-protections.md#network-layer)                                                        |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Just-in-time VM access](just-in-time-access-usage.md)                                                                            |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [File Integrity Monitoring](file-integrity-monitoring-overview.md)                                                                |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Adaptive application controls](adaptive-application-controls.md)                                                                 |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Network map](protect-network-resources.md#network-map)                                                                           |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Adaptive network hardening](adaptive-network-hardening.md)                                                                       |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Regulatory compliance dashboard & reports](regulatory-compliance-dashboard.md)                                                   |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Docker host hardening](./harden-docker-hosts.md)                                                                                 |                                                                                                        -                                                                                                         |               -                |                   Yes                   |
-| Missing OS patches assessment                                                                                                     |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
-| Security misconfigurations assessment                                                                                             |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
-| Disk encryption assessment                                                                                                        |                                                 ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md))                                                 |               -                |                   No                    |
-| Third-party vulnerability assessment (BYOL)                                                                                              |                                                                                                        ✔                                                                                                        |               -               |                   No                    |
-| [Network security assessment](protect-network-resources.md)                                                                       |                                                                                                        ✔                                                                                                        |               -                |                   No                    |
+| **Feature** | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
+|--|:-:|:-:|:-:|
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br>(on supported versions) | ✔ | Yes |
+| [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ | Yes |
+| [Fileless security alerts](alerts-reference.md#alerts-windows) | ✔ | ✔ | Yes |
+| [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
+| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
+| [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
+| [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ | Yes |
+| [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ | Yes |
+| [Network map](protect-network-resources.md#network-map) | ✔ | - | Yes |
+| [Adaptive network hardening](adaptive-network-hardening.md) | ✔ | - | Yes |
+| [Regulatory compliance dashboard & reports](regulatory-compliance-dashboard.md) | ✔ | ✔ | Yes |
+| [Docker host hardening](./harden-docker-hosts.md) | - | - | Yes |
+| Missing OS patches assessment | ✔ | ✔ | Azure: No<br><br>Azure Arc-enabled: Yes |
+| Security misconfigurations assessment | ✔ | ✔ | Azure: No<br><br>Azure Arc-enabled: Yes |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) | ✔ | ✔ | Azure: No<br><br>Azure Arc-enabled: Yes |
+| Disk encryption assessment | ✔</br>([supported scenarios](../virtual-machines/windows/disk-encryption-windows.md)) | - | No |
+| Third-party vulnerability assessment (BYOL) | ✔ | - | No |
+| [Network security assessment](protect-network-resources.md) | ✔ | - | No |
 
 ## Linux machine support
 
 The following table shows feature support for Linux machines in Azure, Azure Arc, and other clouds.
 
-| **Feature**                                                                                                                       | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** |    **Defender for Servers required**    |
-| --------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------: | :-------------------------------------: |
-| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                                 |                                                                                          ✔</br>(on supported versions)                                                                                          |               ✔               |                   Yes                   |
-| [Fileless security alerts](alerts-reference.md#alerts-windows)                                                                    |                                                                                                        -                                                                                                         |               -                |                   Yes                   |
-| [Network-based security alerts](other-threat-protections.md#network-layer)                                                        |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Just-in-time VM access](just-in-time-access-usage.md)                                                                            |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [File Integrity Monitoring](file-integrity-monitoring-overview.md)                                                                |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Adaptive application controls](adaptive-application-controls.md)                                                                 |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Network map](protect-network-resources.md#network-map)                                                                           |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Adaptive network hardening](adaptive-network-hardening.md)                                                                       |                                                                                                        ✔                                                                                                        |               -                |                   Yes                   |
-| [Regulatory compliance dashboard & reports](regulatory-compliance-dashboard.md)                                                   |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| [Docker host hardening](./harden-docker-hosts.md)                                                                                 |                                                                                                        ✔                                                                                                        |               ✔               |                   Yes                   |
-| Missing OS patches assessment                                                                                                     |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
-| Security misconfigurations assessment                                                                                             |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) |                                                                                                        -                                                                                                         |               -                |                   No                    |
-| Disk encryption assessment                                                                                                        |                                                 ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md))                                                 |               -                |                   No                    |
-| Third-party vulnerability assessment (BYOL)                                                                                             |                                                                                                        ✔                                                                                                        |               -               |                   No                    |
-| [Network security assessment](protect-network-resources.md)                                                                       |                                                                                                        ✔                                                                                                        |               -                |                   No                    |
+| **Feature** | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
+|--|:-:|:-:|:-:|
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ | ✔ | Yes |
+| [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br>(on supported versions) | ✔ | Yes |
+| [Fileless security alerts](alerts-reference.md#alerts-windows) | - | - | Yes |
+| [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
+| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
+| [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
+| [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ | Yes |
+| [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ | Yes |
+| [Network map](protect-network-resources.md#network-map) | ✔ | - | Yes |
+| [Adaptive network hardening](adaptive-network-hardening.md) | ✔ | - | Yes |
+| [Regulatory compliance dashboard & reports](regulatory-compliance-dashboard.md) | ✔ | ✔ | Yes |
+| [Docker host hardening](./harden-docker-hosts.md) | ✔ | ✔ | Yes |
+| Missing OS patches assessment | ✔ | ✔ | Azure: No<br><br>Azure Arc-enabled: Yes |
+| Security misconfigurations assessment | ✔ | ✔ | Azure: No<br><br>Azure Arc-enabled: Yes |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) | - | - | No |
+| Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md)) | - | No |
+| Third-party vulnerability assessment (BYOL) | ✔ | - | No |
+| [Network security assessment](protect-network-resources.md) | ✔ | - | No |
 
 ## Multicloud machines
 
@@ -133,17 +133,17 @@ The following table shows feature support for AWS and GCP machines.
 
 The following table provides a matrix of supported endpoint protection solutions. The table indicates whether you can use Defender for Cloud to install each solution for you.
 
-| Solution                                                            | Supported platforms          | Defender for Cloud installation |
-|---------------------------------------------------------------------|------------------------------|---------------------------------|
-| Microsoft Defender Antivirus                                        | Windows Server 2016 or later | No (built into OS)              |
-| System Center Endpoint Protection (Microsoft Antimalware)           | Windows Server 2012 R2       | Via extension                   |
-| Trend Micro – Deep Security                                         | Windows Server (all)         | No                              |
-| Symantec v12.1.1100+                                                | Windows Server (all)         | No                              |
-| McAfee v10+                                                         | Windows Server (all)         | No                              |
-| McAfee v10+                                                         | Linux (GA)                   | No                              |
-| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (GA)                   | Via extension                   |
-| Microsoft Defender for Endpoint Unified Solution<sup>[2](#footnote2)</sup>                    | Windows Server 2012 R2 and Windows 2016 | Via extension                   |
-| Sophos V9+                                                          | Linux (GA)                   | No                              |
+| Solution | Supported platforms | Defender for Cloud installation |
+|--|--|--|
+| Microsoft Defender Antivirus | Windows Server 2016 or later | No (built into OS) |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2 | Via extension |
+| Trend Micro – Deep Security | Windows Server (all) | No |
+| Symantec v12.1.1100+ | Windows Server (all) | No |
+| McAfee v10+ | Windows Server (all) | No |
+| McAfee v10+ | Linux (GA) | No |
+| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (GA) | Via extension |
+| Microsoft Defender for Endpoint Unified Solution<sup>[2](#footnote2)</sup> | Windows Server 2012 R2 and Windows 2016 | Via extension |
+| Sophos V9+ | Linux (GA) | No |
 
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
