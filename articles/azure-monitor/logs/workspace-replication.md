@@ -100,7 +100,7 @@ When you enable replication on your workspace, a System [Data Collection Endpoin
 To learn how to connect a DCR to a DCE, see step 5 in [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md?tabs=portal#create-a-data-collection-rule).
 
 > [!NOTE]
-> Only DCRs that are connected to the workspace's System DCE will enable replication and failover. This provides you with control over which log streams are replicated and which are not, which also impacts your replication costs.
+> Only DCRs that are connected to the workspace's system DCE will enable replication and failover. This provides you with control over which log streams are replicated and which are not, which also impacts your replication costs.
 
 > [!WARNING]
 > DCRs connected to a workspace's System DCE should target only this specific workspace. They **must not** target other destinations, such as additional workspaces or storage accounts.
@@ -182,7 +182,6 @@ Additionally, DCRs pointing to a System DCE must not send logs to any destinatio
     * Changing workspace retention, pricing tier, daily cap, etc.
     * Changing network settings
     * Schema changes – done through new custom logs or connecting platform logs from new resource providers (for example, sending diagnostic logs from a new resource type)
-    * Connecting new agents to the workspace (we’re working on supporting that)
     * Any other management operation of the workspace (enabling new capabilities etc.)
  * Solution targeting – this capability of MMA agents isn't supported during failover.
  > [!WARNING]
@@ -191,7 +190,6 @@ Additionally, DCRs pointing to a System DCE must not send logs to any destinatio
 The following features are partly supported or not supported yet:
 * Search Jobs and Restore operations - both search jobs ad Restore oprations create tables and populate them with the operation outputs (the search results, or restored data). Once you enable workspace replication, new tables created for future search jobs and restore operations will be replicated to your secondary workspace. Tables populated **before** replication was enabled aren't replicated. 
 If a search job or a restore operation is still processed when you trigger failover, the outcome is unexpected. It may complete successfully but not be replicated or it may fail, depending on your workspace health and the exact timing.
-* Data export - Data export may stop when you failover to another region. It will continue when you return to your primary region (failback).
 * Private links - Private links are currently not supported during failover.
 
 ## Failback
@@ -205,7 +203,9 @@ It's advised that you verify all logs ingested during failover completed their r
 Before triggering failback to your primary workspace, verify there are no outstanding Service Health notifications regarding this region, and make sure your workspace is ingesting and can be queried properly. See [Querying the inactive workspace](#querying-the-inactive-workspace) for examples on how to query your primary region during failover, and bypass the rerouting of request to your secondary region.
 
 ### Evaluate the state of logs ingestion to your primary workspace
-TBD
+Before switching back to your primary region, make sure it already contains the logs ingested during your failover period.
+To see which logs were replicated to your primary workspace, query the inactive region through the Azure portal as explained [here](#querying-the-inactive-workspace).
+
 
 ### How to trigger failback
 You can trigger failover using the below POST command. Like failover, failback also returns 202 Accepted and not 200 because it’s a long running operation, which may take time to complete. Failback updates your DNS records, and even when that’s complete, it may take time for clients to get the updated DNS settings.
@@ -219,25 +219,15 @@ Expected response: 202 Accepted
 
 ## Querying the inactive workspace
 By default, queries targeting your workspace are sent to its active region. The active region is typically the primary workspace region, unless the workspace is in failover mode, during which the secondary region becomes the active one, handling all queries.
+Yet, in some cases you may want to intentionally query the inactive region. For example, before triggering failover you may want to ensure your secondary workspace has logs ingested to it.
 
-Yet, in some cases you may want to intentionally query the inactive region. For example, when your in failover mode and want to trigger failback, you may want to query the primary region to ensure all the logs ingested during the failover period are already available there and there are no gaps in data.
+### How to query the inactive workspace
+To see which logs are available on the inactive workspace, go to the Azure Portal, and open your Workspace's Logs blade.
+Click the ‘…’ on the upper right area to open this menu, and turn on the “Query inactive region” option to run a query on your secondary region.
 
-### How to query the inactive workspace via REST
-To reach the inactive workspace, add a property named "overrideWorkspaceRegion" to the header/body.
-Values:
-* primary - to reach the primary region
-* secondary - to reach the secondary region
+![Diagram that shows how to query the inactive region through the workspace Logs blade](./media/workspace-replication/query_inactive_region.png)
 
-The example query below uses GET to run a simple query ("Perf | count") on the secondary region.
-By default, queries run in the active region, which is the primary location of the workspace, unless the workspace is in failover mode. However, the query below has the "overrideWorkspaceRegion" parameter, which forces the query service to send it to the secondary region.
-
-```
-GET
-
-api.loganalytics.azure.com/v1/workspaces/<workspace_id>/query?query=Perf%20|%20count&timespan=P1D&overrideWorkspaceRegion=secondary
-```
-
-If the workspace is in failover mode (meaning failover was triggered), queries are sent to the secondary region, since it becomes the active region. During this time, you can use overrideWorkspaceRegion=primary if you want to force the query to run against the workspace primary region. This can be used to verify there are no data gaps between the regions before triggering failback.
+If the workspace is in failover mode (meaning failover was triggered), queries are sent to the secondary region, since it is  now the active region.
 
 > [!NOTE]
 > You can use query auditing to see which workspace region was used to run the query, and whether the workspace is in failover mode or not. These properties were added to LAQueryLogs schema:
