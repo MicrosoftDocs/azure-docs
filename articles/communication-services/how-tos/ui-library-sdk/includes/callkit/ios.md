@@ -18,7 +18,7 @@ CallKit Integration, supported by Azure Communication Service native iOS calling
 
 To specify call recipient info, create an instance of `CallCompositeCallKitRemoteInfo`.
 
-Assign value for `displayName` to customize display name for call recipients and configure CXHandle value. This value specified in `displayName` is exactly how it shows up in the last dialed call log in the last dialed call log. 
+Assign value for `displayName` to customize display name for call recipients and configure `CXHandle` value. This value specified in `displayName` is exactly how it shows up in the last dialed call log in the last dialed call log. 
 
 Assign the cxHandle value is what the application receives when, user calls back on that contact.
 
