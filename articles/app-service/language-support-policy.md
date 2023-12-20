@@ -25,7 +25,7 @@ App Service follows community support timelines for the lifecycle of the runtime
 ## Notifications
 End-of-life dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service.  App Service will send reminder notifications to subscription owners for upcoming end-of-life runtime versions when they become available for each language.
 
-Those who receive notifications include account administrators, service administrators, and co-administrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt-in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
+Those who receive notifications include account administrators, service administrators, and coadministrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 
 ## Language runtime version support timelines
 To learn more about specific language support policy timelines, visit the following resources:
@@ -108,9 +108,9 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 | JBoss 8 Java 17\*\*     | Ubuntu        | MSFT OpenJDK 17           |
 | JBoss 8 Java 21\*\*     | Ubuntu        | MSFT OpenJDK 21           |
 
-\*\* Upcoming versions  -->
+\*\* Upcoming versions  
 
-\* Alpine 3.16 is the last supported Alpine distro in App Service. The Ubuntu distribution will be used in the future. It is recommended to pin to a version to avoid switching over Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible.
+\* Alpine 3.16 is the last supported Alpine distro in App Service. The Ubuntu distribution will be used in the future. It's recommended to pin to a version to avoid switching over Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible. -->
 
 # [Windows](#tab/windows)
 
@@ -132,9 +132,9 @@ Supported JDKs are automatically patched on a quarterly basis in January, April,
 
 Patches and fixes for major security vulnerabilities will be released as soon as they become available in Microsoft builds of the OpenJDK. A "major" vulnerability is defined by a base score of 9.0 or higher on the [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/vuln-metrics/cvss).
 
-Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
+Tomcat 8.0 has reached [End of Life as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure won't apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. For more information, see the [official Tomcat site](https://tomcat.apache.org/whichversion.html).
 
-Community support for Java 7 will terminate on July 29, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app running on Java 7, please upgrade to Java 8 or 11 before July 29.
+Community support for Java 7 ended on July 29, 2022 and [Java 7 was retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/). If you have a web app running on Java 7, upgrade to Java 8 or 11 immediately.
 
 ### Deprecation and retirement
 
