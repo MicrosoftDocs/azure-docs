@@ -37,8 +37,18 @@ items:
     href: how-to-project-admin.md
   - name: Provide access to dev box users
     href: how-to-dev-box-user.md        
+  - name: Configure Visual Studio caches
+    href: how-to-generate-visual-studio-caches.md
+  - name: Configure Azure Diagnostic Logs
+    href: how-to-configure-dev-box-azure-diagnostic-logs.md    
+- name: Create & connect to dev boxes
+  items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
+  - name: Connect with Remote Desktop App 
+    href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+  - name: Troubleshoot dev box connectivity issues
+    href: how-to-troubleshoot-repair-dev-box.md
 - name: Manage costs
   items:
   - name: Determine resource usage and quota
@@ -59,16 +69,6 @@ items:
     href: how-to-configure-azure-compute-gallery.md
   - name: Provision a Custom Image with Azure Image Builder
     href: how-to-customize-devbox-azure-image-builder.md
-- name: Connect to a dev box
-  items:
-    - name: Connect with Remote Desktop App 
-      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-    - name: Troubleshoot dev box connectivity issues
-      href: how-to-troubleshoot-repair-dev-box.md
-- name: Configure Visual Studio caches
-  href: how-to-generate-visual-studio-caches.md
-- name: Configure Azure Diagnostic Logs
-  href: how-to-configure-dev-box-azure-diagnostic-logs.md
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension
