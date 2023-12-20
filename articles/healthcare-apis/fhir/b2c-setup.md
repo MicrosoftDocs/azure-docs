@@ -2,7 +2,7 @@
 title: Enable single sign-on access by using Azure Active Directory B2C with the FHIR service
 description: Learn how to simplify the sign-in process for the FHIR service by using Azure Active Directory B2C.
 services: healthcare-apis
-author: expekesheth
+author: namalu
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
@@ -104,7 +104,7 @@ After the deployment completes, navigate to the B2C resource in the Azure portal
 
 On the home page of the B2C tenant, choose **Users**.
 
-:::image type=“content” source=“media/b2b-setup/b2c-home-user.png” alt-text=“Screenshot showing home user” lightbox=“media/b2b-setup/b2c-home-user.png”:::
+:::image type="content" source="media/b2b-setup/b2c-home-user.png" alt-text="Screenshot showing home user" lightbox="media/b2b-setup/b2c-home-user.png":::
 
 Choose **+ New user**.
 
