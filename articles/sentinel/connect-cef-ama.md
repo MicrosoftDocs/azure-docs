@@ -1,10 +1,10 @@
 ---
 title: Stream CEF logs to Microsoft Sentinel with the AMA connector 
 description: Stream and filter CEF-based logs from on-premises appliances to your Microsoft Sentinel workspace.
-author: limwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 09/19/2022
-ms.author: lwainstein
+ms.date: 12/20/2023
 #Customer intent: As a security operator, I want to stream and filter CEF-based logs from on-premises appliances to my Microsoft Sentinel workspace, so I can improve load time and easily analyze the data.   
 ---
 
