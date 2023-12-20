@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 01/31/2024
 
 #CustomerIntent: As someone learning about Azure Communications Gateway, I want to understand the Provisioning Platform, so that I know whether I need to integrate with it
 ---
@@ -24,7 +24,7 @@ The following table shows whether these uses of the Provisioning API are require
 |---|---|---|
 |Microsoft Teams Direct Routing |Required| Optional |
 |Operator Connect|Optional|Optional|
-|Teams Phone Mobile|Not supported|Not supported|
+|Teams Phone Mobile|Optional|Optional|
 |Zoom Phone Cloud Peering |Required | Optional |
 
 ## Configuring numbers for specific communications services
@@ -42,7 +42,7 @@ Azure Communications Gateway can add a custom header to messages sent to your co
 
 To set up custom headers:
 
-- Choose the name of the custom header when you [deploy Azure Communications Gateway](deploy.md). This header name is used for all custom headers.
+- Choose the name of the custom header when you [deploy Azure Communications Gateway](deploy.md) or by updating Provisioning Platform configuration in the Azure portal. This header name is used for all custom headers.
 - Use the Provisioning API to provision Azure Communications Gateway with numbers and the contents of the custom header for each number.
 
 Azure Communications Gateway then uses this information to add custom headers to a call as follows:
