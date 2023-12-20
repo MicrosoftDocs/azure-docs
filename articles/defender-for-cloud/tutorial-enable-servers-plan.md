@@ -2,7 +2,7 @@
 title: Protect your servers with Defender for Servers
 description: Learn how to enable the Defender for Servers on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 12/05/2023
+ms.date: 12/20/2023
 ---
 
 # Protect your servers with Defender for Servers
@@ -74,7 +74,8 @@ There are three components that can be enabled and configured to provide extra p
 | Component | Description | Learn more |
 |:--:|:--:|:--:|
 | [Log Analytics agent/Azure Monitor agent](plan-defender-for-servers-agents.md) | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
-| Vulnerability assessment for machines | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
+| [Vulnerability assessment for machines](deploy-vulnerability-assessment-defender-vulnerability-management.md) | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
+| [Endpoint protection](integration-defender-for-endpoint.md) | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
 Toggle the corresponding switch to **On**, to enable any of these options.
@@ -89,15 +90,9 @@ After enabling the Log Analytics agent/Azure Monitor agent, you'll be presented 
 
     :::image type="content" source="media/tutorial-enable-servers-plan/edit-configuration-log.png" alt-text="Screenshot that shows you where on the screen you need to select edit configuration, to edit the log analytics agent/azure monitor agent." lightbox="media/tutorial-enable-servers-plan/edit-configuration-log.png":::
 
-1. In the Auto provisioning configuration window, select one of the following two agent types:
-
-    - **Log Analytic Agent (Default)** - Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis.
-
-    - **Azure Monitor Agent (Preview)** - Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis.
+1. Select either a **Default workspace(s)** or a **Custom workspace** depending on your need.
 
     :::image type="content" source="media/tutorial-enable-servers-plan/auto-provisioning-screen.png" alt-text="Screenshot of the auto provisioning configuration screen with the available options to select." lightbox="media/tutorial-enable-servers-plan/auto-provisioning-screen.png":::
-
-1. Select either a **Default workspace(s)** or a **Custom workspace** depending on your need.
 
 1. Select **Apply**.
 
@@ -118,7 +113,15 @@ Vulnerability assessment for machines allows you to select between two vulnerabi
 
 1. Select **Apply**.
 
-### Configure agentless scanning for machines (preview)
+## Configure endpoint protection
+
+With Microsoft Defender for Servers, you enable the protections provided by [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide) to your server resources. Defender for Endpoint includes automatic agent deployment to your servers, and security data integration with Defender for Cloud.
+
+**To configure endpoint protection**:
+
+1. Toggle the switch to **On**.
+
+### Configure agentless scanning for machines
 
 Defender for Cloud has the ability to scan your Azure machines for installed software and vulnerabilities without requiring you to install agents, have network connectivity or affect your machine's performance.
 
@@ -131,6 +134,8 @@ Defender for Cloud has the ability to scan your Azure machines for installed sof
 1. Enter a tag name and tag value for any machines to be excluded from scans.
 
 1. Select **Apply**.
+
+Learn more about agentless scanning and how to [enable agentless scanning](enable-agentless-scanning-vms.md) on other cloud environments.
 
 ## Next steps
 

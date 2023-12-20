@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 08/15/2023
+ms.date: 12/20/2023
 ---
 
 # Enable agentless scanning for VMs
