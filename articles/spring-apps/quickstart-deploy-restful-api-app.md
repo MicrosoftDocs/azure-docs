@@ -284,6 +284,6 @@ Use the following steps to access the RESTful APIs of the `ToDo` app in the Swag
 
 For more information, see the following articles:
 
-- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 - [Spring on Azure](/azure/developer/java/spring/)
 - [Spring Cloud Azure](/azure/developer/java/spring-framework/)

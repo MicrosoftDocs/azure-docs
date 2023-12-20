@@ -3,7 +3,8 @@ title: Application performance monitoring and troubleshooting solutions for Azur
 description: Learn about leading application monitoring and troubleshooting solutions for your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 12/12/2023
+ms.custom: engagement-fy23
 ---
 
 # Application performance monitoring and troubleshooting solutions for Azure VMware Solution
@@ -17,7 +18,7 @@ Microsoft recommends [Application Insights](../azure-monitor/app/app-insights-ov
 Learn how modern monitoring with Azure Monitor can transform your business by reviewing the [product overview, features, getting started guide and more](https://azure.microsoft.com/services/monitor).
 
 ## Third-party solutions
-Our application performance monitoring and troubleshooting partners have industry-leading solutions in VMware-based environments that assure the availability, reliability, and responsiveness of applications and services. Our customers have adopted many of these solutions integrated with VMware NSX-T Data Center for their on-premises deployments. As one of our key principles, we want to enable them to continue to use their investments and VMware solutions running on Azure. Many of these Independent Software Vendors (ISV) have validated their solutions with Azure VMware Solution.
+Our application performance monitoring and troubleshooting partners have industry-leading solutions in VMware-based environments that assure the availability, reliability, and responsiveness of applications and services. Our customers adopt many of the solutions integrated with VMware NSX-T Data Center for their on-premises deployments. As one of our key principles, we want to enable them to continue to use their investments and VMware solutions running on Azure. Many of the Independent Software Vendors (ISV) already validated their solutions with Azure VMware Solution.
 
 You can find more information about these solutions here:
 
