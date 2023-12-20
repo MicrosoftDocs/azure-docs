@@ -41,7 +41,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 A gallery used to configure dev box definitions must have at least [one image definition and one image version](../virtual-machines/image-version.md).
 
-When you create a virtual machine image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
+When you create a virtual machine (VM) image, select an image from the Azure Marketplace that's compatible with Microsoft Dev Box. The following are examples of compatible images:
 - [Visual Studio 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019plustools?tab=Overview)
 - [Visual Studio 2022](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudioplustools?tab=Overview) 
 
@@ -56,7 +56,7 @@ The image version must meet the following requirements:
    - To speed up the dev box creation time:
       - Disable the reserved storage state feature in the image by using the following command: `DISM.exe /Online /Set-ReservedStorageState /State:Disabled`. For more information, see [DISM Storage reserve command-line options](/windows-hardware/manufacture/desktop/dism-storage-reserve?view=windows-11#set-reservedstoragestate&preserve-view=true).
       - Run `defrag` and `chkdsk` during image creation, wait for them to finish. And disable `chkdisk` and `defrag` scheduled task.
-- Single-session virtual machine (VM) images (Multiple-session VM images aren't supported.)
+- Single-session VM images (Multiple-session VM images aren't supported.)
 - No recovery partition
    For information about how to remove a recovery partition, see the [Windows Server command: delete partition](/windows-server/administration/windows-commands/delete-partition).
 - Default 64-GB OS disk size
