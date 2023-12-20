@@ -93,6 +93,7 @@ Open your server's **Overview** page. Make a note of the **Server name** and the
 
  :::image type="content" source="./media/quickstart-create-database-portal/8-server-name.png" alt-text="The server Overview page.":::
 
+<a name="connect-to-the-postgresql-database-using-psql"></a>
 ## Connect to the Azure Database for PostgreSQL flexible server database using psql
 
 There are a number of applications you can use to connect to your Azure Database for PostgreSQL flexible server instance. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure Database for PostgreSQL flexible server instance. Let's now use the psql command-line utility to connect to the Azure Database for PostgreSQL flexible server instance.
