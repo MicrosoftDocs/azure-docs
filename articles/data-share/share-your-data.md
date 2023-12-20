@@ -6,7 +6,7 @@ ms.author: sidontha
 ms.service: data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 10/26/2022
+ms.date: 12/19/2023
 ---
 # Tutorial: Share data using Azure Data Share  
 
@@ -32,8 +32,8 @@ In this tutorial, you'll learn how to:
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Storage Blob Data Contributor** role.
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the **Owner** role. 
 
-
 ### Share from a SQL-based source
+
 Below is the list of prerequisites for sharing data from SQL source. 
 
 #### Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
@@ -60,7 +60,7 @@ Below is the list of prerequisites for sharing data from SQL source.
         create user "<share_acct_name>" from external provider;     
         exec sp_addrolemember db_datareader, "<share_acct_name>"; 
         ```                   
-       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this pre-requisite later.  
+       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this prerequisite later.  
 
 * Synapse workspace Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to Synapse workspace. Select *Firewalls* from left navigation.

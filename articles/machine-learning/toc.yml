@@ -650,7 +650,7 @@
           items:
             - name: Submit batch run and evaluate a flow 
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
-            - name: Develop a customized evaluation flow
+            - name: Customize evaluation flow and metrics
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
             - name: Evaluate your Semantic Kernel with prompt flow
               href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
@@ -918,6 +918,8 @@
       items:
         - name: Batch endpoints
           href: concept-endpoints-batch.md
+        - name: Create jobs and input data for batch endpoints
+          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Deploy models
           items:
             - name: Deploy models for scoring in batch endpoints
@@ -944,8 +946,6 @@
               href: how-to-use-batch-scoring-pipeline.md
             - name: Create batch endpoints from pipeline jobs
               href: how-to-use-batch-pipeline-from-job.md
-        - name: Create jobs and input data for batch endpoints
-          href: how-to-access-data-batch-endpoints-jobs.md
         - name: Troubleshoot batch endpoints
           href: how-to-troubleshoot-batch-endpoints.md
         - name: Security

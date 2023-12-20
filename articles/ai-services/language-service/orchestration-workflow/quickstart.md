@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: quickstart
-ms.date: 02/28/2023
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-clu, mode-other
 zone_pivot_groups: usage-custom-language-features
