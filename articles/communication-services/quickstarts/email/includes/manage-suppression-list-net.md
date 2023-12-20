@@ -16,7 +16,7 @@ ms.custom: mode-other
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](../create-email-communication-resource.md).
 - An [Azure Managed Domain](../add-azure-managed-domains.md) or [Custom Domain](../add-custom-verified-domains.md) provisioned and ready to send emails.
-- We are using a [service principal for authentication](../../../../active-directory/develop/howto-create-service-principal-portal.md). Set the values of the client ID, tenant ID and client secret of the AAD application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
+- We're using a [service principal for authentication](../../../../active-directory/develop/howto-create-service-principal-portal.md). Set the values of the client ID, tenant ID and client secret of the AAD application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
 
 ## Install the required packages
 
@@ -27,7 +27,7 @@ dotnet add package Azure.Identity
 
 ## Initialize the management client
 
-Set the environment variable `AZURE_SUBSCRIPTION_ID` with the subscription id of the subscription your Domain and Email resources are in. Run the code sample to initialize the management client.
+Set the environment variable `AZURE_SUBSCRIPTION_ID` with the subscription ID of the subscription your Domain and Email resources are in. Run the code sample to initialize the management client.
 
 ```csharp
 using Azure;
@@ -45,7 +45,7 @@ To block your email messages from being sent to certain addresses, the first ste
 
 Update the code sample with the resource group name, the email service name, and the domain resource name for which you would like to create the suppression list. This information can be found in portal by navigating to the domains resource you created when setting up the prerequisites. The title of the resource is `<your-email-service-name>/<your-domain-name>`. The resource group name and subscription ID can be found in the Essentials sections in the domain resource overview. Choose any name for your suppression list resource and update that field in the sample as well. 
 
-For the list name, make sure it's the same as the sender username of the mailfrom address you would like to suppress emails from. These mailfrom addresses can be found in the "MailFrom addresses" section of your domain resource in the portal.  For example, you may have a mailfrom address that looks like "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net". The sender username for this address would be "donotreply". Therefore, your list name should also be "donotreply".
+For the list name, make sure it's the same as the sender username of the MailFrom address you would like to suppress emails from. These MailFrom addresses can be found in the "MailFrom addresses" section of your domain resource in the portal.  For example, you may have a MailFrom address that looks like "donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net". The sender username for this address would be "donotreply" so a list name of "donotreply" should be used.
 
 The code sample will create the suppression list and store it in the `suppressionListResource` variable for future operations.
 
@@ -71,7 +71,7 @@ suppressionListResource.Update(WaitUntil.Completed, suppressiontListData);
 
 After setting up the suppression list, you can now add specific email addresses to which you wish to prevent your email messages from being sent.
 
-Update the code sample with the suppression list address ID. Every suppression list address ID you add needs to be unique, so using a GUID is recommended. Update the email address you want to block from recieving your messages as well.
+Update the code sample with the suppression list address ID. Every suppression list address ID you add needs to be unique, so using a GUID is recommended. Update the email address you want to block from receiving your messages as well.
 
 To add multiple addresses to the suppression list, you need to repeat this code sample multiple times.
 
@@ -89,7 +89,7 @@ SuppressionListAddressResourceData suppressionListAddressData = new SuppressionL
 suppressionListAddressResource.Update(WaitUntil.Completed, suppressionListAddressData);
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email will not be sent to the suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email won't be sent to the suppressed address.
 
 ## Remove an address from a suppression list
 
@@ -99,7 +99,7 @@ To remove an address from the suppression list, create the `SuppressionListAddre
 suppressionListAddressResource.Delete(WaitUntil.Completed);
 ```
 
-You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email will be successfully sent to the previously suppressed address.
+You can now try sending an email to the suppressed address from the [`TryEmail` section of your Communication Service resource](./try-send-email.md) or by [using one of the Email SDKs](../send-email.md). Your email will successfully send to the previously suppressed address.
 
 ## Remove a suppression list from a domains resource
 
