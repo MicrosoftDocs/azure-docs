@@ -8,7 +8,7 @@ ms.date: 12/23/2023
 ms.author: lianwei 
 ---
 
-# Use Azure SignalR Service
+# Use Azure SignalR Service Management SDK
 
 Azure SignalR Service Management SDK helps you to manage SignalR clients through Azure SignalR Service directly such as broadcast messages. Therefore, this SDK could be but not limited to be used in [serverless](https://azure.microsoft.com/solutions/serverless/) environments. You could use this SDK to manage SignalR clients connected to your Azure SignalR Service in any environment, such as in a console app, in an Azure function or in a web server.
 
@@ -18,7 +18,7 @@ Azure SignalR Service Management SDK helps you to manage SignalR clients through
 
 ## Features
 
-|                                            | Transient          | Persistent         |
+| Feature                                    | Transient          | Persistent         |
 | ------------------------------------------ | ------------------ | ------------------ |
 | Broadcast                                  | :heavy_check_mark: | :heavy_check_mark: |
 | Broadcast except some clients              | :heavy_check_mark: | :heavy_check_mark: |
@@ -38,7 +38,7 @@ Azure SignalR Service Management SDK helps you to manage SignalR clients through
 | [Retry transient error](#http-requests-retry)                      | since v1.22.0      |  :x:               |
 
 **Features only come with new API**
-|                              | Transient          | Persistent  |
+| Feature                      | Transient          | Persistent  |
 | ---------------------------- | ------------------ | ----------- |
 | Check if a connection exists | :heavy_check_mark: | Since v1.11 |
 | Check if a group exists      | :heavy_check_mark: | Since v1.11 |
@@ -178,7 +178,7 @@ This SDK can communicates to Azure SignalR Service with two transport types:
 
 ### Summary of Serialization behaviors of the Arguments in Messages
 
-|                                | Transient          | Persistent                        |
+| Serialization                  | Transient          | Persistent                        |
 | ------------------------------ | ------------------ | --------------------------------- |
 | Default JSON library           | `Newtonsoft.Json`  | The same as Asp.Net Core SignalR: <br>`Newtonsoft.Json` for .NET Standard 2.0; <br>`System.Text.Json` for .NET Core App 3.1 and above  |
 | MessagePack clients support    |  since v1.21.0   |  since v1.20.0                    |
