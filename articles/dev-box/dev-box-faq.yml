@@ -52,7 +52,7 @@ sections:
 
           Developers primarily spend their time typing and moving their mouse within their Dev Box. We recommend optimizing for typing latency, since these actions will affect development teams the most. 
       
-      - question: Can I look up which regions I should create my pools?  
+      - question: Can I look up in which regions I should create my pools?  
         answer: |
           Whether you’re an admin creating pools, or a developer selecting from the list available, it is important to optimize for latency and performance. Sometimes, it is difficult to locate the best region for developers to work in.  
 
