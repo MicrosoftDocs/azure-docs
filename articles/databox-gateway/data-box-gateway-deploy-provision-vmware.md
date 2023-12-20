@@ -81,17 +81,16 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 1. Sign in to the ESXi server via a browser at this URL: `https://<IP address of the ESXi server>`. You need to have administrator privileges to create a virtual machine.
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 1. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image2-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected." lightbox="media/data-box-gateway-deploy-provision-vmware/image2.png":::
 1. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK.
     - The datastore can be either VMFS5 or VMFS6. Databox Gateway has been tested with VMWare with the VMFS5 and VMFS6 Datastore.
     - The datastore must also have enough free space for the OS and data disks.
 1. Right-click and select **Browse Datastore**.
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image3-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the user opening the datastore context menu." lightbox="media/data-box-gateway-deploy-provision-vmware/image3.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image3-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the user opening the datastore context menu." lightbox="media/data-box-gateway-deploy-provision-vmware/image3.png":::
 1. A **Datastore Browser** window appears.
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image4-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the datastore browser."  lightbox="media/data-box-gateway-deploy-provision-vmware/image4.png":::
-   ![Datastore browser](./media/data-box-gateway-deploy-provision-vmware/image4.png)
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image4-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the datastore browser."  lightbox="media/data-box-gateway-deploy-provision-vmware/image4.png":::
 1. In the tool bar, click **Create directory** icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **Create directory**.
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image5-sml.png" alt-text="Screenshot of the user creating a directory."  lightbox="media/data-box-gateway-deploy-provision-vmware/image5.png":::
 1. The new folder appears in the left pane of the **Datastore Browser**. Click the **Upload** icon and select **Upload File**.
