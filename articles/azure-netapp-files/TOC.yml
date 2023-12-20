@@ -309,7 +309,7 @@
         href: manage-default-individual-user-group-quotas.md
       - name: Manage standard storage with cool access 
         href: manage-cool-access.md
-    - name: Update Terraform-managed Resource
+    - name: Update Terraform-managed volume
       href: terraform-manage-volume.md
   - name: Manage application volume groups 
     items:
