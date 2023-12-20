@@ -102,7 +102,7 @@ Follow these steps to create a new console application.
         var completionsOptions = new ChatCompletionsOptions()
         {
             DeploymentName = engine,
-            Messages = { new ChatMessage(ChatRole.User, prompt) },
+            Messages = { new ChatRequestUserMessage(prompt) },
             MaxTokens = 100,
         };
         var responseStream = await client.GetChatCompletionsStreamingAsync(completionsOptions);
