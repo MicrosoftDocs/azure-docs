@@ -16,11 +16,11 @@ CallKit Integration, supported by Azure Communication Service native iOS calling
 
 ### Specify call recipient info for incoming/outgoing calls
 
-To specify call recipient info create an instance of `CallCompositeCallKitRemoteInfo`.
+To specify call recipient info, create an instance of `CallCompositeCallKitRemoteInfo`.
 
 Assign value for `displayName` to customize display name for call recipients and configure CXHandle value. This value specified in `displayName` is exactly how it shows up in the last dialed call log in the last dialed call log. 
 
-Assign the cxHandle value is what the application receives when user calls back on that contact.
+Assign the cxHandle value is what the application receives when, user calls back on that contact.
 
 ```swift
 let cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
@@ -28,7 +28,7 @@ var displayName = "DISPLAY_NAME"
 let callKitRemoteInfo = CallCompositeCallKitRemoteInfo(displayName: displayName, cxHandle: cxHandle)
 ```
 
-If `CallCompositeCallKitRemoteInfo` is not provided, by default participant identifier raw value will be displayed.
+If `CallCompositeCallKitRemoteInfo` is not provided, by default participant identifier raw value is displayed.
 
 ### CXProviderConfiguration
 
@@ -40,7 +40,7 @@ let cxProvider = CallCompositeCallKitOption.getDefaultCXProviderConfiguration()
 
 ### Configure audio session
 
-Configure audio session will be called before placing or accepting incoming call and before resuming the call after it has been put on hold. [more info](https://developer.apple.com/documentation/avfaudio/avaudiosession)
+Configure audio session will be called before placing or accepting incoming call and before resuming the call after call put on hold. [more info](https://developer.apple.com/documentation/avfaudio/avaudiosession)
 
 ```swift
 public func configureAudioSession() -> Error? {
@@ -57,7 +57,7 @@ public func configureAudioSession() -> Error? {
 
 ### Enabling CallKit
 
-To enable CallKit create instance of `CallCompositeCallKitOption` and provide to `RemoteOptions`
+To enable CallKit, create instance of `CallCompositeCallKitOption` and provide to `RemoteOptions`
 
 ```swift
 let isCallHoldSupported = true // enable call hold (default is true)
