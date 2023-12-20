@@ -28,7 +28,7 @@ var displayName = "DISPLAY_NAME"
 let callKitRemoteInfo = CallCompositeCallKitRemoteInfo(displayName: displayName, cxHandle: cxHandle)
 ```
 
-If `CallCompositeCallKitRemoteInfo` is not provided, by default participant identifier raw value is displayed.
+If `CallCompositeCallKitRemoteInfo` isn't provided, by default participant identifier raw value is displayed.
 
 ### CXProviderConfiguration
 

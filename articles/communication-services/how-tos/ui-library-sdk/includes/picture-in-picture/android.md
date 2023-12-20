@@ -34,8 +34,7 @@ The Back button is displayed when enableMultitasking is set to true:
 
 :::image type="content" source="media/android-call-screen.png" alt-text="Screenshot of the Android call screen with back button visible.":::
 
-Enabling multitasking for `CallComposite` will behaviour of the Call activity - it will be launched in dedicated task. In the task history user will see two screens: one for App's activity and one for ACS Call activity. 
-
+On enabling multitasking for `CallComposite` of the Call activity is launched in dedicated task. In the task history user sees two screens: one for App's activity and one for ACS Call activity. 
 
 #### [Kotlin](#tab/kotlin)
 ```kotlin
