@@ -58,8 +58,15 @@ SELECT datname as "Database name", usename as "User name", ssl, client_addr, app
    ORDER BY ssl;
 ```
 
+For testing, you can also use the **openssl** command directly, for example:
+```bash
+openssl s_client -connect localhost:5432 -starttls postgres
+```
+This will print out a lot of low-level protocol information, including the TLS version, cipher, and so on. Note that you must use the option -starttls postgres, or otherwise this command will report that no SSL is in use. This requires at least OpenSSL 1.1.1. 
+
 > [!NOTE]  
 > To enforce **latest, most secure TLS version** for connectivity protection from client to Azure Database for PostgreSQL flexible server set **ssl_min_protocol_version** to **1.3**. That would **require** clients connecting to your Azure Database for PostgreSQL flexible server instance to use **this version of the protocol only** to securely communicate. However, older clients, since they don't support this version, may not be able to communicate with the server.
+
 
 ## Cipher Suites
 

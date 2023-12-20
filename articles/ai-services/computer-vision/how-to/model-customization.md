@@ -76,7 +76,7 @@ To train a model with your own dataset, the dataset should be arranged in the CO
 
 ### Dataset annotation format
 
-Image Analysis uses the COCO file format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for multiclass classification and object detection.
+Image Analysis uses the COCO file format for indexing/organizing the training images and their annotations. Below are examples and explanations of what specific format is needed for classification and object detection.
 
 Image Analysis model customization for classification is different from other kinds of vision training, as we utilize your class names, as well as image data, in training. So, be sure provide meaningful category names in the annotations.
 
@@ -260,9 +260,7 @@ You need to upload your training images to an Azure Blob Storage container. Go t
 
 To train a custom model, you need to associate it with a **Dataset** where you provide images and their label information as training data. In Vision Studio, select the **Datasets** tab to view your datasets.
 
-To create a new dataset, select **add new dataset**. Enter a name and select a dataset type: If you'd like to do image classification, select `Multi-class image classification`. If you'd like to do object detection, select `Object detection`.
-
-
+To create a new dataset, select **add new dataset**. In the popup window, enter a name and select a dataset type for your use case. **Image classification** models apply content labels to the entire image, while **Object detection** models apply object labels to specific locations in the image. **Product recognition** models are a subcategory of object detection models that are optimized for detecting retail products.
 
 ![Choose Blob Storage]( ../media/customization/create-dataset.png)
 

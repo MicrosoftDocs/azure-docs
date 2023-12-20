@@ -7,7 +7,7 @@ ms.reviewer: kabharati
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 12/12/2023
+ms.date: 12/15/2023
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
@@ -51,6 +51,9 @@ Below, you'll find the _default_ maximum number of connections for each pricing 
 |E64s_v3 / E64ds_v4 / E64ds_v5|64    |432 GiB    |5000           |4985                |
 |E96ds_v5                     |96    |672 GiB    |5000           |4985                |
 
+> [!NOTE]
+> The reserved connection slots, presently at 15, could change. We advise regularly verifying the total reserved connections on the server. This is calculated by summing the values of 'reserved_connections' and 'superuser_reserved_connections' server parameters. The maximum available user connections is `max_connections - (reserved_connections + superuser_reserved_connections`).
+
 
 ### Changing the max_connections value
 
@@ -59,7 +62,7 @@ Customers can change the value maximum number of connections using either of the
 * Change the default value for the `max_connections` parameter using server parameter. This parameter is static and requires an instance restart.
 
 > [!CAUTION]
-> While it is possible to increase the value of "max_connections" beyond the default setting, it is not advisable. The rationale behind this recommendation is that instances may encounter difficulties when the workload expands and demands more memory. As the number of connections increases, memory usage also rises. Instances with limited memory may face issues such as crashes or high latency. Although a higher value for "max_connections" might be acceptable when most connections are idle, it can lead to significant performance problems once they become active. Instead, if you require additional connections, we suggest utilizing pgBouncer, Azure's built-in connection pool management solution, in transaction mode. To start, it is recommended to use conservative values by multiplying the vCores within the range of 2 to 5. Afterward, carefully monitor resource utilization and application performance to ensure smooth operation. For detailed information on pgBouncer, please refer to the [PgBouncer in Azure Database for PostgreSQL - Flexible Server](concepts-pgbouncer.md) documentation.
+> While it is possible to increase the value of `max_connections` beyond the default setting, it is not advisable. The rationale behind this recommendation is that instances may encounter difficulties when the workload expands and demands more memory. As the number of connections increases, memory usage also rises. Instances with limited memory may face issues such as crashes or high latency. Although a higher value for `max_connections` might be acceptable when most connections are idle, it can lead to significant performance problems once they become active. Instead, if you require additional connections, we suggest utilizing pgBouncer, Azure's built-in connection pool management solution, in transaction mode. To start, it is recommended to use conservative values by multiplying the vCores within the range of 2 to 5. Afterward, carefully monitor resource utilization and application performance to ensure smooth operation. For detailed information on pgBouncer, please refer to the [PgBouncer in Azure Database for PostgreSQL - Flexible Server](concepts-pgbouncer.md).
 
 * Scale your Azure Database for PostgreSQL flexible server instance up to a SKU with more memory size. 
 
@@ -110,8 +113,8 @@ When using Azure Database for PostgreSQL flexible server for a busy database wit
 
 ### Postgres engine, extensions, and PgBouncer
 
-- Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you need to use [Azure Database for PostgreSQL single server](../overview-single-server.md) option, which supports the older major versions 95, 96 and 10.
-- Azure Database for PostgreSQL flexible server supports all `contrib` extensions and more. Please refer to [Azure Database for PostgreSQL flexible server extensions](/azure/postgresql/flexible-server/concepts-extensions).
+- Postgres 10 and older aren't supported as those are already retired by the open-source community. If you must use one of these versions, you need to use the [Azure Database for PostgreSQL single server](../overview-single-server.md) option, which supports the older major versions 9.5, 9.6 and 10.
+- Azure Database for PostgreSQL flexible server supports all `contrib` extensions and more. Please refer to [PostgreSQL extensions](/azure/postgresql/flexible-server/concepts-extensions).
 - Built-in PgBouncer connection pooler is currently not available for Burstable servers.
    
 ### Stop/start operation
