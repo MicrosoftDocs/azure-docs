@@ -2,7 +2,7 @@
 title: Center for Internet Security (CIS) Kubernetes benchmark
 description: Learn how AKS applies the CIS Kubernetes benchmark
 ms.topic: article
-ms.date: 12/18/2023
+ms.date: 12/20/2022
 ---
 
 # Center for Internet Security (CIS) Kubernetes benchmark
@@ -11,7 +11,7 @@ As a secure service, Azure Kubernetes Service (AKS) complies with SOC, ISO, PCI 
 
 ## Kubernetes CIS benchmark
 
-The following are the results from the [CIS Kubernetes V1.27 Benchmark v1.8.0][cis-benchmark-kubernetes] recommendations on AKS. These are applicable to AKS 1.21.x through AKS 1.27.x.
+The following are the results from the [CIS Kubernetes V1.24 Benchmark v1.0.0][cis-benchmark-kubernetes] recommendations on AKS. These are applicable to AKS 1.21.x through AKS 1.24.x.
 
 *Scored* recommendations affect the benchmark score if they are not applied, while *Not Scored* recommendations don't.
 
