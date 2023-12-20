@@ -57,9 +57,6 @@ metadata:
 
 By default, all Dapr-enabled container apps within the same environment load the full set of deployed components. To ensure only the appropriate container apps load components at runtime, application scopes should be used. In the following example, the component is only loaded by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`:
 
-> [!NOTE]
-> Dapr component scopes correspond to the Dapr application ID of a container app, not the container app name.
-
 ```yaml
 componentType: [COMPONENT-TYPE]
 version: v1
@@ -73,6 +70,9 @@ scopes:
   - [APP-ID-2]
 ```
 
+> [!NOTE]
+> Dapr component scopes correspond to the Dapr application ID of a container app, not the container app name.
+
 ## Connecting to external services via Dapr
 
 There are a few approaches supported in container apps to securely establish connections to external services for Dapr components.
@@ -83,26 +83,30 @@ There are a few approaches supported in container apps to securely establish con
 
 ### Using managed identity
 
-For Azure-hosted services, Dapr can use the managed identity of the scoped container apps to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. Using managed identity is preferred as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
+For Azure-hosted services, Dapr can use [the managed identity of the scoped container apps][aca-managed-id] to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. Using managed identity is preferred as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
 
 > [!NOTE]
 > The `azureClientId` metadata field (the client ID of the managed identity) is **required** for any component authenticating with user-assigned managed identity.
 
 ### Using a Dapr secret store component reference
 
-When you create Dapr components for non-AD enabled services, certain metadata fields require sensitive input values. The recommended approach for retrieving these secrets is to reference an existing Dapr secret store component that securely accesses secret information.
+When you create Dapr components for non-Entra ID enabled services, certain metadata fields require sensitive input values. The recommended approach for retrieving these secrets is to reference an existing Dapr secret store component that securely accesses secret information.
 
-Here are the steps to set up a reference:
+To set up a reference:
 
-1. Create a Dapr secret store component using the Container Apps schema. The component type for all supported Dapr secret stores begins with `secretstores.`.
-1. Create extra components as needed which reference this Dapr secret store component to retrieve the sensitive metadata input.
+1. [Create a Dapr secret store component using the Azure Container Apps schema.](#creating-a-dapr-secret-store-component) The component type for all supported Dapr secret stores begins with `secretstores.`.
+1. [Create extra components (as needed) which reference the Dapr secret store component](#referencing-dapr-secret-store-components) you created to retrieve the sensitive metadata input.
 
-When creating a secret store component in container apps, you can provide sensitive information in the metadata section in either of the following ways:
+#### Creating a Dapr secret store component
 
-- For an **Azure Key Vault secret store**, use managed identity to establish the connection. [Learn more about using Azure Key Vault to manage secrets.](./manage-secrets.md#reference-secret-from-key-vault)
-- For **non-Azure secret stores**, use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
+When creating a secret store component in Azure Container Apps, you can provide sensitive information in the metadata section in either of the following ways:
 
-The following component showcases the simplest possible secret store configuration. In this example, publisher and subscriber applications are configured to both have a system or user-assigned managed identity with appropriate permissions on the Azure Key Vault instance.
+- [For an **Azure Key Vault secret store**,](#azure-key-vault-secret-store) use managed identity to establish the connection. 
+- [For **non-Azure secret stores**,](#platform-managed-kubernetes-secrets) use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
+
+##### Azure Key Vault secret store
+
+The following component showcases the simplest possible secret store configuration using an Azure Key Vault secret store. In this example, publisher and subscriber applications are configured to both have a system or user-assigned managed identity with appropriate permissions on the Azure Key Vault instance.
 
 ```yaml
 componentType: secretstores.azure.keyvault
@@ -119,10 +123,9 @@ scopes:
   - subscriber-app
 ```
 
-> [!NOTE]
-> Kubernetes secrets, Local environment variables, and Local file Dapr secret stores aren't supported in Container Apps. As an alternative for the upstream Dapr default Kubernetes secret store, container apps provides a platform-managed approach for creating and leveraging Kubernetes secrets.
+##### Platform-managed Kubernetes secrets
 
-### Using Platform-managed Kubernetes secrets
+Kubernetes secrets, Local environment variables, and Local file Dapr secret stores aren't supported in Azure Container Apps. As an alternative for the upstream Dapr default Kubernetes secret store, Azure Container Apps provides a platform-managed approach for creating and leveraging Kubernetes secrets.
 
 This component configuration defines the sensitive value as a secret parameter that can be referenced from the metadata section. This approach can be used to connect to non-Azure services or in dev/test scenarios for quickly deploying components via the CLI without setting up a secret store or managed identity.
 
@@ -148,7 +151,7 @@ scopes:
   - subscriber-app
 ```
 
-### Referencing Dapr secret store components
+#### Referencing Dapr secret store components
 
 Once you create a Dapr secret store using one of the previous approaches, you can reference that secret store from other Dapr components in the same environment. In the following example, the `secretStoreComponent` field is populated with the name of the secret store specified in the previous examples, where the `sb-root-connectionstring` is stored.
 
@@ -248,6 +251,7 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 [dapr-component-connection]: ./dapr-component-connection.md
 [dapr-keda]: ./dapr-keda-scaling.md
+[aca-managed-id]: ./managed-identity.md
 
 <!-- Links External -->
 
