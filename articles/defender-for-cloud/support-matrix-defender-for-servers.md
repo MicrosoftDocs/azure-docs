@@ -49,7 +49,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
 [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA
 [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA 
-[Agentless secret scanning](secret-scanning.md) | GA | NA | NA
+[Agentless secrets scanning](secret-scanning.md) | GA | NA | NA
 
 ## Windows machine support
 

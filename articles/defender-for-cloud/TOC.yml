@@ -539,8 +539,8 @@
         - name: Enable just-in-time access on VMs
           displayName: jit, management, ports
           href: just-in-time-access-usage.md
-        - name: Manage secrets with agentless secret scanning
-          displayName: secrets, secret scanning, agentless
+        - name: Manage secrets with agentless secrets scanning
+          displayName: secrets, secrets scanning, agentless
           href: secret-scanning.md
         - name: Protect your endpoints with Defender for Cloud's integration with
             Microsoft Defender for Endpoint
