@@ -14,7 +14,7 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Troubleshoot Kubernetes Compute
 
-In this article, you'll learn how to troubleshoot common workload (including training jobs and endpoints) errors on the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md). 
+In this article, you learn how to troubleshoot common workload (including training jobs and endpoints) errors on the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md). 
 
 ## Inference guide
 
@@ -22,7 +22,7 @@ The common Kubernetes endpoint errors on Kubernetes compute are categorized into
 
 ### Kubernetes compute errors
 
-Below is a list of error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guidelines:
+ The common error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guidelines:
 
 
 * [ERROR: GenericComputeError](#error-genericcomputeerror)
@@ -33,7 +33,7 @@ Below is a list of error types in **compute scope** that you might encounter whe
 
 
 #### ERROR: GenericComputeError
-The error message is as below:
+The error message is as:
 
 ```bash
 Failed to get compute information.
@@ -44,7 +44,7 @@ This error should occur when system failed to get the compute information from t
 * Check the Kubernetes cluster health.
     * You can view the cluster health check report for any issues, for example, if the cluster is not reachable.
     * You can go to your workspace portal to check the compute status.
-* Check if the instance types is information is correct. You can check the supported instance types in the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) documentation.
+* Check if the instance types are information is correct. You can check the supported instance types in the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) documentation.
 * Try to detach and reattach the compute to the workspace if applicable.
 
 > [!NOTE]
@@ -83,7 +83,7 @@ The error message is as follows:
 ```bash
 The compute information is invalid.
 ```
-There is a compute target validation process when deploying models to your Kubernetes cluster. This error should occur when the compute information is invalid when validating, for example the compute target is not found, or the configuration of Azure Machine Learning extension has been updated in your Kubernetes cluster. 
+There is a compute target validation process when deploying models to your Kubernetes cluster. This error should occur when the compute information is invalid. For example, the compute target is not found, or the configuration of Azure Machine Learning extension has been updated in your Kubernetes cluster. 
 
 You can check the following items to troubleshoot the issue:
 * Check whether the compute target you used is correct and existing in your workspace.
@@ -125,7 +125,7 @@ For AKS clusters:
 * Check if the AKS cluster is shut down. 
     * If the cluster isn't running, you need to start the cluster first.
 * Check if the AKS cluster has enabled selected network by using authorized IP ranges. 
-    * If the AKS cluster has enabled authorized IP ranges, please make sure all the **Azure Machine Learning control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
+    * If the AKS cluster has enabled authorized IP ranges, make sure all the **Azure Machine Learning control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
 
 
 For an AKS cluster or an Azure Arc enabled Kubernetes cluster:
@@ -166,42 +166,59 @@ You can check the following items to troubleshoot the issue:
 > [!TIP]
    > More troubleshoot guide of common errors when creating/updating the Kubernetes online endpoints and deployments, you can find in [How to troubleshoot online endpoints](how-to-troubleshoot-online-endpoints.md).
 
+### Identity error
+
+#### ERROR: RefreshExtensionIdentityNotSet
+
+This error occurs when the extension is installed but the extension identity is not correctly assigned. You can try to reinstall the extension to fix it.
+
+> Please notice this error is only for managed clusters
+
+
+
+
+
 ### How to check sslCertPemFile and sslKeyPemFile is correct?
-Use the commands below to run a baseline check for your cert and key. This is to allow for any known errors to be surfaced. Expect the second command to return "RSA key ok" without prompting you for password.
+In order to allow for any known errors to be surfaced, you can use the commands to run a baseline check for your cert and key. Expect the second command to return "RSA key ok" without prompting you for password.
 
 ```bash
 openssl x509 -in cert.pem -noout -text
 openssl rsa -in key.pem -noout -check
 ```
 
-Run the commands below to verify whether sslCertPemFile and sslKeyPemFile are matched:
+Run the commands to verify whether sslCertPemFile and sslKeyPemFile are matched:
 
 ```bash
 openssl x509 -in cert.pem -noout -modulus | md5sum
 openssl rsa -in key.pem -noout -modulus | md5sum
 ```
 
+For sslCertPemFile, it is the public certificate. It should include the certificate chain which includes the following certificates and should be in the sequence of the server certificate, the intermediate CA certificate and the root CA certificate:
+* The server certificate: the server presents to the client during the TLS handshake. It contains the server’s public key, domain name, and other information. The server certificate is signed by an intermediate certificate authority (CA) that vouches for the server’s identity.
+* The intermediate CA certificate: the intermediate CA presents to the client to prove its authority to sign the server certificate. It contains the intermediate CA’s public key, name, and other information. The intermediate CA certificate is signed by a root CA that vouches for the intermediate CA’s identity.
+* The root CA certificate: the root CA presents to the client to prove its authority to sign the intermediate CA certificate. It contains the root CA’s public key, name, and other information. The root CA certificate is self-signed and trusted by the client.
+
 
 ## Training guide
 
-When the training job is running, you can check the job status in the workspace portal. When you encounter some abnormal job status, such as the job retried multiple times, or the job has been stuck in initializing state, or even the job has eventually failed, you can follow the guide below to troubleshoot the issue.
+When the training job is running, you can check the job status in the workspace portal. When you encounter some abnormal job status, such as the job retried multiple times, or the job has been stuck in initializing state, or even the job has eventually failed, you can follow the guide  to troubleshoot the issue.
 
 ### Job retry debugging
 
-If the training job pod running in the cluster was terminated due to the node running to node OOM (out of memory), the job will be **automatically retried** to another available node.
+If the training job pod running in the cluster was terminated due to the node running to node OOM (out of memory), the job is **automatically retried** to another available node.
 
 To further debug the root cause of the job try, you can go to the workspace portal to check the job retry log.
 
-* Each retry log will be recorded in a new log folder with the format of "retry-<retry number\>"(such as: retry-001).
+* Each retry log is recorded in a new log folder with the format of "retry-<retry number\>"(such as: retry-001).
 
-Then you can get the retry job-node mapping information as mentioned above, to figure out which node the retry-job has been running on.
+Then you can get the retry job-node mapping information, to figure out which node the retry-job has been running on.
 
 :::image type="content" source="media/how-to-troubleshoot-kubernetes-compute/job-retry-log.png" alt-text="Screenshot of adding a new extension to the Azure Arc-enabled Kubernetes cluster from the Azure portal.":::
 
 You can get job-node mapping information from the
 **amlarc_cr_bootstrap.log** under system_logs folder.
 
-The host name of the node which the job pod is running on will be indicated in this log, for example:
+The host name of the node, which the job pod is running on is indicated in this log, for example:
 
 ```bash
 ++ echo 'Run on node: ask-agentpool-17631869-vmss0000"
@@ -245,7 +262,7 @@ If the error message is:
 Azure Machine Learning Kubernetes job failed. E45004:"Training feature is not enabled, please enable it when install the extension."
 ```
 
-Please check whether you have `enableTraining=True` set when doing the Azure Machine Learning extension installation. More details could be found at [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](how-to-deploy-kubernetes-extension.md)
+Check whether you have `enableTraining=True` set when doing the Azure Machine Learning extension installation. More details could be found at [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](how-to-deploy-kubernetes-extension.md)
 
 ### Job failed. 400
 
@@ -262,13 +279,13 @@ If you need to access Azure Container Registry (ACR) for Docker image, and to ac
 
 To access Azure Container Registry (ACR) from a Kubernetes compute cluster for Docker images, or access a storage account for training data, you need to attach the Kubernetes compute with a system-assigned or user-assigned managed identity enabled. 
 
-In the above training scenario, this **computing identity** is necessary for Kubernetes compute to be used as a credential to communicate between the ARM resource bound to the workspace and the Kubernetes computing cluster. So without this identity, the training job will fail and report missing account key or sas token. Take accessing storage account for example, if you don't specify a managed identity to your Kubernetes compute, the job fails with the following error message:
+In the above training scenario, this **computing identity** is necessary for Kubernetes compute to be used as a credential to communicate between the ARM resource bound to the workspace and the Kubernetes computing cluster. So without this identity, the training job fails and reports missing account key or sas token. Take accessing storage account, for example, if you don't specify a managed identity to your Kubernetes compute, the job fails with the following error message:
 
 ```bash
 Unable to mount data store workspaceblobstore. Give either an account key or SAS token
 ```
 
-This is because machine learning workspace default storage account without any credentials is not accessible for training jobs in Kubernetes compute. 
+The cause is machine learning workspace default storage account without any credentials is not accessible for training jobs in Kubernetes compute. 
 
 To mitigate this issue, you can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it has been attached. More details could be found at [Assign Managed Identity to the compute target](how-to-attach-kubernetes-to-workspace.md#assign-managed-identity-to-the-compute-target).
 
@@ -280,13 +297,13 @@ If you need to access the AzureBlob for data upload or download in your training
 Unable to upload project files to working directory in AzureBlob because the authorization failed. 
 ```
 
-This is because the authorization failed when the job tries to upload the project files to the AzureBlob. You can check the following items to troubleshoot the issue:
+The cause is the authorization failed when the job tries to upload the project files to the AzureBlob. You can check the following items to troubleshoot the issue:
 *  Make sure the storage account has enabled the exceptions of “Allow Azure services on the trusted service list to access this storage account” and the workspace is in the resource instances list. 
 *  Make sure the workspace has a system assigned managed identity.
 
 ## Private link issue
 
-We could use the method below to check private link setup by logging into one pod in the Kubernetes cluster and then check related network settings.
+We could use the method to check private link setup by logging into one pod in the Kubernetes cluster and then check related network settings.
 
 *  Find workspace ID in Azure portal or get this ID by running `az ml workspace show` in the command line.
 *  Show all azureml-fe pods run by `kubectl get po -n azureml -l azuremlappname=azureml-fe`.
@@ -299,13 +316,13 @@ If you set up private link from VNet to workspace correctly, then the internal I
 curl https://{workspace_id}.workspace.westcentralus.api.azureml.ms/metric/v2.0/subscriptions/{subscription}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/api/2.0/prometheus/post -X POST -x {proxy_address} -d {} -v -k
 ```
 
-If the proxy and workspace with private link is configured correctly, you can see it's trying to connect to an internal IP. This will return a response with http 401, which is expected when you don't provide token.
+When the proxy and workspace are correctly set up with a private link, you should observe an attempt to connect to an internal IP. A response with an HTTP 401 status code is expected in this scenario if a token is not provided.
 
 ## Other known issues
 
-### Kubernetes compute upadte does not take effect
+### Kubernetes compute update does not take effect
 
-At this time, the CLI v2 and SDK v2 do not allow updating any configuration of an existing Kubernetes compute. For example, changing the namespace will not take effect.
+At this time, the CLI v2 and SDK v2 do not allow updating any configuration of an existing Kubernetes compute. For example, changing the namespace does not take effect.
 
 ### Workspace or resource group name end with '-' 
 

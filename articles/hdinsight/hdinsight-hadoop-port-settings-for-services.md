@@ -4,7 +4,7 @@ description: This article provides a list of ports used by Apache Hadoop service
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 08/05/2022
+ms.date: 09/15/2023
 ---
 
 # Ports used by Apache Hadoop services on HDInsight
@@ -33,7 +33,7 @@ All the nodes in an HDInsight cluster are located in an Azure Virtual Network. T
 | sshd |23 |SSH |Connects clients to sshd on the secondary headnode. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. See  [Use MapReduce with Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |`HCatalog` REST API. See  [Use MapReduce with Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Connects to ApacheHive using JDBC. See [Connect to Apache Hive on HDInsight using the Hive JDBC driver](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -110,7 +110,7 @@ Examples:
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| WebHCat server |Head nodes |30111 |HTTP |Web API on top of HCatalog and other Hadoop services |
+| WebHCat server |Head nodes |30111 |HTTP |Web API on top of `HCatalog` and other Hadoop services |
 
 ### MapReduce ports
 

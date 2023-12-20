@@ -18,7 +18,13 @@ ms.author: anfdocs
 
 # Restore a snapshot to a new volume using Azure NetApp Files
 
-[Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. Currently, you can [restore a snapshot only to a new volume](snapshots-introduction.md#restoring-cloning-an-online-snapshot-to-a-new-volume). 
+[Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. This article describes how to create a new volume from a snapshot by using Azure NetApp Files.
+
+## Considerations 
+
+* Currently, you can [restore a snapshot only to a new volume](snapshots-introduction.md#restoring-cloning-an-online-snapshot-to-a-new-volume). 
+
+* If you use the standard storage with cool access feature, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations. 
 
 ## Steps
 
@@ -40,8 +46,7 @@ ms.author: anfdocs
     :::image type="content" source="../media/azure-netapp-files/snapshot-restore-new-volume.png" alt-text="Screenshot showing the Create a Volume window for restoring a volume from a snapshot."::: 
 
 4. Select **Review+create**. Select **Create**.   
-    The Volumes page displays the new volume that the snapshot restores to.   
-
+    The Volumes page displays the new volume to which the snapshot restores. Refer to the **Originated from** field to see the name of the snapshot used to create the volume. 
 
 ## Next steps
 

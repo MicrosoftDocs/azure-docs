@@ -29,7 +29,7 @@ Azure Cosmos DB supports two indexing modes:
 - **None**: Indexing is disabled on the container. This mode is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also be used to improve the performance of bulk operations. After the bulk operations are complete, the index mode can be set to Consistent and then monitored using the [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) until complete.
 
 > [!NOTE]
-> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmosdblazyindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
+> Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query an Azure Cosmos DB container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmosdbindexing@microsoft.com (except if you are using an Azure Cosmos DB account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
 By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index items as they're written.
 
@@ -317,7 +317,7 @@ The following considerations apply when creating composite indexes to optimize a
 
 ## <a id=index-transformation></a>Modifying the indexing policy
 
-A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
+A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old indexing policy is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. If multiple indexing policy updates have to be made, it is recommended to do all the changes as a single operation in order to have the index transformation complete as quickly as possible.
 
 > [!IMPORTANT]
 > Index transformation is an operation that consumes [Request Units](request-units.md). Request Units consumed by an index transformation aren't currently billed if you are using [serverless](serverless.md) containers. These Request Units will get billed once serverless becomes generally available.
@@ -334,7 +334,10 @@ When removing indexed paths, you should group all your changes into one indexing
 When you drop an indexed path, the query engine will immediately stop using it, and will do a full scan instead.
 
 > [!NOTE]
-> Where possible, you should always try to group multiple indexing changes into one single indexing policy modification
+> Where possible, you should always try to group multiple index removals into one single indexing policy modification.
+
+> [!IMPORTANT]
+> Removing an index takes affect immediately, whereas adding a new index takes some time as it requires an indexing transformation. When replacing one index with another (for example, replacing a single property index with a composite-index) make sure to add the new index first and then wait for the index transformation to complete **before** you remove the previous index from the indexing policy. Otherwise this will negatively affect your ability to query the previous index and may break any active workloads that reference the previous index. 
 
 ## Indexing policies and TTL
 

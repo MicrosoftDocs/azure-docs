@@ -4,8 +4,7 @@ titleSuffix: Azure AI services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Azure AI services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for Speech service.
 author: eric-urban
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
+ms.service: azure-ai-speech
 ms.topic: conceptual
 ms.date: 07/14/2021
 ms.author: eur
@@ -22,7 +21,7 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 
 ## About encryption key management
 
-When you use Custom Speech and Custom Voice, Speech service may store following data in the cloud:  
+When you use custom speech and custom voice, Speech service may store following data in the cloud:  
 
 * Speech trace data - only if your turn the trace on for your custom endpoint
 * Uploaded training and test data

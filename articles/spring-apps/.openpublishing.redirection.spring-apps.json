@@ -2,12 +2,12 @@
     "redirections": [
         {
             "source_path": "disaster-recovery.md",
-            "redirect_url": "/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery",
+            "redirect_url": "/azure/reliability/reliability-spring-apps",
             "redirect_document_id": false
         },
         {
             "source_path": "how-to-enable-availability-zone.md",
-            "redirect_url": "/azure/spring-apps/how-to-enable-redundancy-and-disaster-recovery",
+            "redirect_url": "/azure/reliability/reliability-spring-apps",
             "redirect_document_id": false
         },
         {
@@ -39,6 +39,16 @@
             "source_path": "quickstart-deploy-event-driven-app-standard-consumption.md",
             "redirect_url": "/azure/spring-apps/quickstart-deploy-event-driven-app",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "reference-architecture.md",
+            "redirect_url": "/azure/architecture/web-apps/spring-apps?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "principles-microservice-apps.md",
+            "redirect_url": "/azure/spring-apps/index",
+            "redirect_document_id": false
         }
     ]
 }

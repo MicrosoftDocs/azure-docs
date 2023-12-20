@@ -1,6 +1,6 @@
 ---
-title: Test reachability of Azure Load Balancer front-ends with ping and traceroute
-description: Learn how to test Azure Load Balancer front-end IPv4 and IPv6 addresses for reachability from an Azure VM or an external device. Supports ping and traceroute.
+title: Test reachability of Azure Public Load Balancer front-ends with ping and traceroute
+description: Learn how to test Azure Public Load Balancer front-end IPv4 and IPv6 addresses for reachability from an Azure VM or an external device. Supports ping and traceroute.
 services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
@@ -11,9 +11,9 @@ ms.author: mbender
 ms.custom: template-how-to
 ---
 
-# Test reachability of Azure Load Balancer front-ends with ping and traceroute
+# Test reachability of Azure Public Load Balancer front-ends with ping and traceroute
 
-Standard Public Azure Load Balancer front-end IPv4 and IPv6 addresses support testing reachability using ping and traceroute. Testing reachability of a load balancer front-end is useful for troubleshooting connectivity issues. In this article, you learn how to use ping and traceroute for testing a front-end of an existing Standard public load balancer. It can be completed from an Azure Virtual Machine or from a device outside of Azure.
+Standard Public Azure Load Balancer front-end IPv4 and IPv6 addresses support testing reachability using ping and traceroute. Testing reachability of a load balancer front-end is useful for troubleshooting inbound connectivity issues to Azure resources. In this article, you learn how to use ping and traceroute for testing a front-end of an existing Standard public load balancer. It can be completed from an Azure Virtual Machine or from a device outside of Azure.
 
 ## Prerequisites
 
@@ -22,6 +22,9 @@ Standard Public Azure Load Balancer front-end IPv4 and IPv6 addresses support te
 - A standard public load balancer with an IPv4 and IPv6 front-end in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer](/azure/load-balancer/quickstart-load-balancer-standard-public-portal) to load balance VMs using the Azure portal.
 
 - An Azure Virtual Machine with a public IP address assigned to its network interface. For more information on creating a virtual machine with a public IP, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
+
+> [!NOTE]
+> Testing inbound connectivity to Azure Load Balancer front-ends is only supported for public load balancers. Testing inbound connectivity to internal load balancer front-ends is not supported.
 
 ## Testing from a device outside of Azure
 ### [Windows](#tab/windows-outside)
@@ -213,6 +216,7 @@ Based on the current health probe state of your backend instances, you receive d
 ## Usage considerations
 
 - ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers.
+- ICMP pings with packet sizes larger than 64 bytes will be dropped, leading to timeouts. 
 
 > [!NOTE]
 > ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer.

@@ -152,13 +152,13 @@ Only when fully finished with an HSM can it be deprovisioned and then Microsoft 
 
 **DO NOT DELETE the Resource Group of your Dedicated HSM directly. It will not delete the HSM resource, you will continue to be billed as it places the HSM into a orphaned state. If did not follow correct procedures and end up in this situation, contact Microsoft Support.**
 
-**Step 1** Zeorize the HSM. The Azure resource for an HSM cannot be deleted unless the HSM is in a "zeroized" state. Hence, all key material must have been deleted prior to trying to delete it as a resource. The quickest way to zeroize is to get the HSM admin password wrong 3 times (note: this refers to the HSM admin and not appliance level admin). Use command ‘hsm login’ and enter wrong password three times. The Luna shell does have a hsm -factoryreset command that zeroizes the HSM but it can only be executed via console on the serial port and customers do not have access to this.
+**Step 1:** Zeroize the HSM. The Azure resource for an HSM cannot be deleted unless the HSM is in a "zeroized" state. Hence, all key material must have been deleted prior to trying to delete it as a resource. The quickest way to zeroize is to get the HSM admin password wrong 3 times (note: this refers to the HSM admin and not appliance level admin). Use command ‘hsm login’ and enter wrong password three times. The Luna shell does have a hsm -factoryreset command that zeroizes the HSM but it can only be executed via console on the serial port and customers do not have access to this.
 
-**Step 2** Once HSM is zeroized, you can use either of the following commands to initiate the Delete Dedicated HSM resource
+**Step 2:** Once HSM is zeroized, you can use either of the following commands to initiate the Delete Dedicated HSM resource
 > **Azure CLI**: az dedicated-hsm delete --resource-group \<RG name\> –-name \<HSM name\> <br />
 > **Azure PowerShell**: Remove-AzDedicatedHsm -Name \<HSM name\> -ResourceGroupName \<RG name\>
 
-**Step 3**	Once step 2 is successful, you can delete the resource group to delete the other resources associated with the dedicated HSM by using either Azure CLI or Azure PowerShell.
+**Step 3:** Once **Step 2** is successful, you can delete the resource group to delete the other resources associated with the dedicated HSM by using either Azure CLI or Azure PowerShell.
 > **Azure CLI**: az group delete --name \<RG name\> <br />
 > **Azure PowerShell**: Remove-AzResourceGroup -Name \<RG name\>
 

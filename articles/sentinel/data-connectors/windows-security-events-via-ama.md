@@ -16,7 +16,7 @@ You can stream all security events from the Windows machines connected to your M
 
 | Connector attribute | Description |
 | --- | --- |
-| **Log Analytics table(s)** | SecurityEvents<br/> |
+| **Log Analytics table(s)** | SecurityEvent<br/> |
 | **Data collection rules support** | [Azure Monitor Agent DCR](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 

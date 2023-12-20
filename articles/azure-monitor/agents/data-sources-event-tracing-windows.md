@@ -18,7 +18,7 @@ ms. reviewer: shseth
 
 To successfully collect [manifest-based ETW events](/windows/win32/etw/about-event-tracing#types-of-providers) for analysis in Azure Monitor Logs, you must use the [Azure diagnostics extension](./diagnostics-extension-overview.md) for Windows (WAD). In this scenario, the diagnostics extension acts as the ETW consumer, writing events to Azure Storage (tables) as an intermediate store. Here it will be stored in a table named **WADETWEventTable**. Log Analytics then collects the table data from Azure storage, presenting it as a table named **ETWEvent**.
 
-![Event flow](./media/data-sources-event-tracing-windows/event-flow.png)
+:::image type="content" source="./media/data-sources-event-tracing-windows/event-flow.png" lightbox="./media/data-sources-event-tracing-windows/event-flow.png" alt-text="Event flow":::
 
 ## Configuring ETW Log collection
 
@@ -51,7 +51,7 @@ Ensure the *Windows diagnostics extension* is [installed](./diagnostics-extensio
 2. Select the **Logs** tab.
 
 3. Scroll down and enable the **Event tracing for Windows (ETW) events** option
-![Screenshot of diagnostics settings](./media/data-sources-event-tracing-windows/enable-event-tracing-windows-collection.png)
+:::image type="content" source="./media/data-sources-event-tracing-windows/enable-event-tracing-windows-collection.png" lightbox="./media/data-sources-event-tracing-windows/enable-event-tracing-windows-collection.png" alt-text="Screenshot of diagnostics settings":::
 
 4. Set the provider GUID or provider class based on the provider you are configuring collection for
 

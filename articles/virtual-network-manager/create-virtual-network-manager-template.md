@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Azure Resource Manager template - ARM template'
-description: In this article, you create a mesh network topology with Azure Virtual Network Manager using Azure Resource Manager template, ARM template.
+title: 'Quickstart: Deploy a network topology with Azure Virtual Network Manager using Azure Resource Manager template - ARM template'
+description: In this article, you deploy various network topologies with Azure Virtual Network Manager using Azure Resource Manager template(ARM template).
 services: virtual-network-manager
 author: mbender-ms
 ms.author: mbender
@@ -10,16 +10,13 @@ ms.service: virtual-network-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Azure Resource Manager template -ARM template
+# Quickstart: Deploy a network topology with Azure Virtual Network Manager using Azure Resource Manager template - ARM template
 
 Get started with Azure Virtual Network Manager by using Azure Resource Manager templates to manage connectivity for all your virtual networks.
 
 In this quickstart, an Azure Resource Manager template is used to deploy Azure Virtual Network Manager with different connectivity topology and network group membership types. Use deployment parameters to specify the type of configuration to deploy.
 
-> [!IMPORTANT]
-> Azure Virtual Network Manager is generally available for Virtual Network Manager and hub-and-spoke connectivity configurations. Mesh connectivity configurations and security admin rules remain in public preview.
->
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

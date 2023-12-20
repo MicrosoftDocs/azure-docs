@@ -1,7 +1,7 @@
 ---
 title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
-ms.date: 07/15/2023
+ms.date: 12/14/2023
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, mode-api, devdivchpfy22
@@ -16,7 +16,7 @@ In this article, you use command-line tools to create a Python function that res
 This article covers both Python programming models supported by Azure Functions. Use the selector at the top to choose your programming model.  
 
 >[!NOTE]
->The v2 programming model provides a decorator based approach to create functions. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md).
+>The Python v2 programming model for Azure Functions provides a decorator-based approach for creating functions. To learn more about the Python v2 programming model, see the [Developer Reference Guide](functions-reference-python.md?pivots=python-mode-decorators).
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -27,8 +27,6 @@ There's also a [Visual Studio Code-based version](create-first-function-vs-code-
 Before you begin, you must have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 
 + One of the following tools for creating Azure resources:
 
@@ -41,13 +39,13 @@ Before you begin, you must have the following requirements in place:
 + The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
 ::: zone-end  
 
-[!INCLUDE [functions-x86-emulation-on-arm64-note](../../includes/functions-x86-emulation-on-arm64-note.md)]
+[!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 
 ## <a name="create-venv"></a>Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using Python 3.9, 3.8, or 3.7, which are supported by Azure Functions.
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure that you're using a [version of Python that is supported by Azure Functions](supported-languages.md?pivots=programming-language-python#languages-by-runtime-version).
 
-# [bash](#tab/bash)
+### [bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -63,7 +61,7 @@ If Python didn't install the venv package on your Linux distribution, run the fo
 sudo apt-get install python3-venv
 ```
 
-# [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -73,7 +71,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# [Cmd](#tab/cmd)
+### [Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -87,24 +85,19 @@ py -m venv .venv
 
 You run all subsequent commands in this activated virtual environment.
 
-## Create a local function project
+## Create a local function
 
-In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
+In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. 
+::: zone pivot="python-mode-configuration"  
+In this section, you create a function project that contains a single function.
 
-::: zone pivot="python-mode-configuration"
-1. Run the `func init` command as follows to create a functions project in a folder named *LocalFunctionProj* with the specified runtime.
-
-    ```console
-    func init LocalFunctionProj --python
-    ```
-
-1. Go to the project folder.
+1. Run the [`func init`](functions-core-tools-reference.md#func-init) command as follows to create a Python functions project in the virtual environment.
 
     ```console
-    cd LocalFunctionProj
+    func init --python --model V1
     ```
 
-    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -112,35 +105,49 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ```
 
-    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
-::: zone-end  
-::: zone pivot="python-mode-decorators"  
-1. Run the `func init` command as follows to create a functions project in a folder named *LocalFunctionProj* with the specified runtime and the specified programming model version.
+   [`func new`](functions-core-tools-reference.md#func-new) creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.    
 
-    ```console
-    func init LocalFunctionProj --python -m V2
-    ```
+1. Run this command to make sure that the Azure Functions library is installed in the environment.
 
-1. Go to the project folder.
+    ### [bash](#tab/bash)
 
-    ```console
-    cd LocalFunctionProj
+    ```bash
+    .venv/bin/python -m pip install -r requirements.txt
     ```
     
-    This folder contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    ### [PowerShell](#tab/powershell)
+    
+    ```powershell
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    ### [Cmd](#tab/cmd)
+    
+    ```cmd
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    ---
+ 
+::: zone-end  
+::: zone pivot="python-mode-decorators"  
+In this section, you create a function project and add an HTTP triggered function.
 
-1. The file `function_app.py` can include all functions within your project. To start with, there's already an HTTP function stored in the file.
+1. Run the [`func init`](functions-core-tools-reference.md#func-init) command as follows to create a Python v2 functions project in the virtual environment.
 
-   ```python
-   import azure.functions as func
-  
-   app = func.FunctionApp()
-  
-   @app.function_name(name="HttpTrigger1")
-   @app.route(route="hello")
-   def test_function(req: func.HttpRequest) -> func.HttpResponse:
-       return func.HttpResponse("HttpTrigger1 function processed a request!")
-   ```
+    ```console
+    func init --python
+    ```
+
+    The environment now contains various files for the project, including configuration files named [*local.settings.json*](functions-develop-local.md#local-settings-file) and [*host.json*](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
+
+    ```console
+    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
+    ```
+
+    If prompted, choose the **ANONYMOUS** option. [`func new`](functions-core-tools-reference.md#func-new) adds an HTTP trigger endpoint named `HttpExample` to the `function_app.py` file, which is accessible without authentication.    
    
 1. Open the local.settings.json project file and verify that the `AzureWebJobsFeatureFlags` setting has a value of `EnableWorkerIndexing`. This is required for Functions to interpret your project correctly as the Python v2 model. You'll add this same setting to your application settings after you publish your project to Azure. 
 
@@ -151,18 +158,39 @@ In Azure Functions, a function project is a container for one or more individual
     ```
 
     This tells the local Functions host to use the storage emulator for the storage connection currently required by the Python v2 model. When you publish your project to Azure, you'll need to instead use the default storage account. If you're instead using an Azure Storage account, set your storage account connection string here.   
-::: zone-end  
-::: zone pivot="python-mode-decorators"  
+
+1. Run this command to make sure that the Azure Functions library is installed in the environment.
+
+    ### [bash](#tab/bash)
+
+    ```bash
+    .venv/bin/python -m pip install -r requirements.txt
+    ```
+    
+    ### [PowerShell](#tab/powershell)
+    
+    ```powershell
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    ### [Cmd](#tab/cmd)
+    
+    ```cmd
+    .venv\Scripts\python -m pip install -r requirements.txt
+    ```
+    
+    ---
+
 ## Start the storage emulator
 
 By default, local development uses the Azurite storage emulator. This emulator is used when the `AzureWebJobsStorage` setting in the *local.settings.json* project file is set to `UseDevelopmentStorage=true`. When using the emulator, you must start the local Azurite storage emulator before running the function. 
 
 You can skip this step if the `AzureWebJobsStorage` setting in *local.settings.json* is set to the connection string for an Azure Storage account instead of `UseDevelopmentStorage=true`. 
 
-Use the following command to start the Azurite storage emulator:
+Use the following command to start the Azurite storage emulator in a separate process:
 
 ```cmd
-azurite
+start azurite
 ```
 
 For more information, see [Run Azurite](../storage/common/storage-use-azurite.md?tabs=npm#run-azurite)
@@ -301,7 +329,7 @@ In the previous example, replace `<FUNCTION_APP_NAME>` and `<RESOURCE_GROUP_NAME
 
 ## Verify in Azure
 
-Run the following command to view near real-time [streaming logs](functions-run-local.md#enable-streaming-logs) in Application Insights in the Azure portal.
+Run the following command to view near real-time streaming logs in Application Insights in the Azure portal.
 
 ```console
 func azure functionapp logstream <APP_NAME> --browser

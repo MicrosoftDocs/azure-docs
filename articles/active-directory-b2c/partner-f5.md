@@ -8,7 +8,7 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.subservice: B2C
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 04/05/2023
 ---
@@ -19,7 +19,7 @@ Learn to integrate Azure Active Directory B2C (Azure AD B2C) with F5 BIG-IP Acce
 
 Deploy F5 BIG-IP Application Delivery Controller (ADC) as a secure gateway between private networks and the internet. There are features for application-level inspection and customizable access controls. If deployed as a reverse proxy, use the BIG-IP to enable secure hybrid access to business applications, with a federated identity access layer managed by APM.
 
-Go to f5.com resources and white papers for: [Easily Configure Secure Access to All Your Applications via Azure AD](https://www.f5.com/services/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory)
+Go to f5.com resources and white papers for: [Easily Configure Secure Access to All Your Applications via Microsoft Entra ID](https://www.f5.com/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory)
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To get started, you need:
   * F5 BIG-IP® Best bundle
   * F5 BIG-IP Access Policy Manager™  standalone license
   * F5 BIG-IP Access Policy Manager™ add-on license on a BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
-  * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php)
+  * 90-day BIG-IP full feature [trial license](https://www.f5.com/trials)
 * A header-based web application or an IIS app for testing
   * See, [Set up an IIS app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90))
 * SSL certificate to publish services over HTTPS, or use default while testing
@@ -52,7 +52,7 @@ Ideally, an application upgrade supports direct management and governance with a
 The secure hybrid access solution has of the following components:
 
 * **Application** - back-end service protected by Azure AD B2C and BIG-IP secure hybrid access
-* **Azure AD B2C** - identity provider (IdP) and Open ID Connect (OIDC) authorization server that verifies user credentials, multifactor authentication, and SSO to the BIG-IP APM
+* **Azure AD B2C** - identity provider (IdP) and OpenID Connect (OIDC) authorization server that verifies user credentials, multifactor authentication, and SSO to the BIG-IP APM
 * **BIG-IP** - reverse proxy for the application. The BIG-IP APM is the OIDC client, delegating authentication to the OIDC authorization server, before header-based SSO to the back-end service.
 
 The following diagram illustrates the service provider (SP) initiated flow for this scenario.
@@ -130,7 +130,7 @@ For BIG-IP configuration use Guided Configuration v.7/8. The workflow framework 
 2. Go to **Access** > **Guided Configuration**. 
 3. The version appears in the top right-hand corner. 
 
-To upgrade the Guided Configuration, go to my.f5.com for [K85454683: Upgrade F5 BIG-IP Guided Configuration on the BIG-IP system](https://support.f5.com/csp/article/K85454683).
+To upgrade the Guided Configuration, go to my.f5.com for [K85454683: Upgrade F5 BIG-IP Guided Configuration on the BIG-IP system](https://my.f5.com/manage/s/article/K85454683).
 
 ### SSL profiles
 
@@ -234,12 +234,12 @@ The BIG-IP has required Azure AD B2C requests in its preconfigured request set. 
 
 | Parameter | Parameter name | Parameter value|
 |----|---|---|
-| client-id | client-id |N/A |
+| client_id | client_id |N/A |
 | nonce | nonce| N/A|
-| redirect-uri | redirect-uri | N/A|
+| redirect_uri | redirect_uri | N/A|
 | scope | scope | N/A|
-| response-type | response-type | N/A|
-| client-secret | client-secret |N/A |
+| response_type | response_type | N/A|
+| client_secret | client_secret |N/A |
 | custom | grant_type | authorization_code |
 
 **Auth redirect request: Enabled**
@@ -254,9 +254,9 @@ The BIG-IP has required Azure AD B2C requests in its preconfigured request set. 
 
 | Parameter | Parameter name | Parameter value|
 |---|---|----|
-| client-id | client-id | N/A|
-| redirect-uri | redirect-uri |N/A |
-| response-type |response-type |N/A |
+| client_id | client_id | N/A|
+| redirect_uri | redirect_uri |N/A |
+| response_type |response_type |N/A |
 | scope | scope | N/A|
 | nonce | nonce | N/A|
 
@@ -348,7 +348,7 @@ To achieve SLO, enable your application sign out function to call the Azure AD B
 
 An alternative SLO process is to enable the BIG-IP to listen for the request, when selecting the applications **Sign out** button. Upon detecting the request, it calls to the Azure AD B2C sign out endpoint. This approach precludes making changes to the application. 
 
-To learn more BIG-IP iRules, go to support.f5.com for [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145).
+To learn more BIG-IP iRules, go to support.f5.com for [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://my.f5.com/manage/s/article/K42052145).
 
 > [!NOTE]
 > Regardless of approach, ensure the Azure AD B2C tenant knows the APM sign-out endpoint. 
@@ -362,7 +362,7 @@ To learn more BIG-IP iRules, go to support.f5.com for [K42052145: Configuring au
 
 **Optimized login flow**
 
-To improve the user sign-in experience, suppress the OAuth user sign-in prompt that appears before Azure AD preauthentication. 
+To improve the user sign-in experience, suppress the OAuth user sign-in prompt that appears before Microsoft Entra preauthentication. 
 
 1. Navigate to **Access** > **Guided Configuration**.
 2. On the far right of the row, select the **padlock** icon.
@@ -408,13 +408,13 @@ When complete, revert the previous settings.
   
 #### BIG-IP error message
 
-If you see a BIG-IP error message after Azure AD B2C authentication, the issue might relate to SSO from Azure AD to the BIG-IP.
+If you see a BIG-IP error message after Azure AD B2C authentication, the issue might relate to SSO from Microsoft Entra ID to the BIG-IP.
 
   1. Navigate to **Access** > **Overview** > **Access reports**.
   2. Run the report for the last hour
   3. Review logs for clues. 
   4. Select the **View session variables** link.
-  5. Determine if the APM receives the expected Azure AD claims.
+  5. Determine if the APM receives the expected Microsoft Entra claims.
 
 #### No BIG-IP error message
 
@@ -450,4 +450,3 @@ The same access log provides detail.
   10. Select **Apply**.
 
 For more information, go to techdocs.f5.com for [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
-

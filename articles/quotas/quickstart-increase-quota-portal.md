@@ -24,7 +24,7 @@ You can submit a request for a quota increase directly from **My quotas**. Follo
 
    :::image type="content" source="media/quickstart-increase-quota-portal/quotas-portal.png" alt-text="Screenshot of the Quotas service page in the Azure portal.":::
 
-1. On the Overview page, select a provider, such as **Compute**.
+1. On the Overview page, select a provider, such as **Compute** or **AML**.
 
    > [!NOTE]
    > For all providers other than Compute, you'll see a **Request increase** column instead of the **Adjustable** column described below. There, you can request an increase for a specific quota, or create a support request for the increase.

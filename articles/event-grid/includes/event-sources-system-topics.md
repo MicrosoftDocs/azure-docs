@@ -28,6 +28,7 @@
 - [Azure Machine Learning](../event-schema-machine-learning.md)
 - [Azure Maps](../event-schema-azure-maps.md)
 - [Azure Media Services](../event-schema-media-services.md)
+- [Azure Resource Notifications](../event-schema-resource-notifications.md)
 - [Azure Policy](.././event-schema-policy.md)
 - [Azure resource groups](../event-schema-resource-groups.md)
 - [Azure Service Bus](../event-schema-service-bus.md)

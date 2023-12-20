@@ -1,12 +1,12 @@
 ---
 title: Manage user data in Azure Active Directory B2C  
 description: Learn how to delete or export user data in Azure AD B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 05/06/2018
 ms.author: kengaderdus
@@ -43,12 +43,12 @@ The process of exporting customer data from Azure AD B2C is similar to the delet
 
 Azure AD B2C user data is limited to:
 
-- **Data stored in the Azure Active Directory**: You can retrieve data in an Azure AD B2C authentication user journey by using the object ID or any sign-in name, such as an email address or username.
+- **Data stored in the Microsoft Entra ID**: You can retrieve data in an Azure AD B2C authentication user journey by using the object ID or any sign-in name, such as an email address or username.
 - **User-specific audit events report**: You can index data by using the object ID.
 
 In the following example of an export data flow, the steps that are described as being performed by the application can also be performed by either a backend process or a user with an administrator role in the directory:
 
-1. The user signs in to the application. Azure AD B2C enforces authentication with Azure AD Multi-Factor Authentication if needed.
+1. The user signs in to the application. Azure AD B2C enforces authentication with Microsoft Entra multifactor authentication if needed.
 2. The application uses the user credentials to call a Microsoft Graph API operation to retrieve the user attributes. The Microsoft Graph API provides the attribute data in JSON format. Depending on the schema, you can set the ID token contents to include all personal data about a user.
 3. The application retrieves the user audit activity. The Microsoft Graph API provides the event data to the application.
 4. The application aggregates the data and makes it available to the user.

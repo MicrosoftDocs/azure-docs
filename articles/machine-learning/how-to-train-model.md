@@ -8,9 +8,13 @@ ms.author: balapv
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: training
-ms.date: 08/25/2022
+ms.date: 09/10/2023
 ms.topic: how-to
-ms.custom: sdkv2, ignite-2022, build-2023
+ms.custom:
+  - sdkv2
+  - ignite-2022
+  - build-2023
+  - ignite-2023
 ---
 
 # Train models with Azure Machine Learning CLI, SDK, and REST API
@@ -131,7 +135,7 @@ When you train using the REST API, data and training scripts must be uploaded to
 ### 2. Create a compute resource for training
 
 > [!NOTE]
-> To try [serverless compute (preview)](./how-to-use-serverless-compute.md), skip this step and proceed to [ 4. Submit the training job](#4-submit-the-training-job).
+> To try [serverless compute](./how-to-use-serverless-compute.md), skip this step and proceed to [ 4. Submit the training job](#4-submit-the-training-job).
 
 An Azure Machine Learning compute cluster is a fully managed compute resource that can be used to run the training job. In the following examples, a compute cluster named `cpu-compute` is created.
 
@@ -183,7 +187,7 @@ curl -X PUT \
 To run this script, you'll use a `command` that executes main.py Python script located under ./sdk/python/jobs/single-step/lightgbm/iris/src/. The command will be run by submitting it as a `job` to Azure Machine Learning. 
 
 > [!NOTE]
-> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
+> To use [serverless compute](./how-to-use-serverless-compute.md), delete `compute="cpu-cluster"` in this code.
 
 [!notebook-python[] (~/azureml-examples-main/sdk/python/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
@@ -205,7 +209,7 @@ The `az ml job create` command used in this example requires a YAML job definiti
 
 
 > [!NOTE]
-> To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster"` in this code.
+> To use [serverless compute](./how-to-use-serverless-compute.md), delete `compute: azureml:cpu-cluster"` in this code.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
 
@@ -276,7 +280,7 @@ As part of job submission, the training scripts and data must be uploaded to a c
     > The job name must be unique. In this example, `uuidgen` is used to generate a unique value for the name.
 
     > [!NOTE]
-    > To use [serverless compute (preview)](./how-to-use-serverless-compute.md), delete the `\"computeId\":` line in this code.
+    > To use [serverless compute](./how-to-use-serverless-compute.md), delete the `\"computeId\":` line in this code.
 
     ```bash
     run_id=$(uuidgen)

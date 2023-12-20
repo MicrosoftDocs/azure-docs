@@ -52,7 +52,7 @@ You can use a policy definition to enable Defender for Servers at scale:
 
 - To get the built-in *Configure Azure Defender for Servers to be enabled* policy definition, in the Azure portal for your deployment, go to **Azure Policy** > **Policy Definitions**.
 
-    :::image type="content" source="media/plan-defender-for-servers-scale/select-policy-definition.png" alt-text="Screenshot that shows the Configure Azure Defender for Servers to be enabled policy definition." lightbox="media/plan-defender-for-servers-scale/select-policy-definition.png":::    
+    :::image type="content" source="media/plan-defender-for-servers-scale/select-policy-definition.png" alt-text="Screenshot that shows the Configure Azure Defender for Servers to be enabled policy definition." lightbox="media/plan-defender-for-servers-scale/select-policy-definition.png":::
 
 - Alternatively, you can use a [custom policy](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Policy/Enable%20Defender%20for%20Servers%20plans) to enable Defender for Servers and select the plan at the same time.
 - You can enable only one Defender for Servers plan on each subscription. You can't enable both Defender for Servers Plan 1 and Plan 2 at the same subscription.

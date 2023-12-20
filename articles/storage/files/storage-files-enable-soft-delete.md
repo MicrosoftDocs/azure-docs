@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: kendownie
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 services: storage
 ---
 

@@ -49,7 +49,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 This article is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md). 
 To get the required packages, 
-* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
+* [Install the full `automl` client](https://github.com/Azure/azureml-examples/blob/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment).
 * Run `pip install azureml-opendatasets azureml-widgets` to get the required packages.
 
 ## Download and prepare data
@@ -367,7 +367,15 @@ Do not complete this section if you plan on running other Azure Machine Learning
 
 ### Stop the compute instance
 
-[!INCLUDE [aml-stop-server](../includes/aml-stop-server.md)]
+If you used a compute instance, stop the VM when you aren't using it to reduce cost.
+
+1. In your workspace, select **Compute**.
+
+1. From the list, select the name of the compute instance.
+
+1. Select **Stop**.
+
+1. When you're ready to use the server again, select **Start**.
 
 ### Delete everything
 

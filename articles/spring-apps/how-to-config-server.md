@@ -92,9 +92,6 @@ The following table lists the configurable properties that you can use to set up
 | `host-key-algorithm`       | No       | The host key algorithm. Should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. Required only if `host-key` exists. |
 | `strict-host-key-checking` | No       | Indicates whether the Config Server instance fails to start when using the private `host-key`. Should be *true* (default value) or *false*.                         |
 
-> [!NOTE]
-> Config Server uses RSA keys with SHA-1 signatures for now. If you're using GitHub, for RSA public keys added to GitHub before November 2, 2021, the corresponding private key is supported. For RSA public keys added to GitHub after November 2, 2021, the corresponding private key is not supported, and we suggest using basic authentication instead.
-
 ### Private repository with basic authentication
 
 The following table lists the configurable properties that you can use to set up a private Git repository with basic authentication.

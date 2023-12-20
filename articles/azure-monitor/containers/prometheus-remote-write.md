@@ -10,7 +10,7 @@ ms.date: 11/01/2022
 Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into the Azure managed service.
 
 ## Architecture
-Azure Monitor provides a reverse proxy container (Azure Monitor [side car container](/azure/architecture/patterns/sidecar)) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Azure Active Directory (Azure AD) based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
+Azure Monitor provides a reverse proxy container (Azure Monitor [side car container](/azure/architecture/patterns/sidecar)) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Microsoft Entra ID based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
 
 
 ## Prerequisites
@@ -23,10 +23,10 @@ Azure Monitor provides a reverse proxy container (Azure Monitor [side car contai
 The process for configuring remote write depends on your cluster configuration and the type of authentication that you use.
 
 - **Managed identity** is recommended for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster. See [Azure Monitor managed service for Prometheus remote write - managed identity](prometheus-remote-write-managed-identity.md)
-- **Azure Active Directory** can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises. See [Azure Monitor managed service for Prometheus remote write - Azure Active Directory](prometheus-remote-write-active-directory.md)
+- **Microsoft Entra ID** can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises. See [Azure Monitor managed service for Prometheus remote write - Microsoft Entra ID](prometheus-remote-write-active-directory.md)
 
 > [!NOTE]
-> Whether you use Managed Identity or Azure Active Directory to enable permissions for ingesting data, these settings take some time to take effect. When following the steps below to verify that the setup is working please allow up to 10-15 minutes for the authorization settings needed to ingest data to complete.
+> Whether you use Managed Identity or Microsoft Entra ID to enable permissions for ingesting data, these settings take some time to take effect. When following the steps below to verify that the setup is working please allow up to 10-15 minutes for the authorization settings needed to ingest data to complete.
 
 ## Verify remote write is working correctly
 
@@ -34,11 +34,11 @@ Use the following methods to verify that Prometheus data is being sent into your
 
 ### kubectl commands
 
-Use the following command to view your container log. Remote write data is flowing if the output has non-zero value for `avgBytesPerRequest` and `avgRequestDuration`.
+Use the following command to view logs from the side car container. Remote write data is flowing if the output has non-zero value for `avgBytesPerRequest` and `avgRequestDuration`.
 
 ```azurecli
-kubectl logs <Prometheus-Pod-Name> <Azure-Monitor-Side-Car-Container-Name>
-# example: kubectl logs prometheus-prometheus-kube-prometheus-prometheus-0 prom-remotewrite
+kubectl logs <Prometheus-Pod-Name> <Azure-Monitor-Side-Car-Container-Name> --namespace <namespace-where-Prometheus-is-running>
+# example: kubectl logs prometheus-prometheus-kube-prometheus-prometheus-0 prom-remotewrite --namespace monitoring
 ```
 
 The output from this command should look similar to the following:
@@ -75,20 +75,26 @@ The output from this command should look similar to the following:
 ```
 
 ### Hitting your ingestion quota limit
-With remote write you will typically get started using the remote write endpoint shown on the Azure Monitor workspace overview page. Behind the scenes, this uses a system Data Collection Rule (DCR) and system Data Collection Endpoint (DCE). These resources have an ingestion limit covered in the [Azure Monitor service limits](../service-limits.md#prometheus-metrics) document. You may hit these limits if you setup remote write for several clusters all sending data into the same endpoint in the same Azure Monitor workspace. If this is the case you can [create additional DCRs and DCEs](https://aka.ms/prometheus/remotewrite/dcrartifacts) and use them to spread out the ingestion loads across a few ingestion endpoints.
+With remote write you will typically get started using the remote write endpoint shown on the Azure Monitor workspace overview page. Behind the scenes, this uses a system Data Collection Rule (DCR) and system Data Collection Endpoint (DCE). These resources have an ingestion limit covered in the [Azure Monitor service limits](../service-limits.md#prometheus-metrics) document. You may hit these limits if you set up remote write for several clusters all sending data into the same endpoint in the same Azure Monitor workspace. If this is the case you can [create additional DCRs and DCEs](https://aka.ms/prometheus/remotewrite/dcrartifacts) and use them to spread out the ingestion loads across a few ingestion endpoints.
 
 The INGESTION-URL uses the following format: 
-https\://\<Metrics-Ingestion-URL>/dataCollectionRules/\<DCR-Immutable-ID>/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview 
+https\://\<**Metrics-Ingestion-URL**>/dataCollectionRules/\<**DCR-Immutable-ID**>/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2021-11-01-preview 
 
-Metrics-Ingestion-URL: can be obtained by viewing DCE JSON body with API version 2021-09-01-preview or newer. 
+**Metrics-Ingestion-URL**: can be obtained by viewing DCE JSON body with API version 2021-09-01-preview or newer. See screenshot below for reference.
 
-DCR-Immutable-ID: can be obtained by viewing DCR JSON body or running the following command in the Azure CLI: 
+:::image type="content" source="media/prometheus-remote-write-managed-identity/dce-ingestion-url.png" alt-text="Screenshot showing how to get the metrics ingestion URL." lightbox="media/prometheus-remote-write-managed-identity/dce-ingestion-url.png":::
+
+**DCR-Immutable-ID**: can be obtained by viewing DCR JSON body or running the following command in the Azure CLI: 
 
 ```azureccli
 az monitor data-collection rule show --name "myCollectionRule" --resource-group "myResourceGroup" 
 ```
-  
+
 ## Next steps
 
-- [Setup Grafana to use Managed Prometheus as a data source](../essentials/prometheus-grafana.md).
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md).
+- [Collect Prometheus metrics from an AKS cluster](../containers/prometheus-metrics-enable.md)
+- [Remote-write in Azure Monitor Managed Service for Prometheus using Microsoft Entra ID](./prometheus-remote-write-active-directory.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using managed identity authentication](./prometheus-remote-write-managed-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Azure Workload Identity (preview)](./prometheus-remote-write-azure-workload-identity.md)
+- [Configure remote write for Azure Monitor managed service for Prometheus using Microsoft Entra pod identity (preview)](./prometheus-remote-write-azure-ad-pod-identity.md)

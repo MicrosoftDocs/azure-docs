@@ -350,8 +350,8 @@ The Communication Services Call SDK accepts a full Microsoft Teams meeting link.
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-To set up a ACS Rooms call, initialize a `CallCompositeRoomLocator`, supply it to the `CallCompositeRemoteOptions` object and set `CallCompositeParticipantRole` to the `CallCompositeLocalOptions` by `setRoleHint()`.
-`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from ACS.
+To set up a Azure Communication Services Rooms call, initialize a `CallCompositeRoomLocator`, supply it to the `CallCompositeRemoteOptions` object and set `CallCompositeParticipantRole` to the `CallCompositeLocalOptions` by `setRoleHint()`.
+`CallComposite` will use role hint before connecting to the call. Once call is connected, actual up-to-date participant role is retrieved from Azure Communication Services.
 
 
 For more information about Rooms, how to create and manage one see [Rooms Quickstart](../../../rooms/get-started-rooms.md)
@@ -500,6 +500,56 @@ CallComposite callComposite =
     new CallCompositeBuilder()
         .localization(new CallCompositeLocalizationOptions(CallCompositeSupportedLocale.EN))
         .build();
+```
+
+---
+### Subscribe to CallComposite call state changed event
+
+To receive call state changed events, call `addOnCallStateChangedEventHandler` with `CallComposite`.
+
+The following example shows an event for a call state changed.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.addOnCallStateChangedEventHandler { callStateChangedEvent ->
+    println(callStateChangedEvent.code)
+}
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.addOnCallStateChangedEventHandler(callStateChangedEvent -> {
+    System.out.println(callStateChangedEvent.getCode());
+});
+```
+
+---
+### Dismiss CallComposite and subscribe to dismissed event
+
+To receive dismiss, call `addOnDismissedEventHandler` with `CallComposite`. To dismiss CallComposite, call `dismiss`.
+
+The following example shows an event for a call state changed.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+callComposite.addOnDismissedEventHandler { callCompositeDismissedEvent ->
+    println(callCompositeDismissedEvent.errorCode)
+}
+
+callComposite.dismiss()
+```
+
+#### [Java](#tab/java)
+
+```java
+callComposite.addOnDismissedEventHandler(callCompositeDismissedEvent -> {
+    System.out.println(callCompositeDismissedEvent.getErrorCode());
+});
+
+callComposite.dismiss();
 ```
 
 ---

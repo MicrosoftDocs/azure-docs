@@ -1,14 +1,14 @@
 ---
-title: "Common Event Format (CEF) via AMA connector for Microsoft Sentinel (preview)"
+title: "Common Event Format (CEF) via AMA connector for Microsoft Sentinel"
 description: "Learn how to install the connector Common Event Format (CEF) via AMA to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 07/27/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Common Event Format (CEF) via AMA connector for Microsoft Sentinel (preview)
+# Common Event Format (CEF) via AMA connector for Microsoft Sentinel
 
 Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by many security vendors to allow event interoperability among different platforms. By connecting your CEF logs to Microsoft Sentinel, you can take advantage of search & correlation, alerting, and threat intelligence enrichment for each log. For more information, see the [Microsoft Sentinel documentation](https://go.microsoft.com/fwlink/p/?linkid=2223547&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 

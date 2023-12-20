@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 06/01/2018
+ms.date: 09/07/2023
 ms.author: cynthn
 
 ---
@@ -13,11 +13,9 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-This article covers some of the Azure PowerShell commands that you can use to create and manage virtual machines in your Azure subscription.  For more detailed help with specific command-line switches and options, you can use the **Get-Help** *command*.
+This article covers some of the basic Azure PowerShell commands that you can use to create and manage virtual machines in your Azure subscription.  For more detailed help with specific command-line switches and options, you can use the **Get-Help** *command*.
 
- 
-
-These variables might be useful for you if running more than one of the commands in this article:
+These variables might be useful if running more than one of the commands in this article:
 
 - $location - The location of the virtual machine. You can use [Get-AzLocation](/powershell/module/az.resources/get-azlocation) to find a [geographical region](https://azure.microsoft.com/regions/) that works for you.
 - $myResourceGroup - The name of the resource group that contains the virtual machine.
@@ -32,7 +30,7 @@ These variables might be useful for you if running more than one of the commands
 
 
 
-## Create a VM configuration
+## Create a VM - advanced
 
 | Task | Command |
 | ---- | ------- |
@@ -43,7 +41,7 @@ These variables might be useful for you if running more than one of the commands
 | Create a VM |[New-AzVM](/powershell/module/az.compute/new-azvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>All resources are created in a [resource group](../../azure-resource-manager/management/manage-resource-groups-powershell.md). Before you run this command, run New-AzVMConfig, Set-AzVMOperatingSystem, Set-AzVMSourceImage, Add-AzVMNetworkInterface, and Set-AzVMOSDisk. |
 | Update a VM |[Update-AzVM](/powershell/module/az.compute/update-azvm) -ResourceGroupName $myResourceGroup -VM $vm<BR></BR><BR></BR>Get the current VM configuration using Get-AzVM, change configuration settings on the VM object, and then run this command. |
 
-## Get information about VMs
+## Get information about your VMs
 
 | Task | Command |
 | ---- | ------- |
@@ -51,7 +49,7 @@ These variables might be useful for you if running more than one of the commands
 | List VMs in a resource group |Get-AzVM -ResourceGroupName $myResourceGroup<BR></BR><BR></BR>To get a list of resource groups in your subscription, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup). |
 | Get information about a VM |Get-AzVM -ResourceGroupName $myResourceGroup -Name $myVM |
 
-## Manage VMs
+## Manage your VMs
 | Task | Command |
 | --- | --- |
 | Start a VM |[Start-AzVM](/powershell/module/az.compute/start-azvm) -ResourceGroupName $myResourceGroup -Name $myVM |

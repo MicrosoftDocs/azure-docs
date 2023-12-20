@@ -7,13 +7,15 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 06/21/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
 ---
 
 # Download a blob with TypeScript
+
+[!INCLUDE [storage-dev-guide-selector-download](../../../includes/storage-dev-guides/storage-dev-guide-selector-download.md)]
 
 This article shows how to download a blob using the [Azure Storage client library for JavaScript](/javascript/api/overview/azure/storage-blob-readme). You can download blob data to various destinations, including a local file path, stream, or text string.
 

@@ -102,7 +102,7 @@ In some cases, when trying to create a new hosting plan for your function app in
 
 This can happen when the following conditions are met:
 
-* You create a function app in an existing resource group that has ever contained another function app or web app.
+* You create a function app in an existing resource group that has ever contained another function app or web app. For example, Linux Consumption apps are not supported in the same resource group as Linux Dedicated or Linux Premium plans.
 * Your new function app is created in the same region as the previous app.
 * The previous app is in some way incompatible with your new app. This can happen between SKUs, operating systems, or due to other platform-level features, such as availability zone support.
 

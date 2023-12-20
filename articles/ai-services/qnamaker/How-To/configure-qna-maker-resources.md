@@ -1,13 +1,13 @@
 ---
 title: Configure QnA Maker service - QnA Maker
 description: This document outlines advanced configurations for your QnA Maker resources.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 12/19/2023
 ms.custom: ignite-fall-2021
 ---
 

@@ -3,7 +3,7 @@ title: Use Azure Service Bus Explorer to run data operations
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: how-to
 ms.custom: event-tier1-build-2022, ignite-2022
-ms.date: 09/26/2022
+ms.date: 11/30/2023
 ms.author: egrootenboer
 ---
 
@@ -15,7 +15,7 @@ Azure Service Bus allows sender and receiver client applications to decouple the
 >
 > The community owned [open source Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) is a standalone application and is different from this one.
 
-Operations run on an Azure Service Bus namespace are of two kinds 
+Operations run on an Azure Service Bus namespace are of two kinds. 
 
    * **Management operations** - Create, update, delete of Service Bus namespace, queues, topics, and subscriptions.
    * **Data operations** - Send to and receive messages from queues, topics, and subscriptions.
@@ -47,8 +47,9 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
 1. If you're looking to run operations against a queue, select **Queues** from the navigation menu. If you're looking to run operations against a topic (and it's related subscriptions), select **Topics**. 
 
     :::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Screenshot of left side navigation, where entity can be selected." lightbox="./media/service-bus-explorer/queue-topics-left-navigation.png":::
-
 1. After selecting **Queues** or **Topics**, select the specific queue or topic.
+
+    :::image type="content" source="./media/service-bus-explorer/select-specific-queue.png" alt-text="Screenshot of the Queues page with a specific queue selected." lightbox="./media/service-bus-explorer/select-specific-queue.png":::
 1. Select the **Service Bus Explorer** from the left navigation menu
 
     :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Screenshot of queue page where Service Bus Explorer can be selected." lightbox="./media/service-bus-explorer/left-navigation-menu-selected.png":::
@@ -59,7 +60,7 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
 
 ## Peek a message
 
-With the peek functionality, you can use the Service Bus Explorer to view the top 100 messages in a queue, subscription or dead-letter queue.
+With the peek functionality, you can use the Service Bus Explorer to view the top 100 messages in a queue, subscription, or dead-letter queue.
 
 1. To peek messages, select **Peek Mode** in the Service Bus Explorer dropdown.
 
@@ -76,6 +77,8 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
 1. Once the peek operation completes, up to 100 messages show up on the grid as shown in the following image. To view the details of a particular message, select it from the grid. You can choose to view the body or the message properties.
 
     :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue.png" alt-text="Screenshot with overview of peeked messages and message body content shown for peeked messages." lightbox="./media/service-bus-explorer/peek-message-from-queue.png":::
+
+    Switch to the **Message Properties** tab in the bottom pane to see the metadata. 
 
     :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-2.png" alt-text="Screenshot with overview of peeked messages and message properties shown for peeked messages." lightbox="./media/service-bus-explorer/peek-message-from-queue-2.png":::
 
@@ -106,6 +109,8 @@ The peek with options functionality allows you to use the Service Bus Explorer t
 
     :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-3.png" alt-text="Screenshot with overview of peeked messages and message body content shown for peek with advanced options." lightbox="./media/service-bus-explorer/peek-message-from-queue-3.png":::
 
+    Switch to the **Message Properties** tab in the bottom pane to see the metadata.
+    
     :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-4.png" alt-text="Screenshot with overview of peeked messages and message properties shown for peek with advanced options." lightbox="./media/service-bus-explorer/peek-message-from-queue-4.png":::
 
     > [!NOTE]
@@ -219,9 +224,11 @@ After peeking or receiving a message, we can resend it, which will send a copy o
 
 ## Switch authentication type
 
-When working with Service Bus Explorer, it's possible to use either **Access Key** or **Azure Active Directory** authentication.
+When working with Service Bus Explorer, it's possible to use either **Access Key** or **Microsoft Entra ID** authentication.
 
 1. Select the **Settings** button.
+
+    :::image type="content" source="./media/service-bus-explorer/select-settings.png" alt-text="Screenshot indicating the Settings button in Service Bus Explorer." lightbox="./media/service-bus-explorer/select-settings.png":::
 1. Choose the desired authentication method, and select the **Save** button.
 
     :::image type="content" source="./media/service-bus-explorer/queue-select-authentication-type.png" alt-text="Screenshot indicating the Settings button and a page showing the different authentication types." lightbox="./media/service-bus-explorer/queue-select-authentication-type.png":::

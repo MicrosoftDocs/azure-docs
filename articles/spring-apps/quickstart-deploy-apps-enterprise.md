@@ -240,7 +240,7 @@ Use the following steps to deploy and build applications. For these steps, make 
        --resource-group <resource-group-name> \
        --name quickstart-builder \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --builder-file azure/builder.json
+       --builder-file azure-spring-apps-enterprise/resources/json/tbs/builder.json
    ```
 
 1. Use the following command to build and deploy the payment service:
@@ -343,7 +343,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name cart-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name cart-service \
-       --routes-file azure/routes/cart-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/cart-service.json
    ```
 
 1. Use the following command to create routes for the order service:
@@ -354,7 +354,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name order-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name order-service \
-       --routes-file azure/routes/order-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/order-service.json
    ```
 
 1. Use the following command to create routes for the catalog service:
@@ -365,7 +365,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name catalog-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name catalog-service \
-       --routes-file azure/routes/catalog-service.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/catalog-service.json
    ```
 
 1. Use the following command to create routes for the frontend:
@@ -376,7 +376,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --name frontend-routes \
        --service <Azure-Spring-Apps-service-instance-name> \
        --app-name frontend \
-       --routes-file azure/routes/frontend.json
+       --routes-file azure-spring-apps-enterprise/resources/json/routes/frontend.json
    ```
 
 1. Use the following commands to retrieve the URL for Spring Cloud Gateway:
@@ -443,3 +443,4 @@ Now that you've successfully built and deployed your app, continue on to any of 
 - [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
 - [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
 - [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
+- [Integrate Azure Open AI](quickstart-fitness-store-azure-openai.md)

@@ -25,7 +25,7 @@ This article shows Bicep samples for API for NoSQL accounts. You can also find B
 |[Create an Azure Cosmos DB account, database, container with analytical store](manage-with-bicep.md#create-analytical-store) | Create a API for NoSQL account in one region with a container configured with Analytical TTL enabled and option to use manual or autoscale throughput. |
 |[Create an Azure Cosmos DB account, database, container with standard (manual) throughput](manage-with-bicep.md#create-manual) | Create a API for NoSQL account in two regions, a database and container with standard throughput. |
 |[Create an Azure Cosmos DB account, database and container with a stored procedure, trigger and UDF](manage-with-bicep.md#create-sproc) | Create a API for NoSQL account in two regions with a stored procedure, trigger and UDF for a container. |
-|[Create an Azure Cosmos DB account with Azure AD identity, Role Definitions and Role Assignment](manage-with-bicep.md#create-rbac) | Create a API for NoSQL account with Azure AD identity, Role Definitions and Role Assignment on a Service Principal. |
+|[Create an Azure Cosmos DB account with Microsoft Entra identity, Role Definitions and Role Assignment](manage-with-bicep.md#create-rbac) | Create a API for NoSQL account with Microsoft Entra identity, Role Definitions and Role Assignment on a Service Principal. |
 |[Create a free-tier Azure Cosmos DB account](manage-with-bicep.md#free-tier) |  Create an Azure Cosmos DB for NoSQL account on free-tier. |
 
 ## Next steps

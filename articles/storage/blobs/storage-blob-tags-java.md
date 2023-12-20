@@ -7,13 +7,15 @@ author: pauljewellmsft
 
 ms.author: pauljewell
 ms.date: 08/02/2023
-ms.service: azure-storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 ---
 
 # Use blob index tags to manage and find data with Java
+
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
 
 This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). 
 

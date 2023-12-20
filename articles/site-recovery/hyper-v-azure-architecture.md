@@ -64,7 +64,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Microsoft Entra ID    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
@@ -158,5 +158,3 @@ After your on-premises infrastructure is up and running again, you can fail back
 
 
 Follow [this tutorial](tutorial-prepare-azure-for-hyperv.md) to get started with Hyper-V to Azure replication.
-
-

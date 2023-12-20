@@ -10,7 +10,7 @@ ms.date: 08/09/2023
 <!-- 
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [prepare-spring-project](../../includes/quickstart/prepare-spring-project.md)]
+[!INCLUDE [prepare-spring-project](prepare-spring-project.md)]
 
 -->
 
@@ -36,6 +36,6 @@ Use the following steps to prepare the project:
 
 1. Run the sample project locally by using the following command:
 
-   ```bash
+   ```azurecli-interactive
    ./mvnw spring-boot:run
    ```

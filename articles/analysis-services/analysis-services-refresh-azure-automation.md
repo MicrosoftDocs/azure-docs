@@ -16,7 +16,7 @@ The example in this article uses the [SqlServer PowerShell module](/powershell/m
 
 ## Authentication
 
-All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article uses a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token.  The example in this article uses a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Prerequisites
 

@@ -1,39 +1,38 @@
 ---
-title: Provide an access identity to the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) secrets
-description: Learn how to integrate the Azure Key Vault Provider for Secrets Store CSI Driver with your Azure key vault.
+title: Access Azure Key Vault with the CSI Driver Identity Provider
+description: Learn how to integrate the Azure Key Vault Provider for Secrets Store CSI Driver with your Azure credentials and user identities.
 author: nickomang 
 ms.author: nickoman
 ms.topic: article
-ms.date: 07/25/2023
+ms.date: 12/19/2023
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
-# Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
+# Connect your Azure identity provider to the Azure Key Vault Secrets Store CSI Driver in Azure Kubernetes Service (AKS)
 
-The Secrets Store CSI Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure key vault. This article outlines these methods and how to use them to access your key vault and its contents from your AKS cluster. For more information, see [Use the Secrets Store CSI Driver][csi-secrets-store-driver].
+The Secrets Store Container Storage Interface (CSI) Driver on Azure Kubernetes Service (AKS) provides various methods of identity-based access to your Azure Key Vault. This article outlines these methods and best practices for when to use Role-based access control (RBAC) or OpenID Connect (OIDC) security models to access your key vault and AKS cluster.
 
-The following access methods are available:
+You can use one of the following access methods:
 
-- Azure Active Directory (Azure AD) workload identity
-- User-assigned managed identity
+- [Microsoft Entra Workload ID](#access-with-a-microsoft-entra-workload-id)
+- [User-assigned managed identity](#access-with-a-user-assigned-managed-identity)
 
-## Access with an Azure AD workload identity
+## Prerequisites for CSI Driver
 
-An [Azure AD workload identity][workload-identity] is an identity that an application running on a pod uses that authenticates itself against other Azure services that support it, such as Storage or SQL. It integrates with the native Kubernetes capabilities to federate with external identity providers. In this security model, the AKS cluster acts as token issuer. Azure AD then uses OpenID Connect (OIDC) to discover public signing keys and verify the authenticity of the service account token before exchanging it for an Azure AD token. Your workload can exchange a service account token projected to its volume for an Azure AD token using the Azure Identity client library using the Azure SDK or the Microsoft Authentication Library (MSAL).
+- Before you begin, make sure you finish the steps in [Use the Azure Key Vault provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster][csi-secrets-store-driver] to enable the Azure Key Vault Secrets Store CSI Driver in your AKS cluster.
 
-> [!NOTE]
-> This authentication method replaces Azure AD pod-managed identity (preview). The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+<a name='access-with-an-azure-ad-workload-identity'></a>
 
-### Prerequisites
+## Access with a Microsoft Entra Workload ID
 
-Before you begin, you must have the following prerequisites:
+A [Microsoft Entra Workload ID][workload-identity] is an identity that an application running on a pod uses to authenticate itself against other Azure services, such as workloads in software. The Secret Store CSI Driver integrates with native Kubernetes capabilities to federate with external identity providers.
 
-- An existing key vault with Azure role-based access control (Azure RBAC) configured. For more information, see [Azure Key Vault data plane access control recommendation](../key-vault/general/rbac-access-policy.md#data-plane-access-control-recommendation).
-- An active Azure subscription.
-- An existing AKS cluster with `--enable-oidc-issuer` and `--enable-workload-identity` enabled.
+In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OIDC to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. For your workload to exchange a service account token projected to its volume for a Microsoft Entra token, you need the Azure Identity client library in the Azure SDK or the Microsoft Authentication Library (MSAL) 
 
 > [!NOTE]
-> Azure AD workload identity is supported on both Windows and Linux clusters.
+>
+> - This authentication method replaces Microsoft Entra pod-managed identity (preview). The open source Microsoft Entra pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> - Microsoft Entra Workload ID is supports both Windows and Linux clusters.
 
 ### Configure workload identity
 
@@ -73,7 +72,7 @@ Before you begin, you must have the following prerequisites:
     echo $AKS_OIDC_ISSUER
     ```
 
-5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject. Get the object ID of the Azure AD application using the following commands. Make sure to update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+5. Establish a federated identity credential between the Microsoft Entra application, service account issuer, and subject. Get the object ID of the Microsoft Entra application using the following commands. Make sure to update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
     ```bash
     export SERVICE_ACCOUNT_NAME="workload-identity-sa"  # sample name; can be changed
@@ -85,8 +84,6 @@ Before you begin, you must have the following prerequisites:
     metadata:
       annotations:
         azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
-      labels:
-        azure.workload.identity/use: "true"
       name: ${SERVICE_ACCOUNT_NAME}
       namespace: ${SERVICE_ACCOUNT_NAMESPACE}
     EOF
@@ -131,7 +128,7 @@ Before you begin, you must have the following prerequisites:
     ```
 
     > [!NOTE]
-    > If you use `objectAlias` instead of `objectName`, make sure to update the YAML script.
+    > If you use `objectAlias` instead of `objectName`, update the YAML script to account for it.
 
 8. Deploy a sample pod using the `kubectl apply` command and the following YAML script.
 
@@ -142,7 +139,10 @@ Before you begin, you must have the following prerequisites:
     apiVersion: v1
     metadata:
       name: busybox-secrets-store-inline-wi
+      labels:  
+        azure.workload.identity/use: "true"
     spec:
+      serviceAccountName: "workload-identity-sa"
       containers:
         - name: busybox
           image: registry.k8s.io/e2e-test-images/busybox:1.29-4
@@ -163,9 +163,17 @@ Before you begin, you must have the following prerequisites:
     EOF   
     ```
 
-## Access with a user-assigned managed identity
+<a name='access-with-a-user-assigned-managed-identity'></a>
 
-1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity you created when you [enabled a managed identity on your AKS cluster][use-managed-identity].
+## Access with managed identity 
+
+A [Microsoft Entra Managed ID][managed-identity] is an identity that an administrator uses to authenticate themselves against other Azure services. The managed identity uses RBAC to federate with external identity providers. 
+
+In this security model, you can grant access to your cluster's resources to team members or tenants sharing a managed role. The role is checked for scope to access the keyvault and other credentials. When you [enabled the Azure Key Vault provider for Secrets Store CSI Driver on your AKS Cluster](./csi-secrets-store-driver.md#create-an-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support), it created a user identity.
+
+### Configure managed identity
+
+1. Access your key vault using the [`az aks show`][az-aks-show] command and the user-assigned managed identity created by the add-on.
 
     ```azurecli-interactive
     az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
@@ -179,7 +187,7 @@ Before you begin, you must have the following prerequisites:
     az vm identity assign -g <resource-group> -n <agent-pool-vm> --identities <identity-resource-id>
     ```
 
-2. Create a role assignment that grants the identity permission to access the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
+2. Create a role assignment that grants the identity permission access to the key vault secrets, access keys, and certificates using the [`az role assignment create`][az-role-assignment-create] command.
 
     ```azurecli-interactive
     export IDENTITY_CLIENT_ID="$(az identity show -g <resource-group> --name <identity-name> --query 'clientId' -o tsv)"
@@ -260,18 +268,63 @@ Before you begin, you must have the following prerequisites:
     kubectl apply -f pod.yaml
     ```
 
+## Validate Key Vault secrets
+
+After the pod starts, the mounted content at the volume path specified in your deployment YAML is available. Use the following commands to validate your secrets and print a test secret.
+
+1. Show secrets held in the secrets store using the following command.
+
+    ```bash
+    kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
+    ```
+
+2. Display a secret in the store using the following command. This example command shows the test secret `ExampleSecret`.
+
+    ```bash
+    kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret
+    ```
+
+## Obtain certificates and keys
+
+The Azure Key Vault design makes sharp distinctions between keys, secrets, and certificates. The certificate features of the Key Vault service are designed to make use of key and secret capabilities. When you create a key vault certificate, it creates an addressable key and secret with the same name. This key allows authentication operations, and the secret allows the retrieval of the certificate value as a secret.
+
+A key vault certificate also contains public x509 certificate metadata. The key vault stores both the public and private components of your certificate in a secret. You can obtain each individual component by specifying the `objectType` in `SecretProviderClass`. The following table shows which objects map to the various resources associated with your certificate:
+
+| Object | Return value | Returns entire certificate chain |
+|---|---|---|
+|`key`|The public key, in Privacy Enhanced Mail (PEM) format.|N/A|
+|`cert`|The certificate, in PEM format.|No|
+|`secret`|The private key and certificate, in PEM format.|Yes|
+
+## Disable the addon on existing clusters
+
+> [!NOTE]
+> Before you disable the add-on, ensure that *no* `SecretProviderClass` is in use. Trying to disable the add-on while a `SecretProviderClass` exists results in an error.
+
+- Disable the Azure Key Vault provider for Secrets Store CSI Driver capability in an existing cluster using the [`az aks disable-addons`][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` add-on.
+
+    ```azurecli-interactive
+    az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGroup -n myAKSCluster
+    ```
+
+> [!NOTE]
+> When you disable the add-on, existing workloads should have no issues or see any updates in the mounted secrets. If the pod restarts or a new pod is created as part of scale-up event, the pod fails to start because the driver is no longer running.
+
 ## Next steps
 
-To validate the secrets are mounted at the volume path specified in your pod's YAML, see [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][validate-secrets].
+In this article, you learned how to create and provide an identity to access your Azure Key Vault. If you want to configure extra configuration options or perform troubleshooting, continue to the next article.
+
+> [!div class="nextstepaction"]
+> [Configuration options and troubleshooting resources for Azure Key Vault provider with Secrets Store CSI Driver in AKS](./csi-secrets-store-configuration-options.md)
 
 <!-- LINKS INTERNAL -->
 
 [csi-secrets-store-driver]: ./csi-secrets-store-driver.md
-[use-managed-identity]: ./use-managed-identity.md
-[validate-secrets]: ./csi-secrets-store-driver.md#validate-the-secrets
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [workload-identity]: ./workload-identity-overview.md
+[managed-identity]:/entra/identity/managed-identities-azure-resources/overview
 [az-account-set]: /cli/azure/account#az-account-set
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons

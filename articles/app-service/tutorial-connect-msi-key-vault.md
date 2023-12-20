@@ -4,9 +4,11 @@ description: Learn how to secure connectivity to back-end Azure services that do
 ms.devlang: csharp, azurecli
 ms.topic: tutorial
 ms.date: 10/26/2021
+author: cephalin
+ms.author: cephalin
 
 ms.reviewer: madsd 
-ms.custom: devx-track-azurecli, devx-track-dotnet
+ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
 ---
 
 # Tutorial: Secure Cognitive Service connection from .NET App Service using Key Vault

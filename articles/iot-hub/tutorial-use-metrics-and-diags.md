@@ -118,7 +118,7 @@ az iot hub device-identity create --device-id $iotDeviceName --hub-name $iotHubN
 Retrieve the primary connection string for the device identity, then copy it locally. You need this connection string to run the device simulation during the testing phase.
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id $iotDeviceName --hub-name $iotHubName
+az iot hub device-identity connection-string show --device-id $iotDeviceName --hub-name $iotHubName
 ```
 
 ## Collect logs for connections and device telemetry

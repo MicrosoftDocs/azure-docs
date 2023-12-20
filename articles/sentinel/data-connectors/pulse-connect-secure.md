@@ -3,7 +3,7 @@ title: "Pulse Connect Secure connector for Microsoft Sentinel"
 description: "Learn how to install the connector Pulse Connect Secure to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 03/25/2023
+ms.date: 08/28/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -72,13 +72,6 @@ Configure the facilities you want to collect and their severities.
  1. Under workspace advanced settings **Configuration**, select **Data** and then **Syslog**.
  2. Select **Apply below configuration to my machines** and select the facilities and severities.
  3.  Click **Save**.
-
-
-3. Configure and connect the Pulse Connect Secure
-
-[Follow the instructions](https://docs.pulsesecure.net/WebHelp/Content/PCS/PCS_AdminGuide_8.2/Configuring%20Syslog.htm) to enable syslog streaming of Pulse Connect Secure logs. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
-
-
 
 ## Next steps
 

@@ -6,7 +6,7 @@ ms.author: mukeshdua
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 02/01/2023
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Monitoring virtual machines (for virtualized network function)

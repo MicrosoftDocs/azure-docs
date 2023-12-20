@@ -3,7 +3,7 @@ title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 08/14/2023
+ms.date: 08/25/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -454,7 +454,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 ]
 ```
 
-You can specify a rule and tagname while triggering backup. To view the rules in policy, look through the policy JSON. In the below example, the rule with the name BackupDaily, and tag name "default" is displayed and we'll use that rule for the on-demand backup.
+You can specify a rule and tagname while triggering backup. To view the rules in policy, look through the policy JSON. In the following example, the rule with the name `"BackupDaily"`, and tag name `"default"` is displayed, and we'll use that rule for the on-demand backup.
 
 ```json
 "name": "BackupDaily",

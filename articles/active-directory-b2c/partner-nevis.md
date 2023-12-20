@@ -2,12 +2,12 @@
 title: Tutorial to configure Azure Active Directory B2C with Nevis
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Nevis for passwordless authentication 
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 12/8/2022
 ms.author: gasinh
@@ -24,7 +24,8 @@ To get started, you'll need:
 
 - A Nevis demo account
   - Go to nevis.net for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/) to request an account
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 

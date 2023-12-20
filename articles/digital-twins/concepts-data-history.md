@@ -23,7 +23,7 @@ Once graph updates are historized to Azure Data Explorer, you can run joint quer
 
 For more of an introduction to data history, including a quick demo, watch the following IoT show video:
 
-<iframe src="https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15" width="1080" height="530"></iframe>
+> [!VIDEO https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15]
 
 ## Resources and data flow
 

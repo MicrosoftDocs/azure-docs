@@ -7,7 +7,7 @@ metadata:
   ms.service: application-gateway
   ms.subservice: appgw-for-containers
   ms.topic: article
-  ms.date: 07/25/2023
+  ms.date: 09/25/2023
   ms.author: greglin
     
 title: Frequently asked questions about Application Gateway for Containers (preview)
@@ -47,7 +47,7 @@ sections:
         answer: It's possible to install multiple ALB Controllers on the same cluster, however this isn't recommended or supported as it's not possible to partition gateways, routes, services, etc.
 
       - question: Is it supported to increase the number of pods/replicas for ALB Controller?
-        answer: No.  Only one pod/replica of ALB Controller should be running at any given time.
+        answer: No, user defined replica count is not supported.  ALB Controller is automatically provisioned with at least two replicas in active/passive configuration to enable high availability.
 
       - question: Is it supported to use the same managed identity with multiple ALB Controllers?
         answer: No.  Each ALB controller must use its own unique managed identity.

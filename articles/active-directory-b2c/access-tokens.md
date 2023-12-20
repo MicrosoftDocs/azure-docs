@@ -1,15 +1,15 @@
 ---
 title: Request an access token in Azure Active Directory B2C
 description: Learn how to request an access token from Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: conceptual
 ms.date: 03/09/2023
-ms.custom: project-no-code, build-2023
+ms.custom: 
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ An *access token* contains claims that you can use in Azure Active Directory B2C
 This article shows you how to request an access token for a web application and web API. For more information about tokens in Azure AD B2C, see the [overview of tokens in Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
-> **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C** - Many architectures include a web API that needs to call another downstream web API, both secured by Azure AD B2C. This scenario is common in clients that have a web API back end, which in turn calls a another service. This chained web API scenario can be supported by using the OAuth 2.0 JWT Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in Azure AD B2C. Although On-Behalf-Of works for applications registered in Azure AD, it does not work for applications registered in Azure AD B2C, regardless of the tenant (Azure AD or Azure AD B2C) that is issuing the tokens.
+> **Web API chains (On-Behalf-Of) is not supported by Azure AD B2C** - Many architectures include a web API that needs to call another downstream web API, both secured by Azure AD B2C. This scenario is common in clients that have a web API back end, which in turn calls a another service. This chained web API scenario can be supported by using the OAuth 2.0 JWT Bearer Credential grant, otherwise known as the On-Behalf-Of flow. However, the On-Behalf-Of flow is not currently implemented in Azure AD B2C. Although On-Behalf-Of works for applications registered in Microsoft Entra ID, it does not work for applications registered in Azure AD B2C, regardless of the tenant (Microsoft Entra ID or Azure AD B2C) that is issuing the tokens.
 
 ## Prerequisites
 

@@ -53,6 +53,6 @@ However, changing the pricing tier SKU is not allowed. For example, an environme
 
 - For more information, review [Understanding retention in Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
-- Learn about [configuring data retention in Azure Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Learn about [configuring data retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Learn about [planning out your environment](time-series-insights-environment-planning.md).

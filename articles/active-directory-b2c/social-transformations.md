@@ -2,12 +2,12 @@
 title: Social account claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: Social account claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 02/16/2022
 ms.author: kengaderdus
@@ -45,7 +45,7 @@ Adds an `AlternativeSecurityId` to an `alternativeSecurityIdCollection` claim. C
 
 The following example links a new social identity with an existing account. To link a new social identity:
 
-1. In the **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
+1. In the `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserReadUsingObjectId` technical profiles, output the user's `alternativeSecurityIds` claim.
 1. Ask the user to sign in with one of the identity providers that aren't associated with this user.
 1. Using the **CreateAlternativeSecurityId** claims transformation, create a new **alternativeSecurityId** claim type with a name of `AlternativeSecurityId2`
 1. Call the **AddItemToAlternativeSecurityIdCollection** claims transformation to add the **AlternativeSecurityId2** claim to the existing **AlternativeSecurityIds** claim.
@@ -103,7 +103,7 @@ The following example links a new social identity with an existing account. To l
 
 ## CreateAlternativeSecurityId
 
-Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Azure Active Directory. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/social#createalternativesecurityid) of this claims transformation. For more information, see the [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) schema. 
+Creates a JSON representation of the user’s alternativeSecurityId property that can be used in the calls to Microsoft Entra ID. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/social#createalternativesecurityid) of this claims transformation. For more information, see the [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) schema. 
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -113,7 +113,7 @@ Creates a JSON representation of the user’s alternativeSecurityId property tha
 
 ### Example of CreateAlternativeSecurityId
 
-Use this claims transformation to generate a `alternativeSecurityId` claim. It's used by all social identity provider technical profiles, such as `Facebook-OAUTH`. The following claims transformation receives the user social account ID and the identity provider name. The output of this technical profile is a JSON string format that can be used in Azure AD directory services.
+Use this claims transformation to generate a `alternativeSecurityId` claim. It's used by all social identity provider technical profiles, such as `Facebook-OAUTH`. The following claims transformation receives the user social account ID and the identity provider name. The output of this technical profile is a JSON string format that can be used in Microsoft Entra directory services.
 
 ```xml
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
@@ -190,7 +190,7 @@ Removes an **AlternativeSecurityId** from an **alternativeSecurityIdCollection**
 
 The following example unlinks one of the social identities with an existing account. To unlink a social identity:
 
-1. In the **AAD-UserReadUsingAlternativeSecurityId** and **AAD-UserReadUsingObjectId** technical profiles, output the user's **alternativeSecurityIds** claim.
+1. In the `AAD-UserReadUsingAlternativeSecurityId` and `AAD-UserReadUsingObjectId` technical profiles, output the user's `alternativeSecurityIds` claim.
 2. Ask the user to select which social account to remove from the list identity providers that are associated with this user.
 3. Call a claims transformation technical profile that calls the **RemoveAlternativeSecurityIdByIdentityProvider** claims transformation, that removed the selected social identity, using identity provider name.
 4. Persist the **alternativeSecurityIds** claim to the user account.

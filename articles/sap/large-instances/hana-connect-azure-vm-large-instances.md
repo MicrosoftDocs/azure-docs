@@ -2,8 +2,8 @@
 title: Connectivity setup from virtual machines to SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Connectivity setup from virtual machines for using SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
-documentationcenter: 
-author: lauradolan
+documentationcenter:
+author: ju-shim
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -16,7 +16,6 @@ ms.workload: infrastructure
 ms.date: 05/28/2021
 ms.author: ladolan
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Connecting Azure VMs to HANA Large Instances
@@ -141,8 +140,6 @@ At the end of the deployment process, Microsoft delivers the following data to y
      - Authorization key(s)
      - ExpressRoute PeerID
 - Data for accessing HANA Large Instances after you establish the ExpressRoute circuit and Azure virtual network.
-
-You can also find the sequence of connecting HANA Large Instances in the document [SAP HANA on Azure (Large Instances) Setup](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/). Many of the steps are shown in an example deployment in that document. 
 
 ## Next steps
 

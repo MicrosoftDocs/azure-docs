@@ -5,7 +5,7 @@ description: Learn how to configure Virtual WAN virtual hub routing preference u
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 11/21/2023
 ms.author: cherylmc
 ---
 # Configure virtual hub routing preference - Azure portal

@@ -24,6 +24,10 @@ To report issues or suggest features for Azure Virtual Desktop with Azure Resour
 
 When you make a post asking for help or propose a new feature, make sure you describe your topic in as much detail as possible. Detailed information can help other users answer your question or understand the feature you're proposing a vote for.
 
+## Help with application issues
+
+If you encounter issues with your applications running in Azure Virtual Desktop, App Assure is a service from Microsoft designed to help you resolve them at no additional cost. For more information, go to [App Assure](/microsoft-365/fasttrack/windows-and-other-services#app-assure).
+
 ## Escalation tracks
 
 Before doing anything else, make sure to check the [Azure status page](https://azure.status.microsoft/status) and [Azure Service Health](https://azure.microsoft.com/features/service-health/) to make sure your Azure service is running properly.

@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 05/18/2023
+ms.date: 11/27/2023
 ms.author: spelluru
 ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
@@ -21,7 +21,8 @@ The following table shows limits that may be different for basic, standard, prem
 | Limit | Basic | Standard | Premium |  Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 
 | Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB |  1 MB |
-| Number of consumer groups per event hub | 1 | 20 | 100 | 1000<br/>No limit per CU  |
+| Number of Event Hub consumer groups per event hub | 1 | 20 | 100 | 1000<br/>No limit per CU  |
+| Number of Kafka consumer groups per Namespace | NA | 1000 | 1000 | 1000  |
 | Number of brokered connections per namespace | 100 | 5,000 | 10000 per PU<br/><br/>For example, if the namespace is assigned 3 PUs, the limit is 30000. | 100, 000 per CU |
 | Maximum retention period of event data | 1 day | 7 days | 90 days | 90 days |
 | Maximum TUs or PUs or CUs | 40 TUs | 40 TUs | 16 PUs | 20 CUs |

@@ -56,6 +56,15 @@ end
 
 4. Open the `.xcworkspace` with Xcode.
 
+### Using XCFramework directly
+
+If you aren't using `CocoaPods` as a dependency manager, you can directly download the `AzureCommunicationCalling.xcframework` directly from our [release page](https://github.com/Azure/Communication/releases). 
+
+Is important to know that `AzureCommunicationCalling` has a dependency on [`AzureCommunicationCommon`](https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication/AzureCommunicationCommon) so you need to install it as well in your project. 
+
+>[!NOTE]
+ > Although [`AzureCommunicationCommon`](https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication/AzureCommunicationCommon) is a pure swift package, you cannot install it using [`Swift Package Manager`](https://www.swift.org/package-manager/) to use it with `AzureCommunicationCalling` because the latter is an Objective-C framework and [`Swift Package Manager`](https://www.swift.org/package-manager/) deliberately do not support Swift ObjC interface headers by design which means is not possible to work together with `AzureCommunicationCalling` if installed using [`Swift Package Manager`](https://www.swift.org/package-manager/). You would have to either install via another dependency manager or generate a `xcframework` from [`AzureCommunicationCommon`](https://github.com/Azure/azure-sdk-for-ios/tree/main/sdk/communication/AzureCommunicationCommon) sources and import into your project.
+
 ### Request access to the microphone and camera
 
 To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that includes the dialog the system uses to request access from the user.
@@ -91,7 +100,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create the Call Agent
 
-Replace the implementation of the ContentView `struc`t with some simple UI controls that enable a user to initiate and end a call. We add business logic to these controls in this quickstart.
+Replace the implementation of the ContentView `struct` with some simple UI controls that enable a user to initiate and end a call. We add business logic to these controls in this quickstart.
 
 ```Swift
 struct ContentView: View {
@@ -236,7 +245,7 @@ struct ContentView_Previews: PreviewProvider {
 
 ### Authenticate the client
 
-In order to initialize a `CallAgent` instance, you need a User Access Token which enables it to make, and receive calls. Refer to the [user access token](../../../identity/access-tokens.md?pivots=programming-language-csharp) documentation, if you don't have a token available.
+In order to initialize a `CallAgent` instance, you need a User Access Token, which enables it to make, and receive calls. Refer to the [user access token](../../../identity/access-tokens.md?pivots=programming-language-csharp) documentation, if you don't have a token available.
 
 Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You need to replace `<USER ACCESS TOKEN>` with a valid **user access token** for your resource:
 
@@ -391,16 +400,16 @@ func startCall() {
         }
         let callees:[CommunicationIdentifier] = [CommunicationUserIdentifier(self.callee)]
         self.callAgent?.startCall(participants: callees, options: startCallOptions) { (call, error) in
-            setCallAndObersever(call: call, error: error)
+            setCallAndObserver(call: call, error: error)
         }
     }
 ```
 
-`CallObserver` and `RemotePariticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setCallAndOberserver` function.
+`CallObserver` and `RemoteParticipantObserver` are used to manage mid-call events and remote participants. We set the observers in the `setCallAndObserver` function.
 
 ```Swift
-func setCallAndObersever(call:Call!, error:Error?) {
-    if (error == nil) {
+func setCallAndObserver(call: Call!, error: Error?) {
+    if error == nil {
         self.call = call
         self.callObserver = CallObserver(self)
         self.call!.delegate = self.callObserver
@@ -489,12 +498,12 @@ func answerIncomingCall() {
             options.videoOptions = videoOptions
         }
         self.incomingCall!.accept(options: options) { (call, error) in
-            setCallAndObersever(call: call, error: error)
+            setCallAndObserver(call: call, error: error)
         }
     }
 }
 
-func declineIncomingCall(){
+func declineIncomingCall() {
     self.incomingCall!.reject { (error) in }
     isIncomingCall = false
 }

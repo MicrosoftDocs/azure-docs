@@ -114,6 +114,12 @@ If the CPU is only high for a few nodes, but low for the others, it indicates a 
 > - Standard_D8s_v4
 > - Standard_D16s_v4
 > - Standard_D32s_v4
+> - Standard_L8s_v3
+> - Standard_L16s_v3
+> - Standard_L32s_v3
+> - Standard_L8as_v3
+> - Standard_L16as_v3
+> - Standard_L32as_v3
 
 
 
@@ -147,7 +153,7 @@ For more information refer to [Virtual Machine and disk performance](../virtual-
 
 ### Network performance
 
-In most cases network performance is sufficient. However, if you are frequently streaming data (such as frequent horizontal scale-up/scale down) or there are huge ingress/egress data movements, this can become a problem. You may need to evaluate the network performance of your SKU. For example, the `Standard_DS14_v2` SKU supports 12,000 Mb/s, compare this to the byte-in/out in the metrics:
+In most cases network performance is sufficient. However, if you're frequently streaming data (such as frequent horizontal scale-up/scale down) or there are huge ingress/egress data movements, this can become a problem. You may need to evaluate the network performance of your SKU. For example, the `Standard_DS14_v2` SKU supports 12,000 Mb/s, compare this to the byte-in/out in the metrics:
 
 
    :::image type="content" source="./media/best-practice-performance/metrics-network.png" alt-text="Screenshot of network metrics." lightbox="./media/best-practice-performance/metrics-network.png" border="true"::: 
@@ -162,14 +168,14 @@ If you only see the network elevated for a small number of nodes, you might have
 
 ### Too many connected clients
 
-Deployments should be planned and provisioned to support the maximum number of parallel requests required for the desired latency of an application. For a given deployment, introducing more load to the system above a minimum threshold increases overall latency. Monitor the number of connected clients to ensure this does not exceed tolerable limits. 
+Deployments should be planned and provisioned to support the maximum number of parallel requests required for the desired latency of an application. For a given deployment, introducing more load to the system above a minimum threshold increases overall latency. Monitor the number of connected clients to ensure this doesn't exceed tolerable limits. 
 
    :::image type="content" source="./media/best-practice-performance/metrics-connections.png" alt-text="Screenshot of connected client metrics." lightbox="./media/best-practice-performance/metrics-connections.png" border="true"::: 
 
 
 ### Disk space
 
-In most cases, there is sufficient disk space as default deployments are optimized for IOPS, which leads to low utilization of the disk. Nevertheless, we advise occasionally reviewing disk space metrics. Cassandra accumulates a lot of disk and then reduces it when compaction is triggered. Hence it is important to review disk usage over longer periods to establish trends - like compaction unable to recoup space.
+In most cases, there's sufficient disk space as default deployments are optimized for IOPS, which leads to low utilization of the disk. Nevertheless, we advise occasionally reviewing disk space metrics. Cassandra accumulates a lot of disk and then reduces it when compaction is triggered. Hence it is important to review disk usage over longer periods to establish trends - like compaction unable to recoup space.
 
 > [!NOTE]
 > In order to ensure available space for compaction, disk utilization should be kept to around 50%.
@@ -188,7 +194,7 @@ Our default formula assigns half the VM's memory to the JVM with an upper limit 
 
 In most cases memory gets reclaimed effectively by the Java garbage collector, but especially if the CPU is often above 80% there aren't enough CPU cycles for the garbage collector left. So any CPU performance problems should be addresses before memory problems.
 
-If the CPU hovers below 70%, and the garbage collection isn't able to reclaim memory, you might need more JVM memory. This is especially the case if you are on a SKU with limited memory. In most cases, you will need to review your queries and client settings and reduce `fetch_size` along with what is chosen in `limit` within your CQL query.
+If the CPU hovers below 70%, and the garbage collection isn't able to reclaim memory, you might need more JVM memory. This is especially the case if you're on a SKU with limited memory. In most cases, you'll need to review your queries and client settings and reduce `fetch_size` along with what is chosen in `limit` within your CQL query.
 
 If you indeed need more memory, you can:
 
@@ -222,7 +228,20 @@ You might encounter this warning in the [CassandraLogs](monitor-clusters.md#crea
 
 `Writing large partition <table> (105.426MiB) to sstable <file>`
 
-This indicates a problem in the data model. Here is a [stack overflow article](https://stackoverflow.com/questions/74024443/how-do-i-analyse-and-solve-writing-large-partition-warnings-in-cassandra) that goes into more detail. This can cause severe performance issues and needs to be addressed.
+This indicates a problem in the data model. Here's a [stack overflow article](https://stackoverflow.com/questions/74024443/how-do-i-analyse-and-solve-writing-large-partition-warnings-in-cassandra) that goes into more detail. This can cause severe performance issues and needs to be addressed.
+
+## Specialized optimizations
+### Compression 
+Cassandra allows the selection of an appropriate compression algorithm when a table is created (see [Compression](https://cassandra.apache.org/doc/latest/cassandra/operating/compression.html)) The default is LZ4 which is excellent
+for throughput and CPU but consumes more space on disk. Using Zstd (Cassandra 4.0 and up) saves about ~12% space with 
+minimal CPU overhead.
+
+### Optimizing memtable heap space
+Our default is to use 1/4 of the JVM heap for [memtable_heap_space](https://cassandra.apache.org/doc/latest/cassandra/configuration/cass_yaml_file.html#memtable_heap_space)
+in the cassandra.yaml. For write oriented application and/or on SKUs with small memory
+this can lead to frequent flushing and fragmented sstables thus requiring more compaction.
+In such cases increasing it to at least 4048 might be beneficial but requires careful benchmarking
+to make sure other operations (e.g. reads) aren't affected.
 
 ## Next steps
 

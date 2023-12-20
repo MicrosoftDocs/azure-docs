@@ -1,6 +1,6 @@
 ---
 author: jyotsna-ravi
-ms.service: cognitive-services
+ms.service: azure-ai-speech
 ms.topic: include
 ms.date: 11/11/2022
 ms.author: jyravi

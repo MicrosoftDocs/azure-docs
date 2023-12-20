@@ -1,12 +1,13 @@
 ---
-title: Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Hub quickstart
-description: Use Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
+title: Quickstart - Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Hub
+description: A quickstart that uses Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/27/2023
+# CustomerIntent: As an embedded device developer, I want to use Azure RTOS to connect my device to Azure IoT Hub, so that I can learn about device connectivity and development. 
 ---
 
 # Quickstart: Connect an STMicroelectronics B-L475E-IOT01A Discovery kit to IoT Hub
@@ -126,7 +127,7 @@ To connect the STM DevKit to Azure, you modify a configuration file for Wi-Fi an
 
 1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You'll refer to these items in the next steps. All of them are highlighted in the following picture:
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/stm-devkit-board-475.png" alt-text="Photo that that shows key components on the STM DevKit board.":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e-iot-hub/stm-devkit-board-475.png" alt-text="Photo that shows key components on the STM DevKit board.":::
 
 1. Connect the Micro USB cable to the **USB STLINK** port on the STM DevKit, and then connect it to your computer.
 
@@ -350,7 +351,7 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 
 [!INCLUDE [iot-develop-cleanup-resources](../../includes/iot-develop-cleanup-resources.md)]
 
-## Next steps
+## Next step
 
 In this quickstart, you built a custom image that contains Azure RTOS sample code, and then flashed the image to the STM DevKit device. You connected the STM DevKit to Azure, and carried out tasks such as viewing telemetry and calling a method on the device.
 

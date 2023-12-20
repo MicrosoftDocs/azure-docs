@@ -11,7 +11,8 @@ ms.reviewer: aul
 Metric alerts in Azure Monitor proactively identify issues related to system resources of your Azure resources, including monitored Kubernetes clusters. Container insights provides preconfigured alert rules so that you don't have to create your own. This article describes the different types of alert rules you can create and how to enable and configure them.
 
 > [!IMPORTANT]
-> Container insights in Azure Monitor now supports alerts based on Prometheus metrics, and metric rules will be retired on March 14, 2026. If you already use alerts based on custom metrics, you should migrate to Prometheus alerts and disable the equivalent custom metric alerts. As of August 15, 2023, you will no longer be able to configure new custom metric recommended alerts using the portal.
+> Azure Monitor now supports alerts based on Prometheus metrics, and metric rules in Container insights will be retired on May 31, 2024 (this was previously announced as March 14, 2026). If you already use alerts based on custom metrics, you should migrate to Prometheus alerts and disable the equivalent custom metric alerts. As of August 15, 2023, you are no longer be able to configure new custom metric recommended alerts using the portal.
+
 ## Types of metric alert rules
 
 There are two types of metric rules used by Container insights based on either Prometheus metrics or custom metrics. See a list of the specific alert rules for each at [Alert rule details](#alert-rule-details).
@@ -19,7 +20,7 @@ There are two types of metric rules used by Container insights based on either P
 | Alert rule type | Description |
 |:---|:---|
 | [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are handpicked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>- *Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
-| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on March 14, 2026. |
+| [Metric rules](#metric-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. Metric rules will be retired on May 31, 2024. |
 
 ## Prometheus alert rules
 
@@ -48,6 +49,8 @@ The methods currently available for creating Prometheus alert rules are Azure Re
 ### [Bicep template](#tab/bicep)
 
 1. To deploy community and recommended alerts, follow this [template](https://aka.ms/azureprometheus-alerts-bicep) and follow the README.md file in the same folder for how to deploy.
+
+
 
 
 ---
@@ -104,6 +107,7 @@ The configuration change can take a few minutes to finish before it takes effect
 
 > [!IMPORTANT]
 > Metric alerts (preview) are retiring and no longer recommended. As of August 15, 2023, you will no longer be able to configure new custom metric recommended alerts using the portal. Please refer to the migration guidance at [Migrate from Container insights recommended alerts to Prometheus recommended alert rules (preview)](#migrate-from-metric-rules-to-prometheus-rules-preview).
+
 ### Prerequisites
 
   - You might need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
@@ -158,8 +162,16 @@ To disable custom alert rules, use the same ARM template to create the rule, but
 
 
 
+
+
+
+
+
+
+
+
 ## Migrate from metric rules to Prometheus rules (preview)
-If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before March 14, 2026 when metric alerts are retired.
+If you're using metric alert rules to monitor your Kubernetes cluster, you should transition to Prometheus recommended alert rules (preview) before May 31, 2024 when metric alerts are retired.
 
 1. Follow the steps at [Enable Prometheus alert rules](#enable-prometheus-alert-rules) to configure Prometheus recommended alert rules (preview).
 2. Follow the steps at [Disable metric alert rules](#disable-metric-alert-rules) to remove metric alert rules from your clusters.
@@ -233,7 +245,6 @@ The following metrics have unique behavior characteristics:
 - The `containerRestartCount` metric is only sent when there are containers restarting.
 - The `oomKilledContainerCount` metric is only sent when there are OOM killed containers.
 - The `cpuExceededPercentage`, `memoryRssExceededPercentage`, and `memoryWorkingSetExceededPercentage` metrics are sent when the CPU, memory RSS, and memory working set values exceed the configured threshold. The default threshold is 95%. The `cpuThresholdViolated`, `memoryRssThresholdViolated`, and `memoryWorkingSetThresholdViolated` metrics are equal to 0 if the usage percentage is below the threshold and are equal to 1 if the usage percentage is above the threshold. These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule.
-- The `pvUsageExceededPercentage` metric is sent when the persistent volume usage percentage exceeds the configured threshold. The default threshold is 60%. The `pvUsageThresholdViolated` metric is equal to 0 when the persistent volume usage percentage is below the threshold and is equal to 1 if the usage is above the threshold. This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule.
 - The `pvUsageExceededPercentage` metric is sent when the persistent volume usage percentage exceeds the configured threshold. The default threshold is 60%. The `pvUsageThresholdViolated` metric is equal to 0 when the persistent volume usage percentage is below the threshold and is equal to 1 if the usage is above the threshold. This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule.
 
 **Prometheus only**
