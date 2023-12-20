@@ -760,10 +760,10 @@
               - name: Stream Trigger
                 href: functions-bindings-cache-trigger-redisstream.md
                 displayName: Azure Cache for Redis
-                name: Input
+              - name: Input
                 href: functions-bindings-cache-input.md
                 displayName: Azure Cache for Redis
-                name: Output
+              - name: Output
                 href: functions-bindings-cache-output.md
                 displayName: Azure Cache for Redis
         - name: Azure Cosmos DB
