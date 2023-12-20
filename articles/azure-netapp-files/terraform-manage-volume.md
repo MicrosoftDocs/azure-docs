@@ -25,8 +25,8 @@ In Azure NetApp Files, the following features require you to follow the procedur
 
 | Feature | Property |
 | - | - | 
-| [Availability zone placement](configure-network-features.md#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard) | `zone` |
-| [Edit network features](configure-network-features.md#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard) | `network features` |
+| [Availability zone placement](manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes) | `zone` |
+| [Edit network features](configure-network-features.md#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard) | `network_features` |
 
 ## Protect Terraform-managed resources with lifecycle 
 
