@@ -66,7 +66,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 ## View disabled resource types in Azure portal
 
-Now that you've assigned a built-in policy definition, navigate to [All Services](https://ms.portal.azure.com/#allservices/category/All). Azure portal is aware of the existence of allowed and not allowed resource type policy assignments and disables resources in the **All Services** page accordingly.
+Now that you've assigned a built-in policy definition, navigate to [All Services](https:/portal.azure.com/#allservices/category/All). Azure portal is aware of the existence of allowed and not allowed resource type policy assignments and disables resources in the **All Services** page accordingly.
 
 > [!NOTE]
 > If you assign this policy definition to your root management group, users will see the following notification when they log in for the first time or if the policy changes after they have logged in:
