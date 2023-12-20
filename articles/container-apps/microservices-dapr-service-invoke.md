@@ -1,5 +1,5 @@
 ---
-title: "Microservices communication using Dapr Service Invocation"
+title: "Tutorial: Microservices communication using Dapr Service Invocation"
 titleSuffix: "Azure Container Apps"
 description: Enable two sample Dapr applications to communicate and leverage Azure Container Apps.
 author: hhunter-ms
@@ -12,7 +12,7 @@ zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Microservices communication using Dapr Service Invocation 
+# Tutorial: Microservices communication using Dapr Service Invocation 
 
 In this tutorial, you'll:
 > [!div class="checklist"]

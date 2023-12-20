@@ -13,9 +13,9 @@ ms.date: 12/18/2023
 
 You can configure Dapr using various [arguments and annotations][dapr-args] based on the runtime context. Azure Container Apps provides three channels through which you can enable Dapr:
 
-- The Azure CLI
-- Infrastructure as Code (IaC) templates, like Bicep or Azure Resource Manager (ARM) templates
-- The Azure portal
+- [The Azure CLI](#using-the-cli)
+- [Infrastructure as Code (IaC) templates,](#using-bicep-or-arm) like Bicep or Azure Resource Manager (ARM) templates
+- [The Azure portal](#using-the-azure-portal)
 
 The following table outlines the currently supported list of Dapr sidecar configurations for enabling Dapr in Azure Container Apps:
 
