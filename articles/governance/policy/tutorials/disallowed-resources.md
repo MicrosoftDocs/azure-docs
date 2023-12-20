@@ -31,7 +31,7 @@ The first step in disabling resource types is to assign the **Not allowed resour
 1. Click the **Assign** button on the top of the page. 
 
 1. On the **Basics** tab, select the **Scope** by selecting the ellipsis
-   and choosing a management group, subscription, or resource group of choice. Ensure that the selected scope has at least one sub scope. Learn more about [scopes](../concepts/scope.md). Then click **Select** at the bottom of the **Scope** page.
+   and choosing a management group, subscription, or resource group of choice. Ensure that the selected scope has at least one subscope. Learn more about [scopes](../concepts/scope.md). Then click **Select** at the bottom of the **Scope** page.
 
    This example uses the **Contoso** subscription.
 
