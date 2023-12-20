@@ -51,8 +51,8 @@ See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for detai
 |---|---|---|---|
 | **Red Hat Enterprise Linux** | Best binary compatible OS w/ support and EUS available. <br/> [Migration offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.rh-rhel-3p-migration?tab=Overview) available in the Azure Marketplace.<br/> [Conversion tool](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux/migration-process/convert2rhel-how-to-convert-from-centos-linux-to-red-hat-enterprise-linux) available from Red Hat.<br/> [Multiple offers and images](../redhat/overview.md) | Yes PAYG, BYOS, ARM64 | Commercial, integrated support |
 | **AlmaLinux** | Official community images: <br/> [AlmaLinux OS (x86_64/AMD64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-x86_64?tab=Overview)<br/> [AlmaLinux OS (AArch64/Arm64)](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-arm?tab=Overview)<br/> [AlmaLinux HPC](https://azuremarketplace.microsoft.com/marketplace/apps/almalinux.almalinux-hpc?tab=Overview)<br/> [Conversion tool](https://wiki.almalinux.org/documentation/migration-guide.html#how-to-migrate) available from AlmaLinux. | Yes (multiple publishers) | Community, Commercial support by 3<sup>rd</sup> parties |
-| **Oracle Linux** | [Migration tooling and guidance](https://docs.oracle.com/en/learn/switch_centos7_ol7/index.html#introduction) available from Oracle. | YesPAYG, BYOS, ARM64 | Community and commercial |
-| **Rocky Linux** | Official community images:<br/>[Rocky Linux for x86_64 (AMD64) - Official](https://azuremarketplace.microsoft.com/marketplace/apps/resf.rockylinux-x86_64?tab=PlansAndPrice)<br/> [Conversion tool](https://docs.rockylinux.org/guides/migrate2rocky/) available from Rocky.| Yes (multiple publishers) | Community and commercial |
+| **Oracle Linux** | [Migration tooling and guidance](https://docs.oracle.com/en/learn/switch_centos7_ol7/index.html#introduction) available from Oracle. | Yes BYOS | Community and commercial |
+| **Rocky Linux** | Official community images:<br/>[Rocky Linux for x86_64 (AMD64) - Official](https://azuremarketplace.microsoft.com/marketplace/apps/resf.rockylinux-x86_64?tab=PlansAndPrice)<br/> [Conversion tool](https://docs.rockylinux.org/guides/migrate2rocky/) available from Rocky.| Yes (multiple publishers), BYOS, ARM64 | Community and commercial |
 
 > [!NOTE]
 > - “Binary compatible” means based on the same upstream distribution (Fedora). There is no guarantee of bug for bug compatibility.
@@ -65,8 +65,8 @@ See the [Endorsed Distribution](../..//linux/endorsed-distros.md) page for detai
 |---|---|---|---|
 | **CentOS Stream** | Official replacement for CentOS, upstream vs. downstream of RHEL. [CentOS Stream](https://www.centos.org/centos-stream/) | Community Gallery | Community |
 | **Fedora** | Upstream project for CentOS stream and RHEL. [Fedora Linux &#124; The Fedora Project](https://www.fedoraproject.org/) | Community Gallery | Community |
-| **SUSE / OpenSUSE** | SUSE Enterprise Linux (SLES) is SUSE’s commercial Linux distribution. | YesPAYG, BYOS, ARM64 | Community (OpenSUSE) and commercial (SLES) |
-| **Ubuntu (Server / Pro)** | Both free (Server) and paid (Pro) versions available. In place conversion from Server to Pro possible: [In-place upgrade to Ubuntu Pro Linux images on Azure - Azure Virtual Machines &#124; Microsoft Learn](../canonical/ubuntu-pro-in-place-upgrade.md) | YesPAYG, BYOS, ARM64 | Community (server) Enterprise (Pro) |
+| **SUSE / OpenSUSE** | SUSE Enterprise Linux (SLES) is SUSE’s commercial Linux distribution. | Yes PAYG, BYOS, ARM64 | Community (OpenSUSE) and commercial (SLES) |
+| **Ubuntu (Server / Pro)** | Both free (Server) and paid (Pro) versions available. In place conversion from Server to Pro possible: [In-place upgrade to Ubuntu Pro Linux images on Azure - Azure Virtual Machines &#124; Microsoft Learn](../canonical/ubuntu-pro-in-place-upgrade.md) | Yes PAYG, BYOS, ARM64 | Community (server) Enterprise (Pro) |
 | **Debian** | Community  Linux Distribution. | Yes (multiple publishers) | Community |
 | **Flatcar** | Community Container Linux | Yes | Community |
 
