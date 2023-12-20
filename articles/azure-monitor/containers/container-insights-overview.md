@@ -13,7 +13,7 @@ Container insights is a feature of Azure Monitor that collects and analyzes cont
 
 
 > [!IMPORTANT]
-> By default, Container insights collects performance data from the cluster in addition to logs. This functionality has been replaced by [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). You can disable collection of this data during the onboarding process to save costs.
+> By default, Container insights collects performance data from the cluster in addition to logs. This functionality has been replaced by [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). See [Configure data collection in Container insights using data collection rule](container-insights-data-collection-dcr.md) to disable collection of this data by Container insights save costs.
 
 
 ## Access Container insights

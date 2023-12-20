@@ -1696,6 +1696,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/containers/container-insights-enable-provisioned-clusters.md",
+            "redirect_url": "/azure/azure-monitor/insights/container-insights-onboard",
+            "redirect_document_id": false
+        },
+        {
+        {
             "source_path_from_root": "/articles/monitoring/monitoring-container-insights-optout.md",
             "redirect_url": "/azure/azure-monitor/insights/container-insights-optout",
             "redirect_document_id": false
@@ -4777,6 +4783,16 @@
         {
             "source_path_from_root": "/articles/azure-monitor/insights/container-insights-enable-new-cluster.md",
             "redirect_url": "/azure/azure-monitor/containers/container-insights-enable-new-cluster",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-aks.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
         },
         {

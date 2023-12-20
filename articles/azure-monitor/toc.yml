@@ -448,25 +448,23 @@ items:
         href: vm/tutorial-monitor-vm-guest.md
   - name: Monitor containers
     items:
-    - name: Container insights
-      href: containers/container-insights-overview.md
     - name: Full stack monitoring
       displayName: containers
       href: containers/monitor-kubernetes.md
     - name: Best practices
       displayName: containers, kubernetes
+    - name: Container insights
+      href: containers/container-insights-overview.md
       href: best-practices-containers.md
-    - name: Onboarding
+    - name: Enable monitoring
       items:
-      - name: Enable monitoring
+      - name: Onboard cluster
         href: containers/kubernetes-monitoring-enable.md
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
-      - name: Disable monitoring
-        href: containers/container-insights-optout.md
       - name: Configure private Link
         items:
         - name: Prometheus
@@ -508,7 +506,7 @@ items:
         href: containers/container-insights-transition-solution.md
     - name: Configure monitoring
       items:
-      - name: Customize Prometheus collection
+      - name: Prometheus (metrics)
         items:
         - name: Default configuration
           displayName: Prometheus
@@ -528,15 +526,13 @@ items:
         - name: Send to multiple metric workspaces
           displayName: Prometheus
           href: containers/prometheus-metrics-multiple-workspaces.md
-      - name: Customize Container insights collection
+      - name: Container insights (Logs)
         items:
-        - name: Configure data collection
+        - name: Configure data collection (ConfigMap)
           displayName: Container insights
-          items:
-          - name: ConfigMap
-            href: containers/container-insights-data-collection-configmap.md
-          - name: Data collection rule
-            href: containers/container-insights-data-collection-dcr.md
+          href: containers/container-insights-data-collection-configmap.md
+        - name: Configure data collection (DCR)
+          href: containers/container-insights-data-collection-dcr.md
         - name: Log schema
           href: containers/container-insights-logs-schema.md
         - name: Data Transformations
@@ -546,6 +542,8 @@ items:
           href: containers/container-insights-authentication.md
         - name: Send Prometheus metrics to Logs
           href: containers/container-insights-prometheus-logs.md
+      - name: Disable monitoring
+        href: containers/container-insights-optout.md
     - name: Monitor
       items:
       - name: Monitor performance
@@ -592,8 +590,6 @@ items:
       - name: Enable
         displayName: container insights
         items:
-        - name: AKS hybrid cluster
-          href: containers/container-insights-enable-provisioned-clusters.md
         - name: Hybrid cluster
           href: containers/container-insights-hybrid-setup.md          
         - name: Enable with Azure Policy
