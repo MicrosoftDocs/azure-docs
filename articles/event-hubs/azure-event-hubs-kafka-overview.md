@@ -10,7 +10,7 @@ ms.date: 11/16/2023
 This article explains how you can use Azure Event Hubs to stream data from [Apache Kafka](https://kafka.apache.org) applications without setting up a Kafka cluster on your own.
 
 > [!NOTE]
-> This feature is supported only in the **premium** and **dedicated** tiers. 
+> This feature is supported only in the **standard, premium** and **dedicated** tiers. 
 
 ## Overview
 
@@ -70,6 +70,15 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler
 
 > [!NOTE]
 > The above configuration properties are for the Java programming language. For **samples** that show how to use OAuth with Event Hubs for Kafka using different programming languages, see [samples on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+
+
+
+
+
+
+
+
+
 
 
 ### Shared Access Signature (SAS)
