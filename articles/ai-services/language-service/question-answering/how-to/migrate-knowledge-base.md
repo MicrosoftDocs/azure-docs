@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 ms.topic: how-to
 author: jboback
 ms.author: jboback
-ms.date: 1/11/2023
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 # Move projects and question answer pairs
