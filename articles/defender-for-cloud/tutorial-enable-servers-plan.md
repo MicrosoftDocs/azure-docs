@@ -69,22 +69,22 @@ When you enable the Defender for Servers plan, you're then given the option to s
 
 ## Configure monitoring coverage
 
-There are three components that can be enabled and configured to provide extra protections to your environments in the Defender for Servers plans.
+There are components that can be enabled and configured to provide extra protections to your environments in the Defender for Servers plans.
 
 | Component | Description | Learn more |
 |:--:|:--:|:--:|
-| [Log Analytics agent/Azure Monitor agent](plan-defender-for-servers-agents.md) | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
+| [Log Analytics agent](plan-defender-for-servers-agents.md) | Collects security-related configurations and event logs from the machine and stores the data in your Log Analytics workspace for analysis. | [Learn more](../azure-monitor/agents/log-analytics-agent.md) about the Log Analytics agent. |
 | [Vulnerability assessment for machines](deploy-vulnerability-assessment-defender-vulnerability-management.md) | Enables vulnerability assessment on your Azure and hybrid machines. | [Learn more](monitoring-components.md) about how Defender for Cloud collects data. |
 | [Endpoint protection](integration-defender-for-endpoint.md) | Enables protection powered by Microsoft Defender for Endpoint, including automatic agent deployment to your servers, and security data integration with Defender for Cloud | [Learn more](integration-defender-for-endpoint.md) about endpoint protection |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | Scans your machines for installed software and vulnerabilities without relying on agents or impacting machine performance. | [Learn more](concept-agentless-data-collection.md) about agentless scanning for machines. |
 
 Toggle the corresponding switch to **On**, to enable any of these options.
 
-### Configure Log Analytics agent/Azure Monitor agent
+### Configure Log Analytics agent
 
-After enabling the Log Analytics agent/Azure Monitor agent, you'll be presented with the option to select either the Log Analytics agent or the Azure Monitor agent and which workspace should be utilized.
+After enabling the Log Analytics agent, you'll be presented with the option to select which workspace should be utilized.
 
-**To configure the Log Analytics agent/Azure Monitor agent**:
+**To configure the Log Analytics agent**:
 
 1. Select **Edit configuration**.
 
