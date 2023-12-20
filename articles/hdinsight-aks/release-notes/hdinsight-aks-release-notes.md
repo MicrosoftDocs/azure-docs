@@ -3,12 +3,12 @@ title: Release notes for Azure HDInsight on AKS
 description: Latest release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, Spark, and more.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 12/20/2023
 ---
 
 # Azure HDInsight on AKS release notes
 
-This article provides information about the **most recent**- Azure HDInsight on AKS release updates. 
+This article provides information about the **most recent** Azure HDInsight on AKS release updates. 
 
 ## Summary
 
@@ -28,7 +28,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 - Cluster Pool Version: 1.0
 - Cluster Version: 1.0.6
 
-#### Known Issue
+#### Known Issues
 
 - **Secure Tenants User Interface Support**
   -   This release addresses an issue where the open source component web URLs for HDInsight on AKS Clusters were inaccessible.
