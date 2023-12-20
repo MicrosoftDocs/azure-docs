@@ -63,7 +63,7 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 
 ### Sign in with Azure Developer CLI
 
-Access your Azure resources by logging in. When you initiate a login, a browser window opens and prompts you to login to Azure. After you sign in, the terminal displays a message that you're signed in to Azure.
+Access your Azure resources by logging in. When you initiate a log in, a browser window opens and prompts you to log in to Azure. After you sign in, the terminal displays a message that you're signed in to Azure.
 
 Sign in to AZD using the command palette:
 
@@ -130,17 +130,34 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
  
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/use-code-current-directory.png" alt-text="Screenshot of the AZD terminal in Visual Studio Code, showing the Use code in current directory prompt." lightbox="media/how-to-create-environment-with-azure-developer/use-code-current-directory.png":::
 
-1. AZD scans the current directory and gathers more information depending on the type of app you're building. Follow the prompts to configure your AZD environment.
+1. `azd init` identifies the services defined in your app code and prompts you to confirm and continue, remove a service, or add a service. Select ***Confirm and continue initializing my app***.  
+ 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-services.png" alt-text="Screenshot showing the AZD init prompt to confirm and continue, remove a service, or add a service." lightbox="media/how-to-create-environment-with-azure-developer/init-services.png":::
 
-1. Finally, enter a name for your local AZD environment. 
+1. `azd init` continues to gather information to configure your app. For this example application, you're prompted for the name of your MongoDB database instance, and ports that the services listen on.
+ 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-app-services.png" alt-text="Screenshot showing the azd init prompt for a database name." lightbox="media/how-to-create-environment-with-azure-developer/init-app-services.png":::
+ 
+1. Enter a name for your local AZD environment. 
+ 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-new-environment-name.png" alt-text="Screenshot showing azd init prompt Enter a new environment name." lightbox="media/how-to-create-environment-with-azure-developer/init-new-environment-name.png":::
 
-   AZD creates an *azure.yaml* file in the root of your project. 
+1. `azd init` displays a list of the projects you have access to. Select the project for your environment
+
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-select-project.png" alt-text="Screenshot showing azd init prompt Select project." lightbox="media/how-to-create-environment-with-azure-developer/init-select-project.png":::
+ 
+1. `azd init` displays a list of environment definitions in the project. Select an environment definitions.
+
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/select-environment-definition.png" alt-text="Screenshot showing azd init prompt Select environment definitions." lightbox="media/how-to-create-environment-with-azure-developer/select-environment-definition.png":::
+
+
+   AZD creates the project resources, including an *azure.yaml* file in the root of your project. 
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
 1. At the CLI, navigate to the folder that contains your application code.
  
-1. Run the following command to initialize your application and supply infomation when prompted:
+1. Run the following command to initialize your application and supply information when prompted:
 
    ```bash
    azd init
@@ -155,13 +172,23 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
  
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-services.png" alt-text="Screenshot showing the AZD init prompt to confirm and continue, remove a service, or add a service." lightbox="media/how-to-create-environment-with-azure-developer/init-services.png":::
 
-1. `azd init` continues to gather information to configure your app. For this example application, you're prompted for the name of your MongoDB database instance.
+1. `azd init` continues to gather information to configure your app. For this example application, you're prompted for the name of your MongoDB database instance, and ports that the services listen on.
  
-   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-database.png" alt-text="Screenshot showing the azd init prompt for a database name." lightbox="media/how-to-create-environment-with-azure-developer/init-database.png":::
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-app-services.png" alt-text="Screenshot showing the azd init prompt for a database name." lightbox="media/how-to-create-environment-with-azure-developer/init-app-services.png":::
  
-1. Finally, enter a name for your local AZD environment. 
+1. Enter a name for your local AZD environment. 
+ 
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-new-environment-name.png" alt-text="Screenshot showing azd init prompt Enter a new environment name." lightbox="media/how-to-create-environment-with-azure-developer/init-new-environment-name.png":::
 
-   AZD creates an *azure.yaml* file in the root of your project. 
+1. `azd init` displays a list of the projects you have access to. Select the project for your environment
+
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-select-project.png" alt-text="Screenshot showing azd init prompt Select project." lightbox="media/how-to-create-environment-with-azure-developer/init-select-project.png":::
+ 
+1. `azd init` displays a list of environment definitions in the project. Select an environment definitions.
+
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/select-environment-definition.png" alt-text="Screenshot showing azd init prompt Select environment definitions." lightbox="media/how-to-create-environment-with-azure-developer/select-environment-definition.png":::
+
+   AZD creates the project resources, including an *azure.yaml* file in the root of your project. 
 ---
 
 ### Provision infrastructure to Azure Deployment Environment
@@ -177,7 +204,7 @@ When you're ready, you can provision your local environment to a remote Azure De
 1. AZD scans Azure Deployment Environments for projects that you have access to. In the AZD terminal, select or enter the following information:
     1. Project
     1. Environment definition
-    1. Environment name
+    1. Environment type
     1. Location
  
 1. AZD instructs ADE to create a new environment based on the information you gave in the previous step.
@@ -192,21 +219,21 @@ Provision your application to Azure using the following command:
 azd provision
 ```
 
-1. 'azd init' provides a list of projects that you have access to. Select the project that you want to provision your application to.
+1. 'azd provision' provides a list of projects that you have access to. Select the project that you want to provision your application to.
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/select-project.png" alt-text="Screenshot showing the azd init prompt to select a project." lightbox="media/how-to-create-environment-with-azure-developer/select-project.png":::
 
-1. 'azd init' provides a list of environment definitions in the selected project. Select the environment definition that you want to use to provision your application.
+1. 'azd provision' provides a list of environment definitions in the selected project. Select the environment definition that you want to use to provision your application.
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/select-environment-definition.png" alt-text="Screenshot showing the azd init prompt to select an environment definition." lightbox="media/how-to-create-environment-with-azure-developer/select-environment-definition.png":::
 
-1. 'azd init' provides a list of environment types in the selected project. Select the environment type that you want to use to provision your application.
+1. 'azd provision' provides a list of environment types in the selected project. Select the environment type that you want to use to provision your application.
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/select-environment-type.png" alt-text="Screenshot showing the azd init prompt to select an environment type." lightbox="media/how-to-create-environment-with-azure-developer/select-environment-type.png":::
 
 1. AZD instructs ADE to create a new environment based on the information you gave in the previous step.
  
-   :::image type="content" source="media/how-to-create-environment-with-azure-developer/provision-progress.png" alt-text="Screenshot showing the AZD provisioning progess." lightbox="media/how-to-create-environment-with-azure-developer/provision-progress.png":::
+   :::image type="content" source="media/how-to-create-environment-with-azure-developer/provision-progress.png" alt-text="Screenshot showing the AZD provisioning progress." lightbox="media/how-to-create-environment-with-azure-developer/provision-progress.png":::
  
 1. You can view the resources created in the Azure portal or in the [developer portal](https://devportal.microsoft.com).
 
@@ -232,7 +259,7 @@ Use the following command to view the environments that you have access to: the 
 azd env list
 ```
 
-`azd init` prompts you to select a project and an environment definition.
+`azd env list` prompts you to select a project and an environment definition.
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/environments-list.png" alt-text="Screenshot showing the local AZD environment and the remote Azure environment." lightbox="media/how-to-create-environment-with-azure-developer/environments-list.png":::
 
@@ -261,7 +288,7 @@ Deploying your code to the remote environment can take several minutes.
 
 You can view the progress of the deployment in the Azure portal:
 
-:::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-portal-deploy-in-progress.png" alt-text="Screenshot showing AZD provisioning progress in the Azure portal." lightbox="media/how-to-create-environment-with-azure-developer/azure-portal-deploy-progress.png":::
+:::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-portal-deploy-in-progress.png" alt-text="Screenshot showing AZD provisioning progress in the Azure portal." lightbox="media/how-to-create-environment-with-azure-developer/azure-portal-deploy-in-progress.png":::
 
 When deployment completes, you can view the resources that were provisioned in the Azure portal:
 
@@ -271,7 +298,7 @@ You can verify that your code is deployed by selecting the end point URLs listed
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/deploy-endpoint.png" alt-text="Screenshot showing the endpoint AZD deploy creates." lightbox="media/how-to-create-environment-with-azure-developer/deploy-endpoint.png":::
 
-For this sample application, you'll see something like this:
+For this sample application, you see something like this:
 
 :::image type="content" source="media/how-to-create-environment-with-azure-developer/test-swagger.png" alt-text="Screenshot showing application in swagger interface." lightbox="media/how-to-create-environment-with-azure-developer/test-swagger.png":::
 
