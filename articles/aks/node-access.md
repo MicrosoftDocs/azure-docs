@@ -2,7 +2,7 @@
 title: Connect to Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 ms.topic: article
-ms.date: 04/26/2023
+ms.date: 12/20/2023
 ms.reviewer: mattmcinnes
 ms.custom: contperf-fy21q4, devx-track-linux
 #Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
@@ -20,7 +20,7 @@ This article assumes you have an SSH key. If not, you can create an SSH key usin
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Create an interactive shell connection to a Linux node using Kubectl
+## Create an interactive shell connection to a Linux node using kubectl
 
 To create an interactive shell connection to a Linux node, use the `kubectl debug` command to run a privileged container on your node.
 
@@ -68,20 +68,65 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 ## Create an interactive shell connection to a Linux node using private IP
 
-In the event that you do not have access to the Kubernetes API through Kubectl, you can get access to properties like ```Node IP``` and ```Node Name``` through the [AKS Agentpool REST API][agentpool-rest-api](preview) to troubleshoot node specific issues in your AKS nodepools. For convenience, we also expose the public IP if the node has a public IP assigned.
+In the event that you do not have access to the Kubernetes API through kubectl, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agentpool REST API][agentpool-rest-api] (preview) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node , you need to be in the cluster's virtual network. 
 
-1. To get the private IP, use 
+1. To get the private IP via CLI use az cli version 2.53 or above with aks-preview extension installed.
 
 ```bash
-    az aks nodepool show --cluster-name myAKSCluster --nodepool-name nodepool1 --resource-group myResourceGroup 
+    az aks machine list --sub mySub --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1
+   
  ```
 
 The following example resembles output from the command:
  ```output
-    NODE NAME                             NODEIP  
-    aks-nodepool1-37663765-vmss000000   10.224.0.33, 172.0.10.1                   
-    aks-nodepool2-37663766-vmss000001    10.224.0.4                    
+   [
+  {
+    "id": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/TestKaar/providers/Microsoft.ContainerService/managedClusters/contoso/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003",
+    "name": "aks-nodepool1-19409214-vmss000003",
+    "properties": {
+      "network": {
+        "ipAddresses": [
+          {
+            "family": "IPv4",
+            "ip": "10.224.0.8"
+          }
+        ]
+      },
+      "resourceId": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/MC_TestKaar_contoso_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
+    },
+    "resourceGroup": "TestKaar",
+    "type": "Microsoft.ContainerService/managedClusters/agentPools/machines"
+  }
+]                  
 ```
+To target a specific node inside the agentpool , use this command:
+
+```bash
+    az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-19409214-vmss000003
+   
+ ```
+ The following example resembles output from the command:
+```output
+   [
+    {
+  "id": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/TestKaar/providers/Microsoft.ContainerService/managedClusters/contoso/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003/aks-nodepool1-19409214-vmss000003",
+  "name": "aks-nodepool1-19409214-vmss000003",
+  "properties": {
+    "network": {
+      "ipAddresses": [
+        {
+          "family": "IPv4",
+          "ip": "10.224.0.8"
+        }
+      ]
+    },
+    "resourceId": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/MC_TestKaar_contoso_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
+  },
+  "resourceGroup": "TestKaar",
+  "type": "Microsoft.ContainerService/managedClusters/agentPools/machines"
+}
+   ]
+   ```
 
 2. Use the private IP to SSH into the node
 
@@ -233,43 +278,11 @@ When done, `exit` the SSH session, stop any port forwarding, and then `exit` the
 kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 
-## Update SSH public key on an existing AKS cluster (preview)
-
-### Prerequisites
-
-* Ensure the Azure CLI is installed and configured. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* Ensure that the aks-preview extension version 0.5.111 or later. To learn how to install an Azure extension, see [How to install extensions][how-to-install-azure-extensions].
-
-> [!NOTE]
-> Updating of the SSH key is supported on Azure virtual machine scale sets with AKS clusters.
-
-Use the [az aks update][az-aks-update] command to update the SSH public key on the cluster. This operation updates the key on all node pools. You can either specify the key or a key file using the `--ssh-key-value` argument.
-
-```azurecli
-az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value <new SSH key value or SSH key file>
-```
-
-The following examples demonstrate possible usage of this command:
-
-* You can specify the new SSH public key value for the `--ssh-key-value` argument:
-
-    ```azurecli
-    az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value 'ssh-rsa AAAAB3Nza-xxx'
-    ```
-    
-* You specify an SSH public key file:
-
-    ```azurecli
-    az aks update --name myAKSCluster --resource-group MyResourceGroup --ssh-key-value ~/.ssh/id_rsa.pub
-    ```
-
-> [!IMPORTANT]
-> During this operation, all virtual machine scale set instances are upgraded and re-imaged to use the new SSH public key.
-
 
 ## Next steps
 
 If you need more troubleshooting data, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
+See [Manage SSH configuration][manage-ssh-node-access] to learn about managing the SSH key on an AKS cluster or node pools.
 
 <!-- INTERNAL LINKS -->
 [view-kubelet-logs]: kubelet-logs.md
