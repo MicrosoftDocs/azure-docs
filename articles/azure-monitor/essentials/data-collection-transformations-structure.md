@@ -324,6 +324,8 @@ Given a string containing IP address (IPv4 and IPv6 are supported), `geo_locatio
 
 :::image type="content" source="media/data-collection-transformations-structure/geo_location.png" alt-text="Sample output of parse_cef_dictionary function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
 
+> [!IMPORTANT]
+> Due to nature of IP geolocation service utilized by this function, it may introduce data ingestion latency if used excessively. Exercise caution when using this function more than several times per transformation.
 
 ### Identifier quoting
 Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity-names?q=identifier#identifier-quoting) as required.
