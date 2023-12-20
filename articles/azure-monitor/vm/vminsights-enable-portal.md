@@ -45,12 +45,12 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
  
 1. Select **Enable** next to any machine that you want to enable. If a machine is currently running, you must start it to enable it.
 
-    :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
+:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
 1. On the **Insights Onboarding** page, select **Enable**. 
  
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#data-collection-rule) from the **Data collection rule** dropdown. 
-[Screenshot of VM Insights Monitoring Configuration Page.]![vm-insights-monitoring-configuration](media/vminsights-enable-portal/vm-insights-monitoring-configuration.png)
+![Screenshot of VM Insights Monitoring Configuration Page.](media/vminsights-enable-portal/vm-insights-monitoring-configuration.png)
 
 1.  The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
 
@@ -58,7 +58,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
     - **Processes and dependencies** disabled.
    1.  Select **Create new** to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the [VM insights Map feature](vminsights-maps.md).
 
-     :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
+:::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
        > [!NOTE]
        > If you select a data collection rule with Map enabled and your virtual machine is not [supported by the Dependency Agent](../vm/vminsights-dependency-agent-maintenance.md), Dependency Agent will be installed and will run in degraded mode.
@@ -77,7 +77,7 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
     :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration to Azure Monitor agent to monitored machine.":::
 
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a rule from the **Data collection rule** dropdown. 
-[Screenshot of VM Insights Agent Configuration Page.]![enable-monitored-configure-azure-monitor-agent](media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png)
+![Screenshot of VM Insights Agent Configuration Page.](media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png)
 
 
 1. The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
