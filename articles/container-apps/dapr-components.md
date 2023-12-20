@@ -79,7 +79,7 @@ There are a few approaches supported in container apps to securely establish con
 
 1. [Using managed identity](#using-managed-identity)
 1. Using a Dapr secret store component reference by creating either:
-   - [An Azure Key Vault secret store](#azure-key-vault-secret-store-example), which uses managed identity, or
+   - [An Azure Key Vault secret store](#azure-key-vault-secret-stores), which uses managed identity, or
    - [Platform-Managed Kubernetes secrets](#platform-managed-kubernetes-secrets)
 
 ### Using managed identity
@@ -103,9 +103,9 @@ To set up a reference:
 When creating a secret store component in Azure Container Apps, you can provide sensitive information in the metadata section in either of the following ways:
 
 - [For an **Azure Key Vault secret store**,](#using-managed-identity) use managed identity to establish the connection. 
-- [For **non-Azure secret stores**,](#using-platform-managed-kubernetes-secrets) use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
+- [For **non-Azure secret stores**,](#platform-managed-kubernetes-secrets) use platform-managed Kubernetes secrets that are defined directly as part of the component manifest.
 
-##### Azure Key Vault secret store
+##### Azure Key Vault secret stores
 
 The following component showcases the simplest possible secret store configuration using an Azure Key Vault secret store. In this example, publisher and subscriber applications are configured to both have a system or user-assigned managed identity with appropriate permissions on the Azure Key Vault instance.
 
