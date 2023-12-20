@@ -13,16 +13,16 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up disaster recovery to a secondary Azure region
+  - name: Set up disaster recovery on an Azure region
     href: azure-to-azure-quickstart.md
+  - name: Setup disaster recovery on an on-premises VMware VM
+    href: quickstart-enable-replication.md
   - name: Create a vault - Bicep
     displayName: ARM, Resource Manager, Template
     href: quickstart-create-vault-bicep.md
   - name: Create a vault - ARM template
     displayName: Resource Manager
     href: quickstart-create-vault-template.md
-  - name: Enable replication - Modernized
-    href: quickstart-enable-replication.md
 - name: Tutorials
   items:
   - name: Azure VM disaster recovery to Azure
@@ -149,10 +149,6 @@
       href: hyper-v-azure-common-questions.md
     - name: Monitoring
       href: monitoring-common-questions.md
-  - name: About Backup center
-    items:
-    - name: Backup center overview
-      href: ../backup/backup-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure disaster recovery architecture
@@ -243,14 +239,12 @@
     href: site-recovery-role-based-linked-access-control.md
   - name: Migrate to availability zone support
     href: ../availability-zones/migrate-recovery-services-vault.md
+  - name: About Backup center
+    items:
+    - name: Backup center overview
+      href: ../backup/backup-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: How-to Guides
   items:
-  - name: Use Backup center
-    items:
-    - name: Obtain insights
-      href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-    - name: Perform actions
-      href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: Azure to Azure disaster recovery
     items:
     - name: Set up networking
@@ -305,6 +299,8 @@
         href: site-recovery-manage-registration-and-protection.md
       - name: Delete a vault
         href: delete-vault.md
+      - name: Cleanup script on a VMM server
+        href: unregister-vmm-server-script.md
   - name: VMware to Azure disaster recovery
     items:
     - name: Deprecation of classic experience
@@ -443,10 +439,6 @@
         href: service-updates-how-to.md
       - name: Delete a vault
         href: delete-vault.md
-  - name: Azure Stack VM disaster recovery
-    items:
-    - name: Walkthrough-Set up disaster recovery for Azure Stack VMs
-      href: azure-stack-site-recovery.md
   - name: Hyper-V to Azure disaster recovery
     items:
     - name: Set up networking
@@ -499,8 +491,12 @@
         href: service-updates-how-to.md
       - name: Delete a vault
         href: delete-vault.md
-  - name: Site Recovery for Proximity Placement Groups
-    href: how-to-enable-replication-proximity-placement-groups.md
+  - name: Azure Stack VM disaster recovery
+    items:
+    - name: Walkthrough-Set up disaster recovery for Azure Stack VMs
+      href: azure-stack-site-recovery.md
+    - name: Site Recovery for Proximity Placement Groups
+      href: how-to-enable-replication-proximity-placement-groups.md
   - name: Disaster recovery for apps
     items:
     - name: About disaster recovery for on-premises apps
@@ -527,6 +523,12 @@
       href: site-recovery-citrix-xenapp-and-xendesktop.md
     - name: Other workloads
       href: site-recovery-workload.md#workload-summary
+  - name: Backup center
+    items:
+    - name: Obtain insights
+      href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+    - name: Perform actions
+      href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
 - name: Automation
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
