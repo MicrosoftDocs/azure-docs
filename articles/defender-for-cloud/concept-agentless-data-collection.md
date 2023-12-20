@@ -62,7 +62,7 @@ Results for both the agent-based and agentless scanner appear on the Security al
 > [NOTE!]
 > Remediating one of these alerts will not remediate the other alert until the next scan is completed.
 
-From the Security alerts page you can [manage and respond to security alerts](managing-and-responding-alerts.md), or [triage, investigate, and respond to security alerts](tutorial-security-incident.md). Security alerts can also be [exported to Sentinel](export-to-siem.md).
+From the Security alerts page you can [manage and respond to security alerts](managing-and-responding-alerts.md). Security alerts can also be [exported to Sentinel](export-to-siem.md).
 
 ## Next steps
 
