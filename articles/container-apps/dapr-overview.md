@@ -52,8 +52,8 @@ Azure Container Apps offers fully managed versions of the following _stable_ Dap
 
 ## Next Steps
 
-- [Enable Dapr in your container app][dapr-enable]
-- [Learn how Dapr components work in Azure Container Apps][dapr-components]
+- [Enable Dapr in your container app.][dapr-enable]
+- [Learn how Dapr components work in Azure Container Apps.][dapr-components]
 
 <!-- Links Internal -->
 

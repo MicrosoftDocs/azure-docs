@@ -247,12 +247,14 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
 
 ## Next steps
 
+[Learn how to set Dapr component resiliency.][dapr-resiliency]
 
 <!-- Links Internal -->
 
 [dapr-component-connection]: ./dapr-component-connection.md
 [dapr-keda]: ./dapr-keda-scaling.md
 [aca-managed-id]: ./managed-identity.md
+[dapr-resiliency]: ./dapr-component-resiliency.md
 
 <!-- Links External -->
 
