@@ -111,65 +111,46 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image7-sml.png" alt-text="Screenshot of a user selecting the file to upload."  lightbox="media/data-box-gateway-deploy-provision-vmware/image7.png":::
 
-10. Click **Open**. The upload of the VMDK file to the specified datastore starts. It may take several minutes for the file to upload.
-11. After the upload is complete, you see the file in the datastore in the folder you created. Now upload the second VMDK file to the same datastore. Once both the files are uploaded, the two files are merged into a single file. You then see a single file in the directory.
+1. Click **Open**. The upload of the VMDK file to the specified datastore starts. It may take several minutes for the file to upload.
+1. After the upload is complete, you see the file in the datastore in the folder you created. Now upload the second VMDK file to the same datastore. Once both the files are uploaded, the two files are merged into a single file. You then see a single file in the directory.
 
-    ![Two VMDK files are merged into a single file](./media/data-box-gateway-deploy-provision-vmware/image8.png)
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image8-sml.png" alt-text="Screenshot showing two VMDK files merged into a single file within the Datastore Browser window."  lightbox="media/data-box-gateway-deploy-provision-vmware/image8.png":::
 
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+1. Return to the vSphere client window. In the Navigator pane, select **Virtual Machines**. In the right pane, click **Create/Register VM**.
 
-12. Return to the vSphere client window. In the Navigator pane, select **Virtual Machines**. In the right pane, click **Create/Register VM**.
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image9-sml.png" alt-text="Screenshot showing options to create or register a VM." lightbox="media/data-box-gateway-deploy-provision-vmware/image9.png":::
 
-    ![Create or register VM](./media/data-box-gateway-deploy-provision-vmware/image9.png)
+1. A **New Virtual Machine** appears. Under Select creation type, choose **Create a new virtual machine** and click **Next**.
 
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image10-sml.png" alt-text="Screenshot showing options to select a creation type."  lightbox="media/data-box-gateway-deploy-provision-vmware/image10.png":::
 
-13. A **New Virtual Machine** appears. Under Select creation type, choose **Create a new virtual machine** and click **Next**.
-
-    ![Select creation type page](./media/data-box-gateway-deploy-provision-vmware/image10.png)
-
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
-
-14. On **Select a Name and OS Name and Location** page, specify the **Name** of your virtual machine. This name should match the folder name (recommended best practice) you specified earlier in Step 7. Choose **Guest OS family** as Windows and **Guest OS version** as Microsoft Windows Server 2016 (64-bit). Click **Next**.
+1. On **Select a Name and OS Name and Location** page, specify the **Name** of your virtual machine. This name should match the folder name (recommended best practice) you specified earlier in Step 7. Choose **Guest OS family** as Windows and **Guest OS version** as Microsoft Windows Server 2016 (64-bit). Click **Next**.
 
     ![Select a Name and OS Name and Location page](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image11-sml.png" alt-text="Screenshot showing the contents of the Select a Name and guest OS pane."  lightbox="media/data-box-gateway-deploy-provision-vmware/image11.png":::
 
-15. On the **Select storage** page, select a datastore you want to use to provision your VM. Click **Next**.
+1. On the **Select storage** page, select a datastore you want to use to provision your VM. Click **Next**.
 
-    ![Select storage page](./media/data-box-gateway-deploy-provision-vmware/image12.png)
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image12-sml.png" alt-text="Screenshot showing the contents of the Select storage pane." lightbox="media/data-box-gateway-deploy-provision-vmware/image12.png":::
 
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+1. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device.
 
-16. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device.
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image13-sml.png" alt-text="Screenshot showing the contents of the Customize settings pane." lightbox="media/data-box-gateway-deploy-provision-vmware/image13.png":::
 
-    ![Customize settings page](./media/data-box-gateway-deploy-provision-vmware/image13.png)
+    On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk.
 
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
-
-    On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk. 
-
-     ![Customize settings - Add a hard disk](./media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk.png)
-
-     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk-sml.png" alt-text="Screenshot of the Customize Settings region highlighting the Add a new hard disk options."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk.png":::
+     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk-sml.png" alt-text="Screenshot showing the contents of the Customize Settings region highlighting the Add a new hard disk options."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk.png":::
 
     Scroll down until you see the **New hard disk** and expand it to view the settings. Set the **Virtual Device Node** to **IDE controller 0**.
 
-     ![Customize settings - Configure a new hard disk](./media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk.png)
-
      :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-sml.png" alt-text="Screenshot of the Customize Settings region highlighting the Configure a new hard disk options."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk.png":::
 
-17. (Optional) *Perform this step only if you are running VMware ESXi Server 6.7*. On the **Customize settings** page, click **VM options**. Go to **Boot options > Firmware** and change it to **BIOS**. By default, the value is set to EFI. Click **Next**.
-
-    ![Customize settings page if running VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png)
+1. (Optional) *Perform this step only if you are running VMware ESXi Server 6.7*. On the **Customize settings** page, click **VM options**. Go to **Boot options > Firmware** and change it to **BIOS**. By default, the value is set to EFI. Click **Next**.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi-sml.png" alt-text="Screenshot of the Customize Settings page when the user is running VMware ESXi Server 6.7."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png":::
 
 18. On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Verify that CPU is 4, memory is 8192 MB, network interface is 1 and Hard disk 2 has IDE controller 0. Click **Finish**.
-
-    ![Ready to Complete page](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![Ready to Complete page 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image16-sml.png" alt-text="Screenshot of the initial Ready to Complete page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image16.png":::
 
