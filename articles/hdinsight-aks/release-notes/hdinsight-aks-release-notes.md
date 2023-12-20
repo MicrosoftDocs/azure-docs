@@ -53,7 +53,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 |Java|Scala|
 | -------- | -------- |
-|8, JDK 1.8.0_345 |2.12.10 |
+|Open JDK 11.0.21 |2.12.10 |
 
 The preview is available in the following [regions](../overview.md#region-availability-public-preview).
 
