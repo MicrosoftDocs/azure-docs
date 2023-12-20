@@ -9,7 +9,7 @@ author: jboback
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: overview
-ms.date: 07/16/2020
+ms.date: 12/19/2023
 ms.custom: ignite-fall-2021
 ---
 
