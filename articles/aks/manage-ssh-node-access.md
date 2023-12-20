@@ -26,7 +26,7 @@ AKS supports the following configuration options to manage SSH keys on cluster n
    If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 * The Create and Update SSH feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
-* The Disable SSH feature does not support node pools running the Windows Server operating system.
+* The Disable SSH feature doesn't support node pools running the Windows Server operating system.
 
 ## Install the `aks-preview` Azure CLI extension
 
@@ -70,9 +70,9 @@ Use the [az aks create][az-aks-create] command to deploy an AKS cluster with an 
 
 |SSH parameter |Description |Default value |
 |-----|-----|-----|
-|--generate-ssh-key |If you don't have your own SSH key, specify `--generate-ssh-key`. The Azure CLI first looks for the key in the `~/.ssh/` directory. If the key exists, it's used. If the key doesn't exist, the Azure CLI automatically generates a set of SSH keys and saves them in the specified or default directory.||
+|--generate-ssh-key |If you don't have your own SSH key, specify `--generate-ssh-key`. The Azure CLI first looks for the key in the `~/.ssh/` directory. The key is used if it exists. If the key doesn't exist, the Azure CLI automatically generates a set of SSH keys and saves them in the specified or default directory.||
 |--ssh-key-vaule |Public key path or key contents to install on node VMs for SSH access. For example, `ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm`.|`~.ssh\id_rsa.pub` |
-|--no-ssh-key | If you don't require an SSH key, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn’t support an empty SSH key file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. ||
+|--no-ssh-key | If you don't require an SSH key, specify this argument. However, AKS automatically generates a set of SSH keys because the Azure Virtual Machine resource dependency doesn't support an empty SSH key file. As a result, the keys aren't returned and can't be used to SSH into the node VMs. ||
 
 >[!NOTE]
 >If no parameters are specified, the Azure CLI defaults to referencing the SSH keys stored in the `~/.ssh/` directory. If the keys aren't found in the directory, the command returns a `key not found` error message.
@@ -113,13 +113,13 @@ The following are examples of this command:
     ```
 
 > [!IMPORTANT]
-> After you update the SSH key, AKS doesn't automatically update your node pool. At any time you can choose to perform a [nodepool update operation][node-image-upgrade]. Only after a node image update is complete does the update SSH key operation take effect.
+> After you update the SSH key, AKS doesn't automatically update your node pool. At any time, you can choose to perform a [nodepool update operation][node-image-upgrade]. Only after a node image update is complete does the update SSH key operation take effect.
 
 ## Disable SSH overview
 
 To improve security and support your corporate security requirements or strategy, AKS supports disabling SSH (preview) both on the cluster and at the node pool level. Disable SSH introduces a better approach compared to the only supported solution, which requires configuring [network security group rules][network-security-group-rules-overview] on the AKS subnet/node network interface card (NIC). Network security group rules restrict specific user outbound IP addresses from connecting to AKS nodes using SSH.
 
-When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing node pool, AKS doesn't automatically update your node pool. At any time you can choose to perform a nodepool update operation. Only after a node image update is complete does the disable/enable SSH key operation take effect.
+When you disable SSH at cluster creation time, it takes effect after the cluster is created. However, when you disable SSH on an existing node pool, AKS doesn't automatically update your node pool. At any time, you can choose to perform a nodepool update operation. Only after a node image update is complete does the disable/enable SSH key operation take effect.
 
 |SSH parameter |Description |
 |-----|-----|
@@ -228,7 +228,7 @@ After re-enabling SSH, the nodes aren't be reimaged automatically. The Azure CLI
 },
 ```
 
-At any time you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
+At any time, you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
 
 >[!IMPORTANT]
 >During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
