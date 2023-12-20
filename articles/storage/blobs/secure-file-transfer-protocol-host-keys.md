@@ -30,13 +30,53 @@ More details can be found here: [SSH Host Key Management Demystified](https://ww
 Yes. The public keys stored in local users are used by the client to authenticate. Host keys belong to the server.
 
 ### What should clients do with the host keys?
-We recommend adding the new host key to the client's list of known trusted hosts. Note that the steps for this action will differ based on the SFTP client used, but it will most commonly require updating a `known_hosts` file. This file is often stored under the following local path: `~/.ssh/known_hosts`. The file will have a line per known host and each line may follow a format similar to this: `<server hostname> <algorithm> <host key>`.
+We recommend adding the new host key to the client's list of known trusted hosts. Note that the steps for this action will differ based on the SFTP client used. These are the most common methods:
+- `known_hosts` file
+- Windows registry key for Windows specific clients
+- Variable for library based clients
+
+#### `known_hosts` example
+This file is often stored under the following local path: `~/.ssh/known_hosts`. The file will have a line per known host and each line may follow a format similar to this: `<server hostname> <algorithm> <host key>`.
 
 There is likely already an entry for your storage account from the first time you connected. A new entry can be added below it with the newer key for the same region and algorithm. Once added, it would look similar to this example for the `Australia Central` and `ecdsa-sha2-nistp256`:
 `<account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBElXRuNJbnDPWZF84vNtTjt4I/842dWBPvPi2fkgOV//2e/Y9gh0koVVAYp6MotNodg4L9MS7IfV9nnFSKaJW3o=
 <account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLs9yqrEGdGvgdSWkAK5YkyazMWi30X+E6J/CiGpJwbuczVJwT/cwh+mxnE7DMTwhEo57jL7/wi/WT8CPfPpD4I=`
 
 The first entry is for the key currently used by the service, which will expire sooner. The second entry is for the next key that will be used after rotation. Having both entries will allow for a smooth transition when the rotation occurs.
+
+#### Registry key example
+For a Windows based client such as [WinSCP](https://winscp.net/eng/index.php), trusted hosts are stored in a registry key: `HKEY_CURRENT_USER\Software\Martin Prikryl\WinSCP 2\SshHostKeys`.
+
+No specific action is required at this time. When a new host key is presented, WinSCP will prompt you to accept the key. You can compare the SHA256 fingerprint to the relevant key in the table below and accept if it matches. WinSCP will then add the new key to the cache for the future.
+
+#### Library client example
+For a library based client such as [SSH.NET](https://github.com/sshnet/SSH.NET), host key verification looks something like this:
+```cs
+string expectedFingerPrint = "m2HCt3ESvMLlVBMwuo9jsQd9hJzPc/fe0WOJcoqO3RA=";
+
+using (var client = new SshClient("<account>.blob.core.windows.net", "<account>.<user>", "<pwd>"))
+{
+    client.HostKeyReceived += (sender, e) =>
+        {
+            e.CanTrust = expectedFingerPrint.Equals(e.FingerPrintSHA256);
+        };
+    client.Connect();
+}
+```
+
+Using the same `Australia Central` and `ecdsa-sha2-nistp256` example, the following change could be made:
+```cs
+List<string> expectedFingerPrints = new List<string>() { "m2HCt3ESvMLlVBMwuo9jsQd9hJzPc/fe0WOJcoqO3RA=", "5Vot7f2reXMzE6IR9GKiDCOz/bNf3lA0qYnBQzRgObo=" };
+
+using (var client = new SshClient("<account>.blob.core.windows.net", "<account>.<user>", "<pwd>"))
+{
+    client.HostKeyReceived += (sender, e) =>
+        {
+            e.CanTrust = expectedFingerPrint.Contains(e.FingerPrintSHA256);
+        };
+    client.Connect();
+}
+```
 
 ### Can clients just accept the new host key when the old one expires?
 Yes, but this won't be a seamless transition. When the new key is first presented, the client may return this type of a message and disconnect:
