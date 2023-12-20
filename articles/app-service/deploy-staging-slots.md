@@ -1,15 +1,15 @@
 ---
 title: Set up staging environments
 description: Learn how to deploy apps to a nonproduction slot and autoswap into production. Increase the reliability and eliminate app downtime from deployments.
-
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 07/30/2023
-ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli
 author: cephalin
 ms.author: cephalin
-
+ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli, ai-video-demo
+ai-usage: ai-assisted
 ---
+
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
@@ -24,6 +24,11 @@ Deploying your application to a nonproduction slot has the following benefits:
 Each App Service plan tier supports a different number of deployment slots. There's no extra charge for using deployment slots. To find out the number of slots your app's tier supports, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 To scale your app to a different tier, make sure that the target tier supports the number of slots your app already uses. For example, if your app has more than five slots, you can't scale it down to the **Standard** tier, because the **Standard** tier supports only five deployment slots. 
+
+This video shows you how to set up staging environments in Azure App Service.
+> [!VIDEO 99aaff5e-fd3a-4568-b03a-a65745807d0f]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
