@@ -3,7 +3,7 @@ title: Operating system upgrade for the SAP HANA on Azure (Large Instances)| Mic
 description: Learn to do an operating system upgrade for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: lauradolan
+author: ju-shim
 manager: juergent
 editor:
 ms.service: sap-on-azure
@@ -14,7 +14,6 @@ ms.workload: infrastructure
 ms.date: 06/24/2021
 ms.author: ladolan
 ms.custom: H1Hack27Feb2017
-
 ---
 # Operating System Upgrade
 This article describes the details of operating system (OS) upgrades on HANA Large Instances (HLI), otherwise known as BareMetal Infrastructure.

@@ -3,7 +3,7 @@ title: HANA backup and restore on SAP HANA on Azure (Large Instances) | Microsof
 description: Learn how to back up and restore SAP HANA on HANA Large Instances.
 services: virtual-machines-linux
 documentationcenter:
-author: lauradolan
+author: ju-shim
 manager: gwallace
 editor:
 ms.service: sap-on-azure
@@ -14,7 +14,6 @@ ms.workload: infrastructure
 ms.date: 7/02/2021
 ms.author: ladolan
 ms.custom: H1Hack27Feb2017
-
 ---
 # Backup and restore of SAP HANA on HANA Large Instances
 
@@ -129,6 +128,3 @@ Follow the documentation of azacsnap to:
 Read the article [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md)
 
   
-
-
-
