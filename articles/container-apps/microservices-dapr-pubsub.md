@@ -7,7 +7,7 @@ ms.author: hannahhunter
 ms.service: container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 05/15/2023
+ms.date: 12/20/2023
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---

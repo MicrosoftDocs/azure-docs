@@ -6,7 +6,7 @@ ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: container-apps
 ms.topic: how-to 
-ms.date: 07/06/2023
+ms.date: 12/20/2023
 ms.custom: template-tutorial, service-connector, build-2023, engagement
 ---
 
