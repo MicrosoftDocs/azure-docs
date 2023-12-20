@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Build and deploy your app from a repository to Azure Container Apps"
-description: Build your container app from a local or GitHub source repository and deploy in Azure Container Apps using az containerapp up.
+title: "Quickstart: Build and deploy your app from your local filesystem to Azure Container Apps"
+description: Build your container app from local source and deploy in Azure Container Apps using az containerapp up.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -8,20 +8,18 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 03/29/2023
+ms.date: 12/19/2023
 ms.author: cshoe
 zone_pivot_groups: container-apps-image-build-from-repo
 ---
 
 
-# Quickstart: Build and deploy your container app from a repository in Azure Container Apps
+# Quickstart: Build from local source code and deploy you application in Azure Container Apps
 
-This article demonstrates how to build and deploy a microservice to Azure Container Apps from a source repository using the programming language of your choice.
-
-In this quickstart, you create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
+This article demonstrates how to build and deploy a microservice to Azure Container Apps from local source code using the programming language of your choice. In this quickstart, you create a backend web API service that returns a static collection of music albums.  
 
 > [!NOTE]
-> You can also build and deploy this sample application using the `az containerapp up` command. For more information, see [Tutorial: Build and deploy your app to Azure Container Apps](tutorial-code-to-cloud.md).
+> This sample application is available as both a containerized (source contains a Dockerfile) as well as uncontainerized version (source contains no Dockerfile). We suggest you choose the variant that aligns most closely with your own application source. Choosing the uncontainerized path will be easier for you if you're new to containers.
 
 The following screenshot shows the output from the album API service you deploy.
 
@@ -31,28 +29,11 @@ The following screenshot shows the output from the album API service you deploy.
 
 To complete this project, you need the following items:
 
-
-::: zone pivot="local-build"
-
 | Requirement  | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | Get one for [free](https://github.com/join). |
-| git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
-::: zone-end
-
-::: zone pivot="github-build"
-
-| Requirement  | Instructions |
-|--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| GitHub Account | Get one for [free](https://github.com/join). |
-| git | [Install git](https://git-scm.com/downloads) |
-| Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-
-::: zone-end
 
 ## Setup
 
@@ -131,65 +112,15 @@ az provider register --namespace Microsoft.OperationalInsights
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
-::: zone pivot="local-build"
-
 # [Bash](#tab/bash)
 
 Define the following variables in your bash shell.
 
 ```azurecli
-RESOURCE_GROUP="album-containerapps"
-LOCATION="canadacentral"
-ENVIRONMENT="env-album-containerapps"
-API_NAME="album-api"
-FRONTEND_NAME="album-ui"
-GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
-```
-
-Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
-
-Next, define a container registry name unique to you.
-
-```azurecli
-ACR_NAME="acaalbums"$GITHUB_USERNAME
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-Define the following variables in your PowerShell console.
-
-```powershell
-$RESOURCE_GROUP="album-containerapps"
-$LOCATION="canadacentral"
-$ENVIRONMENT="env-album-containerapps"
-$API_NAME="album-api"
-$FRONTEND_NAME="album-ui"
-$GITHUB_USERNAME="<YOUR_GITHUB_USERNAME>"
-```
-
-Before you run this command, make sure to replace `<YOUR_GITHUB_USERNAME>` with your GitHub username.
-
-Next, define a container registry name unique to you.
-
-```powershell
-$ACR_NAME="acaalbums"+$GITHUB_USERNAME
-```
-
----
-
-::: zone-end
-
-::: zone pivot="github-build"
-
-# [Bash](#tab/bash)
-
-Define the following variables in your bash shell.
-
-```azurecli
-RESOURCE_GROUP="album-containerapps"
-LOCATION="canadacentral"
-ENVIRONMENT="env-album-containerapps"
-API_NAME="album-api"
+export RESOURCE_GROUP="album-containerapps"
+export LOCATION="canadacentral"
+export ENVIRONMENT="env-album-containerapps"
+export API_NAME="album-api"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -205,115 +136,125 @@ $API_NAME="album-api"
 
 ---
 
-::: zone-end
+## Aquire the sample code to be build and deployed
 
-## Prepare the GitHub repository
+Download and extract the API sample application in the language of your choice.
 
-In a browser window, go to the GitHub repository for your preferred language and fork the repository.
+::: zone pivot="with-Dockerfile"
 
 # [C#](#tab/csharp)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-csharp) to fork the repo to your account.
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-csharp repo](https://github.com/azure-samples/containerapps-albumapi-csharp).
 
-::: zone pivot="local-build"
+After you extract the downloaded file navigate into the `containerapps-albumapi-csharp-main/src` directory and proceed to the next step.
 
-Now you can clone your fork of the sample repository.
-
-Use the following git command to clone your forked repo into the *code-to-cloud* folder:
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-csharp.git code-to-cloud
-```
-
-::: zone-end
-
-# [Go](#tab/go)
-
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-go) to fork the repo to your account.
-
-::: zone pivot="local-build"
-
-Now you can clone your fork of the sample repository.
-
-Use the following git command to clone your forked repo into the *code-to-cloud* folder:
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-go.git code-to-cloud
-```
-
-::: zone-end
 
 # [Java](#tab/java)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-java) to fork the repo to your account.
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-java repo](https://github.com/azure-samples/containerapps-albumapi-java).
 
-::: zone pivot="local-build"
-
-Now you can clone your fork of the sample repository.
-
-Use the following git command to clone your forked repo into the *code-to-cloud* folder:
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-java.git code-to-cloud
-```
-
-:::zone-end
-
-> [!NOTE]
-> As of November 25th 2023 this functionality is being impacted by a technical issue that's currently being investigated and resolved. Once resolved this note will be removed. Please see our [FAQ](faq) under Docker-less deployments.
+After you extract the downloaded file navigate into the `containerapps-albumapi-java-main/src` directory and proceed to the next step.
 
 > [!NOTE] 
 > The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
 
+
 # [JavaScript](#tab/javascript)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-javascript) to fork the repo to your account.
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-javascript repo](https://github.com/azure-samples/containerapps-albumapi-javascript).
 
-::: zone pivot="local-build"
+After you extract the downloaded file navigate into the `containerapps-albumapi-javascript-main/src` directory and proceed to the next step.
 
-Now you can clone your fork of the sample repository.
-
-Use the following git command to clone your forked repo into the *code-to-cloud* folder:
-
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-javascript.git code-to-cloud
-```
-
-:::zone-end
 
 # [Python](#tab/python)
 
-Select the **Fork** button at the top of the [album API repo](https://github.com/azure-samples/containerapps-albumapi-python) to fork the repo to your account.
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-python repo](https://github.com/azure-samples/containerapps-albumapi-javascript).
 
-::: zone pivot="local-build"
+After you extract the downloaded file navigate into the `containerapps-albumapi-python-main/src` directory and proceed to the next step.
 
-Now you can clone your fork of the sample repository.
 
-Use the following git command to clone your forked repo into the *code-to-cloud* folder:
+# [Go](#tab/go)
 
-```git
-git clone https://github.com/$GITHUB_USERNAME/containerapps-albumapi-python.git code-to-cloud
-```
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-go/zip/refs/heads/main) from the [azure-samples/containerapps-albumapi-csharp repo](https://github.com/azure-samples/containerapps-albumapi-go).
+
+After you extract the downloaded file navigate into the `containerapps-albumapi-go-main/src` directory and proceed to the next step.
+
+
+::: zone-end
+::: zone pivot="without-Dockerfile"
+
+
+# [C#](#tab/csharp)
+
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-csharp/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-csharp/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-csharp/tree/buildpack).
+
+After you extract the downloaded file navigate into the `containerapps-albumapi-csharp-buildpack/src` directory and proceed to the next step.
+
+
+# [Java](#tab/java)
+
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-java/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-java/tree/buildpack).
+
+After you extract the downloaded file navigate into the `containerapps-albumapi-java-buildpack/src` directory and proceed to the next step.
+
+> [!NOTE] 
+> The Java sample only supports a Maven build, which results in an executable JAR file. The build uses the default settings, as passing in environment variables is not supported.
+
+
+# [JavaScript](#tab/javascript)
+
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-javascript/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-javascript/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-javascript/tree/buildpack).
+
+After you extract the downloaded file navigate into the `containerapps-albumapi-javascript-buildpack/src` directory and proceed to the next step.
+
+
+# [Python](#tab/python)
+
+[Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-python/zip/refs/heads/buildpack) from the [azure-samples/containerapps-albumapi-python/tree/buildpack repo (buildpack branch)](https://github.com/azure-samples/containerapps-albumapi-javascript/tree/buildpack).
+
+After you extract the downloaded file navigate into the `containerapps-albumapi-python-buildpack/src` directory and proceed to the next step.
 
 ::: zone-end
 
 ---
 
-::: zone pivot="local-build"
+
+
 
 ## Build and deploy the container app
 
-Build and deploy your first container app from your local git repository with the `containerapp up` command. This command will:
+Build and deploy your first container app with the `containerapp up` command. This command will:
 
 - Create the resource group
+::: zone pivot="with-Dockerfile"
 - Create an Azure Container Registry
 - Build the container image and push it to the registry
+::: zone-end
+::: zone pivot="without-Dockerfile"
+- Automatically create a default registry as part of your environment
+- Auto-detect the language and build the image automatically using the appropriate Buildpack
+- Push the image into Azure Container App's default registry
+::: zone-end
 - Create the Container Apps environment with a Log Analytics workspace
-- Create and deploy the container app using a public container image
+- Create and deploy the container app using the build container image
 
-The `up` command uses the Docker file in the root of the repository to build the container image.  The target port is defined by the EXPOSE instruction in the Docker file.  A Docker file isn't required to build a container app. 
+::: zone pivot="with-Dockerfile"
+
+The `up` command uses the Dockerfile in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Dockerfile. That's the port that will be used to send ingress traffic to the container.
+
+::: zone-end
+::: zone pivot="without-Dockerfile"
+
+If the `up` command doesn't find a Dockerfile it will automatically try and use Buildpacks in order to turn your application source into a runable container. In this case we need to tell the `up` command which port will be used.
+
+::: zone-end
+
+
+Please note the `.` (dot) in the command below. It assumes you are in the `src` directory of the extracted sample API application.
 
 # [Bash](#tab/bash)
+
+::: zone pivot="with-Dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -321,41 +262,11 @@ az containerapp up \
   --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
-  --source code-to-cloud/src
+  --source .
 ```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```powershell
-az containerapp up `
-    --name $API_NAME `
-    --resource-group $RESOURCE_GROUP `
-    --location $LOCATION `
-    --environment $ENVIRONMENT `
-    --source code-to-cloud/src
-```
-
----
 
 ::: zone-end
-::: zone pivot="github-build"
-
-## Build and deploy the container app
-
-Build and deploy your first container app from your forked GitHub repository with the `containerapp up` command. This command will:
-
-- Create the resource group
-- Create an Azure Container Registry
-- Build the container image and push it to the registry
-- Create the Container Apps environment with a Log Analytics workspace
-- Create and deploy the container app using a public container image
-- Create a GitHub Action workflow to build and deploy the container app
-
-The `up` command uses the Docker file in the root of the repository to build the container image. The target port is defined by the EXPOSE instruction in the Docker file.  A Docker file isn't required to build a container app. 
-
-Replace the `<YOUR_GITHUB_REPOSITORY_NAME>` with your GitHub repository name in the form of `https://github.com/<owner>/<repository-name>` or `<owner>/<repository-name>`.
-
-# [Bash](#tab/bash)
+::: zone pivot="without-Dockerfile"
 
 ```azurecli
 az containerapp up \
@@ -363,11 +274,17 @@ az containerapp up \
   --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --environment $ENVIRONMENT \
-  --context-path ./src \
-  --repo <YOUR_GITHUB_REPOSITORY_NAME>
+  --ingress external \
+  --target-port 8080 \
+  --source .
 ```
 
+::: zone-end
+
+
 # [Azure PowerShell](#tab/azure-powershell)
+
+::: zone pivot="with-Dockerfile"
 
 ```powershell
 az containerapp up `
@@ -375,19 +292,28 @@ az containerapp up `
     --resource-group $RESOURCE_GROUP `
     --location $LOCATION `
     --environment $ENVIRONMENT `
-    --context-path ./src `
-    --repo <YOUR_GITHUB_REPOSITORY_NAME>
+    --source .
 ```
 
----
+::: zone-end
+::: zone pivot="without-Dockerfile"
 
-Using the URL and the user code displayed in the terminal, go to the GitHub device activation page in a browser and enter the user code to the page.  Follow the prompts to authorize the Azure CLI to access your GitHub repository.  
+```powershell
+az containerapp up `
+    --name $API_NAME `
+    --resource-group $RESOURCE_GROUP `
+    --location $LOCATION `
+    --environment $ENVIRONMENT `
+    --ingress external `
+    --target-port 8080 `
+    --source .
+```
 
 ::: zone-end
 
-The `up` command creates a GitHub Action workflow in your repository *.github/workflows* folder. The workflow is triggered to build and deploy your container app when you push changes to the repository.
 
 ---
+
 
 ## Verify deployment
 
@@ -419,7 +345,9 @@ az group delete --name $RESOURCE_GROUP
 > [!TIP]
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
-## Next steps
+## Next step
+
+After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Communication between microservices](communicate-between-microservices.md)

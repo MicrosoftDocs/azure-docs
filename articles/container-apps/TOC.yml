@@ -20,8 +20,10 @@
           href: get-started.md
       - name: Deploy from code
         items:
-        - name: Command line
+        - name: Local filesystem
           href: quickstart-code-to-cloud.md
+        - name: Code repository
+          href: quickstart-repo-to-cloud.md
         - name: Visual Studio
           href: deploy-visual-studio.md
         - name: Visual Studio Code

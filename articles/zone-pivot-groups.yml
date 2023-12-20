@@ -2564,6 +2564,15 @@ groups:
     title: GitHub build
   - id: local-build
     title: Local build
+# Owner: cshoe
+- id: container-apps-code-to-cloud-segmemts
+  title: Code 
+  prompt: Choose if your source code has a Dockerfile
+  pivots:
+  - id: with-Dockerfile
+    title: Dockerfile
+  - id: without-Dockerfile
+    title: No Dockerfile
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
