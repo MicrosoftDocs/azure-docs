@@ -20,6 +20,13 @@ Using the Azure portal, you can enable all of the features at the same time. You
 > [!IMPORTANT]
 > This article describes onboarding using default configuration settings including managed identity authentication. See [Configure agent data collection for Container insights](container-insights-data-collection-configmap.md) and [Customize scraping of Prometheus metrics in Azure Monitor managed service for Prometheus](prometheus-metrics-scrape-configuration.md) to customize your configuration to ensure that you aren't collecting more data than you require. See [Authentication for Container Insights](container-insights-authentication.md) for guidance on migrating from legacy authentication models.
 
+## Supported clusters
+
+This article provides onboarding guidance for the following types of clusters. Any differences in the process for each type are noted in the relevant sections.
+
+- [Azure Kubernetes clusters](../../aks/intro-kubernetes.md)
+- [Arc-enabled Kubernetes clusters](../../azure-arc/kubernetes/overview.md)
+- [Azure Kubernetes Service (AKS) hybrid clusters (preview)](/azure/aks/hybrid/aks-hybrid-options-overview)
 
 ## Prerequisites
 
@@ -34,9 +41,10 @@ Using the Azure portal, you can enable all of the features at the same time. You
     - Microsoft.Insights
     - Microsoft.AlertsManagement
 - Arc-Enabled Kubernetes clusters prerequisites
+  - Pre-requisites for [Azure Arc-enabled Kubernetes cluster extensions](../../azure-arc/kubernetes/extensions.md#prerequisites).
   - Verify the [firewall requirements](kubernetes-monitoring-firewall.md) in addition to the [Azure Arc-enabled Kubernetes network requirements](../../azure-arc/kubernetes/network-requirements.md).
   - If you previously installed monitoring for AKS, ensure that you have [disabled monitoring](./container-insights-optout.md) before proceeding to avoid issues during the extension install.
-  - If you previously installed monitoring on this cluster using script without cluster extensions, follow the instructions at [Disable Container insights on your hybrid Kubernetes cluster](container-insights-optout-hybrid.md) to delete this Helm chart.
+  - If you previously installed monitoring on a cluster using a script without cluster extensions, follow the instructions at [Disable Container insights on your hybrid Kubernetes cluster](container-insights-optout-hybrid.md) to delete this Helm chart.
 
 
 
@@ -339,8 +347,14 @@ Use one of the following methods to enable Container insights on your cluster. O
 
 Use one of the following commands to enable monitoring of your AKS and Arc-enabled clusters. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
 
-> [!NOTE]
-> Managed identity authentication will be default in CLI version 2.49.0 or higher. For CLI version 2.54.0 or higher the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) via the ConfigMap.
+#### Prerequisites
+
+- Azure CLI version 2.43.0 or higher
+- Managed identity authentication is default in CLI version 2.49.0 or higher.
+- Azure k8s-extension version 1.3.7 or higher
+- Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
+- Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
+- For CLI version 2.54.0 or higher, the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) using [ConfigMap](container-insights-data-collection-configmap.md).
 
 #### AKS cluster
 Use one of the following commands to enable monitoring of your AKS or Arc-enabled Kubernetes cluster. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
@@ -362,17 +376,15 @@ az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-
 
 #### Arc-enabled cluster
 
->[!NOTE]
-> Managed identity authentication is the default in k8s-extension version 1.43.0 or higher.
-> 
-> Managed identity authentication is not supported for Arc-enabled Kubernetes clusters with **ARO**.
-
 ```azurecli
 ### Use default Log Analytics workspace
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 
 ### Use existing Log Analytics workspace
-az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<workspace-resource-id>
+
+### Use managed identity authentication (default as k8s-extension version 1.43.0)
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
 
 ### Use advanced configuration settings
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  amalogs.resources.daemonset.limits.cpu=150m amalogs.resources.daemonset.limits.memory=600Mi amalogs.resources.deployment.limits.cpu=1 amalogs.resources.deployment.limits.memory=750Mi
@@ -382,13 +394,56 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ```
 
+See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
+
+If the cluster is configured with a forward proxy, then proxy settings are automatically applied to the extension. In the case of a cluster with AMPLS + proxy, proxy config should be ignored. Onboard the extension with the configuration setting `amalogs.ignoreExtensionProxySettings=true`.
+
+```azurecli
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.ignoreExtensionProxySettings=true
+```
+
+
+**Example**
+
+```azurecli
+az aks enable-addons -a monitoring -n my-cluster -g my-resource-group --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+```
+
+**Delete extension instance**
+
+The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data in the Log Analytics resource is left intact.
+
+```azurecli
+az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
+```
+
+#### AKS hybrid cluster
+
+
+```azurecli
+### Use default Log Analytics workspace
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true
+
+### Use existing Log Analytics workspace
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.useAADAuth=true --configuration-settings logAnalyticsWorkspaceResourceID=<workspace-resource-id>
+
+```
+
+See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
+
 **Example**
 
 ```azurecli
 az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 ```
 
+**Delete extension instance**
 
+The following command only deletes the extension instance, but doesn't delete the Log Analytics workspace. The data in the Log Analytics resource is left intact.
+
+```azurecli
+az k8s-extension delete --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
+```
 
 ### [Azure Resource Manager](#tab/arm)
 
@@ -424,7 +479,7 @@ Both ARM and Bicep templates are provided in the following sections.
     | AKS: `aksResourceLocation`<br>Arc: `clusterRegion` | Location of the cluster. |
     | AKS: `workspaceResourceId`<br>Arc: `workspaceResourceId` | Resource ID of the Log Analytics workspace. |
     | Arc: `workspaceRegion` | Region of the Log Analytics workspace. |
-    | Arc: `workspaceDomain` | Domain of the Log Analytics workspace.<br>`opinsights.azure.com` for Azure public cloud<br>`opinsights.azure.us for AzureUSGovernment.` |
+    | Arc: `workspaceDomain` | Domain of the Log Analytics workspace.<br>`opinsights.azure.com` for Azure public cloud<br>`opinsights.azure.us` for AzureUSGovernment. |
     | AKS: `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be `MSCI-<clusterName>-<clusterRegion>` and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
 
 

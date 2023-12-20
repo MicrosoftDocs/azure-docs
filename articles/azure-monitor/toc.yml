@@ -453,13 +453,15 @@ items:
       href: containers/monitor-kubernetes.md
     - name: Best practices
       displayName: containers, kubernetes
-    - name: Container insights
-      href: containers/container-insights-overview.md
       href: best-practices-containers.md
+    - name: Container insights overview
+      href: containers/container-insights-overview.md
     - name: Enable monitoring
       items:
       - name: Onboard cluster
         href: containers/kubernetes-monitoring-enable.md
+      - name: Onboard hybrid cluster
+        href: containers/container-insights-hybrid-setup.md      
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
@@ -526,13 +528,15 @@ items:
         - name: Send to multiple metric workspaces
           displayName: Prometheus
           href: containers/prometheus-metrics-multiple-workspaces.md
-      - name: Container insights (Logs)
+      - name: Container insights (logs)
         items:
-        - name: Configure data collection (ConfigMap)
-          displayName: Container insights
-          href: containers/container-insights-data-collection-configmap.md
-        - name: Configure data collection (DCR)
-          href: containers/container-insights-data-collection-dcr.md
+        - name: Configure data collection
+          items:
+          - name: ConfigMap
+            displayName: Container insights
+            href: containers/container-insights-data-collection-configmap.md
+          - name: Data collection rule
+            href: containers/container-insights-data-collection-dcr.md
         - name: Log schema
           href: containers/container-insights-logs-schema.md
         - name: Data Transformations
@@ -579,23 +583,14 @@ items:
       - name: Log alert rules
         displayName: Container insights
         href: containers/container-insights-log-alerts.md
+    - name: Manage cost and usage
+      href: containers/container-insights-cost.md
     - name: Troubleshooting
       items:
       - name: Prometheus
         href: containers/prometheus-metrics-troubleshoot.md
       - name: Container insights
         href: containers/container-insights-troubleshoot.md
-    - name: Container insights
-      items:
-      - name: Enable
-        displayName: container insights
-        items:
-        - name: Hybrid cluster
-          href: containers/container-insights-hybrid-setup.md          
-        - name: Enable with Azure Policy
-          href: containers/container-insights-enable-aks-policy.md
-      - name: Manage cost and usage
-        href: containers/container-insights-cost.md
   - name: Monitor networks
     items:
     - name: Network Watcher
