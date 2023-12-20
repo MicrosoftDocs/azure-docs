@@ -77,7 +77,7 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
     :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration to Azure Monitor agent to monitored machine.":::
 
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a rule from the **Data collection rule** dropdown. 
-[Screenshot of VM Insights Agent Configuration Page]![enable-monitored-configure-azure-monitor-agent](/media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png)
+[Screenshot of VM Insights Agent Configuration Page.]![enable-monitored-configure-azure-monitor-agent](media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png)
 
 
 1. The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
