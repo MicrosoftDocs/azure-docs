@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/18/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017, contperf-fy21q4
 ---
 # Monitoring and troubleshooting from HANA side

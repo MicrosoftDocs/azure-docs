@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/11/2022
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017, references_regions
 ---
 # Available SKUs for HANA Large Instances
