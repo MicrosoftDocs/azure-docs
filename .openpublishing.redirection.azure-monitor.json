@@ -4905,6 +4905,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-enable-provisioned-clusters.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable.md&tabs=cli#aks-hybrid-cluster",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/log-query/app-expression.md",
             "redirect_url": "/azure/azure-monitor/logs/app-expression",
             "redirect_document_id": false
