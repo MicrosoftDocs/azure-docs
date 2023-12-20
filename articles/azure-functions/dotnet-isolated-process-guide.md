@@ -612,8 +612,8 @@ You can also deploy your function app in a Linux container. For more information
 
 You can create your function app and other required resources in Azure using one of these methods: 
 
-+ [Visual Studio](functions-develop-vs.md#publish-to-azure): Visual Studio can create resources for you during the publishing process.
-+ [Visual Studio Code](functions-develop-vs-code.md#publish-a-project-to-a-new-function-app-in-azure-by-using-advanced-options): Visual Studio Code can connect to your subscription, create the resources needed by your app, and then publish your code.
++ [Visual Studio](functions-develop-vs.md#publish-to-azure): Visual Studio can create resources for you during the code publishing process.
++ [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure): Visual Studio Code can connect to your subscription, create the resources needed by your app, and then publish your code.
 + [Azure CLI](create-first-function-cli-csharp.md#create-supporting-azure-resources-for-your-function): You can use the Azure CLI to create the required resources in Azure. 
 + [Azure PowerShell](./create-resources-azure-powershell.md#create-a-serverless-function-app-for-c): You can use Azure PowerShell to create the required resources in Azure. 
 + [Deployment templates](./functions-infrastructure-as-code.md): You can use ARM templates and Bicep files to automate the deployment of the required resources to Azure. Make sure your template includes any [required settings](#deployment-requirements).
