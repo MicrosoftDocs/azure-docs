@@ -6,7 +6,7 @@ ms.topic: tutorial
 ---
 # Tutorial: Disallow resource types in your cloud environment
 
-One popular goal of cloud governance is restricting what resource types are allowed or disallowed in the environment. Businesses have many motivations behind resource type restrictions. For example, resource types may be costly or may go against business standards and strategies. Rather than creating and assigning several individual policies to allow or disallow individual resource types, Azure Policy offers two built-in policies to achieve this goal:
+One popular goal of cloud governance is restricting what resource types are allowed in the environment. Businesses have many motivations behind resource type restrictions. For example, resource types may be costly or may go against business standards and strategies. Rather than using many policies for individual resource types, Azure Policy offers two built-in policies to achieve this goal:
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -34,6 +34,10 @@ The first step in disabling resource types is to assign the **Not allowed resour
    and choosing a management group, subscription, or resource group of choice. Ensure that the selected scope has at least one subscope. Learn more about [scopes](../concepts/scope.md). Then click **Select** at the bottom of the **Scope** page.
 
    This example uses the **Contoso** subscription.
+   
+   > [!NOTE]
+   > If you assign this policy definition to your root management group scope, the portal can detect disallowed resource types and disable them in the **All Services** view so that portal users are aware of the restriction before trying to deploy a disallowed resource.
+   >
 
 1. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than
    the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
@@ -66,7 +70,9 @@ The first step in disabling resource types is to assign the **Not allowed resour
 
 ## View disabled resource types in Azure portal
 
-Now that you've assigned a built-in policy definition, go to [All Services](https:/portal.azure.com/#allservices/category/All). Azure portal is aware of the existence of allowed and not allowed resource type policy assignments and disables resources in the **All Services** page accordingly.
+This step only applies when the policy has been assigned at the root management group scope.
+
+Now that you've assigned a built-in policy definition, go to [All Services](https:/portal.azure.com/#allservices/category/All). Azure portal is aware of the disallowed resource types from this policy assignment and disables them in the **All Services** page accordingly.
 
 > [!NOTE]
 > If you assign this policy definition to your root management group, users will see the following notification when they log in for the first time or if the policy changes after they have logged in:
@@ -118,8 +124,14 @@ the policy assignments or definitions created in this tutorial:
 In this tutorial, you successfully accomplished the following tasks:
 
 > [!div class="checklist"]
-> - Assigned a built-in policy that denies creation of disallowed resource types
-> - Created an exemption for a subscope
+> - Assigned the **Not allowed resource types** built-in policy to deny creation of disallowed resource types
+> - Created an exemption for this policy assignment at a subscope
+
+With this built-in policy you specified resource types that are _not_ allowed.  The alternative, more restrictive approach is to specify resource types that _are_ allowed using the **Allowed resource types** built-in policy.
+
+> [!NOTE]
+> Azure portal's **All Services** will only disable resources not specified in the allowed resource type policy if the `mode` is set to `All` and the policy is assigned at the root management group. This is because it checks all resource types regardless of `tags` and `locations`. If you want the portal to have this behavior, duplicate the [Allowed resource types](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa08ec900-254a-4555-9bf5-e42af04b5c5c) built-in policy and change its `mode` from `Indexed` to `All`, then assign it to the root management group scope.
+>
 
 ## Next steps
 
