@@ -14,3 +14,26 @@ zone_pivot_groups: acs-plat-ios-android
 ---
 
 # One to One Calling
+
+UI Library provides out of the box support for making one to one call by Azure Communication Services participant identifiers. To support one to one calling UI Libraries provides register incoming call notifications or Azure Communication Service EventGrid can be used.
+
+Learn how to make one to one calls correctly using the UI Library in your application.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../quickstarts/identity/access-tokens.md)
+- Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
+
+::: zone pivot="platform-android"
+[!INCLUDE [One to One Calling over the Android UI library](./includes/one-to-one-calling/android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [One to One Calling over the iOS UI library](./includes/one-to-one-calling/ios.md)]
+::: zone-end
+
+## Next steps
+
+- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)
