@@ -10,6 +10,8 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
 
+### Picture-In-Picture Setup
+
 To enable multitasking and Picture-in-Picture use `CallCompositeBuilder.multitasking` to set `CallCompositeMultitaskingOptions` with  `enableMultitasking` and `enableSystemPiPWhenMultitasking` constructor parameters.
 
 #### [Kotlin](#tab/kotlin)

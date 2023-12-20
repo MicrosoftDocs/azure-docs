@@ -10,8 +10,9 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
 
-To enable multitasking and Picture-in-Picture use `CallCompositeOptions` constuctor parameters `enableMultitasking` and `enableSystemPiPWhenMultitasking`.
+### Picture-In-Picture Setup
 
+To enable multitasking and Picture-in-Picture use `CallCompositeOptions` constuctor parameters `enableMultitasking` and `enableSystemPiPWhenMultitasking`.
 
 > [!NOTE]
 > Apps that have a deployment target earlier than iOS 16 require the com.apple.developer.avfoundation multitasking-camera-access entitlement to use the camera in PiP mode.

@@ -10,10 +10,10 @@ ms.date: 12/19/2023
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android
 
-#Customer intent: As a developer, I want to make one to one call of the library in my application
+#Customer intent: As a developer, I want to enable push notifications with the Azure Communication Services UI Library so that I can create a calling application that provides push notifications to its users.
 ---
 
-# One to One Calling
+# One to One Calling and Push Notifications
 
 UI Library provides out of the box support for making one to one call by Azure Communication Services participant identifiers. To support one to one calling UI Libraries provides register incoming call notifications or Azure Communication Service EventGrid can be used.
 
@@ -27,11 +27,11 @@ Learn how to make one to one calls correctly using the UI Library in your applic
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-android"
-[!INCLUDE [One to One Calling over the Android UI library](./includes/one-to-one-calling/android.md)]
+[!INCLUDE [One to One Calling and Push notifications over the Android UI library](./includes/one-to-one-calling/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [One to One Calling over the iOS UI library](./includes/one-to-one-calling/ios.md)]
+[!INCLUDE [One to One Calling and Push notifications over the iOS UI library](./includes/one-to-one-calling/ios.md)]
 ::: zone-end
 
 ## Next steps
