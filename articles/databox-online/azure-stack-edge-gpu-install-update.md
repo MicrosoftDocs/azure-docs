@@ -232,7 +232,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 1. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2309**.
+    The update listing appears as **Azure Stack Edge Update 2312**.
 
     > [!NOTE]
     > Make sure to verify which workload you are running on your device [via the local UI](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-ips-1) or [via the PowerShell](./azure-stack-edge-connect-powershell-interface.md) interface of the device. Depending on the workload that you are running, the update package will differ.
@@ -276,7 +276,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2309**. 
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2312**. 
 
 
 7. You will now update the Kubernetes software version. Select the remaining two Kubernetes files together (file with the *Kubernetes_Package.0.exe* and *Kubernetes_Package.1.exe* suffix) and repeat the above steps to apply update.   
