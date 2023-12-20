@@ -576,7 +576,7 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 
 ## Deprecated Defender for Servers alerts
 
-The following tables include the Defender for Servers security alerts [which have been deprecated in April, 2023  due to an improvement process](release-notes.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
+The following tables include the Defender for Servers security alerts [which have been deprecated in April, 2023  due to an improvement process](release-notes-archive.md#deprecation-and-improvement-of-selected-alerts-for-windows-and-linux-servers).
 
 ### Deprecated Linux alerts
 

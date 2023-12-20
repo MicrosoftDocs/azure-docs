@@ -650,7 +650,7 @@
           items:
             - name: Submit batch run and evaluate a flow 
               href: ./prompt-flow/how-to-bulk-test-evaluate-flow.md
-            - name: Develop a customized evaluation flow
+            - name: Customize evaluation flow and metrics
               href: ./prompt-flow/how-to-develop-an-evaluation-flow.md
             - name: Evaluate your Semantic Kernel with prompt flow
               href: ./prompt-flow/how-to-evaluate-semantic-kernel.md
