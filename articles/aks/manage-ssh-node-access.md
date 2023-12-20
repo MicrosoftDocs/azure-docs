@@ -20,13 +20,15 @@ AKS supports the following configuration options to manage SSH keys on cluster n
 
 ## Before you begin
 
-* You need the Azure CLI version 2.46.0 or later installed and configured.
-   * The Disable SSH preview feature requires the Azure CLI version 2.55.0 or later installed and configured.
-   
+* You need the following version of the Azure CLI depending on the SSH key feature:
+
+   * Version 2.46.0 or later installed and configured to use **Create** or **Update**.
+   * Version 2.55.0 installed and configured to use **Disable**.
+
    If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-* The Create and Update SSH feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
-* The Disable SSH feature doesn't support node pools running the Windows Server operating system.
+* The **Create** and **Update** SSH feature supports Linux, Mariner, and CBLMariner node pools on existing clusters.
+* The **Disable** SSH feature doesn't support node pools running the Windows Server operating system.
 
 ## Install the `aks-preview` Azure CLI extension
 
