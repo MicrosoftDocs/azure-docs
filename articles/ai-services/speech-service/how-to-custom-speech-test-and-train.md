@@ -35,6 +35,7 @@ The following table lists accepted data types, when each data type should be use
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
 | [Structured text](#structured-text-data-for-training) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | Not applicable | Yes | 1 KB to 1 MB of pronunciation text |
+| [Display format](#custom-display-text-formatting-data-for-training) | No | Not applicable | Yes | Up to 200 lines for ITN, 1,000 lines for rewrite, 1,000 lines for profanity filter |
 
 Training with plain text or structured text usually finishes within a few minutes. 
 
