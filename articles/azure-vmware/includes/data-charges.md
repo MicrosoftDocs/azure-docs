@@ -10,7 +10,7 @@ ms.author: rvandenbedem
 
 <!-- Used in faq.yml -->
 
-Traffic in the Azure VMware Solution ExpressRoute circuit doesn't have metering. No billing for any Azure VMware Solution ExpressRoute circuit, or for Global Reach charges between Azure VMware Solution private clouds. This includes Azure VMware Solution to on-premises, other than standard egress charges for traffic from your Azure ExpressRoute circuit connection to your on-premises site from Azure. Charged according to Azure ExpressRoute pricing plans with the Metered Billing Model. If you are using the Azure ExpressRoute Unlimited Billing Model, you will not pay any egress traffic charges. 
+Traffic in the Azure VMware Solution ExpressRoute circuit is not metered. No billing for any Azure VMware Solution ExpressRoute circuit, or for Global Reach charges between Azure VMware Solution private clouds. This includes Azure VMware Solution to on-premises, other than standard egress charges for traffic from your Azure ExpressRoute circuit connection to your on-premises site from Azure. These are charged according to Azure ExpressRoute pricing plans with the Metered Billing Model. If you are using the Azure ExpressRoute Unlimited Billing Model, egress traffic is not charged. 
 
 - **Azure VMware Solution to Azure Virtual Network** is through an internal ExpressRoute circuit and is free of cost, regardless of region location (same region or cross-region).
 
@@ -18,10 +18,10 @@ Traffic in the Azure VMware Solution ExpressRoute circuit doesn't have metering.
 
 For example:
           
-- If we connect an Azure Virtual Network in Azure West Europe to an Azure VMware Solution private cloud in West Europe, there will be no ExpressRoute charges other than the ExpressRoute gateway charges.
+- If we connect an Azure Virtual Network in Azure West Europe to an Azure VMware Solution private cloud in West Europe, there are no ExpressRoute charges other than the ExpressRoute gateway charges.
           
-- If we connect a Azure Virtual Network in Azure North Europe to an Azure VMware Solution private cloud in West Europe, there will be no ExpressRoute charges other than the ExpressRoute gateway charges.
+- If we connect a Azure Virtual Network in Azure North Europe to an Azure VMware Solution private cloud in West Europe, there are no ExpressRoute charges other than the ExpressRoute gateway charges.
           
-- If you connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe via Expressroute Global Reach you will NOT incur any ExpressRoute Global Reach data transfer (egress and ingress) charges. There will be charges when using an ExpressRoute gateway.
+- If you connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe via Expressroute Global Reach, there are no ExpressRoute Global Reach data transfer (egress and ingress) charges. There will be charges when using an ExpressRoute gateway.
 
 :::image type="content" source="../media/data-transfer-charges.png" alt-text="Diagram showing Azure VMware Solution data transfer charges." border="true" lightbox="../media/data-transfer-charges.png":::
