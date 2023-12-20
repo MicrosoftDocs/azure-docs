@@ -308,6 +308,22 @@ Given a string containing a CEF message, `parse_cef_dictionary` parses the Exten
 
 :::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
 
+##### geo_location
+
+Given a string containing IP address (IPv4 and IPv6 are supported), `geo_location` function returns approximate geographical location, including the following attributes:
+* Country
+* Region
+* State
+* City
+* Latitude
+* Longitude
+
+```kusto
+| extend GeoLocation = geo_location("1.0.0.5")
+```
+
+:::image type="content" source="media/data-collection-transformations-structure/geo_location.png" alt-text="Sample output of parse_cef_dictionary function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
+
 
 ### Identifier quoting
 Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity-names?q=identifier#identifier-quoting) as required.
