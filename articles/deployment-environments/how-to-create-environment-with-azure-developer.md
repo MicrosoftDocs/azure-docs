@@ -146,7 +146,7 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-select-project.png" alt-text="Screenshot showing azd init prompt Select project." lightbox="media/how-to-create-environment-with-azure-developer/init-select-project.png":::
  
-1. `azd init` displays a list of environment definitions in the project. Select an environment definitions.
+1. `azd init` displays a list of environment definitions in the project. Select an environment definition.
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/select-environment-definition.png" alt-text="Screenshot showing azd init prompt Select environment definitions." lightbox="media/how-to-create-environment-with-azure-developer/select-environment-definition.png":::
 
@@ -184,7 +184,7 @@ AZD uses an *azure.yaml* file to define the environment. The azure.yaml file def
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/init-select-project.png" alt-text="Screenshot showing azd init prompt Select project." lightbox="media/how-to-create-environment-with-azure-developer/init-select-project.png":::
  
-1. `azd init` displays a list of environment definitions in the project. Select an environment definitions.
+1. `azd init` displays a list of environment definitions in the project. Select an environment definition.
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/select-environment-definition.png" alt-text="Screenshot showing azd init prompt Select environment definitions." lightbox="media/how-to-create-environment-with-azure-developer/select-environment-definition.png":::
 
@@ -249,7 +249,7 @@ Verify that your environment is created by listing the existing environments.
 
    :::image type="content" source="media/how-to-create-environment-with-azure-developer/azure-developer-menu-environment-list.png" alt-text="Screenshot of Visual Studio Code with azure.yaml highlighted, and the AZD context menu with Azure Developer CLI and View Local and Remote environments highlighted." lightbox="media/how-to-create-environment-with-azure-developer/azure-developer-menu-environment-list.png":::
 
-   `You're prompted to select a project and an environment definition.
+   You're prompted to select a project and an environment definition.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
