@@ -68,6 +68,8 @@ If you use your own Azure virtual network, Microsoft Dev Box lets you use Virtua
 
 In Microsoft Dev Box, you associate a network connection with a dev box pool in your project. All dev boxes that are then created in this dev box pool are hosted in the Azure region of the network connection. If you use Azure network connections, you first add the network connections to a dev center, and then associate the connection with a dev box pool.
 
+To determine the best region to host the dev boxes, you can let dev box users take advantage of the [Azure Virtual Desktop Experience Estimator tool](https://aka.ms/avd-estimator) to estimate the connection round trip time from their location. You can then configure the dev box pool and network connection to optimize the latency for developers in that geographical region.
+
 ### Microsoft Intune integration
 
 Microsoft Intune is used to manage your dev boxes. After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users’ dev boxes.
