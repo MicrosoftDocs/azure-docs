@@ -37,8 +37,8 @@ Azure Database for PostgreSQL flexible server is a fully managed database servic
 Azure Database for PostgreSQL flexible server instances are best suited for
 
 - Application developments requiring better control and customizations.
-- Zone redundant high availability
-- Managed maintenance windows
+- Zone redundant high availability.
+- Managed maintenance windows.
 
 ## Architecture and high availability
 
@@ -135,7 +135,7 @@ $ New Zone-redundant high availability deployments are temporarily blocked in th
 
 $$ New server deployments are temporarily blocked in these regions. Already provisioned servers are fully supported.
 
-\*\* Zone-redundant high availability can now be deployed when you provision new servers in these regions. Any existing servers deployed in AZ with *no preference* (which you can check on the Azure portal) before the region started to support AZ, even when you enable zone-redundant HA, the standby is provisioned in the same AZ (same-zone HA) as the primary server. To enable zone-redundant high availability, [follow the steps.](how-to-manage-high-availability-portal.md#enabling-zone-redundant-ha-after-the-region-supports-az).
+** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Any existing servers deployed in AZ with *no preference* (which you can check on the Azure portal) before the region started to support AZ, even when you enable zone-redundant HA, the standby is provisioned in the same AZ (same-zone HA) as the primary server. To enable zone-redundant high availability, [follow the steps](how-to-manage-high-availability-portal.md#enabling-zone-redundant-ha-after-the-region-supports-az).
 
 <!-- We continue to add more regions for flexible servers. -->
 > [!NOTE]  

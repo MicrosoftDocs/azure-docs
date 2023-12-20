@@ -3,7 +3,7 @@ title: Create a virtual machine image and use a user-assigned managed identity t
 description: In this article, you'll use Azure VM Image Builder to create a virtual machine image that can access files that are stored in Azure Storage with a user-assigned managed identity.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 11/28/2022
 ms.topic: how-to
 ms.service: virtual-machines
