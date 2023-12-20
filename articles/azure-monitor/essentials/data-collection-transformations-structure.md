@@ -10,11 +10,11 @@ ms.reviwer: nikeist
 ---
 
 # Structure of transformation in Azure Monitor
-[Transformations in Azure Monitor](./data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They are implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
+[Transformations in Azure Monitor](./data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They're implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
 
 
 ## Transformation structure
-The KQL statement is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. The input stream is represented by a virtual table named `source` with columns matching the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
+The KQL statement is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. A virtual table named `source` represents the input stream. `source` table columns match the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
 
 - Filters the incoming data with a [where](/azure/data-explorer/kusto/query/whereoperator) statement
 - Adds a new column using the [extend](/azure/data-explorer/kusto/query/extendoperator) operator
@@ -297,7 +297,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 
 ##### parse_cef_dictionary
 
-Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example below.
+Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example.
 
 ```kusto
 | extend cefMessage=iff(cefMessage contains_cs ";", replace(";", " ", cefMessage), cefMessage) 
