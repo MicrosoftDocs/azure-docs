@@ -68,7 +68,7 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 ## Create an interactive shell connection to a Linux node using private IP
 
-In the event that you do not have access to the Kubernetes API through kubectl, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agentpool REST API][agentpool-rest-api] (preview) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node , you need to be in the cluster's virtual network. 
+In the event that you do not have access to the Kubernetes API through kubectl, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agentpool REST API][agentpool-rest-api] (preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node , you need to be in the cluster's virtual network. 
 
 1. To get the private IP via CLI use az cli version 2.53 or above with aks-preview extension installed.
 
@@ -282,6 +282,7 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ## Next steps
 
 If you need more troubleshooting data, you can [view the kubelet logs][view-kubelet-logs] or [view the Kubernetes master node logs][view-master-logs].
+
 See [Manage SSH configuration][manage-ssh-node-access] to learn about managing the SSH key on an AKS cluster or node pools.
 
 <!-- INTERNAL LINKS -->
@@ -296,3 +297,4 @@ See [Manage SSH configuration][manage-ssh-node-access] to learn about managing t
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [how-to-install-azure-extensions]: /cli/azure/azure-cli-extensions-overview#how-to-install-extensions
 [agentpool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
+[manage-ssh-node-access]: manage-ssh-node-access.md
