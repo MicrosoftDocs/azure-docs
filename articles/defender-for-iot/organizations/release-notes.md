@@ -110,6 +110,9 @@ This version includes the following updates and enhancements:
 - [Sensor software runs on a Debian 11 operating system](ot-deploy/install-software-ot-sensor.md) and [updates to this version may be heavier and longer than usual](whats-new.md#ot-network-sensors-now-run-on-debian-11)
 - [The legacy, privileged default *support* user is replaced by the default *admin* user](roles-on-premises.md#legacy-users)
 
+> [!IMPORTANT]
+> If you're updating your software from a legacy version and have the *support* credentials saved, such as in CLI scripts, we recommend that you update those credentials to use the *admin* user instead.
+
 ## Versions 23.1.x
 
 ### Version 23.1.3
