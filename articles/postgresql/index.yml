@@ -19,7 +19,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Database for PostgreSQL?
-            url: flexible-server/overview.md
+            url: flexible-server/service-overview.md
       - linkListType: whats-new
         links:
           - text: Check out our blog
