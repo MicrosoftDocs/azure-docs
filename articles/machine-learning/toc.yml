@@ -696,8 +696,8 @@
               href: ./prompt-flow/tools-reference/vector-db-lookup-tool.md
             - name: SERP API tool
               href: ./prompt-flow/tools-reference/serp-api-tool.md
-            - name: Open Source LLM tool
-              href: ./prompt-flow/tools-reference/open-source-llm-tool.md
+            - name: Open Model LLM tool
+              href: ./prompt-flow/tools-reference/open-model-llm-tool.md
             - name: OpenAI GPT-4V tool
               href: ./prompt-flow/tools-reference/openai-gpt-4v-tool.md
             - name: Troubleshoot Guidance
