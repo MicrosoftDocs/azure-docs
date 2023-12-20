@@ -35,7 +35,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
  
   **How to apply the Hotfix**
   -  Recreate Your Cluster
-    -  To apply this hotfix, existing users are required to recreate their [cluster](../quickstart-create-cluster.md) on an existing cluster pool. 
+      -  To apply this hotfix, existing users are required to recreate their [cluster](../quickstart-create-cluster.md) on an existing cluster pool. 
  
 ### Operating System version
 
