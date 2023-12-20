@@ -13,19 +13,14 @@ This article lists the CLI commands available from Defender for IoT OT network s
 
 ## Prerequisites
 
-Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as an *admin* user.
+Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as an privileged user.
 
-For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
+While this article lists the command syntax for each user, we recommend using the *admin* user for all CLI commands where the *admin* user is supported.
 
-OT sensor versions earlier than 23.2.0 include the *support* privileged user instead of the *admin* user.
+If you're using an older version of the sensor software, you may have access to the legacy *support* user. In such cases, any commands that are listed as supported for the *admin* user are supported for the legacy *support* user.
 
-OT sensor versions earlier than 23.1.x also include the *cyberx* and *cyberx_host* privileged users. In versions 23.1.x and higher, these users are installed, but not enabled by default.
+For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
-While this article lists the command syntax for each user, we recommend using the *admin* user for all CLI commands where the *admin* user is supported. 
-
-If you're using an older version of the sensor software, any commands that are listed as supported for the *admin* user are also supported for the legacy *support* user.
-
-For more information, see [Default privileged users](manage-users-sensor.md#default-privileged-users).
 
 ## Appliance maintenance
 
