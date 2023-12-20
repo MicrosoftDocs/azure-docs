@@ -81,9 +81,13 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 1. Sign in to the ESXi server via a browser at this URL: `https://<IP address of the ESXi server>`. You need to have administrator privileges to create a virtual machine.
+
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+
 1. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
+
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image2-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected." lightbox="media/data-box-gateway-deploy-provision-vmware/image2.png":::
+
 1. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK.
     - The datastore can be either VMFS5 or VMFS6. Databox Gateway has been tested with VMWare with the VMFS5 and VMFS6 Datastore.
     - The datastore must also have enough free space for the OS and data disks.
@@ -103,37 +107,37 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
     ![Two VMDK files are merged into a single file](./media/data-box-gateway-deploy-provision-vmware/image8.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 
 12. Return to the vSphere client window. In the Navigator pane, select **Virtual Machines**. In the right pane, click **Create/Register VM**.
 
     ![Create or register VM](./media/data-box-gateway-deploy-provision-vmware/image9.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 
 13. A **New Virtual Machine** appears. Under Select creation type, choose **Create a new virtual machine** and click **Next**.
 
     ![Select creation type page](./media/data-box-gateway-deploy-provision-vmware/image10.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 
 14. On **Select a Name and OS Name and Location** page, specify the **Name** of your virtual machine. This name should match the folder name (recommended best practice) you specified earlier in Step 7. Choose **Guest OS family** as Windows and **Guest OS version** as Microsoft Windows Server 2016 (64-bit). Click **Next**.
 
     ![Select a Name and OS Name and Location page](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 
 15. On the **Select storage** page, select a datastore you want to use to provision your VM. Click **Next**.
 
     ![Select storage page](./media/data-box-gateway-deploy-provision-vmware/image12.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 
 16. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device.
 
     ![Customize settings page](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
 
     On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk. 
 
@@ -151,19 +155,18 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
     ![Customize settings page if running VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi-sml.png" alt-text="Screenshot of the Customize Settings page when the user is running VMware ESXi Server 6.7."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi-sml.png" alt-text="Screenshot of the Customize Settings page when the user is running VMware ESXi Server 6.7."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png":::
 
 18. On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Verify that CPU is 4, memory is 8192 MB, network interface is 1 and Hard disk 2 has IDE controller 0. Click **Finish**.
 
     ![Ready to Complete page](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![Ready to Complete page 2](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image16-sml.png" alt-text="Screenshot of the initial Ready to Complete page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image16.png":::
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image17-sml.png" alt-text="Screenshot of the second Ready to Complete page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image17.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image16-sml.png" alt-text="Screenshot of the initial Ready to Complete page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image16.png":::
+
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image17-sml.png" alt-text="Screenshot of the second Ready to Complete page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image17.png":::
 
 Your virtual machine is now provisioned. You will see a notification to the effect and the new virtual machine is added to the list of VMs.
-
-![New virtual machine added to list of VMs](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image17-sml.png" alt-text="Screenshot of the New virtual machine added to list of VMs."  lightbox="media/data-box-gateway-deploy-provision-vmware/image17.png":::
 
