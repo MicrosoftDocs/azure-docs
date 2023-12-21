@@ -10,7 +10,7 @@ ms.date: 12/12/2023
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android
 
-#Customer intent: As a developer, I want to turn on Picute-in-Picture in my application
+#Customer intent: As a developer, I want to turn on Picture-in-Picture in my application
 ---
 
 # Picture-in-Picture 
@@ -18,8 +18,8 @@ zone_pivot_groups: acs-plat-ios-android
 While being in the call, user is presented with full screen UI, which prevents user from multitasking in the App while still on the call.
 
 There are two ways to enable user to multitask in the App:
-- Enabling multitasking - user is able to click Back button which takes user back to the preivious screen. No Calling UI is visible to user while still on the call.
-- Enable Picute-in-Picture, in additions, will display a system Picute-in-Picture with ougoing call. Please note Picute-in-Picture is using system provided Picute-in-Picture feature and is a subject of the feature support on the device, CPU load, RAM availability, battery state etc.
+- Enabling multitasking - user is able to click Back button which, takes user back to the previous screen. No Calling UI is visible to user while still on the call.
+- Enable Picture-in-Picture, in additions, will display a system Picture-in-Picture with outgoing call. Please note Picture-in-Picture is using system provided Picture-in-Picture feature and is a subject of the feature support on the device, CPU load, RAM availability, battery state etc.
 
 ## Prerequisites
 
@@ -29,11 +29,11 @@ There are two ways to enable user to multitask in the App:
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Picute-in-picture for the Android UI library](./includes/picture-in-picture/android.md)]
+[!INCLUDE [Picture-in-Picture for the Android UI library](./includes/picture-in-picture/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Picute-in-picture for the iOS UI library](./includes/picture-in-picture/ios.md)]
+[!INCLUDE [Picture-in-Picture for the iOS UI library](./includes/picture-in-picture/ios.md)]
 ::: zone-end
 
 ## Next steps
