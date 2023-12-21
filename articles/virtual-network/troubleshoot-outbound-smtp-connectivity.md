@@ -42,7 +42,7 @@ If you're using a non-enterprise subscription type, we encourage you to use an a
 
 ## Changing subscription type
 
-If you change your subscription type from Enterprise Agreement to another type of subscription, changes to your deployments might result in outbound SMTP being blocked.  
+If you change your subscription type from Enterprise Agreement or MCA-E to another type of subscription, changes to your deployments might result in outbound SMTP being blocked.  
 
 ## Need help? Contact support
 
