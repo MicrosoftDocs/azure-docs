@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Database for PostgreSQL - Flexible Server?
-    href: service-overview.md
+    href: flexible-server/service-overview.md
   - name: Choose server configuration in Azure
     href: flexible-server/overview-postgres-choose-server-options.md
   - name: Compare deployment options
