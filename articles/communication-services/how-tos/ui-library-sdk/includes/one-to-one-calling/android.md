@@ -62,7 +62,7 @@ You can skip `registerPushNotification` to avoid current limitation of this by u
 
 To receive incoming call push notifications, call `handlePushNotification` on a `CallComposite` instance with a payload.
 
-To obtain the payload from Firebase Cloud Messaging, begin by creating a new Service (File > New > Service > Service) that extends the `FirebaseMessagingService`. Firebase SDK class and override the `onMessageReceived` method. This method is the event handler called when Firebase Cloud Messaging delivers the push notification to the application.
+To obtain the payload from Firebase Cloud Messaging, begin by creating a new Service (File > New > Service > Service) that extends the `FirebaseMessagingService`. Firebase SDK class and override the `onMessageReceived` method. This method is the event handler called when, Firebase Cloud Messaging delivers the push notification to the application.
 
 #### [Kotlin](#tab/kotlin)
 
