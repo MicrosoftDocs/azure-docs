@@ -28,6 +28,12 @@ You can restrict public access to the private endpoint of your cache by disablin
 >
 > When using the Basic tier, you might experience data loss when you delete and recreate a private endpoint.
 
+## Scope of availability
+
+|Tier      | Basic, Standard, Premium |Enterprise, Enterprise Flash  |
+|--------- |:------------------:|:---------:|
+|Available | Yes          |  Yes  |
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -348,14 +354,14 @@ For more information, see [Azure services DNS zone configuration](../private-lin
 ### Why can't I connect to a private endpoint?
 
 - Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
-- You have a limit of one private link for clustered caches. For all other caches, your limit is 100 private links.
+- On Premium tier caches, you have a limit of one private link for clustered caches. Enterprise and Enterprise Flash tier caches do not have this limitation for clustered caches. For all other caches, your limit is 100 private links.
 - You try to [persist data to storage account](cache-how-to-premium-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
 - You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
 
 ### What features aren't supported with private endpoints?
 
 - Trying to connect from the Azure portal console is an unsupported scenario where you see a connection failure.
-- Private links can't be added to caches that are already geo-replicated. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication.
+- Private links can't be added to caches that are already using [passive geo-replication](cache-how-to-geo-replication.md) in the Premium tier. To add a private link to a geo-replicated cache: 1. Unlink the geo-replication. 2. Add a Private Link. 3. Last, relink the geo-replication. (Enterprise tier caches using [active geo-replication](cache-how-to-active-geo-replication.md) do not have this restriction.)
 
 ### How do I verify if my private endpoint is configured correctly?
 
