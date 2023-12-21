@@ -76,7 +76,7 @@ The following table lists the different tools available for performing the migra
 The next section of the document gives an overview of the Single to Flex Migration tool, its implementation, limitations, and the experience that makes it the recommended tool to perform migrations from single to flexible server.
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia.
 
 ## Single to Flexible Migration tool - Overview
 

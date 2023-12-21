@@ -23,19 +23,28 @@ This article explains common pitfalls encountered, and best practices to ensure 
 
 As a first step in the migration, run the pre-migration validation before you perform a migration. You can do this using the **Validate** and **Validate and Migrate** options in the migration setup page. Pre-migration validation conducts thorough checks against a predefined rule set. The goal is to identify any potential problems and provide actionable insights for remedial actions. Keep running pre migration validation until it results in **Succeeded** state. Click [Pre-migration validations](./concepts-single-to-flexible.md#pre-migration-validations) to know more.
 
-## Target Flexible server storage configuration
+## Target Flexible server configuration
 
-During initial base copy of data, multiple insert statements are executed on the target, which in-turn generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target in addition to the storage required by the Database. Hence, It's advisable to allocate sufficient storage on the Flexible server, equivalent to 1.25 times or 25% more storage than the Single server. To get an idea of the storage required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. Monitoring the **PITR** migration gives a good estimate of the required storage. [Storage Autogrow](../flexible-server/how-to-auto-grow-storage-portal.md) can also be used.
+During initial base copy of data, multiple insert statements are executed on the target, which in-turn generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target in addition to the storage required by the Database. To calculate the number,
+
+1. Log in to the Single server and execute this command for all the Database(s) to be migrated: `SELECT pg_size_pretty( pg_database_size('dbname') );`
+2. Check the **Storage used** metric under the Monitoring tab in the Single server
+
+It's advisable to allocate sufficient storage on the Flexible server, equivalent to 1.25 times or 25% more storage than what is being used in the points #1 or #2 above, **whichever is higher**.  [Storage Autogrow](../flexible-server/how-to-auto-grow-storage-portal.md) can also be used.
 
 > [!IMPORTANT]  
 > In both manual configuration and Storage Autogrow, storage size can't be reduced. Each step in the Storage configuration spectrum doubles in size so it's prudent to estimate the required storage beforehand.
 
-A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration. Additionally, enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamlessly.
+A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration.
+
+### Calculate downtime
+
+To get an idea of the downtime required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. Monitoring the **PITR** migration gives a good estimate of the required downtime. Additionally, if Read replicas (RR) or High Availability (HA) is used, they should be enabled or provisioned **after** the migration is complete. When the migration starts, there is a lot of data copied to the target. If HA or RR is enabled, every transaction has to be acknowledged and it increases the lag between the primary and the backups. The lag in turn impacts cost in terms of additional storage and time required to complete the migration and hence should be avoided. This precaution ensures that the migration process completes seamlessly.
 
 ## Set up Online migration parameters
 
 > [!NOTE]  
-> Online migration is currently supported in limited regions - India Central, India South, Australia Southeast and South East Asia. For Onlone migrations using Single servers running PostgreSQL 9.5 and 9.6 we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11.
+> Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. For Online migrations using Single servers running PostgreSQL 9.5 and 9.6, we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11.
 
 For Online migration, the Azure replication support should be set to Logical under the Replication settings of the Single server page in the Azure portal. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
 
@@ -50,7 +59,7 @@ In addition, it's recommended to have a primary key in all the tables of a datab
 
 ## Migration timeline
 
-Each migration has a lifecycle of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifecycle of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there's no data loss. Similarly, for Online migration, keep traffic low throughout the migration.
+Each migration has a maximum lifetime of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifetime of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there's no data loss. Similarly, for Online migration, keep traffic low throughout the migration.
 
 In most cases, the non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For migration of production server, you need to know the time it would take to complete the migration to plan for it in advance.
 
