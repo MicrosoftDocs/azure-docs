@@ -222,7 +222,7 @@ A cluster can be linked to up to 1,000 workspaces located in the same region wit
 
 The workspace and the cluster can be in different subscriptions. It's possible for the workspace and cluster to be in different tenants if Azure Lighthouse is used to map both of them to a single tenant.
 
-Use the following steps to link a workspace to a cluster. You can automated for linking multiple workspaces:
+Use the following steps to link a workspace to a cluster. You can use automation for linking multiple workspaces:
 
 #### [CLI](#tab/cli)
 
@@ -596,7 +596,7 @@ Cluster deletion operation should be done with caution, since operation is non-r
 
 The cluster's billing stops when cluster is deleted, regardless of the 31-days commitment tier defined in cluster.
 
-If you delete a cluster that has linked workspaces, workspaces get automatically unlinked from the cluster, workspaces are moved to Pay-As-You-Go pricing tier, and new data to workspaces is ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
+If you delete a cluster that has linked workspaces, workspaces get automatically unlinked from the cluster, workspaces are moved to pay-as-you-go pricing tier, and new data to workspaces is ingested to Log Analytics clusters instead. You can query workspace for the time range before it was linked to the cluster, and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
 > - There is a limit of seven clusters per subscription and region, five active, plus two that were deleted in past two weeks.
