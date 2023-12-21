@@ -222,15 +222,7 @@ The following message is returned while the process is performed:
 Only after all the nodes are reimaged, does the disable/enable SSH Access operation take effect."
 ```
 
-After re-enabling SSH, the nodes aren't be reimaged automatically. The Azure CLI returns the following results in the message:  
-
-```output
-"securityProfile": {
-"sshAccess": "Disabled"
-},
-```
-
-At any time, you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
+After re-enabling SSH, the nodes aren't be reimaged automatically. At any time, you can choose to perform a [reimage operation][node-image-upgrade]. Only after reimage is complete does the update SSH key operation take effect.
 
 >[!IMPORTANT]
 >During this operation, all Virtual Machine Scale Set instances are upgraded and reimaged to use the new SSH public key.
@@ -247,14 +239,6 @@ The following message is returned while the process is performed:
 
 ```output
 Only after all the nodes are reimaged, does the disable/enable SSH Access operation take effect."
-```
-
-The Azure CLI returns the following results in the message:  
-
-```output
-"securityProfile": {
-"sshAccess": "Disabled"
-},
 ```
 
 >[!IMPORTANT]
