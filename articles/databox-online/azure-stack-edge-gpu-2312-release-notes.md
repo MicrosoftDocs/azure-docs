@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/20/2023
+ms.date: 12/21/2023
 ms.author: alkohli
 ---
 
@@ -59,7 +59,6 @@ The 2312 release has the following new features and enhancements:
 - Kubernetes v1.26, multiversion Kubernetes update.
 - Ubuntu version update for Azure Stack Edge containers.
 - General availability for two-node Azure Kubernetes Service cluster on Azure Stack Edge.
-- Two-node physical volume failover support.
 - VM NIC passthrough.
 - AP5GC sideload update for low bandwidth environments.
 
@@ -113,12 +112,9 @@ The following table provides a summary of known issues carried over from the pre
 |**24.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting isn't retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
 |**25.**|Wi-Fi |Wi-Fi doesn't work on Azure Stack Edge Pro 2 in this release. |
 |**26.**|Azure IoT Edge |The managed Azure IoT Edge solution on Azure Stack Edge is running on an older, obsolete IoT Edge runtime that is at end of life. For more information, see [IoT Edge v1.1 EoL: What does that mean for me?](https://techcommunity.microsoft.com/t5/internet-of-things-blog/iot-edge-v1-1-eol-what-does-that-mean-for-me/ba-p/3662137). Although the solution does not stop working past end of life, there are no plans to update it.  |To run the latest version of Azure IoT Edge [LTSs](../iot-edge/version-history.md#version-history) with the latest updates and features on their Azure Stack Edge, we **recommend** that you deploy a [customer self-managed IoT Edge solution](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md) that runs on a Linux VM. For more information, see [Move workloads from managed IoT Edge on Azure Stack Edge to an IoT Edge solution on a Linux VM](azure-stack-edge-move-to-self-service-iot-edge.md). |
-|**27.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2303 release, there is an additional nodepool rollout. |The update might take longer.  |
-|**28.**|Azure portal |When the Arc deployment fails in this release, you will see a generic *NO PARAM* error code, as all the errors are not propagated in the portal. |There is no workaround for this behavior in this release. |
-|**29.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
-|**30.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. | 
-|**31.**|AKS Update |The AKS Kubernetes update might fail if one of the AKS VMs is not running. This issue might be seen in the 2-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
-|**32.**|Wi-Fi |Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. |
+|**27.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
+|**28.**|AKS Update |The AKS Kubernetes update might fail if one of the AKS VMs is not running. This issue might be seen in the 2-node cluster. |If the AKS update has failed, [Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md). Check the state of the Kubernetes VMs by running `Get-VM` cmdlet. If the VM is off, run the `Start-VM` cmdlet to restart the VM. Once the Kubernetes VM is running, reapply the update. |
+|**29.**|Wi-Fi |Wi-Fi functionality for Azure Stack Edge Mini R has been deprecated. |
 
 ## Next steps
 
