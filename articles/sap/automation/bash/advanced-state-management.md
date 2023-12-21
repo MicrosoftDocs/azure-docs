@@ -40,7 +40,7 @@ You can use this script to:
 - remove resources from the Terraform state file.
 - list the resources in the Terraform state file.
 
-This script is useful if resources have been modified or created without using Terraform.
+This script is useful if resources are modified or created without using Terraform.
 
 ## Examples
 
