@@ -45,7 +45,7 @@ To enable VM insights on an unmonitored virtual machine or Virtual Machine Scale
  
 1. Select **Enable** next to any machine that you want to enable. If a machine is currently running, you must start it to enable it.
 
-:::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
+    :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
 1. On the **Insights Onboarding** page, select **Enable**. 
  
