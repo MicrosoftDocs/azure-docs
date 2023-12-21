@@ -18,7 +18,7 @@ The Azure Business Continuity Center (preview) is a cloud-native unified busines
 
 Some of the key benefits you get with Azure Business Continuity Center (preview) include:
 
-- **Single pane of glass to manage BCDR protection**: Azure Business Continuity Center is designed to function well across a large and distributed, Azure and Hybrid environment. You can use Azure Business Continuity center to efficiently manage backup and replication spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants. It enables you to identify gaps in your current protection estate and fix it. You can also understand your protection settings across multiple protection policies.
+- **Single pane of glass to manage BCDR protection**: Azure Business Continuity Center is designed to function well across a large and distributed, Azure and Hybrid environment. You can use Azure Business Continuity Center to efficiently manage backup and replication spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants. It enables you to identify gaps in your current protection estate and fix it. You can also understand your protection settings across multiple protection policies.
 
 - **Action center**: Azure Business Continuity center provides at scale views for your protection across Azure, Hybrid and Edge environments along with the ability to perform the core actions across the solutions. 
 
