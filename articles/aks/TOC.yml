@@ -28,7 +28,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy a Linux-based AKS Cluster
+    - name: Create a Linux-based AKS Cluster
       expanded: true
       items:
         - name: Use the Azure CLI
@@ -48,7 +48,7 @@
           href: learn/quick-kubernetes-deploy-rm-template.md
         - name: Use Terraform
           href: learn/quick-kubernetes-deploy-terraform.md
-    - name: Deploy a Windows-based AKS Cluster
+    - name: Create a Windows-based AKS Cluster
       items:
         - name: Use the Azure CLI
           href: learn/quick-windows-container-deploy-cli.md
@@ -56,7 +56,7 @@
           href: learn/quick-windows-container-deploy-powershell.md
         - name: Use the Azure portal
           href: learn/quick-windows-container-deploy-portal.md
-    - name: Develop applications
+    - name: Work with package managers
       expanded: true
       items:
         - name: Develop with Helm
