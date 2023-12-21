@@ -502,10 +502,17 @@
           href: plan-defender-for-servers-select-plan.md
         - name: Review agents and extensions
           href: plan-defender-for-servers-agents.md
-        - name: Learn about agentless scanning
+        - name: Agentless scanning
           displayName: agentless, scanning, virtual, machines, freshness, snapshot,
             snapshots
           href: concept-agentless-data-collection.md
+          items:
+          - name: Manage secrets with agentless secret scanning
+            displayName: secrets, secret scanning, agentless
+            href: secret-scanning.md
+          - name: Protect your servers with agentless malware scanning 
+            displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
+            href: agentless-malware-scanning.md
         - name: Scale a Defender for Servers deployment
           href: plan-defender-for-servers-scale.md
         - name: Protect servers with Defender for Servers
@@ -539,9 +546,6 @@
         - name: Enable just-in-time access on VMs
           displayName: jit, management, ports
           href: just-in-time-access-usage.md
-        - name: Manage secrets with agentless secret scanning
-          displayName: secrets, secret scanning, agentless
-          href: secret-scanning.md
         - name: Protect your endpoints with Defender for Cloud's integration with
             Microsoft Defender for Endpoint
           displayName: ATP, mdatp, wdatp, mde, mdfe, defender for endpoint, endpoint, edr

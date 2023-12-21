@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.service: defender-for-cloud
 ms.topic: conceptual
-ms.date: 12/20/2023
+ms.date: 12/21/2023
 ms.custom: template-concept
 ---
 
@@ -21,7 +21,7 @@ Agentless scanning for VMs provides vulnerability assessment and software invent
 |---------|---------|
 |Release state:| GA |
 |Pricing:|Requires either [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) or [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
-| Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: Vulnerability assessment (powered by Defender Vulnerability Management)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender Vulnerability Management)<br />:::image type="icon" source="./media/icons/yes-icon.png":::Secret scanning |
+| Supported use cases:| :::image type="icon" source="./media/icons/yes-icon.png"::: [Vulnerability assessment (powered by Defender Vulnerability Management)](deploy-vulnerability-assessment-defender-vulnerability-management.md)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Software inventory (powered by Defender Vulnerability Management)<br />:::image type="icon" source="./media/icons/yes-icon.png":::[Secret scanning](secret-scanning.md)  <br />:::image type="icon" source="./media/icons/yes-icon.png"::: [Malware scanning (Preview)](agentless-malware-scanning.md) **Only available for Defender for Servers plan 2**|
 | Clouds:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Commercial clouds<br> :::image type="icon" source="./media/icons/no-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects        |
 | Operating systems:    | :::image type="icon" source="./media/icons/yes-icon.png"::: Windows<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Linux        |
 | Instance and disk types:    | **Azure**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Standard VMs<br>:::image type="icon" source="./media/icons/no-icon.png"::: Unmanaged disks<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Virtual machine scale set - Flex<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual machine scale set - Uniform<br><br>**AWS**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: EC2<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Auto Scale instances<br>:::image type="icon" source="./media/icons/no-icon.png"::: Instances with a ProductCode (Paid AMIs)<br><br>**GCP**<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Compute instances<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Instance groups (managed and unmanaged)       |
@@ -36,36 +36,6 @@ Once the necessary metadata is acquired from the disk, Defender for Cloud immedi
 The scanning environment where disks are analyzed is regional, volatile, isolated, and highly secure. Disk snapshots and data unrelated to the scan aren't stored longer than is necessary to collect the metadata, typically a few minutes.
 
 :::image type="content" source="media/concept-agentless-data-collection/agentless-scanning-process.png" alt-text="Diagram of the process for collecting operating system data through agentless scanning.":::
-
-## Agentless malware scanning
-
-> [!NOTE]
-> Agentless malware scanning is only available [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features). 
-
-Defender for Cloud's agentless malware scanning for VMs, uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts in Defender for Cloud that allow you to investigate any detected threats.
-
-An agentless approach to malware scanning provides several advantages that are often overlooked when relying solely on an agent-based scanner. By using an agentless scanner, you can eliminate concerns about the time gap that occurs between a device being deployed and the workload owners onboarding the agent to every device added to the environment. If resource owners exempted certain files and folders due to performance concerns, the agentless scanner scans these files and folders regardless. Agentless scanning doesn't affect machine performance since the scan takes place in the cloud, which allows you to offload deep scan performances from the agent-based machines.
-
-When you use both the agent-based scanner and the agentless scanner, you can enjoy the benefits of both services. This combination covers the gap that is often created when only an agent-based system is used.
-
-| **Benefits of agent-based endpoint protection** | **Benefits of agentless malware scanning** |
-|--|--|
-| Real time monitoring and detection of attacks | Frictionless onboarding, minimal maintenance, lower provisioning costs |
-| Behavioral analysis and response | Complete coverage |
-| Remediation and response capabilities | No effect on performance due to no presence on the machine |
-| Deep OS visibility and threat detection abilities, such as processes, communications and more | Deep and full scan to detect threats on all files and resources (including agent-based excluded files and resources)|
-|Active ability to enforce policies, prevent, respond and remediate attacks| No limitation due to incompatible operating systems or machines |
-
-Learn how to [enable agentless scanning for VMs](enable-agentless-scanning-vms.md).
-
-Results for both the agent-based and agentless scanner appear on the Security alerts page.
-
-:::image type="content" source="media/concept-agentless-data-collection/agent-and-agentless-results.png" alt-text="Screenshot of the security alerts page that shows the results of both the agent-based and agentless scan results. The alerts generated by the agentless scan include the word agentless in parenthesis." lightbox="media/concept-agentless-data-collection/agent-and-agentless-results.png":::
-
-> [!NOTE]
-> Remediating one of these alerts will not remediate the other alert until the next scan is completed.
-
-From the Security alerts page you can [manage and respond to security alerts](managing-and-responding-alerts.md). Security alerts can also be [exported to Sentinel](export-to-siem.md).
 
 ## Next steps
 
