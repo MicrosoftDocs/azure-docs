@@ -13,7 +13,7 @@ This article lists the CLI commands available from Defender for IoT OT network s
 
 ## Prerequisites
 
-Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as an privileged user.
+Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
 
 While this article lists the command syntax for each user, we recommend using the *admin* user for all CLI commands where the *admin* user is supported.
 
