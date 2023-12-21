@@ -26,7 +26,7 @@ Use the following steps to create the service instance:
 
 1. Select **Compute** > **Azure Spring Apps**.
 
-1. Fill out the **Basics** form with the following information:
+1. Fill out the form on the **Basics** tab. Use the following table as a guide for completing the form:
 
    | Setting                       | Suggested value                   | Description                                                                                                                                                                                                                                                                                        |
    |-------------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -55,9 +55,9 @@ Use the following steps to create the service instance:
 
 #### Create apps
 
-1. From the navigation pane, open the **Apps** pane and then select **Create App**.
+1. From the navigation pane, open **Apps**, and then select **Create App**.
 
-1. On the Create App page, for the **App name**, use *frontend* and leave all the other fields with their default values.
+1. On the **Create App** page, for the **App name**, use *frontend* and leave all the other fields with their default values.
 
 1. Repeat the previous step using each of the following application names:
 
@@ -65,26 +65,25 @@ Use the following steps to create the service instance:
    - *vets-service*
    - *visits-service*
 
-1. Select **Create** to finish app creation.
+1. Select **Create** to finish the app creation.
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png" alt-text="Screenshot of the Azure portal that shows the apps creation." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png" alt-text="Screenshot of the Azure portal that shows the apps creation page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-app-creation.png":::
 
 #### Configure Build Service
 
-1. From the navigation pane, open the **Build Service** pane and select **Add** under the **Builders** section.
+1. From the navigation pane, open **Build Service**, and then select **Add** under the **Builders** section.
 
-1. On the **Add Builder** page, for the **Builder name**, use *frontend*; select *io.buildpacks.stacks.jammy-base* for **OS Stack**;
-   select *tanzu-buildpacks/web-servers* for the **Name** of Buildpacks, then select **Save** to create the builder for  *frontend* app deployment.
+1. On the **Add Builder** page, for the **Builder name**, use *frontend*; select **io.buildpacks.stacks.jammy-base** for **OS Stack**, select **tanzu-buildpacks/web-servers** for the **Name** of Buildpacks, and then select **Save** to create the builder.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
 
 #### Configure Service Registry
 
-1. From the navigation pane, open the **Service Registry** pane.
+1. From the navigation pane, open **Service Registry**.
 
-1. Select **App binding** tab, select **Bind app**, and select `customers-service` from the app name drop-down list, then select **Apply**.
+1. Select **App binding**, select **Bind app**, select `customers-service` from the list, and then select **Apply**.
 
-1. Repeat the previous step to bind the following application names:
+1. Repeat the previous step to bind the following applications:
 
     - *vets-service*
     - *visits-service*
@@ -93,22 +92,22 @@ Use the following steps to create the service instance:
 
 #### Configure Application Configuration Service
 
-1. From the navigation pane, open the **Application Configuration Service** pane and select **Settings**.
+1. From the navigation pane, open **Application Configuration Service**, and then select **Settings**.
 
-1. Fill out the repository with the following information and then select **Validate**:
+1. Fill out the repository with the following information, and then select **Validate**:
 
     - **Name**: *default*
     - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*
     - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*
     - **Label**: *master*
 
-   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Configuration Service page with the settings, the Validate button highlighted and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
+   :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Configuration Service page with the settings, the Validate button highlighted, and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
 
 1. After validation, select **Apply** to finish the Application Configuration Service configuration.
 
-1. Select **App binding** tab, select **Bind app**, and select `customers-service` from the app name drop-down list, then select **Apply**.
+1. Select **App binding**, select **Bind app**, select `customers-service` from the list, and then select **Apply**.
 
-1. Repeat the previous step to bind the following application names:
+1. Repeat the previous step to bind the following applications:
 
     - *vets-service*
     - *visits-service*
@@ -117,42 +116,41 @@ Use the following steps to create the service instance:
 
 #### Set config file patterns for apps
 
-1. From the navigation pane, open the **Apps** pane and select **customers-service** app.
+1. From the navigation pane, open **Apps**, and then select the **customers-service** app.
 
-1. On the App overview page select **Configuration** pane, select the dropdown list for **Config file patterns** in the **General settings** tab, and select the *application* and *customers-service* checkbox, then **Save** for config file pattern setting.
+1. On the **App overview** page, select **Configuration**, select **Config file patterns** in the **General settings** tab, and then select **application** and **customers-service**. Select **Save** to set the config file patterns.
 
-1. Referring to the *customer-service* app setting, save the config file patterns corresponding to each application name below:
+1. Repeat the previous step to save the config file patterns for the following applications:
 
     - **vets-service**: *application* and *vets-service*
     - **visits-service**: *application* and *visits-service*
 
-
 #### Configure Spring Cloud Gateway
 
-1. From the navigation pane, open the **Spring Cloud Gateway** pane.
+1. From the navigation pane, open **Spring Cloud Gateway**.
 
 1. On the **Overview** tab, select **Yes** to assign an endpoint for the gateway access. Save the endpoint URL to use later.
 
-1. Configure routing for Spring Cloud Gateway. Since the Azure portal currently does not support configuring routing for Spring Cloud Gateway, use Azure CLI to configure the routing.
+1. Configure routing for Spring Cloud Gateway. Since the Azure portal currently doesn't support configuring the routing for Spring Cloud Gateway, use Azure CLI to configure the routing.
 
    1. Use the following command to sign in to the Azure CLI:
-   
+
       ```azurecli
       az login
       ```
 
-   1. Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace: `Microsoft.SaaS`:
-   
+   1. Use the following commands to install the Azure Spring Apps extension for the Azure CLI and register the namespace `Microsoft.SaaS`:
+
       ```azurecli
       az extension add --name spring --upgrade
       az provider register --namespace Microsoft.SaaS
       ```
 
    1. Use the following command to accept the legal terms and privacy statements:
-   
+
       > [!NOTE]
       > This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
-   
+
       ```azurecli
       az term accept \
           --publisher vmware-inc \
@@ -161,7 +159,7 @@ Use the following steps to create the service instance:
       ```
 
    1. Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
-   
+
       ```azurecli
       export SUBSCRIPTION_ID="<subscription-ID>"
       export RESOURCE_GROUP="<resource-group-name>"
@@ -171,15 +169,15 @@ Use the following steps to create the service instance:
       export APP_VISITS_SERVICE="visits-service"
       export APP_FRONTEND="frontend"
       ```
-   
+
    1. Use the following command to set the default subscription:
-   
+
       ```azurecli
       az account set --subscription ${SUBSCRIPTION_ID}
       ```
-   
-   1. Use the following command to set routing for the customer service app:
-   
+
+   1. Use the following command to set routing for the Customer service app:
+
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
         --name ${APP_CUSTOMERS_SERVICE} --service ${SPRING_APPS_NAME} \
@@ -194,9 +192,9 @@ Use the following steps to create the service instance:
         }
       ]'
       ```
-   
-   1. Use the following command to set routing for the vet service app:
-   
+
+   1. Use the following command to set routing for the Vet service app:
+
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
         --name ${APP_VETS_SERVICE} --service ${SPRING_APPS_NAME} \
@@ -211,9 +209,9 @@ Use the following steps to create the service instance:
         }
       ]'
       ```
-   
-   1. Use the following command to set routing for the visit service app:
-   
+
+   1. Use the following command to set routing for the Visit service app:
+
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
         --name ${APP_VISITS_SERVICE} --service ${SPRING_APPS_NAME} \
@@ -228,9 +226,9 @@ Use the following steps to create the service instance:
         }
       ]'
       ```
-   
-   1. Use the following command to set routing for the frontend app:
-   
+
+   1. Use the following command to set routing for the Frontend app:
+
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
         --name ${APP_FRONTEND} --service ${SPRING_APPS_NAME} \
@@ -249,5 +247,4 @@ Use the following steps to create the service instance:
 
 #### Configure Developer Tools
 
-From the navigation pane, open the **Developer Tools** pane. select **Assign endpoint** to assign an endpoint for Developer Tools. Save the endpoint of App Live View to use later.
-
+From the navigation pane, open **Developer Tools**. Select **Assign endpoint** to assign an endpoint for **Developer Tools**. Save the endpoint of **App Live View** to use later.
