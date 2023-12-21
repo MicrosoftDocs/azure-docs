@@ -1,6 +1,6 @@
 ---
 title: Manage APIs in Azure API Center - Azure CLI
-description: Use the Azure CLI to register and manage APIs in your Azure API center.
+description: Use the Azure CLI to create and manage APIs, API versions, and API definitions in your Azure API center.
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.custom:
 
 # Use the Azure CLI to manage the API inventory
 
-This article shows how to use common [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md). You can uUse the Azure CLI to script operations to manage your API inventory.  
+This article shows how to use common [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md). You can use the Azure CLI to script operations to manage your API inventory.  
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -26,9 +26,9 @@ This article shows how to use common [`az apic api`](/cli/azure/apic/api) comman
     > [!NOTE]
     > `az apic` commands require the `apic-extension` extension to the Azure CLI. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command.
 
-## Register an API with an API version and definition
+## Register API, API version, and definition
 
-The following steps show how to register an API with a single version and API definition. For background about the data model in API Center, see [Key concepts](key-concepts.md).
+The following steps show how to create an API and associate a single version and API definition. For background about the data model in API Center, see [Key concepts](key-concepts.md).
 
 ### 1. Create an API
 
@@ -97,9 +97,9 @@ az apic api definition import-specification \
 ```
 
 
-## Register an API from a definition - single step
+## Register an API from a specification file - single step
 
-You can register an API from a local definition file in a single step by using the [az apic api register](/cli/azure/apic/api/register). With this option, an API version and definition are created automatically.
+You can register an API from a local specification file in a single step by using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command. With this option, an API version and definition are created automatically.
 
 The following example registers an API in the *myAPICenter* API center from a local OpenAPI definition file named *specificationFile.json*.
 
@@ -111,7 +111,7 @@ az apic api register --resource-group myResourceGroup \
 
 The command sets the API properties such as name and type from values in the definition file. It creates a default API version named *1-0-0* and a default definition named according to the specification format (for example, *openapi*).
 
-After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update), [az apic api version update](/cli/azure/apic/api/version#az_apic_api_version_update), and [az apic api version definition update](/cli/azure/apic/api/version/definition#az_apic_api_version_definition_update) commands.
+After registering an API, you can update the API's properties by using the [az apic api update](/cli/azure/apic/api#az_apic_api_update), [az apic api version update](/cli/azure/apic/api/version#az_apic_api_version_update), and [az apic api definition update](/cli/azure/apic/api/definition#az_apic_api_definition_update) commands.
 
 
 ## Delete API resources
@@ -124,7 +124,7 @@ az apic api delete \
     --name petstore-api
 ```
 
-You can also use [az apic api version delete](/cli/azure/apic/api/version#az-apic-api-version-delete) and [az apic api version definition delete](/cli/azure/apic/api/definition#az-apic-api-definition-delete) to delete individual versions and definitions, respectively.
+To delete individual API versions and definitions, use [az apic api version delete](/cli/azure/apic/api/version#az-apic-api-version-delete) and [az apic api definition delete](/cli/azure/apic/api/definition#az-apic-api-definition-delete), respectively.
 
 ## Related content
 
