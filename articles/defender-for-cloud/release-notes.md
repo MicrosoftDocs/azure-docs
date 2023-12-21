@@ -31,7 +31,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 We're announcing the release of Defender for Cloud's agentless malware scanner for  virtual machines as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
 
-Agentless malware scanning for virtual machines uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and various threats on your virtual machines. Any detected threats, trigger security alerts which allow you to investigate and remediate the detected issues while enjoying many benefits such as frictionless onboarding, minimal maintenance, no effect on a devices performance and more.
+Agentless malware scanning for virtual machines uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and various threats on your virtual machines. Any detected threats, trigger security alerts, which allow you to investigate and remediate the detected issues while enjoying many benefits such as frictionless onboarding, minimal maintenance, no effect on a devices performance and more.
 
 Learn more about [Agentless malware scanning](concept-agentless-data-collection.md#agentless-malware-scanning).
 
