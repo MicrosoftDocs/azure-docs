@@ -25,9 +25,9 @@ The Network Time Protocol (NTP) is an essential network protocol that aligns the
 Content TBD.
 
 ### InternetGateways
-InternetGateways is a critical element in network architecture, acting as the connecting bridge between a virtual network and the Internet. It enables virtual machines and other entities within a virtual network to communicate seamlessly with external services. These services range from websites and APIs to various cloud services, making InternetGateways a versatile and essential component.
+*InternetGateways* is a critical resource in network architecture, acting as the connecting bridge between a virtual network and the Internet. It enables virtual machines and other entities within a virtual network to communicate seamlessly with external services. These services range from websites and APIs to various cloud services, making InternetGateways a versatile and essential component.
 
-#### Key Properties of InternetGateways
+#### Properties
 
 | Property         | Description                                                                                          |
 |------------------|------------------------------------------------------------------------------------------------------|
@@ -38,9 +38,45 @@ InternetGateways is a critical element in network architecture, acting as the co
 | Routes           | Outlines the routing rules and configurations for managing traffic through the gateway.             |
 
 
-#### Practical Use Cases
+#### Use cases
 
 * **Internet Access:** Facilitates Internet connectivity for virtual network resources, crucial for updates, downloads, and accessing external services.
 * **Hybrid Connectivity:** Ideal for hybrid scenarios, allowing secure connections between on-premises networks and Azure resources.
 * **Load Balancing:** Enhances network performance and availability by evenly distributing traffic across multiple gateways.
 * **Security Enforcement:** Enables the implementation of robust security policies, such as outbound traffic restrictions and encryption mandates.
+
+### InternetGatewayRules
+*InternetGatewayRules* represents a set of rules associated with an Internet Gateway in the Managed Network Fabric. These rules establish guidelines for either permitting or restricting traffic as it moves through the Internet Gateway, providing a framework for network traffic management.
+
+#### Properties
+
+| Property                     | Description                                                                          |
+|------------------------------|--------------------------------------------------------------------------------------|
+| Name                         | Acts as the unique identifier for each rule.                                         |
+| Priority                     | Sets the evaluation order of the rules, with higher priority rules taking precedence.|
+| Action                       | Determines the action (e.g., allow, deny) for traffic that matches the rule criteria.|
+| Source IP Address Range      | Identifies the originating IP address range applicable to the rule.                  |
+| Destination IP Address Range | Defines the targeted IP address range for the rule.                                  |
+| Protocol                     | Specifies the network protocol (e.g., TCP, UDP) relevant to the rule.                |
+| Port Range                   | Details the port range for the rule, if applicable.                                  |
+
+
+#### Use cases
+
+* **Traffic Filtering:** InternetGatewayRules enable organizations to control both incoming and outgoing network traffic based on specific criteria. For example, they can block certain IP ranges or allow only particular protocols.
+
+* **Enforcing Security Policies:** These rules are instrumental in implementing security measures, such as restricting traffic to enhance network security. An organization might block known malicious IP ranges or limit traffic to specific ports for certain services.
+
+* **Compliance Assurance:** The rules can also be utilized to comply with regulatory standards by limiting types of traffic, thereby aiding in data privacy and access control.
+
+* **Traffic Load Balancing:** InternetGatewayRules can distribute network traffic across multiple gateways to optimize resource utilization. This includes prioritizing or throttling traffic based on business needs.
+
+## FAQs
+
+**Is Support Available for HTTP Endpoints?**
+
+Azure's default configuration supports only HTTPS endpoints to ensure secure communication. HTTP endpoints are not supported as part of this security measure. By prioritizing HTTPS, Azure maintains high standards of data integrity and privacy.
+
+**How Can I Safeguard Against Data Exfiltration?**
+
+To enhance security against data exfiltration, Azure allows the whitelisting of Fully Qualified Domain Names (FQDNs) on the proxy. This extra layer of protection ensures that only authorized traffic can access your network, significantly reducing the risk of unauthorized data transfer.
