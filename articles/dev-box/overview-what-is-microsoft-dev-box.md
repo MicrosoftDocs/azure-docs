@@ -73,24 +73,6 @@ Dev Box supports developers who are working on multiple projects. Developers can
 
 Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
 
-## How does Dev Box work?
-
-This diagram shows the components of the Dev Box service and the relationships between them.
-
-:::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-architecture.png" alt-text="Diagram that shows the Dev Box architecture components and their relationships." lightbox="media/overview-what-is-microsoft-dev-box/dev-box-architecture.png" border="false":::
-
-Dev Box service configuration begins with the creation of a *dev center*, which represents the units of organization in the enterprise. Dev centers are logical containers to help organize dev box resources. There's no limit to the number of dev centers you can create, but most organizations need only one.
-
-Azure network connections enable dev boxes to communicate with your organization's network. The network connection provides a link between the dev center and your organization's virtual networks. In the network connection, you define how a dev box joins Microsoft Entra ID. Use a Microsoft Entra join to connect exclusively to cloud-based resources, or use a Microsoft Entra hybrid join to connect to on-premises resources and cloud-based resources.
-
-Dev box definitions define the configuration of the dev boxes that are available to users. You can use an image from Azure Marketplace, like the **Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 22H2 | Hibernate supported** image. Or you can create your own custom image and store it in [Azure Compute Gallery](how-to-configure-azure-compute-gallery.md). Lastly, specify a SKU with compute and storage to complete the dev box definition.
-
-Dev Box projects are the point of access for development teams. You assign the Dev Box User role to a project to give a developer access to the *dev box pools* that are associated with the project.
-
-Dev box pools make your dev box definitions available in projects. Dev box pools are groups of dev box definitions that have similar settings. For example, you can configure an auto-stop schedule on a dev box pool to stop all the dev boxes in the pool at a specified time.
-
-When the configuration of the service is complete, developers can create and manage their dev boxes through the developer portal. They have access to only the dev box pools that are associated with projects for which they have the Dev Box User role.
-
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
 ## Components shared with Azure Deployment Environments
