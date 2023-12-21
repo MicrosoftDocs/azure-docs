@@ -114,20 +114,26 @@ You can use the `az vm extension` and `az vm update` commands to update existing
 
 ## Check the current licensing model of an AHB enabled VM
 
-You can view the Azure Hybrid Benefit status of a virtual machine by using the Azure CLI or by using Azure Instance Metadata Service.
+It is required the Azure Hybrid Benefit extension be installed on the VM to switch the licensing model from BYOS to PAYG or vice versa. You can view whether the agent is installed using the Azure CLI or the Azure Instance Metadata Service.
 
 ### [Azure CLI](#tab/licenseazcli)
 
-1. You can use the `az vm get-instance-view` command to check the status. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is `RHEL_BYOS` or `SLES_BYOS`, your virtual machine has Azure Hybrid Benefit enabled.
+1. You can use the `az vm get-instance-view` command to check whether the extension is installed or not. Look for the `AHBForSLES` or `AHBForRHEL` extension, if the corresponding one is installed, the Azure Hybrid Benefit has been enabled, 
+review the license type to review which licensing model your VM is using.
 
    ```azurecli
-   az vm get-instance-view -g MyResourceGroup -n MyVm
+   az vm get-instance-view -g MyResourceGroup -n myVm --query instanceView.extensions
    ```
 
-1. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the following, your virtual machine does not have Azure Hybrid Benefit enabled:
+1. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the following, your virtual machine is using a PAYG model.
 
    - For RHEL: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
    - For SLES: `SLES`, `SLES_SAP`, or `SLES_HPC`
+
+1. If the `licenseType` field exists and the value is one of the following, your virtual machine is using a BYOS model.
+
+   - For RHEL: `RHEL_BYOS`
+   - For SLES: `SLES_BYOS`
 
 ### [Azure Instance Metadata Service](#tab/licenseazmetadata)
 
