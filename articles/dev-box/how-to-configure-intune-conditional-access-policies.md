@@ -1,7 +1,7 @@
 ---
-title: "[verb] * [noun]"
+title: Configuring Microsoft Intune conditional access policies for dev boxes
 titleSuffix: Microsoft Dev Box
-description: "[Article description]."
+description: Learn how to configure Microsoft Intune dynamic device groups and conditional access policies to restrict access to dev boxes.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM

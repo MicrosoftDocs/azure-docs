@@ -38,14 +38,17 @@ items:
     href: how-to-manage-dev-box-pools.md
   - name: Limit number of dev boxes per project
     href: tutorial-dev-box-limits.md  
-  - name: Provide access to project admins
-    href: how-to-project-admin.md
-  - name: Provide access to dev box users
-    href: how-to-dev-box-user.md        
+      
   - name: Configure Visual Studio caches
     href: how-to-generate-visual-studio-caches.md
   - name: Configure Azure Diagnostic Logs
     href: how-to-configure-dev-box-azure-diagnostic-logs.md    
+- name: Prepare images
+  items:
+  - name: Configure an Azure compute gallery
+    href: how-to-configure-azure-compute-gallery.md
+  - name: Provision a Custom Image with Azure Image Builder
+    href: how-to-customize-devbox-azure-image-builder.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
@@ -54,6 +57,14 @@ items:
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Troubleshoot dev box connectivity issues
     href: how-to-troubleshoot-repair-dev-box.md
+- name: Security
+  items:
+  - name: Provide access to project admins
+    href: how-to-project-admin.md
+  - name: Provide access to dev box users
+    href: how-to-dev-box-user.md 
+  - name: Configure conditional access policies
+    href: how-to-configure-intune-conditional-access-policies.md
 - name: Manage costs
   items:
   - name: Determine resource usage and quota
@@ -68,12 +79,6 @@ items:
     href: how-to-configure-stop-schedule.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
-- name: Prepare images
-  items:
-  - name: Configure an Azure compute gallery
-    href: how-to-configure-azure-compute-gallery.md
-  - name: Provision a Custom Image with Azure Image Builder
-    href: how-to-customize-devbox-azure-image-builder.md
 - name: Reference
   items:
     - name: Install Azure CLI devcenter extension
