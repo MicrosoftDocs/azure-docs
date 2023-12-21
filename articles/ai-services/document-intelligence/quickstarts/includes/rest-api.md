@@ -6,9 +6,11 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 08/17/2023
+ms.date: 12/21/2023
 ms.author: lajanuar
 ---
+
+<!-- markdownlint-disable MD036 -->
 
 | [Document Intelligence REST API](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Azure SDKS](../../sdk-overview-v3-1.md) | [Supported SDKs](../../sdk-overview-v3-1.md)
 
@@ -41,9 +43,6 @@ In this quickstart you'll, use the Document Intelligence REST API to analyze and
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the prerequisites.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=prerequisites) -->
-
 ## Analyze documents and get results
 
  A POST request is used to analyze documents with a prebuilt or custom model. A GET request is used to retrieve the result of a document analysis call. The `modelId` is used with POST and `resultId` with GET operations.
@@ -60,31 +59,66 @@ Before you run the cURL command, make the following changes to the [post request
 
 1. You need a document file at a URL. For this quickstart, you can use the sample forms provided in the following table for each feature:
 
-    **Sample documents**
+:::moniker range="doc-intel-4.0.0"
 
-    | **Feature**   | **{modelID}**   | **{your-document-url}** |
-    | --- | --- |--|
-    | **General Document** | prebuilt-document | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf` |
-    | **Read** | prebuilt-read | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png` |
-    | **Layout** | prebuilt-layout | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png` |
-    | **Health insurance card** | prebuilt-healthInsuranceCard.us | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/insurance-card.png` |
-    | **W-2**  | prebuilt-tax.us.w2 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png` |
-    | **Invoice**  | prebuilt-invoice | `https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf` |
-    | **Receipt**  | prebuilt-receipt | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png` |
-    | **ID document**  | prebuilt-idDocument | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png` |
-    | **Business card**  | prebuilt-businessCard | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg` |
+**Sample documents**
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the POST request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=post-request-analyze) -->
+| **Feature**   | **{modelID}**   | **{your-document-url}** |
+| --- | --- |--|
+| **Read** | prebuilt-read | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png` |
+| **Layout** | prebuilt-layout | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png` |
+| **Health insurance card** | prebuilt-healthInsuranceCard.us | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/insurance-card.png` |
+| **W-2**  | prebuilt-tax.us.w2 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png` |
+| **Invoice**  | prebuilt-invoice | `https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf` |
+| **Receipt**  | prebuilt-receipt | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png` |
+| **ID document**  | prebuilt-idDocument | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png` |
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
+**Sample documents**
+
+| **Feature**   | **{modelID}**   | **{your-document-url}** |
+| --- | --- |--|
+| **General Document** | prebuilt-document | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf` |
+| **Read** | prebuilt-read | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png` |
+| **Layout** | prebuilt-layout | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png` |
+| **Health insurance card** | prebuilt-healthInsuranceCard.us | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/insurance-card.png` |
+| **W-2**  | prebuilt-tax.us.w2 | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png` |
+| **Invoice**  | prebuilt-invoice | `https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf` |
+| **Receipt**  | prebuilt-receipt | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png` |
+| **ID document**  | prebuilt-idDocument | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png` |
+| **Business card**  | prebuilt-businessCard | `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg` |
+:::moniker-end
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
 
 #### POST request
 
+:::moniker range="doc-intel-4.0.0"
+
+```bash
+curl -v -i POST "{endpoint}/documentintelligence/documentModels/{modelId}:analyze?api-version=2023-10-31-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
 ```bash
 curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2023-07-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+```bash
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelId}:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+```
+
+:::moniker-end
 
 #### POST response (resultID)
 
@@ -94,7 +128,21 @@ You receive a `202 (Success)` response that includes a read-only **Operation-Loc
 
 ### Get analyze results (GET Request)
 
+:::moniker range="doc-intel-4.0.0"
+
+After you call the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
 After you call the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+After you call the [**Analyze document**](https://{endpoint}/formrecognizer/documentModels/{modelId}:analyze?api-version=2022-08-31) API, call the [**Get analyze result**](https://{endpoint}/formrecognizer/documentModels/{modelId}/analyzeResults/{resultId}?api-version=2022-08-31) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+:::moniker-end
 
 1. Replace `{resultID}` Operation-Location header from the [POST response](#post-response-resultid).
 
@@ -104,24 +152,89 @@ After you call the [**Analyze document**](/rest/api/aiservices/document-models/a
 
 #### GET request
 
+:::moniker range="doc-intel-4.0.0"
+
 ```bash
-curl -v -X GET "{resultID}" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{endpoint}/documentintelligence/documentModels/{modelId}/analyzeResults/{resultId}?api-version=2023-10-31-preview" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+```bash
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelId}/analyzeResults/{resultId}?api-version=2023-07-31" -H "Ocp-Apim-Subscription-Key: {key}"
+
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+```bash
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelId}/analyzeResults/{resultId}?api-version=2022-08-31" -H "Ocp-Apim-Subscription-Key: {key}"
+
+```
+
+:::moniker-end
 
 #### Examine the response
 
 You receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` is `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
-<!-- > [!div class="nextstepaction"]
-> [I &#8203;ran into an issue with the GET request.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=rest&Product=FormRecognizer&Page=quickstart&Section=get-request-results) -->
-
 #### Sample response for prebuilt-invoice
+
+:::moniker range="doc-intel-4.0.0"
 
 ```json
 {
     "status": "succeeded",
-    "createdDateTime": "2022-03-25T19:31:37Z",
-    "lastUpdatedDateTime": "2022-03-25T19:31:43Z",
+    "createdDateTime": "2023-11-25T19:31:37Z",
+    "lastUpdatedDateTime": "2023-11-25T19:31:43Z",
+    "analyzeResult": {
+        "apiVersion": "2023-10-31-preview",
+        "modelId": "prebuilt-invoice",
+        "stringIndexType": "textElements"...
+    ..."pages": [
+            {
+                "pageNumber": 1,
+                "angle": 0,
+                "width": 8.5,
+                "height": 11,
+                "unit": "inch",
+                "words": [
+                    {
+                        "content": "CONTOSO",
+                        "boundingBox": [
+                            0.5911,
+                            0.6857,
+                            1.7451,
+                            0.6857,
+                            1.7451,
+                            0.8664,
+                            0.5911,
+                            0.8664
+                        ],
+                        "confidence": 1,
+                        "span": {
+                            "offset": 0,
+                            "length": 7
+                                }
+                      }],
+              }]
+      }
+}
+```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0"
+
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2023-08-25T19:31:37Z",
+    "lastUpdatedDateTime": "2023-08-25T19:31:43Z",
     "analyzeResult": {
         "apiVersion": "2023-07-31",
         "modelId": "prebuilt-invoice",
@@ -150,10 +263,58 @@ You receive a `200 (Success)` response with JSON output. The first field, `"stat
                         "span": {
                             "offset": 0,
                             "length": 7
-                        }
-                    },
+                                }
+                      }],
+              }]
+      }
 }
 ```
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2022-09-25T19:31:37Z",
+    "lastUpdatedDateTime": "2022-09-25T19:31:43Z",
+    "analyzeResult": {
+        "apiVersion": "2022-08-31",
+        "modelId": "prebuilt-invoice",
+        "stringIndexType": "textElements"...
+    ..."pages": [
+            {
+                "pageNumber": 1,
+                "angle": 0,
+                "width": 8.5,
+                "height": 11,
+                "unit": "inch",
+                "words": [
+                    {
+                        "content": "CONTOSO",
+                        "boundingBox": [
+                            0.5911,
+                            0.6857,
+                            1.7451,
+                            0.6857,
+                            1.7451,
+                            0.8664,
+                            0.5911,
+                            0.8664
+                        ],
+                        "confidence": 1,
+                        "span": {
+                            "offset": 0,
+                            "length": 7
+                                }
+                      }],
+              }]
+      }
+}
+```
+
+:::moniker-end
 
 #### Supported document fields
 
