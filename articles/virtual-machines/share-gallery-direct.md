@@ -26,6 +26,9 @@ This article covers how to share an Azure Compute Gallery with specific subscrip
 >
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
+> [!WARNING]
+> #### Users will require reader permissions to access the Image.
+> #### Putting any secrets (or) IP on the image is not recommended as the image can be used to create VM and read contents.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 

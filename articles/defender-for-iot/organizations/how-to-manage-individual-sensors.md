@@ -1,7 +1,7 @@
 ---
 title: Maintain Defender for IoT OT network sensors from the GUI - Microsoft Defender for IoT
 description: Learn how to perform maintenance activities on individual OT network sensors using the OT sensor console.
-ms.date: 12/12/2023
+ms.date: 12/19/2023
 ms.topic: how-to
 ---
 
@@ -417,7 +417,7 @@ After clearing data on a cloud-connected sensor:
 
 **To clear system data**:
 
-1. Sign in to the OT sensor as the *support* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
+1. Sign in to the OT sensor as the *admin* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 1. Select **Support** > **Clear data**.
 
