@@ -11,7 +11,7 @@ ms.custom:
 
 # Delete and recover an Azure Log Analytics workspace
 
-This article explains the concept of Azure Log Analytics workspace soft-delete and how to recover a deleted workspace in a soft-delete state. It also explains how to delelte a workspace permanently instead of deleting it into a soft-delete state.
+This article explains the concept of Azure Log Analytics workspace soft-delete and how to recover a deleted workspace in a soft-delete state. It also explains how to delete a workspace permanently instead of deleting it into a soft-delete state.
 
 ## Permissions required
 
@@ -214,4 +214,4 @@ If you deleted your resource group and your workspace was included, you can see 
 
 ## Next steps
 
-If you need to create a new Log Analtyics workspace, see [Create a Log Analytics workspace](./quick-create-workspace.md).
+If you need to create a new Log Analytics workspace, see [Create a Log Analytics workspace](./quick-create-workspace.md).
