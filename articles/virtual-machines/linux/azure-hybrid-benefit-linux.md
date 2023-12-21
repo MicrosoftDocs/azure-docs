@@ -124,20 +124,51 @@ review the license type to review which licensing model your VM is using.
    ```azurecli
    az vm get-instance-view -g MyResourceGroup -n myVm --query instanceView.extensions
    ```
+1. Once the corresponding Red Hat or SUSE Hybrid beneift extension is installed, use the following command to review the license type the machine is using.
 
-1. Look for a `licenseType` field in the response. If the `licenseType` field exists and the value is one of the following, your virtual machine is using a PAYG model.
+   ```azurecli
+   az vm get-instance-view -g MyResourceGroup -n myVM --query licenseType
+   ```
+
+1. The following license types correspond to PAYG model.
 
    - For RHEL: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
    - For SLES: `SLES`, `SLES_SAP`, or `SLES_HPC`
 
-1. If the `licenseType` field exists and the value is one of the following, your virtual machine is using a BYOS model.
+1. These ones correspond to BYOS.
 
    - For RHEL: `RHEL_BYOS`
    - For SLES: `SLES_BYOS`
 
-### [Azure Instance Metadata Service](#tab/licenseazmetadata)
+If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it. 
 
-From within the virtual machine itself, you can query the attested metadata in Azure Instance Metadata Service to determine the virtual machine's `licenseType` value. A `licenseType` value of `RHEL_BYOS` or `SLES_BYOS` indicates that your virtual machine has Azure Hybrid Benefit enabled. [Learn more about attested metadata](./instance-metadata-service.md#attested-data).
+
+### [Azure PowerShell](#tab/licensepowershell)
+
+1. You can use the `az vm get-instance-view` command to check whether the extension is installed or not. Look for the `AHBForSLES` or `AHBForRHEL` extension, if the corresponding one is installed, the Azure Hybrid Benefit has been enabled, 
+review the license type to review which licensing model your VM is using.
+
+   ```azurepowershell
+   Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM -Status | Select-Object -ExpandProperty Extensions
+   ```
+
+1. Once the corresponding Red Hat or SUSE Hybrid beneift extension is installed, use the following command to review the license type the machine is using.
+
+   ```azurepowershell
+   Get-AzVM -ResourceGroupName MyResourceGroup -Name myVM).LicenseType
+   ```
+
+1. The following license types correspond to PAYG model.
+
+   - For RHEL: `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, or `RHEL_BASESAPHA`.
+   - For SLES: `SLES`, `SLES_SAP`, or `SLES_HPC`
+
+1. These ones correspond to BYOS.
+
+   - For RHEL: `RHEL_BYOS`
+   - For SLES: `SLES_BYOS`
+
+If the license type of the VM has not been modified, the previous command returns an empty string and the VM continues to use the billing model of the image used to deploy it. 
 
 ---
 
