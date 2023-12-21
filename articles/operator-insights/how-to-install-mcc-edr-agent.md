@@ -23,8 +23,8 @@ The MCC EDR agent is a software package that is installed onto a Linux Virtual M
 |----------|---------------------------------------------------------------------|
 | OS       | Red Hat Enterprise Linux 8.6 or later, or Oracle Linux 8.8 or later |
 | vCPUs    | 4                                                                   |
-| Memory   | 32 GB                                                               |
-| Disk     | 30 GB                                                               |
+| Memory   | 16 GB                                                               |
+| Disk     | 64 GB                                                               |
 | Network  | Connectivity from MCCs and to Azure                                 |
 | Software | systemd, logrotate and zip installed                                |
 | Other    | SSH or alternative access to run shell commands                     |
@@ -126,6 +126,11 @@ This process assumes that you're connecting to Azure over ExpressRoute and are u
     ```
     <Storage private IP>   <ingestion URL>
     <Key Vault private IP>  <Key Vault URL>
+    ````
+1. Additionally to this, the public IP of the the URL *login.microsoftonline.com* must be added to */etc/hosts*. You can use any of the public addresses resolved by DNS clients.
+
+    ```
+    <Public IP>   login.microsoftonline.com
     ````
 
 ## Install agent software
