@@ -51,9 +51,11 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 **Supported Java and Scala versions**
 
-|Java|Scala|
-| -------- | -------- |
-|Open JDK 11.0.21 |2.12.10 |
+|Workload |Java|Scala|
+| ----------- | -------- | -------- |
+|Trino |Open JDK 17.0.7  |- |
+|Flink  |Open JDK 11.0.21 |2.12.7 |
+|Spark  |Open JDK 1.8.0_345  |2.12.15 |
 
 The preview is available in the following [regions](../overview.md#region-availability-public-preview).
 
