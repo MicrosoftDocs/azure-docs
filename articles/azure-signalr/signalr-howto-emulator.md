@@ -19,7 +19,7 @@ When developing serverless applications, we provide an Azure SignalR Local Emula
 
 ## Walkthrough
 
-Take this serverless sample for example https://github.com/Azure/azure-functions-signalrservice-extension/tree/3e87c3ce277265866ca9d0bf51bb9c7ecea39e14/samples/bidirectional-chat 
+We use [this serverless sample](https://github.com/Azure/azure-functions-signalrservice-extension/tree/3e87c3ce277265866ca9d0bf51bb9c7ecea39e14/samples/bidirectional-chat) to show how to use the emulator.
 
 1. Clone the sample repo to local
     ```
@@ -46,7 +46,7 @@ Take this serverless sample for example https://github.com/Azure/azure-functions
     asrs-emulator upstream init
     ```
 
-    It in its a default `settings.json` into the current folder, with a default upstream `UrlTemplate` as `http://localhost:7071/runtime/webhooks/signalr`, which is the URL for SignalR's **local** function trigger:
+    It creates a default `settings.json` into the current folder, with a default upstream `UrlTemplate` as `http://localhost:7071/runtime/webhooks/signalr`, which is the URL for SignalR's **local** function trigger:
     ```json
     {
     "UpstreamSettings": {
@@ -81,7 +81,7 @@ Take this serverless sample for example https://github.com/Azure/azure-functions
 
 7. In the browser, navigate to `http://localhost:7071/api/index` to play with the demo.
 
-    :::image type="content" source="./media/signalr-howto-emulator/emulator-command-running.png" alt-text="Screenshot of the emulator command is running.":::
+    :::image type="content" source="./media/signalr-howto-emulator/local-chat.png" alt-text="Screenshot of the emulator command is running.":::
 
 ## Next steps
 

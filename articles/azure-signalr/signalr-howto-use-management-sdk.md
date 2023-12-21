@@ -38,6 +38,7 @@ Azure SignalR Management SDK helps you to manage SignalR clients through Azure S
 | [Retry transient error](#http-requests-retry)                      | since v1.22.0      |  :x:               |
 
 **Features only come with new API**
+
 | Feature                      | Transient          | Persistent  |
 | ---------------------------- | ------------------ | ----------- |
 | Check if a connection exists | :heavy_check_mark: | Since v1.11 |
@@ -91,8 +92,7 @@ In [default mode](concept-service-mode.md#default-mode), an endpoint `/<Your Hub
 
 In [serverless mode](concept-service-mode.md#serverless-mode), we recommend you hosting a negotiation endpoint to serve the SignalR clients' negotiate request and redirect the clients to Azure SignalR Service.
 
-> [!Information]
-> 
+> [!TIP]
 > Read more details about the redirection at SignalR's [Negotiation Protocol](https://github.com/aspnet/SignalR/blob/master/specs/TransportProtocols.md#post-endpoint-basenegotiate-request).
 
 Both of endpoint and access token are useful when you want to redirect SignalR clients to your Azure SignalR Service.
@@ -112,7 +112,7 @@ await connection.StartAsync();
 
 The sample on how to use Management SDK to redirect SignalR clients to Azure SignalR Service can be found [here](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Management).
 
-### Send Messages and Manage Groups
+### Send messages and manage groups
 
 The `ServiceHubContext` we build from `ServiceHubContextBuilder` is a class that implements and extends `IServiceHubContext`. You could use it to send messages to your clients and managing your groups.
 
@@ -169,21 +169,21 @@ Except for the difference of sending messages, you could negotiate or manage gro
 
 Read more on strongly typed hubs in the ASP.NET Core docs [here](/aspnet/core/signalr/hubs#strongly-typed-hubs).
 
-### Transport Type
+### Transport type
 
 This SDK can communicates to Azure SignalR Service with two transport types:
 
 * Transient: Create an Http request Azure SignalR Service for each message sent. The SDK simply wraps up [Azure SignalR Service REST API](./signalr-reference-data-plane-rest-api.md) in Transient mode. It's useful when you're unable to establish a WebSockets connection.
 * Persistent: Create a WebSockets connection first and then send all messages in this connection. It's useful when you send large number of messages.
 
-### Summary of Serialization behaviors of the Arguments in Messages
+### Summary of serialization behaviors of the arguments in messages
 
 | Serialization                  | Transient          | Persistent                        |
 | ------------------------------ | ------------------ | --------------------------------- |
 | Default JSON library           | `Newtonsoft.Json`  | The same as ASP.NET Core SignalR: <br>`Newtonsoft.Json` for .NET Standard 2.0; <br>`System.Text.Json` for .NET Core App 3.1 and above  |
 | MessagePack clients support    |  since v1.21.0   |  since v1.20.0                    |
 
-#### Json serialization
+#### JSON serialization
 In Management SDK, the method arguments sent to clients are serialized into JSON. We have several ways to customize JSON serialization. We show all the ways in the order from the most recommended to the least recommended.
 
 ##### `ServiceManagerOptions.UseJsonObjectSerializer(ObjectSerializer objectSerializer)`
