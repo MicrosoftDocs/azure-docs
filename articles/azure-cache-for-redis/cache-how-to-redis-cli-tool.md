@@ -24,7 +24,7 @@ sudo apt-get install redis
 ```
 
 ### Windows
-The best way to use redis-cli on a Windows machine is to install the [Windows Subsystem for Linux (WSL)](../../windows/wsl/about.md), which allows you to run linux tools directly on Windows. To install WSL, follow the [WSL installation instructions](../../windows/wsl/install.md). 
+The best way to use redis-cli on a Windows machine is to install the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/about), which allows you to run linux tools directly on Windows. To install WSL, follow the [WSL installation instructions](https://learn.microsoft.com/en-us/windows/wsl/install). 
 
 Once WSL is installed, you can install redis-cli using whatever package management is available in the Linux distro you chose for WSL. 
 
@@ -44,7 +44,7 @@ In this section, you retrieve the keys from the Azure portal.
 
 ## Connect using redis-cli.
 
-Open up a shell or terminal on a machine with the `redis` image installed. If using WSL, you can [use the Windows Terminal](../../windows/wsl/install.md#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. You need to check two things before connecting with redis-cli:
+Open up a shell or terminal on a machine with the `redis` image installed. If using WSL, you can [use the Windows Terminal](https://learn.microsoft.com/en-us/windows/wsl/install#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. You need to check two things before connecting with redis-cli:
 1. Whether TLS access is needed. By default, Azure Cache for Redis instances use [TLS](cache-remove-tls-10-11.md) encryption for connections. Whenever TLS is used on the server side, TLS on redis-cli must be enabled using the `--tls` option. 
 1. The port used. All Enterprise and Enterprise Flash tier caches use port `10000`. Basic, Standard, and Premium tier caches, however, use either port `6379` for non-TLS connections or port `6380` for TLS connections.
 
