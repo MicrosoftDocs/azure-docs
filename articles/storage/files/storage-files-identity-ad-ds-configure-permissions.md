@@ -79,7 +79,7 @@ There are two approaches you can take to configuring and editing Windows ACLs:
 
 - **One-time username/storage account key setup:**
 > [!NOTE]
-> This setup works for newly created file shares as any new file/directory would inherit the configured root permission. For file shares migrated along with existing ACLS, this approach might not work as the migrated files do not inherit the configured root ACL.
+> This setup works for newly created file shares because any new file/directory will inherit the configured root permission. For file shares migrated along with existing ACLs, this approach might not work because the migrated files don't inherit the configured root ACL.
 
   1. Log in with a username and storage account key on a machine that has unimpeded network connectivity to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
   2. Assign those users the **Storage File Data SMB Share Elevated Contributor** Azure RBAC role.
