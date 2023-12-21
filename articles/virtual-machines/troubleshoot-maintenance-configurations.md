@@ -33,7 +33,7 @@ In order to create a dynamic scope, user must have the permission at the subscri
 #### Apply Update stuck and Update not progressing
 **Applies to:** :heavy_check_mark: Dedicated Hosts :heavy_check_mark: VMs 
 
-If a resource is redeployed to a different cluster, and a pending update request is created using the old cluster value, the request  becomes stuck indefinitely. If a request being stuck for an extended period (more than 300 minutes), contact the  support team for further mitigation.
+If a resource is redeployed to a different cluster, and a pending update request is created using the old cluster value, the request becomes stuck indefinitely. If a request is stuck for an extended period (more than 300 minutes), contact the  support team for further mitigation.
 
 #### Dedicated host update even after Maintenance Configuration is attached
 
