@@ -54,9 +54,22 @@ parameter_file_name="DEV-WEEU-SAP01-X00.tfvars"
 deployment_type="sap_system"
 subscriptionID="<subscriptionId>"
 
+filepart=$(echo "${parameter_file_name}" | cut -d. -f1)
+key_file=${filepart}.terraform.tfstate
+
+#This is the name of the storage account containing the terraform state files
+storage_accountname="<storageaccountname>"
+
+$DEPLOYMENT_REPO_PATH/deploy/scripts/advanced_state_management.sh                      \
+  --parameterfile "${parameter_file_name}"        \
+  --type "${deployment_type}"                     \
+  --operation list                                \
+  --subscription "${subscriptionID}"              \
+  --storage_account_name "${storage_accountname}" \
+  --terraform_keyfile "${key_file}"
 ```
 
-### Example 1
+### Example 2
 
 Importing a Virtual Machine
 
