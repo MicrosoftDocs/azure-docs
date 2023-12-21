@@ -172,6 +172,42 @@ In Azure, DNS records for an App Service Domain are managed using [Azure DNS](ht
 
 For information on how to edit DNS records, see [How to manage DNS Zones in the Azure portal](../dns/dns-operations-dnszones-portal.md).
 
+## Update contact information
+
+After you purchase the App Service Domain, you can still update the domain contact information if needed. It is important to keep this contact information up to date so that you can receive notifications about your domain and receive verification emails if you decide to transfer out your domain. To update your contact information:
+
+1. In the search bar, search for and select **App Service Domains**.
+
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view." border="true":::
+
+1. Select the domain you want to configure.
+
+1. From the left navigation of the domain, select **Advance domain management (preview)**. To update your contact information, click on **Edit contact**.
+
+1. A rightside plane will pop up and you will need to update the necessary fields then click on **Submit**.
+
+1. Once you submit the request, it might take some time for your contact information to update.
+
+    > [!NOTE]
+    > If you have Privacy disabled and have updated the name or organization information, an email verification will be sent to the email address on file for confirmation. Additionally, if you updated your email address, a verification email will be sent first to the previous email on file for confirmation, and once that is completed, another email would be sent to the new email on file for confirmation. The contact information will not update until after you have confirmed via email.
+    > 
+## Disable privacy protection
+
+    > [!IMPORTANT]
+    > Once you disable privacy protection, you can no longer re-enable privacy protection again.
+    >
+
+Privacy protection hides your domain registration contact information from the WHOIS database. If opted-in during domain creation, privacy protection is already included in the yearly domain registration fee for no additional cost. However, there are some scenarios, such as transfering domain out, where you would need to Disable privacy protection, you can do that by:
+
+
+1. In the search bar, search for and select **App Service Domains**.
+
+    :::image type="content" source="./media/app-service-web-tutorial-custom-domain/view-app-service-domains.png" alt-text="A screenshot showing how to open the App Service domain view." border="true":::
+
+1. Select the domain you want to configure.
+
+1. From the left navigation of the domain, select **Advance domain management (preview)**. To disable privacy protection, click on **Disable** in the **Domain Privacy** section.
+
 ## Cancel purchase (delete domain)
 
 After you purchase the App Service Domain, you have five days to cancel your purchase for a full refund. After five days, you can delete the App Service Domain, but can't receive a refund.
