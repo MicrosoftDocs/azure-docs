@@ -193,9 +193,9 @@ After you purchase the App Service Domain, you can still update the domain conta
     > 
 ## Disable privacy protection
 
-    > [!IMPORTANT]
-    > Once you disable privacy protection, you can no longer re-enable privacy protection again.
-    >
+> [!IMPORTANT]
+> Once you disable privacy protection, you can no longer re-enable privacy protection again.
+>
 
 Privacy protection hides your domain registration contact information from the WHOIS database. If opted-in during domain creation, privacy protection is already included in the yearly domain registration fee for no additional cost. However, there are some scenarios, such as transfering domain out, where you would need to Disable privacy protection, you can do that by:
 
