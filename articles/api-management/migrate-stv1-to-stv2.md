@@ -33,7 +33,7 @@ For more information about the `stv1` and `stv2` platforms and the benefits of u
 
 API Management platform migration from `stv1` to `stv2` involves updating the underlying compute alone and has no impact on the service/API configuration persisted in the storage layer.
 
-* The upgrade process involves creating a new compute in parallel the old compute. Both instances coexist for 48 hours.
+* The upgrade process involves creating a new compute in parallel to the old compute. The old compute takes 15-45 mins to be deleted with an option to delay it for upto 48 hours.
 * The API Management status in the Portal will be "Updating".
 * Azure manages the management endpoint DNS, and updates to the new compute immediately on successful migration. 
 * The Gateway DNS still points to the old compute if custom domain is in use. 
@@ -205,7 +205,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 - **Will the migration cause a downtime?**
 
-   ***VNet-injected instances:***  there's no downtime as the old and new managed gateways are available for 48 hours, to facilitate validation and DNS update. However, if the default domain names are in use, traffic is routed to the new managed gateway immediately. It's critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional.
+   ***VNet-injected instances:***  since the old gateway is purged only after the new compute is healthy and online, there should not be any downtime if default hostnames are in use. It's critical that all network dependencies are taken care of upfront, for the impacted APIs to be functional. However, if custom domains are in use, they will be pointing to the purged compute until they are updated which may cause a downtime. Alternatively, you can request for the old gateway to be retained for up to 48 hours by creating a support ticket in advance. Having the old and the new compute coexist will facilitate validation, and subsequently update the custom DNS entries at will.
    
    ***Non-VNet instances:*** there's a downtime of approximately 15 minutes only if you choose to preserve the original IP address. However, there's no downtime if you migrate with a new IP address.
 
@@ -262,7 +262,7 @@ On successful migration, update any network dependencies including DNS, firewall
 
 - **Can I roll back the migration if required?**
 
-   Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the `stv1` platform. However, if you encounter any other issues post migration, you have 48 hours to request a rollback by contacting Azure support. You should contact support if the instance is stuck in an "Updating" status for more than 2 hours.
+   Yes, you can. If there's a failure during the migration process, the instance will automatically roll back to the stv1 platform. However, if you encounter any other issues post migration, you can roll back only if you have requested an extension to the old gateway purge. By default, the old gateway is purged in 15 mins which can be extended up to 48 hours by contacting support in advance. You should make sure to contact support before the old gateway is purged, if a rollback is required. Please note to contact support if  the instance is stuck in an "Updating" status for more than 2 hours.
 
 - **Is there any change required in custom domain/private DNS zones?**
 
@@ -282,14 +282,14 @@ On successful migration, update any network dependencies including DNS, firewall
 - **Can I upgrade my stv1 instance to the same subnet?**
 
    - You can't migrate the stv1 instance to the same subnet in a single pass without downtime. However, you can optionally move your migrated instance back to the original subnet. More details [here](#optional-migrate-back-to-original-vnet-and-subnet).
-   - The old gateway takes up to 48 hours to vacate the subnet, so that you can initiate the move. However, you can request for a faster release of the subnet by submitting the subscription IDs and the desired release time through a support ticket.
+   - The old gateway takes between 15 to 45 mins to vacate the subnet, so that you can initiate the move. However, you can request to increase this to up to 48 hours by a support ticket.
    - Releasing the old subnet calls for a purge of the old gateway, which forfeits the rollback to the old gateway if desired.
    - A new public IP is required for each switch
    - Ensure that the old subnet networking for [NSG](./api-management-using-with-internal-vnet.md?tabs=stv2#configure-nsg-rules) and [firewall](./api-management-using-with-vnet.md?tabs=stv2#force-tunnel-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance) is updated for `stv2` dependencies.
 
 - **Can I test the new gateway before switching the live traffic?**
 
-   - Post successful migration, the old and the new managed gateways are active to receive traffic. The old gateway remains active for 48 hours. 
+   - By default, the old and the new managed gateways coexist for 15 mins, which is a small window of time to validate the deployment. You can request to increase this to up to 48 hours through a support ticket. This change will keep the old and the new managed gateways active to receive traffic and facilitate validation.
    - The migration process automatically updates the default domain names, and if being used, the traffic routes to the new gateways immediately.
    - If custom domain names are in use, the corresponding DNS records might need to be updated with the new IP address if not using CNAME. Customers can update their host file to the new API Management IP and validate the instance before making the switch. During this validation process, the old gateway continues to serve the live traffic.
 
@@ -313,6 +313,11 @@ On successful migration, update any network dependencies including DNS, firewall
 
    Check details [here](#help-and-support).
 
+## Video
+
+> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=0e082046-7a52-48b6-8818-6997eb422992]
+>
+>
 
 ## Related content
 
