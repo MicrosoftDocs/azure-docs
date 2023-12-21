@@ -702,7 +702,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
 1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package in your project.
 
     ```dotnetcli
-    dotnet add package --prerelease OpenTelemetry.Exporter.OpenTelemetryProtocol
+    dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
     ```
 
 1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/examples/Console/TestOtlpExporter.cs).
