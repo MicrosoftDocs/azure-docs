@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 12/21/2023
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -27,7 +27,7 @@ The associated versions for this update are:
 
 - Device software version: Azure Stack Edge 2312 (3.2.2510.2000)
 - Device Kubernetes version: Azure Stack Kubernetes Edge 2312 (3.2.2510.2000)
-- Device Kubernetes workload profile: [Other workloads](/AzureStackEdge/#GetStarted).
+- Device Kubernetes workload profile: Other workloads
 - Kubernetes server version: v1.26.3
 - IoT Edge version: 0.1.0-beta15
 - Azure Arc version: 1.13.4
