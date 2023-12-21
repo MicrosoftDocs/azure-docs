@@ -92,10 +92,10 @@ To receive incoming call notification after `handlePushNotification` subscribe t
 
 ### Dial other participants
 
-To start call with other participants, create `StartCallOptionsOneToNCall` with participants raw id's from `CommunicationIdentity` and `launch`.
+To start call with other participants, create `CallCompositeStartCallOptions` with participants raw id's from `CommunicationIdentity` and `launch`.
 
 ```swift
-    let startCallOptions = StartCallOptionsOneToNCall(participants: /*list of participants mri's*/)
+    let startCallOptions = CallCompositeStartCallOptions(participants: /*list of participants mri's*/)
     let remoteOptions = RemoteOptions(for: startCallOptions,
                                         credential: credential,
                                         displayName: "DISPLAY_NAME",
