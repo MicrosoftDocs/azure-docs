@@ -56,7 +56,7 @@ To create a conditional access policy that targets dev box devices, you first ne
 
 1. Provide a name for the new group. 
 
-   :::image type="content" source="media/how-to-configure-intune-conditional-access-policies/intune-admin-center-groups.png" alt-text="Screenshot of the Microsoft Intune admin center groups page, with New Group highlighted." lightbox="media/how-to-configure-intune-conditional-access-policies/intune-admin-center-groups.png"::: 
+   :::image type="content" source="media/how-to-configure-intune-conditional-access-policies/intune-admin-center-new-group.png" alt-text="Screenshot of the Microsoft Intune admin new group page." lightbox="media/how-to-configure-intune-conditional-access-policies/intune-admin-center-new-group.png"::: 
 
 1. Optionally, add a description.  
 
@@ -64,15 +64,17 @@ To create a conditional access policy that targets dev box devices, you first ne
 
 1. Select **Add dynamic query** to specify rules for the group. 
 
+   :::image type="content" source="media/how-to-configure-intune-conditional-access-policies/dynamic-membership-rules.png" alt-text="Screenshot of the dynamic membership rules page." lightbox="media/how-to-configure-intune-conditional-access-policies/dynamic-membership-rules.png"::: 
+
 1. In **Property**, select **deviceModel**. 
 
 1. In **Operator**, select **Starts With**.
 
 1. In **Value** enter *Microsoft Dev Box*.
 
-1. Validate the group and select **Create**. 
+   All Dev Boxes list the Manufacturer as "Microsoft Corporation" and the Model as "Microsoft Dev Box 8vCPU/32GB/1024GB", where the specs will reflect the VM SKU chosen for that dev box.
 
-   :::image type="content" source="media/how-to-configure-intune-conditional-access-policies/Picture1.png" alt-text="Screenshot of the Microsoft Intune. " lightbox="media/how-to-configure-intune-conditional-access-policies/Picture1.png"::: 
+1. Validate the group and select **Create**. 
 
 1. After creating your dynamic device group, you can view and manage existing groups in the Groups view of the Microsoft Intune admin center.
 
@@ -81,7 +83,7 @@ To create a conditional access policy that targets dev box devices, you first ne
 After creating your device group and validated your dev box devices are members, you can move on to create a conditional access policy for your scenario. In this example, you create a conditional access policy to restrict connections outside of specified geographic regions. 
 
 > [!IMPORTANT]
-> Thoroughly test conditional access policies before putting them into production using the “Report-Only” feature. Conditional access policies have the potential to restrict all access to Dev Box if misconfigured. 
+> Thoroughly test conditional access policies before putting them into production using the *Report-Only* feature. Conditional access policies have the potential to restrict all access to Dev Box if misconfigured. 
 
 1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com). 
 
@@ -96,12 +98,13 @@ After creating your device group and validated your dev box devices are members,
 1. Select **Cloud apps** > **Include** > **Select apps** > **None** (under Select). 
 
 1. In the Select pane, search for and select the following apps as needed: 
-
-   - Windows 365 (app ID 0af06dc6-e4b5-4f28-818e-e78e62d137a5). You can also search for "cloud" to find this app. This app is used when retrieving the list of resources for the user and when users initiate actions on their dev box like Restart. 
-
-   - Azure Virtual Desktop (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07). This app might also appear as Windows Virtual Desktop. This app is used to authenticate to the Gateway during the connection and when the client sends diagnostic information to the service. 
-
-   - Microsoft Remote Desktop (app ID a4a365df-50f1-4397-bc59-1a1564b8bb9c) and Windows Cloud Login (app ID 270efc09-cd0d-444b-a71f-39af4910ec45). These apps are only needed when you configure single sign-on in a provisioning policy. These apps are used to authenticate users to the dev box. 
+ 
+ 
+   | App name | App ID | Description |
+   | --- | --- | --- |
+   | Windows 365 | 0af06dc6-e4b5-4f28-818e-e78e62d137a5 | Used when retrieving the list of resources for the user and when users initiate actions on their dev box like Restart. |
+   | Azure Virtual Desktop | 9cdead84-a844-4324-93f2-b2e6bb768d07 | Used to authenticate to the Gateway during the connection and when the client sends diagnostic information to the service. <br>Might also appear as Windows Virtual Desktop. |
+   | Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c | Used to authenticate users to the dev box. <br>Only needed when you configure single sign-on in a provisioning policy.  |  
 
 1. You should match your conditional access policies between these apps, which ensures that the policy applies to the developer portal, the connection to the Gateway, and the dev box for a consistent experience. If you want to exclude apps, you must also choose all of these apps. 
 
@@ -111,7 +114,7 @@ After creating your device group and validated your dev box devices are members,
 
 1. Under **Session**, select **0 controls selected**. 
 
-1. To test the conditional access policy, use the **Report-Only** feature under **Enable Policy**. 
+1. To test the conditional access policy, use the [Report-Only](/entra/identity/conditional-access/concept-conditional-access-report-only) feature under **Enable Policy**. 
 
 1. Select **Create** to create the policy. 
 
