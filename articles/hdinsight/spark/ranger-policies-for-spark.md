@@ -82,10 +82,10 @@ This section guides you through the process of creating two Ranger policies to a
 1. Open Jupyter/Zepplin notebook 
 
 1. Run the following command
+```sql
+    Select * from sparksampletable;
 ```
-    %sql
-```
- Select * from sparksampletable;  
+   
 
 ### Limitation 
 
