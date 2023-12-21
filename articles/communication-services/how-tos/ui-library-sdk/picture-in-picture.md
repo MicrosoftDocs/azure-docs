@@ -29,11 +29,11 @@ There are two ways to enable user to multitask in the App:
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Picture-in-Picture for the Android UI library](./includes/picture-in-picture/android.md)]
+[!INCLUDE [Picture-in-Picture for the Android UI library](./includes/pip/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Picture-in-Picture for the iOS UI library](./includes/picture-in-picture/ios.md)]
+[!INCLUDE [Picture-in-Picture for the iOS UI library](./includes/pip/ios.md)]
 ::: zone-end
 
 ## Next steps

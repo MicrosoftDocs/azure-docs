@@ -27,11 +27,11 @@ Learn how to make one to one calls correctly using the UI Library in your applic
 - Optional: Complete the quickstart for [getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md)
 
 ::: zone pivot="platform-android"
-[!INCLUDE [One to One Calling and Push notifications over the Android UI library](./includes/one-to-one-calling/android.md)]
+[!INCLUDE [One to One Calling and Push notifications over the Android UI library](./includes/pushandonetoone/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [One to One Calling and Push notifications over the iOS UI library](./includes/one-to-one-calling/ios.md)]
+[!INCLUDE [One to One Calling and Push notifications over the iOS UI library](./includes/pushandonetoone/ios.md)]
 ::: zone-end
 
 ## Next steps
