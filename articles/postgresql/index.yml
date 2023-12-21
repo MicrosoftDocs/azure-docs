@@ -80,7 +80,7 @@ landingContent:
         links:
           - text: Manage server
             url: flexible-server/how-to-manage-server-portal.md
-          - text: Stop/start server
+          - text: Stop/Start server
             url: flexible-server/how-to-stop-start-server-portal.md
           - text: Scale up
             url: flexible-server/how-to-scale-compute-storage-portal.md
