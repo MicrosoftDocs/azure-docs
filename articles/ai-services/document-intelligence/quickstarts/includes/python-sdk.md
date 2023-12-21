@@ -12,16 +12,16 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD025 -->
 
 :::moniker range="doc-intel-4.0.0"
-    [**Form Recognizer → to → Document Intelligence migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
-    [Client library](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-documentintelligence/latest/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-documentintelligence/1.0.0b1/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples) | [Supported REST API versions](../../sdk-overview-v4-0.md#supported-programming-languages)
+[**Form Recognizer → to → Document Intelligence migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
+[Client library](/python/api/overview/azure/ai-documentintelligence-readme?view=azure-python-preview&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-documentintelligence/latest/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-documentintelligence/1.0.0b1/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples) | [Supported REST API versions](../../sdk-overview-v4-0.md#supported-programming-languages)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-    [Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-1.md#supported-programming-languages)
+[Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python&preserve-view=true) |[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.3.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.3.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.3.0/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-1.md#supported-programming-languages)
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-    [Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-previous&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-0.md#supported-programming-languages)
+[Client library](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-previous&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b6/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (PyPi)](https://pypi.org/project/azure-ai-formrecognizer/3.2.0b6/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b6/sdk/formrecognizer/azure-ai-formrecognizer/samples) | [Supported REST API versions](../../sdk-overview-v3-0.md#supported-programming-languages)
 :::moniker-end
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
@@ -194,7 +194,7 @@ if __name__ == "__main__":
 
 **Run the application**
 
-Once you've added a code sample to your application, build and run your program:
+After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
@@ -317,7 +317,7 @@ if __name__ == "__main__":
 
 **Run the application**
 
-Once you've added a code sample to your application, build and run your program:
+After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
@@ -460,7 +460,7 @@ if __name__ == "__main__":
 
 **Run the application**
 
-Once you've added a code sample to your application, build and run your program:
+After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
@@ -711,7 +711,7 @@ if __name__ == "__main__":
 
 **Run the application**
 
-Once you've added a code sample to your application, build and run your program:
+After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
@@ -1020,7 +1020,7 @@ if __name__ == "__main__":
 
 **Run the application**
 
-Once you've added a code sample to your application, build and run your program:
+After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:
@@ -1169,7 +1169,7 @@ if __name__ == "__main__":
 
 **Run the application**
 
-Once you've added a code sample to your application, build and run your program:
+After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
 1. Type the following command in your terminal:

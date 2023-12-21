@@ -94,7 +94,7 @@ You receive a `202 (Success)` response that includes a read-only **Operation-Loc
 
 ### Get analyze results (GET Request)
 
-After you've called the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**}(/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you call the [**Analyze document**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API, call the [**Get analyze result**](/rest/api/aiservices/document-models/get-analyze-result?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{resultID}` Operation-Location header from the [POST response](#post-response-resultid).
 

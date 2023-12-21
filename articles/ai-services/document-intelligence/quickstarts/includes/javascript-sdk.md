@@ -12,11 +12,11 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD025 -->
 
 :::moniker range="doc-intel-4.0.0"
-    [Client library]( https://learn.microsoft.com/javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/javascript) |[Supported REST API versions](../../sdk-overview-v4-0.md)
+[Client library]( https://learn.microsoft.com/javascript/api/overview/azure/ai-document-intelligence-rest-readme?view=azure-node-preview&preserve-view=true) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/document-intelligence-api-2023-10-31-preview/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure-rest/ai-document-intelligence/v/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/javascript) |[Supported REST API versions](../../sdk-overview-v4-0.md)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-    [Client library](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/5.0.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/samples/v5) |[Supported REST API versions](../../sdk-overview-v3-1.md)
+[Client library](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/5.0.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/5.0.0) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/ai-form-recognizer/5.0.0-release/sdk/formrecognizer/ai-form-recognizer/samples/v5) |[Supported REST API versions](../../sdk-overview-v3-1.md)
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
@@ -66,7 +66,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
     * The most important attributes are name, version number, and entry point.
     * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
     * Accept the suggestions in parentheses by selecting **Return** or **Enter**.
-    * After you've completed the prompts, a `package.json` file will be created in your doc-intel-app directory.
+    * After you complete the prompts, a `package.json` file will be created in your doc-intel-app directory.
 
 :::moniker range="doc-intel-4.0.0"
 
@@ -187,7 +187,7 @@ main().catch((error) => {
 
 **Run your application**
 
-Once you've added a code sample to your application, run your program:
+After you add a code sample to your application, run your program:
 
 1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 
@@ -256,7 +256,7 @@ main().catch((error) => {
 
 **Run your application**
 
-Once you've added a code sample to your application, run your program:
+After you add a code sample to your application, run your program:
 
 1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 
@@ -345,7 +345,7 @@ main().catch((error) => {
 
 **Run your application**
 
-Once you've added a code sample to your application, run your program:
+After you add a code sample to your application, run your program:
 
 1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 
@@ -410,7 +410,7 @@ main().catch((error) => {
 
 **Run your application**
 
-Once you've added a code sample to your application, run your program:
+After you add a code sample to your application, run your program:
 
 1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 
@@ -496,7 +496,7 @@ main().catch((error) => {
 
 **Run your application**
 
-Once you've added a code sample to your application, run your program:
+After you add a code sample to your application, run your program:
 
 1. Navigate to the folder where you have your Document Intelligence application (doc-intel-app).
 

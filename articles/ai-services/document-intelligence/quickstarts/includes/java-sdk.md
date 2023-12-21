@@ -13,15 +13,15 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 
 :::moniker range="doc-intel-4.0.0"
-    [Client library](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-documentintelligence/1.0.0-beta.1/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/src/samples#examples) |[Supported REST API versions](../../sdk-overview-v4-0.md)
+[Client library](/java/api/overview/azure/ai-documentintelligence-readme?view=azure-java-preview&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-documentintelligence/1.0.0-beta.1/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/src/samples#examples) |[Supported REST API versions](../../sdk-overview-v4-0.md)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
-   [Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../sdk-overview-v3-1.md)
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable&preserve-view=true) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.1.0/index.html) | [REST API reference](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples#readme)| [Supported REST API versions](../../sdk-overview-v3-1.md)
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-    [Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API versions](../../sdk-overview-v3-0.md)
+[Client library](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable) | [SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [REST API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer/4.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples)|[Supported REST API versions](../../sdk-overview-v3-0.md)
 :::moniker-end
 
 In this quickstart you'll, use the following features to analyze and extract data and values from forms and documents:
@@ -113,7 +113,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
 :::moniker range="doc-intel-4.0.0"
-     Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
+Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
   ```kotlin
      plugins {
@@ -334,7 +334,7 @@ public class FormRecognizer {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
+After you add a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
 
 1. Build your application with the `build` command:
 
@@ -446,7 +446,7 @@ public class FormRecognizer {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**form-recognize-app**.
+After you add a code sample to your application, navigate back to your main project directory—**form-recognize-app**.
 
 1. Build your application with the `build` command:
 
@@ -588,7 +588,7 @@ private static String getBoundingCoordinates(List<Point> boundingPolygon) {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**form-recognize-app**.
+After you add a code sample to your application, navigate back to your main project directory—**form-recognize-app**.
 
 1. Build your application with the `build` command:
 
@@ -617,6 +617,193 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * We've added the file URL value to the `invoiceUrl` variable at the top of the file.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
+
+:::moniker range="doc-intel-4.0.0"
+**Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+
+```java
+import com.azure.ai.documentintelligence;
+
+import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
+import com.azure.ai.documentintelligence.models.AnalyzeResult;
+import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
+import com.azure.ai.documentintelligence.models.Document;
+import com.azure.ai.documentintelligence.models.DocumentField;
+import com.azure.ai.documentintelligence.models.DocumentFieldType;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Sample for analyzing commonly found invoice fields from a file source URL of an invoice document.
+ * See fields found on an invoice <a href=https://aka.ms/documentintelligence/invoicefields>here</a>
+ */
+public class DocIntelligence {
+
+  // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+  private static final String endpoint = "<your-endpoint>";
+  private static final String key = "<your-key>";
+
+  public static void main(String[] args) {
+
+  // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+  DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
+            .credential(new AzureKeyCredential(key))
+            .endpoint(endpoint)
+            .buildClient();
+
+ // sample document
+    String modelId = "prebuilt-invoice";
+    String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
+
+    public static void main(final String[] args) throws IOException {
+        // Instantiate a client that will be used to call the service.
+        DocumentIntelligenceClient client = new DocumentIntelligenceClientBuilder()
+            .credential(new AzureKeyCredential("{key}"))
+            .endpoint("https://{endpoint}.cognitiveservices.azure.com/")
+            .buildClient();
+
+      SyncPoller< OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
+      client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+
+        AnalyzeResult analyzeInvoiceResult = analyzeInvoicesPoller.getFinalResult().getAnalyzeResult();
+
+        for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
+            Document analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
+            Map<String, DocumentField> invoiceFields = analyzedInvoice.getFields();
+            System.out.printf("----------- Analyzing invoice  %d -----------%n", i);
+            DocumentField vendorNameField = invoiceFields.get("VendorName");
+            if (vendorNameField != null) {
+                if (DocumentFieldType.STRING == vendorNameField.getType()) {
+                    String merchantName = vendorNameField.getValueString();
+                    System.out.printf("Vendor Name: %s, confidence: %.2f%n",
+                        merchantName, vendorNameField.getConfidence());
+                }
+            }
+
+            DocumentField vendorAddressField = invoiceFields.get("VendorAddress");
+            if (vendorAddressField != null) {
+                if (DocumentFieldType.STRING == vendorAddressField.getType()) {
+                    String merchantAddress = vendorAddressField.getValueString();
+                    System.out.printf("Vendor address: %s, confidence: %.2f%n",
+                        merchantAddress, vendorAddressField.getConfidence());
+                }
+            }
+
+            DocumentField customerNameField = invoiceFields.get("CustomerName");
+            if (customerNameField != null) {
+                if (DocumentFieldType.STRING == customerNameField.getType()) {
+                    String merchantAddress = customerNameField.getValueString();
+                    System.out.printf("Customer Name: %s, confidence: %.2f%n",
+                        merchantAddress, customerNameField.getConfidence());
+                }
+            }
+
+            DocumentField customerAddressRecipientField = invoiceFields.get("CustomerAddressRecipient");
+            if (customerAddressRecipientField != null) {
+                if (DocumentFieldType.STRING == customerAddressRecipientField.getType()) {
+                    String customerAddr = customerAddressRecipientField.getValueString();
+                    System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n",
+                        customerAddr, customerAddressRecipientField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceIdField = invoiceFields.get("InvoiceId");
+            if (invoiceIdField != null) {
+                if (DocumentFieldType.STRING == invoiceIdField.getType()) {
+                    String invoiceId = invoiceIdField.getValueString();
+                    System.out.printf("Invoice ID: %s, confidence: %.2f%n",
+                        invoiceId, invoiceIdField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceDateField = invoiceFields.get("InvoiceDate");
+            if (customerNameField != null) {
+                if (DocumentFieldType.DATE == invoiceDateField.getType()) {
+                    LocalDate invoiceDate = invoiceDateField.getValueDate();
+                    System.out.printf("Invoice Date: %s, confidence: %.2f%n",
+                        invoiceDate, invoiceDateField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceTotalField = invoiceFields.get("InvoiceTotal");
+            if (customerAddressRecipientField != null) {
+                if (DocumentFieldType.NUMBER == invoiceTotalField.getType()) {
+                    Double invoiceTotal = invoiceTotalField.getValueNumber();
+                    System.out.printf("Invoice Total: %.2f, confidence: %.2f%n",
+                        invoiceTotal, invoiceTotalField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceItemsField = invoiceFields.get("Items");
+            if (invoiceItemsField != null) {
+                System.out.printf("Invoice Items: %n");
+                if (DocumentFieldType.ARRAY == invoiceItemsField.getType()) {
+                    List<DocumentField> invoiceItems = invoiceItemsField.getValueArray();
+                    invoiceItems.stream()
+                        .filter(invoiceItem -> DocumentFieldType.OBJECT == invoiceItem.getType())
+                        .map(documentField -> documentField.getValueObject())
+                        .forEach(documentFieldMap -> documentFieldMap.forEach((key, documentField) -> {
+                            // See a full list of fields found on an invoice here:
+                            // https://aka.ms/documentintelligence/invoicefields
+                            if ("Description".equals(key)) {
+                                if (DocumentFieldType.STRING == documentField.getType()) {
+                                    String name = documentField.getValueString();
+                                    System.out.printf("Description: %s, confidence: %.2fs%n",
+                                        name, documentField.getConfidence());
+                                }
+                            }
+                            if ("Quantity".equals(key)) {
+                                if (DocumentFieldType.NUMBER == documentField.getType()) {
+                                    Double quantity = documentField.getValueNumber();
+                                    System.out.printf("Quantity: %f, confidence: %.2f%n",
+                                        quantity, documentField.getConfidence());
+                                }
+                            }
+                            if ("UnitPrice".equals(key)) {
+                                if (DocumentFieldType.NUMBER == documentField.getType()) {
+                                    Double unitPrice = documentField.getValueNumber();
+                                    System.out.printf("Unit Price: %f, confidence: %.2f%n",
+                                        unitPrice, documentField.getConfidence());
+                                }
+                            }
+                            if ("ProductCode".equals(key)) {
+                                if (DocumentFieldType.NUMBER == documentField.getType()) {
+                                    Double productCode = documentField.getValueNumber();
+                                    System.out.printf("Product Code: %f, confidence: %.2f%n",
+                                        productCode, documentField.getConfidence());
+                                }
+                            }
+                        }));
+                }
+            }
+        }
+      }
+  }
+}
+```
+
+**Build and run the application**
+
+After you add a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
+
+:::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
 
@@ -778,7 +965,7 @@ public class FormRecognizer {
 
 **Build and run the application**
 
-Once you've added a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
+After you add a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
 
 1. Build your application with the `build` command:
 
@@ -808,5 +995,180 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.0.0"
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+
+```java
+import com.azure.ai.formrecognizer;
+
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+import com.azure.ai.formrecognizer.documentanalysis.models.AnalyzeResult;
+import com.azure.ai.formrecognizer.documentanalysis.models.AnalyzedDocument;
+import com.azure.ai.formrecognizer.documentanalysis.models.DocumentField;
+import com.azure.ai.formrecognizer.documentanalysis.models.DocumentFieldType;
+import com.azure.ai.formrecognizer.documentanalysis.models.OperationResult;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+
+public class FormRecognizer {
+
+  // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+  private static final String endpoint = "<your-endpoint>";
+  private static final String key = "<your-key>";
+
+  public static void main(String[] args) {
+
+    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+    DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      .credential(new AzureKeyCredential(key))
+      .endpoint(endpoint)
+      .buildClient();
+
+      // sample document
+      String modelId = "prebuilt-invoice";
+      String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
+
+    SyncPoller < OperationResult, AnalyzeResult > analyzeInvoicePoller = client.beginAnalyzeDocumentFromUrl(modelId, invoiceUrl);
+
+    AnalyzeResult analyzeInvoiceResult = analyzeInvoicePoller.getFinalResult();
+
+        for (int i = 0; i < analyzeInvoiceResult.getDocuments().size(); i++) {
+            AnalyzedDocument analyzedInvoice = analyzeInvoiceResult.getDocuments().get(i);
+            Map<String, DocumentField> invoiceFields = analyzedInvoice.getFields();
+            System.out.printf("----------- Analyzing invoice  %d -----------%n", i);
+            DocumentField vendorNameField = invoiceFields.get("VendorName");
+            if (vendorNameField != null) {
+                if (DocumentFieldType.STRING == vendorNameField.getType()) {
+                    String merchantName = vendorNameField.getValueAsString();
+                    System.out.printf("Vendor Name: %s, confidence: %.2f%n",
+                        merchantName, vendorNameField.getConfidence());
+                }
+            }
+
+            DocumentField vendorAddressField = invoiceFields.get("VendorAddress");
+            if (vendorAddressField != null) {
+                if (DocumentFieldType.STRING == vendorAddressField.getType()) {
+                    String merchantAddress = vendorAddressField.getValueAsString();
+                    System.out.printf("Vendor address: %s, confidence: %.2f%n",
+                        merchantAddress, vendorAddressField.getConfidence());
+                }
+            }
+
+            DocumentField customerNameField = invoiceFields.get("CustomerName");
+            if (customerNameField != null) {
+                if (DocumentFieldType.STRING == customerNameField.getType()) {
+                    String merchantAddress = customerNameField.getValueAsString();
+                    System.out.printf("Customer Name: %s, confidence: %.2f%n",
+                        merchantAddress, customerNameField.getConfidence());
+                }
+            }
+
+            DocumentField customerAddressRecipientField = invoiceFields.get("CustomerAddressRecipient");
+            if (customerAddressRecipientField != null) {
+                if (DocumentFieldType.STRING == customerAddressRecipientField.getType()) {
+                    String customerAddr = customerAddressRecipientField.getValueAsString();
+                    System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n",
+                        customerAddr, customerAddressRecipientField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceIdField = invoiceFields.get("InvoiceId");
+            if (invoiceIdField != null) {
+                if (DocumentFieldType.STRING == invoiceIdField.getType()) {
+                    String invoiceId = invoiceIdField.getValueAsString();
+                    System.out.printf("Invoice ID: %s, confidence: %.2f%n",
+                        invoiceId, invoiceIdField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceDateField = invoiceFields.get("InvoiceDate");
+            if (customerNameField != null) {
+                if (DocumentFieldType.DATE == invoiceDateField.getType()) {
+                    LocalDate invoiceDate = invoiceDateField.getValueAsDate();
+                    System.out.printf("Invoice Date: %s, confidence: %.2f%n",
+                        invoiceDate, invoiceDateField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceTotalField = invoiceFields.get("InvoiceTotal");
+            if (customerAddressRecipientField != null) {
+                if (DocumentFieldType.DOUBLE == invoiceTotalField.getType()) {
+                    Double invoiceTotal = invoiceTotalField.getValueAsDouble();
+                    System.out.printf("Invoice Total: %.2f, confidence: %.2f%n",
+                        invoiceTotal, invoiceTotalField.getConfidence());
+                }
+            }
+
+            DocumentField invoiceItemsField = invoiceFields.get("Items");
+            if (invoiceItemsField != null) {
+                System.out.printf("Invoice Items: %n");
+                if (DocumentFieldType.LIST == invoiceItemsField.getType()) {
+                    List<DocumentField> invoiceItems = invoiceItemsField.getValueAsList();
+                    invoiceItems.stream()
+                        .filter(invoiceItem -> DocumentFieldType.MAP == invoiceItem.getType())
+                        .map(documentField -> documentField.getValueAsMap())
+                        .forEach(documentFieldMap -> documentFieldMap.forEach((key, documentField) -> {
+                            // See a full list of fields found on an invoice here:
+                            // https://aka.ms/formrecognizer/invoicefields
+                            if ("Description".equals(key)) {
+                                if (DocumentFieldType.STRING == documentField.getType()) {
+                                    String name = documentField.getValueAsString();
+                                    System.out.printf("Description: %s, confidence: %.2fs%n",
+                                        name, documentField.getConfidence());
+                                }
+                            }
+                            if ("Quantity".equals(key)) {
+                                if (DocumentFieldType.DOUBLE == documentField.getType()) {
+                                    Double quantity = documentField.getValueAsDouble();
+                                    System.out.printf("Quantity: %f, confidence: %.2f%n",
+                                        quantity, documentField.getConfidence());
+                                }
+                            }
+                            if ("UnitPrice".equals(key)) {
+                                if (DocumentFieldType.DOUBLE == documentField.getType()) {
+                                    Double unitPrice = documentField.getValueAsDouble();
+                                    System.out.printf("Unit Price: %f, confidence: %.2f%n",
+                                        unitPrice, documentField.getConfidence());
+                                }
+                            }
+                            if ("ProductCode".equals(key)) {
+                                if (DocumentFieldType.DOUBLE == documentField.getType()) {
+                                    Double productCode = documentField.getValueAsDouble();
+                                    System.out.printf("Product Code: %f, confidence: %.2f%n",
+                                        productCode, documentField.getConfidence());
+                                }
+                            }
+                        }));
+                }
+            }
+        }
+    }
+}
+```
+
+**Build and run the application**
+
+After you add a code sample to your application, navigate back to your main project directory—**doc-intel-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
 
 :::moniker-end

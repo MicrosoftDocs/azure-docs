@@ -38,7 +38,7 @@ zone_pivot_groups: programming-languages-set-formre
 
 **This content applies to:** ![checkmark](../media/yes-icon.png) **v3.1 (GA)** **Earlier versions:** ![blue-checkmark](../media/blue-yes-icon.png) [v3.0](?view=doc-intel-3.0.0&preserve-view=true) ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
-* Get started with Azure AI Document Intelligence latest GA version (2023-07-31).
+* Get started with Azure AI Document Intelligence latest GA version (`2023-07-31`).
 
 ::: moniker-end
 
@@ -50,7 +50,7 @@ zone_pivot_groups: programming-languages-set-formre
 >
 > * For an enhance experience and advanced model quality, try the [Document Intelligence v3.1 (GA) quickstart](?view=doc-intel-3.1.0&preserve-view=true#get-started-with-document-intelligence) and [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) API version: 2023-07-31 (3.1 General Availability).
 
-* Get started with Azure AI Document Intelligence our legacy GA version (2022-08-31).
+* Get started with Azure AI Document Intelligence our legacy GA version (`2022-08-31`).
 
 ::: moniker-end
 
