@@ -158,7 +158,7 @@ AzureDiagnostics
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
 
-Additionally, the same query logic can be used to diagnose latency conditions for Application Insights data: 
+Use the same query logic to diagnose latency conditions for Application Insights data: 
 
 
 ```kusto
