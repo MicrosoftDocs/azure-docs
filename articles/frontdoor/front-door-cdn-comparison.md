@@ -71,7 +71,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Easy integration with Azure services, such as Storage and Web Apps | Yes | Yes | Yes | Yes | Yes | Yes |
 | Management via REST API, .NET, Node.js, or PowerShell | Yes | Yes | Yes | Yes | Yes | Yes |
 | Compression MIME types | Configurable | Configurable | Configurable | Configurable | Configurable | Configurable |
-| Compression encodings | gzip, brotli | gzip, brotli | gzip, brotli | gzip, brotli | gzip, deflate, bzip2 | gzip, deflate, bzip2 |
+| Compression encodings | gzip, brotli | gzip, brotli | gzip, brotli | gzip, brotli | gzip, deflate, bzip2 | gzip, deflate, bzip2, brotli |
 | Azure Policy integration | No | No | Yes | No | No | No |
 | Azure Advisory integration | Yes | Yes | No | No | Yes | Yes |
 | Managed Identities with Azure Key Vault | Yes | Yes | No | No | No | No |

@@ -16,9 +16,6 @@ The following graph shows data flowing in and out of a computer via various port
 <!-- convertborder later -->
 :::image type="content" source="./media/workbooks-graph-visualizations/graph.png" lightbox="./media/workbooks-graph-visualizations/graph.png" alt-text="Screenshot that shows a tile summary view." border="false":::
 
-Watch this video to learn how to create graphs and use links in Azure Workbooks.
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5ah5O]
-
 ## Add a graph
 
 1. Switch the workbook to edit mode by selecting **Edit**.

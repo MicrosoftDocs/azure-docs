@@ -2,7 +2,7 @@
 title: Create a new Azure Monitor Application Insights workspace-based resource
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 12/15/2023
 ms.reviewer: cogoodson
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -302,7 +302,7 @@ You need the connection strings of all the resources to which your app will send
 ### Filter on the build number
 When you publish a new version of your app, you'll want to be able to separate the telemetry from different builds.
 
-You can set the **Application Version** property so that you can filter [search](../../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-search) and [metric explorer](../../azure-monitor/essentials/metrics-charts.md) results.
+You can set the **Application Version** property so that you can filter [search](../../azure-monitor/app/transaction-search-and-diagnostics.md?tabs=transaction-search) and [metric explorer](../../azure-monitor/essentials/metrics-charts.md) results.
 
 There are several different methods of setting the **Application Version** property.
 
@@ -349,7 +349,7 @@ To track the application version, make sure your Microsoft Build Engine process 
 </PropertyGroup>
 ```
 
-When the Application Insights web module has the build information, it automatically adds **Application Version** as a property to every item of telemetry. For this reason, you can filter by version when you perform [diagnostic searches](../../azure-monitor/app/search-and-transaction-diagnostics.md?tabs=transaction-search) or when you [explore metrics](../../azure-monitor/essentials/metrics-charts.md).
+When the Application Insights web module has the build information, it automatically adds **Application Version** as a property to every item of telemetry. For this reason, you can filter by version when you perform [diagnostic searches](../../azure-monitor/app/transaction-search-and-diagnostics.md?tabs=transaction-search) or when you [explore metrics](../../azure-monitor/essentials/metrics-charts.md).
 
 The build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
 

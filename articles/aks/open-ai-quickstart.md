@@ -210,7 +210,7 @@ Now that the application is deployed, you can deploy the Python-based microservi
           nodeSelector:
             "kubernetes.io/os": linux
           containers:
-          - name: order-service
+          - name: ai-service
             image: ghcr.io/azure-samples/aks-store-demo/ai-service:latest
             ports:
             - containerPort: 5001

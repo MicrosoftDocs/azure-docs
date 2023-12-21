@@ -44,6 +44,8 @@ The **CPU** metric indicates the CPU usage for the node that hosts the cache. Th
 
 The **Server Load** metric represents the load on the Redis Server alone. We recommend monitoring the **Server Load** metric instead of **CPU**.
 
+When monitoring server load, we also recommend that you examine the max spikes of Server Load rather than average because even brief spikes can trigger failovers and command timeouts.
+
 ## Plan for server maintenance
 
 Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](cache-administration.md#reboot).

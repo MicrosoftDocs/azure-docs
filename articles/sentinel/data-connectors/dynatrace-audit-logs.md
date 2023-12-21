@@ -3,14 +3,14 @@ title: "Dynatrace Audit Logs connector for Microsoft Sentinel"
 description: "Learn how to install the connector Dynatrace Audit Logs to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 02/28/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Dynatrace Audit Logs connector for Microsoft Sentinel
 
-This connector uses the [Dynatrace Audit Logs REST API](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/audit-logs) to ingest tenant audit logs into Microsoft Sentinel Log Analytics
+This connector uses the [Dynatrace Audit Logs REST API](https://docs.dynatrace.com/docs/dynatrace-api/environment-api/audit-logs) to ingest tenant audit logs into Microsoft Sentinel Log Analytics
 
 ## Connector attributes
 
@@ -63,8 +63,8 @@ To integrate with Dynatrace Audit Logs make sure you have:
 
 Dynatrace Audit Log Events to Microsoft Sentinel
 
-Enable Dynatrace Audit [Logging](https://www.dynatrace.com/support/help/how-to-use-dynatrace/data-privacy-and-security/configuration/audit-logs#enable-audit-logging). 
- Follow [these instructions](https://www.dynatrace.com/support/help/get-started/access-tokens#create-api-token) to generate an access token.
+Enable Dynatrace Audit [Logging](https://docs.dynatrace.com/docs/shortlink/audit-logs#enable-audit-logging). 
+ Follow [these instructions](https://docs.dynatrace.com/docs/shortlink/token#create-api-token) to generate an access token.
 
 
 

@@ -186,13 +186,13 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
 
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
 
-    **AAR -> AccessControl (IAM)**
+    **ARR -> AccessControl (IAM)**
     :::image type="content" source="./../../../how-tos/media/azure-remote-rendering-role-assignments.png" alt-text="ARR Role":::       
 
     >[!NOTE]
     > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
 
-With the Azure side of things in place, we now need to modify how your code connects to the AAR service. We do that by implementing an instance of **BaseARRAuthentication**, which returns a new **SessionConfiguration** object. In this case, the account info is configured with the Azure Access Token.
+With the Azure side of things in place, we now need to modify how your code connects to the ARR service. We do that by implementing an instance of **BaseARRAuthentication**, which returns a new **SessionConfiguration** object. In this case, the account info is configured with the Azure Access Token.
 
 1. Create a new script named **AADAuthentication** and replace its code with the following:
 
@@ -260,11 +260,11 @@ With the Azure side of things in place, we now need to modify how your code conn
 
         public void OnEnable()
         {
-            RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
+            RemoteRenderingCoordinator.ARRCredentialGetter = GetARRCredentials;
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
     
-        public async override Task<SessionConfiguration> GetAARCredentials()
+        public async override Task<SessionConfiguration> GetARRCredentials()
         {
             var result = await TryLogin();
             if (result != null)

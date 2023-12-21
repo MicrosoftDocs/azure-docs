@@ -61,6 +61,9 @@ Note: The Ubuntu-HPC 18.04-ncv4 image is only valid during preview and deprecate
 1 GPU = one A100 card <br>
 1. Local NVMe disk is coming as RAM and it needs to be manually formatted in newly deployed VM.
 
+> [!NOTE]
+> Local NVMe disks are ephemeral, and any data stored on these disks will be lost if the VM is stopped or deallocated. 
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes and information

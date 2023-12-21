@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 11/10/2023
 ms.author: banders
 ---
 
@@ -43,6 +43,8 @@ There are three options to transfer products:
     1. Make sure that both the customer and Partner tenants are within the same authorized region. Check [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview).
     1. [Confirm that the customer has accepted the Microsoft Customer Agreement](/partner-center/confirm-customer-agreement).
 1. Set up an [Azure plan](/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to set up an Azure plan for each combination of a customer and a reseller.
+
+When there's is a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions. 
 

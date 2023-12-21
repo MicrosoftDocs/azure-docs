@@ -2,7 +2,7 @@
 title: Upgrade to Read v3.0 of the Azure AI Vision API
 titleSuffix: Azure AI services
 description: Learn how to upgrade to Azure AI Vision v3.0 Read API from v2.0/v2.1.
-services: cognitive-services
+#services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 

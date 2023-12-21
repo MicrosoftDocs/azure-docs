@@ -99,7 +99,7 @@ The followings are the templates to use the change data capture in Azure Data Fa
 - [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)
 
 
-## Next steps
+## Related content
 
 - [Learn how to use the checkpoint key in the data flow activity](control-flow-execute-data-flow-activity.md).
 - [Learn about the ADF Change Data Capture resource](concepts-change-data-capture-resource.md).

@@ -1,14 +1,14 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that Microsoft Defender for IoT supports.
-ms.date: 08/31/2023
+ms.date: 12/04/2023
 ms.topic: concept-article
 ms.custom: enterprise-iot
 ---
 
 # Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols
 
-This article lists the protocols that are supported by default in Microsoft Defender for IoT. If your organization uses proprietary protocols or other protocols not listed here, use the Defender for IoT Horizon SDK to extend support as needed.
+This article lists the protocols that are supported by default in Microsoft Defender for IoT.
 
 ## Supported protocols for OT device discovery
 
@@ -31,8 +31,7 @@ OT network sensors can detect the following protocols when identifying assets an
 |**IETF**     |  ARP<br> DHCP<br> DCE RPC<br> DNS<br> FTP (FTP_ADAT<br> FTP_DATA)<br> GSSAPI (RFC2743)<br> HTTP<br> ICMP<br> IPv4<br> IPv6<br> LLDP<br> MDNS<br> NBNS<br> NTLM (NTLMSSP Auth Protocol)<br> RPC<br> SMB / Browse / NBDGM<br> SMB / CIFS<br> SNMP<br> SPNEGO (RFC4178)<br> SSH<br> Syslog<br> TCP<br> Telnet<br> TFTP<br> TPKT<br> UDP       |
 |**ISO**     |  CLNP (ISO 8473)<br> COTP (ISO 8073)<br> ISO Industrial Protocol<br>  MQTT (IEC 20922)       |
 | **Jenesys** |FOX <br>Niagara |
-|**Medical**     |ASTM<br> HL7         |
-|**Microsoft**     | Horizon community dissectors<br> Horizon proprietary dissectors (developed by customers)        |
+|**Medical**     |ASTM<br> HL7  <br> DICOM  <br>  POCT1     |
 |**Mitsubishi**     |   Melsoft / Melsec (Mitsubishi Electric)      |
 |**Omron**     |  FINS <br>HTTP      |
 |**OPC**     |  AE <br>Common <br> DA <br>HDA <br> UA       |
@@ -64,23 +63,6 @@ Enterprise IoT network sensors can detect the following protocols when identifyi
 | **IETF** | BROWSE <br> DHCP <br> DNS <br> HTTP <br> LLDP <br> MDNS <br> SNMP<br> SSDP |
 |**Medical**     |DICOM <br>HL7 <br>POCT1        |
 | **SWARM** | swarm |
-
-## Don't see your protocol here? 
-
-### Build support for proprietary OT protocols with the Horizon SDK
-
-Asset vendors, partners, or platform owners can use Defender for IoT's Horizon Protocol SDK to secure any OT protocol used in IoT and ICS environments that's not isn't already supported by default.
-
-Horizon helps you to write plugins for OT sensors that enable Deep Packet Inspection (DPI) on the traffic and detect threats in real-time. Customize your plugins localize and customize text for alerts, events, and protocol parameters.
-
-Horizon provides:
-
-- Support for common, proprietary, or custom protocols that deviate from standards
-- Extra flexibility and scope for DPI development
-- Extra visibility and control over your OT assets without needing to update your Defender for IoT version
-- The security of allowing proprietary development without divulging sensitive information
-
-:::image type="content" source="media/concept-supported-protocols/sdk-horizon.png" alt-text="Infographic that describes features provided by the Horizon SDK." border="false":::
 
 ## Next steps
 

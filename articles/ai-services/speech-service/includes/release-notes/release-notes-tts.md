@@ -2,26 +2,73 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 02/28/2023
+ms.date: 12/1/2023
 ms.author: eur
 ---
 
-### November 2023 release
+### December 2023 release
+
+#### Custom voice API
+
+The custom voice API is available for creating and managing [professional](../../professional-voice-create-project.md) and [personal](../../personal-voice-create-project.md) custom neural voice models. 
 
 #### Custom neural voice
 
-- Added support for the 24 new locales for cross-lingual voice. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+The newly trained voice models now support 48 kHz sample rate, irrespective of the model version. For previously trained voice models, it's necessary to [upgrade the engine version](../../how-to-custom-voice-create-voice.md?tabs=neural#update-engine-version-for-your-voice-model) to at least **2023.11.13.0** version to enhance the sample rate to 48 kHz.
+
+### November 2023 release
+
+#### Personal voice
+
+Personal voice is available in preview in the following regions: West Europe, East US, and South East Asia. With personal voice (preview), you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales.  
+
+For more information, see [personal voice](../../personal-voice-overview.md).
+
+#### Text to speech avatar
+
+Text to speech avatar is available in preview in the following regions: West US 2, West Europe, and Southeast Asia. 
+
+Text to speech avatar converts text into a digital video of a photorealistic human (either a prebuilt avatar or a [custom text to speech avatar](../../text-to-speech-avatar/what-is-custom-text-to-speech-avatar.md)) speaking with a natural-sounding voice. The text to speech avatar video can be synthesized asynchronously or in real time. Developers can build applications integrated with text to speech avatar through an API, or use a content creation tool on Speech Studio to create video content without coding.
+
+For more information, see [text to speech avatar](../../text-to-speech-avatar/what-is-text-to-speech-avatar.md), [transparency notes](/legal/cognitive-services/speech-service/text-to-speech/transparency-note?context=/azure/ai-services/speech-service/context/context), and [disclosure for voice and avatar talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/ai-services/speech-service/context/context).
+
+#### Custom neural voice
+
+Added support for the 24 new locales for cross-lingual voice. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+
+#### Prebuilt neural voice
+Introducing new voices for public preview:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `de-DE` | German (Germany) | `SeraphinaNeural` (Female) |
+| `es-ES` | Spanish (Spain) | `XimenaNeural` (Female) |
+| `fr-CA` | French (Canada) | `ThierryNeural` (Male) |
+| `fr-FR` | French (France) | `VivienneNeural` (Female) |
+| `it-IT` | Italian (Italy) | `GiuseppeNeural` (Male) |
+| `ko-KR` | Korean (Korea) | `HyunsuNeural` (Male) |
+| `pt-BR` | Portuguese (Brazil) | `ThalitaNeural` (Female) |
+
+Models updated with bugs fixed and quality improvement:
+
+| Locale (BCP-47) | Language | Text to speech voices |
+| ----- | ----- | ----- |
+| `es-ES` | Spanish (Spain) | `AlvaroNeural` (Male) |
+| `en-GB` | English (United Kingdom) | `RyanNeural` (Male) |
+| `ko-KR` | Korean (Korea) | `InjoonNeural` (Male) |
+
+See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
 ### October 2023 release
 
 #### Custom neural voice
 
-- Added support for the 12 new locales with Custom Neural Voice Pro. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+- Added support for the 12 new locales with custom neural voice Pro. See the [full language list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
 ### September 2023 release
 
 #### Prebuilt neural voice
-- Introducing new multilingual voices for public preview:
+- Introducing new voices for public preview:
 
 | Locale (BCP-47) | Language | Text to speech voices |
 | ----- | ----- | ----- |
@@ -44,9 +91,9 @@ See the [full language and voice list](../../language-support.md?tabs=tts#custom
 
 #### Custom neural voice
 
-- [Multi-style voice](../../how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) is generally available.
-- Added two new locales in public preview for multi-style voice: `ja-JP` and `zh-CN`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. Refer to [the preset style list for different languages](../../how-to-custom-voice-create-voice.md?tabs=multistyle#available-preset-styles-across-different-languages).
-- [Cross-lingual voice](../../how-to-custom-voice-create-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) is generally available. 
+- [Multi-style voice](../../professional-voice-train-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) is generally available.
+- Added two new locales in public preview for multi-style voice: `ja-JP` and `zh-CN`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. Refer to [the preset style list for different languages](../../professional-voice-train-voice.md?tabs=multistyle#available-preset-styles-across-different-languages).
+- [Cross-lingual voice](../../professional-voice-train-voice.md?tabs=crosslingual#train-your-custom-neural-voice-model) is generally available. 
 - Added two new locales for cross-lingual voice: `id-ID` and `nl-NL`. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information. 
 
 #### Prebuilt Neural TTS Voices
@@ -85,7 +132,7 @@ Introducing new features in public preview for below voices:
 #### Audio Content Creation
 
 - All prebuilt voices with speaking styles and multi-style custom voices support style degree adjustment.
-- Now you can fix the pronunciation of a word by simply speaking the word and recording it. The phonemes can be automatically recognized from your recording. The **Recognize by speaking** feature is now in public previw.
+- Now you can fix the pronunciation of a word by speaking the word and recording it. The phonemes can be automatically recognized from your recording. The **Recognize by speaking** feature is now in public preview.
 
 ### April 2023 release
 
@@ -107,11 +154,11 @@ For more information, see the [language and voice list](../../language-support.m
 
 #### New features
 
-Speech Synthesis Markup Language (SSML) has been updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#use-voice-elements).
+Speech Synthesis Markup Language (SSML) is updated to support audio effect processor elements that optimize the quality of the synthesized speech output for specific scenarios on devices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-voice.md#use-voice-elements).
 
 #### Custom neural voice
 
-Added support for the `nl-BE` locale with [Custom Neural Voice](../../custom-neural-voice.md) Pro. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
+Added support for the `nl-BE` locale with [Custom neural voice](../../custom-neural-voice.md) Pro. See the [full language and voice list](../../language-support.md?tabs=tts#custom-neural-voice) for more information.
 
 #### Prebuilt Neural TTS Voices
 
@@ -144,7 +191,7 @@ The following voices are now generally available. See the [full language and voi
 
 #### Batch synthesis REST API (Preview)
 
-The Batch synthesis API is currently in public preview. Once it's generally available, the Long Audio API will be deprecated. For more information, see [Migrate to batch synthesis API](../../migrate-to-batch-synthesis.md).
+The Batch synthesis API is currently in public preview. Once it's generally available, the Long Audio API is deprecated. For more information, see [Migrate to batch synthesis API](../../migrate-to-batch-synthesis.md).
 
 ### November 2022 release
 
@@ -160,10 +207,10 @@ The following voices are now generally available. See the [full language and voi
 
 #### Custom neural voice
 
-The following locale support is added for [Custom Neural Voice](../../custom-neural-voice.md). See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+The following locale support is added for [Custom neural voice](../../custom-neural-voice.md). See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
 
-- Added support for the `fr-BE` locale with Custom Neural Voice Pro. 
-- Added support for the `es-ES` locale with Custom Neural Voice Lite.
+- Added support for the `fr-BE` locale with custom neural voice Pro. 
+- Added support for the `es-ES` locale with custom neural voice lite.
 
 ### October 2022 release
 
@@ -364,10 +411,10 @@ For more information, see the [language and voice list](../../language-support.m
 * Improved quality for `en-SG-LunaNeural` and `en-SG-WayneNeural`
 * 48kHz output support for Public Preview with en-US-JennyNeural, en-US-AriaNeural, and zh-CN-XiaoxiaoNeural
 
-#### Custom Neural Voice
+#### Custom neural voice
 
-* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../how-to-custom-voice-prepare-data.md#resolve-data-issues-online).
-* Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
+* Enabled to fix data issues online. Learn more on [how to resolve data issues in Speech Studio](../../professional-voice-create-training-set.md#resolve-data-issues-online).
+* Added training recipe version. Learn more on [selecting the training recipe version for your voice model](../../professional-voice-train-voice.md#train-your-custom-neural-voice-model).
 
 #### Audio Content Creation tool
 
@@ -388,14 +435,14 @@ For more information, see the [language and voice list](../../language-support.m
 * The `cheerful` and `sad` styles for `fr-FR-DeniseNeural` are generally available in all regions.
 * SSML updated to support MathML elements for en-US and en-AU voices. Learn more at [speech synthesis markup](../../speech-synthesis-markup-pronunciation.md#pronunciation-with-mathml).
 
-#### Custom Neural Voice
+#### Custom neural voice
 
-* Enabled to cancel training during training voice model. Learn more on [how to cancel training](../../how-to-custom-voice-create-voice.md#train-your-custom-neural-voice-model).
-* Enabled to clone model (rename voice model). Learn more on [how to rename your voice model](../../how-to-custom-voice-create-voice.md#rename-your-model).
-* Enabled to test your voice model by adding your own test script. Learn more on [how to upload your test script](../../how-to-custom-voice-create-voice.md#test-your-voice-model).
-* Enabled to update engine version for your voice model. Learn more on [how to update the model engine version](../../how-to-custom-voice-create-voice.md#update-engine-version-for-your-voice-model).
+* Enabled to cancel training during training voice model. Learn more on [how to cancel training](../../professional-voice-train-voice.md#train-your-custom-neural-voice-model).
+* Enabled to clone model (rename voice model). Learn more on [how to rename your voice model](../../professional-voice-train-voice.md#rename-your-model).
+* Enabled to test your voice model by adding your own test script. Learn more on [how to upload your test script](../../professional-voice-train-voice.md#test-your-voice-model).
+* Enabled to update engine version for your voice model. Learn more on [how to update the model engine version](../../professional-voice-train-voice.md#update-engine-version-for-your-voice-model).
 * Supported more training regions. See [region support](../../regions.md#speech-service).
-* Supported 10 locales for Custom Neural Voice Lite (preview). See [language support](../../language-support.md?tabs=tts).
+* Supported 10 locales for custom neural voice lite (preview). See [language support](../../language-support.md?tabs=tts).
 
 #### Audio Content Creation tool
 
@@ -411,7 +458,7 @@ For more information, see the [language and voice list](../../language-support.m
 * Added support in public preview for the `Cheerful` and `Sad` styles with `fr-FR-DeniseNeural`. See [voice styles and roles](../../language-support.md?tabs=tts).
 * Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
 
-#### Custom Neural Voice
+#### Custom neural voice
 
 * Supported role based access control. Learn more on [Azure role-based access control in Speech Studio](../../role-based-access-control.md)
 * Supported private endpoints and virtual network service endpoints. Learn more on [how to use private endpoints with speech service](../../speech-services-private-link.md).
@@ -422,9 +469,9 @@ For more information, see the [language and voice list](../../language-support.m
  
 ### February 2022 release
 
-#### Custom Neural Voice
+#### Custom neural voice
 
-* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice-lite.md).
+* Released custom neural voice lite in public preview. Learn more about [what is custom neural voice lite](../../custom-neural-voice-lite.md).
 * Extended language support to 49 locales. See [language support](../../language-support.md?tabs=tts).
 * Supported more regions/datacenters. See [region support](../../regions.md#speech-service).
 
@@ -516,7 +563,7 @@ For the full list of available voices, see [Language support](../../language-sup
 - Improved entity reading for `ja-JP` 
 
 #### Speech Studio
-- Custom Neural Voice: enabled additional model testing using the batch API (long audio API)
+- Custom neural voice: enabled additional model testing using the batch API (long audio API)
 - Audio Content Creation: enabled more output formats 
 
 ### October 2021 release
@@ -539,14 +586,14 @@ Adri in `af-ZA` Afrikaans (South Africa), Willem in `af-ZA` Afrikaans (South Afr
 - Reduced pronunciation errors in Hebrew by 20%.
 
 **Speech Studio updates**
-- **Custom Neural Voice**: Updated the training pipeline to UniTTSv3 with which the model quality is improved while training time is reduced by 50% for acoustic models. 
+- **Custom neural voice**: Updated the training pipeline to UniTTSv3 with which the model quality is improved while training time is reduced by 50% for acoustic models. 
 - **Audio Content Creation**: Fixed the "Export" performance issue and the bug on custom neural voice selection.  
 
 ### June 2021 release
 
 #### Speech Studio updates
 
-- **Custom Neural Voice**: Custom Neural Voice training extended to support South East Asia. New features released to support data uploading status checking. 
+- **Custom neural voice**: Custom neural voice training extended to support South East Asia. New features released to support data uploading status checking. 
 - **Audio Content Creation**: Released a new feature to support custom lexicon. With this feature, users can easily create their lexicon files and define the customized pronunciation for their audio output. 
 
 ### May 2021 release
@@ -589,10 +636,10 @@ The [bookmark element](../../speech-synthesis-markup-structure.md#bookmark-eleme
 
 ### February 2021 release
 
-**Custom Neural Voice GA**
+**Custom neural voice GA**
 
-Custom Neural Voice is GA in February in 13 languages: Chinese (Mandarin, Simplified), English (Australia), English (India), English (United Kingdom), English (United States), French (Canada), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Mexico), and Spanish (Spain). Learn more about [what is Custom Neural Voice](../../custom-neural-voice.md) and [how to use it responsibly](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=~/articles/ai-services/speech-service/context/context).
-Custom Neural Voice feature requires registration and Microsoft may limit access based on Microsoft's eligibility criteria. Learn more about the [limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=~/articles/ai-services/speech-service/context/context).
+Custom neural voice is GA in February in 13 languages: Chinese (Mandarin, Simplified), English (Australia), English (India), English (United Kingdom), English (United States), French (Canada), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Mexico), and Spanish (Spain). Learn more about [what is custom neural voice](../../custom-neural-voice.md) and [how to use it responsibly](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=~/articles/ai-services/speech-service/context/context).
+Custom neural voice feature requires registration and Microsoft may limit access based on Microsoft's eligibility criteria. Learn more about the [limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=~/articles/ai-services/speech-service/context/context).
 
 
 ### December 2020 release
@@ -632,7 +679,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 - With Neural text to speech Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
 
 #### New features
-- **Custom Voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
+- **Custom voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
 - [SSML silence tag](../../speech-synthesis-markup-structure.md#add-silence) support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
 
@@ -643,7 +690,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 #### New features
 - Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
 - **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
-- **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
+- **[Custom voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
 - **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature to include incremental breaks of 50ms.
 
 **General TTS voice quality improvements**
@@ -671,7 +718,7 @@ Read the [full announcement of the TTS updates for Ignite 2020](https://techcomm
 
 * **Neural text to speech: new speaking style for `en-US` Aria voice**. AriaNeural can sound like a news caster when reading news. The 'newscast-formal' style sounds more serious, while the 'newscast-casual' style is more relaxed and informal. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md).
 
-* **Custom Voice: a new feature is released to automatically check training data quality**. When you upload your data, the system will examine various aspects of your audio and transcript data, and automatically fix or filter issues to improve the quality of the voice model. This covers the volume of your audio, the noise level, the pronunciation accuracy of speech, the alignment of speech with the normalized text, silence in the audio, in addition to the audio and script format.
+* **Custom voice: a new feature is released to automatically check training data quality**. When you upload your data, the system will examine various aspects of your audio and transcript data, and automatically fix or filter issues to improve the quality of the voice model. This covers the volume of your audio, the noise level, the pronunciation accuracy of speech, the alignment of speech with the normalized text, silence in the audio, in addition to the audio and script format.
 
 * **Audio Content Creation: a set of new features to enable more powerful voice tuning and audio management capabilities**.
 

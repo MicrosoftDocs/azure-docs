@@ -6,7 +6,7 @@ author: erindormier
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 12/19/2023
 ms.author: egeaney
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
@@ -37,10 +37,7 @@ Follow these steps to enable CMKs:
 3.	On a successful save, the CMK will be used to encrypt the data stored in the Azure Search Index.
 
 > [!IMPORTANT]
-> It is recommended to set your CMK in a fresh Azure Cognitive Search service before any projects are created. If you set CMK in a language resource with existing projects, you might lose access to them. Read more about [working with encrypted content](../../../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure Cognitive search.
-
-> [!NOTE]
-> To request the ability to use customer-managed keys, fill out and submit the [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk).
+> It is recommended to set your CMK in a fresh Azure AI Search service before any projects are created. If you set CMK in a language resource with existing projects, you might lose access to them. Read more about [working with encrypted content](../../../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content) in Azure AI Search.
 
 ## Regional availability
 
