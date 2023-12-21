@@ -8,14 +8,14 @@ ms.date: 12/13/2023
 
 # Use deployment scripts in Bicep
 
-By using the [deploymentScripts](/azure/templates/microsoft.resources/deploymentscripts) resource, you can run scripts in Bicep deployments and review execution results. You can use these scripts for performing custom steps such as:
+By using the [deploymentScripts](/azure/templates/microsoft.resources/deploymentscripts) resource, you can run scripts in Bicep deployments and review execution results. You can use these scripts to perform custom steps such as:
 
-- Add users to a directory
-- Perform data plane operations; for example, copy blobs or seed a database
-- Look up and validate a license key
-- Create a self-signed certificate
-- Create an object in Microsoft Entra ID
-- Look up IP address blocks from a custom system
+- Add users to a directory.
+- Perform data plane operations; for example, copy blobs or seed a database.
+- Look up and validate a license key.
+- Create a self-signed certificate.
+- Create an object in Microsoft Entra ID.
+- Look up IP address blocks from a custom system.
 
 The benefits of deployment scripts include:
 
@@ -67,10 +67,10 @@ For deployment script API version `2020-10-01` or later, two principals are invo
 
 - **Deployment script principal**: This principal is required only if the deployment script needs to authenticate to Azure and call the Azure CLI or PowerShell. There are two ways to specify the deployment script principal:
 
-  - Specify a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview) in the `identity` property (see the [deployment script resource syntax](./deployment-script-develop.md#syntax)). When you specify a user-assigned managed identity, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only a user-assigned managed identity is supported for the `identity` property. To log in with a different identity, use the second method in this list.
-  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
+  - Specify a [user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview) in the `identity` property. (See the [deployment script resource syntax](./deployment-script-develop.md#syntax).) When you specify a user-assigned managed identity, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only a user-assigned managed identity is supported for the `identity` property. To log in with a different identity, use the second method in this list.
+  - Pass the service principal credentials as secure environment variables, and then call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
 
-  If you use a managed identity, the deployment principal needs the Managed Identity Operator role (a built-in role) assigned to the managed identity resource.
+  If you use a managed identity, the deployment principal needs the built-in Managed Identity Operator role assigned to the managed identity resource.
 
 Currently, no built-in role is tailored for configuring deployment script permissions.
 
@@ -128,7 +128,7 @@ output result string = deploymentScript.properties.outputs.text
 
 ---
 
-For more information about creating deployment script resources, see [Create deployments scripts](./deployment-script-develop.md). For the creation of scripts for the deployment script resource, we advise you to establish a dedicated script development environment, such as an Azure container instance or a Docker image. After you develop and thoroughly test the scripts, you can integrate or invoke the script files from the deployment script resource. For more information, see [Configure script development environments](./deployment-script-bicep-configure-dev.md).
+For more information about creating deployment script resources, see [Create deployment scripts](./deployment-script-develop.md). For the creation of scripts for the deployment script resource, we advise you to establish a dedicated script development environment, such as an Azure container instance or a Docker image. After you develop and thoroughly test the scripts, you can integrate or invoke the script files from the deployment script resource. For more information, see [Configure script development environments](./deployment-script-bicep-configure-dev.md).
 
 Save the script in an *inlineScript.bicep* file, and then deploy the resource by using the following script:
 
@@ -209,7 +209,7 @@ After you deploy the Bicep file successfully, use the Azure portal, the Azure CL
 
 After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The **Overview** page lists the two supporting resources in addition to the deployment script resource. The supporting resources will be deleted after the retention interval expires.
 
-Notice that both resources have the `azscripts` suffix in the resource names because these resources are created automatically. The other way to identify the supporting resources is by using [tags](./deployment-script-develop.md#syntax).
+Notice that both supporting resources have the *azscripts* suffix in their names because these resources are created automatically. The other way to identify the supporting resources is by using [tags](./deployment-script-develop.md#syntax).
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource-group.png" alt-text="Screenshot of a deployment script resource group.":::
 
@@ -421,7 +421,7 @@ The following table lists the error codes for the deployment script:
 | `DeploymentScriptError` | The user script threw an error. |
 | `DeploymentScriptBootstrapScriptExecutionFailed` | The bootstrap script threw an error. The bootstrap script is the system script that orchestrates execution of the deployment script. |
 | `DeploymentScriptExecutionFailed` | An unknown error occurred during execution of the deployment script. |
-| `DeploymentScriptContainerInstancesServiceUnavailable` | During creation of a container instance, the Azure Container Instances service threw a service unavailable error. |
+| `DeploymentScriptContainerInstancesServiceUnavailable` | During creation of a container instance, the Azure Container Instances service threw a "service unavailable" error. |
 | `DeploymentScriptContainerGroupInNonterminalState` | During creation of a container instance, another deployment script was using the same container instance name in the same scope (same subscription, resource group name, and resource name). |
 | `DeploymentScriptContainerGroupNameInvalid` | The specified container instance name doesn't meet the Azure Container Instances requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
