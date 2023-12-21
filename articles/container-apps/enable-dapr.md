@@ -85,7 +85,7 @@ By default, Dapr is disabled. Select **Enabled** to expand the Dapr settings.
 
 :::image type="content" source="media/enable-dapr/dapr-disabled.png" alt-text="Screenshot of Dapr being disabled by default and where to click to enable it.":::
 
-Enter the component App Id and select the appropriate headings. If applicable, under the **Components** header, select the link to add and manage your Dapr components to the container app environment.
+Enter the component App ID and select the appropriate headings. If applicable, under the **Components** header, select the link to add and manage your Dapr components to the container app environment.
 
 :::image type="content" source="media/enable-dapr/dapr-enablement-settings.png" alt-text="Screenshot showing some basic settings for enabling Dapr on the container app.":::
 
