@@ -2,8 +2,8 @@
 title: Picute-in-Picture for the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services UI library for Mobile native with Picute-in-Picture.
-author: pprystinka
-ms.author: pprystinka
+author: pavelprystinka
+ms.author: pavelprystinka
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 12/12/2023

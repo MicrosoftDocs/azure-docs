@@ -1,8 +1,8 @@
 ---
 description: In this tutorial how to use the Calling composite on iOS.
-author: pprystinka
+author: pavelprystinka
 
-ms.author: pprystinka
+ms.author: pavelprystinka
 ms.date: 12/12/2023
 ms.topic: include
 ms.service: azure-communication-services
