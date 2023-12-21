@@ -43,19 +43,12 @@ In this section, you create two Ranger policies for accessing hivesampletable fr
 1. Select **Add New Policy**, and then enter the following values: 
 
      |Property |Value | 
-
     |---|---| 
-
     |Policy Name|read-hivesampletable-all| 
-
     |Hive Database|default| 
-
     |table|hivesampletable| 
-
     |Hive Column|*| 
-
     |Select User|sparkuser1| 
-
     |Permissions|select| 
 
 
@@ -77,21 +70,13 @@ In this section, you create two Ranger policies for accessing hivesampletable fr
 1. Now, Create another policy with the following properties using Ranger Admin UI 
 
      |Property |Value | 
-
     |---|---| 
-
     |Policy Name|read-sparksampletable-devicemake| 
-
     |Hive Database|default| 
-
     |Hive table|sparksampletable| 
-
     |Hive column|querytime| 
-
     |Select User|sparkuser2| 
-
     |Permissions|select| 
-
    |Masking options|Nullify| 
 
 
