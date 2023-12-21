@@ -21,7 +21,7 @@ Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki
 
 ## About encryption key management
 
-When you use Custom Speech and Custom Voice, Speech service may store following data in the cloud:  
+When you use custom speech and custom voice, Speech service may store following data in the cloud:  
 
 * Speech trace data - only if your turn the trace on for your custom endpoint
 * Uploaded training and test data

@@ -109,7 +109,7 @@ AzCopy isn't currently supported for NFS file shares. To copy data from an NFS A
 
 ### Regional availability
 
-NFS Azure file share snapshots are available in preview in all Azure public cloud regions.
+NFS Azure file share snapshots preview is now available in all Azure public cloud regions.
 
 ### Create a snapshot
 

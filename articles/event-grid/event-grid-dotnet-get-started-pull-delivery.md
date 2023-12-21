@@ -14,7 +14,7 @@ ms.date: 11/15/2023
 
 # Quickstart: Send and receive messages from an Azure Event Grid namespace topic (.NET)
 
-In this quickstart, you'll do the following steps:
+In this quickstart, you do the following steps:
 
 1. Create an Event Grid namespace, using the Azure portal.
 2. Create an Event Grid namespace topic, using the Azure portal.
@@ -86,27 +86,28 @@ This section shows you how to create a .NET console application to send messages
 2. Run the following command to install the **Azure.Messaging.EventGrid** NuGet package:
 
     ```powershell
-    Install-Package Azure.Messaging.EventGrid -Version 4.17.0-beta.1
+    Install-Package Azure.Messaging.EventGrid -version 4.22.0-beta.1
     ```
 
 
 ## Add code to send event to the namespace topic
 
-1. Replace the contents of `Program.cs` with the following code. The important steps are outlined below, with additional information in the code comments.
+1. Replace the contents of `Program.cs` with the following code. The important steps are outlined,  with additional information in the code comments.
 
     > [!IMPORTANT]
-    > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>` and `<TOPIC-KEY>`) in the code snippet with names of your topic endpoint , topic name and topic key.
-
+    > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, `<TOPIC-SUBSCRIPTION-NAME>`) in the code snippet with your topic endpoint, topic name, topic key, topic's subscription name.
 
     ```csharp
-    using Azure.Messaging.EventGrid.Namespaces;
-
+    using Azure.Messaging;
+    using Azure;
+    using Azure.Messaging.EventGrid.Namespaces;    
+    
     // TODO: Replace the <ENDPOINT> , <TOPIC-KEY> and <TOPIC-NAME> placeholder
     
-    var topicEndpoint = "https://namespace01.eastus-1.eventgrid.azure.net"; // Replace with the url of your event grid namespace.
-    var topicKey = "Enter the Topic Access Key";
-    var topicName = "Enter the Topic Name";
-    var subscription = "Enter the event grid subscription name";
+    var topicEndpoint = "<TOPIC-ENDPOINT>"; // Should be in the form: https://namespace01.eastus-1.eventgrid.azure.net. 
+    var topicKey = "<TOPIC-ACCESS-KEY>";
+    var topicName = "<TOPIC-NAME>";
+    var subscription = "<TOPIC-SUBSCRIPTION-NAME>";
 
     // Construct the client using an Endpoint for a namespace as well as the access key
     var client = new EventGridClient(new Uri(topicEndpoint), new AzureKeyCredential(topicKey));
@@ -117,29 +118,27 @@ This section shows you how to create a .NET console application to send messages
     
     // Publish a batch of CloudEvents.
     
-    public class TestModel
-   {
-      public string Name { get; set; }
-      public int Age { get; set; }
-   }
-    
     await client.PublishCloudEventsAsync(
     topicName,
     new[] {
         new CloudEvent("employee_source", "type", new TestModel { Name = "Tom", Age = 55 }),
         new CloudEvent("employee_source", "type", new TestModel { Name = "Alice", Age = 25 })});
-        
-    Console.WriteLine("An event has been published to the topic. Press any key to end the application.");
+    
+    Console.WriteLine("Three events have been published to the topic. Press any key to end the application.");
     Console.ReadKey();
+    
+    public class TestModel
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }    
+    
     ```
-
-    ---
-
 2. Build the project, and ensure that there are no errors.
 3. Run the program and wait for the confirmation message.
 
     ```bash
-    An event has been published to the topic. Press any key to end the application.
+    Three events have been published to the topic. Press any key to end the application.
     ```
 
     > [!IMPORTANT]
@@ -147,7 +146,7 @@ This section shows you how to create a .NET console application to send messages
 
 4. In the Azure portal, follow these steps:
     1. Navigate to your Event Grid namespace.
-    1. On the **Overview** page, select the queue in the middle pane.
+    1. On the **Overview** page, you see the number of events posted to the namespace in the chart. 
 
         :::image type="content" source="./media/event-grid-dotnet-get-started-events/event-grid-namespace-metrics.png" alt-text="Screenshot showing the Event Grid Namespace page in the Azure portal." lightbox="./media/event-grid-dotnet-get-started-events/event-grid-namespace-metrics.png":::
 
@@ -167,17 +166,13 @@ In this section, you create a .NET console application that receives messages fr
 ### Add the NuGet packages to the project
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. Run the following command to install the **Azure.Messaging.EventGrid** NuGet package:
+1. Run the following command to install the **Azure.Messaging.EventGrid** NuGet package. Select **EventReceiver** for the **Default project** if it's not already set.
 
     ```powershell
-    Install-Package Azure.Messaging.EventGrid -Version 4.17.0-beta.1
+    Install-Package Azure.Messaging.EventGrid -version 4.22.0-beta.1
     ```
 
     :::image type="content" source="./media/event-grid-dotnet-get-started-events/install-event-grid-package.png" alt-text="Screenshot showing EventReceiver project selected in the Package Manager Console.":::
-
-
----
-
 
 ### Add the code to receive events from the topic
 
@@ -185,126 +180,138 @@ In this section, you add code to retrieve messages from the queue.
 
 1. Within the `Program` class, add the following code:
     
+    > [!IMPORTANT]
+    > Update placeholder values (`<ENDPOINT>` , `<TOPIC-NAME>`, `<TOPIC-ACCESS-KEY>`, `<TOPIC-SUBSCRIPTION-NAME>`) in the code snippet with your topic endpoint, topic name, topic key, topic's subscription name.
+
     ```csharp
-    using System.Threading.Tasks;
     using Azure;
     using Azure.Messaging;
     using Azure.Messaging.EventGrid.Namespaces;
     
-    
-    var topicEndpoint = "https://namespace01.eastus-1.eventgrid.azure.net"; // Replace with the url of your event grid namespace.
-    var topicKey = "Enter the Topic Access Key";
-    var topicName = "Enter the Topic Name";
-    var subscription = "Enter the event grid subscription name";
+    var topicEndpoint = "<TOPIC-ENDPOINT>"; // Should be in the form: https://namespace01.eastus-1.eventgrid.azure.net. 
+    var topicKey = "<TOPIC-ACCESS-KEY>";
+    var topicName = "<TOPIC-NAME>";
+    var subscription = "<TOPIC-SUBSCRIPTION-NAME>";
 
     // Construct the client using an Endpoint for a namespace as well as the access key
     var client = new EventGridClient(new Uri(topicEndpoint), new AzureKeyCredential(topicKey));
     
     // Receive the published CloudEvents
-    ReceiveResult result = await client.ReceiveCloudEventsAsync(topicName, subscription);
+    ReceiveResult result = await client.ReceiveCloudEventsAsync(topicName, subscription, 3);
     
     Console.WriteLine("Received Response");
+    Console.WriteLine("-----------------");
+    
     ```
 
 1. Append the following methods to the end of the `Program` class.
 
     ```csharp
     // handle received messages. Define these variables on the top.
-
+    
     var toRelease = new List<string>();
     var toAcknowledge = new List<string>();
     var toReject = new List<string>();
-
+    
     // Iterate through the results and collect the lock tokens for events we want to release/acknowledge/result
-
+    
     foreach (ReceiveDetails detail in result.Value)
     {
-    CloudEvent @event = detail.Event;
-    BrokerProperties brokerProperties = detail.BrokerProperties;
-    Console.WriteLine(@event.Data.ToString());
-
-    // The lock token is used to acknowledge, reject or release the event
-    Console.WriteLine(brokerProperties.LockToken);
+        CloudEvent @event = detail.Event;
+        BrokerProperties brokerProperties = detail.BrokerProperties;
+        Console.WriteLine(@event.Data.ToString());
     
-    // If the event is from the "employee_source" and the name is "Bob", we are not able to acknowledge it yet, so we release it
-    if (@event.Source == "employee_source" && @event.Data.ToObjectFromJson<TestModel>().Name == "Bob")
-    {
-        toRelease.Add(brokerProperties.LockToken);
+        // The lock token is used to acknowledge, reject or release the event
+        Console.WriteLine(brokerProperties.LockToken);
+        Console.WriteLine();
+    
+        // If the event is from the "employee_source" and the name is "Bob", we are not able to acknowledge it yet, so we release it
+        if (@event.Source == "employee_source" && @event.Data.ToObjectFromJson<TestModel>().Name == "Bob")
+        {
+            toRelease.Add(brokerProperties.LockToken);
+        }
+        // acknowledge other employee_source events
+        else if (@event.Source == "employee_source")
+        {
+            toAcknowledge.Add(brokerProperties.LockToken);
+        }
+        // reject all other events
+        else
+        {
+            toReject.Add(brokerProperties.LockToken);
+        }
     }
-    // acknowledge other employee_source events
-    else if (@event.Source == "employee_source")
-    {
-        toAcknowledge.Add(brokerProperties.LockToken);
-    }
-    // reject all other events
-    else
-    {
-        toReject.Add(brokerProperties.LockToken);
-    }
-    }
-
+    
     // Release/acknowledge/reject the events
-
+    
     if (toRelease.Count > 0)
     {
-    ReleaseResult releaseResult = await client.ReleaseCloudEventsAsync(<TOPIC-NAME>, <EVENT-SUBSCRIPTION>, toRelease);
-
-    // Inspect the Release result
-    Console.WriteLine($"Failed count for Release: {releaseResult.FailedLockTokens.Count}");
-    foreach (FailedLockToken failedLockToken in releaseResult.FailedLockTokens)
-    {
-        Console.WriteLine($"Lock Token: {failedLockToken.LockToken}");
-        Console.WriteLine($"Error Code: {failedLockToken.ErrorCode}");
-        Console.WriteLine($"Error Description: {failedLockToken.ErrorDescription}");
+        ReleaseResult releaseResult = await client.ReleaseCloudEventsAsync(topicName, subscription, new ReleaseOptions(toRelease));
+    
+        // Inspect the Release result
+        Console.WriteLine($"Failed count for Release: {releaseResult.FailedLockTokens.Count}");
+        foreach (FailedLockToken failedLockToken in releaseResult.FailedLockTokens)
+        {
+            Console.WriteLine($"Lock Token: {failedLockToken.LockToken}");
+            Console.WriteLine($"Error Code: {failedLockToken.Error}");
+            Console.WriteLine($"Error Description: {failedLockToken.ToString}");
+        }
+    
+        Console.WriteLine($"Success count for Release: {releaseResult.SucceededLockTokens.Count}");
+        foreach (string lockToken in releaseResult.SucceededLockTokens)
+        {
+            Console.WriteLine($"Lock Token: {lockToken}");
+        }
+        Console.WriteLine();
     }
-
-    Console.WriteLine($"Success count for Release: {releaseResult.SucceededLockTokens.Count}");
-    foreach (string lockToken in releaseResult.SucceededLockTokens)
-    {
-        Console.WriteLine($"Lock Token: {lockToken}");
-    }
-    }
-
+    
     if (toAcknowledge.Count > 0)
     {
-    AcknowledgeResult acknowledgeResult = await client.AcknowledgeCloudEventsAsync(<TOPIC-NAME>, <EVENT-SUBSCRIPTION>, toAcknowledge);
-
-    // Inspect the Acknowledge result
-    Console.WriteLine($"Failed count for Acknowledge: {acknowledgeResult.FailedLockTokens.Count}");
-    foreach (FailedLockToken failedLockToken in acknowledgeResult.FailedLockTokens)
-    {
-        Console.WriteLine($"Lock Token: {failedLockToken.LockToken}");
-        Console.WriteLine($"Error Code: {failedLockToken.ErrorCode}");
-        Console.WriteLine($"Error Description: {failedLockToken.ErrorDescription}");
+        AcknowledgeResult acknowledgeResult = await client.AcknowledgeCloudEventsAsync(topicName, subscription, new AcknowledgeOptions(toAcknowledge));
+    
+        // Inspect the Acknowledge result
+        Console.WriteLine($"Failed count for Acknowledge: {acknowledgeResult.FailedLockTokens.Count}");
+        foreach (FailedLockToken failedLockToken in acknowledgeResult.FailedLockTokens)
+        {
+            Console.WriteLine($"Lock Token: {failedLockToken.LockToken}");
+            Console.WriteLine($"Error Code: {failedLockToken.Error}");
+            Console.WriteLine($"Error Description: {failedLockToken.ToString}");
+        }
+    
+        Console.WriteLine($"Success count for Acknowledge: {acknowledgeResult.SucceededLockTokens.Count}");
+        foreach (string lockToken in acknowledgeResult.SucceededLockTokens)
+        {
+            Console.WriteLine($"Lock Token: {lockToken}");
+        }
+        Console.WriteLine();
     }
-
-    Console.WriteLine($"Success count for Acknowledge: {acknowledgeResult.SucceededLockTokens.Count}");
-    foreach (string lockToken in acknowledgeResult.SucceededLockTokens)
-    {
-        Console.WriteLine($"Lock Token: {lockToken}");
-    }
-    }
-
+    
     if (toReject.Count > 0)
     {
-    RejectResult rejectResult = await client.RejectCloudEventsAsync(<TOPIC-NAME>, <EVENT-SUBSCRIPTION>, toReject);
-
-    // Inspect the Reject result
-    Console.WriteLine($"Failed count for Reject: {rejectResult.FailedLockTokens.Count}");
-    foreach (FailedLockToken failedLockToken in rejectResult.FailedLockTokens)
+        RejectResult rejectResult = await client.RejectCloudEventsAsync(topicName, subscription, new RejectOptions(toReject));
+    
+        // Inspect the Reject result
+        Console.WriteLine($"Failed count for Reject: {rejectResult.FailedLockTokens.Count}");
+        foreach (FailedLockToken failedLockToken in rejectResult.FailedLockTokens)
+        {
+            Console.WriteLine($"Lock Token: {failedLockToken.LockToken}");
+            Console.WriteLine($"Error Code: {failedLockToken.Error}");
+            Console.WriteLine($"Error Description: {failedLockToken.ToString}");
+        }
+    
+        Console.WriteLine($"Success count for Reject: {rejectResult.SucceededLockTokens.Count}");
+        foreach (string lockToken in rejectResult.SucceededLockTokens)
+        {
+            Console.WriteLine($"Lock Token: {lockToken}");
+        }
+        Console.WriteLine();
+    }
+    
+    public class TestModel
     {
-        Console.WriteLine($"Lock Token: {failedLockToken.LockToken}");
-        Console.WriteLine($"Error Code: {failedLockToken.ErrorCode}");
-        Console.WriteLine($"Error Description: {failedLockToken.ErrorDescription}");
-    }
-
-    Console.WriteLine($"Success count for Reject: {rejectResult.SucceededLockTokens.Count}");
-    foreach (string lockToken in rejectResult.SucceededLockTokens)
-    {
-        Console.WriteLine($"Lock Token: {lockToken}");
-    }
-    }
-
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }    
     ```
 
 ## Clean up resources

@@ -2,13 +2,14 @@
 author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/29/2023
+ms.date: 12/13/2023
 ms.author: davidsmatlak
 ms.custom: generated
 ---
 
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[\[Preview\]: Azure Managed Grafana should be Zone Redundant](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbdd8bbb2-1efd-48dc-a0fd-8ddcba2e96cd) |Azure Managed Grafana can be configured to be Zone Redundant or not. An Azure Managed Grafana instance is Zone Redundant is it's 'zoneRedundancy' property is set to 'Enabled'. Enforcing this policy helps ensure that your Azure Managed Grafana is appropriately configured for zone resilience, reducing the risk of downtime during zone outages. |Audit, Deny, Disabled |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Resilience/Dashboard_Grafana_ZoneRedundant_Audit.json) |
 |[Azure Managed Grafana should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a97e513-f75e-4230-8137-1efad4eadbbc) |Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Managed Grafana, you can reduce data leakage risks. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Managed%20Grafana/AMG_PrivateEndpoints_Audit.json) |
 |[Azure Managed Grafana workspaces should disable public network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8775d5a-73b7-4977-a39b-833ef0114628) |Disabling public network access improves security by ensuring that your Azure Managed Grafana workspace isn't exposed on the public internet. Creating private endpoints can limit exposure of your workspaces. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Managed%20Grafana/AMG_PublicNetworkAccess_Deny.json) |
 |[Configure Azure Managed Grafana dashboards with private endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbc33de80-97cd-4c11-b6b4-d075e03c7d60) |Private endpoints connect your virtual networks to Azure services without a public IP address at the source or destination. By mapping private endpoints to Azure Managed Grafana, you can reduce data leakage risks. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Managed%20Grafana/AMG_PrivateEndpoints_DeployIfNotExists.json) |

@@ -38,7 +38,7 @@ The steps in this tutorial are:
     - If your role is **Contributor** or **Owner**, you can [create an Azure AI resource in this tutorial](#create-an-azure-ai-project-in-azure-ai-studio). 
     - If your role is **Azure AI Developer**, the Azure AI resource must already be created. 
 
-- Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models.md). 
+- Your subscription needs to be below your [quota limit](../how-to/quota.md) to [deploy a new model in this tutorial](#deploy-a-chat-model). Otherwise you already need to have a [deployed chat model](../how-to/deploy-models-openai.md).
 
 - You need a local copy of product and customer data. The [Azure/aistudio-copilot-sample repository on GitHub](https://github.com/Azure/aistudio-copilot-sample/tree/main/data) contains sample retail customer and product information that's relevant for this tutorial scenario. Clone the repository or copy the files from [1-customer-info](https://github.com/Azure/aistudio-copilot-sample/tree/main/data/1-customer-info) and [3-product-info](https://github.com/Azure/aistudio-copilot-sample/tree/main/data/3-product-info). 
 
@@ -96,7 +96,7 @@ Follow these steps to deploy an Azure OpenAI chat model for your copilot.
 
     :::image type="content" source="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png" alt-text="Screenshot of the GPT chat deployment details." lightbox="../media/tutorials/copilot-deploy-flow/deploy-gpt-35-turbo-16k-details.png":::
 
-For more information about deploying models, see [how to deploy models](../how-to/deploy-models.md).
+For more information about deploying models, see [how to deploy models](../how-to/deploy-models-openai.md).
 
 ## Chat in the playground without your data
 

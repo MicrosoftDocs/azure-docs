@@ -6,7 +6,7 @@ ms.subservice: azure-ai-qna-maker
 ms.topic: quickstart
 author: jboback
 ms.author: jboback
-ms.date: 01/26/2022
+ms.date: 12/19/2023
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-api, devx-track-dotnet, devx-track-extended-java
 zone_pivot_groups: qnamaker-quickstart

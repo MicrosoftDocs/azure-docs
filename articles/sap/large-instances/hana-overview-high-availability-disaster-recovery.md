@@ -3,7 +3,7 @@ title: High availability and disaster recovery of SAP HANA on Azure (Large Insta
 description: Learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
-author: lauradolan
+author: ju-shim
 manager: juergent
 editor:
 ms.service: sap-on-azure
@@ -12,9 +12,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2021
-ms.author: ladolan
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 # SAP HANA Large Instances high availability and disaster recovery on Azure 
 

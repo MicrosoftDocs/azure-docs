@@ -13,8 +13,13 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
-    - name: Network Fabric overview
-      href: concepts-network-fabric.md
+    - name: Network Fabric
+      expanded: false
+      items:
+        - name: Network Fabric overview
+          href: concepts-network-fabric.md
+        - name: Network Fabric Controller
+          href: concepts-network-fabric-controller.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
@@ -132,11 +137,10 @@
       items:
         - name: Set up Defender for Cloud security
           href: howto-set-up-defender-for-cloud-security.md
-        - name: Use Azure Policy for AKS Clusters
-          href: howto-use-azure-policy-for-aks-cluster-security.md
+        - name: Use Azure Policy with Operator Nexus resources
+          href: howto-use-azure-policy.md
         - name: MDE Runtime Protection
           href: howto-use-mde-runtime-protection.md
-
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
@@ -151,6 +155,8 @@
       href: troubleshoot-kubernetes-cluster-dual-stack-configuration.md
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
+    - name: Enable node down cleaner
+      href: troubleshoot-enable-node-down-cleaner.md
     - name: BareMetal Actions
       expanded: false
       items:
@@ -181,6 +187,8 @@
       href: List-of-metrics-collected.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
+    - name: BareMetal Machine roles
+      href: reference-near-edge-baremetal-machine-roles.md
     - name: Near-edge storage
       href: reference-near-edge-storage.md
     - name: Limits & quotas
