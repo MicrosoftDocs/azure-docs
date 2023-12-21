@@ -601,27 +601,26 @@
       "redirect_url": "/azure/ai-services/document-intelligence/language-support-ocr",
       "redirect_document_id": true
     },
-    
     {
       "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/v3-csharp-sdk.md",
       "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/csharp-sdk.md",
       "redirect_document_id": true
-    }
+    },
     {
       "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/v3-javascript-sdk.md",
       "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/javascript-sdk.md",
       "redirect_document_id": true
-    }
+    },
     {
       "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/v3-java-sdk.md",
       "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/java-sdk.md",
       "redirect_document_id": true
-    }
+    },
     {
       "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/v3-python-sdk.md",
       "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/python-sdk.md",
       "redirect_document_id": true
-    }
+    },
     {
       "source_path_from_root": "/articles/ai-services/document-intelligence/quickstarts/includes/v3-rest-api-sdk.md",
       "redirect_url": "/azure/ai-services/document-intelligence/quickstarts/includes/rest-api-sdk.md",

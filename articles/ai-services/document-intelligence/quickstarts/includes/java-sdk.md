@@ -488,7 +488,120 @@ To view the entire output,visit the Azure samples repository on GitHub to view t
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
-    {content}
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+
+```java
+import com.azure.ai.formrecognizer;
+
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+import com.azure.ai.formrecognizer.documentanalysis.models.AnalyzeResult;
+import com.azure.ai.formrecognizer.documentanalysis.models.OperationResult;
+import com.azure.ai.formrecognizer.documentanalysis.models.DocumentTable;
+import com.azure.ai.formrecognizer.documentanalysis.models.Point;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+/**
+ * Sample for analyzing content information from a document given through a URL.
+ */
+public class FormRecognizer {
+
+  // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
+  private static final String endpoint = "<your-endpoint>";
+  private static final String key = "<your-key>";
+
+  public static void main(String[] args) {
+
+    // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
+    DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+      .credential(new AzureKeyCredential(key))
+      .endpoint(endpoint)
+      .buildClient();
+
+    // sample document
+    String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
+    String modelId = "prebuilt-layout";
+
+    SyncPoller<OperationResult, AnalyzeResult> analyzeLayoutPoller =
+        client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
+
+    AnalyzeResult analyzeLayoutResult = analyzeLayoutPoller.getFinalResult();
+
+    // pages
+    analyzeLayoutResult.getPages().forEach(documentPage -> {
+        System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+            documentPage.getWidth(),
+            documentPage.getHeight(),
+            documentPage.getUnit());
+
+        // lines
+        documentPage.getLines().forEach(documentLine ->
+            System.out.printf("Line '%s' is within a bounding polygon %s.%n",
+                documentLine.getContent(),
+                getBoundingCoordinates(documentLine.getBoundingPolygon())));
+
+        // words
+        documentPage.getWords().forEach(documentWord ->
+            System.out.printf("Word '%s' has a confidence score of %.2f.%n",
+                documentWord.getContent(),
+                documentWord.getConfidence()));
+
+        // selection marks
+        documentPage.getSelectionMarks().forEach(documentSelectionMark ->
+            System.out.printf("Selection mark is '%s' and is within a bounding polygon %s with confidence %.2f.%n",
+                documentSelectionMark.getSelectionMarkState().toString(),
+                getBoundingCoordinates(documentSelectionMark.getBoundingPolygon()),
+                documentSelectionMark.getConfidence()));
+    });
+
+    // tables
+    List<DocumentTable> tables = analyzeLayoutResult.getTables();
+    for (int i = 0; i < tables.size(); i++) {
+        DocumentTable documentTable = tables.get(i);
+        System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
+            documentTable.getColumnCount());
+        documentTable.getCells().forEach(documentTableCell -> {
+            System.out.printf("Cell '%s', has row index %d and column index %d.%n", documentTableCell.getContent(),
+                documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
+        });
+        System.out.println();
+    }
+
+    // styles
+    analyzeLayoutResult.getStyles().forEach(documentStyle
+        -> System.out.printf("Document is handwritten %s.%n", documentStyle.isHandwritten()));
+ }
+
+/**
+ * Utility function to get the bounding polygon coordinates.
+ */
+private static String getBoundingCoordinates(List<Point> boundingPolygon) {
+    return boundingPolygon.stream().map(point -> String.format("[%.2f, %.2f]", point.getX(),
+        point.getY())).collect(Collectors.joining(", "));
+ }
+}
+```
+
+**Build and run the application**
+
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognize-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
+
 :::moniker-end
 
 ## Prebuilt model
@@ -505,7 +618,9 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
+:::moniker range="doc-intel-3.1.0"
+
+**Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
 
@@ -693,3 +808,5 @@ Here's a snippet of the expected output:
 ```
 
 To view the entire output, visit the Azure samples repository on GitHub to view the [prebuilt invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/v3-java-sdk-prebuilt-invoice-output.md)
+
+:::moniker-end

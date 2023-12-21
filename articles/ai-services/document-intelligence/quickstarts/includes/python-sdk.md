@@ -495,15 +495,14 @@ Analyze and extract common fields from specific document types using a prebuilt 
 
 # import libraries
 import os
-from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+
 
 # set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
 endpoint = "<your-endpoint>"
 key = "<your-key>"
 
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.documentintelligence import DocumentIntelligenceClient
 
 
 def analyze_invoice():
