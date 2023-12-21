@@ -15,7 +15,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 A Firebase account set up with Cloud Messaging (FCM) enabled and with your Firebase Cloud Messaging service connected to an Azure Notification Hub instance. See [Communication Services notifications](../../../../concepts/notifications.md) for more information.
 Additionally, the tutorial assumes you're using Android Studio version 3.6 or higher to build your application.
 
-A set of permissions is required for the Android application in order to be able to receive notifications messages from Firebase Cloud Messaging. In your `AndroidManifest.xml` file, add the following set of permissions right after the `<manifest ...>` or below the `</application>` tag.
+A set of permissions is required for the Android application in order to be able to receive notifications messages from Firebase Cloud Messaging. In your `AndroidManifest.xml` file, add the following set of permissions right after the `<manifest ...>` or the `</application>` tag.
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -198,7 +198,7 @@ To start call with other participants, create `CallCompositeStartCallOptions` wi
 
 ### Telecom manager sample
 
-To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) can use below API's to `hold`, `resume`, `mute` and `unmute`.
+To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) can use API's to `hold`, `resume`, `mute` and `unmute`.
 
 #### [Kotlin](#tab/kotlin)
 
