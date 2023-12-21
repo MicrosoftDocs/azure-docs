@@ -1,5 +1,5 @@
 ---
-title: Intelligent tuning - Azure Database for PostgreSQL - Flexible Server
+title: Intelligent tuning
 description: This article describes the intelligent tuning feature in Azure Database for PostgreSQL - Flexible Server.
 author: AwdotiaRomanowna
 ms.author: alkuchar

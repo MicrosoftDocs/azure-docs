@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Guides for Azure Database for PostgreSQL - Flexible Server
+title: Troubleshooting guides
 description: Troubleshooting guides for Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server

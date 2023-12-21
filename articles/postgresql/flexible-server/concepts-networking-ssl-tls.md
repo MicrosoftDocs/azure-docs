@@ -1,6 +1,6 @@
 ---
-title: Networking overview - Azure Database for PostgreSQL - Flexible Server using SSL and TLS
-description: Learn about secure connectivity with Flexible Server using SSL and TLS
+title: Networking overview using SSL and TLS
+description: Learn about secure connectivity with Flexible Server using SSL and TLS.
 author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
@@ -12,7 +12,7 @@ ms.custom:
 ms.topic: conceptual
 ---
 
-# Secure connectivity with TLS and SSL
+# Secure connectivity with TLS and SSL in Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

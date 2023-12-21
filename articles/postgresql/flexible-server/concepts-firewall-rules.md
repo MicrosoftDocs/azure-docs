@@ -1,5 +1,5 @@
 ---
-title: Firewall rules in Azure Database for PostgreSQL - Flexible Server
+title: Firewall rules
 description: This article describes how to use firewall rules to connect to Azure Database for PostgreSQL - Flexible Server with the public networking deployment option.
 author: gennadNY
 ms.author: gennadyk

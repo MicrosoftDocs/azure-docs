@@ -1,5 +1,5 @@
 ---
-title: Read replicas - Azure Database for PostgreSQL - Flexible Server
+title: Read replicas
 description: This article describes the read replica feature in Azure Database for PostgreSQL - Flexible Server.
 author: AlicjaKucharczyk
 ms.author: alkuchar

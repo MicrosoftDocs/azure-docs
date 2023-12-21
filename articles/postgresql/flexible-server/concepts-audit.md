@@ -1,5 +1,5 @@
 ---
-title: Audit logging - Azure Database for PostgreSQL - Flexible Server
+title: Audit logging
 description: Concepts for pgAudit audit logging in Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server

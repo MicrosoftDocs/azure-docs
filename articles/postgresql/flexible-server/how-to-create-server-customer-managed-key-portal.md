@@ -1,6 +1,6 @@
 ---
-title: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using  Azure Portal
-description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using  Azure Portal
+title: Create and manage with data encrypted by customer managed keys using Azure portal
+description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using the Azure portal.
 author: gennadNY 
 ms.author: gennadyk
 ms.service: postgresql

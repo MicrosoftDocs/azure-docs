@@ -1,6 +1,6 @@
 ---
-title: Major Version Upgrade  - Azure Database for PostgreSQL - Flexible Server 
-description: Learn about the concepts of in-place major version upgrade with Azure Database for PostgreSQL - Flexible Server
+title: Major version upgrade
+description: Learn about the concepts of in-place major version upgrade with Azure Database for PostgreSQL - Flexible Server.
 author: kabharati
 ms.author: kabharati
 ms.reviewer: rajsell
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ms.topic: conceptual
 ---
 
-# Major Version Upgrade for PostgreSQL Flexible Server 
+# Major version upgrade for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
