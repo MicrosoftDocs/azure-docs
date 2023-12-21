@@ -24,7 +24,7 @@ Microsoft Copilot for Azure in Cosmos DB (preview) can assist with authoring Azu
 - Learn to write queries faster through detailed explanations of the generated query.
 
 > [!NOTE]
-> You may see the database `CopilotSampleDb` appear in Data Explorer. This is a database managed by Microsoft and provided to you (at no cost) as a testbed to become familiar with Microsoft Copilot for Azure in Cosmos DB. This database consists of 100% synthetic data created by Microsoft. This database has no interaction with any other data you may have in Azure Cosmos DB and remains completely separate.
+> You may see the database `CopilotSampleDb` appear in Data Explorer. This is a completely separate database managed by Microsoft and access is provided to you (at no cost) as a testbed to become familiar with Microsoft Copilot for Azure in Cosmos DB. This database consists of 100% synthetic data created by Microsoft and has has no interaction or relationships to any data you may have in Azure Cosmos DB.
 
 
 > [!WARNING]
