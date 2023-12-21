@@ -6,17 +6,74 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 12/06/2023
 
 #CustomerIntent: As an Azure administrator, I want to migrate my tests from Network performance monitor to the new Connection monitor so I avoid service disruption. 
 ---
 
 # Migrate to Connection monitor from Network performance monitor
 
+In this article, you learn how to migrate your existing tests from Network performance monitor to the new Connection monitor with zero downtime. For more information, see [Connection monitor overview](connection-monitor-overview.md).
+
 > [!IMPORTANT]
 > Starting July 1, 2021, you won't be able to add new tests in an existing workspace or enable a new workspace with Network performance monitor. You can continue to use the tests created prior to July 1, 2021. To minimize service disruption to your current workloads, migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher before February 29, 2024.
 
-You can migrate existing tests from Network performance monitor to the new, improved Connection monitor with a single click and with zero downtime. To learn more about the benefits of the new Connection monitor, see [Connection monitor overview](connection-monitor-overview.md).
+## Key benefits of the new Connection monitor
+
+The following are key benefits of the new Connection monitor:
+
+- Unified connectivity monitoring experience for Azure and Hybrid endpoints 
+
+    - Azure Monitor agent enabled ARC servers as source and destination endpoints. 
+
+    - Cross subscription, cross workspace and cross region monitoring support.   
+
+    - Virtual machines (VMs) and scale sets support as source and destination endpoints.  
+
+- Ease of experience with simplified agent support 
+
+    - Lightweight Azure Network Watcher extension compatible with ARC endpoints. 
+
+    - Support for Azure Monitor agent extension with ARC enabled on-premises endpoints.
+
+    - Auto upgrade of agents with automated agent enablement support.
+
+- Visualize & measure end-to-end network path performance with the new Topology (preview)
+
+    - Deep insights into network performance metrics with synthetic monitoring across TCP, ICMP and HTTP protocols.
+
+    - Enhanced visibility into end-to-end network path and connections with per hop latency and path loss across path components, highlighting links with high latency or packet loss.  
+
+    - Geo meta data and ASN data available across internet hops.
+
+    - Highlight last mile, middle mile and last mile latency with Microsoft edge discovery.
+
+- Enhanced troubleshooting with clear actionable insights  
+
+    - Fast detection with real-time alerting network connectivity issues. 
+
+    - Smart insights into changes across networking path components to highlight the underlying cause for connectivity errors. 
+
+    - Identification of blocking rules, resources responsible for causing endpoint connectivity failures.  
+
+## Network performance monitor vs new Connection monitor
+
+The following table compares Network performance monitor and the new Connection monitor:
+
+| Feature | Network performance monitor | Connection monitor |
+| ------- | --------------------------- | ------------------ |
+| Unified experience for Azure and hybrid monitoring | Not available | Available |
+| Cross subscription, cross-region, and cross-workspace monitoring | Limited availability | Available |
+| Centralized workspace support  | Not available | Available |
+| Support for ARC enabled Azure Monitor agent supported endpoints as source and destination endpoints | Not available | Available |
+| Support for Azure VMs and compound resources (Virtual networks, subnets, scale sets) | Not available | Available |
+| Unified topology across on-premises, internet, and Azure hops | Not available | Available |
+| HTTP status code checks | Not available | Available |
+| Enhanced connectivity diagnostics with actionable insights  | Not available | Available |
+| Connectivity metrics and dimension measurements | Not available | Available |
+| Automation – PowerShell, the Azure CLI, Terraform | Not available | Available |
+| Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and ExpressRoute don't support Linux.  | Available |
+| Support for public, Government, China, and air-gapped cloud | Available | Available |
 
 ## Key points to note
 
@@ -42,15 +99,15 @@ The migration helps produce the following results:
 
 To migrate the tests from Network performance monitor to Connection monitor, follow these steps:
 
-1. In Network Watcher, select **Connection Monitor**, and then select the **Import tests from NPM** tab. 
+1. In Network Watcher, select **Connection monitor**, and then select the **Import tests from NPM** tab. 
 
 	:::image type="content" source="./media/migrate-to-connection-monitor-from-network-performance-monitor/migrate-from-network-performance-monitor.png" alt-text="Migrate tests from Network performance monitor to Connection monitor" lightbox="./media/migrate-to-connection-monitor-from-network-performance-monitor/migrate-from-network-performance-monitor.png":::
 	
 1. In the drop-down lists, select your subscription and workspace, and then select the Network performance monitor feature you want to migrate. 
 1. Select **Import** to migrate the tests.
    - If Network performance monitor isn't enabled on the workspace, you see an error stating "No valid NPM config found". 
-   - If no tests exist in the feature you chose in step 2, you'll see an error stating "Workspace selected doesn't have \<feature\> config".
-   - If there are no valid tests, you'll see an error stating "Workspace selected does not have valid tests"
+   - If no tests exist in the feature you chose in step 2, you see an error stating "Workspace selected doesn't have \<feature\> config".
+   - If there are no valid tests, you see an error stating "Workspace selected does not have valid tests"
    - Your tests might contain agents that are no longer active, but have been active in the past. You'll see an error stating "Few tests contain agents that are no longer active. These agents might be running in the past but are shut down/not running anymore. Enable agents and migrate to Connection monitor. Select continue to migrate the tests that do not contain agents that are not active."
 
 After the migration begins, the following changes take place: 
@@ -65,11 +122,11 @@ After the migration begins, the following changes take place:
 - The newly created connection monitor is visible in Connection monitor.
 
 After the migration, be sure to:
-- Manually disable the tests in Network performance monitor. Until you do so, you'll continue to be charged for them. 
+- Manually disable the tests in Network performance monitor. Until you do so, you continue to be charged for them. 
 - While you're disabling Network performance monitor, re-create your alerts on the NWConnectionMonitorTestResult and NWConnectionMonitorPathResult tables or use metrics. 
 - Migrate any external integrations to the NWConnectionMonitorTestResult and NWConnectionMonitorPathResult tables. Examples of external integrations are dashboards in Power BI and Grafana, and integrations with Security Information and Event Management (SIEM) systems.
 
-## Common Errors Encountered
+## Common errors encountered
 
 The following table list common errors that you might encounter during the migration:
 

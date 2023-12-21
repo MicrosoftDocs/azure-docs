@@ -180,7 +180,7 @@ When you add actions in the workflow designer, you implicitly declare the order 
 
 When an action throws an unhandled error or exception, the action is marked **Failed**, and any successor action is marked **Skipped**. If this behavior happens for an action that has parallel branches, the Azure Logic Apps engine follows the other branches to determine their completion statuses. For example, if a branch ends with a **Skipped** action, that branch's completion status is based on that skipped action's predecessor status. After the workflow run completes, the engine determines the entire run's status by evaluating all the branch statuses. If any branch ends in failure, the entire workflow run is marked **Failed**.
 
-![Conceptual diagram with examples that show how run statuses are evaluated.](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
+![Conceptual diagram with examples that show how run statuses are evaluated.](./media/error-exception-handling/status-evaluation-for-parallel-branches.png)
 
 To make sure that an action can still run despite its predecessor's status, you can change an action's "run after" behavior to handle the predecessor's unsuccessful statuses. That way, the action runs when the predecessor's status is **Succeeded**, **Failed**, **Skipped**, **TimedOut**, or all these statuses.
 
@@ -201,31 +201,31 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
 1. On the designer, select the action shape. On the details pane, select **Run After**.
 
-   ![Screenshot showing Standard workflow designer and current action details pane with "Run After" selected.](./media/logic-apps-exception-handling/configure-run-after-standard.png)
+   ![Screenshot showing Standard workflow designer and current action details pane with "Run After" selected.](./media/error-exception-handling/configure-run-after-standard.png)
 
    The **Run After** pane shows the predecessor action for the currently selected action.
 
-   ![Screenshot showing Standard designer, current action, and "run after" status for predecessor action.](./media/logic-apps-exception-handling/predecessor-action-standard.png)
+   ![Screenshot showing Standard designer, current action, and "run after" status for predecessor action.](./media/error-exception-handling/predecessor-action-standard.png)
 
 1. Expand the predecessor action node to view all the "run after" statuses.
 
    By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
 
-   ![Screenshot showing Standard designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/change-run-after-status-standard.png)
+   ![Screenshot showing Standard designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/change-run-after-status-standard.png)
 
 1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
    The following example selects **has failed**.
 
-   ![Screenshot showing Standard designer, current action, and "run after" set to "has failed".](./media/logic-apps-exception-handling/failed-run-after-status-standard.png)
+   ![Screenshot showing Standard designer, current action, and "run after" set to "has failed".](./media/error-exception-handling/failed-run-after-status-standard.png)
 
 1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
 
-   ![Screenshot showing Standard designer, current action, and multiple "run after" statuses selected.](./media/logic-apps-exception-handling/run-after-multiple-statuses-standard.png)
+   ![Screenshot showing Standard designer, current action, and multiple "run after" statuses selected.](./media/error-exception-handling/run-after-multiple-statuses-standard.png)
 
 1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
 
-   ![Screenshot showing Standard designer, current action, and multiple predecessor actions available.](./media/logic-apps-exception-handling/multiple-predecessor-actions-standard.png)
+   ![Screenshot showing Standard designer, current action, and multiple predecessor actions available.](./media/error-exception-handling/multiple-predecessor-actions-standard.png)
 
 1. When you're ready, select **Done**.
 
@@ -235,27 +235,27 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
 1. On the action shape, open the ellipses menu (**...**), and select **Configure run after**.
 
-   ![Screenshot showing Consumption workflow designer and current action with ellipses and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-consumption.png)
+   ![Screenshot showing Consumption workflow designer and current action with ellipses and "Configure run after" selected.](./media/error-exception-handling/configure-run-after-consumption.png)
 
    The action shape expands and shows the predecessor action for the currently selected action.
 
-   ![Screenshot showing Consumption workflow designer, current action, and "run after" status for predecessor action.](./media/logic-apps-exception-handling/predecessor-action-consumption.png)
+   ![Screenshot showing Consumption workflow designer, current action, and "run after" status for predecessor action.](./media/error-exception-handling/predecessor-action-consumption.png)
 
 1. Expand the predecessor action node to view all the "run after" statuses.
 
    By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
 
-   ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/default-run-after-status-consumption.png)
+   ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/error-exception-handling/default-run-after-status-consumption.png)
 
 1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
    The following example selects **has failed**.
 
-   ![Screenshot showing Consumption designer, current action, and "run after" set to "has failed".](./media/logic-apps-exception-handling/failed-run-after-status-consumption.png)
+   ![Screenshot showing Consumption designer, current action, and "run after" set to "has failed".](./media/error-exception-handling/failed-run-after-status-consumption.png)
 
 1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
 
-   ![Screenshot showing Consumption designer, current action, and multiple "run after" statuses selected.](./media/logic-apps-exception-handling/run-after-multiple-statuses-consumption.png)
+   ![Screenshot showing Consumption designer, current action, and multiple "run after" statuses selected.](./media/error-exception-handling/run-after-multiple-statuses-consumption.png)
 
 1. When you're ready, select **Done**.
 

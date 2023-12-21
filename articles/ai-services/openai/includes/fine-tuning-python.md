@@ -35,7 +35,7 @@ The following models support fine-tuning:
 - `babbage-002`
 - `davinci-002`
 
-Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models-preview) to check which regions currently support fine-tuning.
+Fine-tuning for `gpt-35-turbo-0613` is not available in every region where this model is available for inference. Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 
 ## Review the workflow for the Python SDK
 
@@ -151,7 +151,7 @@ import os
 openai.api_key = os.getenv("AZURE_OPENAI_API_KEY") 
 openai.api_base =  os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = 'azure'
-openai.api_version = '2023-10-01-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+openai.api_version = '2023-12-01-preview' # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 
 training_file_name = 'training_set.jsonl'
 validation_file_name = 'validation_set.jsonl'
@@ -183,7 +183,7 @@ from openai import AzureOpenAI
 client = AzureOpenAI(
   azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT"), 
   api_key=os.getenv("AZURE_OPENAI_KEY"),  
-  api_version="2023-10-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
+  api_version="2023-12-01-preview"  # This API version or later is required to access fine-tuning for turbo/babbage-002/davinci-002
 )
 
 training_file_name = 'training_set.jsonl'
@@ -377,7 +377,6 @@ After your custom model deploys, you can use it like any other deployed model. Y
 # [OpenAI Python 0.28.1](#tab/python)
 
 ```python
-#Note: The openai-python library support for Azure OpenAI is in preview.
 import os
 import openai
 openai.api_type = "azure"
@@ -547,4 +546,4 @@ In order to successfully access fine-tuning you need **Cognitive Services OpenAI
 ## Next steps
 
 - Explore the fine-tuning capabilities in the [Azure OpenAI fine-tuning tutorial](../tutorials/fine-tune.md).
-- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models-preview)
+- Review fine-tuning [model regional availability](../concepts/models.md#fine-tuning-models)

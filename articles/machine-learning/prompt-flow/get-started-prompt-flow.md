@@ -20,11 +20,6 @@ This article walks you through the main user journey of using prompt flow in Azu
 
 ## Prerequisites 
 
-> [!IMPORTANT]
-> Prompt flow is **not supported** in the workspace which has data isolation enabled. The enableDataIsolation flag can only be set at the workspace creation phase and can't be updated.
->
-> Prompt flow is **not supported** in the project workspace which was created with a workspace hub. The workspace hub is a private preview feature.
-
 - Make sure the default data store in your workspace is blob type. 
 
 - If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](how-to-secure-prompt-flow.md) to learn more detail.

@@ -1,18 +1,18 @@
 ---
-title: Control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
-description: Learn how to control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
+title: Limit Network Traffic with Azure Firewall in Azure Kubernetes Service (AKS)
+description: Learn how to control egress traffic with Azure Firewall to set restrictions for outbound network connections in AKS clusters.
 ms.subservice: aks-networking
 ms.custom: devx-track-azurecli, devx-track-linux
 ms.topic: how-to
 ms.author: allensu
-ms.date: 03/10/2023
+ms.date: 12/05/2023
 author: asudbring
 #Customer intent: As a cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
 ---
 
-# Control egress traffic using Azure Firewall in Azure Kubernetes Service (AKS)
+# Limit network traffic with Azure Firewall in Azure Kubernetes Service (AKS) 
 
-This article provides a walkthrough of how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN that restricts outbound traffic from the AKS cluster. This article also provides an example of how to configure public inbound traffic via the firewall.
+Learn how to use the [Outbound network and FQDN rules for AKS clusters][outbound-fqdn-rules] to control egress traffic using the Azure Firewall in AKS. To simplify this configuration, Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) Fully Qualified Domain Name (FQDN) tag that restricts outbound traffic from the AKS cluster. This article shows how you can configure your AKS Cluster traffic rules through Azure firewall.
 
 > [!NOTE]
 >
@@ -36,7 +36,7 @@ The following information provides an example architecture of the deployment:
 * **Internal traffic**
   * You can use an [internal load balancer](internal-lb.md) for internal traffic, which you could isolate on its own subnet, instead of or alongside a [public load balancer](load-balancer-standard.md)
 
-## Set configuration using environment variables
+## Configure environment variables
 
 Define a set of environment variables to be used in resource creations.
 
@@ -90,7 +90,7 @@ Provision a virtual network with two separate subnets: one for the cluster and o
         --address-prefix 10.42.2.0/24
     ```
 
-## Create and set up an Azure Firewall with a UDR
+## Create and set up an Azure Firewall
 
 You need to configure Azure Firewall inbound and outbound rules. The main purpose of the firewall is to enable organizations to configure granular ingress and egress traffic rules into and out of the AKS cluster.
 
@@ -108,7 +108,7 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
     az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
     ```
 
-2. Register the [Azure Firewall preview CLI extension](https://github.com/Azure/azure-cli-extensions/tree/main/src/azure-firewall) to create an Azure Firewall using the [`az extension add`][az-extension-add] command.
+2. Register the [Azure Firewall CLI extension](https://github.com/Azure/azure-cli-extensions/tree/main/src/azure-firewall) to create an Azure Firewall using the [`az extension add`][az-extension-add] command.
 
     ```azurecli-interactive
     az extension add --name azure-firewall
@@ -143,12 +143,12 @@ You need to configure Azure Firewall inbound and outbound rules. The main purpos
   >
   > If you use secure access to the AKS API server with [authorized IP address ranges](./api-server-authorized-ip-ranges.md), you need to add the firewall public IP into the authorized IP range.
 
-### Create a UDR with a hop to Azure Firewall
+### Create a route with a hop to Azure Firewall
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you can create a route table.
 
 > [!IMPORTANT]
-> Outbound type of UDR requires a route for 0.0.0.0/0 and a next hop destination of NVA in the route table.
+> Outbound type of UDR (`userDefinedRouting`) requires a route for 0.0.0.0/0 and a next hop destination of NVA in the route table.
 > The route table already has a default 0.0.0.0/0 to the Internet. Without a public IP address for Azure to use for Source Network Address Translation (SNAT), simply adding this route won't provide you outbound Internet connectivity. AKS validates that you don't create a 0.0.0.0/0 route pointing to the Internet but instead to a gateway, NVA, etc.
 > When using an outbound type of UDR, a load balancer public IP address for **inbound requests** isn't created unless you configure a service of type *loadbalancer*. AKS never creates a public IP address for **outbound requests** if you set an outbound type of UDR.
 > For more information, see [Outbound rules for Azure Load Balancer](../load-balancer/outbound-rules.md#scenario6out).
@@ -212,7 +212,7 @@ To associate the cluster with the firewall, the dedicated subnet for the cluster
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
 ```
 
-## Deploy an AKS cluster with a UDR outbound type to the existing network
+## Deploy an AKS cluster that follows your outbound rules
 
 Now, you can deploy an AKS cluster into the existing virtual network. You will use the [`userDefinedRouting` outbound type](egress-outboundtype.md), which ensures that any outbound traffic is forced through the firewall and no other egress paths will exist. The [`loadBalancer` outbound type](egress-outboundtype.md#outbound-type-of-loadbalancer) can also be used.
 
@@ -346,7 +346,7 @@ If you used authorized IP ranges for your cluster in the previous step, you need
     az aks get-credentials -g $RG -n $AKSNAME
     ```
 
-## Deploy a public service
+## Deploy a public service on AKS
 
 You can now start exposing services and deploying applications to this cluster. In this example, we'll expose a public service, but you also might want to expose an internal service using an [internal load balancer](internal-lb.md).
 
@@ -360,7 +360,7 @@ You can now start exposing services and deploying applications to this cluster. 
    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/aks-store-demo/main/aks-store-quickstart.yaml
    ```
 
-## Add a DNAT rule to Azure Firewall
+## Allow inbound traffic through Azure Firewall
 
 > [!IMPORTANT]
 >

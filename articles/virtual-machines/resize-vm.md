@@ -1,12 +1,12 @@
 ---
 title: Resize a virtual machine
 description: Change the VM size used for an Azure virtual machine.
-author: ericd-mst-github
+author: ju-shim
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/15/2023
-ms.author: cynthn 
+ms.author: cynthn
 ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell, devx-track-terraform
 ---
 # Change the size of a virtual machine 
@@ -129,7 +129,7 @@ This Cloud shell PowerShell script initializes the variables `$resourceGroup`, `
 ```azurepowershell-interactive
 # Set variables
 $resourceGroup = 'myResourceGroup'
-$vm = 'myVM'
+$vmName = 'myVM'
 $size = 'Standard_DS3_v2'
 # Get the VM
 $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName

@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 12/20/2023
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
 ---
@@ -17,7 +17,9 @@ ms.custom: devx-track-python, devguide-python
 
 [!INCLUDE [storage-dev-guide-selector-access-tier](../../../includes/storage-dev-guides/storage-dev-guide-selector-access-tier.md)]
 
-This article shows how to set or change the access tier for a block blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage). 
+This article shows how to set or change the access tier for a block blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+
+To learn about changing a blob's access tier using asynchronous APIs, see [Change a blob's access tier asynchronously](#change-a-blobs-access-tier-asynchronously).
 
 ## Prerequisites
 
@@ -36,7 +38,7 @@ You can set a blob's access tier on upload by passing the `standard_blob_tier` k
 
 The following code example shows how to set the access tier when uploading a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-upload.py" id="Snippet_upload_blob_access_tier":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_upload.py" id="Snippet_upload_blob_access_tier":::
 
 To learn more about uploading a blob with Python, see [Upload a blob with Python](storage-blob-upload-python.md).
 
@@ -48,7 +50,7 @@ You can change the access tier of an existing block blob by using the following 
 
 The following code example shows how to change the access tier for an existing blob to `Cool`:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-access-tiers.py" id="Snippet_change_blob_access_tier":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers.py" id="Snippet_change_blob_access_tier":::
 
 If you're rehydrating an archived blob, you can optionally pass the `rehydrate_priority` keyword argument as `HIGH` or `STANDARD`.
 
@@ -58,9 +60,40 @@ You can change the access tier of an existing block blob by specifying an access
 
 The following code example shows how to rehydrate an archived blob to the `Hot` tier using a copy operation:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-access-tiers.py" id="Snippet_rehydrate_using_copy":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers.py" id="Snippet_rehydrate_using_copy":::
 
 To learn more about copying a blob with Python, see [Copy a blob with Python](storage-blob-copy-python.md).
+
+## Change a blob's access tier asynchronously
+
+The Azure Blob Storage client library for Python supports changing a blob's access tier asynchronously. To learn more about project setup requirements, see [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming).
+
+Follow these steps to change a blob's access tier using asynchronous APIs:
+
+1. Add the following import statements:
+
+    ```python
+    import asyncio
+
+    from azure.storage.blob import (
+    StandardBlobTier
+    )
+    from azure.identity.aio import DefaultAzureCredential
+    from azure.storage.blob.aio import (
+    BlobServiceClient,
+    BlobClient
+    )
+    ```
+
+1. Add code to run the program using `asyncio.run`. This function runs the passed coroutine, `main()` in our example, and manages the `asyncio` event loop. Coroutines are declared with the async/await syntax. In this example, the `main()` coroutine first creates the top level `BlobServiceClient` using `async with`, then calls the method that changes the blob's access tier. Note that only the top level client needs to use `async with`, as other clients created from it share the same connection pool.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers_async.py" id="Snippet_create_client_async":::
+
+1. Add code to change the blob's access tier. The code is the same as the synchronous example, except that the method is declared with the `async` keyword and the `await` keyword is used when calling the `set_standard_blob_tier` method.
+
+    :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers_async.py" id="Snippet_change_blob_access_tier":::
+
+With this basic setup in place, you can implement other examples in this article as coroutines using async/await syntax.
 
 ## Resources
 
@@ -76,7 +109,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-access-tiers.py)
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers_async.py) code samples from this article (GitHub)
 
 ### See also
 
