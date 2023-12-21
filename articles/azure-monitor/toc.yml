@@ -539,7 +539,7 @@ items:
             href: containers/container-insights-data-collection-dcr.md
         - name: Log schema
           href: containers/container-insights-logs-schema.md
-        - name: Data Transformations
+        - name: Data transformations
           displayName: Container insights
           href: containers/container-insights-transformations.md
         - name: Authentication
