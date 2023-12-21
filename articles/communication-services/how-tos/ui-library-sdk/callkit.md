@@ -8,7 +8,7 @@ ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 12/19/2023
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-ios-android
+zone_pivot_groups: acs-plat-ios
 
 #Customer intent: As a developer, I want to integrate CallKit in the library in my application
 ---

@@ -24,6 +24,7 @@ A set of permissions is required for the Android application in order to be able
 ```
 
 ### Register for push notification
+
 To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
 
 To obtain the device registration token, add the Firebase SDK to your application module's `build.gradle`. To receive notification from Firebase, integrate Azure Notification Hub following [Communication Services notifications](https://learn.microsoft.com/en-us/azure/communication-services/concepts/notifications).

@@ -15,6 +15,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 To enable multitasking and Picture-in-Picture use `CallCompositeBuilder.multitasking` to set `CallCompositeMultitaskingOptions` with  `enableMultitasking` and `enableSystemPiPWhenMultitasking` constructor parameters.
 
 #### [Kotlin](#tab/kotlin)
+
 ```kotlin
 val callComposite: CallComposite =
             CallCompositeBuilder()
@@ -23,6 +24,7 @@ val callComposite: CallComposite =
 ```
 
 #### [Java](#tab/java)
+
 ```java
 CallComposite callComposite = 
     new CallCompositeBuilder()
@@ -37,22 +39,26 @@ The Back button is displayed when enableMultitasking is set to true:
 On enabling multitasking for `CallComposite` of the Call activity is launched in dedicated task. In the task history user sees two screens: one for App's activity and one for ACS Call activity. 
 
 #### [Kotlin](#tab/kotlin)
+
 ```kotlin
 callComposite.displayCallCompositeIfWasHidden(context)
 ```
 
 #### [Java](#tab/java)
+
 ```java
 callComposite.displayCallCompositeIfWasHidden(context);
 ```
 
 To enter multitasking programmatically user `hide` method:
+
 #### [Kotlin](#tab/kotlin)
 ```kotlin
 callComposite.hide()
 ```
 
 #### [Java](#tab/java)
+
 ```java
 callComposite.hide();
 ```
