@@ -204,7 +204,7 @@ To start call with other participants, create `CallCompositeStartCallOptions` wi
 
 ### Telecom manager sample
 
-To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) can use API's to `hold`, `resume`, `mute` and `unmute`.
+To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) use  `CallComposite` API's to `hold`, `resume`, `mute` and `unmute`. Create `CallComposite` with `CallCompositeTelecomIntegration.APPLICATION_IMPLEMENTED_TELECOM_MANAGER` to use telecom manager in application.
 
 #### [Kotlin](#tab/kotlin)
 
