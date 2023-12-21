@@ -85,7 +85,7 @@ The Radiology Insight will add several types of inferences/annotations to the or
 
 Example of a Clinical Radiology document with inferences:
 
-![Example](TestImagemd.png)
+![Example](../media/TestImagemd.png)
 
 ### Functional description of the inferences in scope and examples
 
