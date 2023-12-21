@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling).
 
-### Additional Prerequisites for Push Notifications
+### Prerequisites for Push Notifications
 
 A Firebase account set up with Cloud Messaging (FCM) enabled and with your Firebase Cloud Messaging service connected to an Azure Notification Hub instance. See [Communication Services notifications](../../../../concepts/notifications.md) for more information.
 Additionally, the tutorial assumes you're using Android Studio version 3.6 or higher to build your application.
@@ -28,7 +28,7 @@ To register for push notifications, the application needs to call `registerPushN
 
 To obtain the device registration token, add the Firebase SDK to your application module's `build.gradle`. To receive notification from Firebase, integrate Azure Notification Hub following [Communication Services notifications](https://learn.microsoft.com/en-us/azure/communication-services/concepts/notifications).
 
-You can skip `registerPushNotification` to avoid current limitation of this by using Event Grid [Current limitations with the Push Notification model](https://learn.microsoft.com/en-us/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
+You can skip `registerPushNotification` to avoid current limitation by using Event Grid [Current limitations with the Push Notification model](https://learn.microsoft.com/en-us/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
 
 #### [Kotlin](#tab/kotlin)
 
@@ -149,7 +149,7 @@ To receive incoming call notification after `handlePushNotification` subscribe t
 
 ### Call handling
 
-To accept call make call to `acceptIncomingCall` and to decline call to `declineIncomingCall`.
+To accept call, make call to `acceptIncomingCall` and to decline call to `declineIncomingCall`.
 
 #### [Kotlin](#tab/kotlin)
 
@@ -198,7 +198,7 @@ To start call with other participants, create `CallCompositeStartCallOptions` wi
 
 ### Telecom manager sample
 
-To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) can leverage below API's to `hold`, `resume`, `mute` and `unmute`.
+To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) can use below API's to `hold`, `resume`, `mute` and `unmute`.
 
 #### [Kotlin](#tab/kotlin)
 
