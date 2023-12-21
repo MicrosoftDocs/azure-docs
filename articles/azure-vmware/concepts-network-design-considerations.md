@@ -3,7 +3,7 @@ title: Concepts - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 12/05/2023
+ms.date: 12/21/2023
 ms.custom: engagement-fy23
 ---
 
