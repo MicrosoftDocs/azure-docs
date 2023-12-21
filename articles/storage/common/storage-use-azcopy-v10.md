@@ -7,7 +7,8 @@ ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: normesta
 ms.subservice: storage-common-concepts
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Get started with AzCopy
@@ -20,6 +21,11 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
 <a id="download-and-install-azcopy"></a>
+
+This video shows you how to download and run the AzCopy utility.
+> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
+
+The steps in the video are also described in the following sections.
 
 ## Download AzCopy
 

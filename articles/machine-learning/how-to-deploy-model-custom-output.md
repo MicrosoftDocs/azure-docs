@@ -189,6 +189,9 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    
    # [Python](#tab/python)
 
+   > [!TIP]
+   > [!INCLUDE [batch-endpoint-invoke-inputs-sdk](includes/batch-endpoint-invoke-inputs-sdk.md)]
+
    Configure the inputs:
 
    [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb?name=configure_inputs)]
