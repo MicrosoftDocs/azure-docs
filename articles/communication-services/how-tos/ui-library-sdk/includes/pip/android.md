@@ -31,6 +31,7 @@ CallComposite callComposite =
         .multitasking(new CallCompositeMultitaskingOptions(true, true))
         .build();
 ```
+-----
 
 The Back button is displayed when enableMultitasking is set to true:
 
@@ -49,6 +50,7 @@ callComposite.displayCallCompositeIfWasHidden(context)
 ```java
 callComposite.displayCallCompositeIfWasHidden(context);
 ```
+-----
 
 To enter multitasking programmatically user `hide` method:
 
@@ -62,3 +64,4 @@ callComposite.hide()
 ```java
 callComposite.hide();
 ```
+-----

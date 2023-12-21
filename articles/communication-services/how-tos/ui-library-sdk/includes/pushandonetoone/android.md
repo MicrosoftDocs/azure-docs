@@ -58,6 +58,7 @@ You can skip `registerPushNotification` to avoid current limitation by using Eve
                 // Handle success/failure
             });
 ```
+-----
 
 ### Handle push notification
 
@@ -101,6 +102,7 @@ To obtain the payload from Firebase Cloud Messaging, begin by creating a new Ser
             remoteOptions
     );
 ```
+-----
 
 ### Register for incoming call notification
 
@@ -147,6 +149,7 @@ To receive incoming call notification after `handlePushNotification` subscribe t
         // call ended event when call is declined or not accepted
     });
 ```
+-----
 
 ### Call handling
 
@@ -171,6 +174,7 @@ callComposite.acceptIncomingCall(applicationContext, localOptions);
 // decline call
 callComposite.declineIncomingCall();
 ```
+-----
 
 ### Dial other participants
 
@@ -196,6 +200,7 @@ To start call with other participants, create `CallCompositeStartCallOptions` wi
             "DISPLAY_NAME");
     callComposite.launch(applicationContext, remoteOptions, localOptions);
 ```
+-----
 
 ### Telecom manager sample
 
@@ -218,3 +223,4 @@ callComposite.resume();
 callComposite.mute();
 callComposite.unmute();
 ```
+-----
