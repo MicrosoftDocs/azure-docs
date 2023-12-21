@@ -63,7 +63,7 @@ Use the [az apic api version create](/cli/azure/apic/api/version#az_apic_api_ver
 
 The following example creates an API version named *v1-0-0* for the *petstore-api* API in the *myGroup* resource group and *myAPICenter* API center. 
 
-```azurecli
+```azurecli-interactive
 az apic api version create --resource-group myResourceGroup \
     --service myAPICenter --api-name petstore-api \
     --version v1-0-0 --title "v1-0-0"
@@ -76,7 +76,7 @@ Use the [az apic api definition](/cli/azure/apic/api/definition) commands to add
 
 The following example uses the [az apic api definition create](/cli/azure/apic/api/definition#az_apic_api_definition_create) command to create a definition named *openapi* for the *petstore-api* API version that you created in the previous section. 
 
-```azurecli 
+```azurecli-interactive
 az apic api definition create --resource-group myResourceGroup \
     --service myAPICenter --api-name petstore-api \
     --version v1-0-0 --name "openapi" --title "OpenAPI"
@@ -87,7 +87,7 @@ Import a specification file to the definition using the [az apic api definition 
 The following example imports an OpenAPI specification file from a URL to the *openapi* definition that you created in the previous step. The `name` and `version` properties of the specification resource are passed as JSON. 
 
 
-```azurecli
+```azurecli-interactive
 az apic api definition import-specification \
     --resource-group myResourceGroup --service myAPICenter \
     --api-name petstore-api --version-name v1-0-0 \
