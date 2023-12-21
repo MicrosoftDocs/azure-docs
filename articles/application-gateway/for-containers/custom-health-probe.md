@@ -25,7 +25,6 @@ The following properties make up custom health probes:
 
 | Property | Default Value |
 | -------- | ------------- |
-| port | the port number to initiate health probes to. Valid port values are 1-65535. |
 | interval | how often in seconds health probes should be sent to the backend target.  The minimum interval must be > 0 seconds. |
 | timeout | how long in seconds the request should wait until it's marked as a failure  The minimum interval must be > 0 seconds. |
 | healthyThreshold | number of health probes before marking the target endpoint healthy. The minimum interval must be > 0. |
@@ -50,7 +49,6 @@ When the default health probe is used, the following values for each health prob
 | timeout | 30 seconds |
 | healthyTrehshold | 1 probe |
 | unhealthyTreshold | 3 probes |
-| port | 80 for HTTP and 443 for HTTPS to the backend |
 | protocol | HTTP for HTTP and HTTPS when TLS is specified |
 | (http) host | localhost |
 | (http) path | / |
@@ -89,5 +87,3 @@ spec:
           end: 299
 EOF
 ```
-
-
