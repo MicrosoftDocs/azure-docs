@@ -100,7 +100,7 @@ If you are creating plaintext SIMs, use the following example. It contains the p
       {
         "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
         "sliceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
-        "staticIpAddress": "2.4.0.1"
+        "staticIpAddress": "10.4.0.1"
       }
     ]
   },
@@ -116,7 +116,7 @@ If you are creating plaintext SIMs, use the following example. It contains the p
       {
         "attachedDataNetworkId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
         "sliceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
-        "staticIpAddress": "2.4.0.2"
+        "staticIpAddress": "10.4.0.2"
       }
     ]
   }
@@ -154,7 +154,7 @@ If you are editing an encrypted JSON file provided by a partner SIM vendor, use 
               "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"
             },
             "staticIp": {
-              "ipv4Address": "2.4.0.1"
+              "ipv4Address": "10.4.0.1"
             }
           }
         ]
@@ -179,7 +179,7 @@ If you are editing an encrypted JSON file provided by a partner SIM vendor, use 
               "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice"
             },
             "staticIp": {
-              "ipv4Address": "2.4.0.2"
+              "ipv4Address": "10.4.0.2"
             }
           }
         ]
