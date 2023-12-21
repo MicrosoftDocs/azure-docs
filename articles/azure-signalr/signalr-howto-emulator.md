@@ -81,7 +81,7 @@ We use [this serverless sample](https://github.com/Azure/azure-functions-signalr
 
 7. In the browser, navigate to `http://localhost:7071/api/index` to play with the demo.
 
-    :::image type="content" source="./media/signalr-howto-emulator/local-chat.png" alt-text="Screenshot of the emulator command is running.":::
+    :::image type="content" source="./media/signalr-howto-emulator/local-chat.png" alt-text="Screenshot of the serverless chat demo is running.":::
 
 ## Next steps
 
