@@ -21,6 +21,8 @@ There are two ways to enable user to multitask in the App:
 - Enabling multitasking - user is able to click Back button which, takes user back to the previous screen. No Calling UI is visible to user while still on the call.
 - Enable Picture-in-Picture, in additions, will display a system Picture-in-Picture with outgoing call. Please note Picture-in-Picture is using system provided Picture-in-Picture feature and is a subject of the feature support on the device, CPU load, RAM availability, battery state etc.
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

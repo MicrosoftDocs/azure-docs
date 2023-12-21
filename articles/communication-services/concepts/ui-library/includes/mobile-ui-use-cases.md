@@ -85,13 +85,13 @@ UI Library provides the capability to join a call skipping the setup screen of t
 
 UI Library supports screen orientation setup for each of the screen separately prior to launch the library experience. This allows application developers to set up a fixed orientation for the calling experience which would align their application orientation. To learn more about the list of supported orientation for both Android and iOS platform and usage of the API, see [How to use Orientation Feature](../../../how-tos/ui-library-sdk/orientation.md)
 
-### Multitasking and Picture-in-Picture (Beta)
+### Multitasking and Picture-in-Picture
 UI Library supports picture in picture mode for call screen. While being in the call, user can click back button on call screen to enable multitasking which will take user back to previous screen. If Picture-in-Picture is enabled, a system Picture-in-Picture will be displayed for call. To learn more about the multitasking and Picture-in-Picture for both Android and iOS platform and usage of the API, see [How to use Picture-in-Picture](../../../how-tos/ui-library-sdk/picture-in-picture.md)
 
-### CallKit Support (Beta)
+### CallKit Support
 UI Library supports CallKit Integration to handles interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit](../../../how-tos/ui-library-sdk/callkit.md)
 
-### One-to-one call and PUSH Notification (Beta)
+### One-to-one call and PUSH Notification
 UI Library supports one-to-one VoIP call to dial users by communication identifier. To receive incoming call UI Library also supports registering for PUSH notifications. To learn more about the integration for Android and iOS platform and usage of the API, see [How to make one-to-one call and receive PUSH notifications](../../../how-tos/ui-library-sdk/one-to-one-calling.md)
 
 ## Chat use cases
