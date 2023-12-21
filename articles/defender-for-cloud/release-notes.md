@@ -24,8 +24,7 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| January 5 | Public preview of agentless malware scanning |
-
+| January 5 | [Public preview of agentless malware scanning](#public-preview-of-agentless-malware-scanning) |
 
 ### Public preview of agentless malware scanning
 
@@ -33,7 +32,7 @@ We're announcing the release of Defender for Cloud's agentless malware scanner f
 
 Agentless malware scanning for virtual machines uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and various threats on your virtual machines. Any detected threats, trigger security alerts, which allow you to investigate and remediate the detected issues while enjoying many benefits such as frictionless onboarding, minimal maintenance, no effect on a devices performance and more.
 
-Learn more about [Agentless malware scanning](concept-agentless-data-collection.md#agentless-malware-scanning).
+Learn more about [Agentless malware scanning](agentless-malware-scanning.md).
 
 ## December 2023
 
