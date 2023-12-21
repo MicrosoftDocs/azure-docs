@@ -11,6 +11,8 @@ author: neilverse
 
 # CSN storage pod container stuck in `ContainerCreating`
 
+This document details user experience of a rare issue that may render CSN storage pods in `ContainerCreating` state. It also provides a workaround to resolve the issue.
+
 ## Cause
 
 A runtime-upgrade replaces the operating system of the Baremetal nodes, which recreates the IQN (iSCSI Qualified Name)

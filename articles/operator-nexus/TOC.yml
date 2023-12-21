@@ -156,7 +156,7 @@
     - name: Troubleshoot BMM reboot issues
       href: troubleshoot-bmm-node-reboot.md
     - name: Troubleshoot Resolve CSN storage pod stuck in ContainerCreating
-      href: troubleshoot-csn-storage-pod-container-stuck -in-creating.md
+      href: troubleshoot-csn-storage-pod-container-stuck-in-creating.md
     - name: Enable node down cleaner
       href: troubleshoot-enable-node-down-cleaner.md
     - name: BareMetal Actions
