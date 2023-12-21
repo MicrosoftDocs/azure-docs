@@ -4,7 +4,7 @@ schema: 2.0.0
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/21/2021
+ms.date: 12/21/2023
 ms.topic: reference
 ms.service: sap-on-azure
 ms.subservice: sap-automation
@@ -43,6 +43,18 @@ You can use this script to:
 This script is useful if resources have been modified or created without using Terraform.
 
 ## Examples
+
+### Example 1
+
+List the contents of the Terraform state file.
+
+```bash
+
+parameter_file_name="DEV-WEEU-SAP01-X00.tfvars"
+deployment_type="sap_system"
+subscriptionID="<subscriptionId>"
+
+```
 
 ### Example 1
 

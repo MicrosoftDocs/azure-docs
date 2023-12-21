@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/06/2021
 ms.author: cynthn
-#pmcontact: ApnaLakshay
 ---
 
 # Managing VM updates with Maintenance Configurations
