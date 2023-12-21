@@ -103,7 +103,7 @@ In this section, you create two Ranger policies for accessing hivesampletable fr
 1. Run the following command 
   ```
     %sql 
-    ```
+  ```
       Select * from sparksampletable;  
 
 ### Limitation 
