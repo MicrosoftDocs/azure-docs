@@ -11,11 +11,11 @@ ms.date: 12/21/2023
 This article describes how to configure Ranger policies for Spark SQL with Enterprise security package 
 
 In this tutorial, you'll learn, 
-- Create a Ranger policies 
+- Create a Ranger policy 
 - Create table using Spark SQL 
 - Verify the applied Ranger policies 
 
-## Prerequisities 
+## Prerequisites 
 
 An Apache Spark cluster in HDInsight with [Enterprise Security Package](../domain-joined/apache-domain-joined-configure-using-azure-adds.md) 
 
@@ -30,7 +30,7 @@ An Apache Spark cluster in HDInsight with [Enterprise Security Package](../domai
 
 See [Create a HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), for information on how to create sparkuser1 and sparkuser2. You use the two user accounts in this article. 
 
-## Create Ranger policies 
+## Create Ranger policy 
 
 In this section, you create two Ranger policies for accessing hivesampletable from spark-sql. You give select permission on different set of columns.  
 
