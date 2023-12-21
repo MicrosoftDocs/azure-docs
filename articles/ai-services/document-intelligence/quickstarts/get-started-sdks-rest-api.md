@@ -65,7 +65,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-csharp"
 
 ::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
-[!INCLUDE [C# SDK](includes/v3-csharp-sdk.md)]
+[!INCLUDE [C# SDK](includes/csharp-sdk.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -73,7 +73,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-java"
 
 ::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
-[!INCLUDE [Java SDK](includes/v3-java-sdk.md)]
+[!INCLUDE [Java SDK](includes/java-sdk.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -81,7 +81,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-javascript"
 
 ::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
-[!INCLUDE [NodeJS SDK](includes/v3-javascript-sdk.md)]
+[!INCLUDE [NodeJS SDK](includes/javascript-sdk.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -89,7 +89,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-python"
 
 ::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
-[!INCLUDE [Python SDK](includes/v3-python-sdk.md)]
+[!INCLUDE [Python SDK](includes/python-sdk.md)]
 ::: moniker-end
 
 ::: zone-end
@@ -97,7 +97,7 @@ To learn more about Document Intelligence features and development options, visi
 ::: zone pivot="programming-language-rest-api"
 
 ::: moniker range="doc-intel-4.0.0 || doc-intel-3.1.0 || doc-intel-3.0.0"
-[!INCLUDE [REST API](includes/v3-rest-api.md)]
+[!INCLUDE [REST API](includes/rest-api.md)]
 ::: moniker-end
 
 ::: zone-end
