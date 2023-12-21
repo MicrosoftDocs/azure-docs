@@ -37,8 +37,6 @@ Developers can create a dev box from a dev box pool by using the developer porta
 
 Once the dev box is running, dev box users can [remotely connect](#user-connectivity) to it by using a remote desktop client or directly from the browser. Dev box users have full control over the dev boxes they created, and can manage them from the developer portal. 
 
-[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
-
 ## Microsoft Dev Box architecture
 
 The *hosted on behalf of* architecture lets Microsoft services, after they’re delegated appropriate and scoped permissions to a virtual network by a subscription owner, attach hosted Azure services to a customer subscription. This connectivity model lets a Microsoft service provide software-as-a-service and user licensed services as opposed to standard consumption-based services.
@@ -95,7 +93,7 @@ When you configure dev boxes to use [Microsoft Entra join](/azure/active-directo
 - The domain join mechanism for the dev boxes.
 - User authentication for RDP connections.
 
-[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
+[!INCLUDE [supported accounts note](includes/note-supported-accounts.md)]
 
 ### User connectivity
 

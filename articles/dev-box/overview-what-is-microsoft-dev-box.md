@@ -73,8 +73,6 @@ Dev Box supports developers who are working on multiple projects. Developers can
 
 Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
 
-[!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
-
 ## Components shared with Azure Deployment Environments
 
 Microsoft Dev Box and [Azure Deployment Environments](../deployment-environments/overview-what-is-azure-deployment-environments.md) are complementary services that share certain architectural components. Deployment Environments provides developers with preconfigured cloud-based environments for developing applications. Dev centers and projects are common to both services, and they help organize resources in an enterprise.  
