@@ -102,7 +102,7 @@ $DEPLOYMENT_REPO_PATH/deploy/scripts/advanced_state_management.sh               
   --azure_resource_id "${azure_resource_id}"
  ```
 
-### Example 2
+### Example 3
 
 Removing a storage account from the state file
 
