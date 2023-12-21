@@ -19,6 +19,107 @@ Blob storage now supports the SSH File Transfer Protocol (SFTP). This support pr
 
 When you connect to Blob Storage by using an SFTP client, you might be prompted to trust a host key. You can verify the host key by finding that key in the list presented in this article. 
 
+## Frequently asked questions
+
+### What are SSH host keys?
+SSH host keys are public/private key pairs that belong to SSH and SFTP servers. They are used by clients to verify the identity of the server when connecting. The private key is stored server side, while the public key is presented to the client during the connection operation. Most clients will present the user with an option to verify the key and accept it, which will allow the connection to proceed.
+
+More details can be found here: [SSH Host Key Management Demystified](https://www.ssh.com/blog/what-are-ssh-host-keys).
+
+### Are SSH host keys different from the SSH keys used for login?
+Yes. SSH host keys are separate private/public key pairs belonging to the server. The private/public key pair used for login is completely separate and managed by the user. Host key rotation has no impact on the user's SSH keys.
+
+### What should clients do with the host keys?
+We recommend adding the new host key to the client's list of trusted hosts. Note that the steps for this action will differ based on the SFTP client used. These are the most common ways clients will store trusted hosts:
+- `known_hosts` file
+- Windows registry key (Windows specific clients)
+- Variable (library based clients)
+
+#### `known_hosts` example
+This file is often stored under the following local path: `~/.ssh/known_hosts`. The file will have a line per known host and each line may follow a format similar to this: `<server hostname> <algorithm> <host key>`.
+
+There is likely already an entry for your storage account from the first time you connected. A new entry can be added below it with the newer key for the same region and algorithm. Once added, it would look similar to this example for the `Australia Central` and `ecdsa-sha2-nistp256`:
+
+`<account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBElXRuNJbnDPWZF84vNtTjt4I/842dWBPvPi2fkgOV//2e/Y9gh0koVVAYp6MotNodg4L9MS7IfV9nnFSKaJW3o=`
+
+`<account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLs9yqrEGdGvgdSWkAK5YkyazMWi30X+E6J/CiGpJwbuczVJwT/cwh+mxnE7DMTwhEo57jL7/wi/WT8CPfPpD4I=`
+
+The first entry is for the key currently used by the service, which will expire sooner. The second entry is for the next key that will be used after rotation. Having both entries will allow for a smooth transition when the rotation occurs.
+
+#### Registry key example
+For a Windows based client such as [WinSCP](https://winscp.net/eng/index.php), trusted hosts are stored in a registry key: `HKEY_CURRENT_USER\Software\Martin Prikryl\WinSCP 2\SshHostKeys`.
+
+When a new host key is presented, WinSCP will prompt you to accept the key. You can compare the SHA256 fingerprint to the relevant key in the table below and accept if it matches. WinSCP will then add the new key to the cache for the future.
+
+#### Library client example
+For a library based client such as [SSH.NET](https://github.com/sshnet/SSH.NET), host key verification resembles the following code snippet:
+```cs
+string expectedFingerPrint = "m2HCt3ESvMLlVBMwuo9jsQd9hJzPc/fe0WOJcoqO3RA=";
+
+using (var client = new SshClient("<account>.blob.core.windows.net", "<account>.<user>", "<pwd>"))
+{
+    client.HostKeyReceived += (sender, e) =>
+        {
+            e.CanTrust = expectedFingerPrint.Equals(e.FingerPrintSHA256);
+        };
+    client.Connect();
+}
+```
+
+In order to account for the next host key, the following change could be made:
+```cs
+List<string> expectedFingerPrints = new List<string>() { "m2HCt3ESvMLlVBMwuo9jsQd9hJzPc/fe0WOJcoqO3RA=", "5Vot7f2reXMzE6IR9GKiDCOz/bNf3lA0qYnBQzRgObo=" };
+
+using (var client = new SshClient("<account>.blob.core.windows.net", "<account>.<user>", "<pwd>"))
+{
+    client.HostKeyReceived += (sender, e) =>
+        {
+            e.CanTrust = expectedFingerPrint.Contains(e.FingerPrintSHA256);
+        };
+    client.Connect();
+}
+```
+
+### Can clients just accept the new host key when the old one expires?
+Yes, but this won't be a seamless transition. When the new key is first presented, the client may return this type of a message and disconnect:
+```
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:Q3zIFfOI1UfCrMq6Eh7nP1/VIvgPn3QluTBkyZ2lfCw.
+Please contact your system administrator.
+Add correct host key in C:\\Users\\<user>/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in C:\\Users\\<user>/.ssh/known_hosts:8
+Host key for <account>.blob.core.windows.net has changed and you have requested strict checking.
+Host key verification failed.
+Connection closed
+```
+
+This happens because the client only has the old key in `known_hosts`, which differs from the key presented by the server. The disconnect happens as a safety measure. In order to connect again, the client will need to delete the old entry from `known_hosts` and then try connecting again. This will give the client an opportunity to verify the host key and accept it:
+```
+The authenticity of host 'blob.cbn06prdstr01a.store.core.windows.net' can't be established.
+ECDSA key fingerprint is SHA256:Q3zIFfOI1UfCrMq6Eh7nP1/VIvgPn3QluTBkyZ2lfCw.
+This host key is known by the following other names/addresses:
+    C:\Users\<user>/.ssh/known_hosts:12: blob.cbn06prdstr01a.store.core.windows.net
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+Verification would involve comparing the fingerprint from the client output with the one stored in the table below. If they match, then type `yes` to continue and the client will then automatically store the new key in the `known_hosts` for the future.
+
+### How long does the rotation take?
+Rotations are gradual and may take multiple days. Either the old or new host key may be presented by the Azure service during this time.
+
+### Why do the host keys expire?
+Periodically rotating secrets is a standard security practice and can help reduce attack vectors.
+
+### Is it fine to disable strict host key verification?
+No, we do not recommend disabling strict host key verification. Verifying the host key presented during connection against the host keys published here allow clients to protect themselves from a potential Man-In-The-Middle (MITM) attack.
+
+
 ## Valid host keys
 
 > [!div class="mx-tdBreakAll"]
