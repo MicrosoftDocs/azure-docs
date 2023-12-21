@@ -164,7 +164,7 @@ and client ID.
 
 A deployment script can reside within a Bicep file, or you can store it externally as a separate file.
 
-### Inline script
+### Use an inline script
 
 The following Bicep file shows how to use an inline script.
 
@@ -232,7 +232,7 @@ output="Hello $1"
 echo $output
 ```
 
-And revise the preceding Bicep file like the following example:
+Then, you can revise the preceding Bicep file like the following example:
 
 ```bicep
 param name string = 'John Dole'
@@ -261,7 +261,7 @@ $output = "Hello {0}" -f $name
 Write-Output "Output is: '$output'."
 ```
 
-And revise the preceding Bicep file like the following example:
+Then, you can revise the preceding Bicep file like the following example:
 
 ```bicep
 param name string = '\\"John Dole\\"'
@@ -466,7 +466,7 @@ output result object = deploymentScript.properties.outputs
 
 ## Work with outputs
 
-The approach to handling outputs varies based on the type of script you're using—Azure PowerShell or the Azure CLI.
+The approach to handling outputs varies based on the type of script you're using—the Azure CLI or Azure PowerShell.
 
 # [CLI](#tab/CLI)
 
@@ -616,8 +616,8 @@ The following table lists the system-defined environment variables:
 |`AZ_SCRIPTS_AZURE_ENVIRONMENT`|`AzureCloud`|`AzureCloud`|No|
 |`AZ_SCRIPTS_CLEANUP_PREFERENCE`|`Always`|`Always`|No|
 |`AZ_SCRIPTS_OUTPUT_PATH`|/`mnt/azscripts/azscriptoutput/scriptoutputs.json`|Not applicable|Yes|
-|`AZ_SCRIPTS_PATH_INPUT_DIRECTORY`|`/mnt/azscripts/azscriptinput|/mnt/azscripts/azscriptinput`|Yes|
-|`AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY`|`/mnt/azscripts/azscriptoutput|/mnt/azscripts/azscriptoutput`|Yes|
+|`AZ_SCRIPTS_PATH_INPUT_DIRECTORY`|`/mnt/azscripts/azscriptinput|/mnt/azscripts/azscriptinput`|Not applicable|Yes|
+|`AZ_SCRIPTS_PATH_OUTPUT_DIRECTORY`|`/mnt/azscripts/azscriptoutput|/mnt/azscripts/azscriptoutput`|Not applicable|Yes|
 |`AZ_SCRIPTS_PATH_USER_SCRIPT_FILE_NAME`|`userscript.sh`|`userscript.ps1`|Yes|
 |`AZ_SCRIPTS_PATH_PRIMARY_SCRIPT_URI_FILE_NAME`|`primaryscripturi.config`|`primaryscripturi.config`|Yes|
 |`AZ_SCRIPTS_PATH_SUPPORTING_SCRIPT_URI_FILE_NAME`|`supportingscripturi.config`|`supportingscripturi.config`|Yes|
