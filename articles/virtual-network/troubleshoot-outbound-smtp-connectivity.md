@@ -38,7 +38,7 @@ After the subscription is exempted from this block and the VMs are stopped and r
 
 The Azure platform blocks outbound SMTP connections on TCP port 25 for deployed VMs. This block is to ensure better security for Microsoft partners and customers, protect Microsoft’s Azure platform, and conform to industry standards. 
 
-If you're using a non-enterprise subscription type, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article.
+If you're using a subscription type that isn't an Enterprise Agreement or MCA-E, we encourage you to use an authenticated SMTP relay service, as outlined earlier in this article.
 
 ## Changing subscription type
 
