@@ -386,9 +386,6 @@ Use the following policies and policy initiatives to automatically install the a
 > As per Microsoft Identity best practices, policies for installing Azure Monitor Agent on virtual machines and scale sets rely on user-assigned managed identity. This option is the more scalable and resilient managed identity for these resources.
 > For Azure Arc-enabled servers, policies rely on system-assigned managed identity as the only supported option today.
 
-> [!NOTE]
-> On the policy definition we only include OS version (Windows and Linux) that Microsoft provides support for in the list. Any custom images would need to be included into the “Additional Virtual Machine Images” option.
-
 ### Built-in policy initiatives
 
 Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).  
@@ -397,6 +394,8 @@ There are built-in policy initiatives for Windows and Linux virtual machines, sc
 - [Deploy Windows Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0d1b56c6-6d1f-4a5d-8695-b15efbea6b49/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)
 - [Deploy Linux Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fbabf8e94-780b-4b4d-abaa-4830136a8725/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)  
 
+> [!NOTE]
+> The policy definitions only include the list of Windows and Linux versions that Microsoft supports. To add a custom image, use the `Additional Virtual Machine Images` parameter.
 
 These initiatives above comprise individual policies that:
 
