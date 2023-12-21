@@ -55,7 +55,7 @@ If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up yo
     
 4.	[Provide the inputs](quickstart-connect-system-center-virtual-machine-manager-to-arc.md#script-runtime) as prompted. 
 
-5. In the same machine, [download] (https://download.microsoft.com/download/6/b/4/6b4a5009-fed8-46c2-b22b-b24a4d0a06e3/arcvmm-appliance-dr.ps1) and run this script.
+5. In the same machine, [download](https://download.microsoft.com/download/6/b/4/6b4a5009-fed8-46c2-b22b-b24a4d0a06e3/arcvmm-appliance-dr.ps1) and run this script.
 
 6.	Once the script is run successfully, the old Resource Bridge is recovered, and the connection is re-established to the existing Azure-enabled SCVMM resources.
 
