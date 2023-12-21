@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | **Version 23.2.0**: <br>- [OT network sensors now run on Debian 11](#ot-network-sensors-now-run-on-debian-11)<br>-  [Default privileged user is now admin instead of support](#default-privileged-user-is-now-admin-instead-of-support) <br><br>[New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) <br><br> **Cloud features**:<br>- [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
+| **OT networks** | [New architecture for hybrid and air-gapped support](#new-architecture-for-hybrid-and-air-gapped-support) <br><br> **Version 23.2.0**: <br>- [OT network sensors now run on Debian 11](#ot-network-sensors-now-run-on-debian-11)<br>-  [Default privileged user is now admin instead of support](#default-privileged-user-is-now-admin-instead-of-support) <br><br>**Cloud features**:<br>- [Live statuses for cloud-based sensor updates](#live-statuses-for-cloud-based-sensor-updates)<br> - [Streamlined alert records in the SecurityAlert table](#streamlined-alert-records-in-the-securityalert-table)|
 
 ### OT network sensors now run on Debian 11
 
