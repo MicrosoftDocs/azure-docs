@@ -40,7 +40,7 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 ## Agentless malware scanning
 
 > [!NOTE]
-> Agentless malware scanning is only available [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features) 
+> Agentless malware scanning is only available [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features). 
 
 Defender for Cloud's agentless malware scanning for VMs, uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and various threats. The agentless malware scanner triggers security alerts in Defender for Cloud that allow you to investigate any detected threats.
 
