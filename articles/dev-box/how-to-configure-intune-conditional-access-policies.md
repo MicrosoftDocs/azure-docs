@@ -97,7 +97,7 @@ After creating your device group and validated your dev box devices are members,
 
 1. Select **Cloud apps** > **Include** > **Select apps** > **None** (under Select). 
 
-1. In the Select pane, search for and select the following apps as needed: 
+1. In the **Select** pane, search for and select the following apps as needed: 
  
  
    | App name | App ID | Description |
