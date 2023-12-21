@@ -22,35 +22,37 @@ When you connect to Blob Storage by using an SFTP client, you might be prompted 
 ## Frequently asked questions
 
 ### What are SSH host keys?
-Public/private key pairs that belong to SSH and SFTP servers. They are used by clients to verify the identity of the server when connecting. The private key is stored server side, while the public key is presented to the client during the connection operation. Most clients will present the user with an option to verify the key and accept it, which will allow the connection to proceed.
+SSH host keys are public/private key pairs that belong to SSH and SFTP servers. They are used by clients to verify the identity of the server when connecting. The private key is stored server side, while the public key is presented to the client during the connection operation. Most clients will present the user with an option to verify the key and accept it, which will allow the connection to proceed.
 
 More details can be found here: [SSH Host Key Management Demystified](https://www.ssh.com/blog/what-are-ssh-host-keys).
 
-### Is the host key different from the public key stored in local users?
-Yes. The public keys stored in local users are used by the client to authenticate. Host keys belong to the server.
+### Are SSH host keys different from the SSH keys used for login?
+Yes. SSH host keys are separate private/public key pairs belonging to the server. The private/public key pair used for login is completely separate and managed by the user. Host key rotation has no impact on the user's SSH keys.
 
 ### What should clients do with the host keys?
-We recommend adding the new host key to the client's list of known trusted hosts. Note that the steps for this action will differ based on the SFTP client used. These are the most common methods:
+We recommend adding the new host key to the client's list of trusted hosts. Note that the steps for this action will differ based on the SFTP client used. These are the most common ways clients will store trusted hosts:
 - `known_hosts` file
-- Windows registry key for Windows specific clients
-- Variable for library based clients
+- Windows registry key (Windows specific clients)
+- Variable (library based clients)
 
 #### `known_hosts` example
 This file is often stored under the following local path: `~/.ssh/known_hosts`. The file will have a line per known host and each line may follow a format similar to this: `<server hostname> <algorithm> <host key>`.
 
 There is likely already an entry for your storage account from the first time you connected. A new entry can be added below it with the newer key for the same region and algorithm. Once added, it would look similar to this example for the `Australia Central` and `ecdsa-sha2-nistp256`:
-`<account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBElXRuNJbnDPWZF84vNtTjt4I/842dWBPvPi2fkgOV//2e/Y9gh0koVVAYp6MotNodg4L9MS7IfV9nnFSKaJW3o=
-<account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLs9yqrEGdGvgdSWkAK5YkyazMWi30X+E6J/CiGpJwbuczVJwT/cwh+mxnE7DMTwhEo57jL7/wi/WT8CPfPpD4I=`
+
+`<account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBElXRuNJbnDPWZF84vNtTjt4I/842dWBPvPi2fkgOV//2e/Y9gh0koVVAYp6MotNodg4L9MS7IfV9nnFSKaJW3o=`
+
+`<account>.blob.core.windows.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLs9yqrEGdGvgdSWkAK5YkyazMWi30X+E6J/CiGpJwbuczVJwT/cwh+mxnE7DMTwhEo57jL7/wi/WT8CPfPpD4I=`
 
 The first entry is for the key currently used by the service, which will expire sooner. The second entry is for the next key that will be used after rotation. Having both entries will allow for a smooth transition when the rotation occurs.
 
 #### Registry key example
 For a Windows based client such as [WinSCP](https://winscp.net/eng/index.php), trusted hosts are stored in a registry key: `HKEY_CURRENT_USER\Software\Martin Prikryl\WinSCP 2\SshHostKeys`.
 
-No specific action is required at this time. When a new host key is presented, WinSCP will prompt you to accept the key. You can compare the SHA256 fingerprint to the relevant key in the table below and accept if it matches. WinSCP will then add the new key to the cache for the future.
+When a new host key is presented, WinSCP will prompt you to accept the key. You can compare the SHA256 fingerprint to the relevant key in the table below and accept if it matches. WinSCP will then add the new key to the cache for the future.
 
 #### Library client example
-For a library based client such as [SSH.NET](https://github.com/sshnet/SSH.NET), host key verification looks something like this:
+For a library based client such as [SSH.NET](https://github.com/sshnet/SSH.NET), host key verification resembles the following code snippet:
 ```cs
 string expectedFingerPrint = "m2HCt3ESvMLlVBMwuo9jsQd9hJzPc/fe0WOJcoqO3RA=";
 
@@ -64,7 +66,7 @@ using (var client = new SshClient("<account>.blob.core.windows.net", "<account>.
 }
 ```
 
-Using the same `Australia Central` and `ecdsa-sha2-nistp256` example, the following change could be made:
+In order to account for the next host key, the following change could be made:
 ```cs
 List<string> expectedFingerPrints = new List<string>() { "m2HCt3ESvMLlVBMwuo9jsQd9hJzPc/fe0WOJcoqO3RA=", "5Vot7f2reXMzE6IR9GKiDCOz/bNf3lA0qYnBQzRgObo=" };
 
@@ -90,9 +92,9 @@ It is also possible that a host key has just been changed.
 The fingerprint for the ECDSA key sent by the remote host is
 SHA256:Q3zIFfOI1UfCrMq6Eh7nP1/VIvgPn3QluTBkyZ2lfCw.
 Please contact your system administrator.
-Add correct host key in C:\\Users\\contoso/.ssh/known_hosts to get rid of this message.
-Offending ECDSA key in C:\\Users\\contoso/.ssh/known_hosts:8
-Host key for contoso.blob.core.windows.net has changed and you have requested strict checking.
+Add correct host key in C:\\Users\\<user>/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in C:\\Users\\<user>/.ssh/known_hosts:8
+Host key for <account>.blob.core.windows.net has changed and you have requested strict checking.
 Host key verification failed.
 Connection closed
 ```
@@ -102,7 +104,7 @@ This happens because the client only has the old key in `known_hosts`, which dif
 The authenticity of host 'blob.cbn06prdstr01a.store.core.windows.net' can't be established.
 ECDSA key fingerprint is SHA256:Q3zIFfOI1UfCrMq6Eh7nP1/VIvgPn3QluTBkyZ2lfCw.
 This host key is known by the following other names/addresses:
-    C:\Users\contoso/.ssh/known_hosts:12: blob.cbn06prdstr01a.store.core.windows.net
+    C:\Users\<user>/.ssh/known_hosts:12: blob.cbn06prdstr01a.store.core.windows.net
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
 ```
 
