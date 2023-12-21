@@ -107,5 +107,10 @@ For example, as you create a project, you might see this informational message a
 
 Start using Microsoft Dev Box:
 
-- [Quickstart: Configure Microsoft Dev Box ](./quickstart-configure-dev-box-service.md)
+- [Quickstart: Configure Microsoft Dev Box](./quickstart-configure-dev-box-service.md)
 - [Quickstart: Create a dev box](./quickstart-create-dev-box.md)
+
+Learn more about Microsoft Dev Box:
+
+- [Microsoft Dev Box architecture overview](./concept-dev-box-architecture.md)
+- [Key concepts in Microsoft Dev Box](./concept-dev-box-concepts.md)
