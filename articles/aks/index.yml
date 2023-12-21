@@ -46,7 +46,7 @@ landingContent:
             url: trusted-access-feature.md
 
   # Card (optional)
-  - title: Test and evaluate AKS
+  - title: Evaluate Linux-based AKS cluster
     linkLists:
       - linkListType: quickstart
         links:
@@ -62,7 +62,7 @@ landingContent:
             url: ./learn/quick-kubernetes-deploy-terraform.md
   
   # Card (optional)
-  - title: Test and evaluate applications on AKS
+  - title: Evaluate application deployment on AKS
     linkLists:
       - linkListType: tutorial
         links:
@@ -81,22 +81,8 @@ landingContent:
           - text: 7. Upgrade Kubernetes in AKS
             url: tutorial-kubernetes-upgrade-cluster.md
 
-  # Card
-  - title: Test and evaluate application deployment 
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Develop with Helm
-            url: quickstart-helm.md
-          - text: Develop with Dapr
-            url: quickstart-dapr.md
-          - text: Use Draft and the DevX extension for Visual Studio Code
-            url: draft-devx-extension-aks.md
-          - text: Use Automated Deployments
-            url: automated-deployments.md
-
-  # Card
-  - title: Get started with Windows containers
+ # Card
+  - title: Evaluate Windows-based AKS cluster
     linkLists:
        - linkListType: concept
          links:
@@ -108,7 +94,20 @@ landingContent:
               url: learn/quick-windows-container-deploy-cli.md
             - text: Create a Windows Server container using the Azure PowerShell
               url: learn/quick-windows-container-deploy-powershell.md
-
+ # Card
+  - title: Evaluate application deployment methods
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Develop with Helm
+            url: quickstart-helm.md
+          - text: Develop with Dapr
+            url: quickstart-dapr.md
+          - text: Use Draft and the DevX extension for Visual Studio Code
+            url: draft-devx-extension-aks.md
+          - text: Use Automated Deployments
+            url: automated-deployments.md
+ 
   # Card
   - title: Architecture guidance
     linkLists:
@@ -124,7 +123,7 @@ landingContent:
             url: /azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster?WT.mc_id=AKSDOCSPAGE
 
   # Card
-  - title: Deployment guidance
+  - title: Production deployment guidance
     linkLists:
       - linkListType: deploy
         links:
