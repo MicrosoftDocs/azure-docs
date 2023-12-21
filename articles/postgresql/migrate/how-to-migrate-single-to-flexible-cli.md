@@ -162,7 +162,9 @@ Note these important points for the command response:
 - The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations.  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+
+:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
 #### Setup replication
 
