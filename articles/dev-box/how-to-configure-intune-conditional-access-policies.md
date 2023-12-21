@@ -15,9 +15,7 @@ ms.topic: how-to
 
 # Restrict access to dev boxes by using conditional access policies in Microsoft Intune
 
-Conditional Access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional Access policies at their simplest are if-then statements. If a user wants to access a resource, then they must complete an action. 
-
-For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. 
+In this article, you learn how to configure conditional access policies in Microsoft Intune to control access to dev boxes. For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To to configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
 
 Some examples include: 
 
@@ -25,22 +23,17 @@ Some examples include:
 - Restricting the ability to copy/paste from the dev box 
 - Restricting access to dev box from only certain geographies 
 
-Conditional access policies are a powerful tool for being able to keep your organization’s devices secure and environments compliant. 
+Conditional access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional access policies at their simplest are if-then statements. If a user wants to access a resource, then they must complete an action. Conditional access policies are a powerful tool for being able to keep your organization’s devices secure and environments compliant. 
+
+
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Owner or Contributor role on an Azure subscription or resource group.
-- Microsoft Entra ID. Your organization must use Microsoft Entra ID for identity and access management.
-- Microsoft Intune. Your organization must use Microsoft Intune for device management and each user must be licensed for Microsoft Intune.
-- User licenses. To use Dev Box, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, and Microsoft Entra ID P1. These licenses are available independently and are included in the following subscriptions:
-  - Microsoft 365 F3
-  - Microsoft 365 E3, Microsoft 365 E5
-  - Microsoft 365 A3, Microsoft 365 A5
-  - Microsoft 365 Business Premium
-  - Microsoft 365 Education Student Use Benefit
+None
 
 ## Create a dynamic device group 
+
+A dynamic group uses rules to determine group membership based on user or device properties. This section shows how to set up a rule for a dynamic group in Microsoft Intune.
 
 To create a conditional access policy that targets dev box devices, you first need to create a dynamic device group that contains your dev boxes. You can create a dynamic security device group that includes all dev boxes by identifying them using keywords specified in the device model of the machine. 
 
@@ -72,18 +65,18 @@ To create a conditional access policy that targets dev box devices, you first ne
 
 1. In **Value** enter *Microsoft Dev Box*.
 
-   All Dev Boxes list the Manufacturer as "Microsoft Corporation" and the Model as "Microsoft Dev Box 8vCPU/32GB/1024GB", where the specs will reflect the VM SKU chosen for that dev box.
+   All dev boxes list the Manufacturer as "Microsoft Corporation" and the Model as "Microsoft Dev Box 8vCPU/32GB/1024GB", where the specs will reflect the VM SKU chosen for that dev box.
 
 1. Validate the group and select **Create**. 
 
-1. After creating your dynamic device group, you can view and manage existing groups in the Groups view of the Microsoft Intune admin center.
+1. After creating your dynamic device group, you can view and manage existing groups on the **Groups** pane of the Microsoft Intune admin center.
 
 ## Create a conditional access policy  
 
 After creating your device group and validated your dev box devices are members, you can move on to create a conditional access policy for your scenario. In this example, you create a conditional access policy to restrict connections outside of specified geographic regions. 
 
 > [!IMPORTANT]
-> Thoroughly test conditional access policies before putting them into production using the *Report-Only* feature. Conditional access policies have the potential to restrict all access to Dev Box if misconfigured. 
+> Thoroughly test conditional access policies before putting them into production using the *Report-Only* feature. Conditional access policies have the potential to restrict all access to your dev boxes if misconfigured. 
 
 1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com). 
 
@@ -97,9 +90,8 @@ After creating your device group and validated your dev box devices are members,
 
 1. Select **Cloud apps** > **Include** > **Select apps** > **None** (under Select). 
 
-1. In the Select pane, search for and select the following apps as needed: 
- 
- 
+1. In the Select pane, search for and select the apps you require for your scenario: 
+  
    | App name | App ID | Description |
    | --- | --- | --- |
    | Windows 365 | 0af06dc6-e4b5-4f28-818e-e78e62d137a5 | Used when retrieving the list of resources for the user and when users initiate actions on their dev box like Restart. |
@@ -118,8 +110,9 @@ After creating your device group and validated your dev box devices are members,
 
 1. Select **Create** to create the policy. 
 
-1. After creating your conditional access policy, you can view and manage existing policies in the Policies view of the Conditional Access UI. 
+1. After creating your conditional access policy, you can view and manage existing policies in the **Conditional Access - Policies** pane of the Microsoft Intune admin center. 
 
 ## Related content
 
+* [Dynamic membership rules for groups in Microsoft Entra ID](/entra/identity/users/groups-dynamic-membership)
 * [Conditional policies](/mem/intune/protect/conditional-access)
