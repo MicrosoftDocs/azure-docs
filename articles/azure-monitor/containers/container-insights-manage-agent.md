@@ -10,9 +10,9 @@ ms.reviewer: aul
 
 Container Insights uses a containerized version of the Log Analytics agent for Linux. After initial deployment, you might need to perform routine or optional tasks during its lifecycle. This article explains how to manually upgrade the agent and disable collection of environmental variables from a particular container.
 
->[!NOTE]
->The Container Insights agent name has changed from OMSAgent to Azure Monitor Agent, along with a few other resource names. This article reflects the new name. Update your commands, alerts, and scripts that reference the old name. Read more about the name change in [our blog post](https://techcommunity.microsoft.com/t5/azure-monitor-status-archive/name-update-for-agent-and-associated-resources-in-azure-monitor/ba-p/3576810). 
->
+> [!NOTE]
+> If you've already deployed an AKS cluster and enabled monitoring by using either the Azure CLI or a Resource Manager template, you can't use `kubectl` to upgrade, delete, redeploy, or deploy the agent. The template needs to be deployed in the same resource group as the cluster.
+
 
 ## Upgrade the Container insights agent
 

@@ -1,12 +1,12 @@
 ---
-title: Create metric alert rules in Container insights (preview)
+title: Metric alert rules for Kubernetes clusters (preview)
 description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
 ms.topic: conceptual
 ms.date: 03/13/2023
 ms.reviewer: aul
 ---
 
-# Metric alert rules in Container insights (preview)
+# Metric alert rules for Kubernetes clusters (preview)
 
 Metric alerts in Azure Monitor proactively identify issues related to system resources of your Azure resources, including monitored Kubernetes clusters. Container insights provides preconfigured alert rules so that you don't have to create your own. This article describes the different types of alert rules you can create and how to enable and configure them.
 
