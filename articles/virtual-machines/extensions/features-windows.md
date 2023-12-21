@@ -1,14 +1,14 @@
 ---
-title: Azure VM extensions and features for Windows 
+title: Azure VM extensions and features for Windows
 description: Learn what extensions are available for Azure virtual machines on Windows, grouped by what they provide or improve.
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.collection: windows
-ms.date: 04/03/2023 
+ms.date: 04/03/2023
 ms.custom: devx-track-azurepowershell
 ---
 

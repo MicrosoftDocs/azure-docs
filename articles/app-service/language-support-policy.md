@@ -1,6 +1,6 @@
 ---
-title: Language Support Policy
-description: App Service language runtime support policies 
+title: Language runtime support policy
+description: Learn about the language runtime support policy for Azure App Service. 
 author: jeffwmartinez
 ms.topic: article
 ms.date: 12/23/2023
@@ -8,27 +8,31 @@ ms.author: jefmarti
 ms.custom: seodec18
 
 ---
-# App Service language runtime support policy
 
-This document describes the App Service language runtime support policy for updating existing stacks and retiring process for upcoming end-of-life stacks.  This policy is to clarify existing practices and doesn't represent a change to customer commitments.    
+# Language runtime support policy for App Service
+
+This article describes the language runtime support policy for updating existing stacks and retiring end-of-support stacks in Azure App Service. This policy clarifies existing practices and doesn't represent a change to customer commitments.
 
 ## Updates to existing stacks
-App Service will update existing stacks after they become available from each community.  App Service will update major versions of stacks but can't guarantee any specific minor or patch versions.  Minor and patch versions are controlled by the platform, and it's not possible for App Service to pin a specific minor or patch version.  For example, Node 18 will be updated by App Service but a specific Node 18.x.x version won't be guaranteed.  If you need a specific minor or patch version you can use a [custom container](quickstart-custom-container.md).
+
+App Service updates existing stacks after they become available from each community. App Service updates major versions of stacks but can't guarantee any specific minor or patch versions. The platform controls minor and patch versions. For example, App Service updates Node 18 but doesn't guarantee a specific Node 18.x.x version. If you need a specific minor or patch version, you can use a [custom container](quickstart-custom-container.md).
 
 ## Retirements
-App Service follows community support timelines for the lifecycle of the runtime.  Once community support for a given language reaches end-of-life, your applications will continue to run unchanged.  However, App Service can't provide security patches or related customer support for that runtime version past its end-of-life date.  If your application has any issues past the end-of-life date for that version, you should move up to a supported version to receive the latest security patches and features.  
+
+App Service follows community support timelines for the lifecycle of the runtime. After community support for a language reaches the end of support, your applications continue to run unchanged. However, App Service can't provide security patches or related customer support for that runtime version past its end-of-support date. If your application has any problems past the end-of-support date for that version, you should move up to a supported version to receive the latest security patches and features.
 
 > [!IMPORTANT]
-> You're encouraged to upgrade the language version of your affected apps to a currently supported version. If you're running apps using an unsupported language version, you'll be required to upgrade before receiving support for your app.
->
+> If you're running apps that use an unsupported language version, you need to upgrade to a supported language version before you can get support for those apps.
 
 ## Notifications
-End-of-life dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service.  App Service will send reminder notifications to subscription owners for upcoming end-of-life runtime versions when they become available for each language.
+
+End-of-support dates for runtime versions are determined independently by their respective stacks and are outside the control of App Service. App Service sends reminder notifications to subscription owners for upcoming end-of-support runtime versions when they become available for each language.
 
 Those who receive notifications include account administrators, service administrators, and coadministrators.  Contributors, readers, or other roles won't directly receive notifications, unless they opt in to receive notification emails, using [Service Health Alerts](../service-health/alerts-activity-log-service-notifications-portal.md).  
 
-## Language runtime version support timelines
-To learn more about specific language support policy timelines, visit the following resources:
+## Timelines for language runtime version support
+
+To learn more about specific timelines for the language support policy, see the following resources:
 
 - [.NET and ASP.NET Core](https://aka.ms/dotnetrelease)
 - [.NET Framework and ASP.NET](https://aka.ms/aspnetrelease)
@@ -39,7 +43,8 @@ To learn more about specific language support policy timelines, visit the follow
 - [Go](https://aka.ms/gorelease)
 
 ## Configure language versions
-To learn more about how to update your App Service application language versions, see the following resources:
+
+To learn more about how to update language versions for your App Service applications, see the following resources:
 
 - [.NET](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/dot_net_core.md#how-to-update-your-app-to-target-a-different-version-of-net-or-net-core)
 - [Node](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/node_support.md#node-on-linux-app-service)

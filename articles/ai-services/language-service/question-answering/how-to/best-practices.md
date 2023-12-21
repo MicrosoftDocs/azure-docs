@@ -7,7 +7,7 @@ ms.topic: how-to
 author: jboback
 ms.author: jboback
 recommendations: false
-ms.date: 06/03/2022
+ms.date: 12/19/2023
 ---
 
 # Project best practices

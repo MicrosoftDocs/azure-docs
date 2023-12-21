@@ -1,11 +1,11 @@
 ---
-title: Data reference for Azure Monitor for SAP solutions 
-description: Important reference material needed when you monitor SAP on Azure. 
-author: lauradolan
+title: Data reference for Azure Monitor for SAP solutions
+description: Important reference material needed when you monitor SAP on Azure.
+author: ju-shim
 ms.topic: reference
 ms.author: ladolan
 ms.service: sap-on-azure
-ms.subservice: sap-monitor 
+ms.subservice: sap-monitor
 ms.custom: subject-monitoring
 ms.date: 10/27/2022
 ---

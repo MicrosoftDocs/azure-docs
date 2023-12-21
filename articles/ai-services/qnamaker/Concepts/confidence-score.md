@@ -9,7 +9,7 @@ author: jboback
 ms.service: azure-ai-language
 ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 12/19/2023
 ms.custom: seodec18
 ---
 
