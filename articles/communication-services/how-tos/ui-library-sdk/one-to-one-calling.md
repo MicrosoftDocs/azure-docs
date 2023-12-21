@@ -1,7 +1,7 @@
 ---
 title: One to one calling of the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI Library for Mobile native to one to one calling
+description: Use Azure Communication Services UI Library for Mobile native to one-to-one calling
 author: iaulakh
 ms.author: iaulakh
 ms.service: azure-communication-services
@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 # One to One Calling and Push Notifications
 
-UI Library provides out of the box support for making one to one call by Azure Communication Services participant identifiers. To support one to one calling UI Libraries provides register incoming call notifications or Azure Communication Service Event Grid can be used.
+UI Library provides out of the box support for making one to one call by Azure Communication Services participant identifiers. To support one to one calling, UI Libraries provides register incoming call notifications or Azure Communication Service Event Grid can be used.
 
 Learn how to make one to one calls correctly using the UI Library in your application.
 
