@@ -14,9 +14,9 @@ With `Microsoft.Resources/deploymentScripts` version `2023-08-01`, you can run d
 - Create a storage account in the private network, and specify the deployment script to use the existing storage account. For more information, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). Some additional configuration is required for the storage account:
 
     1. Open the storage account in the [Azure portal](https://portal.azure.com).
-    1. From the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
-    1. Add the **Storage File Data Privileged Contributor** role to the user-assignment managed identity.
-    1. From the left menu, under **Security + networking**, select **Networking**, and then select **Firewalls and virtual networks**.
+    1. On the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
+    1. Add the **Storage File Data Privileged Contributor** role to the user-assigned managed identity.
+    1. On the left menu, under **Security + networking**, select **Networking**, and then select **Firewalls and virtual networks**.
     1. Select **Enabled from selected virtual networks and IP addresses**.
     1. Under **Virtual networks**, add a subnet. In the following screenshot, the subnet is called *dspvnVnet*.
     1. Under **Exceptions**, select **Allow Azure services on the trusted services list to access this storage account**.
