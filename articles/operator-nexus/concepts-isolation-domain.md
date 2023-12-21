@@ -17,3 +17,14 @@ Isolation domain resources in the NFA service are crucial for establishing both 
 * **Layer-3 Isolation Domain with Internal Networks:** This domain allows workloads to connect with the network fabric and share layer-3 routing information, facilitating internal network communications.
 
 * **Layer-3 Isolation Domain with External Network:** This setup enables workloads to interact with the network fabric and exchange layer-3 routing details with the external network of the operator.
+
+## Key benefits
+* **Northbound Network Integration:** Seamlessly connect with customer routers using BGP peering sessions to establish an external network, ensuring robust northbound connectivity.
+
+* **Southbound Network Integration:** Effectively create internal networks to facilitate southbound connectivity with telco workloads, enhancing communication and data flow.
+
+* **API-Driven Configuration:** Utilize an API-driven approach for unified layer 2 and layer 3 configuration, optimizing both North-South and East-West traffic management for efficiency and control.
+
+* **Isolation Domain Integrity:** Ensure complete separation of service packets in individual isolation domains. This means services in one domain remain entirely invisible to workloads in another, maintaining strict isolation on the same Nexus Network Fabric and enhancing tenant security.
+
+* **Flexible Workload Topology:** Adapt and evolve your network's virtual topology as needed. The platform allows for the dynamic addition or removal of workload networks, providing the flexibility to tailor network structures to evolving requirements.
