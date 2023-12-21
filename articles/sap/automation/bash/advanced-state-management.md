@@ -36,9 +36,10 @@ advanced_state_management.sh [--parameterfile] <String>
 ## Description
 You can use this script to:
 
+- list the resources in the Terraform state file.
 - add missing or modified resources to the Terraform state file. 
 - remove resources from the Terraform state file.
-- list the resources in the Terraform state file.
+
 
 This script is useful if resources are modified or created without using Terraform.
 
