@@ -4,7 +4,7 @@ description: Learn how to use the Azure CLI to create an Azure Data Lake Analyti
 ms.service: data-lake-analytics
 ms.reviewer: whhender
 ms.topic: conceptual
-ms.date: 01/20/2023 
+ms.date: 12/20/2023
 ms.custom: devx-track-azurecli
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI

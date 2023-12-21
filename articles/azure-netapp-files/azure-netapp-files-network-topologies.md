@@ -55,6 +55,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Japan East
 *   Japan West
 *   Korea Central
+*   Korea South 
 *	North Central US
 *   North Europe
 *   Norway East
@@ -100,6 +101,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Japan East 
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe 
 * Norway East

@@ -7,8 +7,8 @@ ms.custom: devx-track-linux
 ms.topic: article
 ms.date: 10/03/2023
 ms.reviewer: cynthn, mattmcinnes
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # Configure and optimize VMs

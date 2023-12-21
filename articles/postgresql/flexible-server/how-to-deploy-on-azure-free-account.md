@@ -6,7 +6,7 @@ ms.author: shaithal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to 
-ms.date: 11/30/2021
+ms.date: 12/12/2023
 ms.custom: template-how-to 
 ---
 
@@ -47,26 +47,24 @@ To complete this tutorial, you need:
 
 1. Select **Create**.
 
-1. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible Server **.
-    
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql-deployment-option.png" alt-text="Screenshot that shows the Flexible Server Deployment Option to be chosen.":::
-
 1. Enter the basic settings for a new **Flexible Server**.
 
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-postgresql.png" alt-text="Screenshot that shows the Basic Settings for creating Flexible Server.":::
 
-    |Setting	|Suggested Value	|Description |
-    |-------|------|------|
-    |Subscription	|Your subscription name	|Select the Free Trial Azure subscription.|
-    |Resource group	|Your resource group	|Enter a new resource group or an existing one from your subscription.|
-    |Server name	|mydemoserver-pgsql	|Specify a unique name to identify your flexible server. The domain name postgres.database.azure.com is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters. |
-    |Region	|The region closest to your users	|Select a location from the list, preferably the location that's closest to your users.|
-    |Workload type	|Development	|For a free trial, select **Development** workload. For a production workload, choose Small/Medium-size or Large-size depending on your requirements. |
-    |Availability zone	|No preference	|If your application (hosted on Azure VMs, virtual machine scale sets or AKS instance) is provisioned in a specific availability zone, create your flexible server in the same availability zone. Collocating the application and database improves performance by reducing network latency across zones. If you choose **No preference**, a default AZ is selected for you.|
-    |PostgreSQL version	|The latest major version	|Use the latest PostgreSQL major version unless you have specific requirements otherwise.|
-    |High availability	|Default	|Leave the High Availability option unchecked.|
-    |Admin username	|myadmin	|Create a sign-in account to use when you connect to the server. The admin username can’t start with **pg_** and can't be **azure_superuser, azure_pg_admin, admin, administrator, root, guest,** or **public**. |
-    |Password	|Your password	|Specify a password for the server admin account. The password must contain between 8 and 128 characters. It must also contain characters from three of the following four categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on).|
+    | Setting               | Suggested Value                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+    |-----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Subscription	    | Your subscription name           | Select the Free Trial Azure subscription.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | Resource group	    | Your resource group              | Enter a new resource group or an existing one from your subscription.                                                                                                                                                                                                                                                                                                                                                                                                         |
+    | Server name	    | mydemoserver-pgsql               | Specify a unique name to identify your Flexible Server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.                                                                                                                                                                                     |
+    | Region	            | The region closest to your users | Select a location from the list, preferably the location that's closest to your users.                                                                                                                                                                                                                                                                                                                                                                                        |
+    | PostgreSQL version    | The latest major version         | Use the latest PostgreSQL major version unless you have specific requirements otherwise.                                                                                                                                                                                                                                                                                                                                                                                      |
+    | Workload type	    | Development                      | For a free trial, select **Development** workload. For a production workload, choose Small/Medium-size or Large-size depending on your requirements.                                                                                                                                                                                                                                                                                                                          |
+    | Compute + storage     | Default                          | Select the SKU of the compute and storage that better accommodates your performance and cost needs.                                                                                                                                                                                                                                                                                                                                                                           |
+    | Availability zone	    | No preference                    | If your application (hosted on Azure VMs, virtual machine scale sets or AKS instance) is provisioned in a specific availability zone, create your flexible server in the same availability zone. Collocating the application and database improves performance by reducing network latency across zones. If you choose **No preference**, a default AZ is selected for you.                                                                                                   |
+    | High availability	    | Default                          | Leave the High Availability option unchecked.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+    | Authentication method | PostgreSQL authentication only   | Select the authentication method that suits your authentication needs for this instance of PostgreSQL.                                                                                                                                                                                                                                                                                                                                                                        |
+    | Admin username	    | myadmin                          | Create a sign-in account to use when you connect to the server. The admin username must contain between 1 and 63 characters, must only contain numbers and letters, can’t start with **pg_** and can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**.                                                                                                                                                           |
+    | Password	            | Your password                    | Specify a password for the server admin account. The password must contain between 8 and 128 characters. It must also contain characters from three of the following four categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, and so on). Your password cannot contain all or part of the login name. Part of a login name is defined as three or more consecutive alphanumeric characters. |
 
 1. For **Compute + storage** setting, keep the default values populated upon selecting **Development** workload type. 
     
@@ -83,16 +81,22 @@ To complete this tutorial, you need:
 1.	Select **Networking** tab to configure how to reach your server.
 
     Azure Database for PostgreSQL - Flexible Server provides two ways to connect:
-    - Public access (allowed IP addresses)
+    - Public access (allowed IP addresses) and Private endpoint
     - Private access (VNet Integration)
     
-    With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range.
+    With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule or to applications which can reach the instance of PostgreSQL via private endpoints. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range, or create a private endpoint.
     
-    With private access (VNet Integration), access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](./concepts-networking.md).
+    With private access, access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](./concepts-networking.md).
     
     For the purposes of this tutorial, enable public access to connect to the server.
 
-1. On the **Networking** tab, for **Connectivity method** select **Public access**.
+    >[!NOTE]
+    >Azure Database for PostgreSQL - Flexible Server support for Private Endpoints in Preview requires enablement of **Enable Private Endpoints for PostgreSQL flexible servers** [preview feature in your subscription](../../azure-resource-manager/management/preview-features.md).
+    >Only **after preview feature is enabled** you can create servers which are PE capable, i.e. can be networked using Private Link.
+
+1. On the **Networking** tab, for **Connectivity method** select **Public access (allowed IP addresses) and Private endpoint**.
+
+1. Leave **Allow public access to this resource through the internet using a public IP address** enabled in this case, since you want the instance to be accessible from the public IP address with which your workstation navigates on the Internet. By disabling this check box, the only incoming traffic which would be permitted would be the one coming through private endpoints.
 
 1. For configuring **Firewall rules**, select **Add current client IP address**.
     
@@ -143,7 +147,7 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
     |Azure Database for PostgreSQL, Flexible Server Burstable BS Series Compute, B1MS	|Tracks Compute usage in terms of number of hours of running	|750 Hours per month - Burstable B1MS Compute Tier|
     |Azure Database for PostgreSQL, Flexible Server Storage, Data Stored	|Tracks Data Storage Provisioned in terms of GB used per month	|32 GB per month|
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure portal for all free services.":::
 
     - Meter: Identifies the unit of measure for the service being consumed.
     - Usage/Limit: Current month's usage and limit for the meter.
@@ -178,4 +182,4 @@ Alternatively, if you don't expect to need these resources in the future, you ca
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Deploy a Django app with App Service and PostgreSQL](tutorial-django-app-service-postgres.md)
+>[Deploy a Django app with App Service and PostgreSQL](../../app-service/tutorial-python-postgresql-app.md)

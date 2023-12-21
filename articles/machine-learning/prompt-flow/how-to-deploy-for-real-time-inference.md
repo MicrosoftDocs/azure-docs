@@ -52,6 +52,23 @@ If you didn't complete the tutorial, you need to build a flow. Testing the flow 
 
 We'll use the sample flow **Web Classification** as example to show how to deploy the flow. This sample flow is a standard flow. Deploying chat flows is similar. Evaluation flow doesn't support deployment.
 
+## Define the environment used by deployment
+
+When you deploy prompt flow to managed online endpoint in UI, by default the deployment will use the environment created based on the latest prompt flow image and dependencies specified in the `requirements.txt` of the flow. You can specify extra packages you needed in `requirements.txt`. You can find `requirements.txt` in the root folder of your flow folder.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/requirements-text.png" alt-text="Screenshot of flow requirements-text. " lightbox = "./media/how-to-deploy-for-real-time-inference/requirements-text.png":::
+
+If you are using the customer environment to create compute instance runtime, you can find the image in environment detail page in Azure Machine Learning studio. To learn more, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png" alt-text="Screenshot of image name in environment detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-image-environment.png":::
+
+Then you need also specify the image to the `environment` in the `flow.dag.yaml` in flow folder.
+
+:::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png":::
+
+> [!NOTE]
+> If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
+
 ## Create an online deployment
 
 Now that you have built a flow and tested it properly, it's time to create your online endpoint for real-time inference. 

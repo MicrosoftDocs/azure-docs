@@ -143,8 +143,8 @@
       href: ./linux/openshift-azure-stack.md
   - name: SAP on Azure
     href: ../sap/index.yml
-  - name: Oracle
-    href: ./workloads/oracle/index.yml
+  - name: Oracle on Azure
+    href: ../oracle/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch
@@ -260,12 +260,7 @@
       - name: Ev5 and Esv5-series
         href: ev5-esv5-series.md
       - name: Ebdsv5 and Ebsv5 series
-        href: ebdsv5-ebsv5-series.md
-        items:
-        - name: Enable NVMe and SCSI interface
-          href: enable-nvme-interface.md  
-        - name: Enable NVMe FAQ
-          href: enable-nvme-faqs.yml   
+        href: ebdsv5-ebsv5-series.md   
       - name: Edv5 and Edsv5-series
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
@@ -444,6 +439,12 @@
         href: setup-mpi.md
       - name: Scaling HPC applications
         href: compiling-scaling-applications.md
+    - name: Enable NVMe
+      items:
+      - name: Enable NVMe and SCSI interface
+        href: enable-nvme-interface.md  
+      - name: Enable NVMe FAQ
+        href: enable-nvme-faqs.yml
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md

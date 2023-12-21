@@ -6,7 +6,7 @@ author: AwdotiaRomanowna
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 8/2/2023
+ms.date: 12/11/2023
 ---
 
 # Comparison chart - Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server
@@ -28,7 +28,7 @@ The following table provides a list of high-level features and capabilities comp
 | **General**  | | |
 | General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
-| Supported versions | 10, 11 | 11, 12, 13, 14, 15|
+| Supported versions | 10, 11 | 11, 12, 13, 14, 15, 16|
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
@@ -51,12 +51,12 @@ The following table provides a list of high-level features and capabilities comp
 | Stop/Start | No | Yes (for all compute SKUs). Only compute is stopped/started |
 | Max. Storage size | 1 TB (Basic), 4 TB or 16 TB (GP, MO). Note: Not all regions support 16 TB. | 16 TB |
 | Min storage size | 5 GB (Basic), 100 GB (GP, MO) | 32 GB |
-| Storage auto-grow | Yes (1-GB increments) | No |
+| Storage auto-grow | Yes | Yes |
 | Max IOPS | Basic - Variable. GP/MO: up to 18 K  | Up to 18 K |
 | **Networking/Security** | | |
 | Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
 | Public access control | Firewall | Firewall |
-| Private link support | Yes |No|
+| Private link support | Yes | Yes (Preview) |
 | Private VNET injection support | No | Yes |
 | Private DNS Zone support | No | Yes |
 | Ability to move between private and public access | No | No |
@@ -101,18 +101,18 @@ The following table provides a list of high-level features and capabilities comp
 | Cross-region support | Yes | Yes |
 | **Maintenance Window** | | |
 | System scheduled window | Yes | Yes |
-| Customer scheduled window| No | Yes (can choose any 1 hr on any day) |
+| Customer scheduled window | No | Yes (can choose any 1 hr on any day) |
 | Notice period | Three days | Five days |
 | Maintenance period | Anytime within 15-hrs window | 1 hr window | 
 | **Metrics** | | |
-| Errors | Failed connections | Failed connections|
+| Errors | Failed connections | Failed connections |
 | Latency | Max lag across replicas, Replica lag | N/A |
 | Saturation | Backup storage used, CPU %, IO %, Memory %, Server log storage limit, server log storage %, server log storage used, Storage limit, Storage %, Storage used | Backup storage used, CPU credits consumed, CPU credits remaining, CPU %, Disk queue depth, IOPS, Memory %, Read IOPS, Read throughput bytes/s, storage free, storage %, storage used, Transaction log storage used, Write IOPS, Write throughput bytes/s |
 | Traffic | Active connections, Network In, Network out | Active connections, Max. used transaction ID, Network In, Network Out, succeeded connections |
 | **Extensions** | | (offers latest versions)|
 | TimescaleDB, orafce | Yes | Yes |
-| pg_cron, lo, pglogical | No | Yes |
-| pgAudit | Preview | Yes |
+| pg_cron, pglogical | No | Yes |
+| pgAudit | Yes | Yes |
 | **Security** | | |
 | Microsoft Entra ID Support (Microsoft Entra ID) | Yes | Yes |
 | Customer managed encryption key (BYOK) | Yes | Yes |
@@ -124,7 +124,7 @@ The following table provides a list of high-level features and capabilities comp
 | Resource health | Yes | Yes |
 | Service health | Yes | Yes |
 | Performance insights (iPerf) | Yes | Yes. Not available in portal |
-| Major version upgrades support | No | Yes (Preview) |
+| Major version upgrades support | No | Yes |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 
 

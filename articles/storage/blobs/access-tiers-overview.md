@@ -44,9 +44,7 @@ To learn how to move a blob to the hot, cool, or cold tier, see [Set a blob's ac
 
 Data in the cool and cold tiers have slightly lower availability, but offer the same high durability, retrieval latency, and throughput characteristics as the hot tier. For data in the cool or cold tiers, slightly lower availability and higher access costs may be acceptable trade-offs for lower overall storage costs, as compared to the hot tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
-Blobs that have an explicitly assigned tier, are subject to an early deletion penalty if they are deleted or moved to a different tier before the minimum number of days required by the tier have transpired. For example, a blob in the cool tier in a general-purpose v2 account is subject to an early deletion penalty if it's deleted or moved to a different tier before 30 days has elapsed. For a blob in the cold tier, the deletion penalty applies if it's deleted or moved to a different tier before 90 days has elapsed. This charge is prorated. For example, if a blob is moved to the cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the cool tier.
-
-Blobs that infer their tier from the default access tier setting are not subject to an early deletion penalty regardless of when they are deleted or moved to a different tier. See [Default account access tier setting](#default-account-access-tier-setting). 
+Blobs are subject to an early deletion penalty if they are deleted or moved to a different tier before the minimum number of days required by the tier have transpired. For example, a blob in the cool tier in a general-purpose v2 account is subject to an early deletion penalty if it's deleted or moved to a different tier before 30 days has elapsed. For a blob in the cold tier, the deletion penalty applies if it's deleted or moved to a different tier before 90 days has elapsed. This charge is prorated. For example, if a blob is moved to the cool tier and then deleted after 21 days, you'll be charged an early deletion fee equivalent to 9 (30 minus 21) days of storing that blob in the cool tier.
 
 The hot, cool, and cold tiers support all redundancy configurations. For more information about data redundancy options in Azure Storage, see [Azure Storage redundancy](../common/storage-redundancy.md).
 
@@ -200,6 +198,7 @@ The cold tier is now generally available in all public and Azure Government regi
 
 ### Limitations and known issues
 
+- The [change feed](storage-blob-change-feed.md) is not yet compatible with the cold tier.
 - [Object replication](object-replication-overview.md) is not yet compatible with the cold tier.
 - The default access tier setting of the account can't be set to cold tier.
 
