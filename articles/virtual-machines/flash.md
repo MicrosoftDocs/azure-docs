@@ -8,52 +8,6 @@ ms.topic: reference
 ---
 # Project Flash Onboarding Doc 2023
 
-[Project Flash Onboarding Doc 2023 1](#_Toc151369856)
-
-[What is Project Flash? 1](#_Toc946751376)
-
-[Flash Solutions 1](#_Toc1315454537)
-
-[Azure resource graph—HealthResources 2](#_Toc909371381)
-
-[Sample Queries 3](#_Toc91874056)
-
-[Getting started 3](#_Toc965841088)
-
-[Sample 5](#_Toc1088981001)
-
-[Property description 6](#_Toc1553060438)
-
-[Sample 7](#_Toc1075873122)
-
-[Property description 7](#_Toc267786291)
-
-[Azure event grid system topic—HealthResources 9](#_Toc1176362366)
-
-[Getting started 9](#_Toc1356362854)
-
-[Sample 10](#_Toc546549934)
-
-[Demo 11](#_Toc1519119111)
-
-[Azure monitor—VM availability metric 11](#_Toc475975096)
-
-[Getting started 12](#_Toc2075741000)
-
-[Metric description 13](#_Toc357531216)
-
-[Useful links 15](#_Toc382597037)
-
-[Azure resource health 15](#_Toc2049084802)
-
-[Introducing root causes for VM issues—in Azure resource health 15](#_Toc806877154)
-
-[Root Cause Analysis engine 17](#_Toc137719273)
-
-[Going forward 18](#_Toc415957544)
-
-[Facilitating holistic VM availability monitoring 19](#_Toc176841579)
-
 ## What is Project Flash?
 
 Flash, as the project is internally known, derives its name from our steadfast commitment to building a robust, reliable, and rapid mechanism for customers to monitor virtual machine (VM) health. Our primary objective is to ensure customers can reliably access actionable and precise telemetry, promptly receive alerts on changes, and periodically monitor data at scale. We also place strong emphasis on developing a centralized and coherent experience that customers can conveniently use to meet their unique observability requirements. It's our mission to ensure you can:
