@@ -68,7 +68,7 @@ The 2312 release has the following new features and enhancements:
 | --- | --- | --- |
 |**1.**|Azure Kubernetes Service |Expired certificate handling |
 |**2.**|Memory usage |High control plane memory usage |
-|**3.**|Versa VNF blocker |
+|**3.**|VM provision failure with arp_ignore set to 2 |
 |**4.**|IVAS deployment blocker, NFS file delete |
 
 
