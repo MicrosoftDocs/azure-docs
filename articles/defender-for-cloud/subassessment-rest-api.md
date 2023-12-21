@@ -10,8 +10,6 @@ ms.topic: how-to
 
 # Container vulnerability assessments REST API
 
-## Overview
-
 Azure Resource Graph (ARG) provides a REST API that can be used to programmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
 Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
 
@@ -20,9 +18,9 @@ Azure, AWS, and GCP container registry vulnerabilities sub-assessments are publi
 ## ARG query examples
 
 To pull specific sub assessments, you need the assessment key.
-* For Azure container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
-* For AWS container vulnerability assessment powered by MDVM the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
-* For GCP container vulnerability assessment powered by MDVM the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
+* For Azure container vulnerability assessment powered by MDVM, the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
+* For AWS container vulnerability assessment powered by MDVM, the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
+* For GCP container vulnerability assessment powered by MDVM, the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
 
 The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 ```kql
@@ -664,7 +662,7 @@ Programmatic code for the status of the assessment
 | **Name** | **Type** | **Description**|
 | --------------------------- | --------------- | ------------------------------------------------ |
 | Healthy	| string | The resource is healthy |
-| NotApplicable	| string | Assessment for this resource did not happen |
+| NotApplicable	| string | Assessment for this resource didn't happen |
 | Unhealthy | string | The resource has a security issue that needs to be addressed |
 
 ### SecuritySubAssessment
