@@ -1,6 +1,6 @@
 ---
-title: High Memory Utilization
-description: Troubleshooting guide for high memory utilization in Azure Database for PostgreSQL - Flexible Server
+title: High memory utilization
+description: Troubleshooting guide for high memory utilization.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan

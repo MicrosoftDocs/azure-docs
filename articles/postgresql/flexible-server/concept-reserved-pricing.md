@@ -1,6 +1,6 @@
 ---
-title: Reserved compute pricing - Azure Database for PostgreSQL
-description: Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
+title: Reserved compute pricing
+description: Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: ignite-2022
@@ -11,7 +11,7 @@ ms.reviewer: ""
 ms.date: 06/24/2022
 ---
 
-# Prepay for Azure Database for PostgreSQL compute resources with reserved capacity
+# Prepay for Azure Database for PostgreSQL - Flexible Server compute resources with reserved capacity
 
 [!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
