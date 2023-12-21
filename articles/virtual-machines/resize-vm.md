@@ -1,12 +1,12 @@
 ---
 title: Resize a virtual machine
 description: Change the VM size used for an Azure virtual machine.
-author: ericd-mst-github
+author: ju-shim
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/15/2023
-ms.author: cynthn 
+ms.author: cynthn
 ms.custom: compute-cost-fy24, devx-track-azurecli, devx-track-azurepowershell, devx-track-terraform
 ---
 # Change the size of a virtual machine 
@@ -124,30 +124,44 @@ az vm resize \
 
 **Use PowerShell to resize a VM not in an availability set.**
 
-This script sets the variables `$resourceGroup`, `$vm`, and `$size`. It then checks if the desired VM size is available by using `az vm list-vm-resize-options` and checking if the output contains the desired size. If the desired size isn't available, the script exits with an error message. If the desired size is available, the script deallocates the VM, resizes it, and starts it again.
+This Cloud shell PowerShell script initializes the variables `$resourceGroup`, `$vm`, and `$size` with the resource group name, VM name, and desired VM size respectively. It then retrieves the VM object from Azure using the `Get-AzVM` cmdlet. The script modifies the `VmSize` property of the VM's hardware profile to the desired size. Finally, it applies these changes to the VM in Azure using the `Update-AzVM` cmdlet.
 
 ```azurepowershell-interactive
 # Set variables
-$resourceGroup = "myResourceGroup"
-$vm = "myVM"
-$size = "Standard_DS3_v2"
-
-# Check if the desired VM size is available
-if ((az vm list-vm-resize-options --resource-group $resourceGroup --name $vm --query "[].name" | ConvertFrom-Json) -notcontains $size) {
-    Write-Host "The desired VM size is not available."
-    exit 1
-}
-
-# Deallocate the VM
-az vm deallocate --resource-group $resourceGroup --name $vm
-
-# Resize the VM
-az vm resize --resource-group $resourceGroup --name $vm --size $size
-
-# Start the VM
-az vm start --resource-group $resourceGroup --name $vm
+$resourceGroup = 'myResourceGroup'
+$vmName = 'myVM'
+$size = 'Standard_DS3_v2'
+# Get the VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+# Change the VM size
+$vm.HardwareProfile.VmSize = $size
+# Update the VM
+Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
 ```
+As an alternative to running the script in Azure Cloud Shell, you can also execute it locally on your machine. This local version of the PowerShell script includes additional steps to import the Azure module and authenticate your Azure account.
 
+> [!NOTE]
+>  The local PowerShell may require the VM to restart to take effect.
+
+
+```powershell
+# Import the Azure module
+Import-Module Az
+# Login to your Azure account
+Connect-AzAccount
+# Set variables
+$resourceGroup = 'myResourceGroup'
+$vmName = 'myVM'
+$size = 'Standard_DS3_v2'
+# Select the subscription
+Select-AzSubscription -SubscriptionId '<subscriptionID>'
+# Get the VM
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+# Change the VM size
+$vm.HardwareProfile.VmSize = $size
+# Update the VM
+Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
+```
 
    > [!WARNING]
    > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.

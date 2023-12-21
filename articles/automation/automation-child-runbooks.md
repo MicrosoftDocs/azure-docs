@@ -3,7 +3,7 @@ title: Create modular runbooks in Azure Automation
 description: This article explains how to create a runbook that another runbook calls.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/16/2022
+ms.date: 11/21/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want create modular runbooks so that I can be more efficient.
@@ -45,7 +45,7 @@ Currently, PowerShell 5.1 is supported and only certain runbook types can call e
 * The PowerShell types and the PowerShell Workflow types can't call each other inline. They must use `Start-AzAutomationRunbook`.
 
 > [!IMPORTANT]
-> Executing child scripts using `.\child-runbook.ps1` is not supported in PowerShell 7.1 and PowerShell 7.2 (preview). 
+> Executing child scripts using `.\child-runbook.ps1` is not supported in PowerShell 7.1 and PowerShell 7.2 
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 
 The publish order of runbooks matters only for PowerShell Workflow and graphical PowerShell Workflow runbooks.

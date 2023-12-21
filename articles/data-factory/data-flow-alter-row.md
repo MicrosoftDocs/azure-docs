@@ -103,6 +103,6 @@ SpecifyUpsertConditions alterRow(insertIf(alterRowCondition == 'insert'),
 	deleteIf(alterRowCondition == 'delete')) ~> AlterRow
 ```
 
-## Next steps
+## Related content
 
 After the Alter Row transformation, you may want to [sink your data into a destination data store](data-flow-sink.md).

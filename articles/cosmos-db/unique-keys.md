@@ -41,7 +41,7 @@ You can define unique keys only when you create an Azure Cosmos DB container. A 
 
 * You can't update an existing container to use a different unique key. In other words, after a container is created with a unique key policy, the policy can't be changed.
 
-* To set a unique key for an existing container, create a new container with the unique key constraint. Use the appropriate data migration tool to move the data from the existing container to the new container. For SQL containers, use the [container copy jobs](intra-account-container-copy.md) to move data. For MongoDB containers, use [mongoimport.exe or mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) to move data.
+* To set a unique key for an existing container, create a new container with the unique key constraint. Use the appropriate data migration tool to move the data from the existing container to the new container. For SQL containers, use the [container copy jobs](container-copy.md) to move data. For MongoDB containers, use [mongoimport.exe or mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) to move data.
 
 * A unique key policy can have a maximum of 16 path values. For example, the values can be `/firstName`, `/lastName`, and `/address/zipCode`. Each unique key policy can have a maximum of 10 unique key constraints or combinations. In the previous example, first name, last name, and email address together are one constraint. This constraint uses 3 out of the 16 possible paths.
 

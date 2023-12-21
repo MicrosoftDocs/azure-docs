@@ -2,12 +2,12 @@
 title: Predicates and PredicateValidations
 titleSuffix: Azure AD B2C
 description: Prevent malformed data from being added to your Azure AD B2C tenant by using custom policies in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
 ms.date: 03/13/2022
 ms.author: kengaderdus

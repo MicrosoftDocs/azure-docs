@@ -232,7 +232,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**: For more information about HTTP status code, see this [document](/troubleshoot/developer/webapps/iis/www-administration-management/http-status-code).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 

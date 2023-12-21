@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 11/07/2023
 ms.custom: event-tier1-build-2022
 ---
-
 # Integrate Apache Kafka on Confluent Cloud with Service Connector
 
-This page shows supported authentication methods and clients to connect Apache kafka on Confluent Cloud to other cloud services using Service Connector. You might still be able to connect to Apache kafka on Confluent Cloud in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This page shows supported authentication methods and clients to connect Apache Kafka on Confluent Cloud to other cloud services using Service Connector. You might still be able to connect to Apache Kafka on Confluent Cloud in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute services
 
 - Azure App Service
+- Azure Functions
 - Azure Container Apps
 - Azure Spring Apps
 
 ## Supported Authentication types and client types
 
-Supported authentication and clients for App Service, Container Apps and Azure Spring Apps:
+Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
 
-| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string           | Service principal |
-|--------------------|----------------------------------|--------------------------------|--------------------------------------|-------------------|
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string         | Service principal |
+| ------------------ | -------------------------------- | ------------------------------ | ---------------------------------- | ----------------- |
 | .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
 | Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
@@ -34,14 +34,14 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 ## Default environment variable names or application properties
 
-Use the connection details below to connect compute services to Kafka. For each example below, replace the placeholder texts `<server-name>`, `<Bootstrap-server-key>`, `<Bootstrap-server-secret>`, `<schema-registry-key>`, and `<schema-registry-secret>` with your server name, Bootstrap server key, Bootstrap server secret, schema registry key, and schema registry secret. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article. Refer to [Kafka Client Examples](https://docs.confluent.io/cloud/current/client-apps/examples.html#) to build kafka client applications on Confluent Cloud.
+Use the connection details below to connect compute services to Kafka. For each example below, replace the placeholder texts `<server-name>`, `<Bootstrap-server-key>`, `<Bootstrap-server-secret>`, `<schema-registry-key>`, and `<schema-registry-secret>` with your server name, Bootstrap server key, Bootstrap server secret, schema registry key, and schema registry secret. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article. Refer to [Kafka Client Examples](https://docs.confluent.io/cloud/current/client-apps/examples.html#) to build Kafka client applications on Confluent Cloud.
 
 ### Secret / Connection String
 
 #### SpringBoot client type
 
-| Default environment variable name                            | Description                              | Example value                                                                                                                              |
-|--------------------------------------------------------------|------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Default environment variable name                            | Description                              | Example value                                                                                                                                |
+| ------------------------------------------------------------ | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | spring.kafka.properties.bootstrap.servers                    | Your Kafka bootstrap server              | `pkc-<server-name>.eastus.azure.confluent.cloud:9092`                                                                                      |
 | spring.kafka.properties.sasl.jaas.config                     | Your Kafka SASL configuration            | `org.apache.kafka.common.security.plain.PlainLoginModule required username='<Bootstrap-server-key>' password='<Bootstrap-server-secret>';` |
 | spring.kafka.properties.schema.registry.url                  | Your Confluent registry URL              | `https://psrc-<server-name>.westus2.azure.confluent.cloud`                                                                                 |

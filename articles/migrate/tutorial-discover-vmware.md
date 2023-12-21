@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 10/25/2023
+ms.date: 11/21/2023
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 #Customer intent: As an VMware admin, I want to discover my on-premises servers running in a VMware environment.
@@ -106,6 +106,9 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 > - vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate.
 
 ### Create an account to access servers
+
+> [!NOTE]
+> Lightweight Directory Access Protocol (LDAP) accounts are not supported for discovery.
 
 Your user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
 

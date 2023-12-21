@@ -1,14 +1,16 @@
 ---
-title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites 
+title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
+ms.custom:
+  - ignite-2023
 ms.date: 08/17/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Prerequisites for Azure Kubernetes Service backup using Azure Backup (preview)
+# Prerequisites for Azure Kubernetes Service backup using Azure Backup
 
 This article describes the prerequisites for Azure Kubernetes Service (AKS) backup.
 
@@ -64,10 +66,7 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, AKS backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
-
-  >[!Note]
-  >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 
+- Azure Backup for AKS supports AKS clusters using either System Identity or User Identity, for backup operations. Although clusters using Service Principle aren't supported, you can [update such AKS cluster to use a Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
 
@@ -104,8 +103,8 @@ Also, as part of the backup and restore operations, the following roles are assi
 
 ## Next steps
 
-- [About Azure Kubernetes Service backup (preview)](azure-kubernetes-service-backup-overview.md)
-- [Supported scenarios for Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-support-matrix.md)
-- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
-- [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
+- [About Azure Kubernetes Service backup](azure-kubernetes-service-backup-overview.md)
+- [Supported scenarios for Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-support-matrix.md)
+- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)

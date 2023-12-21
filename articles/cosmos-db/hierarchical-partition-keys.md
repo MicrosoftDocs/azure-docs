@@ -583,8 +583,9 @@ while (queryIterator.hasMoreResults()) {
 - Working with containers that use hierarchical partition keys is supported only in the .NET v3 SDK, in the Java v4 SDK, and in the preview version of the JavaScript SDK. You must use a supported SDK to create new containers that have hierarchical partition keys and to perform CRUD or query operations on the data. Support for other SDKs, including Python, isn't available currently.
 - There are limitations with various Azure Cosmos DB connectors (for example, with Azure Data Factory).
 - You can specify hierarchical partition keys only up to three layers in depth.
-- Hierarchical partition keys can currently be enabled only on new containers. You must set partition key paths at the time of container creation, and you can't change them later. To use hierarchical partitions on existing containers, create a new container with the hierarchical partition keys set and move the data by using [container copy jobs](intra-account-container-copy.md).
+- Hierarchical partition keys can currently be enabled only on new containers. You must set partition key paths at the time of container creation, and you can't change them later. To use hierarchical partitions on existing containers, create a new container with the hierarchical partition keys set and move the data by using [container copy jobs](container-copy.md).
 - Hierarchical partition keys are currently supported only for the API for NoSQL accounts. The APIs for MongoDB and Cassandra aren't currently supported.
+- Hierarchical partition keys aren't currently supported with the [Permissions feature](secure-access-to-data.md#permissions). You can't assign a permission to a partial prefix of the hierarchical partition key path. Permissions can only be assigned to the entire logical partition key path. For example, if you have partitioned by ``TenantId`` - > ``UserId``, you can't assign a permission that is for a specific value of ``TenantId``. However, you can assign a permission for a partition key if you specify both the value for ``TenantId`` and ``UserId```.
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 10/04/2023
 ms.author: danlep
-ms.custom: 
+ms.custom: devx-track-arm-template, devx-track-bicep
 ---
 # Import a gRPC API (preview)
 

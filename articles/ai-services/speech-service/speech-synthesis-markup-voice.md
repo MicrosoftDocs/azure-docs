@@ -2,7 +2,6 @@
 title: Voice and sound with Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure AI services
 description: Learn about how you can use Speech Synthesis Markup Language (SSML) elements to customize what your Speech service voice sounds like.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
@@ -65,7 +64,7 @@ This example alternates between the `en-US-JennyNeural` and `en-US-ChristopherNe
 
 #### Custom neural voice example
 
-To use your [custom neural voice](how-to-deploy-and-use-endpoint.md#use-your-custom-voice), specify the model name as the voice name in SSML. 
+To use your [custom neural voice](professional-voice-deploy-endpoint.md#use-your-custom-voice), specify the model name as the voice name in SSML. 
 
 This example uses a custom voice named **my-custom-voice**. 
 
@@ -94,7 +93,7 @@ You use the `effect` attribute to optimize the auditory experience for scenarios
 By default, neural voices have a neutral speaking style. You can adjust the speaking style, style degree, and role at the sentence level.
 
 > [!NOTE]
-> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in [Voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [Audio Content Creation](https://aka.ms/audiocontentcreation) web application.
+> The Speech service supports styles, style degree, and roles for a subset of neural voices as described in the [voice styles and roles](language-support.md?tabs=tts#voice-styles-and-roles) documentation. To determine the supported styles and roles for each voice, you can also use the [list voices](rest-text-to-speech.md#get-a-list-of-voices) API and the [audio content creation](https://aka.ms/audiocontentcreation) web application.
 
 The following table describes the usage of the `mstts:express-as` element's attributes:
 
@@ -199,7 +198,7 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
 
 #### Custom neural voice style example
 
-You can train your custom neural voice to speak with some preset styles such as `cheerful`, `sad`, and `whispering`. You can also [train a custom neural voice](how-to-custom-voice-create-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) to speak in a custom style as determined by your training data. To use your custom neural voice style in SSML, specify the style name that you previously entered in Speech Studio.
+You can train your custom neural voice to speak with some preset styles such as `cheerful`, `sad`, and `whispering`. You can also [train a custom neural voice](professional-voice-train-voice.md?tabs=multistyle#train-your-custom-neural-voice-model) to speak in a custom style as determined by your training data. To use your custom neural voice style in SSML, specify the style name that you previously entered in Speech Studio.
 
 This example uses a custom voice named **my-custom-voice**. The custom voice speaks with the `cheerful` preset style and style degree of `2`, and then with a custom style named **my-custom-style** and style degree of `0.01`. 
 
@@ -214,6 +213,22 @@ This example uses a custom voice named **my-custom-voice**. The custom voice spe
         </mstts:express-as>
     </voice>
 </speak>
+```
+
+## Speaker profile ID
+
+You use the `mstts:ttsembedding` element to specify the `speakerProfileId` property for a [personal voice](./personal-voice-overview.md). Personal voice is a custom neural voice that's trained on your own voice or your customer's voice. For more information, see [create a personal voice](./personal-voice-create-voice.md).
+
+The following SSML example uses the `<mstts:ttsembedding>` element with a voice name and speaker profile ID.
+
+```xml
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
+    <voice xml:lang='en-US' xml:gender='Male' name='PhoenixV2Neural'> 
+    <mstts:ttsembedding speakerProfileId='your speaker profile ID here'> 
+    I'm happy to hear that you find me amazing and that I have made your trip planning easier and more fun. 我很高兴听到你觉得我很了不起，我让你的旅行计划更轻松、更有趣。Je suis heureux d'apprendre que vous me trouvez incroyable et que j'ai rendu la planification de votre voyage plus facile et plus amusante.  
+    </mstts:ttsembedding> 
+    </voice> 
+</speak> 
 ```
 
 ## Adjust speaking languages

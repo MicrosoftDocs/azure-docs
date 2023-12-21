@@ -2,7 +2,7 @@
 title: 'Quickstart: Use the OpenAI Service image generation Go SDK'
 titleSuffix: Azure OpenAI Service
 description: Walkthrough on how to get started with Azure OpenAI image generation using the Go SDK. 
-services: cognitive-services
+#services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include

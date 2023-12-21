@@ -7,7 +7,7 @@ ms.author: msangapu
 ---
 
 > [!NOTE]
-> Azure Key Vault support for Azure Storage is in preview.
+> You can also [configure Azure Storage in an ARM template](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/BYOS_azureFiles.json).
 >
 
 Azure Storage is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud. This guide shows how to mount Azure Storage Files as a network share in Windows code (noncontainer) in App Service. Only [Azure Files Shares](../../../storage/files/storage-how-to-use-files-portal.md) and [Premium Files Shares](../../../storage/files/storage-how-to-create-file-share.md) are supported. Azure Storage is nondefault storage for App Service and billed separately.

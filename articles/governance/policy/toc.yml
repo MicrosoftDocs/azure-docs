@@ -63,6 +63,9 @@
   - name: "Add user assign identities to virtual machines"
     displayName: remediate, identity, user assign, virtual machines, monitoring agent
     href: ./tutorials/modify-virtual-machine-identity.md
+  - name: Disallow resource types
+    displayName: assign, definition, resource, type, exclusion, allow, disallow
+    href: ./tutorials/disallowed-resources.md
 - name: Samples
   items:
   - name: Index
@@ -150,6 +153,8 @@
         href: ./samples/rmit-malaysia.md
       - name: SWIFT CSP-CSCF 2021
         href: ./samples/swift-csp-cscf-2021.md
+      - name: SWIFT CSP-CSCF 2022
+        href: ./samples/swift-csp-cscf-2022.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins

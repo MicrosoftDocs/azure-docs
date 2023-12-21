@@ -85,7 +85,7 @@ The data type you specify for the parameter is the internal service type that ma
 - [Oracle  data type mapping](connector-oracle.md#data-type-mapping-for-oracle)
 - [SQL Server data type mapping](connector-sql-server.md#data-type-mapping-for-sql-server)
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL Activity](transform-data-using-data-lake-analytics.md)

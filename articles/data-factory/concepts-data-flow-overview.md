@@ -125,6 +125,7 @@ Mapping data flows are available in the following regions in ADF:
 | China Non-Regional | |
 | China North | ✓ |
 | China North 2	| ✓ |
+| China North 3 | ✓ |
 | East Asia	| ✓ |
 | East US	| ✓ |
 | East US 2	| ✓ |
@@ -167,7 +168,7 @@ Mapping data flows are available in the following regions in ADF:
 | West US 2	| ✓ |
 | West US 3	| ✓ |
 
-## Next steps
+## Related content
 
 * Learn how to create a [source transformation](data-flow-source.md).
 * Learn how to build your data flows in [debug mode](concepts-data-flow-debug-mode.md).

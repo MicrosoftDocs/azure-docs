@@ -1,10 +1,10 @@
 ---
-services: cognitive-services
+#services: cognitive-services
 author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 05/24/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ---
 
