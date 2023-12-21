@@ -17,15 +17,13 @@ ms.topic: how-to
 
 In this article, you learn how to configure conditional access policies in Microsoft Intune to control access to dev boxes. For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To to configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
 
-Some examples include: 
+Some usage scenarios for conditional access in Microsoft Dev Box include: 
 
 - Restricting access to dev box to only managed devices 
 - Restricting the ability to copy/paste from the dev box 
 - Restricting access to dev box from only certain geographies 
 
 Conditional access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional access policies at their simplest are if-then statements. If a user wants to access a resource, then they must complete an action. Conditional access policies are a powerful tool for being able to keep your organization’s devices secure and environments compliant. 
-
-
 
 ## Prerequisites
 
@@ -69,7 +67,7 @@ To create a conditional access policy that targets dev box devices, you first ne
 
 1. Validate the group and select **Create**. 
 
-1. After creating your dynamic device group, you can view and manage existing groups on the **Groups** pane of the Microsoft Intune admin center.
+1. After creating your dynamic device group, you can view and manage existing groups on the ****Groups**** pane of the Microsoft Intune admin center.
 
 ## Create a conditional access policy  
 
@@ -82,7 +80,7 @@ After creating your device group and validated your dev box devices are members,
 
 1. Select **Endpoint Security** > **Conditional access** > **Create new policy**. 
 
-1. Enter a **Name** for your Conditional Access policy. 
+1. Enter a **Name** for your conditional access policy. 
 
 1. Under **Users**, select the device group you created in the previous section. 
 
@@ -90,7 +88,7 @@ After creating your device group and validated your dev box devices are members,
 
 1. Select **Cloud apps** > **Include** > **Select apps** > **None** (under Select). 
 
-1. In the Select pane, search for and select the apps you require for your scenario: 
+1. In the **Select** pane, search for and select the apps you require for your scenario: 
   
    | App name | App ID | Description |
    | --- | --- | --- |
