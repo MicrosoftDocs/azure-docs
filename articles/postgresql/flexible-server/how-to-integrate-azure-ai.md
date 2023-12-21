@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure AI capabilities into Azure Database for PostgreSQL Flexible Server -Preview
-description: Integrate Azure AI capabilities into Azure Database for PostgreSQL Flexible Server -Preview
+title: Integrate Azure AI capabilities Preview
+description: Integrate Azure AI capabilities into Azure Database for PostgreSQL - Flexible Server - Preview.
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan, carols

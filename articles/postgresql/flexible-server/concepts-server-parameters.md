@@ -1,6 +1,6 @@
 ---
-title: Server parameters - Azure Database for PostgreSQL - Flexible Server
-description: Describes the server parameters in Azure Database for PostgreSQL - Flexible Server
+title: Server parameters
+description: Describes the server parameters in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
 ms.service: postgresql

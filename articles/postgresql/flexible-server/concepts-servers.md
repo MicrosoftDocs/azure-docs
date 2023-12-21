@@ -1,5 +1,5 @@
 ---
-title: Servers in Azure Database for PostgreSQL - Flexible Server
+title: Servers
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Flexible Server.
 ms.author: sunila
 author: sunilagarwal
