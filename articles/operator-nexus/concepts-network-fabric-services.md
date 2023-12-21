@@ -83,4 +83,4 @@ To strengthen security against data exfiltration, Azure supports the allowance o
 
 ## Next steps
 
-- [Isolation Domain](concepts-network-isolation-domain.md)
+- [Isolation Domain](concepts-isolation-domain.md)
