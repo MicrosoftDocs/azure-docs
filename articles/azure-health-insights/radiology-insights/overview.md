@@ -14,7 +14,7 @@ ms.author: janschietse
 
 # What is Radiology Insights (Preview)?
 
-Radiology Insights is a model that aims to provide quality checks as feedback on errors and inconsistencies (mismatches) and ensures critical findings are identified and communicated using the full context of the report. Follow-up recommendations and clinical findings with measurements (sizes) documented by the radiologist are also identified.
+Test Radiology Insights is a model that aims to provide quality checks as feedback on errors and inconsistencies (mismatches) and ensures critical findings are identified and communicated using the full context of the report. Follow-up recommendations and clinical findings with measurements (sizes) documented by the radiologist are also identified.
 
 > [!IMPORTANT]
 > The Radiology Insights model is a capability provided “AS IS” and “WITH ALL FAULTS.” The Radiology Insights model isn't intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability isn't designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of the Radiology Insights model. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.

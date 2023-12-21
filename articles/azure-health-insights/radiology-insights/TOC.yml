@@ -19,21 +19,21 @@ items:
 - name: Concepts
   items:
      - name: Model configuration
-       href: modelconfiguration.md
+       href: model-configuration.md
      - name: Inference information
        href: inferences.md
 - name: Reference
   items:
      - name: REST API
-       href: /rest/api/cognitiveservices/healthinsights/onco-phenotype
+       href: /rest/api/cognitiveservices/healthinsights/radiologyinsights
      - name: SDKs
        items:
          - name: .NET
-           href: /dotnet/api/overview/azure/health.insights.cancerprofiling-readme
+           href: /dotnet/api/overview/azure/health.insights.radiologyinsights-readme
          - name: Java
-           href: /java/api/overview/azure/health-insights-cancerprofiling-readme
+           href: /java/api/overview/azure/health-insights-radiologyinsights-readme
          - name: Python
-           href: /python/api/overview/azure/healthinsights-cancerprofiling-readme
+           href: /python/api/overview/azure/healthinsights-radiologyinsights-readme
 - name: Resources
   items:
      - name: FAQ

@@ -35,7 +35,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the Portal
-            url: quickstart.md   
+            url: get-started.md   
   - title: Help and feedback
     linkLists:
       - linkListType: reference
