@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL - Flexible Server storage iops
+title: Storage iops
 description: This article describes the storage IOPS in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
@@ -16,16 +16,17 @@ ms.date: 07/20/2023
 
 Storage IOPS (I/O Operations Per Second) refer to the number of read and write operations that can be performed by the storage system per second. Higher IOPS values indicate better storage performance, allowing your database to handle more simultaneous read and write operations, resulting in faster data retrieval and improved overall efficiency. When the IOPS setting is set too low, the database server may experience delays in processing requests, resulting in slow performance and reduced throughput. On the other hand, if the IOPS setting is set too high, it may lead to unnecessary resource allocation and potentially increased costs without significant performance improvements.
 
-Azure database for MySQL Flexible Server currently offers two settings for IOPS management, Pre-provisioned IOPS and Autoscale IOPS.
+Azure Database for MySQL flexible server currently offers two settings for IOPS management, Pre-provisioned IOPS and Autoscale IOPS.
 
 ## Pre-provisioned IOPS
-Azure Database for MySQL Flexible Server offers pre-provisioned IOPS, allowing you to allocate a specific number of IOPS to your MySQL database server. This setting ensures consistent and predictable performance for your workloads. With pre-provisioned IOPS, you can define a specific IOPS limit for your storage volume, guaranteeing the ability to handle a certain number of requests per second. This results in a reliable and assured level of performance.
+Azure Database for MySQL flexible server offers pre-provisioned IOPS, allowing you to allocate a specific number of IOPS to your Azure Database for MySQL flexible server instance. This setting ensures consistent and predictable performance for your workloads. With pre-provisioned IOPS, you can define a specific IOPS limit for your storage volume, guaranteeing the ability to handle a certain number of requests per second. This results in a reliable and assured level of performance.
 
 Moreover, Additional IOPS with pre-provisioned refers to the flexibility of increasing the provisioned IOPS for the storage volume associated with the server. You have the option to add extra IOPS beyond the default provisioned level, allowing you to customize the performance aligning with your workload requirements at any time.
 
 ## Autoscale IOPS
 
-Autoscale IOPS offer the flexibility to scale IOPS on demand, eliminating the need to pre-provision a specific amount of IO per second. By enabling Autoscale IOPS, your server will automatically adjust IOPS based on workload requirements. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL - Flexible Server because the server scales IOPs up or down automatically depending on workload needs. 
+Autoscale IOPS offer the flexibility to scale IOPS on demand, eliminating the need to pre-provision a specific amount of IO per second. By enabling Autoscale IOPS, your server will automatically adjust IOPS based on workload requirements. With the Autoscale IOPS featured enable, you can now enjoy worry free IO management in Azure Database for MySQL flexible server because the server scales IOPs up or down automatically depending on workload needs.
+
 With this feature, you'll only be charged for the IO your server actually utilizes, avoiding unnecessary provisioning and expenses for underutilized resources. This ensures both cost savings and optimal performance, making it a smart choice for managing your database workload efficiently.
 
 
@@ -56,7 +57,7 @@ Navigate to the Monitoring in the Azure portal for Azure Database for MySQL Flex
 
 ## Selecting the Optimal IOPS Setting
 
-Having learned how to monitor your IOPS usage effectively, you're now equipped to explore the best settings for your server. When choosing the IOPS setting for your Azure Database for MySQL Flexible Server, several important factors should be considered. Understanding these factors can help you make an informed decision to ensure the best performance and cost-efficiency for your workload.
+Having learned how to monitor your IOPS usage effectively, you're now equipped to explore the best settings for your server. When choosing the IOPS setting for your Azure Database for MySQL flexible server instance, several important factors should be considered. Understanding these factors can help you make an informed decision to ensure the best performance and cost-efficiency for your workload.
 
 ### Performance Optimization
 
@@ -94,7 +95,7 @@ Pre-provisioned IOPS: If you opt for pre-provisioned IOPS, you need to estimate 
 
 **Example workloads: Reporting /Data Analytics Platforms**
 
-Suppose you have Azure Database for MySQL Flexible Server used for data analytics where users submit complex queries and large-scale data processing tasks. 
+Suppose you have Azure Database for MySQL flexible server used for data analytics where users submit complex queries and large-scale data processing tasks. 
 The workload pattern is relatively consistent, with a steady flow of queries throughout the day.
 
 Pre-provisioned IOPS: With pre-provisioned IOPS, you can select a suitable number of IOPS based on the expected workload. As long as the chosen IOPS adequately handle the daily query volume, there's no risk of throttling or performance degradation. This approach provides cost predictability and allows you to optimize resources efficiently without the need for dynamic scaling.
@@ -105,12 +106,12 @@ Autoscale IOPS: The Autoscale feature might not provide significant advantages i
 ## Frequent Asked Questions 
 
 #### How to move from pre-provisioned IOPS to Autoscale IOPS?
-- Access your Azure portal and locate the relevant Azure database for MySQL Flexible Server.
+- Access your Azure portal and locate the relevant Azure database for Azure Database for MySQL flexible server.
 - Go to the Settings blade and choose the Compute + Storage section.
 - Within the IOPS section, opt for Auto Scale IOPS and save the settings to apply the modifications.
 
 #### How soon does Autoscale IOPS take effect after making the change?
-Once you enable Autoscale IOPS for your Azure database for MySQL Flexible Server and save the settings, the changes take effect immediately after the deployment to the resource has completed successfully. This means that the Autoscale IOPS feature will be applied to your database without any delay.
+Once you enable Autoscale IOPS for Azure Database for MySQL flexible server and save the settings, the changes take effect immediately after the deployment to the resource has completed successfully. This means that the Autoscale IOPS feature will be applied to your database without any delay.
 
 #### How to know when IOPS have scaled up and scaled down when the server is using Autoscale IOPS feature? Or Can I monitor IOPS usage for my server?
 Refer to [“Monitor Storage performance”](#monitor-storage-performance) section, which will help to identify if your server has scaled up or scaled down during specific time window.
@@ -118,8 +119,8 @@ Refer to [“Monitor Storage performance”](#monitor-storage-performance) secti
 #### Can I switch between Autoscale IOPS and pre-provisioned IOPS later?
 Yes, you can move back to pre-provisioned IOPS by opting for pre-provisioned IOPS under Compute + Storage section under Settings blade.
 
-#### How do I know how much IOPS have been utilized for Azure database for MySQL Flexible Server?
-My navigating to Monitoring under Overview section. Or navigate to [IO count metrics](./concepts-monitoring.md#list-of-metrics) under Monitoring blade. IO count metric gives sum of IOPS used by server in the selected timeframe.
+#### How do I know how much IOPS have been utilized for Azure Database for MySQL flexible server?
+By navigating to Monitoring under the Overview section, or navigate to [IO count metrics](./concepts-monitoring.md#list-of-metrics) under the Monitoring blade. IO count metric gives the sum of IOPS used by the server in the selected timeframe.
 
 
 

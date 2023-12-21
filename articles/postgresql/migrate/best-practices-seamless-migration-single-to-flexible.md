@@ -30,7 +30,7 @@ During initial base copy of data, multiple insert statements are executed on the
 > [!IMPORTANT]  
 > In both manual configuration and Storage Autogrow, storage size can't be reduced. Each step in the Storage configuration spectrum doubles in size so it's prudent to estimate the required storage beforehand.
 
-A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration. Additionally, it's recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamlessly.
+A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration. Additionally, enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamlessly.
 
 ## Set up Online migration parameters
 
@@ -45,9 +45,12 @@ For Online migration, the Azure replication support should be set to Logical und
 
 You'll need to restart the source Single server after completing all the Online migration prerequisites.
 
+Online migration makes use of logical replication, which has a few [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
+In addition, it's recommended to have a primary key in all the tables of a database undergoing Online migration. If primary key is absent, the deficiency may result in only insert operations being reflected during migration, excluding updates or deletes. Add a temporary primary key to the relevant tables before proceeding with the online migration. Another option is to use the [REPLICA IDENTIY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) action with `ALTER TABLE`. If none of these options work, perform an offline migration as an alternative.
+
 ## Migration timeline
 
-Each migration has a lifecycle of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifecycle of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there is no data loss. Similarly, for Online migration, it's recommended to keep traffic low throughout the migration.
+Each migration has a lifecycle of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifecycle of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there's no data loss. Similarly, for Online migration, keep traffic low throughout the migration.
 
 In most cases, the non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For migration of production server, you need to know the time it would take to complete the migration to plan for it in advance.
 
@@ -166,6 +169,33 @@ VACUUMLO;
 ```
 
 Regularly incorporating these vacuuming strategies ensures a well-maintained PostgreSQL database.
+
+## Special consideration
+
+### Database with postgres_fdw extension
+
+The [postgres_fdw module](https://www.postgresql.org/docs/current/postgres-fdw.html) provides the foreign-data wrapper postgres_fdw, which can be used to access data stored in external PostgreSQL servers. In case, your database uses this extension, the following steps have to be performed to ensure a successful migration.
+
+> [!NOTE]  
+> Steps 2 and 4 should be executed only if the [Migration of users/roles, ownerships and privileges](./concepts-single-to-flexible.md#migration-of-usersroles-ownerships-and-privileges) is not enabled for your server.
+
+1. Temporarily remove (unlink) Foreign data wrapper on the source.
+2. Remove foreign roles/users on source.
+3. Perform data migration of rest using the Migration Tool.
+4. Migrate User/Roles to target using [this script](https://github.com/cpj2195/sterlingtomerumigrations/blob/main/migrate_roles_users.py)
+5. Restore the Foreign data wrapper roles, user and Links to the target after migration is complete.
+
+### Database with postGIS extension
+
+The postgis extension has breaking changes/compat issues between different versions. Hence, the migration tool disallows migration if there is a version incompatibility. If you migrate to a Flexible server running PostgreSQL 11, this is not a problem, because FSPG11 supports same version of postGIS, which is available on Single server as well. So the migration goes ahead in this case. If you migrate to a Flexible server running PostgreSQL 12 or higher, the application should be checked against the changes in newer versions of postGIS to ensure that the application isn't impacted or the necessary changes have to be made to the Application. The [postGIS news](https://postgis.net/news/) and [release notes](https://postgis.net/docs/release_notes.html#idm45191) are a good starting point to understand the breaking changes across versions. Once the changes are taken care of, raise a support request to allow-list migration for your Flexible server to a higher PostgreSQL version.
+
+### Database connection clean-up
+
+Sometimes you may encounter this error when starting a migration:
+
+`CL003:Target database cleanup failed in pre-migration step. Reason: Unable to kill active connections on target database created by other users. Please add pg_signal_backend role to migration user using the command 'GRANT pg_signal_backend to <migrationuser>' and try a new migration.`
+
+In this case, you can grant permissions to the `migrationuser` to close all active connections to the database or you can close the connections manually before retrying the migration.
 
 ## Conclusion
 
