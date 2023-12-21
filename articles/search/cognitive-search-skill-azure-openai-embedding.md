@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: reference
-ms.date: 10/26/2023
+ms.date: 12/21/2023
 ---
 
 #	Azure OpenAI Embedding skill
