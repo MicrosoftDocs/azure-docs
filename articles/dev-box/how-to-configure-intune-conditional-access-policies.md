@@ -89,7 +89,7 @@ After creating your device group and validated your dev box devices are members,
 
 1. Select **Endpoint Security** > **Conditional access** > **Create new policy**. 
 
-1. Enter a **Name** for your Conditional Access policy. 
+1. Enter a **Name** for your conditional access policy. 
 
 1. Under **Users**, select the device group you created in the previous section. 
 
