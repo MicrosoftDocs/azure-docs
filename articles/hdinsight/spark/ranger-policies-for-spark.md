@@ -93,15 +93,15 @@ In this section, you create two Ranger policies for accessing hivesampletable fr
 
 ### Limitation 
 
-1. Spark-sql ranger integration will not work if Ranger admin is down. 
+1. Spark-sql ranger integration not works if Ranger admin is down. 
 
 1. Ranger DB might be overloaded if >20 spark sessions are launched at a time because of continuous policy pulls. 
 
-1. In Ranger Audit logs, “Resource” column on hover doesn’t show the entire query which got executed 
+1. In Ranger Audit logs, “Resource” column on hover doesn’t show the entire query, which got executed 
 
 ### Appendix: 
 
-How user sync will work for large data in AD like we faced in centrica – Sairam 
+How user sync works for large data in AD like we faced in centrica – Sairam 
 
 Ranger DB can be shared with multiple cluster pools 
 
