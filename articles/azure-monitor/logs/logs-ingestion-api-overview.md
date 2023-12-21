@@ -77,13 +77,13 @@ To send data to Azure Monitor with a REST API call, make a POST call over HTTP. 
 The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. The immutable ID is generated for the DCR when it's created. You can retrieve it from the [JSON view of the DCR in the Azure portal](../essentials/data-collection-rule-overview.md?tabs=portal#view-data-collection-rules). `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#streamdeclarations) in the DCR that should handle the custom data.
 
 ```
-{Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2021-11-01-preview
+{Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2023-01-01
 ```
 
 For example:
 
 ```
-https://my-dce-5kyl.eastus-1.ingest.monitor.azure.com/dataCollectionRules/dcr-000a00a000a00000a000000aa000a0aa/streams/Custom-MyTable?api-version=2021-11-01-preview
+https://my-dce-5kyl.eastus-1.ingest.monitor.azure.com/dataCollectionRules/dcr-000a00a000a00000a000000aa000a0aa/streams/Custom-MyTable?api-version=2023-01-01
 ```
 
 ### Headers
@@ -100,17 +100,22 @@ The following table describes that headers for your API call.
 
 ### Body
 
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR. Ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON array with item structure that matches the format expected by the stream in the DCR. If it is needed to send a single item within API call, the data should be sent as a single-item array.
 
 For example:
 
 ```json
+[
 {
     "TimeGenerated": "2023-11-14 15:10:02",
     "Column01": "Value01",
     "Column02": "Value02"
 }
+]
 ```
+
+Ensure that the request body is properly encoded in UTF-8 to prevent any issues with data transmission.
+
 ### Example
 
 See [Sample code to send data to Azure Monitor using Logs ingestion API](tutorial-logs-ingestion-code.md?tabs=powershell#sample-code) for an example of the API call using PowerShell.

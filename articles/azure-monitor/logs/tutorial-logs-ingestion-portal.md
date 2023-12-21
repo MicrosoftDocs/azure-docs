@@ -83,7 +83,7 @@ A [data collection endpoint](../essentials/data-collection-endpoint-overview.md)
 Before you can send data to the workspace, you need to create the custom table where the data will be sent.
 
 > [!NOTE]
-> The table creation for a log ingestion API custom log below can't be used to create a [agent custom log table](../agents/data-collection-text-log.md). You must use the CLI or custom template process to create the table. If you do not have sufficent rights to run CLI or custom tempate you must ask your adminitrator to add the table for you.
+> The table creation for a log ingestion API custom log below can't be used to create a [agent custom log table](../agents/data-collection-text-log.md). You must use the CLI or custom template process to create the table. If you do not have sufficient rights to run CLI or custom template you must ask your administrator to add the table for you.
 
 1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables**. The tables in the workspace will appear. Select **Create** > **New custom log (DCR based)**.
 
@@ -300,7 +300,7 @@ The following PowerShell script generates sample data to configure the custom ta
             # Sending the data to Log Analytics via the DCR!
             $body = $log_entry | ConvertTo-Json -AsArray;
             $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json" };
-            $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2021-11-01-preview";
+            $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2023-01-01";
             $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers;
 
             # Let's see how the response looks
