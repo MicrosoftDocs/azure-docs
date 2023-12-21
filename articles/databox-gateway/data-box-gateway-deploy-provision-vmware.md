@@ -67,7 +67,6 @@ Before you begin:
 To create a virtual device, you need:
 
 * Access to a host system running VMware ESXi Server 6.7, 7.0 or 8.0. The host system is able to dedicate the following resources to your virtual device:
-
   * A minimum of 4 virtual processors.
   * At least 8 GB of RAM.
   * One network interface connected to the network capable of routing traffic to Internet.
@@ -89,7 +88,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image2-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected." lightbox="media/data-box-gateway-deploy-provision-vmware/image2.png":::
 
 1. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK.
-    - The datastore can be either VMFS5 or VMFS6. Databox Gateway has been tested with VMWare with the VMFS5 and VMFS6 Datastore.
+    - The datastore can be either VMFS5 or VMFS6. Databox Gateway has been tested for use on VMWare with the VMFS5 and VMFS6 Datastore.
     - The datastore must also have enough free space for the OS and data disks.
 1. Right-click and select **Browse Datastore**.
 
@@ -97,22 +96,22 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. A **Datastore Browser** window appears.
 
-    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image4-sml.png" alt-text="Screenshot of a page on the ESXi server site that shows the datastore browser."  lightbox="media/data-box-gateway-deploy-provision-vmware/image4.png":::
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image4.png" alt-text="Screenshot of a page on the ESXi server site that shows the datastore browser.":::
 
 1. In the tool bar, click **Create directory** icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **Create directory**.
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image5-sml.png" alt-text="Screenshot of the user creating a directory."  lightbox="media/data-box-gateway-deploy-provision-vmware/image5.png":::
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image5.png" alt-text="Screenshot of the user creating a directory.":::
 
 1. The new folder appears in the left pane of the **Datastore Browser**. Click the **Upload** icon and select **Upload File**.
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image6-sml.png" alt-text="Screenshot of a user uploading a file."  lightbox="media/data-box-gateway-deploy-provision-vmware/image6.png":::
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image6.png" alt-text="Screenshot of a user uploading a file.":::
 
-1. Browse and point to the VMDK files that you downloaded. There are two files. Select a file to upload.
+1. Browse and point to the VMDK files that you downloaded. Select the file to upload.
 
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image7-sml.png" alt-text="Screenshot of a user selecting the file to upload."  lightbox="media/data-box-gateway-deploy-provision-vmware/image7.png":::
 
 1. Click **Open**. The upload of the VMDK file to the specified datastore starts. It may take several minutes for the file to upload.
-1. After the upload is complete, you see the file in the datastore in the folder you created. Now upload the second VMDK file to the same datastore. Once both the files are uploaded, the two files are merged into a single file. You then see a single file in the directory.
+1. After the upload is complete, you see the file in the datastore in the folder you created. 
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image8-sml.png" alt-text="Screenshot showing two VMDK files merged into a single file within the Datastore Browser window."  lightbox="media/data-box-gateway-deploy-provision-vmware/image8.png":::
 
@@ -124,9 +123,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image10-sml.png" alt-text="Screenshot showing options to select a creation type."  lightbox="media/data-box-gateway-deploy-provision-vmware/image10.png":::
 
-1. On **Select a Name and OS Name and Location** page, specify the **Name** of your virtual machine. This name should match the folder name (recommended best practice) you specified earlier in Step 7. Choose **Guest OS family** as Windows and **Guest OS version** as Microsoft Windows Server 2016 (64-bit). Click **Next**.
-
-    ![Select a Name and OS Name and Location page](./media/data-box-gateway-deploy-provision-vmware/image11.png)
+1. On the **Select a name and guest OS** page, specify the **Name** of your virtual machine. This name should match the folder name (recommended best practice) you specified earlier in Step 7. Choose **Guest OS family** as Windows and **Guest OS version** as Microsoft Windows Server 2016 (64-bit). Click **Next**.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image11-sml.png" alt-text="Screenshot showing the contents of the Select a Name and guest OS pane."  lightbox="media/data-box-gateway-deploy-provision-vmware/image11.png":::
 
@@ -134,7 +131,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image12-sml.png" alt-text="Screenshot showing the contents of the Select storage pane." lightbox="media/data-box-gateway-deploy-provision-vmware/image12.png":::
 
-1. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device.
+1. On the **Customize settings** page, set the **CPU** to 4, **Memory** to 8192 MB (or more), **Hard disk 1** as 2 TB (or more). Choose **SCSI hard disk** to add. In this case, it was LSI Logic SAS. **The static IDE disks are not supported.** The **Hard disk 1** is the virtual data disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. Ensure **CD/DVD Drive 1** is removed, which is not needed.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image13-sml.png" alt-text="Screenshot showing the contents of the Customize settings pane." lightbox="media/data-box-gateway-deploy-provision-vmware/image13.png":::
 
@@ -142,15 +139,16 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
      :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk-sml.png" alt-text="Screenshot showing the contents of the Customize Settings region highlighting the Add a new hard disk options."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk.png":::
 
-    Scroll down until you see the **New hard disk** and expand it to view the settings. Set the **Virtual Device Node** to **IDE controller 0**.
+    Scroll toward the bottom until you see the **New hard disk** and expand it to view the settings. Set the **Virtual Device Node** to **IDE controller 0**.
 
      :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-sml.png" alt-text="Screenshot of the Customize Settings region highlighting the Configure a new hard disk options."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk.png":::
 
-1. (Optional) *Perform this step only if you are running VMware ESXi Server 6.7*. On the **Customize settings** page, click **VM options**. Go to **Boot options > Firmware** and change it to **BIOS**. By default, the value is set to EFI. Click **Next**.
+1. On the **Customize settings** page, select **VM options**. Expand **Boot options**. Ensure that the **Firmware** field's drop-down list value is set to **EFI** for ESXi 7.0 or 8.0, and set Do not change it to BIOS.
+ Click **Next**.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi-sml.png" alt-text="Screenshot of the Customize Settings page when the user is running VMware ESXi Server 6.7."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png":::
 
-18. On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Verify that CPU is 4, memory is 8192 MB, network interface is 1 and Hard disk 2 has IDE controller 0. Click **Finish**.
+1. On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Verify that CPU is 4, memory is 8192 MB, network interface is 1 and Hard disk 2 has IDE controller 0. Click **Finish**.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image16-sml.png" alt-text="Screenshot of the initial Ready to Complete page."  lightbox="media/data-box-gateway-deploy-provision-vmware/image16.png":::
 
@@ -158,7 +156,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 Your virtual machine is now provisioned. You will see a notification to the effect and the new virtual machine is added to the list of VMs.
 
-:::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image17-sml.png" alt-text="Screenshot of the New virtual machine added to list of VMs."  lightbox="media/data-box-gateway-deploy-provision-vmware/image17.png":::
+:::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image18-sml.png" alt-text="Screenshot of the New virtual machine added to list of VMs."  lightbox="media/data-box-gateway-deploy-provision-vmware/image18.png":::
 
 The next step is to turn on this VM and get the IP address.
 
@@ -170,6 +168,7 @@ The next step is to turn on this VM and get the IP address.
 Perform the following steps to start your virtual device and connect to it.
 
 #### To start the virtual device
+
 1. Start the virtual device. In the right pane, select your device from the list of VMs and right-click to bring up the context menu. Select **Power** and then select **Power on**. This should power on your virtual machine. You can view the status in the bottom  pane of the web client.
 
     ![Power on the virtual device](./media/data-box-gateway-deploy-provision-vmware/image19.png)
@@ -178,7 +177,7 @@ Perform the following steps to start your virtual device and connect to it.
 
     ![Open the virtual device console](./media/data-box-gateway-deploy-provision-vmware/image20.png)
 
-3. The virtual machine console opens up in a new window. 
+3. The virtual machine console opens up in a new window.
 
     ![Virtual device console](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
@@ -190,8 +189,8 @@ Perform the following steps to start your virtual device and connect to it.
 
    ![Enter virtual device password](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Steps 6-8 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**. 
-   
+6. Steps 6-8 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**.
+
 7. To configure the network, at the command prompt, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
 8. Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
@@ -221,4 +220,3 @@ In this tutorial, you learned about Data Box Gateway topics such as:
 Advance to the next tutorial to learn how to connect, set up, and activate your virtual device.
 
 * [Set up and connect to shares on your Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md)
-
