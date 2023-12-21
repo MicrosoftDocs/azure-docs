@@ -186,8 +186,10 @@ SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.53](https://support.mic
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 Rocky Linux <br>  | [9.57]() | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
-Rocky Linux <br>  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 <br> **Note:** Support for Rocky Linux 9.1 is removed from the support matrix as issues were observed while using it with Azure Site Recovery. |
+Rocky Linux <br>  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
 
+> [!NOTE]
+> Support for Rocky Linux 9.1 is removed from the support matrix as issues were observed while using it with Azure Site Recovery.
 
 ## Linux file systems/guest storage
 

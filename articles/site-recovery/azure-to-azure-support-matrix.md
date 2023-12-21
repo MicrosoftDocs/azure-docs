@@ -238,9 +238,13 @@ SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4) | [9.53](https://support.mi
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 Rocky Linux  | [9.57]() | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
-Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 <br> **Note:** Support for Rocky Linux 9.1 is removed from the support matrix as issues were observed while using it with Azure Site Recovery. |
+Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
 
-> [!NOTE] 
+> [!NOTE]
+> Support for Rocky Linux 9.1 is removed from the support matrix as issues were observed while using it with Azure Site Recovery.
+
+
+> [!IMPORTANT] 
 > To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch) follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
 
 ## Replicated machines - Linux file system/guest storage
