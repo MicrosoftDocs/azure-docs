@@ -113,4 +113,4 @@ After creating your device group and validated your dev box devices are members,
 ## Related content
 
 * [Dynamic membership rules for groups in Microsoft Entra ID](/entra/identity/users/groups-dynamic-membership)
-* [Conditional policies](/mem/intune/protect/conditional-access)
+* [Learn about Conditional Access and Intune](/mem/intune/protect/conditional-access)
