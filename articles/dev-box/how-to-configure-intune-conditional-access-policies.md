@@ -19,7 +19,7 @@ Conditional Access is the protection of regulated content in a system by requiri
 
 For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. 
 
-Some examples include: 
+Some usage scenarios for conditional access in Microsoft Dev Box include: 
 
 - Restricting access to dev box to only managed devices 
 - Restricting the ability to copy/paste from the dev box 
