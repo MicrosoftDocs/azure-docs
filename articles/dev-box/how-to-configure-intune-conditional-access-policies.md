@@ -76,7 +76,7 @@ To create a conditional access policy that targets dev box devices, you first ne
 
 1. Validate the group and select **Create**. 
 
-1. After creating your dynamic device group, you can view and manage existing groups in the Groups view of the Microsoft Intune admin center.
+1. After creating your dynamic device group, you can view and manage existing groups in the **Groups** view of the Microsoft Intune admin center.
 
 ## Create a conditional access policy  
 
