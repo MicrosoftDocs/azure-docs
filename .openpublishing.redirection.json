@@ -4570,7 +4570,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service/containers/configure-language-ruby.md",
-            "redirect_url": "/azure/app-service/configure-language-ruby",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/configure-language-ruby.md",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
             "redirect_document_id": false
         },
         {
@@ -5360,17 +5365,22 @@
         },
         {
             "source_path_from_root": "/articles/app-service/containers/quickstart-ruby.md",
-            "redirect_url": "/azure/app-service/quickstart-ruby",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/quickstart-ruby.md",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-web/app-service-linux-ruby-get-started.md",
-            "redirect_url": "/azure/app-service/quickstart-ruby",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service-web/app-service-linux-using-ruby.md",
-            "redirect_url": "/azure/app-service/quickstart-ruby",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
             "redirect_document_id": false
         },
         {
@@ -5995,12 +6005,17 @@
         },
         {
             "source_path_from_root": "/articles/app-service/containers/tutorial-ruby-mysql-app.md",
-            "redirect_url": "/azure/app-service/tutorial-ruby-postgres-app",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/app-service/containers/tutorial-ruby-postgres-app.md",
-            "redirect_url": "/azure/app-service/tutorial-ruby-postgres-app",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/tutorial-ruby-postgres-app.md",
+            "redirect_url": "https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_ruby_with_container.md",
             "redirect_document_id": false
         },
         {

@@ -3,8 +3,9 @@ title: Enable and view diagnostic logs for Azure Data Lake Analytics
 description: Understand how to set up and access diagnostic logs for Azure Data Lake Analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 03/16/2023
+ms.date: 12/20/2023
 ---
+
 # Accessing diagnostic logs for Azure Data Lake Analytics
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]
@@ -211,5 +212,5 @@ Here's a sample entry in the JSON-formatted audit log. Each blob has one root ob
 
 ## Next steps
 
-[Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
-[Troubleshoot U-SQL jobs](runtime-troubleshoot.md)
+* [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Troubleshoot U-SQL jobs](runtime-troubleshoot.md)
