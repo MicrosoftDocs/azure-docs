@@ -26,9 +26,9 @@ With your SAP landscape operated within RISE and running in a separate virtual n
 
 A virtual network (vnet) peering is the most performant way to connect securely between two virtual networks, all in a private network address space. The peered networks appear as one for connectivity purposes, allowing applications to talk to each other. Applications running in different virtual networks, subscriptions, Azure tenants or regions can communicate directly. Like network traffic on a single virtual network, peering traffic remains in a private address space and doesn't traverse the internet.
 
-For SAP RISE/ECS deployments, virtual peering is the preferred way to establish connectivity with customer’s existing Azure environment. Primary benefits are
-- minimized network latency and maximum throughput between SAP RISE landscape and own applications and services running in Azure
-- no extra complexity and cost with different on-premises communication path for SAP RISE, instead using existing Azure network hub(s)
+For SAP RISE/ECS deployments, virtual peering is the preferred way to establish connectivity with customer’s existing Azure environment. Primary benefits are:
+- Minimized network latency and maximum throughput between SAP RISE landscape and own applications and services running in Azure.
+- No extra complexity and cost with different on-premises communication path for SAP RISE, instead using existing Azure network hub(s).
 
 Virtual network peering can be set up within the same region as your SAP managed environment, but also through [global virtual network peering](../../virtual-network/virtual-network-peering-overview.md) between any two Azure regions. With SAP RISE/ECS available in many [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/), the region should match with workload running in customer virtual networks due to latency and peering cost considerations. However, some of the scenarios (for example, central S/4HANA deployment for a globally present company) also require to peer networks globally. For such globally distributed SAP landscape, we recommend to use multi-region network architecture within your own Azure environment, with SAP RISE peering locally in each geography to your network hubs.
 
@@ -64,7 +64,8 @@ With this architecture, central policies and security rules governing network co
 
 If currently there's no present Azure to on-premises connectivity, contact your SAP representative for details which connections models are possible for the RISE workload. If SAP RISE/ECS establishes on-premises within RISE directly, such on-premises connection is available for reaching the SAP managed virtual network only. Such dedicated ExpressRoute or VPN connection within SAP RISE can't be used to access customer's own Azure virtual networks.
 
-**Important to note**: A virtual network can have [only have one gateway](../../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity), local or remote. With virtual network peering established between SAP RISE using remote gateway transit, no gateways can be added in the SAP RISE/ECS virtual network. A combination of virtual network peering with remote gateway transit together with another virtual network gateway in the SAP RISE/ECS virtual network isn't possible.
+> [!NOTE] 
+> A virtual network can have [only have one gateway](../../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity), local or remote. With virtual network peering established between SAP RISE using remote gateway transit, no gateways can be added in the SAP RISE/ECS virtual network. A combination of virtual network peering with remote gateway transit together with another virtual network gateway in the SAP RISE/ECS virtual network isn't possible.
 
 ## Virtual WAN with SAP RISE managed workloads
 
@@ -100,7 +101,8 @@ Design description and specifics:
 
 DNS zone transfer is applicable for the designs when customers operate custom DNS solution (for example, [AD DS](/windows-server/identity/ad-ds/active-directory-domain-services) or BIND servers) within their hub virtual network.
 
-**Important to note**, that both Azure provided DNS and Azure private zones **do not** support DNS zone transfer capability, hence, can't be used to accept DNS replication from SAP RISE/PCE/ECS DNS servers. Additionally, SAP typically does not support external DNS service providers for the delegated zone.
+> [!NOTE]
+> Both Azure provided DNS and Azure private zones **do not** support DNS zone transfer capability, hence, can't be used to accept DNS replication from SAP RISE/PCE/ECS DNS servers. Additionally, SAP typically does not support external DNS service providers for the delegated zone.
 
 SAP published a blog post on the DNS implementation with SAP RISE in Azure, see [here for details](https://blogs.sap.com/2023/02/27/dns-integration-with-sap-rise-in-multi-cloud-environment-series-guide-azure/).
 
@@ -143,4 +145,4 @@ Check out the documentation:
 - [Integrating Azure services with SAP RISE](./rise-integration-services.md)
 - [Identity and security in Azure with SAP RISE](./rise-integration-security.md)
 - [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
-- [DNS integration with SAP RISE in multi-cloud environment series guide – Azure | SAP Blogs](https://blogs.sap.com/2023/02/27/dns-integration-with-sap-rise-in-multi-cloud-environment-series-guide-azure/)
+- [DNS integration with SAP RISE in multicloud environment series guide – Azure | SAP Blogs](https://blogs.sap.com/2023/02/27/dns-integration-with-sap-rise-in-multi-cloud-environment-series-guide-azure/)

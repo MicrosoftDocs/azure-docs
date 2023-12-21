@@ -21,7 +21,7 @@ To learn more about the opportunities of extending SAP applications with Azure s
 
 We have over thirty years of partnership between SAP and Microsoft, which is a foundation to support common goals long-term, including a joint commitment by SAP and Microsoft to simplify and streamline customers’ journeys to the cloud. For more information, see:
 
-- [SAP partners with Microsoft for first-in-market cloud migration offerings](https://news.microsoft.com/2019/10/20/sap-partners-with-microsoft-for-first-in-market-cloud-migration-offerings/)
+- [SAP Partners with Microsoft for First-in-Market Cloud Migration Offerings](https://news.sap.com/2019/10/sap-microsoft-partnership-cloud-migration-offerings/)
 - [SAP and Microsoft Expand Partnership and Integrate Microsoft Teams Across Solutions](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/)
 - [Come Explore the Future](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/), showing how Microsoft and SAP are partnering to meet the needs of every business.
 - [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://www.sap.com/documents/2021/01/ca0f4c25-c87d-0010-87a3-c30de2ffd8ff.html)
@@ -34,7 +34,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 | ---- | ----------- |
 | [Azure OpenAI service](#azure-openai-service) | Learn how to integrate your SAP workloads with Azure OpenAI service. |
 | [Microsoft Copilot](#microsoft-copilot) | Learn how to integrate your SAP workloads with Microsoft Copilots. |
-| [SAP RISE managed workloads](rise-integration-services.md) | Learn how to integrate your SAP RISE managed workloads with Azure services. |
+| [SAP RISE managed workloads](rise-integration.md#sap-btp-connectivity) | Learn how to integrate your SAP RISE managed workloads with Azure services. |
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |

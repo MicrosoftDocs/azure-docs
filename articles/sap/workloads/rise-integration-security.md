@@ -20,6 +20,8 @@ ms.author: robiro
 
 # Identity, security and monitoring with SAP RISE
 
+This article details integration of Azure identity and security services with a SAP RISE workload. Additionally use of some Azure monitoring services are explained for a SAP RISE landscape.
+
 ## Single sign-on for SAP 
 
 Single sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, steps to implement do not differ from a natively run SAP system. The integration steps with Microsoft Entra ID based SSO are available for typical ECS/RISE managed workloads:

@@ -30,7 +30,7 @@ For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services
 
 SAP RISE customers in Azure have the SAP landscape run by SAP in an Azure subscription owned by SAP. The subscription and all Azure resources of your SAP environment are visible to and managed by SAP only. In turn, the customer's own Azure environment contains applications that interact with the SAP systems. Elements such as virtual networks, network security groups, firewalls, routing, Azure services such as Azure Data Factory and others running inside the customer subscription access the SAP managed landscape. When you engage with Azure support, only resources in your own subscriptions are in scope. Contact SAP for issues with any resources operated in SAP's Azure subscriptions for your RISE workload.
 
-:::image type="complex" source="./media/sap-rise-integration/sap-rise-support.png" alt-text="Support separation between SAP and customer's environments in Azure":::
+:::image type="complex" source="./media/sap-rise-integration/sap-rise-support.png" alt-text="Diagram shows the separation of Azure support between SAP and customer's environments.":::
    This diagram shows a split of different Azure subscriptions. On one side, all customer subscriptions with customer managed workload. Other half with SAP ECS/RISE subscription containing customer's SAP workload, managed by SAP. Each side responsible themselves to contact Azure support, with no crossed responsibilities.
 :::image-end:::
 
