@@ -24,9 +24,14 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
+
 | December 21 | [Defender for Servers at the resource level available as GA](#defender-for-servers-at-the-resource-level-available-as-ga) |
 | December 21 | [Retirement of Classic connectors for multicloud](#retirement-of-classic-connectors-for-multicloud) |
 | December 21 | [Release of the Coverage workbook](#release-of-the-coverage-workbook) | 
+
+|December 21 | [Retirement of Classic connectors for multicloud](#retirement-of-classic-connectors-for-multicloud) |
+| December 21 | [Release of the Coverage workbook](#release-of-the-coverage-workbook) |
+
 | December 14 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Azure Government and Azure operated by 21Vianet](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-in-azure-government-and-azure-operated-by-21vianet) |
 | December 14 | [Public preview of Windows support for Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management](#public-preview-of-windows-support-for-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management) |
 | December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
@@ -162,6 +167,7 @@ For a complete list of alerts, see the [reference table for all security alerts 
 
 | Date | Update |
 |--|--|
+| November 30 | [Four alerts are deprecated](#four-alerts-are-deprecated) |
 | November 27 | [General availability of agentless secrets scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secrets-scanning-in-defender-for-servers-and-defender-cspm) |
 | November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
 | November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
@@ -177,6 +183,17 @@ For a complete list of alerts, see the [reference table for all security alerts 
 | November 15 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
+
+## Four alerts are deprecated
+
+November 30, 2023
+
+As part of our quality improvement process, the following security alerts are deprecated:
+
+- `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
+- `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
+- `Suspicious process termination burst (VM_TaskkillBurst)`
+- `PsExec execution detected (VM_RunByPsExec)`
 
 ### General availability of agentless secrets scanning in Defender for Servers and Defender CSPM
 

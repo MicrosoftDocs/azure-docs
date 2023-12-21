@@ -29,7 +29,6 @@ If you're looking for the latest release notes, you can find them in the [What's
 (#public-preview-of-windows-support-for-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management) | November 27, 2023 | December 2023 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
-| [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) |  | June 2023|
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) |  | August 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |  | September 2023 |
@@ -115,19 +114,6 @@ In November there will be a change as to how Microsoft Defender for Cloud's cost
 Costs will be presented for each protected resource instead of as an aggregation of all resources on the subscription.
 
 If a resource has a tag applied, which are often used by organizations to perform financial chargeback processes, it will be added to the appropriate billing lines.
-
-## Four alerts are set to be deprecated
-
-**Announcement date: October 23, 2023**
-
-**Estimated date for change: November 23, 2023**
-
-As part of our quality improvement process, the following security alerts are set to be deprecated:
-
-- `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
-- `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
-- `Suspicious process termination burst (VM_TaskkillBurst)`
-- `PsExec execution detected (VM_RunByPsExec)`
 
 ## Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
 
