@@ -29,19 +29,6 @@ Here are some benefits for using the networking private link feature with Azure 
 
 Data exfiltration in Azure Database for MySQL flexible server is when an authorized user, such as a database admin, can extract data from one system and move it to another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
 
-Consider a scenario with a user running MySQL Workbench inside an Azure Virtual Machine (VM) connecting to an Azure Database for MySQL flexible server instance provisioned in West US. The example below shows how to limit access with public endpoints on Azure Database for MySQL flexible server using network access controls.
-
-- Disable all Azure service traffic to Azure Database for MySQL flexible server via the public endpoint by setting *Allow Azure Services* to OFF. Ensure no IP addresses or ranges can access the server via [firewall rules](../single-server/concepts-firewall-rules.md).
-
-- Only allow traffic to the Azure Database for MySQL flexible server instance using the Private IP address of the VM. For more information, see the article on [VNet firewall rules](../single-server/how-to-manage-vnet-using-portal.md).
-
-- On the Azure VM, narrow down the scope of outgoing connection by using Network Security Groups (NSGs) and Service Tags as follows
-
-    - Specify an NSG rule to allow traffic for *Service Tag = SQL.WestUs* - only allowing connection to Azure Database for MySQL flexible server in West US
-    - Specify an NSG rule (with a higher priority) to deny traffic for *Service Tag = SQL* - denying connections to Update to Azure Database for MySQL flexible server in all regions
-
-At the end of this setup, the Azure VM can connect only to Azure Database for MySQL flexible server in the West US region. However, the connectivity isn't restricted to a single Azure Database for MySQL flexible server instance. The VM can still connect to any Azure Database for MySQL flexible server instance in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we still need to eliminate it.
-
 With Private Link, you can now set up network access controls like NSGs to restrict access to the private endpoint. By mapping individual Azure PaaS resources to specific private endpoints, access is limited solely to the designated PaaS resource. This effectively restricts a malicious user from accessing any other resource beyond their authorized scope.
 
 ### On-premises connectivity over private peering
