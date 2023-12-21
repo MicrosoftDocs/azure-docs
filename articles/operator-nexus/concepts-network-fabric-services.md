@@ -22,7 +22,7 @@ The Nexus Network Fabric employs a robust, cloud-native proxy designed to protec
 The Network Time Protocol (NTP) is an essential network protocol that aligns the time settings of computer systems over packet-switched networks. In the Azure Operator Nexus instance, NTP is instrumental in ensuring the consistent time settings across all compute nodes and network devices. This level of synchronization is critical for the Network Functions (NFs) operating within the infrastructure. It significantly contributes to the effectiveness of telemetry and security measures, maintaining the integrity and coordination of the system.
 
 ## Nexus Network Fabric Resources
-Content TBD.
+Content TBD
 
 ### InternetGateways
 *InternetGateways* is a critical resource in network architecture, acting as the connecting bridge between a virtual network and the Internet. It enables virtual machines and other entities within a virtual network to communicate seamlessly with external services. These services range from websites and APIs to various cloud services, making InternetGateways a versatile and essential component.
