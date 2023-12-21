@@ -25,8 +25,8 @@ Sharing images to the community is a new capability in [Azure Compute Gallery](.
 > 
 
 > [!WARNING]
-> #### Users will require reader permissions to access the Image.
-> #### Putting any secrets (or) IP on the image is not recommended as the image can be used to create VM and read contents.
+> Users will require reader permissions to access the Image.
+> Putting any secrets (or) IP on the image is not recommended as the image can be used to create VM and read contents.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
