@@ -19,15 +19,15 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: Learn about Azure Business Continuity center (preview)
+  - title: Learn about Azure Business Continuity Center (preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Business Continuity center?
+          - text: What is Azure Business Continuity Center?
             url: business-continuity-center-overview.md
       - linkListType: concept
         links:
-          - text: Azure Business Continuity center support matrix
+          - text: Azure Business Continuity Center support matrix
             url: business-continuity-center-support-matrix.md
           
   # Card (optional)
