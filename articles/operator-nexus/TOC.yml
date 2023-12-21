@@ -20,6 +20,8 @@
           href: concepts-network-fabric.md
         - name: Network Fabric Controller
           href: concepts-network-fabric-controller.md
+        - name: Network Fabric Services
+          href: concepts-network-fabric-services.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
