@@ -9,10 +9,9 @@ ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
 ms.date: 12/19/2023
-zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Azure Cache for Redis input binding for Azure Functions
+# Azure Cache for Redis output binding for Azure Functions
 
 When a function runs, the Azure Azure Cache for Redis output binding retrieves data from a cache and passes it to the input parameter of the function.
 
@@ -28,7 +27,19 @@ For information on setup and configuration details, see the [overview](functions
 
 # [In-process](#tab/in-process)
 
-<!--Content and samples from the C# tab in ##Examples go here.-->
+This is an example of the SetDeleters function.
+
+```c#
+        [FunctionName(nameof(SetDeleter))]
+        public static void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
+            [Redis(Common.connectionStringSetting, "DEL")] out string[] arguments,
+            ILogger logger)
+        {
+            logger.LogInformation($"Deleting recently SET key '{key}'");
+            arguments = new string[] { key };
+        }
+```
 
 # [Isolated process](#tab/isolated-process)
 
@@ -43,6 +54,27 @@ For information on setup and configuration details, see the [overview](functions
 ::: zone pivot="programming-language-java"
 
 <!--Content and samples from the Java tab in ##Examples go here.-->
+
+```java
+public class SetGetter {
+    @FunctionName("SetGetter")
+    public void run(
+            @RedisPubSubTrigger(
+                name = "key",
+                connectionStringSetting = "redisConnectionString",
+                channel = "__keyevent@0__:set")
+                String key,
+            @RedisInput(
+                name = "value",
+                connectionStringSetting = "redisConnectionString",
+                command = "GET {Message}")
+                String value,
+            final ExecutionContext context) {
+            context.getLogger().info("Key '" + key + "' was set to value '" + value + "'");
+    }
+
+```
+
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  

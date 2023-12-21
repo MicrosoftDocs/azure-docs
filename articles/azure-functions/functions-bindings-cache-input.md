@@ -9,7 +9,6 @@ ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
 ms.date: 12/19/2023
-zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Cache for Redis input binding for Azure Functions
@@ -37,18 +36,23 @@ The examples refer to a
 
 # [In-process](#tab/in-process)
 
-<!--Content and samples from the C# tab in ##Examples go here.-->
-Not available in preview.
+The following sample gets any key that was recently set.
+
+```C#
+[FunctionName(nameof(SetGetter))]
+public static void SetGetter(
+    [RedisPubSubTrigger("Redis", "__keyevent@0__:set")] string key,
+    [Redis("Redis", "GET {Message}")] string value,
+    ILogger logger)
+{
+    logger.LogInformation($"Key '{key}' was set to value '{value}'");
+}
+
+```
 
 # [Isolated process](#tab/isolated-process)
 
 Not available in preview.
-
-
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
--->
 
 ---
 
@@ -64,8 +68,6 @@ Not available in preview.
 
 Not available in preview.
 
-Not available in preview.
-
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 
 ::: zone-end  
@@ -78,84 +80,34 @@ Not available in preview.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-This section contains the following examples:
-
-- Sample 1
-- Sample 2
-
-### Sample 1
-
-Sample 1 refers to trigger-redislist:
-
-The following is sample Python code:
-
-The Python v1 programming model requires you to define bindings in a separate _function.json_ file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
-Here's the `__init__.py` file:
+The following sample gets any key that was recently set.
 
 ```python
 import logging
 
-def main(entry: str):
-    logging.info(entry)
+def main(key: str, value: str):
+    logging.info("Key '" + key + "' was set to value '" + value + "'")
+
 ```
-
-From `function.json`, here's the binding data:
-
-```json
-{
-  "bindings": [
-    {
-      "type": "redisListTrigger",
-      "listPopFromBeginning": true,
-      "connectionStringSetting": "redisLocalhost",
-      "key": "listTest",
-      "pollingIntervalInMs": 1000,
-      "messagesPerWorker": 100,
-      "count": 10,
-      "name": "entry",
-      "direction": "in"
-    }
-  ],
-  "scriptFile": "__init__.py"
-}
-```
-
 
 The [configuration](#configuration) section explains these properties.
-
-The following is sample Python code:
-
-
-### Sample 2
-Sample 2 refers to:
-
-<!--Content and samples from the Python tab in ##Examples go here.-->
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
-
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
-
 # [In-process](#tab/in-process)
 
-<!--C# attribute information for the trigger from ## Attributes and annotations goes here, with intro sentence.-->
+| | Description                                                                                                                                                 |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
+
 
 # [Isolated process](#tab/isolated-process)
 
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
+<!-- 
+C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
 -->
@@ -164,6 +116,7 @@ The attribute's constructor takes the following parameters:
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
+
 ## Annotations
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end  
@@ -175,26 +128,11 @@ The attribute's constructor takes the following parameters:
 
 The following table explains the binding configuration properties that you set in the function.json file.
 
-| function.json Property | Description                                                                                                                                                 | Optional | Default |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------:|--------:|
-| `type`                 | Name of the trigger.                                                                                                                                        | No       |         |
-| `listPopFromBeginning` | Whether to delete the stream entries after the function has run. Set to `true`.                                                                             | Yes      | `true`  |
-| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` | No       |         |
-| `key`                  | This field can be resolved using `INameResolver`.                                                                                                           | No       |         |
-| `pollingIntervalInMs`  | How often to poll Redis in milliseconds.                                                                                                                    | Yes      | `1000`  |
-| `messagesPerWorker`    | How many messages each functions instance should process. Used to determine how many instances the function should scale to.                                | Yes      | `100`   |
-| `count`                | Number of entries to read from the cache at one time. These are processed in parallel.                                                                      | Yes      | `10`    |
-| `name`                 | ?                                                                                                                                                           | Yes      |         |
-| `direction`            | Set to `in`.                                                                                                                                                | No       |         |
+| function.json Property | Description                                                                                                                                                 |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
 
-<!-- suggestion 
-
-|function.json property |Description|
-|---------|---------|
-| **type** | Required - must be set to `eventGridTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code for the parameter that receives the event data. |
--->
 
 ### [v2](#tab/python-v2)
 
@@ -238,14 +176,14 @@ The parameter type supported by the XXX trigger depends on the Functions runtime
 <!--Any usage information from the Python tab in ## Usage. -->
 ::: zone-end  
 
-<!---## Extra sections
+## Available Parameter Types
+
+    StackExchange.Redis.RedisValue, string, byte[], ReadOnlyMemory<byte>: The value returned by the command.
+    Custom: The trigger uses Json.NET serialization to map the value returned by the command from a string into a custom type.
 
 Put any sections with content that doesn't fit into the above section headings down here.  
 -->
 
-## host.json settings
-
-<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
 
 ## Next steps
 
