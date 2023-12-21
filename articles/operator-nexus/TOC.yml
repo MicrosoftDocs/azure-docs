@@ -13,8 +13,13 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
-    - name: Network Fabric overview
-      href: concepts-network-fabric.md
+    - name: Network Fabric
+      expanded: false
+      items:
+        - name: Network Fabric overview
+          href: concepts-network-fabric.md
+        - name: Network Fabric Controller
+          href: concepts-network-fabric-controller.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability

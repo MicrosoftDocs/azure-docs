@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Connect to Azure PostgreSQL with GitHub Actions"
-description: Use Azure PostgreSQL from a GitHub Actions workflow
+title: "Quickstart: Connect with GitHub Actions"
+description: Use Azure Database for PostgreSQL - Flexible Server from a GitHub Actions workflow.
 author: sunilagarwal
 ms.author: sunila
 ms.reviewer: maghan
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.custom: github-actions-azure, mode-other, devx-track-azurecli
 ---
 
-# Quickstart: Use GitHub Actions to connect to Azure PostgreSQL
+# Quickstart: Use GitHub Actions to connect to Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 

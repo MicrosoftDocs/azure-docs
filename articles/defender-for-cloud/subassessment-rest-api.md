@@ -10,18 +10,17 @@ ms.topic: how-to
 
 # Container vulnerability assessments REST API
 
-## Overview
-
 Azure Resource Graph (ARG) provides a REST API that can be used to programmatically access vulnerability assessment results for both Azure registry and runtime vulnerabilities recommendations.
 Learn more about [ARG references and query examples](/azure/governance/resource-graph/overview).
 
-Azure and AWS container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
+Azure, AWS, and GCP container registry vulnerabilities sub-assessments are published to ARG as part of the security resources. Learn more about [security sub-assessments](/azure/governance/resource-graph/samples/samples-by-category?tabs=azure-cli#list-container-registry-vulnerability-assessment-results).
 
 ## ARG query examples
 
 To pull specific sub assessments, you need the assessment key.
-* For Azure container vulnerability assessment powered by MDVM the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
-* For AWS container vulnerability assessment powered by MDVM the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
+* For Azure container vulnerability assessment powered by MDVM, the key is `c0b7cfc6-3172-465a-b378-53c7ff2cc0d5`.
+* For AWS container vulnerability assessment powered by MDVM, the key is `c27441ae-775c-45be-8ffa-655de37362ce`.
+* For GCP container vulnerability assessment powered by MDVM, the key is `5cc3a2c1-8397-456f-8792-fe9d0d4c9145`. 
 
 The following is a generic security sub assessment query example that can be used as an example to build queries with. This query pulls the first sub assessment generated in the last hour.
 ```kql
@@ -314,6 +313,161 @@ securityresources
 ]
 ```
 
+### Query result - GCP sub-assessment
+```json
+[
+  {
+    "id": "/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/ microsoft.security/ securityconnectors/{SecurityConnectorName}/securityentitydata/gar-gcp-repository-{RepositoryName}-{Region}/providers/Microsoft.Security/assessments/5cc3a2c1-8397-456f-8792-fe9d0d4c9145/subassessments/{SubAssessmentId}",
+    "name": "{SubAssessmentId}",
+    "type": "microsoft.security/assessments/subassessments",
+    "tenantId": "{TenantId}",
+    "kind": "",
+    "location": "global",
+    "resourceGroup": "{ResourceGroup}",
+    "subscriptionId": "{SubscriptionId}",
+    "managedBy": "",
+    "sku": null,
+    "plan": null,
+    "properties": {
+      "description": "This vulnerability affects the following vendors: Alpine, Debian, Libtiff, Suse, Ubuntu. To view more details about this vulnerability please visit the vendor website.",
+      "resourceDetails": {
+          "id": "us-central1-docker.pkg.dev/detection-stg-manual-tests-2/hital/nginx@sha256:09e210fe1e7f54647344d278a8d0dee8a4f59f275b72280e8b5a7c18c560057f",
+          "source": "Gcp",
+          "resourceType": "repository",
+          "nativeCloudUniqueIdentifier": "projects/detection-stg-manual-tests-2/locations/us-central1/repositories/hital/dockerImages/nginx@sha256:09e210fe1e7f54647344d278a8d0dee8a4f59f275b72280e8b5a7c18c560057f",
+          "resourceProvider": "gar",
+          "resourceName": "detection-stg-manual-tests-2/hital/nginx",
+          "hierarchyId": "788875449976",
+          "connectorId": "40139bd8-5bae-e3e0-c640-2a45cdcd2d0c",
+          "region": "us-central1"
+      },
+      "displayName": "CVE-2017-11613",
+      "additionalData": {
+          "assessedResourceType": "GcpContainerRegistryVulnerability",
+          "vulnerabilityDetails": {
+              "severity": "Low",
+              "lastModifiedDate": "2023-12-09T00:00:00.0000000Z",
+              "exploitabilityAssessment": {
+                  "exploitStepsPublished": false,
+                  "exploitStepsVerified": false,
+                  "exploitUris": [],
+                  "isInExploitKit": false,
+                  "types": [
+                      "PrivilegeEscalation"
+                  ]
+              },
+              "publishedDate": "2017-07-26T00:00:00.0000000Z",
+              "workarounds": [],
+              "references": [
+                  {
+                      "title": "CVE-2017-11613",
+                      "link": "https://nvd.nist.gov/vuln/detail/CVE-2017-11613"
+                  },
+                  {
+                      "title": "129463",
+                      "link": "https://exchange.xforce.ibmcloud.com/vulnerabilities/129463"
+                  },
+                  {
+                      "title": "CVE-2017-11613_oval:com.ubuntu.trusty:def:36061000000",
+                      "link": "https://security-metadata.canonical.com/oval/com.ubuntu.trusty.usn.oval.xml.bz2"
+                  },
+                  {
+                      "title": "CVE-2017-11613_oval:org.debian:def:85994619016140765823174295608399452222",
+                      "link": "https://www.debian.org/security/oval/oval-definitions-stretch.xml"
+                  },
+                  {
+                      "title": "oval:org.opensuse.security:def:201711613",
+                      "link": "https://ftp.suse.com/pub/projects/security/oval/suse.linux.enterprise.server.15.xml.gz"
+                  },
+                  {
+                      "title": "CVE-2017-11613-cpe:2.3:a:alpine:tiff:*:*:*:*:*:alpine_3.9:*:*-3.9",
+                      "link": "https://security.alpinelinux.org/vuln/CVE-2017-11613"
+                  }
+              ],
+              "weaknesses": {
+                  "cwe": [
+                      {
+                          "id": "CWE-20"
+                      }
+                  ]
+              },
+              "cvss": {
+                  "2.0": null,
+                  "3.0": {
+                      "cvssVectorString": "CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L/E:U/RL:U/RC:R",
+                      "base": 3.3
+                  }
+              },
+              "cveId": "CVE-2017-11613",
+              "cpe": {
+                  "version": "*",
+                  "language": "*",
+                  "vendor": "debian",
+                  "softwareEdition": "*",
+                  "targetSoftware": "debian_9",
+                  "targetHardware": "*",
+                  "product": "tiff",
+                  "edition": "*",
+                  "update": "*",
+                  "other": "*",
+                  "part": "Applications",
+                  "uri": "cpe:2.3:a:debian:tiff:*:*:*:*:*:debian_9:*:*"
+              }
+          },
+          "cvssV30Score": 3.3,
+          "artifactDetails": {
+              "lastPushedToRegistryUTC": "2023-12-11T08:33:13.0000000Z",
+              "repositoryName": "detection-stg-manual-tests-2/hital/nginx",
+              "registryHost": "us-central1-docker.pkg.dev",
+              "artifactType": "ContainerImage",
+              "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+              "digest": "sha256:09e210fe1e7f54647344d278a8d0dee8a4f59f275b72280e8b5a7c18c560057f",
+              "tags": [
+                  "1.12"
+              ]
+          },
+          "softwareDetails": {
+              "version": "4.0.8-2+deb9u2",
+              "language": "",
+              "fixedVersion": "4.0.8-2+deb9u4",
+              "vendor": "debian",
+              "category": "OS",
+              "osDetails": {
+                  "osPlatform": "linux",
+                  "osVersion": "debian_9"
+              },
+              "packageName": "tiff",
+              "fixReference": {
+                  "description": "DSA-4349-1: tiff security update 2018 November 30",
+                  "id": "DSA-4349-1",
+                  "releaseDate": "2018-11-30T22:41:54.0000000Z",
+                  "url": "https://security-tracker.debian.org/tracker/DSA-4349-1"
+              },
+              "fixStatus": "FixAvailable",
+              "evidence": [
+                  "dpkg-query -f '${Package}:${Source}:\\n' -W | grep -e ^tiff:.* -e .*:tiff: | cut -f 1 -d ':' | xargs dpkg-query -s",
+                  "dpkg-query -f '${Package}:${Source}:\\n' -W | grep -e ^tiff:.* -e .*:tiff: | cut -f 1 -d ':' | xargs dpkg-query -s"
+              ]
+          }
+      },
+      "timeGenerated": "2023-12-11T10:25:43.8751687Z",
+      "remediation": "Create new image with updated package tiff with version 4.0.8-2+deb9u4 or higher.",
+      "id": "CVE-2017-11613",
+      "status": {
+          "severity": "Low",
+          "code": "Unhealthy"
+      }
+    },
+    "tags": null,
+    "identity": null,
+    "zones": null,
+    "extendedLocation": null,
+    "assessmentKey": "5cc3a2c1-8397-456f-8792-fe9d0d4c9145",
+    "timeGenerated": "2023-12-11T10:25:43.8751687Z"
+  }
+]
+```
+
 ## Definitions
 
 | Name                        | Description                                                  |
@@ -340,7 +494,7 @@ Other context fields for Azure container registry vulnerability assessment
 
 | **Name**             | **Type**                                     | **Description**               |
 | -------------------- | -------------------------------------------- | ----------------------------- |
-| assessedResourceType | string: <br> AzureContainerRegistryVulnerability<br> AwsContainerRegistryVulnerability | Subassessment resource type   |
+| assessedResourceType | string: <br> AzureContainerRegistryVulnerability<br> AwsContainerRegistryVulnerability <br> GcpContainerRegistryVulnerability | Subassessment resource type   |
 | cvssV30Score         | Numeric                                      | CVSS V3 Score                 |
 | vulnerabilityDetails | VulnerabilityDetails                         |                               |
 | artifactDetails      | ArtifactDetails                              |                               |
@@ -474,21 +628,21 @@ Details of the Azure resource that was assessed
 | ID       | string         | Azure resource ID of the assessed resource       |
 | source   | string:  Azure | The platform where the assessed resource resides |
 
-### ResourceDetails - AWS
+### ResourceDetails - AWS / GCP
 
-Details of the AWS resource that was assessed
+Details of the AWS/GCP resource that was assessed
 
 | **Name**                    | **Type**        | **Description**                                  |
 | --------------------------- | --------------- | ------------------------------------------------ |
 | id                          | string          | Azure resource ID of the assessed resource       |
-| source                      | string: Aws     | The platform where the assessed resource resides |
+| source                      | string: Aws/Gcp | The platform where the assessed resource resides |
 | connectorId                 | string          | Connector ID                                     |
 | region                      | string          | Region                                           |
 | nativeCloudUniqueIdentifier | string          | Native Cloud's Resource ID of the Assessed resource in |
-| resourceProvider            | string: ecr     | The assessed resource provider                   |
+| resourceProvider            | string: ecr/gar | The assessed resource provider                   |
 | resourceType                | string          | The assessed resource type                       |
 | resourceName                | string          | The assessed resource name                       |
-| hierarchyId                 | string          | Account ID (Aws)                                 |
+| hierarchyId                 | string          | Account ID (Aws) / Project ID (Gcp)              |
 
 ### SubAssessmentStatus
 
@@ -508,7 +662,7 @@ Programmatic code for the status of the assessment
 | **Name** | **Type** | **Description**|
 | --------------------------- | --------------- | ------------------------------------------------ |
 | Healthy	| string | The resource is healthy |
-| NotApplicable	| string | Assessment for this resource did not happen |
+| NotApplicable	| string | Assessment for this resource didn't happen |
 | Unhealthy | string | The resource has a security issue that needs to be addressed |
 
 ### SecuritySubAssessment
@@ -526,7 +680,7 @@ Security subassessment on a resource
 | properties.id              | string                                                       | Vulnerability ID                                    |
 | properties.impact          | string                                                       | Description of the impact of this subassessment    |
 | properties.remediation     | string                                                       | Information on how to remediate this subassessment |
-| properties.resourceDetails | ResourceDetails: <br> [Azure Resource Details](/azure/defender-for-cloud/subassessment-rest-api#resourcedetails---azure) <br> [AWS Resource Details](/azure/defender-for-cloud/subassessment-rest-api#resourcedetails---aws) | Details of the resource that was assessed           |
+| properties.resourceDetails | ResourceDetails: <br> [Azure Resource Details](/azure/defender-for-cloud/subassessment-rest-api#resourcedetails---azure) <br> [AWS/GCP Resource Details](/azure/defender-for-cloud/subassessment-rest-api#resourcedetails---aws--gcp) | Details of the resource that was assessed           |
 | properties.status          | [SubAssessmentStatus](/azure/defender-for-cloud/subassessment-rest-api#subassessmentstatus) | Status of the subassessment                        |
 | properties.timeGenerated   | string                                                       | The date and time the subassessment was generated  |
 | type                       | string                                                       | Resource type                                       |

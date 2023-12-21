@@ -76,7 +76,9 @@ The following table lists the different tools available for performing the migra
 The next section of the document gives an overview of the Single to Flex Migration tool, its implementation, limitations, and the experience that makes it the recommended tool to perform migrations from single to flexible server.
 
 > [!NOTE]  
-> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in select regions - India Central, India South, Australia Southeast and South East Asia.
+> The Single to Flex Migration tool is available in all Azure regions and currently supports **Offline** migrations. Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+
+:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
 ## Single to Flexible Migration tool - Overview
 
@@ -117,7 +119,7 @@ We recommend customers to use pre-migration validations in the following way:
 4) Start the migration using the **Validate and Migrate** option on the planned date and time.
 
 > [!NOTE]  
-> Pre-migration validations is enabled for flexible servers in North Europe and East US 2 regions. It will be enabled for flexible servers in other Azure regions soon. This functionality is available only in Azure portal. Support for CLI will be introduced at a later point in time.
+> Pre-migration validations is generally available in all public regions. Support for CLI will be introduced at a later point in time.
 
 ## Migration of users/roles, ownerships and privileges
 Along with data migration, the tool automatically provides the following built-in capabilities:
@@ -220,7 +222,7 @@ For the changes to take effect, server restart would be required.
 Use the **Save and Restart** option and wait for the flexible server to restart.
 
 > [!NOTE]  
-> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
+> If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER or PG_PARTMAN extensions are used in your single server, please raise a support request since the migration tool does not handle these extensions.
 
 ##### Create Azure Active Directory users on target server
 > [!NOTE]  

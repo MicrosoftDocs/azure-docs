@@ -1390,6 +1390,7 @@
         "articles/partner-solutions/**/*.md": "Azure Native ISV Services",
         "articles/partner-solutions/**/*.yml": "Azure Native ISV Services",
         "articles/postgresql/scripts/**/*.md": "Azure Database for PostgreSQL - Flexible Server",
+        "articles/postgresql/flexible-server/**/*.md": "Azure Database for PostgreSQL - Flexible Server",
         "articles/purview/**/*.md": "Microsoft Purview",
         "articles/purview/**/*.yml": "Microsoft Purview",
         "articles/quotas/**/*.md": "Azure Quotas",

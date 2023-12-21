@@ -3,7 +3,7 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/18/2023
+ms.date: 12/21/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -40,7 +40,7 @@ The `WebhookData` parameter has the following properties:
 | Property | Description |
 |:--- |:--- |
 | WebhookName | Name of the webhook. |
-| RequestHeader | Hashtable containing the headers of the incoming POST request. |
+| RequestHeader | PSCustomObject containing the headers of the incoming POST request. |
 | RequestBody | Body of the incoming POST request. This body keeps any data formatting, such as string, JSON, XML, or form-encoded. The runbook must be written to work with the data format that is expected. |
 
 There's no configuration of the webhook required to support the `WebhookData` parameter, and the runbook isn't required to accept it. If the runbook doesn't define the parameter, any details of the request sent from the client are ignored.
