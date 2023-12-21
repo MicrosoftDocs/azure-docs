@@ -10,7 +10,7 @@ ms.topic: conceptual
 ---
 
 # Isolation Domain overview
-Isolation domain resources in the Network Function Automation (NFA) service are crucial for establishing both Layer-2 and Layer-3 connectivity among network functions. These resources facilitate efficient communication within and between racks, enhancing the functionality of network functions.
+Isolation domain resources in the NFA service are crucial for establishing both Layer-2 and Layer-3 connectivity among network functions. These resources facilitate efficient communication within and between racks, enhancing the functionality of network functions.
 
 * **Layer-2 Isolation Domain:** This feature enables layer-2 networking within and between server racks. It allows workloads on servers to use a separate layer-2 network for direct connectivity at layer 2 and higher levels.
 
