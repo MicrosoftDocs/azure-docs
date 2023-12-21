@@ -25,35 +25,59 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-More samples for the Azure SQL input binding are available in the GitHub repository.
+More samples for the Azure Cache for Redis input binding are available in the GitHub repository.
 <!-- link to redis samples -->
 
-This section contains the following examples:
-<!-- list of samples -->
-
-The examples refer to a 
-<!-- fill in the details superficially. -->
+The following sample gets any key that was recently set from the _SetGetter_ sample.
 
 # [In-process](#tab/in-process)
 
-The following sample gets any key that was recently set.
-
 ```C#
-[FunctionName(nameof(SetGetter))]
-public static void SetGetter(
-    [RedisPubSubTrigger("Redis", "__keyevent@0__:set")] string key,
-    [Redis("Redis", "GET {Message}")] string value,
-    ILogger logger)
-{
-    logger.LogInformation($"Key '{key}' was set to value '{value}'");
-}
+﻿using Microsoft.Extensions.Logging;
 
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisPubSubTrigger
+{
+    internal class SetGetter
+    {
+        [FunctionName(nameof(SetGetter))]
+        public static void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
+            [Redis(Common.connectionStringSetting, "GET {Message}")] string value,
+            ILogger logger)
+        {
+            logger.LogInformation($"Key '{key}' was set to value '{value}'");
+        }
+    }
+}
 ```
 
 # [Isolated process](#tab/isolated-process)
 
-Not available in preview.
+```csharp
+﻿using Microsoft.Extensions.Logging;
 
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisInputBinding
+{
+    public class SetGetter
+    {
+        private readonly ILogger<SetGetter> logger;
+
+        public SetGetter(ILogger<SetGetter> logger)
+        {
+            this.logger = logger;
+        }
+
+        [Function(nameof(SetGetter))]
+        public void Run(
+            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
+            [RedisInput(Common.connectionStringSetting, "GET {Message}")] string value)
+        {
+            logger.LogInformation($"Key '{key}' was set to value '{value}'");
+        }
+    }
+}
+
+```
 ---
 
 ::: zone-end
@@ -80,7 +104,27 @@ Not available in preview.
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-The following sample gets any key that was recently set.
+Here's the binding data in the _function.json_ file.
+
+```python
+        {
+            "type": "redisPubSubTrigger",
+            "connectionStringSetting": "redisConnectionString",
+            "channel": "__keyevent@0__:set",
+            "name": "key",
+            "direction": "in"
+        },
+        {
+            "type": "redis",
+            "connectionStringSetting": "redisConnectionString",
+            "command": "GET {Message}",
+            "name": "value",
+            "direction": "in"
+        }
+```
+
+
+The following sample gets any key that was recently set from the _SetGetter_ sample.
 
 ```python
 import logging
@@ -102,7 +146,6 @@ The [configuration](#configuration) section explains these properties.
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
-
 
 # [Isolated process](#tab/isolated-process)
 
