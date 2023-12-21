@@ -20,6 +20,8 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 **Additional information**
 
+* Starting Dec 1, 2023, all the gateways SKUs except Basic gateway SKU will use Standard SKU public IP address only. With Basic SKU IP address [announced](https://azure.microsoft.com/en-us/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) to retire on Sep 30, 2025, we are stopping creations of SKUs using Basic IP address.
+  
 * The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 * These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
