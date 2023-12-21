@@ -18,7 +18,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-[!INCLUDE[Quickstart selector](includes/quickstart-selector.md)]
+[!INCLUDE[Quickstart selector](includes/quickstarts-dev-selector.md)]
 
 Get started with the Azure Cosmos DB for NoSQL client library for Go to query data in your containers and perform common operations on individual items. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
