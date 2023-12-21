@@ -47,6 +47,7 @@ In this section, you retrieve the keys from the Azure portal.
 Open up a shell or terminal on a machine with the `redis` image installed. If using WSL, you can [use the Windows Terminal](https://learn.microsoft.com/en-us/windows/wsl/install#ways-to-run-multiple-linux-distributions-with-wsl) to open a Linux command line. You need to check two things before connecting with redis-cli:
 1. Whether TLS access is needed. By default, Azure Cache for Redis instances use [TLS](cache-remove-tls-10-11.md) encryption for connections. Whenever TLS is used on the server side, TLS on redis-cli must be enabled using the `--tls` option. 
 1. The port used. All Enterprise and Enterprise Flash tier caches use port `10000`. Basic, Standard, and Premium tier caches, however, use either port `6379` for non-TLS connections or port `6380` for TLS connections.
+1. Whether the cache instance uses clustering. If you are using a Premium tier cache that uses clustering or an Enterprise/Enterprise Flash tier cache that is using OSS cluster policy, add the `-c`option to ensure all shards can be accessed. 
 
 ### Examples
 The following command can be used to connect to a Basic, Standard, or Premium tier Azure Cache for Redis instance using TLS:
@@ -60,9 +61,17 @@ Connecting to a Basic, Standard, or Premium tier Azure Cache for Redis instance 
 redis-cli.exe -p 6379 -h yourcachename.redis.cache.windows.net -a YourAccessKey
 ```
 
-Connecting to an Enterprise or Enterprise Flash tier cache instance with TLS:
+Connecting to a Basic, Standard, or Premium tier Azure Cache for Redis instance using TLS and clustering:
+```console
+redis-cli.exe -p 6380 -h yourcachename.redis.cache.windows.net -a YourAccessKey --tls -c
+```
+Connecting to an Enterprise or Enterprise Flash tier cache instance using Enterprise cluster policy with TLS:
 ```console
 redis-cli.exe -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey --tls
+```
+Connecting to an Enterprise or Enterprise Flash tier cache instance using  OSS cluster policy without TLS:
+```console
+redis-cli.exe -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey -c
 ```
 ### Testing the connection
 Once the connection is established, you can issue commands to your Azure Cache for Redis instance. One easy way to test the connection is to use the [`PING`](https://redis.io/commands/ping/) command. This command returns `PONG` once recieved:
