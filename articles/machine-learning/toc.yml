@@ -892,8 +892,6 @@
               href: how-to-deploy-mlflow-models-online-endpoints.md
             - name: Use a custom container to deploy a model to an online endpoint
               href: how-to-deploy-custom-container.md
-            - name: Use online endpoints in studio
-              href: how-to-use-managed-online-endpoint-studio.md
             - name: High performance serving with Triton
               href: how-to-deploy-with-triton.md
             - name: Use REST to deploy a model as an online endpoint
