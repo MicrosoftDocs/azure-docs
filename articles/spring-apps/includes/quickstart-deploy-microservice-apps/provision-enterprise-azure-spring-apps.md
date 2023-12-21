@@ -73,7 +73,7 @@ Use the following steps to create the service instance:
 
 1. From the navigation pane, open **Build Service**, and then select **Add** under the **Builders** section.
 
-1. On the **Add Builder** page, for the **Builder name**, use *frontend*; select **io.buildpacks.stacks.jammy-base** for **OS Stack**, select **tanzu-buildpacks/web-servers** for the **Name** of Buildpacks, and then select **Save** to create the builder.
+1. On the **Add Builder** page, for the **Builder name**, use *frontend*. Select **io.buildpacks.stacks.jammy-base** for **OS Stack**, select **tanzu-buildpacks/web-servers** for the **Name** of Buildpacks, and then select **Save** to create the builder.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png" alt-text="Screenshot of the Azure portal that shows the builder creation in Build Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-add-builders.png":::
 
@@ -81,12 +81,12 @@ Use the following steps to create the service instance:
 
 1. From the navigation pane, open **Service Registry**.
 
-1. Select **App binding**, select **Bind app**, select `customers-service` from the list, and then select **Apply**.
+1. Select **App binding**, select **Bind app**, select **customers-service** from the list, and then select **Apply**.
 
 1. Repeat the previous step to bind the following applications:
 
-    - *vets-service*
-    - *visits-service*
+    - **vets-service**
+    - **visits-service**
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Service Registry page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-registry.png":::
 
@@ -96,21 +96,21 @@ Use the following steps to create the service instance:
 
 1. Fill out the repository with the following information, and then select **Validate**:
 
-    - **Name**: *default*
-    - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*
-    - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*
-    - **Label**: *master*
+    - **Name**: *default*.
+    - **Patterns**: *application,api-gateway,customers-service,vets-service,visits-service*.
+    - **URI**: *https://github.com/Azure-Samples/spring-petclinic-microservices-config.git*.
+    - **Label**: *master*.
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png" alt-text="Screenshot of the Azure portal that shows the Configuration Service page with the settings, the Validate button highlighted, and the Apply button disabled." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-validate-configuration-service.png":::
 
 1. After validation, select **Apply** to finish the Application Configuration Service configuration.
 
-1. Select **App binding**, select **Bind app**, select `customers-service` from the list, and then select **Apply**.
+1. Select **App binding**, select **Bind app**, select **customers-service** from the list, and then select **Apply**.
 
 1. Repeat the previous step to bind the following applications:
 
-    - *vets-service*
-    - *visits-service*
+    - **vets-service**
+    - **visits-service**
 
    :::image type="content" source="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png" alt-text="Screenshot of the Azure portal that shows the bind apps in Configuration Service page." lightbox="../../media/quickstart-deploy-microservice-apps/enterprise-bind-configuration.png":::
 
@@ -122,8 +122,8 @@ Use the following steps to create the service instance:
 
 1. Repeat the previous step to save the config file patterns for the following applications:
 
-    - **vets-service**: *application* and *vets-service*
-    - **visits-service**: *application* and *visits-service*
+    - **vets-service**: Select **application** and **vets-service**.
+    - **visits-service**: Select **application** and **visits-service**.
 
 #### Configure Spring Cloud Gateway
 
@@ -176,7 +176,7 @@ Use the following steps to create the service instance:
       az account set --subscription ${SUBSCRIPTION_ID}
       ```
 
-   1. Use the following command to set routing for the Customer service app:
+   1. Use the following command to set routing for the **customers-service** app:
 
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
@@ -193,7 +193,7 @@ Use the following steps to create the service instance:
       ]'
       ```
 
-   1. Use the following command to set routing for the Vet service app:
+   1. Use the following command to set routing for the **vets-service** app:
 
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
@@ -210,7 +210,7 @@ Use the following steps to create the service instance:
       ]'
       ```
 
-   1. Use the following command to set routing for the Visit service app:
+   1. Use the following command to set routing for the **visits-service** app:
 
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
@@ -227,7 +227,7 @@ Use the following steps to create the service instance:
       ]'
       ```
 
-   1. Use the following command to set routing for the Frontend app:
+   1. Use the following command to set routing for the **frontend** app:
 
       ```azurecli
       az spring gateway route-config create --resource-group ${RESOURCE_GROUP} \
@@ -247,4 +247,8 @@ Use the following steps to create the service instance:
 
 #### Configure Developer Tools
 
-From the navigation pane, open **Developer Tools**. Select **Assign endpoint** to assign an endpoint for **Developer Tools**. Save the endpoint of **App Live View** to use later.
+1. From the navigation pane, open **Developer Tools**.
+
+1. Select **Assign endpoint** to assign an endpoint for **Developer Tools**.
+
+1. Save the endpoint of **App Live View** to use later.
