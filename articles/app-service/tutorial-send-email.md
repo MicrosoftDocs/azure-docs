@@ -147,7 +147,7 @@ In your code, make a standard HTTP post to the URL using any HTTP client languag
 - The request contains the heading `Content-Type: application/json`. 
 - To optimize performance, send the request asynchronously if possible.
 
-Click on the preferred language/framework tab below to see an example.
+Select the preferred language/framework tab below to see an example.
 
 ### [ASP.NET](#tab/dotnet)
 
@@ -299,5 +299,5 @@ If you're testing this code on the sample app for [Tutorial: Run a Python (Djang
 
 - [Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)
 - [HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)
-- [Quickstart: Create an example Consumption workflow in multi-tenant Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
+- [Quickstart: Create an example Consumption workflow in multitenant Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md)
 - [Environment variables and app settings reference](reference-app-settings.md)

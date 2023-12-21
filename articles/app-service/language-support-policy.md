@@ -110,7 +110,7 @@ Microsoft and Adoptium builds of OpenJDK are provided and supported on App Servi
 
 \*\* Upcoming versions  
 
-\* Alpine 3.16 is the last supported Alpine distro in App Service. The Ubuntu distribution will be used in the future. It's recommended to pin to a version to avoid switching over Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible. -->
+\* Alpine 3.16 is the last supported Alpine distribution in App Service. It's recommended to pin to a version to avoid switching over to Ubuntu automatically. Make sure you test and switch to Java offering supported by Ubuntu based distributions when possible. -->
 
 # [Windows](#tab/windows)
 
