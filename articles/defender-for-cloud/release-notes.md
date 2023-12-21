@@ -754,7 +754,6 @@ Data-aware security posture in Microsoft Defender for Cloud is now Generally Ava
 
 For more information, see [Data-aware security posture in Microsoft Defender for Cloud](concept-data-security-posture.md).
 
-
 ## Next steps
 
 For past changes to Defender for Cloud, see [Archive for what's new in Defender for Cloud?](release-notes-archive.md).
