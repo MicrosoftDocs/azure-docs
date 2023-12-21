@@ -168,27 +168,37 @@ Perform the steps described in the next section to turn on your new VM and retri
 
 Perform the following steps to start your virtual device and connect to it.
 
-#### To start the virtual device
+### To start the virtual device
 
 1. Start the virtual device. In the right pane, select your device from the list of VMs and right-click to bring up the context menu. To power on your VM, select **Power**, then **Power on**. You can view the status in the bottom pane of the web client.
 
     ![Power on the virtual device](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image19-sml.png" alt-text="Screenshot illustrating the process of powering on a virtual device."  lightbox="media/data-box-gateway-deploy-provision-vmware/image19.png":::
+
 1. Again, select your VM. Right-click and select **Console** and then select **Open in a new window**.
 
     ![Open the virtual device console](./media/data-box-gateway-deploy-provision-vmware/image20.png)
+
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image20-sml.png" alt-text="Screenshot illustrating the process of creating a virtual device session."  lightbox="media/data-box-gateway-deploy-provision-vmware/image20.png":::
 
 1. The virtual machine console opens up in a new window.
 
     ![Virtual device console](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
+    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image21-sml.png" alt-text="Screenshot showing a virtual device console." lightbox="media/data-box-gateway-deploy-provision-vmware/image21.png":::
+
 1. Once the device is running, point and click the cursor on the tab in the upper middle part of the console window. Select **Guest OS > Send keys > Ctrl+Alt+Delete** to unlock the VM.
 
    ![Unlock the virtual device](./media/data-box-gateway-deploy-provision-vmware/image22.png)
 
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image22-sml.png" alt-text="Screenshot illustrating the process of unlocking a virtual device."  lightbox="media/data-box-gateway-deploy-provision-vmware/image22.png":::
+
 1. Provide the password to sign into the machine. The default password is *Password1*.
 
    ![Enter virtual device password](./media/data-box-gateway-deploy-provision-vmware/image23.png)
+
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image23-sml.png" alt-text="Screenshot illustrating the process of entering a virtual device's password." lightbox="media/data-box-gateway-deploy-provision-vmware/image23.png":::
 
 1. Steps 6-8 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non-DHCP environment, you will see a message to the effect: **Use the Set-HcsIPAddress cmdlet to configure the network**.
 
@@ -201,6 +211,7 @@ Perform the following steps to start your virtual device and connect to it.
 1. After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and activation.
 
    ![Banner text and connection URL for virtual device](./media/data-box-gateway-deploy-provision-vmware/image24.png)
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image02-sml.png" alt-text="Screenshot showing the Banner text and connection URL for virtual device."  lightbox="media/data-box-gateway-deploy-provision-vmware/image20.png":::
 
 If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). Modify the device configuration so that it has adequate resources to meet the minimum requirements, then restart and connect to the device. Refer to the minimum configuration requirements in the [Check the host system](#check-the-host-system) section.
 
