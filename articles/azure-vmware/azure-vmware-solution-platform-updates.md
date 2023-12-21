@@ -15,7 +15,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 **VMware vSphere 8.0**
 
-VMware vSphere 8.0 will be rolled out to the Azure VMware Solution starting at the end of November.
+VMware vSphere 8.0 is targted for rollout to Azure VMware Solution starting at the end of January.
 
 **AV64 SKU**
 

@@ -31,7 +31,7 @@ To learn more about Azure Compute Gallery and how to create galleries, see:
 
 ## Prerequisites
 
-- A dev center. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md#1-create-a-dev-center).
+- A dev center. If you don't have one available, follow the steps in [Create a dev center](quickstart-configure-dev-box-service.md#create-a-dev-center).
 - A compute gallery. Images stored in a compute gallery can be used in a dev box definition, provided they meet the requirements listed in the [Compute gallery image requirements](#compute-gallery-image-requirements) section.
 
 > [!NOTE]
