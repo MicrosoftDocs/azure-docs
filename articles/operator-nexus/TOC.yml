@@ -22,6 +22,8 @@
           href: concepts-network-fabric-controller.md
         - name: Network Fabric Services
           href: concepts-network-fabric-services.md
+        - name: Isolation Domain
+          href: concepts-isolation-domain.md
     - name: Nexus Kubernetes
       href: concepts-nexus-kubernetes-cluster.md
     - name: Observability
