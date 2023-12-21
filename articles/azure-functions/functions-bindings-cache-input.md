@@ -139,7 +139,7 @@ The [configuration](#configuration) section explains these properties.
 
 # [In-process](#tab/in-process)
 
-| | Description                                                                                                                                                 |
+|Attribute property | Description                                                                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ConnectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `Command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
@@ -162,7 +162,7 @@ C# attribute information for the trigger goes here with an intro sentence. Use a
 
 ## Annotations
 
-| | Description                                                                                                                                                 |
+| Attribute property | Description                                                                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
 | `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
