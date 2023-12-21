@@ -21,15 +21,19 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
+This is an example of the SetDeleters function.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
 
-This is an example of the SetDeleters function.
-
 ```c#
+﻿using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
+{
+    internal class SetDeleter
+    {
         [FunctionName(nameof(SetDeleter))]
         public static void Run(
             [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
@@ -39,6 +43,8 @@ This is an example of the SetDeleters function.
             logger.LogInformation($"Deleting recently SET key '{key}'");
             arguments = new string[] { key };
         }
+    }
+}
 ```
 
 # [Isolated process](#tab/isolated-process)
@@ -55,39 +61,26 @@ This is an example of the SetDeleters function.
 
 <!--Content and samples from the Java tab in ##Examples go here.-->
 
-```java
-public class SetGetter {
-    @FunctionName("SetGetter")
-    public void run(
-            @RedisPubSubTrigger(
-                name = "key",
-                connectionStringSetting = "redisConnectionString",
-                channel = "__keyevent@0__:set")
-                String key,
-            @RedisInput(
-                name = "value",
-                connectionStringSetting = "redisConnectionString",
-                command = "GET {Message}")
-                String value,
-            final ExecutionContext context) {
-            context.getLogger().info("Key '" + key + "' was set to value '" + value + "'");
-    }
-
-```
-
+Not available in preview.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
 <!--Content and samples from the JavaScript tab in ##Examples go here.-->
 
+Not available in preview.
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
+
+Not available in preview.
 
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
+
+Not available in preview.
 
 <!--Content and samples from the Python tab in ##Examples go here.-->
 
@@ -110,9 +103,21 @@ The attribute's constructor takes the following parameters:
 
 # [In-process](#tab/in-process)
 
-<!--C# attribute information for the trigger from ## Attributes and annotations goes here, with intro sentence.-->
+| | Description                                                                                                                                                 |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ConnectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `Command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
+
+> [!NOTE]
+> All commands are supported for this binding.
+
+### Function Return type
+
+string[]: Arguments for the redis command.
 
 # [Isolated process](#tab/isolated-process)
+
+Not available in preview.
 
 <!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
 
@@ -123,11 +128,17 @@ The attribute's constructor takes the following parameters:
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
+
 ## Annotations
+
+Not available in preview.
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+
 ## Configuration
+
+Not available in preview.
 
 The following table explains the binding configuration properties that you set in the *function.json* file. 
 <!-- this get more complex when you support the Python v2 model. -->
@@ -156,6 +167,8 @@ The parameter type supported by the XXX trigger depends on the Functions runtime
 
 # [Isolated process](#tab/isolated-process)
 
+Not available in preview.
+
 <!--Any usage information specific to isolated worker process, including types. -->
 
 ---
@@ -180,9 +193,6 @@ The parameter type supported by the XXX trigger depends on the Functions runtime
 Put any sections with content that doesn't fit into the above section headings down here.  
 -->
 
-## host.json settings
-
-<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
 
 ## Next steps
 

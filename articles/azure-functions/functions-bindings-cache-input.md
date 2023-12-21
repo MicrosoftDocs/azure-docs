@@ -21,14 +21,12 @@ For information on setup and configuration details, see the [overview](functions
 
 ::: zone pivot="programming-language-csharp"
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
+The following sample gets any key that was recently set from the _SetGetter_ sample.
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-More samples for the Azure Cache for Redis input binding are available in the GitHub repository.
+More samples for the Azure Cache for Redis input binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-redis-extension/tree/main).
 <!-- link to redis samples -->
-
-The following sample gets any key that was recently set from the _SetGetter_ sample.
 
 # [In-process](#tab/in-process)
 
@@ -124,7 +122,6 @@ Here's the binding data in the _function.json_ file.
 ```
 
 
-The following sample gets any key that was recently set from the _SetGetter_ sample.
 
 ```python
 import logging
@@ -144,8 +141,11 @@ The [configuration](#configuration) section explains these properties.
 
 | | Description                                                                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
-| `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
+| `ConnectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `Command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
+
+> [!NOTE]
+> Not all commands are supported for this binding. At the moment, only read commands that return a single output are supported. The full list can be found [here](https://github.com/Azure/azure-functions-redis-extension/blob/main/src/Microsoft.Azure.WebJobs.Extensions.Redis/Bindings/RedisConverter.cs#L61)
 
 # [Isolated process](#tab/isolated-process)
 
@@ -161,6 +161,12 @@ C# attribute information for the trigger goes here with an intro sentence. Use a
 ::: zone pivot="programming-language-java"  
 
 ## Annotations
+
+| | Description                                                                                                                                                 |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `connectionString`     | The name of the setting in the `appsettings` that contains the cache connection string. For example: `<cacheName>.redis.cache.windows.net:6380,password...` |
+| `command`     | The redis-cli command to be executed on the cache with all arguments separated by spaces. For example:  `GET key`, `HGET key field`. |
+
 <!-- Equivalent values for the annotation parameters in Java.-->
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
@@ -221,12 +227,10 @@ The parameter type supported by the XXX trigger depends on the Functions runtime
 
 ## Available Parameter Types
 
-    StackExchange.Redis.RedisValue, string, byte[], ReadOnlyMemory<byte>: The value returned by the command.
-    Custom: The trigger uses Json.NET serialization to map the value returned by the command from a string into a custom type.
-
-Put any sections with content that doesn't fit into the above section headings down here.  
--->
-
+- `StackExchange.Redis.RedisValue, string, byte[], ReadOnlyMemory<byte>`:
+  - The value returned by the command.
+- `Custom`: 
+  - The trigger uses Json.NET serialization to map the value returned by the command from a string into a custom type.
 
 ## Next steps
 
