@@ -49,6 +49,7 @@ When the default health probe is used, the following values for each health prob
 | timeout | 30 seconds |
 | healthyTrehshold | 1 probe |
 | unhealthyTreshold | 3 probes |
+| port | The port number used is defined by the backend port number in the Ingress resource or HttpRoute backend port in the HttpRoute resource. |
 | protocol | HTTP for HTTP and HTTPS when TLS is specified |
 | (http) host | localhost |
 | (http) path | / |
