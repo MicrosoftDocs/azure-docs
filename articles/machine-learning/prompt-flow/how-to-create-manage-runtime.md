@@ -29,15 +29,15 @@ If you're a new user, we recommend that you use the automatic runtime (preview).
 
 ## Permissions and roles for runtime management
 
-To assign role, you need to have `owner` or have `Microsoft.Authorization/roleAssignments/write` permission on the resource.
+To assign roles, you need to have `owner` or `Microsoft.Authorization/roleAssignments/write` permission on the resource.
 
-To use the runtime, assigning the `AzureML Data Scientist` role of workspace to user (if using Compute instance as runtime) or endpoint (if using managed online endpoint as runtime). To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true)
+For users of the runtime, assign the `AzureML Data Scientist` role on the workspace (if you're using a compute instance as a runtime) or endpoint (if you're using a managed online endpoint as a runtime). To learn more, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md?view=azureml-api-2&tabs=labeler&preserve-view=true).
 
 Role assignment might take several minutes to take effect.
 
 ## Permissions and roles for deployments
 
-After deploying a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This operation can be done at any point after the endpoint has been created.
+After you deploy a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This operation can be done at any point after the endpoint has been created.
 
 ## Create a runtime on the UI
 
