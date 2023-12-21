@@ -18,7 +18,7 @@ ms.author: robiro
 
 ---
 
-# Identity, security and monitoring with SAP RISE
+# Azure identity and security services with SAP RISE
 
 This article details integration of Azure identity and security services with a SAP RISE workload. Additionally use of some Azure monitoring services are explained for a SAP RISE landscape.
 
