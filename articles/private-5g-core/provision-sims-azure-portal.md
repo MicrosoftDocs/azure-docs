@@ -125,7 +125,7 @@ If you are creating plaintext SIMs, use the following example. It contains the p
 
 ### Encrypted SIMs
 
-If you are editing an encrypted JSON file provided by a partner SIM vendor, use the following example. If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicy` and/or `staticIpConfiguration` parameters.
+If you are editing an encrypted JSON file provided by a partner SIM vendor, use the following example. It contains the parameters required to provision two encrypted SIMs (`SIM1` and `SIM2`). If you don't want to assign a SIM policy or static IP address now, you can delete the `simPolicy` and/or `staticIpConfiguration` parameters.
 
 ```json
 {
@@ -212,7 +212,7 @@ You'll now begin the SIM provisioning process through the Azure portal.
 
 ## Manually provision a SIM
 
-In this step, you'll enter provisioning values for your SIMs directly into the Azure portal.
+Complete this step if you want to enter provisioning values for your SIMs directly into the Azure portal. Otherwise, skip to [Provision SIMs using a JSON file](#provision-sims-using-a-json-file).
 
 1. In **Add SIMs** on the right, use the information you collected in [Collect the required information for your SIMs](#collect-the-required-information-for-your-sims) to fill out the fields for one of the SIMs you want to provision. You can set **SIM policy** to **None** if you don't want to assign a SIM policy to the SIM at this point.
 1. Set the **SIM group** field to an existing SIM group, or select **Create new** to create a new one. 
@@ -229,7 +229,7 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
 
 ## Provision SIMs using a JSON file
 
-In this step, you'll provision SIMs using a JSON file.
+Complete this step if you want to enter provisioning values for your SIMs using a JSON file.
 
 1. In **Add SIMs** on the right, select **Browse** and then select one of the JSON files you created or edited in [Create or edit JSON files](#create-or-edit-json-files).  
 :::image type="content" source="media/provision-sims-azure-portal/add-sims-json.png" alt-text="Screenshot of the Add SIMs view. It shows Encrypted has been selected as the file type, a JSON file has been uploaded and SIMGroup1 has been selected as the SIM group name." lightbox="media/provision-sims-azure-portal/add-sims-json.png":::
