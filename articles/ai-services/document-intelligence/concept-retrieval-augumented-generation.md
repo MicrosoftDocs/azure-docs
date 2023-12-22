@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
 ms.date: 12/15/2023
 ms.author: luzhan
-monikerRange: '>=doc-intel-3.0.0'
+monikerRange: '>=doc-intel-3.1.0'
 ---
 
 # Retrieval-Augmented Generation with Azure AI Document Intelligence
