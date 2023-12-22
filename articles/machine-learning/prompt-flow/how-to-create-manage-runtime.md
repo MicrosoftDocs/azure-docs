@@ -22,7 +22,7 @@ We support following types of runtimes:
 
 |Runtime type|Underlying compute type|Life cycle management|Customize environment              |
 |------------|----------------------|---------------------|---------------------|
-|automatic runtime (preview)        |Serverless compute| Automatically | Customized by image + requirements.txt in `flow.dag.yaml`|
+|automatic runtime (preview)        |Serverless compute| Automatically | Easily customize packages|
 |Compute instance runtime | Compute instance | Manually | Manually via Azure Machine Learning environment|
 
 For new users, we would recommend using the automatic runtime (preview) that can be used out of box, and you can easily customize the environment by adding packages in `requirements.txt` file in `flow.dag.yaml` in flow folder. For  users, who already familiar with Azure Machine Learning environment and compute instance, your can use existing compute instance and environment to build your compute instance runtime.
@@ -122,9 +122,13 @@ You can operate automatic runtime (preview) in flow page. Here are options you c
 
 You can also customize environment used to run this flow. 
 
-- You can easily customize the environment by adding packages in `requirements.txt` file in flow folder. After you add more packages in this file, you can choose either save and install or save only. Save and install will trigger the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install. Save only will only save the `requirements.txt` file, you can install the packages later by yourself.
+- You can easily customize the environment by adding packages in `requirements.txt` file in flow folder. After you add more packages in this file, you can choose either save and install or save only. Save and install will trigger the `pip install -r requirements.txt` in flow folder. It takes minutes depends on the packages you install. Save only will only save the `requirements.txt` file, you can trigger "install packages" operation later by yourself.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime (preview) on flow page. " lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+
+> [!NOTE]
+> You can change the location and even file name of `requirements.txt` but change it in `flow.dag.yaml` file in flow folder as well.
+> Please don't pin version of promptflow and promptflow-tools in `requirements.txt`, as we already include them in runtime base image.
 
 #### Add packages in private feed in Azure DevOps
 
