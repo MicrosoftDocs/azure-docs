@@ -220,7 +220,7 @@ Follow [this guideline](/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authen
 
 :::image type="content" source="../media/use-your-data/vpn-client.png" alt-text="A screenshot showing where to import Azure VPN Client profile." lightbox="../media/use-your-data/vpn-client.png":::
 
-Configure your local machine `hosts` file point your resources host names to the private IPs in your virtual network. The `hosts` is at `C:\Windows\System32\drivers\etc` for Windows, and at `/etc/hosts` on Linux. Example:
+Configure your local machine `hosts` file to point your resources host names to the private IPs in your virtual network. The `hosts` file is located at `C:\Windows\System32\drivers\etc` for Windows, and at `/etc/hosts` on Linux. Example:
 
 ```
 10.0.0.5 contoso.openai.azure.com
