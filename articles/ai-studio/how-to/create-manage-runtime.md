@@ -108,10 +108,6 @@ You can also customize the environment used to run this flow.
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of save and install packages for automatic runtime on flow page. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
 
-> [!NOTE]
-> You can change the location and even file name of `requirements.txt` but change it in `flow.dag.yaml` file in flow folder as well.
-> Please don't pin version of promptflow and promptflow-tools in `requirements.txt`, as we already include them in runtime base image.
-
 #### Add packages in private feed in Azure DevOps
 
 If you want to use a private feed in Azure DevOps, add the Managed Identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity)
