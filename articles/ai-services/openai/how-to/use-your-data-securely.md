@@ -27,7 +27,7 @@ When you use Azure OpenAI on your data to ingest data into Azure AI Search, the 
 
 :::image type="content" source="../media/use-your-data/ingestion-architecture.png" alt-text="A diagram showing the process of ingesting data." lightbox="../media/use-your-data/ingestion-architecture.png":::
 
-* The first 2 steps are only used for file upload.
+* The first two steps are only used for file upload.
 * Downloading URLs to your blob storage is not illustrated on this diagram. After the web pages are downloaded from Internet, and uploaded to blob storage, everything is the same from step 3.
 * Ingestion assets, including 2 indexers, 2 indexes, 2 data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) are created in the Azure AI Search resource, and the chunk container is created in the blob storage.
 * If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes), the ingestion process starts from step `[7]`.
@@ -35,7 +35,7 @@ When you use Azure OpenAI on your data to ingest data into Azure AI Search, the 
 * Azure OpenAI:
     1. Internally uses the first indexer created earlier to crack the documents.
     1. Uses a heuristic-based algorithm to perform chunking, honoring table layouts and other formatting elements in the chunk boundary to ensure the best chunking quality.
-    1. If you choose to enable vector search, uses the selected embedding deployment to vectorize the chunks within your Azure OpenAI.
+    1. If you choose to enable vector search, Azure OpenAI uses the selected embedding deployment to vectorize the chunks internally.
 * When all the data that the service is monitoring are processed, Azure OpenAI triggers the second indexer.
 * The indexer stores the processed data into an Azure AI Search service.
 
