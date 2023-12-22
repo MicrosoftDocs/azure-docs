@@ -21,8 +21,7 @@ This article describes how to use Azure CLI to get real-time logs of managed com
 For streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
 
 ## Prerequisites
-
-- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, minimum version 1.18.0. You can install the extension by using the following command: `az extension add --name spring`
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension. You can install the extension by using the following command `az extension add --name spring` with extension version starts from `1.18.0`.
 
 
 ## Supported managed components
@@ -353,14 +352,6 @@ az spring component logs \
 ```
 
 When stream logs for multiple instances in a component, the logs of one instance interleave with logs of others.
-
-## Logging options
-
-Use the following command to check all the logging options that are supported.
-
-```azurecli
-az spring component logs --help
-```
 
 ## Stream logs in a virtual network injection instance
 
