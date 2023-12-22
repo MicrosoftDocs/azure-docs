@@ -16,7 +16,7 @@ This article shows you how to create a connection to an AKS node and update the 
 
 ## Before you begin
 
-This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows]. Make sure you save the key pair in an OpenSSH format, other formats like .ppk aren't supported.
+This article assumes you have an SSH key. If not, you can create an SSH key using [macOS or Linux][ssh-nix] or [Windows][ssh-windows],to know more refer [Manage SSH configuration][manage-ssh-node-access]. Make sure you save the key pair in an OpenSSH format, other formats like .ppk aren't supported.
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -33,11 +33,10 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
     The following example resembles output from the command:
     
     ```output
-    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE
-               KERNEL-VERSION      CONTAINER-RUNTIME
-    aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
-    aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS               5.15.0-1039-azure   containerd://1.7.1+azure-1
-    aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter   10.0.20348.1787     containerd://1.6.21+azure
+    NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE    
+    aks-nodepool1-37663765-vmss000000   Ready    agent   166m   v1.25.6   10.224.0.33   <none>        Ubuntu 22.04.2 LTS               
+    aks-nodepool1-37663765-vmss000001   Ready    agent   166m   v1.25.6   10.224.0.4    <none>        Ubuntu 22.04.2 LTS              
+    aksnpwin000000                      Ready    agent   160m   v1.25.6   10.224.0.62   <none>        Windows Server 2022 Datacenter  
     ```
 
 2. Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
@@ -68,12 +67,12 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 ## Create an interactive shell connection to a Linux node using private IP
 
-In the event that you do not have access to the Kubernetes API through kubectl, you can get access to properties such as ```Node IP``` and ```Node Name``` through the [AKS Agentpool REST API][agentpool-rest-api] (preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node , you need to be in the cluster's virtual network. 
+In the event that you do not have access to the Kubernetes API through kubectl, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agentpool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node , you need to be in the cluster's virtual network, refer more information [here][Vnet-Integration]. 
 
 1. To get the private IP via CLI use az cli version 2.53 or above with aks-preview extension installed.
 
 ```bash
-    az aks machine list --sub mySub --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1
+    az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster -nodepool-name nodepool1
    
  ```
 
@@ -81,7 +80,7 @@ The following example resembles output from the command:
  ```output
    [
   {
-    "id": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/TestKaar/providers/Microsoft.ContainerService/managedClusters/contoso/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003",
+    "id": "/subscriptions/1234/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003",
     "name": "aks-nodepool1-19409214-vmss000003",
     "properties": {
       "network": {
@@ -92,9 +91,9 @@ The following example resembles output from the command:
           }
         ]
       },
-      "resourceId": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/MC_TestKaar_contoso_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
+      "resourceId": "/subscriptions/1234/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
     },
-    "resourceGroup": "TestKaar",
+    "resourceGroup": "myResourceGroup",
     "type": "Microsoft.ContainerService/managedClusters/agentPools/machines"
   }
 ]                  
@@ -109,7 +108,7 @@ To target a specific node inside the agentpool , use this command:
 ```output
    [
     {
-  "id": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/TestKaar/providers/Microsoft.ContainerService/managedClusters/contoso/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003/aks-nodepool1-19409214-vmss000003",
+  "id": "/subscriptions/1234/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003/aks-nodepool1-19409214-vmss000003",
   "name": "aks-nodepool1-19409214-vmss000003",
   "properties": {
     "network": {
@@ -120,15 +119,15 @@ To target a specific node inside the agentpool , use this command:
         }
       ]
     },
-    "resourceId": "/subscriptions/3368aba5-673c-452f-96b8-71326a289646/resourceGroups/MC_TestKaar_contoso_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
+    "resourceId": "/subscriptions/1234/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
   },
-  "resourceGroup": "TestKaar",
+  "resourceGroup": "myResourceGroup",
   "type": "Microsoft.ContainerService/managedClusters/agentPools/machines"
 }
    ]
    ```
 
-2. Use the private IP to SSH into the node
+2. Use the private IP to SSH into the node, refer connecting through cluster Vnet [here][Vnet-Integration]. [Azure Bastion][azure-bastion] also provides you information for securely connecting to virtual machines via private IP address.
 
 ```bash
 ssh azureuser@10.224.0.33
@@ -298,3 +297,4 @@ See [Manage SSH configuration][manage-ssh-node-access] to learn about managing t
 [how-to-install-azure-extensions]: /cli/azure/azure-cli-extensions-overview#how-to-install-extensions
 [agentpool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
+[Vnet-Integration]:api-server-vnet-integration.md#create-an-aks-cluster-with-api-server-vnet-integration-using-managed-vnet
