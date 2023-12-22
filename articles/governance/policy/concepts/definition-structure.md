@@ -539,7 +539,7 @@ But the desired behavior can be achieved using `field` logic:
     "field": "type",
     "equals": "Microsoft.Network/publicIPAddresses"
 }
-``````
+```
 
 #### Use tags with parameters
 
