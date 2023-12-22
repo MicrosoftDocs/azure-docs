@@ -41,14 +41,14 @@ The following image shows the landing page for Document Intelligence Studio.
 * Document Intelligence supports sophisticated analysis capabilities. The Studio allows one entry point (Analyze options button) for configuring the add-on capabilities with ease.
 * Depending on the document extraction scenario, configure the analysis range, document page range, optional detection, and premium detection features.
 
-    :::image type="content" source="media/studio/analyze-options.png" alt-text="Screenshot of the analyze options dialog window.":::
+    :::image type="content" source="media/studio/analyze-options.png" alt-text="Screenshot of the analyze-options dialog window.":::
 
     > [!NOTE]
     > Font extraction is not visualized in Document Intelligence Studio. However, you can check the styles section of the JSON output for the font detection results.
 
 ✔️ **Auto labeling documents with prebuilt models or one of your own models**
 
-* In custom extraction model labeling page, you can now auto label your documents using one of Document Intelligent Service prebuilt models or models you have trained before.
+* In custom extraction model labeling page, you can now auto label your documents using one of Document Intelligent Service prebuilt models or your trained models.
 
     :::image type="content" source="media/studio/auto-label.gif" alt-text="Animated screenshot showing auto labeling in Studio.":::
 
@@ -64,7 +64,7 @@ The following image shows the landing page for Document Intelligence Studio.
 
 ✔️ **Add test files directly to your training dataset**
 
-* Once you have trained a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed.
+* Once you train a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed.
 
 * If a low confidence score is returned for some labels, make sure they're correctly labeled. If not, add them to the training dataset and relabel to improve the model quality.
 

@@ -98,11 +98,11 @@ In this quickstart, you use the following features to analyze and extract data a
 
 1. Right-click on your **doc_intel_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../media/quickstarts/select-doc-intel-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
+    :::image type="content" source="../../media/quickstarts/select-doc-intel-nuget-package.png" alt-text="Screenshot of select NuGet prerelease package window in Visual Studio.":::
 
 1. Select the Browse tab and type Azure.AI.DocumentIntelligence. Choose the **Include prerelease** checkbox and select version 1.0.0-beta.1 from the dropdown menu
 
-     :::image type="content" source="../../media/quickstarts/doc-intel-preview-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
+     :::image type="content" source="../../media/quickstarts/doc-intel-preview-package.png" alt-text="Screenshot of select Document Intelligence prerelease NuGet package in Visual Studio.":::
 
 :::moniker-end
 
@@ -110,11 +110,11 @@ In this quickstart, you use the following features to analyze and extract data a
 
  1. Right-click on your **form_recognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
+    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of find NuGet package window in Visual Studio.":::
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer. Select version 4.1.0 from the dropdown menu
 
-     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
+     :::image type="content" source="../../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot of select NuGet Form Recognizer package in Visual Studio.":::
 
 :::moniker-end
 
@@ -122,11 +122,11 @@ In this quickstart, you use the following features to analyze and extract data a
 
  1. Right-click on your **form_recognizer_quickstart** project and select **Manage NuGet Packages...** .
 
-    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of select NuGet package window in Visual Studio.":::
+    :::image type="content" source="../../media/quickstarts/select-nuget-package.png" alt-text="Screenshot of the NuGet package window in Visual Studio.":::
 
  1. Select the Browse tab and type Azure.AI.FormRecognizer. Select version 4.0.0 from the dropdown menu
 
-     :::image type="content" source="../../media/quickstarts/nuget-2022-8-31-package.png" alt-text="Screenshot of select prerelease NuGet package in Visual Studio.":::
+     :::image type="content" source="../../media/quickstarts/nuget-2022-8-31-package.png" alt-text="Screenshot of select NuGet legacy package in Visual Studio.":::
 
 :::moniker-end
 
@@ -293,7 +293,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Once you add a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program button.":::
 
 :::moniker-end
 
@@ -385,7 +385,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Once you add a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../media/quickstarts/run-form-recognizer.png" alt-text="Screenshot of run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-form-recognizer.png" alt-text="Screenshot of run your Visual Studio program button location.":::
 
 ### Layout model output
 
@@ -713,7 +713,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 Once you add a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot of run your Visual Studio program button.":::
 
 :::moniker-end
 
@@ -834,7 +834,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 Once you add a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../media/quickstarts/run-form-recognizer.png" alt-text="Screenshot of run your Visual Studio program.":::
+  :::image type="content" source="../../media/quickstarts/run-form-recognizer.png" alt-text="Screenshot of run your Visual Studio program button location.":::
 
 ### Prebuilt model output
 
