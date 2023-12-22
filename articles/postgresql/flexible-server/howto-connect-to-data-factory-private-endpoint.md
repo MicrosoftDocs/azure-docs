@@ -62,12 +62,12 @@ When both provisioning succeeded and the endpoint are approved, we can finally c
 
 1. After following previous steps, when selecting the server for which we created the private endpoint, the private endpoint gets selected automatically as well.
 
-1. Next,  select database, enter username/password and be sure to select "SSL" as encryption method, as shown in the following example:
+1. Next, select database, enter username/password and be sure to select "SSL" as encryption method, as shown in the following example:
    :::image type="content" source="./media/howto-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png" alt-text="Example screenshot of connection properties." lightbox="./media/howto-connect-to-data-factory-private-endpoint/data-factory-data-source-connection.png":::
 
 1. Select test connection. You should see "Connection Successful" message next to test connection button.
 
-## Next step
+## Next step 
 
 > [!div class="nextstepaction"]
 > [Networking with private link in Azure Database for PostgreSQL - Flexible Server](concepts-networking-private-link.md)
