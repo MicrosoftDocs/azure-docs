@@ -3,7 +3,7 @@ title: Connect multiple Azure VMware Solution private clouds in the same region
 description: Learn how to create a network connection between two or more Azure VMware Solution private clouds located in the same region.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/07/2023
+ms.date: 12/22/2023
 ms.custom: engagement-fy23
 ---
 
@@ -13,7 +13,9 @@ The **AVS Interconnect** feature lets you create a network connection between tw
 
 You can connect a private cloud to multiple private clouds, and the connections are nontransitive. For example, if _private cloud 1_ is connected to _private cloud 2_, and _private cloud 2_ is connected to _private cloud 3_, private clouds 1 and 3 wouldn't communicate until they were directly connected.
 
-You can only connect private clouds in the same region. To connect private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect them in the same way you connect your private cloud to your on-premises circuit. 
+You can only connect private clouds in the same region. To connect private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect them in the same way you connect your private cloud to your on-premises circuit.
+
+:::image type="content" source="media/networking/avs-interconnect.png" alt-text="Screenshot showing the AVS Interconnect tab under Connectivity." border="true" lightbox="media/networking/avs-interconnect.png":::
 
 ## Supported regions
 
