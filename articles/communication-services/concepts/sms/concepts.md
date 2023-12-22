@@ -44,8 +44,8 @@ Sending SMS to any recipient requires getting a phone number. Choosing the right
 |**Calling support**|Yes| No | No |No |
 |**Provisioning time**| 5-6 weeks| 6-8 weeks  | Instant       | 4-5 weeks|
 |**Throughput**       | 200 messages/min (can be increased upon request)| 6000 messages/ min (can be increased upon request) | 600 messages/ min (can be increased upon request)|600 messages/ min (can be increased upon request)|
-|**Supported Destinations**| United States, Canada, Puerto Rico| United States, Canada, United Kingdom   |  Germany, Netherlands, United Kingdom, Australia, France, Switzerland, Sweden, Italy, Spain, Denmark, Ireland, Portugal, Poland, Austria, Lithuania, Latvia, Estonia| Norway, Finland, Slovakia, Slovenia, Czech Republic|
-|**Get started**|[Get a toll-free number](../../quickstarts/telephony/get-phone-number.md)|[Get a short code](../../quickstarts/sms/apply-for-short-code.md) | [Enable alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md) |[Enable alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md) |
+|**Supported Destinations**| United States, Canada, Puerto Rico| United States, Canada, United Kingdom   |  Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland, United Kingdom| Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia|
+|**Get started**|[Get a toll-free number](../../quickstarts/telephony/get-phone-number.md)|[Get a short code](../../quickstarts/sms/apply-for-short-code.md) | [Enable dynamic alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-dynamic-alphanumeric-sender-id) |[Enable preregistered alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-preregistered-alphanumeric-sender-id) |
 
 \* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.
 
