@@ -127,6 +127,6 @@ This section provides answers to common questions.
 
 ## Next steps
 - [Configure Grafana using managed system identity](./prometheus-grafana.md).
-- [Collect Prometheus metrics for your AKS cluster](../essentials/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
+- [Collect Prometheus metrics for your AKS cluster](../containers/kubernetes-monitoring-enable.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).  

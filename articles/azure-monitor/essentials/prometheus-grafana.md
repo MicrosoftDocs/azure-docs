@@ -146,6 +146,6 @@ This section provides answers to common questions.
 
 ## Next steps
 - [Configure self-managed Grafana to use Azure-managed Prometheus with Microsoft Entra ID](./prometheus-self-managed-grafana-azure-active-directory.md).
-- [Collect Prometheus metrics for your AKS cluster](../essentials/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
+- [Collect Prometheus metrics for your AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
 - [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).

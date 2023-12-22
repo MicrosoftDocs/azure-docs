@@ -6245,8 +6245,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure-monitor/essentials/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana",
-            "redirect_url": "/azure/azure-monitor/containers/prometheus-metrics-enable",
+            "source_path_from_root": "/articles/azure-monitor/essentials/prometheus-metrics-enable.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana",
             "redirect_document_id": false
         },
         {
