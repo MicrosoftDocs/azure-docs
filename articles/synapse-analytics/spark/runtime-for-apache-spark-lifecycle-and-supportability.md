@@ -3,8 +3,8 @@ title: Synapse runtime for Apache Spark lifecycle and supportability
 description: Lifecycle and support policies for Synapse runtime for Apache Spark
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: maghan
-ms.date: 12/01/2023
+ms.reviewer: eskot, sngun
+ms.date: 12/22/2023
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: reference
@@ -22,7 +22,7 @@ The Apache Spark project usually releases minor versions about __every 6 months_
 
 The following chart captures a typical lifecycle path for a Synapse runtime for Apache Spark.
 
-:::image type="content" source="./media/runtime-for-apache-spark-lifecycle/runtime-for-apache-spark-lifecycle.png" alt-text="How to enable Intelligent Cache during new Spark pools creation." lightbox="./media/runtime-for-apache-spark-lifecycle/runtime-for-apache-spark-lifecycle.png":::
+:::image type="content" source="./media/runtime-for-apache-spark-lifecycle/runtime-for-apache-spark-lifecycle.png" alt-text="How to enable Intelligent Cache during new Spark pools creation." lightbox="media/runtime-for-apache-spark-lifecycle/runtime-for-apache-spark-lifecycle.png":::
 
 | Runtime release stage | Typical Lifecycle* | Notes |
 | --- | --- | --- |
@@ -31,24 +31,27 @@ The following chart captures a typical lifecycle path for a Synapse runtime for 
 | Long Term Support (LTS) | 12 months* | Long term support (LTS) runtimes are open to all eligible customers and are ready for production use, but customers are encouraged to expedite validation and workload migration to latest GA runtimes. |
 | End of Life announced (EOLA) | 12 months* for GA or LTS runtimes.<br />1 month* for Preview runtimes. | Prior to the end of a given runtime's lifecycle, we aim to provide 12 months' notice by publishing the End-of-Life Announcement (EOLA) date in the [Azure Synapse Runtimes page](./apache-spark-version-support.md) and 6 months' email notice to customers as an exit ramp to migrate their workloads to a GA runtime. |
 | End of Life (EOL) | - | At this stage, the runtime is retired and no longer supported. |
-\* *Expected duration of a runtime in each stage. These timelines are provided as an example for a given runtime, and might vary depending on various factors. Lifecycle timelines are subject to change at Microsoft discretion.*
+
+\* *Expected duration of a runtime in each stage. These timelines are provided as an example for a given runtime, and might vary depending on various factors. Lifecycle timelines are subject to change at Microsoft discretion.* 
 
 \** *Your use of runtimes is governed by the terms applicable to your Azure subscription.*
 
 > [!IMPORTANT]  
 >  
-> * The above timelines are provided as examples based on current Apache Spark releases. If the Apache Spark project changes the lifecycle of a specific version affecting a Synapse runtime, changes to the stage dates are noted on the [release notes](./apache-spark-version-support.md).
-> * Both GA and LTS runtimes might be moved into EOL stage faster based on outstanding security risks and usage rates criteria at Microsoft discretion.  
-> * Please refer to [Lifecycle FAQ - Microsoft Azure](/lifecycle/faq/azure) for information about Azure lifecycle policies.
+> - The above timelines are provided as examples based on current Apache Spark releases. If the Apache Spark project changes the lifecycle of a specific version affecting a Synapse runtime, changes to the stage dates are noted on the [release notes](./apache-spark-version-support.md).
+> - Both GA and LTS runtimes might be moved into EOL stage faster based on outstanding security risks and usage rates criteria at Microsoft discretion.  
+> - Please refer to [Lifecycle FAQ - Microsoft Azure](/lifecycle/faq/azure) for information about Azure lifecycle policies.
 >
 
 ## Release stages and support
+
+This section describes the different release stages and support for each stage.
 
 ### Preview runtimes
 
 Azure Synapse Analytics provides previews to give you a chance to evaluate and share feedback on features before they become generally available (GA).
 
-At the end of the Preview lifecycle for the runtime, Microsoft will assess if the runtime moves into a Generally Availability (GA) based on customer usage, security and stability criteria.
+At the end of the preview lifecycle for the runtime, Microsoft will assess if the runtime moves into a Generally Availability (GA) based on customer usage, security and stability criteria.
 
 If not eligible for GA stage, the Preview runtime moves into the retirement cycle.
 
@@ -78,5 +81,7 @@ If necessary due to outstanding security issues, runtime usage, or other factors
 
 As of the applicable EOL (End-of-Life) date, runtimes are considered retired and deprecated.
 - It isn't possible to create new Spark pools using the retired version through Azure Synapse Studio, the Synapse API, or the Azure portal.
+
 - The retired runtime version won't be available in Azure Synapse Studio, the Synapse API, or the Azure portal.
+
 - Spark Pool definitions and associated metadata will remain in the Synapse workspace for a defined period after the applicable End-of-Life (EOL) date. **However, all pipelines, jobs, and notebooks will no longer be able to execute.**

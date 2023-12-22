@@ -295,7 +295,7 @@ Input's data types are enforced by batch deployment jobs while reading the data 
 > [!TIP]
 > Signatures in MLflow models are optional but they are highly encouraged as they provide a convenient way to early detect data compatibility issues. For more information about how to log models with signatures read [Logging models with a custom signature, environment or samples](how-to-log-mlflow-models.md#logging-models-with-a-custom-signature-environment-or-samples).
 
-You can inspect the model signature of your model by opening the `MLmodel` file associated with your MLflow model. For more details about how signatures work in MLflow see [Signatures in MLflow](concept-mlflow-models.md#signatures).
+You can inspect the model signature of your model by opening the `MLmodel` file associated with your MLflow model. For more details about how signatures work in MLflow see [Signatures in MLflow](concept-mlflow-models.md#model-signature).
 
 ### Flavor support
 
