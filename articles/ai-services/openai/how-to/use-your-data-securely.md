@@ -28,7 +28,7 @@ When you use Azure OpenAI on your data to ingest data into Azure AI Search, the 
 :::image type="content" source="../media/use-your-data/ingestion-architecture.png" alt-text="A diagram showing the process of ingesting data." lightbox="../media/use-your-data/ingestion-architecture.png":::
 
 * The first two steps are only used for file upload.
-* Downloading URLs to your blob storage is not illustrated on this diagram. After the web pages are downloaded from Internet, and uploaded to blob storage, everything is the same from step 3.
+* Downloading URLs to your blob storage is not illustrated on this diagram. After the web pages are downloaded from the internet, and uploaded to blob storage, everything is the same from step 3.
 * Ingestion assets, including 2 indexers, 2 indexes, 2 data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) are created in the Azure AI Search resource, and the chunk container is created in the blob storage.
 * If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes), the ingestion process starts from step `[7]`.
 *  Azure OpenAI's `preprocessing-jobs` API implements the [Azure AI Search customer skill web API protocol](/azure/search/cognitive-search-custom-skill-web-api), and processes the documents in a queue. 
@@ -47,16 +47,16 @@ For the managed identities used in service calls, only system assigned managed i
 
 When you send API calls to chat with an Azure OpenAI model on your data, the service needs to retrieve the index fields during inference to perform fields mapping automatically if the fields mapping isn't explicitly set in the request. Therefore the service requires the Azure OpenAI identity to have the `Search Service Contributor` role for the search service even during inference.
 
-If embedding deployment is provided in the inference request, the rewritten query will be vectorized within your Azure OpenAI, and send both query and vector to Azure AI Search for vector search.
+If an embedding deployment is provided in the inference request, the rewritten query will be vectorized by Azure OpenAI, and both query and vector are sent Azure AI Search for vector search.
 
 
 ## Resources configuration
 
-Use the following sections to configure your resources for the best secure usage. If you plan to only secure part of your resources, you can skip unrelated sections.
+Use the following sections to configure your resources for optimal secure usage. If you plan to only secure part of your resources, you can skip unrelated sections.
 
 ## Create resource group
 
-Create a resource group, so you can organize all resources below. To clean up all the resources afterward, you can easily delete the resource group. The resources in the resource group will include but not limited to:
+Create a resource group, so you can organize all resources below. To clean up all the resources afterward, you can easily delete the resource group. The resources in the resource group will include but not be limited to:
 * 1 Virtual network
 * 3 key services: 1 Azure OpenAI, 1 Azure AI Search, 1 Storage Account
 * 3 Private endpoints, each is linked to one key service above
@@ -159,7 +159,7 @@ You can disable public network access of your Azure AI Search resource in the Az
 
 To allow access to your Azure AI Search service from your client machines, like using Azure OpenAI Studio, you need to create [private endpoint connections](/azure/search/service-create-private-endpoint) that connect to your Azure AI Search resource.
 
-To allow access to your Azure AI Search service from Azure OpenAI service, you need to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will provision the private endpoint in Microsoft managed virtual network, and send a private endpoint connection request to your search service, and you will need to approve the request.
+To allow access to your Azure AI Search resource from Azure OpenAI resource, you need to submit an [application form](https://aka.ms/applyacsvpnaoaioyd). The application will be reviewed in ten business days and you will be contacted via email about the results. If you are eligible, we will provision the private endpoint in Microsoft managed virtual network, and send a private endpoint connection request to your search service, and you will need to approve the request.
 
 :::image type="content" source="../media/use-your-data/approve-private-endpoint.png" alt-text="A screenshot showing private endpoint approval screen." lightbox="../media/use-your-data/approve-private-endpoint.png":::
 
@@ -220,7 +220,7 @@ Follow [this guideline](/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authen
 
 :::image type="content" source="../media/use-your-data/vpn-client.png" alt-text="A screenshot showing where to import Azure VPN Client profile." lightbox="../media/use-your-data/vpn-client.png":::
 
-Configure your local machine `hosts` file point your resources host names to the private IPs in your virtual network. The `hosts` is at `C:\Windows\System32\drivers\etc` for Windows, and at `/etc/hosts` on Linux. Example:
+Configure your local machine `hosts` file to point your resources host names to the private IPs in your virtual network. The `hosts` file is located at `C:\Windows\System32\drivers\etc` for Windows, and at `/etc/hosts` on Linux. Example:
 
 ```
 10.0.0.5 contoso.openai.azure.com
@@ -233,7 +233,7 @@ Configure your local machine `hosts` file point your resources host names to the
 You should be able to use all Azure OpenAI Studio features, including both ingestion and inference, from your on-premises client machines.
 
 ## Web app
-The web app will communicate with your Azure OpenAI. Since your Azure OpenAI has public network disabled, the web app need to be set up to use the private endpoint in your virtual network to access your Azure OpenAI.
+The web app will communicate with your Azure OpenAI. Since your Azure OpenAI resource has public network disabled, the web app needs to be set up to use the private endpoint in your virtual network to access your Azure OpenAI resource.
 
 The web app needs to resolve your Azure OpenAI host name to the private IP of the private endpoint for Azure OpenAI. So, you need to configure the private DNS zone for your virtual network first.
 
@@ -241,9 +241,9 @@ The web app needs to resolve your Azure OpenAI host name to the private IP of th
 1. [Add A-record](/azure/dns/private-dns-getstarted-portal#create-an-additional-dns-record). The IP is the private IP of the private endpoint for your Azure OpenAI resource, and you can get the IP address from the network interface associated with the private endpoint for your Azure OpenAI.
 1. [Link the private DNS zone to your virtual network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network). So the web app integrated in this virtual network can use this private DNS zone.
 
-When deploying the web app from Azure OpenAI Studio, select the same location with the virtual network, and select a SKU that is above `Basic`, so it can support [virtual network integration feature](/azure/app-service/overview-vnet-integration). 
+When deploying the web app from Azure OpenAI Studio, select the same location with the virtual network, and select a SKU that is above `Basic`, so it can support the [virtual network integration feature](/azure/app-service/overview-vnet-integration). 
 
-After web app is deployed, from the Azure portal networking tab, configure the web app outbound traffic vitual network integration, choose the third subnet that you reserved for web app.
+After the web app is deployed, from the Azure portal networking tab, configure the web app outbound traffic virtual network integration, choose the third subnet that you reserved for web app.
 
 :::image type="content" source="../media/use-your-data/web-app-configure-outbound-traffic.png" alt-text="A screenshot showing outbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-outbound-traffic.png":::
 
