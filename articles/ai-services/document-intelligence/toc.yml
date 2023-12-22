@@ -162,7 +162,7 @@ items:
     href: concept-layout.md
   - name: Add-on capabilities
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
-    href: concept-add-on-capabilities.md  
+    href: concept-add-on-capabilities.md
   - name: Contract model
     displayName: contracts, agreements, legal, terms, conditions, clauses, parties, dates, signatures
     href: concept-contract.md
@@ -215,7 +215,7 @@ items:
       href:  concept-composed-models.md
     - name: Custom model lifecycle
       displayName: custom, model, expiration, train, build
-      href:  concept-custom-lifecycle.md    
+      href:  concept-custom-lifecycle.md
 - name: Samples
   items:
   - name: "C#/.NET"
@@ -261,16 +261,24 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-    - name: REST API v4.0
-      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
-    - name: REST API v3.1
-      href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
-    - name: REST API v3.0
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
-    - name: Error codes v4.0, v3.1, and v3.0
-      href: v3-error-guide.md
-    - name: REST API v2.1
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
+  - name: Migrate to Document Intelligence
+    items:
+    - name: ".NET/C# SDK"
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md
+    - name: JavaScript SDK
+      href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md
+    - name: Python SDK
+      href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
+  - name: REST API v4.0
+    href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
+  - name: REST API v3.1
+    href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP
+  - name: REST API v3.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
+  - name: Error codes v4.0, v3.1, and v3.0
+    href: v3-error-guide.md
+  - name: REST API v2.1
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
 - name: Resources
   items:
   - name: Enterprise readiness

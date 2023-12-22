@@ -36,6 +36,8 @@ This reference article provides a version-based description of Document Intellig
 
 [**Samples**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples/README.md)
 
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md)
+
 ### [**Java**](#tab/java)
 
 * Document Intelligence **1.0.0-beta.1**
@@ -62,6 +64,8 @@ This reference article provides a version-based description of Document Intellig
 
 [**Samples**](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/documentintelligence/ai-document-intelligence-rest/samples/v1-beta/javascript)
 
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md)
+
 ### [**Python**](#tab/python)
 
 * Document Intelligence **1.0.0b1**
@@ -75,7 +79,7 @@ This reference article provides a version-based description of Document Intellig
 
 [**Samples**](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/documentintelligence/azure-ai-documentintelligence/samples)
 
-[**Form Recognizer → to → Document Intelligence migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
 
 ---
 
