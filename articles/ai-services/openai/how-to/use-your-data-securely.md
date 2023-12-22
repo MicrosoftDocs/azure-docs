@@ -47,7 +47,7 @@ For the managed identities used in service calls, only system assigned managed i
 
 When you send API calls to chat with an Azure OpenAI model on your data, the service needs to retrieve the index fields during inference to perform fields mapping automatically if the fields mapping isn't explicitly set in the request. Therefore the service requires the Azure OpenAI identity to have the `Search Service Contributor` role for the search service even during inference.
 
-If embedding deployment is provided in the inference request, the rewritten query will be vectorized within your Azure OpenAI, and send both query and vector to Azure AI Search for vector search.
+If an embedding deployment is provided in the inference request, the rewritten query will be vectorized by Azure OpenAI, and both query and vector are sent Azure AI Search for vector search.
 
 
 ## Resources configuration
