@@ -21,13 +21,13 @@ Use the Parse transformation to parse text columns in your data that are strings
 
 ## Configuration
 
-In the parse transformation configuration panel, you'll first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
+In the parse transformation configuration panel, you first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
 
 :::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Parse settings":::
 
 ### Column
 
-Similar to derived columns and aggregates, this is where you'll either modify an existing column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you'll want to define a new column that parses the incoming embedded document string field.
+Similar to derived columns and aggregates, this is where you either modify an existing column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF stores the parsed source data in this column. In most cases, you want to define a new column that parses the incoming embedded document string field.
 
 ### Expression
 
@@ -51,18 +51,18 @@ Use the expression builder to set the source for your parsing. This can be as si
   * Expression: ```(cars as (car as ({@model} as string, year as integer)))```
 
 * Expressions with reserved characters: ```{ "best-score": { "section 1": 1234 } }```
-  * The above expression won't work since the '-' character in ```best-score``` will be interpreted as a subtraction operation. Use a variable with bracket notation in these cases to tell the JSON engine to interpret the text literally:
+  * The above expression won't work since the '-' character in ```best-score``` is interpreted as a subtraction operation. Use a variable with bracket notation in these cases to tell the JSON engine to interpret the text literally:
     ```
     var bestScore = data["best-score"];
     { bestScore : { "section 1": 1234 } }
     ```
 
-* Note: If you run into errors extracting attributes (i.e. @model) from a complex type, a workaround is to convert the complex type to a string, remove the @ symbol (i.e. replace(toString(your_xml_string_parsed_column_name.cars.car),'@','')
+* Note: If you run into errors extracting attributes (i.e. @model) from a complex type, a workaround is to convert the complex type to a string, remove the @ symbol (specifically, replace(toString(your_xml_string_parsed_column_name.cars.car),'@','')
 ), and then use the parse JSON transformation activity.
 
 ### Output column type
 
-Here's where you'll configure the target output schema from the parsing that will be written into a single column. The easiest way to set a schema for your output from parsing is to select the 'Detect Type' button on the top right of the expression builder. ADF will attempt to autodetect the schema from the string field, which you're parsing and set it for you in the output expression.
+Here's where you configure the target output schema from the parsing that is written into a single column. The easiest way to set a schema for your output from parsing is to select the 'Detect Type' button on the top right of the expression builder. ADF attempts to autodetect the schema from the string field, which you're parsing and set it for you in the output expression.
 
 :::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Parse example":::
 
