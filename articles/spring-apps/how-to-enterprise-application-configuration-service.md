@@ -45,7 +45,7 @@ You can choose the version of Application Configuration Service when you create 
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Apps Enterprise plan instance with Application Configuration Service. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
+- An already provisioned Azure Spring Apps Enterprise plan instance with Application Configuration Service enabled. For more information, see [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise plan](quickstart-deploy-apps-enterprise.md).
 
 ## Manage Application Configuration Service settings
 
