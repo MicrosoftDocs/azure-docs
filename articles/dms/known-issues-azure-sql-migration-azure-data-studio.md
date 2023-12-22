@@ -259,7 +259,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Cause**: This error generally happens when customer uses Windows authentication to login the source. The customer provides Windows authentication credential but SHIR converts it to machine account (Domain\MachineName$).
 
-- **Recommendation**: Possible solution for this issue are:
+- **Recommendation**: Possible solutions for this issue are:
   1) Add login for machine account "Domain\MachineName$" to the source SQL Server. [How to Create a SQL Server Computer Account Login](https://stackoverflow.com/questions/38680366/how-to-add-a-new-sql-server-machine-account).
   2) Or Use SQL login to connect to source SQL Server in Azure Data Studio.
   3) Or As an alternative, Migrate the database schema from source to target by using [PowerShell](/powershell/module/az.datamigration/new-azdatamigrationsqlserverschema) or  the [SQL Server dacpac extension](/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects](/azure-data-studio/extensions/sql-database-project-extension) extension in Azure Data Studio.
