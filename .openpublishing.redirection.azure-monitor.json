@@ -6385,6 +6385,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-optout-hybrid.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-optout",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-v2-migration.md",
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-logs-schema",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/opencensus-python-dependency.md",
             "redirect_url": "/previous-versions/azure/azure-monitor/app/opencensus-python-dependency",
             "redirect_document_id": false
