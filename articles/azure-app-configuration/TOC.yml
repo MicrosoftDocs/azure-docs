@@ -41,12 +41,12 @@
           href: quickstart-feature-flag-azure-functions-csharp.md
     - name: Service integration
       items:
-        - name: Azure Container Apps
-          href: quickstart-container-apps.md
-        - name: App Service & Azure Functions
-          href: /azure/app-service/app-service-configuration-references
         - name: Azure Kubernetes Service
           href: quickstart-azure-kubernetes-service.md
+        - name: App Service & Azure Functions
+          href: /azure/app-service/app-service-configuration-references
+        - name: Azure Container Apps
+          href: quickstart-container-apps.md
     - name: Deployment
       items:
         - name: Bicep
