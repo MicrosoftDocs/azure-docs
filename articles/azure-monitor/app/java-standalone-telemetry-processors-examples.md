@@ -11,6 +11,7 @@ ms.reviewer: mmcc
 # Telemetry processor examples - Azure Monitor Application Insights for Java
 
 This article provides examples of telemetry processors in Application Insights for Java, including samples for include and exclude configurations. It also includes samples for attribute processors and span processors.
+
 ## Include and exclude Span samples
 
 In this section, you'll see how to include and exclude spans. You'll also see how to exclude multiple spans and apply selective processing.
@@ -413,7 +414,7 @@ Starting 3.4.19 GA, telemetry processors support non-string typed attributes:
 
 When `attributes.type` is not provided in the json, it's default to `string`.
 
-The following sample will insert the new attribute `{"newAttributeKeyStrict": "newAttributeValueStrict"}` into spans and logs where the atrributes match the following:
+The following sample inserts the new attribute `{"newAttributeKeyStrict": "newAttributeValueStrict"}` into spans and logs where the attributes match the following:
 `{"longAttributeKey": 1234}`
 `{"booleanAttributeKey": true}`
 `{"doubleArrayAttributeKey": [1.0, 2.0, 3.0, 4.0]}`
@@ -462,7 +463,7 @@ The following sample will insert the new attribute `{"newAttributeKeyStrict": "n
 
 Additionally, non-string typed attributes support `regexp`. 
 
-The following sample will insert the new attribute `{"newAttributeKeyRegexp": "newAttributeValueRegexp"}` into spans and logs where the attribute `longRegexpAttributeKey` matches the value from `400` to `499`.
+The following sample inserts the new attribute `{"newAttributeKeyRegexp": "newAttributeValueRegexp"}` into spans and logs where the attribute `longRegexpAttributeKey` matches the value from `400` to `499`.
 
 ```json
 {
