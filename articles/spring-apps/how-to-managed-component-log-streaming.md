@@ -207,121 +207,15 @@ It will return logs similar to the following examples.
 
 ## View the tail logs for all instances in one command
 
-This section shows how to use following command with `--all-instances` option to view the tail logs of all instances in one command. The instance name is the prefix of each log line. And when there are multiple instances, logs are printed in batch for each instance, so logs of one instance are not interleaving with logs of another instance.
-
-### View the tail logs for all instances in `application-configuration-service`
+The following command shows you how to use `--all-instances` option to view the tail logs of all instances in one command. The instance name is the prefix of each log line. And when there are multiple instances, logs are printed in batch for each instance, so logs of one instance are not interleaving with logs of another instance.
 
 ```azurecli
 az spring component logs \
     --resource-group <resource-group-name> \
     --service <Azure-Spring-Apps-instance-name> \
-    --name application-configuration-service \
+    --name <Component-name> \
     --all-instances
 ```
-
-For ACS Gen2, it will return logs similar to the following examples.
-
-```output
-...
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:56.920Z  INFO  16715 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (https) with context path ''
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:57.528Z  INFO  16715 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:57.529Z  INFO  16715 --- [main] org.apache.juli.logging.DirectJDKLog     : Starting service [Tomcat]
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:57.529Z  INFO  16715 --- [main] org.apache.juli.logging.DirectJDKLog     : Starting Servlet engine: [Apache Tomcat/10.1.12]
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:57.629Z  INFO  16715 --- [main] org.apache.juli.logging.DirectJDKLog     : Initializing Spring embedded WebApplicationContext
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:57.629Z  INFO  16715 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 603 ms
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:57.824Z  INFO  16715 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-[application-configuration-service-6857b86d89-82k9n] 2023-12-18T07:09:58.127Z  INFO  16715 --- [main] o.springframework.boot.StartupInfoLogger : Started ReconcilerApplication in 21.005 seconds (process running for 22.875)
-...
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:07.111Z  INFO  16715 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8090 (https) with context path ''
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:08.015Z  INFO  16715 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:08.015Z  INFO  16715 --- [main] org.apache.juli.logging.DirectJDKLog     : Starting service [Tomcat]
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:08.016Z  INFO  16715 --- [main] org.apache.juli.logging.DirectJDKLog     : Starting Servlet engine: [Apache Tomcat/10.1.12]
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:08.116Z  INFO  16715 --- [main] org.apache.juli.logging.DirectJDKLog     : Initializing Spring embedded WebApplicationContext
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:08.116Z  INFO  16715 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 707 ms
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:08.408Z  INFO  16715 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-[application-configuration-service-6857b86d89-khc7q] 2023-12-18T07:09:09.006Z  INFO  16715 --- [main] o.springframework.boot.StartupInfoLogger : Started ReconcilerApplication in 24.691 seconds (process running for 26.292)
-...
-```
-
-### View the tail logs for all instances in `flux-source-controller`
-
-```azurecli
-az spring component logs \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name flux-source-controller \
-    --all-instances
-```
-
-It will return logs similar to the following examples.
-
-```output
-...
-[fluxcd-source-controller-564df499b4-qqmcs] {"level":"info","ts":"2023-12-18T07:07:54.615Z","logger":"controller-runtime.metrics","msg":"Metrics server is starting to listen","addr":":8080"}
-[fluxcd-source-controller-564df499b4-qqmcs] {"level":"info","ts":"2023-12-18T07:07:54.615Z","logger":"setup","msg":"starting manager"}
-[fluxcd-source-controller-564df499b4-qqmcs] {"level":"info","ts":"2023-12-18T07:07:54.615Z","msg":"Starting server","path":"/metrics","kind":"metrics","addr":"[::]:8080"}
-[fluxcd-source-controller-564df499b4-qqmcs] {"level":"info","ts":"2023-12-18T07:07:54.615Z","msg":"Starting server","kind":"health probe","addr":"[::]:9440"}
-[fluxcd-source-controller-564df499b4-qqmcs] {"level":"info","ts":"2023-12-18T07:07:54.817Z","logger":"runtime","msg":"attempting to acquire leader lease flux-system/source-controller-leader-election...\n"}
-[fluxcd-source-controller-564df499b4-qqmcs] {"level":"info","ts":"2023-12-18T07:07:54.830Z","logger":"runtime","msg":"successfully acquired lease flux-system/source-controller-leader-election\n"}
-[fluxcd-source-controller-564df499b4-qqmcs] {"level":"info","ts":"2023-12-18T07:07:54.831Z","msg":"Starting EventSource","controller":"gitrepository","controllerGroup":"source.toolkit.fluxcd.io","controllerKind":"GitRepository","source":"kind source: *v1beta2.GitRepository"}
-...
-```
-
-### View the tail logs for all instances in `spring-cloud-gateway`
-
-```azurecli
-az spring component logs \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name spring-cloud-gateway \
-    --all-instances
-```
-
-It will return logs similar to the following examples.
-
-```output
-...
-[asc-scg-default-0] 2023-12-11T14:13:40.310Z  INFO 1 --- [           main] i.p.s.c.g.s.SsoDeactivatedConfiguration  : SSO is deactivated, setting up default security filters
-[asc-scg-default-0] 2023-12-11T14:13:40.506Z  INFO 1 --- [           main] .h.HazelcastReactiveSessionConfiguration : Configuring Hazelcast as a session management storage
-[asc-scg-default-0] 2023-12-11T14:13:51.008Z  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8443
-[asc-scg-default-0] 2023-12-11T14:13:51.810Z  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 7 endpoint(s) beneath base path '/actuator'
-[asc-scg-default-0] 2023-12-11T14:13:52.410Z  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8090
-[asc-scg-default-0] 2023-12-11T14:13:52.907Z  INFO 1 --- [           main] i.p.s.c.g.r.h.HazelcastRateLimitsRemover : Removing Hazelcast map 'GLOBAL_RATE_LIMIT' with rate limit information
-[asc-scg-default-0] 2023-12-11T14:13:52.912Z  INFO 1 --- [           main] i.p.s.cloud.gateway.GatewayApplication   : Started GatewayApplication in 36.084 seconds (process running for 38.651)
-...
-[asc-scg-default-1] 2023-12-18T07:44:14.083Z  INFO 1 --- [           main] i.p.s.c.g.s.SsoDeactivatedConfiguration  : SSO is deactivated, setting up default security filters
-[asc-scg-default-1] 2023-12-18T07:44:14.100Z  INFO 1 --- [           main] .h.HazelcastReactiveSessionConfiguration : Configuring Hazelcast as a session management storage
-[asc-scg-default-1] 2023-12-18T07:44:17.989Z  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8443
-[asc-scg-default-1] 2023-12-18T07:44:18.289Z  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 7 endpoint(s) beneath base path '/actuator'
-[asc-scg-default-1] 2023-12-18T07:44:18.578Z  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8090
-[asc-scg-default-1] 2023-12-18T07:44:18.788Z  INFO 1 --- [           main] i.p.s.c.g.r.h.HazelcastRateLimitsRemover : Removing Hazelcast map 'GLOBAL_RATE_LIMIT' with rate limit information
-[asc-scg-default-1] 2023-12-18T07:44:18.793Z  INFO 1 --- [           main] i.p.s.cloud.gateway.GatewayApplication   : Started GatewayApplication in 26.118 seconds (process running for 28.368)
-...
-```
-
-### View the tail logs for all instances in `spring-cloud-gateway-operator`
-
-```azurecli
-az spring component logs \
-    --resource-group <resource-group-name> \
-    --service <Azure-Spring-Apps-instance-name> \
-    --name spring-cloud-gateway-operator \
-    --all-instances
-```
-
-It will return logs similar to the following examples.
-
-```output
-...
-[scg-operator-74947fdcb-8hj85] 2023-12-01T08:37:05.080Z  INFO 1 --- [           main] c.v.t.s.OperatorApplication              : Starting OperatorApplication v2.0.6 using Java 17.0.7 with PID 1 (/workspace/[scg-operator-74947fdcb-8hj85] BOOT-INF/classes started by cnb in /workspace)
-[scg-operator-74947fdcb-8hj85] 2023-12-01T08:37:05.157Z  INFO 1 --- [           main] c.v.t.s.OperatorApplication              : No active profile set, falling back to 1 default profile: "default"
-[scg-operator-74947fdcb-8hj85] 2023-12-01T08:37:14.379Z  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-[scg-operator-74947fdcb-8hj85] 2023-12-01T08:37:15.274Z  INFO 1 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8080
-[scg-operator-74947fdcb-8hj85] 2023-12-01T08:37:15.366Z  INFO 1 --- [           main] c.v.t.s.OperatorApplication              : Started OperatorApplication in 11.489 seconds (process running for 12.467)
-...
-```
-
----
 
 ## Continuously stream new logs
 
