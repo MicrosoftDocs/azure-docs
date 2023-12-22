@@ -12,7 +12,7 @@ ms.author: namalu
 
 # Enable single sign-on by using Azure Active Directory B2C with the FHIR service
 
-By using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services, healthcare organizations can enable single sign-on (SSO) so that users can access healthcare applications with their preferred social, enterprise, or local account identities. 
+By using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services, healthcare organizations can enable single sign-on (SSO) for their applications. SSO allows users to access healthcare applications with their preferred social, enterprise, or local account identities. 
 
 Setting up the B2C capability is useful when an organization needs to grant access to resources for users who aren't in their [Microsoft Entra ID](/entra/fundamentals/whatis) tenant.
 
@@ -223,9 +223,9 @@ https://<YOUR_B2C_TENANT_NAME>.b2clogin.com/<YOUR_B2C_TENANT_NAME>.onmicrosoft.c
 
    :::image type="content" source="media/b2c-setup/b2c-app-list.png" alt-text="Screenshot showing B2C app list" lightbox="media/b2c-setup/b2c-app-list.png":::
 
-### Deploy the FHIR service by using an ARM Template
+#### Deploy the FHIR service by using an ARM Template
 
-Use an [ARM template](templates/fhir-service-arm-template.json) to simplify deploying the FHIR Service. Use PowerShell or Azure CLI to deploy the ARM template to an Azure subscription.
+Use an [ARM template](templates/fhir-service-arm-template.json) to simplify deploying the FHIR service. Use PowerShell or Azure CLI to deploy the ARM template to an Azure subscription.
 
 #### [PowerShell](#tab/powershell)
 
@@ -303,9 +303,7 @@ Run the [Postman](https://www.postman.com) application locally or in a web brows
 
 Note that when you follow the steps to [GET FHIR resource](use-postman.md#get-fhir-resource) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
 
-- Create a patient resource in the FHIR service.
-
-### Create a patient resource in the FHIR service
+#### Create a patient resource in the FHIR service
 
 It's important to note that users in the B2C tenant aren't able to create, read update, or delete any resources until the user is linked to a FHIR resource, for example as patient or practitioner. A user with the `FhirDataWriter` or `FhirDataContributor` role in the Microsoft Entra ID where the FHIR service is tenanted must perform this step.
 
@@ -328,7 +326,7 @@ It's important to note that users in the B2C tenant aren't able to create, read 
 
 2. Verify the patient is created by changing the method back to `GET` and verifying that a request to `{{fhirurl}}/Patient` returns the newly created patient.
 
-### Link the patient resource to the Azure B2C user
+#### Link the patient resource to the Azure B2C user
 
 You need to create an explicit link between the test user in the B2C tenant and the resource in the FHIR service. Create the link by using Extension Attributes in Microsoft Graph. For more information, see [Define custom attributes in Azure Active Directory B2C](../../active-directory-b2c/user-flow-custom-attributes.md).
 
@@ -380,7 +378,7 @@ You need to create an explicit link between the test user in the B2C tenant and 
 
    :::image type="content" source="media/b2c-setup/graph-patch.png" alt-text="Screenshot showing Graph patch" lightbox="media/b2c-setup/graph-patch.png":::
 
-### Configure Postman to obtain an access token for B2C users
+#### Configure Postman to obtain an access token for B2C users
 
 Obtain an access token to test the authentication flow.
 
@@ -428,7 +426,7 @@ Obtain an access token to test the authentication flow.
 
    :::image type="content" source="media/b2c-setup/postman-urls.png" alt-text="Screenshot showing Postman URLs" lightbox="media/b2c-setup/postman-urls.png":::
 
-### Fetch the patient resource by using the B2C user
+#### Fetch the patient resource by using the B2C user
 
 Verify that Azure B2C users can access FHIR resources.
 
@@ -449,7 +447,9 @@ Verify that Azure B2C users can access FHIR resources.
    :::image type="content" source="media/b2c-setup/postman-request1.png" alt-text="Screenshot showing Postman request1" lightbox="media/b2c-setup/postman-request1.png":::
 
 1. Set the method to `GET`, enter the fully qualified FHIR service URL and then add the path `/Patient`. 
+
 1. Choose **Send**.
+
 1. Verify that the response contains the single patient resource.
 
    :::image type="content" source="media/b2c-setup/postman-request2.png" alt-text="Screenshot showing Postman request2" lightbox="media/b2c-setup/postman-request2.png":::
