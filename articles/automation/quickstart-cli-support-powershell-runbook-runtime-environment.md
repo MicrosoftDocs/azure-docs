@@ -1,18 +1,18 @@
 ---
-title: Update PowerShell runbook in Azure Runtime environment
+title: Add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment
 titleSuffix: Azure Automation
-description: This article shows how to update a runbook from PowerShell 5.1 to PowerShell 7.2 in Runtime environment.
+description: This article shows how add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment.
 services: automation
-ms.date: 11/27/2023
+ms.date: 12/22/2023
 ms.topic: conceptual
 ---
 
-# Update a runbook from PowerShell 5.1 to PowerShell 7.2 in Azure Runtime environment
+# Run Azure CLI in PowerShell 7.2 runbooks in Runtime environment
 
-Using the Runtime environment, you can upgrade a runbook from one version to the other by creating a different runtime environment and then linking the runbook.
+Using the Runtime environment, you can run Azure CLI commands in PowerShell 7.2 runbooks.
 
 > [!NOTE]
-> A runbook can be mapped to a single runtime environment, while a specific runtime environment can be mapped to multiple runbooks.
+> Azure CLI commands version 2.52.0 are available as a default package in PowerShell 7.2 Runtime environment.
 
 ## Prerequisites
 
@@ -33,18 +33,6 @@ Using the Runtime environment, you can upgrade a runbook from one version to the
 1. On **Review + create** tab, review the entries and select **Create**.
 
    A notification appears to confirm that a runtime environment is successfully created.
-
-## Create a runbook
-
-1. In your Automation account, under **Process Automation**, select **Runbooks**.
-1. In the **Create a runbook** page, you can upload the file or browse the gallery. Here, provide the following details:
-    1. Select **Create new**.
-    1. In **Name**, enter the name of the runbook. The runbook name must start with a letter and can contain letters, numbers, underscores, and dashes
-    1. From the **Runbook type** dropdown list,  select PowerShell. [Learn more](automation-runbook-types.md) on Runbook types. 
-    1. Select the option **Select from existing** to view the compatible runtime environments and select your Runtime environment.
-    1. In the **Runtime Environment**, you can view the properties
-    1. Enter applicable **Description**
-1. Select **Create**.
 
 ## Update Runtime environment of runbook
 
