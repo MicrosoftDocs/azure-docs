@@ -119,31 +119,27 @@ If you're looking for a specific section in a document, you can use semantic chu
 
 # Using SDK targeting 2023-10-31-preview
 # pip install azure-ai-documentintelligence==1.0.0b1
-
- from azure.ai.documentintelligence import DocumentIntelligenceClient
- from azure.core.credentials import AzureKeyCredential
-
- endpoint = "https://<my-custom-subdomain>.cognitiveservices.azure.com/"
- credential = AzureKeyCredential("<api_key>")
-
- document_intelligence_client = DocumentIntelligenceClient(
-     endpoint, credential)
-
-   from langchain.document_loaders.doc_intelligence import DocumentIntelligenceLoader
-   from langchain.text_splitter import MarkdownHeaderTextSplitter
-   # Initiate Azure AI Document Intelligence to load the document and split it into chunks
-   loader = DocumentIntelligenceLoader(file_path=<your file path>, credential, endpoint)
-   docs = loader.load()
-   # text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-   headers_to_split_on = [
-       ("#", "Header 1"),
-       ("##", "Header 2"),
-       ("###", "Header 3"),
-   ]
-   text_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
-   splits = text_splitter.split_text(docs_string)
-   splits
-
+# pip install langchain langchain-community azure-ai-documentintelligence
+ 
+from langchain_community.document_loaders import AzureAIDocumentIntelligenceLoader
+ 
+from langchain.text_splitter import MarkdownHeaderTextSplitter
+ 
+# Initiate Azure AI Document Intelligence to load the document. You can either specify file_path or url_path to load the document.
+loader = AzureAIDocumentIntelligenceLoader(file_path="<path to your file>", api_key = doc_intelligence_key, api_endpoint = doc_intelligence_endpoint, api_model="prebuilt-layout")
+docs = loader.load()
+ 
+# Split the document into chunks base on markdown headers.
+headers_to_split_on = [
+    ("#", "Header 1"),
+    ("##", "Header 2"),
+    ("###", "Header 3"),
+]
+text_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=headers_to_split_on)
+ 
+docs_string = docs[0].page_content
+splits = text_splitter.split_text(docs_string)
+splits
 ```
 
 ## Next steps
