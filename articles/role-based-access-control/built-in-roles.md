@@ -8,7 +8,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 11/30/2023
+ms.date: 12/21/2023
 ms.custom: generated
 ---
 
@@ -44,14 +44,14 @@ The following table provides a brief description of each built-in role. Click th
 > | [Virtual Machine User Login](#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Windows Admin Center Administrator Login](#windows-admin-center-administrator-login) | Let's you manage the OS of your resource via Windows Admin Center as an administrator. | a6333a3e-0164-44c3-b281-7a577aff287f |
 > | **Networking** |  |  |
-> | [Azure Front Door Domain Contributor](#azure-front-door-domain-contributor) | Can manage Azure Front Door domains, but can't grant access to other users. | 0ab34830-df19-4f8c-b84e-aa85b8afa6e8 |
-> | [Azure Front Door Domain Reader](#azure-front-door-domain-reader) | Can view Azure Front Door domains, but can't make changes. | 0f99d363-226e-4dca-9920-b807cf8e1a5f |
+> | [Azure Front Door Domain Contributor](#azure-front-door-domain-contributor) | For internal use within Azure. Can manage Azure Front Door domains, but can't grant access to other users. | 0ab34830-df19-4f8c-b84e-aa85b8afa6e8 |
+> | [Azure Front Door Domain Reader](#azure-front-door-domain-reader) | For internal use within Azure. Can view Azure Front Door domains, but can't make changes. | 0f99d363-226e-4dca-9920-b807cf8e1a5f |
 > | [Azure Front Door Profile Reader](#azure-front-door-profile-reader) | Can view AFD standard and premium profiles and their endpoints, but can't make changes. | 662802e2-50f6-46b0-aed2-e834bacc6d12 |
-> | [Azure Front Door Secret Contributor](#azure-front-door-secret-contributor) | Can manage Azure Front Door secrets, but can't grant access to other users. | 3f2eb865-5811-4578-b90a-6fc6fa0df8e5 |
-> | [Azure Front Door Secret Reader](#azure-front-door-secret-reader) | Can view Azure Front Door secrets, but can't make changes. | 0db238c4-885e-4c4f-a933-aa2cef684fca |
+> | [Azure Front Door Secret Contributor](#azure-front-door-secret-contributor) | For internal use within Azure. Can manage Azure Front Door secrets, but can't grant access to other users. | 3f2eb865-5811-4578-b90a-6fc6fa0df8e5 |
+> | [Azure Front Door Secret Reader](#azure-front-door-secret-reader) | For internal use within Azure. Can view Azure Front Door secrets, but can't make changes. | 0db238c4-885e-4c4f-a933-aa2cef684fca |
 > | [CDN Endpoint Contributor](#cdn-endpoint-contributor) | Can manage CDN endpoints, but can't grant access to other users. | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
 > | [CDN Endpoint Reader](#cdn-endpoint-reader) | Can view CDN endpoints, but can't make changes. | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
-> | [CDN Profile Contributor](#cdn-profile-contributor) | Can manage CDN profiles and their endpoints, but can't grant access to other users. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
+> | [CDN Profile Contributor](#cdn-profile-contributor) | Can manage CDN and Azure Front Door standard and premium profiles and their endpoints, but can't grant access to other users. | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
 > | [CDN Profile Reader](#cdn-profile-reader) | Can view CDN profiles and their endpoints, but can't make changes. | 8f96442b-4075-438f-813d-ad51ab4019af |
 > | [Classic Network Contributor](#classic-network-contributor) | Lets you manage classic networks, but not access to them. | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 > | [DNS Zone Contributor](#dns-zone-contributor) | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. | befefa01-2a29-4197-83a8-272ff33ce314 |
@@ -244,7 +244,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Key Vault Crypto Officer](#key-vault-crypto-officer) | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
 > | [Key Vault Crypto Service Encryption User](#key-vault-crypto-service-encryption-user) | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
 > | [Key Vault Crypto User](#key-vault-crypto-user) | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-> | [Key Vault Data Access Administrator (preview)](#key-vault-data-access-administrator-preview) | Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments. | 8b54135c-b56d-4d72-a534-26097cfdc8d8 |
+> | [Key Vault Data Access Administrator](#key-vault-data-access-administrator) | Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments. | 8b54135c-b56d-4d72-a534-26097cfdc8d8 |
 > | [Key Vault Reader](#key-vault-reader) | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
 > | [Key Vault Secrets Officer](#key-vault-secrets-officer) | Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 > | [Key Vault Secrets User](#key-vault-secrets-user) | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
@@ -886,7 +886,7 @@ View Virtual Machines in the portal and login as administrator [Learn more](../a
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public ip address definition. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
@@ -966,8 +966,8 @@ Create and manage virtual machines, manage disks, install and run software, rese
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/* | Create and manage network interfaces |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/read | Gets a network security group definition |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public ip address definition. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.RecoveryServices](resource-provider-operations.md#microsoftrecoveryservices)/locations/* |  |
@@ -1074,7 +1074,7 @@ Manage access to Virtual Machines by adding or removing role assignments for the
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public ip address definition. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
@@ -1093,39 +1093,40 @@ Manage access to Virtual Machines by adding or removing role assignments for the
 
 ```json
 {
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/66f75aeb-eabe-4b70-9f1e-c350c4c9ad04",
-    "properties": {
-        "roleName": "Virtual Machine Data Access Administrator (preview)",
-        "description": "Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Authorization/roleAssignments/write",
-                    "Microsoft.Authorization/roleAssignments/delete",
-                    "Microsoft.Authorization/*/read",
-                    "Microsoft.Resources/subscriptions/resourceGroups/read",
-                    "Microsoft.Resources/subscriptions/read",
-                    "Microsoft.Management/managementGroups/read",
-                    "Microsoft.Network/publicIPAddresses/read",
-                    "Microsoft.Network/virtualNetworks/read",
-                    "Microsoft.Network/loadBalancers/read",
-                    "Microsoft.Network/networkInterfaces/read",
-                    "Microsoft.Compute/virtualMachines/*/read",
-                    "Microsoft.HybridCompute/machines/*/read",
-                    "Microsoft.Resources/deployments/*",
-                    "Microsoft.Support/*"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": [],
-                "conditionVersion": "2.0",
-                "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52}))"
-            }
-        ]
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage access to Virtual Machines by adding or removing role assignments for the Virtual Machine Administrator Login and Virtual Machine User Login roles. Includes an ABAC condition to constrain role assignments.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/66f75aeb-eabe-4b70-9f1e-c350c4c9ad04",
+  "name": "66f75aeb-eabe-4b70-9f1e-c350c4c9ad04",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Network/publicIPAddresses/read",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/loadBalancers/read",
+        "Microsoft.Network/networkInterfaces/read",
+        "Microsoft.Compute/virtualMachines/*/read",
+        "Microsoft.HybridCompute/machines/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{1c0163c0-47e6-4577-8991-ea5c82e286e4, fb879df8-f326-4884-b1cf-06f3ad86be52}))"
     }
+  ],
+  "roleName": "Virtual Machine Data Access Administrator (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -1136,7 +1137,7 @@ View Virtual Machines in the portal and login as a regular user. [Learn more](..
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public ip address definition. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
@@ -1197,7 +1198,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.HybridCompute](resource-provider-operations.md#microsofthybridcompute)/operations/read | Read all Operations for Azure Arc for Servers |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/loadBalancers/read | Gets a load balancer definition |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public ip address definition. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/read | Gets a network security group definition |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkSecurityGroups/defaultSecurityRules/read | Gets a default security rule definition |
@@ -1312,7 +1313,7 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 
 ### Azure Front Door Domain Contributor
 
-Can manage Azure Front Door domains, but can't grant access to other users.
+For internal use within Azure. Can manage Azure Front Door domains, but can't grant access to other users.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1334,7 +1335,7 @@ Can manage Azure Front Door domains, but can't grant access to other users.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage Azure Front Door domains, but can't grant access to other users.",
+  "description": "For internal use within Azure. Can manage Azure Front Door domains, but can't grant access to other users.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/0ab34830-df19-4f8c-b84e-aa85b8afa6e8",
   "name": "0ab34830-df19-4f8c-b84e-aa85b8afa6e8",
   "permissions": [
@@ -1359,7 +1360,7 @@ Can manage Azure Front Door domains, but can't grant access to other users.
 
 ### Azure Front Door Domain Reader
 
-Can view Azure Front Door domains, but can't make changes.
+For internal use within Azure. Can view Azure Front Door domains, but can't make changes.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1379,7 +1380,7 @@ Can view Azure Front Door domains, but can't make changes.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view Azure Front Door domains, but can't make changes.",
+  "description": "For internal use within Azure. Can view Azure Front Door domains, but can't make changes.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/0f99d363-226e-4dca-9920-b807cf8e1a5f",
   "name": "0f99d363-226e-4dca-9920-b807cf8e1a5f",
   "permissions": [
@@ -1465,7 +1466,7 @@ Can view AFD standard and premium profiles and their endpoints, but can't make c
 
 ### Azure Front Door Secret Contributor
 
-Can manage Azure Front Door secrets, but can't grant access to other users.
+For internal use within Azure. Can manage Azure Front Door secrets, but can't grant access to other users.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1487,7 +1488,7 @@ Can manage Azure Front Door secrets, but can't grant access to other users.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage Azure Front Door secrets, but can't grant access to other users.",
+  "description": "For internal use within Azure. Can manage Azure Front Door secrets, but can't grant access to other users.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/3f2eb865-5811-4578-b90a-6fc6fa0df8e5",
   "name": "3f2eb865-5811-4578-b90a-6fc6fa0df8e5",
   "permissions": [
@@ -1512,7 +1513,7 @@ Can manage Azure Front Door secrets, but can't grant access to other users.
 
 ### Azure Front Door Secret Reader
 
-Can view Azure Front Door secrets, but can't make changes.
+For internal use within Azure. Can view Azure Front Door secrets, but can't make changes.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1532,7 +1533,7 @@ Can view Azure Front Door secrets, but can't make changes.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view Azure Front Door secrets, but can't make changes.",
+  "description": "For internal use within Azure. Can view Azure Front Door secrets, but can't make changes.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/0db238c4-885e-4c4f-a933-aa2cef684fca",
   "name": "0db238c4-885e-4c4f-a933-aa2cef684fca",
   "permissions": [
@@ -1663,7 +1664,7 @@ Can view CDN endpoints, but can't make changes.
 
 ### CDN Profile Contributor
 
-Can manage CDN profiles and their endpoints, but can't grant access to other users. [Learn more](../cdn/cdn-app-dev-net.md)
+Can manage CDN and Azure Front Door standard and premium profiles and their endpoints, but can't grant access to other users. [Learn more](../cdn/cdn-app-dev-net.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1688,7 +1689,7 @@ Can manage CDN profiles and their endpoints, but can't grant access to other use
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN profiles and their endpoints, but can't grant access to other users.",
+  "description": "Can manage CDN and Azure Front Door standard and premium profiles and their endpoints, but can't grant access to other users.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "name": "ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "permissions": [
@@ -1727,6 +1728,7 @@ Can view CDN profiles and their endpoints, but can't make changes.
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/*/read |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/afdendpoints/validateCustomDomain/action |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
@@ -1753,6 +1755,7 @@ Can view CDN profiles and their endpoints, but can't make changes.
         "Microsoft.Cdn/profiles/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
+        "Microsoft.Cdn/profiles/afdendpoints/validateCustomDomain/action",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
@@ -5529,7 +5532,7 @@ This role grants admin access - provides write permissions on most objects withi
   "assignableScopes": [
     "/"
   ],
-  "description": "This role grants admin access - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
+  "description": "This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/434fb43a-c01c-447e-9f67-c3ad923cfaba",
   "name": "434fb43a-c01c-447e-9f67-c3ad923cfaba",
   "permissions": [
@@ -8382,13 +8385,11 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/completions/action | Create a completion from a chosen model |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/search/action | Search for the most relevant documents using the current engine. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/generate/action | (Intended for browsers only.) Stream generated text from the model via GET request. This method is provided because the browser-native EventSource method can only send GET requests. It supports a more limited set of configuration options than the POST variant. |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/engines/completions/write |  |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
-> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/write |  |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/OpenAI/images/generations/action | Create image generations. |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -8414,13 +8415,11 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/engines/search/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/engines/generate/action",
-        "Microsoft.CognitiveServices/accounts/OpenAI/engines/completions/write",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
-        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/write",
         "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action"
       ],
       "notDataActions": []
@@ -12002,7 +12001,7 @@ Perform cryptographic operations using keys. Only works for key vaults that use 
 }
 ```
 
-### Key Vault Data Access Administrator (preview)
+### Key Vault Data Access Administrator
 
 Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments.
 
@@ -12030,35 +12029,36 @@ Manage access to Azure Key Vault by adding or removing role assignments for the 
 
 ```json
 {
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/8b54135c-b56d-4d72-a534-26097cfdc8d8",
-    "properties": {
-        "roleName": "Key Vault Data Access Administrator (preview)",
-        "description": "Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Authorization/roleAssignments/write",
-                    "Microsoft.Authorization/roleAssignments/delete",
-                    "Microsoft.Authorization/*/read",
-                    "Microsoft.Resources/deployments/*",
-                    "Microsoft.Resources/subscriptions/resourceGroups/read",
-                    "Microsoft.Resources/subscriptions/read",
-                    "Microsoft.Management/managementGroups/read",
-                    "Microsoft.Resources/deployments/*",
-                    "Microsoft.Support/*",
-                    "Microsoft.KeyVault/vaults/*/read"
-                ],
-                "notActions": [],
-                "dataActions": [],
-                "notDataActions": [],
-                "conditionVersion": "2.0",
-                "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{00482a5a-887f-4fb3-b363-3b7fe8e74483, a4417e6f-fecd-4de8-b567-7b0420556985, 14b46e9e-c2b7-41b4-b07b-48a6ebf60603, e147488a-f6f5-4113-8e2d-b22465e65bf6, 12338af0-0e69-4776-bea7-57ae8d297424, 21090545-7ca7-4776-b22c-e363652d74d2, b86a8fe4-44ce-4948-aee5-eccb2c155cd7, 4633458b-17de-408a-b874-0445c86b69e6})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{00482a5a-887f-4fb3-b363-3b7fe8e74483, a4417e6f-fecd-4de8-b567-7b0420556985, 14b46e9e-c2b7-41b4-b07b-48a6ebf60603, e147488a-f6f5-4113-8e2d-b22465e65bf6, 12338af0-0e69-4776-bea7-57ae8d297424, 21090545-7ca7-4776-b22c-e363652d74d2, b86a8fe4-44ce-4948-aee5-eccb2c155cd7, 4633458b-17de-408a-b874-0445c86b69e6}))"
-            }
-        ]
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/8b54135c-b56d-4d72-a534-26097cfdc8d8",
+  "name": "8b54135c-b56d-4d72-a534-26097cfdc8d8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/vaults/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{00482a5a-887f-4fb3-b363-3b7fe8e74483, a4417e6f-fecd-4de8-b567-7b0420556985, 14b46e9e-c2b7-41b4-b07b-48a6ebf60603, e147488a-f6f5-4113-8e2d-b22465e65bf6, 12338af0-0e69-4776-bea7-57ae8d297424, 21090545-7ca7-4776-b22c-e363652d74d2, b86a8fe4-44ce-4948-aee5-eccb2c155cd7, 4633458b-17de-408a-b874-0445c86b69e6})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{00482a5a-887f-4fb3-b363-3b7fe8e74483, a4417e6f-fecd-4de8-b567-7b0420556985, 14b46e9e-c2b7-41b4-b07b-48a6ebf60603, e147488a-f6f5-4113-8e2d-b22465e65bf6, 12338af0-0e69-4776-bea7-57ae8d297424, 21090545-7ca7-4776-b22c-e363652d74d2, b86a8fe4-44ce-4948-aee5-eccb2c155cd7, 4633458b-17de-408a-b874-0445c86b69e6}))"
     }
+  ],
+  "roleName": "Key Vault Data Access Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -12882,8 +12882,8 @@ Lets you connect, start, restart, and shutdown your virtual machines in your Azu
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/*/read | Read the properties of a public IP address |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
-> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public ip address definition. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/join/action | Joins a public IP address. Not Alertable. |
+> | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/publicIPAddresses/read | Gets a public IP address definition. |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Gets or lists deployments. |
@@ -13530,6 +13530,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/actionRules/* |  |
 > | [Microsoft.AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/smartGroups/* |  |
 > | [Microsoft.AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/migrateFromSmartDetection/* |  |
+> | [Microsoft.AlertsManagement](resource-provider-operations.md#microsoftalertsmanagement)/investigations/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -13584,7 +13585,8 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.AlertsManagement/actionRules/*",
         "Microsoft.AlertsManagement/smartGroups/*",
-        "Microsoft.AlertsManagement/migrateFromSmartDetection/*"
+        "Microsoft.AlertsManagement/migrateFromSmartDetection/*",
+        "Microsoft.AlertsManagement/investigations/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -16701,7 +16703,7 @@ Read-only role for Digital Twins data-plane properties [Learn more](../digital-t
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Read any Digital Twin |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Read any Digital Twin Relationship |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Read any Event Route |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/import/read |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/jobs/import/read | Read any Bulk Import Job |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Read any Model |
 > | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Query any Digital Twins Graph |
 > | **NotDataActions** |  |
