@@ -413,10 +413,10 @@ Starting 3.4.19 GA, telemetry processors support non-string typed attributes:
 
 When `attributes.type` is not provided in the json, it's default to `string`.
 
-The following sample will insert the new attribute `{"myNewAttributeKeyStrict": "myNewAttributeValueStrict"}` into spans and logs where the atrributes match the following:
-`{"myLongAttributeKey": 1234}`
-`{"myBooleanAttributeKey": true}`
-`{"myDoubleArrayAttributeKey": [1.0, 2.0, 3.0, 4.0]}`
+The following sample will insert the new attribute `{"newAttributeKeyStrict": "newAttributeValueStrict"}` into spans and logs where the atrributes match the following:
+`{"longAttributeKey": 1234}`
+`{"booleanAttributeKey": true}`
+`{"doubleArrayAttributeKey": [1.0, 2.0, 3.0, 4.0]}`
 
 ```json
 {
@@ -429,17 +429,17 @@ The following sample will insert the new attribute `{"myNewAttributeKeyStrict": 
           "matchType": "strict",
           "attributes": [
             {
-              "key": "myLongAttributeKey",
+              "key": "longAttributeKey",
               "value": 1234,
               "type": "long"
             },
             {
-              "key": "myBooleanAttributeKey",
+              "key": "booleanAttributeKey",
               "value": true,
               "type": "boolean"
             },
             {
-              "key": "myDoubleArrayAttributeKey",
+              "key": "doubleArrayAttributeKey",
               "value": [1.0, 2.0, 3.0, 4.0],
               "type": "double-array"
             }
@@ -447,12 +447,12 @@ The following sample will insert the new attribute `{"myNewAttributeKeyStrict": 
         },
         "actions": [
           {
-            "key": "myNewAttributeKeyStrict",
-            "value": "myNewAttributeValueStrict",
+            "key": "newAttributeKeyStrict",
+            "value": "newAttributeValueStrict",
             "action": "insert"
           }
         ],
-        "id": "attributes/insertMyNewAttributeKeyStrict"
+        "id": "attributes/insertNewAttributeKeyStrict"
       }
     ]
   }
@@ -460,9 +460,9 @@ The following sample will insert the new attribute `{"myNewAttributeKeyStrict": 
 
 ```
 
-Additionally, it also supports `regexp` in non-string typed attributes. 
+Additionally, non-string typed attributes support `regexp`. 
 
-The following sample will insert the new attribute `{"myNewAttributeKeyRegex": "myNewAttributeValueRegex"}` into spans and logs where the attribute `myLongRegexAttributeKey` matches the value from `400` to `499`.
+The following sample will insert the new attribute `{"newAttributeKeyRegexp": "newAttributeValueRegexp"}` into spans and logs where the attribute `longRegexpAttributeKey` matches the value from `400` to `499`.
 
 ```json
 {
@@ -475,7 +475,7 @@ The following sample will insert the new attribute `{"myNewAttributeKeyRegex": "
           "matchType": "regexp",
           "attributes": [
             {
-              "key": "myLongRegexAttributeKey",
+              "key": "longRegexpAttributeKey",
               "value": "4[0-9][0-9]",
               "type": "long"
             }
@@ -483,12 +483,12 @@ The following sample will insert the new attribute `{"myNewAttributeKeyRegex": "
         },
         "actions": [
           {
-            "key": "myNewAttributeKeyRegex",
-            "value": "myNewAttributeValueRegex",
+            "key": "newAttributeKeyRegexp",
+            "value": "newAttributeValueRegexp",
             "action": "insert"
           }
         ],
-        "id": "attributes/insertMyNewAttributeKeyRegex"
+        "id": "attributes/insertNewAttributeKeyRegexp"
       }
     ]
   }
