@@ -4,7 +4,7 @@ description: Learn how to integrate the Azure Key Vault Provider for Secrets Sto
 author: nickomang 
 ms.author: nickoman
 ms.topic: article
-ms.date: 12/01/2023
+ms.date: 12/19/2023
 ms.custom: devx-track-azurecli, devx-track-linux
 ---
 
@@ -25,7 +25,7 @@ You can use one of the following access methods:
 
 ## Access with a Microsoft Entra Workload ID
 
-A [Microsoft Entra Workload ID][workload-identity] is an identity that an application running on a pod uses to authenticate itself against other Azure services, such as workloads in software. The Storage Store CSI Driver integrates with native Kubernetes capabilities to federate with external identity providers.
+A [Microsoft Entra Workload ID][workload-identity] is an identity that an application running on a pod uses to authenticate itself against other Azure services, such as workloads in software. The Secret Store CSI Driver integrates with native Kubernetes capabilities to federate with external identity providers.
 
 In this security model, the AKS cluster acts as token issuer. Microsoft Entra ID then uses OIDC to discover public signing keys and verify the authenticity of the service account token before exchanging it for a Microsoft Entra token. For your workload to exchange a service account token projected to its volume for a Microsoft Entra token, you need the Azure Identity client library in the Azure SDK or the Microsoft Authentication Library (MSAL) 
 

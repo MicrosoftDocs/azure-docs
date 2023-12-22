@@ -125,6 +125,7 @@ Mapping data flows are available in the following regions in ADF:
 | China Non-Regional | |
 | China North | ✓ |
 | China North 2	| ✓ |
+| China North 3 | ✓ |
 | East Asia	| ✓ |
 | East US	| ✓ |
 | East US 2	| ✓ |

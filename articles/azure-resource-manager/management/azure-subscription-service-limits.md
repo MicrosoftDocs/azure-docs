@@ -534,6 +534,10 @@ There are limits, per subscription, for deploying resources using Compute Galler
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 
+### Managed Run Command limit
+
+The maximum number of allowed Managed Run Commands is currently limited to 25.
+
 ## Virtual Machine Scale Sets limits
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]

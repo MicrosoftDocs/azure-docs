@@ -35,6 +35,7 @@ The following table lists accepted data types, when each data type should be use
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
 | [Structured text](#structured-text-data-for-training) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | Not applicable | Yes | 1 KB to 1 MB of pronunciation text |
+| [Display format](#custom-display-text-formatting-data-for-training) | No | Not applicable | Yes | Up to 200 lines for ITN, 1,000 lines for rewrite, 1,000 lines for profanity filter |
 
 Training with plain text or structured text usually finishes within a few minutes. 
 
@@ -266,6 +267,53 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 |---------|-------------|
 | Check the audio file format. | `sox --i <filename>` |
 | Convert the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+
+### Custom display text formatting data for training
+
+Learn more about [display text formatting with speech to text](./display-text-format.md).
+
+Automatic Speech Recognition output display format is critical to downstream tasks and one-size doesn’t fit all. Adding Custom Display Format rules allows users to define their own lexical-to-display format rules to improve the speech recognition service quality on top of Microsoft Azure Custom Speech Service.
+
+It allows you to fully customize the display outputs such as add rewrite rules to capitalize and reformulate certain words, add profanity words and mask from output, define advanced ITN rules for certain patterns such as numbers, dates, email addresses; or preserve some phrases and kept them from any Display processes. 
+
+For example: 
+
+| Custom formatting | Display text |
+|-------------------|--------------|
+|None|My financial number from contoso is 8BEV3|
+|Capitalize "Contoso" (via `#rewrite` rule)<br/>Format financial number (via `#itn` rule)|My financial number from Contoso is 8B-EV-3|
+
+For a list of supported base models and locales for training with structured text, see Language support. 
+The Display Format file should have an .md extension. The maximum file size is 10 MB, and the text encoding must be UTF-8 BOM. For more information about customizing Display Format rules, see Display Formatting Rules Best Practice.
+
+|Property|Description|Limits|
+|--------|-----------|------|
+|#ITN|A list of invert-text-normalization rules to define certain display patterns such as numbers, addresses, and dates.|Maximum of 200 lines|
+|#rewrite|A list of rewrite pairs to replace certain words for reasons such as capitalization and spelling correction.|Maximum of 1,000 lines|
+|#profanity|A list of unwanted words that will be masked as `******` from Display and Masked output, on top of Microsoft built-in profanity lists.|Maximum of 1,000 lines|
+|#test|A list of unit test cases to validate if the display rules work as expected, including the lexical format input and the expected display format output.|Maximum file size of 10MB|
+
+Here's an example display format file:
+
+```text in .md file
+// this is a comment line
+// each section must start with a '#' character
+#itn
+// list of ITN pattern rules, one rule for each line
+\d-\d-\d
+\d-\l-\l-\d
+#rewrite
+// list of rewrite rules, each rule has two phrases, separated by a tab character
+old phrase	new phrase
+# profanity
+// list of profanity phrases to be tagged/removed/masked, one line one phrase
+fakeprofanity
+#test
+// list of test cases, each test case has two sentences, input lexical and expected display output
+// the two sentences are separated by a tab character
+// the expected sentence is the display output of DPP+CDPP models
+Mask the fakeprofanity word	Mask the ************* word
+```
 
 ## Next steps
 
