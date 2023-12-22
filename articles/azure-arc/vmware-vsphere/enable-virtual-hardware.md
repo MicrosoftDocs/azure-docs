@@ -26,11 +26,15 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 ## Enable virtual hardware management and self-service access to vCenter VMs with Arc agent installed
 
 1. From your browser, go to [Azure portal](https://portal.azure.com/).
-2. Navigate to the Virtual machines inventory page of your vCenter. 
-    The Virtual machines that have Arc agent installed via the Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management. 
-3. Select **Link to vCenter** to view the pane with the list of all the machines under vCenter with Arc agent installed but not linked to the vCenter in Azure Arc. 
-4. Choose all the machines and select the option to link the machines to vCenter.
-5. After you link to vCenter, the virtual hardware status will reflect as **Enabled for all the VMs**, and you can perform [virtual hardware operations](perform-vm-ops-through-azure.md). 
+
+1. Navigate to the Virtual machines inventory page of your vCenter. <br>
+   The Virtual machines that have Arc agent installed via the Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management.
+
+1. Select **Link to vCenter** to view the pane with the list of all the machines under vCenter with Arc agent installed but not linked to the vCenter in Azure Arc.
+
+1. Choose all the machines and select the option to link the machines to vCenter.
+
+1. After you link to vCenter, the virtual hardware status will reflect as **Enabled for all the VMs**, and you can perform [virtual hardware operations](perform-vm-ops-through-azure.md). 
 
 ### Known issue
  
