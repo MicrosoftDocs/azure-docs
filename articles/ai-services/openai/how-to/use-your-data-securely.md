@@ -56,7 +56,7 @@ Use the following sections to configure your resources for optimal secure usage.
 
 ## Create resource group
 
-Create a resource group, so you can organize all resources below. To clean up all the resources afterward, you can easily delete the resource group. The resources in the resource group will include but not limited to:
+Create a resource group, so you can organize all resources below. To clean up all the resources afterward, you can easily delete the resource group. The resources in the resource group will include but not be limited to:
 * 1 Virtual network
 * 3 key services: 1 Azure OpenAI, 1 Azure AI Search, 1 Storage Account
 * 3 Private endpoints, each is linked to one key service above
