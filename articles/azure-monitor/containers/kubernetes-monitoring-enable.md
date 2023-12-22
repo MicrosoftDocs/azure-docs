@@ -70,13 +70,16 @@ Use one of the following methods to enable scraping of Prometheus metrics from y
 
 If you don't specify an existing Azure Monitor workspace in the following commands, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one with a name in the format `DefaultAzureMonitorWorkspace-<mapped_region>` will be created in a resource group with the name `DefaultRG-<cluster_region>`.
 
+#### Prerequisites
+
+- Az CLI version of 2.49.0 or higher is required. 
+- The aks-preview extension must be [uninstalled from AKS clusters](/cli/azure/azure-cli-extensions-overview) by using the command `az extension remove --name aks-preview`. 
+- The k8s-extension extension must be installed using the command `az extension add --name k8s-extension`.
+- The k8s-extension version 1.4.1 or higher is required. 
+
 #### AKS cluster
 Use the `-enable-azure-monitor-metrics` option `az aks create` or `az aks update` (depending whether you're creating a new cluster or updating an existing cluster) to install the metrics add-on that scrapes Prometheus metrics.
 
-**Prerequisites**
-
-- The aks-preview extension must be uninstalled by using the command `az extension remove --name aks-preview`. For more information on how to uninstall a CLI extension, see [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
-- Az CLI version of 2.49.0 or higher is required. Check the aks-preview version by using the `az version` command.
 
 **Sample commands**
 
@@ -96,13 +99,6 @@ az aks create/update --enable-azure-monitor-metrics -n <cluster-name> -g <cluste
 
 #### Arc-enabled cluster
 
-**Prerequisites**
-
-- The k8s-extension extension must be installed. Install the extension using the command az extension add --name k8s-extension.
-- The k8s-extension version 1.4.1 or higher is required. Check the k8s-extension version by using the `az version` command.
-
-
-**Sample commands**
 
 ```azurecli
 ### Use default Azure Monitor workspace
@@ -184,7 +180,8 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
 
 
 
-2. Edit the following values in the parameter file. The same set of values are used for both the ARM and Bicep templates.
+2. Edit the following values in the parameter file. The same set of values are used for both the ARM and Bicep templates. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
+
 
     | Parameter | Value |
     |:---|:---|
@@ -236,35 +233,35 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
 
     
 
-```bicep
-    resource grafanaResourceId_8 'Microsoft.Dashboard/grafana@2022-08-01' = {
-        name: split(grafanaResourceId, '/')[8]
-        sku: {
-            name: grafanaSku
-        }
-        identity: {
-            type: 'SystemAssigned'
-        }
-        location: grafanaLocation
-        properties: {
-            grafanaIntegrations: {
-                azureMonitorWorkspaceIntegrations: [
-                    {
-                        azureMonitorWorkspaceResourceId: 'full_resource_id_1'
-                    }
-                    {
-                        azureMonitorWorkspaceResourceId: 'full_resource_id_2'
-                    }
-                    {
-                        azureMonitorWorkspaceResourceId: azureMonitorWorkspaceResourceId
-                    }
-                ]
+    ```bicep
+        resource grafanaResourceId_8 'Microsoft.Dashboard/grafana@2022-08-01' = {
+            name: split(grafanaResourceId, '/')[8]
+            sku: {
+                name: grafanaSku
+            }
+            identity: {
+                type: 'SystemAssigned'
+            }
+            location: grafanaLocation
+            properties: {
+                grafanaIntegrations: {
+                    azureMonitorWorkspaceIntegrations: [
+                        {
+                            azureMonitorWorkspaceResourceId: 'full_resource_id_1'
+                        }
+                        {
+                            azureMonitorWorkspaceResourceId: 'full_resource_id_2'
+                        }
+                        {
+                            azureMonitorWorkspaceResourceId: azureMonitorWorkspaceResourceId
+                        }
+                    ]
+                }
             }
         }
-    }
-```
+    ```
 
-
+4. Deploy the template with the parameter file by using any valid method for deploying Resource Manager templates. For examples of different methods, see [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates).
 
 
 ### [Terraform](#tab/terraform)
@@ -306,12 +303,6 @@ Note: Pass the variables for `annotations_allowed` and `labels_allowed` keys in 
 
 ### [Azure Policy](#tab/policy)
 
-#### Prerequisites
-
-- The Azure Monitor workspace and Azure Managed Grafana instance must already be created.
-
-#### Download Azure Policy rules and parameters and deploy
-
 1. Download Azure Policy template and parameter files.
 
    - Template file: [https://aka.ms/AddonPolicyMetricsProfile](https://aka.ms/AddonPolicyMetricsProfile)
@@ -349,7 +340,6 @@ Use one of the following commands to enable monitoring of your AKS and Arc-enabl
 - For CLI version 2.54.0 or higher, the logging schema will be configured to [ContainerLogV2](container-insights-logs-schema.md) using [ConfigMap](container-insights-data-collection-configmap.md).
 
 #### AKS cluster
-Use one of the following commands to enable monitoring of your AKS or Arc-enabled Kubernetes cluster. If you don't specify an existing Log Analytics workspace, the default workspace for the resource group will be used. If a default workspace doesn't already exist in the cluster's region, one will be created with a name in the format `DefaultWorkspace-<GUID>-<Region>`.
 
 ```azurecli
 ### Use default Log Analytics workspace
@@ -386,19 +376,20 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ```
 
+
+**Example**
+
+```azurecli
+az aks enable-addons -a monitoring -n my-cluster -g my-resource-group --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
+```
+
+
 See the [resource requests and limits section of Helm chart](https://github.com/microsoft/Docker-Provider/blob/ci_prod/charts/azuremonitor-containers/values.yaml) for the available configuration settings.
 
 If the cluster is configured with a forward proxy, then proxy settings are automatically applied to the extension. In the case of a cluster with AMPLS + proxy, proxy config should be ignored. Onboard the extension with the configuration setting `amalogs.ignoreExtensionProxySettings=true`.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings amalogs.ignoreExtensionProxySettings=true
-```
-
-
-**Example**
-
-```azurecli
-az aks enable-addons -a monitoring -n my-cluster -g my-resource-group --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace"
 ```
 
 **Delete extension instance**
@@ -439,7 +430,7 @@ az k8s-extension delete --cluster-name <cluster-name> --resource-group <resource
 
 ### [Azure Resource Manager](#tab/arm)
 
-Both ARM and Bicep templates are provided in the following sections.
+Both ARM and Bicep templates are provided in this section.
 
 #### Prerequisites
  
@@ -447,7 +438,7 @@ Both ARM and Bicep templates are provided in the following sections.
 
 #### Download and install template
 
-1. Download the template and parameter file.
+1. Download and edit template and parameter file
 
     **AKS cluster ARM**
    - Template file: [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file)
@@ -463,7 +454,7 @@ Both ARM and Bicep templates are provided in the following sections.
     - Template file: [https://aka.ms/arc-k8s-azmon-extension-arm-template](https://aka.ms/arc-k8s-azmon-extension-arm-template)
     - Parameter file: [https://aka.ms/arc-k8s-azmon-extension-arm-template-params](https://aka.ms/arc-k8s-azmon-extension-arm-template-params)
 
-2. Edit the following values in the parameter file. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
+2. Edit the following values in the parameter file. The same set of values are used for both the ARM and Bicep templates. Retrieve the resource ID of the resources from the **JSON View** of their **Overview** page.
 
     | Parameter | Description |
     |:---|:---|
@@ -532,30 +523,43 @@ Both ARM and Bicep templates are provided in the following sections.
 
 ### [Azure Policy](#tab/policy)
 
+#### Azure Portal
+
+1. From the **Definitions** tab of the **Policy** menu in the Azure portal, create a policy definition with the following details.
+
+    - **Definition location**: Azure subscription where the policy definition should be stored.
+    - **Name**: AKS-Monitoring-Addon
+    - **Description**: Azure custom policy to enable the Monitoring Add-on onto Azure Kubernetes clusters.
+    - **Category**: Select **Use existing** and then *Kubernetes* from the dropdown list.
+    - **Policy rule**: Replace the existing sample JSON with the contents of [https://aka.ms/aks-enable-monitoring-custom-policy](https://aka.ms/aks-enable-monitoring-custom-policy).
+
+1. Select the new policy definition **AKS Monitoring Addon**.
+1. Select **Assign** and specify a **Scope** of where the policy should be assigned.
+1. Select **Next** and provide the resource ID of the Log Analytics workspace.
+1. Create a remediation task if you want to apply the policy to existing AKS clusters in the selected scope.
+1. Select **Review + create** to create the policy assignment.
+
+#### Azure CLI
+
 1. Download Azure Policy template and parameter files.
 
    - Template file: [https://aka.ms/enable-monitoring-msi-azure-policy-template](https://aka.ms/enable-monitoring-msi-azure-policy-template)
    - Parameter file: [https://aka.ms/enable-monitoring-msi-azure-policy-parameters](https://aka.ms/enable-monitoring-msi-azure-policy-parameters)
 
-2. Create the policy definition and assignment using the following CLI commands:
+
+2. Create the policy definition using the following CLI command:
 
     ```
-    ### Create policy definition    
     az policy definition create --name "AKS-Monitoring-Addon-MSI" --display-name "AKS-Monitoring-Addon-MSI" --mode Indexed --metadata version=1.0.0 category=Kubernetes --rules azure-policy.rules.json --params azure-policy.parameters.json
-    
-    ### Create policy assignment
+    ```
+
+2. Create the policy definition using the following CLI command:
+ 
+    ```
     az policy assignment create --name aks-monitoring-addon --policy "AKS-Monitoring-Addon-MSI" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <location> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
     ```
 
-1. After you create the policy definition, in the Azure portal, select **Policy** and then **Definitions**. Select the policy definition you created.
-
-2. Select **Assign** and fill in the details on the **Parameters** tab,. Select **Review + Create**.
-
-3. After the policy is assigned to the subscription, whenever you create a new cluster without Prometheus enabled, the policy will run and deploy to enable Prometheus monitoring. If you want to apply the policy to an existing cluster, create a **Remediation task** for that cluster resource from **Policy Assignment**.
-
-> [!TIP]
-> - Make sure when performing remediation task, the policy assignment has access to workspace you specified.
-> - Download all files under *AddonPolicyTemplate* folder before running the policy template.
+After the policy is assigned to the subscription, whenever you create a new cluster without Prometheus enabled, the policy will run and deploy to enable Prometheus monitoring. 
 
 ---
 
@@ -569,13 +573,13 @@ Using the Azure portal, you can enable both Managed Prometheus and Container ins
 > [!NOTE]
 > If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md) as described below.
 
-### New AKS cluster
+### New AKS cluster (Prometheus and Container insights)
 
 When you create a new AKS cluster in the Azure portal, you can enable Prometheus, Container insights, and Grafana from the **Integrations** tab. In the Azure Monitor section, select either **Default configuration** or **Custom configuration** if you want to specify which workspaces to use. You can perform additional configuration once the cluster is created.
 
 :::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
 
-### Full monitoring on existing cluster
+### Existing cluster (Prometheus and Container insights)
 
 This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster. 
 
@@ -598,7 +602,7 @@ This option enables Container insights and optionally Prometheus and Grafana on 
 
 4. Click **Configure** to save the configuration.
 
-### Prometheus only on existing cluster
+### Existing cluster (Prometheus only)
 
 This option enables Prometheus metrics on a cluster without enabling Container insights.
 
