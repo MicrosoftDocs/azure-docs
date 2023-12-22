@@ -88,12 +88,15 @@ The regions that a resource is replicated to can be updated after creation time.
 
 There are three main ways to share images in an Azure Compute Gallery, depending on who you want to share with:
 
-
 | Sharing with: | People | Groups | Service Principal | All users in a specific   subscription (or) tenant | Publicly with all users in   Azure |
 |---|---|---|---|---|---|
 | [RBAC Sharing](#rbac) | Yes | Yes | Yes | No | No |
 | RBAC + [Direct shared gallery](#shared-directly-to-a-tenant-or-subscription)  | Yes | Yes | Yes | Yes | No |
 | RBAC + [Community gallery](#community-gallery) | Yes | Yes | Yes | No | Yes |
+
+> [!WARNING]
+> Users will require reader permissions to access the Image.
+> Putting any secrets (or) IP on the image is not recommended as the image can be used to create VM and read contents.
 
 ### RBAC
 
