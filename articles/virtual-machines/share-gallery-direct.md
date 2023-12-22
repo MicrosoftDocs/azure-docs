@@ -27,7 +27,7 @@ This article covers how to share an Azure Compute Gallery with specific subscrip
 > During the preview, you need to create a new gallery, with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
 
 > [!NOTE]
-> Please note that Images can be used with read permissions on them to deploy virtual machines and disks. As a best practice, it is not recommended to include sensitive information, such as secrets, in the Images.
+> Please note that Images can be used with read permissions on them to deploy virtual machines and disks.
 > 
 > When utilizing the direct shared gallery, images are distributed widely to all users in a subscription/tenant, while the community gallery distributes images publicly. It is recommended to exercise caution when sharing images that contain intellectual property to prevent widespread distribution.
 
