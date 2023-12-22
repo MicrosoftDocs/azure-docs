@@ -67,7 +67,7 @@ When both provisioning succeeded and the endpoint are approved, we can finally c
 
 1. Select test connection. You should see "Connection Successful" message next to test connection button.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [networking with Private Link in Azure Database for PostgreSQL - Flexible Server](concepts-networking-private-link.md)
+> [Networking with private link in Azure Database for PostgreSQL - Flexible Server](concepts-networking-private-link.md)
