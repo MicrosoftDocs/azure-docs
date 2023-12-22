@@ -241,7 +241,7 @@ The web app needs to resolve your Azure OpenAI host name to the private IP of th
 1. [Add A-record](/azure/dns/private-dns-getstarted-portal#create-an-additional-dns-record). The IP is the private IP of the private endpoint for your Azure OpenAI resource, and you can get the IP address from the network interface associated with the private endpoint for your Azure OpenAI.
 1. [Link the private DNS zone to your virtual network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network). So the web app integrated in this virtual network can use this private DNS zone.
 
-When deploying the web app from Azure OpenAI Studio, select the same location with the virtual network, and select a SKU that is above `Basic`, so it can support [virtual network integration feature](/azure/app-service/overview-vnet-integration). 
+When deploying the web app from Azure OpenAI Studio, select the same location with the virtual network, and select a SKU that is above `Basic`, so it can support the [virtual network integration feature](/azure/app-service/overview-vnet-integration). 
 
 After web app is deployed, from the Azure portal networking tab, configure the web app outbound traffic vitual network integration, choose the third subnet that you reserved for web app.
 
