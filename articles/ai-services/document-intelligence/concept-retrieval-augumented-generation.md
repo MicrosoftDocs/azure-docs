@@ -120,6 +120,15 @@ If you're looking for a specific section in a document, you can use semantic chu
 # Using SDK targeting 2023-10-31-preview
 # pip install azure-ai-documentintelligence==1.0.0b1
 # pip install langchain langchain-community azure-ai-documentintelligence
+
+from azure.ai.documentintelligence import DocumentIntelligenceClient
+ from azure.core.credentials import AzureKeyCredential
+
+ endpoint = "https://<my-custom-subdomain>.cognitiveservices.azure.com/"
+ credential = AzureKeyCredential("<api_key>")
+
+ document_intelligence_client = DocumentIntelligenceClient(
+     endpoint, credential)
  
 from langchain_community.document_loaders import AzureAIDocumentIntelligenceLoader
  
