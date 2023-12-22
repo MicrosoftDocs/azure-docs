@@ -612,7 +612,8 @@ This option enables Prometheus metrics on a cluster without enabling Container i
 
     :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot that shows an Azure Monitor workspace with a Prometheus configuration.":::
 
-### Add Prometheus to cluster with Container insights
+### Existing cluster (Add Prometheus)
+
 
 1. Select **Containers** from the **Monitor** menu, **Monitored clusters** tab, and click **Configure** next to a cluster in the **Managed Prometheus** column.
 
