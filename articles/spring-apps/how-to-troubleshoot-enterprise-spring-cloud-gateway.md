@@ -31,7 +31,11 @@ For more information on each supported metric, see the [Gateway](./concept-metri
 
 ## Check Gateway logs
 
-There are two subcomponents that make up the Spring Cloud Gateway for VMware Tanzu: the `spring-cloud-gateway` and the `spring-cloud-gateway-operator`. You can infer from the name that the `spring-cloud-gateway-operator` is for managing the Gateway, while the `spring-cloud-gateway` fulfills the features. The logs of both subcomponents are available. The following sections describe how to check these logs.
+Spring Cloud Gateway is composed of following subcomponent.
+- `spring-cloud-gateway-operator` is for managing the Gateway.
+- `spring-cloud-gateway` fulfills the features.
+
+The logs of both subcomponents are available. The following sections describe how to check these logs.
 
 ### Use real-time log streaming
 
