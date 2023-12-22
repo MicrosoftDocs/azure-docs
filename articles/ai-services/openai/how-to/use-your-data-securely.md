@@ -243,7 +243,7 @@ The web app needs to resolve your Azure OpenAI host name to the private IP of th
 
 When deploying the web app from Azure OpenAI Studio, select the same location with the virtual network, and select a SKU that is above `Basic`, so it can support the [virtual network integration feature](/azure/app-service/overview-vnet-integration). 
 
-After web app is deployed, from the Azure portal networking tab, configure the web app outbound traffic vitual network integration, choose the third subnet that you reserved for web app.
+After the web app is deployed, from the Azure portal networking tab, configure the web app outbound traffic virtual network integration, choose the third subnet that you reserved for web app.
 
 :::image type="content" source="../media/use-your-data/web-app-configure-outbound-traffic.png" alt-text="A screenshot showing outbound traffic configuration for the web app." lightbox="../media/use-your-data/web-app-configure-outbound-traffic.png":::
 
