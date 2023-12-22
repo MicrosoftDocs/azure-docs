@@ -525,7 +525,7 @@ certain criteria can be formed using a **field** expression. The following field
   > [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 
-Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`. For example, this is no longer supported:
+Conditions that use `field` expressions can replace the legacy policy definition syntax `"source": "action"`, which used to work for write operations. For example, this is no longer supported:
 ```json
 {
     "source": "action",
