@@ -127,7 +127,7 @@ You must be on the ContainerLogV2 schema to configure Basic Logs. For more infor
 ### Prometheus metrics scraping
 
 > [!NOTE] 
-> This section describes [collection of Prometheus metrics in your Log Analytics workspace](container-insights-prometheus-logs.md). This information does not apply if you're using [Managed Prometheus to scrape your Prometheus metrics](prometheus-metrics-enable.md).
+> This section describes [collection of Prometheus metrics in your Log Analytics workspace](container-insights-prometheus-logs.md). This information does not apply if you're using [Managed Prometheus to scrape your Prometheus metrics](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana).
 
 If you [collect Prometheus metrics in your Log Analytics workspace](container-insights-prometheus-logs.md), make sure that you limit the number of metrics you collect from your cluster:
 

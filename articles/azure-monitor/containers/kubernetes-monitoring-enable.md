@@ -571,7 +571,7 @@ After the policy is assigned to the subscription, whenever you create a new clus
 Using the Azure portal, you can enable both Managed Prometheus and Container insights at the same time. 
 
 > [!NOTE]
-> If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./prometheus-metrics-enable.md) as described below.
+> If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) as described below.
 
 ### New AKS cluster (Prometheus and Container insights)
 

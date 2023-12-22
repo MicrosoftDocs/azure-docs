@@ -79,7 +79,7 @@ resource workspace 'microsoft.monitor/accounts@2021-06-03-preview' = {
 
 When you create an Azure Monitor workspace, a new resource group is created. The resource group name has the following format: `MA_<azure-monitor-workspace-name>_<location>_managed`, where the tokenized elements are lowercased. The resource group contains both a data collection endpoint and a data collection rule with the same name as the workspace. The resource group and its resources are automatically deleted when you delete the workspace.
  
-To connect your Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./prometheus-metrics-enable.md)
+To connect your Azure Monitor managed service for Prometheus to your Azure Monitor workspace, see [Collect Prometheus metrics from AKS cluster](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 
 
 ## Delete an Azure Monitor workspace
@@ -158,7 +158,7 @@ Output
 ### [Resource Manager](#tab/resource-manager)  
   
 
-To set up an Azure monitor workspace as a data source for Grafana using a Resource Manager template, see [Collect Prometheus metrics from AKS cluster](prometheus-metrics-enable.md?tabs=resource-manager#enable-prometheus-metric-collection)
+To set up an Azure monitor workspace as a data source for Grafana using a Resource Manager template, see [Collect Prometheus metrics from AKS cluster](kubernetes-monitoring-enable.md#enable-prometheus-and-grafana?tabs=resource-manager#enable-prometheus-metric-collection)
 
 ---
 
@@ -178,6 +178,6 @@ Yes. When you use managed service for Prometheus, you can create your Azure Moni
 
 
 ## Next steps
-- [Link a Grafana instance to your Azure Monitor workspace](./prometheus-metrics-enable.md#enable-prometheus-metric-collection)
+- [Link a Grafana instance to your Azure Monitor workspace](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana#enable-prometheus-metric-collection)
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
 - [Azure Monitor workspace Overview](./azure-monitor-workspace-overview.md)
