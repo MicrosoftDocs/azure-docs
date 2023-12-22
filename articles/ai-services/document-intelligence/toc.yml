@@ -72,6 +72,16 @@ items:
   - name: Create a Document Intelligence resource
     displayName: endpoint, key, portal
     href:  create-document-intelligence-resource.md
+  - name: Migrate to Document Intelligence
+    items:
+    - name: ".NET/C# SDK"
+      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md
+    - name: Java SDK
+      href: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
+    - name: JavaScript SDK
+      href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md
+    - name: Python SDK
+      href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
   - name: Migrate to Document Intelligence v3.1
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-1-migration-guide.md
@@ -264,16 +274,6 @@ items:
     href: tutorial-azure-function.md
 - name: Reference
   items:
-  - name: Migrate to Document Intelligence
-    items:
-    - name: ".NET/C# SDK"
-      href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md
-    - name: Java SDK
-      href: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md 
-    - name: JavaScript SDK
-      href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md
-    - name: Python SDK
-      href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md
   - name: REST API v4.0
     href: /rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-10-31-preview&preserve-view=true&tabs=HTTP
   - name: REST API v3.1

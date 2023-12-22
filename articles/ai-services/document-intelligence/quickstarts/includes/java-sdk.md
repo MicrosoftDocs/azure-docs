@@ -110,9 +110,10 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 ### Install the client library
 
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
-
 :::moniker range="doc-intel-4.0.0"
+
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence).
+
 Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
   ```kotlin
@@ -136,7 +137,9 @@ Open the project's *build.gradle.kts* file in your IDE. Copay and past the follo
 
 :::moniker range="doc-intel-3.1.0"
 
-  Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
+
+Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
   ```kotlin
      plugins {
@@ -159,7 +162,9 @@ Open the project's *build.gradle.kts* file in your IDE. Copay and past the follo
 
 :::moniker range="doc-intel-3.0.0"
 
-  Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
+
+Open the project's *build.gradle.kts* file in your IDE. Copay and past the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
   ```kotlin
      plugins {
@@ -183,7 +188,19 @@ Open the project's *build.gradle.kts* file in your IDE. Copay and past the follo
 
 ## Create a Java application
 
+:::moniker range="doc-intel-4.0.0"
+
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentIntelligenceClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentIntelligenceClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
 To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
+
+:::moniker-end
+
+
 
 1. From the doc-intel-app directory, run the following command:
 
@@ -197,7 +214,7 @@ To interact with the Document Intelligence service, you need to create an instan
 
 :::moniker range="doc-intel-4.0.0"
 
-1. Navigate to the `java` directory and create a file named **`DocIntelligence.java`**.
+2. Navigate to the `java` directory and create a file named **`DocIntelligence.java`**.
 
     > [!TIP]
     >
@@ -261,7 +278,7 @@ import com.azure.core.util.polling.SyncPoller;
 
 import java.util.List;
 
-public class FormRecognizer {
+public class DocIntelligence {
 
   // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
   private static final String endpoint = "<your-endpoint>";

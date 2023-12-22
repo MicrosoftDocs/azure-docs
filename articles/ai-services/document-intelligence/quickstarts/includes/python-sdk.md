@@ -82,7 +82,9 @@ pip install azure-ai-formrecognizer==3.2.0b6
 
 ## Create your Python application
 
-To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
+:::moniker range="doc-intel-4.0.0"
+
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentIntelligenceClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentIntelligenceClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
 
 1. Create a new Python file called **doc_intel_quickstart.py** in your preferred editor or IDE.
 
@@ -91,6 +93,22 @@ To interact with the Document Intelligence service, you need to create an instan
     * [**Layout**](#layout-model)
 
     * [**Prebuilt Invoice**](#prebuilt-model)
+
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
+
+1. Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE.
+
+1. Open the **form_recognizer_quickstart.py** file and select one of the following code samples to copy and paste into your application:
+
+    * [**Layout**](#layout-model)
+
+    * [**Prebuilt Invoice**](#prebuilt-model)
+
+:::moniker-end
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../ai-services/security-features.md).
@@ -107,9 +125,9 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 > * We've added the file URL value to the `formUrl` variable in the `analyze_layout` function.
 > * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
-**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
-
 :::moniker range="doc-intel-4.0.0"
+
+**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```python
 
@@ -197,6 +215,7 @@ if __name__ == "__main__":
 After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+
 1. Type the following command in your terminal:
 
     ```console
@@ -206,6 +225,8 @@ After you add a code sample to your application, build and run your program:
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
+
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```python
 
@@ -319,11 +340,11 @@ if __name__ == "__main__":
 
 After you add a code sample to your application, build and run your program:
 
-1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
 1. Type the following command in your terminal:
 
     ```console
-    python doc_intel_quickstart.py
+    python form_recognizer_quickstart.py
     ```
 
 ### Layout model output
@@ -351,6 +372,8 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 ::: moniker-end
 
 :::moniker range="doc-intel-3.0.0"
+
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```python
 
@@ -462,11 +485,12 @@ if __name__ == "__main__":
 
 After you add a code sample to your application, build and run your program:
 
-1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+
 1. Type the following command in your terminal:
 
     ```console
-    python doc_intel_quickstart.py
+    python form_recognizer_quickstart.py
     ```
 
 :::moniker-end
@@ -487,9 +511,9 @@ Analyze and extract common fields from specific document types using a prebuilt 
 > * To analyze a given file at a URI, you'll use the `begin_analyze_document_from_url` method and pass `prebuilt-invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
-**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
-
 :::moniker range="doc-intel-4.0.0"
+
+**Add the following code sample to your doc_intel_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```python
 
@@ -502,8 +526,6 @@ from azure.ai.documentintelligence import DocumentIntelligenceClient
 # set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
 endpoint = "<your-endpoint>"
 key = "<your-key>"
-
-
 
 def analyze_invoice():
     # sample document
@@ -714,6 +736,7 @@ if __name__ == "__main__":
 After you add a code sample to your application, build and run your program:
 
 1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+
 1. Type the following command in your terminal:
 
     ```console
@@ -723,6 +746,8 @@ After you add a code sample to your application, build and run your program:
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
+
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```python
 # import libraries
@@ -1022,11 +1047,12 @@ if __name__ == "__main__":
 
 After you add a code sample to your application, build and run your program:
 
-1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
+
 1. Type the following command in your terminal:
 
     ```console
-    python doc_intel_quickstart.py
+    python form_recognizer_quickstart.py
     ```
 
 ### Prebuilt model output
@@ -1053,6 +1079,8 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 :::moniker-end
 
 :::moniker range="doc-intel-3.0.0"
+
+**Add the following code sample to your form_recognizer_quickstart.py application. Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance:**
 
 ```python
 
@@ -1171,11 +1199,11 @@ if __name__ == "__main__":
 
 After you add a code sample to your application, build and run your program:
 
-1. Navigate to the folder where you have your **doc_intel_quickstart.py** file.
+1. Navigate to the folder where you have your **form_recognizer_quickstart.py** file.
 1. Type the following command in your terminal:
 
     ```console
-    python doc_intel_quickstart.py
+    python form_recognizer_quickstart.py
     ```
 
 :::moniker-end

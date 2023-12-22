@@ -113,8 +113,6 @@ In this quickstart, you used a document Intelligence model to analyze various fo
 >[!div class="nextstepaction"]
 > [**Try the Document Intelligence Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
-> [!div class="nextstepaction"]
-> [**Explore our how-to documentation and take a deeper dive into Document Intelligence models**](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)
 ::: moniker-end
 
 ::: moniker range="doc-intel-2.1.0"

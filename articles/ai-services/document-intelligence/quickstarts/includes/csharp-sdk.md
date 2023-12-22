@@ -84,11 +84,19 @@ In this quickstart, you use the following features to analyze and extract data a
 
     :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot of Visual Studio's create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `form_recognizer_quickstart` in the Project name box. Then choose Next.
+:::moniker range="doc-intel-4.0.0"
 
-    :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot of Visual Studio's configure new project dialog window.":::
+4. In the **Configure your new project** dialog window, enter `doc_intel_quickstart` in the Project name box. Then choose Next.
 
-1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
+4. In the **Configure your new project** dialog window, enter `form_recognizer_quickstart` in the Project name box. Then choose Next.
+
+:::moniker-end
+
+5. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
     :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information dialog window.":::
 

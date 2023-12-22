@@ -70,7 +70,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 :::moniker range="doc-intel-4.0.0"
 
- 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
+ 4. Install the `ai-document-intelligence` client library and `azure/identity` npm packages:
 
     ```console
     npm i @azure-rest/ai-document-intelligence@1.0.0-beta.1
@@ -82,7 +82,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 :::moniker range="doc-intel-3.1.0"
 
- 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
+ 4. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
     npm i @azure/ai-form-recognizer@5.0.0 @azure/identity
@@ -94,7 +94,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 :::moniker range="doc-intel-3.0.0"
 
-1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
+4. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
     npm i @azure/ai-form-recognizer@4.0.0 @azure/identity
@@ -102,7 +102,7 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 :::moniker-end
 
-2. Create a file named `index.js` in the application directory.
+5. Create a file named `index.js` in the application directory.
 
     > [!TIP]
     >
@@ -112,7 +112,16 @@ In this quickstart you'll, use the following features to analyze and extract dat
 
 ## Build your application
 
-To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
+:::moniker range="doc-intel-4.0.0"
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentIntelligenceClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentIntelligenceClient` instance with the `AzureKeyCredential` and your Document Intelligence `endpoint`.
+:::moniker-end
+
+:::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
+
+To interact with the Document Intelligence service, you need to create an instance of the `DocumentAnalysisClient` class. To do so, you create an `AzureKeyCredential` with your `key` from the Azure portal and a `DocumentAnalysisClient` instance with the `AzureKeyCredential` and your Form 
+Recognizer `endpoint`.
+
+:::moniker-end
 
 1. Open the `index.js` file in Visual Studio Code or your favorite IDE and select one of the following code samples to copy and paste into your application:
 
