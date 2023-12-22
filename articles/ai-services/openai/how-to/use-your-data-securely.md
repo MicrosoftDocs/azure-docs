@@ -28,7 +28,7 @@ When you use Azure OpenAI on your data to ingest data into Azure AI Search, the 
 :::image type="content" source="../media/use-your-data/ingestion-architecture.png" alt-text="A diagram showing the process of ingesting data." lightbox="../media/use-your-data/ingestion-architecture.png":::
 
 * The first 2 steps are only used for file upload.
-* Downloading URLs to your blob storage is not illustrated on this diagram. After the web pages are downloaded from Internet, and uploaded to blob storage, everything is the same from step 3.
+* Downloading URLs to your blob storage is not illustrated on this diagram. After the web pages are downloaded from the internet, and uploaded to blob storage, everything is the same from step 3.
 * Ingestion assets, including 2 indexers, 2 indexes, 2 data sources, a [custom skill](/azure/search/cognitive-search-custom-skill-interface) are created in the Azure AI Search resource, and the chunk container is created in the blob storage.
 * If the ingestion is triggered by a [scheduled refresh](../concepts/use-your-data.md#schedule-automatic-index-refreshes), the ingestion process starts from step `[7]`.
 *  Azure OpenAI's `preprocessing-jobs` API implements the [Azure AI Search customer skill web API protocol](/azure/search/cognitive-search-custom-skill-web-api), and processes the documents in a queue. 
