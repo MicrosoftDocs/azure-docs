@@ -265,6 +265,8 @@ items:
     items:
     - name: ".NET/C# SDK"
       href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/MigrationGuide.md
+    - name: Java SDK
+      href: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md 
     - name: JavaScript SDK
       href: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/documentintelligence/ai-document-intelligence-rest/MIGRATION-FR_v4-DI_v1.md
     - name: Python SDK

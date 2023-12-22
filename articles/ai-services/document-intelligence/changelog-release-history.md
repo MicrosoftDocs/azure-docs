@@ -51,6 +51,8 @@ This reference article provides a version-based description of Document Intellig
 
 [**Samples**](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/src/samples#examples)
 
+[**Migration guide**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/MIGRATION_GUIDE.md)
+
 ### [**JavaScript**](#tab/javascript)
 
 * Document Intelligence **1.0.0-beta.1**
