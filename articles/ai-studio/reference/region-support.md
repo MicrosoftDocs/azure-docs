@@ -7,6 +7,7 @@ manager: nitinme
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 12/11/2023
+ms.reviewer: eur
 ms.author: eur
 ms.custom: references_regions
 ---
