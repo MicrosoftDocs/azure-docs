@@ -103,7 +103,7 @@ You can add storage capacity during and after the creation of the server.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and I/O percentage](concepts-monitoring.md).
 
-### Maximum IOPS for your configuration
+### Maximum IOPS for your configuration 
 
 **Burstable**
 
