@@ -37,7 +37,7 @@ Role assignment might take several minutes to take effect.
 
 ## Permissions and roles for deployments
 
-After you deploy a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. This operation can be done at any point after the endpoint has been created.
+After you deploy a prompt flow, the endpoint must be assigned the `AzureML Data Scientist` role to the workspace for successful inferencing. You can do this operation at any point after you create the endpoint.
 
 ## Create a runtime on the UI
 
@@ -46,66 +46,79 @@ Before you use Azure Machine Learning studio to create a runtime, make sure that
 - You have the `AzureML Data Scientist` role in the workspace.
 - The default data store (usually `workspaceblobstore`) in your workspace is the blob type.
 - `workspaceworkingdirectory` exists in the workspace.
-- If you use a virtual network for prompt, you understand the considerations in [Network isolation in prompt flow](how-to-secure-prompt-flow.md).
+- If you use a virtual network for prompt flow, you understand the considerations in [Network isolation in prompt flow](how-to-secure-prompt-flow.md).
 
 ### Create an automatic runtime (preview) on a flow page
 
-Automatic is the default option for runtime, you can start automatic runtime (preview) in runtime dropdown on a flow page.
+Automatic is the default option for a runtime. You can start an automatic runtime (preview) from the runtime dropdown list on a flow page.
 
 > [!IMPORTANT]
 > Automatic runtime is currently in public preview. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Start creates automatic runtime (preview) using the environment defined in`flow.dag.yaml` in flow folder on the VM size you have quota in the workspace.
+1. Start creating an automatic runtime (preview) by using the environment defined in `flow.dag.yaml` in the flow folder on the virtual machine (VM) size where you have a quota in the workspace.
 
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow on the start automatic with default settings on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
+    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
-2. Start with advanced settings, you can customize the VM size used by the runtime. You can also customize the idle time, which will delete runtime automatically if it isn't in use to save code. Meanwhile, you can set the user assigned manage identity used by automatic runtime, it's used to pull base image (please make sure user assigned manage identity have ACR pull permission) and install packages. If you don't set it, we use user identity as default. Learn more about [how to create update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+2. In advanced settings, you can:
 
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow on the start automatic with advanced setting on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
+   - Customize the VM size that the runtime uses.
+   - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
+   - Set the user-assigned managed identity. The automatic runtime uses this identity to pull a base image and install packages. Make sure that the user-assigned managed identity has Azure Container Registry pull permission.
+
+     If you don't set this identity, you use the user identity by default. [Learn more about how to create and update user-assigned identities for a workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+
+    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png" alt-text="Screenshot of prompt flow with advanced settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-automatic-settings.png":::
 
 ### Create a compute instance runtime on a runtime page
 
-If you don't have a compute instance, create a new one: [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
+Before you create a compute instance runtime, make sure that you have a compute instance available and running. If you don't have a compute instance, [create one in an Azure Machine Learning workspace](../how-to-create-compute-instance.md).
 
-1. Select add runtime in runtime list page.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of prompt flow on the runtime add with compute instance runtime selected." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
-1. Select compute instance you want to use as runtime.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of add compute instance runtime with select compute instance highlighted. " lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
-    Because compute instances is isolated by user, you can only see your own compute instances or the ones assigned to you. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
-1. Authenticate on the compute instance. You only need to do auth one time per region in six months.
-    :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-authentication.png" alt-text="Screenshot of doing the authentication on compute instance." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-authentication.png":::
-1. Select create new custom application or existing custom application as runtime:
+1. On the page that lists runtimes, select **Create**.
+  
+   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png" alt-text="Screenshot of the page that lists runtimes and the button for creating a runtime." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add.png":::
 
-   - Select create new custom application as runtime.
+1. Select the compute instance that you want to use as a runtime.
+  
+   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png" alt-text="Screenshot of the box for selecting a compute instance." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-ci.png":::
 
-     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of add compute instance runtime with custom application highlighted." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
+   Because compute instances are isolated by user, only your own compute instances (or the ones assigned to you) are available. To learn more, see [Create and manage an Azure Machine Learning compute instance](../how-to-create-compute-instance.md).
 
-     This is recommended for most users of prompt flow. The prompt flow system creates a new custom application on a compute instance as a runtime.
+1. Select the **Authenticate** button to authenticate on the compute instance. You need to do authentication only one time per region in six months.
 
-     To choose the default environment, select this option. This is the recommended choice for new users of prompt flow.
+   :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-authentication.png" alt-text="Screenshot of the button for authenticating on a compute instance." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-authentication.png":::
 
-     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png" alt-text="Screenshot of add compute instance runtime with environment highlighted." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png":::
+1. Decide whether to create a custom application or select an existing one as a runtime:
 
-     If you want to install other packages in your project, you should create a custom environment. To learn how to build your own custom environment, see [Customize environment with docker context for runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+   - To create a custom application, under **Custom application**, select **New**.
 
-     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png" alt-text="Screenshot of add compute instance runtime with customized environment and choose an environment highlighted." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png":::
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png" alt-text="Screenshot of the option for creating a new custom application." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-runtime-select-custom-application.png":::
+
+     We recommend this option for most users of prompt flow. The prompt flow system creates a new custom application on a compute instance as a runtime.
+
+     Under **Environment**, if you want to use the default environment, select **Use default environment**. We recommend this choice for new users of prompt flow.
+
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png" alt-text="Screenshot of the option for using a default environment." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-default-env.png":::
+
+     If you want to install other packages in your project, you should use a custom environment. Select **Use customized environment**, and then choose an environment from the list that appears. To learn how to build your own custom environment, see [Customize an environment with a Docker context for a runtime](how-to-customize-environment-runtime.md#customize-environment-with-docker-context-for-runtime).
+
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png" alt-text="Screenshot of the option for using a customized environment, along with a list of environments." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-runtime-list-add-custom-env.png":::
 
      > [!NOTE]
-     > We are going to perform an automatic restart of your compute instance. Please ensure that you do not have any tasks or jobs running on it, as they may be affected by the restart.
+     > Your compute instance restarts automatically. Ensure that you don't have any tasks or jobs running on it, because the restart might affect them.
 
-   - To use an existing custom application as a runtime, choose the option "existing".
+   - To use an existing custom application as a runtime, under **Custom application**, select **Existing**. Then select an application in the **Custom application** box.
 
-     This option is available if you have previously created a custom application on a compute instance. For more information on how to create and use a custom application as a runtime, learn more about [how to create custom application as runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-compute-instance-runtime).
+     This option is available if you previously created a custom application on a compute instance. [Learn more about how to create and use a custom application as a runtime](how-to-customize-environment-runtime.md#create-a-custom-application-on-compute-instance-that-can-be-used-as-prompt-flow-compute-instance-runtime).
 
-     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of add compute instance runtime with custom application dropdown highlighted." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
+     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png" alt-text="Screenshot of the option to use an existing custom application and the box for selecting an application." lightbox = "./media/how-to-create-manage-runtime/runtime-creation-ci-existing-custom-application-ui.png":::
 
 ## Use a runtime in prompt flow authoring
 
-When you're authoring your prompt flow, you can select and change the runtime from left top corner of the flow page.
+When you're authoring a flow, you can select and change the runtime from the **Runtime** drop-down list on the upper right of the flow page.
 
-:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png" alt-text="Screenshot of Chat with Wikipedia with the runtime dropdown highlighted." lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png":::
+:::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png" alt-text="Screenshot of a flow page and the dropdown list for selecting a runtime." lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-dropdown.png":::
 
-When performing evaluation, you can use the original runtime in the flow or change to a more powerful runtime.
+When you're performing evaluation, you can use the original runtime in the flow or change to a more powerful runtime.
 
 :::image type="content" source="./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png" alt-text="Screenshot of evaluate wizard with runtime highlighted." lightbox = "./media/how-to-create-manage-runtime/runtime-authoring-bulktest.png":::
 
