@@ -103,12 +103,12 @@ You can add storage capacity during and after the creation of the server.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and I/O percentage](concepts-monitoring.md).
 
-### Maximum IOPS for your configuration
+### Maximum IOPS for your configuration 
 
-| SKU name | Storage size in GiB | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,096 | 8,192 | 16,384 | 32,767 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | Maximum IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
-| **Burstable** | | | | | | | | | | | | |
+**Burstable**
+
+| SKU Name | Maximum IOPS | 32 GiB | 64 GiB | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB | 2,048 GiB | 4,096 GiB | 8,192 GiB | 16,384 GiB | 32,767 GiB |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | B1ms | 640 IOPS | 120 | 240 | 500 | 640* | 640* | 640* | 640* | 640* | 640* | 640* | 640* |
 | B2s | 1,280 IOPS | 120 | 240 | 500 | 1,100 | 1,280* | 1,280* | 1,280* | 1,280* | 1,280* | 1,280* | 1,280* |
 | B2ms | 1,280 IOPS | 120 | 240 | 500 | 1,100 | 1,700* | 1,700* | 1,700* | 1,700* | 1,700* | 1,700* | 1,700* |
@@ -117,7 +117,11 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 | B12ms | 1,280 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 3,800* | 3,800* | 3,800* | 3,800* | 3,800* | 3,800* |
 | B16ms | 1,280 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 4,300* | 4,300* | 4,300* | 4,300* | 4,300* | 4,300* |
 | B20ms | 1,280 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 5,000* | 5,000* | 5,000* | 5,000* | 5,000* |
-| **General Purpose** | | | | | | | | | | | | |
+
+**General Purpose**
+ 
+| SKU Name | Maximum IOPS | 32 GiB | 64 GiB | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB | 2,048 GiB | 4,096 GiB | 8,192 GiB | 16,384 GiB | 32,767 GiB |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | D2s_v3 / D2ds_v4 | 3,200 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* |
 | D2ds_v5 / D2ads_v5 | 3,750 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* |
 | D4s_v3 / D4ds_v4 / D4ds_v5 / D4ads_v5 | 6,400 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 6,400* | 6,400* | 6,400* | 6,400* | 6,400* |
@@ -127,7 +131,11 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 | D48s_v3 / D48ds_v4 / D48ds_v5 / D48ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 | D64s_v3 / D64ds_v4 / D64ds_v5 / D64ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 | D96ds_v5 / D96ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
-| **Memory Optimized** | | | | | | | | | | | | |
+
+ **Memory Optimized**
+
+| SKU Name | Maximum IOPS | 32 GiB | 64 GiB | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB | 2,048 GiB | 4,096 GiB | 8,192 GiB | 16,384 GiB | 32,767 GiB |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | E2s_v3 / E2ds_v4 | 3,200 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* |
 | E2ds_v5 /E2ads_v5 | 3,750 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* | 3,200* |
 | E4s_v3 / E4ds_v4 / E4ds_v5 / E4ads_v5 | 6,400 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 6,400* | 6,400* | 6,400* | 6,400* | 6,400* |
@@ -137,7 +145,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 | E32s_v3 / E32ds_v4 / E32ds_v5 / E32ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 | E48s_v3 / E48ds_v4 / E48ds_v5 / E48ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 | E64s_v3 / E64ds_v4 / E64ds_v5 / E64ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
-| E96ds_v5 / | E96ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
+| E96ds_v5 / E96ads_v5 | 20,000 IOPS | 120 | 240 | 500 | 1,100 | 2,300 | 5,000 | 7,500 | 7,500 | 16,000 | 18,000 | 20,000 |
 
 IOPS marked with an asterisk (\*) are limited by the VM type that you selected. Otherwise, the selected storage size limits the IOPS.
 
