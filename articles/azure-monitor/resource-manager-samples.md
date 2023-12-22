@@ -93,7 +93,7 @@ In the request body, provide a link to your template and parameter file.
   - [Metric alert rules](alerts/resource-manager-alerts-metric.md): Configure alerts from metrics that use different kinds of logic.
 - [Application Insights](app/resource-manager-app-resource.md)
 - [Diagnostic settings](essentials/resource-manager-diagnostic-settings.md): Create diagnostic settings to forward logs and metrics from different resource types.
-- [Enable Prometheus metrics](essentials/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana?tabs=arm): Install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
+- [Enable Prometheus metrics](containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana?tabs=arm): Install the Azure Monitor agent on your AKS cluster and send Prometheus metrics to your Azure Monitor workspace.
 - [Log queries](logs/resource-manager-log-queries.md): Create saved log queries in a Log Analytics workspace.
 - [Log Analytics workspace](logs/resource-manager-workspace.md): Create a Log Analytics workspace and configure a collection of data sources from the Log Analytics agent.
 - [Workbooks](visualize/resource-manager-workbooks.md): Create workbooks.

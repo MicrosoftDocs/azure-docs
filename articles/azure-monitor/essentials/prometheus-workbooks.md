@@ -80,6 +80,6 @@ This section provides answers to common questions.
 [!INCLUDE [prometheus-faq-i-see-gaps-in-metric-data](../includes/prometheus-faq-i-see-gaps-in-metric-data.md)]
 
 ## Next steps
-* [Collect Prometheus metrics from AKS cluster](.,/containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
+* [Collect Prometheus metrics from AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 * [Azure Monitor workspace](./azure-monitor-workspace-overview.md)
 * [Use Azure Monitor managed service for Prometheus as data source for Grafana using managed system identity](./prometheus-grafana.md)

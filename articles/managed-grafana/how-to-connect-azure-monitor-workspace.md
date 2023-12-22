@@ -1,4 +1,4 @@
- ---
+---
 title: Add an Azure Monitor workspace to Azure Managed Grafana
 description: Learn how to add an Azure Monitor workspace to Azure Managed Grafana to collect Prometheus data.
 ms.service: managed-grafana

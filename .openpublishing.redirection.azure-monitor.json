@@ -6395,6 +6395,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/containers/prometheus-metrics-enable.md",
+            "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable#enable-prometheus-and-grafana",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/containers/prometheus-metrics-from-arc-enabled-cluster.md",
             "redirect_url": "/azure/azure-monitor/containers/kubernetes-monitoring-enable",
             "redirect_document_id": false
