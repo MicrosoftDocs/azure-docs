@@ -1,5 +1,5 @@
 ---
-description: In this tutorial how to use the Calling composite on iOS.
+description: In this tutorial, you learn how to use the Calling composite on iOS.
 author: pavelprystinka
 
 ms.author: pavelprystinka
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
 
-### Picture-In-Picture Setup
+### Picture-in-Picture setup
 
 To enable multitasking and Picture-in-Picture use `CallCompositeOptions` constructor parameters `enableMultitasking` and `enableSystemPiPWhenMultitasking`.
 
@@ -36,7 +36,7 @@ To open Call UI user opens Call activity by clicking on the top bar notification
 callComposite.displayCallCompositeIfWasHidden(context)
 ```
 
-To enter multitasking programmatically user `hide` method:
+To enter multitasking programmatically call `hide` method:
 
 ```swift
 callComposite.hide()

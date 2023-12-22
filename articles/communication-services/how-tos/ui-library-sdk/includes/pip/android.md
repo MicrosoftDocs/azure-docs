@@ -1,5 +1,5 @@
 ---
-description: In this tutorial how to use the Calling composite on Android.
+description: In this tutorial, you learn how to use the Calling composite on Android.
 author: pavelprystinka
 
 ms.author: pavelprystinka
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling)
 
-### Picture-In-Picture Setup
+### Picture-in-Picture setup
 
 To enable multitasking and Picture-in-Picture use `CallCompositeBuilder.multitasking` to set `CallCompositeMultitaskingOptions` with  `enableMultitasking` and `enableSystemPiPWhenMultitasking` constructor parameters.
 
@@ -52,7 +52,7 @@ callComposite.displayCallCompositeIfWasHidden(context);
 ```
 -----
 
-To enter multitasking programmatically user `hide` method:
+To enter multitasking programmatically call `hide` method:
 
 #### [Kotlin](#tab/kotlin)
 ```kotlin

@@ -1,5 +1,5 @@
 ---
-description: In this tutorial how to use the Calling composite on Android.
+description: In this tutorial, you learn how to use the Calling composite on Android.
 author: iaulakh
 
 ms.author: iaulakh
@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-calling).
 
-### Prerequisites for Push Notifications
+### Prerequisites for push notifications
 
 A Firebase account set up with Cloud Messaging (FCM) enabled and with your Firebase Cloud Messaging service connected to an Azure Notification Hub instance. See [Communication Services notifications](../../../../concepts/notifications.md) for more information.
 Additionally, the tutorial assumes you're using Android Studio version 3.6 or higher to build your application.
@@ -178,12 +178,12 @@ callComposite.declineIncomingCall();
 
 ### Dial other participants
 
-To start call with other participants, create `CallCompositeStartCallOptions` with participants raw id's from `CommunicationIdentity` and `launch`.
+To start call with other participants, create `CallCompositeStartCallOptions` with participants' raw IDs from `CommunicationIdentity` and `launch`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-    val participant = [] // participant identifiers raw id's
+    val participant = [] // participant identifiers raw IDs
     val startCallOption = CallCompositeStartCallOptions(participant)
     val remoteOptions = CallCompositeRemoteOptions(startCallOption, communicationTokenCredential, displayName)
     callComposite.launch(context, remoteOptions, localOptions)
@@ -192,7 +192,7 @@ To start call with other participants, create `CallCompositeStartCallOptions` wi
 #### [Java](#tab/java)
 
 ```java
-    List<String> participant; // participant identifiers raw id's
+    List<String> participant; // participant identifiers raw IDs
     CallCompositeStartCallOptions startCallOption =
             new CallCompositeStartCallOptions(participant);
     CallCompositeRemoteOptions remoteOptions = CallCompositeRemoteOptions(startCallOption,
@@ -204,7 +204,7 @@ To start call with other participants, create `CallCompositeStartCallOptions` wi
 
 ### Telecom manager sample
 
-To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) use  `CallComposite` API's to `hold`, `resume`, `mute` and `unmute`. Create `CallComposite` with `CallCompositeTelecomIntegration.APPLICATION_IMPLEMENTED_TELECOM_MANAGER` to use telecom manager in application.
+To integrate [Telecom Manager](https://developer.android.com/reference/android/telecom/TelecomManager), the samples are provided at [open source library](https://github.com/Azure/communication-ui-library-android) use  `CallComposite` APIs to `hold`, `resume`, `mute` and `unmute`. Create `CallComposite` with `CallCompositeTelecomIntegration.APPLICATION_IMPLEMENTED_TELECOM_MANAGER` to use telecom manager in application.
 
 #### [Kotlin](#tab/kotlin)
 

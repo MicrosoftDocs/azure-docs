@@ -1,7 +1,7 @@
 ---
 title: CallKit for the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services UI Library for Mobile native to integrate CallKit
+description: Use Azure Communication Services UI Library for Mobile native to integrate CallKit.
 author: iaulakh
 ms.author: iaulakh
 ms.service: azure-communication-services
@@ -11,7 +11,7 @@ ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios
 ---
 
-# CallKit Integration
+# CallKit integration
 
 UI Library will provide out of the box support for CallKit. Developers can provide their own configuration for CallKit to be used for the UI Library.
 
@@ -73,7 +73,7 @@ public func configureAudioSession() -> Error? {
 }
 ```
 
-### Enabling CallKit
+### Enable CallKit
 
 To enable CallKit, create instance of `CallCompositeCallKitOption` and provide to `RemoteOptions`
 

@@ -1,5 +1,5 @@
 ---
-description: In this tutorial how to use the Calling composite on iOS.
+description: In this tutorial, you learn how to use the Calling composite on iOS.
 author: iaulakh
 
 ms.author: iaulakh
@@ -92,7 +92,7 @@ To receive incoming call notification after `handlePushNotification` subscribe t
 
 ### Dial other participants
 
-To start call with other participants, create `CallCompositeStartCallOptions` with participants raw id's from `CommunicationIdentity` and `launch`.
+To start call with other participants, create `CallCompositeStartCallOptions` with participants raw IDs from `CommunicationIdentity` and `launch`.
 
 ```swift
     let startCallOptions = CallCompositeStartCallOptions(participants: /*list of participants mri's*/)
