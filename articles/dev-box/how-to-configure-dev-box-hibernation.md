@@ -129,7 +129,7 @@ You can enable hibernation on a dev box definition by using the Azure portal or 
   
 1. Select the dev box definition that you want to update, and then select the edit (**pencil**) button.
 
-   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/update-dev-box-definition.png" alt-text="Screenshot of the list of existing dev box definitions and the edit (pencil) button." source="./media/how-to-configure-dev-box-hibernation/update-dev-box-definition.png":::
+   :::image type="content" source="./media/how-to-configure-dev-box-hibernation/update-dev-box-definition.png" alt-text="Screenshot of the list of existing dev box definitions and the edit (pencil) button." lightbox="./media/how-to-configure-dev-box-hibernation/update-dev-box-definition.png":::
 
 1. On the **Edit \<your dev box definition\>** page, select the **Enable hibernation** checkbox.
 
