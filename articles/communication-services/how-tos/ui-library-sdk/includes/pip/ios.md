@@ -30,7 +30,7 @@ The Back button is displayed when, `enableMultitasking` is set to true:
 :::image type="content" source="media/ios-call-screen.png" alt-text="Screenshot of the iOS call screen with back button visible.":::
 
 
-To open Call UI user opens call activity by clicking on the top bar notification or programmatically. To re-open UI programmatically, app have to preserve a reference to the `CallComposite` and execute  `displayCallCompositeIfWasHidden` method:
+To open Call UI user opens call activity by clicking on the top bar notification or programmatically. To reopen UI programmatically, app need to preserve a reference to the `CallComposite` and execute  `displayCallCompositeIfWasHidden` method:
 
 ```swift
 callComposite.displayCallCompositeIfWasHidden(context)
