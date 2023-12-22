@@ -493,7 +493,7 @@ The following rule groups and rules are available when using Web Application Fir
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 |99001017*|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
-*<sup>This rule's action is set to log by default. Set action to Anomaly Score to prevent against Apache Struts vulnerability.</sup>
+*<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability.</sup>
 
 > [!NOTE]
 > When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
