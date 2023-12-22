@@ -454,4 +454,4 @@ Verify that Azure B2C users can access FHIR resources.
 
    :::image type="content" source="media/b2c-setup/postman-request2.png" alt-text="Screenshot showing Postman request2" lightbox="media/b2c-setup/postman-request2.png":::
 
-[!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-dicom-trademark.md)]
+[!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-fhir-trademark.md)]
