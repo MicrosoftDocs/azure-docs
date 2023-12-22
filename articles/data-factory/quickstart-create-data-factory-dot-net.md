@@ -56,7 +56,7 @@ Next, create a C# .NET console application in Visual Studio:
     Install-Package Azure.Identity 
     ```
 
-## Create a data factory resource
+## Create a data factory
 
 1. Open **Program.cs**, include the following statements to add references to namespaces.
 
