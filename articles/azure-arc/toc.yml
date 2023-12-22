@@ -52,7 +52,7 @@
 - name: Azure Arc VM management on Azure Stack HCI >
   href: /azure-stack/hci/manage/azure-arc-vm-management-overview
   displayName: stack, hci
-- name: Azure Arc-enabled SQL Server >
+- name: SQL Server enabled by Azure Arc >
   href: /sql/sql-server/azure-arc/overview
 - name: Arc validation program
   items:

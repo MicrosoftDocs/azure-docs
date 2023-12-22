@@ -1,7 +1,7 @@
 ---
 title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.custom: devx-track-linux
@@ -9,7 +9,7 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/06/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
+ms.author: jushiman
 ---
 # Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux VMs in Azure
 
@@ -91,45 +91,49 @@ Extended Update Support (EUS) repositories are available to customers who might 
 > [!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you install a package that is usually available from the RHEL Extras channel, you can't install while on EUS. For more information, see [Red Hat Enterprise Linux Extras Product Life Cycle](https://access.redhat.com/support/policy/updates/extras/).
 
-Currently, EUS support has ended for RHEL <= 7.7. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
+Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 
-- RHEL 7.4 EUS support ends August 31, 2019
-- RHEL 7.5 EUS support ends April 30, 2020
-- RHEL 7.6 EUS support ends May 31, 2021
-- RHEL 7.7 EUS support ends August 30, 2021
-- RHEL 8.4 EUS support ends May 31, 2023
+- RHEL 7.4 EUS support ended August 31, 2019
+- RHEL 7.5 EUS support ended April 30, 2020
+- RHEL 7.6 EUS support ended May 31, 2021
+- RHEL 7.7 EUS support ended August 30, 2021
+- RHEL 8.4 EUS support ended May 31, 2023
 - RHEL 8.6 EUS support ends May 31, 2024
 - RHEL 9.0 EUS support ends May 31, 2024
 
-### Switch a RHEL VM 8.x to EUS
+---
+### Switch a RHEL Server to EUS Repositories.
 
+#### [Switching to EUS repositories on RHEL7](#tab/rhel7) 
+
+>[!NOTE]
+>Support for RHEL7 EUS ended in August 30, 2021. It is not recommended to switch to EUS repositories in RHEL7 anymore.
+
+ 
+#### [Switching to EUS repositories on RHEL8](#tab/rhel8) 
 Use the following procedure to lock a RHEL 8.x VM to a particular minor release. Run the commands as `root`:
 
 >[!NOTE]
-> This procedure only applies for RHEL 8.x versions for which EUS is available. Currently, this includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+> This procedure only applies for RHEL 8.x versions for which EUS is available. This includes RHEL  8.1, 8.2, 8.4, 8.6, and 8.8. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
 
 1. Disable non-EUS repositories.
 
    ```bash
-   sudo yum --disablerepo='*' remove 'rhui-azure-rhel8'
-   ```
-
-1. Get the EUS repository `config` file.
-
-   ```bash
-   curl -O https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel8'
    ```
 
 1. Add EUS repositories.
 
    ```bash
-   sudo yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config' install rhui-azure-rhel8-eus
    ```
+   
 
-1. Lock the `releasever` variable. Be sure to run the command as `root`.
+1. Lock the `releasever` level, it has to be one of 8.1, 8.2, 8.4, 8.6 or 8.8.
+
 
    ```bash
-   sudo sh -c 'echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever'
+   sudo sh -c 'echo 8.8 > /etc/dnf/vars/releasever'
    ```
 
    If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
@@ -140,10 +144,50 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Update your RHEL VM.
 
    ```bash
-   sudo yum update
+   sudo dnf update
    ```
 
-### Switch a RHEL 8.x VM back to non-EUS
+#### [Switching to EUS repositories on RHEL9](#tab/rhel9) 
+
+Use the following procedure to lock a RHEL 9.x VM to a particular minor release. Run the commands as `root`:
+
+>[!NOTE]
+> This procedure only applies for RHEL 9.x versions for which EUS is available. Currently, this includes RHEL 9.0 and 9.2. For more information, see [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata).
+
+1. Disable non-EUS repositories.
+
+   ```bash
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel9'
+   ```
+
+1. Add EUS repositories.
+
+   ```bash
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9-eus.config' install rhui-azure-rhel9-eus
+   ```
+   
+
+1. Lock the `releasever` level, currently it has to be one of 9.0 and 9.2.
+
+
+   ```bash
+   sudo sh -c 'echo 9.2 > /etc/dnf/vars/releasever'
+   ```
+
+   If there are permission issues to access the `releasever`, you can edit the file using a text editor, add the image version details, and save the file.  
+
+   > [!NOTE]
+   > This instruction locks the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 9.2 > /etc/yum/vars/releasever` locks your RHEL version to RHEL 9.2.
+
+1. Update your RHEL VM.
+
+   ```bash
+   sudo dnf update
+   ```
+---
+### Switch a RHEL Server to non-EUS Repositories.
+
+#### [Switching to non-EUS repositories on RHEL7](#tab/rhel7) 
 
 To remove the version lock, use the following commands. Run the commands as `root`.
 
@@ -151,24 +195,18 @@ To remove the version lock, use the following commands. Run the commands as `roo
 
    ```bash
    sudo rm /etc/yum/vars/releasever
-    ```
+   ```
 
 1. Disable EUS repositories.
 
    ```bash
-   sudo yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   sudo yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
-
-1. Get the regular repositories `config` file.
-
-    ```bash
-    curl -O https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
-    ```
 
 1. Add non-EUS repository.
 
    ```bash
-   sudo yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+   sudo yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install rhui-azure-rhel7
    ```
 
 1. Update your RHEL VM.
@@ -177,28 +215,66 @@ To remove the version lock, use the following commands. Run the commands as `roo
    sudo yum update
    ```
 
-### Switch a RHEL 7.x VM back to non-EUS (remove a version lock)
-Run the following commands as root:
-1. Remove the `releasever` file:
-    ```bash
-    rm /etc/yum/vars/releasever
-     ```
+#### [Switching to non-EUS repositories on RHEL8](#tab/rhel8) 
 
-1. Disable EUS repos:
-    ```bash
-    yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
+To remove the version lock, use the following commands. Run the commands as `root`.
+
+1. Remove the `releasever` file.
+
+   ```bash
+   sudo rm /etc/dnf/vars/releasever
    ```
 
-1. Configure RHEL VM
-    ```bash
-    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
-    ```
+1. Disable EUS repositories.
 
-1. Update your RHEL VM
-    ```bash
-    sudo yum update
-    ```
+   ```bash
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   ```
 
+1. Add non-EUS repository.
+
+   ```bash
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config' install rhui-azure-rhel8
+   ```
+
+1. Update your RHEL VM.
+
+   ```bash
+   sudo dnf update
+   ```
+
+
+#### [Switching to non-EUS repositories on RHEL9](#tab/rhel9) 
+
+To remove the version lock, use the following commands. Run the commands as `root`.
+
+1. Remove the `releasever` file.
+
+   ```bash
+   sudo rm /etc/dnf/vars/releasever
+   ```
+
+1. Disable EUS repositories.
+
+   ```bash
+   sudo dnf --disablerepo='*' remove 'rhui-azure-rhel9-eus'
+   ```
+
+1. Add non-EUS repository.
+
+   ```bash
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9.config' install rhui-azure-rhel9
+   ```
+
+1. Update your RHEL VM.
+
+   ```bash
+   sudo dnf update
+   ```
+
+
+
+---
 ## The IPs for the RHUI content delivery servers
 
 RHUI is available in all regions where RHEL on-demand images are available. Availability currently includes all public regions listed in the [Azure status dashboard](https://azure.microsoft.com/status/), Azure US Government, and Microsoft Azure Germany regions.
@@ -208,19 +284,18 @@ If you're using a network configuration (custom Firewall or UDR configurations) 
 ```output
 # Azure Global
 RHUI 3 
-13.91.47.76
-40.85.190.91
-52.187.75.218
-52.174.163.213
-52.237.203.198
+West US - 13.91.47.76
+East Us - 40.85.190.91
+South East Asia - 52.187.75.218
+West Europe - 52.174.163.213
+Austraila East - 52.237.203.198
 
-# For RHUI 4 connections, You are required to allow all IPs in your firewall/UDR configuration as updates are delivered from the nearest healthy region.
 RHUI 4
-westeurope - 52.136.197.163
-southcentralus - 20.225.226.182
-eastus - 52.142.4.99
-australiaeast - 20.248.180.252
-southeastasia - 20.24.186.80
+West Europe - 52.136.197.163
+South Central US - 20.225.226.182
+East US - 52.142.4.99
+Australia East - 20.248.180.252
+Southeast Asia - 20.24.186.80
 
 # Azure US Government.
 # To be deprecated after 10th April 2023.
@@ -236,10 +311,10 @@ southeastasia - 20.24.186.80
 > - As of October 12, 2023, all pay-as-you-go (PAYG) clients will be directed to the Red Hat Update Infrastructure (RHUI) 4 IPs in phase over the next two months. During this time, the RHUI3 IPs will remain for continued updates but will be removed at a future time. Existing routes and rules allowing access to RHUI3 IPs must be updated to also include RHUI4 IP addresses for uninterrupted access to packages and updates. Do not remove RHUI3 IPs to continue receiving updates during the transition period.
 >
 > - Also, the new Azure US Government images, as of January 2020, uses Public IP mentioned previously under the Azure Global header.
-
 >
-> Also, Azure Germany is deprecated in favor of public Germany regions. We recommend for Azure Germany customers to start pointing to public RHUI by using the steps in [Manual update procedure to use the Azure RHUI servers](#manual-update-procedure-to-use-the-azure-rhui-servers).
+> - Also, Azure Germany is deprecated in favor of public Germany regions. We recommend for Azure Germany customers to start pointing to public RHUI by using the steps in [Manual update procedure to use the Azure RHUI servers](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
+---
 ## Azure RHUI Infrastructure
 
 ### Update expired RHUI client certificate on a VM
@@ -252,7 +327,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
 1. Inspect the VM configuration for the Azure RHUI endpoint:
 
-   - Check whether the `/etc/yum.repos.d/rh-cloud.repo` file contains a reference to `rhui-[1-3].microsoft.com` in the `baseurl` of the `[rhui-microsoft-azure-rhel*]` section of the file. If it does, you're using the new Azure RHUI.
+   - Check whether the `/etc/yum.repos.d/rh-cloud.repo` file contains a reference to `rhui-[1-4].microsoft.com` in the `baseurl` of the `[rhui-microsoft-azure-rhel*]` section of the file. If it does, you're using the new Azure RHUI.
 
    - If the reference points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 

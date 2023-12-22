@@ -1,13 +1,13 @@
 ---
 title: Quick Start for Azure Arc-enabled System Center Virtual Machine Manager
 description: In this QuickStart, you learn how to use the helper script to connect your System Center Virtual Machine Manager management server to Azure Arc.
-author: PriskeyJeronika-MS
-ms.author: v-gjeronika
+author: Farha-Bano
+ms.author: v-farhabano
 manager: jsuri
 ms.topic: quickstart
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-ms.date: 11/27/2023
+ms.date: 12/06/2023
 ms.custom: references_regions
 ---
 
@@ -27,7 +27,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 | **Requirement** | **Details** |
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
-| **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud with minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](https://learn.microsoft.com/system-center/vmm/network-pool?view=sc-vmm-2022) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. Dynamic IP allocation using DHCP isn't supported. |
+| **SCVMM** | You need an SCVMM management server running version 2019 or later.<br/><br/> A private cloud with minimum free capacity of 32 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> Only Static IP allocation is supported and VMM Static IP Pool is required. Follow [these steps](https://learn.microsoft.com/system-center/vmm/network-pool?view=sc-vmm-2022&preserve-view=true) to create a VMM Static IP Pool and ensure that the Static IP Pool has at least four IP addresses. Dynamic IP allocation using DHCP isn't supported. |
 | **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. If the SCVMM server is installed in a High Availability configuration, the user should be a part of the local administrator accounts in all the SCVMM cluster nodes. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM and the deployment of the Arc Resource bridge VM. |
 | **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> To avoid network latency issues, we recommend executing the helper script directly in the VMM server machine.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you might experience performance issues. |
 
@@ -128,13 +128,15 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
   ```sh
     bash resource-bridge-onboarding-script.sh --force
   ```
+>[!IMPORTANT]
+> After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.
+
 >[!NOTE]
 > - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.
-> - Intermittently appliance might become unreachable when you shut down and restart the VM.
-> - After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.   
+> - Intermittently appliance might become unreachable when you shut down and restart the VM. 
 > - After the execution of command, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
-
 
 ## Next steps
 
-[Create a VM](create-virtual-machine.md)
+- [Browse and enable SCVMM resources through Azure RBAC](enable-scvmm-inventory-resources.md).
+- [Create a VM using Azure Arc-enabled SCVMM](create-virtual-machine.md).

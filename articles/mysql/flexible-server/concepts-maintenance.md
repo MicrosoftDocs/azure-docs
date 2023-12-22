@@ -1,6 +1,6 @@
 ---
-title: Scheduled maintenance - Azure Database for MySQL - Flexible server
-description: This article describes the scheduled maintenance feature in Azure Database for MySQL - Flexible server.
+title: Scheduled maintenance
+description: This article describes the scheduled maintenance feature in Azure Database for MySQL - Flexible Server.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -10,13 +10,13 @@ ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
-# Scheduled maintenance in Azure Database for MySQL – Flexible server
+# Scheduled maintenance in Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-Azure Database for MySQL - Flexible server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
+Azure Database for MySQL flexible server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
 > [!IMPORTANT]
-> Please avoid all server operations (modifications, configuration changes, starting/stopping server) during Azure Database for MySQL Flexible Server maintenance. Engaging in these activities can lead to unpredictable outcomes, possibly affecting server performance and stability. Wait until maintenance concludes before conducting server operations.
+> Please avoid all server operations (modifications, configuration changes, starting/stopping server) during Azure Database for MySQL flexible server maintenance. Engaging in these activities can lead to unpredictable outcomes, possibly affecting server performance and stability. Wait until maintenance concludes before conducting server operations.
 
 ## Select a maintenance window
 
@@ -46,6 +46,7 @@ You can define system-managed schedule or custom schedule for each flexible serv
 > [!IMPORTANT]
 > Previously, a 7-day deployment gap between system-managed and custom-managed schedules was maintained. Due to evolving maintenance demands and the introduction of the [maintenance reschedule feature (Public preview)](#maintenance-reschedule-public-preview), we can no longer guarantee this 7-day gap.
 
+
 In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update is reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
 
 ## Near zero downtime maintenance (Public preview) ##
@@ -67,7 +68,7 @@ To achieve the optimal performance promised by this feature, certain conditions 
 > [!IMPORTANT]
 > The maintenance reschedule feature is currently in preview. It is subject to limitations and ongoing development. We value your feedback to help enhance this feature. Please note that this feature is not available for servers using the burstable SKU.
 
-The **maintenance reschedule** feature grants you greater control over the timing of maintenance activities on your Azure MySQL - Flexible server. After receiving a maintenance notification, you can reschedule it to a more convenient time, irrespective of whether it was system or custom managed.
+The **maintenance reschedule** feature grants you greater control over the timing of maintenance activities on your Azure Database for MySQL flexible server instance. After receiving a maintenance notification, you can reschedule it to a more convenient time, irrespective of whether it was system or custom managed.
 
 ### Reschedule parameters and notifications
 

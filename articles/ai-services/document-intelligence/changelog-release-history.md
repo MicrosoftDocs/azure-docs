@@ -41,7 +41,7 @@ This reference article provides a version-based description of Document Intellig
 * Document Intelligence **1.0.0-beta.1**
 * **Targets REST API 2023-10-31-preview by default**
 
-[**Package (MVN)**](https://repo1.maven.org/maven2/com/azure/azure-ai-documentintelligence/1.0.0-beta.1/)
+[**Package (MVN)**](https://mvnrepository.com/artifact/com.azure/azure-ai-documentintelligence/1.0.0-beta.1)
 
 [**ReadMe**](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-documentintelligence_1.0.0-beta.1/sdk/documentintelligence/azure-ai-documentintelligence/README.md#azure-documentintelligence-client-library-for-java)
 

@@ -13,6 +13,8 @@
     href: tutorial-site-to-site-portal.md
 - name: Concepts
   items:
+  - name: What's new?
+    href: whats-new.md
   - name: Work remotely
     items:
     - name: Support for working remotely

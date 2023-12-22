@@ -361,7 +361,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-## Next steps
+## Related content
 
 * For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).

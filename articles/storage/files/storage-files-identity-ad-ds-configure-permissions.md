@@ -4,7 +4,7 @@ description: Learn how to configure Windows ACLs for directory and file level pe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 11/28/2023
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -78,6 +78,9 @@ There are two approaches you can take to configuring and editing Windows ACLs:
 - **Log in with username and storage account key every time**: Anytime you want to configure ACLs, mount the file share by using your storage account key on a machine that has unimpeded network connectivity to the domain controller.
 
 - **One-time username/storage account key setup:**
+> [!NOTE]
+> This setup works for newly created file shares because any new file/directory will inherit the configured root permission. For file shares migrated along with existing ACLs, this approach might not work because the migrated files don't inherit the configured root ACL.
+
   1. Log in with a username and storage account key on a machine that has unimpeded network connectivity to the domain controller, and give some users (or groups) permission to edit permissions on the root of the file share.
   2. Assign those users the **Storage File Data SMB Share Elevated Contributor** Azure RBAC role.
   3. In the future, anytime you want to update ACLs, you can use one of those authorized users to log in from a machine that has unimpeded network connectivity to the domain controller and edit ACLs.
@@ -129,4 +132,4 @@ If you're logged on to a domain-joined Windows client, you can use Windows File 
 
 ## Next steps
 
-Now that the feature is enabled and configured, you can [mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md).
+Now that you've enabled and configured identity-based authentication with AD DS, you can [mount a file share](storage-files-identity-ad-ds-mount-file-share.md).

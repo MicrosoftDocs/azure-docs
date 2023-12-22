@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for VPN Gateway cross-premis
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2023
+ms.date: 12/20/2023
 ms.author: cherylmc
 ---
 
@@ -109,7 +109,7 @@ We recommend that you use a Standard SKU public IP address for your VPN gateway.
 
 For non-zone-redundant and non-zonal gateways (gateway SKUs that do *not* have *AZ* in the name), dynamic IP address assignment is supported, but is being phased out. When you use a dynamic IP address, the IP address doesn't change after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
-### How does the retirement of the public IP address Basic SKU affect my VPN gateways?
+### How does Public IP address Basic SKU retirement affect my VPN gateways?
 
 We're taking action to ensure the continued operation of deployed VPN gateways that utilize Basic SKU public IP addresses. If you already have VPN gateways with Basic SKU public IP addresses, there is no need for you to take any action.
 
@@ -156,9 +156,17 @@ A virtual network gateway is fundamentally a multi-homed device with one NIC tap
 
 No. The Basic SKU isn't available in the portal. You can create a Basic SKU VPN gateway using Azure CLI or PowerShell.
 
-### More information about gateway types, requirements, and throughput
+### Where can I find information about gateway types, requirements, and throughput?
 
-For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+See the following articles:
+* [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
+* [About gateway SKUs](about-gateway-skus.md)
+
+## <a name="sku-deprecate"></a>SKU deprecation for legacy SKUs
+
+The Standard and High Performance SKUs will be deprecated on September 30, 2025. You can view the announcement [here](https://go.microsoft.com/fwlink/?linkid=2255127). The product team will make a migration path available for these SKUs by November 30, 2024. For more information, see the [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md#sku-deprecation) article. **At this time, there's no action that you need to take.**
+
+[!INCLUDE [legacy SKU deprecation](../../includes/vpn-gateway-deprecate-sku-faq.md)]
 
 ## <a name="s2s"></a>Site-to-site connections and VPN devices
 

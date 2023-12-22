@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure AI Search
 titleSuffix: Azure AI Search
-description: Azure AI Search is a fully managed cloud search service from Microsoft. Learn about use cases, the development workflow, comparisons to other Microsoft search products, and how to get started.
+description: Azure AI Search is an AI-powered information retrieval platform, helps developers build rich search experiences and generative AI apps that combine large language models with enterprise data.
 
 manager: nitinme
 author: HeidiSteen
@@ -21,9 +21,9 @@ Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-s
 
 Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly chat-style copilot apps over proprietary grounding data. When you create a search service, you work with the following capabilities:
 
-+ A search engine for [full text](search-lucene-query-architecture.md) and [vector search](vector-search-overview.md) over a search index 
++ A search engine for [vector search](vector-search-overview.md) and [full text](search-lucene-query-architecture.md) and [hybrid search](hybrid-search-overview.md) over a search index 
 + Rich indexing with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
-+ Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid search](hybrid-search-overview.md), fuzzy search, autocomplete, geo-search and others
++ Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid queries](hybrid-search-how-to-query.md), fuzzy search, autocomplete, geo-search and others
 + Azure scale, security, and reach
 + Azure integration at the data layer, machine learning layer, Azure AI services and Azure OpenAI
 
@@ -54,9 +54,9 @@ On the search service itself, the two primary workloads are *indexing* and *quer
 
 Azure AI Search is well suited for the following application scenarios:
 
-+ Search over your vector and text content. You own or control what's searchable.
++ Use it for traditional full text search and next-generation vector similarity search. Back your generative AI apps with information retrieval that leverages the strength of keyword and similarity search. Use both modalities to retrieve the most relevant results.
 
-+ Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. 
++ Consolidate heterogeneous content into a user-defined and populated search index composed of vectors and text. You own and control what's searchable.
 
 + [Integrate data chunking and vectorization](vector-search-integrated-vectorization.md) for generative AI and RAG apps.
 
@@ -110,6 +110,9 @@ Customers often ask how Azure AI Search compares with other search-related solut
 
 Key strengths include:
 
++ Store, index, and search vector embeddings for sentences, images, audio, graphs, and more. 
++ Find information that’s semantically similar to search queries, even if the search terms aren’t exact matches. 
++ Use hybrid search for the best of keyword and vector search.
 + Relevance tuning through semantic ranking and scoring profiles.
 + Data integration (crawlers) at the indexing layer.
 + Azure AI integration for transformations that make content text and vector searchable.

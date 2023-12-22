@@ -37,17 +37,17 @@ ms.date: 11/15/2023
 
 Azure AI Document Intelligence models provide multilingual document processing support. Our language support capabilities enable your users to communicate with your applications in natural ways and empower global outreach. Custom models are trained using your labeled datasets to extract distinct data from structured, semi-structured, and unstructured documents specific to your use cases. Standalone custom models can be combined to create composed models. The following tables list the available language and locale support by model and feature:
 
-## [Custom classifier](#tab/custom-classifier)
-
-***custom classifier model***
+## Custom classifier
 
 :::moniker range="doc-intel-3.1.0"
+
 | Language—Locale code | Default |
 |:----------------------|:---------|
 | English (United States)—en-US| English (United States)—en-US|
 :::moniker-end
 
 :::moniker range="doc-intel-4.0.0"
+
 |Language| Code (optional) |
 |:-----|:----:|
 |Afrikaans| `af`|
@@ -97,25 +97,14 @@ Azure AI Document Intelligence models provide multilingual document processing s
 |Ukrainian|`uk`|
 |Urdu|`ur`|
 |Vietnamese|`vi`|
+
 :::moniker-end
 
-## [Custom neural](#tab/custom-neural)
+## Custom neural
 
-***custom neural model***
+:::moniker range=">=doc-intel-3.1.0"
 
-#### Handwritten text
-
-The following table lists the supported languages for extracting handwritten texts.
-
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
-#### Printed text
+## [**Printed text**](#tab/printed)
 
 The following table lists the supported languages for printed text.
 
@@ -125,8 +114,8 @@ The following table lists the supported languages for printed text.
 |Albanian| `sq`|
 |Arabic|`ar`|
 |Bulgarian|`bg`|
-|Chinese (Han (Simplified variant))| `zh-Hans`|
-|Chinese (Han (Traditional variant))|`zh-Hant`|
+|Chinese Simplified| `zh-Hans`|
+|Chinese Traditional|`zh-Hant`|
 |Croatian|`hr`|
 |Czech|`cs`|
 |Danish|`da`|
@@ -169,7 +158,19 @@ The following table lists the supported languages for printed text.
 |Urdu|`ur`|
 |Vietnamese|`vi`|
 
-:::moniker range=">=doc-intel-3.1.0"
+## [**Handwritten text**](#tab/handwritten)
+
+The following table lists the supported languages for extracting **handwritten** texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+
+---
 
 Neural models support added languages for the `v3.1` and later APIs.
 
@@ -184,25 +185,14 @@ Neural models support added languages for the `v3.1` and later APIs.
 
 :::moniker-end
 
-## [Custom template](#tab/custom-template)
+## Custom template
 
-***custom template model***
+:::moniker range=">=doc-intel-3.0.0"
 
-#### Handwritten text
+## [**Printed**](#tab/printed)
 
-The following table lists the supported languages for extracting handwritten texts.
+The following table lists the supported languages for **printed** text.</br>
 
-|Language| Language code (optional) | Language| Language code (optional) |
-|:-----|:----:|:-----|:----:|
-|English|`en`|Japanese  |`ja`|
-|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
-|French  |`fr`|Portuguese |`pt`|
-|German  |`de`|Spanish  |`es`|
-|Italian  |`it`|
-
-#### Printed text
-
-The following table lists the supported languages for printed text.
 :::row:::
    :::column span="":::
   |Language| Code (optional) |
@@ -522,4 +512,17 @@ The following table lists the supported languages for printed text.
    :::column-end:::
 :::row-end:::
 
+## [**Handwritten**](#tab/handwritten)
+
+The following table lists the supported languages for extracting handwritten texts.
+
+|Language| Language code (optional) | Language| Language code (optional) |
+|:-----|:----:|:-----|:----:|
+|English|`en`|Japanese  |`ja`|
+|Chinese Simplified   |`zh-Hans`|Korean |`ko`|
+|French  |`fr`|Portuguese |`pt`|
+|German  |`de`|Spanish  |`es`|
+|Italian  |`it`|
+
 ---
+:::moniker-end

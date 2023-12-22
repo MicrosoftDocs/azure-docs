@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/20/2023
+ms.date: 11/28/2023
 ms.author: cherylmc 
 
 ---
@@ -20,6 +20,8 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 **Additional information**
 
+* Starting Dec 1, 2023, all the gateways SKUs except Basic gateway SKU will use Standard SKU public IP address only. With Basic SKU IP address [announced](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) to retire on Sep 30, 2025, we are stopping creations of SKUs using Basic IP address.
+  
 * The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 * These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
@@ -88,7 +90,7 @@ If you're using the old SKUs (legacy), the production SKU recommendations are St
 
 ## About legacy SKUs
 
-For information about working with the legacy gateway SKUs (Basic, Standard, and HighPerformance), see [Working with VPN gateway SKUs (legacy SKUs)](vpn-gateway-about-skus-legacy.md).
+For information about working with the legacy gateway SKUs (Basic, Standard, and High Performance), including SKU deprecation, see [Managing legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Specify a SKU
 
@@ -101,7 +103,7 @@ You specify the gateway SKU when you create your VPN Gateway. See the following 
 ## <a name="resizechange"></a>Change or resize a SKU
 
 > [!NOTE]
-> If you are working with a legacy gateway SKU and are using the classic deployment model (Service Management), the SKU rules are different. See [Working with legacy classic deployment model SKUs](vpn-gateway-about-skus-legacy.md).
+> If you're working with a legacy gateway SKU (Basic, Standard, and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 [!INCLUDE [changing vs. resizing](../../includes/vpn-gateway-sku-about-change-resize.md)]
 

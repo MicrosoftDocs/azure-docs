@@ -3,7 +3,7 @@ title: Azure VM Image Builder service DevOps task (preview)
 description: In this article, you use an Azure DevOps task to inject build artifacts into a VM image so that you can install and configure your application and operating system.
 author: kof-f
 ms.author: kofiforson
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.date: 07/31/2023
 ms.topic: article
 ms.service: virtual-machines
