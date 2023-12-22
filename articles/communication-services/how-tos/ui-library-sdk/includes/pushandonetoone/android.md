@@ -27,9 +27,9 @@ A set of permissions is required for the Android application in order to be able
 
 To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
 
-To obtain the device registration token, add the Firebase SDK to your application module's `build.gradle`. To receive notification from Firebase, integrate Azure Notification Hub following [Communication Services notifications](https://learn.microsoft.com/en-us/azure/communication-services/concepts/notifications).
+To obtain the device registration token, add the Firebase SDK to your application module's `build.gradle`. To receive notification from Firebase, integrate Azure Notification Hub following [Communication Services notifications](https://learn.microsoft.com/azure/communication-services/concepts/notifications).
 
-You can skip `registerPushNotification` to avoid current limitation by using Event Grid [Current limitations with the Push Notification model](https://learn.microsoft.com/en-us/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
+You can skip `registerPushNotification` to avoid current limitation by using Event Grid [Current limitations with the Push Notification model](https://learn.microsoft.com/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
 
 #### [Kotlin](#tab/kotlin)
 

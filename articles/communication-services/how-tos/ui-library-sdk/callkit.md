@@ -30,7 +30,7 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### CallKit Integration 
 
-CallKit Integration, supported by Azure Communication Service native iOS calling native SDK can be enabled in UI Libraries by configuring instance of `CallCompositeCallKitOption`. [more info](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/calling-sdk/callkit-integration#callkit-integration-within-sdk)
+CallKit Integration, supported by Azure Communication Service native iOS calling native SDK can be enabled in UI Libraries by configuring instance of `CallCompositeCallKitOption`. [more info](https://learn.microsoft.com/azure/communication-services/how-tos/calling-sdk/callkit-integration#callkit-integration-within-sdk)
 
 ### Specify call recipient info for incoming/outgoing calls
 
