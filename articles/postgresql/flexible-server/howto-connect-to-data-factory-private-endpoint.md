@@ -46,7 +46,7 @@ az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resourc
 ```
 
 > [!NOTE]  
-> Alternative command to create private endpoint in data factory using Azure CLI is [az datafactory managed-private-endpoint create](/cli/azure/datafactory/managed-private-endpoint?view=azure-cli-latest#az-datafactory-managed-private-endpoint-create)
+> Alternative command to create private endpoint in data factory using Azure CLI is [az datafactory managed-private-endpoint create](/cli/azure/datafactory/managed-private-endpoint)
 
 After above command is successfully executed you should ne able to view  private endpoint in Managed Private Endpoints blade in Data Factory Azure portal interface, as shown in the following example:
 
