@@ -1,7 +1,7 @@
 ---
-title: Retrieval Augmented Generation (RAG) with Azure AI Document Intelligence (formerly Form Recognizer)
+title: Retrieval-Augmented Generation (RAG) with Azure AI Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Introduction to how semantic chunking can help with Retrieval Augmented Generation (RAG) implementation using Azure AI Document Intelligence Layout model.
+description: Introduction to how semantic chunking can help with Retrieval-Augmented Generation (RAG) implementation using Azure AI Document Intelligence Layout model.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -11,7 +11,7 @@ ms.author: luzhan
 monikerRange: '>=doc-intel-3.0.0'
 ---
 
-# Retrieval Augmented Generation with Azure AI Document Intelligence
+# Retrieval-Augmented Generation with Azure AI Document Intelligence
 
 <!-- markdownlint-disable MD036 -->
 
@@ -19,11 +19,11 @@ monikerRange: '>=doc-intel-3.0.0'
 
 ## Introduction
 
-Retrieval Augmented Generation (RAG) is a document generative AI solution that combines a pretrained Large Language Model (LLM) like ChatGPT with an external data retrieval system to generate an enhanced response incorporating new data outside of the original training data. Adding an information retrieval system to your applications enables you to chat with your documents, generate captivating content, and access the power of Azure OpenAI models for your data. You also have more control over the data used by the LLM as it formulates a response.
+Retrieval-Augmented Generation (RAG) is a document generative AI solution that combines a pretrained Large Language Model (LLM) like ChatGPT with an external data retrieval system to generate an enhanced response incorporating new data outside of the original training data. Adding an information retrieval system to your applications enables you to chat with your documents, generate captivating content, and access the power of Azure OpenAI models for your data. You also have more control over the data used by the LLM as it formulates a response.
 
 The Document Intelligence [Layout model](concept-layout.md) is an advanced machine-learning based document analysis API. With semantic chunking, the Layout model offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on the provided building blocks.
 
-:::image type="content" source="media/rag/azure-rag-processing.png" alt-text="Screenshot depicting semantic chunking with RAG using Azure AI Document Intelligence":::
+:::image type="content" source="media/rag/azure-rag-processing.png" alt-text="Screenshot depicting semantic chunking with RAG using Azure AI Document Intelligence.":::
 
 ## Semantic chunking
 
@@ -37,7 +37,7 @@ Text data chunking strategies play a key role in optimizing the RAG response and
 
 ## Semantic chunking with Document Intelligence Layout model
 
-Markdown is a structured and formatted markup language and a popular input for enabling semantic chunking in RAG (Retrieval augmented generation). You can use the Markdown content from the [Layout model](concept-layout.md) to split documents based on paragraph boundaries, create specific chunks for tables, and fine-tune your chunking strategy to improve the quality of the generated responses.
+Markdown is a structured and formatted markup language and a popular input for enabling semantic chunking in RAG (Retrieval-Augmented Generation). You can use the Markdown content from the [Layout model](concept-layout.md) to split documents based on paragraph boundaries, create specific chunks for tables, and fine-tune your chunking strategy to improve the quality of the generated responses.
 
 ### Benefits of using the Layout model
 
