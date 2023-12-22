@@ -62,7 +62,7 @@ Before you enable hibernation on your dev box, review the following consideratio
 
 The following settings are known to be incompatible with hibernation, and aren't supported for hibernation scenarios: 
 
-- **Memory Integrity/Hypervisor Code Integrity**.
+- **Memory Integrity/Hypervisor Code Integrity**
 
    To disable Memory Integrity/Hypervisor Code Integrity:
    
@@ -131,7 +131,7 @@ You can enable hibernation on a dev box definition by using the Azure portal or 
 
    :::image type="content" source="./media/how-to-configure-dev-box-hibernation/update-dev-box-definition.png" alt-text="Screenshot of the list of existing dev box definitions and the edit (pencil) button." lightbox="./media/how-to-configure-dev-box-hibernation/update-dev-box-definition.png":::
 
-1. On the **Edit \<your dev box definition\>** page, select the **Enable hibernation** checkbox.
+1. On the **Edit dev box definition** page, select the **Enable hibernation** checkbox.
 
    :::image type="content" source="./media/how-to-configure-dev-box-hibernation/dev-box-definition-enable-hibernation.png" alt-text="Screenshot of the page for editing a dev box definition, with Enable hibernation selected." lightbox="./media/how-to-configure-dev-box-hibernation/dev-box-definition-enable-hibernation.png" :::
 
@@ -162,7 +162,7 @@ You can disable hibernation on a dev box definition by using the Azure portal or
   
 1. Select the dev box definition that you want to update, and then select the edit (**pencil**) button.
 
-1. On the **Edit \<your dev box definition\>** page, clear the **Enable hibernation** checkbox.
+1. On the **Edit dev box definition** page, clear the **Enable hibernation** checkbox.
 
 1. Select **Save**.
 
