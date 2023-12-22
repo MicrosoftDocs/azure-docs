@@ -50,8 +50,15 @@ Use the expression builder to set the source for your parsing. This can be as si
 * Source XML with Attribute data: ```<cars><car model="camaro"><year>1989</year></car></cars>```
   * Expression: ```(cars as (car as ({@model} as string, year as integer)))```
 
+* Expressions with reserved characters: ```{ "best-score": { "section 1": 1234 } }```
+  * The above expression won't work since the '-' character in ```best-score``` will be interpreted as a subtraction operation. Use a variable with bracket notation in these cases to tell the JSON engine to interpret the text literally:
+    ```
+    var bestScore = data["best-score"];
+    { bestScore : { "section 1": 1234 } }
+    ```
+
 * Note: If you run into errors extracting attributes (i.e. @model) from a complex type, a workaround is to convert the complex type to a string, remove the @ symbol (i.e. replace(toString(your_xml_string_parsed_column_name.cars.car),'@','')
-), and then use the parse JSON transformation activity. 
+), and then use the parse JSON transformation activity.
 
 ### Output column type
 
