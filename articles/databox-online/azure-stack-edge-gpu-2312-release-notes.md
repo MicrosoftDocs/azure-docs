@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/21/2023
+ms.date: 12/22/2023
 ms.author: alkohli
 ---
 
@@ -51,13 +51,13 @@ You can update to the latest version using the following update paths:
 The 2312 release has the following new features and enhancements:
 
 - Base OS updates for Kubernetes nodes.
-- For Azure Stack Edge Kubernetes, switch container hosting platform from Docker to containers.
+- For Azure Stack Edge Kubernetes, switch container hosting platform from Docker to Containerd.
 - Topology aware routing. For more information, see [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/).
 - Failover of stateful apps for non-graceful node shutdown. For more information, see [Non-graceful node shutdown handling](https://kubernetes.io/docs/concepts/architecture/nodes/#non-graceful-node-shutdown).
 - WS22 LCU: 11B.
 - Driver and firmware updates - Klas BIOS, Mellanox driver.
 - Kubernetes v1.26, multiversion Kubernetes update.
-- Ubuntu version update for Azure Stack Edge containers.
+- Ubuntu version update for Azure Stack Edge Kubernetes.
 - General availability for two-node Azure Kubernetes Service cluster on Azure Stack Edge.
 - VM NIC passthrough.
 - AP5GC sideload update for low bandwidth environments.
@@ -67,7 +67,7 @@ The 2312 release has the following new features and enhancements:
 | No. | Feature | Issue |
 | --- | --- | --- |
 |**1.**|Azure Kubernetes Service |Expired certificate handling |
-|**2.**|Memory usage |High control plane memory usage |
+|**2.**|Azure Kubernetes Service usage |High control plane memory usage |
 |**3.**|VM provision failure with arp_ignore set to 2 |
 |**4.**|IVAS deployment blocker, NFS file delete |
 
