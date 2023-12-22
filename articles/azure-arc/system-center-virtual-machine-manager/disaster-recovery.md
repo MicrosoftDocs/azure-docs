@@ -34,7 +34,7 @@ If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up yo
 2.	Download [this script](https://download.microsoft.com/download/a/a/8/aa8687e4-1a30-485f-9de4-4f15fc576724/resource-bridge-onboarding-script-dr.ps1) and update the following section in the script using the same information as the original resources in Azure. 
 
     ```powershell
-    $location = <Azure region of the resources>
+    $location = <Azure region of the original Arc resource bridge>
     $applianceSubscriptionId = <subscription-id>
     $applianceResourceGroupName = <resource-group-name>
     $applianceName = <resource-bridge-name>
@@ -48,7 +48,7 @@ If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up yo
     $vmmserverName= <SCVMM-name-in-azure>
     ```
  
-3.	[Provide the inputs](quickstart-connect-system-center-virtual-machine-manager-to-arc.md#script-runtime) as prompted. 
+3.	Run the updated script from the same location where the config YAML files are stored after the initial onboarding. This is most likely the same folder from where you ran the initial onboarding script unless the config files were moved later to a different location. [Provide the inputs](quickstart-connect-system-center-virtual-machine-manager-to-arc.md#script-runtime) as prompted. 
 
 4.	Once the script is run successfully, the old Resource Bridge is recovered, and the connection is re-established to the existing Azure-enabled SCVMM resources.
 
