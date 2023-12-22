@@ -35,7 +35,7 @@ In this quickstart, you connect your Azure Database for PostgreSQL - Flexible Se
 
 Unfortunately at this time using Azure Database for PostgreSQL connector in ADF you might get an error when trying to connect to privately networked Azure Database for PostgreSQL - Flexible Server, as connector supports **public connectivity only**.
 To work around this limitation, we can use Azure CLI to create a private endpoint first and then use the Data Factory user interface with Azure Database for PostgreSQL connector to create  connection between privately networked Azure Database for PostgreSQL - Flexible Server and Azure Data Factory in managed virtual network.  
-Example below creates private endpoint in Azure data factory, you substitute with your own values placeholders for *subscription_id,resource_group_name, azure_data_factory_name,endpoint_name,flexible_server_name*:
+Example below creates private endpoint in Azure data factory, you substitute with your own values placeholders for *subscription_id, resource_group_name, azure_data_factory_name,endpoint_name,flexible_server_name*:
 
 ```azurecli
 az resource create --id /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.DataFactory/factories/<azure_data_factory_name>/managedVirtualNetworks/default/managedPrivateEndpoints/<endpoint_name> --properties '
