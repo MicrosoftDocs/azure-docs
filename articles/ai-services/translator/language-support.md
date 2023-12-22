@@ -2,7 +2,7 @@
 title: Language support - Translator
 titleSuffix: Azure AI services
 description: Azure AI Translator supports the following languages for text to text translation using Neural Machine Translation (NMT).
-services: cognitive-services
+#services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator

@@ -2,7 +2,7 @@
 title: Assessment options in Update Manager.
 description: The article describes the assessment options available in Update Manager.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 11/16/2023
 ms.topic: conceptual
 author: snehasudhirG
 ms.author: sudhirsneha
@@ -30,7 +30,7 @@ Update Manager allows you to check for latest updates on your machines at any ti
  You can initiate a software updates compliance scan on a machine to get a current list of operating system updates available. 
 
  - **On Windows** - the software update scan is actually performed by the Windows Update Agent. 
- - **On Linux** -  the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository.
+ - **On Linux** -  The software update scan is performed using the package manager that returns the missing updates as per the configured repositories.
 
  In the **Updates** page, after you initiate an assessment, a notification is generated to inform you the activity has started and another is displayed when it is finished.
 

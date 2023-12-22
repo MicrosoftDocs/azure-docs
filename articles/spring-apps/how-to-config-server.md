@@ -205,7 +205,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/azure-spring-cloud-samples/config-server-repository.git
+          uri: https://github.com/azure-spring-apps-samples-pr/config-server-repository.git
           username: <username>
           password: <password/token>
 ```
@@ -327,7 +327,7 @@ Instead, you can automatically refresh values from Config Server by letting the 
    }
    ```
 
-For more information, see the [config-client-polling](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling) sample.
+For more information, see the [config-client-polling](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/config-client-polling) sample.
 
 ## Next steps
 

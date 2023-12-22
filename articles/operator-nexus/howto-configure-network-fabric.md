@@ -83,7 +83,7 @@ Run the following command to create the Network Fabric:
 
 ```azurecli
 
-az nf fabric create \ 
+az networkfabric fabric create \ 
 --resource-group "NFResourceGroupName" 
 --location "eastus" \
 --resource-name "NFName" \

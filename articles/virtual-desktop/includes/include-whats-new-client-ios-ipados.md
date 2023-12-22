@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 09/18/2023
+ms.date: 11/08/2023
 ---
 
 ## Latest client versions
@@ -11,12 +11,22 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.1         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.1         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.2         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.2         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+## Updates for version 10.5.2
+
+*Published: October 24, 2023*
+
+In this release, we've made the following changes:
+
+- Added support for dual monitors when using iPads with Stage Manager.
+- Addressed reported accessibility bugs.
+- Fixed some keyboard mappings that stopped working after the iOS 17 update.
 
 ## Updates for version 10.5.1
 
-*Date published: September 5th, 2023*
+*Published: September 5th, 2023*
 
 In this release, we've made the following changes:
 
@@ -25,7 +35,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.5.0
 
-*Date published: July 10, 2023*
+*Published: July 10, 2023*
 
 In this release, we've made the following changes:
 
@@ -34,7 +44,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.4.8
 
-*Date published: June 20, 2023*
+*Published: June 20, 2023*
 
 In this release, we've made the following changes:
 
@@ -44,7 +54,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.4.7
 
-*Date published: May 17, 2023*
+*Published: May 17, 2023*
 
 In this release we've made some tweaks around the behavior of the connection bar on iPads and fixed some bugs to keep things running smoothly.
 
@@ -62,14 +72,14 @@ We've also made the following other changes:
 
 ## Updates for version 10.4.6 
 
-*Date published: March 7, 2023*
+*Published: March 7, 2023*
 
 In this release, we've removed the global prompt for camera and microphone access when you first open and run the iOS client. Instead, whenever a connection bookmark or published resource requests access, you'll receive a prompt asking whether you want to give permission.
 
 We also fixed some bugs and added some small additional features:
 
 - Integrated privacy statement compliance flows for select geographical regions.
-- Added functionality to delete all Azure VIrtual Desktop workspaces and associated keychain items.
+- Added functionality to delete all Azure Virtual Desktop workspaces and associated keychain items.
 - Worked around an iOS 16 change that broke Korean language input.
 - Addressed a bug that stopped the Apple Pencil from working when connected to Windows 8.1 and Windows Server 2012 R2 and earlier.
 
@@ -78,7 +88,7 @@ We also fixed some bugs and added some small additional features:
 
 ## Updates for version 10.4.5
 
-*Date published: November 2, 2022*
+*Published: November 2, 2022*
 
 In this release, we've made the following changes:
 
@@ -87,7 +97,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.4.4
 
-*Date published: October 4, 2022*
+*Published: October 4, 2022*
 
 In this release, we've made targeted bug fixes and performance improvements, and also added new features. Here's what we've included:
 
@@ -100,25 +110,25 @@ In this release, we've made targeted bug fixes and performance improvements, and
 
 ## Updates for version 10.4.3
 
-*Date published: August 11, 2022*
+*Published: August 11, 2022*
 
 In this release, we resolved a customer bug that impacted authentication when connecting to Azure Virtual Desktop deployments.
 
 ## Updates for version 10.4.2
 
-*Date published: July 11, 2022*
+*Published: July 11, 2022*
 
 In this release, we resolved some bugs that impacted Azure Virtual Desktop deployment connectivity. We also fixed an issue that caused external keyboard input to stop working when you press **Command+Tab** to switch out of and return to the app.
 
 ## Updates for version 10.4.1
 
-*Date published: June 27, 2022*
+*Published: June 27, 2022*
 
 In this release, we added thumbnail snapshots for published PC resources to the Workspaces tab of the Connection Center. We also created an in-app highlights user interface (UI) to advertise new features. The UI automatically appears when you first turn your machine on after an update. You can also access it by going to **Settings** > **About** > **Version Highlights**. Finally, we fixed an issue where the mouse cursor would temporarily get stuck at the bottom of the screen.
 
 ## Updates for version 10.4.0 (5155)
 
-*Date published: May 17, 2022*
+*Published: May 17, 2022*
 
 This is a significant update with some new feature additions and lots of bug fixes and improvements.
 
@@ -152,25 +162,25 @@ We've also made some updates to enhance Azure Virtual Desktop scenarios:
 
 ## Updates for version 10.3.6 (5090)
 
-*Date published: November 11, 2021*
+*Published: November 11, 2021*
 
 In this release we added support for the iPad Mini 6 and addressed an issue with Slide Over windows and keyboard interaction. Thanks for all the feedback. We're working hard to make this app great!
 
 ## Updates for version 10.3.5
 
-*Date published: October 28, 2021*
+*Published: October 28, 2021*
 
 In this release, we've added support for time zone redirection. This new feature fixes an issue in Windows 11 remote sessions that caused the screen to flicker, making the session unusable.
 
 ## Updates for version 10.3.1
 
-*Date published: June 28, 2021*
+*Published: June 28, 2021*
 
 In this release, we worked around a 0x907 (mismatched certificate) error code that was caused by third-party infrastructure returning an incorrect certificate in redirection scenarios. We also made some updates to improve compatibility and performance metrics when connecting to Azure Virtual Desktop (formerly known as Windows Virtual Desktop).
 
 ## Updates for version 10.3.0
 
-Date published: May 27, 2021*
+Published: May 27, 2021*
 
 In this release, we've made some significant updates to the shared underlying code that powers the Remote Desktop experience across all our clients. We've also added some new features and addressed bugs and crashes that were showing up in error reporting.
 
@@ -181,7 +191,7 @@ In this release, we've made some significant updates to the shared underlying co
 
 ## Updates for version 10.2.5
 
-*Date published: 03/29/2021*
+*Published: 03/29/2021*
 
 In this release, we made the following updates:
 
@@ -194,7 +204,7 @@ In this release, we made the following updates:
 
 ## Updates for version 10.2.4
 
-*Date published: 02/01/2021*
+*Published: 02/01/2021*
 
 In this release, we've made the following changes to the connection bar and in-session user experience:
 
@@ -209,19 +219,19 @@ We also addressed some accessibility bugs and the following two issues:
 
 ## Updates for version 10.2.3
 
-*Date published: 12/15/2020*
+*Published: 12/15/2020*
 
 In this release, we've fixed issues that caused crashes and interfered with the "Display Zoom View" setting. We've also tweaked the "Use Full Display" setting to only appear on applicable iPads and adjusted the available resolutions for iPhones and iPads.
 
 ## Updates for version 10.2.2
 
-*Date published: 11/23/2020*
+*Published: 11/23/2020*
 
 In this release, we've addressed some bugs affecting users running iOS 14 and iPadOS 14.
 
 ## Updates for version 10.2.1
 
-*Date published: 11/11/2020*
+*Published: 11/11/2020*
 
 In this release, we made the following fixes:
 
@@ -230,7 +240,7 @@ In this release, we made the following fixes:
 
 ## Updates for version 10.2.0
 
-*Date published: 11/06/2020*
+*Published: 11/06/2020*
 
 In this release, we addressed some compatibility issues with iOS and iPadOS 14. In addition, we made the following fixes and feature updates:
 
@@ -244,7 +254,7 @@ In this release, we addressed some compatibility issues with iOS and iPadOS 14. 
 
 ## Updates for version 10.1.4
 
-*Date published: 11/06/2020*
+*Published: 11/06/2020*
 
 We've put together some bug fixes and small feature updates for this release. Here's what's new:
 
@@ -258,7 +268,7 @@ We've put together some bug fixes and small feature updates for this release. He
 
 ## Updates for version 10.1.3
 
-*Date published: 11/06/2020*
+*Published: 11/06/2020*
 
 We've put together some bug fixes and feature updates for this release. Here's what's new:
 
@@ -274,7 +284,7 @@ We've put together some bug fixes and feature updates for this release. Here's w
 
 ## Updates for version 10.1.2
 
-*Date published 8/17/2020*
+*Published 8/17/2020*
 
 In this update, we've addressed issues that were reported in this release.
 
@@ -283,7 +293,7 @@ In this update, we've addressed issues that were reported in this release.
 
 ## Updates for version 10.1.1
 
-*Date published: 11/06/2020*
+*Published: 11/06/2020*
 
 Here’s what we've included in this release:
 
@@ -301,7 +311,7 @@ Here’s what we've included in this release:
 
 ## Updates for version 10.1.0
 
-*Date published: 11/06/2020*
+*Published: 11/06/2020*
 
 In this release, we've made the following changes:
 
@@ -321,13 +331,13 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.7
 
-*Date published: 4/29/2020*
+*Published: 4/29/2020*
 
 In this update we've added the ability to sort the PC list view (available on iPhone) by name or time last connected.
 
 ## Updates for version 10.0.6
 
-*Date published: 3/31/2020*
+*Published: 3/31/2020*
 
 In this release, we've made the following changes:
 
@@ -341,7 +351,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.5
 
-*Date published: 03/09/20*
+*Published: 03/09/20*
 
 We've put together some bug fixes and feature updates for this release. Here's what's new:
 
@@ -366,7 +376,7 @@ We've put together some bug fixes and feature updates for this release. Here's w
 
 ## Updates for version 10.0.4
 
-*Date published: 02/03/20*
+*Published: 02/03/20*
 
 In this release, we've made the following changes:
 
@@ -382,7 +392,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.3
 
-*Date published: 01/16/20*
+*Published: 01/16/20*
 
 In this release, we've made the following changes:
 
@@ -401,7 +411,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 10.0.2
 
-*Date published: 12/20/19*
+*Published: 12/20/19*
 
 We've been working hard to fix bugs and add useful features. Here's what's new in this release:
 
@@ -414,7 +424,7 @@ We've been working hard to fix bugs and add useful features. Here's what's new i
 
 ## Updates for version 10.0.1
 
-*Date published: 12/15/19*
+*Published: 12/15/19*
 
 Here's what new in this release:
 
@@ -424,7 +434,7 @@ Here's what new in this release:
 
 ## Updates for version 10.0.0
 
-*Date published: 12/13/19*
+*Published: 12/13/19*
 
 In this release, we've made the following changes:
 
@@ -444,7 +454,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 8.1.42
 
-*Date published: 06/20/2018*
+*Published: 06/20/2018*
 
 In this release, we've made the following changes:
 
@@ -452,7 +462,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 8.1.41
 
-*Date published: 03/28/2018*
+*Published: 03/28/2018*
 
 In this release, we've made the following changes:
 

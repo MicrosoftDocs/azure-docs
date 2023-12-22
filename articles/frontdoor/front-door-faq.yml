@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
   title: "Azure Front Door - Frequently asked questions"
-  description: This page provides answers to frequently asked questions about Azure Front Door
+  description: This page provides answers to frequently asked questions about Azure Front Door.
   author: duongau
   ms.author: duau
   ms.service: frontdoor
   ms.topic: faq
   ms.workload: infrastructure-services
-  ms.date: 09/21/2023
+  ms.date: 11/08/2023
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -27,7 +27,6 @@ sections:
         answer:  |
           Azure Front Door is a cloud-based service that delivers your applications faster and more reliably. It uses layer 7 load balancing to distribute traffic across multiple regions and endpoints. It also offers dynamic site acceleration (DSA) to optimize web performance and near real-time failover to ensure high availability. Azure Front Door is a fully managed service, so you don't have to worry about scaling or maintenance.
 
-
       - question: |
           What features does Azure Front Door support?
         answer: |
@@ -43,9 +42,9 @@ sections:
         answer: |
           Application Gateway behind Front Door is useful in these situations:
 
-          - You want to balance the traffic not only globally, but also within your VNET. Front Door can only do path-based load balancing at the global level, but Application Gateway can do it within your VNET.
+          - You want to balance the traffic not only globally, but also within your virtual network. Front Door can only do path-based load balancing at the global level, but Application Gateway can do it within your virtual network.
           - You need Connection Draining, which Front Door doesn't support. Application Gateway can enable Connection Draining for your VMs or containers.
-          - You want to offload all the TLS/SSL processing and use only HTTP requests in your VNET. Application Gateway behind Front Door can achieve this setup.
+          - You want to offload all the TLS/SSL processing and use only HTTP requests in your virtual network. Application Gateway behind Front Door can achieve this setup.
           - You want to use session affinity at both the regional and the server level. Front Door can send the traffic from a user session to the same backend in a region, but Application Gateway can send it to the same server in the backend.
           
       - question: |
@@ -131,7 +130,7 @@ sections:
       - question: |
           Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
-          Yes. For more details, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
+          Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](https://msrc.microsoft.com/blog/2023/10/microsoft-response-to-distributed-denial-of-service-ddos-attacks-against-http/2/).
 
       - question: |
           Does Azure Front Door preserve `x-forwarded-for` headers?
@@ -236,27 +235,17 @@ sections:
     questions:
   
       - question: | 
-          How does Azure Front Door handle domain fronting behavior? 
+          How does Azure Front Door block domain fronting? 
         answer: |
-          Domain fronting is a technique that allows an attacker to hide the true destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
+          Domain fronting is a network technique that enables an attacker to conceal the actual destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
           
-          As part of our ongoing efforts to enhance the security and performance of our services, we have implemented the following changes:
-
-          - Starting from November 8, 2022, we'll block any new Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources that exhibit domain fronting behavior. Any request that has a host header mismatching the original TLS SNI extension used during the TLS negotiation gets rejected. 
-
-          - Starting from September 25, 2023, we have updated the domain fronting blocking restrictions based on feedback from customers. Instead of blocking a request when the SNI and host headers don't match, we allow the mismatch as long as the two domains are added to the same subscription. You can use multiple domains for your applications without affecting the functionality, which Azure Front Door enables.
-
-          - Starting from November 8, 2023, we'll enforce domain fronting blocking on all existing domains.
-
-          Once domain fronting gets blocked, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources block any HTTP/HTTPS requests that exhibit this behavior.
-
-          We recommend that you review your existing Azure Front Door and Azure CDN Standard from Microsoft (classic) resources and ensure that they don't rely on domain fronting behavior. If you have any questions or concerns, contact our support team.
+          Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes/routing rules. Domain fronting blocking enforcement will start on January 22, 2024, for all existing domains. The enforcement may require up to two weeks to propagate to all regions. 
          
           When Front Door blocks a request due to a mismatch: 
           - The client receives an HTTP `421 Misdirected Request` error code response. 
-          - Azure Front Door logs the block in the diagnostic logs under the **Error Info** property with the value **SSLMismatchedSNI**.
+          - Azure Front Door records the block in the diagnostic logs under the *Error Info* property with the value *SSLMismatchedSNI*.
           
-          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
+          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/) and [Prohibiting domain fronting on Azure Front Door and Azure CDN Standard from Microsoft (classic)](https://techcommunity.microsoft.com/t5/azure-networking-blog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn/ba-p/4006619).
  
       - question: |
           What TLS versions are supported with Azure Front Door?
@@ -287,7 +276,7 @@ sections:
       - question: |
           What are the steps to access the audit logs for Azure Front Door?
         answer:  |
-          To access the audit logs of Azure Front Door, you need to visit the portal. Select your Front Door from the menu page and click on **Activity Log**. The Activity Log provides you with the records of your Azure Front Door’s operations.
+          To access the audit logs of Azure Front Door, you need to visit the portal. Select your Front Door from the menu page and select on **Activity Log**. The Activity Log provides you with the records of your Azure Front Door’s operations.
 
       - question: |
           How can I configure alerts for Azure Front Door?

@@ -43,7 +43,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
 
 :::image type="content" source="media/pricing-concepts/scenario-5-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for data integration with Managed VNET." lightbox="media/pricing-concepts/scenario-5-pricing-calculator.png":::
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

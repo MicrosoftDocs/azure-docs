@@ -2,12 +2,12 @@
 title: How to send requests to orchestration workflow
 titleSuffix: Azure AI services
 description: Learn about sending requests for orchestration workflow.
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021

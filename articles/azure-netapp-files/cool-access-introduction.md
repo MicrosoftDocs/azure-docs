@@ -23,13 +23,15 @@ Using Azure NetApp Files standard storage with cool access, you can configure in
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level.
+Azure NetApp Files supports three [service levels](azure-netapp-files-service-levels.md) that can be configured at capacity pool level (Standard, Premium and Ultra). Cool access is an additional service only on the Standard service level. Standard storage with cool access is supported only on capacity pools of the **auto** QoS type.  
 
-You can configure the standard storage with cool access on a volume by specifying the number of days (the coolness period, ranging from 7 to 183 days) for inactive data to be considered "cool". When the data has remained inactive for the specified coolness period, the tiering process begins, and the data is moved to the cool tier (the Azure storage account). This move to the cool tier can take a few days. For example, if you specify 31 days as the coolness period, then 31 days after a data block is last accessed (read or write), it's qualified for movement to the cool tier.  
+The following diagram illustrates an application with a volume enabled for cool access.
 
-Tiered data will appear to be online and continue to be available to users and applications by transparent and automated retrieval from the cool tier.
+:::image type="content" source="../media/azure-netapp-files/cool-access-explainer.png" alt-text="Diagram of cool access tiering showing cool volumes being moved to the cool tier." lightbox="../media/azure-netapp-files/cool-access-explainer.png" border="false":::
 
-By `Default` (unless cool access retrieval policy is configured otherwise), after inactive data is moved to the cool tier and if it's read randomly again, it becomes "warm" and is moved back to the hot tier. Sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data and won't trigger inactive data to be moved back to the hot tier.
+In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 7 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
+
+By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
 
 Metadata is never cooled and always remains in the hot tier. As such, the activities of metadata-intensive workloads (for example, high file-count environments like chip design, VCS, and home directories) aren't affected by tiering.
 
@@ -37,6 +39,8 @@ Metadata is never cooled and always remains in the hot tier. As such, the activi
 
 Standard storage with cool access is supported for the following regions: 
 
+* Australia Central
+* Australia Central 2
 * Australia East 
 * Australia Southeast
 * Brazil South 
@@ -48,6 +52,9 @@ Standard storage with cool access is supported for the following regions:
 * France Central
 * North Central US 
 * North Europe  
+* Switzerland North 
+* Switzerland West 
+* UAE North 
 
 ## Effects of cool access on data
 
@@ -159,21 +166,21 @@ When you create volumes in the capacity pool and start tiering data to the cool 
 
 * Assume that you create four volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the hot tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation is as follows: 
 
-    * 1 TiB capacity at the hot tier rate
-    * 3 TiB capacity at the cool tier rate
+    * 1-TiB capacity at the hot tier rate
+    * 3-TiB capacity at the cool tier rate
     * Network transfer between the hot tier and the cool tier at the rate determined by the markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers.
 
 * Assume that you create two volumes with 1 TiB each. Each volume has 0.25 TiB of the volume capacity on the hot tier, and 0.75 TiB of the volume capacity in the cool tier. The billing calculation is as follows: 
 
-    * 0.5 TiB capacity at the hot tier rate
+    * 0.5-TiB capacity at the hot tier rate
     * 2 TiB of unallocated capacity at the hot tier rate 
-    * 1.5 TiB capacity at the cool tier rate
+    * 1.5-TiB capacity at the cool tier rate
     * Network transfer between the hot tier and the cool tier at the rate determined by the markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers.
 
 * Assume that you create one volume with 1 TiB. The volume has 0.25 TiB of the volume capacity on the hot tier, 0.75 of the volume capacity in the cool tier. The billing calculation is as follows: 
 
-    * 0.25 TiB capacity at the hot tier rate
-    * 0.75 TiB capacity at the cool tier rate
+    * 0.25-TiB capacity at the hot tier rate
+    * 0.75-TiB capacity at the cool tier rate
     * Network transfer between the hot tier and the cool tier at the rate determined by the markup on top of the transaction cost (`GET`, `PUT`) on blob storage and private link transfer in either direction between the hot tiers.
 
 ### Examples of cost calculations with varying coolness periods
@@ -184,7 +191,7 @@ In these examples, assume:
 * The hot tier storage cost is $0.000202/GiB/hr. The cool tier storage cost is $0.000082/GiB/hr.  
 * Network transfer cost (including read or write activities from the cool tier) is $0.020000/GiB.
 * You have a 5-TiB capacity pool with cool access enabled.
-* You have 1-TiB of unallocated capacity within the capacity pool
+* You have 1 TiB of unallocated capacity within the capacity pool
 * You have a 4-TiB volume enabled for cool access.
 * 3 TiB of the 4 TiB is moved to the cool tier after the coolness period. 
 * You read or write 20% of data each month from the cool tier.
@@ -205,7 +212,7 @@ Your storage cost for the *first month* would be:
 | Cost | Description | Calculation |
 |---|---|---|
 | Unallocated storage cost for Day 1~30 (30 days) | 1 TiB of unallocated storage | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00`  |
-| Storage cost for Day 1~7 (7 days) | 4 TiB of active data (hot tier) | `4 TiB x 1024 x 7 days x 730/30 hrs. x $0.000202/GiB/hr. = $140.93` |
+| Storage cost for Day 1~7 (seven days) | 4 TiB of active data (hot tier) | `4 TiB x 1024 x 7 days x 730/30 hrs. x $0.000202/GiB/hr. = $140.93` |
 | Storage cost for Day 8~30 (23 days) | 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 23 days x 730/30 hrs. x $0.000202/GiB/hr. = $115.77` <br><br> `3 TiB x 1024 x 23 days x 730/30 hrs. x $0.000082/GiB/hr. = $140.98` |
 | Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | `3 TiB x 1024 x $0.020000/GiB = $61.44` <br><br> `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
 | **First month total** || **`$622.41`** |
@@ -239,7 +246,7 @@ Your storage cost for the *second month* would be:
 | Cost | Description | Calculation |
 |---|---|---|
 | Unallocated storage cost for Day 1~30 (30 days) | 1 TiB of unallocated storage | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00` |
-| Storage cost for Day 1~5 (5 days) | 4 TiB of active data (hot tier) | `4 TiB x 1024 x 5 days x 730/30 hrs. x $0.000202/GiB/hr. = $100.67` |
+| Storage cost for Day 1~5 (five days) | 4 TiB of active data (hot tier) | `4 TiB x 1024 x 5 days x 730/30 hrs. x $0.000202/GiB/hr. = $100.67` |
 | Storage cost for Day 6~30 (25 days) | 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 25 days x 730/30 hrs. x $0.000202/GiB/hr. = $125.83` <br><br> `3 TiB x 1024 x 25 days x 730/30 hrs. x $0.000082/GiB/hr. = $153.24` |
 | Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | `3 TiB x 1024 x $0.020000	/GiB	 = $61.44` <br><br> `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
 | **Second month total** || **`$604.47`** |
@@ -273,7 +280,7 @@ Your storage cost for the *third month* would be:
 | Cost | Description | Calculation |
 |---|---|---|
 | Unallocated storage cost for Day 1~30 (30 days) | 1 TiB of unallocated storage | `1 TiB x 1024 x 30 days x 730/30 hrs. x $0.000202/GiB/hr. = $151.00` |
-| Storage cost for Day 1~3 (3 days) | 4 TiB of active data (hot tier) | `4 TiB x 1024 x 3 days x 730/30 hrs. x $0.000202/GiB/hr. = $60.40` |
+| Storage cost for Day 1~3 (three days) | 4 TiB of active data (hot tier) | `4 TiB x 1024 x 3 days x 730/30 hrs. x $0.000202/GiB/hr. = $60.40` |
 | Storage cost for Day 4~30 (27 days) | 1 TiB of active data (hot tier) <br><br> 3 TiB of inactive data (cool tier) | `1 TiB x 1024 x 27 days x 730/30 hrs. x $0.000202/GiB/hr. = $135.90` <br><br> `3 TiB x 1024 x 27 days x 730/30 hrs. x $0.000082/GiB/hr. = $165.50` |
 | Network transfer cost | Moving inactive data to cool tier <br><br> 20% of data read/write from cool tier | `3 TiB x 1024 x $0.020000/GiB = $61.44` <br><br> `3 TiB x 1024 x 20% x $0.020000/GiB = $12.29` |
 | **Third month total** || **`$586.52`** |

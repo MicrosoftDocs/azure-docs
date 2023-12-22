@@ -1,7 +1,7 @@
 ---
 title: Switch Azure directories using the LUIS portal
 description: Steps for changing Azure directories when using LUIS
-services: cognitive-services
+#services: cognitive-services
 ms.author: aahi
 manager: nitinme
 ms.custom: seodec18

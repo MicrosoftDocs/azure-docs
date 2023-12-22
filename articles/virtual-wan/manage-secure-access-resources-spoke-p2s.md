@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/16/2022
+ms.date: 11/21/2023
 ms.author: cherylmc
 
 ---
@@ -97,7 +97,7 @@ Convert the hub to a secured hub using the following article: [Configure Azure F
 
 Create rules that dictate the behavior of Azure Firewall. By securing the hub, we ensure that all packets that enter the virtual hub are subject to firewall processing before accessing your Azure resources.
 
-Once you complete these steps, you will have created an architecture that allows VPN users to access the VM with private IP address 10.18.0.4, but **NOT** access the VM with private IP address 10.18.0.5
+Once you complete these steps, you'll have created an architecture that allows VPN users to access the VM with private IP address 10.18.0.4, but **NOT** access the VM with private IP address 10.18.0.5
 
 1. In the Azure portal, navigate to **Firewall Manager**.
 1. Under Security, select **Azure Firewall policies**.
@@ -107,7 +107,7 @@ Once you complete these steps, you will have created an architecture that allows
 1. Select **Next: Rules**.
 1. On the **Rules** tab, select **Add a rule collection**.
 1. Provide a name for the collection. Set the type as **Network**. Add a priority value **100**.
-1. Fill in the name of the rule, source type, source, protocol, destination ports, and destination type, as shown in the example below. Then, select **add**. This rule allows any IP address from the VPN client pool to access the VM with private IP address 10.18.04, but not any other resource connected to the virtual hub. Create any rules you want that fit your desired architecture and permissions rules.
+1. Fill in the name of the rule, source type, source, protocol, destination ports, and destination type, as shown in the following example. Then, select **add**. This rule allows any IP address from the VPN client pool to access the VM with private IP address 10.18.04, but not any other resource connected to the virtual hub. Create any rules you want that fit your desired architecture and permissions rules.
 
    :::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/rules.png" alt-text="Firewall rules" :::
 
