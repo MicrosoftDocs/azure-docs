@@ -15,7 +15,7 @@ You can connect a private cloud to multiple private clouds, and the connections 
 
 You can only connect private clouds in the same region. To connect private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect them in the same way you connect your private cloud to your on-premises circuit.
 
-:::image type="content" source="media/networking/avs-interconnect.png" alt-text="AVS Interconnect Topology for 3 private clouds connected in one region." border="true" lightbox="media/networking/avs-interconnect.png":::
+:::image type="content" source="media/networking/avs-interconnect.png" alt-text="Diagram of the AVS Interconnect Topology for 3 private clouds connected in one region." border="true" lightbox="media/networking/avs-interconnect.png":::
 
 ## Supported regions
 
