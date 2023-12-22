@@ -31,7 +31,7 @@ We're excited to announce that the 10.1 release of the Service Fabric runtime ha
 - Service Fabric now emits a health event visible in SFX/SFE when Sessions are exhausted.
 - This allows the weight of InBuild Auxiliary replicas to be set when applied to InBuild throttling. A higher weight means that an InBuild Auxiliary replica will take up more of the InBuild limit, and likewise a lower weight would consume less of the limit, allowing more replicas to be placed InBuild before the limit is reached.
 
-### Service Fabric 10.0 releases
+### Service Fabric 10.1 releases
 | November 1, 2023 | Azure Service Fabric 10.1 Release  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_101RTO.md) |
 
 ## Service Fabric 10.0
