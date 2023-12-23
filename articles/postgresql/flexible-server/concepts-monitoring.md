@@ -1,5 +1,5 @@
 ---
-title: Monitoring and metrics - Azure Database for PostgreSQL - Flexible Server
+title: Monitoring and metrics
 description: Review the monitoring and metrics features in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan

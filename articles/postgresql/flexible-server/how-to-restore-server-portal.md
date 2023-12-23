@@ -1,6 +1,6 @@
 ---
-title: Point-in-time restore of a flexible server - Azure portal
-description: This article describes how to perform restore operations in Azure Database for PostgreSQL Flexible Server through the Azure portal.
+title: Point-in-time restore - Azure portal
+description: This article describes how to perform restore operations in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
 ms.author: alkuchar
 author: AwdotiaRomanowna
 ms.service: postgresql
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/30/2021
 ---
 
-# Point-in-time restore of a flexible server
+# Point-in-time restore of an Azure Database for PostgreSQL - Flexible Server instance
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

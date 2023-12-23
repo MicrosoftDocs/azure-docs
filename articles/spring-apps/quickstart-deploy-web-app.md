@@ -279,6 +279,6 @@ az group delete --name ${RESOURCE_GROUP}
 
 For more information, see the following articles:
 
-- [Azure Spring Apps Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+- [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 - [Azure for Spring developers](/azure/developer/java/spring/)
 - [Spring Cloud Azure documentation](/azure/developer/java/spring-framework/)

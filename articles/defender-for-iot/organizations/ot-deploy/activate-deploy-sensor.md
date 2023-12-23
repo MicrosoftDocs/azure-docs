@@ -1,7 +1,7 @@
 ---
 title: Configure and activate your OT sensor - - Microsoft Defender for IoT
 description: Learn how to configure initial setup settings and activate your Microsoft Defender for IoT OT sensor.
-ms.date: 07/04/2023
+ms.date: 12/19/2023
 ms.topic: install-set-up-deploy
 ---
 
@@ -43,7 +43,7 @@ This step is performed by your deployment teams.
 
 Configuring sensor setup via the browser includes the following steps:
 
-- Signing into the sensor console and changing the *support* user password
+- Signing into the sensor console and changing the *admin* user password
 - Defining network details for your sensor
 - Defining the interfaces you want to monitor
 - Activating your sensor
@@ -51,7 +51,7 @@ Configuring sensor setup via the browser includes the following steps:
 
 ### Sign in to the sensor console and change the default password
 
-This procedure describes how to sign into the OT sensor console for the first time. You're prompted to change the default password for the *support* user.
+This procedure describes how to sign into the OT sensor console for the first time. You're prompted to change the default password for the *admin* user.
 
 **To sign in to your sensor**:
 
@@ -63,10 +63,10 @@ This procedure describes how to sign into the OT sensor console for the first ti
 
 1. Enter the following credentials and select **Login**:
 
-    - **Username**: `support`
-    - **Password**: `support`
+    - **Username**: `admin`
+    - **Password**: `admin` <!--is this correct?-->
 
-    You're asked to define a new password for the *support* user.
+    You're asked to define a new password for the *admin* user.
 
 1. In the **New password** field, enter your new password. Your password must contain lowercase and uppercase alphabetic characters, numbers, and symbols.
 
@@ -160,7 +160,7 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
 
 Use this procedure to configure the following initial setup settings via CLI:
 
-- Signing into the sensor console and setting a new *support* user password
+- Signing into the sensor console and setting a new *admin* user password
 - Defining network details for your sensor
 - Defining the interfaces you want to monitor
 
@@ -172,12 +172,12 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 
 1. At the `D4Iot login` prompt, sign in with the following default credentials:
 
-    - **Username**: `support`
-    - **Password**: `support`
+    - **Username**: `admin`
+    - **Password**: `admin` <!--is this correct?-->
 
     When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
 
-1. At the prompt, enter a new password for the *support* user. Your password must contain lowercase and uppercase alphabetic characters, numbers, and symbols.
+1. At the prompt, enter a new password for the *admin* user. Your password must contain lowercase and uppercase alphabetic characters, numbers, and symbols.
 
     When prompted to confirm your password, enter your new password again. For more information, see [Default privileged users](../manage-users-sensor.md#default-privileged-users).
 
