@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 11/20/2023
+ms.date: 12/22/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -91,7 +91,7 @@ Edit the structure and content of the generated pages in several ways. For examp
 
 ## Edit the site's primary color
 
-To change colors, gradients, typography, buttons, and other user interface elements in the developer portal, edit the site styles. For example, change the primary color in the navigation bar, buttons, and other elements to match your organization's branding.
+To change colors, gradients, typography, buttons, and other user interface elements in the developer portal, edit the site styles. For example, change the primary color used in the navigation bar, buttons, and other elements to match your organization's branding.
 
 1. In the developer portal, in the left menu of the visual editor, select **Styles**. 
 1. Under the **Colors** section, select the color style item you want to edit. For example, select **Primary**.
@@ -106,7 +106,7 @@ The updated color is applied to the site in real time.
 
 ## Change the background image on the home page
 
-You can change the background on your home page to an image or color that matches your organization's branding. If you haven't already uploaded a different image to the media library, upload it before changing the background image, or when you change the background image.
+You can change the background on your portal's home page to an image or color that matches your organization's branding. If you haven't already uploaded a different image to the media library, you can upload it before changing the background image, or when you're changing it.
 
 1. On the home page of the developer portal, click in the top right corner so that the top section is highlighted at the corners and a pop-up menu appears.
 1. To the right of **Edit article** in the pop-up menu, select the up-down arrow (**Switch to parent**). 
@@ -153,7 +153,7 @@ For example, to change the logo that's used in the navigation bar of the Default
 
 You can edit the navigation menus at the top of the developer portal pages to change the order of menu items, add items, or remove items. You can also change the name of menu items and the URL or other content they point to.
 
-For example, the **Default** and **Home** layouts for the developer portal show two menus to guest users of the developer portal: 
+For example, the **Default** and **Home** layouts for the developer portal display two menus to guest users of the developer portal: 
 
 * a main menu with links to **Home**, **APIs**, and **Products**
 * an anonymous user menu with links to **Sign in** and **Sign up** pages. 
@@ -171,7 +171,7 @@ However, you might want to customize them. For example, if you want to independe
 
 Edit the site settings for the developer portal to change the site name, description, and other details. 
 
-1. In the left menu of the visual edit, select **Settings**.
+1. In the left menu of the visual editor, select **Settings**.
 1. In the **Settings** pop-up, enter the site metadata you want to change. Optionally, set up a favicon for the site from an image in your media library.
 1. In the top bar, **Save**.
 
@@ -187,7 +187,6 @@ To publish from the administrative interface of the developer portal:
 
 [!INCLUDE [api-management-developer-portal-publish](../../includes/api-management-developer-portal-publish.md)]
 
-Publishing the portal can take a few minutes to complete.
 
 > [!TIP]
 > Another option is to publish the site from the Azure portal. On the **Portal overview** page of your API Management instance in the Azure portal, select **Publish**. 
@@ -216,6 +215,8 @@ Advance to the next tutorial:
 > [!div class="nextstepaction"]
 > [Import and manage APIs using Visual Studio Code](visual-studio-code-tutorial.md)
 
-- [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
+See related content about the developer portal:
+
+- [Azure API Management developer portal overview](developer-portal-overview.md)
 - Configure authentication to the developer portal with [usernames and passwords](developer-portal-basic-authentication.md), [Microsoft Entra ID](api-management-howto-aad.md), or [Azure AD B2C](api-management-howto-aad-b2c.md).
 - Learn more about [customizing and extending](developer-portal-extend-custom-functionality.md) the functionality of the developer portal.

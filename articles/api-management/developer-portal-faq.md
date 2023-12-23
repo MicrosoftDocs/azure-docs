@@ -172,7 +172,7 @@ You can generate *user-specific tokens* (including admin tokens) using the [Get 
 > The token must be URL-encoded.
 
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

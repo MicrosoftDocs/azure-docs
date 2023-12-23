@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 11/27/2023
+ms.date: 12/22/2023
 ms.author: danlep 
 ---
 
@@ -15,7 +15,7 @@ ms.author: danlep
 
 The API Management *developer portal* is an automatically generated, fully customizable website with the documentation of your APIs. It's where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article introduces features of the developer portal, the types of content the portal presents, and ways to manage and extend the developer portal for your specific users and scenarios.
+This article introduces features of the developer portal, the types of content the portal presents, and options to manage and extend the developer portal for your specific users and scenarios.
 
 [!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
@@ -40,17 +40,17 @@ Code is maintained in the API Management developer portal [GitHub repository](ht
 
 Content is divided into two subcategories: *portal content* and *API Management data*.
 
-*Portal content* is specific to the portal website and includes:
+* *Portal content* is specific to the portal website and includes:
 
-- **Pages** - for example, landing page, API tutorials, blog posts
-- **Media** - images, animations, and other file-based content
-- **Layouts** - templates that are matched against a URL and define how pages are displayed
-- **Styles** - values for styling definitions, such as fonts, colors, borders
-- **Settings** - configurations such as favicon, website metadata
-
-    Portal content, except for media, is expressed as JSON documents.
-
-*API Management data* includes entities such as APIs, Operations, Products, and Subscriptions that are managed in your API Management instances.
+    - **Pages** - for example, landing page, API tutorials, blog posts
+    - **Media** - images, animations, and other file-based content
+    - **Layouts** - templates that are matched against a URL and define how pages are displayed
+    - **Styles** - values for styling definitions, such as fonts, colors, borders
+    - **Settings** - configurations such as favicon, website metadata
+    
+        Portal content, except for media, is expressed as JSON documents.
+    
+* *API Management data* includes entities such as APIs, Operations, Products, and Subscriptions that are managed in your API Management instance.
 
 ## Customize and style the portal
 
@@ -58,7 +58,12 @@ Out of the box, the developer portal is already populated with your published AP
 
 If you're accessing the portal for the first time, the portal includes placeholder pages, content, and navigation menus. The placeholder content you see has been designed to showcase the portal's capabilities and minimize the customizations needed to personalize your portal. 
 
-For a step-by-step walkthrough of customizing the developer portal, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
+For a step-by-step walkthrough of customizing and publishing the developer portal, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
+
+> [!IMPORTANT]
+> * Access to the developer portal by API publishers and consumers requires network connectivity to both the developer portal's endpoint (default: `https://<apim-instance-name>.portal.azure-api.net`) and the API Management instance's management endpoint (default: `https://<apim-instance-name>.management.azure-api.net`)
+> * Publishing the developer portal requires additional connectivity to blob storage managed by API Management in the West US region. 
+> * If the API Management instance is deployed in a VNet, ensure that the hostnames of the developer portal and management endpoint resolve properly and that you enable connectivity to required dependencies for the developer portal. [Learn more](virtual-network-reference.md)
 
 ### Visual editor
 
@@ -75,7 +80,7 @@ Layouts define how pages are displayed. For example, in the default content, the
 
 A layout gets applied to a page by matching its URL template to the page's URL. For example, a layout with a URL template of `/wiki/*` is applied to every page with the `/wiki/` segment in the URL: `/wiki/getting-started`, `/wiki/styles`, etc.
 
-In the following image, content belonging to the layout is outlined in blue, while the page-specific content is outlined in red. The menu sections are marked respectively.
+In the following image, content belonging to the layout is outlined in blue, while the page-specific content is outlined in red. 
 
 :::image type="content" source="media/developer-portal-overview/pages-layouts.png" alt-text="Screenshot of layout content in the developer portal." :::
 
@@ -91,18 +96,6 @@ The preprovisioned content in the developer portal showcases pages with commonly
 The **Styles** panel is created with designers in mind. Use styles to manage and customize all the visual elements in your portal, such as fonts used in headings and menus and button colors. The styling is hierarchical - many elements inherit properties from other elements. For example, button elements use colors for text and background. To change a button's color, you need to change the original color variant.
 
 To edit a variant, select it and select **Edit style** in the options that appear on top of it. After you make the changes in the pop-up window, close it.
-
-### Content security policy
-
-You can enable a content security policy to add a layer of security to your developer portal and help mitigate certain types of attacks including cross-site scripting and data injection. With a content security policy, the developer portal on the browser will only load resources from trusted locations that you specify, such as your corporate website or other trusted domains.
-
-To enable a content security policy: 
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **Developer portal**, select **Portal settings**.
-1. On the **Content security policy** tab, select **Enabled**.
-1. Under **Allowed sources**, add one or more hostnames that specify trusted locations that the developer portal can load resources from. You can also specify a wildcard character to allow all subdomains of a domain. For example, `*.contoso.com` allows all subdomains of `contoso.com`.
-1. Select **Save**. 
 
 ## Extend portal functionality
 
@@ -154,6 +147,18 @@ When a user visits the developer portal with visibility and access controls appl
 > Using the administrative interface, you can preview pages as a user associated with any built-in or custom group by selecting **View as** in the menu at the top. 
 > 
 
+### Content security policy
+
+You can enable a content security policy to add a layer of security to your developer portal and help mitigate certain types of attacks including cross-site scripting and data injection. With a content security policy, the developer portal on the browser will only load resources from trusted locations that you specify, such as your corporate website or other trusted domains.
+
+To enable a content security policy: 
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Developer portal**, select **Portal settings**.
+1. On the **Content security policy** tab, select **Enabled**.
+1. Under **Allowed sources**, add one or more hostnames that specify trusted locations that the developer portal can load resources from. You can also specify a wildcard character to allow all subdomains of a domain. For example, `*.contoso.com` allows all subdomains of `contoso.com`.
+1. Select **Save**. 
+
 ### Interactive test console
 
 The developer portal provides a "Try it" capability on the API reference pages so that portal visitors can test your APIs directly through an interactive console.
@@ -184,7 +189,7 @@ The portal supports several options for user sign-up and sign-in:
 The developer portal generates reports for authenticated users to view their individual API usage, data transfer, and response times, including aggregated use by specific products and subscriptions. Users can view the reports by selecting **Reports** in the default navigation menu for authenticated users. Users can filter reports by time interval, up to the most recent 90 days.
 
 > [!NOTE]
-> Reports in the developer portal only show data for the authenticated user. API publishers and administrators can access usage data for all users in the [Azure portal](https://portal.azure.com) by selecting **Analytics** in the left menu of the API Management instance. API publishers can also use monitoring features such as Azure Log Analytics.
+> Reports in the developer portal only show data for the authenticated user. API publishers and administrators can access usage data for all users of the API Management instance - for example, by setting up monitoring features such as [Azure Application Insights](api-management-howto-app-insights.md) in the portal.
 
 ## Save and publish website content
 
@@ -246,7 +251,7 @@ To reset the developer portal:
 1. On the **Advanced** tab, select **Yes, reset the website to default state**.
 1. Select **Save**.
 
-## Next steps
+## Related content
 
 Learn more about the developer portal:
 

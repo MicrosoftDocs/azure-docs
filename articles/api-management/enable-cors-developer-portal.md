@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 12/22/2023
 ms.author: danlep
 ---
 
@@ -15,7 +15,7 @@ Cross-origin resource sharing (CORS) is an HTTP-header based mechanism that allo
 
 To let visitors to the API Management [developer portal](developer-portal-overview.md) use the interactive test console in the API reference pages, enable a [CORS policy](cors-policy.md) for APIs in your API Management instance. If the developer portal's domain name isn't an allowed origin for cross-domain API requests, test console users will see a CORS error.  
 
-For certain scenarios, you can configure the developer portal as CORS proxy instead of enabling a CORS policy for APIs.
+For certain scenarios, you can configure the developer portal as a CORS proxy instead of enabling a CORS policy for APIs.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -28,7 +28,7 @@ For certain scenarios, you can configure the developer portal as CORS proxy inst
 
 ## Enable CORS policy for APIs
 
-You can enable a setting to configure a CORS policy automatically for all APIs in your API Management instance. You can also configure a CORS policy manually.
+You can enable a setting to configure a CORS policy automatically for all APIs in your API Management instance. You can also manually configure a CORS policy.
 
 > [!NOTE]
 > Only one CORS policy is executed. If you specify multiple CORS policies (for example, on the API level and on the all-APIs level), your interactive console may not work as expected.
@@ -39,7 +39,7 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 1. Under **Enable CORS**, the status of CORS policy configuration is displayed. A warning box indicates an absent or misconfigured policy.
 1. To enable CORS from the developer portal for all APIs, select **Enable CORS**.
 
-![Screenshot that shows where you can check the status of your CORS policy.](media/enable-cors-developer-portal/cors-azure-portal.png)
+![Screenshot that shows where to check status of your CORS policy in the developer portal](media/enable-cors-developer-portal/cors-azure-portal.png)
 
 
 ### Enable CORS policy manually
@@ -47,7 +47,7 @@ You can enable a setting to configure a CORS policy automatically for all APIs i
 1. Select the **Manually apply it on the global level** link to see the generated policy code.
 2. Navigate to **All APIs** in the **APIs** section of your API Management instance.
 3. Select the **</>** icon in the **Inbound processing** section.
-4. Insert the policy in the **\<inbound\>** section of the XML file. Make sure the **\<origin\>** value matches your developer portal's domain.
+4. In the policy editor, insert the policy in the **\<inbound\>** section of the XML file. Make sure the **\<origin\>** value matches your developer portal's domain.
 
 > [!NOTE]
 > 
