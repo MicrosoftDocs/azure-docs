@@ -1,6 +1,6 @@
 ---
 title: Delete files in Managed Airflow
-description: This document explains how to delete files in Managed Airflow.
+description: This article explains how to delete files in Managed Airflow.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: abnarain
@@ -11,35 +11,33 @@ ms.date: 10/01/2023
 
 # Delete files in Managed Airflow
 
-This guide walks you through the steps to delete DAG files in Managed Airflow environment.  
+This article walks you through the steps to delete directed acyclic graph (DAG) files in an Azure Data Factory Managed Airflow environment.
 
 ## Prerequisites
 
-**Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
+- You need an Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
 
+## Delete DAGs by using git-sync
 
-## Delete DAGs using Git-Sync Feature.  
+When you use the git-sync feature, it isn't possible to delete DAGs in Managed Airflow because all your Git source files are synchronized with Managed Airflow. We recommend removing the file from your source code repository so that your commit syncs with Managed Airflow.
 
-While using Git-sync feature, deleting DAGs in Managed Airflow isn't possible because all your Git source files are synchronized with Managed Airflow. The recommended approach is to remove the file from your source code repository and your commit gets synchronized with Managed Airflow. 
+## Delete DAGs by using Azure Blob Storage
 
-## Delete DAGs using Blob Storage.
+1. In this example, you want to delete the DAG named *adf.py*.
 
-### Delete DAGs
+    :::image type="content" source="media/airflow-import-delete-dags/sample-dag-to-be-deleted.png" alt-text="Screenshot that shows the DAG to delete.":::
 
-1. Let’s say you want to delete the DAG named ``Tutorial.py`` as shown in the image. 
-    
-    :::image type="content" source="media/airflow-import-delete-dags/sample-dag-to-be-deleted.png" alt-text="Screenshot shows the DAG to be deleted.":::
+1. Select the ellipsis icon and select **Delete DAG**.
 
-1. Click on ellipsis icon -> Click on Delete DAG Button.
-    
-    :::image type="content" source="media/airflow-import-delete-dags/delete-dag-button.png" alt-text="Screenshot shows the delete button.":::
+    :::image type="content" source="media/airflow-import-delete-dags/delete-dag-button.png" alt-text="Screenshot that shows the Delete DAG button.":::
 
-1. Fill out the name of your Dag file. 
-    
-    :::image type="content" source="media/airflow-import-delete-dags/dag-filename-input.png" alt-text="Screenshot shows the DAG filename.":::
+1. Enter the name of your DAG file.
 
-1. Click Delete Button.
-   
-1. Successfully deleted file. 
-    
-    :::image type="content" source="media/airflow-import-delete-dags/dag-delete-success.png" alt-text="Screenshot shows successful DAG deletion.":::
+    :::image type="content" source="media/airflow-import-delete-dags/dag-filename-input.png" alt-text="Screenshot that shows the DAG filename.":::
+
+1. Select **Delete**.
+
+1. You see a message that tells you the file was successfully deleted.
+
+    :::image type="content" source="media/airflow-import-delete-dags/dag-delete-success.png" alt-text="Screenshot that shows successful DAG deletion.":::
