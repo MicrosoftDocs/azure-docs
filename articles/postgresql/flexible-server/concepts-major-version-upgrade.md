@@ -65,7 +65,7 @@ It's recommended to perform a dry run of the in-place major version upgrade in a
 
 **Steps**
 
-1. You can perform in-place major version upgrade using Azure Portal or CLI (command-line interface).  Click the **Upgrade** button in Overview blade.
+1. You can perform in-place major version upgrade using Azure portal or CLI (command-line interface).  Click the **Upgrade** button in Overview blade.
 
    :::image type="content" source="media/concepts-major-version-upgrade/upgrade-tab.png" alt-text="Diagram of Upgrade tab to perform in-place major version upgrade.":::
 
