@@ -28,7 +28,7 @@ landingContent:
           - text: What is Azure AI Document Intelligence?
             url: overview.md
           - text: Document Intelligence FAQ
-            url: faq.md
+            url: faq.yml
       - linkListType: whats-new
         links:
           - text: What's new in Azure AI Document Intelligence?
