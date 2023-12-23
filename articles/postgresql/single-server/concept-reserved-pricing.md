@@ -89,7 +89,7 @@ vCore size flexibility helps you scale up or down within a performance tier and 
 
 ## How to view reserved instance purchase details
 
-You can view your reserved instance purchase details via the [Reservations](https://aka.ms/reservations) blade in the Azure Portal.
+You can view your reserved instance purchase details via the [Reservations](https://aka.ms/reservations) blade in the Azure portal.
 
 ## Reserved instance expiration
 
