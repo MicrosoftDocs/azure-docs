@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: What is Azure AI Document Intelligence?
             url: overview.md
+          - text: Document Intelligence FAQ
+            url: faq.md
       - linkListType: whats-new
         links:
           - text: What's new in Azure AI Document Intelligence?
@@ -47,19 +49,17 @@ landingContent:
         links:
           - text: Studio overview
             url: studio-overview.md
-      - linkListType: get-started
-        links:
-          - text: Document Intelligence Studio quickstart
-            url: quickstarts/try-document-intelligence-studio.md
+          - text: Studio concepts
+            url: concept-document-intelligence-studio.md
 
   #Card 3
    - title: Document Intelligence models
      linkLists:
      - linkListType: architecture
        links:
-         - text: Read model
+         - text: Read
            url: concept-read.md
-         - text: Layout model
+         - text: Layout
            url: concept-layout.md
          - text: Invoice
            url: concept-invoice.md
@@ -69,22 +69,14 @@ landingContent:
            url: concept-id-document.md
          - text: Health insurance card
            url: concept-health-insurance-card.md
-         - text: US tax document models
-           url: concept-tax-document.md
          - text: Contract
            url: concept-contract.md
+         - text: US tax documents
+           url: concept-tax-document.md
 
   #Card 4
    - title: Document Intelligence concepts
      linkLists:
-         - linkListType: concept
-           links:
-             - text: Read model
-               url: concept-read.md
-             - text: Layout model
-               url: concept-layout.md
-             - text: General document model (deprecated)
-               url: concept-general-document.md
          - linkListType: concept
            links:
              - text: 🆕 Query field extraction
@@ -120,6 +112,8 @@ landingContent:
             url: create-document-intelligence-resource.md
           - text: Create SAS tokens for storage containers
             url: create-sas-tokens.md
+          - text: Create and use managed identities
+            url: managed-identities.md
           - text: Build a custom extraction model
             url:  how-to-guides/build-a-custom-model.md
           - text: Build a custom classification model
@@ -128,8 +122,6 @@ landingContent:
             url: how-to-guides/compose-custom-models.md
           - text: Install and run Document Intelligence containers
             url: containers/install-run.md
-          - text: Create and use managed identities
-            url: managed-identities.md
 
 # Card 6
    - title: Responsible AI
