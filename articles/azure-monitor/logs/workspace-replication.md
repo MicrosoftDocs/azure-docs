@@ -31,7 +31,7 @@ When enabled, the workspace itself is replicated to another region, including it
 * Logs collected through MMA (the classic Microsoft Monitoring Agent) - all MMA logs are replicated if workspace replication is enabled on the target workspace.
 * Logs collected through AMA (Azure Monitoring agent) - logs coming from AMA are managed via Data Collection Rules (DCR). This provides better control over the scope of replication, as replication can be set **per DCR**. In other words, you can configure replication for one stream of logs (such as Security logs) while not replicating others (such as Perf logs). Replicating AMA logs requires enabling replication both on the target workspace, and per relevant DCR, as explained later.
 * Custom logs (v1) - logs sent through the Data Collector API are replicated if workspace replication is enabled on the target workspace.
-* Customer logs (v2) - custom logs and transformation logs configured through DCRs require enabling replication both on the target workspace and per DCR.
+* Custom logs (v2) - custom logs and transformation logs configured through DCRs require enabling replication both on the target workspace and per DCR.
 
 
 ### Supported regions and region groups
