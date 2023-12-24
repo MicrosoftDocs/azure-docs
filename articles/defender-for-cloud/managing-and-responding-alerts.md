@@ -1,42 +1,64 @@
 ---
-title: Manage security alerts
+title: Manage and respond to security alerts
 description: This document helps you to use Microsoft Defender for Cloud capabilities to manage and respond to security alerts.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 07/14/2022
+ms.date: 12/24/2023
 ---
-# Manage and respond to security alerts in Microsoft Defender for Cloud
-
-This topic shows you how to view and process Defender for Cloud's alerts and protect your resources.
-
-Advanced detections that trigger security alerts are only available with Microsoft Defender for Cloud's enhanced security features enabled. A free trial is available. To upgrade, see [Enable enhanced protections](enable-enhanced-security.md).
-
-## What are security alerts?
+# Manage and respond to security alerts
 
 Defender for Cloud collects, analyzes, and integrates log data from your Azure, hybrid, and multicloud resources, the network, and connected partner solutions, such as firewalls and endpoint agents. Defender for Cloud uses the log data to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Defender for Cloud along with the information you need to quickly investigate the problem and the steps to take to remediate an attack.
 
-To learn about the different types of alerts, see [Security alerts - a reference guide](alerts-reference.md).
+This article shows you how to view and process Defender for Cloud's alerts and protect your resources.
 
-For an overview of how Defender for Cloud generates alerts, see [How Microsoft Defender for Cloud detects and responds to threats](alerts-overview.md).
+Advanced detections that trigger security alerts are only available with Microsoft Defender for Cloud's enhanced security features enabled. A free trial is available. To upgrade, see [Enable enhanced protections](enable-enhanced-security.md).
 
+When triaging security alerts, you should prioritize alerts based on the alert severity by addressing alerts with higher severity first. Learn more about alerts severity in [How are alerts classified?](alerts-overview.md#how-are-alerts-classified).
+
+> [!TIP]
+> You can connect Microsoft Defender for Cloud to most popular SIEM solutions including Microsoft Sentinel and consume the alerts from your tool of choice. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 ## Manage your security alerts
 
-1. From Defender for Cloud's overview page, select the **Security alerts** tile at the top of the page, or the link from the sidebar.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. Navigate to **Microsoft Defender for Cloud** > **Security alerts**.
 
     :::image type="content" source="media/managing-and-responding-alerts/overview-page-alerts-links.png" alt-text="Getting to the security alerts page from Microsoft Defender for Cloud's overview page":::
 
-    The security alerts page opens.
-
     :::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
-1. To filter the alerts list, select any of the relevant filters. You can optionally add further filters with the **Add filter** option.
+1. (Optional) Filter the alerts list with any of the relevant filters. You can optionally add further filters with the **Add filter** option.
 
     :::image type="content" source="./media/managing-and-responding-alerts/alerts-adding-filters-small.png" alt-text="Adding filters to the alerts view." lightbox="./media/managing-and-responding-alerts/alerts-adding-filters-large.png":::
 
-    The list updates according to the filtering options you've selected. For example, you might you want to address security alerts that occurred in the last 24 hours because you are investigating a potential breach in the system.
+    The list updates according to the filters selected. For example, you might you want to address security alerts that occurred in the last 24 hours because you're investigating a potential breach in the system.
 
+## Investigate a security alert
+
+Various options are available for each alert in order to assist you in your investigation.
+
+**To investigate a security alert**: 
+
+1. Select an alert.
+
+1. Review the high-level information about the security alert.
+    
+    This pane shows:
+    - Alert severity, status, and activity time
+    - Description that explains the precise activity that was detected
+    - Affected resources
+    - Kill chain intent of the activity on the MITRE ATT&CK matrix (if applicable)
+
+1. For more detailed information that can help you investigate the suspicious activity, select **View full details**.
+
+    :::image type="content" source="./media/managing-and-responding-alerts/alert-details-left-pane.png" alt-text="Screenshot of the left pane of the alert details page highlighting the high-level information." lightbox="media/managing-and-responding-alerts/alert-details-left-pane.png":::
+
+1. Review the information on this page. If you need further details:
+
+    - Contact the resource owner to verify whether the detected activity is a false positive.
+    - Investigate the raw logs generated by the attacked resource
 
 ## Respond to security alerts
 
@@ -49,7 +71,7 @@ For an overview of how Defender for Cloud generates alerts, see [How Microsoft D
 
 1. For further information, select **View full details**.
 
-    The left pane of the security alert page shows high-level information regarding the security alert: title, severity, status, activity time, description of the suspicious activity, and the affected resource. The Azure tags for the affected resource helps you to understand the organizational context of the resource.
+    The left pane of the security alert page shows high-level information regarding the security alert: title, severity, status, activity time, description of the suspicious activity, and the affected resource. The Azure tags for the affected resource help you to understand the organizational context of the resource.
 
     The right pane includes the **Alert details** tab containing further details of the alert to help you investigate the issue: IP addresses, files, processes, and more.
      
@@ -70,13 +92,13 @@ The alerts list includes checkboxes so you can handle multiple alerts at once. F
 
 1. Filter according to the alerts you want to handle in bulk.
 
-    In this example, we've selected all alerts with severity of 'Informational' for the resource 'ASC-AKS-CLOUD-TALK'. 
+    In this example, the alerts with severity of `Informational` for the resource `ASC-AKS-CLOUD-TALK` are selected. 
 
     :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-filter.png" alt-text="Screenshot of filtering the alerts to show related alerts.":::
 
-1. Use the checkboxes to select the alerts to be processed - or use the checkbox at the top of the list to select them all. 
+1. Use the checkboxes to select the alerts to be processed. 
 
-    In this example, we've selected all alerts. Notice that the **Change status** button is now available. 
+    In this example, all alerts are selected. The **Change status** button is now available. 
 
     :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-select.png" alt-text="Screenshot of selecting all alerts to handle in bulk.":::
 
@@ -84,8 +106,46 @@ The alerts list includes checkboxes so you can handle multiple alerts at once. F
 
     :::image type="icon" source="media/managing-and-responding-alerts/processing-alerts-bulk-change-status.png" border="false":::
 
-The alerts shown in the current page will have their status changed to the selected value. 
- 
+The alerts shown in the current page have their status changed to the selected value. 
+
+## Respond to a security alert
+
+After investigating a security alert, you can respond to the alert from within Microsoft Defender for Cloud.
+
+**To respond to a security alert**:
+
+1. Open the **Take action** tab to see the recommended responses.
+
+    :::image type="content" source="./media/managing-and-responding-alerts/alert-details-take-action.png" alt-text="Security alerts take action tab." lightbox="./media/managing-and-responding-alerts/alert-details-take-action.png":::
+
+1.	Review the **Mitigate the threat** section for the manual investigation steps necessary to mitigate the issue.
+
+1. To harden your resources and prevent future attacks of this kind, remediate the security recommendations in the **Prevent future attacks** section.
+
+1. To trigger a logic app with automated response steps, use the **Trigger automated response** section and select **Trigger logic app**.
+
+1. If the detected activity *isn’t* malicious, you can suppress future alerts of this kind using the **Suppress similar alerts** section and select **Create suppression rule**.
+
+1. Select **Configure email notification settings**, to view who receives emails regarding security alerts on this subscription. Contact the subscription owner, to configure the emails settings.
+
+1. When you complete the investigation into the alert and responded in the appropriate way, change the status to **Dismissed**.
+
+    :::image type="content" source="./media/managing-and-responding-alerts/set-status-dismissed.png" alt-text="Setting an alert's status":::
+
+    The alert is removed from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
+
+1.	We encourage you to provide feedback about the alert to Microsoft:
+    1. Marking the alert as **Useful** or **Not useful**.
+    1. Select a reason and add a comment.
+
+        :::image type="content" source="./media/managing-and-responding-alerts/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert.":::
+
+    > [!TIP]
+    > We review your feedback to improve our algorithms and provide better security alerts.
+
+To learn about the different types of alerts, see [Security alerts - a reference guide](alerts-reference.md).
+
+For an overview of how Defender for Cloud generates alerts, see [How Microsoft Defender for Cloud detects and responds to threats](alerts-overview.md).
 
 ## See also
 

@@ -904,6 +904,11 @@
             "source_path_from_root": "/articles/defender-for-cloud/attack-path-reference.md",
             "redirect_url": "/azure/defender-for-cloud/how-to-manage-attack-path",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-incident.md",
+            "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+            "redirect_document_id": true
         }
     ]
 }
