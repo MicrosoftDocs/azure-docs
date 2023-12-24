@@ -24,7 +24,7 @@ If you see a large discrepancy between the number of sentences in the source and
 
 ## Deduplication
 
-Custom Translator removes the sentences that are present in test and tuning documents from training data. The removal happens dynamically inside of the training run, not in the data processing step. Custom Translator reports the sentence count to you in the project overview before such removal. **Deduplication doesn't apply if you choose to upload your own test and tuning documents**.
+Custom Translator removes the sentences that are present in test and tuning documents from training data. The removal happens dynamically inside of the training run, not in the data processing step. Custom Translator reports the sentence count to you in the project overview before such removal. Deduplication doesn't apply if you choose to upload your own test and tuning documents.
 
 ## Length filter
 
