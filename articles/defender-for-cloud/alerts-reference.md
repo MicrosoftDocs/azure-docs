@@ -198,6 +198,20 @@ Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in 
 
 ## Alerts for Azure VM extensions
 
+These alerts focuses on detecting suspicious activities of Azure virtual machine extensions and provides insights into attackers' attempts to compromise and perform malicious activities on your virtual machines.
+
+Azure virtual machine extensions are small applications that run post-deployment on virtual machines and provide capabilities such as configuration, automation, monitoring, security, and more. While extensions are a powerful tool, they can be used by threat actors for various malicious intents, for example:
+
+- Data collection and monitoring
+
+- Code execution and configuration deployment with high privileges
+
+- Resetting credentials and creating administrative users
+
+- Encrypting disks
+
+read more [here](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-latest-protection-against/ba-p/3970121)
+
 | Alert (alert type)                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | **Suspicious failure installing GPU extension in your subscription (Preview)**<br>(VM_GPUExtensionSuspiciousFailure)                                            | Suspicious intent of installing a GPU extension on unsupported VMs. This extension should be installed on virtual machines equipped with a graphic processor, and in this case the virtual machines are not equipped with such. These failures can be seen when malicious adversaries execute multiple installations of such extension for crypto-mining purposes.                                                                                                                                                                                             |                    Impact                    | Medium   |
@@ -742,3 +756,4 @@ VM_Webshell | Possible malicious web shell detected | Medium
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
 - [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)
+
