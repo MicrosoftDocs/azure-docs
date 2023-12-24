@@ -451,10 +451,3 @@ To turn a larger template into multiple subtemplates:
 1. You can then change the group step to load from template and set the template ID field to the workbook/template you created in step 5. To work with workbooks IDs, the source needs to be the full Azure Resource ID of a shared workbook. Press *Load* and the content of that group will now be loaded from that subtemplate instead of saved inside this outer workbook.
 
 
-## Save a workbook
-
-To save a workbook, select **Save**. Enter the title, subscription, resource group, and location.
-
-By default, the workbook is auto-filled with the same settings as the LA workspace, with the same subscription and resource group. 
-By default, workbooks are saved to 'My Reports' and are only accessible by the individual user. You can also save the workbook directly to shared reports or share the workbook later on. Workbooks are shared resources and they require write access to the parent resource group to be saved.
-

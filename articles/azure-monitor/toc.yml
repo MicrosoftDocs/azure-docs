@@ -1079,12 +1079,10 @@ items:
       href: visualize/workbooks-templates.md
     - name: Create interactive reports
       href: visualize/workbooks-interactive-reports.md
-    - name: Manage Azure Workbooks
+    - name: Managing Azure Workbooks
       items:
       - name: Manage Azure Workbooks
         href: visualize/workbooks-manage.md
-      - name: Workbook settings
-        href: visualize/workbooks-settings.md
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
       - name: Bring your own storage

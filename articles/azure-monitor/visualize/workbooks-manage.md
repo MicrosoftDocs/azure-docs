@@ -34,6 +34,18 @@ To share a workbook or workbook template:
 
 :::image type="content" source="media/workbooks-getting-started/workbooks-share.png" alt-text="Screenshot of the steps to share an Azure workbook.":::
 
+## Save a workbook
+
+Workbooks are shared resources. They require write access to the parent resource group to be saved.
+
+1. In the Azure portal, select the workbook.
+2. select **Save**.
+1. Enter the **title**, **subscription**, **resource group**, and **location**.
+1. Select **Save**.
+
+By default, the workbook is auto-filled with the same settings, subscription and resource group as the LA workspace. 
+By default, workbooks are saved to 'My Reports' and are only accessible by the individual user. You can also save the workbook directly to shared reports or share the workbook.
+
 ## Set up Auto refresh
 
 1. In the Azure portal, select the workbook.
@@ -48,3 +60,64 @@ To share a workbook or workbook template:
 
 :::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot that shows workbooks with Auto refresh with an interval set.":::
 
+## Manage workbook resources
+
+In the **Resources** section of the **Settings** tab, you can manage the resources in your workbook. 
+
+- The workbook is saved in the resource marked as the **Owner**. When you browse workbooks, this is the location of the workbooks and templates you see when browsing. Select **Browse across galleries** to see the workbooks for all your resources.
+- The owner resource can't be removed.
+- Select **Add Resources** to add a default resource. 
+- Select **Remove Selected Resources** to remove resources by selecting a resource or several resources. 
+- When you're finished adding and removing resources, select **Apply Changes**.
+
+## Manage Versions
+
+:::image type="content" source="media/workbooks-configurations/workbooks-versions.png" alt-text="Screenshot that shows the versions tab of the workbook's Settings pane.":::
+
+The versions tab contains a list of all the available versions of this workbook. Select a version and use the toolbar to compare, view, or restore versions. Previous workbook versions are available for 90 days.
+- **Compare**: Compares the JSON of the previous workbook to the most recently saved version.
+- **View**: Opens the selected version of the workbook in a context pane.
+- **Restore**: Saves a new copy of the workbook with the contents of the selected version and overwrites any existing current content. You're prompted to confirm this action.
+
+### Compare versions
+
+:::image type="content" source="media/workbooks-configurations/workbooks-compare-versions.png" alt-text="Screenshot that shows version comparison in the Compare Workbook Versions screen.":::
+
+> [!NOTE]
+> Version history isn't available for [bring-your-own-storage](workbooks-bring-your-own-storage.md) workbooks.
+
+## Manage styles
+On this tab, you can set a padding and spacing style for the whole workbook. The possible options are **Wide**, **Standard**, **Narrow**, and **None**. The default style setting is **Standard**.
+
+## Pinning
+
+You can pin text, query, or metrics components in a workbook by using the **Pin** button on those items while the workbook is in pin mode. Or you can use the **Pin** button if the workbook author enabled settings for that element to make it visible.
+
+While in pin mode, you can select **Pin Workbook** to pin a component from this workbook to a dashboard. Select **Link to Workbook** to pin a static link to this workbook on your dashboard. You can choose a specific component in your workbook to pin.
+
+To access pin mode, select **Edit** to enter editing mode. Select **Pin** on the top bar. An individual **Pin** then appears above each corresponding workbook part's **Edit** button on the right side of the screen.
+
+:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot that shows the Pin button." border="false":::
+
+> [!NOTE]
+> The state of the workbook is saved at the time of the pin. Pinned workbooks on a dashboard won't update if the underlying workbook is modified. To update a pinned workbook part, you must delete and re-pin that part.
+
+### Time ranges for pinned queries
+
+Pinned workbook query parts respect the dashboard's time range if the pinned item is configured to use a *TimeRange* parameter. The dashboard's time range value is used as the time range parameter's value. Any change of the dashboard time range causes the pinned item to update. If a pinned part is using the dashboard's time range, the subtitle of the pinned part updates to show the dashboard's time range whenever the time range changes.
+
+Pinned workbook parts using a time range parameter auto-refresh at a rate determined by the dashboard's time range. The last time the query ran appears in the subtitle of the pinned part.
+
+If a pinned component has an explicitly set time range and doesn't use a time range parameter, that time range is always used for the dashboard, regardless of the dashboard's settings. The subtitle of the pinned part doesn't show the dashboard's time range. The query doesn't auto-refresh on the dashboard. The subtitle shows the last time the query executed.
+
+> [!NOTE]
+> Queries that use the *merge* data source aren't currently supported when pinning to dashboards.
+
+### Enable Trusted hosts
+
+Enable a trusted source or mark this workbook as trusted in this browser.
+
+| Control      | Definition |
+| ----------- | ----------- |
+| Mark workbook as trusted      | If enabled, this workbook can call any endpoint, whether the host is marked as trusted or not. A workbook is trusted if it's a new workbook, an existing workbook that's saved, or is explicitly marked as a trusted workbook.   |
+| URL grid   | A grid to explicitly add trusted hosts.        |
