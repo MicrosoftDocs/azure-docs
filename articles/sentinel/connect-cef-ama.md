@@ -21,7 +21,7 @@ The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rul
 The AMA is installed on a Linux machine that acts as a log forwarder, and the AMA collects the logs in the CEF format. 
 
 - [Set up the connector](#set-up-the-common-event-format-cef-via-ama-connector)
-- [Learn more about the connector](#how-collection-works-with-the-common-event-format-cef-via-ama-connector)
+- [Learn more about the connector](#how-microsoft-sentinel-collects-common-event-format-cef-logs-with-the-azure-monitor-agent)
 
 > [!IMPORTANT]
 >
