@@ -1,18 +1,18 @@
 ---
-title: Stream CEF logs to Microsoft Sentinel with the AMA connector 
-description: Stream and filter CEF-based logs from on-premises appliances to your Microsoft Sentinel workspace.
+title: Ingest CEF logs to Microsoft Sentinel with the AMA connector 
+description: Ingest and filter CEF-based logs from security devices and appliances to your Microsoft Sentinel workspace.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 12/20/2023
-#Customer intent: As a security operator, I want to stream and filter CEF-based logs from on-premises appliances to my Microsoft Sentinel workspace, so I can improve load time and easily analyze the data.   
+#Customer intent: As a security operator, I want to ingest and filter CEF-based logs from security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
 # Stream CEF logs with the AMA connector
 
-This article describes how to use the **Common Event Format (CEF) via AMA** connector to quickly filter and upload logs in the Common Event Format (CEF) from multiple on-premises appliances over Syslog. 
+This article describes how to use the **Common Event Format (CEF) via AMA** connector to quickly filter and ingest logs in the Common Event Format (CEF) from multiple security devices and appliances over Syslog.
 
-The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs). With DCRs, you can filter the logs before they're ingested, for quicker upload, efficient analysis, and querying.
+The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs) to choose the systems to monitor and filter the logs before they're ingested, for better performance, efficient analysis, and querying.
 
 Learn how to [collect Syslog with the AMA](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
 
@@ -37,11 +37,16 @@ Many network, security appliances, and devices send their logs in the CEF format
 
 If your appliance or system sends logs over Syslog using CEF, the integration with Microsoft Sentinel allows you to easily run analytics and queries across the data.
 
-CEF normalizes the data, making it more immediately useful for analysis with Microsoft Sentinel. Microsoft Sentinel also allows you to ingest unparsed Syslog events, and to analyze them with query time parsing. 
+CEF normalizes the data, making it more immediately useful for analysis with Microsoft Sentinel. Microsoft Sentinel also allows you to ingest unparsed Syslog events, and to analyze them with query-time parsing. 
 
-### How collection works with the Common Event Format (CEF) via AMA connector
+### How Microsoft Sentinel collects Common Event Format (CEF) logs with the Azure Monitor Agent
+
+This diagram illustrates the architecture of CEF log collection in Microsoft Sentinel, using the 
 
 :::image type="content" source="media/connect-cef-ama/cef-forwarder-diagram.png" alt-text="Diagram showing the CEF log forwarding procedure." lightbox="media/connect-cef-ama/cef-forwarder-diagram.png":::
+
+
+
 
 To ingest CEF logs into Microsoft Sentinel, you must set up a number of components:
 
