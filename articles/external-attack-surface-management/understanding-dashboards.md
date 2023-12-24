@@ -19,6 +19,8 @@ Defender EASM provides five dashboards:
 - **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and nontechnical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
 - **OWASP Top 10**: this dashboard surfaces any assets that are vulnerable according to OWASP’s list of the most critical web application security risks. On this dashboard, organizations can quickly identify assets with broken access control, cryptographic failures, injections, insecure designs, security misconfigurations and other critical risks as defined by OWASP.
+- **CWE top 25 software weaknesses**: this dashboard is based on the Top 25 Common Weakness Enumeration (CWE) list provided annually by MITRE. These CWEs represent the most common and impactful software weaknesses that are easy to find and exploit. 
+- **CISA known exploits**: this dashboard displays any assets that are potentially impacted by vulnerabilities that have led to known exploits as defined by CISA. This dashboard helps you prioritize remediation efforts based on vulnerabilities that have been exploited in the past, indicating a higher level of risk for your organization.  
 
 ## Accessing dashboards
 
@@ -276,6 +278,14 @@ This dashboard provides a description of each critical risk, information on why 
 This dashboard is based on the Top 25 Common Weakness Enumeration (CWE) list provided annually by MITRE. These CWEs represent the most common and impactful software weaknesses that are easy to find and exploit. This dashboard displays all CWEs included on the list over the last five years, and lists all of your inventory assets that might be impacted by each CWE. For each CWE, the dashboard provides a description and examples of the vulnerability, and lists related CVEs. The CWEs are organized by year, and each section is expandable or collapsible.  Referencing this dashboard helps your vulnerability mediation efforts by helping you identify the greatest risks to your organization based on other observed exploits.
 
 [![Screenshot of CWE Top 25 Software Weaknesses dashboard.](media/dashboards-28.png)](media/dashboards-28-expanded.png#lightbox) 
+
+
+## CISA Known Exploits
+
+While there are hundreds of thousands of identified CVE vulnerabilities, only a small subset has been identified by the Cybersecurity & Infrastructure Security Agency (CISA) as recently exploited by threat actors. This list includes less than .5% of all identified CVEs; for this reason, it is instrumental to helping security professionals prioritize the remediation of the greatest risks to their organization. Those who remediate threats based on this list operate with the upmost efficiency because they’re prioritizing the vulnerabilities that have resulted in real security incidents.  
+
+![Screenshot of CISA Known Exploits dashboard.](media/dashboards-29.png)
+
 
 
 

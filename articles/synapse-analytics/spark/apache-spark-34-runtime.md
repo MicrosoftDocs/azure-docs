@@ -24,8 +24,6 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Python | 3.10     |
 | R | 4.2.2    |
 
-As of now, creation of Spark 3.4 pools are available only through Azure Synapse Studio. In the upcoming weeks we'll add the Azure portal and ARM support.
-
 ## Libraries
 
 The following sections present the libraries included in Azure Synapse Runtime for Apache Spark 3.4 (Public Preview).

@@ -25,6 +25,9 @@ Profiles are configured to fit the different needs of your applications.
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
 | Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions.  | Apps that require GPU |
 
+> [!NOTE]
+> When using GPU-enabled workload profiles, make sure your application is running the latest version of [CUDA](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda).
+
 The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created.
 
 For each Dedicated workload profile in your environment, you can:
