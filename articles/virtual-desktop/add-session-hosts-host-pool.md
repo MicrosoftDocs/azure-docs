@@ -248,7 +248,7 @@ Select the relevant tab for your scenario and follow the steps.
    - [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)
 
    > [!TIP]
-   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
+   > The Azure Virtual Desktop Agent download link is for the latest production version in [non-validation environments](terminology.md#validation-environment). This download link is updated once the automatic production rollout is complete, so you might see a delay between a production version being released and the download link being updated. Once the Azure Virtual Desktop Agent is installed, it's updated automatically. For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-available-versions).
 
 1. Run the `Microsoft.RDInfra.RDAgent.Installer-x64-<version>.msi` file to install the Remote Desktop Services Infrastructure Agent.
 
@@ -304,7 +304,7 @@ Using `msiexec` enables you to install the agent and boot loader from the comman
    ```
 
    > [!TIP]
-   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-agent-versions).
+   > This is the latest downloadable version of the Azure Virtual Desktop Agent in [non-validation environments](terminology.md#validation-environment). For more information about the rollout of new versions of the agent, see [What's new in the Azure Virtual Desktop Agent](whats-new-agent.md#latest-available-versions).
 
 1. To install the Remote Desktop Services Infrastructure Agent, run the following command as an administrator:
 

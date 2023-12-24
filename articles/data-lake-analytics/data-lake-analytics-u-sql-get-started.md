@@ -4,8 +4,9 @@ description: Learn the basics of the U-SQL language in Azure Data Lake Analytics
 ms.reviewer: whhender
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 10/14/2022
+ms.date: 12/20/2023
 ---
+
 # Get started with U-SQL in Azure Data Lake Analytics
 
 [!INCLUDE [retirement-flag](includes/retirement-flag.md)]

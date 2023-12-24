@@ -3,7 +3,6 @@ metadata:
   title: Speech to text FAQ
   titleSuffix: Azure AI services
   description: Get answers to frequently asked questions about the speech to text service.
-  #services: cognitive-services
   author: eric-urban
   manager: nitinme
   ms.service: azure-ai-speech
@@ -165,7 +164,7 @@ sections:
       - question: |
           What is word error rate (WER), and how is it computed?
         answer: |
-          WER is the evaluation metric for speech recognition. WER is calculated as the total number of errors (insertions, deletions, and substitutions), divided by the total number of words in the reference transcription. For more information, see [Test model quantitatively](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate).
+          WER is the evaluation metric for speech recognition. WER is calculated as the total number of errors (insertions, deletions, and substitutions), divided by the total number of words in the reference transcription. For more information, see [Test model quantitatively](how-to-custom-speech-evaluate-data.md#evaluate-word-error-rate-wer).
           
       - question: |
           How do I determine whether the results of an accuracy test are good?

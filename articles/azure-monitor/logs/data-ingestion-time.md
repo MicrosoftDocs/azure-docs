@@ -149,6 +149,7 @@ Heartbeat
 
 Different data types originating from the agent might have different ingestion latency time, so the previous queries could be used with other types. Use the following query to examine the ingestion time of various Azure services:
 
+
 ``` Kusto
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
@@ -156,6 +157,40 @@ AzureDiagnostics
 | extend AgentLatency = _TimeReceived - TimeGenerated 
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
+
+Use the same query logic to diagnose latency conditions for Application Insights data: 
+
+
+```kusto
+// Classic Application Insights schema
+let start=datetime("2023-08-21 05:00:00");
+let end=datetime("2023-08-23 05:00:00");
+requests
+| where timestamp  > start and timestamp < end
+| extend TimeEventOccurred = timestamp
+| extend TimeRequiredtoGettoAzure = _TimeReceived - timestamp
+| extend TimeRequiredtoIngest = ingestion_time() - _TimeReceived
+| extend EndtoEndTime = ingestion_time() - timestamp
+| project timestamp, TimeEventOccurred, _TimeReceived, TimeRequiredtoGettoAzure ,  ingestion_time(), TimeRequiredtoIngest, EndtoEndTime 
+| sort by EndtoEndTime desc
+```
+
+
+```kusto
+// Workspace-based Application Insights schema
+let start=datetime("2023-08-21 05:00:00");
+let end=datetime("2023-08-23 05:00:00");
+AppRequests
+| where TimeGenerated  > start and TimeGenerated < end
+| extend TimeEventOccurred = TimeGenerated
+| extend TimeRequiredtoGettoAzure = _TimeReceived - TimeGenerated
+| extend TimeRequiredtoIngest = ingestion_time() - _TimeReceived
+| extend EndtoEndTime = ingestion_time() - TimeGenerated
+| project TimeGenerated, TimeEventOccurred, _TimeReceived, TimeRequiredtoGettoAzure ,  ingestion_time(), TimeRequiredtoIngest, EndtoEndTime 
+| sort by EndtoEndTime desc
+```
+
+The two queries above can be paired with any other Application Insights table other than "requests".
 
 ### Resources that stop responding
 In some cases, a resource could stop sending data. To understand if a resource is sending data or not, look at its most recent record, which can be identified by the standard `TimeGenerated` field.

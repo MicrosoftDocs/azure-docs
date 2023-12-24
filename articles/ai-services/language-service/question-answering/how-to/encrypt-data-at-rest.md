@@ -6,7 +6,7 @@ author: erindormier
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 12/19/2023
 ms.author: egeaney
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
