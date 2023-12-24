@@ -62,7 +62,7 @@ Defender for Cloud sends email notifications when it detects anomalous database 
     :::image type="content" source="media/defender-for-databases-usage/specific-alert-details.png" alt-text="Details of a specific alert." lightbox="media/defender-for-databases-usage/specific-alert-details.png":::
 
 > [!TIP]
-> For a detailed tutorial on how to handle your alerts, see [Manage and respond to alerts](managing-and-responding-alerts.md).
+> For a detailed tutorial on how to handle your alerts, see [Manage and respond to alerts](tutorial-security-incident.md).
 
 ## Next steps
 
