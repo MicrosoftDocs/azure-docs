@@ -70,7 +70,7 @@ In the **Resources** section of the **Settings** tab, you can manage the resourc
 - Select **Remove Selected Resources** to remove resources by selecting a resource or several resources. 
 - When you're finished adding and removing resources, select **Apply Changes**.
 
-## Manage Versions
+## Manage workbook versions
 
 :::image type="content" source="media/workbooks-configurations/workbooks-versions.png" alt-text="Screenshot that shows the versions tab of the workbook's Settings pane.":::
 
@@ -86,10 +86,10 @@ The versions tab contains a list of all the available versions of this workbook.
 > [!NOTE]
 > Version history isn't available for [bring-your-own-storage](workbooks-bring-your-own-storage.md) workbooks.
 
-## Manage styles
+## Manage workbook styles
 On this tab, you can set a padding and spacing style for the whole workbook. The possible options are **Wide**, **Standard**, **Narrow**, and **None**. The default style setting is **Standard**.
 
-## Pinning
+## Pinning workbooks
 
 You can pin text, query, or metrics components in a workbook by using the **Pin** button on those items while the workbook is in pin mode. Or you can use the **Pin** button if the workbook author enabled settings for that element to make it visible.
 
