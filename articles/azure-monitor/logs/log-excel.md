@@ -31,7 +31,7 @@ To integrate Log Analytics and Excel, you need:
   
 2. **Export Query** - Once you are happy with the query and its results, export the query to M using Log Analytics **Export to Power BI (M query)** menu choice under the *Export* menu:
 
-   :::image type="content" source="media/log-excel/export-query.png" alt-text="Log Analytics query with the data and export option" border="true":::
+   :::image type="content" source="media/log-excel/export-query.png" alt-text="Screenshot of Log Analytics query with the data and export option." border="true":::
 
 
 
