@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 12/12/2023
 ---
 
 # Servers - Azure Database for PostgreSQL - Flexible Server
@@ -26,7 +26,7 @@ An Azure Database for PostgreSQL server:
 - Provides a namespace for databases.
 - Is a container with strong lifetime semantics - delete a server and it deletes the contained databases.
 - Collocates resources in a region.
-- Provides a connection endpoint for server and database access
+- Provides a connection endpoint for server and database access.
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
 - Is available in multiple versions. For more information, see [supported PostgreSQL database versions](concepts-supported-versions.md).
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
