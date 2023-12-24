@@ -9,7 +9,7 @@ ms.date: 11/23/2023
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Google Cloud Platform (GCP), but you need to set up the connection between them and Defender for Cloud.
 
-If you're connecting a GCP project that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-gcp-connectors) first. Using a GCP project that's connected by both the classic and native connectors can produce duplicate recommendations.
+If you're connecting a GCP project that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-gcp-connectors) first. Using a GCP project connected by both the classic and native connectors can produce duplicate recommendations.
 
 This screenshot shows GCP accounts displayed in the Defender for Cloud [overview dashboard](overview-page.md).
 
@@ -70,7 +70,7 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
     1. Select the deployment type:
 
         - **Default access**: Allows Defender for Cloud to scan your resources and automatically include future capabilities.
-        - **Least privilege access**: Grants Defender for Cloud access to only the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality for connector health.
+        - **Least privilege access**: Grants Defender for Cloud access to only the current permissions needed for the selected plans. If you select the least privileged permissions, you receive notifications on any new roles and permissions that are required to get full functionality for connector health.
 
     1. Select the deployment method: **GCP Cloud Shell** or **Terraform**.
 
@@ -218,7 +218,7 @@ To configure the Defender CSPM plan:
 
     :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot that shows the link for configuring the Defender CSPM plan.":::
 
-1. On the **Plan configuration** pane, turn the toggles to **On** or **Off**, depending on your need.
+1. On the **Plan configuration** pane, turn the toggles to **On** or **Off**. To get the full value of Defender CSPM, we recommend that you turn all toggles to **On**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/cspm-configuration.png" alt-text="Screenshot that shows toggles for Defender CSPM.":::
 
@@ -236,7 +236,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 ## Integrate with Microsoft Defender XDR (Preview)
 
-When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
+When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 
 The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface.
 
