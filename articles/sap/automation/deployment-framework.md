@@ -4,7 +4,7 @@ description: Overview of the framework and tooling for SAP Deployment Automation
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 05/29/2022
+ms.date: 12/21/2023
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.topic: conceptual
