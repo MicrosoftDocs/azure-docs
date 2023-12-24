@@ -5,7 +5,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: MeirMen
 ms.topic: how-to 
-ms.date: 01/27/2023
+ms.date: 12/24/2023
 
 #customer-intent: As an IT manager, I want to understand the steps required to migrate my Splunk deployment to Azure Monitor Logs so that I can decide whether to migrate and plan and execute my migration.
 
@@ -20,6 +20,7 @@ Azure Monitor Logs collects data from a wide variety of sources, including Windo
 This article explains how to migrate your Splunk Observability deployment to Azure Monitor Logs for logging and log data analysis. 
 
 For information on migrating your Security Information and Event Management (SIEM) deployment from Splunk Enterprise Security to Azure Sentinel, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
+
 ## Why migrate to Azure Monitor?
 
 The benefits of migrating to Azure Monitor include:
@@ -40,6 +41,7 @@ The benefits of migrating to Azure Monitor include:
 |---|---|
 |Splunk Observability|[Azure Monitor](../overview.md) is an end-to-end solution for collecting, analyzing, and acting on telemetry from your cloud, multicloud, and on-premises environments, built over a powerful data ingestion pipeline that's shared with Microsoft Sentinel. Azure Monitor offers enterprises a comprehensive solution for monitoring cloud, hybrid, and on-premises environments, with [network isolation](../logs/private-link-security.md), [resilience features and protection from data center failures](../logs/availability-zones.md), [reporting](../overview.md#insights), and [alerts and response](../overview.md#respond) capabilities.|
 |Splunk Security|[Microsoft Sentinel](../../sentinel/overview.md) is a cloud-native solution that runs over the Azure Monitor platform to provide intelligent security analytics and threat intelligence across the enterprise.|
+
 ## Introduction to key concepts
 
 
@@ -112,6 +114,7 @@ This table lists Splunk artifacts and links to guidance for setting up the equiv
 |Data collections methods| See [Collect data](#4-collect-data) for Azure Monitor tools designed for specific resources.| 
 
 For information on migrating Splunk SIEM artifacts, including detection rules and SOAR automation, see [Plan your migration to Microsoft Sentinel](../../sentinel/migration.md).
+
 ## 4. Collect data
 
 Azure Monitor provides tools for collecting data from log [data sources](../data-sources.md) on Azure and non-Azure resources in your environment. 
