@@ -9,17 +9,17 @@ ms.date: 06/21/2023
 # Manage Azure Monitor Workbooks
 This article describes how to manage Azure Workbooks in the Azure portal.
 
-## Delete a workbook
+## Save a workbook
 
-1. In the Azure portal, select **Monitor**, and then select **Workbooks** from the left pane.
-1. Select the checkbox next to the Workbook you want to delete.
-1. Select **Delete** from the top toolbar.
+Workbooks are shared resources. They require write access to the parent resource group to be saved.
 
-## Recover a deleted workbook
-When you delete an Azure Workbook, it is soft-deleted and can be recovered by contacting support. After the soft-delete period, the workbook and its content are nonrecoverable and queued for purge completely within 30 days.
- 
-> [!NOTE]
-> Workbooks that were saved using bring your own storage cannot be recovered by support. You may be able to recover the workbook content from the storage account if the storage account used has enabled soft delete. 
+1. In the Azure portal, select the workbook.
+2. select **Save**.
+1. Enter the **title**, **subscription**, **resource group**, and **location**.
+1. Select **Save**.
+
+By default, the workbook is auto-filled with the same settings, subscription and resource group as the LA workspace. 
+By default, workbooks are saved to 'My Reports' and are only accessible by the individual user. You can also save the workbook directly to shared reports or share the workbook.
 
 ## Share a workbook
 
@@ -34,17 +34,17 @@ To share a workbook or workbook template:
 
 :::image type="content" source="media/workbooks-getting-started/workbooks-share.png" alt-text="Screenshot of the steps to share an Azure workbook.":::
 
-## Save a workbook
+## Delete a workbook
 
-Workbooks are shared resources. They require write access to the parent resource group to be saved.
+1. In the Azure portal, select **Monitor**, and then select **Workbooks** from the left pane.
+1. Select the checkbox next to the Workbook you want to delete.
+1. Select **Delete** from the top toolbar.
 
-1. In the Azure portal, select the workbook.
-2. select **Save**.
-1. Enter the **title**, **subscription**, **resource group**, and **location**.
-1. Select **Save**.
-
-By default, the workbook is auto-filled with the same settings, subscription and resource group as the LA workspace. 
-By default, workbooks are saved to 'My Reports' and are only accessible by the individual user. You can also save the workbook directly to shared reports or share the workbook.
+## Recover a deleted workbook
+When you delete an Azure Workbook, it is soft-deleted and can be recovered by contacting support. After the soft-delete period, the workbook and its content are nonrecoverable and queued for purge completely within 30 days.
+ 
+> [!NOTE]
+> Workbooks that were saved using bring your own storage cannot be recovered by support. You may be able to recover the workbook content from the storage account if the storage account used has enabled soft delete. 
 
 ## Set up Auto refresh
 
