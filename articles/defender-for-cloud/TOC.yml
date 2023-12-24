@@ -510,7 +510,7 @@
           - name: Manage secrets with agentless secret scanning
             displayName: secrets, secret scanning, agentless
             href: secret-scanning.md
-          - name: Protect your servers with agentless malware scanning 
+          - name: Protect your servers with agentless malware scanning
             displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
             href: agentless-malware-scanning.md
         - name: Scale a Defender for Servers deployment
