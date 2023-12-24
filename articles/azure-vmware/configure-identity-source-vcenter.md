@@ -83,7 +83,7 @@ Next, export the certificate:
 1. In the **File to Export** section, select **Browse**. Select a folder location to export the certificate, and enter a name. Then select **Save**.
 
 > [!NOTE]
-> If more than one domain controller is LDAPS enabled, repeat the export procedure for each additional domain controller to export their corresponding certificates. Note that you can only reference two LDAPS servers in the `New-LDAPSIdentitySource` Run Command. If the certificate is a wildcard certificate, such as `.avsdemo.net`, you need to export the certificate from only one of the domain controllers.
+> If more than one domain controller is LDAPS enabled, repeat the export procedure for each additional domain controller to export their corresponding certificates. Note that you can only reference two LDAPS servers in the `New-LDAPSIdentitySource` Run command. If the certificate is a wildcard certificate, such as `.avsdemo.net`, you need to export the certificate from only one of the domain controllers.
 
 ## (Optional) Upload the LDAPS certificate to blob storage and generate an SAS URL
 
