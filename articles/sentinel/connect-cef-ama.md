@@ -10,11 +10,9 @@ ms.date: 12/20/2023
 
 # Ingest CEF logs with the Azure Monitor Agent
 
-This article describes how to use the **Common Event Format (CEF) via AMA** connector to quickly filter and ingest logs in the Common Event Format (CEF) from multiple security devices and appliances over Syslog.
+This article describes how to use the **Common Event Format (CEF) via AMA (Preview)** connector to quickly filter and ingest logs in the Common Event Format (CEF) from multiple security devices and appliances over Syslog.
 
-The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs) to choose the systems to monitor and filter the logs before they're ingested, for better performance, efficient analysis, and querying.
-
-Learn how to [collect Syslog with the AMA](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+The connector uses the Azure Monitor Agent (AMA), which uses Data Collection Rules (DCRs) to choose the systems to monitor, and to filter the logs before they're ingested, for better performance and more efficient querying and analysis.
 
 > [!IMPORTANT]
 >
@@ -41,11 +39,17 @@ CEF normalizes the data, making it more immediately useful for analysis with Mic
 
 ### How Microsoft Sentinel collects Common Event Format (CEF) logs with the Azure Monitor Agent
 
-This diagram illustrates the architecture of CEF log collection in Microsoft Sentinel, using the 
+This diagram illustrates the architecture of CEF log collection in Microsoft Sentinel, using the **Common Event Format (CEF) via AMA (Preview)** connector.
 
 :::image type="content" source="media/connect-cef-ama/cef-forwarder-diagram.png" alt-text="Diagram showing the CEF log forwarding procedure." lightbox="media/connect-cef-ama/cef-forwarder-diagram.png":::
 
+The data ingestion process using the Azure Monitor Agent uses the following components and processes:
 
+- **CEF log sources.** These are your various security devices and appliances in your environment that produce logs in CEF format. These devices are configured to send their logs (over TCP 514 or another port of your choice) to the...
+- **Log forwarder.** This is a dedicated Linux VM that your organization sets up to collect the logs from your CEF log sources. This log forwarder itself has two components:
+    - A **Syslog daemon** that collects the logs on TCP 514 (or another port of your choice). The daemon then sends these logs to...
+    - The **Azure Monitor Agent** that you install on the log forwarder by [setting up the data connector according to the instructions below](#set-up-the-common-event-format-cef-via-ama-connector). The agent parses the logs and then sends them to...
+- Your **Microsoft Sentinel (Log Analytics) workspace**, where you can query the logs and perform analytics on them to detect and respond to security threats.
 
 
 To ingest CEF logs into Microsoft Sentinel, you must set up a number of components:
@@ -125,14 +129,16 @@ You can set up the connector in two ways:
 - [Microsoft Sentinel portal](#set-up-the-connector-in-the-microsoft-sentinel-portal-ui). With this setup, you can create, manage, and delete DCRs per workspace.  
 - [API](#set-up-the-connector-with-the-api). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the UI. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level.
 
-#### Set up the connector in the Microsoft Sentinel portal (UI)
+Select the appropriate tab below to see the instructions for each way.
+
+# [Microsoft Sentinel portal (UI)](#tab/ui)
 
 1. [Open the connector page and create the DCR](#open-the-connector-page-and-create-the-dcr)
 1. [Define resources (VMs)](#define-resources-vms)
 1. [Select the data source type and create the DCR](#select-the-data-source-type-and-create-the-dcr)
 1. [Run the installation script](#run-the-installation-script)
 
-##### Open the connector page and create the DCR
+#### Open the connector page and create the DCR
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
 1. Select **Data connectors**, and in the search bar, type *CEF*.
@@ -146,7 +152,7 @@ You can set up the connector in two ways:
 
     :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basics tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
 
-##### Define resources (VMs)
+#### Define resources (VMs)
 
 Select the machines on which you want to install the AMA. These machines are VMs or on-premises Linux machines with Arc installed.
 
@@ -157,7 +163,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 
 1. Review your changes and select **Collect**. 
 
-##### Select the data source type and create the DCR
+#### Select the data source type and create the DCR
 
 > [!NOTE]
 > Using the same facility for both Syslog and CEF messages may result in data ingestion duplication. Learn how to [avoid data ingestion duplication](#avoid-data-ingestion-duplication).
@@ -170,7 +176,7 @@ Select the machines on which you want to install the AMA. These machines are VMs
 1. Review your changes and select **Next: Review and create**. 
 1. In the **Review and create** tab, select **Create**.
 
-##### Run the installation script
+#### Run the installation script
 
 1.	Log in to the Linux forwarder machine, where you want the AMA to be installed.
 1.	Run this command to launch the installation script:
@@ -188,9 +194,11 @@ Select the machines on which you want to install the AMA. These machines are VMs
     > Read more about [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](
 https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
 
-### Set up the connector with the API
+# [API](#tab/api)
 
 You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).
+
+#### Run the installation script
 
 Run this command to launch the installation script:
  
@@ -376,7 +384,10 @@ This example collects events for:
     ]
 }
 ```
-### Test the connector
+
+---
+
+## Test the connector
 
 1. To validate that the syslog daemon is running on the UDP port and that the AMA is listening, run this command:
 
@@ -426,7 +437,15 @@ This example collects events for:
 
 ## Next steps
 
-In this article, you learned how to set up the CEF via AMA connector to upload data from appliances that support CEF over Syslog. To learn more about Microsoft Sentinel, see the following articles:
+In this article, you learned how to set up data ingestion from security devices and appliances that support CEF over Syslog, using the **Common Event Format (CEF) via AMA (Preview)** connector. 
+
+- Explore in greater depth how to [collect CEF or Syslog logs with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+- See other articles about ingesting CEF and Syslog logs:
+    - [Stream logs in both the CEF and Syslog format](connect-cef-syslog.md)
+    - [Options for streaming logs in the CEF and Syslog format to Microsoft Sentinel](connect-cef-syslog-options.md)
+
+
+To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
