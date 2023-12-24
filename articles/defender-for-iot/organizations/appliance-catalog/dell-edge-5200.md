@@ -1,5 +1,5 @@
 ---
-title: Dell Edge 5200 (SMB) - Microsoft Defender for IoT
+title: Dell Edge 5200 (E500) - Microsoft Defender for IoT
 description: Learn about the Dell Edge 5200 appliance for OT monitoring with Microsoft Defender for IoT.
 ms.date: 04/24/2022
 ms.topic: reference
