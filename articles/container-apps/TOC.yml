@@ -213,10 +213,16 @@
       items:
       - name: Overview
         href: dapr-overview.md
-      - name: Connect to Azure services via Dapr components
-        href: dapr-component-connection.md
+      - name: Get started
+        items:
+        - name: Connect to Azure services via Dapr components
+          href: dapr-component-connection.md        
+        - name: Enable Dapr
+          href: enable-dapr.md
       - name: Configure
         items:
+        - name: Dapr components
+          href: dapr-components.md
         - name: Dapr component resiliency (preview)
           href: dapr-component-resiliency.md
         - name: Scale Dapr apps with KEDA using Bicep

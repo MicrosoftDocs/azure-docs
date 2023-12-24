@@ -59,6 +59,9 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet and can commu
   * [Windows node pools](./windows-faq.md)
   * [Virtual nodes add-on](virtual-nodes.md#network-requirements)
 
+> [!NOTE]
+> Some of the system pods such as **konnectivity** within the cluster use the host node IP address rather than an IP from the overlay address space. The system pods will only use the node IP and not an IP address from the virtual network.
+
 ### IP address availability and exhaustion
 
 A common issue with *Azure CNI* is that the assigned IP address range is too small to then add more nodes when you scale or upgrade a cluster. The network team also might not be able to issue a large enough IP address range to support your expected application demands.
