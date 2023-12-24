@@ -167,7 +167,7 @@ The ability to enable or disable Defender for Servers at the resource level is a
 
 Since Microsoft Defender for Endpoint deployment for eligible machines is a near real-time service, certain configurations require attention to avoid unintentional agent deployments. For example:
 
-- If you plan to rollout and enable Servers Plan 1/Plan 2 at the subscription level and exclude individual existing VMs, make sure you exclude the VMs before (or at the same time) you enable the plan at the subscription level.
+- If you plan to roll out and enable Servers Plan 1/Plan 2 at the subscription level and exclude individual existing VMs, make sure you exclude the VMs before (or at the same time) you enable the plan at the subscription level.
 - When you plan to exclude new VMs created under a subscription already enabled for P1/P2, make sure you exclude them during or shortly after creation time, to avoid unintentional deployment of Microsoft Defender for Endpoint.
 
 ### Enablement at scale
