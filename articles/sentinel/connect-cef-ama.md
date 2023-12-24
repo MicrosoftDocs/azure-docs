@@ -1,6 +1,6 @@
 ---
-title: Ingest CEF logs to Microsoft Sentinel with the AMA connector 
-description: Ingest and filter CEF-based logs from security devices and appliances to your Microsoft Sentinel workspace.
+title: Ingest CEF logs to Microsoft Sentinel with the Azure Monitor Agent 
+description: Ingest and filter CEF-based logs from security devices and appliances to your Microsoft Sentinel workspace using the data connector based on the Azure Monitor Agent (AMA).
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.date: 12/20/2023
 #Customer intent: As a security operator, I want to ingest and filter CEF-based logs from security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
-# Stream CEF logs with the AMA connector
+# Ingest CEF logs with the Azure Monitor Agent
 
 This article describes how to use the **Common Event Format (CEF) via AMA** connector to quickly filter and ingest logs in the Common Event Format (CEF) from multiple security devices and appliances over Syslog.
 
