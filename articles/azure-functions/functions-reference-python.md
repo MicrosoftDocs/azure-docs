@@ -604,7 +604,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ::: zone pivot="python-mode-decorators"  
 
-The HTTP trigger is defined as a method that takes a named binding parameter, which is an [HttpRequest] object, and returns an [HttpResponse] object. You apply the `function_name` decorator to the method, and the HTTP endpoint is set by applying the `route` decorator. 
+The HTTP trigger is defined as a method that takes a named binding parameter, which is an [HttpRequest] object, and returns an [HttpResponse] object. You apply the `function_name` decorator to the method to define the function name, while the HTTP endpoint is set by applying the `route` decorator. 
 
 This example is from the HTTP trigger template for the Python v2 programming model, where the binding parameter name is `req`. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
 
