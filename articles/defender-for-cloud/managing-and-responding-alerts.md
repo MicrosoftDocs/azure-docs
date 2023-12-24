@@ -83,7 +83,7 @@ The alerts list includes checkboxes so you can handle multiple alerts at once. F
 
 1. Use the **Change status** options to set the desired status.
 
-    :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-change-status.png" alt-text="Screenshot of the security alerts take action tab.":::
+    :::image type="content" source="media/managing-and-responding-alerts/processing-alerts-bulk-change-status.png" alt-text="Screenshot of the security alerts status tab.":::
 
 The alerts shown in the current page have their status changed to the selected value. 
 
