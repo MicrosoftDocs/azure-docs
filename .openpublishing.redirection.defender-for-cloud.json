@@ -588,7 +588,7 @@
         {
             "source_path_from_root": "/articles/security-center/managing-and-responding-alerts.md",
             "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/os-coverage.md",
@@ -703,7 +703,7 @@
         {
             "source_path_from_root": "/articles/security-center/tutorial-security-incident.md",
             "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/tutorial-security-policy.md",
