@@ -76,14 +76,14 @@ In this section of the wizard, you select the Defender for Cloud plans that you 
 
     :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
 
-1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on GCP. 
+1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on GCP.
 
 1. Select **Next: Review and generate**.
 
 1. Select **Create**.
 
    > [!NOTE]
-   > The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur: 
+   > The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur:
    > - `iam.googleapis.com`
    > - `sts.googleapis.com`
    > - `cloudresourcemanager.googleapis.com`
@@ -200,6 +200,32 @@ To configure the Defender for Containers plan:
 
 1. Continue from step 8 of the [Connect your GCP project](#connect-your-gcp-project) instructions.
 
+### Configure the Defender CSPM plan
+
+If you choose the Microsoft Defender CSPM plan, you need:
+
+- a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+- In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+
+Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
+
+To configure the Defender CSPM plan:
+
+1. Follow the [steps to connect your GCP project](#connect-your-gcp-project).
+
+1. On the **Select plans** tab, select **Configure**.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot that shows the link for configuring the Defender CSPM plan.":::
+
+1. On the **Plan configuration** pane, turn the toggles to **On** or **Off**, depending on your need.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/cspm-configuration.png" alt-text="Screenshot that shows toggles for Defender CSPM.":::
+
+1. Select **Save**.
+
+1. Continue from step 8 of the [Connect your GCP project](#connect-your-gcp-project) instructions.
+
 ## Monitor your GCP resources
 
 The security recommendations page in Defender for Cloud displays your GCP resources together with your Azure and AWS resources for a true multicloud view.
@@ -212,7 +238,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 When you enable Defender for Cloud, Defender for Cloud's alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
 
-The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface. 
+The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface.
 
 Learn more about Defender for Cloud's [alerts in Microsoft Defender XDR](concept-integration-365.md).
 
