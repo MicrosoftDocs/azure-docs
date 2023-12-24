@@ -2984,8 +2984,6 @@ Azure Security Center's security alerts page was redesigned to provide:
 - **Alerts from Azure Resource Graph** - you can query alerts in Azure Resource Graph, the Kusto-like API for all of your resources. This is also useful if you're building your own alerts dashboards. [Learn more about Azure Resource Graph](../governance/resource-graph/index.yml).
 - **Create sample alerts feature** - To create sample alerts from the new alerts experience, see [Generate sample Azure Defender alerts](alert-validation.md#generate-sample-security-alerts).
 
-:::image type="content" source="media/managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
-
 ### Kubernetes workload protection recommendations released for general availability (GA)
 
 We're happy to announce the general availability (GA) of the set of recommendations for Kubernetes workload protections.
