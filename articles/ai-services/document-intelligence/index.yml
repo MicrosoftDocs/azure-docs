@@ -87,11 +87,11 @@ landingContent:
                url:  concept-retrieval-augumented-generation.md
          - linkListType: concept
            links:
-             - text: Model sdk-overview-v3-0.md
+             - text: Pretrained model overview
                url: concept-model-overview.md
              - text: Accuracy and confidence scores
                url: concept-accuracy-confidence.md
-             - text: "API response: analyze Document"
+             - text: "API response: analyze document"
                url: concept-analyze-document-response.md
              - text: Custom model overview
                url: concept-custom.md
