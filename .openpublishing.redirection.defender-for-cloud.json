@@ -702,7 +702,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/tutorial-security-incident.md",
-            "redirect_url": "/azure/defender-for-cloud/tutorial-security-incident",
+            "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
             "redirect_document_id": true
         },
         {
