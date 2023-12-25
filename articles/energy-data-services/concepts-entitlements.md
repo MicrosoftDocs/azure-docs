@@ -30,18 +30,20 @@ The entitlements service enables three use cases for authorization:
    1. Some examples are service.storage.user and service.storage.admin.
    2. The service groups are **predefined** when OSDU services are provisioned in each data partition of Azure Data Manager for Energy instance.
    3. These groups enable `viewer`, `editor`, and `admin` access to call the OSDU APIs corresponding to the OSDU services.
+
 3. **User groups** are used for hierarchical grouping of user and service groups.
    1. Some examples are users.datalake.viewers and users.datalake.editors.
-   2. Some user groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope is in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+   2. Some user groups are created by default when a data partition is provisioned. Details of these groups and their hierarchy scope are in [Bootstrapped OSDU Entitlements Groups](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md).
+   3. The `users@{partition}.{domain}` has the list of all the users with any type of access in a given data partition. Before adding a new user to any entitlement groups, you need to add the new user to the `users@{partition}.{domain}` group as well.
   
-Individual users can be added to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups since individual users need not be added one by one to the data group and instead can be added to the `user group`. This structure thus helps provide scalability to manage memberships in OSDU.
+Individual users can be added to a `user group`. The `user group` is then added to a `data group`. The data group is added to the ACL of the data record. It enables abstraction for the data groups since individual users need not be added one by one to the data group and instead can be added to the `user group`. This `user group` can then be used repeatedly for multiple `data groups`. The nested structure thus helps provide scalability to manage memberships in OSDU.
 
 ## Group naming
 
-All group identifiers (emails) are of form {groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}.com. A group naming convention is adopted by OSDU such that the group's name starts with 
+All group identifiers (emails) are of form `{groupType}.{serviceName|resourceName}.{permission}@{partition}.{domain}`. A group naming convention is adopted by OSDU such that the group's name starts with 
 1. the word "data." for data groups;
 2. the word "service." for service groups;
-3. the word "users." for user groups. There's one exception for "users" group created when a new data partition is provisioned. For example, for data partition `opendes`, the group `users@opendes.dataservices.energy` is created. 
+3. the word "users." for user groups. There's one exception of this group naming rule for "users" group. It gets created when a new data partition is provisioned and its name follows the pattern of `users@{partition}.{domain}`.
 
 ## Users
 
@@ -60,6 +62,11 @@ A full list of entitlements API endpoints can be found in [OSDU entitlement serv
 OSDU&trade; is a trademark of The Open Group.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-> [!div class="nextstepaction"]
-> [How to manage users](how-to-manage-users.md)
+As the next step, you can do the following:
+- [How to manager users](how-to-manage-users.md)
+- [How to manage legal tags](how-to-manage-legal-tags.md)
+- [How to manage ACLs](how-to-manage-acls.md)
+
+You can also ingest data into your Azure Data Manager for Energy instance with
+- [Tutorial on CSV parser ingestion](tutorial-csv-ingestion.md)
+- [Tutorial on manifest ingestion](tutorial-manifest-ingestion.md)

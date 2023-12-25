@@ -55,6 +55,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   Japan East
 *   Japan West
 *   Korea Central
+*   Korea South 
 *	North Central US
 *   North Europe
 *   Norway East
@@ -79,7 +80,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 *   West US 2
 *	West US 3 
 
-<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
+<a name="regions-edit-network-features"></a>The option to *[edit network features for existing volumes (preview)](configure-network-features.md#edit-network-features-option-for-existing-volumes)* is supported for the following regions:
 
 * Australia Central
 * Australia Central 2
@@ -100,6 +101,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * Japan East 
 * Japan West
 * Korea Central
+* Korea South
 * North Central US
 * North Europe 
 * Norway East
@@ -115,6 +117,7 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 * UAE Central
 * UAE North 
 * UK South
+* UK West
 * West Europe 
 * West US 
 * West US 2*  

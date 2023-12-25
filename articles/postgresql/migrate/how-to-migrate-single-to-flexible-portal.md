@@ -7,12 +7,15 @@ ms.author: hariramt
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 02/02/2023
-ms.custom: seo-lt-2023
+ms.custom: references_regions, seo-lt-2023
 ---
 
 # Tutorial: Migrate Azure Database for PostgreSQL - Single Server to Flexible Server by using the Azure portal
 
 [!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
+>[!NOTE]
+> Before you begin, it is highly recommended to go through some of the [best practices to sensure a seamless migration experience](best-practices-seamless-migration-single-to-flexible.md)
 
 You can migrate an instance of Azure Database for PostgreSQL – Single Server to Azure Database for PostgreSQL – Flexible Server by using the Azure portal. In this tutorial, we perform migration of a sample database from an Azure Database for PostgreSQL single server to a PostgreSQL flexible server using the Azure portal.
 
@@ -24,7 +27,7 @@ In this tutorial, you learn to:
 > * Configure the migration task
 > * Monitor the migration
 > * Cancel the migration
-> * Migration best practices
+> * Conclusion
 
 ## Configure your Azure Database for PostgreSQL Flexible Server
 
@@ -33,9 +36,9 @@ In this tutorial, you learn to:
 
 1. Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the Portal](../flexible-server/quickstart-create-server-portal.md)
 
-2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist these extensions before you initiate a migration using this tool.
+2. Allowlist extensions whose libraries need to be loaded at server start, by following the steps mentioned in this [doc](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
 
-3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it is skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./concepts-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
+3. Check if the data distribution among all the tables of a database is skewed with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table(s) in parallel](./best-practices-seamless-migration-single-to-flexible.md#improve-migration-speed---parallel-migration-of-tables).
 
 ## Configure the migration task
 
@@ -77,7 +80,7 @@ After deploying the Flexible Server, follow the steps 3 to 5 under [Configure th
 
 ### Setup tab
 
-The first tab is **Setup**. Just in case you missed it, allowlist necessary extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allow-list-required-extensions). It is important to allowlist these extensions before you initiate a migration using this tool.
+The first tab is **Setup**. Just in case you missed it, allowlist necessary extensions as shown in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#allowlist-required-extensions). It's important to allowlist these extensions before you initiate a migration using this tool.
 
 >[!NOTE]
 > If TIMESCALEDB, POSTGIS_TOPOLOGY, POSTGIS_TIGER_GEOCODER, POSTGRES_FDW or PG_PARTMAN extensions are used in your single server database, please raise a support request since the Single to Flex migration tool will not handle these extensions.
@@ -91,9 +94,13 @@ The first tab is **Setup**. Just in case you missed it, allowlist necessary exte
  - **Migrate** - Skips validations and starts migrations.
  - **Validate and Migrate** - Performs validation before triggering a migration. Migration gets triggered only if there are no validation failures.
 
-It is always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
+It's always a good practice to choose **Validate** or **Validate and Migrate** option to perform pre-migration validations before running the migration. To learn more about the pre-migration validation refer to this [documentation](./concepts-single-to-flexible.md#pre-migration-validations).
 
-**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option. Support for online migrations will be introduced later in the tool.
+**Migration mode** gives you the option to pick the mode for the migration. **Offline** is the default option.  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+
+:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
+
+If **Online** migration is selected, it requires Logical replication to be turned on in the source Single server. If it's not turned on, the migration tool automatically turns on logical replication at the source Single server. Replication can also be set up manually under **Replication** tab in the Single server side pane by setting the Azure replication support level to **Logical**. Either approach restarts the source single server.
 
 Select the **Next** button.
 
@@ -103,7 +110,7 @@ The **Source** tab prompts you to give details related to the Single Server that
 
 :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-source.png" alt-text="Screenshot of source database server details." lightbox="./media/concepts-single-to-flexible/flexible-migration-source.png":::
 
-After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. Note that you can migrate databases from a Single Server to a target Flexible Server in the same region. Cross region migrations are supported only in China regions.
+After you make the **Subscription** and  **Resource Group** selections, the dropdown list for server names shows Single Servers under that resource group across regions. Select the source that you want to migrate databases from. You can migrate databases from a Single Server to a target Flexible Server in the same region. Cross region migrations are enabled only for servers in India, China and UAE.
 
 After you choose the Single Server source, the **Location**, **PostgreSQL version**, and **Server admin login name** boxes are populated automatically. The server admin login name is the admin username used to create the Single Server. In the **Password** box, enter the password for that admin user. The migration tool performs the migration of single server databases as the admin user.
 
@@ -121,14 +128,14 @@ Select the **Next** button.
 
 ### Select Database(s) for Migration tab
 
-Under this tab, there is a list of user databases inside the Single Server. You can select and migrate up to eight databases in a single migration attempt. If there are more than eight user databases, the migration process is repeated between the source and target servers for the next set of databases.
+Under this tab, there's a list of user databases inside the Single Server. You can select and migrate up to eight databases in a single migration attempt. If there are more than eight user databases, the migration process is repeated between the source and target servers for the next set of databases.
 
 :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-database.png" alt-text="Screenshot of Databases to migrate." lightbox="./media/concepts-single-to-flexible/flexible-migration-database.png":::
 
 ### Review
 
 >[!NOTE]
-> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allow-list-required-extensions) before you select **Create** in case it is not yet complete.
+> Gentle reminder to allowlist necessary [extensions](./concepts-single-to-flexible.md#allowlist-required-extensions) before you select **Create** in case it's not yet complete.
 
 The **Review** tab summarizes all the details for creating the validation or migration. Review the details and click on the start button.
 
@@ -136,7 +143,7 @@ The **Review** tab summarizes all the details for creating the validation or mig
 
 ## Monitor the migration
 
-After you click the start button, a notification appears in a few seconds to say that the validation or migration creation is successful. You are redirected automatically to the **Migration** blade of Flexible Server. This has a new entry for the recently created validation or migration.
+After you click the start button, a notification appears in a few seconds to say that the validation or migration creation is successful. You're redirected automatically to the **Migration** blade of Flexible Server. This has a new entry for the recently created validation or migration.
 
 :::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-monitor.png" alt-text="Screenshot of recently created migration details." lightbox="./media/concepts-single-to-flexible/flexible-migration-monitor.png":::
 
@@ -149,11 +156,11 @@ As soon as the validation or migration is created, it moves to the **InProgress*
 
 Let us look at how to monitor migrations for each of the **Migration Option**.
 
-### Validate 
+### Validate
 
-After the **PerformingPreRequisiteSteps** substate is completed, the validation moves to the substate of **Validation in Progress** where checks are done on the source and target server to assess the readiness for migration. 
+After the **PerformingPreRequisiteSteps** substate is completed, the validation moves to the substate of **Validation in Progress** where checks are done on the source and target server to assess the readiness for migration.
 
-The validation moves to the **Succeeded** state if all validations are either in **Succeeded** or **Warning** state. 
+The validation moves to the **Succeeded** state if all validations are either in **Succeeded** or **Warning** state.
 
 :::image type="content" source="./media/concepts-single-to-flexible/validation-successful.png" alt-text="Screenshot of the validation grid." lightbox="./media/concepts-single-to-flexible/validation-successful.png":::
 
@@ -166,13 +173,13 @@ The validation grid has the following columns
 - **Impacted Object** - Represents the object name for which the errors or warnings are raised. 
 - **Object Type** - This can have the value **Database** for database level validations and **Instance** for server level validations.
 
-The validation moves to **Validation Failed** state if there are any errors in the validation. Click on the **Finding** in the grid whose status is **Failed** and a fan-out pane appears giving the details and the corrective action you should take to avoid this error.
+The validation moves to **Validation Failed** state if there are any errors in the validation. Click on the **Finding** in the grid whose status is **Failed** and a fan-out pane gives the details and the corrective action you should take to avoid this error.
 
 :::image type="content" source="./media/concepts-single-to-flexible/validation-failed.png" alt-text="Screenshot of the validation grid with failed status." lightbox="./media/concepts-single-to-flexible/validation-failed.png":::
 
-### Migrate 
+### Migrate
 
-After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** when the Cloning/Copying of the databases takes place.  The time for migration to complete depends on the size and shape of databases that you are migrating. If the data is mostly evenly distributed across all the tables, the migration is quick. Skewed table sizes take a relatively longer time.
+After the **PerformingPreRequisiteSteps** substate is completed, the migration moves to the substate of **Migrating Data** when the Cloning/Copying of the databases takes place.  The time for migration to complete depends on the size and shape of databases that you're migrating. If the data is mostly evenly distributed across all the tables, the migration is quick. Skewed table sizes take a relatively longer time.
 
 When you select any of the databases in migration, a fan-out pane appears. It has all the table count - copied, queued, copying and errors apart from the database migration status.
 
@@ -189,14 +196,36 @@ Once the migration moves to the **Succeeded** state, migration of schema and dat
 ### Validate and Migrate
 
 In this option, validations are performed first before migration starts. After the **PerformingPreRequisiteSteps** sub state is completed, the workflow moves into the sub state of **Validation in Progress**. 
-- If validation has errors, the migration will move into a **Failed** state.
-- If validation completes without any error, the migration will start and the workflow will move into the sub state of **Migrating Data**. 
+- If validation has errors, the migration moves into a **Failed** state.
+- If validation completes without any error, the migration starts and the workflow will move into the sub state of **Migrating Data**. 
 
 You can see the results of validation under the **Validation** tab and monitor the migration under the **Migration** tab.
 
 :::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-1.png" alt-text="Screenshot showing validations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-1.png":::
 
 :::image type="content" source="./media/concepts-single-to-flexible/validate-and-migrate-2.png" alt-text="Screenshot showing migrations tab in details page." lightbox="./media/concepts-single-to-flexible/validate-and-migrate-2.png":::
+
+### Online migration
+
+> [!NOTE]  
+>  Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia.
+
+In case of both **Migrate** as well as **Validate and Migrate**, completion of the Online migration requires another step - a Cutover action is required from the user. After the copy/clone of the base data is complete, the migration moves to `WaitingForUserAction` state and `WaitingForCutoverTrigger` substate. In this state, user can trigger cutover from the portal by selecting the migration.
+
+Before initiating cutover, it's important to ensure that:
+
+- Writes to the source are stopped -`Latency (minutes)` parameter is 0 or close to 0
+The `Latency (minutes)` information can be obtained from the migration details screen as shown below:
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-cutover.png" alt-text="Screenshot showing migration ready for cutover." lightbox="./media/concepts-single-to-flexible/flexible-migration-cutover.png":::
+
+`Latency (minutes)` parameter indicates when the target last synced up with the source. For example, for the Orders Database above, it's 0.33333. It means that the changes that occurred in the last ~0.3 minutes at the source are yet to be synced to the target, for the Orders Database. At this point, writes to the source can be stopped and cutover initiated. In case there's heavy traffic at the source, it's recommended to stop writes first so that `Latency (minutes)` can come close to 0 and then cutover is initiated. The Cutover operation applies all pending changes from the Source to the Target and completes the migration. If you trigger a "Cutover" even with **non-zero Latency**, the replication stops until that point in time. All the data on source until the cutover point is then applied on the target. Say a latency was 15 minutes at cutover point, so all the change data in the last 15 minutes will be applied on the target. Time taken will depend on the backlog of changes occurred in the last 15 minutes. Hence, it's recommended that the latency goes to zero or near zero, before triggering the cutover.
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-click-cutover.png" alt-text="Screenshot showing click cutover." lightbox="./media/concepts-single-to-flexible/flexible-migration-click-cutover.png":::
+
+The migration moves to the `Succeeded` state as soon as the `Migrating Data` substate or the cutover (in Online migration) finishes successfully. If there's a problem at the `Migrating Data` substate, the migration moves into a `Failed` state.
+
+:::image type="content" source="./media/concepts-single-to-flexible/flexible-migration-progress-online-dbsuccess.png" alt-text="Screenshot showing cutover success." lightbox="./media/concepts-single-to-flexible/flexible-migration-progress-online-dbsuccess.png":::
 
 After the migration has moved to the **Succeeded** state, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration).
 
@@ -220,9 +249,9 @@ Possible migration substates include:
 
 You can cancel any ongoing validations or migrations. The workflow must be in the **InProgress** state to be canceled. You can't cancel a validation or migration that's in the **Succeeded** or **Failed** state.
 
-Canceling a validation stops any further validation activity and the validation moves to a **Cancelled** state.
-Canceling a migration stops further migration activity on your target server and moves to a **Cancelled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
+Canceling a validation stops any further validation activity and the validation moves to a **Canceled** state.
+Canceling a migration stops further migration activity on your target server and moves to a **Canceled** state. It doesn't drop or roll back any changes on your target server. Be sure to drop the databases on your target server involved in a canceled migration.
 
-## Migration best practices
+## Conclusion
 
 For a successful end-to-end migration, follow the post-migration steps in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#post-migration). After you complete the preceding steps, you can change your application code to point database connection strings to Flexible Server. You can then start using the target as the primary database server.

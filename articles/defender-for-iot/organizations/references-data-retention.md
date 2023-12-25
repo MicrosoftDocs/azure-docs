@@ -21,7 +21,7 @@ The following table lists how long device data is stored in each Defender for Io
 |---------|---------|
 | **Azure portal** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
 | **OT network sensor** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
-| **On-premises management console** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
+| **On-premises management console** | 90 days from the date of the **Last activity** value. <br><br> For more information, see [Manage your OT device inventory from an on-premises management console](legacy-central-management/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md). |
 
 ## Alert data retention
 
@@ -31,7 +31,7 @@ The following table lists how long alert data is stored in each Defender for IoT
 |---------|---------|
 | **Azure portal** | 90 days from the date in the **First detection** value. <br><br> For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md). |
 | **OT network sensor** | 90 days from the date in the **First detection** value.<br><br> For more information, see [View alerts on your sensor](how-to-view-alerts.md). |
-| **On-premises management console** |  90 days from the date in the **First detection** value.<br><br> For more information, see [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md). |
+| **On-premises management console** |  90 days from the date in the **First detection** value.<br><br> For more information, see [Work with alerts on the on-premises management console](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md). |
 
 ### OT alert PCAP data retention
 
@@ -85,7 +85,7 @@ Other OT monitoring log files are stored only on the OT network sensor and the o
 For more information, see:
 
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
-- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
+- [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)
 
 ## On-premises backup file capacity
 
@@ -96,8 +96,8 @@ On both the OT sensor and the on-premises management console, older backup files
 For more information, see:
 
 - [Set up backup and restore files on an OT sensor](back-up-restore-sensor.md#set-up-backup-and-restore-files)
-- [Configure OT sensor backup settings on an on premises management console](back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
-- [Configure OT sensor backup settings for an on-premises management console](back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
+- [Configure OT sensor backup settings on an on premises management console](legacy-central-management/back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
+- [Configure OT sensor backup settings for an on-premises management console](legacy-central-management/back-up-sensors-from-management.md#configure-ot-sensor-backup-settings)
 
 ### Backups on the OT network sensor
 
@@ -128,6 +128,6 @@ If you're using an on-premises management console, each connected OT sensor also
 For more information, see:
 
 - [Manage individual OT network sensors](how-to-manage-individual-sensors.md)
-- [Manage OT network sensors from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
-- [Manage an on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Manage OT network sensors from an on-premises management console](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md)
+- [Manage an on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md)
 - [Azure data encryption](/azure/security/fundamentals/encryption-overview)

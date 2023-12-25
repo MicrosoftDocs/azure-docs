@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -123,7 +124,7 @@ print(client.deployments.invoke(deployment_name, "./request_file_pf.json"))
 For more information, see the sections below.
 
 > [!TIP]
-> For a guide about how to deploy a base model, see [Deploying models with Azure AI Studio](deploy-models.md).
+> For a guide about how to deploy a base model, see [Deploying models with Azure AI Studio](deploy-models-open.md).
 
 ## Settings and configurations
 
