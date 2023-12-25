@@ -47,7 +47,7 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 - **CEF log sources.** These are your various security devices and appliances in your environment that produce logs in CEF format. These devices are configured to send their logs over TCP port 514 to the...
 
-- **Log forwarder.** This is a dedicated Linux VM that your organization sets up to collect the logs from your CEF log sources. This log forwarder itself has two components:
+- **Log forwarder.** This is a dedicated Linux VM that your organization sets up to collect the logs from your CEF log sources. The VM can be on-premises, in Azure, or in another cloud. This log forwarder itself has two components:
     - A **Syslog daemon** (either `rsyslog` or `syslog-ng`) that collects the logs on TCP port 514. The daemon then sends these logs\* to...
     - The **Azure Monitor Agent** that you install on the log forwarder by [setting up the data connector according to the instructions below](#set-up-the-common-event-format-cef-via-ama-connector). The agent parses the logs and then sends them to...
 
@@ -61,25 +61,39 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 ## Set up the Common Event Format (CEF) via AMA connector
 
-The setup process for the CEF via AMA connector has three parts:
+The setup process for the CEF via AMA connector has two parts:
 
-- [Configure log collection and forwarding](#configure-log-collection-and-forwarding)
-- [Create a Data Collection Rule (DCR)](#create-a-data-collection-rule-dcr)
-- [Run the "installation" script](#run-the-installation-script)
+- Create a Data Collection Rule (DCR), which installs the Azure Monitor Agent on the log forwarder.
+    - [Using the Azure portal](?tabs=portal#create-a-data-collection-rule-dcr)
+    - [Using the Azure Monitor API](?tabs=api#create-a-data-collection-rule-dcr)
+- [Run the "installation" script](#run-the-installation-script), which configures the Syslog daemon on the log forwarder.
 
 ### Prerequisites
 
-Before you begin, verify that you have:
+- You must have the Microsoft Sentinel **Common Event Format** solution enabled.
+- Your Azure account must have the following roles/permissions:
 
-- The Microsoft Sentinel solution enabled. 
-- A defined Microsoft Sentinel workspace.
-- A Linux machine to collect logs.
-    - The Linux machine must have Python 2.7 or 3 installed on the Linux machine. Use the ``python --version`` or ``python3 --version`` command to check.
-    - For space requirements for your log forwarder, refer to the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516), which includes designs for scalable ingestion.
-- Either the `syslog-ng` or `rsyslog` daemon enabled.
-- If your log forwarder *isn't* an Azure virtual machine, install the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) on it.
+  |Built-in role  |Scope  |Reason  |
+  |---------|---------|---------|
+  |- [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md)</br>- [Azure Connected Machine<br>&nbsp;&nbsp;&nbsp;Resource Administrator](../role-based-access-control/built-in-roles.md)     |  - Virtual machines</br>- VM scale sets</br>- Azure Arc-enabled servers        |   To deploy the agent      |
+  |Any role that includes the action<br>*Microsoft.Resources/deployments/\**    | - Subscription </br>- Resource group</br>- Existing data collection rule       |  To deploy Azure Resource Manager templates       |
+  |[Monitoring Contributor ](../role-based-access-control/built-in-roles.md)    |- Subscription </br>- Resource group </br>- Existing data collection rule        | To create or edit data collection rules        |
 
-### Avoid data ingestion duplication
+- You must have a designated Linux VM (your **Log forwarder**) to collect logs.
+    - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+    - [Supported Linux operating systems for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#linux).
+
+- If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) installed on it.
+
+- The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check.
+
+- The log forwarder must have either the `syslog-ng` or `rsyslog` daemon enabled.
+
+- For space requirements for your log forwarder, refer to the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516), which includes designs for scalable ingestion.
+
+- Your log sources (your security devices and appliances) must be configured to send their log messages to the log forwarder's Syslog daemon instead of to their local Syslog daemon.
+
+#### Avoid data ingestion duplication
 
 Using the same facility for both Syslog and CEF messages may result in data ingestion duplication between the CommonSecurityLog and Syslog tables. 
 
@@ -93,17 +107,6 @@ To avoid this scenario, use one of these methods:
     where ProcessName !contains \"CEF\"
     ```
 
-### Configure log collection and forwarding
-
-To collect CEF logs on your **log forwarder** for transmission to Microsoft Sentinel, you designate and configure a Linux machine to collect the logs from your devices and forward them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. If this machine is not an Azure VM, it must have the Azure Arc Connected Machine agent installed (see the [prerequisites](#prerequisites)).
-
-This machine has two components that take part in this process of log collection and forwarding:
-
-- A Syslog daemon, either `rsyslog` or `syslog-ng`, which collects the logs.
-- The Azure Monitor Agent (AMA), which forwards the logs to Microsoft Sentinel.
-
-Refer to the Azure Monitor instructions for help [creating a log forwarder](forward-syslog-monitor-agent.md).
-
 #### Log forwarder security considerations
 
 Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. To improve your machine security configuration, [secure your VM in Azure](../virtual-machines/security-policy.md), or review these [best practices for network security](../security/fundamentals/network-best-practices.md).
@@ -115,94 +118,73 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 
 ### Create a Data Collection Rule (DCR)
 
-Setting up the connector has two steps:
-- Define a Data Collection Rule (DCR), which installs the Azure Monitor Agent on the log forwarder.
-- Run the installation script, which configures the Syslog daemon on the log forwarder.
-
 You can create the DCR in two ways:  
-- [Microsoft Sentinel portal](#set-up-the-connector-in-the-microsoft-sentinel-portal-ui). With this setup, you can create, manage, and delete DCRs per workspace.  
-- [API](#set-up-the-connector-with-the-api). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the UI. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level.
+- [Microsoft Sentinel portal](?tabs=portal#create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs per workspace.
+- [Azure Monitor API](?tabs=api#create-a-data-collection-rule-dcr). With this setup, you can create, manage, and delete DCRs. This option is more flexible than the portal. For example, with the API, you can filter by specific log levels, where with the UI, you can only select a minimum log level.
 
 Select the appropriate tab below to see the instructions for each way.
 
-# [Microsoft Sentinel portal (UI)](#tab/ui)
+# [Microsoft Sentinel portal](#tab/portal)
 
-1. [Open the connector page and create the DCR](#open-the-connector-page-and-create-the-dcr)
-1. [Define resources (VMs)](#define-resources-vms)
-1. [Select the data source type and create the DCR](#select-the-data-source-type-and-create-the-dcr)
-1. [Run the installation script](#run-the-installation-script)
-
-#### Open the connector page and create the DCR
+#### Open the connector page and start the DCR wizard
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
-1. Select **Data connectors**, and in the search bar, type *CEF*.
-1. Select the **Common Event Format (CEF) via AMA (Preview)** connector.
-1. Below the connector description, select **Open connector page**.
-1. In the **Configuration** area, select **Create data collection rule**. 
-1. Under **Basics**: 
-    - Type a DCR name
-    - Select your subscription
-    - Select the resource group where your collector is defined
 
-    :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basics tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
+1. Select **Data connectors** from the navigation menu
+
+1. Type *CEF* in the **Search** box. From the results, select the **Common Event Format (CEF) via AMA (Preview)** connector.
+
+1. Select **Open connector page** on the details pane.
+
+1. In the **Configuration** area, select **+Create data collection rule**. 
+
+    :::image type="content" source="media/connect-cef-ama/cef-connector-page-create-dcr.png" alt-text="Screenshot showing the CEF via AMA connector page." lightbox="media/connect-cef-ama/cef-connector-page-create-dcr.png":::
+
+1. In the **Basic** tab: 
+    - Type a DCR name.
+    - Select your subscription.
+    - Select the resource group where your collector is defined.
+
+    :::image type="content" source="media/connect-cef-ama/dcr-basics-tab.png" alt-text="Screenshot showing the DCR details in the Basic tab." lightbox="media/connect-cef-ama/dcr-basics-tab.png":::
+
+1. Select **Next: Resources >**.
 
 #### Define resources (VMs)
 
-Select the machines on which you want to install the AMA&mdash;in this case, your log forwarder machine. (If your log forwarder doesn't appear in the list, it might not have the Azure Connected Machine agent installed.)
+In the **Resources** tab, select the machines on which you want to install the AMA&mdash;in this case, your log forwarder machine. (If your log forwarder doesn't appear in the list, it might not have the Azure Connected Machine agent installed.)
 
-1. Select the **Resources** tab and select **Add Resource(s)**.
-1. Use the available filters or search box to find your log forwarder VM.
-1. Select the log forwarder VM to install the AMA on it to collect logs.
+1. Use the available filters or search box to find your log forwarder VM. You can expand a subscription in the list to see its resource groups, and a resource group to see its VMs.
+
+1. Select the log forwarder VM that you want to install the AMA on. (The check box will appear next to the VM name when you hover over it.)
 
    :::image type="content" source="media/connect-cef-ama/dcr-select-resources.png" alt-text="Screenshot showing how to select resources when setting up the DCR." lightbox="media/connect-cef-ama/dcr-select-resources.png":::
 
-1. Review your changes and select **Collect**. 
+1. Review your changes and select **Next: Collect >**. 
 
 #### Select the data source type and create the DCR
 
 > [!NOTE]
 > Using the same facility for both Syslog and CEF messages may result in data ingestion duplication. Learn how to [avoid data ingestion duplication](#avoid-data-ingestion-duplication).
 
-1. Select the **Collect** tab and select **Linux syslog** as the data source type.
-1. Configure the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
+1. In the **Collect** tab, select the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
 
    :::image type="content" source="media/connect-cef-ama/dcr-log-levels.png" alt-text="Screenshot showing how to select log levels when setting up the DCR.":::
 
-1. Review your changes and select **Next: Review and create**. 
+1. Review your selections and select **Next: Review + create**. 
+
 1. In the **Review and create** tab, select **Create**.
 
-The connector will install the Azure Monitor Agent on the machines you selected when creating your DCR.
+   :::image type="content" source="media/connect-cef-ama/dcr-review-create.png" alt-text="Screenshot showing how to review the configuration of the DCR and create it.":::
 
-#### Run the "installation" script
+- The connector will install the Azure Monitor Agent on the machines you selected when creating your DCR.
 
-The "installation" script doesn't actually install anything, but it configures the Syslog daemon on your log forwarder properly to collect the logs.
+- You will see notifications from the Azure portal when the DCR is created and the agent is installed.
 
-1.	Log in to the Linux forwarder machine, where you just installed the AMA.
-1.	Run this command to launch the installation script:
- 
-    ```python
-    sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
-    ```
-    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the Syslog daemon configuration file according to the daemon type running on the machine:
-    - Rsyslog: `/etc/rsyslog.conf`
-    - Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
+- Select **Refresh** on the connector page to see the DCR displayed in the list.
 
-    > [!NOTE] 
-    > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
-    > Read more about [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
+# [Azure Monitor API](#tab/api)
 
-# [API](#tab/api)
-
-You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).
-
-#### Run the installation script
-
-Run this command to launch the installation script:
- 
-```python
-sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
-```
-The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.  
+You can create Data Collection Rules (DCRs) using the [Azure Monitor API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).
 
 #### Request URL and header  
 
@@ -383,6 +365,41 @@ This example collects events for:
 ```
 
 ---
+
+### Run the "installation" script
+
+The "installation" script doesn't actually install anything, but it configures the Syslog daemon on your log forwarder properly to collect the logs.
+
+# [Microsoft Sentinel portal](#tab/portal)
+
+1. From the connector page, copy the command line that appears under **Run the following command to install and apply the CEF collector:** by selecting the *copy* icon next to it.
+
+    :::image type="content" source="media/connect-cef-ama/run-install-script.png" alt-text="Screenshot of command line on connector page.":::
+
+    You can also copy it from here:
+    ```python
+    sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+    ```
+
+# [Azure Monitor API](#tab/api)
+
+1. Copy the command line:
+
+        ```python
+    sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
+    ```
+---
+
+1. Log in to the log forwarder machine where you just installed the AMA.
+
+1. Paste the command you copied in the last step to launch the installation script.  
+    The script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the Syslog daemon configuration file according to the daemon type running on the machine:
+    - Rsyslog: `/etc/rsyslog.conf`
+    - Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
+
+    > [!NOTE] 
+    > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
+    > Read more about [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
 
 ## Test the connector
 
