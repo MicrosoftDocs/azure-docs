@@ -500,10 +500,10 @@
         - name: Review agents and extensions
           href: plan-defender-for-servers-agents.md
         - name: Agentless scanning
-          displayName: agentless, scanning, virtual, machines, freshness, snapshot,
-            snapshots
-          href: concept-agentless-data-collection.md
           items:
+          - name: Agentless machine scanning
+            displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots
+            href: concept-agentless-data-collection.md
           - name: Manage secrets with agentless secret scanning
             displayName: secrets, secret scanning, agentless
             href: secret-scanning.md
