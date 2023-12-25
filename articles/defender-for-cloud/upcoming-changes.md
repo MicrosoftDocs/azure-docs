@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Deprecation of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys](#deprecation-of-the-defender-for-cloud-containers-vulnerability-assessment-powered-by-qualys) | January 8, 2023 | March 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
@@ -34,6 +35,20 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Deprecation of the Defender for Cloud Containers Vulnerability Assessment powered by Qualys
+
+**Announcement date: January 8, 2023**
+
+**Estimated date for change: March 2024**
+
+The Defender for Cloud Containers Vulnerability Assessment powered by Qualys is now on a retirement path completing on **March 1st, 2024**. If you are currently using container vulnerability assessment powered by Qualys, start planning your transition to [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md) or [Vulnerability assessments for AWS with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md).
+
+For more information about our decision to unify our vulnerability assessment offering with Microsoft Defender Vulnerability Management, see [this blog post](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
+
+For more information about migrating to our new container vulnerability assessment offering powered by Microsoft Defender Vulnerability Management, see [Transition from Qualys to Microsoft Defender Vulnerability Management](transition-to-defender-vulnerability-management.md).
+
+For common questions about the transition to Microsoft Defender Vulnerability Management, see [Common questions about the Microsoft Defender Vulnerability Management solution](common-questions-microsoft-defender-vulnerability-management.md).
 
 ## Deprecation of two DevOps security recommendations
 

@@ -599,7 +599,7 @@
       - name: How does Defender for Containers work?
         displayName: containers
         href: defender-for-containers-architecture.md
-      - name: Vulnerability assessment for Azure powered by Qualys
+      - name: Vulnerability assessment for Azure powered by Qualys (Deprecated)
         displayName: ACR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-azure.md
       - name: Vulnerability assessments powered by Microsoft Defender Vulnerability Management
