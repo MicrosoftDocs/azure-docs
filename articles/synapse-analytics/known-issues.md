@@ -29,7 +29,7 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
 |Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has Workaround|
-|Azure Synapse Workspace|[Known Issue on Incorporating Square Brackets [] in the value of Tags](#known-issue-on-incorporating-square-brackets-[]-in-the-value-of-tags)|Has Workaround|
+|Azure Synapse Workspace|[Known Issue on Incorporating Square Brackets [] in the value of Tags](#known-issue-on-incorporating-square-brackets--in-the-value-of-tags)|Has Workaround|
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
