@@ -37,7 +37,7 @@ Agentless scanning assists you in the identification process of actionable postu
 
 ## How agentless scanning works
 
-Agentless scanning for VMs uses cloud APIs to collect data. Whereas agent-based methods use operating system APIs in runtime to continuously collect security related data. Defender for Cloud takes snapshots of VM disks and performs an out-of-band, deep analysis of the operating system configuration and file system stored in the snapshot. The copied snapshot remains in teh same region as the VM.
+Agentless scanning for VMs uses cloud APIs to collect data. Whereas agent-based methods use operating system APIs in runtime to continuously collect security related data. Defender for Cloud takes snapshots of VM disks and performs an out-of-band, deep analysis of the operating system configuration and file system stored in the snapshot. The copied snapshot remains in teh same region as the VM. The VM isn't affected by the scan.
 
 After acquiring the necessary metadata is acquired from the copied disk, Defender for Cloud immediately deletes the copied snapshot of the disk and sends the metadata to Microsoft engines to detect configuration gaps and potential threats. For example, in vulnerability assessment, the analysis is done by Defender Vulnerability Management. The results are displayed in Defender for Cloud, which consolidates both the agent-based and agentless results on the Security alerts page.
 
