@@ -10,11 +10,11 @@ ms.author: lwainstein
 
 # Stream Google Cloud Platform logs into Microsoft Sentinel
 
-Organizations are increasingly moving to multicloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
+Organizations are increasingly moving to multi-cloud architectures, whether by design or due to ongoing requirements. A growing number of these organizations use applications and store data on multiple public clouds, including the Google Cloud Platform (GCP).
 
-This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multicloud environment.
+This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multi-cloud environment.
 
-With the **GCP Pub/Sub Audit Logs** connector, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
+With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview). 
 
 > [!IMPORTANT]
 > The GCP Pub/Sub Audit Logs connector is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.  
@@ -40,8 +40,9 @@ You can set up the GCP environment in one of two ways:
 
 ### Create GCP resources via the Terraform API
 
-The Identity and Access Management (IAM) API must be enabled.  
-Cloud Resource Manager API must be enabled.
+Prerequisites: Ensure that the Identity and Access Management (IAM) API is enabled and that the Cloud Resource Manager API is also enabled.
+#### GCP Authentication Setup
+
 1. Open [GCP Cloud Shell](https://cloud.google.com/shell/).
 1. Open the editor and type: 
     ```    
@@ -61,31 +62,36 @@ Cloud Resource Manager API must be enabled.
 1. Type your Microsoft tenant ID. Learn how to [find your tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name). 
 1. When asked if a workload Identity Pool has already been created for Azure, type *yes* or *no*.  
 1. When asked if you want to create the resources listed, type *yes*.
-1. Save the resources parameters for later use. 	
-1. In a new folder, copy the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) into a new file, and save it as a .tf file:
-    ```
+
+Save the resources parameters for later use. 	
+#### GCP Audit Logs Setup
+
+1.In a new folder, copy the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) into a new file, and save it as a .tf file:
+    
+```
     cd {foldername} 
     ```
 
-    ```
+    
+```
     terraform init  
     ```
 
-1. Type: 					 
-    ```
+2.Type: 					 
+    
+```
     terraform apply  
     ```
 
-1.  To ingest logs from an entire organization using a single Pub/Sub, type: 
-
-    ```    
+ To ingest logs from an entire organization using a single Pub/Sub, type: 
+    
+```    
     terraform apply -var="organization-id= {organizationId} "					 
     ```
 
-1. Type *yes*. 						 
-1. Save the resource parameters for later use.  
-1. Wait five minutes before moving to the next step. 
-
+3. Type *yes*. 						 
+4. Save the resource parameters for later use.  
+5. Wait five minutes before moving to the next step. 
 ## Set up the GCP Pub/Sub connector in Microsoft Sentinel
 
 1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
@@ -112,6 +118,8 @@ Cloud Resource Manager API must be enabled.
 
 This section shows you how to set up the GCP environment manually. Alternatively, you can set up the environment [via the Terraform API](#create-gcp-resources-via-the-terraform-api). If you already set up the environment via the API, skip this section.
 
+### GCP Authentication Setup
+
 #### Create the role 
 
 1. In the GCP console, navigate to **IAM & Admin**. 
@@ -119,9 +127,6 @@ This section shows you how to set up the GCP environment manually. Alternatively
 1. Fill in the relevant details and add permissions as needed.
 1. Filter the permissions by the **Pub/Sub Subscriber** and **Pub/Sub Viewer** roles, and select **pubsub.subscriptions.consume** and **pubsub.subscriptions.get** permissions. 
 1. To confirm, select **ADD**. 
-
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-role.png" alt-text="Screenshot of adding permissions when adding a GCP role.":::
-
 1. To create the role, select **Create**. 
 
 #### Create the service account 
@@ -135,72 +140,66 @@ This section shows you how to set up the GCP environment manually. Alternatively
 1. In the GCP Console, navigate to **Workload Identity Federation**.
 1. If it's your first time using this feature, select **Get started**. Otherwise, select **Create pool**. 
 1. Fill in the required details, and make sure that the **Tenant ID** and **Tenant name** is the TenantID **without dashes**. 
-    
     > [!NOTE]
-    > To find the tenant ID, in the Azure portal, navigate to **All Services > Microsoft Entra ID > Overview** and copy the **TenantID**. 
-
+    > To find the tenant ID, in the Azure portal, navigate to **All Services Microsoft Entra ID Overview** and copy the **TenantID**. 
 1. Make sure that **Enable pool** is selected. 
-
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-create-identity-pool.png" alt-text="Screenshot of creating the identity pool as part of creating the GCP workload identity federation.":::
-
 1. To add a provider to the pool:
-    - Select **OIDC** 
-    - Type the **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
-    - Next to **Audiences**, select **Allowed audiences**, and next to **Audience 1**, type: *api://2041288c-b303-4ca0-9076-9612db3beeb2*. 
+   - Select **OIDC** 
+   - Type the **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
+   - Next to **Audiences**, select **Allowed audiences**, and next to **Audience 1**, type: *api://2041288c-b303-4ca0-9076-9612db3beeb2*. 
+   -  
 
-        :::image type="content" source="media/connect-google-cloud-platform/gcp-add-provider-pool.png" alt-text="Screenshot of adding the provider to the pool when creating the GCP workload identity federation.":::
-
-        :::image type="content" source="media/connect-google-cloud-platform/gcp-add-provider-pool-audiences.png" alt-text="Screenshot of adding the provider pool audiences when creating the GCP workload identity federation.":::
-
-#### Configure the provider attributes 
+   #### Configure the provider attributes 
     
-1. Under **OIDC 1**, select **assertion.sub**.  
+   1. Under **OIDC 1**, select **assertion.sub** with the supported key **google.subject**    
+   1. Select **Continue** and **Save**.
+   1. Navigate to the **IAM & Admin** section.
+         - Visit the **Service Account** page.
 
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-configure-provider-attributes.png" alt-text="Screenshot of configuring the GCP provider attributes.":::    
- 
-1. Select **Continue** and **Save**. 
-1. In the **Workload Identity Pools** main page, select the created pool. 
-1. Select **Grant access**, select the [service account you created previously](#create-the-service-account), and select **All identities in the pool** as the principals. 
+         - Locate the relevant service account and access the permissions tab.
 
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-grant-access.png" alt-text="Screenshot of granting access to the GCP service account.":::
+         - Select **'GRANT ACCESS'** to add a new principal.
 
-1. Confirm that the connected service account is displayed. 
+         - For the principal name, use the following format: 
 
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-connected-service-account.png" alt-text="Screenshot of viewing the connected GCP service accounts.":::
+      
+```
+      `principal://iam.googleapis.com/projects/${Project number}/locations/global/workloadIdentityPools/${Workload Identity Pool ID}/subject/${Workload Identity Provider ID}`.
+      
+      ```
 
-#### Create a topic 
+         - Under **"Assign roles"** choose **'Workload Identity User'** and **save**.
 
-1. In the GCP console, navigate to **Topics**.
-1. Create a new topic and select a **Topic ID**. 
-1. Select **Add default subscription** and under **Encryption**, select **Google-managed encryption key**. 
+       
 
-#### Create a sink 
+   ### GCP Audit Logs Setup
+   
+   Set up Continuous exports for Audit Logs.
 
-1. In the GCP console, navigate to **Log Router**.
-1. Select **Create sink** and fill in the relevant details.
-1. Under **Sink destination**, select **Cloud Pub/Sub topic** and select [the topic you created previously](#create-a-topic). 
+   1. Create topic following [Google's instructions](https://cloud.google.com/pubsub/docs/create-topic). Ensure to select "Add default subscription" and, under **Encryption**, choose the option for **Google-managed encryption key**.
 
-    :::image type="content" source="media/connect-google-cloud-platform/gcp-sink-destination.png" alt-text="Screenshot of defining the GCP sink destination.":::
+   1. Set up a sink by following [Google's instructions](https://cloud.google.com/logging/docs/export/configure_export_v2#creating_sink) for its creation. Ensure that, under "Sink destination," you select "Cloud Pub/Sub topic" and choose the topic you previously created.
 
-1. If needed, filter the logs by selecting specific logs to include. Otherwise, all logs are sent. 
-1. Select **Create sink**.  
+   1. Verify that GCP can receive incoming messages:
 
-> [!NOTE]
-> To ingest logs for the entire organization: 
-> 1. Select the organization under **Project**. 
-> 1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.  
+         1. In the GCP console, navigate to **Subscriptions**.
 
-:::image type="content" source="media/connect-google-cloud-platform/gcp-choose-logs.png" alt-text="Screenshot of choosing which GCP logs to include in the sink.":::
- 
-#### Verify that GCP can receive incoming messages 
+            1. Select **Messages**, and select **PULL** to initiate a manual pull. 
 
-1. In the GCP console, navigate to **Subscriptions**.
-1. Select **Messages**, and select **PULL** to initiate a manual pull. 
-1. Check the incoming messages.  
+               1. Check the incoming messages.  
 
-## Next steps
-In this article, you learned how to ingest GCP data into Microsoft Sentinel using the GCP Pub/Sub Audit Logs connector. To learn more about Microsoft Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
-- [Use workbooks](monitor-your-data.md) to monitor your data.
+   > [!NOTE]
+   > To ingest logs for the entire organization: 
+   > 1. Select the organization under **Project**. 
+> 
 
+   > 
+   >    1. Repeat steps 2-4, and under **Choose logs to include in the sink** in the **Log Router** section, select **Include logs ingested by this organization and all child resources**.  
+   >    
+   ## Next steps
+   In this article, you learned how to ingest GCP data into Microsoft Sentinel using the GCP Pub/Sub connectors. To learn more about Microsoft Sentinel, see the following articles:
+
+   - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+   - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+   - [Use workbooks](monitor-your-data.md) to monitor your data.
+   
