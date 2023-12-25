@@ -508,6 +508,8 @@
         - name: Protect servers with Defender for Servers
           href: tutorial-enable-servers-plan.md
         - name: Configure vulnerability scanning
+        - name: Prepare for deprecation of Log Analytics MMA
+          href: prepare-deprecation-log-analytics-mma-agent.md
           items:
             - name: Enable agentless scanning for VMs
               displayName: vulnerability, software inventory, agentless scanning
@@ -696,6 +698,8 @@
           - name: Scan your SQL resources for vulnerabilities
             href: defender-for-sql-on-machines-vulnerability-assessment.md
             displayName: hybrid, arc, Azure Defender, VA, registry, vulnerabilities
+          - name: Prepare for deprecation of Log Analytics MMA
+            href: prepare-deprecation-log-analytics-mma-agent.md
      -  name: Defender for open-source relational databases
         items:
           - name: Overview
