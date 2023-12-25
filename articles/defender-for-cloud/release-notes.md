@@ -166,6 +166,13 @@ For a complete list of alerts, see the [reference table for all security alerts 
 | November 27 | [General availability of agentless secret scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secret-scanning-in-defender-for-servers-and-defender-cspm) |
 | November 30 | [Four alerts are deprecated](#four-alerts-are-deprecated) |
 | November 27 | [General availability of agentless secrets scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secrets-scanning-in-defender-for-servers-and-defender-cspm) |
+
+| November 29 | [Recommendations released for preview: Nine new Azure security recommendations](#recommendations-released-for-preview-nine-new-azure-security-recommendations)|
+| November 27 | [General availability of agentless secret scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secret-scanning-in-defender-for-servers-and-defender-cspm) |
+
+| November 30 | [Four alerts are deprecated](#four-alerts-are-deprecated) |
+| November 27 | [General availability of agentless secrets scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secrets-scanning-in-defender-for-servers-and-defender-cspm) |
+
 | November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
 | November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
 | November 20 | [General Availability of the autoprovisioning process for SQL Servers on machines plan](#general-availability-of-the-autoprovisioning-process-for-sql-servers-on-machines-plan)|
@@ -180,6 +187,7 @@ For a complete list of alerts, see the [reference table for all security alerts 
 | November 15 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
+
 
 ### Recommendations released for preview: Nine new Azure security recommendations
 
@@ -202,6 +210,7 @@ We have added nine recommendations to the Microsoft Cloud Security Benchmark. Th
 See the full [list of security recommendations](recommendations-reference.md).
 
 ### General availability of agentless secret scanning in Defender for Servers and Defender CSPM
+
 ## Four alerts are deprecated
 
 November 30, 2023
@@ -214,6 +223,7 @@ As part of our quality improvement process, the following security alerts are de
 - `PsExec execution detected (VM_RunByPsExec)`
 
 ### General availability of agentless secrets scanning in Defender for Servers and Defender CSPM
+
 
 November 27, 2023
 
