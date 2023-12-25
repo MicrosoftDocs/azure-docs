@@ -28,6 +28,8 @@ To learn more about Azure Synapse Analytics, see the [Azure Synapse Analytics Ov
 |Azure Synapse dedicated SQL pool|[UPDATE STATISTICS statement fails with error: "The provided statistics stream is corrupt."](#update-statistics-failure)|Has Workaround|
 |Azure Synapse Workspace|[Blob storage linked service with User Assigned Managed Identity (UAMI) is not getting listed](#blob-storage-linked-service-with-user-assigned-managed-identity-uami-is-not-getting-listed)|Has Workaround|
 |Azure Synapse Workspace|[Failed to delete Synapse workspace & Unable to delete virtual network](#failed-to-delete-synapse-workspace--unable-to-delete-virtual-network)|Has Workaround|
+|Azure Synapse Workspace|[REST API PUT operations or ARM/Bicep templates to update network settings fail](#rest-api-put-operations-or-armbicep-templates-to-update-network-settings-fail)|Has Workaround|
+|Azure Synapse Workspace|[Known Issue on Incorporating Square Brackets [] in the value of Tags](#known-issue-on-incorporating-square-brackets-[]-in-the-value-of-tags)|Has Workaround|
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
@@ -110,6 +112,12 @@ Deleting a Synapse workspace fails with the error message:
 When using an ARM template, Bicep template, or direct REST API PUT operation to change the public network access settings and/or firewall rules for a Synapse workspace, the operation can fail.
 
 **Workaround**: The problem can be mitigated by using a REST API PATCH operation or the Azure Portal UI to reverse and retry the desired configuration changes. The engineering team is aware of this behavior and working on a fix.
+
+### Known Issue on Incorporating Square Brackets [] in the value of Tags
+
+In the context of updating tag values within a Synapse workspace, the inclusion of square brackets ([]) will result in an unsuccessful update operation.
+
+**Workaround**: The current workaround is to abstain from using the square brackets ([]) in  Synapse workspace tag values.
 
 ## Recently Closed Known issues
 
