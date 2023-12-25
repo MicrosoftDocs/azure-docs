@@ -1220,9 +1220,6 @@ items:
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
         displayName: troubleshooting
-      - name: Google Ads
-        href: connector-troubleshoot-google-adwords.md          
-        displayName: troubleshooting
       - name: Hive
         href: connector-troubleshoot-hive.md
         displayName: troubleshooting
