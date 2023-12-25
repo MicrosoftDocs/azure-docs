@@ -205,9 +205,11 @@ To upgrade your Google Ads driver version, you need update your linked service a
 
 ### Update the linked service configuration
 
-Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it.
+Create a new Google Ads linked service and configure it by referring to [Linked service properties](#linked-service-properties). Note that you need to select **Recommended** in **Driver version**, and apply the new configuration for **Service authentication** if you use it. 
 
 ### Migrate from SQL to GAQL
+
+To migrate from SQL to GAQL, you need to convert query statements and field names.
 
 #### Query statements
 
