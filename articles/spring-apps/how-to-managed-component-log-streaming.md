@@ -46,8 +46,8 @@ To stream logs of managed component, the user must be granted the corresponding 
 
 | Managed component                 | Required role                                                         | Operations                                                                      |
 | --------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Application Configuration Service | `Azure Spring Apps Application Configuration Service log reader role` | `Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action` |
-| Spring Cloud Gateway              | `Azure Spring Apps Spring Cloud Gateway log reader role`              | `Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action`              |
+| Application Configuration Service | `Azure Spring Apps Application Configuration Service Log Reader Role` | `Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action` |
+| Spring Cloud Gateway              | `Azure Spring Apps Spring Cloud Gateway Log Reader Role`              | `Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action`              |
 
 ### [Azure portal](#tab/azure-Portal)
 
@@ -58,11 +58,11 @@ Use the following steps to assign an Azure role using the Azure portal.
 1. In the navigation pane, select **Access Control (IAM)**.
 1. On the **Access Control (IAM)** page, select **Add**, and then select **Add role assignment**.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/add-role-assignment.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-remote-debugging-app-instance/add-role-assignment.png":::
+   :::image type="content" source="media/how-to-managed-component-log-streaming/add-role-assignment.png" alt-text="Screenshot of the Azure portal showing the Access Control (IAM) page for an Azure Spring Apps instance with the Add role assignment option highlighted." lightbox="media/how-to-managed-component-log-streaming/add-role-assignment.png":::
 
-1. On the **Add role assignment** page, in the **Name** list, search for and select the target role, and then select **Next**. (TODO: Mason to update the screenshot after the Roles are created in Azure)
+1. On the **Add role assignment** page, in the **Name** list, search for and select the target role, and then select **Next**.
 
-   :::image type="content" source="media/how-to-remote-debugging-app-instance/remote-debugging-role.png" alt-text="Screenshot of the Azure portal showing the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service log reader role name highlighted." lightbox="media/how-to-remote-debugging-app-instance/remote-debugging-role.png":::
+   :::image type="content" source="media/how-to-managed-component-log-streaming/acs-log-reader-role.png" alt-text="Screenshot of the Azure portal showing the Add role assignment page for an Azure Spring Apps instance with the Azure Spring Apps Application Configuration Service Log Reader Role name highlighted." lightbox="media/how-to-managed-component-log-streaming/acs-log-reader-role.png":::
 
 1. Select **Members**, and then search for and select your username.
 1. Select **Review + assign**.
