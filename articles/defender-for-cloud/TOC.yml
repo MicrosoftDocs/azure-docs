@@ -109,9 +109,6 @@
     - name: Protect VMs
       displayName: manage, access, harden
       href: tutorial-protect-resources.md
-    - name: Investigate and respond to security alerts
-      displayName: triage, security, alerts, investigate,
-      href: tutorial-security-incident.md
     - name: Investigate the health of your resources
       displayName: health, resources, outstanding, security, issues,
       href: investigate-resource-health.md
@@ -394,7 +391,7 @@
           href: powershell-onboarding.md
     - name: Alerts, incidents, and threat reports
       items:
-        - name: Respond to security alerts
+        - name: Manage and respond to security alerts
           displayName: security alerts, alerts
           href: managing-and-responding-alerts.md
         - name: Create and manage alerts suppression rules
