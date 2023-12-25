@@ -40,21 +40,20 @@ You can set up the GCP environment in one of two ways:
 
 ### Create GCP resources via the Terraform API
 
+The Identity and Access Management (IAM) API must be enabled.  
+Cloud Resource Manager API must be enabled.
 1. Open [GCP Cloud Shell](https://cloud.google.com/shell/).
 1. Open the editor and type: 
-    
     ```    
     gcloud config set project {projectId}  
     ```
-1. In the next window, select **Authorize**. 							 
+
 1. Copy the Terraform [GCPInitialAuthenticationSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPInitialAuthenticationSetup), paste the script to a new file, and save it as a .tf file.  
 1. In the editor, type:  
-
     ```
     terraform init  
     ```
-1. Type:
-    
+
     ```
     terraform apply 
     ```
@@ -64,32 +63,27 @@ You can set up the GCP environment in one of two ways:
 1. When asked if you want to create the resources listed, type *yes*.
 1. Save the resources parameters for later use. 	
 1. In a new folder, copy the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) into a new file, and save it as a .tf file:
-
     ```
     cd {foldername} 
     ```
-1. In the editor, type: 					 
 
     ```
     terraform init  
     ```
 
 1. Type: 					 
-
     ```
     terraform apply  
     ```
 
-    To ingest logs from an entire organization using a single Pub/Sub, type: 
+1.  To ingest logs from an entire organization using a single Pub/Sub, type: 
 
     ```    
     terraform apply -var="organization-id= {organizationId} "					 
     ```
 
 1. Type *yes*. 						 
-
 1. Save the resource parameters for later use.  
-
 1. Wait five minutes before moving to the next step. 
 
 ## Set up the GCP Pub/Sub connector in Microsoft Sentinel
@@ -209,3 +203,4 @@ In this article, you learned how to ingest GCP data into Microsoft Sentinel usin
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
+
