@@ -27,7 +27,7 @@ Azure Cloud Shell is a free interactive shell that you can use to run the steps 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
 
-If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az--version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.38.0 or later. Run `az--version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create a resource group
 
@@ -96,7 +96,7 @@ For this step you need to be a Global Admin or you need to have the User Access 
   az keyvault create -n keyVaultName -g myResourceGroup --enabled-for-disk-encryption true --sku premium --enable-purge-protection true
   ```
 3. Give `Confidential VM Orchestrator` permissions to `get` and `release` the key vault.
-  ```azurecli
+  ```Powershell
   $cvmAgent = az ad sp show --id "bf7b6499-ff71-4aa2-97a4-f372087be7f0" | Out-String | ConvertFrom-Json
   az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
   ```

@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Chaos Studio?
     href: chaos-studio-overview.md
-  - name: What is chaos engineering?
-    href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: Quickstart
   items:
   - name: Create and run a chaos experiment using Azure Chaos Studio 

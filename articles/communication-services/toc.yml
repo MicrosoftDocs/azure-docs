@@ -393,6 +393,12 @@ items:
           href: how-tos/ui-library-sdk/skip-setup-screen.md
         - name: Setup Orientation
           href: how-tos/ui-library-sdk/orientation.md
+        - name: Set up Picture in Picture
+          href: how-tos/ui-library-sdk/picture-in-picture.md
+        - name: Set up CallKit
+          href: how-tos/ui-library-sdk/callkit.md
+        - name: Set up one to one calling and PUSH notifications
+          href: how-tos/ui-library-sdk/one-to-one-calling.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
@@ -997,7 +1003,17 @@ items:
     href: /cli/azure/communication
   - name: REST API documentation
     href: /rest/api/communication/
-  - name: Calling 
+  - name: Azure Resource Manager
+    items:
+    - name: Azure Resource Manager (JavaScript)
+      href: /javascript/api/overview/azure/arm-communication-readme
+    - name: Azure Resource Manager (.NET)
+      href: /dotnet/api/overview/azure/resourcemanager.communication-readme
+    - name: Azure Resource Manager (Java)
+      href: /java/api/overview/azure/resourcemanager-communication-readme
+    - name: Azure Resource Manager (Python)
+      href: /python/api/overview/azure/mgmt-communication-readme
+  - name: Calling
     items:
     - name: Calling (JavaScript)
       href: /javascript/api/azure-communication-services/@azure/communication-calling/
@@ -1007,70 +1023,96 @@ items:
       href: /objectivec/communication-services/calling/
   - name: Call Automation
     items:
-    - name: Call Automation (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
-    - name: Call Automation (Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
     - name: Call Automation (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-callautomation
+      href: /javascript/api/overview/azure/communication-call-automation-readme
+    - name: Call Automation (.NET)
+      href: /dotnet/api/overview/azure/communication.callautomation-readme
+    - name: Call Automation (Java)
+      href: /java/api/overview/azure/communication-callautomation-readme
     - name: Call Automation (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-callautomation
+      href: /python/api/overview/azure/communication-callautomation-readme
   - name: Chat 
     items:
     - name: Chat (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat
+      href: /javascript/api/overview/azure/communication-chat-readme
     - name: Chat (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat
+      href: /dotnet/api/overview/azure/communication.chat-readme
     - name: Chat (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat
+      href: /java/api/overview/azure/communication-chat-readme
     - name: Chat (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat
+      href: /python/api/overview/azure/communication-chat-readme
     - name: Chat (iOS)
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html
-  - name: SMS 
-    items:
-    - name: SMS (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms
-    - name: SMS (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms
-    - name: SMS (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms
-    - name: SMS (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms
   - name: Email 
     items:
     - name: Email (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-email
+      href: /javascript/api/overview/azure/communication-email-readme
     - name: Email (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-email
+      href: /dotnet/api/overview/azure/communication.email-readme
     - name: Email (Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-email
+      href: /java/api/overview/azure/communication-email-readme
     - name: Email (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-email
+      href: /python/api/overview/azure/communication-email-readme
   - name: Identity 
     items:
     - name: Identity (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity
+      href: /javascript/api/overview/azure/communication-identity-readme
     - name: Identity (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity
-    - name: Identity (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity
+      href: /dotnet/api/overview/azure/communication.identity-readme
+    - name: Identity (Java)
+      href: /java/api/overview/azure/communication-identity-readme
     - name: Identity (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity
-  - name: Advanced Messaging
+      href: /python/api/overview/azure/communication-identity-readme
+  - name: Job Router 
     items:
-    - name: Advanced Messaging (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azure-communication-messages
-  - name: Common 
+    - name: Job Router (JavaScript)
+      href: /javascript/api/overview/azure/communication-job-router-rest-readme
+    - name: Job Router (.NET)
+      href: /dotnet/api/overview/azure/communication.jobrouter-readme
+    - name: Job Router (Java)
+      href: /java/api/overview/azure/communication-jobrouter-readme
+    - name: Job Router (Python)
+      href: /python/api/overview/azure/communication-jobrouter-readme
+  - name: Network Traversal
     items:
-    - name: Common (JavaScript)
-      href: https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common
-    - name: Common (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
-    - name: Common (Android/Java)
-      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
-    - name: Common (iOS)
-      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
+    - name: Network Traversal (JavaScript)
+      href: https://azure.github.io/azure-sdk-for-js/communication.html#section-8
+    - name: Network Traversal (.NET)
+      href: /dotnet/api/overview/azure/communication.networktraversal-readme
+    - name: Network Traversal (Java)
+      href: /java/api/overview/azure/communication-networktraversal-readme
+    - name: Network Traversal (Python)
+      href: /python/api/overview/azure/communication-networktraversal-readme
+  - name: Phone Numbers
+    items:
+    - name: Phone Numbers (JavaScript)
+      href: /javascript/api/overview/azure/communication-phone-numbers-readme
+    - name: Phone Numbers (.NET)
+      href: /dotnet/api/overview/azure/communication.phonenumbers-readme
+    - name: Phone Numbers (Java)
+      href: /java/api/overview/azure/communication-phonenumbers-readme
+    - name: Phone Numbers (Python)
+      href: /python/api/overview/azure/communication-phonenumbers-readme
+  - name: Rooms
+    items:
+    - name: Rooms (JavaScript)
+      href: /javascript/api/overview/azure/communication-rooms-readme
+    - name: Rooms (.NET)
+      href: /dotnet/api/overview/azure/communication.rooms-readme
+    - name: Rooms (Java)
+      href: /java/api/overview/azure/communication-rooms-readme
+    - name: Rooms (Python)
+      href: /python/api/overview/azure/communication-rooms-readme
+  - name: SMS
+    items:
+    - name: SMS (JavaScript)
+      href: /javascript/api/overview/azure/communication-sms-readme
+    - name: SMS (.NET)
+      href: /dotnet/api/overview/azure/communication.sms-readme
+    - name: SMS (Java)
+      href: /java/api/overview/azure/communication-sms-readme
+    - name: SMS (Python)
+      href: /python/api/overview/azure/communication-sms-readme
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
@@ -1083,6 +1125,20 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
+  - name: Advanced Messaging
+    items:
+    - name: Advanced Messaging (.NET)
+      href: /dotnet/api/overview/azure/communication.messages-readme
+  - name: Common
+    items:
+    - name: Common (JavaScript)
+      href: /javascript/api/overview/azure/communication-common-readme
+    - name: Common (.NET)
+      href: /dotnet/api/overview/azure/communication.common-readme
+    - name: Common (Android/Java)
+      href: /java/api/overview/azure/communication-common-readme
+    - name: Common (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: Country phone number management
     items:
     - name: Phone number management for Australia

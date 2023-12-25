@@ -29,11 +29,11 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
 
 ## Steps 
 
-1. From your NetApp account, select **Application volume groups**, and click **+Add Group**.
+1. From your NetApp account, select **Application volume groups**, then **+Add Group**.
 
     [ ![Screenshot that shows how to add a group.](../media/azure-netapp-files/application-volume-group-add-group.png) ](../media/azure-netapp-files/application-volume-group-add-group.png#lightbox)
 
-2. In Deployment Type, select **SAP HANA** and click **Next**. 
+2. In Deployment Type, select **SAP HANA** then **Next**. 
 
     [ ![Screenshot that shows the Create Volume Group window.](../media/azure-netapp-files/application-volume-group-create-group.png) ](../media/azure-netapp-files/application-volume-group-create-group.png#lightbox)
 
@@ -53,7 +53,7 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
     * **Multiple-host**:
         Select this option for adding additional hosts to a multiple-hosts HANA system.
 
-    Click **Next: Volume Group**.
+    Select **Next: Volume Group**.
 
     [ ![Screenshot that shows the SAP HANA tag.](../media/azure-netapp-files/application-sap-hana-tag.png) ](../media/azure-netapp-files/application-sap-hana-tag.png#lightbox)
 
@@ -69,19 +69,19 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
     * **Subnet**:  
         Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
 
-    Click **Next: Tag**. 
+    Select **Next: Tags**. 
 
     [ ![Screenshot that shows the Volume Group tag.](../media/azure-netapp-files/application-volume-group-tag.png) ](../media/azure-netapp-files/application-volume-group-tag.png#lightbox)
 
 5. In the **Tags** section of the Volume Group tab, you can add tags as needed for the volumes.   
 
-    Click **Next: Protocol**. 
+    Select **Next: Protocol**. 
 
     [ ![Screenshot that shows how to add tags.](../media/azure-netapp-files/application-add-tags.png) ](../media/azure-netapp-files/application-add-tags.png#lightbox)
 
 6. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.  
 
-    Click **Next: Volumes**. 
+    Select **Next: Volumes**. 
 
     [ ![Screenshot that shows the protocols tags.](../media/azure-netapp-files/application-protocols-tag.png) ](../media/azure-netapp-files/application-protocols-tag.png#lightbox)
 
@@ -106,7 +106,7 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
     * **Throughput**:  
         You can reduce the throughput requirements for development or test systems accordingly to the value required for your use cases.
 
-    Click **Next: Protocols** to review the protocol settings. 
+    Select **Next: Protocols** to review the protocol settings. 
 
     [ ![Screenshot that shows the Basics tab of Create a Volume Group page.](../media/azure-netapp-files/application-create-volume-basics-tab.png) ](../media/azure-netapp-files/application-create-volume-basics-tab.png#lightbox)
 
@@ -114,7 +114,7 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
 
     You cannot change the protocol for the data and log volumes. 
 
-    Click the **Tags** tab if you want to specify tags for a volume. Or click **Volumes** to return to the Volumes overview page.
+    Select the **Tags** tab if you want to specify tags for a volume. Or select **Volumes** to return to the Volumes overview page.
 
     [ ![Screenshot that shows the Protocol tab of Create a Volume Group page.](../media/azure-netapp-files/application-create-volume-protocol-tab.png) ](../media/azure-netapp-files/application-create-volume-protocol-tab.png#lightbox)
 
@@ -122,16 +122,16 @@ Be sure to follow the **[pinning recommendations](https://aka.ms/HANAPINNING)** 
 
     [ ![Screenshot that shows Volumes page with volume details.](../media/azure-netapp-files/application-volume-details.png) ](../media/azure-netapp-files/application-volume-details.png#lightbox)
 
-    If you want to remove the optional volumes (marked with a `*`) such as data-backup volume or log-backup volume from the volume group, select the volume and click **Remove volume**. Confirm the removal in the dialog box that appears.
+    If you want to remove the optional volumes (marked with a `*`), such as data-backup volume or log-backup volume from the volume group, select the volume then select **Remove volume**. Confirm the removal in the dialog box that appears.
 
     > [!IMPORTANT]
-    > You cannot add a removed volume back to the volume group again.
+    > You cannot add a removed volume back to the volume group again. You need to stop and restart the application volume group configuration.
 
     [ ![Screenshot that shows how to remove a volume.](../media/azure-netapp-files/application-volume-remove.png) ](../media/azure-netapp-files/application-volume-remove.png#lightbox)
 
-    Click **Volumes** to return to the Volume overview page. Click **Next: Review + create**.
+    Select **Volumes** to return to the Volume overview page. Select **Next: Review + create**.
 
-11.	The **Review + Create** tab lists all the volumes and how they will be created.  Click **Create Volume Group** to start the volume group creation.
+11.	The **Review + Create** tab lists all the volumes and how they will be created. Select **Create Volume Group** to start the volume group creation.
 
     [ ![Screenshot that shows the Review and Create tab.](../media/azure-netapp-files/application-review-create.png) ](../media/azure-netapp-files/application-review-create.png#lightbox)
 
