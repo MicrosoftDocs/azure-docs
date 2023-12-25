@@ -24,8 +24,7 @@ This article walks you through the main user journey of using prompt flow in Azu
 
 - If you secure prompt flow with virtual network, please follow [Network isolation in prompt flow](how-to-secure-prompt-flow.md) to learn more detail.
 
-
-## Set up connections
+## Set up connection
 
 First you need to set up connection.
 
@@ -46,11 +45,6 @@ To obtain the API key, base, type, and version, you can navigate to the [chat pl
 :::image type="content" source="./media/get-started-prompt-flow/create-aoai-connection.png" alt-text="Screenshot of the chat playground after selecting the view code  button that displays a popup with sample code, highlighting the API key." lightbox = "./media/get-started-prompt-flow/create-aoai-connection.png":::
 
 After inputting the required fields, select **Save** to create the connection.
-
-
-
-
-
 
 ## Create and develop your prompt flow
 
