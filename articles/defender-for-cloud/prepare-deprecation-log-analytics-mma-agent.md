@@ -9,7 +9,7 @@ ms.date: 12/25/2023
 
 # Prepare for deprecation of Log Analytics MMA
 
-The Azure Log Analytics, Microsoft Monitor Agent (MMA) is [set to be retired in August 2024](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). If you’ve deployed the Defender for Servers or Defender for SQL Server on Machines plans within Microsoft Defender for Cloud, here’s how you should prepare.
+The Azure Log Analytics, Microsoft Monitor Agent (MMA) is [set to be retired in August 2024](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). If you deployed the Defender for Servers or Defender for SQL Server on Machines plans within Microsoft Defender for Cloud, you can use the following table to help you prepare for deprecation.
 
 | Are you using Defender for Servers? | Are you using FIM/EPP discovery/Baseline feature in Defender for Servers? | Are you using Defender for SQL servers on Machines? | What do I need to do? |
 | --- | --- | --- | --- |
@@ -19,21 +19,21 @@ The Azure Log Analytics, Microsoft Monitor Agent (MMA) is [set to be retired in 
 
 ## Prepare Defender for Servers
 
-Defender for Servers has been reliant on the Log Analytics agent (known as Microsoft Monitoring Agent (MMA)) as mandatory and the recommended agent for posture and threat protection capabilities in Azure and multicloud scenarios.
+Defender for Servers has up until now relied on the Log Analytics agent (Microsoft Monitoring Agent-MMA) as mandatory, and the recommended agent for posture and threat protection capabilities in Azure and multicloud scenarios.
 
-Towards Log Analytics Agent (MMA) retirement, and as part of an updated deployment strategy, with a goal to simplify onboarding, all Defender for Servers security features and capabilities will be provided via a single agent (Microsoft Defender for Endpoint (MDE)) complemented by agentless scanning, without dependency on either Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA), the substitute agent.  
+Towards Log Analytics Agent (MMA) deprecation, and as part of an updated deployment strategy  with a goal to simplify onboarding, all Defender for Servers security features and capabilities will be provided via a single agent (Microsoft Defender for Endpoint (MDE)), complemented by agentless scanning, without dependency on Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA), the substitute agent.  
 
 As a result, all Defender for Servers features and capabilities currently relying on Log Analytics Agent (MMA) will be deprecated in their Log Analytics version in August 2024, and delivered over one of the previously mentioned alternative infrastructures.
 
 ### Enable Defender for Endpoint integration/agentless scanning
 
-Enable Defender for Endpoint integration and agentless disk scanning on your subscriptions. This ensures you’ll seamlessly be up-to-date and receive all the alternative deliverables once they're provided, and without any additional migration. Learn more about [endpoint protection](integration-defender-for-endpoint.md) and [agentless scanning](concept-agentless-data-collection.md).
+Enable Defender for Endpoint integration and agentless disk scanning on your subscriptions. This step ensures you’ll seamlessly be up-to-date and receive all the alternative deliverables once they're provided, and without any extra migration. Learn more about [endpoint protection](integration-defender-for-endpoint.md) and [agentless scanning](concept-agentless-data-collection.md).
 
 ### Plan your migration according to your needs
 
-All Defender for Servers features will be provided via Defender for Endpoint integration and agentless disk scanning, without any dependency in either AMA or MMA.  Most of the features are already available in GA (General Availability) through the alternative platforms (MDE/agentless). The rest will be provided in GA by April 2024, or deprecated. Learn about the [strategy for the Log Analytics deprecation plan](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+All Defender for Servers features will be provided via Defender for Endpoint integration and agentless disk scanning, without any dependency on AMA or MMA.  Most of the features are already available in GA (General Availability) through the alternative platforms (MDE/agentless). The rest of the features will be provided in GA by April 2024, or deprecated. Learn about the [strategy for the Log Analytics deprecation plan](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 
-Defender for Servers features that are currently provided over AMA in public preview are not going to be GA, and will remain supported until an alternative version is provided based on Defender for Endpoint integration or agentless disk scanning.
+Defender for Servers features that are currently provided in AMA's public preview aren't going to be released as GA, and will remain supported until an alternative version is provided based on Defender for Endpoint integration or agentless disk scanning.
 
 We recommend that you plan your agents’ migration plan according to your organization’s requirements:  
 
