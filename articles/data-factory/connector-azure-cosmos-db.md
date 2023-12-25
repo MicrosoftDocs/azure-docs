@@ -533,6 +533,6 @@ In addition, Azure Cosmos DB analytical store now supports Change Data Capture (
 
 
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

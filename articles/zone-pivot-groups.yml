@@ -382,12 +382,12 @@ groups:
     title: Java
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-typescript
-    title: TypeScript
   - id: programming-language-powershell
     title: PowerShell
   - id: programming-language-python
     title: Python
+  - id: programming-language-typescript
+    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -969,6 +969,15 @@ groups:
     title: REST
   - id: speech-cli
     title: CLI
+- id: speech-studio-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-studio
+    title: Speech Studio
+  - id: rest-api
+    title: REST
 - id: speech-cli-rest
 # Owner: eur
   title: Programming languages
@@ -1838,6 +1847,8 @@ groups:
     title: Go
   - id: programming-language-java
     title: Java
+  - id: programming-language-spring
+    title: Spring
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
@@ -1885,6 +1896,15 @@ groups:
     title: Python
   - id: rest-api
     title: REST
+# Owner: mbullwin
+- id: openai-embeddings
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-powershell
+    title: PowerShell
 # Owner: aahi
 - id: openai-use-your-data
   title: Programming languages
@@ -1894,6 +1914,8 @@ groups:
     title: Studio
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-spring
+    title: Spring
   - id: programming-language-javascript
     title: JavaScript 
   - id: programming-language-python
@@ -1925,6 +1947,15 @@ groups:
     title: PowerShell
   - id: rest-api
     title: REST (DALL-E 3)
+# Owner: pafarley
+- id: openai-quickstart-gpt-v
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-whisper
   title: Programming languages
@@ -2424,10 +2455,10 @@ groups:
   pivots:
   - id: sc-enterprise
     title: Enterprise
-  - id: sc-consumption-plan
-    title: Standard consumption and dedicated (Preview)
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-consumption-plan
+    title: Standard consumption and dedicated (Preview)
 ########### BEGIN APPLICATION MANAGEMENT
 # Service:       Active Directory (active-directory)
 # Sub-service:   APPLICATION MANAGEMENT(manage-apps)

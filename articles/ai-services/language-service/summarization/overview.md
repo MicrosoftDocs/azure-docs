@@ -7,7 +7,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: overview
-ms.date: 01/12/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
@@ -77,8 +77,10 @@ This documentation contains the following article types:
 Conversation summarization supports the following features:
 
 * **Issue/resolution summarization**: A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
-* **Chapter title summarization**: Gives suggested chapter titles of the input conversation.
-* **Narrative summarization**: Gives call notes, meeting notes or chat summaries of the input conversation.
+* **Chapter title summarization**: Segments a conversation into chapters based on the topics discussed in the conversation, and gives suggested chapter titles of the input conversation.
+* **Recap**: Summarizes a conversation into a brief paragraph.
+* **Narrative summarization**: Generates detail call notes, meeting notes or chat summaries of the input conversation.
+* **Follow-up tasks**: Gives a list of follow-up tasks discussed in the input conversation.
 
 ## When to use issue and resolution summarization
 

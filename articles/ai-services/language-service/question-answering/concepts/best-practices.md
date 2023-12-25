@@ -5,7 +5,7 @@ ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
 ms.topic: conceptual
-ms.date: 06/03/2022
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering
 ---
 

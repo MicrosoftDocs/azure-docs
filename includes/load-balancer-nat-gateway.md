@@ -1,11 +1,11 @@
 ---
  title: include file
  description: include file
- services: virtual-network
+ services: load-balancer
  author: mbender-ms
- ms.service: virtual-network
+ ms.service: load-balancer
  ms.topic: include
- ms.date: 11/29/2023
+ ms.date: 12/05/2023
  ms.author: mbender
  ms.custom: include file
 ---
@@ -42,8 +42,6 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 1. Enter **nat-gw-public-ip** in **Name** in **Add a public IP address**.
 
 1. Select **OK**.
-
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Add a public IP address window in the Azure portal":::
 
 1. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
 

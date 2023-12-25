@@ -14,7 +14,7 @@ Review the requirements on this page before setting up [Microsoft Defender for A
 
 ## Cloud and region support
 
-Defender for APIs is in public preview in the Azure commercial cloud, in these regions:
+Defender for APIs is available in the Azure commercial cloud, in these regions:
 - Asia (Southeast Asia, EastAsia)
 - Australia (Australia East, Australia Southeast, Australia Central, Australia Central 2)
 - Brazil (Brazil South, Brazil Southeast)

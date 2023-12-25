@@ -1,25 +1,25 @@
 ---
-title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
-description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
+title: Azure Kubernetes Services (AKS) Core Basic Concepts
+description: Learn about the core components that make up workloads and clusters in Kubernetes and their counterparts on Azure Kubernetes Services (AKS).
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 10/31/2022
+ms.date: 12/13/2023
 ---
 
-# Kubernetes core concepts for Azure Kubernetes Service (AKS)
+# Core Kubernetes concepts for Azure Kubernetes Service
 
 Application development continues to move toward a container-based approach, increasing our need to orchestrate and manage resources. As the leading platform, Kubernetes provides reliable scheduling of fault-tolerant application workloads. Azure Kubernetes Service (AKS), a managed Kubernetes offering, further simplifies container-based application deployment and management.
 
-This article introduces:
-* Core Kubernetes infrastructure components:
+This article introduces core concepts:
+* Kubernetes infrastructure components:
     * *control plane*
     * *nodes*
     * *node pools*
 * Workload resources: 
     * *pods*
     * *deployments*
-    * *sets* 
-* How to group resources into *namespaces*.
+    * *sets*
+* Group resources using *namespaces*.
 
 ## What is Kubernetes?
 
@@ -71,7 +71,7 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 | ----------------- | ------------- |  
 | `kubelet` | The Kubernetes agent that processes the orchestration requests from the control plane along with scheduling and running the requested containers. |  
 | *kube-proxy* | Handles virtual networking on each node. The proxy routes network traffic and manages IP addressing for services and pods. |  
-| *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network and storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
+| *container runtime* | Allows containerized applications to run and interact with additional resources, such as the virtual network or storage. AKS clusters using Kubernetes version 1.19+ for Linux node pools use `containerd` as their container runtime. Beginning in Kubernetes version 1.20 for Windows node pools, `containerd` can be used in preview for the container runtime, but Docker is still the default container runtime. AKS clusters using prior versions of Kubernetes for node pools use Docker as their container runtime. |  
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -323,7 +323,7 @@ Using the Kubernetes Scheduler, the Deployment Controller runs replicas on any a
 
 Two Kubernetes resources, however, let you manage these types of applications:
 
-- *StatefulSets* maintain the state of applications beyond an individual pod lifecycle, such as storage.
+- *StatefulSets* maintain the state of applications beyond an individual pod lifecycle.
 - *DaemonSets* ensure a running instance on each node, early in the Kubernetes bootstrap process.
 
 ### StatefulSets
@@ -338,7 +338,7 @@ Replicas in a StatefulSet are scheduled and run across any available node in an 
 
 ### DaemonSets
 
-For specific log collection or monitoring, you may need to run a pod on all, or selected, nodes. You can use *DaemonSet* deploy on one or more identical pods, but the DaemonSet Controller ensures that each node specified runs an instance of the pod.
+For specific log collection or monitoring, you may need to run a pod on all nodes or a select set of nodes. You can use *DaemonSets* to deploy to one or more identical pods. The DaemonSet Controller ensures that each node specified runs an instance of the pod.
 
 The DaemonSet Controller can schedule pods on nodes early in the cluster boot process, before the default Kubernetes scheduler has started. This ability ensures that the pods in a DaemonSet are started before traditional pods in a Deployment or StatefulSet are scheduled.
 
