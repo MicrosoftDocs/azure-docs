@@ -57,7 +57,7 @@ mlflow.sklearn.log_model(sklearn_estimator, "classifier")
 
 ## The MLmodel format
 
-MLflow adopts the MLmodel format as a way to create a contract between the artifacts and what they represent. The MLmodel format stores assets in a folder. Among these assets, there's a file named `MLmodel`. this file is the single source of truth about how a model can be loaded and used.
+MLflow adopts the MLmodel format as a way to create a contract between the artifacts and what they represent. The MLmodel format stores assets in a folder. Among these assets, there's a file named `MLmodel`. This file is the single source of truth about how a model can be loaded and used.
 
 The following screenshot shows a sample MLflow model's folder in the Azure Machine Learning studio. The model is placed in a folder called `credit_defaults_model`. There is no specific requirement on the naming of this folder. The folder contains the `MLmodel` file among other model artifacts.
 
