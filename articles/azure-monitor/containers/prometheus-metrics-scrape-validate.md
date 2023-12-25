@@ -73,7 +73,7 @@ Running the validator generates the merged configuration file `merged-otel-confi
 ### Deploy config file as configmap
 Your custom Prometheus configuration file is consumed as a field named `prometheus-config` inside metrics addon configmap(s) `ama-metrics-prometheus-config` (or) `ama-metrics-prometheus-config-node` (or) `ama-metrics-prometheus-config-node-windows`  in the `kube-system` namespace. You can create a configmap from the scrape config file you created above, by renaming your Prometheus configuration file to `prometheus-config` (with no file extension) and running one or more of the following commands, depending on which configmap you want to create for your custom scrape job(s) config.
 
-Ex;- to create configmap to be used by replicsset
+Ex;- to create configmap to be used by replicaset
 ```
 kubectl create configmap ama-metrics-prometheus-config --from-file=prometheus-config -n kube-system
 ```
