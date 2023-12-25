@@ -161,7 +161,7 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 1. Review your changes and select **Next: Collect >**. 
 
-#### Select the data source type and create the DCR
+#### Select facilities and severities and create the DCR
 
 > [!NOTE]
 > Using the same facility for both Syslog and CEF messages may result in data ingestion duplication. Learn how to [avoid data ingestion duplication](#avoid-data-ingestion-duplication).
@@ -186,14 +186,18 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 You can create Data Collection Rules (DCRs) using the [Azure Monitor API](/rest/api/monitor/data-collection-rules). Learn more about [DCRs](../azure-monitor/essentials/data-collection-rule-overview.md).
 
-#### Request URL and header  
+#### Create the request URL and header
+
+Copy the request below by selecting the *copy* icon in the upper right corner of the frame.
+
+Paste it in a command prompt ***WHERE? in the VM? In an Azure command prompt? In any client?***
 
 ```rest
 GET
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2019-11-01-preview
 ```
  
-#### Request body
+#### Create the request body
 
 Edit the template: 
 - Verify that the `streams` field is set to `Microsoft-CommonSecurityLog`.
