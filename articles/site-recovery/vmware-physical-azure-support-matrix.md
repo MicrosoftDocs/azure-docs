@@ -284,6 +284,7 @@ Guest/server multipath (MPIO) | No
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
 Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace). <br/> - UEFI boot is supported as long as the Secure Boot setting is disabled. [Learn more.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms) <br/> - Windows 2008 R2 SP1 & Windows 2008 SP2 servers with UEFI isn't supported. 
 RAID disk| Hardware RAID disks aren't supported.<br/> Software RAID disks are supported. 
+Storage vMotion | Supported for migration. Not supported for disaster recovery. 
 
 ## Replication channels
 
