@@ -1,6 +1,6 @@
 ---
 title: Set up an external identity source for vCenter Server
-description: Learn how to set up Windows Server Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
+description: Learn how to set up Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 12/06/2023
@@ -12,21 +12,21 @@ ms.custom: engagement-fy23
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
 > [!NOTE]
-> Execute commands one at a time in the order that's described in the article.
+> Run commands one at a time in the order that's described in the article.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Export the certificate for LDAPS authentication. (Optional)
+> - Export a certificate for LDAPS authentication. (Optional)
 > - Upload the LDAPS certificate to blob storage and generate a shared access signature (SAS) URL. (Optional)
 > - Configure NSX-T DNS for resolution to your Windows Server Active Directory domain.
-> - Add Windows Server Active Directory over (Secure) LDAPS (LDAP over SSL) or (unsecure) LDAP.
-> - Add existing Windows Server Active Directory group to cloudadmin group.
-> - List all existing external identity sources integrated with vCenter Server SSO.
+> - Add Windows Server Active Directory over LDAPS (secure) or LDAP (unsecure).
+> - Add an existing Windows Server Active Directory group to the cloudadmin group.
+> - List all existing external identity sources that are integrated with vCenter Server SSO.
 > - Assign additional vCenter Server roles to Windows Server Active Directory identities.
 > - Remove a Windows Server Active Directory group from the cloudadmin role.
-> - Remove existing external identity sources.
+> - Remove all existing external identity sources.
 
 > [!NOTE]
 > [Export the certificate for LDAPS authentication](#optional-export-the-certificate-for-ldaps-authentication) and [Upload the LDAPS certificate to blob storage and generate a SAS URL](#optional-upload-the-ldaps-certificate-to-blob-storage-and-generate-a-sas-url) are optional steps. The certificate will be downloaded from the domain controller automatically through the **PrimaryUrl** and/or **SecondaryUrl** parameters if the **SSLCertificatesSasUrl** parameter is not provided. You can still provide **SSLCertificatesSasUrl** and follow the optional steps to manually export and upload the certificate.
@@ -46,7 +46,7 @@ In this article, you learn how to:
   
   - Optional: If you don't provide the `SSLCertificatesSasUrl` parameter, the certificate is automatically downloaded from the domain controller via the `PrimaryUrl` or the `SecondaryUrl` parameters. Alternatively, you can manually [export the certificate for LDAPS authentication](#optional-export-the-certificate-for-ldaps-authentication) and upload it to an Azure Storage account as blob storage. Then, [grant access to Azure Storage resources using a shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
 
-- Configure DNS resolution for Azure VMware Solution to your on-premises Windows Server Active Directory. Enable DNS Forwarder from the Azure portal. For more information, see [configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
+- Configure DNS resolution for Azure VMware Solution to your on-premises Windows Server Active Directory. Enable DNS Forwarder in the Azure portal. For more information, see [configure DNS forwarder for Azure VMware Solution](configure-dns-azure-vmware-solution.md).
 
 > [!NOTE]
 > For more information about LDAPS and certificate issuance, contact your security or identity management team.
@@ -129,14 +129,14 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
    | **Name** | The user-friendly name of the external identity source. For example,**avslab.local**. |
    | **Retain up to** | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution** | An alphanumeric name. For example, **addexternalIdentity**.  |
-   | **Timeout** | The time after which a cmdlet exits if it takes too long to finish.  |
+   | **Timeout** | The period after which a cmdlet exits if it hasn't finished running.  |
 
 1. To monitor progress and confirm successful completion, check **Notifications** or the **Run Execution Status** pane.
 
 ## Add Windows Server Active Directory over LDAP
 
 > [!NOTE]
-> We recommend that you use the [Add Active Directory over LDAP with SSL](#add-windows-server-active-directory-over-ldap-with-ssl) method.
+> We recommend that you use the method to [add Windows Server Active Directory over LDAP by using SSL](#add-windows-server-active-directory-over-ldap-with-ssl).
 
 To add Windows Server Active Directory over LDAP as an external identity source to use with SSO to vCenter Server, run the New-LDAPIdentitySource cmdlet:
 
@@ -146,7 +146,7 @@ To add Windows Server Active Directory over LDAP as an external identity source 
 
    | Field | Value |
    | --- | --- |
-   | **Name**  | User-friendly name of the external identity source. For example, **avslab.local**. This name is displayed in vCenter.  |
+   | **Name**  | A name for the external identity source. For example, **avslab.local**. This name appears in vCenter.  |
    | **DomainName**  | The domain's FQDN. For example, **avslab.local**.  |
    | **DomainAlias**  | For Windows Server Active Directory identity sources, the domain's NetBIOS name. Add the Windows Server Active Directory domain's NetBIOS name as an alias of the identity source, typically in the **avsldap\** format.      |
    | **PrimaryUrl**  | The primary URL of the external identity source. For example, `ldap://yourserver.avslab.local:389`.  |
@@ -157,27 +157,27 @@ To add Windows Server Active Directory over LDAP as an external identity source 
    | **GroupName**  | The group in your external identity source that grants cloudadmin access. For example, **avs-admins**.  |
    | **Retain up to**  | The retention period for the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **addexternalIdentity**.  |
-   | **Timeout**  |  The time after which a cmdlet exits if it takes too long to finish.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it hasn't finished running.  |
 
 1. To monitor the progress, check **Notifications** or the **Run Execution Status** pane.
 
-## Add existing Windows Server Active Directory group to a cloudadmin group
+## Add an existing Windows Server Active Directory group to a cloudadmin group
 
 > [!IMPORTANT]
-> Nested groups aren't supported, and their use may cause loss of access.
+> Nested groups aren't supported. Using a nested group might cause loss of access.
 
-Users in a cloudadmin group have privileges equal to the cloudadmin (<cloudadmin@vsphere.local>) role defined in vCenter Server SSO. To add an existing Windows Server Active Directory group to a cloudadmin group, run the `Add-GroupToCloudAdmins` cmdlet:
+Users in a cloudadmin group have privileges that are equal to the cloudadmin (`<cloudadmin@vsphere.local>`) role that's defined in vCenter Server SSO. To add an existing Windows Server Active Directory group to a cloudadmin group, run the Add-GroupToCloudAdmins cmdlet.
 
 1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Enter the required values or change the default values, and then select **Run**.
 
    | Field | Value |
    | --- | --- |
-   | **GroupName**  | Name of the group to add. For example, **VcAdminGroup**.  |
+   | **GroupName**  | The name of the group to add. For example, **VcAdminGroup**.  |
    | **Retain up to**  | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **addADgroup**.  |
-   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it hasn't finished running.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
 
@@ -202,7 +202,7 @@ To list all external identity sources already integrated with vCenter Server SSO
    | --- | --- |
    | **Retain up to**  | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **getExternalIdentity**.  |
-   | **Timeout**  |  The time after which a cmdlet exits if taking too long to finish.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it hasn't finished running.  |
 
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
@@ -230,7 +230,7 @@ After you've added an external identity over LDAP or LDAPS, you can assign vCent
 
 1. Users can now sign in to vCenter Server by using their Windows Server Active Directory credentials.
 
-## Remove Windows Server Active Directory group from the cloudadmin role
+## Remove a Windows Server Active Directory group from the cloudadmin role
 
 To remove a specified Windows Server Active Directory group from the cloudadmin role, run the Remove-GroupFromCloudAdmins cmdlet:
 
@@ -243,23 +243,23 @@ To remove a specified Windows Server Active Directory group from the cloudadmin 
    | **GroupName**  | The name of the group to remove. For example, **VcAdminGroup**.  |
    | **Retain up to**  | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **removeADgroup**.  |
-   | **Timeout**  |  The time after which a cmdlet exits if taking too long to finish.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it hasn't finished running.  |
 
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
-## Remove existing external identity sources
+## Remove all existing external identity sources
 
 To remove all existing external identity sources at once, run the Remove-ExternalIdentitySources cmdlet.
 
 1. Select **Run command** > **Packages** > **Remove-ExternalIdentitySources**.
 
-1. Provide the required values or change the default values, and then select **Run**:
+1. Enter the required values or change the default values, and then select **Run**:
 
    | Field | Value |
    | --- | --- |
    | **Retain up to**  | The retention period of the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **remove_externalIdentity**.  |
-   | **Timeout**  |  The time after which a cmdlet exits if processing takes too long.  |
+   | **Timeout**  |  The period after which a cmdlet exits if it hasn't finished running.  |
 
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
@@ -274,7 +274,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
    | Field | Value |
    | --- | --- |
    | **Credential**  | The domain username and password that are used for authentication with the Windows Server Active Directory source (not cloudadmin). The user must be in the `<username@avslab.local>` format. |
-   | **DomainName**  |  The FQDN of the domain. For example, `avslab.local`.  |
+   | **DomainName**  |  The FQDN of the domain. For example, **avslab.local**.  |
 
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
