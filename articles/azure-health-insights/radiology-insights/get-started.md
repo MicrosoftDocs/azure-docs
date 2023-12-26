@@ -162,35 +162,42 @@ http://{cognitive-services-account-endpoint}/health-insights/radiology-insights/
 
 ## Data limits
 
-    Limit, Value
-    Maximum # patients per request, 1
-    Maximum # patientdocuments per request, 1
-    Maximum # encounters per request, 1
-    Maximum # characters per patient, 50,000 for data[i].content.value all combined
+Limit, Value
+Maximum # patients per request, 1
+Maximum # patientdocuments per request, 1
+Maximum # encounters per request, 1
+Maximum # characters per patient, 50,000 for data[i].content.value all combined
 
 # Request validation
 
 Every request has required and optional fields that should be provided to the Radiology Insights model. When you're sending data to the model, make sure that you take the following properties into account:
 
-    Within a request:
-    patients should be set
-    patients should contain at least one entry
-    id in patients entries should be unique
-    
-    For each patient:
-    data should be set
-    data should contain at least one document of clinical type pathology
-    id in data entries should be unique
-    
-    For each clinical document within a patient:
-    createdDateTime should be set
-    if set, language should be en (default is en if not set)
-    documentType should be set to Note
-    clinicalType should be set to one of imaging, pathology, procedure, progress
-    content sourceType should be set to inline
+Within a request:
+- patients should be set
+- patients should contain one entry
+•	id in patients entry should be set
 
-	
+Within configuration:
+- If set, configuration locale should be one of the following values(case-insensitive): en-CA; en-US; en-AU; en-DE; en-IE; en-NZ; en-GB
 
+
+Within patients:
+- should contain one patientDocument entry
+- id in patientDocument should be set
+- if encounters and/or info are used, id should be set
+
+
+For the patientDocuments within a patient:
+- createdDateTime (serviceDate) should be set
+- Patient Document language should be EN (case-insensitive) 
+- documentType should be set to Note
+- Patient Document clinicalType should be set to radiologyreport or pathologyreport
+- Patient Document specialtyType should be radiology or pathology
+- If set, orderedProcedures in administrativeMetadata should contain code -with code and display- and description
+- Document content should not be blank/empty/null 
+
+
+```json
 "patientDocuments" : [ {
       "type" : "note",
       "clinicalType" : "radiologyReport",
@@ -201,7 +208,7 @@ Every request has required and optional fields that should be provided to the Ra
         "name" : "authorname1"
       } ],
       "specialtyType" : "radiology",
-
+```
 
 
 

@@ -51,7 +51,13 @@ To interact with the Radiology-Insights model, you can provide several model con
 
 An age mismatch occurs when the document gives a certain age for the patient, which differs from the age that is calculated based on the patient’s info birthdate and the encounter period in the request.  
 - kind: RadiologyInsightsInferenceType.AgeMismatch;
-- Request and json output: age_mm_textLimited
+
+Request and json output: age_mm_textLimited
+
+[Example input json](age_mm_textLimited.xml.jsonrequest)
+
+[Example output json](age_mm_textLimited.xml.jsonresponse)
+
 
 **Laterality Discrepancy**
 

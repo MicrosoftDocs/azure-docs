@@ -83,114 +83,11 @@ The includeRecommendationsWithNoSpecifiedModality has been set to true, includeR
 
 As a result, the model will include evidence for all inferences. It also means that the model checks for follow up recommendations with a specified modality and for follow up recommendations with no specific radiologic modality and provides a single focused sentence as evidence for the recommendation. 
 
-### Todo add input output json
-```json
-{
-  "configuration" : {
-    "inferenceOptions" : {
-      "followupRecommendationOptions" : {
-        "includeRecommendationsWithNoSpecifiedModality" : false,
-        "includeRecommendationsInReferences" : false,
-        "provideFocusedSentenceEvidence" : false
-      },
-      "findingOptions" : {
-        "provideFocusedSentenceEvidence" : false
-      }
-    },
-    "inferenceTypes" : [ "lateralityDiscrepancy" ],
-    "locale" : "en-US",
-    "verbose" : false,
-    "includeEvidence" : false
-  },
-  "patients" : [ {
-    "id" : "11111",
-    "info" : {
-      "sex" : "female",
-      "birthDate" : "1986-07-01T21:00:00+00:00",
-      "clinicalInfo" : [ {
-        "resourceType" : "Observation",
-        "status" : "unknown",
-        "code" : {
-          "coding" : [ {
-            "system" : "http://www.nlm.nih.gov/research/umls",
-            "code" : "C0018802",
-            "display" : "MalignantNeoplasms"
-          } ]
-        },
-        "valueBoolean" : "true"
-      } ]
-    },
-    "encounters" : [ {
-      "id" : "encounterid1",
-      "period" : {
-        "start" : "2021-08-28T00:00:00",
-        "end" : "2021-08-28T00:00:00"
-      },
-      "class" : "inpatient"
-    } ],
-    "patientDocuments" : [ {
-      "type" : "note",
-      "clinicalType" : "radiologyReport",
-      "id" : "docid1",
-      "language" : "en-US",
-      "authors" : [ {
-        "id" : "authorid1",
-        "name" : "authorname1"
-      } ],
-      "specialtyType" : "radiology",
-      "administrativeMetadata" : {
-        "orderedProcedures" : [ {
-          "code" : {
-            "coding" : [ {
-              "system" : "Http://hl7.org/fhir/ValueSet/cpt-all",
-              "code" : "76645A",
-              "display" : "US LT BREAST TARGETED"
-            } ]
-          },
-          "description" : "US LT BREAST TARGETED"
-        } ],
-        "encounterId" : "encounterid1"
-      },
-      "content" : {
-        "sourceType" : "inline",
-        "value" : "Exam:   US LT BREAST TARGETED\r\n\r\nTechnique:  Targeted imaging of the  right breast  is performed.\r\n\r\nFindings:\r\n\r\nTargeted imaging of the left breast is performed from the 6:00 to the 9:00 position.  \r\n\r\nAt the 6:00 position, 5 cm from the nipple, there is a 3 x 2 x 4 mm minimally hypoechoic mass with a peripheral calcification. This may correspond to the mammographic finding. No other cystic or solid masses visualized.\r\n"
-      }
-    } ]
-  } ]
-}
-```
-*output:*
-```json
-{
-  "result": {
-    "patientResults": [
-      {
-        "patientId": "11111",
-        "inferences": [
-          {
-            "kind": "lateralityDiscrepancy",
-            "lateralityIndication": {
-              "coding": [
-                {
-                  "system": "*SNOMED",
-                  "code": "24028007",
-                  "display": "RIGHT (QUALIFIER VALUE)"
-                }
-              ]
-            },
-            "discrepancyType": "orderLateralityMismatch"
-          }
-        ]
-      }
-    ]
-  },
-  "id": "862768cf-0590-4953-966b-1cc0ef8b8256",
-  "createdDateTime": "2023-12-18T12:25:37.8942771Z",
-  "expirationDateTime": "2023-12-18T12:42:17.8942771Z",
-  "lastUpdateDateTime": "2023-12-18T12:25:49.7221986Z",
-  "status": "succeeded"
-}
-```
+[Example input json](CDARecommendation_GuidelineFalseUnspecTrueLimited.xml.jsonrequest)
+
+[Example output json](CDARecommendation_GuidelineFalseUnspecTrueLimited.xml.jsonresponse)
+
+
 
 **Example 2**
 
@@ -200,7 +97,9 @@ The includeRecommendationsWithNoSpecifiedModality has been set to false, include
 
 As a result, the model will include evidence for all inferences. It also means that the model checks for follow up recommendations with a specified modality and for a recommendation in a guideline,  and it provides a single focused sentence as evidence for the finding. 
 
-### Todo add input output json
+[Example input json](CDARecommendation_GuidelineTrueUnspecFalseLimited.xml.jsonrequest)
+
+[Example output json](CDARecommendation_GuidelineTrueUnspecFalseLimited.xml.jsonresponse)
 
 ## Next steps
 

@@ -1,0 +1,19 @@
+{
+  "result": {
+    "patientResults": [
+      {
+        "patientId": "111111",
+        "inferences": [
+          {
+            "kind": "ageMismatch"
+          }
+        ]
+      }
+    ]
+  },
+  "id": "7f4e1c0c-1385-4c06-aad8-8a641cd39b02",
+  "createdDateTime": "2023-12-18T12:36:20.3487929Z",
+  "expirationDateTime": "2023-12-18T12:53:00.3487929Z",
+  "lastUpdateDateTime": "2023-12-18T12:36:33.7983719Z",
+  "status": "succeeded"
+}
