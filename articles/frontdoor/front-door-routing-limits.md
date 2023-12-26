@@ -51,8 +51,8 @@ Add together all of the composite route and route override metrics for each rout
 ### Example
 
 Suppose you have two routes in your Front Door profile. The routes are named *Route 1* and *Route 2*. You plan to configure the routes as follows:
-* *Route 1* has 50 domains associated to it, and requires HTTPS for all inbound requests. *Route 1* specifies 80 paths. *Route 1* also has two route overrides, which specify two extra paths.
-* *Route 2* has 25 domains associated to it. *Route 2* specifies 25 paths, and supports both the HTTP and HTTPS protocols. *Route 2* also has one route override, which specifies one extra path.
+* *Route 1* has 50 domains associated to it, and requires HTTPS for all inbound requests. *Route 1* specifies 80 paths. *Route 1* also has two route overrides.
+* *Route 2* has 25 domains associated to it. *Route 2* specifies 25 paths, and supports both the HTTP and HTTPS protocols. *Route 2* also has one route override.
 
 The following calculation illustrates how to determine the composite route metric for this scenario:
 
@@ -64,7 +64,7 @@ Profile composite route metric = Route 1 composite route metric + Route 1 compos
 ```
 
 The calculated metric of 5400 exceeds the limit of 5000, so you can't configure a Front Door profile in this way.
-
+.
 ## Mitigation
 
 If your profile's composite route metric exceed 5000, consider the following mitigation strategies:

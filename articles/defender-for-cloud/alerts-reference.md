@@ -85,7 +85,6 @@ Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in 
 | **Multiple Domain Accounts Queried**                         | Analysis of host data has determined that an unusual number of distinct domain accounts are being queried within a short time period from %{Compromised Host}. This kind of activity could be legitimate, but can also be an indication of compromise. |                              -                               | Medium        |
 | **Possible credential dumping detected [seen multiple times]** | Analysis of host data has detected use of native windows tool (for example, sqldumper.exe) being used in a way that allows to extract credentials from memory. Attackers often use these techniques to extract credentials that they then further use for lateral movement and privilege escalation. This behavior was seen [x] times today on the following machines: [Machine names] |                              -                               | Medium        |
 | **Potential attempt to bypass AppLocker detected**           | Analysis of host data on %{Compromised Host} detected a potential attempt to bypass AppLocker restrictions. AppLocker can be configured to implement a policy that limits what executables are allowed to run on a Windows system. The command-line pattern similar to that identified in this alert has been previously associated with attacker attempts to circumvent AppLocker policy by using trusted executables (allowed by AppLocker policy) to execute untrusted code. This could be legitimate activity, or an indication of a compromised host. |                              -                               | High          |
-| **PsExec execution detected**<br>(VM_RunByPsExec)            | Analysis of host data indicates that the process %{Process Name} was executed by PsExec utility. PsExec can be used for running processes remotely. This technique might be used for malicious purposes. |                 Lateral Movement, Execution                  | Informational |
 | **Rare SVCHOST service group executed**<br>(VM_SvcHostRunInRareServiceGroup) | The system process SVCHOST was observed running a rare service group. Malware often uses SVCHOST to masquerade its malicious activity. |                  Defense Evasion, Execution                  | Informational |
 | **Sticky keys attack detected**                              | Analysis of host data indicates that an attacker may be subverting an accessibility binary (for example sticky keys, onscreen keyboard, narrator) in order to provide backdoor access to the host %{Compromised Host}. |                              -                               | Medium        |
 | **Successful brute force attack**<br>(VM_LoginBruteForceSuccess) | Several sign in attempts were detected from the same source. Some successfully authenticated to the host.<br>This resembles a burst attack, in which an attacker performs numerous authentication attempts to find valid account credentials. |                         Exploitation                         | Medium/High   |
@@ -105,7 +104,6 @@ Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in 
 | **Suspicious process executed**                              | Machine logs indicate that the suspicious process: '%{Suspicious Process}' was running on the machine, often associated with attacker attempts to access credentials. |                              -                               | High          |
 | **Suspicious process name detected [seen multiple times]**   | Analysis of host data on %{Compromised Host} detected a process whose name is suspicious, for example corresponding to a known attacker tool or named in a way that is suggestive of attacker tools that try to hide in plain sight. This process could be legitimate activity, or an indication that one of your machines has been compromised. This behavior was seen [x] times today on the following machines: [Machine names] |                              -                               | Medium        |
 | **Suspicious process name detected**                         | Analysis of host data on %{Compromised Host} detected a process whose name is suspicious, for example corresponding to a known attacker tool or named in a way that is suggestive of attacker tools that try to hide in plain sight. This process could be legitimate activity, or an indication that one of your machines has been compromised. |                              -                               | Medium        |
-| **Suspicious process termination burst**<br>(VM_TaskkillBurst) | Analysis of host data indicates a suspicious process termination burst in %{Machine Name}. Specifically, %{NumberOfCommands} processes were killed between %{Begin} and %{Ending}. |                       Defense Evasion                        | Low           |
 | **Suspicious SQL activity**                                  | Machine logs indicate that '%{process name}' was executed by account: %{user name}. This activity is uncommon with this account. |                              -                               | Medium        |
 | **Suspicious SVCHOST process executed**                      | The system process SVCHOST was observed running in an abnormal context. Malware often uses SVCHOST to masquerade its malicious activity. |                              -                               | High          |
 | **Suspicious system process executed**<br>(VM_SystemProcessInAbnormalContext) | The system process %{process name} was observed running in an abnormal context. Malware often uses this process name to masquerade its malicious activity. |                  Defense Evasion, Execution                  | High          |
@@ -298,7 +296,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Digital currency mining related behavior detected**<br>(K8S.NODE_DigitalCurrencyMining) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected an execution of a process or command normally associated with digital currency mining. |                          Execution                           | High          |
 | **Docker build operation detected on a Kubernetes node**<br>(K8S.NODE_ImageBuildOnNode) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. |                        DefenseEvasion                        | Low           |
 | **Excessive role permissions assigned in Kubernetes cluster (Preview)**<br>(K8S_ServiceAcountPermissionAnomaly) <sup>[3](#footnote3)</sup> | Analysis of the Kubernetes audit logs detected an excessive permissions role assignment to your cluster. The listed permissions for the assigned roles are uncommon to the specific service account. This detection considers previous role assignments to the same service account across clusters monitored by Azure, volume per permission, and the impact of the specific permission. The anomaly detection model used for this alert takes into account how this permission is used across all clusters monitored by Microsoft Defender for Cloud. |                     Privilege Escalation                     | Low           |
-| **Executable found running from a suspicious location (Preview)**<br>(K8S.NODE_SuspectExecutablePath) | Analysis of processes running within a container or directly on a Kubernetes node, has detected an executable file that is running from a location associated with known suspicious files. This executable could either be legitimate activity, or an indication of a compromised system. |                          Execution                           | Medium        |
 | **Exposed Kubeflow dashboard detected**<br>(K8S_ExposedKubeflow) | The Kubernetes audit log analysis detected exposure of the Istio Ingress by a load balancer in a cluster that runs Kubeflow. This action might expose the Kubeflow dashboard to the internet. If the dashboard is exposed to the internet, attackers can access it and run malicious containers or code on the cluster. Find more details in the following article: <https://aka.ms/exposedkubeflow-blog> |                        Initial Access                        | Medium        |
 | **Exposed Kubernetes dashboard detected**<br>(K8S_ExposedDashboard) | Kubernetes audit log analysis detected exposure of the Kubernetes Dashboard by a LoadBalancer service. Exposed dashboard allows an unauthenticated access to the cluster management and poses a security threat. |                        Initial Access                        | High          |
 | **Exposed Kubernetes service detected**<br>(K8S_ExposedService) | The Kubernetes audit log analysis detected exposure of a service by a load balancer. This service is related to a sensitive application that allows high impact operations in the cluster such as running processes on the node or creating new containers. In some cases, this service doesn't require authentication. If the service doesn't require authentication, exposing it to the internet poses a security risk. |                        Initial Access                        | Medium        |
@@ -316,7 +313,6 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 | **Possible command line exploitation attempt**<br>(K8S.NODE_ExploitAttempt) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a possible exploitation attempt against a known vulnerability. |                         Exploitation                         | Medium        |
 | **Possible credential access tool detected**<br>(K8S.NODE_KnownLinuxCredentialAccessTool) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a possible known credential access tool was running on the container, as identified by the specified process and commandline history item. This tool is often associated with attacker attempts to access credentials. |                       CredentialAccess                       | Medium        |
 | **Possible Cryptocoinminer download detected**<br>(K8S.NODE_CryptoCoinMinerDownload) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected download of a file normally associated with digital currency mining. |      DefenseEvasion, Command And Control, Exploitation       | Medium        |
-| **Possible data exfiltration detected**<br>(K8S.NODE_DataEgressArtifacts) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a possible data egress condition. Attackers will often egress data from machines they have compromised. |                   Collection, Exfiltration                   | Medium        |
 | **Possible Log Tampering Activity Detected**<br>(K8S.NODE_SystemLogRemoval) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a possible removal of files that tracks user's activity during the course of its operation. Attackers often try to evade detection and leave no trace of malicious activities by deleting such log files. |                        DefenseEvasion                        | Medium        |
 | **Possible password change using crypt-method detected**<br>(K8S.NODE_SuspectPasswordChange) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected a password change using the crypt method. Attackers can make this change to continue access and gain persistence after compromise. |                       CredentialAccess                       | Medium        |
 | **Potential port forwarding to external IP address**<br>(K8S.NODE_SuspectPortForwarding) <sup>[1](#footnote1)</sup> | Analysis of processes running within a container or directly on a Kubernetes node, has detected an initiation of port forwarding to an external IP address. |              Exfiltration, Command And Control               | Medium        |
@@ -649,77 +645,79 @@ VM_Webshell | Possible malicious web shell detected | Medium
 
 ### Deprecated Windows alerts
 
-| **Alert Type** | **Alert Display Name** | **Severity**
+| **Alert Type** | **Alert Display Name** | **Severity**|
 |---|---|---|
-SCUBA_MULTIPLEACCOUNTCREATE | Suspicious creation of accounts on multiple hosts | Medium
-SCUBA_PSINSIGHT_CONTEXT | Suspicious use of PowerShell detected | Informational
-SCUBA_RULE_AddGuestToAdministrators | Addition of Guest account to Local Administrators group | Medium
-SCUBA_RULE_Apache_Tomcat_executing_suspicious_commands | Apache_Tomcat_executing_suspicious_commands | Medium
-SCUBA_RULE_KnownBruteForcingTools | Suspicious process executed | High
-SCUBA_RULE_KnownCollectionTools | Suspicious process executed | High
-SCUBA_RULE_KnownDefenseEvasionTools | Suspicious process executed | High
-SCUBA_RULE_KnownExecutionTools | Suspicious process executed | High
-SCUBA_RULE_KnownPassTheHashTools | Suspicious process executed | High
-SCUBA_RULE_KnownSpammingTools | Suspicious process executed | Medium
-SCUBA_RULE_Lowering_Security_Settings | Detected the disabling of critical services | Medium
-SCUBA_RULE_OtherKnownHackerTools | Suspicious process executed | High
-SCUBA_RULE_RDP_session_hijacking_via_tscon | Suspect integrity level indicative of RDP hijacking | Medium
-SCUBA_RULE_RDP_session_hijacking_via_tscon_service | Suspect service installation | Medium
-SCUBA_RULE_Suppress_pesky_unauthorized_use_prohibited_notices | Detected suppression of legal notice displayed to users at logon | Low
-SCUBA_RULE_WDigest_Enabling | Detected enabling of the WDigest UseLogonCredential registry key | Medium
-VM.Windows_ApplockerBypass | Potential attempt to bypass AppLocker detected | High
-VM.Windows_BariumKnownSuspiciousProcessExecution | Detected suspicious file creation | High
-VM.Windows_Base64EncodedExecutableInCommandLineParams | Detected encoded executable in command line data | High
-VM.Windows_CalcsCommandLineUse | Detected suspicious use of Cacls to lower the security state of the system | Medium
-VM.Windows_CommandLineStartingAllExe | Detected suspicious command line used to start all executables in a directory | Medium
-VM.Windows_DisablingAndDeletingIISLogFiles | Detected actions indicative of disabling and deleting IIS log files | Medium
-VM.Windows_DownloadUsingCertutil | Suspicious download using Certutil detected | Medium
-VM.Windows_EchoOverPipeOnLocalhost | Detected suspicious named pipe communications | High
-VM.Windows_EchoToConstructPowerShellScript | Dynamic PowerShell script construction | Medium
-VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable using built-in certutil.exe tool | Medium
-VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium
-VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium
-VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable Suspicious process executed | Medium
-VM.Windows_KnownCredentialAccessTools |  Suspicious process executed | High
-VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected | High
-VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium
-VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium
-VM.Windows_MultipleAccountsQuery | Multiple Domain Accounts Queried | Medium
-VM.Windows_NewAccountCreation | Account creation detected | Informational
-VM.Windows_ObfuscatedCommandLine | Detected obfuscated command line. | High
-VM.Windows_PcaluaUseToLaunchExecutable | Detected suspicious use of Pcalua.exe to launch executable code | Medium
-VM.Windows_PetyaRansomware | Detected Petya ransomware indicators | High
-VM.Windows_PowerShellPowerSploitScriptExecution | Suspicious PowerShell cmdlets executed | Medium
-VM.Windows_RansomwareIndication | Ransomware indicators detected | High
-VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
-VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
-VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detected  Medium
-VM.Windows_SuspiciousAccountCreation | Suspicious Account Creation Detected | Medium
-VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
-VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
-VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
-VM.Windows_SVCHostFromInvalidPath | Suspicious process executed | High
-VM.Windows_SystemEventLogCleared | The Windows Security log was cleared | Informational
-VM.Windows_TelegramInstallation | Detected potentially suspicious use of Telegram tool | Medium
-VM.Windows_UndercoverProcess | Suspiciously named process detected | High
-VM.Windows_UserAccountControlBypass | Detected change to a registry key that can be abused to bypass UAC | Medium
-VM.Windows_VBScriptEncoding | Detected suspicious execution of VBScript.Encode command | Medium
-VM.Windows_WindowPositionRegisteryChange | Suspicious WindowPosition registry value detected | Low
-VM.Windows_ZincPortOpenningUsingFirewallRule | Malicious firewall rule created by ZINC server implant | High
-VM_DigitalCurrencyMining | Digital currency mining related behavior detected | High
-VM_MaliciousSQLActivity | Malicious SQL activity | High
-VM_ProcessWithDoubleExtensionExecution | Suspicious double extension file executed | High
-VM_RegistryPersistencyKey | Windows registry persistence method detected | Low
-VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity <br/> Executable found running from a suspicious location | High
-VM_SuspectExecutablePath | Executable found running from a suspicious location <br/> Detected anomalous mix of uppercase and lowercase characters in command line |  Informational <br/>  <br/> Medium <br/> |
-VM_SuspectPhp | Suspicious PHP execution detected | Medium
-VM_SuspiciousCommandLineExecution | Suspicious command execution | High
-VM_SuspiciousScreenSaverExecution | Suspicious Screensaver process executed | Medium
-VM_SvcHostRunInRareServiceGroup | Rare SVCHOST service group executed | Informational
-VM_SystemProcessInAbnormalContext | Suspicious system process executed | Medium
-VM_ThreatIntelCommandLineSuspectDomain | A possible connection to malicious location has been detected | Medium
-VM_ThreatIntelSuspectLogon | A logon from a malicious IP has been detected | High
-VM_VbScriptHttpObjectAllocation| VBScript HTTP object allocation detected | High
+|SCUBA_MULTIPLEACCOUNTCREATE | Suspicious creation of accounts on multiple hosts | Medium|
+|SCUBA_PSINSIGHT_CONTEXT | Suspicious use of PowerShell detected | Informational|
+|SCUBA_RULE_AddGuestToAdministrators | Addition of Guest account to Local Administrators group | Medium|
+|SCUBA_RULE_Apache_Tomcat_executing_suspicious_commands | Apache_Tomcat_executing_suspicious_commands | Medium|
+|SCUBA_RULE_KnownBruteForcingTools | Suspicious process executed | High|
+|SCUBA_RULE_KnownCollectionTools | Suspicious process executed | High|
+|SCUBA_RULE_KnownDefenseEvasionTools | Suspicious process executed | High|
+|SCUBA_RULE_KnownExecutionTools | Suspicious process executed | High|
+|SCUBA_RULE_KnownPassTheHashTools | Suspicious process executed | High|
+|SCUBA_RULE_KnownSpammingTools | Suspicious process executed | Medium|
+|SCUBA_RULE_Lowering_Security_Settings | Detected the disabling of critical services | Medium|
+|SCUBA_RULE_OtherKnownHackerTools | Suspicious process executed | High|
+|SCUBA_RULE_RDP_session_hijacking_via_tscon | Suspect integrity level indicative of RDP hijacking | Medium|
+|SCUBA_RULE_RDP_session_hijacking_via_tscon_service | Suspect service installation | Medium|
+|SCUBA_RULE_Suppress_pesky_unauthorized_use_prohibited_notices | Detected suppression of legal notice displayed to users at logon | Low|
+|SCUBA_RULE_WDigest_Enabling | Detected enabling of the WDigest UseLogonCredential registry key | Medium|
+|VM.Windows_ApplockerBypass | Potential attempt to bypass AppLocker detected | High|
+|VM.Windows_BariumKnownSuspiciousProcessExecution | Detected suspicious file creation | High|
+|VM.Windows_Base64EncodedExecutableInCommandLineParams | Detected encoded executable in command line data | High|
+|VM.Windows_CalcsCommandLineUse | Detected suspicious use of Cacls to lower the security state of the system | Medium|
+|VM.Windows_CommandLineStartingAllExe | Detected suspicious command line used to start all executables in a directory | Medium|
+|VM.Windows_DisablingAndDeletingIISLogFiles | Detected actions indicative of disabling and deleting IIS log files | Medium|
+|VM.Windows_DownloadUsingCertutil | Suspicious download using Certutil detected | Medium|
+|VM.Windows_EchoOverPipeOnLocalhost | Detected suspicious named pipe communications | High|
+|VM.Windows_EchoToConstructPowerShellScript | Dynamic PowerShell script construction | Medium|
+|VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable using built-in certutil.exe tool | Medium|
+|VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium|
+|VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium|
+|VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable Suspicious process executed | Medium|
+|VM.Windows_KnownCredentialAccessTools |  Suspicious process executed | High|
+|VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected | High|
+|VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium|
+|VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium|
+|VM.Windows_MultipleAccountsQuery | Multiple Domain Accounts Queried | Medium|
+|VM.Windows_NewAccountCreation | Account creation detected | Informational|
+|VM.Windows_ObfuscatedCommandLine | Detected obfuscated command line. | High|
+|VM.Windows_PcaluaUseToLaunchExecutable | Detected suspicious use of Pcalua.exe to launch executable code | Medium|
+|VM.Windows_PetyaRansomware | Detected Petya ransomware indicators | High|
+|VM.Windows_PowerShellPowerSploitScriptExecution | Suspicious PowerShell cmdlets executed | Medium|
+|VM.Windows_RansomwareIndication | Ransomware indicators detected | High|
+|VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium|
+|VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium|
+|VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detected  Medium||
+|VM.Windows_SuspiciousAccountCreation | Suspicious Account Creation Detected | Medium|
+|VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium|
+|VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium|
+|VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium|
+|VM.Windows_SVCHostFromInvalidPath | Suspicious process executed | High|
+|VM.Windows_SystemEventLogCleared | The Windows Security log was cleared | Informational|
+|VM.Windows_TelegramInstallation | Detected potentially suspicious use of Telegram tool | Medium|
+|VM.Windows_UndercoverProcess | Suspiciously named process detected | High|
+|VM.Windows_UserAccountControlBypass | Detected change to a registry key that can be abused to bypass UAC | Medium|
+|VM.Windows_VBScriptEncoding | Detected suspicious execution of VBScript.Encode command | Medium|
+|VM.Windows_WindowPositionRegisteryChange | Suspicious WindowPosition registry value detected | Low|
+|VM.Windows_ZincPortOpenningUsingFirewallRule | Malicious firewall rule created by ZINC server implant | High|
+|VM_DigitalCurrencyMining | Digital currency mining related behavior detected | High|
+|VM_MaliciousSQLActivity | Malicious SQL activity | High|
+|VM_ProcessWithDoubleExtensionExecution | Suspicious double extension file executed | High|
+|VM_RegistryPersistencyKey | Windows registry persistence method detected | Low|
+|VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity <br/> Executable found running from a suspicious location | High|
+|VM_SuspectExecutablePath | Executable found running from a suspicious location <br/> Detected anomalous mix of uppercase and lowercase characters in command line |  Informational <br/>  <br/> Medium <br/> |
+|VM_SuspectPhp | Suspicious PHP execution detected | Medium|
+|VM_SuspiciousCommandLineExecution | Suspicious command execution | High|
+|VM_SuspiciousScreenSaverExecution | Suspicious Screensaver process executed | Medium|
+|VM_SvcHostRunInRareServiceGroup | Rare SVCHOST service group executed | Informational|
+|VM_SystemProcessInAbnormalContext | Suspicious system process executed | Medium|
+|VM_ThreatIntelCommandLineSuspectDomain | A possible connection to malicious location has been detected | Medium|
+|VM_ThreatIntelSuspectLogon | A logon from a malicious IP has been detected | High|
+|VM_VbScriptHttpObjectAllocation| VBScript HTTP object allocation detected | High|
+|VM_TaskkillBurst| Suspicious process termination burst | Low |
+|VM_RunByPsExec| PsExec execution detected | Informational |
 
 ## Alerts for Defender for APIs
 

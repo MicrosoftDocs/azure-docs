@@ -1869,6 +1869,9 @@
       - name: Portal
         displayName: Maintenance configurations
         href: maintenance-configurations-portal.md
+      - name: Troubleshoot
+        displayName: Troubleshoot
+        href: troubleshoot-maintenance-configurations.md
       - name: Maintenance control for OS image upgrade
         items:
         - name: Overview

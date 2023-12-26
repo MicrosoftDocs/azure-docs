@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 11/29/2023
+ms.date: 12/24/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -26,13 +26,10 @@ If you're looking for the latest release notes, you can find them in the [What's
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
-(#public-preview-of-windows-support-for-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management) | November 27, 2023 | December 2023 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
-| [Four alerts are set to be deprecated](#four-alerts-are-set-to-be-deprecated) | October 23, 2023 | November 23, 2023 |
 | [Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"](#replacing-the-key-vaults-should-have-purge-protection-enabled-recommendation-with-combined-recommendation-key-vaults-should-have-deletion-protection-enabled) |  | June 2023|
 | [Preview alerts for DNS servers to be deprecated](#preview-alerts-for-dns-servers-to-be-deprecated) |  | August 2023 |
-| [Classic connectors for multicloud will be retired](#classic-connectors-for-multicloud-will-be-retired) |  | November 2023 |
 | [Change to the Log Analytics daily cap](#change-to-the-log-analytics-daily-cap) |  | September 2023 |
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
@@ -117,19 +114,6 @@ Costs will be presented for each protected resource instead of as an aggregation
 
 If a resource has a tag applied, which are often used by organizations to perform financial chargeback processes, it will be added to the appropriate billing lines.
 
-## Four alerts are set to be deprecated
-
-**Announcement date: October 23, 2023**
-
-**Estimated date for change: November 23, 2023**
-
-As part of our quality improvement process, the following security alerts are set to be deprecated:
-
-- `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
-- `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
-- `Suspicious process termination burst (VM_TaskkillBurst)`
-- `PsExec execution detected (VM_RunByPsExec)`
-
 ## Replacing the "Key Vaults should have purge protection enabled" recommendation with combined recommendation "Key Vaults should have deletion protection enabled"
 
 **Estimated date for change: June 2023**
@@ -164,23 +148,6 @@ The following table lists the alerts to be deprecated:
 | Possible data download via DNS tunnel (Preview) | DNS_DataInfiltration |
 | Anonymity network activity (Preview) | DNS_DarkWeb |
 | Anonymity network activity using web proxy (Preview) | DNS_DarkWebProxy |
-
-## Classic connectors for multicloud will be retired
-
-**Estimated date for change: November, 2023**
-
-The classic multicloud connectors will be retired and no data will be streamed to them after this date. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
-
-The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no extra cost.
-
-The new native connectors are included in your plan and offer an automated onboarding experience with options to onboard single accounts, multiple accounts (with Terraform), and organizational onboarding with auto provisioning for the following Defender plans: free foundational CSPM capabilities, Defender Cloud Security Posture Management (CSPM), Defender for Servers, Defender for SQL, and Defender for Containers.
-
-If you're currently using the classic multicloud connectors, we strongly recommend that you migrate to the native security connectors as soon as possible.
-
-How to migrate to the native security connectors:
-
-- [Connect your AWS account to Defender for Cloud](quickstart-onboard-aws.md)
-- [Connect your GCP project to Defender for Cloud](quickstart-onboard-gcp.md)
 
 ## Change to the Log Analytics daily cap
 

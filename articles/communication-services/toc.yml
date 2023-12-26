@@ -393,6 +393,12 @@ items:
           href: how-tos/ui-library-sdk/skip-setup-screen.md
         - name: Setup Orientation
           href: how-tos/ui-library-sdk/orientation.md
+        - name: Set up Picture in Picture
+          href: how-tos/ui-library-sdk/picture-in-picture.md
+        - name: Set up CallKit
+          href: how-tos/ui-library-sdk/callkit.md
+        - name: Set up one to one calling and PUSH notifications
+          href: how-tos/ui-library-sdk/one-to-one-calling.md
         - name: Troubleshooting
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
