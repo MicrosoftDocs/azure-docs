@@ -1,7 +1,7 @@
 ---
 title: Audit Microsoft Defender for IoT user activity
 description: Learn how to track and audit user activity across Microsoft Defender for IoT.
-ms.date: 01/26/2022
+ms.date: 12/19/2023
 ms.topic: how-to
 ---
 
@@ -21,15 +21,12 @@ Use Microsoft Entra user auditing resources to audit Azure user activity across 
 Audit and track user activity on a sensor's **Event timeline**. The **Event timeline** displays events that occurred on the sensor, affected devices for each event, and the time and date that the event occurred.
 
 > [!NOTE]
-> This procedure is supported for users with an **Admin** role, and the *support*, *cyberx*, and *cyberx_host* users.
+> This procedure is supported for the default, privileged *admin* users and any user with an **Admin** role.
 >
 
 **To use the sensor's Event Timeline**:
 
-1. Sign into the sensor console as one of the following users:
-
-    - Any **Admin** user
-    - The *support*, *cyberx*, or *cyberx_host* user
+1. Sign into the sensor console as the default, privileged *admin* users or any user with an **Admin** role.
 
 1. On the sensor, select **Event Timeline** from the left-hand menu. Make sure that the filter is set to show **User Operations**.
 
@@ -42,6 +39,8 @@ Audit and track user activity on a sensor's **Event timeline**. The **Event time
     For more information on the event timeline, see [Track network and sensor activity with the event timeline](how-to-track-sensor-activity.md)
 
 ## Audit user activity on an on-premises management console
+
+[!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
 
 To audit and track user activity on an on-premises management console, use the on-premises management console audit logs, which record key activity data at the time of occurrence. Use on-premises management console audit logs to understand changes that were made on the on-premises management console, when, and by whom.
 

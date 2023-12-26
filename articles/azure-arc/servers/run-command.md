@@ -1,7 +1,7 @@
 ---
 title: How to remotely and securely configure servers using Run command (Preview)
 description: Learn how to remotely and securely configure servers using Run Command.
-ms.date: 12/11/2023
+ms.date: 12/22/2023
 ms.topic: conceptual
 ---
 
@@ -20,7 +20,7 @@ Run Command on Azure Arc-enabled servers (Public Preview) uses the Connected Mac
 - **Cost:** Run Command is free of charge, however storage of scripts in Azure may incur billing.
 
 - **Configuration:** Run Command doesn't require more configuration or the deployment of any extensions. The
-Connected Machine agent version must be 1.37 or higher. 
+Connected Machine agent version must be 1.33 or higher. 
 
 ## Run Command operations
 
@@ -34,6 +34,10 @@ Run Command on Azure Arc-enabled servers supports the following operations:
 |[List](/rest/api/hybridcompute/machine-run-commands/list?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to get all the run commands of an Azure Arc-enabled server. |
 |[Update](/rest/api/hybridcompute/machine-run-commands/update?view=rest-hybridcompute-2023-10-03-preview&tabs=HTTP) |The operation to update the run command. This stops the previous run command. |
  
+> [!NOTE]
+> Output and error blobs are overwritten each time the run command script executes.
+> 
+
 ## Example scenarios
 
 Suppose you have an Azure Arc-enabled server called “2012DatacenterServer1” in resource group “ContosoRG” with Subscription ID “aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa”. Consider a scenario where you need to provide remote access to an endpoint for Windows Server 2012 / R2 servers. Access to Extended Security Updates enabled by Azure Arc requires access to the endpoint `microsoft.com/pkiops/certs`. You need to remotely configure a firewall rule that allows access to this endpoint. Use Run Command in order to allow connectivity to this endpoint.
@@ -192,4 +196,16 @@ If you no longer need the Run Command extension, you can delete it using the fol
 ```
 DELETE https://management.azure.com/subscriptions/ aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa/resourceGroups/ContosoRG/providers/Microsoft.HybridCompute/machines/2012DatacenterServer1/runCommands/EndpointAccessCommand?api-version=2023-10-03-preview
 ```
+
+## Disabling Run Command
+
+To disable the Run Command on Azure Arc-enabled servers, open an administrative command prompt and run the following commands. These commands use the local agent configuration capabilities for the Connected Machine agent in the Extension blocklist.
+
+**Windows**
+
+`azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerwindows"`
+
+**Linux**
+
+sudo azcmagent config set extensions.blocklist "microsoft.cplat.core/runcommandhandlerlinux"
 

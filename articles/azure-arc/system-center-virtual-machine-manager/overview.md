@@ -5,8 +5,8 @@ ms.date: 12/19/2023
 ms.topic: conceptual
 ms.services: azure-arc
 ms.subservice: azure-arc-scvmm
-author: PriskeyJeronika-MS
-ms.author: v-gjeronika
+author: Farha-Bano
+ms.author: v-farhabano
 manager: jsuri
 keywords: "VMM, Arc, Azure"
 ms.custom: references_regions
