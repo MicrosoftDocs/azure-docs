@@ -209,7 +209,7 @@ Create a new Google Ads linked service and configure it by referring to [Linked 
 
 ### Migrate from SQL to GAQL
 
-To migrate from SQL to GAQL, you need to convert query statements and field names.
+Convert your query statements and field names when migrating from SQL to GAQL. 
 
 #### Query statements
 
