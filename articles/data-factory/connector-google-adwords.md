@@ -213,7 +213,7 @@ Convert your query statements and field names when migrating from SQL to GAQL.
 
 #### Query statements
 
-If you use SQL statements in **Query** in the copy activity source or the lookup activity that refer to the legacy Google Ads linked service, you need to update them to GAQL statements.
+If you use SQL statements in **Query** in the copy activity source or the lookup activity that refers to the legacy Google Ads linked service, you need to update them to GAQL statements.
 
 In contrast to SQL, the query in GAQL is made up of six kinds of clauses:
 
