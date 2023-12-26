@@ -63,10 +63,10 @@ The data ingestion process using the Azure Monitor Agent uses the following comp
 
 The setup process for the CEF via AMA connector has two parts:
 
-- Create a Data Collection Rule (DCR), which installs the Azure Monitor Agent on the log forwarder.
+- **Create a Data Collection Rule (DCR)**, which installs the Azure Monitor Agent on the log forwarder.
     - [Using the Azure portal](?tabs=portal#create-a-data-collection-rule-dcr)
     - [Using the Azure Monitor API](?tabs=api#create-a-data-collection-rule-dcr)
-- [Run the "installation" script](#run-the-installation-script), which configures the Syslog daemon on the log forwarder.
+- [**Run the "installation" script**](#run-the-installation-script), which configures the Syslog daemon on the log forwarder.
 
 ### Prerequisites
 
