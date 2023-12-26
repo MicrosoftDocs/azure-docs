@@ -21,6 +21,7 @@ The following scenarios aren't yet supported:
 * Virtual machines created from Marketplace resources with plans attached can't be moved across subscriptions. For a potential workaround, see [Virtual machines with Marketplace plans](#virtual-machines-with-marketplace-plans).
 * Low-priority virtual machines and low-priority virtual machine scale sets can't be moved across resource groups or subscriptions.
 * Virtual machines in an availability set can't be moved individually.
+* Virtual machines using scheduled patching can't be moved across resource groups or subscriptions. For a potential workaround, see [Managing VM updates with Maintenance Configurations](../../../virtual-machines/maintenance-configurations.md#guest)
 
 ## Azure disk encryption
 
