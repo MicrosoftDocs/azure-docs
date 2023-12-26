@@ -17,7 +17,7 @@ This article explains how to use the Azure Cosmos DB SDKs to delete all items by
 
 > [!IMPORTANT]
 > Delete items by partition key value is in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> This feature is provided without a service level agreement.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Feature overview
@@ -30,9 +30,34 @@ The delete by partition key operation is constrained to consume at most 10% of t
 
 ## Getting started
 
-To use the feature, your Azure Cosmos DB account must be enrolled in the preview. To enroll, submit a request for the **DeleteAllItemsByPartitionKey** feature via the [**Preview Features** page](../../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page. 
+Update your Azure Cosmos DB account to enable "Delete by partition key" feature using Azure CLI as outlined below.
 
-:::image type="content" source="media/how-to-delete-by-partition-key/preview-enrollment-delete-by-partition-key.png" alt-text="Screenshot that shows the enroll in Delete All Items By Partition Key in Preview Features blade.":::
+- Step 1: Set shell variables 
+    ```azurecli-interactive
+        $resourceGroupName = <azure_resource_group>
+        $accountName = <azure_cosmos_db_account_name>
+        $DeleteByPk = "DeleteAllItemsByPartitionKey"
+    ```
+- Step 2: List Down existing capabilities of your account.
+    ```azurecli-interactive
+       $cosmosdb = az cosmosdb show \
+        --resource-group $resourceGroupName \
+        --name $accountName
+       $capabilities = ($cosmosdb | ConvertFrom-Json).capabilities 
+    ```
+- Step 3: Add "Delete items by partition key" capability in the list of capabilities if it doesn't exist already. 
+    >!Note 
+    The list of capabilities must always specify all capabilities that you want to enable, inclusively. This includes capabilities that are already enabled for the account that you want to keep. 
+
+    ```azurecli-interactive
+       $capabilities += $DeleteByPk
+    ```
+
+- Step 4: Update Cosmos DB account to enable "Delete items by partition key" feature
+     ```azurecli-interactive
+        az cosmosdb update --capabilities $capabilities \
+         -n $accountName -g $resourceGroupName
+    ```
 
 #### [.NET](#tab/dotnet-example)
 
