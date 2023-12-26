@@ -21,7 +21,7 @@ In this article, you learn how to:
 > * Secure the OData API
 
 > [!NOTE]
-> Importing an OData service as an API from its metadata description is in preview. Currently, testing OData APIs isn't supported in the test console of the Azure portal or in the API Management developer portal.
+> Importing an OData service as an API from its metadata description is in preview. 
 
 ## Prerequisites
 

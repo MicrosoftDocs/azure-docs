@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 12/20/2023
+ms.date: 12/21/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,6 +24,9 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
+| December 24 | [Defender for Servers at the resource level available as GA](#defender-for-servers-at-the-resource-level-available-as-ga) |
+| December 21 | [Retirement of Classic connectors for multicloud](#retirement-of-classic-connectors-for-multicloud) |
+| December 21 | [Release of the Coverage workbook](#release-of-the-coverage-workbook) |
 | December 14 | [General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Azure Government and Azure operated by 21Vianet](#general-availability-of-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-in-azure-government-and-azure-operated-by-21vianet) |
 | December 14 | [Public preview of Windows support for Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management](#public-preview-of-windows-support-for-containers-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management) |
 | December 13 | [Retirement of AWS container vulnerability assessment powered by Trivy](#retirement-of-aws-container-vulnerability-assessment-powered-by-trivy) |
@@ -32,6 +35,32 @@ If you're looking for items older than six months, you can find them in the [Arc
 | December 13 | [General availability (GA) support for PostgreSQL Flexible Server in Defender for open-source relational databases plan](#general-availability-support-for-postgresql-flexible-server-in-defender-for-open-source-relational-databases-plan) |
 | December 12 | [Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless](#container-vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management-now-supports-google-distroless) |
 | December 4 | [Defender for Storage alert released for preview: malicious blob was downloaded from a storage account](#defender-for-storage-alert-released-for-preview-malicious-blob-was-downloaded-from-a-storage-account) |
+
+### Defender for Servers at the resource level available as GA
+
+December 24, 2023
+
+It is now possible to manage Defender for Servers on specific resources within your subscription, giving you full control over your protection strategy. With this capability, you can configure specific resources with custom configurations that differ from the settings configured at the subscription level.
+
+Learn more about [enabling Defender for Servers at the resource level](tutorial-enable-servers-plan.md#enable-the-plan-at-the-resource-level).
+
+### Retirement of Classic connectors for multicloud
+
+December 21, 2023
+
+The classic multicloud connector experience is retired and data is no longer streamed to connectors created through that mechanism. These classic connectors were used to connect AWS Security Hub and GCP Security Command Center recommendations to Defender for Cloud and onboard AWS EC2s to Defender for Servers.
+
+The full value of these connectors has been replaced with the native multicloud security connectors experience, which has been Generally Available for AWS and GCP since March 2022 at no extra cost.
+
+The new native connectors are included in your plan and offer an automated onboarding experience with options to onboard single accounts, multiple accounts (with Terraform), and organizational onboarding with auto provisioning for the following Defender plans: free foundational CSPM capabilities, Defender Cloud Security Posture Management (CSPM), Defender for Servers, Defender for SQL, and Defender for Containers.
+
+### Release of the Coverage workbook
+
+December 21, 2023
+
+The Coverage workbook allows you to keep track of which Defender for Cloud plans are active on which parts of your environments. This workbook can help you to ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can also identify any areas that might need other protection and take action to address those areas.
+
+Learn more about the [Coverage workbook](custom-dashboards-azure-workbooks.md#use-the-coverage-workbook).
 
 ### General availability of Containers Vulnerability Assessment powered by Microsoft Defender Vulnerability Management in Azure Government and Azure operated by 21Vianet
 
@@ -109,6 +138,8 @@ Learn how to [Enable Microsoft Defender for open-source relational databases](de
 
 ### Container vulnerability assessment powered by Microsoft Defender Vulnerability Management now supports Google Distroless
 
+December 12, 2023
+
 Container vulnerability assessment powered by Microsoft Defender Vulnerability Management have been extended with additional coverage for Linux OS packages, now supporting Google Distroless.
 
 For a list of all supported operating systems, see [Registries and images support for Azure - Vulnerability assessment powered by Microsoft Defender Vulnerability Management](support-matrix-defender-for-containers.md#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management).
@@ -131,6 +162,7 @@ For a complete list of alerts, see the [reference table for all security alerts 
 
 | Date | Update |
 |--|--|
+| November 30 | [Four alerts are deprecated](#four-alerts-are-deprecated) |
 | November 27 | [General availability of agentless secrets scanning in Defender for Servers and Defender CSPM](#general-availability-of-agentless-secrets-scanning-in-defender-for-servers-and-defender-cspm) |
 | November 22 | [Enable permissions management with Defender for Cloud (Preview)](#enable-permissions-management-with-defender-for-cloud-preview) |
 | November 22 | [Defender for Cloud integration with ServiceNow](#defender-for-cloud-integration-with-servicenow) |
@@ -146,6 +178,17 @@ For a complete list of alerts, see the [reference table for all security alerts 
 | November 15 | [General Availability release of Data security dashboard](#general-availability-release-of-data-security-dashboard) |
 | November 15 | [General Availability release of sensitive data discovery for databases](#general-availability-release-of-sensitive-data-discovery-for-databases) |
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
+
+### Four alerts are deprecated
+
+November 30, 2023
+
+As part of our quality improvement process, the following security alerts are deprecated:
+
+- `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
+- `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
+- `Suspicious process termination burst (VM_TaskkillBurst)`
+- `PsExec execution detected (VM_RunByPsExec)`
 
 ### General availability of agentless secrets scanning in Defender for Servers and Defender CSPM
 
@@ -539,6 +582,7 @@ Agentless discovery for Kubernetes is now available to all Defender For Containe
 
 > [!NOTE]
 > Enabling the latest additions won't incur new costs to active Defender for Containers customers.
+
 For more information, see [Overview of Container security Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
@@ -722,7 +766,6 @@ Data-aware security posture in Microsoft Defender for Cloud is now Generally Ava
 - Detect suspicious activities that might indicate ongoing threats to sensitive data resources
 
 For more information, see [Data-aware security posture in Microsoft Defender for Cloud](concept-data-security-posture.md).
-
 
 ## Next steps
 

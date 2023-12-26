@@ -604,13 +604,9 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ::: zone pivot="python-mode-decorators"  
 
-The HTTP trigger is defined in the *function.json* file. The `name` of the binding must match the named parameter in the function.
+The HTTP trigger is defined as a method that takes a named binding parameter, which is an [HttpRequest] object, and returns an [HttpResponse] object. You apply the `function_name` decorator to the method to define the function name, while the HTTP endpoint is set by applying the `route` decorator. 
 
-In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
-
-From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body.
-
-The following example is from the HTTP trigger template for the Python v2 programming model. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
+This example is from the HTTP trigger template for the Python v2 programming model, where the binding parameter name is `req`. It's the sample code that's provided when you create a function by using Azure Functions Core Tools or Visual Studio Code.
 
 ```python
 @app.function_name(name="HttpTrigger1")
@@ -636,7 +632,7 @@ def test_function(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
+From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. In this function, you obtain the value of the `name` query parameter from the `params` parameter of the [HttpRequest] object. You read the JSON-encoded message body by using the `get_json` method.
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
