@@ -52,7 +52,7 @@ The following container security alerts are set for deprecation or update to the
   - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
   - `Anomalous access to Kubernetes secret (Preview)(K8S_AnomalousSecretAccess)`
 
-- The following container security alerts are set to be updated to the **informational** severity level :
+- The following container security alerts are set to be updated to the **informational** severity level:
 
   - `SSH server is running inside a container (K8S.NODE_ContainerSSH)`
   - `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)`
