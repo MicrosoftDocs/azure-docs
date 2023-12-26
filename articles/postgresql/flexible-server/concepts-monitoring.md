@@ -6,7 +6,7 @@ ms.author: varundhawan
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 9/15/2023
+ms.date: 12/26/2023
 ---
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
@@ -57,8 +57,8 @@ You can use enhanced metrics for Azure Database for PostgreSQL - Flexible Server
 
 #### Enabling enhanced metrics
 
-- Most of these new metrics are *disabled* by default. A few exceptions are described in the next table.
-- To enable these metrics, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
+- Most of these new metrics are *disabled* by default. There are a few exceptions though, which are enabled by default. Rightmost column in the following tables indicate whether each metric is enabled by default or not.
+- To enable those metrics which are not enabled by default, set the server parameter `metrics.collector_database_activity` to `ON`. This parameter is dynamic and doesn't require an instance restart.
 
 ##### List of enhanced metrics
 
@@ -129,7 +129,7 @@ You can choose from the following categories of enhanced metrics:
 |---|---|---|---|---|---|
 |**Max Connections** ^|`max_connections`|Count|Number of maximum connections. |Doesn't apply|Yes |
 
-^ **Max Connections** represents the configured value for the `max_connections` server parameter. This metric is pooled every 30 minutes.
+^ **Max Connections** represents the configured value for the `max_connections` server parameter. This metric is polled every 30 minutes.
 
 ##### Considerations for using enhanced metrics
 
@@ -140,7 +140,7 @@ You can choose from the following categories of enhanced metrics:
 
 ### Autovacuum metrics
 
-Autovaccum metrics can be used to monitor and tune autovaccum performance for Azure Database for PostgreSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
+Autovacuum metrics can be used to monitor and tune autovacuum performance for Azure Database for PostgreSQL - Flexible Server. Each metric is emitted at a *30-minute* interval and has up to *93 days* of retention. You can create alerts for specific metrics, and you can split and filter metrics data by using the DatabaseName dimension.
 
 #### How to enable autovacuum metrics
 
@@ -174,7 +174,7 @@ Autovaccum metrics can be used to monitor and tune autovaccum performance for Az
 
 ### PgBouncer metrics
 
-You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a *30-minute* interval and has up to *93 days* of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name.
+You can use PgBouncer metrics to monitor the performance of the PgBouncer process, including details for active connections, idle connections, total pooled connections, and the number of connection pools. Each metric is emitted at a *1-minute* interval and has up to *93 days* of history. Customers can configure alerts on the metrics and also access the new metrics dimensions to split and filter metrics data by database name.
 
 #### How to enable PgBouncer metrics
 
