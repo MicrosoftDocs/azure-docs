@@ -12,7 +12,7 @@ Azure Kubernetes Service (AKS) provides extra functionality for your clusters us
 
 ## Add-ons
 
-Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. The installation, configuration, and lifecycle of add-ons is managed by AKS. You can use the [`az aks enable-addons`][az-aks-enable-addons] command to install an add-on or manage the add-ons for your cluster.
+Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. The installation, configuration, and lifecycle of add-ons are managed on AKS. You can use the [`az aks enable-addons`][az-aks-enable-addons] command to install an add-on or manage the add-ons for your cluster.
 
 AKS uses the following rules for applying updates to installed add-ons:
 
@@ -24,7 +24,7 @@ AKS uses the following rules for applying updates to installed add-ons:
 ### Exceptions
 
 - Add-ons are upgraded to a new major/minor version (or breaking change) within a Kubernetes minor version if either the cluster's Kubernetes version or the add-on version are in preview.
-- There may be unavoidable circumstances, such as CVE security patches or critical bug fixes, when you need to update an add-on within a GA minor version.
+- There can be unavoidable circumstances, such as CVE security patches or critical bug fixes, when you need to update an add-on within a GA minor version.
 
 ### Available add-ons
 
@@ -53,7 +53,7 @@ Extensions and add-ons are both supported ways to add functionality to your AKS 
 
 ## GitHub Actions
 
-GitHub Actions helps you automate your software development workflows from within GitHub.
+GitHub Actions help you automate your software development workflows from within GitHub.
 
 - For more information on using GitHub Actions with Azure, see [GitHub Actions for Azure][github-actions].
 - For an example of using GitHub Actions with an AKS cluster, see [Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions][github-actions-aks].
@@ -69,16 +69,16 @@ There are many open-source and third-party integrations you can install on your 
 | [Grafana][grafana] | An open-source dashboard for observability.  | [Deploy Grafana on Kubernetes][grafana-install] or use [Managed Grafana][managed-grafana]|
 | [Couchbase][couchdb] | A distributed NoSQL cloud database. | [Install Couchbase and the Operator on AKS][couchdb-install] |
 | [OpenFaaS][open-faas]| An open-source framework for building serverless functions by using containers. | [Use OpenFaaS with AKS][open-faas-aks] |
-| [Apache Spark][apache-spark] | An open-source, fast engine for large-scale data processing. | Running Apache Spark jobs requires a minimum node size of *Standard_D3_v2*. See [running Spark on Kubernetes][spark-kubernetes] for more details on running Spark jobs on Kubernetes. |
+| [Apache Spark][apache-spark] | An open-source, fast engine for large-scale data processing. | Running Apache Spark jobs requires a minimum node size of *Standard_D3_v2*. For more information on running Spark jobs on Kubernetes, see the [running Spark on Kubernetes][spark-kubernetes] guide. |
 | [Istio][istio] | An open-source service mesh. | [Istio Installation Guides][istio-install] |
 | [Linkerd][linkerd] | An open-source service mesh. | [Linkerd Getting Started][linkerd-install] |
 | [Consul][consul] | An open-source, identity-based networking solution. | [Getting Started with Consul Service Mesh for Kubernetes][consul-install] |
 
 ### Third-party integrations for Windows containers
 
-Microsoft has collaborated with partners to ensure your build, test, deployment, configuration, and monitoring of your applications perform optimally with Windows containers on AKS.
+Microsoft collaborates with partners to ensure the build, test, deployment, configuration, and monitoring of your applications perform optimally with Windows containers on AKS.
 
-For more details, see [Windows AKS partner solutions][windows-aks-partner-solutions].
+For more information, see [Windows AKS partner solutions][windows-aks-partner-solutions].
 
 <!-- LINKS -->
 [aks-repo]: https://github.com/Azure/AKS
