@@ -42,27 +42,51 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 **Estimated date for change: January 2024** 
 
-The following container security alerts are set for deprecation or update to the severity level **informational**.
+The following container security alerts are set for deprecation or are set for update to the **informational** severity level .
 
-- The  container alert `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)` released as GA (General Availability) is set to be deprecated.
+- The  following container alerts released as GA (General Availability) are set to be deprecated:
+
+  - `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
+  - `PsExec execution detected (VM_RunByPsExec)`
+  - `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
+
 - The following container security alerts in Preview state are set for deprecation:
 
   - `Executable found running from a suspicious location (Preview) (K8S.NODE_SuspectExecutablePath)`
   - `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)`
   - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
-  - `Anomalous access to Kubernetes secret (Preview)(K8S_AnomalousSecretAccess)`
+  - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
 
 - The following container security alerts are set to be updated to the **informational** severity level:
 
-  - `SSH server is running inside a container (K8S.NODE_ContainerSSH)`
+  - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlWindowsViolationAudited)`
+  - `Adaptive application control policy violation was audited (VM_AdaptiveApplicationControlLinuxViolationAudited)`
+  - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
   - `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)`
-  - `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)`
+  - `Attempt to stop apt-daily-upgrade.timer service detected (K8S.NODE_TimerServiceDisabled)`
   - `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)`
-  - `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)`
-  - `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)`
-  - `New container in the kube-system namespace detected (K8S_KubeSystemContainer)`
-  - `Privileged container detected (K8S_PrivilegedContainer)`
+  - `Communication with suspicious algorithmically generated domain (AzureDNS_DomainGenerationAlgorithm)`
+  - `Communication with suspicious algorithmically generated domain (DNS_DomainGenerationAlgorithm)`
+  - `Communication with suspicious random domain name (Preview) (DNS_RandomizedDomain)`
+  - `Communication with suspicious random domain name (AzureDNS_RandomizedDomain)`
+  - `Communication with possible phishing domain (AzureDNS_PhishingDomain)`
+  - `Communication with possible phishing domain (Preview) (DNS_PhishingDomain)`
+  - `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)`
   - `Container with a sensitive volume mount detected (K8S_SensitiveMount)`
+  - `Creation of admission webhook configuration detected (K8S_AdmissionController)`
+  - `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)`
+  - `Docker build operation detected on a Kubernetes node (K8S.NODE_ImageBuildOnNode)`
+  - `New container in the kube-system namespace detected (K8S_KubeSystemContainer)`
+  - `New high privileges role detected (K8S_HighPrivilegesRole)`
+  - `NMap scanning detected (AppServices_Nmap)`
+  - `Possible incoming SMTP brute force attempts detected (Generic_Incoming_BF_OneToOne)`
+  - `Privileged container detected (K8S_PrivilegedContainer)`
+  - `Privileged custom role created for your subscription in a suspicious way (Preview)(ARM_PrivilegedRoleDefinitionCreation)`
+  - `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)`
+  - `Role binding to the cluster-admin role detected (K8S_ClusterAdminBinding)`
+  - `SSH server is running inside a container (K8S.NODE_ContainerSSH)`
+  - `Suspicious User Agent detected (AppServices_UserAgentInjection)`
+  - `Traffic detected from IP addresses recommended for blocking (Network_TrafficFromUnrecommendedIP)`
 
 See the full [list of security alerts](alerts-reference.md).
 
