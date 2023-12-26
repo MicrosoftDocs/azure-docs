@@ -68,24 +68,24 @@ Save the resources parameters for later use.
 
 1.In a new folder, copy the Terraform [GCPAuditLogsSetup script](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/GCP/Terraform/sentinel_resources_creation/GCPAuditLogsSetup) into a new file, and save it as a .tf file:
     
-```
+    ```
     cd {foldername} 
     ```
 
     
-```
+    ```
     terraform init  
     ```
 
 2.Type: 					 
     
-```
+    ```
     terraform apply  
     ```
 
  To ingest logs from an entire organization using a single Pub/Sub, type: 
     
-```    
+    ```    
     terraform apply -var="organization-id= {organizationId} "					 
     ```
 
@@ -163,10 +163,10 @@ This section shows you how to set up the GCP environment manually. Alternatively
          - For the principal name, use the following format: 
 
       
-```
+    ```
       `principal://iam.googleapis.com/projects/${Project number}/locations/global/workloadIdentityPools/${Workload Identity Pool ID}/subject/${Workload Identity Provider ID}`.
       
-```
+    ```
 
          - Under **"Assign roles"** choose **'Workload Identity User'** and **save**.
 
