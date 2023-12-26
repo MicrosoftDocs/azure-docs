@@ -7,7 +7,7 @@ items:
       href: overview.md
     - name: Multicloud monitoring
       href: best-practices-multicloud.md
-    - name: AIOps and machine learning in Azure Monitor
+    - name: AIOps and machine learning
       href: logs/aiops-machine-learning.md
     - name: What's new?
       href: whats-new.md
