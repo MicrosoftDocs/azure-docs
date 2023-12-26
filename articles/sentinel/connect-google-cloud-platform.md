@@ -147,7 +147,7 @@ This section shows you how to set up the GCP environment manually. Alternatively
    - Select **OIDC** 
    - Type the **Issuer (URL)**: `https://sts.windows.net/33e01921-4d64-4f8c-a055-5bdaffd5e33d`    
    - Next to **Audiences**, select **Allowed audiences**, and next to **Audience 1**, type: *api://2041288c-b303-4ca0-9076-9612db3beeb2*. 
-   -  
+     
 
    #### Configure the provider attributes 
     
@@ -166,7 +166,7 @@ This section shows you how to set up the GCP environment manually. Alternatively
 ```
       `principal://iam.googleapis.com/projects/${Project number}/locations/global/workloadIdentityPools/${Workload Identity Pool ID}/subject/${Workload Identity Provider ID}`.
       
-      ```
+```
 
          - Under **"Assign roles"** choose **'Workload Identity User'** and **save**.
 
