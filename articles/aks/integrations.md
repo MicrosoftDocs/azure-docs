@@ -28,17 +28,17 @@ AKS uses the following rules for applying updates to installed add-ons:
 
 ### Available add-ons
 
-| Name | Description | More details |
-|---|---|---|
-| web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] |
-| ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] |
-| keda | Use event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda]|
-| monitoring | Use Container Insights monitoring with your AKS cluster. | [Container insights overview][container-insights] |
-| azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] |
-| azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
-| virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] |
-| http_application_routing | Configure ingress with automatic public DNS name creation for your AKS cluster (retired). | [HTTP application routing add-on on Azure Kubernetes Service (AKS) (retired)][http-app-routing] |
-| open-service-mesh | Use Open Service Mesh with your AKS cluster (retired). | [Open Service Mesh AKS add-on (retired)][osm] |
+| Name | Description | Articles | GitHub
+|---|---|---| --- |
+| web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] | [GitHub][app-routing-repo] |
+| ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] | [GitHub][agic-repo] |
+| keda | Use event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda] | [GitHub][keda-repo] |
+| monitoring | Use Container Insights monitoring with your AKS cluster. | [Container insights overview][container-insights] | [GitHub][aks-repo] |
+| azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] | [GitHub][azure-policy-repo] |
+| azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] | [GitHub][keyvault-secret-provider-repo] |
+| virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] | [GitHub][virtual-nodes-oss-repo] |
+| http_application_routing | Configure ingress with automatic public DNS name creation for your AKS cluster (retired). | [HTTP application routing add-on on Azure Kubernetes Service (AKS) (retired)][http-app-routing] | [GitHub][app-routing-repo] |
+| open-service-mesh | Use Open Service Mesh with your AKS cluster (retired). | [Open Service Mesh AKS add-on (retired)][osm] | [GitHub][osm-repo] |
 
 ## Extensions
 
@@ -81,13 +81,21 @@ Microsoft has collaborated with partners to ensure your build, test, deployment,
 For more details, see [Windows AKS partner solutions][windows-aks-partner-solutions].
 
 <!-- LINKS -->
+[aks-repo]: https://github.com/Azure/AKS
 [http-app-routing]: http-application-routing.md
+[app-routing-repo]: https://github.com/Azure/aks-app-routing-operator
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [virtual-nodes]: virtual-nodes.md
-[azure-policy-aks]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
+[virtual-nodes-oss-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[azure-policy-aks]: ../governance/policy/concepts/
+policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
+[azure-policy-repo]: https://github.com/Azure/azure-policy
 [agic]: ../application-gateway/ingress-controller-overview.md
+[agic-repo]: https://github.com/Azure/application-gateway-kubernetes-ingress
 [osm]: open-service-mesh-about.md
+[osm-repo]: https://github.com/Azure/osm-azure
 [keyvault-secret-provider]: csi-secrets-store-driver.md
+[keyvault-secret-provider-repo]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
 [cluster-extensions]: cluster-extensions.md?tabs=azure-cli
 [cluster-extensions-current]: cluster-extensions.md?tabs=azure-cli#currently-available-extensions
 [aks-support-policy]: support-policies.md
@@ -112,6 +120,7 @@ For more details, see [Windows AKS partner solutions][windows-aks-partner-soluti
 [spark-kubernetes]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [managed-grafana]: ../managed-grafana/overview.md
 [keda]: keda-about.md
+[keda-repo]: https://github.com/Azure-Samples/aks-keda-addon-workload-identity
 [app-routing]: app-routing.md
 [maintenance-windows]: planned-maintenance.md
 [release-tracker]: release-tracker.md
