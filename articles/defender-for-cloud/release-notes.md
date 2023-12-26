@@ -201,7 +201,11 @@ For a complete list of alerts, see the [reference table for all security alerts 
 | November 6 | [New version of the recommendation to find missing system updates is now GA](#new-version-of-the-recommendation-to-find-missing-system-updates-is-now-ga) |
 
 
+
 ## Four alerts are deprecated
+
+### Four alerts are deprecated
+
 
 November 30, 2023
 
@@ -604,6 +608,7 @@ Agentless discovery for Kubernetes is now available to all Defender For Containe
 
 > [!NOTE]
 > Enabling the latest additions won't incur new costs to active Defender for Containers customers.
+
 For more information, see [Overview of Container security Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 ### Recommendation release: Microsoft Defender for Storage should be enabled with malware scanning and sensitive data threat detection
