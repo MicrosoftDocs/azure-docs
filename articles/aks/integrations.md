@@ -28,7 +28,7 @@ AKS uses the following rules for applying updates to installed add-ons:
 
 ### Available add-ons
 
-| Name | Description | Articles | GitHub
+| Name | Description | Articles | GitHub |
 |---|---|---| --- |
 | web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] | [GitHub][app-routing-repo] |
 | ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] | [GitHub][agic-repo] |
@@ -87,8 +87,7 @@ For more information, see [Windows AKS partner solutions][windows-aks-partner-so
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [virtual-nodes]: virtual-nodes.md
 [virtual-nodes-oss-repo]: https://github.com/virtual-kubelet/virtual-kubelet
-[azure-policy-aks]: ../governance/policy/concepts/
-policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
+[azure-policy-aks]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-repo]: https://github.com/Azure/azure-policy
 [agic]: ../application-gateway/ingress-controller-overview.md
 [agic-repo]: https://github.com/Azure/application-gateway-kubernetes-ingress
