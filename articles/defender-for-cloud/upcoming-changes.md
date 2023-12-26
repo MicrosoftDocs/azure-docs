@@ -2,7 +2,7 @@
 title: Important upcoming changes
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 12/24/2023
+ms.date: 12/26/2023
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Deprecation and severity changes to container security alerts](#deprecation-and-severity-changes-to-container-security-alerts) | December 26, 2023 | January 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
 | [Changes to how Microsoft Defender for Cloud's costs are presented in Microsoft Cost Management](#changes-to-how-microsoft-defender-for-clouds-costs-are-presented-in-microsoft-cost-management) | October 25, 2023 | November 2023 |
@@ -34,6 +35,36 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Deprecation and severity changes to container security alerts
+
+**Announcement date: December 26, 2023**
+
+**Estimated date for change: January 2024** 
+
+The following container security alerts are set for deprecation or update to the severity level **informational**.
+
+- The  container alert `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)` released as GA (General Availability) is set to be deprecated.
+- The following container security alerts in Preview state are set for deprecation:
+
+  - `Executable found running from a suspicious location (Preview) (K8S.NODE_SuspectExecutablePath)`
+  - `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)`
+  - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
+  - `Anomalous access to Kubernetes secret (Preview)(K8S_AnomalousSecretAccess)`
+
+- The following container security alerts are set to be updated to the **informational** severity level :
+
+  - `SSH server is running inside a container (K8S.NODE_ContainerSSH)`
+  - `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)`
+  - `Container running in privileged mode (K8S.NODE_PrivilegedContainerArtifacts)`
+  - `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)`
+  - `Process seen accessing the SSH authorized keys file in an unusual way (K8S.NODE_SshKeyAccess)`
+  - `Detected suspicious file download (K8S.NODE_SuspectDownloadArtifacts)`
+  - `New container in the kube-system namespace detected (K8S_KubeSystemContainer)`
+  - `Privileged container detected (K8S_PrivilegedContainer)`
+  - `Container with a sensitive volume mount detected (K8S_SensitiveMount)`
+
+See the full [list of security alerts](alerts-reference.md).
 
 ## Deprecation of two DevOps security recommendations
 
