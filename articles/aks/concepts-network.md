@@ -24,19 +24,27 @@ This article introduces the core concepts that provide networking to your applic
 * [Network policies](#network-policies)
 
 ## Kubernetes basics
+Kubernetes employs a virtual networking layer to manage access within and between your applications or their components. This involves the following key aspects:
 
-To allow access to your applications or between application components, Kubernetes provides an abstraction layer to virtual networking. Kubernetes nodes connect to a virtual network, providing inbound and outbound connectivity for pods. The *kube-proxy* component runs on each node to provide these network features.
+1. **Kubernetes Nodes and Virtual Network**: Kubernetes nodes are connected to a virtual network. This setup enables pods (basic units of deployment in Kubernetes) to have both inbound and outbound connectivity.
 
-In Kubernetes:
+2. **Kube-proxy Component**: Running on each node, kube-proxy is responsible for providing the necessary network features.
 
-* *Services* logically group pods to allow for direct access on a specific port via an IP address or DNS name.
-* *ServiceTypes* allow you to specify what kind of Service you want.
-* You can distribute traffic using a *load balancer*.
-* Layer 7 routing of application traffic can also be achieved with *ingress controllers*.
-* You can *control outbound (egress) traffic* for cluster nodes.
-* Security and filtering of the network traffic for pods is possible with *network policies*.
+Regarding specific Kubernetes functionalities:
 
-The Azure platform also simplifies virtual networking for AKS clusters. When you create a Kubernetes load balancer, you also create and configure the underlying Azure load balancer resource. As you open network ports to pods, the corresponding Azure network security group rules are configured. For HTTP application routing, Azure can also configure *external DNS* as new Ingress routes are configured.
+- **Services**: These are used to logically group pods, allowing direct access to them through a specific IP address or DNS name on a designated port.
+- **Service Types**: This feature lets you specify the kind of Service you wish to create.
+- **Load Balancer**: You can use a load balancer to distribute network traffic evenly across various resources.
+- **Ingress Controllers**: These facilitate Layer 7 routing, which is essential for directing application traffic.
+- **Egress Traffic Control**: Kubernetes allows you to manage and control outbound traffic from cluster nodes.
+- **Network Policies**: These policies enable security measures and filtering for network traffic in pods.
+
+In the context of the Azure platform:
+
+- Azure streamlines virtual networking for AKS (Azure Kubernetes Service) clusters.
+- Creating a Kubernetes load balancer on Azure simultaneously sets up the corresponding Azure load balancer resource.
+- As you open network ports to pods, Azure automatically configures the necessary network security group rules.
+- Azure can also manage external DNS configurations for HTTP application routing as new Ingress routes are established.
 
 ## Services
 
