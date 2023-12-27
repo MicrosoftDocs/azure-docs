@@ -99,7 +99,7 @@ Add the following key-value to your App Configuration store. For more informatio
 
 ## Web applications
 
-The following example shows how to update an existing web application to use refreshable configuration values. A callback can be supplied to the `on_refresh_success` keyword argument of the `load` function. This callback will be invoked when configuration is successfully refreshed, and can be used to update the configuration values in the application.
+The following example shows how to update an existing web application to use refreshable configuration values. A callback can be supplied to the `on_refresh_success` keyword argument of the `load` function. This callback will be invoked when a configuration change is detected on the server, and it can be used to update the configuration values in the application.
 
 ### [Flask](#tab/flask)
 
