@@ -130,7 +130,10 @@ looks like: `/subscriptions/A/resourceGroups/B/providers/Microsoft.Network/appli
     ```
 
 >[!NOTE]
-> If the virtual network Application Gateway is deployed into doesn't reside in the same resource group as the AKS nodes, please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in **Network Contributor** role, which contains the **Microsoft.Network/virtualNetworks/subnets/join/action** permission.
+> If you're deploying an Application Gateway in a virtual network (VNet) that's in a different resource group from your Azure Kubernetes Service (AKS) nodes, it's important to make sure that the identity used by the Application Gateway Ingress Controller (AGIC) has specific permissions. The necessary permission is `Microsoft.Network/virtualNetworks/subnets/join/action`, which allows the AGIC to interact with the subnet where the Application Gateway is located.
+
+> If you don't already have a custom role with this permission, you can assign the built-in "Network Contributor" role to the identity. This role already includes the required `Microsoft.Network/virtualNetworks/subnets/join/action` permission. Assigning this role is crucial for ensuring that the AGIC can effectively manage and update the Application Gateway based on the configurations and needs of your AKS setup.
+
 
 ## Using a Service Principal
 
