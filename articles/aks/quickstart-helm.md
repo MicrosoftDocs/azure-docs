@@ -68,7 +68,7 @@ You need to store your container images in an Azure Container Registry (ACR) to 
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
-2. Create an Azure Container Registry using the [`New-AzContainerRegistry`][new-azcontainerregistry] cmdlet. The following examples creates an ACR named *myhelmacr* with the *Basic* SKU.
+2. Create an Azure Container Registry using the [`New-AzContainerRegistry`][new-azcontainerregistry] cmdlet. The following example creates an ACR named *myhelmacr* with the *Basic* SKU.
 
     ```azurepowershell-interactive
     New-AzContainerRegistry -ResourceGroupName myResourceGroup -Name myhelmacr -Sku Basic
