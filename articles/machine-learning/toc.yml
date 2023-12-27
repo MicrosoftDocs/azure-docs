@@ -591,7 +591,7 @@
 - name: Work with foundation models
   items:
     - name: Model Catalog Overview
-      href: concept-foundation-models.md
+      href: concept-model-catalog.md
     - name: Open source models curated by Azure Machine Learning
       href: how-to-use-foundation-models.md
     - name: Hugging Face Hub community partner models
