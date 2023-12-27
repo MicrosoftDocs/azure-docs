@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 12/11/2023
+ms.date: 12/27/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
@@ -11,25 +11,23 @@ ms.date: 12/11/2023
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you use Azure CLI to deploy an AKS cluster that runs Windows Server containers. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
-:::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
+## Before you begin
 
-This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
+This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-- The identity you use to create your cluster must have the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+- This article requires version 2.0.64 or later of the Azure CLI. If you are using Azure Cloud Shell, then the latest version is already installed.
+- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`](/cli/azure/account) command.
-- Verify the *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. Check the registration status using the following [`az provider show`][az-provider-show] commands:
+- Verify that the *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. Check the registration status using the following [`az provider show`][az-provider-show] commands:
 
   ```sh
   az provider show -n Microsoft.OperationsManagement -o table
   az provider show -n Microsoft.OperationalInsights -o table
   ```
 
-  If they're not registered, register them using the following [`az provider register`][az-provider-register] commands:
+  If they're not registered, then register them using the following [`az provider register`][az-provider-register] commands:
   
   ```sh
   az provider register --namespace Microsoft.OperationsManagement
@@ -37,7 +35,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
   ```
   
   > [!NOTE]
-  > Run the commands with administrative privileges if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
+  > Run these commands with administrative privileges if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
 
 ## Create a resource group
 
@@ -82,13 +80,13 @@ In this section, we create an AKS cluster with the following configuration:
     echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
     ```
 
-2. Create a password for the administrator username you created in the previous step.
+1. Create a password for the administrator username you created in the previous step.
 
     ```azurecli
     echo "Please enter the password to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_PASSWORD
     ```
 
-3. Create your cluster using the [`az aks create`][az-aks-create] command and specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively, you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
+1. Create your cluster using the [`az aks create`][az-aks-create] command and specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively, you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
 
     ```azurecli
     az aks create \
@@ -184,7 +182,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-2. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command, which returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command, which returns a list of the cluster nodes.
 
     ```console
     kubectl get nodes -o wide
@@ -255,7 +253,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+1. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f sample.yaml
@@ -291,15 +289,12 @@ When the application runs, a Kubernetes service exposes the application front en
     sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
     ```
 
-2. See the sample app in action by opening a web browser to the external IP address of your service.
+1. See the sample app in action by opening a web browser to the external IP address of your service.
 
     :::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
 
     > [!NOTE]
     > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.
-
-> [!NOTE]
-> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
 
 ## Delete resources
 
@@ -316,9 +311,9 @@ If you don't plan on going through the following tutorials, you should delete yo
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it.
+In this quickstart, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the following Kubernetes cluster tutorial.
+To learn more about AKS, and to walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -340,6 +335,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
