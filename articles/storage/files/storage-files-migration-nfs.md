@@ -106,7 +106,7 @@ fpsync -m <specify copy tool - rsync/cpio/tar> -n <parallel transfers> <absolute
 For baseline copy, use fpsync with cpio.
 
 ```bash
-fpsync -m cpio –n <parallel transfers> <absolute source path> <absolute destination path>
+fpsync -m cpio -n <parallel transfers> <absolute source path> <absolute destination path>
 ```
 
 For more information, see [Cpio and Tar support](http://www.fpart.org/fpsync/#cpio-and-tar-support).
@@ -116,10 +116,10 @@ For more information, see [Cpio and Tar support](http://www.fpart.org/fpsync/#cp
 For incremental sync, use fpsync with the default copy tool (rsync). To capture all the changes, we recommend running this several times.
 
 ```bash
-fpsync –n <parallel transfers> <absolute source path> <absolute destination path>
+fpsync -n <parallel transfers> <absolute source path> <absolute destination path>
 ```
 
-By default, fpsync will specify the following rsync options: `-lptgoD -v --numeric-ids`. You can specify additional rsync options by adding `–o option` to the fpsync command.
+By default, fpsync will specify the following rsync options: `-lptgoD -v --numeric-ids`. You can specify additional rsync options by adding `-o option` to the fpsync command.
 
 ### Final pass
 
