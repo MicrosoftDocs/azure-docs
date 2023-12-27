@@ -9,9 +9,9 @@ ms.date: 12/25/2023
 
 # Prepare for deprecation of Log Analytics MMA
 
-The Azure Log Analytics, Microsoft Monitor Agent (MMA) is [set to be retired in August 2024](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). If you deployed the Defender for Servers or Defender for SQL Server on Machines plans within Microsoft Defender for Cloud, you can use the following table to help you prepare for deprecation.
+The Azure Log Analytics, Microsoft Monitor Agent (MMA) is [set to be retired in August 2024](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation). If you deployed the Defender for Servers or Defender for SQL Server on Machines plans within Microsoft Defender for Cloud, you can use the following table to help you prepare for deprecation. Follow the steps that fit your scenario according to what plan you are using, as well as its related features such as [FIM (File Integrity Monitoring)](file-integrity-monitoring-enable-log-analytics.md), EPP Discovery for [endpoint protection recommendations](endpoint-protection-recommendations-technical.md), or [applied security baseline recommendations](apply-security-baseline.md).
 
-| Are you using Defender for Servers? | Are you using FIM/EPP discovery/Baseline feature in Defender for Servers? | Are you using Defender for SQL servers on Machines? | What do I need to do? |
+| Defender for Servers? | FIM/EPP Discovery/Baseline | Defender for SQL Servers on machines? | What do I need to do? |
 | --- | --- | --- | --- |
 | Yes | No | No | 1. Enable Defender for Endpoint integration/agentless scanning.<br/>2. [Disable Log Analytics/Azure Monitor Agent](#disable-log-analytics-agentazure-monitor-agent-autoprovisioning).<br/>3. Uninstall MMA/AMA. |
 |  No | - | Yes | 1. [Migrate to the new SQL autoprovisioning process](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).<br/>2. [Disable ‘Log Analytics/Azure Monitor Agent](#disable-log-analytics-agentazure-monitor-agent-autoprovisioning).<br/>3. Uninstall MMA across all servers. |
