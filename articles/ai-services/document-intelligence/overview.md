@@ -272,7 +272,7 @@ O - Optional</br>
 ## Models and development options
 
 > [!NOTE]
->The following document understanding models and development options are supported by the Document Intelligence service v3.0.
+>The following document understanding models and development options are supported by the Document Intelligence service v3.0 and later versions.
 
 You can use Document Intelligence to automate document processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse development options.
 
