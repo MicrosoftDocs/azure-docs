@@ -24,7 +24,7 @@ Points to note:
 1. The 'scopes' of a service health alert rule can only contain a single subscription, which must be the same subscription in which the rule is created. Multiple subscriptions, a resource group, or other types of scope aren't supported.
 1. You can create service health alert rules only in the "Global" location.
 1. The "properties.incidentType", "properties.impactedServices[*].ServiceName" and "properties.impactedServices[*].ImpactedRegions[*].RegionName" clauses within the rule condition are optional. You can remove these clauses to be notified on events sent for all incident types, all services, and/or all regions, respectively.
-1. The service names used in the "properties.impactedServices[*].ServiceName" must be a valid Azure service name. A list of valid names can be retrieved at the [Resource Health Metadata List API](https://learn.microsoft.com/rest/api/resourcehealth/metadata/list?view=rest-resourcehealth-2022-10-01&tabs=HTTP)
+1. The service names used in the "properties.impactedServices[*].ServiceName" must be a valid Azure service name. A list of valid names can be retrieved at the [Resource Health Metadata List API](https://learn.microsoft.com/rest/api/resourcehealth/metadata/list)
 
 
 ```json
