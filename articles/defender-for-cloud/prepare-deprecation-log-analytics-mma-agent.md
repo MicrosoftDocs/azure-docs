@@ -26,7 +26,7 @@ Towards Log Analytics Agent (MMA) deprecation, and as part of an updated deploym
 
 As a result, all Defender for Servers features and capabilities currently relying on Log Analytics Agent (MMA) will be deprecated in their Log Analytics version in August 2024, and delivered over one of the previously mentioned alternative infrastructures.
 
-### Enable Defender for Endpoint integration/agentless scanning
+### Enable Defender for Endpoint integration and agentless scanning
 
 Enable Defender for Endpoint integration and agentless disk scanning on your subscriptions. This step ensures you’ll seamlessly be up-to-date and receive all the alternative deliverables once they're provided, and without any extra migration. Learn more about [endpoint protection](integration-defender-for-endpoint.md) and [agentless scanning](concept-agentless-data-collection.md).
 
@@ -48,11 +48,11 @@ We recommend that you plan your agents’ migration plan according to your organ
 > [!NOTE]
 > You can run both the Log Analytics and Azure Monitor Agents on the same machine. Each machine is billed once in Defender for Cloud. In cases where both agents are running on the machines, we recommend avoiding the collection of duplicate data by sending the data to different workspaces or alternatively disabling security event data collection by MMA. For more information, see the [migration guide](/azure/azure-monitor/agents/azure-monitor-agent-migration) and the [impact of running both agents](auto-deploy-azure-monitoring-agent.md#impact-of-running-with-both-the-log-analytics-and-azure-monitor-agents).
 
-### Agents auto provision
+### Agents autoprovisiong
 
 The provisioning process that provided the installation and configuration of both agents (MMA/AMA), has been adjusted according to the plan as previously mentioned:
 
-- Log Analytics Agent (MMA) auto-provisioning mechanism and its related policy initiative remains optional and supported through MDC platform until August 2024.
+- Log Analytics Agent (MMA) autoprovisioning mechanism and its related policy initiative remains optional and supported through MDC platform until August 2024.
 - Deploying Azure Monitor Agent (AMA) via the Defender for Cloud portal is available for SQL servers on machines, with the new deployment policy.
 - The previous Azure Monitor Agent (AMA)-related public preview policy initiative will be supported until August 2024. We recommend migrating to the new [deployment policy](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).
 
