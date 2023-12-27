@@ -66,7 +66,7 @@ With the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-ma
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 ```
 
-This command adds a `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
+This command adds an `azure-webapp-maven-plugin` plugin and related configuration by prompting you to select an existing Azure Web App or create a new one. Then you can deploy your Java app to Azure using the following command:
 
 ```shell
 mvn package azure-webapp:deploy
