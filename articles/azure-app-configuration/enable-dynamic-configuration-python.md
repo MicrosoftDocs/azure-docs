@@ -17,7 +17,7 @@ ms.author: mametcal
 The App Configuration Python provider includes built-in caching and refreshing capabilities. This tutorial shows how to enable dynamic configuration in Python applications.
 
 > [!NOTE]
-> Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b2/) package version 1.1.0b2 or later.
+> Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b3/) package version 1.1.0b3 or later.
 
 ## Prerequisites
 
