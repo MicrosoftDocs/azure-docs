@@ -67,7 +67,7 @@ Then you need also specify the image to the `environment` in the `flow.dag.yaml`
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png" alt-text="Screenshot of customize environment for automatic runtime on flow page. " lightbox = "./media/how-to-deploy-for-real-time-inference/runtime-creation-automatic-image-flow-dag.png":::
 
 > [!NOTE]
-> If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
+> If you are using private feeds in Azure devops, you need [build the image with private feeds](./how-to-create-manage-runtime.md#add-packages-in-a-private-feed-in-azure-devops) first and select custom environment to deploy in UI.
 
 ## Create an online deployment
 
@@ -377,7 +377,7 @@ After you deploy the endpoint and want to test it in the **Test tab** in the end
 :::image type="content" source="./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in endpoint detail page. " lightbox = "./media/how-to-deploy-for-real-time-inference/unable-to-fetch-deployment-schema.png":::
 
 - Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](#grant-permissions-to-the-endpoint).
-- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-runtime-from-ui) and rerun the flow in the latest runtime and then deploy the flow again.
+- It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime which was in old version as well. Update the runtime following [this guidance](./how-to-create-manage-runtime.md#update-a-runtime-on-the-ui) and rerun the flow in the latest runtime and then deploy the flow again.
 
 ### Access denied to list workspace secret
 
