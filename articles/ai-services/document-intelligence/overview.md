@@ -45,7 +45,7 @@ monikerRange: '<=doc-intel-4.0.0'
 > * As of July 2023, Azure AI services encompass all of what were previously known as Cognitive Services and Azure Applied AI Services.
 > * There are no changes to pricing.
 > * The names *Cognitive Services* and *Azure Applied AI* continue to be used in Azure billing, cost analysis, price list, and price APIs.
-> * There are no breaking changes to application programming interfaces (APIs) or SDKs.
+> * There are no breaking changes to application programming interfaces (APIs) or SDKs until v3.1. Starting from v4.0, APIs and SDKs are updated to Document Intelligence.
 > * Some platforms are still awaiting the renaming update. All mention of Form Recognizer or Document Intelligence in our documentation refers to the same Azure service.
 
 Azure AI Document Intelligence is a cloud-based [Azure AI service](../../ai-services/index.yml) that enables you to build intelligent document processing solutions. Massive amounts of data, spanning a wide variety of data types, are stored in forms and documents. Document Intelligence enables you to effectively manage the velocity at which data is collected and processed and is key to improved operations, informed data-driven decisions, and enlightened innovation. </br></br>
