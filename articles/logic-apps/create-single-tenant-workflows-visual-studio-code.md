@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 12/12/2023
 ms.custom: ignite-fall-2021, engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
@@ -1239,9 +1239,9 @@ Through the Azure portal, you can add blank workflows to a Standard logic app re
 
 To debug a stateless workflow more easily, you can enable the run history for that workflow, and then disable the run history when you're done. Follow these steps for Visual Studio Code, or if you're working in the Azure portal, see [Create single-tenant based workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless).
 
-1. In your Visual Studio Code project, expand the folder that's named **workflow-designtime**. Open the **local.settings.json** file.
+1. In your Visual Studio Code project, at the root folder level, open the **local.settings.json** file.
 
-1. Add the `Workflows.{yourWorkflowName}.operationOptions` property and set the value to `WithStatelessRunHistory`, for example:
+1. Add the `Workflows.{yourWorkflowName}.operationOptions` property, and set the value to `WithStatelessRunHistory`, for example:
 
    **Windows**
 
@@ -1269,6 +1269,8 @@ To debug a stateless workflow more easily, you can enable the run history for th
       }
    }
    ```
+
+1. In the project folder named **workflow-designtime**, open the **local.settings.json** file, and make the same change.
 
 1. To disable the run history when you're done, either set the `Workflows.{yourWorkflowName}.OperationOptions`property to `None`, or delete the property and its value.
 

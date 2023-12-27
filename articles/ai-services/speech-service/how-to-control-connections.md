@@ -2,7 +2,6 @@
 title: Service connectivity how-to - Speech SDK
 titleSuffix: Azure AI services
 description: Learn how to monitor for connection status and manually connect or disconnect from the Speech service.
-#services: cognitive-services
 author: trrwilson
 manager: nitinme
 ms.service: azure-ai-speech

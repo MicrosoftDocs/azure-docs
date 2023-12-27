@@ -1,5 +1,5 @@
 ---
-title: Azure VM Image Builder overview 
+title: Azure VM Image Builder overview
 description: In this article, you learn about VM Image Builder for virtual machines in Azure.
 author: sumit-kalra
 ms.author: sukalra
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
-ms.reviewer: erd
+ms.reviewer: jushiman
 ---
 
 # Azure VM Image Builder overview
