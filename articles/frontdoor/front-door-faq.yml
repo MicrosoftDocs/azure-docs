@@ -203,9 +203,9 @@ sections:
           For more information on Azure Front Door service tags scenarios, see [available service tags](../virtual-network/service-tags-overview.md#available-service-tags).
 
       - question: |
-          What is the value of the connection timeout from client to Azure Front Door?
+          What is the value of header timeout from client to Azure Front Door?
         answer:  |   
-          Azure Front Door has a 5-second timeout for client connections. The connection is terminated if the client doesn't send data for 5 seconds to Azure Front Door after establishing TCP/TLS connection. You can't configure this timeout value.
+          Azure Front Door has a 5-second timeout for receiving headers from client. The connection is terminated if the client doesn't send headers within 5 seconds to Azure Front Door after establishing TCP/TLS connection. You can't configure this timeout value.
 
       - question: |
           What is the value of the HTTP keep-alive timeout for Azure Front Door?
