@@ -27,7 +27,7 @@ The Azure App Configuration Python provider includes built-in caching and refres
 
 ## Add key-values
 
-Add the following key-value to your Azrue App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+Add the following key-value to your Azure App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key            | Value             | Label       | Content type       |
 |----------------|-------------------|-------------|--------------------|
