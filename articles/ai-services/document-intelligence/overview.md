@@ -240,8 +240,9 @@ Document Intelligence supports optional features that can be enabled and disable
 
 * [`ocr.barcode`](concept-add-on-capabilities.md#barcode-property-extraction)
 
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-10-31-preview` and later releases:
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for `2023-10-31-preview` and later releases:
 
+* [`keyValuePairs`](concept-add-on-capabilities.md#key-value-pairs)
 * [`queryFields`](concept-add-on-capabilities.md#query-fields)
 
 ## Analysis features
