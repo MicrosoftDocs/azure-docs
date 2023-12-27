@@ -85,7 +85,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     kubectl get nodes
     ```
 
-    The following example output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
+    The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
     NAME                                STATUS   ROLES   AGE     VERSION
@@ -108,7 +108,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     kubectl get nodes
     ```
 
-    The following example output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
+    The following sample output shows all the nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
     NAME                                STATUS   ROLES   AGE     VERSION
@@ -178,7 +178,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     kubectl apply -f sample.yaml
     ```
 
-    The following example output shows the deployment and service created successfully:
+    The following sample output shows the deployment and service created successfully:
 
     ```output
     deployment.apps/sample created
@@ -202,7 +202,7 @@ When the application runs, a Kubernetes service exposes the application front en
     sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
     ```
 
-    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
+    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following sample output shows a valid public IP address assigned to the service:
 
     ```output
     sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m

@@ -383,9 +383,6 @@ It takes a few minutes to create the AKS cluster. Wait for the cluster successfu
 
     :::image type="content" source="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider/aks-store-application.png":::
 
-> [!NOTE]
-> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
 ## Delete the cluster
 
 If you don't plan on going through the following tutorials, clean up unnecessary resources to avoid Azure charges.
@@ -413,43 +410,26 @@ If you don't plan on going through the following tutorials, clean up unnecessary
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
 
 <!-- LINKS - external -->
-[azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
-[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: /previous-versions/azure/dev-spaces/
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
-[aks-monitor]: ../../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks#az_aks_browse
-[az-aks-create]: /cli/azure/aks#az_aks_create
-[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
-[import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
-[install-azakskubectl]: /powershell/module/az.aks/install-azaksclitool
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
-[azure-cli-install]: /cli/azure/install-azure-cli
-[install-azure-powershell]: /powershell/azure/install-az-ps
-[connect-azaccount]: /powershell/module/az.accounts/Connect-AzAccount
-[sp-delete]: ../kubernetes-service-principal.md#additional-considerations
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-[kubernetes-service]: ../concepts-network.md#services
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
 [az-deployment-group-create]: /cli/azure/group/deployment#az_deployment_group_create
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [new-azresourcegroupdeployment]: /powershell/module/az.resources/new-azresourcegroupdeployment
 [az-sshkey-create]: /cli/azure/sshkey#az_sshkey_create
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

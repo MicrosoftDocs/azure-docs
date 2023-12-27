@@ -452,17 +452,14 @@ To learn more about AKS and walk through a complete code-to-deployment example, 
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/reference/kubectl/
-[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-documentation]: https://kubernetes.io/docs/home/
 
 <!-- LINKS - internal -->
 [azure-portal]: https://portal.azure.com
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
-[az-group-delete]: /cli/azure/group#az-group-delete
-[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [preset-config]: ../quotas-skus-regions.md#cluster-configuration-presets-in-the-azure-portal
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

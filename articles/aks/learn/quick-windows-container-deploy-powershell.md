@@ -9,10 +9,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using PowerShell
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you learn to:
-
-- Deploy an AKS cluster using the Azure CLI.
-- Run a sample multi-container application with a group of microservices and web front ends simulating a retail scenario.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster that runs Windows Server containers using the Azure portal. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
 ## Before you begin
 
@@ -36,7 +33,7 @@ To create a resource group, use the [`New-AzResourceGroup`][new-azresourcegroup]
 New-AzResourceGroup -Name myResourceGroup -Location eastus
 ```
 
-The following sample output shows the resource group created successfully:
+The following sample output shows that the resource group was created successfully:
 
 ```output
 ResourceGroupName : myResourceGroup
@@ -44,7 +41,7 @@ Location          : eastus
 ProvisioningState : Succeeded
 Tags              :
 ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup
-  ```
+```
 
 ## Create an AKS cluster
 
@@ -60,19 +57,28 @@ In this section, we create an AKS cluster with the following configuration:
 1. Create the administrator credentials for your Windows Server containers using the following command. This command prompts you to enter a `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword`.
 
     ```azurepowershell
-    $AdminCreds = Get-Credential -Message 'Please create the administrator credentials for your Windows Server containers'
+    $AdminCreds = Get-Credential `
+        -Message 'Please create the administrator credentials for your Windows Server containers'
     ```
 
-2. Create your cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet and specify the `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword` parameters.
+1. Create your cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet and specify the `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword` parameters.
 
     ```azurepowershell
-    New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $AdminCreds.UserName -WindowsProfileAdminUserPassword $AdminCreds.Password -GenerateSshKey
+    New-AzAksCluster -ResourceGroupName myResourceGroup `
+        -Name myAKSCluster `
+        -NodeCount 2 `
+        -NetworkPlugin azure `
+        -NodeVmSetType VirtualMachineScaleSets `
+        -WindowsProfileAdminUserName $AdminCreds.UserName `
+        -WindowsProfileAdminUserPassword $secureString `
+        -GenerateSshKey
     ```
 
-    > [!NOTE]
-    >
-    > - If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password].
-    > - If you're unable to create the AKS cluster because the version isn't supported in the region you selected, use the `Get-AzAksVersion -Location location` command to find the supported version list for the region.
+    If you get a password validation error, then verify that the password you set meets the [Windows Server password requirements][windows-server-password]. Also see [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm-). If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+
+    If you don't specify an administrator username and password when creating the node pool, the username is set to *azureuser* and the password is set to a random value. For more information, see [How do I change the administrator password for Windows Server nodes on my cluster?](../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster).
+
+    If you're unable to create the AKS cluster because the version isn't supported in the region you selected, use the `Get-AzAksVersion -Location <location>` command to find the supported version list for the region.
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally, the cluster can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 

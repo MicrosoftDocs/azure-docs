@@ -428,9 +428,6 @@ When the application runs, a Kubernetes service exposes the application front en
 
     :::image type="content" source="media/quick-kubernetes-deploy-terraform/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-terraform/aks-store-application.png":::
 
-> [!NOTE]
-> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
 ## Clean up resources
 
 ### Delete AKS resources
@@ -457,12 +454,17 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Next steps
 
+In this quickstart, you deployed a Kubernetes cluster and deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+
+To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
+
 > [!div class="nextstepaction"]
 > [Learn more about using AKS.](/azure/aks)
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
-
-<!-- LINKS - Internal -->
 [intro-azure-linux]: ../../azure-linux/intro-azure-linux.md
+
+<!-- LINKS - External -->
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

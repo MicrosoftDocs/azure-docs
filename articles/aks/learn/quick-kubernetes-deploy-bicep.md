@@ -465,9 +465,6 @@ When the application runs, a Kubernetes service exposes the application front en
 
     :::image type="content" source="media/quick-kubernetes-deploy-bicep/aks-store-application.png" alt-text="Screenshot of AKS Store sample application." lightbox="media/quick-kubernetes-deploy-bicep/aks-store-application.png":::
 
-> [!NOTE]
-> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
 ## Delete the cluster
 
 If you don't plan on going through the following tutorials, clean up unnecessary resources to avoid Azure charges.
@@ -495,9 +492,9 @@ If you don't plan on going through the following tutorials, clean up unnecessary
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a sample multi-container application to it.
+In this quickstart, you deployed a Kubernetes cluster and deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
+To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -522,3 +519,4 @@ To learn more about AKS and walk through a complete code to deployment example, 
 [ssh-keys]: ../../virtual-machines/linux/create-ssh-keys-detailed.md
 [new-az-aks-cluster]: /powershell/module/az.aks/new-azakscluster
 [az-sshkey-create]: /cli/azure/sshkey#az_sshkey_create
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE

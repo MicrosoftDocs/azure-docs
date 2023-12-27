@@ -9,7 +9,7 @@ ms.date: 12/27/2023
 
 # Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using Azure CLI
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you use Azure CLI to deploy an AKS cluster that runs Windows Server containers. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster that runs Windows Server containers using the Azure portal. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
 ## Before you begin
 
@@ -47,7 +47,7 @@ An [Azure resource group](../../azure-resource-manager/management/overview.md) i
     az group create --name myResourceGroup --location eastus
     ```
 
-    The following example output shows the resource group created successfully:
+  The following sample output shows the resource group created successfully:
 
     ```output
     {
@@ -101,11 +101,11 @@ In this section, we create an AKS cluster with the following configuration:
         --network-plugin azure
     ```
 
-    > [!NOTE]
-    >
-    > - If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
-    > - If you don't specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
-    > - The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more information, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
+    If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. Also see [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm-). If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+
+    If you don't specify an administrator username and password when creating the node pool, the username is set to *azureuser* and the password is set to a random value. For more information, see [How do I change the administrator password for Windows Server nodes on my cluster?](../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster).
+
+    The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more information, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally, the cluster can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
@@ -188,7 +188,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
     kubectl get nodes -o wide
     ```
 
-    The following example output shows all nodes in the cluster. Make sure the status of all nodes is *Ready*:
+    The following sample output shows all nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
@@ -259,7 +259,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
     kubectl apply -f sample.yaml
     ```
 
-    The following example output shows the deployment and service created successfully:
+    The following sample output shows the deployment and service created successfully:
 
     ```output
     deployment.apps/sample created
@@ -283,7 +283,7 @@ When the application runs, a Kubernetes service exposes the application front en
     sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
     ```
 
-    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
+    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following sample output shows a valid public IP address assigned to the service:
 
     ```output
     sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
