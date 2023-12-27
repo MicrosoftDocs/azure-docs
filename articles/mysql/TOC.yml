@@ -28,9 +28,7 @@
       - name: Release notes
         items:
           - name: January 2024
-          - href: flexible-server/release-notes/january-2024.md
-          - name: Coming soon
-          - href: flexible-server/whats-new.md
+            href: flexible-server/release-notes/january-2024.md
       - name: Compute and storage
         href: flexible-server/concepts-service-tiers-storage.md
   - name: Quickstarts
