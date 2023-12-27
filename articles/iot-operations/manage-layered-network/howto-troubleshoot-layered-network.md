@@ -12,7 +12,9 @@ ms.date: 1/2/2024
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Cannot install Layered Network Management on the parent level
+# Troubleshoot Layered Network Management
+
+## Cannot install Layered Network Management on the parent level
 Fail when trying to install the Layered Network Management operator or apply the CR for Layered Network Management instance.
 
 **Troubleshooting steps**
@@ -22,7 +24,7 @@ Fail when trying to install the Layered Network Management operator or apply the
 1. Verify the Layered Network Management Operator is in Running and Ready state. 
 1. If application of CR (`kubectl apply –f cr.yaml`) fails, the output of this command generally shows the reason for error (CRD version mismatch, wrong entry in CRD,... etc)
 
-# Cannot Arc-enable the cluster through the parent level Layered Network Management
+## Cannot Arc-enable the cluster through the parent level Layered Network Management
 
 Sometimes there would be issue while Arc-enabling the cluster on nested layers if you have repeatedly removed and onboarded cluster with the same machine. The error message would look like:
 
@@ -44,7 +46,7 @@ If your cluster is behind an outbound proxy server, please ensure that you have 
 1. Add the `–-debug` parameter when running the connectedk8s command.
 1. Capture the network packet trace. See [capture network packet trace](#appendix-capture-network-packet-trace) for more information.
 
-# Fail to install IoT Operations on the isolated cluster
+## Fail to install IoT Operations on the isolated cluster
 
 Failure while installing the IoT Operations components on nested layers. (For example, Layered Network Management on Level 4 is running, but facing issues installing IoT Operations on level 3.) 
 
@@ -58,7 +60,7 @@ Failure while installing the IoT Operations components on nested layers. (For ex
 3. If the domain is getting resolved correctly, then verify that the domain is added to the allowlist. See appendix for more details.
 4. For deeper investigation please capture the network packet trace. See [capture network packet trace](#appendix-capture-network-packet-trace) for more information.
 
-# A particular pod fails when installing IoT Operations
+## A particular pod fails when installing IoT Operations
 
 When installing the IoT Operations components to a cluster, the installation starts and proceeds. However, initialization of one or few of the components (pods) keep failing.
 
@@ -77,7 +79,7 @@ When installing the IoT Operations components to a cluster, the installation sta
     Warning  Failed  3m14s  kubelet  Failed to pull image "…
     ```
 
-# Appendix: Check the allowlist of Layered Network Management
+## Appendix: Check the allowlist of Layered Network Management
 
 1. Run the following command to list the config maps.
     ```bash
@@ -95,7 +97,7 @@ When installing the IoT Operations components to a cluster, the installation sta
     ```
 1. All the allowed domains will be listed in the output.
 
-# Appendix: Capture network packet trace
+## Appendix: Capture network packet trace
 
 In some cases, you might suspect that Layered Network Management instance at the parent level is not forwarding network traffic to a particular endpoint and causing issue for the service running on your node. It is possible that the service you have enabled is trying to connect to a new endpoint after an update. Or you are trying to install a new Arc extension/service that requires connection to endpoints that are not on the default allowlist. Usually there would be information in the error message to notify the connection failure. However, if there is no clear information about the missing endpoint, you can capture the network traffic on the child node for detailed debugging.
 
