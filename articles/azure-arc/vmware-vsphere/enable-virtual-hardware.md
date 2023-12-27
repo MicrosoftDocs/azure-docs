@@ -2,7 +2,7 @@
 title:  Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
 description: Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
 ms.topic: how-to 
-ms.date: 12/22/2023
+ms.date: 12/27/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
