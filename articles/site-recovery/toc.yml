@@ -6,6 +6,8 @@
     href: site-recovery-overview.md
   - name: What's new in Site Recovery
     href: site-recovery-whats-new.md
+  - name: Archieve for What's new
+    href: site-recovery-whats-new-archive.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
   - name: Disaster recovery for VMware

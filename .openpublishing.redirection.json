@@ -1091,10 +1091,15 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/site-recovery/concepts-types-of-failback.md.md",
+            "source_path": "articles/site-recovery/vmware-physical-secondary-architecture.md",
             "redirect_url": "/azure/site-recovery/transport-layer-security",
             "redirect_document_id": false
         },
+        {
+            "source_path": "articles/site-recovery/hyper-v-vmm-architecture.md",
+            "redirect_url": "/azure/site-recovery/transport-layer-security",
+            "redirect_document_id": false
+        },        
         {
             "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
             "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
