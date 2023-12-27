@@ -122,7 +122,7 @@ Use one of the following procedures to update this XML file to run in the isolat
 
 When migrating to run in an isolated worker process, you must add a `Program.cs` file to your project with the following contents:
 
-# [.NET 8](#tab/net8)
+# [.NET 8 with ASP.NET Core Integration](#tab/net8)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
