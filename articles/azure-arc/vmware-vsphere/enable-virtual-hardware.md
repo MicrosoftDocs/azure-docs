@@ -16,7 +16,7 @@ ms.custom:
 In this article, you learn how to enable virtual hardware management and VM CRUD operational ability on a VMware VM that has Arc agents installed via the Arc-enabled Servers route.
 
 >[!IMPORTANT]
-> This article is applicable only if you have installed Arc agents directly in the VMware machines before onboarding to Azure Arc-enabled VMware vSphere by deploying resource bridge. 
+> This article is applicable only if you've installed Arc agents directly in VMware machines before onboarding to Azure Arc-enabled VMware vSphere by deploying resource bridge. 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 1. From your browser, go to [Azure portal](https://portal.azure.com/).
 
 1. Navigate to the Virtual machines inventory page of your vCenter. <br>
-   The Virtual machines that have Arc agent installed via the Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management.
+   The virtual machines that have Arc agent installed via the Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management.
 
 1. Select **Link to vCenter** to view the pane with the list of all the machines under vCenter with Arc agent installed but not linked to the vCenter in Azure Arc.
 
@@ -36,9 +36,9 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 
 1. After you link to vCenter, the virtual hardware status will reflect as **Enabled for all the VMs**, and you can perform [virtual hardware operations](perform-vm-ops-through-azure.md). 
 
-### Known issue
+## Known issue
  
-During the first scan of the vCenter inventory after onboarding to Azure Arc-enabled VMware vSphere, Arc-enabled Servers machines will be discovered under vCenter inventory. If the Arc-enabled Server machines didn't get discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error: 
+During the first scan of the vCenter inventory after onboarding to Azure Arc-enabled VMware vSphere, Arc-enabled Servers machines will be discovered under vCenter inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error: 
 
 ```
 A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.
