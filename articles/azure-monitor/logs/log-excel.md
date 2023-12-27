@@ -21,7 +21,7 @@ You can integrate Azure Monitor Log Analytics and Microsoft Excel using M query 
 To integrate Log Analytics and Excel, you need:
 
 - [Excel](https://www.microsoft.com/en-us/microsoft-365/excel) local client application.
-- A Log Analytics workspace that has some data. If needed, [create a diagnostic setting to send data to a Log Analytics workspace](../essentials/diagnostic-settings.md#create-diagnostic-settings).
+- A Log Analytics workspace that has some data. If needed, [create a diagnostic setting to send data to a Log Analytics workspace](../essentials/create-diagnostic-settings.md).
 
 [!INCLUDE [log-analytics-query-permissions](../../../includes/log-analytics-query-permissions.md)]
 
