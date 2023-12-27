@@ -19,9 +19,9 @@ ms.author: eur
 
 In Azure AI Studio, you can create and manage prompt flow runtimes. You need a runtime to use prompt flow.
 
-A prompt flow runtime has computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, Azure AI Studio uses the runtime to ensure the accuracy and functionality of the tools incorporated within the flow, when you make updates to the prompt or code content.
+A prompt flow runtime has computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. In addition to flow execution, Azure AI Studio uses the runtime to ensure the accuracy and functionality of the tools incorporated within the flow when you make updates to the prompt or code content.
 
-Azure AI Studio supports following types of runtimes:
+Azure AI Studio supports the following types of runtimes:
 
 |Runtime type|Underlying compute type|Life cycle management| Customize packages              |
 |------------|----------------------|---------------------|---------------------|
@@ -42,7 +42,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
-2. In advanced settings, you can:
+2. In the advanced settings, you can:
 
    - Customize the VM size that the runtime uses.
    - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
@@ -54,14 +54,16 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 ### Create a compute instance runtime on a runtime page
 
-1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project already, first create a project.
+1. Sign in to [Azure AI Studio](https://ai.azure.com) and select your project from the **Build** page. If you don't have a project, create one.
 
 1. On the collapsible left menu, select **Settings**.
+
 1. In the **Compute instances** section, select **View all**.
 
     :::image type="content" source="../media/compute/compute-view-settings.png" alt-text="Screenshot of project settings with the option to view all compute instances." lightbox="../media/compute/compute-view-settings.png":::
 
-1. Make sure that you have a compute instance available and running. If you don't have a compute instance, you can [create one in Azure AI Studio](./create-manage-compute.md).
+1. Make sure that a compute instance is available and running. If you don't have a compute instance, you can [create one in Azure AI Studio](./create-manage-compute.md).
+
 1. Select the **Prompt flow runtimes** tab.
 
     :::image type="content" source="../media/compute/compute-runtime.png" alt-text="Screenshot of where to select prompt flow runtimes from the compute instances page." lightbox="../media/compute/compute-runtime.png":::
@@ -86,7 +88,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
     :::image type="content" source="../media/compute/runtime-running.png" alt-text="Screenshot of a runtime with a running status." lightbox="../media/compute/runtime-running.png":::
 
-1. Select the runtime from the **Prompt flow runtimes** tab to see its details.
+1. Select the runtime on the **Prompt flow runtimes** tab to see its details.
 
     :::image type="content" source="../media/compute/runtime-details.png" alt-text="Screenshot of runtime details, including environment." lightbox="../media/compute/runtime-details.png":::
 

@@ -16,7 +16,7 @@ ms.date: 09/13/2023
 
 # Create and manage prompt flow runtimes in Azure Machine Learning studio
 
-A prompt flow runtime provides computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables prompt flow to efficiently execute its tasks and functions, for a seamless user experience.
+A prompt flow runtime provides computing resources that are required for the application to run, including a Docker image that contains all necessary dependency packages. This reliable and scalable runtime environment enables prompt flow to efficiently execute its tasks and functions for a seamless user experience.
 
 Azure Machine Learning supports the following types of runtimes:
 
@@ -59,7 +59,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-create-automatic-init.png" alt-text="Screenshot of prompt flow with default settings for starting an automatic runtime on a flow page." lightbox = "./media/how-to-create-manage-runtime/runtime-create-automatic-init.png":::
 
-2. In advanced settings, you can:
+2. In the advanced settings, you can:
 
    - Customize the VM size that the runtime uses.
    - Customize the idle time, which saves code by deleting the runtime automatically if it isn't in use.
@@ -71,7 +71,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
 ### Create a compute instance runtime on a runtime page
 
-Before you create a compute instance runtime, make sure that you have a compute instance available and running. If you don't have a compute instance, [create one in an Azure Machine Learning workspace](../how-to-create-compute-instance.md).
+Before you create a compute instance runtime, make sure that a compute instance is available and running. If you don't have a compute instance, [create one in an Azure Machine Learning workspace](../how-to-create-compute-instance.md).
 
 1. On the page that lists runtimes, select **Create**.
   
