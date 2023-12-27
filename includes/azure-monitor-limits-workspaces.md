@@ -71,6 +71,7 @@ ms.custom: "include file"
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
+| Maximum number of custom log tables | 500 | |
 | Maximum characters for column name | 45 | |
 
 <b id="data-ingestion-volume-rate">Data ingestion volume rate</b>

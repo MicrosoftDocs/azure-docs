@@ -102,6 +102,8 @@
           href: howto-custom-domain.md
     - name: Scale and geo-replicate
       items:
+        - name: Manual scale
+          href: howto-scale-manual-scale.md
         - name: Autoscale
           href: howto-scale-autoscale.md
         - name: Geo-replication

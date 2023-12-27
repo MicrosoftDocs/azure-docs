@@ -92,6 +92,17 @@ See [regions supported for this feature](azure-netapp-files-network-topologies.m
 This feature currently doesn't support SDK.
 
 > [!NOTE]
+> The option to edit network features is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. This feature is expected to be enabled within a week after you submit the waitlist request. You can check the status of feature registration by using the following command: 
+>
+> ```azurepowershell-interactive
+> Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBasicToStdNetworkFeaturesUpgrade                                                      
+> 
+> FeatureName                         ProviderName     RegistrationState   
+> -----------                         ------------     -----------------   
+> ANFBasicToStdNetworkFeaturesUpgrade Microsoft.NetApp Registered
+> ```
+
+> [!NOTE]
 > You can also revert the option from *Standard* back to *Basic* network features. However, before performing the revert operation, you need to submit a waitlist request through the **[Azure NetApp Files standard networking features (edit volumes) Public Preview Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The revert capability is expected to be enabled within a week after you submit the waitlist request. You can check the status of the registration by using the following command: 
 >
 > ```azurepowershell-interactive

@@ -204,7 +204,7 @@ The following links provide additional information on how to add a CNAME record 
 
 ## Next steps
 
-* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with an Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 * [How to send an email using Azure Communication Service](../../quickstarts/email/send-email.md)
 
