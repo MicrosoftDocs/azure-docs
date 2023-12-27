@@ -10,7 +10,7 @@ ms.date: 12/27/2023
 
 # Archive for What's new in Site Recovery
 
-This article contains information on older features and updates in the Azure Site Recovery service. The primary [What's new in Azure Site Recovery](./site-recovery-whats-new.md) article contains updates for the last six months, while 
+This article contains information on older features and updates in the Azure Site Recovery service. The primary [What's new in Azure Site Recovery](./site-recovery-whats-new.md) article contains the latest updates. 
 
 ## Updates (November 2021)
 

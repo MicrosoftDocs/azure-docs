@@ -1091,6 +1091,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/physical-azure-architecture.md",
+            "redirect_url": "/azure/site-recovery/physical-server-azure-architecture-modernized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-azure-configuration-server-requirements.md",
+            "redirect_url": "/azure/site-recovery/vmware-physical-azure-classic-deprecation",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/vmware-physical-secondary-architecture.md",
             "redirect_url": "/azure/site-recovery/transport-layer-security",
             "redirect_document_id": false
