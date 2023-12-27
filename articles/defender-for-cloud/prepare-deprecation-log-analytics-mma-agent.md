@@ -49,11 +49,11 @@ We recommend that you plan your agents’ migration plan according to your organ
 
 ### Agents auto provision
 
-Deploying Azure Monitor Agent (AMA) via the Defender for Cloud portal is available for SQL servers on machines, with the [new deployment policy](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).
+The provisioning process that provided the installation and configuration of both agents (MMA/AMA), has been adjusted according to the plan as previously mentioned:
 
-If you enabled the AMA-related public preview policy initiative, support will continue until August 2024.  
-
-To disable AMA provisioning, edit the configuration of the “Log Analytics/Azure Monitor Agent” extension through “Settings and Monitoring” of the Defender for Servers plan in the Defender for Cloud portal. Alternately, you can manually remove the policy initiative.
+- Log Analytics Agent (MMA) auto-provisioning mechanism and its related policy initiative remains optional and supported through MDC platform until August 2024.
+- Deploying Azure Monitor Agent (AMA) via the Defender for Cloud portal is available for SQL servers on machines, with the new deployment policy.
+- The previous Azure Monitor Agent (AMA)-related public preview policy initiative will be supported until August 2024. We recommend migrating to the new [deployment policy](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).
 
 For more information about how to plan for this change, [see Microsoft Defender for Cloud - strategy and plan towards Log Analytics Agent (MMA) deprecation](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-strategy-and-plan-towards-log/ba-p/3883341).
 
@@ -62,7 +62,7 @@ For more information about how to plan for this change, [see Microsoft Defender 
 
 ## Prepare Defender for SQL Server on machines
 
-Microsoft Monitoring Agent (MMA) is being deprecated in August 2024. As a result, a new SQL server-targeted Azure Monitoring Agent (AMA) autoprovisioning process was released. You can learn more about the [Defender for SQL Server on machines Log Analytics Agent's deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines). 
+Microsoft Monitoring Agent (MMA) is being deprecated in August 2024. As a result, a new SQL server-targeted Azure Monitoring Agent (AMA) autoprovisioning process was released. You can learn more about the [Defender for SQL Server on machines Log Analytics agent's deprecation plan](upcoming-changes.md#defender-for-sql-server-on-machines).
 
 Customers using the current Log Analytics agent/Azure Monitor agent autoprovisioning process should [migrate to the new Azure Monitoring Agent for SQL server on machines autoprovisioning process](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process). The migration process is seamless and provides continuous protection for all machines.
 
@@ -100,4 +100,4 @@ Once the SQL server-targeted AMA autoprovisioning process has been enabled, you 
 
 ## Next steps
 
-See the [upcoming changes for the Defender for Cloud plan and strategy for the Log Analytics agent deprecation](https://review.learn.microsoft.com/azure/defender-for-cloud/upcoming-changes?branch=pr-en-us-253428#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+See the [upcoming changes for the Defender for Cloud plan and strategy for the Log Analytics agent deprecation](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
