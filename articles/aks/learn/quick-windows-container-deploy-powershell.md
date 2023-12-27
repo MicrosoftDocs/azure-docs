@@ -19,7 +19,7 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - For ease of use, try the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
 
-    If you choose to use PowerShell locally, you need to install the [`Az PowerShell`](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [`Connect-AzAccount`](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information, see [Install Azure PowerShell][install-azure-powershell].
+    If you want to use PowerShell locally, then install the [`Az PowerShell`](/powershell/azure/new-azureps-module-az) module and connect to your Azure account using the [`Connect-AzAccount`](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information, see [Install Azure PowerShell][install-azure-powershell].
 
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have more than one Azure subscription, set the subscription that you wish to use for the quickstart by calling the [`Set-AzContext`](/powershell/module/az.accounts/set-azcontext) cmdlet.
@@ -28,9 +28,9 @@ This article assumes a basic understanding of Kubernetes concepts. For more info
 
 An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored and where your resources run in Azure if you don't specify another region during resource creation.
 
-* Create a resource group using the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+To create a resource group, use the [`New-AzResourceGroup`][new-azresourcegroup] cmdlet. The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
@@ -48,22 +48,22 @@ An [Azure resource group](../../azure-resource-manager/management/overview.md) i
 
 In this section, we create an AKS cluster with the following configuration:
 
-* The cluster is configured with two nodes to ensure it operates reliably.
-* The `-WindowsProfileAdminUserName` and `-WindowsProfileAdminUserPassword` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet the [Windows Server password complexity requirements][windows-server-password].
-* The node pool uses `VirtualMachineScaleSets`.
+- The cluster is configured with two nodes to ensure it operates reliably. A node is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime. [](https://learn.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#nodes-and-node-pools)
+- The `-WindowsProfileAdminUserName` and `-WindowsProfileAdminUserPassword` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet the [Windows Server password complexity requirements][windows-server-password].
+- The node pool uses `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI (advanced)][azure-cni-about] network plugin.
 
 1. Create the administrator credentials for your Windows Server containers using the following command. This command prompts you to enter a `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword`.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $AdminCreds = Get-Credential -Message 'Please create the administrator credentials for your Windows Server containers'
     ```
-
+    
 2. Create your cluster using the [`New-AzAksCluster`][new-azakscluster] cmdlet and specify the `WindowsProfileAdminUserName` and `WindowsProfileAdminUserPassword` parameters.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $AdminCreds.UserName -WindowsProfileAdminUserPassword $AdminCreds.Password -GenerateSshKey
     ```
 
@@ -82,7 +82,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 
 * Add a Windows Server node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `New-AzAksCluster`. An OS SKU isn't specified, so the node pool is set to the default operating system based on the Kubernetes version of the cluster.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
     ```
 
@@ -100,7 +100,7 @@ Windows Server 2022 is the default operating system for Kubernetes versions 1.25
 
 * Add a Windows Server 2019 node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 -Name npwin
     ```
 
@@ -118,7 +118,7 @@ Windows Server 2022 is the default operating system for Kubernetes versions 1.25
 
 * Add a Windows Server 2022 node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2022 -Name npwin
     ```
 
@@ -130,13 +130,13 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [`Import-AzAksCredential`][import-azakscredential] cmdlet. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
     ```
 
 2. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command, which returns a list of the cluster nodes.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     kubectl get nodes
     ```
 
@@ -203,7 +203,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
 2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     kubectl apply -f sample.yaml
     ```
 
@@ -220,7 +220,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     kubectl get service sample --watch
     ```
 
@@ -251,9 +251,9 @@ When the application runs, a Kubernetes service exposes the application front en
 
 If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.
 
-* Delete your resource group, container service, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
+- Delete your resource group, container service, and all related resources using the [`Remove-AzResourceGroup`][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Remove-AzResourceGroup -Name myResourceGroup
     ```
 

@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 07/11/2023
+ms.date: 12/11/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
@@ -45,7 +45,7 @@ An [Azure resource group](../../azure-resource-manager/management/overview.md) i
 
 - Create a resource group using the [`az group create`][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-    ```azurecli-interactive
+    ```azurecli
     az group create --name myResourceGroup --location eastus
     ```
 
@@ -78,19 +78,19 @@ In this section, we create an AKS cluster with the following configuration:
 
 1. Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it to *WINDOWS_USERNAME* for use in a later command (remember the commands in this article are entered into a BASH shell).
 
-    ```azurecli-interactive
+    ```azurecli
     echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
     ```
 
 2. Create a password for the administrator username you created in the previous step.
 
-    ```azurecli-interactive
+    ```azurecli
     echo "Please enter the password to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_PASSWORD
     ```
 
 3. Create your cluster using the [`az aks create`][az-aks-create] command and specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively, you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks create \
         --resource-group myResourceGroup \
         --name myAKSCluster \
@@ -119,7 +119,7 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 
 - Add a Windows node pool using the `az aks nodepool add` command. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `az aks create`. An OS SKU isn't specified, so the node pool is set to the default operating system based on the Kubernetes version of the cluster.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -140,7 +140,7 @@ Windows Server 2022 is the default operating system for Kubernetes versions 1.25
 
 - Add a Windows Server 2019 node pool using the `az aks nodepool add` command.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -162,7 +162,7 @@ Windows Server 2022 is the default operating system for Kubernetes versions 1.25
 
 - Add a Windows Server 2022 node pool using the `az aks nodepool add` command.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks nodepool add \
         --resource-group myResourceGroup \
         --cluster-name myAKSCluster \
@@ -180,7 +180,7 @@ You use [kubectl][kubectl], the Kubernetes command-line client, to manage your K
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
@@ -307,7 +307,7 @@ If you don't plan on going through the following tutorials, you should delete yo
 
 - Delete your resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az group delete --name myResourceGroup --yes --no-wait
     ```
 
