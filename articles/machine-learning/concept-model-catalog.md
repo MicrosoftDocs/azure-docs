@@ -72,3 +72,4 @@ Support | Supported by Microsoft and covered by [Azure Machine Learning SLA](htt
 * Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
 * [Evaluate, fine-tune and deploy models](./how-to-use-foundation-models.md) curated by Azure Machine Learning.
 
+

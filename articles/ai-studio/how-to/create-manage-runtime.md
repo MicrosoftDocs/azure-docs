@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -77,7 +78,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
     :::image type="content" source="../media/compute/runtime-create-confirm.png" alt-text="Screenshot of the option to confirm automatic restart via the runtime creation." lightbox="../media/compute/runtime-create-confirm.png":::
 
-1. On the page for runtime details, monitor the status of the runtime. The runtime has a status of **Not available** until it's ready. This can take a few minutes.
+1. On the page for runtime details, monitor the status of the runtime. The runtime has a status of **Not available** until it's ready. This process can take a few minutes.
 
     :::image type="content" source="../media/compute/runtime-creation-in-progress.png" alt-text="Screenshot of a runtime with a status that shows it's not yet available." lightbox="../media/compute/runtime-creation-in-progress.png":::
 
@@ -89,7 +90,7 @@ Automatic is the default option for a runtime. You can start an automatic runtim
 
     :::image type="content" source="../media/compute/runtime-details.png" alt-text="Screenshot of runtime details, including environment." lightbox="../media/compute/runtime-details.png":::
 
-## Update a runtime from the UI
+## Update a runtime on the UI
 
 ### Update an automatic runtime on a flow page
 
@@ -104,10 +105,15 @@ On a flow page, you can use the following options to manage an automatic runtime
 
 You can also customize the environment that you use to run this flow by adding packages in the `requirements.txt` file in the flow folder. After you add more packages in this file, you can choose either of these options:
 
-- **Save and install** triggers `pip install -r requirements.txt` in the flow folder. The process might take a few minutes, depending on the packages that you install.
+- **Save and install** triggers `pip install -r requirements.txt` in the flow folder. The process can take a few minutes, depending on the packages that you install.
 - **Save only** just saves the `requirements.txt` file. You can install the packages later yourself.
 
-:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of the option to save and install packages for automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+:::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png" alt-text="Screenshot of the option to save and install packages for an automatic runtime on a flow page." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-create-automatic-save-install.png":::
+
+> [!NOTE]
+> You can change the location and even the file name of `requirements.txt`, but be sure to also change it in the `flow.dag.yaml` file in the flow folder.
+>
+> Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the runtime base image.
 
 #### Add packages in a private feed in Azure DevOps
 
@@ -127,9 +133,9 @@ test_package
 
 Azure AI Studio gets regular updates to the base image (`mcr.microsoft.com/azureml/promptflow/promptflow-runtime-stable`) to include the latest features and bug fixes. To get the best experience and performance, periodically update your runtime to the [latest version](https://mcr.microsoft.com/v2/azureml/promptflow/promptflow-runtime-stable/tags/list).
 
-Go to the page for runtime details and select **Update**. Here, you can update the runtime environment. If you select **Use default environment**, the system tries to update your runtime to the latest version.
+Go to the page for runtime details and select **Update**. On the **Edit compute instance runtime** pane, you can update the runtime environment. If you select **Use default environment**, the system tries to update your runtime to the latest version.
 
-Every time you view the page for runtime details, AI Studio checks whether there are new versions of the runtime. If new versions are available, a notification appears at the top of the page. You can also manually check the latest version by selecting the **Check version** button.
+Every time you open the page for runtime details, AI Studio checks whether there are new versions of the runtime. If new versions are available, a notification appears at the top of the page. You can also manually check the latest version by selecting the **Check version** button.
 
 ## Next steps
 
