@@ -608,6 +608,8 @@
             href: agentless-vulnerability-assessment-azure.md
           - name: Vulnerability assessments for AWS
             href: agentless-vulnerability-assessment-aws.md
+          - name: Vulnerability assessments for GCP
+            href: agentless-vulnerability-assessment-gcp.md
           - name: Enable vulnerability assessments
             href: enable-vulnerability-assessment.md
           - name: View and remediate vulnerabilities for registry images
