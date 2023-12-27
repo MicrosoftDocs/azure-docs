@@ -230,7 +230,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 
 ## Add-on capabilities
 
-Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for`2023-07-31 (GA)` and later releases:
+Document Intelligence supports optional features that can be enabled and disabled depending on the document extraction scenario. The following add-on capabilities are available for `2023-07-31 (GA)` and later releases:
 
 * [`ocr.highResolution`](concept-add-on-capabilities.md#high-resolution-extraction)
 
