@@ -3,7 +3,7 @@ title: Use Draft and the DevX extension for Visual Studio Code with Azure Kubern
 description: Learn how to use Draft and the DevX extension for Visual Studio Code with Azure Kubernetes Service (AKS)
 author: schaffererin
 ms.topic: article
-ms.date: 05/17/2023
+ms.date: 12/27/2023
 ms.author: schaffererin
 ---
 
