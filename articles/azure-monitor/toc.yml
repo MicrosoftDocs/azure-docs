@@ -7,7 +7,7 @@ items:
       href: overview.md
     - name: Multicloud monitoring
       href: best-practices-multicloud.md
-    - name: AIOps and machine learning in Azure Monitor
+    - name: AIOps and machine learning
       href: logs/aiops-machine-learning.md
     - name: What's new?
       href: whats-new.md
@@ -1443,6 +1443,8 @@ items:
         href: alerts/resource-manager-alerts-metric.md
       - name: Activity log alert rules
         href: alerts/resource-manager-alerts-activity-log.md
+      - name: Service health alert rules
+        href: alerts/resource-manager-alerts-service-health.md
       - name: Resource health alert rules
         href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups
