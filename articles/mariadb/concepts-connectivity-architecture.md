@@ -123,7 +123,7 @@ This indicates that your applications connect to server using static IP address 
 
 ### Is there any impact for my application connections?
 
-This maintenance is just a DNS change, so it's transparent to the client. Once the DNS cache is refreshed in the client (automatically done by operation system), all the new connection connects to the new IP address and all the existing connection will still working fine until the old IP address fully get decommissioned, which several weeks later. And the retry logic isn't required for this case, but it's good to see the application have retry logic configured. Either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
+This maintenance is just a DNS change, so it's transparent to the client. Once the DNS cache is refreshed in the client (automatically done by operation system), all the new connections connect to the new IP address and all the existing connections will still work fine until the old IP address is fully decommissioned, which happens several weeks later. And the retry logic isn't required for this case, but it's good to see the application have retry logic configured. Either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
 This maintenance operation won't drop the existing connections. It only makes the new connection requests go to new gateway ring.
 
 ### Can I request for a specific time window for the maintenance? 
