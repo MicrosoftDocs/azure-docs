@@ -185,6 +185,8 @@ items:
           href: manage-layered-network/howto-configure-l4-cluster-layered-network.md
         - name: Configure L3 cluster
           href: manage-layered-network/howto-configure-l3-cluster-layered-network.md
+      - name: Troubleshoot
+        href: manage-layered-network/howto-troubleshoot-layered-network.md
 
     - name: Send, view, and analyze data
       items:
