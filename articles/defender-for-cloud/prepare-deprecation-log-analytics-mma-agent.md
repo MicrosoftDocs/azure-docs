@@ -13,9 +13,10 @@ The Azure Log Analytics, Microsoft Monitor Agent (MMA) is [set to be retired in 
 
 | Defender for Servers? | FIM/EPP Discovery/Baseline | Defender for SQL Servers on machines? | What do I need to do? |
 | --- | --- | --- | --- |
-| Yes | No | No | 1. Enable Defender for Endpoint integration/agentless scanning.<br/>2. [Disable Log Analytics/Azure Monitor Agent](#disable-log-analytics-agentazure-monitor-agent-autoprovisioning).<br/>3. Uninstall MMA/AMA. |
-|  No | - | Yes | 1. [Migrate to the new SQL autoprovisioning process](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).<br/>2. [Disable ‘Log Analytics/Azure Monitor Agent](#disable-log-analytics-agentazure-monitor-agent-autoprovisioning).<br/>3. Uninstall MMA across all servers. |
-| Yes | Yes | Yes | 1. [Migrate to the new SQL autoprovisioning process](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).<br/>2. Enable Defender for Endpoint integration/agentless scanning.<br/>3. [Disable Log Analytics/Azure Monitor Agent](#disable-log-analytics-agentazure-monitor-agent-autoprovisioning).<br/>4. Uninstall MMA across all servers. |
+| Yes | No | No | 1. [Enable Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [enable agentless scanning](concept-agentless-data-collection.md).<br/>2. [Disable the Log Analytics/Azure Monitor Agent](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>3. Uninstall MMA/AMA. |
+|  No | - | Yes | 1. [Migrate to the new SQL autoprovisioning process](#migrate-to-the-sql-server-targeted-ama-autoprovisioning-process).<br/>2. [Disable the Log Analytics/Azure Monitor Agent](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>3. Uninstall MMA across all servers. |
+| Yes | Yes | Yes | 1. [Migrate to the new SQL autoprovisioning process](defender-for-sql-autoprovisioning.md).<br/>2. [Enable Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [enable agentless scanning](concept-agentless-data-collection.md).<br/>3. [Disable Log Analytics/Azure Monitor Agent](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>4. Uninstall MMA across all servers. |
+| No | Yes | No | 1. [Enable Defender for Endpoint (MDE) integration](integration-defender-for-endpoint.md) and [enable agentless scanning](concept-agentless-data-collection.md).<br/>2. [Migrate to the new SQL autoprovisioning process](defender-for-sql-autoprovisioning.md).<br/>3. [Disable Log Analytics/Azure Monitor Agent](defender-for-sql-autoprovisioning.md#disable-the-log-analytics-agentazure-monitor-agent).<br/>4. Uninstall MMA across all servers. 
 
 ## Prepare Defender for Servers
 
