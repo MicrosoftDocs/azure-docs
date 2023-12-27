@@ -45,7 +45,7 @@ During the first scan of the vCenter inventory after onboarding to Azure Arc-ena
 A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.
 ```
 
-When you encounter this error message, try performing the **Link to vCenter** operation after 10 minutes. Alternatively, you can use the following Azure CLI command to link an existing Arc-enabled Server machine to vCenter:
+When you encounter this error message, try performing the **Link to vCenter** operation again after a few minutes (5-10 minutes). Alternatively, you can use the following Azure CLI command to link an existing Arc-enabled Server machine to vCenter:
 
 
 ```azurecli-interactive
