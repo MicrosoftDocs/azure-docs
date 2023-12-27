@@ -1,6 +1,6 @@
 ---
-title: Enable single sign-on access by using Azure Active Directory B2C with the FHIR service in Azure Health Data Services
-description: Learn how to enable single sign-on using Azure Active Directory B2C with the FHIR service in Azure Health Data Services. Set up an Azure B2C tenant, deploy the FHIR service, and validate the setup.
+title: Enable single sign-on for the FHIR service by using Azure Active Directory B2C
+description: Learn how to enable single sign-on for the FHIR service in Azure Health Data Services. Set up an Azure B2C tenant, deploy the FHIR service, and validate the setup.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -149,7 +149,7 @@ The B2C resource application handles authentication requests from your healthcar
 
 1. From the **Supported account types** list, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 
-1. From the list of platforms under the **Redirect URI (recommended)** section, select ***Public client/native (mobile & desktop)** 
+1. From the list of platforms under the **Redirect URI (recommended)** section, select ***Public client/native (mobile & desktop)**.
 
 1. Populate the value with the [Postman](https://www.postman.com) callback URI [https://oauth.pstmn.io/v1/callback](#create-a-new-b2c-resource-application). The callback URI is for testing purposes.
 
@@ -197,7 +197,7 @@ The B2C resource application handles authentication requests from your healthcar
 
    :::image type="content" source="media/b2c-setup/b2c-api-permission4.png" alt-text="Screenshot showing B2C API permission4" lightbox="media/b2c-setup/b2c-api-permission4.png":::
 
-## Step 2: Deploy the FHIR service with Azure Active Directory B2C identity provider
+## Step 2: Deploy the FHIR service with Azure Active Directory B2C as the identity provider
 
 Deploying the FHIR service with Azure Active Directory B2C as the identity provider allows the FHIR service to authenticate users based on their Azure B2C credentials, ensuring that only authorized users can access sensitive patient information
 
