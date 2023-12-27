@@ -19,7 +19,7 @@ The Azure Log Analytics, Microsoft Monitor Agent (MMA) is [set to be retired in 
 
 ## Prepare Defender for Servers
 
-Defender for Servers has up until now relied on the Log Analytics agent (Microsoft Monitoring Agent-MMA) as mandatory, and the recommended agent for posture and threat protection capabilities in Azure and multicloud scenarios.
+Defender for Servers has up until now relied on the Log Analytics agent (also known as Microsoft Monitoring Agent-(MMA)) as mandatory, and the recommended agent for posture and threat protection capabilities in Azure and multicloud scenarios.
 
 Towards Log Analytics Agent (MMA) deprecation, and as part of an updated deployment strategy  with a goal to simplify onboarding, all Defender for Servers security features and capabilities will be provided via a single agent (Microsoft Defender for Endpoint (MDE)), complemented by agentless scanning, without dependency on Log Analytics Agent (MMA) or Azure Monitoring Agent (AMA), the substitute agent.  
 
