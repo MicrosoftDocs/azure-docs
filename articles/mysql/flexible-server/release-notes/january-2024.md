@@ -18,12 +18,12 @@ We are pleased to announce the latest maintenance for Azure Database for MySQL F
 There will be no engine version changes in this maintenance update.
 
 ## Features:
-### [Accelerated Logs V2](./concepts-accelerated-logs.md)
+### [Accelerated Logs V2](../concepts-accelerated-logs.md)
 - Introducing a new type of disk designed to offer superior performance in storing binary logs and redo logs.
 
 ## Improvement:
 
-### [Audit Log Improvement](./concepts-audit-logs.md)
+### [Audit Log Improvement](../concepts-audit-logs.md)
 - In alignment with our users' expectations for the audit log, we have introduced wildcard support for audit log usernames and added connection status for connection logs. These modifications are now part of both the engine and fluent-bit components.
 
 ### Engine Improvement
