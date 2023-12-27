@@ -44,15 +44,8 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 The following security alerts are set for deprecation or are set for update to the **informational** severity level .
 
-- The  following alerts released as GA (General Availability) are set to be deprecated:
+- The following container security alerts are set for deprecation:
 
-  - `Possible data exfiltration detected (K8S.NODE_DataEgressArtifacts)`
-  - `PsExec execution detected (VM_RunByPsExec)`
-  - `Executable found running from a suspicious location (K8S.NODE_SuspectExecutablePath)`
-
-- The following container security alerts in Preview state are set for deprecation:
-
-  - `Executable found running from a suspicious location (Preview) (K8S.NODE_SuspectExecutablePath)`
   - `Anomalous pod deployment (Preview) (K8S_AnomalousPodDeployment)`
   - `Excessive role permissions assigned in Kubernetes cluster (Preview) (K8S_ServiceAcountPermissionAnomaly)`
   - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
@@ -66,7 +59,6 @@ The following security alerts are set for deprecation or are set for update to t
   
   - **Alerts for containers**:
   
-    - `Anomalous access to Kubernetes secret (Preview) (K8S_AnomalousSecretAccess)`
     - `Attempt to create a new Linux namespace from a container detected (K8S.NODE_NamespaceCreation)`
     - `Attempt to stop apt-daily-upgrade.timer service detected (K8S.NODE_TimerServiceDisabled)`
     - `Command within a container running with high privileges (K8S.NODE_PrivilegedExecutionInContainer)`
