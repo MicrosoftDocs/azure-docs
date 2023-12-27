@@ -24,16 +24,19 @@ This connector is available in two versions: the legacy connector for CloudTrail
 
 # [S3 connector (new)](#tab/s3)
 
-This article explains how to configure the new AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side.
+This tab explains how to configure the AWS S3 connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
 
 ## Prerequisites
 
-Make sure that the logs from your selected AWS service use the format accepted by Microsoft Sentinel:
+- Make sure that the logs from your selected AWS service use the format accepted by Microsoft Sentinel:
 
-- **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
-- **Amazon GuardDuty**: json-line and GZIP formats.
-- **AWS CloudTrail**: .json file in a GZIP format.
-- **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
+    - **Amazon VPC**: .csv file in GZIP format with headers; delimiter: space.
+    - **Amazon GuardDuty**: json-line and GZIP formats.
+    - **AWS CloudTrail**: .json file in a GZIP format.
+    - **CloudWatch**: .csv file in a GZIP format without a header. If you need to convert your logs to this format, you can use this [CloudWatch lambda function](cloudwatch-lambda-function.md).
+
+- You must have write permission on the Microsoft Sentinel workspace.
+- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Architecture overview
 
@@ -53,7 +56,7 @@ This graphic and the following text show how the parts of this connector solutio
 
 ## Connect the S3 connector
 
-- In your AWS environment:
+- **In your AWS environment:**
 
     - Configure your AWS service(s) to send logs to an **S3 bucket**.
 
@@ -63,18 +66,11 @@ This graphic and the following text show how the parts of this connector solutio
 
     - Attach the appropriate **IAM permissions policies** to grant Microsoft Sentinel access to the appropriate resources (S3 bucket, SQS).
 
-- In Microsoft Sentinel:
+    We have made available, in our GitHub repository, a script that **automates the AWS side of this process**. See the instructions for [automatic setup](#automatic-setup) later in this document.
+
+- **In Microsoft Sentinel:**
 
     - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. See the instructions below.
-
-Each side's process produces information used by the other side. This sharing creates secure communication.
-
-We have made available, in our GitHub repository, a script that **automates the AWS side of this process**. See the instructions for [automatic setup](#automatic-setup) later in this document.
-
-## Global prerequisites
-
-- You must have write permission on your Microsoft Sentinel workspace.
-- Install the Amazon Web Services solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Automatic setup
 
@@ -123,7 +119,7 @@ To run the script to set up the connector, use the following steps:
 
    :::image type="content" source="media/connect-aws/aws-script-output.png" alt-text="Screenshot of output of A W S connector setup script." lightbox="media/connect-aws/aws-script-output.png":::
 
-   :::image type="content" source="media/connect-aws/aws-add-connection-auto.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector." lightbox="media/connect-aws/aws-add-connection-auto.png":::
+   :::image type="content" source="media/connect-aws/aws-add-connection.png" alt-text="Screenshot of pasting the A W S role information from the script, to the S3 connector." lightbox="media/connect-aws/aws-add-connection.png":::
 
 1. Select a data type from the **Destination table** drop-down list. This tells the connector which AWS service's logs this connection is being established to collect, and into which Log Analytics table it will store the ingested data. Then select **Add connection**.
 
@@ -239,6 +235,8 @@ Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troub
 
 # [CloudTrail connector (legacy)](#tab/ct)
 
+This tab explains how to configure the AWS CloudTrail connector. The process of setting it up has two parts: the AWS side and the Microsoft Sentinel side. Each side's process produces information used by the other side. This two-way authentication creates secure communication.
+
 > [!NOTE]
 > AWS CloudTrail has [built-in limitations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) in its LookupEvents API. It allows no more than two transactions per second (TPS) per account, and each query can return a maximum of 50 records. Consequently, if a single tenant constantly generates more than 100 records per second in one region, backlogs and delays in data ingestion will result.
 >
@@ -256,7 +254,7 @@ Learn how to [troubleshoot Amazon Web Services S3 connector issues](aws-s3-troub
 
 Setting up this connector has two steps:
 - [Create an AWS assumed role and grant access to the AWS Sentinel account](#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account-1)
-- [Add the AWS role information to the AWS data connector](#add-the-aws-role-information-to-the-aws-data-connector)
+- [Add the AWS role information to the AWS CloudTrail data connector](#add-the-aws-role-information-to-the-aws-cloudtrail-data-connector)
 
 #### Create an AWS assumed role and grant access to the AWS Sentinel account
 
@@ -282,7 +280,7 @@ Setting up this connector has two steps:
 
     - Name the role with a meaningful name that includes a reference to Microsoft Sentinel. Example: "*MicrosoftSentinelRole*".
 
-#### Add the AWS role information to the AWS data connector
+#### Add the AWS role information to the AWS CloudTrail data connector
 
 1. In the browser tab open to the AWS console, enter the **Identity and Access Management (IAM)** service and navigate to the list of **Roles**. Select the role you created above.
 
