@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 10/05/2023
 ms.custom: devx-track-python, devx-track-extended-python
 ms.author: mametcal
-#Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
+#Customer intent: As a Python developer, I want to dynamically update my app to use the latest configuration data in Azure App Configuration.
 ---
 # Tutorial: Use dynamic configuration in Python (preview)
 
-The App Configuration Python provider includes built-in caching and refreshing capabilities. This tutorial shows how to enable dynamic configuration in Python applications.
+The Azure App Configuration Python provider includes built-in caching and refreshing capabilities. This tutorial shows how to enable dynamic configuration in Python applications.
 
 > [!NOTE]
 > Requires [azure-appconfiguration-provider](https://pypi.org/project/azure-appconfiguration-provider/1.1.0b3/) package version 1.1.0b3 or later.
@@ -22,12 +22,12 @@ The App Configuration Python provider includes built-in caching and refreshing c
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.6 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Add key-values
 
-Add the following key-value to your App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
+Add the following key-value to your Azrue App Configuration store. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
 | Key            | Value             | Label       | Content type       |
 |----------------|-------------------|-------------|--------------------|
@@ -35,7 +35,7 @@ Add the following key-value to your App Configuration store. For more informatio
 | *sentinel*     | *1*               | Leave empty | Leave empty        |
 
 > [!NOTE]
-> A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your App Configuration store, compared to monitoring all keys for changes.
+> A *sentinel key* is a key that you update after you complete the change of all other keys. Your app monitors the sentinel key. When a change is detected, your app refreshes all configuration values. This approach helps to ensure the consistency of configuration in your app and reduces the overall number of requests made to your Azure App Configuration store, compared to monitoring all keys for changes.
 
 ## Console applications
 
@@ -56,7 +56,7 @@ Add the following key-value to your App Configuration store. For more informatio
         refresh_interval=10, # Default value is 30 seconds, shorted for this sample
     )
 
-    print("Update the `message` in your App Configuration store using Azure portal or CLI.")
+    print("Update the `message` in your Azure App Configuration store using Azure portal or CLI.")
     print("First, update the `message` value, and then update the `sentinel` key value.")
 
     while (True):
@@ -79,12 +79,12 @@ Add the following key-value to your App Configuration store. For more informatio
 1. Verify Output:
 
     ```console
-    Update the `message` in your App Configuration store using Azure portal or CLI.
+    Update the `message` in your Azure App Configuration store using Azure portal or CLI.
     First, update the `message` value, and then update the `sentinel` key value.
     Hello World!
     ```
 
-1. Update the following key-values to the App Configuration store.
+1. Update the following key-values to the Azure App Configuration store.
 
     | Key            | Value                     | Label       | Content type       |
     |----------------|---------------------------|-------------|--------------------|
@@ -127,7 +127,7 @@ azure_app_config = load(connection_string=os.environ.get("AZURE_APPCONFIG_CONNEC
 @app.route("/")
 def index():
     global azure_app_config
-    # Refresh the configuration from App Configuration service.
+    # Refresh the configuration from Azure App Configuration service.
     azure_app_config.refresh()
 
     # Access a configuration setting directly from within Flask configuration
@@ -142,7 +142,7 @@ Update your template `index.html` to use the new configuration values.
 ```html
 <!doctype html>
 <head>
-  <title>Hello App Configuration - Python Flask Example</title>
+  <title>Hello Azure App Configuration - Python Flask Example</title>
 </head>
 <html>
 
@@ -160,7 +160,7 @@ You can find a full sample project [here](https://github.com/Azure/AppConfigurat
 
 ### [Django](#tab/django)
 
-Set up App Configuration in your Django settings file, `settings.py`.
+Set up Azure App Configuration in your Django settings file, `settings.py`.
 
 ```python
 def on_refresh_success():
@@ -174,7 +174,7 @@ AZURE_APPCONFIGURATION = load(
     )
 ```
 
-You can reference the App Configuration object created in Django settings from views. Call refresh() to check for configuration updates in each Django view before accessing configuration settings. For example, in views.py:
+You can reference the Azure App Configuration object created in Django settings from views. Call refresh() to check for configuration updates in each Django view before accessing configuration settings. For example, in views.py:
 
 ```python
 from django.shortcuts import render
@@ -226,7 +226,7 @@ NOTE: If the refresh interval hasn't passed, then the refresh won't be attempted
 
 ## Next steps
 
-In this tutorial, you enabled your Python app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your Python app to dynamically refresh configuration settings from Azure App Configuration. To learn how to use an Azure managed identity to streamline the access to Azure App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
