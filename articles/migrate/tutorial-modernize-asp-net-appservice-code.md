@@ -108,7 +108,7 @@ Once you have successfully completed migration, you may explore the following st
 - [Security recommendations](../app-service/security-recommendations.md).
 - [Networking features](../app-service/networking-features.md).
 - [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
-- [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad.md).
+- [Configure Microsoft Entra authentication](../app-service/configure-authentication-provider-aad.md).
 
 
 ## Next steps

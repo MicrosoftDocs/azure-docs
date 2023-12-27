@@ -3,12 +3,12 @@ title: Custom IP address prefix (BYOIP)
 titleSuffix: Azure Virtual Network
 description: Learn about what an Azure custom IP address prefix is and how it enables customers to utilize their own ranges in Azure.
 services: virtual-network
-author: asudbring
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 05/27/2023
-ms.author: allensu
+ms.date: 08/24/2023
 ---
 
 # Custom IP address prefix (BYOIP)
@@ -58,6 +58,8 @@ When ready, you can issue the command to have your range advertised from Azure a
 * In regions with [availability zones](../../availability-zones/az-overview.md), a custom IPv4 prefix (or a regional custom prefix) must be specified as either zone-redundant or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
 
 * The advertisements of IPs from a custom IP prefix over an Azure ExpressRoute Microsoft peering isn't currently supported.
+
+* Custom IP prefixes don't support Reverse DNS lookup using Azure-owned zones; customers must onboard their own Reverse Zones to Azure DNS
 
 * Once provisioned, custom IP prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription. It's possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions as described [here](manage-custom-ip-address-prefix.md#permissions).
 

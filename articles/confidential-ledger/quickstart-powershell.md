@@ -19,13 +19,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 In this quickstart, you create a confidential ledger with [Azure PowerShell](/powershell/azure/). If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
+## Prerequisites
+
+[!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
+
 ## Create a resource group
 
 [!INCLUDE [Create resource group](../../includes/powershell-rg-create.md)]
 
 ## Get your principal ID and tenant ID
 
-To create a confidential ledger, you'll need your Azure Active Directory principal ID (also called your object ID).  To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, with the `-SignedIn` flag:
+To create a confidential ledger, you'll need your Microsoft Entra principal ID (also called your object ID).  To obtain your principal ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, with the `-SignedIn` flag:
 
 ```azurepowershell
 Get-AzADUser -SignedIn

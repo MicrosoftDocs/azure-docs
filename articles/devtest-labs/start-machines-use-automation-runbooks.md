@@ -4,7 +4,7 @@ description: Learn how to start virtual machines in a specific order by using Az
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/17/2022
+ms.date: 09/30/2023
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ---
 

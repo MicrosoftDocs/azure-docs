@@ -276,4 +276,3 @@ Congratulations! You are now running a CICS application in Azure using Micro Foc
 - [Mainframe Migration - Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
 - [Virtual Machines](../../../linux/overview.md)
 - [Troubleshooting](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
-- [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

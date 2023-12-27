@@ -5,10 +5,10 @@ author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
-ms.service: cache
-ms.topic: conceptual
+ms.service: azure-functions
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.topic: reference
 ms.date: 07/26/2023
-
 ---
 
 # Overview of Azure functions for Azure Cache for Redis (preview)
@@ -36,24 +36,14 @@ You can integrate Azure Cache for Redis and Azure Functions to build functions t
 |Streams | Yes  | Yes  |  Yes  |
 
 > [!IMPORTANT]
-> Redis triggers are not currently supported on consumption functions.
+> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
 >
 
 ::: zone pivot="programming-language-csharp"
 
 ## Install extension
 
-### [In-process](#tab/in-process)
-
-Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
-
-Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Redis).
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
-```
-
-### [Isolated process](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 Functions run in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
@@ -61,6 +51,16 @@ Add the extension to your project by installing [this NuGet package](https://www
 
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prerelease
+```
+
+### [In-process model](#tab/in-process)
+
+Functions run in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+Add the extension to your project by installing [this NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Redis).
+
+```bash
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Redis --prerelease
 ```
 
 ---

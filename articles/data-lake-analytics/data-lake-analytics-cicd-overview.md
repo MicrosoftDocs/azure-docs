@@ -3,7 +3,7 @@ title: How to set up a CI/CD pipeline for Azure Data Lake Analytics
 description: Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 12/20/2023
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
 
@@ -473,10 +473,10 @@ Take the following steps to set up a database deployment task in Azure Pipelines
 |Account|Specifies which Azure Data Lake Analytics account to deploy to by account name.|null|true|
 |ResourceGroup|The Azure resource group name for the Azure Data Lake Analytics account.|null|true|
 |SubscriptionId|The Azure subscription ID for the Azure Data Lake Analytics account.|null|true|
-|Tenant|The tenant name is the Azure Active Directory (Azure AD) domain name. Find it in the subscription management page in the Azure portal.|null|true|
+|Tenant|The tenant name is the Microsoft Entra domain name. Find it in the subscription management page in the Azure portal.|null|true|
 |AzureSDKPath|The path to search dependent assemblies in the Azure SDK.|null|true|
 |Interactive|Whether or not to use interactive mode for authentication.|false|false|
-|ClientId|The Azure AD application ID required for non-interactive authentication.|null|Required for non-interactive authentication.|
+|ClientId|The Microsoft Entra application ID required for non-interactive authentication.|null|Required for non-interactive authentication.|
 |Secret|The secret or password for non-interactive authentication. It should be used only in a trusted and secure environment.|null|Required for non-interactive authentication, or else use SecreteFile.|
 |SecretFile|The file saves the secret or password for non-interactive authentication. Make sure to keep it readable only by the current user.|null|Required for non-interactive authentication, or else use Secret.|
 |CertFile|The file saves X.509 certification for non-interactive authentication. The default is to use client secret authentication.|null|false|

@@ -2002,8 +2002,7 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-features-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-features",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/sql-database/sql-database-features"
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-general-limitations.md",
@@ -2132,8 +2131,7 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-managed-instance",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/sql-database/sql-database-managed-instance"
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-vnet-configuration.md",
@@ -2317,8 +2315,7 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-scalability-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-scale-resources",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/sql-database/sql-database-scale-resources"
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-helps-secures-and-protects.md",
@@ -2487,8 +2484,7 @@
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-paas-index.yml",
-            "redirect_url": "/azure/sql-database/sql-database-technical-overview",
-            "redirect_document_id": ""
+            "redirect_url": "/azure/sql-database/sql-database-technical-overview"
         },
         {
             "source_path_from_root": "/articles/sql-database/sql-database-threat-detection-get-started.md",

@@ -90,7 +90,7 @@ The following list of capabilities is supported for scenarios where at least one
 |                   | Read and configure call forwarding rules                                                                             |   ❌      |
 |                   | Does start a call and add user operations honor simultaneous ringing                                                 |   ✔️      |
 |                   | Read and configure simultaneous ringing                                                                              |   ❌      |
-|                   | Placing participant on hold plays music on hold                                                                      |   ❌      |
+|                   | Placing participant on hold plays music on hold                                                                      |   ✔️     |
 |                   | Being placed by Teams user on Teams client on hold plays music on hold                                               |   ✔️      |
 |                   | Park a call                                                                                                          |   ❌      |
 |                   | Be parked                                                                                                            |   ✔️      |
@@ -120,8 +120,10 @@ The following list of capabilities is supported for scenarios where at least one
 |                   | [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality)                        | ✔️ |
 |                   | [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality)           | ❌ |
 
-Note: Participants joining via phone number can't see video content. Therefore actions involving video do not impact them but can apply when VoIP participants join.
-
+Notes:
+ 
+* Participants joining via phone number can't see video content. Therefore actions involving video do not impact them but can apply when VoIP participants join.
+* Currently, *Placing participant on hold plays music on hold* feature, is only available in JavaScript.
 ## Next steps
 
 > [!div class="nextstepaction"]

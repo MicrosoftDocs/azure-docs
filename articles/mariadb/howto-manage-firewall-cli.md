@@ -12,6 +12,8 @@ ms.date: 06/24/2022
 
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure CLI
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 Server-level firewall rules can be used to manage access to an Azure Database for MariaDB Server from a specific IP address or a range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for MariaDB firewalls, see [Azure Database for MariaDB server firewall rules](./concepts-firewall-rules.md).
 
 Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-cli.md).

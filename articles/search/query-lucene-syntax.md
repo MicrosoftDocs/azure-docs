@@ -1,19 +1,21 @@
 ---
 title: Lucene query syntax
-titleSuffix: Azure Cognitive Search
-description: Reference for the full Lucene query syntax, as used in Azure Cognitive Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
+titleSuffix: Azure AI Search
+description: Reference for the full Lucene query syntax, as used in Azure AI Search for wildcard, fuzzy search, RegEx, and other advanced query constructs.
 
 manager: nitinme
 author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 06/29/2023
 ---
 
-# Lucene query syntax in Azure Cognitive Search
+# Lucene query syntax in Azure AI Search
 
-When creating queries in Azure Cognitive Search, you can opt for the full [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), except for *range searches, which are constructed through **`$filter`** expressions. 
+When creating queries in Azure AI Search, you can opt for the full [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure AI Search](search-lucene-query-architecture.md), except for *range searches, which are constructed through **`$filter`** expressions. 
 
 To use full Lucene syntax, set the queryType to "full" and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
@@ -60,7 +62,7 @@ Special characters that require escaping include the following:
 
 ### Encoding unsafe and reserved characters in URLs
 
-Ensure all unsafe and reserved characters are encoded in a URL. For example, `#` is an unsafe character because it's a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. `&` and `=` are examples of reserved characters as they delimit parameters and specify values in Azure Cognitive Search. See [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
+Ensure all unsafe and reserved characters are encoded in a URL. For example, `#` is an unsafe character because it's a fragment/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. `&` and `=` are examples of reserved characters as they delimit parameters and specify values in Azure AI Search. See [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
 
 Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
@@ -72,9 +74,30 @@ You can embed Boolean operators in a query string to improve the precision of a 
 |--------------|----------- |--------|-------|
 | AND | `+` | `wifi AND luxury` | Specifies terms that a match must contain. In the example, the query engine looks for documents containing both `wifi` and `luxury`. The plus character (`+`) can also be used directly in front of a term to make it required. For example, `+wifi +luxury` stipulates that both terms must appear somewhere in the field of a single document.|
 | OR | (none) <sup>1</sup> | `wifi OR luxury` | Finds a match when either term is found. In the example, the query engine returns match on documents containing either `wifi` or `luxury` or both. Because OR is the default conjunction operator, you could also leave it out, such that `wifi luxury` is the equivalent of  `wifi OR luxury`.|
-| NOT | `!`, `-` | `wifi –luxury` | Returns a match on documents that exclude the term. For example, `wifi –luxury` searches for documents that have the `wifi` term but not `luxury`. </p>It's important to note that the NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax. In full syntax, negations will always be ANDed onto the query such that `wifi -luxury` is interpreted as "wifi AND NOT luxury" regardless of if the `searchMode` parameter is set to `any` or `all`. This gives you a more intuitive behavior for negations by default. </p>A single negation such as the query `-luxury` isn't allowed in full search syntax and will always return an empty result set.|
+| NOT | `!`, `-` | `wifi –luxury` | Returns a match on documents that exclude the term. For example, `wifi –luxury` searches for documents that have the `wifi` term but not `luxury`. |
 
 <sup>1</sup> The `|` character isn't supported for OR operations.
+
+### <a name="bkmk_boolean_not"></a> NOT Boolean operator
+
+> [!Important]
+> 
+> The NOT operator (`NOT`, `!`, or `-`) behaves differently in full syntax than it does in simple syntax.
+
+* In simple syntax, queries with negation always have a wildcard automatically added. For example, the query `-luxury` is automatically expanded to `-luxury *`.
+* In full syntax, queries with negation cannot be combined with a wildcard. For example, the queries `-luxury *` is not allowed.
+* In full syntax, queries with a single negation are not allowed. For example, the query `-luxury` is not allowed.
+* In full syntax, negations will behave as if they are always ANDed onto the query regardless of the search mode.
+   * For example, the full syntax query `wifi -luxury` in full syntax only fetches documents that contain the term `wifi`, and then applies the negation `-luxury` to those documents.
+* If you want to use negations to search over all documents in the index, simple syntax with the any search mode is recommended.
+* If you want to use negations to search over a subset of documents in the index, full syntax or the simple syntax with the all search mode are recommended.
+
+| Query Type | Search Mode | Example Query | Behavior |
+| ---------- | ----------- | ------------- | -------- |
+| Simple     | any         | `wifi -luxury`| Returns all documents in the index. Documents with the term "wifi" or documents missing the term "luxury" are ranked higher than other documents. The query is expanded to `wifi OR -luxury OR *`. |
+| Simple     | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi" and don't contain the term "luxury". The query is expanded to `wifi AND -luxury AND *`. |
+| Full       | any         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. |
+| Full       | all         | `wifi -luxury`| Returns only documents in the index that contain the term "wifi", and then documents that contain the term "luxury" are removed from the results. |
 
 ##  <a name="bkmk_fields"></a> Fielded search
 
@@ -113,7 +136,7 @@ The following example helps illustrate the differences. Suppose that there's a s
 
 ##  <a name="bkmk_regex"></a> Regular expression search
  
- A regular expression search finds a match based on patterns that are valid under Apache Lucene, as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). In Azure Cognitive Search, a regular expression is enclosed between forward slashes `/`.
+ A regular expression search finds a match based on patterns that are valid under Apache Lucene, as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). In Azure AI Search, a regular expression is enclosed between forward slashes `/`.
 
  For example, to find documents containing `motel` or `hotel`, specify `/[mh]otel/`. Regular expression searches are matched against single words.
 
@@ -143,7 +166,7 @@ Suffix matching requires the regular expression forward slash `/` delimiters. Ge
 
 ### Effect of an analyzer on wildcard queries
 
-During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you need an analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure Cognitive Search queries](search-query-partial-matching.md).
+During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you need an analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure AI Search queries](search-query-partial-matching.md).
 
 Consider a situation where you may want the search query `terminal*` to return results that contain terms such as `terminate`, `termination`, and `terminates`.
 
@@ -153,7 +176,7 @@ On the other side, the Microsoft analyzers (in this case, the en.microsoft analy
 
 ## Scoring wildcard and regex queries
 
-Azure Cognitive Search uses frequency-based scoring ([BM25](https://en.wikipedia.org/wiki/Okapi_BM25)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
+Azure AI Search uses frequency-based scoring ([BM25](https://en.wikipedia.org/wiki/Okapi_BM25)) for text queries. However, for wildcard and regex queries where scope of terms can potentially be broad, the frequency factor is ignored to prevent the ranking from biasing towards matches from rarer terms. All matches are treated equally for wildcard and regex searches.
 
 ## Special characters
 
@@ -171,7 +194,7 @@ Field grouping is similar but scopes the grouping to a single field. For example
 
 ## Query size limits
 
-Azure Cognitive Search imposes limits on query size and composition because unbounded queries can destabilize your search service. There are limits on query size and composition (the number of clauses). Limits also exist for the length of prefix search and for the complexity of regex search and wildcard search. If your application generates search queries programmatically, we recommend designing it in such a way that it doesn't generate queries of unbounded size.
+Azure AI Search imposes limits on query size and composition because unbounded queries can destabilize your search service. There are limits on query size and composition (the number of clauses). Limits also exist for the length of prefix search and for the complexity of regex search and wildcard search. If your application generates search queries programmatically, we recommend designing it in such a way that it doesn't generate queries of unbounded size.
 
 For more information on query limits, see [API request limits](search-limits-quotas-capacity.md#api-request-limits).
 
@@ -181,4 +204,4 @@ For more information on query limits, see [API request limits](search-limits-quo
 + [Query examples for full Lucene search](search-query-lucene-examples.md)
 + [Search Documents](/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md)   
-+ [Simple query syntax in Azure Cognitive Search](query-simple-syntax.md)
++ [Simple query syntax in Azure AI Search](query-simple-syntax.md)

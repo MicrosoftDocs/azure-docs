@@ -4,8 +4,7 @@ titleSuffix: Azure OpenAI Service
 description: Learn about the options for how to use prompt engineering with GPT-3, GPT-35-Turbo, and GPT-4 models
 author: suhridpalsule
 ms.author: mbullwin 
-ms.service: cognitive-services
-ms.subservice: openai
+ms.service: azure-ai-openai
 ms.topic: conceptual 
 ms.date: 04/20/2023
 manager: nitinme

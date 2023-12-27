@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/20/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
@@ -56,6 +56,8 @@ If your current agreement type isn't supported by a savings plan, you might be a
 ## Purchase savings plan
 
 You can purchase a savings plan using the [Azure portal](https://portal.azure.com/) or with the [Savings Plan Order Alias - Create](/rest/api/billingbenefits/savings-plan-order-alias/create) REST API.
+
+After you buy a savings plan, you can [change the savings plan scope](manage-savings-plan.md#change-the-savings-plan-scope) to a different subscription.
 
 ### Buy a savings plan in the Azure portal
 

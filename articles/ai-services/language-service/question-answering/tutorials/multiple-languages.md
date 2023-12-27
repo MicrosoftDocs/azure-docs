@@ -1,12 +1,11 @@
 ---
 title: Create projects in multiple languages -question answering
 description: In this tutorial, you will learn how to create projects with multiple languages.
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: tutorial
 author: jboback
 ms.author: jboback
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 

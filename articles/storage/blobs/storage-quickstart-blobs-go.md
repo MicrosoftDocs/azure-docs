@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for Go to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 02/13/2023
+ms.date: 08/29/2023
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: golang
@@ -46,7 +46,7 @@ To work with blob and container resources in a storage account, install the [azb
 ```console
 go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 ```
-To authenticate with Azure Active Directory (recommended), install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
+To authenticate with Microsoft Entra ID (recommended), install the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) module using the following command:
 
 ```console
 go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
@@ -54,15 +54,19 @@ go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 
 ## Authenticate to Azure and authorize access to blob data
 
-[!INCLUDE [storage-quickstart-passwordless-auth-intro](../../../includes/storage-quickstart-passwordless-auth-intro.md)]
+Application requests to Azure Blob Storage must be authorized. Using `DefaultAzureCredential` and the Azure Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
 
-`DefaultAzureCredential` is a class provided by the Azure Identity client library for Go. `DefaultAzureCredential` supports multiple authentication methods and determines which method to use at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
+
+`DefaultAzureCredential` is a credential chain implementation provided by the Azure Identity client library for Go. `DefaultAzureCredential` supports multiple authentication methods and determines which method to use at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
 To learn more about the order and locations in which `DefaultAzureCredential` looks for credentials, see [Azure Identity library overview](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#DefaultAzureCredential).
 
 For example, your app can authenticate using your Azure CLI sign-in credentials with when developing locally. Once it's deployed to Azure, your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). This transition between environments doesn't require any code changes.
 
-### Assign roles to your Azure AD user account
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+### Assign roles to your Microsoft Entra user account
 
 [!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
 
@@ -70,7 +74,7 @@ For example, your app can authenticate using your Azure CLI sign-in credentials 
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your storage account. The following example shows how to authenticate via the Azure CLI:
+1. Make sure you're authenticated with the same Microsoft Entra account you assigned the role to on your storage account. The following example shows how to authenticate via the Azure CLI:
 
     ```azurecli
     az login
@@ -138,7 +142,7 @@ Next, we walk through the sample code to understand how it works.
 Working with any Azure resource using the SDK begins with creating a client object. To create the client object, the code sample calls [azblob.NewClient](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#NewClient) with the following values:
 
 - **serviceURL** - the URL of the storage account
-- **cred** - an Azure AD credential obtained via the `azidentity` module
+- **cred** - a Microsoft Entra credential obtained via the `azidentity` module
 - **options** - client options; pass nil to accept the default values
 
 The following code example creates a client object to interact with container and blob resources in a storage account:

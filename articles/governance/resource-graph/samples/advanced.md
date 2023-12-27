@@ -1,12 +1,13 @@
 ---
 title: Advanced query samples
 description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
-ms.date: 06/15/2022
+ms.date: 12/18/2023
 ms.topic: sample
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.author: davidsmatlak
 author: davidsmatlak
 ---
+
 # Advanced Resource Graph query samples
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
@@ -16,20 +17,20 @@ to understand how to compose requests for the resources you're looking for.
 
 We'll walk through the following advanced queries:
 
-- [Show API version for each resource type](#apiversion)
-- [Get virtual machine scale set capacity and size](#vmss-capacity)
-- [Remove columns from results](#remove-column)
-- [List all tag names](#list-all-tags)
-- [Virtual machines matched by regex](#vm-regex)
-- [List Azure Cosmos DB with specific write locations](#mvexpand-cosmosdb)
-- [Key vaults with subscription name](#join)
-- [List SQL Databases and their elastic pools](#join-sql)
-- [List virtual machines with their network interface and public IP](#join-vmpip)
-- [List all extensions installed on a virtual machine](#join-vmextension)
-- [Find storage accounts with a specific tag on the resource group](#join-findstoragetag)
-- [Combine results from two queries into a single result](#unionresults)
-- [Get virtual networks and subnets of network interfaces](#parse-subnets)
-- [Summarize virtual machine by the power states extended property](#vm-powerstate)
+- [Show API version for each resource type](#show-resource-types-and-api-versions)
+- [Get virtual machine scale set capacity and size](#get-virtual-machine-scale-set-capacity-and-size)
+- [Remove columns from results](#remove-columns-from-results)
+- [List all tag names](#list-all-tag-names)
+- [Virtual machines matched by regex](#virtual-machines-matched-by-regex)
+- [List Azure Cosmos DB with specific write locations](#list-azure-cosmos-db-with-specific-write-locations)
+- [Key vaults with subscription name](#key-vaults-with-subscription-name)
+- [List SQL Databases and their elastic pools](#list-sql-databases-and-their-elastic-pools)
+- [List virtual machines with their network interface and public IP](#list-virtual-machines-with-their-network-interface-and-public-ip)
+- [List all extensions installed on a virtual machine](#list-all-extensions-installed-on-a-virtual-machine)
+- [Find storage accounts with a specific tag on the resource group](#find-storage-accounts-with-a-specific-tag-on-the-resource-group)
+- [Combine results from two queries into a single result](#combine-results-from-two-queries-into-a-single-result)
+- [Get virtual networks and subnets of network interfaces](#get-virtual-networks-and-subnets-of-network-interfaces)
+- [Summarize virtual machine by the power states extended property](#summarize-virtual-machine-by-the-power-states-extended-property)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
@@ -42,7 +43,7 @@ Graph. Before running any of the following queries, check that your environment 
 PowerShell](../first-query-powershell.md#add-the-resource-graph-module) for steps to install and
 validate your shell environment of choice.
 
-## <a name="apiversion"></a>Show resource types and API versions
+## Show resource types and API versions
 
 Resource Graph primarily uses the most recent non-preview version of a Resource Provider API to
 `GET` resource properties during an update. In some cases, the API version used has been overridden
@@ -78,7 +79,7 @@ Search-AzGraph -Query "Resources | distinct type, apiVersion | where isnotnull(a
 
 ---
 
-## <a name="vmss-capacity"></a>Get virtual machine scale set capacity and size
+## Get virtual machine scale set capacity and size
 
 This query looks for virtual machine scale set resources and gets various details including the
 virtual machine size and the capacity of the scale set. The query uses the `toint()` function to
@@ -115,7 +116,7 @@ Search-AzGraph -Query "Resources | where type=~ 'microsoft.compute/virtualmachin
 
 ---
 
-## <a name="remove-column"></a>Remove columns from results
+## Remove columns from results
 
 The following query uses `summarize` to count resources by subscription, `join` to combine it with
 subscription details from _ResourceContainers_ table, then `project-away` to remove some of the
@@ -150,7 +151,7 @@ Search-AzGraph -Query "Resources | summarize resourceCount=count() by subscripti
 
 ---
 
-## <a name="list-all-tags"></a>List all tag names
+## List all tag names
 
 This query starts with the tag and builds a JSON object listing all unique tag names and their
 corresponding types.
@@ -183,7 +184,7 @@ Search-AzGraph -Query "Resources | project tags | summarize buildschema(tags)"
 
 ---
 
-## <a name="vm-regex"></a>Virtual machines matched by regex
+## Virtual machines matched by regex
 
 This query looks for virtual machines that match a [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference)
 (known as _regex_). The **matches regex \@** allows us to define the regex to match, which is `^Contoso(.*)[0-9]+$`.
@@ -229,7 +230,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="mvexpand-cosmosdb"></a>List Azure Cosmos DB with specific write locations
+## List Azure Cosmos DB with specific write locations
 
 The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag
 for **properties.writeLocations**, then project specific fields and limit the results further to
@@ -267,7 +268,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.documentdb/databasea
 
 ---
 
-## <a name="join"></a>Key vaults with subscription name
+## Key vaults with subscription name
 
 The following query shows a complex use of `join` with **kind** as _leftouter_. The query limits the
 joined table to subscriptions resources and with `project` to include only the original field
@@ -305,7 +306,7 @@ Search-AzGraph -Query "Resources | join kind=leftouter (ResourceContainers | whe
 
 ---
 
-## <a name="join-sql"></a>List SQL Databases and their elastic pools
+## List SQL Databases and their elastic pools
 
 The following query uses **leftouter** `join` to bring together SQL Database resources and their
 related elastic pools, if they've any.
@@ -344,7 +345,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ---
 
-## <a name="join-vmpip"></a>List virtual machines with their network interface and public IP
+## List virtual machines with their network interface and public IP
 
 This query uses two **leftouter** `join` commands to bring together virtual machines created with
 the Resource Manager deployment model, their related network interfaces, and any public IP address
@@ -397,7 +398,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="join-vmextension"></a>List all extensions installed on a virtual machine
+## List all extensions installed on a virtual machine
 
 First, this query uses `extend` on the virtual machines resource type to get the ID in uppercase
 (`toupper()`) the ID, get the operating system name and type, and get the virtual machine size.
@@ -451,7 +452,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ---
 
-## <a name="join-findstoragetag"></a>Find storage accounts with a specific tag on the resource group
+## Find storage accounts with a specific tag on the resource group
 
 The following query uses an **inner** `join` to connect storage accounts with resource groups that
 have a specified case-sensitive tag name and tag value.
@@ -530,7 +531,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.storage/storageaccou
 
 ---
 
-## <a name="unionresults"></a>Combine results from two queries into a single result
+## Combine results from two queries into a single result
 
 The following query uses `union` to get results from the _ResourceContainers_ table and add them to
 results from the _Resources_ table.
@@ -563,7 +564,7 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 ---
 
-## <a name="parse-subnets"></a>Get virtual networks and subnets of network interfaces
+## Get virtual networks and subnets of network interfaces
 
 Use a regular expression `parse` to get the virtual network and subnet names from the resource ID
 property. While `parse` enables getting data from a complex field, it's optimal to access properties
@@ -602,7 +603,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networkinter
 
 ---
 
-## <a name="vm-powerstate"></a>Summarize virtual machine by the power states extended property
+## Summarize virtual machine by the power states extended property
 
 This query uses the [extended properties](../concepts/query-language.md#extended-properties) on
 virtual machines to summarize by power states.

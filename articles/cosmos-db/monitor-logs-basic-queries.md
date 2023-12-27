@@ -7,7 +7,7 @@ ms.author: esarroyo
 ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: reference
-ms.date: 08/02/2023
+ms.date: 08/22/2023
 ms.custom: ignite-2022
 ---
 
@@ -29,7 +29,7 @@ Here's a list of common troubleshooting queries.
 
 Find operations that have a duration greater than 3 milliseconds.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```Kusto
 AzureDiagnostics 
@@ -37,7 +37,7 @@ AzureDiagnostics
 | summarize count() by clientIpAddress_s, TimeGenerated
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests 
@@ -51,7 +51,7 @@ CDBDataPlaneRequests
 
 Find user agents associated with each operation.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```Kusto
 AzureDiagnostics 
@@ -59,7 +59,7 @@ AzureDiagnostics
 | summarize count() by OperationName, userAgent_s
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -71,7 +71,7 @@ CDBDataPlaneRequests
 
 Find operations that ran for a long time by binning their runtime into five-second intervals.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```Kusto
 AzureDiagnostics 
@@ -81,7 +81,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -96,7 +96,7 @@ CDBDataPlaneRequests
 
 Measure skew by getting common statistics for physical partitions.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```Kusto
 AzureDiagnostics 
@@ -104,7 +104,7 @@ AzureDiagnostics
 | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBPartitionKeyStatistics
@@ -117,7 +117,7 @@ CDBPartitionKeyStatistics
 
 Measure the request charge (in RUs) for the largest queries.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```Kusto
 AzureDiagnostics
@@ -132,7 +132,7 @@ AzureDiagnostics
 | limit 100
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -152,7 +152,7 @@ CDBQueryRuntimeStatistics
 
 Sort operations by the amount of RU/s they're using.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics
@@ -161,7 +161,7 @@ AzureDiagnostics
 | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -175,7 +175,7 @@ CDBDataPlaneRequests
 
 Find queries that consume more RU/s than a baseline amount.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 This query joins with data from ``DataPlaneRequests`` and ``QueryRunTimeStatistics``.
 
@@ -192,7 +192,7 @@ AzureDiagnostics
 | limit 100
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -212,7 +212,7 @@ CDBQueryRuntimeStatistics
 
 Get statistics in both request charge and duration for a specific query.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics
@@ -226,7 +226,7 @@ AzureDiagnostics
 | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBQueryRuntimeStatistics
@@ -242,7 +242,7 @@ CDBDataPlaneRequests
 
 Group operations by the resource distribution.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics
@@ -251,7 +251,7 @@ AzureDiagnostics
 | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -265,7 +265,7 @@ CDBDataPlaneRequests
 
 Get the maximum throughput for a physical partition.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics
@@ -274,7 +274,7 @@ AzureDiagnostics
 | summarize max(requestCharge_s) by bin(TimeGenerated, 1h), partitionId_g
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -288,7 +288,7 @@ CDBDataPlaneRequests
 
 Measure RU/s consumption on a per-second basis per partition key.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics 
@@ -297,7 +297,7 @@ AzureDiagnostics
 | order by TimeGenerated asc 
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBPartitionKeyRUConsumption 
@@ -311,7 +311,7 @@ CDBPartitionKeyRUConsumption
 
 Measure request charge per partition key.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics 
@@ -319,7 +319,7 @@ AzureDiagnostics
 | where parse_json(partitionKey_s)[0] == "2" 
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBPartitionKeyRUConsumption  
@@ -332,7 +332,7 @@ CDBPartitionKeyRUConsumption
 
 Sort partition keys based on request unit consumption within a time window.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics 
@@ -342,7 +342,7 @@ AzureDiagnostics
 | order by total desc
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBPartitionKeyRUConsumption
@@ -357,7 +357,7 @@ CDBPartitionKeyRUConsumption
 
 Find logs for partition keys filtered by the size of storage per partition key.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics
@@ -365,7 +365,7 @@ AzureDiagnostics
 | where todouble(sizeKb_d) > 800000
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBPartitionKeyStatistics
@@ -378,7 +378,7 @@ CDBPartitionKeyStatistics
 
 Measure performance for; operation latency, RU/s usage, and response length.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto
 AzureDiagnostics
@@ -387,7 +387,7 @@ AzureDiagnostics
 | summarize percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s), percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s), percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s), count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto
 CDBDataPlaneRequests
@@ -404,7 +404,7 @@ Get control plane long using ``ControlPlaneRequests``.
 > [!TIP]
 > Remember to switch on the flag described in [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access), and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
 
-#### [Resource-specific](#tab/resource-specific)
+#### [Azure Diagnostics](#tab/azure-diagnostics)
 
 ```kusto  
 AzureDiagnostics 
@@ -412,7 +412,7 @@ AzureDiagnostics
 | summarize by OperationName 
 ```
 
-#### [Azure Diagnostics](#tab/azure-diagnostics)
+#### [Resource-specific](#tab/resource-specific)
 
 ```kusto  
 CDBControlPlaneRequests

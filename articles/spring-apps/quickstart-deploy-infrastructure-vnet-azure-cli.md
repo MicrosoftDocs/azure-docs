@@ -46,13 +46,13 @@ The Enterprise deployment plan includes the following Tanzu components:
 
 The deployment script used in this quickstart is from the [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
-### [Standard plan](#tab/azure-spring-apps-standard)
-
-:::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh":::
-
 ### [Enterprise plan](#tab/azure-spring-apps-enterprise)
 
 :::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh":::
+
+### [Standard plan](#tab/azure-spring-apps-standard)
+
+:::code language="azurecli" source="~/azure-spring-apps-reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh":::
 
 ---
 

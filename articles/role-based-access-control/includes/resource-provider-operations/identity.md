@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.workload: identity
 ms.topic: include
-ms.date: 06/01/2023
+ms.date: 11/30/2023
 ms.author: rolyon
 ms.custom: generated
 ---
@@ -162,9 +162,6 @@ Azure service: [Azure Active Directory B2C](../../../active-directory-b2c/index.
 > | Microsoft.AzureActiveDirectory/b2cDirectories/read | View B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Delete B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2ctenants/read | Lists all B2C tenants where the user is a member |
-> | Microsoft.AzureActiveDirectory/ciamDirectories/write | Create or update CIAM Directory resource |
-> | Microsoft.AzureActiveDirectory/ciamDirectories/read | View CIAM Directory resource |
-> | Microsoft.AzureActiveDirectory/ciamDirectories/delete | Delete CIAM Directory resource |
 > | Microsoft.AzureActiveDirectory/guestUsages/write | Create or update Guest Usages resource |
 > | Microsoft.AzureActiveDirectory/guestUsages/read | View Guest Usages resource |
 > | Microsoft.AzureActiveDirectory/guestUsages/delete | Delete Guest Usages resource |
@@ -185,6 +182,7 @@ Azure service: [Managed identities for Azure resources](../../../active-director
 > | Microsoft.ManagedIdentity/userAssignedIdentities/listAssociatedResources/action | Lists all associated resources for an existing user assigned identity |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/read | Gets an existing user assigned identity |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/write | Creates a new user assigned identity or updates the tags associated with an existing user assigned identity |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/revokeTokens/action | Revoked all the existing tokens on a user assigned identity |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/read | Get or list Federated Identity Credentials |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/write | Add or update a Federated Identity Credential |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/delete | Delete a Federated Identity Credential |

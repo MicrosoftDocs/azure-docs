@@ -36,7 +36,7 @@ az login
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID> \
-    --sdk-auth
+    --json-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
@@ -45,7 +45,7 @@ To access to a specific resource group, you can reduce the scope:
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
-    --sdk-auth
+    --json-auth
 ```
 
 The command should output a JSON object:
@@ -60,7 +60,7 @@ The command should output a JSON object:
 }
 ```
 
-This example uses the [steeltoe sample on GitHub](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample).  Fork the repository, open the GitHub repository page for the fork, and select the **Settings** tab. Open the **Secrets** menu, and select **New secret**:
+This example uses the [steeltoe sample on GitHub](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/steeltoe-sample).  Fork the repository, open the GitHub repository page for the fork, and select the **Settings** tab. Open the **Secrets** menu, and select **New secret**:
 
 :::image type="content" source="./media/github-actions/actions1.png" alt-text="Screenshot of the GitHub Actions secrets and variables page with the New repository secret button highlighted." lightbox="./media/github-actions/actions1.png":::
 
@@ -84,7 +84,7 @@ az spring create \
     --name <service-instance-name> 
 az spring config-server git set \
     --name <service-instance-name> \
-    --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples \
+    --uri https://github.com/Azure-Samples/azure-spring-apps-samples \
     --label main \
     --search-paths steeltoe-sample/config
 ```
@@ -179,7 +179,7 @@ az login
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID> \
-    --sdk-auth
+    --json-auth
 ```
 
 To access to a specific resource group, you can reduce the scope:
@@ -188,7 +188,7 @@ To access to a specific resource group, you can reduce the scope:
 az ad sp create-for-rbac \
     --role contributor \
     --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
-    --sdk-auth
+    --json-auth
 ```
 
 The command should output a JSON object:
@@ -542,6 +542,6 @@ If your action runs in error, for example, if you haven't set the Azure credenti
 ## Next steps
 
 * [Authenticate Azure Spring Apps with Azure Key Vault in GitHub Actions](./github-actions-key-vault.md)
-* [Azure Active Directory service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Microsoft Entra service principals](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 * [GitHub Actions for Azure](https://github.com/Azure/actions/)
 * [GitHub Action for deploying to Azure Spring Apps](https://github.com/Azure/spring-apps-deploy)

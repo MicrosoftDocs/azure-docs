@@ -56,7 +56,7 @@ Use the following table for each property in the URL.
 | URL property | Description|
 | --- | --- |
 | **portal-domain** | Primary domain for the Azure portal. For example, `portal.azure.com` or `portal.azure.us`). |
-| **directory-domain** | Domain used by your Azure Active Directory. You can also use the tenant ID. If it's omitted, the portal tries to use the default directory for the user that selected the link - it might  differ from the scope. |
+| **directory-domain** | Domain used by your Microsoft Entra ID. You can also use the tenant ID. If it's omitted, the portal tries to use the default directory for the user that selected the link - it might  differ from the scope. |
 | **scope-id** | Full Resource Manager ID for the resource group, subscription, management group, or billing account you want to view cost for. If not specified, Cost Management uses the last view the user used in the Azure portal. The value must be URL encoded. |
 | **view-config** | Encoded view configuration. See the following details. If not specified, cost analysis uses the `view-id` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |
 | **view-id** | Full Resource Manager ID for the private or shared view to load. This value must be URL encoded. If not specified, cost analysis uses the `view` parameter. If neither are specified, cost analysis uses the built-in Accumulated cost view. |

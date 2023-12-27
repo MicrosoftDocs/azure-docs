@@ -6,11 +6,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 9/27/2023
 ms.author: kesheth
 ---
 
 # Autoscale for Azure API for FHIR 
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR, as a managed service, allows customers to persist with Fast Healthcare Interoperability Resources (FHIR&#174;) compliant healthcare data and exchange it securely through the service API. To accommodate different transaction workloads, customers can use manual scale or autoscale.
 
@@ -70,11 +72,11 @@ To ensure the best possible outcome, we recommend customers to gradually increas
 
 The data size is one of several factors used in calculating the total throughput RU/s required for manual scale and autoscale. You can find the data size using the Metrics menu option under **Monitoring**. Start a new chart and select **Cosmos DB Collection Size** in the Metric dropdown box and **Max** in the "Aggregation" box. 
 
-[ ![Screenshot of metrics_new_chart](media/cosmosdb/metrics-new-chart.png) ](media/cosmosdb/metrics-new-chart.png#lightbox)
+[Screenshot of metrics_new_chart](media/cosmosdb/metrics-new-chart.png) ](media/cosmosdb/metrics-new-chart.png#lightbox)
 
 You should be able to see the Max data collection size over the time period selected. Change the "Time Range" if necessary, for example from "Last 30 minutes" to "Last 48 Hours".
 
-[ ![Screenshot of cosmosdb_collection_size](media/cosmosdb/cosmosdb-collection-size.png) ](media/cosmosdb/cosmosdb-collection-size.png#lightbox)
+[Screenshot of cosmosdb_collection_size](media/cosmosdb/cosmosdb-collection-size.png) ](media/cosmosdb/cosmosdb-collection-size.png#lightbox)
 
 Use the formula to calculate required RU/s.
 

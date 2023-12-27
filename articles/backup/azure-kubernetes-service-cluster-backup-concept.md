@@ -1,18 +1,23 @@
 ---
-title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites 
+title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
 ms.service: backup
-ms.date: 08/17/2023
+ms.custom:
+  - ignite-2023
+ms.date: 12/25/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Prerequisites for Azure Kubernetes Service backup using Azure Backup (preview)
+# Prerequisites for Azure Kubernetes Service backup using Azure Backup
 
 This article describes the prerequisites for Azure Kubernetes Service (AKS) backup.
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. Based on the least privileged security model, a Backup vault must have *Trusted Access* enabled to communicate with the AKS cluster.
+
+>[!Note]
+>Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
 ## Backup Extension
 
@@ -37,7 +42,7 @@ Learn [how to manage the operation to install Backup Extension using Azure CLI](
 
 ## Trusted Access
 
-Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly accessible kube-apiserver endpoint* to access AKS clusters. The **AKS Trusted Access** feature enables you to bypass the private endpoint restriction. Without using Microsoft Azure Active Directory (Azure AD) application, this feature enables you to give explicit consent to your system-assigned identity of allowed resources to access your AKS clusters using an Azure resource RoleBinding. The Trusted Access feature allows you to access AKS clusters with different configurations, which aren't limited to private clusters, clusters with local accounts disabled, Azure AD clusters, and authorized IP range clusters.
+Many Azure services depend on *clusterAdmin kubeconfig* and the *publicly accessible kube-apiserver endpoint* to access AKS clusters. The **AKS Trusted Access** feature enables you to bypass the private endpoint restriction. Without using Microsoft Entra application, this feature enables you to give explicit consent to your system-assigned identity of allowed resources to access your AKS clusters using an Azure resource RoleBinding. The Trusted Access feature allows you to access AKS clusters with different configurations, which aren't limited to private clusters, clusters with local accounts disabled, Microsoft Entra ID clusters, and authorized IP range clusters.
 
 Your Azure resources access AKS clusters through the AKS regional gateway using system-assigned managed identity authentication. The managed identity must have the appropriate Kubernetes permissions assigned via an Azure resource role.
 
@@ -64,10 +69,7 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Backup Extension uses the AKS cluster’s Managed System Identity to perform backup operations. So, ASK backup doesn't support AKS clusters using Service Principal. You can [update your AKS cluster to use Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
-
-  >[!Note]
-  >Only Managed System Identity based AKS clusters are supported by AKS backup. The support for User Identity based AKS clusters is currently not available. 
+- Azure Backup for AKS supports AKS clusters using either System Identity or User Identity, for backup operations. Although clusters using Service Principle aren't supported, you can [update such AKS cluster to use a Managed System Identity](../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
 
@@ -92,21 +94,28 @@ To perform AKS backup and restore operations as a user, you need to have specifi
 
 Also, as part of the backup and restore operations, the following roles are assigned to the AKS cluster, Backup Extension Identity, and Backup vault.
 
-| Role | Assigned To | Assigned on | Description |
-| --- | --- | --- | --- |
-| Reader | Backup vault | AKS cluster | Allows the Backup vault to perform *List* and *Read* operations on AKS cluster. |
-| Reader | Backup vault | Snapshot resource group | Allows the Backup vault to perform *List* and *Read* operations on snapshot resource group. |
-| Contributor | AKS cluster | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group. |
-| Storage Account Contributor | Extension Identity | Storage account | Allows Backup Extension to store cluster resource backups in the blob container. |
+| Role  | Assigned to    | Assigned on     |  Description |
+| ---- | --- | --- | --- |
+| Reader                         | Backup vault       | AKS cluster             | Allows the Backup vault to perform _List_ and _Read_ operations on AKS cluster.             |
+| Reader                         | Backup vault       | Snapshot resource group | Allows the Backup vault to perform _List_ and _Read_ operations on snapshot resource group. |
+| Contributor                    | AKS cluster        | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group.              |
+| Storage Account Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
+| Data Operator for Managed Disk | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
+| Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.                |
+| Storage Blob Data Reader       | Backup vault       | Storage Account         | Allow Backup Vault to access Blob Container with backup data stored to move to Vault.        |
+| Contributor                    | Backup vault       | Staging Resource Group  | Allows Backup Vault to hydrate backups as Disks stored in Vault Tier.                        |
+| Storage Account Contributor    | Backup vault       | Staging Storage Account | Allows Backup Vault to hydrate backups stored in Vault Tier.                                 |
+| Storage Blob Data Owner        | Backup vault       | Staging Storage Account | Allows Backup Vault to copy cluster state in a blob container stored in Vault Tier.          |
+
+
 
 >[!Note]
 >AKS backup allows you to assign these roles during backup and restore processes through the Azure portal with a single click.
 
 ## Next steps
 
-- [About Azure Kubernetes Service backup (preview)](azure-kubernetes-service-backup-overview.md)
-- [Supported scenarios for Azure Kubernetes Service cluster backup (preview)](azure-kubernetes-service-cluster-backup-support-matrix.md)
-- [Back up Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-backup.md)
-- [Restore Azure Kubernetes Service cluster (preview)](azure-kubernetes-service-cluster-restore.md)
-- [Manage Azure Kubernetes Service cluster backups (preview)](azure-kubernetes-service-cluster-manage-backups.md)
-
+- [About Azure Kubernetes Service backup](azure-kubernetes-service-backup-overview.md)
+- [Supported scenarios for Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-support-matrix.md)
+- [Back up Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-backup.md)
+- [Restore Azure Kubernetes Service cluster](azure-kubernetes-service-cluster-restore.md)
+- [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)

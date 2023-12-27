@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 01/31/2023
 ms.custom: seodec18
 ms.author: msangapu
+author: msangapu-msft
 
 ---
 # Buy an App Service domain and configure an app with it
@@ -81,7 +82,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
 You're now ready to assign an App Service app to this custom domain.
 
 > [!NOTE]
-> Depending on the subscription type, a sufficient payment history may be required prior to creating an App Service domain. 
+> Depending on the subscription type, a sufficient payment history within Azure may be required prior to creating an App Service domain. 
 
 ## Map a hostname manually
 

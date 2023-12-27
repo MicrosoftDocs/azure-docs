@@ -1,30 +1,29 @@
 ---
 author: laujan
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 11/15/2023
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD041 -->
 
 * For best results, provide one clear photo or high-quality scan per document.
 
-* Supported file formats: 
+* Supported file formats:
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, and TIFF | Microsoft Office: </br> Word (DOCX), Excel (XLS), PowerPoint (PPT), and HTML|
+    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
     |--------|:----:|:-----:|:---------------:
     |Read            | ✔    | ✔    | ✔  |
-    |Layout          | ✔  | ✔ |   |
+    |Layout          | ✔  | ✔ | ✔ (2023-10-31-preview)  |
     |General&nbsp;Document| ✔  | ✔ |   |
     |Prebuilt        |  ✔  | ✔ |   |
     |Custom          |  ✔  | ✔ |   |
 
-    &#x2731; Microsoft Office files are currently not supported for other models or versions.
-
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
-* The file size for analyzing documents must be _less than_ 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
+* The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 
 * Image dimensions must be between 50 x 50 pixels and 10,000 px x 10,000 pixels.
 
@@ -34,6 +33,6 @@ ms.author: lajanuar
 
 * For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model.
 
-* For custom extraction model training, the total size of training data is 50 MB for template model and 1G-MB for the neural model.
+  * For custom extraction model training, the total size of training data is 50 MB for template model and 1G-MB for the neural model.
 
-* For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.
+  * For custom classification model training, the total size of training data is `1GB`  with a maximum of 10,000 pages.

@@ -39,7 +39,7 @@ Currently, you can restore an Azure Cosmos DB account (API for NoSQL or MongoDB,
 By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
 ## Different ways to restore
-Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two depends on the scenarios and impact. In most cases it is preferred to restore deleted containers and databases into an existing account to prevent the cost of data transfer which is required in the case they are restored to a new account. For scenarios where you have modified the data accidentally restore into new account could be the prefered option. 
+Continuous backup mode supports two ways to restore deleted containers and databases. They can be restored into a [new account](restore-account-continuous-backup.md) as documented here or can be restored into an existing account as described [here](restore-account-continuous-backup.md). The choice between these two depends on the scenarios and impact. In most cases it is preferred to restore deleted containers and databases into an existing account to prevent the cost of data transfer which is required in the case they are restored to a new account. For scenarios where you have modified the data accidentally restore into new account could be the preferred option. 
 
 ## What is restored into a new account?
 
@@ -132,7 +132,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * Multi-regions write accounts aren't supported.
 
-* Currently Azure Synapse Link isn't fully compatible with continuous backup mode. For more information about backup with analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
+* Currently Azure Synapse Link can be enabled in continuous backup database accounts. But the opposite situation isn't supported yet, it is not possible to turn on continuous backup in Synapse Link enabled database accounts. And analytical store isn't included in backups. For more information about backup and analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 

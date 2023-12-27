@@ -10,6 +10,8 @@ ms.date: 06/24/2022
 
 # Security in Azure Database for MariaDB
 
+[!INCLUDE [azure-database-for-mariadb-deprecation](includes/azure-database-for-mariadb-deprecation.md)]
+
 There are multiple layers of security that are available to protect the data on your Azure Database for MariaDB server. This article outlines those security options.
 
 ## Information protection and encryption

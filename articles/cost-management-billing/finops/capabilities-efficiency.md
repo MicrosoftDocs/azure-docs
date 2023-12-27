@@ -38,10 +38,11 @@ When you first start managing cost in the cloud, you use the native tools to dri
 - Review and implement [Azure Well-Architected Framework cost optimization guidance](/azure/well-architected/cost/overview).
 - Familiarize yourself with the services you use, how you're charged, and what service-specific cost optimization options you have.
   - You can discover the services you use from the Azure portal All resources page or from the [Services view in Cost analysis](../costs/cost-analysis-built-in-views.md#break-down-product-and-service-costs).
-  - Explore the [Azure pricing pages](https://azure.microsoft.com/pricing) and [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to learn how each service charges you. Use them to identify options that may reduce costs. For example, shared infrastructure and commitment discounts.
+  - Explore the [Azure pricing pages](https://azure.microsoft.com/pricing) and [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator) to learn how each service charges you. Use them to identify options that might reduce costs. For example, shared infrastructure and commitment discounts.
   - Review service documentation to learn about any cost-related features that could help you optimize your environment or improve cost visibility. Some examples:
     - Choose [spot VMs](/azure/well-architected/cost/optimize-vm#spot-vms) for low priority, interruptible workloads.
     - Avoid [cross-region data transfer](/azure/well-architected/cost/design-regions#traffic-across-billing-zones-and-regions).
+- Use and customize the [Cost optimization workbook](cost-optimization-workbook.md). The Cost Optimization workbook is a central point for some of the most often used tools that can help achieve utilization and efficiency goals.
 
 ## Building on the basics
 

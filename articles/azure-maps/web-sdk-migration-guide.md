@@ -2,8 +2,8 @@
 title: The Azure Maps Web SDK v1 migration guide
 titleSuffix: Microsoft Azure Maps
 description: Find out how to migrate your Azure Maps Web SDK v1 applications to the most recent version of the Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 08/18/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -39,7 +39,7 @@ If you're using CDN ([content delivery network]), update the references to the s
 
 ### npm
 
-Install the latest [npm] package using the following command:
+If you're using [npm], update to the latest Azure Maps control by running the following command:
 
 ```shell
 npm install azure-maps-control@latest
@@ -47,7 +47,7 @@ npm install azure-maps-control@latest
 
 ## Review authentication methods (optional)
 
-To enhance security, more authentication methods are included in the Web SDK starting in version 2. The new methods include [Azure Active Directory Authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
+To enhance security, more authentication methods are included in the Web SDK starting in version 2. The new methods include [Microsoft Entra authentication] and [Shared Key Authentication]. For more information about Azure Maps web application security, see [Manage Authentication in Azure Maps].
 
 ## Testing
 
@@ -59,6 +59,13 @@ Consider a gradual rollout strategy for the updated version. Release the migrate
 
 By following these steps and considering best practices, you can successfully migrate your application from Azure Maps WebSDK v1 to v3. Embrace the new capabilities and improvements offered by the latest version while ensuring a smooth and seamless transition for your users. For more information, see [Azure Maps Web SDK best practices].
 
+## Next steps
+
+Learn how to add maps to web and mobile applications using the Map Control client-side JavaScript library in Azure Maps:
+
+> [!div class="nextstepaction"]
+> [Use the Azure Maps map control]
+
 [Azure Active Directory Authentication]: how-to-secure-spa-users.md
 [Azure Maps Web SDK best practices]: web-sdk-best-practices.md
 [content delivery network]: /azure/cdn/cdn-overview
@@ -66,3 +73,4 @@ By following these steps and considering best practices, you can successfully mi
 [npm]: https://www.npmjs.com/package/azure-maps-control
 [release notes]: release-notes-map-control.md
 [Shared Key Authentication]: how-to-secure-sas-app.md
+[Use the Azure Maps map control]: how-to-use-map-control.md

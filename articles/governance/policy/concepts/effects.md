@@ -2,7 +2,7 @@
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: davidsmatlak
-ms.date: 06/15/2023
+ms.date: 12/19/2023
 ms.topic: conceptual
 ms.author: davidsmatlak
 ---
@@ -15,15 +15,17 @@ resource, an updated resource, or an existing resource.
 
 These effects are currently supported in a policy definition:
 
+- [AddToNetworkGroup](#addtonetworkgroup)
 - [Append](#append)
 - [Audit](#audit)
 - [AuditIfNotExists](#auditifnotexists)
 - [Deny](#deny)
-- [DenyAction (preview)](#denyaction-preview)
+- [DenyAction](#denyaction)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled)
 - [Manual](#manual)
 - [Modify](#modify)
+- [Mutate](#mutate-preview)
 
 ## Interchanging effects
 
@@ -48,7 +50,7 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
 
 - **Disabled** is checked first to determine whether the policy rule should be evaluated.
 - **Append** and **Modify** are then evaluated. Since either could alter the request, a change made
-  may prevent an audit or deny effect from triggering. These effects are only available with a
+  might prevent an audit or deny effect from triggering. These effects are only available with a
   Resource Manager mode.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired
   resource is prevented.
@@ -63,6 +65,14 @@ logging or action is required.
 
 `PATCH` requests that only modify `tags` related fields restricts policy evaluation to
 policies containing conditions that inspect `tags` related fields.
+
+## AddToNetworkGroup
+
+AddToNetworkGroup is used in Azure Virtual Network Manager to define dynamic network group membership. This effect is specific to _Microsoft.Network.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+
+With network groups, your policy definition includes your conditional expression for matching virtual networks meeting your criteria, and specifies the destination network group where any matching resources are placed. The addToNetworkGroup effect is used to place resources in the destination network group.
+
+To learn more, go to [Configuring Azure Policy with network groups in Azure Virtual Network Manager](../../../virtual-network-manager/concept-azure-policy-integration.md).
 
 ## Append
 
@@ -100,14 +110,18 @@ array. If the array already exists, a deny event occurs from the conflict.
 
 ```json
 "then": {
-    "effect": "append",
-    "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-        "value": [{
-            "action": "Allow",
-            "value": "134.5.0.0/21"
-        }]
-    }]
+  "effect": "append",
+  "details": [
+    {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+      "value": [
+        {
+          "action": "Allow",
+          "value": "134.5.0.0/21"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -118,14 +132,16 @@ it's created.
 
 ```json
 "then": {
-    "effect": "append",
-    "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
-        "value": {
-            "value": "40.40.40.40",
-            "action": "Allow"
-        }
-    }]
+  "effect": "append",
+  "details": [
+    {
+      "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+      "value": {
+        "value": "40.40.40.40",
+        "action": "Allow"
+      }
+    }
+  ]
 }
 ```
 
@@ -161,7 +177,7 @@ definitions as `constraintTemplate` is deprecated.
       location must be publicly accessible.
 
       > [!WARNING]
-      > Don't use SAS URIs, URL tokens, or or anything else that could expose secrets in plain text.
+      > Don't use SAS URIs, URL tokens, or anything else that could expose secrets in plain text.
 
     - If _Base64Encoded_, paired with property `content` to provide the base 64 encoded constraint
       template. See
@@ -207,7 +223,7 @@ definitions as `constraintTemplate` is deprecated.
   - An empty or missing value causes policy evaluation to include all labels and selectors, except
     namespaces defined in _excludedNamespaces_.
 - **scope** (optional)
-  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched. 
+  - A _string_ that includes the [scope](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#the-match-field) property to allow specifying if cluster-scoped or namespaced-scoped resources are matched.
 - **apiGroups** (required when using _templateInfo_)
   - An _array_ that includes the
     [API groups](https://kubernetes.io/docs/reference/using-api/#api-groups) to match. An empty
@@ -227,7 +243,7 @@ Example 1: Using the audit effect for Resource Manager modes.
 
 ```json
 "then": {
-    "effect": "audit"
+  "effect": "audit"
 }
 ```
 
@@ -237,18 +253,22 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 
 ```json
 "then": {
-    "effect": "audit",
-    "details": {
-        "templateInfo": {
-            "sourceType": "PublicURL",
-            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
-        },
-        "values": {
-            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
-        },
-        "apiGroups": [""],
-        "kinds": ["Pod"]
-    }
+  "effect": "audit",
+  "details": {
+    "templateInfo": {
+      "sourceType": "PublicURL",
+      "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+    },
+    "values": {
+      "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+    },
+    "apiGroups": [
+      ""
+    ],
+    "kinds": [
+      "Pod"
+    ]
+  }
 }
 ```
 
@@ -284,11 +304,11 @@ related resources to match.
     However, an [audit](#audit) effect should be considered instead.
 
 > [!NOTE]
-> 
+>
 > **Type** and **Name** segments can be combined to generically retrieve nested resources.
-> 
-> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`. 
-> 
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
 > To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
 
 - **ResourceGroupName** (optional)
@@ -312,7 +332,7 @@ related resources to match.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -333,27 +353,28 @@ audits when missing.
 
 ```json
 {
-    "if": {
-        "field": "type",
-        "equals": "Microsoft.Compute/virtualMachines"
-    },
-    "then": {
-        "effect": "auditIfNotExists",
-        "details": {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "existenceCondition": {
-                "allOf": [{
-                        "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
-                        "equals": "Microsoft.Azure.Security"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/extensions/type",
-                        "equals": "IaaSAntimalware"
-                    }
-                ]
-            }
-        }
+  "if": {
+    "field": "type",
+    "equals": "Microsoft.Compute/virtualMachines"
+  },
+  "then": {
+    "effect": "auditIfNotExists",
+    "details": {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "existenceCondition": {
+        "allOf": [
+          {
+            "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+            "equals": "Microsoft.Azure.Security"
+          },
+          {
+            "field": "Microsoft.Compute/virtualMachines/extensions/type",
+            "equals": "IaaSAntimalware"
+          }
+        ]
+      }
     }
+  }
 }
 ```
 
@@ -456,7 +477,7 @@ Example 1: Using the deny effect for Resource Manager modes.
 
 ```json
 "then": {
-    "effect": "deny"
+  "effect": "deny"
 }
 ```
 
@@ -466,34 +487,35 @@ location of the Constraint template to use in Kubernetes to limit the allowed co
 
 ```json
 "then": {
-    "effect": "deny",
-    "details": {
-        "templateInfo": {
-            "sourceType": "PublicURL",
-            "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
-        },
-        "values": {
-            "imageRegex": "[parameters('allowedContainerImagesRegex')]"
-        },
-        "apiGroups": [""],
-        "kinds": ["Pod"]
-    }
+  "effect": "deny",
+  "details": {
+    "templateInfo": {
+      "sourceType": "PublicURL",
+      "url": "https://store.policy.core.windows.net/kubernetes/container-allowed-images/v1/template.yaml",
+    },
+    "values": {
+      "imageRegex": "[parameters('allowedContainerImagesRegex')]"
+    },
+    "apiGroups": [
+      ""
+    ],
+    "kinds": [
+      "Pod"
+    ]
+  }
 }
 ```
 
-## DenyAction (preview)
+## DenyAction
 
-`DenyAction` is used to block requests on intended action to resources. The only supported action today is `DELETE`. This effect helps prevent any accidental deletion of critical resources.
+`DenyAction` is used to block requests based on intended action to resources at scale. The only supported action today is `DELETE`. This effect and action name helps prevent any accidental deletion of critical resources.
 
 ### DenyAction evaluation
 
 When a request call with an applicable action name and targeted scope is submitted, `denyAction` prevents the request from succeeding. The request is returned as a `403 (Forbidden)`. In the portal, the Forbidden can be viewed as a status on the deployment that was prevented by the policy
 assignment.
 
-`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
-
-> [!NOTE]
-> Under preview, assignments with `denyAction` effect will show a `Not Started` compliance state.
+`Microsoft.Authorization/policyAssignments`, `Microsoft.Authorization/denyAssignments`, `Microsoft.Blueprint/blueprintAssignments`, `Microsoft.Resources/deploymentStacks`, `Microsoft.Resources/subscriptions` and `Microsoft.Authorization/locks` are all exempt from DenyAction enforcement to prevent lockout scenarios.
 
 #### Subscription deletion
 
@@ -528,25 +550,29 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
 
 ```json
 {
-   "if": {
-      "allOf": [
-         {
-            "field": "type",
-            "equals": "Microsoft.DocumentDb/accounts"
-         },
-         {
-            "field": "tags.environment",
-            "equals": "prod"
-         }
-      ]
-   },
-   "then": {
-      "effect": "DenyAction",
-      "details": {
-         "actionNames": [ "delete" ],
-         "cascadeBehaviors": { "resourceGroup": "deny" }
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.DocumentDb/accounts"
+      },
+      {
+        "field": "tags.environment",
+        "equals": "prod"
       }
-   }
+    ]
+  },
+  "then": {
+    "effect": "denyAction",
+    "details": {
+      "actionNames": [
+        "delete"
+      ],
+      "cascadeBehaviors": {
+        "resourceGroup": "deny"
+      }
+    }
+  }
 }
 ```
 
@@ -590,11 +616,11 @@ related resources to match and the template deployment to execute.
     becomes _required_ and must be `[field('name')]`, or `[field('fullName')]` for a child resource.
 
 > [!NOTE]
-> 
+>
 > **Type** and **Name** segments can be combined to generically retrieve nested resources.
-> 
-> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`. 
-> 
+>
+> To retrieve a specific resource, you can use `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/nestedResourceName"`.
+>
 > To retrieve a collection of nested resources, a wildcard character `?` can be provided in place of the last name segment. For example, `"type": "Microsoft.ExampleProvider/exampleParentType/exampleNestedType"` and `"name": "parentResourceName/?"`. This can be combined with field functions to access resources related to the evaluated resource, such as `"name": "[concat(field('name'), '/?')]"`."
 
 - **ResourceGroupName** (optional)
@@ -619,7 +645,7 @@ related resources to match and the template deployment to execute.
     complete, regardless of outcome. If provisioning takes longer than 6 hours, it's treated as a
     failure when determining _AfterProvisioning_ evaluation delays.
   - Default is `PT10M` (10 minutes).
-  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to
+  - Specifying a long evaluation delay might cause the recorded compliance state of the resource to
     not update until the next
     [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
@@ -666,51 +692,53 @@ If not, then a deployment to enable is executed.
 
 ```json
 "if": {
-    "field": "type",
-    "equals": "Microsoft.Sql/servers/databases"
+  "field": "type",
+  "equals": "Microsoft.Sql/servers/databases"
 },
 "then": {
-    "effect": "DeployIfNotExists",
-    "details": {
-        "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-        "name": "current",
-        "evaluationDelay": "AfterProvisioning",
-        "roleDefinitionIds": [
-            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-            "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-        ],
-        "existenceCondition": {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "Enabled"
-        },
-        "deployment": {
-            "properties": {
-                "mode": "incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "fullDbName": {
-                            "type": "string"
-                        }
-                    },
-                    "resources": [{
-                        "name": "[concat(parameters('fullDbName'), '/current')]",
-                        "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-                        "apiVersion": "2014-04-01",
-                        "properties": {
-                            "status": "Enabled"
-                        }
-                    }]
-                },
-                "parameters": {
-                    "fullDbName": {
-                        "value": "[field('fullName')]"
-                    }
-                }
+  "effect": "deployIfNotExists",
+  "details": {
+    "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+    "name": "current",
+    "evaluationDelay": "AfterProvisioning",
+    "roleDefinitionIds": [
+      "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+      "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ],
+    "existenceCondition": {
+      "field": "Microsoft.Sql/transparentDataEncryption.status",
+      "equals": "Enabled"
+    },
+    "deployment": {
+      "properties": {
+        "mode": "incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "fullDbName": {
+              "type": "string"
             }
+          },
+          "resources": [
+            {
+              "name": "[concat(parameters('fullDbName'), '/current')]",
+              "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+              "apiVersion": "2014-04-01",
+              "properties": {
+                "status": "Enabled"
+              }
+            }
+          ]
+        },
+        "parameters": {
+          "fullDbName": {
+            "value": "[field('fullName')]"
+          }
         }
+      }
     }
+  }
 }
 ```
 
@@ -724,7 +752,7 @@ of that policy's assignments.
 > Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
 
 An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
+When **enforcementMode** is **Disabled**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
@@ -758,7 +786,7 @@ The following example targets Azure subscriptions and sets the initial complianc
 ```json
 {
   "if": {
-    "field":  "type",
+    "field": "type",
     "equals": "Microsoft.Resources/subscriptions"
   },
   "then": {
@@ -800,7 +828,7 @@ The following operations are supported by Modify:
 
 - Add, replace, or remove resource tags. For tags, a Modify policy should have [mode](./definition-structure.md#resource-manager-modes) set to `indexed` unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
-  Virtual Machine Scale Sets.
+  Virtual Machine Scale Sets. You can only modify the `identity.type` for virtual machines or Virtual Machine Scale Sets.
 - Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
@@ -896,23 +924,23 @@ following tag changes:
 
 ```json
 "details": {
-    ...
-    "operations": [
-        {
-            "operation": "addOrReplace",
-            "field": "tags['environment']",
-            "value": "Test"
-        },
-        {
-            "operation": "Remove",
-            "field": "tags['TempResource']",
-        },
-        {
-            "operation": "addOrReplace",
-            "field": "tags['Dept']",
-            "value": "[parameters('DeptName')]"
-        }
-    ]
+  ...
+  "operations": [
+    {
+      "operation": "addOrReplace",
+      "field": "tags['environment']",
+      "value": "Test"
+    },
+    {
+      "operation": "Remove",
+      "field": "tags['TempResource']",
+    },
+    {
+      "operation": "addOrReplace",
+      "field": "tags['Dept']",
+      "value": "[parameters('DeptName')]"
+    }
+  ]
 }
 ```
 
@@ -930,19 +958,19 @@ Example 1: Add the `environment` tag and replace existing `environment` tags wit
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "operations": [
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "Test"
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+    ],
+    "operations": [
+      {
+        "operation": "addOrReplace",
+        "field": "tags['environment']",
+        "value": "Test"
+      }
+    ]
+  }
 }
 ```
 
@@ -951,24 +979,24 @@ with a parameterized value:
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
-        ],
-        "conflictEffect": "deny",
-        "operations": [
-            {
-                "operation": "Remove",
-                "field": "tags['env']"
-            },
-            {
-                "operation": "addOrReplace",
-                "field": "tags['environment']",
-                "value": "[parameters('tagValue')]"
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+    ],
+    "conflictEffect": "deny",
+    "operations": [
+      {
+        "operation": "Remove",
+        "field": "tags['env']"
+      },
+      {
+        "operation": "addOrReplace",
+        "field": "tags['environment']",
+        "value": "[parameters('tagValue')]"
+      }
+    ]
+  }
 }
 ```
 
@@ -977,27 +1005,43 @@ is applied only when evaluating requests with API version greater or equals to `
 
 ```json
 "then": {
-    "effect": "modify",
-    "details": {
-        "roleDefinitionIds": [
-            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
-        ],
-        "conflictEffect": "audit",
-        "operations": [
-            {
-                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
-                "operation": "addOrReplace",
-                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
-                "value": false
-            }
-        ]
-    }
+  "effect": "modify",
+  "details": {
+    "roleDefinitionIds": [
+      "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+    ],
+    "conflictEffect": "audit",
+    "operations": [
+      {
+        "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+        "operation": "addOrReplace",
+        "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+        "value": false
+      }
+    ]
+  }
 }
 ```
+## Mutate (preview)
+
+Mutation is used in Azure Policy for Kubernetes to remediate AKS cluster components, like pods. This effect is specific to _Microsoft.Kubernetes.Data_ [policy mode](./definition-structure.md#resource-provider-modes) definitions only.
+
+To learn more, go to [Understand Azure Policy for Kubernetes clusters](./policy-for-kubernetes.md).
+
+### Mutate properties
+- **mutationInfo** (optional)
+  - Can't be used with `constraint`, `constraintTemplate`, `apiGroups`, or `kinds`.
+  - Cannot be parameterized.
+  - **sourceType** (required)
+    - Defines the type of source for the constraint. Allowed values: _PublicURL_ or _Base64Encoded_.
+    - If _PublicURL_, paired with property `url` to provide location of the mutation template. The location must be publicly accessible.
+      > [!WARNING]
+      > Don't use SAS URIs or tokens in `url` or anything else that could expose a secret.
+
 
 ## Layering policy definitions
 
-A resource may be affected by several assignments. These assignments may be at the same scope or at
+A resource can be affected by several assignments. These assignments might be at the same scope or at
 different scopes. Each of these assignments is also likely to have a different effect defined. The
 condition and effect for each policy is independently evaluated. For example:
 

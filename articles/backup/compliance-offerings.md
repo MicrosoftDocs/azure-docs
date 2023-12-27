@@ -53,4 +53,4 @@ In this article, you'll learn about the various compliance offerings for Azure B
 
 ## Next steps
 
-Find the latest coverage and details about compliance in [Microsoft TrustCenter](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+Find the latest coverage and details about compliance in [Microsoft TrustCenter](https://www.microsoft.com/trust-center/compliance/compliance-overview).

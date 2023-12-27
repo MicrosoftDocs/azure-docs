@@ -5,13 +5,16 @@ author: Aarthi-Vijayaraghavan
 manager: sutalasi
 ms.service: resource-mover
 ms.topic: how-to
-ms.date: 10/06/2021
+ms.date: 10/31/2023
 ms.custom: engagement-fy23
 ms.author: AarthiV
 ---
 # Move across region dashboard
+
 This article describes how to monitor the resources you are moving across regions via the Move across region dashboard in Azure Resource Mover. 
+
 ## Monitor via the dashboard
+
 1. In **Azure Resource Mover**, select **Overview** the left navigation pane. You can toggle between two pages, **Getting started** and **Move across region dashboard**. **Getting started** page provides options to move your resources across subscription, across resource group and across region.
 The **Move across region dashboard** page combines all monitoring information of your move across region in a single place.
     [![Move across region dashboard tab](media\move-across-region-dashboard\move-across-region-dashboard-tab.png)](media\move-across-region-dashboard\move-across-region-dashboard-tab.png)
@@ -26,5 +29,7 @@ The **Move across region dashboard** page combines all monitoring information of
     [![Filters](media\move-across-region-dashboard\move-across-region-dashboard-filters.png)](media\move-across-region-dashboard\move-across-region-dashboard-filters.png)
 4. Navigate to the details page by selecting on **View all resources** next to the source - destination.
     [![Details](media\move-across-region-dashboard\move-across-region-dashboard-details.png)](media\move-across-region-dashboard\move-across-region-dashboard-details.png)
+
 ## Next steps
+
 [Learn about](about-move-process.md) the move process.

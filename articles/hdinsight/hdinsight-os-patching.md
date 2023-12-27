@@ -21,8 +21,7 @@ HDInsight provides support for you to perform common tasks on your cluster such 
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
 > 
 > If you are using a firewall for network restriction, the below URL needs to be in allow list. 
-> * http://security.ubuntu.com/ubuntu 
-> * https://hdiconfigactions.blob.core.windows.net
+> * http://security.ubuntu.com/ubuntu
 
 ## Preparation
 

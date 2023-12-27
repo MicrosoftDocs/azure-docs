@@ -2,12 +2,12 @@
 title: Configure TheAccessHub Admin Tool by using Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Configure TheAccessHub Admin Tool with Azure Active Directory B2C for customer account migration and customer service request (CSR) administration
-services: active-directory-b2c
+
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
 ms.date: 12/6/2022
 ms.author: gasinh
@@ -30,7 +30,8 @@ Use this solution for the following scenarios:
 
 To get started, you'll need:
 
-- An Azure AD subscription
+* An Azure subscription
+
   - If you don't have a one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - TheAccessHub Admin Tool environment
@@ -60,7 +61,7 @@ TheAccessHub Admin Tool permissions act on behalf of a Global Administrator to r
 To create a Global Administrator:
 
 1. In the Azure portal, sign in to your Azure AD B2C tenant as an Administrator. 
-2. Go to **Azure Active Directory** > **Users**.
+2. Go to **Microsoft Entra ID** > **Users**.
 3. Select **New User**.
 4. Choose **Create User** to create a regular directory user and not a customer.
 5. On the identity information form:
@@ -86,7 +87,7 @@ To authorize TheAccessHub Admin Tool to access your directory:
 
 ## Configure a new CSR user with your enterprise identity
 
-Create a CSR or Helpdesk user who accesses TheAccessHub Admin Tool with enterprise Azure Active Directory credentials.
+Create a CSR or Helpdesk user who accesses TheAccessHub Admin Tool with enterprise Microsoft Entra credentials.
 
 To configure a CSR or Helpdesk user with single sign-on (SSO):
 
@@ -95,7 +96,7 @@ To configure a CSR or Helpdesk user with single sign-on (SSO):
 3. Select **Add Colleague**.
 4. For **Colleague Type**, select **Azure Administrator**.
 5. For the profile information, select a home organization to control who has permission to manage this user.
-6. For **Login ID/Azure AD User Name**, enter the user principal name from the user Azure Active Directory account.
+6. For **Login ID/Azure AD User Name**, enter the user principal name from the user Microsoft Entra account.
 7. On the **TheAccessHub Roles** tab, select the **Helpdesk** managed role. 
 6. Select **Submit**.
 
@@ -104,7 +105,7 @@ To configure a CSR or Helpdesk user with single sign-on (SSO):
 
 ## Configure a new CSR user with a new identity
 
-Create a CSR or Helpdesk user to access TheAccessHub Admin Tool with a new local credential. This user is for organizations that don't use Azure AD.
+Create a CSR or Helpdesk user to access TheAccessHub Admin Tool with a new local credential. This user is for organizations that don't use Microsoft Entra ID.
 
 See, [The AccessHub Admin Tool: Add Colleague Administrator](https://youtu.be/iOpOI2OpnLI) without SSO.
 

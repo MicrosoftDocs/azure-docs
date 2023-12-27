@@ -3,22 +3,22 @@ title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 7/6/2023
+ms.date: 12/11/2023
+ms.custom: engagement-fy23
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager (SRM)
 
-This article explains how to implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs.  The solution in this article uses [VMware Site Recovery Manager (SRM)](https://docs.vmware.com/en/Site-Recovery-Manager/index.html) and vSphere Replication with Azure VMware Solution. Instances of VMware SRM and replication servers are deployed at both the protected and the recovery sites.       
+This article explains how to implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs. The solution in this article uses [VMware Site Recovery Manager (SRM)](https://docs.vmware.com/en/Site-Recovery-Manager/index.html) and vSphere Replication with Azure VMware Solution. Instances of VMware SRM and replication servers are deployed at both the protected and the recovery sites.       
 
-VMware SRM is a disaster recovery solution designed to minimize downtime of the virtual machines in an Azure VMware Solution environment if there was a disaster. VMware SRM automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Also, built-in non-disruptive testing ensures your recovery time objectives are met. Overall, VMware SRM simplifies management through automation and ensures fast and highly predictable recovery times.  
+VMware SRM is a disaster recovery solution designed to minimize downtime of the virtual machines in an Azure VMware Solution environment if there was a disaster. VMware SRM automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Also, built-in nondisruptive testing ensures your recovery time objectives are met. Overall, VMware SRM simplifies management through automation and ensures fast and highly predictable recovery times.
 
 VMware vSphere Replication is VMware's hypervisor-based replication technology for VMware vSphere VMs. It protects VMs from partial or complete site failures. In addition, it simplifies DR protection through storage-independent, VM-centric replication. VMware vSphere Replication is configured on a per-VM basis, allowing more control over which VMs are replicated.
 
-In this article, you'll implement disaster recovery for on-premises VMware vSphere virtual machines (VMs) or Azure VMware Solution-based VMs.
-
 
 > [!NOTE]
-> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
+> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.7.0.3.
+
 ## Supported scenarios
 
 VMware SRM helps you plan, test, and run the recovery of VMs between a protected VMware vCenter Server site and a recovery VMware vCenter Server site. You can use VMware SRM with Azure VMware Solution with the following two DR scenarios: 
@@ -62,7 +62,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 ## Prerequisites
 
-Make sure you've explicitly provided the remote user the VMware VRM administrator and VMware SRM administrator roles in the remote vCenter Server.
+Ensure you provide the remote user the VMware VRM administrator and VMware SRM administrator roles in the remote vCenter Server.
 
 ### Scenario: On-premises to Azure VMware Solution 
 
@@ -102,6 +102,7 @@ Make sure you've explicitly provided the remote user the VMware VRM administrato
 
 > [!NOTE]
 > The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
+
 1. From the **Disaster Recovery Solution** drop-down, select **VMware Site Recovery Manager (SRM) – vSphere Replication**. 
 
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with VMware Site Recovery Manager (SRM) - vSphere replication selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png":::
@@ -138,7 +139,7 @@ After the VMware SRM appliance installs successfully, you'll need to install the
 
 After installing VMware SRM and vSphere Replication, you need to complete the configuration and site pairing in vCenter Server.
 
-1. Sign into the vSphere Client as cloudadmin@vsphere.local.
+1. Sign in to the vSphere Client as cloudadmin@vsphere.local.
 
 1. Navigate to **Site Recovery**, check the status of both vSphere Replication and VMware SRM, and then select **OPEN Site Recovery** to launch the client.
 
@@ -172,7 +173,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 1. Review the settings and then select **FINISH**.
 
-   If successful, the client displays another panel for the pairing. However, if unsuccessful, an alarm will be reported.
+   If successful, the client displays another panel for the pairing. However, if unsuccessful, an alarm is reported.
 
 1. At the bottom, in the right corner, select the double-up arrow to expand the panel to show **Recent Tasks** and **Alarms**.
 
@@ -185,20 +186,20 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 1. Enter the username with sufficient permissions to do replication and site recovery and then select **LOG IN**. 
 
-   For pairing, the login, which is often a different user, is a one-time action to establish pairing. The SR client requires this login every time the client is launched to work with the pairing.
+   For pairing, the sign in, which is often a different user, is a one-time action to establish pairing. The SR client requires this sign in every time the client is launched to work with the pairing.
 
    >[!NOTE] 
    >The user with sufficient permissions should have **VRM administrator** and **SRM administrator** roles given to them in the remote vCenter Server. The user should also have access to the remote vCenter Server inventory, like folders and datastores. For a remote Azure VMware Solution private cloud, the cloudadmin user has the appropriate permissions and access. 
    
    :::image type="content" source="media/vmware-srm-vsphere-replication/sign-into-remote-vcenter.png" alt-text="Screenshot showing the vCenter Server credentials." border="true":::
 
-   You'll see a warning message indicating that the embedded VRS in the local VRM isn't running.  This is because Azure VMware Solution doesn't use the embedded VRS in an Azure VMware Solution private cloud.  Instead, it uses VRS appliances. 
+   You see a warning message indicating that the embedded VRS in the local VRM isn't running. The warning is because Azure VMware Solution doesn't use the embedded VRS in an Azure VMware Solution private cloud, it uses VRS appliances instead. 
 
    :::image type=" content" source=" media/vmware-srm-vsphere-replication/pair-the-sites-summary.png" alt-text="Screenshot showing the site pair summary for Site Recovery Manager and vSphere Replication." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-summary.png":::
 
 ## VMware SRM protection, reprotection, and failback
 
-After you've created the site pairing, follow the VMware documentation mentioned below for end-to-end protection of VMs from the Azure portal.
+After you created the site pairing, use the following VMware documentation for end-to-end protection of VMs from the Azure portal.
 
 - [Using vSphere Replication with Site Recovery Manager (vmware.com)](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.admin.doc/GUID-2C77C830-892D-45FF-BA4F-80AC10085DBE.html)
 
@@ -224,7 +225,7 @@ After you've created the site pairing, follow the VMware documentation mentioned
 
 ## Ongoing management of your VMware SRM solution
 
-While Microsoft aims to simplify VMware SRM and vSphere Replication installation on an Azure VMware Solution private cloud, you are responsible for managing your license and the day-to-day operation of the disaster recovery solution. 
+Microsoft aims to simplify VMware SRM and vSphere Replication installation on an Azure VMware Solution private cloud. You're responsible for managing your license and the day-to-day operation of the disaster recovery solution. 
 
 ## Scale limitations
 
@@ -236,12 +237,12 @@ You can install VMware SRM using an evaluation license or a production license. 
 
 You can't use pre-existing on-premises VMware SRM licenses for your Azure VMware Solution private cloud. Work with your sales teams and VMware to acquire a new term-based production license of VMware SRM. 
 
-Once a production license of VMware SRM is acquired, you'll be able to use the Azure VMware Solution portal to update VMware SRM with the new production license. 
+Once a production license of VMware SRM is acquired, you can start using the Azure VMware Solution portal to update VMware SRM with the new production license. 
 
 
 ## Uninstall VMware SRM 
 
-If you no longer require VMware SRM, you must uninstall it in a clean manner. Before you uninstall VMware SRM, you must remove all VMware SRM configurations from both sites in the correct order. If you do not remove all configurations before uninstalling VMware SRM, some VMware SRM components, such as placeholder VMs, might remain in the Azure VMware Solution infrastructure.
+If you no longer require VMware SRM, you must uninstall it in a clean manner. Before you uninstall VMware SRM, you must remove all VMware SRM configurations from both sites in the correct order. If you don't remove all configurations before uninstalling VMware SRM, some VMware SRM components, such as placeholder VMs, might remain in the Azure VMware Solution infrastructure.
 
 1. In the vSphere Client, select **Site Recovery** > **Open Site Recovery**.
 
@@ -291,7 +292,7 @@ Microsoft only supports install/uninstall of VMware SRM and vSphere Replication 
 
 For all other issues, such as configuration and replication, contact VMware for support.
 
-VMware and Microsoft support teams will engage each other as needed to troubleshoot VMware SRM issues on Azure VMware Solution.
+VMware and Microsoft support teams engage each other as needed to troubleshoot VMware SRM issues on Azure VMware Solution.
 
 
 ## References
@@ -306,8 +307,9 @@ VMware and Microsoft support teams will engage each other as needed to troublesh
 - [Calculate bandwidth for vSphere Replication](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
 - [SRM installation and configuration](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html)
 - [vSphere Replication administration](https://docs.vmware.com/en/vSphere-Replication/8.2/com.vmware.vsphere.replication-admin.doc/GUID-35C0A355-C57B-430B-876E-9D2E6BE4DDBA.html)
-- [Pre-requisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
+- [Prerequisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
 - [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
 - [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)
+
 
 

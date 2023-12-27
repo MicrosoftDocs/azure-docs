@@ -1,6 +1,6 @@
 ---
 title: Custom disk configurations
-description: Provide custom disk configurations for your system in the SAP on Azure Deployment Automation Framework. Add extra disks to a new system, or an existing system.
+description: Provide custom disk configurations for your system in SAP Deployment Automation Framework. Add extra disks to a new system or an existing system.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -10,19 +10,18 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 ---
 
-# Change the disk configuration for the SAP deployment automation
+# Change the disk configuration for SAP Deployment Automation Framework
 
-By default, the [SAP on Azure Deployment Automation Framework](deployment-framework.md) defines the disk configuration for the SAP systems. As needed, you can change the default configuration by providing a custom disk configuration json file.
+By default, [SAP Deployment Automation Framework](deployment-framework.md) defines the disk configuration for SAP systems. As needed, you can change the default configuration by providing a custom disk configuration JSON file.
 
 > [!TIP]
 > When possible, it's a best practice to increase the disk size instead of adding more disks.
 
-
 ### HANA databases
 
-The table shows the default disk configuration for HANA systems. 
+The table shows the default disk configuration for HANA systems.
 
-| Size      | VM SKU              | OS disk       | Data disks       | Log disks        | Hana shared    | User SAP     | Backup          |
+| Size      | VM SKU              | OS disk       | Data disks       | Log disks        | HANA shared    | User SAP     | Backup          |
 |-----------|---------------------|---------------|------------------|------------------|----------------|--------------|-----------------|
 | Default   | Standard_D8s_v3     | E6 (64 GB)    | P20 (512 GB)     | P20 (512 GB)     | E20 (512 GB)   | E6 (64 GB)   | E20 (512 GB)    |  
 | S4DEMO    | Standard_E32ds_v4   | P10 (128 GB)  | P10x4 (128 GB)   | P10x3 (128 GB)   |                | P20 (512 GB) | P20 (512 GB)    |
@@ -50,7 +49,7 @@ The table shows the default disk configuration for HANA systems.
 
 ### AnyDB databases
 
-The table shows the default disk configuration for AnyDB systems. 
+The table shows the default disk configuration for AnyDB systems.
 
 | Size    | VM SKU           | OS disk     | Data disks       | Log disks       |
 |---------|------------------|-------------|------------------|-----------------|
@@ -67,23 +66,20 @@ The table shows the default disk configuration for AnyDB systems.
 | 40  TB  | Standard_M128s   | P10(128 GB) | P50x10 (4096 GB) | P40x2 (2048 GB) |
 | 50  TB  | Standard_M128s   | P10(128 GB) | P50x13 (4096 GB) | P40x2 (2048 GB) |
 
-
 ## Custom sizing file
 
-The disk sizing for an SAP system can be defined using a custom sizing json file. The file is grouped in four sections: "db", "app", "scs", and "web" and each section contains a list of disk configuration names, for example for the database tier "M32ts", "M64s", etc. 
+You can define the disk sizing for an SAP system by using a custom sizing JSON file. The file is grouped in four sections: `db`, `app`, `scs`, and `web`. Each section contains a list of disk configuration names. For example, for the database tier, the names might be `M32ts` or `M64s`.
 
-These sections contain the information for which is the default Virtual machine size and the list of disk to be deployed for each tier.
+These sections contain the information for the default virtual machine size and the list of disks to be deployed for each tier.
 
-Create a file using the structure shown below and save the file in the same folder as the parameter file for the system, for instance 'XO1_sizes.json'.  Then, define the parameter `custom_disk_sizes_filename` in the parameter file. For example, `custom_disk_sizes_filename  = "XO1_db_sizes.json"`. 
+Create a file by using the structure shown in the following code sample. Save the file in the same folder as the parameter file for the system. For instance, use `XO1_sizes.json`. Then define the parameter `custom_disk_sizes_filename` in the parameter file. For example, use `custom_disk_sizes_filename  = "XO1_db_sizes.json"`.
 
 > [!TIP]
-> The path to the disk configuration needs to be relative to the folder containing the tfvars file.
+> The path to the disk configuration needs to be relative to the folder that contains the `tfvars` file.
 
+The following sample code is an example configuration file. It defines three data disks (LUNs 0, 1, and 2), a log disk (LUN 9, using the Ultra SKU), and a backup disk (LUN 13). The application tier servers (application, central services, and web dispatchers) are deployed with just a single `sap` data disk.
 
-The following sample code is an example configuration file. It defines three data disks (LUNs 0, 1, and 2), a log disk (LUN 9, using the Ultra SKU) and a backup disk (LUN 13). The application tier servers (Application, Central Services amd Web Dispatchers) will be deployed with jus a single 'sap' data disk.
-
-The three data disks will be striped using LVM. The log disk will be mounted as a single disk. The backup disk will be mounted as a single disk.
-
+The three data disks are striped by using LVM. The log disk and the backup disk are each mounted as a single disk.
 
 ```json
 {
@@ -215,7 +211,7 @@ The three data disks will be striped using LVM. The log disk will be mounted as 
 }
 ```
 
-## Add extra disks to existing system
+## Add extra disks to an existing system
 
 If you need to add disks to an already deployed system, you can add a new block to your JSON structure. Include the attribute `append` in this block, and set the value to `true`. For example, in the following sample code, the last block contains the attribute `"append" : true,`. The last block adds a new disk to the database tier, which is already configured in the first `"data"` block in the code.
 
@@ -282,8 +278,7 @@ If you need to add disks to an already deployed system, you can add a new block 
 }
 ```
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
-> [Configure custom naming module](naming-module.md)
-
+> [Configure custom naming](naming-module.md)

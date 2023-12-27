@@ -60,7 +60,7 @@ The steps to enable RDP Shortpath differ for session hosts depending on whether 
 
 # [Managed networks](#tab/managed-networks)
 
-To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpath listener on your session hosts. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain, or locally for session hosts that are joined to Azure Active Directory (Azure AD).
+To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpath listener on your session hosts. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain, or locally for session hosts that are joined to Microsoft Entra ID.
 
 1. Download the [Azure Virtual Desktop administrative template](https://aka.ms/avdgpo) and extract the contents of the .cab file and .zip archive.
 
@@ -103,7 +103,7 @@ To enable RDP Shortpath for managed networks, you need to enable the RDP Shortpa
 
 # [Public networks](#tab/public-networks)
 
-If you need to configure session hosts and clients to enable RDP Shortpath for public networks because their default settings have been changed, follow these steps. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain, or locally for session hosts that are joined to Azure Active Directory (Azure AD).
+If you need to configure session hosts and clients to enable RDP Shortpath for public networks because their default settings have been changed, follow these steps. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an Active Directory (AD) domain, or locally for session hosts that are joined to Microsoft Entra ID.
 
 1. Depending on whether you want to configure Group Policy centrally from your AD domain, or locally for each session host:
 
@@ -121,7 +121,7 @@ If you need to configure session hosts and clients to enable RDP Shortpath for p
 
 ### Windows clients
 
-The steps to ensure your clients are configured correctly are the same regardless of whether you want to use RDP Shortpath for managed networks or public networks. You can do this using Group Policy for managed clients that are joined to an Active Directory domain, Intune for managed clients that are joined to Azure Active Directory (Azure AD) and enrolled in Intune, or local Group Policy for clients that aren't managed.
+The steps to ensure your clients are configured correctly are the same regardless of whether you want to use RDP Shortpath for managed networks or public networks. You can do this using Group Policy for managed clients that are joined to an Active Directory domain, Intune for managed clients that are joined to Microsoft Entra ID and enrolled in Intune, or local Group Policy for clients that aren't managed.
 
 > [!NOTE]
 > By default in Windows, RDP traffic will attempt to use both TCP and UDP protocols. You will only need to follow these steps if the client has previously been configured to use TCP only.
@@ -263,7 +263,7 @@ The steps to disable RDP Shortpath differ for session hosts depending on whether
 
 # [Managed networks](#tab/managed-networks)
 
-To disable RDP Shortpath for managed networks on your session hosts, you need to disable the RDP Shortpath listener. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an AD domain, or locally for session hosts that are joined to Azure AD.
+To disable RDP Shortpath for managed networks on your session hosts, you need to disable the RDP Shortpath listener. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an AD domain, or locally for session hosts that are joined to Microsoft Entra ID.
 
 Alternatively, you can block port **3390** (default) to your session hosts on a firewall or Network Security Group.
 
@@ -281,7 +281,7 @@ Alternatively, you can block port **3390** (default) to your session hosts on a 
 
 # [Public networks](#tab/public-networks)
 
-To disable RDP Shortpath for public networks on your session hosts, you can set RDP transport protocols to only allow TCP. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an AD domain, or locally for session hosts that are joined to Azure AD.
+To disable RDP Shortpath for public networks on your session hosts, you can set RDP transport protocols to only allow TCP. You can do this using Group Policy, either centrally from your domain for session hosts that are joined to an AD domain, or locally for session hosts that are joined to Microsoft Entra ID.
 
 > [!CAUTION]
 > This will also disable RDP Shortpath for managed networks. 
@@ -304,7 +304,7 @@ Alternatively, if you want to disable RDP Shortpath for public networks only, yo
 
 ### Windows clients
 
-On client devices, you can disable RDP Shortpath for managed networks and public networks by configuring RDP traffic to only use TCP. You can do this using Group Policy for managed clients that are joined to an Active Directory domain, Intune for managed clients that are joined to (Azure AD) and enrolled in Intune, or local Group Policy for clients that aren't managed.
+On client devices, you can disable RDP Shortpath for managed networks and public networks by configuring RDP traffic to only use TCP. You can do this using Group Policy for managed clients that are joined to an Active Directory domain, Intune for managed clients that are joined to (Microsoft Entra ID) and enrolled in Intune, or local Group Policy for clients that aren't managed.
 
 > [!IMPORTANT]
 > If you have previously set RDP traffic to attempt to use both TCP and UDP protocols using Group Policy or Intune, ensure the settings don't conflict.
