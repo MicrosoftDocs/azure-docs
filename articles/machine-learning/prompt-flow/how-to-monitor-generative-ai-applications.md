@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Monitor the safety and quality of generative AI applications deployed to production on Azure Machine Learning.
 services: machine-learning
 author: buchananwp
-ms.author: wibuchan
+ms.author: willalpine
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.reviewer: scottpolly
