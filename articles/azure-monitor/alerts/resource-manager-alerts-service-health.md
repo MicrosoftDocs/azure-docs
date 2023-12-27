@@ -15,8 +15,17 @@ This article includes samples of [Azure Resource Manager templates](../../azure-
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## Template to send service health alerts
-The following template creates an action group with an email target and enables all service health notifications for the target subscription. Save this template as `CreateServiceHealthAlert.json`.
+## Template for creating service health alert rules
+
+The following template creates an example service health alert rule that will send notification or service health events for the target subscription. Save this template as `CreateServiceHealthAlert.json` and modify it as needed.
+
+Points to note:
+
+1. The 'scopes' of a service health alert rule can only contain a single subscription, which must be the same subscription in which the rule is created. Multiple subscriptions, a resource groups, or other types of scope are not supported.
+1. You can create service health alert rules only in the "Global" location.
+1. The "properties.incidentType", "properties.impactedServices[*].ServiceName" and "properties.impactedServices[*].ImpactedRegions[*].RegionName" clauses within the rule condition are optional. You can remove these clauses to be notified on events sent for all incident types, all services, and/or all regions, respectively.
+1. The service names used in the "properties.impactedServices[*].ServiceName" must be a valid Azure service name. A list of valid names can be retrieved at the [Resource Health Metadata List API](https://learn.microsoft.com/rest/api/resourcehealth/metadata/list?view=rest-resourcehealth-2022-10-01&tabs=HTTP)
+
 
 ```json
 {
@@ -41,7 +50,7 @@ The following template creates an action group with an email target and enables 
   "resources": [
     {
       "type": "microsoft.insights/actionGroups",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('actionGroups_name')]",
       "location": "Global",
       "properties": {
@@ -75,6 +84,19 @@ The following template creates an action group with an email target and enables 
             {
               "field": "properties.incidentType",
               "equals": "Incident"
+            },
+			{                     
+			   "field": "properties.impactedServices[*].ServiceName",                     
+			   "containsAny": [
+                  "SQL Database",
+                  "SQL Managed Instance"    
+               ]                 
+			},
+            {                     
+				"field": "properties.impactedServices[*].ImpactedRegions[*].RegionName",
+                "containsAny": [
+                   "Australia Central"
+                ]
             }
           ]
         },
@@ -84,7 +106,7 @@ The following template creates an action group with an email target and enables 
               "actionGroupId": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]",
               "webhookProperties": {}
             }
-          ]
+         ]
         },
         "enabled": true
       },
@@ -100,3 +122,4 @@ The following template creates an action group with an email target and enables 
 
 - [Get other sample templates for Azure Monitor](../resource-manager-samples.md).
 - [Learn more about alert rules](./alerts-overview.md).
+
