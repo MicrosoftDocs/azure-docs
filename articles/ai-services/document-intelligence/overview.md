@@ -250,7 +250,7 @@ Document Intelligence supports optional features that can be enabled and disable
 |Model ID|Content Extraction|Paragraphs|Paragraph Roles|Selection Marks|Tables|Key-Value Pairs|Languages|Barcodes|Document Analysis|Formulas*|Style Font*|High Resolution*|query fields|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |prebuilt-read|✓|✓| | | | |O|O| |O|O|O| |
-|prebuilt-layout|✓|✓|✓|✓|✓| |O|O| |O|O|O|✓|
+|prebuilt-layout|✓|✓|✓|✓|✓|O|O|O| |O|O|O|✓|
 |prebuilt-idDocument|✓| | | | | |O|O|✓|O|O|O|✓|
 |prebuilt-invoice|✓| | |✓|✓|O|O|O|✓|O|O|O|✓|
 |prebuilt-receipt|✓| | | | | |O|O|✓|O|O|O|✓|
