@@ -84,19 +84,27 @@ In this section, we create an AKS cluster with the following configuration:
 
 ## Add a node pool
 
-### [Add a Windows node pool](#tab/add-windows-node-pool)
+By default, an AKS cluster is created with a node pool that can run Linux containers. You must add another node pool that can run Windows Server containers alongside the Linux node pool.
 
-By default, an AKS cluster is created with a node pool that can run Linux containers. You have to add another node pool that can run Windows Server containers alongside the Linux node pool.
+Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. If you don't specify a particular OS SKU, Azure creates the new node pool with the default SKU for the version of Kubernetes used by the cluster.
 
-- Add a Windows Server node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `New-AzAksCluster`. An OS SKU isn't specified, so the node pool is set to the default operating system based on the Kubernetes version of the cluster.
+### [Add a Windows node pool (default SKU)](#tab/add-windows-node-pool)
 
-    ```azurepowershell
-    New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin
-    ```
+To use the default OS SKU, create the node pool without specifying an OS SKU. The node pool is configured for the default operating system based on the Kubernetes version of the cluster.
+
+Add a Windows Server node pool using the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `New-AzAksCluster`:
+
+```azurepowershell
+New-AzAksNodePool -ResourceGroupName myResourceGroup `
+    -ClusterName myAKSCluster `
+    -VmSetType VirtualMachineScaleSets `
+    -OsType Windows `
+    -Name npwin
+```
 
 ### [Add a Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
 
-Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019, you need to specify the following parameters:
+To use Windows Server 2019, specify the following parameters:
 
 - `OsType` set to `Windows`
 - `OsSKU` set to `Windows2019`
@@ -109,25 +117,35 @@ Windows Server 2022 is the default operating system for Kubernetes versions 1.25
 To add a Windows Server 2019 node pool, call the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet:
 
 ```azurepowershell
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2019 -Name npwin
+New-AzAksNodePool -ResourceGroupName myResourceGroup `
+    -ClusterName myAKSCluster `
+    -VmSetType VirtualMachineScaleSets `
+    -OsType Windows `
+    -OsSKU Windows2019 `
+    -Name npwin
 ```
 
 ### [Add a Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
 
-Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2022, you need to specify the following parameters:
+To use Windows Server 2022, specify the following parameters:
 
 - `OsType` set to `Windows`
 - `OsSKU` set to `Windows2022`
 
 > [!NOTE]
 >
-> - `OsSKU` requires PowerShell Az module version 9.2.0 or higher.
+> - Specifying the `OsSKU` parameter requires PowerShell Az module version 9.2.0 or higher.
 > - Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
 
 To add a Windows Server 2022 node pool, call the [`New-AzAksNodePool`][new-azaksnodepool] cmdlet:
 
 ```azurepowershell
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -OsSKU Windows2022 -Name npwin
+New-AzAksNodePool -ResourceGroupName myResourceGroup `
+    -ClusterName myAKSCluster `
+    -VmSetType VirtualMachineScaleSets `
+    -OsType Windows `
+    -OsSKU Windows2022 `
+    -Name npwin
 ```
 
 ---
