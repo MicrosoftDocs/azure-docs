@@ -16,6 +16,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/machine-learning/concept-foundation-models.md",
+        "redirect_url": "/azure/machine-learning/concept-model-catalog",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/machine-learning/v-fake/tutorial-1st-experiment-sdk-train.md",
         "redirect_url": "/azure/machine-learning/tutorial-1st-experiment-sdk-train",
         "redirect_document_id": false
