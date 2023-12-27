@@ -5,7 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 12/20/2023
+ms.date: 12/27/2023
 ---
 
 # Enable agentless scanning for VMs
@@ -38,6 +38,9 @@ When you enable agentless vulnerability assessment:
 When you enable [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) or [Defender for Servers P2](defender-for-servers-introduction.md), agentless scanning is enabled on by default.
 
 If you have Defender for Servers P2 already enabled and agentless scanning is turned off, you need to turn on agentless scanning manually.
+
+> [!NOTE]
+> Agentless malware scanning is only available if you have [enabled Defender for Servers plan 2](tutorial-enable-servers-plan.md#select-a-defender-for-servers-plan)
 
 ### Agentless vulnerability assessment on Azure
 
