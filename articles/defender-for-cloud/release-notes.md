@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 12/21/2023
+ms.date: 12/27/2023
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -24,13 +24,13 @@ If you're looking for items older than six months, you can find them in the [Arc
 
 | Date | Update |
 |--|--|
-| January 5 | [Public preview of agentless malware scanning](#public-preview-of-agentless-malware-scanning) |
+| January 5 | [Public preview of agentless malware detection](#public-preview-of-agentless-malware-detection) |
 
-### Public preview of agentless malware scanning
+### Public preview of agentless malware detection
 
-We're announcing the release of Defender for Cloud's agentless malware scanner for  virtual machines as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
+We're announcing the release of Defender for Cloud's agentless malware detection for for Azure virtual machines (VM), AWS EC2 instances and GCP VM instances, as a new feature included in [Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features).
 
-Agentless malware scanning for virtual machines uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and various threats on your virtual machines. Any detected threats, trigger security alerts, which allow you to investigate and remediate the detected issues while enjoying many benefits such as frictionless onboarding, minimal maintenance, no effect on a devices performance and more.
+Agentless malware detection for virtual machines uses [Microsoft Defender for Endpoint's](integration-defender-for-endpoint.md) engine to scan and detect malware and virus threats on your virtual machines. Any detected threats, trigger security alerts in Defender for Cloud, which allow you to investigate and remediate the detected threats. The agentless detector extends your malware detection coverage with frictionless onboarding, results within hours, no effect on a device's performance, no footprint on the machine and more.
 
 Learn more about [Agentless malware scanning](agentless-malware-scanning.md).
 
