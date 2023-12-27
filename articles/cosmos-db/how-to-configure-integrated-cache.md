@@ -171,6 +171,14 @@ CosmosPagedFlux<MyClass> pagedFluxResponse = container.queryItems(
         "SELECT * FROM c", queryOptions, MyClass.class);
 ```
 
+### [Node.js](#tab/nodejs)
+
+The bypass integrated cache request option isn't available in the Node.js SDK.
+
+### [Python](#tab/python)
+
+The bypass integrated cache request option isn't available in the Python SDK.
+
 ---
 
 ## Verify cache hits

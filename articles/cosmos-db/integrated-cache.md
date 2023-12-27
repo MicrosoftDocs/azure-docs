@@ -137,7 +137,7 @@ To better understand the `MaxIntegratedCacheStaleness` parameter, consider the f
 
 The integrated cache has a limited storage capacity determined by the dedicated gateway SKU provisioned. By default, all requests from clients configured with the dedicated gateway connection string go through the integrated cache and take up cache space. You can control which items and queries are cached with the bypass integrated cache request option, currently in preview. This request option is useful for item writes or read requests that aren't expected to be frequently repeated. Bypassing the integrated cache for items with infrequent access saves cache space for items with more repeats, increasing RU saving potential and reducing evictions. Requests that bypass the cache are still routed through the dedicated gateway. These requests are served from the backend and cost RUs.
 
-[Learn to bypass the integrated cache.](how-to-configure-integrated-cache.md#bypass-the-integrated-cache)
+[Learn to bypass the integrated cache.](how-to-configure-integrated-cache.md#bypass-the-integrated-cache-preview)
 
 ## Metrics
 
