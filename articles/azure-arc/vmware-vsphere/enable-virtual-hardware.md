@@ -38,14 +38,14 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 
 ### Known issue
  
-During the first scan of the vCenter inventory after onboarding to Azure Arc-enabled VMware vSphere, Arc-enabled Servers machines will be discovered under vCenter inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error:
+During the first scan of the vCenter inventory after onboarding to Azure Arc-enabled VMware vSphere, Arc-enabled Servers machines will be discovered under vCenter inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error:<br>
 
 
 ```
 A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.
 ```
 
-When you encounter this error message, try performing the **Link to vCenter** operation again after a few minutes (5-10 minutes). Alternatively, you can use the following Azure CLI command to link an existing Arc-enabled Server machine to vCenter:
+When you encounter this error message, try performing the **Link to vCenter** operation again after a few minutes (5-10 minutes). Alternatively, you can use the following Azure CLI command to link an existing Arc-enabled Server machine to vCenter:<br>
 
 
 ```azurecli-interactive
