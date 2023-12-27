@@ -18,6 +18,46 @@ This article addresses how you can configure the Istio certificate authority wit
 
 ## Before you begin
 
+### Verify Azure CLI and aks-preview extension versions
+
+The add-on requires:
+* Azure CLI version 2.49.0 or later installed. To install or upgrade, see [Install Azure CLI][install-azure-cli].
+* `aks-preview` Azure CLI extension of version 0.5.163 or later installed
+
+You can run `az --version` to verify above versions.
+
+To install the aks-preview extension, run the following command:
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli-interactive
+az extension update --name aks-preview
+```
+
+### Register the _AzureServiceMeshPreview_ feature flag
+
+Register the `AzureServiceMeshPreview` feature flag by using the [az feature register][az-feature-register] command:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
+```
+
+It takes a few minutes for the feature to register. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "AzureServiceMeshPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ### Set up Azure Key Vault
 
 1. You need an [Azure Key Vault resource][akv-quickstart] to supply the certificate and key inputs to the Istio add-on.
@@ -80,7 +120,7 @@ This article addresses how you can configure the Istio certificate authority wit
 1. Verify that the Istio control plane picked up the custom certificate authority:
 
     ```bash
-    kubectl logs deploy/istiod-asm-1-18 -c discovery -n aks-istio-system | grep -v validationController | grep x509
+    kubectl logs deploy/istiod-asm-1-17 -c discovery -n aks-istio-system | grep -v validationController | grep x509
     ```
 
     Expected output should be similar to:
