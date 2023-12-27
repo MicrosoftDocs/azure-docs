@@ -24,16 +24,33 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 70](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 9.57.6920.1 | 9.57.6911.1 / NA  | 9.57.6911.1 | 5.23.1204.5 (VMware) | 2.0.9263.0 (VMware)
 [Rollup 69](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | NA | 9.56.6879.1 / NA  | 9.56.6879.1 | 5.23.1101.10 (VMware) | 2.0.9263.0 (VMware)
 [Rollup 68](https://support.microsoft.com/topic/a81c2d22-792b-4cde-bae5-dc7df93a7810) | 9.55.6765.1 | 9.55.6765.1 / 5.1.8095.0  | 9.55.6765.1 | 5.23.0720.4 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9261.0 (VMware) & 2.0.9260.0 (Hyper-V)
 [Rollup 67](https://support.microsoft.com/topic/update-rollup-67-for-azure-site-recovery-9fa97dbb-4539-4b6c-a0f8-c733875a119f) | 9.54.6682.1 | 9.54.6682.1 / 5.1.8095.0  | 9.54.6682.1 | 5.23.0428.1 (VMware) & 5.1.8095.0 (Hyper-V) | 2.0.9261.0 (VMware) & 2.0.9260.0 (Hyper-V)
 [Rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) | 9.53.6615.1 | 9.53.6615.1 / 5.1.8095.0  | 9.53.6615.1 | 5.1.8103.0 (Modernized VMware), 5.1.8095.0 (Hyper-V) & 5.23.0210.5 (Classic VMware) | 2.0.9260.0
-[Rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) | 9.52.6522.1 | 9.52.6522.1 / 5.1.7870.0 | 9.52.6522.1 | 5.1.7870.0 (VMware) & 5.1.7882.0 (Hyper-V) | 2.0.9259.0
 
 
 [Learn more](service-updates-how-to.md) about update installation and support.
 
+
 ## Updates (December 2023)
+
+### Update Rollup 70
+
+> [!Note]
+> - The 9.58 version for mobility agent and configuration server was made live for Classic VMware/Physical to Azure scenario, during the 9.57 deployment. This version has not been released for any other scenario. The download links have been rolled back to 9.57 version for Classic VMware/Physical to Azure scenario. If you have already upgraded to 9.58 version then it is not recommended to setup replication on machines which are running on RHEL 9.1, Oracle Linux 9.1, Rocky Linux 9.1, RHEL 9.2, Oracle Linux 9.2 and Ubuntu-22.04 kernel 6.2.
+> - No OVF will be released for Classic VMware/Physical to Azure scenario from this release. Only Unified Setup will be made available.
+
+[Update rollup 70](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for RHEL 8.9, Oracle Linux 8.9, Rocky Linux 8.8 and Rocky Linux 8.9 Linux distros. <br><br/> Added a diagnostics collection tool support, to help debug issues associated with Site Recovery services. 
+**VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.9, Oracle Linux 8.9, Rocky Linux 8.8 and Rocky Linux 8.9 Linux distros. <br><br/> Added a diagnostics collection tool support, to help debug issues associated with Site Recovery services or the replication appliance. 
+
 
 ### Update Rollup 69
 
@@ -51,7 +68,6 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 
 ## Updates (November 2023)
-
 
 ### Use Azure Business Continuity center (preview)
 
