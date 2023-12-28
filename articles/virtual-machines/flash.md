@@ -1,12 +1,11 @@
 ---
-title: 'Reference: Monitoring Azure virtual machine data'
+title: 'Project Flash Onboarding Doc'
 description: This article covers important reference material for monitoring Azure virtual machines.
 ms.service: virtual-machines
 ms.custom: subject-monitoring
-ms.date: 12/03/2022
+ms.date: 12/15/2023
 ms.topic: reference
 ---
-# Project Flash Onboarding Doc 2023
 
 ## What is Project Flash?
 
@@ -53,17 +52,19 @@ Users can query ARG via [PowerShell](https://learn.microsoft.com/azure/governanc
 
 1. Once on the Azure Portal, navigate to Resource Graph Explorer which will look like the below image:
 
-![](RackMultipart20231221-1-io2uij_html_6994fe1870154fb.png)_Figure 1: Azure Resource Graph Explorer landing page on Azure Portal._
+![](./media/flash_media/Picture1.png)
+
+_Figure 1: Azure Resource Graph Explorer landing page on Azure Portal._
 
 2. Select the Table tab and (single) click on the HealthResources table to retrieve the latest snapshot of VM availability information (availability state and health annotations).
 
-![](RackMultipart20231221-1-io2uij_html_46c9ce77de7bdb1.png)
+![](./media/flash_media/Picture2.png)
 
 _Figure 2: Azure Resource Graph Explorer Window depicting the latest VM availability states and VM health annotations in the HealthResources table._
 
 There will be two types of events populated in the HealthResources table:
 
-![](RackMultipart20231221-1-io2uij_html_110cd14d05a53880.png)
+![](./media/flash_media/Picture3.png)
 
 _Figure 3: Snapshot of the type of events present in the HealthResources table, as shown in Resource Graph Explorer on the Azure Portal._
 
@@ -209,13 +210,13 @@ Users can either consume the metric programmatically via the [Azure Monitor REST
 
 Once on the Azure Portal, navigate to the VM overview blade. The new metric will be displayed as VM Availability (Preview), along with other platform metrics under the Monitoring tab.
 
-![](RackMultipart20231221-1-io2uij_html_d32bac5d55819490.png)
+![](./media/flash_media/Picture4.png)
 
 _Figure 4: View the newly added VM Availability Metric on the VM overview page on Azure Portal._
 
 Select (single click) the VM availability metric chart on the overview page, to navigate to [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-getting-started) for further analysis.
 
-![](RackMultipart20231221-1-io2uij_html_5e15ca2759e729f6.png)
+![](./media/flash_media/Picture5.png)
 
 _Figure 5: View the newly added VM availability Metric on Metrics Explorer on Azure Portal._
 
@@ -256,13 +257,13 @@ At time T1, a server rack goes offline due to a networking issue, causing VMs on
 
 At time T2, Azure's internal monitoring recognizes that it is unable to reach VMs on the rack and begins to mitigate by redeploying the impacted VMs to a new rack. During this time, an annotation is sent to resource health notifying customers that their VM is currently impacted and unavailable.
 
-![](RackMultipart20231221-1-io2uij_html_b057e9288d4804be.png)
+![](./media/flash_media/Picture6.png)
 
 _Figure 6: A screenshot of the Azure portal "resource health" blade showing the health history of a resource._
 
 At time T3, platform telemetry from the top of rack switch, the host machine, and internal monitoring systems, are all correlated together in our RCA engine to derive the root cause of the failure. Once computed, the RCA is then published back into resource health along with relevant architectural resiliency recommendations that customers can implement to minimize the probability of impact in the future.
 
-![](RackMultipart20231221-1-io2uij_html_48ee521de7cdbec0.png)
+![](./media/flash_media/Picture7.png)
 
 _Figure 7: A screenshot of the Azure portal "health history" blade showing root cause details for an example of a VM issue._
 
