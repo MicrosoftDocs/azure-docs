@@ -1,4 +1,21 @@
-You can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
+---
+title: Tanslating chats and detecting sentiment
+titleSuffix: An Azure Communication Services tutorial
+description: Learn how to build use cases with the Chat SDK to enable users to chat in different languages and detect sentiment.
+author: kperla97
+manager: darmour
+services: Azure Communication Services
+
+ms.author: kaperla
+ms.date: 12/28/2023
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: chat
+---
+
+#  Translating Chats to enable users to communicate in preferred language
+
+In this guide, learn how you can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
 
 - Enable users to chat with each other in different languages.
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
