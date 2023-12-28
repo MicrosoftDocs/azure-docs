@@ -4,7 +4,7 @@ titleSuffix: Azure Cloud Services
 description: In this article, learn now to mitigate speculative execution side-channel vulnerabilities in Azure.
 services: cloud-services
 documentationcenter: ''
-author: jushiman
+author: ju-shim
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter
 ms.service: cloud-services
