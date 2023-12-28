@@ -4,7 +4,7 @@ description: Query and correlated data from multiple Log Analytics workspaces, a
 ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
-ms.date: 05/30/2023
+ms.date: 12/28/2023
 # Customer intent: As a data analyst, I want to write KQL queries that correlate data from multiple Log Analytics workspaces, applications, or resources, to enable my analysis.
 
 ---
