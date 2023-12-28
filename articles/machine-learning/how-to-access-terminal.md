@@ -104,7 +104,41 @@ To add a new Jupyter kernel to the compute instance:
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.  
 
-To create new R kernels, use the `IRkernel` package in R.  If you create the new kernel from within a notebook, close the notebook and reopen it to see the new kernel.  For more information about IRkernel, see [Native R kernel for Jupyter](https://cran.r-project.org/web/packages/IRkernel/readme/README.html).
+To add a new R kernel to the compute instance:
+
+1. Use the terminal window to create a new environment. For example, the code below creates `r_env':
+
+    ```shell
+    conda create -n r_env r-essentials r-base
+    ```
+
+1. Activate the environment.  For example, after creating `r_env`:
+
+    ```shell
+    conda activate r_env
+    ```
+
+1. Run R in the new environment:
+
+   ```
+   R
+   ```
+   
+1. At the R prompt, install and run `IRkernel`:
+
+   ```
+   IRkernel::installspec(name = 'irenv', displayname = 'New R Env')
+   ```
+
+1. Quit the R session.
+
+    ```
+    q()
+    ```
+
+It will take a few minutes before the new R kernel is ready to use.  If you get an error saying it is invalid, wait and then try again.
+
+For more information about conda, see [Using R language with Anaconda](https://docs.anaconda.com/free/anaconda/packages/using-r-language/). For more information about IRkernel, see [Native R kernel for Jupyter](https://cran.r-project.org/web/packages/IRkernel/readme/README.html).
 
 ### Remove added kernels
 
