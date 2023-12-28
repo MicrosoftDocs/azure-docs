@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Go client library - Manage certificates
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 02/17/2022
+ms.date: 12/28/2023
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -68,13 +68,14 @@ import (
 	"fmt"
 	"log"
 	"time"
+	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/keyvault/azcertificates"
 )
 
-func getClient() *azcertificates.Client {
+func getClient() (*azcertificates.Client, error) {
 	keyVaultName := os.Getenv("KEY_VAULT_NAME")
 	if keyVaultName == "" {
 		log.Fatal("KEY_VAULT_NAME environment variable not set")
@@ -162,7 +163,10 @@ func deleteCert(client *azcertificates.Client) {
 
 func main() {
 	fmt.Println("Authenticating...")
-	client := getClient()
+	client, err := getClient()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	fmt.Println("Creating a certificate...")
 	createCert(client)
