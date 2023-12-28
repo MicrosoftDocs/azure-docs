@@ -1,14 +1,13 @@
 ---
 title: 'Reference a custom image in an Azure scale set template'
 description: Learn how to add a custom image to an existing Azure Virtual Machine Scale Set template
-author: cynthn
-ms.author: cynthn
+author: jushiman
+ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.date: 11/22/2022
 ms.reviewer: mimckitt
-
 ---
 
 # Add a custom image to an Azure scale set template

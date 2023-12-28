@@ -1,13 +1,13 @@
 ---
-title: Create a legacy managed image in Azure 
-description: Create a legacy managed image of a generalized VM or VHD in Azure. 
-author: cynthn
+title: Create a legacy managed image in Azure
+description: Create a legacy managed image of a generalized VM or VHD in Azure.
+author: jushiman
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/15/2023
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: legacy, devx-track-azurepowershell
 ---
 # Create a legacy managed image of a generalized VM in Azure
