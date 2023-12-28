@@ -8,7 +8,7 @@ ms.date: 12/28/2023
 
 # Linter rule - max asserts
 
-This rule checks that the number of predeployment conditions does not exceed `32`.
+This rule checks that the number of predeployment conditions doesn't exceed `32`.
 
 ## Linter rule code
 
