@@ -508,7 +508,7 @@
             displayName: secrets, secret scanning, agentless
             href: secret-scanning.md
           - name: Protect servers with agentless malware scanning
-            displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots, MDAV, Microsoft Defender Antivirus
+            displayName: agentless, scanning, virtual, machines, freshness, snapshot, snapshots, Microsoft Defender Antivirus
             href: agentless-malware-scanning.md
         - name: Scale a Defender for Servers deployment
           href: plan-defender-for-servers-scale.md
