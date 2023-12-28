@@ -22,6 +22,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [artifacts-parameters](./linter-rule-artifacts-parameters.md)
 - [decompiler-cleanup](./linter-rule-decompiler-cleanup.md)
 - [explicit-values-for-loc-params](./linter-rule-explicit-values-for-loc-params.md)
+- [max-asserts](./linter-rule-max-asserrts.md)
 - [max-outputs](./linter-rule-max-outputs.md)
 - [max-params](./linter-rule-max-parameters.md)
 - [max-resources](./linter-rule-max-resources.md)

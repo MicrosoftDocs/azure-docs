@@ -36,6 +36,9 @@ The following example shows the rules that are available for configuration.
         "explicit-values-for-loc-params": {
           "level": "warning"
         },
+        "max-asserts": {
+          "level": "warning"
+        },
         "max-outputs": {
           "level": "warning"
         },
