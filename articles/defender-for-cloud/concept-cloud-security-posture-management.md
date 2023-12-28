@@ -43,8 +43,8 @@ The following table summarizes each plan and their cloud availability.
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Attack path analysis](how-to-manage-attack-path.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Agentless scanning for machines](concept-agentless-data-collection.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
-| [Agentless container security posture](concept-agentless-containers.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
-| [Container registries vulnerability assessment](concept-agentless-containers.md), including registry scanning | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS |
+| [Agentless container security posture](concept-agentless-containers.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [Container registries vulnerability assessment](concept-agentless-containers.md), including registry scanning | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Data aware security posture](concept-data-security-posture.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | EASM insights in network exposure | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 

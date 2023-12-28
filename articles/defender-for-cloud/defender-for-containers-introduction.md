@@ -5,7 +5,7 @@ ms.topic: overview
 author: dcurwin
 ms.author: dacurwin
 ms.custom: ignite-2022
-ms.date: 12/12/2023
+ms.date: 12/28/2023
 ---
 
 # Overview of Container security in Microsoft Defender for Containers
@@ -65,7 +65,7 @@ You can learn more about [Kubernetes data plane hardening](kubernetes-workload-p
 
 ## Vulnerability assessment
 
-Defender for Containers scans the container images in Azure Container Registry (ACR) and Amazon AWS Elastic Container Registry (ECR) to provide agentless vulnerability assessment for your container images, including registry and runtime recommendations, remediation guidance, near real-time scan of new images, real-world exploit insights, exploitability insights, and more.
+Defender for Containers scans the container images in Azure Container Registry (ACR), Amazon AWS Elastic Container Registry (ECR), and Google Artifact Registry (GAR) to provide agentless vulnerability assessment for your container images, including registry and runtime recommendations, remediation guidance, near real-time scan of new images, real-world exploit insights, exploitability insights, and more.
 
 Vulnerability information powered by Microsoft Defender Vulnerability Management is added to the [cloud security graph](concept-attack-path.md#what-is-cloud-security-graph) for contextual risk, calculation of attack paths, and hunting capabilities.
 
@@ -77,8 +77,8 @@ There are two solutions for vulnerability assessment in Azure, one powered by Mi
 Learn more about:
 
 - [Vulnerability assessments for Azure with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-azure.md)
-- [Vulnerability assessment for Azure powered by Qualys](defender-for-containers-vulnerability-assessment-azure.md)
-- [Vulnerability assessment for Amazon AWS Elastic Container Registry (ECR)](defender-for-containers-vulnerability-assessment-elastic.md)
+- [Vulnerability assessments for AWS with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md)
+- [Vulnerability assessments for GCP with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md)
 
 ## Run-time protection for Kubernetes nodes and clusters
 
