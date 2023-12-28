@@ -19,9 +19,9 @@ monikerRange: '>=doc-intel-3.1.0'
 
 ## Introduction
 
-Retrieval-Augmented Generation (RAG) is a document generative AI solution that combines a pretrained Large Language Model (LLM) like ChatGPT with an external data retrieval system to generate an enhanced response incorporating new data outside of the original training data. Adding an information retrieval system to your applications enables you to chat with your documents, generate captivating content, and access the power of Azure OpenAI models for your data. You also have more control over the data used by the LLM as it formulates a response.
+Retrieval-Augmented Generation (RAG) is a design pattern that combines a pretrained Large Language Model (LLM) like ChatGPT with an external data retrieval system to generate an enhanced response incorporating new data outside of the original training data. Adding an information retrieval system to your applications enables you to chat with your documents, generate captivating content, and access the power of Azure OpenAI models for your data. You also have more control over the data used by the LLM as it formulates a response.
 
-The Document Intelligence [Layout model](concept-layout.md) is an advanced machine-learning based document analysis API. With semantic chunking, the Layout model offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on the provided building blocks.
+The Document Intelligence [Layout model](concept-layout.md) is an advanced machine-learning based document analysis API. The Layout model offers a comprehensive solution for advanced content extraction and document structure analysis capabilities. With the Layout model, you can easily extract text and structural to divide large bodies of text into smaller, meaningful chunks based on semantic content rather than arbitrary splits. The extracted information can be conveniently outputted to Markdown format, enabling you to define your semantic chunking strategy based on the provided building blocks.
 
 :::image type="content" source="media/rag/azure-rag-processing.png" alt-text="Screenshot depicting semantic chunking with RAG using Azure AI Document Intelligence.":::
 
@@ -47,7 +47,7 @@ Markdown is a structured and formatted markup language and a popular input for e
 
 * **Large learning model (LLM) compatibility**. The Layout model Markdown formatted output is LLM friendly and facilitates seamless integration into your workflows. You can turn any table in a document into Markdown format and avoid extensive effort parsing the documents for greater LLM understanding.
 
-**Text image processed with Document Intelligence Studio using Layout model**
+**Text image processed with Document Intelligence Studio and output to markdown using Layout model**
 
   :::image type="content" source="media/rag/markdown-text-output.png" alt-text="Screenshot of newspaper article processed by Layout model and outputted to Markdown.":::
 
@@ -103,13 +103,15 @@ You can follow the [Document Intelligence Studio quickstart](quickstarts/try-doc
 
   * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/documentintelligence/azure-ai-documentintelligence/src/samples/java/com/azure/ai/documentintelligence/AnalyzeLayoutMarkdownOutput.java)
 
+  * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples/Sample_ExtractLayout.md)
+
 ## Build document chat with semantic chunking
 
 * [Azure OpenAI on your data](../openai/concepts/use-your-data.md) enables you to run supported chat on your documents.  Azure OpenAI on your data applies the Document Intelligence Layout model to extract and parse document data by chunking long text based on tables and paragraphs. You can also customize your chunking strategy using [Azure OpenAI sample scripts](https://github.com/microsoft/sample-app-aoai-chatGPT/tree/main/scripts) located in our GitHub repo.
 
-* Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. This [notebook](https://microsoft.github.io/SynapseML/docs/Explore%20Algorithms/AI%20Services/Quickstart%20-%20Document%20Question%20and%20Answering%20with%20PDFs/) shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
+* Azure AI Document Intelligence is now integrated with [LangChain](https://python.langchain.com/docs/integrations/document_loaders/azure_document_intelligence) as one of its document loaders. You can use it to easily load the data and output to Markdown format. This [notebook](https://github.com/microsoft/Form-Recognizer-Toolkit/blob/main/SampleCode/Python/sample_rag_langchain.ipynb) shows a simple demo for RAG pattern with Azure AI Document Intelligence as document loader and Azure Search as retriever in LangChain.
 
-* The chat with your data solution accelerator[code sample](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) demonstrates an end-to-end baseline RAG pattern sample. It uses Azure AI Search as a retriever and Azure AI Document Intelligence for document loading and semantic chunking.
+* The chat with your data solution accelerator [code sample](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) demonstrates an end-to-end baseline RAG pattern sample. It uses Azure AI Search as a retriever and Azure AI Document Intelligence for document loading and semantic chunking.
 
 ## Use case
 
@@ -122,20 +124,15 @@ If you're looking for a specific section in a document, you can use semantic chu
 # pip install langchain langchain-community azure-ai-documentintelligence
 
 from azure.ai.documentintelligence import DocumentIntelligenceClient
- from azure.core.credentials import AzureKeyCredential
 
- endpoint = "https://<my-custom-subdomain>.cognitiveservices.azure.com/"
- credential = AzureKeyCredential("<api_key>")
+endpoint = "https://<my-custom-subdomain>.cognitiveservices.azure.com/"
+key = "<api_key>"
 
- document_intelligence_client = DocumentIntelligenceClient(
-     endpoint, credential)
- 
 from langchain_community.document_loaders import AzureAIDocumentIntelligenceLoader
- 
 from langchain.text_splitter import MarkdownHeaderTextSplitter
  
 # Initiate Azure AI Document Intelligence to load the document. You can either specify file_path or url_path to load the document.
-loader = AzureAIDocumentIntelligenceLoader(file_path="<path to your file>", api_key = doc_intelligence_key, api_endpoint = doc_intelligence_endpoint, api_model="prebuilt-layout")
+loader = AzureAIDocumentIntelligenceLoader(file_path="<path to your file>", api_key = key, api_endpoint = endpoint, api_model="prebuilt-layout")
 docs = loader.load()
  
 # Split the document into chunks base on markdown headers.
