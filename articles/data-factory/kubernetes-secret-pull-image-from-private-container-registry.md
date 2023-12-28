@@ -26,13 +26,13 @@ This article explains how to add a Kubernetes secret to pull a custom image from
 
 ### Create a new Managed Airflow environment
 
-Open the Azure Data Factory Studio and on the toolbar on the left, select the **Manage** tab. Then under **Workflow orchestration manager**, select **Apache Airflow**. Finally, select **+ New** to create a new Managed Airflow environment.
+Open Azure Data Factory Studio and on the toolbar on the left, select the **Manage** tab. Then under **Workflow orchestration manager**, select **Apache Airflow**. Finally, select **+ New** to create a new Managed Airflow environment.
 
-:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/create-new-airflow-environment.png" alt-text="Screenshot that shows the steps to create a new Managed Airflow environment in the Azure Data Factory Studio." lightbox="media/kubernetes-secret-pull-image-from-private-container-registry/create-new-airflow-environment.png":::
+:::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/create-new-airflow-environment.png" alt-text="Screenshot that shows the steps to create a new Managed Airflow environment in Azure Data Factory Studio." lightbox="media/kubernetes-secret-pull-image-from-private-container-registry/create-new-airflow-environment.png":::
 
 ### Add a Kubernetes secret
 
-On the Airflow environment setup window, scroll to the bottom and expand the **Advanced** section. Then under **Kubernetes secrets**, select **+ New**.
+On the **Airflow environment setup** window, scroll to the bottom and expand the **Advanced** section. Then under **Kubernetes secrets**, select **+ New**.
 
 :::image type="content" source="media/kubernetes-secret-pull-image-from-private-container-registry/add-kubernetes-secret.png" alt-text="Screenshot that shows the Airflow environment setup window with the Advanced section expanded to show the Kubernetes secrets section." lightbox="media/kubernetes-secret-pull-image-from-private-container-registry/add-kubernetes-secret.png":::
 

@@ -16,7 +16,11 @@ ms.date: 09/19/2023
 This article explains how to enhance security of your data stores and resources by restricting access solely to your Managed Airflow cluster. In this article, you walk through the process of retrieving and adding the unique IP address associated with your Managed Airflow cluster to your storage firewall's allowlist. This process enables you to access data stores or resources through the list of permitted IP addresses on the firewall's allowlist. Access from all other IP addresses via the public endpoint is prevented.
 
 > [!NOTE]
-> Importing DAGs is currently not supported using blob storage with IP allow listing or using private endpoints. We suggest using Git sync instead.
+> Importing DAGs is currently not supported by using blob storage with IP allow listing or by using private endpoints. We suggest using Git sync instead.
+
+## Prerequisites
+
+**Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ### Retrieve the bearer token for the Airflow API
 
@@ -35,7 +39,7 @@ For more information, see the following screenshots.
 
 ### Retrieve the Managed Airflow cluster's IP address
 
-1. Use the Managed Airflow's UI.
+1. Use the Managed Airflow UI.
 
     :::image type="content" source="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-ui.png" alt-text="Screenshot that shows how to retrieve a cluster's IP by using the UI." lightbox="media/airflow-get-ip-airflow-cluster/get-cluster-ip-from-ui.png":::
 

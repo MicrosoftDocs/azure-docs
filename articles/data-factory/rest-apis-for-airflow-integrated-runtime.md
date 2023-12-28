@@ -57,26 +57,26 @@ This article documents the REST APIs for the Managed Airflow integrated runtime.
   |Name  |Type  |Description  |
   |---------|---------|---------|
   |location     |string         |The Airflow integrated runtime location defaults to the data factory region. To create an integrated runtime in a different region, create a new data factory in the required region.         |
-  | computeSize | string |The size of the compute node you want your Airflow environment to run on, for example, "Large" or "Small." Three nodes are allocated initially. |
+  | computeSize | string |The size of the compute node you want your Airflow environment to run on. Examples are Large or Small. Three nodes are allocated initially. |
   | extraNodes | integer |Each extra node adds three more workers. |
 
 - **Airflow property**:
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |airflowVersion | string | Current version of Airflow, for example, 2.4.3. |
-  |airflowRequirements | Array\<string\> | Python libraries you want to use, for example, ["flask-bcrypy=0.7.1"]. Can be a comma-delimited list. |
-  |airflowEnvironmentVariables | Object (Key/Value pair) | Environment variables you want to use, for example, { "SAMPLE_ENV_NAME": "test" }. |
+  |airflowVersion | string | Current version of Airflow. For example, 2.4.3. |
+  |airflowRequirements | Array\<string\> | Python libraries you want to use. For example, ["flask-bcrypy=0.7.1"]. Can be a comma-delimited list. |
+  |airflowEnvironmentVariables | Object (Key/Value pair) | Environment variables you want to use. For example, { "SAMPLE_ENV_NAME": "test" }. |
   |gitSyncProperties | gitSyncProperty | Git configuration properties. |
-  |enableAADIntegration | boolean | Allows Microsoft Entra ID to sign in to Airflow. |
+  |enableAADIntegration | boolean | Allows Microsoft Entra ID to log in to Airflow. |
   |userName | string or null | Username for Basic Authentication. |
   |password | string or null | Password for Basic Authentication. |
 
-- **Git-sync property**:
+- **Git sync property**:
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or Bitbucket. |
+  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or BitBucket. |
   |gitCredentialType | string | Type of Git credential. Values are PAT (for personal access token) and None. |
   |repo | string | Repository link. |
   |branch | string | Branch to use in the repository. |
@@ -98,11 +98,11 @@ This article documents the REST APIs for the Managed Airflow integrated runtime.
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |IntegrationRuntimeName | string | Airflow environment name |
-  |LinkedServiceName | string | Azure Blob Storage account name where DAGs to be imported are located |
-  |StorageFolderPath | string | Path to the folder in Azure Blob Storage with the DAGs |
-  |Overwrite | boolean | Overwrite the existing DAGs (Default=True) |
-  |CopyFolderStructure | boolean | Controls whether the folder structure is copied or not |
+  |IntegrationRuntimeName | string | Airflow environment name. |
+  |LinkedServiceName | string | Azure Blob Storage account name where DAGs to be imported are located. |
+  |StorageFolderPath | string | Path to the folder in Azure Blob Storage with the DAGs. |
+  |Overwrite | boolean | Overwrite the existing DAGs (Default=True). |
+  |CopyFolderStructure | boolean | Controls whether the folder structure is copied or not. |
   |AddRequirementsFromFile | boolean | Add requirements from the DAG files |
 
 - **Responses**:
