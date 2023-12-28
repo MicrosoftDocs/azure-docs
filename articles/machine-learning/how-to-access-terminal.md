@@ -106,7 +106,7 @@ Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/J
 
 To add a new R kernel to the compute instance:
 
-1. Use the terminal window to create a new environment. For example, the code below creates `r_env':
+1. Use the terminal window to create a new environment. For example, the code below creates `r_env`:
 
     ```shell
     conda create -n r_env r-essentials r-base
@@ -124,7 +124,7 @@ To add a new R kernel to the compute instance:
    R
    ```
    
-1. At the R prompt, install and run `IRkernel`:
+1. At the R prompt, run `IRkernel`:
 
    ```
    IRkernel::installspec(name = 'irenv', displayname = 'New R Env')
