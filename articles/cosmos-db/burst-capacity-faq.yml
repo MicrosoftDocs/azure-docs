@@ -51,7 +51,7 @@ sections:
       - question: |
           How can I enable burst capacity on an account programatically?
         answer: |
-          You can use the [Azure Cosmos DB Resource Provider REST API version `2023-09-15`](/rest/api/cosmos-db-resource-provider/2023-09-15/database-accounts/create-or-update) or a [Resource Manager template with API version `2023-03-01-preview`](/azure/templates/microsoft.documentdb/2023-03-01-preview/databaseaccounts) to set the property `enableBurstCapacity` to true.
+          You can use the [Azure Cosmos DB Resource Provider REST API version `2023-09-15` or later](/rest/api/cosmos-db-resource-provider/database-accounts/create-or-update) or a [Resource Manager template with API version `2023-03-01-preview`](/azure/templates/microsoft.documentdb/2023-03-01-preview/databaseaccounts) to set the property `enableBurstCapacity` to true.
           You can also use the Azure CLI or PowerShell.
 
           #### [PowerShell](#tab/azure-powershell)
