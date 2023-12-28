@@ -104,7 +104,7 @@ To add a new Jupyter kernel to the compute instance:
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.  
 
-To create new kernels, use the `IRkernel` package in R.  If you create the new kernel from within a notebook, close the notebook and reopen it to see the new kernel.  For more information about IRkernel, see [Native R kernel for Jupyter](https://cran.r-project.org/web/packages/IRkernel/readme/README.html).
+To create new R kernels, use the `IRkernel` package in R.  If you create the new kernel from within a notebook, close the notebook and reopen it to see the new kernel.  For more information about IRkernel, see [Native R kernel for Jupyter](https://cran.r-project.org/web/packages/IRkernel/readme/README.html).
 
 ### Remove added kernels
 
