@@ -229,8 +229,8 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-show]: /cli/azure/aks#az-aks-show
-[list-role-assignments-at-a-scope-at-portal]: ../role-based-access-control/role-assignments-list-portal#list-role-assignments-at-a-scope
-[list-role-assignments-for-a-user-or-group-at-portal]: ../role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-or-group
+[list-role-assignments-at-a-scope-at-portal]: ../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope
+[list-role-assignments-for-a-user-or-group-at-portal]: ../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-list]: /cli/azure/role/assignment#az-role-assignment-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
