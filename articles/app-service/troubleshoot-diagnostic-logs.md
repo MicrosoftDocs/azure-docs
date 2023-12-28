@@ -213,7 +213,7 @@ The following table shows the supported log types and descriptions:
 
 <sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
 
-<sup>3</sup> Current logging limits is set to 100 logs per minute.
+<sup>3</sup> Current logging limit is set to 100 logs per minute.
 
 <sup>4</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
 
