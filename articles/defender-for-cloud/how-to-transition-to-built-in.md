@@ -18,7 +18,7 @@ ms.date: 12/28/2023
 >
 > You can read this blog, to learn more about [the change to Microsoft Defender Vulnerability Management](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/defender-for-cloud-unified-vulnerability-assessment-powered-by/ba-p/3990112).
 >
-> Check out the [common questions](faq-scanner-detection) regarding the transition to Microsoft Defender Vulnerability Management.
+> Check out the [common questions](faq-scanner-detection.md) regarding the transition to Microsoft Defender Vulnerability Management.
 
 With the Defender for Servers plan in Microsoft Defender for Cloud, you can scan compute assets for vulnerabilities. If you're currently using a vulnerability assessment solution other than the Microsoft Defender Vulnerability Management vulnerability assessment solution, this article provides instructions on transitioning to the integrated Defender Vulnerability Management solution.
 
