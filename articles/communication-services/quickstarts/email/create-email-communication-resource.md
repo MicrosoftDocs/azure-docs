@@ -44,7 +44,7 @@ Get started with Email by provisioning your first Email Communication Services r
 
 * [Email domains and sender authentication for Azure Communication Services](../../concepts/email/email-domain-and-sender-authentication.md)
 
-* [Get started by connecting Email Communication Service with a Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
+* [Get started by connecting Email Communication Service with Azure Communication Service resource](../../quickstarts/email/connect-email-communication-resource.md)
 
 The following documents may be interesting to you:
 
