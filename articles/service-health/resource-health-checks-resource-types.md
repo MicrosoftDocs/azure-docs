@@ -234,7 +234,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.operationalinsights/workspaces
 |Executed Checks|
 |---|
-| - Are there indexing delays for the workspace?|
+| - Are there ingestion delays in the workspace?<br>- Are there query execution issues in the workspace?|
 
 ## Microsoft.PowerBIDedicated/Capacities
 |Executed Checks|
