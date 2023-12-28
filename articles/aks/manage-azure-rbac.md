@@ -104,7 +104,7 @@ az role assignment create --role "Azure Kubernetes Service RBAC Admin" --assigne
 > ```
 
 > [!NOTE]
-> After creating role assignments scoped to a desired namespace, you won't be able to see it in "role assignments" under "Access control (IAM)" in the Azure portal. You can find it by using the [`az role assignment list`][az-role-assignment-list] command.
+> In Azure portal, after creating role assignments scoped to a desired namespace, you won't be able to see "role assignments" for namespace [at a scope][list-role-assignments-at-a-scope-at-portal]. You can find it by using the [`az role assignment list`][az-role-assignment-list] command, or [list role assignments for a user or group][list-role-assignments-for-a-user-or-group-at-portal], which you assigned the role to.
 >
  ```azurecli-interactive
 > az role assignment list --scope $AKS_ID/namespaces/<namespace-name>
@@ -229,6 +229,8 @@ To learn more about AKS authentication, authorization, Kubernetes RBAC, and Azur
 [az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[list-role-assignments-at-a-scope-at-portal]: ../role-based-access-control/role-assignments-list-portal#list-role-assignments-at-a-scope
+[list-role-assignments-for-a-user-or-group-at-portal]: ../role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-or-group
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-list]: /cli/azure/role/assignment#az-role-assignment-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
