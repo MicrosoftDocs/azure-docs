@@ -2,7 +2,7 @@
 title: Configuration options - Azure Monitor Application Insights for Java
 description: This article shows you how to configure Azure Monitor Application Insights for Java.
 ms.topic: conceptual
-ms.date: 10/30/2023
+ms.date: 12/20/2023
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.reviewer: mmcc
@@ -30,14 +30,14 @@ More information and configuration options are provided in the following section
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.18.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.19.jar`.
 
 You can specify your own configuration file path by using one of these two options:
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.18.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.19.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the JSON configuration via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
 
@@ -60,7 +60,7 @@ Or you can set the connection string by using the Java system property `applicat
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.18.jar` is located.
+If you specify a relative path, it resolves relative to the directory where `applicationinsights-agent-3.4.19.jar` is located.
 
 ```json
 {
@@ -209,10 +209,12 @@ If you want to collect some other JMX metrics:
 In the preceding configuration example:
 
 * `name` is the metric name that is assigned to this JMX metric (can be anything).
-* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect.
+* `objectName` is the [Object Name](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) of the `JMX MBean` that you want to collect.  Wildcard character asterisk (*) is supported.
 * `attribute` is the attribute name inside of the `JMX MBean` that you want to collect.
 
 Numeric and Boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false and `1` for true.
+
+See the [JMX metrics](./java-jmx-metrics-configuration.md) documentation for more details.
 
 ## Custom dimensions
 
@@ -326,7 +328,7 @@ and add `applicationinsights-core` to your application:
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>3.4.18</version>
+  <version>3.4.19</version>
 </dependency>
 ```
 
@@ -856,7 +858,7 @@ In the preceding configuration example:
 
 * `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 * `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.4.18.jar` is located.
+`applicationinsights-agent-3.4.19.jar` is located.
 
 Starting from version 3.0.2, you can also set the self-diagnostics `level` by using the environment variable
 `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`. It then takes precedence over the self-diagnostics level specified in the JSON configuration.

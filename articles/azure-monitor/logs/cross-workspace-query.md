@@ -1,88 +1,51 @@
 ---
-title: Query across resources with Azure Monitor  | Microsoft Docs
-description: This article describes how you can query against resources from multiple workspaces and an Application Insights app in your subscription.
-ms.topic: conceptual
+title: Query across resources with Azure Monitor  
+description: Query and correlated data from multiple Log Analytics workspaces, applications, or resources using the `workspace()`, `app()`, and `resource()` Kusto Query Language (KQL) expressions.
+ms.topic: how-to
 author: guywi-ms
 ms.author: guywild
-ms.date: 05/30/2023
+ms.date: 12/28/2023
+# Customer intent: As a data analyst, I want to write KQL queries that correlate data from multiple Log Analytics workspaces, applications, or resources, to enable my analysis.
 
 ---
 
-# Create a log query across multiple workspaces and apps in Azure Monitor
+# Query data across Log Analytics workspaces, applications, and resources in Azure Monitor
 
-Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This capability provides you with a systemwide view of your data.
+There are two ways to query data from multiple workspaces, applications, and resources:
+
+* Explicitly by specifying the workspace, app, or resource information using the [workspace()](#query-across-log-analytics-workspaces-using-workspace), [app()](#query-across-classic-application-insights-applications-using-app), or [resource()](#correlate-data-between-resources-using-resource) expressions, as described in this article.
+* Implicitly by using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the query retrieves relevant data from all workspaces that contain data for these resources. Resource-context queries don't retrieve data from classic Application Insights resources.
+
+This article explains how to use the `workspace()`, `app()`, and `resource()` expressions to query data from multiple Log Analytics workspaces, applications, and resources. 
 
 If you manage subscriptions in other Microsoft Entra tenants through [Azure Lighthouse](../../lighthouse/overview.md), you can include [Log Analytics workspaces created in those customer tenants](../../lighthouse/how-to/monitor-at-scale.md) in your queries.
 
-There are two methods to query data that's stored in multiple workspaces and apps:
-
-* Explicitly by specifying the workspace and app information. This technique is used in this article.
-* Implicitly by using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group, or a subscription, the relevant data will be fetched from all workspaces that contain data for these resources. Application Insights data that's stored in apps won't be fetched.
-
 > [!IMPORTANT]
-> If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to write a query that includes applications in multiple workspaces. For multiple applications in the same workspace, you don't need a cross-workspace query.
+> If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to query data from applications in multiple workspaces. You don't need a cross-workspace query to query data from multiple applications in the same workspace.
 
 ## Permissions required
 
 - You must have `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
 - To save a query, you must have `microsoft.operationalinsights/querypacks/queries/action` permisisons to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
 
-## Cross-resource query limits
+## Limitations
 
-* The number of Application Insights components and Log Analytics workspaces that you can include in a single query is limited to 100.
+* Cross-resource and cross-service queries don’t support parameterized functions and functions whose definition includes other cross-workspace or cross-service expressions, including `adx()`, `arg()`, `resource()`, `workspace()`, and `app()`.
+* You can include up to 100 Log Analytics workspaces or classic Application Insights resources in a single query.
 * Querying across a large number of resources can substantially slow down the query.
 * Cross-resource queries in log alerts are only supported in the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2018-04-16/scheduled-query-rules). If you're using the legacy Log Analytics Alerts API, you'll need to [switch to the current API](../alerts/alerts-log-api-switch.md).
-* References to a cross resource, such as another workspace, should be explicit and can't be parameterized. See [Gather identifiers for Log Analytics workspaces](?tabs=workspace-identifier#gather-identifiers-for-log-analytics-workspaces-and-application-insights-resources) for examples.
+* References to a cross resource, such as another workspace, should be explicit and can't be parameterized. 
 
-## Gather identifiers for Log Analytics workspaces and Application Insights resources
+## Query across workspaces, applications, and resources using functions
 
-To reference another workspace in your query, use the [workspace](../logs/workspace-expression.md) identifier. For an app from Application Insights, use the [app](./app-expression.md) identifier.
-
-### [Workspace identifier](#tab/workspace-identifier)
-
-You can identify a workspace using one of these IDs:
-
-* **Workspace ID**: A workspace ID is the unique, immutable, identifier assigned to each workspace represented as a globally unique identifier (GUID).
-
-    `workspace("00000000-0000-0000-0000-000000000000").Update | count`
-
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the workspace. For workspaces, the format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/workspaceName*.
-
-    For example:
-
-    ``` 
-    workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
-    ```
-
-### [App identifier](#tab/app-identifier)
-The following examples return a summarized count of requests made against an app named *fabrikamapp* in Application Insights.
-
-You can identify an app using one of these IDs:
-
-* **ID**: This ID is the app GUID of the application.
-
-    `app("00000000-0000-0000-0000-000000000000").requests | count`
-
-* **Azure Resource ID**: This ID is the Azure-defined unique identity of the app. The format is */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*.
-
-    For example:
-
-    ```
-    app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
-    ```
-
----
-
-## Query across Log Analytics workspaces and from Application Insights
-
-Follow the instructions in this section to query without using a function or by using a function.
+This section explains how to query workspaces, applications, and resources using functions with and without using a function.
 
 ### Query without using a function
 You can query multiple resources from any of your resource instances. These resources can be workspaces and apps combined.
 
 Example for a query across three workspaces:
 
-```
+```kusto
 union 
   Update, 
   workspace("00000000-0000-0000-0000-000000000001").Update, 
@@ -122,6 +85,108 @@ applicationsScoping
 
 >[!NOTE]
 > This method can't be used with log alerts because the access validation of the alert rule resources, including workspaces and applications, is performed at alert creation time. Adding new resources to the function after the alert creation isn't supported. If you prefer to use a function for resource scoping in log alerts, you must edit the alert rule in the portal or with an Azure Resource Manager template to update the scoped resources. Alternatively, you can include the list of resources in the log alert query.
+
+## Query across Log Analytics workspaces using workspace() 
+
+Use the `workspace()` expression to retrieve data from a specific workspace in the same resource group, another resource group, or another subscription. You can use this expression to include log data in an Application Insights query and to query data across multiple workspaces in a log query.
+
+### Syntax
+
+`workspace(`*Identifier*`)`
+
+### Arguments
+
+`*Identifier*`: Identifies the workspace by using one of the formats in the following table.
+
+| Identifier | Description | Example
+|:---|:---|:---|
+| ID | GUID of the workspace | workspace("00000000-0000-0000-0000-000000000000") |
+| Azure Resource ID | Identifier for the Azure resource | workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
+
+### Examples
+
+```Kusto
+workspace("00000000-0000-0000-0000-000000000000").Update | count
+```
+```Kusto
+workspace("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Contoso/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+```
+```Kusto
+union 
+( workspace("00000000-0000-0000-0000-000000000000").Heartbeat | where Computer == "myComputer"),
+(app("00000000-0000-0000-0000-000000000000").requests | where cloud_RoleInstance == "myRoleInstance")
+| count  
+```
+```Kusto
+union 
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat), (app("00000000-0000-0000-0000-000000000000").requests) | where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
+```
+
+## Query across classic Application Insights applications using app() 
+
+Use the `app` expression to retrieve data from a specific classic Application Insights resource in the same resource group, another resource group, or another subscription.  If you're using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the `workspace()` expression to query data from applications in multiple workspaces. You don't need a cross-workspace query to query data from multiple applications in the same workspace.
+
+### Syntax
+
+`app(`*Identifier*`)`
+
+
+### Arguments
+
+`*Identifier*`: Identifies the app using one of the formats in the table below.
+
+| Identifier | Description | Example
+|:---|:---|:---|
+| ID | GUID of the app | app("00000000-0000-0000-0000-000000000000") |
+| Azure Resource ID | Identifier for the Azure resource |app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
+
+### Examples
+
+```Kusto
+app("00000000-0000-0000-0000-000000000000").requests | count
+```
+```Kusto
+app("/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+```
+```Kusto
+union 
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat | where Computer == "myComputer"),
+(app("00000000-0000-0000-0000-000000000000").requests | where cloud_RoleInstance == "myColumnInstance")
+| count  
+```
+```Kusto
+union 
+(workspace("00000000-0000-0000-0000-000000000000").Heartbeat), (app("00000000-0000-0000-0000-000000000000").requests)
+| where TimeGenerated between(todatetime("2023-03-08 15:00:00") .. todatetime("2023-04-08 15:05:00"))
+```
+
+## Correlate data between resources using resource() 
+
+The `resource` expression is used in a Azure Monitor query [scoped to a resource](scope.md#query-scope) to retrieve data from other resources. 
+
+
+### Syntax
+
+`resource(`*Identifier*`)`
+
+### Arguments
+
+`*Identifier*`: Identifies the resource, resource group, or subscription from which to correlate data.
+
+| Identifier | Description | Example
+|:---|:---|:---|
+| Resource | Includes data for the resource. | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
+| Resource Group or Subscription | Includes data for the resource and all resources that it contains.  | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
+
+
+### Examples
+
+```Kusto
+union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm").Heartbeat) | summarize count() by _ResourceId, TenantId
+```
+```Kusto
+union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup).Heartbeat) | summarize count() by _ResourceId, TenantId
+```
 
 ## Next steps
 

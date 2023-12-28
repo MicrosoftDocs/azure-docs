@@ -207,6 +207,8 @@ Machine Learning also includes features for monitoring and auditing:
 * Job artifacts, such as code snapshots, logs, and other outputs.
 * Lineage between jobs and assets, such as containers, data, and compute resources.
 
+If you use Apache Airflow, the [airflow-provider-azure-machinelearning](https://github.com/Azure/airflow-provider-azure-machinelearning) package is a provider that enables you to submit workflows to Azure Machine Learning from Apache AirFlow.
+
 ## Next steps
 
 Start using Azure Machine Learning:

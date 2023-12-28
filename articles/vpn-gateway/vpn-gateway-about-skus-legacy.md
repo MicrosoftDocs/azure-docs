@@ -4,7 +4,7 @@ description: How to work with the old virtual network gateway SKUs; Basic, Stand
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 11/29/2023
+ms.date: 12/20/2023
 ms.author: cherylmc 
 ---
 # Working with VPN Gateway legacy SKUs
@@ -17,30 +17,7 @@ This article contains information about the legacy (old) virtual network gateway
 
 You can view legacy gateway pricing in the **Virtual Network Gateways** section, which is located on the [ExpressRoute pricing page](https://azure.microsoft.com/pricing/details/expressroute).
 
-## SKU deprecation
-
-The Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for these SKUs by November 30, 2024. **At this time, there's no action that you need to take**.
-
-When the migration path becomes available, you can migrate your legacy SKUs to the following SKUs:
-
-* **Standard SKU:** -> **VpnGw1**
-* **High Performance SKU:** -> **VpnGw2**
-
-There are no [price](https://azure.microsoft.com/pricing/details/vpn-gateway/) changes if you migrate to Standard (VpnGw1) and High Performance (VpnGw2) gateways. As a benefit, there's a performance improvement after migrating:
-
-* **Standard SKU:** 6.5x
-* **High Performance SKU:** 5x
-
-If you don't migrate your gateway SKUs by September 30, 2025, your gateway will be automatically migrated and upgraded to an AZ gateway SKU:
-
-* **Standard SKU:** -> **VpnGw1AZ**
-* **High Performance SKU:** -> **VpnGw2AZ**
-
-Important Dates:
-
-* **December 1, 2023**: No new gateway creations are possible using Standard or High Performance SKUs.
-* **November 30, 2024**: Begin migrating gateways to other SKUs.
-* **September 30, 2025**: Standard/High Performance SKUs will be retired and remaining deprecated legacy gateways will be automatically migrated and upgraded to AZ SKUs.
+For SKU deprecation, see the [SKU deprecation](#sku-deprecation) and SKU deprecation [FAQs](#sku-deprecation-faqs) sections of this article.
 
 ## <a name="agg"></a>Estimated aggregate throughput by SKU
 
@@ -84,6 +61,38 @@ A gateway SKU migration process is similar to a resize. It requires fewer steps 
 Standard and High Performance SKUs will be deprecated September 30, 2025. The product team will make a migration path available for legacy SKUs. See the [Legacy SKU deprecation](#sku-deprecation) section for more information. You can choose to change from a legacy SKU to one of the new SKUs at any point. However, changing to a new SKU requires more steps than migrating and incurs more downtime.
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
+
+## SKU deprecation
+
+The Standard and High Performance SKUs will be deprecated on September 30, 2025. The product team will make a migration path available for these SKUs by November 30, 2024. **At this time, there's no action that you need to take**.
+
+* View the [Announcement](https://go.microsoft.com/fwlink/?linkid=2255127)
+* See the SKU deprecation [FAQs](#sku-deprecation-faqs)
+
+When the migration path becomes available, you can migrate your legacy SKUs to the following SKUs:
+
+* **Standard SKU:** -> **VpnGw1**
+* **High Performance SKU:** -> **VpnGw2**
+
+There are no [price](https://azure.microsoft.com/pricing/details/vpn-gateway/) changes if you migrate to Standard (VpnGw1) and High Performance (VpnGw2) gateways. As a benefit, there's a performance improvement after migrating:
+
+* **Standard SKU:** 6.5x
+* **High Performance SKU:** 5x
+
+If you don't migrate your gateway SKUs by September 30, 2025, your gateway will be automatically migrated and upgraded to an AZ gateway SKU:
+
+* **Standard SKU:** -> **VpnGw1AZ**
+* **High Performance SKU:** -> **VpnGw2AZ**
+
+Important Dates:
+
+* **December 1, 2023**: No new gateway creations are possible using Standard or High Performance SKUs.
+* **November 30, 2024**: Begin migrating gateways to other SKUs.
+* **September 30, 2025**: Standard/High Performance SKUs will be retired and remaining deprecated legacy gateways will be automatically migrated and upgraded to AZ SKUs.
+
+## SKU deprecation FAQs
+
+[!INCLUDE [legacy SKU deprecation](../../includes/vpn-gateway-deprecate-sku-faq.md)]
 
 ## Next steps
 

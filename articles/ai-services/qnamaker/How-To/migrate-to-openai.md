@@ -6,7 +6,7 @@ ms.service: azure-ai-language
 author: aahill
 ms.author: aahi
 ms.topic: how-to
-ms.date: 09/08/2023
+ms.date: 12/19/2023
 ---
 
 # Migrate QnA Maker to Azure OpenAI on your data 

@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 11/06/2023
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.custom: template-concept; references_regions
 ---
 
@@ -80,7 +80,6 @@ Trusted launch does not increase existing VM pricing costs.
 > The following Virtual Machine features are currently not  supported with Trusted Launch.
 
 - [Azure Site Recovery](../site-recovery/site-recovery-overview.md)
-- [Ultra disk](disks-enable-ultra-ssd.md)
 - [Managed Image](capture-image-resource.md) (Customers are encouraged to use [Azure Compute Gallery](trusted-launch-portal.md#trusted-launch-vm-supported-images))
 - Nested Virtualization (most v5 VM size families supported)
 

@@ -13,6 +13,10 @@ A single [Log Analytics workspace](log-analytics-workspace-overview.md) might be
 > [!NOTE]
 > This article discusses Azure Monitor and Microsoft Sentinel because many customers need to consider both in their design. Most of the decision criteria apply to both services. If you use only one of these services, you can ignore the other in your evaluation.
 
+Here's a video about the fundamentals of Azure Monitor Logs and best practices and design considerations for designing your Azure Monitor Logs deployment:
+
+> [!VIDEO https://www.youtube.com/embed/pqUvZqoQV4o]
+
 ## Design strategy
 Your design should always start with a single workspace to reduce the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace. Multiple services and data sources can send data to the same workspace. As you identify criteria to create more workspaces, your design should use the fewest number that will match your requirements.
 
@@ -188,3 +192,4 @@ There are two options to implement logs in a central location:
 
 - Learn more about [designing and configuring data access in a workspace](manage-access.md).
 - Get [sample workspace architectures for Microsoft Sentinel](../../sentinel/sample-workspace-designs.md).
+- Here's a video on designing the proper structure for your Log Analytics workspace: [ITOps Talk:Log Analytics workspace design deep dive](/shows/it-ops-talk/ops115-log-analytics-workspace-design-deep-dive)

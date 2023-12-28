@@ -1,6 +1,6 @@
 ---
-title: 'How to enable and download server logs for Azure Database for MySQL - Flexible Server'
-description: This article describes how to download and list server logs using Azure portal.
+title: Enable and download server logs
+description: This article describes how to enable and download server logs for Azure Database for MySQL - Flexible Server by using the Azure portal.
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -8,13 +8,13 @@ author: code-sidd
 ms.author: sisawant
 ms.date: 08/05/2022
 ---
-# Enable, list and download server logs for Azure Database for MySQL - Flexible Server
+# Enable and download server logs for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-You can use server logs to help monitor and troubleshoot an instance of Azure Database for MySQL - Flexible Server, and to gain detailed insights into the activities that have run on your servers.
-By default, the server logs feature in Azure Database for MySQL - Flexible Server is disabled. However, after you enable the feature, a flexible server starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal or the Azure CLI to download the files to assist with your troubleshooting efforts.
-This article explains how to enable the server logs feature in Azure Database for MySQL - Flexible Server and download server log files. It also provides information about how to disable the feature.
+You can use server logs to help monitor and troubleshoot an instance of Azure Database for MySQL flexible server, and to gain detailed insights into the activities that have run on your servers.
+By default, the server logs feature in Azure Database for MySQL flexible server is disabled. However, after you enable the feature, an Azure Database for MySQL flexible server instance starts capturing events of the selected log type and writes them to a file. You can then use the Azure portal or the Azure CLI to download the files to assist with your troubleshooting efforts.
+This article explains how to enable the server logs feature in Azure Database for MySQL flexible server and download server log files. It also provides information about how to disable the feature.
 
 In this tutorial, you’ll learn how to:
 - Enable the server logs feature.
@@ -23,17 +23,17 @@ In this tutorial, you’ll learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an existing Azure Database for MySQL - Flexible Server. If you need to create a new server, see [Create an Azure Database for MySQL - Flexible Server](./quickstart-create-server-portal.md).
+To complete this tutorial, you need an existing Azure Database for MySQL flexible server instance. If you need to create a new server, see [Create an Azure Database for MySQL flexible server instance](./quickstart-create-server-portal.md).
 
 ## Enable Server logs
 
 To enable the server logs feature, perform the following steps.
 
-1. In the [Azure portal](https://portal.azure.com), select your MySQL flexible server.
+1. In the [Azure portal](https://portal.azure.com), select your Azure Database for MySQL flexible server instance.
 
 2. On the left pane, under **Monitoring**, select **Server logs**.
 
-    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-serverlog.png" alt-text="Screenshot showing Azure Database for My SQL - Server Logs.":::
+    :::image type="content" source="./media/how-to-server-logs-portal/1-how-to-serverlog.png" alt-text="Screenshot showing Azure Database for MySQL flexible server Server Logs.":::
 
 3. To enable server logs, under **Server logs**, select **Enable**.
 
@@ -47,7 +47,7 @@ To enable the server logs feature, perform the following steps.
 
     :::image type="content" source="./media/how-to-server-logs-portal/3-how-to-serverlog.png" alt-text="Screenshot showing select slow log - Server Logs.":::
 
-To configure slow_logs on your Azure Database for MySQL - Flexible Server, see [Query Performance Insight.](./tutorial-query-performance-insights.md)
+To configure slow_logs on your Azure Database for MySQL flexible server instance, see [Query Performance Insight.](./tutorial-query-performance-insights.md)
 
 
 ## Download Server logs
@@ -60,7 +60,7 @@ To download server logs, perform the following steps.
 
     :::image type="content" source="./media/how-to-server-logs-portal/4-how-to-serverlog.png" alt-text="Screenshot showing Server Logs - Download.":::
 
-    For HA enabled Azure Database for MySQL - Flexible Server, server logs for standby server can be identified by another four-letter identifier after the hostname of the server as shown below.
+    For HA enabled Azure Database for MySQL flexible server instances, server logs for standby server can be identified by another four-letter identifier after the hostname of the server as shown below.
 
     :::image type="content" source="./media/how-to-server-logs-portal/5-how-to-serverlog.png" alt-text="Screenshot showing server Logs - HA logs.":::
 

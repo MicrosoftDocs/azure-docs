@@ -22,10 +22,20 @@ Use GitHub Codespaces to try Azure IoT Operations on a Kubernetes cluster withou
 
 To get started with your codespace:
 
-1. Create the codespace, entering your Azure details to store them as environment variables for the terminal.
+1. Create the codespace in GitHub Codespaces.
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/explore-iot-operations?quickstart=1)
 
+1. Provide the following details to configure your codespace:
+
+   | Parameter | Value |
+   | --------- | ----- |
+   | SUBSCRIPTION_ID | Your Azure subscription ID. |
+   | RESOURCE_GROUP | A name for a new Azure resource group where your cluster will be created. Remember the resource group name to use in the following CLI commands. |
+   | LOCATION | An Azure region close to you. The following regions are supported in public preview: eastus, eastus2, westus, westus2, westus3, westeurope, or northeurope. Remember the region you choose to use in the following CLI commands. |
+
+1. Select **Create new codespace**.
+
 1. Once the codespace is ready, select the menu button at the top left, then select **Open in VS Code Desktop**.
 
-   ![Open VS Code desktop](../deploy-iot-ops/media/howto-prepare-cluster/open-in-vs-code-desktop.png)
+   ![Open VS Code desktop](media/prepare-codespaces/open-in-vs-code-desktop.png)

@@ -205,5 +205,5 @@ The following table specifies whether an Azure AI Search data type is supported 
 
 Currently other data types e.g. ComplexType are not supported. For a full list of Azure AI Search supported data types, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
