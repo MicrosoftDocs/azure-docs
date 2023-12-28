@@ -216,7 +216,7 @@ When you choose a name for your service principal, make sure that the name is un
 
 ## Configure the control plane web application credentials
 
-As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files and deploying SAP workload zones and systems using Azure Pipelines.
+As a part of the SAP automation framework control plane, you can optionally create an interactive web application that assists you in creating the required configuration files.
 
 :::image type="content" source="./media/deployment-framework/webapp-front-page.png" alt-text="Screenshot of Web app front page.":::
 
@@ -366,7 +366,7 @@ export       ARM_TENANT_ID="<tenantId>"
 
 ```
 
-If you are running the script from a workstation that is not part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
+If you're running the script from a workstation that isn't part of the deployment network or from the Azure Cloud Shell, you can use the following command to set the environment variable for allowing connectivity from your IP address:
 
 ```bash
 export TF_VAR_Agent_IP=<your-public-ip-address>
@@ -401,7 +401,7 @@ rm manifest.json
 ```
 
 > [!NOTE]
->Ensure that you are logged on using a user account that has the required permissions to create application registrations. See [Create an app registration](https://learn.microsoft.com/cli/azure/ad/app#az-ad-app-create) for more information.
+>Ensure that you are logged on using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](https://learn.microsoft.com/cli/azure/ad/app#az-ad-app-create) for more information.
 >
 
 
@@ -908,7 +908,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     vi sap-parameters.yaml
     ```
 
-1. Update the `bom_base_name` with the name BOM amd replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault..
+1. Update the `bom_base_name` with the name BOM and replace `<Deployer KeyVault Name>` with the name of the deployer resource group Azure key vault.
 
     Your file should look similar to the following example configuration:
 
@@ -1001,7 +1001,7 @@ You've now deployed and configured a standalone HANA system. If you need to conf
 
 ## Clean up installation
 
-It's important to clean up your SAP installation from this tutorial after you're finished. Otherwise, you continue to incur costs related to the resources.
+It is important to clean up your SAP installation from this tutorial after you're finished. Otherwise, you continue to incur costs related to the resources.
 
 To remove the entire SAP infrastructure you deployed, you need to:
 
