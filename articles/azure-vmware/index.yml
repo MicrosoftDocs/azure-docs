@@ -30,10 +30,10 @@ highlightedContent:
     - title: Azure VMware Solution concepts 
       itemType: concept
       url: toc.yml#concepts
-    - title: Azure VMware Solution integration
+    - title:  integration
       itemType: how-to-guide
       url: toc.yml#how-to-guides
-    - title: VMware Solutions network configuration
+    - title: Azure VMware Solution network configuration
       itemType: how-to-guide
       url: toc.yml#vmware-solutions
     - title: Partner solution ecosystem
