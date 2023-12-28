@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: chat
 ---
 
-#  Translating Chats to enable users to communicate in preferred language
+#  Translating Chats to enable users to communicate in their preferred language
 
 In this guide, learn how you can use [Azure AI APIs](../../../ai-services/index.yml) with the Chat SDK to build use cases like:
 
