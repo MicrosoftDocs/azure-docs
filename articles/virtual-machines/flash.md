@@ -224,15 +224,8 @@ _Figure 5: View the newly added VM availability Metric on Metrics Explorer on Az
 
 | **Display Name** | **VM Availability (preview)** |
 | --- | --- |
-| Metric Values |
-- 1 during expected behavior; corresponds to VM in Available state.
-- 0 when VM is impacted by rebootful disruptions; corresponds to VM in Unavailable state.
-- NULL (shows a dotted or dashed line on charts) when the Azure service that is emitting the metric is down or is unaware of the exact status of the VM; corresponds to VM in Unknown state.
- |
-| Aggregation | The default aggregation of the metric is Average, for prioritized investigations based on extent of downtime incurred.The other aggregations available are:
-- Min, to immediately pinpoint to all the times where VM was unavailable.
-- Max, to immediately pinpoint to all the instances where VM was Available.
-Refer [here](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-aggregation-explained) for more details on chart range, granularity, and data aggregation. |
+| Metric Values | 1 during expected behavior; corresponds to VM in Available state. 0 when VM is impacted by rebootful disruptions; corresponds to VM in Unavailable state. NULL (shows a dotted or dashed line on charts) when the Azure service that is emitting the metric is down or is unaware of the exact status of the VM; corresponds to VM in Unknown state. |
+| Aggregation | The default aggregation of the metric is Average, for prioritized investigations based on extent of downtime incurred.The other aggregations available are: Min, to immediately pinpoint to all the times where VM was unavailable. Max, to immediately pinpoint to all the instances where VM was Available. Refer [here](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-aggregation-explained) for more details on chart range, granularity, and data aggregation. |
 | Data Retention | Data for the VM availability metric will be [stored for 93 days](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics) to assist in trend analysis and historical lookback. |
 | Pricing | Please refer to the [Pricing breakdown](https://azure.microsoft.com/en-us/pricing/details/monitor/#pricing), specifically in the "Metrics" and "Alert Rules" sections. |
 
