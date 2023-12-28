@@ -57,13 +57,8 @@ sections:
           #### [PowerShell](#tab/azure-powershell)
 
           ```azurepowershell
-          // Add the preview extension 2.0.5-preview or higher
-          $installParameters = @{
-              Name = "Az.CosmosDB"
-              AllowPrerelease = $true
-              Force = $true
-          }
-          Install-Module @installParameters
+          // Add Azure Cosmos DB extension 1.13.0 or higher
+          Install-Module -Name Az.CosmosDB -RequiredVersion 1.13.0
 
           // Enable burst capacity on an account
           $parameters = @{
@@ -77,9 +72,6 @@ sections:
           #### [Azure CLI](#tab/azure-cli)
 
           ```azurecli
-          // Add the preview extension version 0.24.0 or higher
-          az extension add --name cosmosdb-preview --version 0.24.0
-
           // Enable burst capacity on an account
           az cosmosdb update  \
           --resource-group '<resource-group-name>' \
