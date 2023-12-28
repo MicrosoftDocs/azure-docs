@@ -175,12 +175,12 @@
     items:
     - name: Deprecation of classic experience
       href: vmware-physical-azure-classic-deprecation.md
-    - name: About Site Recovery components (configuration/process/master target server)
-      href: vmware-physical-azure-config-process-server-overview.md
     - name: Deploy Azure Site Recovery replication appliance (modernized)
       href: deploy-vmware-azure-replication-appliance-modernized.md
-    - name: Modernized
+    - name: Failover and failback - Modernized
       href: failover-failback-overview-modernized.md
+    - name: Vmware to Azure architecture - Modernized
+      href: vmware-azure-architecture-modernized.md      
   - name: About Hyper-V VM disaster recovery
     items:
     - name: Hyper-V to Azure architecture
@@ -219,8 +219,7 @@
     items:
     - name: Classic
       href: vmware-azure-architecture.md
-    - name: Modernized
-      href: vmware-azure-architecture-modernized.md
+
   - name: About failover and failback
     items:
     - name: Classic

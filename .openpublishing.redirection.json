@@ -1101,6 +1101,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/vmware-physical-azure-config-process-server-overview.md",
+            "redirect_url": "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-azure-about-disaster-recovery.md",
+            "redirect_url": "/azure/site-recovery/ite-recovery-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/vmware-physical-secondary-architecture.md",
             "redirect_url": "/azure/site-recovery/transport-layer-security",
             "redirect_document_id": false

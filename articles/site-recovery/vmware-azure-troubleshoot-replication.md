@@ -140,7 +140,7 @@ To resolve the issue, you can associate the policy with the configuration server
 
 ## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
 
-Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you're on the latest versions for best guidance on troubleshooting VSS failures.
+Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new-archive.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you're on the latest versions for best guidance on troubleshooting VSS failures.
 
 Some of the most common issues are listed below
 
