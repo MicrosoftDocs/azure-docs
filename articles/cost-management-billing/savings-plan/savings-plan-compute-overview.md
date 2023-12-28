@@ -93,6 +93,7 @@ Savings plan purchases can't be canceled or refunded.
 - Azure Container Apps
 - Azure Premium Functions
 - Azure App Services - The Azure savings plan for compute can only be applied to the App Service upgraded Premium v3 plan and the upgraded Isolated v2 plan.
+- Azure Spring Apps - The Azure savings plan for compute can only be applied to the Azure Spring Apps Enterprise plan.
 - On-demand Capacity Reservation
 
 Exclusions apply to the above services.
