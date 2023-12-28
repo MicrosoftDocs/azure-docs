@@ -31,7 +31,7 @@ If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up yo
 
 1.	Copy the Azure region and resource IDs of the Arc resource bridge, custom location, and SCVMM management server Azure resources.
 
-2.	Download [this script](https://download.microsoft.com/download/a/a/8/aa8687e4-1a30-485f-9de4-4f15fc576724/resource-bridge-onboarding-script-dr.ps1) and update the following section in the script using the same information as the original resources in Azure. 
+2.	Download [this script](https://download.microsoft.com/download/a/a/8/aa8687e4-1a30-485f-9de4-4f15fc576724/arcvmm-windows-dr.ps1) and update the following section in the script using the same information as the original resources in Azure. 
 
     ```powershell
     $location = <Azure region of the original Arc resource bridge>
