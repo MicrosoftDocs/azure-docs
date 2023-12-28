@@ -46,7 +46,7 @@ If you have any feedback or ideas on how to improve your experience create an is
 * [Download of Azure Cosmos DB Spark connector for Spark 3.2](https://aka.ms/azure-cosmos-spark-3-2-download)
 * [Download of Azure Cosmos DB Spark connector for Spark 3.3](https://aka.ms/azure-cosmos-spark-3-3-download)
 * [Download of Azure Cosmos DB Spark connector for Spark 3.4](https://aka.ms/azure-cosmos-spark-3-4-download)
-* 
+
 Azure Cosmos DB Spark connector is available on [Maven Central Repo](https://search.maven.org/search?q=g:com.azure.cosmos.spark).
 
 If you encounter any bug or want to suggest a feature change,  [file an issue](https://github.com/Azure/azure-sdk-for-java/issues/new). 
