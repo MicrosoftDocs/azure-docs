@@ -450,7 +450,7 @@ Verify that Azure B2C users can access FHIR resources.
 
    :::image type="content" source="media/b2c-setup/postman-request1.png" alt-text="Screenshot showing Postman request1" lightbox="media/b2c-setup/postman-request1.png":::
 
-1. Set the method to `GET`, enter the fully qualified FHIR service URL and then add the path `/Patient`. 
+1. Set the method to `GET`, enter the fully qualified FHIR service URL, and then add the path `/Patient`. 
 
 1. Choose **Send**.
 
