@@ -18,6 +18,13 @@ ms.custom: devx-track-java, contperf-fy21q2, event-tier1-build-2022
 
 This article describes the cost-saving options and capabilities that Azure Spring Apps provides.
 
+## Cost Saving on Commitment (exclusive for Enterprise Plan)
+In enterprise plan, we are now offering further discount on both Microsoft and VMware (by Broadcom) parts of pricing. You can learn more about the pricing model [here](https://azure.microsoft.com/en-us/pricing/details/spring-apps/).
+About Microsoft part, [Azure Savings Plan](https://learn.microsoft.com/en-us/azure/cost-management-billing/savings-plan/savings-plan-compute-overview) is now available as: 20% discount for one year commitment, and 47% discount for three year commitment.  
+![image](https://github.com/taoxu0903/azure-docs-pr/assets/49826600/8ff6a09c-923e-4c7d-ada9-e45e54991a89)
+
+About VMware(by Broadcom) part, based on the committed period from one to multiple years, there is also negotiable discount to be offered separately. Please reach out to your sales reprensentative for consultant.
+
 ## Monthly free grants
 
 The first 50 vCPU hours and 100-GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
