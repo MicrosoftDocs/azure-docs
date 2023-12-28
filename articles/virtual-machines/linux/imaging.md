@@ -1,7 +1,7 @@
 ---
 title: Overview of creating Linux images for Azure
 description: How to bring your Linux VM images or create new images to use in Azure.
-author: jushiman
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.collection: linux

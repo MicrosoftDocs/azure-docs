@@ -2,7 +2,7 @@
 metadata:
   title: Deprecated Azure Marketplace images
   description: "Learn about how the deprecation of Marketplace images can affect your deployment."
-  author: jushiman
+  author: ju-shim
   ms.service: virtual-machines
   ms.topic: faq
   ms.subservice: imaging

@@ -2,7 +2,7 @@
 metadata:
   title: Frequently asked questions for Linux VMs in Azure
   description: Provides answers to some of the common questions about Linux virtual machines created with the Resource Manager model.
-  author: jushiman
+  author: ju-shim
   ms.service: virtual-machines
   ms.collection: linux
   ms.workload: infrastructure-services

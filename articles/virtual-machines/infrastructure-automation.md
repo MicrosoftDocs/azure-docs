@@ -1,7 +1,7 @@
 ---
 title: Use infrastructure automation tools
 description: Learn how to use infrastructure automation tools such as Ansible, Chef, Puppet, Terraform, and Packer to create and manage virtual machines in Azure.
-author: jushiman
+author: ju-shim
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure

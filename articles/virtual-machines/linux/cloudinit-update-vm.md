@@ -1,7 +1,7 @@
 ---
 title: Use cloud-init in a Linux VM on Azure
 description: How to use cloud-init to update and install packages in a Linux VM during creation with the Azure CLI
-author: jushiman
+author: ju-shim
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to

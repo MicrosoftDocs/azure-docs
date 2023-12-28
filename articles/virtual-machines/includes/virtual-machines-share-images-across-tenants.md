@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: virtual-machines
-author: jushiman
+author: ju-shim
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 04/25/2019

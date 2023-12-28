@@ -1,7 +1,7 @@
 ---
 title: Overview backup options for VMs
 description: Overview backup options for Azure virtual machines.
-author: jushiman
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
