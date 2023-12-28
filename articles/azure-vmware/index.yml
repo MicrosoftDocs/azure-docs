@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title:  Azure VMware Solution documentation
-summary: Use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure.
+summary: Learn to use Azure VMware Solution to deploy a VMware Software-defined Data Center (SDDC) private cloud to Azure.
 brand: azure
 
 metadata:
@@ -18,7 +18,7 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: Overview 
+    - title: What's Azure VMware Solution? 
       itemType: concept
       url: toc.yml#overview
     - title: Plan and get started 
@@ -27,17 +27,17 @@ highlightedContent:
     - title: Tutorials 
       itemType: tutorial
       url: toc.yml#tutorials
-    - title: Concepts 
+    - title: Azure VMware Solution concepts 
       itemType: concept
       url: toc.yml#concepts
     - title: Advanced configuration and integration
       itemType: how-to-guide
       url: toc.yml#how-to-guides
     - title: VMware solution configuration
-      itemType: concept
+      itemType: how-to-guide
       url: toc.yml#vmware-solutions
     - title: Partner solution ecosystem
-      itemType: concept
+      itemType: how-to-guide
       url: toc.yml#partner-solution-ecosystem
     - title: videos
       itemType: video
@@ -54,7 +54,7 @@ additionalContent:
         # Card
         - title: Overview
           links:
-          - text: What is Azure VMware Solution?
+          - text: What's Azure VMware Solution?
             url: introduction.md
           - text: What's new?
             url: azure-vmware-solution-platform-updates.md
