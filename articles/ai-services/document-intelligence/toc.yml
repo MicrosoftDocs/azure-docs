@@ -172,6 +172,7 @@ items:
     href: concept-layout.md
   - name: 🆕 Add-on capabilities
     displayName: extract, formula, font, styles, fontStyle, ocr.highResolution, ocr.formula, high resolution, background color, inline, display
+    href: concept-add-on-capabilities.md
   - name: 🆕 Query field extraction
     displayName: queries, fields, OpenAI, chat
     href: concept-query-fields.md
