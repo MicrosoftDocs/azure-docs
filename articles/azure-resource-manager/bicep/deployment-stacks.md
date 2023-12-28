@@ -31,7 +31,7 @@ Deployment stacks provide the following benefits:
 
 ### Known issues
 
-- Deleting resource groups currently bypasses deny assignments.
+- Deleting resource groups currently bypasses deny assignments. If a deployment stack is created at resource group that is not represented in the template passed-in to the stack, a delete of that resource group is possible.
 - Implicitly created resources aren't managed by the stack. Therefore, no deny assignments or cleanup is possible.
 - [What-if](./deploy-what-if.md) isn't available in the preview.
 - Management group scoped deployment stacks can only deploy the template to subscription.
