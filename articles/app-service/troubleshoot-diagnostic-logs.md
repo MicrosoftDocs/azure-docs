@@ -199,12 +199,12 @@ The following table shows the supported log types and descriptions:
 
 | Log Name| Log type | Windows | Windows Container | Linux | Linux Container | Description |
 |-|-|-|-|-|-|-|
-| App Service Console Logs | AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
+| App Service Console Logs | AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error <sup>3</sup> |
 | HTTP logs | AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
 | App Service Environment Platform Logs | AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | Access Audit Logs | AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
 | Site Content Change Audit Logs | AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
-| App Service Application Logs | AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
+| App Service Application Logs | AppServiceAppLogs | ASP.NET, .NET Core, & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | .NET Core, Java, SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs <sup>3</sup> |
 | IPSecurity Audit logs | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | App Service Platform logs | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 | Report Antivirus Audit Logs | AppServiceAntivirusScanAuditLogs <sup>3</sup> | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
@@ -213,7 +213,9 @@ The following table shows the supported log types and descriptions:
 
 <sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
 
-<sup>3</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
+<sup>3</sup> Current logging limits is set to 100 logs per minute.
+
+<sup>4</sup> AppServiceAntivirusScanAuditLogs log type is still currently in Preview
 
 ## Networking considerations
 
