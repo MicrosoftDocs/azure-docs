@@ -85,9 +85,9 @@ In this section, we create an AKS cluster with the following configuration:
         --network-plugin azure
     ```
 
-    If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. Also see [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm-). If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+    If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. Also see [What are the password requirements when creating a VM?](https://learn.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-). If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
 
-    If you don't specify an administrator username and password when creating the node pool, the username is set to *azureuser* and the password is set to a random value. For more information, see [How do I change the administrator password for Windows Server nodes on my cluster?](windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster).
+    If you don't specify an administrator username and password when creating the node pool, the username is set to *azureuser* and the password is set to a random value. For more information, see [How do I change the administrator password for Windows Server nodes on my cluster?](../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster).
 
     The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more information, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
 

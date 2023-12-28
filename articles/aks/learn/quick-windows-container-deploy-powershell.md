@@ -47,7 +47,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 In this section, we create an AKS cluster with the following configuration:
 
-- The cluster is configured with two nodes to ensure it operates reliably. A [node](concepts-clusters-workloads.md#nodes-and-node-pools) is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime. []
+- The cluster is configured with two nodes to ensure it operates reliably. A [node](../concepts-clusters-workloads.md#nodes-and-node-pools) is an Azure virtual machine (VM) that runs the Kubernetes node components and container runtime. []
 - The `-WindowsProfileAdminUserName` and `-WindowsProfileAdminUserPassword` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet the [Windows Server password complexity requirements][windows-server-password].
 - The node pool uses `VirtualMachineScaleSets`.
 
@@ -74,9 +74,9 @@ In this section, we create an AKS cluster with the following configuration:
         -GenerateSshKey
     ```
 
-    If you get a password validation error, then verify that the password you set meets the [Windows Server password requirements][windows-server-password]. Also see [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm-). If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+    If you get a password validation error, then verify that the password you set meets the [Windows Server password requirements][windows-server-password]. Also see [What are the password requirements when creating a VM?](https://learn.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-). If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
 
-    If you don't specify an administrator username and password when creating the node pool, the username is set to *azureuser* and the password is set to a random value. For more information, see [How do I change the administrator password for Windows Server nodes on my cluster?](windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster).
+    If you don't specify an administrator username and password when creating the node pool, the username is set to *azureuser* and the password is set to a random value. For more information, see [How do I change the administrator password for Windows Server nodes on my cluster?](../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster).
 
     If you're unable to create the AKS cluster because the version isn't supported in the region you selected, use the `Get-AzAksVersion -Location <location>` command to find the supported version list for the region.
 
