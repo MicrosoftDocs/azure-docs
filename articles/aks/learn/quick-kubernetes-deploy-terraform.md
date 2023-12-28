@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Kubernetes Service (AKS) cluster using Terraform'
 description: Learn how to quickly create a Kubernetes cluster using Terraform and deploy an application in Azure Kubernetes Service (AKS).
 ms.topic: quickstart
-ms.date: 10/23/2023
+ms.date: 12/27/2023
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
@@ -454,7 +454,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+In this quickstart, you deployed a Kubernetes cluster and then deployed a simple multi-container application to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 To learn more about AKS and walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 

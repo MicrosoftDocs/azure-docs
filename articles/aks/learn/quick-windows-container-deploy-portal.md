@@ -229,7 +229,7 @@ If you don't plan on going through the following tutorials, you should delete yo
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+In this quickstart, you deployed a Kubernetes cluster and then deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 To learn more about AKS, and to walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 

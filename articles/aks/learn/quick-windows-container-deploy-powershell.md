@@ -13,7 +13,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 ## Before you begin
 
-This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - For ease of use, try the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Quickstart for Azure Cloud Shell](/azure/cloud-shell/quickstart).
@@ -270,25 +270,22 @@ When the application runs, a Kubernetes service exposes the application front en
     > [!NOTE]
     > If you receive a connection timeout when trying to load the page, you should verify the sample app is ready using the `kubectl get pods --watch` command. Sometimes, the Windows container isn't started by the time your external IP address is available.
 
-> [!NOTE]
-> This sample application is only for demo purposes and doesn't represent all the best practices for Kubernetes applications.
-
 ## Delete resources
 
 If you don't plan on going through the following tutorials, then delete your cluster to avoid incurring Azure charges.
 
-- Delete your resource group, container service, and all related resources using the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
+Delete your resource group, container service, and all related resources using the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, container service, and all related resources.
 
-    ```azurepowershell
-    Remove-AzResourceGroup -Name myResourceGroup
-    ```
+```azurepowershell
+Remove-AzResourceGroup -Name myResourceGroup
+```
 
-    > [!NOTE]
-    > The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart). The Azure platform manages this identity, so it doesn't require removal.
+> [!NOTE]
+> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart). The Azure platform manages this identity, so it doesn't require removal.
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+In this quickstart, you deployed a Kubernetes cluster and then deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 To learn more about AKS, and to walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -304,7 +301,6 @@ To learn more about AKS, and to walk through a complete code-to-deployment examp
 [aks-release-notes]: https://github.com/Azure/AKS/releases
 
 <!-- LINKS - internal -->
-[kubernetes-concepts]: ../concepts-clusters-workloads.md
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [azure-cni-about]: ../concepts-network.md#azure-cni-advanced-networking

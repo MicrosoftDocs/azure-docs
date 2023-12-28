@@ -13,29 +13,13 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 ## Before you begin
 
-This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
 
 - [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 - [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 - This article requires version 2.0.64 or later of the Azure CLI. If you are using Azure Cloud Shell, then the latest version is already installed.
 - Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account](/cli/azure/account) command.
-- Verify that the *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. Check the registration status using the following [az provider show][az-provider-show] commands:
-
-  ```sh
-  az provider show -n Microsoft.OperationsManagement -o table
-  az provider show -n Microsoft.OperationalInsights -o table
-  ```
-
-  If they're not registered, then register them using the following [az provider register][az-provider-register] commands:
-  
-  ```sh
-  az provider register --namespace Microsoft.OperationsManagement
-  az provider register --namespace Microsoft.OperationalInsights
-  ```
-  
-  > [!NOTE]
-  > Run these commands with administrative privileges if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
 
 ## Create a resource group
 
@@ -304,18 +288,18 @@ When the application runs, a Kubernetes service exposes the application front en
 
 If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.
 
-- Delete your resource group, container service, and all related resources using the [az group delete][az-group-delete] command.
+Delete your resource group, container service, and all related resources using the [az group delete](/cli/azure/group#az_group_delete) command.
 
-    ```azurecli
-    az group delete --name myResourceGroup --yes --no-wait
-    ```
+```azurecli
+az group delete --name myResourceGroup --yes --no-wait
+```
 
-    > [!NOTE]
-    > The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart). The Azure platform manages this identity, so it doesn't require removal.
+> [!NOTE]
+> The AKS cluster was created with system-assigned managed identity (the default identity option used in this quickstart). The Azure platform manages this identity, so it doesn't require removal.
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
+In this quickstart, you deployed a Kubernetes cluster and then deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
 To learn more about AKS, and to walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
