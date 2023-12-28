@@ -507,7 +507,7 @@
           href: plan-defender-for-servers-scale.md
         - name: Protect servers with Defender for Servers
           href: tutorial-enable-servers-plan.md
-        - name: Endpoint Detection and response solution
+        - name: Manage endpoint detection and response solution
           href: endpoint-detection-response.md 
         - name: Configure vulnerability scanning
           items:
