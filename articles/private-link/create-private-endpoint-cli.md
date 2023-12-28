@@ -144,7 +144,7 @@ az network private-endpoint create \
     --ip-config name=ipconfig-1 group-id=sites member-name=sites private-ip-address=10.0.0.10 \
     --vnet-name vnet-1
 ```
-
+When creating a private endpoint for storage, the connection name shown in a private endpoint tab is auto generated and is not editable.
 ---
 
 ## Configure the private DNS zone
