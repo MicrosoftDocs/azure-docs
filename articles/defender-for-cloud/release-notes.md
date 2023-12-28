@@ -20,6 +20,18 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 If you're looking for items older than six months, you can find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## January 2024
+
+| Date | Update |
+|--|--|
+| January 24 | [Agentless container posture for GCP in Defender for Containers and Defender CSPM (Preview)](#agentless-container-posture-for-gcp-in-defender-for-containers-and-defender-cspm-preview) |
+
+### Agentless container posture for GCP in Defender for Containers and Defender CSPM (Preview)
+
+January 24, 2023
+
+The new Agentless container posture (Preview) capabilities are available for GCP. For more information, see [Agentless container posture in Defender CSPM](concept-agentless-containers.md) and [Agentless capabilities in Defender for Containers](defender-for-containers-introduction.md#agentless-capabilities).
+
 ## December 2023
 
 | Date | Update |

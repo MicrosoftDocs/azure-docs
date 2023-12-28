@@ -76,7 +76,7 @@ Allowing data ingestion to occur only through Private Link Scope on your workspa
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
-## AWS 
+## AWS
 
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state   | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --|
@@ -121,20 +121,33 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
-## GCP 
+## GCP
 
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --|
+| Security posture management  | [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#security-posture-management) | GKE | Preview | Preview | Agentless  | Defender for Containers **OR** Defender CSPM |
+| Security posture management  | Comprehensive inventory capabilities | GAR, GKE | Preview | Preview | Agentless| Defender for Containers **OR** Defender CSPM |
+| Security posture management  | Attack path analysis | GAR, GKE | Preview | - | Agentless | Defender CSPM |
+| Security posture management  | Enhanced risk-hunting | GAR, GKE | Preview | Preview | Agentless | Defender for Containers **OR** Defender CSPM |
 | Security posture management | Docker CIS | GCP VMs | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
 | Security posture management | Control plane hardening | GKE | GA | GA | Agentless | Free |
 | Security posture management | Kubernetes data plane hardening | GKE | GA| - | Azure Policy for Kubernetes | Defender for Containers |
 | Vulnerability Assessment | Registry scan | - | - | - | - | - |
-| Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
+| [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GAR | Preview | Preview | Agentless | Defender for Containers or Defender CSPM |
+| [Vulnerability assessment](agentless-vulnerability-assessment-gcp.md) | Agentless/agent-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-gcp---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| GKE | Preview | Preview | Agentless **OR/AND** Defender agent | Defender for Containers or Defender CSPM |
 | Runtime protection| Control plane | GKE | Preview | Preview | Agentless | Defender for Containers |
 | Runtime protection| Workload | GKE | Preview | - | Defender agent | Defender for Containers |
 | Deployment & monitoring | Discovery of unprotected clusters | GKE | Preview | - | Agentless | Free |
 | Deployment & monitoring | Auto provisioning of Defender agent | GKE | Preview | - | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | GKE | Preview | - | Agentless | Defender for Containers |
+
+### Registries and images support for GCP - Vulnerability assessment powered by Microsoft Defender Vulnerability Management
+
+| Aspect | Details |
+|--|--|
+| Registries and images | **Supported**<br> • GAR registries <br> • Container images in Docker V2 format  <br> **Unsupported**<br>   • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images is currently unsupported <br> • Images with [Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/main/spec.md) image format specification <br>• Public repositories <br> • Manifest lists <br>|
+| Operating systems | **Supported** <br> • Alpine Linux 3.12-3.16 <br> • Red Hat Enterprise Linux 6-9 <br> • CentOS 6-9<br> • Oracle Linux 6-9 <br> • Amazon Linux 1, 2 <br> • openSUSE Leap, openSUSE Tumbleweed <br> • SUSE Enterprise Linux 11-15 <br> • Debian GNU/Linux 7-12 <br> • Google Distroless (based on Debian GNU/Linux 7-12)<br> • Ubuntu 12.04-22.04 <br>  • Fedora 31-37<br> • Mariner 1-2<br> • Windows server 2016, 2019, 2022|
+| Language specific packages <br><br>  | **Supported** <br> • Python <br> • Node.js <br> • .NET <br> • JAVA <br> • Go |
 
 ### Kubernetes distributions/configurations support - GCP
 
@@ -166,7 +179,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 | Deployment & monitoring | Auto provisioning of Defender agent | Arc enabled K8s clusters | Preview | Preview | Agentless | Defender for Containers |
 | Deployment & monitoring | Auto provisioning of Azure Policy for Kubernetes | Arc enabled K8s clusters | Preview | - | Agentless | Defender for Containers |
 
-#### Kubernetes distributions and configurations
+### Kubernetes distributions and configurations
 
 | Aspect | Details |
 |--|--|
@@ -179,7 +192,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 > [!NOTE]
 > For additional requirements for Kubernetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-#### Supported host operating systems
+### Supported host operating systems
 
 Defender for Containers relies on the **Defender agent** for several features. The Defender agent is supported on the following host operating systems:
 
@@ -198,13 +211,13 @@ Defender for Containers relies on the **Defender agent** for several features. T
 
 Ensure your Kubernetes node is running on one of the verified supported operating systems. Clusters with different host operating systems, only get partial coverage.
 
-#### Defender agent limitations
+### Defender agent limitations
 
 The Defender agent is currently not supported on ARM64 nodes.
 
-#### Network restrictions
+### Network restrictions
 
-##### Private link
+#### Private link
 
 Defender for Containers relies on the Defender agent for several features. The Defender agent doesn't support  the ability to ingest data through Private Link. You can disable public access for ingestion, so that only machines that are configured to send traffic through Azure Monitor Private Link can send data to that workstation. You can configure a private link by navigating to **`your workspace`** > **Network Isolation** and setting the Virtual networks access configurations to **No**.
 
@@ -214,7 +227,7 @@ Allowing data ingestion to occur only through Private Link Scope on your workspa
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
-##### Outbound proxy support
+#### Outbound proxy support
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
