@@ -19,7 +19,7 @@ Fail when trying to install the Layered Network Management operator or apply the
 
 **Troubleshooting steps**
 
-1. Check if the regions are supported for public preview (for now we only support 8 regions for public preview). See [Quickstart: Deploy Azure IoT Operations](azure/iot-operations/get-started/quickstart-deploy#connect-a-kubernetes-cluster-to-azure-arc) for more information.
+1. Check if the regions are supported for public preview (for now we only support 8 regions for public preview). See [Quickstart: Deploy Azure IoT Operations](/iot-operations/get-started/quickstart-deploy#connect-a-kubernetes-cluster-to-azure-arc) for more information.
 1. If there are any other errors in installing Layered Network Management Arc extensions, please follow the guidance in the error. Try uninstalling/installing the extension again. 
 1. Verify the Layered Network Management Operator is in Running and Ready state. 
 1. If application of CR (`kubectl apply –f cr.yaml`) fails, the output of this command generally shows the reason for error (CRD version mismatch, wrong entry in CRD,... etc)
