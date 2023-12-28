@@ -6,7 +6,7 @@ author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
 ms.topic: tutorial 
-ms.date: 09/20/2022
+ms.date: 12/280/2023
 ms.custom: references_regions 
 
 # customer-intent: As a DevOps engineer, I want to ingest data from an event hub into a Log Analytics workspace so that I can monitor logs that I send to Azure Event Hubs.
