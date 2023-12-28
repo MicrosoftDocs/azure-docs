@@ -3,14 +3,14 @@ title: How to access a compute instance terminal in your workspace
 titleSuffix: Azure Machine Learning
 description: Use the terminal on a compute instance for Git operations, to install packages, and add kernels.
 services: machine-learning
-author: abeomor
-ms.author: osomorog
+ms.author: lebaro
+author: lebaro-msft
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: compute
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 12/27/2023
 #Customer intent: As a data scientist, I want to use Git, install packages and add kernels to a compute instance in my workspace in Azure Machine Learning studio.
 ---
 
@@ -65,7 +65,7 @@ To integrate Git with your Azure Machine Learning workspace, see  [Git integrati
 
 ## Install packages
 
- Install packages from a terminal window. Install Python packages into the **Python 3.8 - AzureML** environment.  Install R packages into the **R** environment.
+ Install packages from a terminal window. Install packages into the kernel that you want to use to run your notebooks.  The default kernel is **python310-sdkv2**.  
 
 Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Workbench (formerly RStudio Workbench):
 
@@ -73,12 +73,12 @@ Or you can install packages directly in Jupyter Notebook, RStudio, or Posit Work
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]
-> For package management within a notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
+> For package management within a Python notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
 
 ## Add new kernels
 
 > [!WARNING]
-> While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+> While customizing the compute instance, make sure you do not delete conda environments or jupyter kernels that you didn't create. Doing so may damage Jupyter/JupyterLab functionality.
 
 To add a new Jupyter kernel to the compute instance:
 
@@ -107,7 +107,7 @@ Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/J
 ### Remove added kernels
 
 > [!WARNING]
-> While customizing the compute instance, make sure you do not delete the **azureml_py36** or **azureml_py38** conda environments.  Also do not delete **Python 3.6 - AzureML** or **Python 3.8 - AzureML** kernels. These are needed for Jupyter/JupyterLab functionality.
+> While customizing the compute instance, make sure you do not delete conda environments or jupyter kernels that you didn't create.
 
 To remove an added Jupyter kernel from the compute instance, you must remove the kernelspec, and (optionally) the conda environment. You can also choose to keep the conda environment. You must remove the kernelspec, or your kernel will still be selectable and cause unexpected behavior.
 
