@@ -15,6 +15,7 @@ Complete the following steps to create an Apache Flink cluster on Azure portal.
 ## Prerequisites
 
 Complete the prerequisites in the following sections:
+* [Subscription prerequisites](../prerequisites-subscription.md)
 * [Resource prerequisites](../prerequisites-resources.md)
 * [Create a cluster pool](../quickstart-create-cluster.md#create-a-cluster-pool)
 
