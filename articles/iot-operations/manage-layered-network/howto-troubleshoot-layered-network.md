@@ -19,7 +19,7 @@ Fail when trying to install the Layered Network Management operator or apply the
 
 **Troubleshooting steps**
 
-1. Check if the regions are supported for public preview (for now we only support eight regions for public preview). For more information, see [Quickstart: Deploy Azure IoT Operations](../get-started/quickstart-deploy#connect-a-kubernetes-cluster-to-azure-arc).
+1. Check if the regions are supported for public preview (for now we only support eight regions for public preview). For more information, see [Quickstart: Deploy Azure IoT Operations](../get-started/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
 1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance in the error. Try uninstalling/installing the extension again. 
 1. Verify the Layered Network Management Operator is in Running and Ready state. 
 1. If application of CR (`kubectl apply –f cr.yaml`) fails, the output of this command generally shows the reason for error (CRD version mismatch, wrong entry in CRD,... etc.)
@@ -57,7 +57,7 @@ Failure while installing the IoT Operations components on nested layers. (For ex
     nslookup management.azure.com
     ```
     The DNS shall respond with the IP address of the Layered Network Management service.
-3. If the domain is getting resolved correctly, then verify that the domain is added to the allowlist. For more information, see [Appendix: Check the allowlist of Layered Network Management](#appendix-check-the-allowlist-of-layered-network-management).
+3. If the domain is getting resolved correctly, then verify that the domain is added to the allowlist. For more information, see [Check the allowlist of Layered Network Management](#appendix-check-the-allowlist-of-layered-network-management).
 4. For deeper investigation, capture the network packet trace. For more information, see [capture network packet trace](#appendix-capture-network-packet-trace).
 
 ## A particular pod fails when installing IoT Operations
