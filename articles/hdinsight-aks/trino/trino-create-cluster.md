@@ -14,6 +14,8 @@ This article describes the steps to create a Trino cluster with HDInsight on AKS
 
 ## Prerequisites
 
+Complete the prerequisites in the following sections:
+
 * [Subscription prerequisites](../prerequisites-subscription.md)
 * [Resource prerequisites](../prerequisites-resources.md)
 * [Create a cluster pool](../quickstart-create-cluster.md#create-a-cluster-pool)
