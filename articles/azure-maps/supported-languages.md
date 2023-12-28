@@ -205,10 +205,11 @@ Azure Maps have been localized in variety languages across its services. The fol
 | wo             | Wolof                                      | ✓       |               |
 | xh             | isiXhosa                                   | ✓       |               |
 | yo-Latn        | Yoruba                                     | ✓       |               |
-| zh-Hans        | Chinese (Simplified)                       | ✓       |               |
 | zh-Hant        | Chinese (Traditional)                      | ✓       |               |
 | zh-HanT-TW     | Chinese (Traditional, Taiwan)              | ✓       | ✓             |
 | zu             | isiZulu                                    | ✓       |
+
+<!--| zh-Hans        | Chinese (Simplified)                       | ✓       |               |-->
 
 ## Azure Maps supported views
 
