@@ -30,6 +30,23 @@ items:
       href: fhir-service-bicep.md
     - name: Using ARM template
       href: fhir-service-resource-manager-template.md
+- name: Configuration
+  expanded: true
+  items:
+    - name: Customer-managed keys best practices
+      href: customer-managed-keys.md
+    - name: Configure customer-managed keys
+      href: configure-customer-managed-keys.md
+    - name: Configure CORS
+      href: configure-cross-origin-resource-sharing.md
+    - name: Enable single sign-on (B2C)
+      href: b2c-setup.md
+    - name: Troubleshoot B2C identity provider configuration
+      href: troubleshoot-b2c-identity-provider-configuration.md
+    - name: Enable diagnostic settings in the FHIR service
+      href: fhir-service-diagnostic-logs.md
+    - name: Use Custom HTTP headers to add data to audit logs
+      href: use-custom-headers-diagnosticlog.md
 - name: Interoperability and patient access
   expanded: true
   items:
@@ -43,19 +60,6 @@ items:
       href: davinci-pdex-tutorial.md
     - name: Da Vinci Plan Net
       href: davinci-plan-net.md
-- name: Configuration
-  expanded: true
-  items:
-    - name: Customer-managed keys best practices
-      href: customer-managed-keys.md
-    - name: Configure customer-managed keys
-      href: configure-customer-managed-keys.md
-    - name: Configure CORS
-      href: configure-cross-origin-resource-sharing.md
-    - name: Enable diagnostic settings in the FHIR service
-      href: fhir-service-diagnostic-logs.md
-    - name: Use Custom HTTP headers to add data to audit logs
-      href: use-custom-headers-diagnosticlog.md
 - name: Search
   expanded: true
   items:

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services
-description: Learn how to troubleshoot identity provider configuration for Azure Health Data Services FHIR service, including Azure AD B2C. Use API version 2023-12-01 to configure two identity providers for scoped access, with a JSON schema and examples.
+description: Learn how to troubleshoot identity provider configuration for the FHIR service in Azure Health Data Services, including Azure AD B2C. Use API version 2023-12-01 to configure two identity providers for scoped access. Get a JSON schema with examples.
 services: healthcare-apis
 author: namalu
 ms.service: healthcare-apis
@@ -12,7 +12,7 @@ ms.author: namalu
 
 # Troubleshoot B2C identity provider configuration for the FHIR service
 
-API version 2023-12-01 of the FHIR service in Azure Health Data Services supports two identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
+API version 2023-12-01 of the FHIR&reg; service in Azure Health Data Services supports two identity providers in addition to [Microsoft Entra ID](/entra/identity/). To provide scoped access to users, you configure the two identity providers by populating the `smartIdentityProviders` section of the `authenticationConfiguration` object.
 
 ## Schema for configuring identity providers
 
@@ -77,16 +77,16 @@ The `application configuration` consists of:
 }
 ```
 
-## Error Messages
+## Error messages
 
 Here are the error messages that occur if the FHIR service SMART identity providers fail, and recommended actions to take to resolve the issue.
 
 | Error | Cause | Fix |
 | --- | --- | --- |
-| **The maximum number of SMART identity providers is 2.** | The number of identity providers configured is more than 2. | Reduce the number of identity providers to 2 or less. |
+| **The maximum number of SMART identity providers is 2.** | The number of identity providers configured is more than two. | Reduce the number of identity providers to two or less. |
 | **One or more SMART identity provider authority values are null, empty, or invalid.** | The `authority` element of the identity provider configuration must be a fully qualified URL. | Ensure all `authority` values are fully qualified URLs. |
 | **All SMART identity provider authorities must be unique.** | The `authority` elements of the two identity provider configurations are identical. | Ensure all `authority` values are unique, fully qualified URLs. |
-| **The maximum number of SMART identity provider applications is 2.** | The number of identity provider applications in an identity provider configuration is more than 2. | Reduce the number of identity provider applications to 1 or 2 per identity provider. |
+| **The maximum number of SMART identity provider applications is 2.** | The number of identity provider applications in an identity provider configuration is more than two. | Reduce the number of identity provider applications to one or two per identity provider. |
 | **One or more SMART applications are null.** | The `applications` element for one or more identity providers is null or contains no applications. | Ensure all identity provider configurations have at least one application configured. |
 | **One or more SMART application `allowedDataActions` contain duplicate elements.** | The `allowedDataActions` array in one or more application configurations contains duplicate values. | Remove any duplicate values in the `allowedDataActions` arrays. |
 | **One or more SMART application `allowedDataActions` values are invalid.** | The `allowedDataActions` array in one or more application configurations contains a value that isn't `Read`, `Write`, `Delete`, or `Export`. | Remove any nonconforming values from the `allowedDataActions` arrays. |
@@ -158,3 +158,9 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 11. **Verify the fhirUser or extension_fhirUser (FHIR user claim)**. The `fhirUser` or `extension_fhirUser` claim is required. If it's missing, the request fails. This claim links the user in the identity provider with a user resource in the FHIR service. The value must be the fully qualified URL of a resource in the FHIR service that represents the individual the access token is issued to. For example, the access token issued to a patient that logged in should have a `fhirUser` or `extension_fhirUser` claim that has the fully qualified URL of a [patient](https://build.fhir.org/patient.html) resource in the FHIR service.
 
+## Next steps
+[Enable single sign-on for the FHIR service](b2c-setup.md)
+
+
+
+[!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-fhir-trademark.md)]

@@ -10,7 +10,7 @@ ms.date: 01/15/2024
 ms.author: namalu
 ---
 
-# Enable single sign-on by using Azure Active Directory B2C with the FHIR service
+# Enable single sign-on for the FHIR service
 
 By using [Azure Active Directory B2C](../../active-directory-b2c/overview.md) with the [FHIR&reg; service](../overview.md) in Azure Health Data Services, healthcare organizations can enable single sign-on (SSO) for their applications. SSO allows users to access healthcare applications with their preferred social, enterprise, or local account identities. 
 
@@ -161,6 +161,7 @@ The B2C resource application handles authentication requests from your healthcar
 
    :::image type="content" source="media/b2c-setup/b2c-application-register.png" alt-text="Screenshot showing B2C application register" lightbox="media/b2c-setup/b2c-application-register.png":::
 
+#### Configure API permissions for the app 
 1. On the left pane, choose **Manifest**. Scroll until you find the `oauth2Permissions` array. Replace the array with one or more values in the [oauth2Permissions.json](/oauth2Permissions.json) file. Copy the entire array or individual permissions. 
  
    If you add a permission to the list, any user in the B2C tenant can obtain an access token with the API permission. If a level of access isn't appropriate for a user within the B2C tenant, don't add to the array because there isn't a way to limit permissions to a subset of users.
@@ -169,7 +170,10 @@ The B2C resource application handles authentication requests from your healthcar
 
    :::image type="content" source="media/b2c-setup/b2c-application-manifest.png" alt-text="Screenshot showing B2C application manifest" lightbox="media/b2c-setup/b2c-application-manifest.png":::
 
+#### Expose the web API and assign an application ID URI
+
 1. On the left pane, choose **Expose an API**. Choose **Add**. By default, the **Application ID URI** field is populated with the application (client) ID. Change the value if desired. In this example, the value is **fhir**.
+
 
 1. Choose **Save**.
 
@@ -181,13 +185,13 @@ The B2C resource application handles authentication requests from your healthcar
 
    :::image type="content" source="media/b2c-setup/b2c-api-permission1.png" alt-text="Screenshot showing B2C API permission1" lightbox="media/b2c-setup/b2c-api-permission1.png":::
 
-1. On the **Request API permissions** page, select **APIs my organization uses**.
+1. On the **Request API permissions** pane, select the **APIs my organization uses** tab.
 
 1. Select the resource application from the list.
 
    :::image type="content" source="media/b2c-setup/b2c-api-permission2.png" alt-text="Screenshot showing B2C API permission2" lightbox="media/b2c-setup/b2c-api-permission2.png":::
 
-1. From the **Patient** dropdown list, select at least one permission. In this example, the permission `patient.all.all` is selected, which means a user that requests an access token with the scope `patient.all.all` has Read, Write, and Delete privileges (patient.all.**all**) for all FHIR resources (patient.**all**.all) in the (**patient**.all.all) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
+1. In the **Patient** section, select at least one permission. In this example, the permission `patient.all.all` is selected, which means a user that requests an access token with the scope `patient.all.all` has Read, Write, and Delete privileges (patient.all.**all**) for all FHIR resources (patient.**all**.all) in the (**patient**.all.all) For more information, see [Patient compartment](https://build.fhir.org/compartmentdefinition-patient.html).
 
 1. Choose **Add permissions**.
 
@@ -201,21 +205,21 @@ The B2C resource application handles authentication requests from your healthcar
 
 Deploying the FHIR service with Azure Active Directory B2C as the identity provider allows the FHIR service to authenticate users based on their Azure B2C credentials, ensuring that only authorized users can access sensitive patient information
 
-### Obtain the B2C authority and client ID 
+#### Obtain the B2C authority and client ID 
 
 Use the **authority** and **client ID** (or application ID) parameters to configure the FHIR service to use an Azure B2C tenant as an identity provider.
 
 1. Create the authority string by using the name of the B2C tenant and the name of the user flow.
 
-```text
-https://<YOUR_B2C_TENANT_NAME>.b2clogin.com/<YOUR_B2C_TENANT_NAME>.onmicrosoft.com/<YOUR_USER_FLOW_NAME>/v2.0
-```
+   ```http
+   https://<YOUR_B2C_TENANT_NAME>.b2clogin.com/<YOUR_B2C_TENANT_NAME>.onmicrosoft.com/<YOUR_USER_FLOW_NAME>/v2.0
+   ```
 
 2. Test the authority string by making a request to the `.well-known/openid-configuration` endpoint.
-
-```text
-https://<YOUR_B2C_TENANT_NAME>.b2clogin.com/<YOUR_B2C_TENANT_NAME>.onmicrosoft.com/<YOUR_USER_FLOW_NAME>/v2.0/.well-known/openid-configuration
-```
+  
+   ```http
+   https://<YOUR_B2C_TENANT_NAME>.b2clogin.com/<YOUR_B2C_TENANT_NAME>.onmicrosoft.com/<YOUR_USER_FLOW_NAME>/v2.0/.well-known/openid-configuration
+   ```
 
 3. Enter the string into a browser to confirm it navigates to the OpenId Configuration JSON file. If the OpenId Configuration JSON fails to load, make sure the B2C tenant name and user flow name are correct.
 
@@ -293,7 +297,7 @@ az deployment group create --resource-group $resourcegroupname --template-file '
 
 ---
 
-## Step 3: Validate Azure B2C users can access FHIR resources
+## Step 3: Validate Azure B2C users are able to access FHIR resources
 
 The validation process involves creating a patient resource in the FHIR service, linking the patient resource to the Azure B2C user, and configuring Postman to get an access token for B2C users. After the validation process is complete, you can fetch the patient resource by using the B2C test user.
 
@@ -392,37 +396,37 @@ Obtain an access token to test the authentication flow.
 
 1. Scroll to the **Configure New Token** section and enter these values:
 
-- **Callback URL**. This value is configured when the B2C resource application is created.
+   - **Callback URL**. This value is configured when the B2C resource application is created.
 
-   ```http
-   https://oauth.pstmn.io/v1/callback
-   ```
+      ```http
+      https://oauth.pstmn.io/v1/callback
+      ```
 
-- **Auth URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
+   - **Auth URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
 
-   ```http
-   https://{YOUR_B2C_TENANT_NAME}.b2clogin.com/{YOUR_B2C_TENANT_NAME}.onmicrosoft.com/{YOUR_USER_FLOW_NAME}/oauth2/v2.0/authorize
-   ```
+      ```http
+      https://{YOUR_B2C_TENANT_NAME}.b2clogin.com/{YOUR_B2C_TENANT_NAME}.onmicrosoft.com/{YOUR_USER_FLOW_NAME}/oauth2/v2.0/authorize
+      ```
 
-- **Access Token URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
+   - **Access Token URL**. This value can be created using the name of the B2C tenant and the name of the user flow.
 
-   ```http
-   https://{YOUR_B2C_TENANT_NAME}.b2clogin.com/{YOUR_B2C_TENANT_NAME}.onmicrosoft.com/{YOUR_USER_FLOW_NAME}/oauth2/v2.0/token
-   ```
+      ```http
+      https://{YOUR_B2C_TENANT_NAME}.b2clogin.com/{YOUR_B2C_TENANT_NAME}.onmicrosoft.com/{YOUR_USER_FLOW_NAME}/oauth2/v2.0/token
+      ```
 
-- **Client ID**. This value is the application (client) ID of the B2C resource application.
+   - **Client ID**. This value is the application (client) ID of the B2C resource application.
 
-   ```http
-   {YOUR_APPLICATION_ID}
-   ```
+      ```http
+      {YOUR_APPLICATION_ID}
+      ```
 
-- **Scope**. This value is defined in the B2C resource application in the **Expose an API** section. The scope granted permission is `patient.all.all`. The scope request must be a fully qualified URL, for example, `https://testb2c.onmicrosoft.com/fhir/patient.all.all`. 
+   - **Scope**. This value is defined in the B2C resource application in the **Expose an API** section. The scope granted permission is `patient.all.all`. The scope request must be a fully qualified URL, for example, `https://testb2c.onmicrosoft.com/fhir/patient.all.all`. 
 
-   Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
+1. Copy the fully qualified scope from the **Expose an API** section of the B2C resource application.
 
-   ```http
-   {YOUR_APPLICATION_ID_URI}/patient.all.all
-   ```
+      ```http
+      {YOUR_APPLICATION_ID_URI}/patient.all.all
+      ```
 
    :::image type="content" source="media/b2c-setup/postman-urls.png" alt-text="Screenshot showing Postman URLs" lightbox="media/b2c-setup/postman-urls.png":::
 
@@ -453,5 +457,9 @@ Verify that Azure B2C users can access FHIR resources.
 1. Verify that the response contains the single patient resource.
 
    :::image type="content" source="media/b2c-setup/postman-request2.png" alt-text="Screenshot showing Postman request2" lightbox="media/b2c-setup/postman-request2.png":::
+
+## Next steps
+
+[Troubleshoot B2C identity provider configuration](troubleshoot-b2c-identity-provider-configuration.md)
 
 [!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-fhir-trademark.md)]
