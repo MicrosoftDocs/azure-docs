@@ -246,7 +246,7 @@ The following table describes the usage of the `<lang xml:lang>` element's attri
 
 ### Multilingual voices with the lang element
 
-Use the [multilingual voices section](multilingual-voices.md#multilingual-voices) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the example table below. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+Use the [multilingual voices section](includes/language-support/multilingual-voices.md#multilingual-voices) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the example table below. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 | Voice | Supported language number | Supported languages | Supported locales |
 |-------------|---------------------------|-----------------------|----------------|
