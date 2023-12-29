@@ -96,4 +96,4 @@ Include at least one permission string in the `allowedDataActions` array. You ca
 
 [Troubleshoot B2C identity provider configuration](troubleshoot-b2c-identity-provider-configuration.md)
 
-[!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
