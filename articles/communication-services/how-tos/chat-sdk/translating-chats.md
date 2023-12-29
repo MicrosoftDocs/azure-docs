@@ -30,7 +30,7 @@ This way, the message history contains both original and translated messages. In
 
 ## Sentiment analysis 
 
-Similarly for sentiment analysis as the users are talking the [Azure AI language](../../../ai-services/language-service/sentiment-opinion-mining/overview) service can be used.
+Similarly for sentiment analysis as the users are talking the [Azure AI language](../../../ai-services/language-service/sentiment-opinion-mining/overview.yml) service can be used.
 
 ## Next steps
 
