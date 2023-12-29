@@ -24,9 +24,13 @@ In this guide, learn how you can use [Azure AI APIs](../../../ai-services/index.
 One way to achieve the use cases above is by having your trusted service act as a participant on a chat thread. Let's say you want to enable language translation. This service (as illustrated in diagram below) is responsible for listening to the messages
 exchanged by other participants [1], calling Azure AI APIs to translate content to desired language [2 and 3] and sending the translated result as a message in the chat thread [4].
 
+:::image type="content" source="../../concepts/media/chat/ai-services.png" alt-text="Diagram showing Azure AI services interacting with Communication Services.":::
+
 This way, the message history contains both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](../../../ai-services/translator/quickstart-text-rest-api.md) to understand how to use AI APIs to translate text to different languages. 
 
-:::image type="content" source="../../concepts/media/chat/ai-services.png" alt-text="Diagram showing Azure AI services interacting with Communication Services.":::
+## Sentiment analysis 
+
+Similarly for sentiment analysis as the users are talking the [Azure AI language](../../../ai-services/language-service/sentiment-opinion-mining/) service can be used.
 
 ## Next steps
 
