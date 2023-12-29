@@ -5,7 +5,7 @@ author: paulcarter
 ms.author: paulcarter
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 11/07/2023
+ms.date: 12/21/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -22,12 +22,29 @@ To help you stay up to date with the latest developments, this article covers:
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
 
+## December 2023
+### Packet Capture
+
+**Type:** New feature
+
+**Date available:** December 4, 2023
+
+Previously, packet capture could only be performed from edge sites, requiring local access to your Azure Stack Edge device. Now, you can initiate packet capture from the Azure portal and seamlessly transmit the captured data from edge sites to an Azure storage container. You can then download the data to inspect with a tool of your choice.  For more information, see [Data Plane Packet Capture](data-plane-packet-capture.md).
+
+### Edge Log Backhaul
+
+**Type:** New Feature
+
+**Date available:** December 22, 2023
+
+The new Edge Log Backhaul feature provides Microsoft support personnel with easy access to customer network function logs to help them troubleshoot and find root cause for customer issues. 
+
 ## October 2023
 ### Packet core 2310
 
 **Type:** New release
 
-**Date available:** October 7, 2023
+**Date available:** November 7, 2023
 
 The 2310 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2310 release notes](azure-private-5g-core-release-notes-2310.md).
 
@@ -35,17 +52,16 @@ The 2310 release for the Azure Private 5G Core packet core is now available. For
 This feature makes the N2, N3 and N6 gateways optional during the network configuration of an ASE if the RAN and Packet Core are on the same subnet. This feature provides flexibility to use AP5GC without gateways if there's direct connectivity available with the RAN and/or DN.
 
 ### Improved software download time
-This feature improves overall AP5GC software download time by reducing the size of underlying software packages. The overall size of the software image is reduced by around 40%.
+This feature improves overall AP5GC software download time by reducing the size of underlying software packages by around 40%.
 
 ### Per-UE information in Azure portal and API
-This feature allows you to view UE-level information in the Azure portal, including a list of SIMs with high level information and a detailed view for each SIM. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min. See [Manage existing SIMs for Azure Private 5G Core - Azure portal](manage-existing-sims.md).
+This feature allows you to view UE-level information in the Azure portal. It includes a list of SIMs with high level information and a detailed view for each SIM. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min. See [Manage existing SIMs for Azure Private 5G Core - Azure portal](manage-existing-sims.md).
 
 ### Per gNB metrics in Azure portal
 This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed via Azure monitor under Packet Core Control Plane and Packet Core Data Plane resources. These metrics can be used to correlate the RAN and packet core metrics and troubleshoot.
 
 ### Combined 4G/5G on a single packet core
 This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network site. You can deploy a RAN network with both 4G and 5G radios and connect to a single packet core.
-
 
 ## September 2023
 ### Packet core 2308
@@ -77,7 +93,7 @@ In this release, the default MTU values are changed as follows:
 
 Customers upgrading to 2308 see a change in the MTU values on their packet core.
 
-If the UE MTU is set to any valid value (see API Spec) then the other MTUs will be set to:
+If the UE MTU is set to any valid value (see API Spec), then the other MTUs are set to:
 - Access MTU: UE MTU + 60
 - Data MTU: UE MTU
   
@@ -114,7 +130,7 @@ The UE usage tracking messages in Azure Event Hubs are now encoded in AVRO file 
 
 **Date available:** July 31, 2023
 
-In this release, the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
+This feature changes the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
 ### 2023-06-01 API
 
 **Type:** New release
@@ -128,7 +144,7 @@ If you use the Azure portal to manage your deployment and all your resources wer
 ARM API users with existing resources can continue to use the 2022-04-01-preview API or 2022-11-01 without updating their templates.
 ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
  
-Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API can't go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+Note: ARM API users who did a PUT using the 2023-06-01 API and enabled configuration only accessible in the up-level API can't go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config is deleted.
 
 ### New cloud monitoring option - Azure Monitor Workbooks
 
@@ -260,7 +276,7 @@ For more details, see [Create and manage network slices - Azure portal](create-m
 
 **Date available:** January 31, 2023
 
-The Azure Private 5G Core online service now reports the provisioning status of SIMs per-site, on both the **SIM** and **Site** resource views, to allow you to accurately determine where individual SIMs have been provisioned.
+The Azure Private 5G Core online service now reports the provisioning status of SIMs per-site, on both the **SIM** and **Site** resource views, to allow you to accurately determine where individual SIMs are provisioned.
 
 ### Diagnostic package collection
 
@@ -341,7 +357,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 1. In the **Packet Core Control Plane** resource:
    1. Remove the field **properties.mobileNetwork**.
    2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource under which this control plane is being created.
-   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This field is an enum governing how users of local diagnostics APIs will be authenticated. Set this to **Password**.
+   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This field is an enum governing how users of local diagnostics APIs are authenticated. Set this to **Password**.
    4. Update the field **properties.sku** according to the mapping in the following table.
 
         | 2022-04-01-preview API  | 2022-11-01 API |
@@ -355,10 +371,10 @@ Make the following changes for each 2022-04-01-preview API template that you wan
         | LargePackage | G10 |
 
 1. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. List your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
-1. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
-1. Move the **Sites** resource above the **packetCoreControlPlanes** resource. This ensures that the resources are created in the required order.
+1. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and is ignored if provided.
+1. Move the **Sites** resource above the **packetCoreControlPlanes** resource. This move ensures that the resources are created in the required order.
 
-The following is a comparison of templates using the 2022-04-01-preview and the 2022-11-01 APIs.
+The following json extract is a comparison of templates using the 2022-04-01-preview and the 2022-11-01 APIs.
 
 # [2022-04-01-preview API](#tab/2022-04-01-preview)
 
@@ -473,7 +489,7 @@ Each Data Network can have its own configuration for DNS, UE IP address pools, N
 
 This feature has the following limitations:
 
-- Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled. To ensure this reinstall happens only after you have made all your changes, you must follow the process for installing and modifying as described in the documentation.
+- Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled. To ensure this reinstall happens only after you make all your changes, you must follow the process for installing and modifying as described in the documentation.
 
 - VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks).
 
@@ -495,7 +511,7 @@ Previously, you had to delete all the ARM resources associated with a site befor
 
 **Date available:** December 5, 2022
 
-You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. This only applies when using the Azure portal.
+You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade blocks and the portal displays an error message. This change only applies when using the Azure portal.
 
 ## October 2022
 
@@ -513,7 +529,7 @@ The 2210 release for the Azure Private 5G Core packet core is now available. For
 
 **Date available:** October 25, 2022
 
-When deploying a site directly on an ASE device, you no longer need to specify the subnet mask and gateway information for the access and data networks. Instead, you'll only need to provide an Azure Stack Edge device and the names of the N2 (or S1-MME), N3 (or S1-U), and N6 (or SGi) interfaces that exist on the ASE. The subnet mask and gateway information will then be automatically collected from the linked ASE device.
+When deploying a site directly on an ASE device, you no longer need to specify the subnet mask and gateway information for the access and data networks. Instead, you need to provide an Azure Stack Edge device and the names of the N2 (or S1-MME), N3 (or S1-U), and N6 (or SGi) interfaces that exist on the ASE. The subnet mask and gateway information will then be automatically collected from the linked ASE device.
 
 See [Collect the required information for a site](collect-required-information-for-a-site.md) for the information you need to collect to create a site following this enhancement. If your site is already deployed, you can link it to your ASE device by following [Modify the packet core instance in a site](modify-packet-core.md).
 

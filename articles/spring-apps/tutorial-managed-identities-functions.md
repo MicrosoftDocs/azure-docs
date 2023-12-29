@@ -173,13 +173,13 @@ This sample invokes the HTTP triggered function by first requesting an access to
 1. Use the following command clone the sample project:
 
    ```bash
-   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
+   git clone https://github.com/Azure-Samples/azure-spring-apps-samples.git
    ```
 
 1. Use the following command to specify your function URI and the trigger name in your app properties:
 
    ```bash
-   cd Azure-Spring-Cloud-Samples/managed-identity-function
+   cd azure-spring-apps-samples/managed-identity-function
    vim src/main/resources/application.properties
    ```
 

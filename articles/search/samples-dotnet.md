@@ -67,7 +67,7 @@ An accelerator is an end-to-end solution that includes code and documentation th
 | Samples | Repository | Description |
 |---------|------------|-------------|
 | [Search + QnA Maker Accelerator](https://github.com/Azure-Samples/search-qna-maker-accelerator) | [search-qna-maker-accelerator](https://github.com/Azure-Samples/search-qna-maker-accelerator)| A [solution](https://techcommunity.microsoft.com/t5/azure-ai/qna-with-azure-cognitive-search/ba-p/2081381) combining the power of Search and QnA Maker. See the live [demo site](https://aka.ms/qnaWithAzureSearchDemo). |
-| [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | [azure-search-knowledge-mining](https://github.com/azure-samples/azure-search-knowledge-mining/tree/main/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
+| [Knowledge Mining Solution Accelerator](/shows/ai-show/knowledge-mining-with-azure-search) | [azure-search-knowledge-mining](https://github.com/azure-samples/azure-search-knowledge-mining/tree/main/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
 
 ## Demos
 
@@ -75,8 +75,8 @@ A demo repo provides proof-of-concept source code for examples or scenarios show
 
 | Samples | Repository | Description |
 |---------|------------|-------------|
-| [Covid-19 search app](https://github.com/liamca/covid19search/blob/main/README.md) | [covid19search](https://github.com/liamca/covid19search) | Source code repository for the Azure AI Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
-| [JFK demo](https://github.com/Microsoft/AzureSearch_JFK_Files/blob/main/README.md) | [AzureSearch_JFK_Files](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
+| Covid-19 search app | [covid19search](https://github.com/liamca/covid19search) | Source code repository for the Azure AI Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
+| JFK demo | [AzureSearch_JFK_Files](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
 
 ## Other samples
 
@@ -84,7 +84,7 @@ The following samples are also published by the Azure AI Search team, but aren't
 
 | Samples | Repository | Description |
 |---------|------------|-------------|
-| [DotNetVectorDemo](https://github.com/Azure/cognitive-search-vector-pr/blob/main/demo-dotnet/readme.md) | [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure AI Search to create, load, and query an index. |
+| [DotNetVectorDemo](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-dotnet/DotNetVectorDemo/readme.md)  | [azure-search-vector](https://github.com/Azure/cognitive-search-vector-pr) | Calls Azure OpenAI to generate embeddings and Azure AI Search to create, load, and query an index. |
 | [Query multiple services](https://github.com/Azure-Samples/azure-search-dotnet-scale/tree/main/multiple-search-services) |  [azure-search-dotnet-scale](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Issue a single query across multiple search services and combine the results into a single page.  |
 | [Check storage](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/check-storage-usage/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | Invokes an Azure function that checks search service storage on a schedule. |
 | [Export an index](https://github.com/Azure-Samples/azure-search-dotnet-utilities/blob/main/export-data/README.md) | [azure-search-dotnet-utilities](https://github.com/Azure-Samples/azure-search-dotnet-utilities) | C# console app that partitions and export a large index. |

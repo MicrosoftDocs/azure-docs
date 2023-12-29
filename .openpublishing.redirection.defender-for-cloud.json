@@ -588,7 +588,7 @@
         {
             "source_path_from_root": "/articles/security-center/managing-and-responding-alerts.md",
             "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/os-coverage.md",
@@ -702,8 +702,8 @@
         },
         {
             "source_path_from_root": "/articles/security-center/tutorial-security-incident.md",
-            "redirect_url": "/azure/defender-for-cloud/tutorial-security-incident",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/tutorial-security-policy.md",
@@ -891,8 +891,23 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/defender-for-cloud/agentless-container-registry-vulnerability-assessment.md",
+            "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerabilities-for-images-running-on-aks.md",
+            "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerabilities-for-images",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/attack-path-reference.md",
             "redirect_url": "/azure/defender-for-cloud/how-to-manage-attack-path",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-incident.md",
+            "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
             "redirect_document_id": true
         }
     ]

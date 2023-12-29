@@ -7,6 +7,8 @@ items:
       href: overview.md
     - name: Multicloud monitoring
       href: best-practices-multicloud.md
+    - name: AIOps and machine learning
+      href: logs/aiops-machine-learning.md
     - name: What's new?
       href: whats-new.md
 - name: Getting started
@@ -408,8 +410,6 @@ items:
           href: vm/vminsights-enable-hybrid.md
         - name: Dependency Agent
           href: vm/vminsights-dependency-agent-maintenance.md
-        - name: Configure workspace 
-          href: vm/vminsights-configure-workspace.md
         - name: Migrate from deprecated VM insights policies 
           href: vm/vminsights-migrate-deprecated-policies.md          
       - name: Map dependencies
@@ -1198,6 +1198,8 @@ items:
         href: /azure/data-explorer/kusto/query?toc=/azure/azure-monitor/toc.json
       - name: Detect and analyze anomalies in log data
         href: logs/kql-machine-learning-azure-monitor.md
+      - name: Analyze data in Azure Monitor Logs using a notebook
+        href: logs/notebooks-azure-monitor-logs.md      
       - name: Standard columns
         href: logs/log-standard-columns.md
       - name: Query Basic logs
@@ -1210,6 +1212,8 @@ items:
         href: logs/functions.md
       - name: Parse text data
         href: logs/parse-text.md
+      - name: Send to Excel
+        href: logs/log-excel.md
       - name: Computer groups
         href: logs/computer-groups.md
       - name: Cross-service and cross-resource queries
@@ -1303,6 +1307,8 @@ items:
           items:
           - name: The alerts common schema
             href: alerts/alerts-common-schema.md
+          - name: Non-common alerts schema
+            href: alerts/alerts-non-common-schema-definitions.md
           - name: Integrate with Logic apps
             href: alerts/alerts-logic-apps.md
           - name: Integrate with webhooks
@@ -1391,11 +1397,6 @@ items:
         href: alerts/alerts-log-api-switch.md
       - name: Edit log alerts created in previous versions
         href: alerts/alerts-manage-alerts-previous-version.md
-
-
-
-
- 
   - name: AutoScale
     items:
       - name: Overview
@@ -1428,16 +1429,6 @@ items:
         href: autoscale/autoscale-diagnostics.md  
       - name: Troubleshooting
         href: autoscale/autoscale-troubleshoot.md
-  - name: AIOps and machine learning
-    items:
-      - name: AIOps and machine learning in Azure Monitor
-        href: logs/aiops-machine-learning.md
-      - name: Machine learning in Azure Monitor Logs
-        items:
-        - name: Detect and analyze anomalies in log data with KQL
-          href: logs/kql-machine-learning-azure-monitor.md
-        - name: Analyze data in Azure Monitor Logs using a notebook
-          href: logs/notebooks-azure-monitor-logs.md      
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -1454,6 +1445,8 @@ items:
         href: alerts/resource-manager-alerts-metric.md
       - name: Activity log alert rules
         href: alerts/resource-manager-alerts-activity-log.md
+      - name: Service health alert rules
+        href: alerts/resource-manager-alerts-service-health.md
       - name: Resource health alert rules
         href: alerts/resource-manager-alerts-resource-health.md
       - name: Action groups

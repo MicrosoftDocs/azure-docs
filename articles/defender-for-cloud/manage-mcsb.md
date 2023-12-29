@@ -22,7 +22,7 @@ This article describes how you can manage recommendations provided by MCSB.
 
 - **Deny** is used to prevent deployment of resources that don't comply with MCSB. For example, if you have a Deny control that specifies that a new storage account must meet a certain criteria, a storage account can't be created if it doesn't meet that criteria.
 
-- **Enforce** lets you take advantage of the **DeployIfNotExist** effect in Azure Policy, and automatically remediate non-compliant resources upon creation.
+- **Enforce** lets you take advantage of the **DeployIfNotExist** effect in Azure Policy, and automatically remediate noncompliant resources upon creation.
 
     > [!NOTE]
     > Enforce and Deny are applicable to Azure recommendations and are supported on a subset of recommendations.
@@ -32,6 +32,9 @@ To review which recommendations you can deny and enforce, in the **Security poli
 ## Manage recommendation settings
 
 You can enable/disable, deny and enforce recommendations.
+
+> [!NOTE]
+> If a recommendation is disabled, all of its subrecommendations are exempted.
 
 1. In the Defender for Cloud portal, open the **Environment settings** page.
 
@@ -60,14 +63,11 @@ You can only enforce a recommendation from the recommendation details page.
 
 1. Select **Save**.
 
-The setting will take effect immediately, but recommendations will update based on their freshness interval (up to 12 hours).
-
-
-
+The setting takes effect immediately, but recommendations will update based on their freshness interval (up to 12 hours).
 
 ## Modify additional parameters
 
-You might want to configure additional parameters for some recommendations. For example diagnostic logging recommendations have a default retention period of one day. You can change that default value.
+You might want to configure additional parameters for some recommendations. For example, diagnostic logging recommendations have a default retention period of one day. You can change that default value.
 
 In the recommendation details page, the **Additional parameters** column indicates whether a recommendation has associated additional parameters.
 
@@ -94,11 +94,12 @@ Potential conflicts can arise when you have multiple assignments of standards wi
     :::image type="content" source="./media/manage-mcsb/effect-conflict.png" alt-text="Screenshot showing how to manage assignment of standards with different values." lightbox="./media/manage-mcsb/effect-conflict.png":::
 
 1. To identify conflicts in additional parameters, in **Add**, select **Additional parameters conflict** > **Has conflict** to identify any conflicts.
-1. If conflicts are found, in **Recommendation settings**, select the required value, and save. 
+1. If conflicts are found, in **Recommendation settings**, select the required value, and save.
 
 All assignments on the scope will be aligned with the new setting, resolving the conflict.
 
 ## Next steps
+
 This page explained security policies. For related information, see the following pages:
 
 - [Learn how to set policies using PowerShell](../governance/policy/assign-policy-powershell.md)

@@ -2,7 +2,6 @@
 title: Use pronunciation assessment
 titleSuffix: Azure AI services
 description: Learn about pronunciation assessment features that are currently publicly available.
-#services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech

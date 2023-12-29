@@ -113,7 +113,7 @@ Rebuild the app and deploy it to the Azure Spring Apps provisioned in the second
 
 ## Next steps
 
-* [How to access Storage blob with managed identity in Azure Spring Apps](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
+* [How to access Storage blob with managed identity in Azure Spring Apps](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/managed-identity-storage-blob)
 * [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
 * [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [Authenticate Azure Spring Apps with Key Vault in GitHub Actions](./github-actions-key-vault.md)

@@ -3,7 +3,7 @@ title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 09/25/2023
+ms.date: 12/21/2023
 author: snehasudhirG
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -125,7 +125,7 @@ An Arc-enabled server managed with Azure Update Manager is not charged in follow
 
 ### Will I be charged if I move from Automation Update Management to Update Manager? 
 
-Customers using Automation Update Management moving to Azure Update Manager won't be charged till retirement of LA agent.
+Customers using Automation Update Management moving to Azure Update Manager in the same subscription won't be charged till retirement of LA agent.
 
 ### I'm a Defender for Server customer and use update recommendations powered by Azure Update Manager namely "periodic assessment should be enabled on your machines" and "system updates should be installed on your machines". Would I be charged for Azure Update Manager? 
 

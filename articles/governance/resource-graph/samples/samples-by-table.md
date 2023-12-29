@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by table
 description: List sample queries for Azure Resource-Graph. Tables include Resources, ResourceContainers, PolicyResources, and more.
-ms.date: 11/15/2023
+ms.date: 12/13/2023
 ms.topic: sample
 ms.custom: generated
 ---
@@ -16,6 +16,10 @@ details, see [Resource Graph tables](../concepts/query-language.md#resource-grap
 ## AdvisorResources
 
 [!INCLUDE [azure-resource-graph-samples-table-advisorresources](../../../../includes/resource-graph/samples/bytable/advisorresources.md)]
+
+## AppServiceResources
+
+[!INCLUDE [app-service-resources-tls-version](../../includes/resource-graph/query/app-service-resources-tls-version.md)]
 
 ## AuthorizationResources
 

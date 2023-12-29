@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 12/18/2023
 ---
 
 # Custom Web API skill in an Azure AI Search enrichment pipeline
@@ -34,7 +34,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | `uri` | The URI of the Web API to which the JSON payload will be sent. Only the **https** URI scheme is allowed. |
-| `authResourceId` | (Optional) A string that if set, indicates that this skill should use a managed identity on the connection to the function or app hosting the code. The value of this property is the application (client) ID of the function or app's registration in Microsoft Entra ID. This value will be used to scope the authentication token retrieved by the indexer, and will be sent along with the custom Web skill API request to the function or app. Setting this property requires that your search service is [configured for managed identity](search-howto-managed-identities-data-sources.md) and your Azure function app is [configured for a Microsoft Entra login](../app-service/configure-authentication-provider-aad.md). |
+| `authResourceId` | (Optional) A string that if set, indicates that this skill should use a managed identity on the connection to the function or app hosting the code. This property takes an application (client) ID or app's registration in Microsoft Entra ID, in a [supported format](../active-directory/develop/security-best-practices-for-app-registration.md#application-id-uri): `api://<appId>`. This value will be used to scope the authentication token retrieved by the indexer, and will be sent along with the custom Web skill API request to the function or app. Setting this property requires that your search service is [configured for managed identity](search-howto-managed-identities-data-sources.md) and your Azure function app is [configured for a Microsoft Entra login](../app-service/configure-authentication-provider-aad.md). To use this parameter, call the API with `api-version=2023-10-01-Preview`. |
 | `httpMethod` | The method to use while sending the payload. Allowed methods are `PUT` or `POST` |
 | `httpHeaders` | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via`. |
 | `timeout` | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
@@ -207,7 +207,7 @@ In addition to your Web API being unavailable, or sending out non-successful sta
 
 * If the Web API returns a success status code but the response indicates that it is not `application/json` then the response is considered invalid and no enrichments will be performed.
 
-* If there are invalid records (for example, `recordId` is missing or duplicated) in the response `values` array, no enrichment will be performed for the invalid records.
+* If there are invalid records (for example, `recordId` is missing or duplicated) in the response `values` array, no enrichment will be performed for the invalid records. It's important to adhere to the Web API skill contract when developing custom skills. You can refer to [this example](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Common/WebAPISkillContract.cs) provided in the [Power Skill repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main) that follows the expected contract. 
 
 For cases when the Web API is unavailable or returns an HTTP error, a friendly error with any available details about the HTTP error will be added to the indexer execution history.
 
@@ -216,3 +216,4 @@ For cases when the Web API is unavailable or returns an HTTP error, a friendly e
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
++ [Power Skill repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main)

@@ -1,6 +1,6 @@
 ---
-title: 'Protect high-risk network ports with SecurityAdmin Rules in Azure Virtual Network Manager.'
-description: You deploy Security admin rules to protect high-risk security ports with Azure Virtual Network Manager.
+title: 'Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager.'
+description: Learn to deploy security admin rules to protect high-risk security ports and create exceptions for management traffic with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
 ms.service: virtual-network-manager
@@ -10,14 +10,14 @@ ms.custom: template-how-to
 ---
 # Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
 
-
-In this article, you learn to block high risk network ports using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create & deploy security admin configurations for your organization. You deploy a general block rule for high risk ports. Then you create an exception for managing a specific application's VNet using network security groups.
+In this article, you learn to block high risk network ports using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create & deploy security admin configurations for your organization. You deploy a general block rule for high risk ports. Then you create an exception rule for managing a specific application's VNet using network security groups.
 
 While this article focuses on a single port, SSH, you can protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
 
 [!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
+
 - You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
 - You understand each element in a [Security admin rule](concept-security-admins.md).
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -25,6 +25,7 @@ While this article focuses on a single port, SSH, you can protect any high-risk 
 - To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
 
 ## Deploy virtual network environment
+
 You need a virtual network environment that includes virtual networks that can be segregated for allowing and blocking specific network traffic. You may use the following table or your own configuration of virtual networks:
 
 | Name | IPv4 address space | subnet |
@@ -39,7 +40,7 @@ You need a virtual network environment that includes virtual networks that can b
 
 Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
-## Create a Virtual Network Manager
+## Create a virtual network manager instance
 
 In this section, you deploy a Virtual Network Manager instance with the Security admin feature in your organization.
 
@@ -62,7 +63,7 @@ In this section, you deploy a Virtual Network Manager instance with the Security
 1. Select **Review + create** and then select **Create** once validation has passed.
 1. Select **Go to resource** when deployment is complete and review the virtual network manager configuration
 
-## Create a network group
+## Create a network group for all virtual networks
 
 With your virtual network manager created, you now create a network group containing all of the VNets in the organization, and you manually add all of the VNets.
 1. Select **Network Groups**, under **Settings**.
@@ -72,7 +73,7 @@ With your virtual network manager created, you now create a network group contai
 1. On the **Add static members** page, select all of the virtual networks you wish to include, and select **Add**.
     :::image type="content" source="media/how-to-block-high-risk-ports/add-members-manual-network-group.png" alt-text="Screenshot of Add Static Members page showing manual selection of virtual networks.":::
 
-## Create a security admin configuration denying traffic
+## Create a security admin configuration for all virtual networks
 
 It’s time to construct our security admin rules within a configuration in order to apply those rules to all the VNets within your network group at once. In this section, you create a security admin configuration. Then you create a rule collection and add rules for high risks ports like SSH or RDP. This configuration denies network traffic to all virtual networks in the network group.
 1. Return to your virtual network manager resource.
@@ -94,7 +95,7 @@ It’s time to construct our security admin rules within a configuration in orde
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/rule-collection-target.png" alt-text="Screenshot of rule collection name and target network groups.":::
 
-## Add a security rule for all virtual networks
+## Add a security rule for denying high-risk network traffic
 
 In this section, you define the security rule to block high-risk network traffic to all virtual networks. When assigning priority, keep in mind future exception rules. Set the priority so that exception rules are applied over this rule.
 
@@ -132,7 +133,8 @@ In this section, you define the security rule to block high-risk network traffic
     :::image type="content" source="./media/how-to-block-network-traffic-portal/save-rule-collection.png" alt-text="Screenshot of a rule collection.":::
 
 1. Then select **Review + Create** and **Create** to complete the security configuration.
-## Deploy a security admin configuration
+
+## Deploy a security admin configuration for blocking network traffic
 
 In this section, the rules created take effect when you deploy the security admin configuration.
 
@@ -145,7 +147,8 @@ In this section, the rules created take effect when you deploy the security admi
     :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-security-configuration.png" alt-text="Screenshot of deploy a security configuration page.":::
 
 1. Select **Next** and **Deploy** to deploy the security admin configuration.
-## Create a network group for exception virtual networks
+
+## Create a network group for traffic exception rule
 
 With traffic blocked across all of your VNets, you need an exception to allow traffic to specific virtual networks. You create a network group specifically for the VNets needing exclusion from the other security admin rule.
 
@@ -158,7 +161,7 @@ With traffic blocked across all of your VNets, you need an exception to allow tr
     :::image type="content" source="media/how-to-block-high-risk-ports/effective-virtual-networks.png" alt-text="Screenshot of Effective Virtual Networks page showing virtual networks dynamically included in network group.":::
 1. Select **Save**.
 
-## Create an exception Security Admin Rule collection and Rule
+## Create a traffic exception security admin rule and collection
 
 In this section, you create a new rule collection and security admin rule that allows high-risk traffic to the subset of virtual networks you've defined as exceptions. Next, you add it to your existing security admin configuration.
 
@@ -173,7 +176,8 @@ In this section, you create a new rule collection and security admin rule that a
 1. Enter or select the values to allow specific network traffic to your application network group, and select **add** when completed.
 1. Repeat the add rule process for all traffic needing an exception.
 1. Select **Save** when you're done.
-## Redeploy the security admin configuration
+   
+## Redeploy the security admin configuration with exception rule
 
 To apply the new rule collection, you redeploy your security admin configuration since it was modified by adding a rule collection.
 

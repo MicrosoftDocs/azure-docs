@@ -6,7 +6,7 @@ author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
@@ -684,7 +684,7 @@ The following entities are grouped and listed by country/region:
 :::row:::
     :::column span="":::
 
-        EU GPU coordinates
+        EU GPS coordinates
 
     :::column-end:::
     :::column span="2":::
