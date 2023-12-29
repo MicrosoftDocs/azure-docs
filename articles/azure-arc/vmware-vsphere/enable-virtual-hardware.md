@@ -2,7 +2,7 @@
 title:  Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
 description: Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
 ms.topic: how-to 
-ms.date: 12/27/2023
+ms.date: 12/29/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: Farha-Bano
@@ -27,29 +27,25 @@ In this article, you learn how to enable virtual hardware management and VM CRUD
 
 1. From your browser, go to [Azure portal](https://portal.azure.com/).
 
-1. Navigate to the Virtual machines inventory page of your vCenter. <br>
-   The virtual machines that have Arc agent installed via the Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management.
+1. Navigate to the Virtual machines inventory page of your vCenter. The virtual machines that have Arc agent installed via the Arc-enabled Servers route will have **Link to vCenter** status under virtual hardware management.
 
 1. Select **Link to vCenter** to view the pane with the list of all the machines under vCenter with Arc agent installed but not linked to the vCenter in Azure Arc.
 
 1. Choose all the machines that need to be enabled in Azure, and select **Link** to link the machines to vCenter.
 
-1. After you link to vCenter, the virtual hardware status will reflect as **Enabled for all the VMs**, and you can perform [virtual hardware operations](perform-vm-ops-through-azure.md). 
+1. After you link to vCenter, the virtual hardware status will reflect as **Enabled** for all the VMs, and you can perform [virtual hardware operations](perform-vm-ops-through-azure.md). 
 
 ### Known issue
  
 During the first scan of the vCenter inventory after onboarding to Azure Arc-enabled VMware vSphere, Arc-enabled Servers machines will be discovered under vCenter inventory. If the Arc-enabled Server machines aren't discovered and you try to perform the **Enable in Azure** operation, you'll encounter the following error:<br>
 
-
-```
-A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.
-```
+*A machine '/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/rg-contoso/providers/Microsoft.HybridCompute/machines/testVM1' already exists with the specified virtual machine MoRefId: 'vm-4441'. The existing machine resource can be extended with private cloud capabilities by creating the VirtualMachineInstance resource under it.*
 
 When you encounter this error message, try performing the **Link to vCenter** operation again after a few minutes (5-10 minutes). Alternatively, you can use the following Azure CLI command to link an existing Arc-enabled Server machine to vCenter:<br>
 
 
 ```azurecli-interactive
-az connectedvmware vm create --subscription XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX --location eastus --resource-group rg-contoso --custom-location /providers/microsoft.extendedlocation/customlocations/contoso-cl --name contoso-hcrp-machine-name --inventory-item /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXXX/resourceGroups/contoso-rg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/contoso-vcenter/InventoryItems/vm-142359
+az connectedvmware vm create --subscription <subscription-id> --location <Azure region of the machine> --resource-group <resource-group-name> --custom-location /providers/microsoft.extendedlocation/customlocations/<custom-location-name> --name <machine-name> --inventory-item /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ConnectedVMwarevSphere/<vcenter-name>/contoso-vcenter/InventoryItems/<machine-name>
 ```
 
 ## Next steps
