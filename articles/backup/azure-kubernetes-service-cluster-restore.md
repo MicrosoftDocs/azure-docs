@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: backup
 ms.custom:
   - ignite-2023
-ms.date: 12/25/2023
+ms.date: 12/29/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -110,6 +110,15 @@ As part of item-level restore capability of AKS backup, you can utilize multiple
      If the *Namespace* doesn't exist in the AKS cluster, it gets created. If a conflict occurs during the cluster resources restore, you can skip or patch the conflicting resources.
    
      :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-backed-up-namespace-for-migrate.png" alt-text="Screenshot shows the selection of namespace for migration.":::
+
+Azure Backup for AKS currently supports the following two options when doing a restore operation when resource clash happens (backed-up resource has the same name as the resource in the target AKS cluster). You can choose one of these options when defining the restore configuration.
+
+1. **Skip**: This option is selected by default. For example, if you have backed up a PVC named *pvc-azuredisk* and you're restoring it in a target cluster that has the PVC with the same name, then the backup extension skips restoring the backed-up persistent volume claim (PVC). In such scenarios, we recommend you to delete the resource from the cluster, and then do the restore operation so that the backed-up items are only available in the cluster and aren't skipped.
+
+2. **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation. 
+
+>[!Note]
+>AKS backup currently doesn't delete and recreate resources in the target cluster if they already exist. If you attempt to restore Persistent Volumess in the original location, delete the existing Persistent Volumes, and then do the restore operation.
 
 ## Restore in secondary region (preview)
 

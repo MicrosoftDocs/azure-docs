@@ -212,13 +212,13 @@ This error code can appear while you enable AKS backup to store backups in a vau
 
 **Recommended action**: Update the retention rule with vault-standard duration defined on Azure portal:
 
-1. Select **Edit** next to the rule.
+1. Select **Edit** icon next to the rule.
 
    :::image type="content" source="./media/azure-kubernetes-service-backup-troubleshoot/edit-backup-policy-for-vaulted-backup.png" alt-text="Screenshot shows how to edit the retention duration of the AKS backups." lightbox="./media/azure-kubernetes-service-backup-troubleshoot/edit-backup-policy-for-vaulted-backup.png":::
 
-2. Clear the checkbox next the *vault-standard* and select **Save**.
+2. Clear the checkbox next the **Vault-standard**, and then select **Update**.
 
-   :::image type="content" source="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png" alt-text="Screenshot shows to clear the vault-standard checkbox." lightbox="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png":::
+   :::image type="content" source="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png" alt-text="Screenshot shows clearing the vault-standard checkbox." lightbox="./media/azure-kubernetes-service-backup-troubleshoot/clear-vault-standard-checkbox.png":::
 
 3. Create a backup policy for operational tier backup (only snapshots for the AKS cluster).
 
