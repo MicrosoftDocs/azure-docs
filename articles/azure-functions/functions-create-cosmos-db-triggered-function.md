@@ -4,12 +4,14 @@ description: Use Azure Functions to create a serverless function that is invoked
 
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 04/28/2020
+ms.date: 12/28/2023
 ms.custom: cc996988-fb4f-47, ignite-2022
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
+Learn how to create a function in the Azure portal that is triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
+
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
 ## Prerequisites
 
