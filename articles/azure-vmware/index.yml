@@ -30,7 +30,7 @@ highlightedContent:
     - title: Azure VMware Solution concepts 
       itemType: concept
       url: toc.yml#concepts
-    - title:  integration
+    - title:  Azure native integration
       itemType: how-to-guide
       url: toc.yml#how-to-guides
     - title: Azure VMware Solution network configuration
