@@ -45,12 +45,8 @@ To run the image stitching operation on a set of images, follow these steps:
     ```bash
     curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/imagecomposition:stitch?api-version=2023-04-01-preview" --output <your_filename> -d "{
         'images': [
-            {
-            'url':'<your_url_string>'
-            },
-            {
-            'url':'<your_url_string_2>'
-            },
+            '<your_url_string_>',
+            '<your_url_string_2>',
             ...
         ]
     }"
