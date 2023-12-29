@@ -401,7 +401,7 @@ rm manifest.json
 ```
 
 > [!NOTE]
->Ensure that you are logged on using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](https://learn.microsoft.com/cli/azure/ad/app#az-ad-app-create) for more information.
+>Ensure that you are logged on using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](/cli/azure/ad/app#az-ad-app-create) for more information.
 >
 
 
