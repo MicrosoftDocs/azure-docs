@@ -60,7 +60,7 @@ On remote participant join, you can inject the view data for the remote particip
 
 #### Usage
 
-To set the participant view data for remote participants, set `onRemoteParticipantJoined` completion for the event handler. On remote participant join, use `set(remoteParticipantViewData:, for:, completionHandler:)` for `CallComposite` to inject view data for remote participants. The participant identifier `CommunicationIdentifier` uniquely identifies a remote participant. You use the optional completion handler to return the result of the set operation.
+To set the view data for remote participants, set `onRemoteParticipantJoined` completion for the event handler. On remote participant join, use `set(remoteParticipantViewData:, for:, completionHandler:)` for `CallComposite` to inject view data for remote participants. The participant identifier `CommunicationIdentifier` uniquely identifies a remote participant. You use the optional completion handler to return the result of the set operation.
 
 ```swift
 callComposite.events.onRemoteParticipantJoined = { [weak callComposite] identifiers in

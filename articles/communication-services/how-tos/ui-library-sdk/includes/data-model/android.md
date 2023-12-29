@@ -12,7 +12,7 @@ For more information, see the [open-source Android UI Library](https://github.co
 
 ### Local participant view customization
 
-The UI Library gives developers the ability to provide a more customized experience regarding participant information. At launch, you can optionally inject local participant data. This local data isn't shared with the server, and you can use it to customize the display name and avatar of the local user.
+The UI Library gives developers the ability to provide a customized experience regarding participant information. At launch, you can optionally inject local participant data. This local data isn't shared with the server, and you can use it to customize the display name and avatar of the local user.
 
 #### Local options
 
@@ -35,7 +35,7 @@ If you don't provide the `CallCompositeParticipantViewData` instance of `display
 
 #### Setup screen view data
 
-`CallCompositeSetupScreenViewData` is an object that sets `title` and `subtitle` for the navigation bar on the call setup screen. If `subtitle` isn't defined, the subtitle is hidden. Here, `title` is required to set the `subtitle`, but `subtitle` is optional when `title` is set. This class is locally stored, and its information isn't sent to the server.
+`CallCompositeSetupScreenViewData` is an object that sets `title` and `subtitle` for the navigation bar on the call setup screen. If `subtitle` isn't defined, the subtitle is hidden. Here, `title` is required to set `subtitle`, but `subtitle` is optional when `title` is set. This class is locally stored, and its information isn't sent to the server.
 
 #### Usage
 
@@ -89,7 +89,7 @@ callComposite.launch(callLauncherActivity, remoteOptions, localOptions);
 
 In some instances, you might want to provide local overrides for remote participants to allow custom avatars and titles.
 
-The process is similar to the local participant process, but the data is set when participants join the call. As a developer, you would need to add a listener when remote participants join the call, and then call a method to set the `CallCompositeParticipantViewData` for those remote users.
+The process is similar to the local participant process, but the data is set when participants join the call. As a developer, you would need to add a listener when remote participants join the call, and then call a method to set `CallCompositeParticipantViewData` for those remote users.
 
 #### Usage
 
