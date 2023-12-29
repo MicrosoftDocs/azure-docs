@@ -23,7 +23,8 @@ highlightedContent:
       url: /azure/azure-vmware/introduction
     - title: Plan and get started 
       itemType: concept
-      url: /azure-vmware/plan-private-cloud-deployment
+      url: /azure/azure-vmware/plan-private-cloud-deployment
+
     - title: Tutorials 
       itemType: tutorial
       url: /azure/azure-vmware/tutorial-network-checklist
@@ -32,7 +33,7 @@ highlightedContent:
       url: /azure/azure-vmware/concepts-identity
     - title:  Azure native integration
       itemType: how-to-guide
-      url: toc.yml#how-to-guides
+      url: /azure/azure-vmware/integrate-azure-native-services
     - title: Azure VMware Solution network configuration
       itemType: how-to-guide
       url: /azure/azure-vmware/integrate-azure-native-services
@@ -278,4 +279,4 @@ additionalContent:
             url: fix-deployment-failures.md
           - text: VMware tools vix error code = 21009
             url: https://kb.vmware.com/s/article/2129927
- 
+
