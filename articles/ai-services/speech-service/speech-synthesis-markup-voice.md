@@ -235,7 +235,7 @@ The following SSML example uses the `<mstts:ttsembedding>` element with a voice 
 
 By default, multilingual voices can autodetect the language of the input text and speak in the language in primary locale of the input text without using SSML. However, you can still use the `<lang xml:lang>` element to adjust the speaking language for these voices to set preferred accent with non-primary locales such as British accent (`en-GB`) for English. You can adjust the speaking language at both the sentence level and word level. For information about the supported languages for multilingual voice, see [Multilingual voices with the lang element](#multilingual-voices-with-the-lang-element) for a table showing the <lang> syntax and attribute definitions. 
 
-The following table describes the usage of the `lang` element's attributes:
+The following table describes the usage of the `<lang xml:lang>` element's attributes:
 
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
