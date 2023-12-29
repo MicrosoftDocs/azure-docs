@@ -60,7 +60,7 @@ print(locales)
 
 ### LocalizationOptions
 
-`LocalizationOptions` is an options wrapper that sets all the strings for UI Library components by using `locale`. By default, all text labels use English (`en`) strings. You can use `LocalizationOptions` to set a different `locale` structure. Out of the box, the UI library includes a set of `locale` structures that are usable with the UI components and composites.
+`LocalizationOptions` is an options wrapper that sets all the strings for UI Library components by using `locale`. By default, all text labels use English (`en`) strings. You can use `LocalizationOptions` to set a different `locale` structure. Out of the box, the UI Library includes a set of `locale` structures that are usable with the UI components and composites.
 
 To use `LocalizationOptions`, specify a Swift `locale` structure (with or without a region code) and pass it to `CallCompositeOptions`. The following example localizes the composite to French for France (`fr-FR`).
 
