@@ -20,28 +20,28 @@ highlightedContent:
     # Card
     - title: What's Azure VMware Solution? 
       itemType: concept
-      url: toc.yml#overview
+      url: /azure/azure-vmware/introduction
     - title: Plan and get started 
       itemType: concept
-      url: toc.yml#get-started
+      url: /azure-vmware/plan-private-cloud-deployment
     - title: Tutorials 
       itemType: tutorial
-      url: toc.yml#tutorials
+      url: /azure/azure-vmware/tutorial-network-checklist
     - title: Azure VMware Solution concepts 
       itemType: concept
-      url: toc.yml#concepts
+      url: /azure/azure-vmware/concepts-identity
     - title:  Azure native integration
       itemType: how-to-guide
       url: toc.yml#how-to-guides
     - title: Azure VMware Solution network configuration
       itemType: how-to-guide
-      url: toc.yml#vmware-solutions
+      url: /azure/azure-vmware/integrate-azure-native-services
     - title: Partner solution ecosystem
       itemType: how-to-guide
-      url: toc.yml#partner-solution-ecosystem
+      url: /azure/azure-vmware/ecosystem-os-vms
     - title: videos
       itemType: video
-      url: toc.yml#videos
+      url: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
     
 
 # additionalContent section (optional)
