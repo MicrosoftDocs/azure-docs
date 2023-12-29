@@ -52,17 +52,15 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ### [Portal](#tab/azure-portal)
 
-To create or view a data export or to schedule an export, choose a scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Settings**, then **Exports**.
+To create or view a data export or to schedule an export, choose a scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, select **Configure subscription**, then **Exports**.
 
 > [!NOTE]
 > - Besides subscriptions, you can create exports on resource groups, management groups, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 > - When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 
-1. Select **Add** and type a name for the export.
-1. For the **Metric**, make a selection:
-    - **Actual cost (Usage and Purchases)** - Select to export standard usage and purchases
-    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations
-1. For **Export type**, make a selection:
+1. Select **Create**
+1. For **Export details**, make a selection:
+    - Type a name for export
     - **Daily export of month-to-date costs** - Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
     - **Weekly export of cost for the last seven days** - Creates a weekly export of your costs for the past seven days from the selected start date of your export.
     - **Monthly export of last month's costs** - Provides you with an export of your last month's costs compared to the current month that you create the export. Afterward, the schedule runs an export on the fifth day of every new month with your previous months costs.
