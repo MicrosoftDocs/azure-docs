@@ -24,14 +24,14 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`][az-account] command.
 - Verify you have the *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers registered on your subscription. These Azure resource providers are required to support [Container insights][azure-monitor-containers]. Check the registration status using the following commands:
 
-    ```azurecli-interactive
+    ```azurecli
     az provider show -n Microsoft.OperationsManagement -o table
     az provider show -n Microsoft.OperationalInsights -o table
     ```
 
     If they're not registered, register them using the following commands:
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register --namespace Microsoft.OperationsManagement
     az provider register --namespace Microsoft.OperationalInsights
     ```
@@ -49,7 +49,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 
 Create a resource group using the [`az group create`][az-group-create] command.
 
-  ```azurecli-interactive
+  ```azurecli
   az group create --name myResourceGroup --location eastus
   ```
 
@@ -74,8 +74,15 @@ The following example creates a cluster named *myAKSCluster* with one node and e
 
 Create an AKS cluster using the [`az aks create`][az-aks-create] command with the `--enable-addons monitoring` and `--enable-msi-auth-for-monitoring` parameters to enable [Azure Monitor Container insights][azure-monitor-containers] with managed identity authentication (preview).
 
-  ```azurecli-interactive
-  az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
+  ```azurecli
+  az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --enable-managed-identity \
+    --node-count 1 \
+    --enable-addons monitoring 
+    --enable-msi-auth-for-monitoring  \
+    --generate-ssh-keys
   ```
 
   After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -89,19 +96,19 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 1. Install `kubectl` locally using the [`az aks install-cli`][az-aks-install-cli] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks install-cli
     ```
 
 1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials`][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
 1. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command. This command returns a list of the cluster nodes.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get nodes
     ```
 
@@ -361,7 +368,7 @@ To deploy the application, you use a manifest file to create all the objects req
 
 2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl apply -f aks-store-quickstart.yaml
     ```
 
@@ -386,7 +393,7 @@ When the application runs, a Kubernetes service exposes the application front en
 
 1. Check for a public IP address for the store-front application. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
 
-    ```azurecli-interactive
+    ```azurecli
     kubectl get service store-front --watch
     ```
 
@@ -416,7 +423,7 @@ If you don't plan on going through the following tutorials, clean up unnecessary
 
 - Remove the resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
 
-    ```azurecli-interactive
+    ```azurecli
     az group delete --name myResourceGroup --yes --no-wait
     ```
 
