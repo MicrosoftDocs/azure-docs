@@ -44,8 +44,7 @@ During the first scan of the vCenter inventory after onboarding to Azure Arc-ena
 When you encounter this error message, try performing the **Link to vCenter** operation again after a few minutes (5-10 minutes). Alternatively, you can use the following Azure CLI command to link an existing Arc-enabled Server machine to vCenter:<br>
 
 
-```azurecli-interactive
-az connectedvmware vm create --subscription [SUBSCRIPTION ID] --location [LOCATION] --resource-group [RESOURCE GROUP NAME] --custom-location [NAME OR ID OF THE CUSTOM LOCATION] --name [NAME OF THE RESOURCE] --inventory-item [NAME OR ID OF THE INVENTORY ITEM]
+```az connectedvmware vm create --subscription <subscription-id> --location <Azure region of the machine> --resource-group <resource-group-name> --custom-location /providers/microsoft.extendedlocation/customlocations/<custom-location-name> --name <machine-name> --inventory-item /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ConnectedVMwarevSphere/<vcenter-name>/contoso-vcenter/InventoryItems/<machine-name>
 ```
 
 ## Next steps
