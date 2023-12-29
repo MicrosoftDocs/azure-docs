@@ -15,8 +15,9 @@ This article shows you step-by-step instructions on how to import directed acycl
 
 ## Prerequisites
 
-- You need an Azure subscription. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
-- You need an Azure Storage account. If you don't have a storage account, see [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
+- **Azure Storage account**: If you don't have a storage account, see [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
 
 Blob Storage behind virtual networks isn't supported during the preview. Azure Key Vault configuration in `storageLinkedServices` isn't supported to import DAGs.
 

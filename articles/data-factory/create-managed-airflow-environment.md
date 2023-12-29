@@ -14,8 +14,8 @@ This article describes how to set up and configure your Azure Data Factory Manag
 
 ## Prerequisites
 
-- You need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Create or select an existing Azure Data Factory instance in the region where the Managed Airflow preview is supported.
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- **Azure Data Factory**: Create or select an existing Data Factory instance in the region where the Managed Airflow preview is supported.
 
 ## Create the environment
 

@@ -15,11 +15,17 @@ ms.date: 09/23/2023
 
 A Python package is a way to organize related Python modules into a single directory hierarchy. A package is typically represented as a directory that contains a special file called `__init__.py`. Inside a package directory, you can have multiple Python module files (.py files) that define functions, classes, and variables.
 
-In the context of Managed Airflow, you can use Python packages to organize and distribute your custom Airflow Plugins and Provider packages.
+In the context of Azure Data Factory Managed Airflow, you can use Python packages to organize and distribute your custom Airflow Plugins and Provider packages.
 
 This article provides step-by-step instructions on how to install a .whl (Wheel) file, which serves as a binary distribution format for a Python package, as a requirement in your Managed Airflow runtime.
 
 For illustration purposes, you create a custom operator as a Python package that you can import as a module inside a directed acyclic graph (DAG) file.
+
+## Prerequisites
+
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
+- **Azure Storage account**: If you don't have a storage account, see [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. Ensure the storage account allows access only from selected networks.
 
 ## Develop a custom operator
 
