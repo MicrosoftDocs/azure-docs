@@ -351,7 +351,6 @@ When you create an Azure disk for use with AKS, you can create the disk resource
         volumeMounts:
           - name: azure
             mountPath: /mnt/azure
-            volumeMounts
       volumes:
         - name: azure
           persistentVolumeClaim:
