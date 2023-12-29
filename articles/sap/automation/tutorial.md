@@ -228,26 +228,37 @@ If you would like to use the web app, you must first create an app registration 
 Replace MGMT with your environment as necessary.
 
 ```bash
+export            env_code="MGMT"
+
+
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
 
-app_registration_app_id=$(az ad app create    \
-    --display-name MGMT-webapp-registration   \
-    --enable-id-token-issuance true           \
-    --sign-in-audience AzureADMyOrg           \
-    --required-resource-access @manifest.json \
-    --query "appId" | tr -d '"')
+export TF_VAR_app_registration_app_id=$(az ad app create \
+    --display-name ${env_code}-webapp-registration       \
+    --enable-id-token-issuance true                      \
+    --sign-in-audience AzureADMyOrg                      \
+    --required-resource-access @manifest.json            \
+    --query "appId" --output tsv )
 
-webapp_client_secret=$(az ad app credential reset \
-    --id $TF_VAR_app_registration_app_id --append \
-    --query "password" | tr -d '"')
+export TF_VAR_webapp_client_secret=$(az ad app credential reset \
+    --id $TF_VAR_app_registration_app_id --append               \
+    --query "password" --output tsv )
 
-echo "App registration ID:  ${app_registration_app_id}"
-echo "App registration password:  ${webapp_client_secret}"
+export TF_use_webapp=true
+
+
+echo "App registration ID:  ${TF_VAR_app_registration_app_id}"
+echo "App registration password:  ${TF_VAR_webapp_client_secret}"
+```
 
 rm manifest.json
 ```
 
-Copy down the output details. Make sure to save the values for `appId`, `password`, and `Tenant`.
+> [!NOTE]
+>Ensure that you are logged on using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](/cli/azure/ad/app#az-ad-app-create) for more information.
+>
+
+Copy down the output details. Make sure to save the values for `App registration ID`, `App registration password`.
 
 The output maps to the following parameters. You use these parameters in later steps, with automation commands.
 
@@ -372,39 +383,14 @@ If you're running the script from a workstation that isn't part of the deploymen
 export TF_VAR_Agent_IP=<your-public-ip-address>
 ```
 
-If you want to deploy the control plane with a web application, you need to create an application registration:
-
+If you're deploying the configuration web application, you need to also set the following environment variables:
 
 ```bash
-export            env_code="MGMT"
 
-
-echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
-
-export TF_VAR_app_registration_app_id=$(az ad app create \
-    --display-name ${env_code}-webapp-registration       \
-    --enable-id-token-issuance true                      \
-    --sign-in-audience AzureADMyOrg                      \
-    --required-resource-access @manifest.json            \
-    --query "appId" --output tsv )
-
-export TF_VAR_webapp_client_secret=$(az ad app credential reset \
-    --id $TF_VAR_app_registration_app_id --append               \
-    --query "password" --output tsv )
-
-export TF_use_webapp=true
-
-
-echo "App registration ID:  ${TF_VAR_app_registration_app_id}"
-
-rm manifest.json
+export TF_VAR_app_registration_app_id=<appRegistrationId>
+export    TF_VAR_webapp_client_secret=<appRegistrationPassword>
+export                  TF_use_webapp=true
 ```
-
-> [!NOTE]
->Ensure that you are logged on using a user account that has the required permissions to create application registrations. For more information about App registrations, see [Create an app registration](/cli/azure/ad/app#az-ad-app-create) for more information.
->
-
-
 
 1. Create the deployer and the SAP library and add the service principal details to the deployment key vault using this script.
 
