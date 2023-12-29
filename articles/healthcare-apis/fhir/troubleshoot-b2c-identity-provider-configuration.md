@@ -160,7 +160,6 @@ Follow these steps to verify the correct configuration of the `smartIdentityProv
 
 ## Next steps
 [Enable single sign-on for the FHIR service](b2c-setup.md)
-
-
+[Configure multiple identity providers](configure-identity-providers.md)
 
 [!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-fhir-trademark.md)]

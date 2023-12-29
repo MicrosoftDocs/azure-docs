@@ -460,6 +460,8 @@ Verify that Azure B2C users can access FHIR resources.
 
 ## Next steps
 
+[Configure multiple identity providers](configure-identity-providers.md)
+
 [Troubleshoot B2C identity provider configuration](troubleshoot-b2c-identity-provider-configuration.md)
 
 [!INCLUDE [FHIR trademark statements](../includes/healthcare-apis-fhir-trademark.md)]

@@ -40,7 +40,9 @@ items:
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Enable single sign-on (B2C)
-      href: b2c-setup.md
+      href: b2c-setup.
+    - name: Configure multiple service identity providers
+      href: configure-identity-providers.md
     - name: Troubleshoot B2C identity provider configuration
       href: troubleshoot-b2c-identity-provider-configuration.md
     - name: Enable diagnostic settings in the FHIR service
