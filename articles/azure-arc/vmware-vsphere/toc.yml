@@ -26,6 +26,8 @@
       href: support-matrix-for-arc-enabled-vmware-vsphere.md
     - name: Enable VMware vCenter resources in Azure
       href: browse-and-enable-vcenter-resources-in-azure.md
+    - name: Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
+      href: enable-virtual-hardware.md
   - name: Use Azure Management services for VMware VMs
     items: 
     - name: Install Arc agent at scale for your VMware VMs

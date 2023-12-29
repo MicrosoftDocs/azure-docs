@@ -1,13 +1,13 @@
 ---
 title: Overview of Maintenance Configurations for Azure virtual machines
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/06/2021
-ms.author: cynthn
+ms.author: jushiman
 ---
 
 # Managing VM updates with Maintenance Configurations

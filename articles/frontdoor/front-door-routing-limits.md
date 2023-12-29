@@ -7,7 +7,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/20/2023
+ms.date: 12/28/2023
 ms.author: jodowns
 ---
 
@@ -64,7 +64,7 @@ Profile composite route metric = Route 1 composite route metric + Route 1 compos
 ```
 
 The calculated metric of 5400 exceeds the limit of 5000, so you can't configure a Front Door profile in this way.
-.
+
 ## Mitigation
 
 If your profile's composite route metric exceed 5000, consider the following mitigation strategies:
