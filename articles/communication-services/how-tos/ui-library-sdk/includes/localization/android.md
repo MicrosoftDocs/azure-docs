@@ -103,6 +103,8 @@ CallComposite callComposite =
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="media/android-rtl.png" alt-text="Screenshot of Android right-to-left layout."::: | :::image type="content" source="media/android-ltr.png" alt-text="Screenshot of Android left-to-right layout.":::  |
 
+-----
+
 ### Customizing translations
 
 There are two options to customize the language translations that we provide. You can use the [list of localization keys](https://github.com/Azure/communication-ui-library-android/blob/main/azure-communication-ui/calling/src/main/res/values/azure_communication_ui_calling_strings.xml) to override a particular string for the key/value pair. You can specify the locale as one of the supported languages. When a key isn't provided, it will fall back to a supported translation string. If you specify an unsupported language, you should provide translations for all the keys for that language (by using the `string.xml` file) and then fall back to English strings when a key isn't provided.
