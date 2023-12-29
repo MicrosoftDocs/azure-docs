@@ -2560,6 +2560,11 @@
             "source_path_from_root": "/articles/sql-database/sql-database-customer-implementations.md",
             "redirect_url": "https://customers.microsoft.com",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sql-database/scripts/sql-database-import-purview-labels.md",
+            "redirect_url": "/purview/register-scan-azure-sql-database",
+            "redirect_document_id": false
         }
     ]
 }
