@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 12/28/2023
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -14,18 +14,6 @@ In Azure Functions, a function app provides the execution context for your indiv
 Individual functions in a function app are deployed together and are scaled together. All functions in the same function app share resources, per instance, as the function app scales. 
 
 Connection strings, environment variables, and other application settings are defined separately for each function app. Any data that must be shared between function apps should be stored externally in a persisted store.
-
-## Development limitations in the Azure portal
-
-Consider the following limitations on developing your functions in the [Azure portal](https://portal.azure.com):
-
-+ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
-+ Python in-portal editing is only supported when running in the Consumption plan and using the Python v1 programming model.   
-+ In-portal editing is currently only supported for functions that were created or last modified in the portal.
-+ When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](../articles/azure-functions/functions-develop-local.md). 
-+ For compiled C# functions, Java functions, and other Python functions, you can create the function app in the portal, but you must also create the functions code project locally and then publish it to Azure.
-
-When possible, you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
 ## Get started in the Azure portal
 
@@ -310,6 +298,18 @@ $path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/
 In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. 
 
 ---
+
+## Development limitations in the Azure portal
+
+Consider the following limitations on developing your functions in the [Azure portal](https://portal.azure.com):
+
++ In-portal editing is only supported for JavaScript, PowerShell, Python, and C# Script functions.
++ Python in-portal editing is only supported when running in the Consumption plan and using the Python v1 programming model.   
++ In-portal editing is currently only supported for functions that were created or last modified in the portal.
++ When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](../articles/azure-functions/functions-develop-local.md). 
++ For compiled C# functions, Java functions, and other Python functions, you can create the function app in the portal, but you must also create the functions code project locally and then publish it to Azure.
+
+When possible, you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
 ## Manually install extensions
 
