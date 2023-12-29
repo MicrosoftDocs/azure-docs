@@ -18,13 +18,13 @@ This article walks you through the steps to delete directed acyclic graph (DAG) 
 - **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 - **Azure Data Factory**: Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
 
-## Delete DAGs by using git-sync
+## Delete DAGs by using Git sync
 
-When you use the git-sync feature, it isn't possible to delete DAGs in Managed Airflow because all your Git source files are synchronized with Managed Airflow. We recommend removing the file from your source code repository so that your commit syncs with Managed Airflow.
+When you use the Git sync feature, it isn't possible to delete DAGs in Managed Airflow because all your Git source files are synchronized with Managed Airflow. We recommend removing the file from your source code repository so that your commit syncs with Managed Airflow.
 
 ## Delete DAGs by using Azure Blob Storage
 
-1. In this example, you want to delete the DAG named *adf.py*.
+1. In this example, you want to delete the DAG named `adf.py`.
 
     :::image type="content" source="media/airflow-import-delete-dags/sample-dag-to-be-deleted.png" alt-text="Screenshot that shows the DAG to delete.":::
 
