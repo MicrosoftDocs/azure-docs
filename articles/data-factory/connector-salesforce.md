@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 12/28/2023
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -39,14 +39,16 @@ Specifically, this Salesforce connector supports:
 >[!NOTE]
 >This function supports copy of any schema from the above mentioned Salesforce environments, including the [Nonprofit Success Pack](https://www.salesforce.org/products/nonprofit-success-pack/) (NPSP). 
 
-The Salesforce connector is built on top of the Salesforce REST/Bulk API. When copying data from Salesforce, the connector automatically chooses between REST and Bulk APIs based on the data size - when the result set is large, Bulk API is used for better performance; You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API v1.
+You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API 2.0.
 
->[!NOTE]
->The connector no longer sets default version for Salesforce API. For backward compatibility, if a default API version was set before, it keeps working. The default value is 45.0 for source, and 40.0 for sink.
 
 ## Prerequisites
 
-API permission must be enabled in Salesforce.
+- You need configure the Connected Apps in Salesforce portal refering to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)
+
+>[!IMPORTANT]
+> - API permission must be enabled in Salesforce.
+> - Access Token expire time could be changed through session policies instead of the refresh token.
 
 ## Salesforce request limits
 
@@ -93,12 +95,11 @@ The following properties are supported for the Salesforce linked service.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type |The type property must be set to **Salesforce**. |Yes |
-| environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
-| username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account.<br/><br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Specify a security token for the user account. <br/><br/>To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). The security token can be skipped only if you add the Integration Runtime's IP to the [trusted IP address list](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) on Salesforce. When using Azure IR, refer to [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).<br/><br/>For instructions on how to get and reset a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
-| apiVersion | Specify the Salesforce REST/Bulk API version to use, e.g. `52.0`. | No |
+| type |The type property must be set to **SalesforceV2**. |Yes |
+| environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |Yes |
+| clientId |Specify the client ID of the Salesforce OAuth 2.0 Connected App. |Yes |
+| clientSecret |Specify the client secret of the Salesforce OAuth 2.0 Connected App. |Yes |
+| apiVersion | Specify the Salesforce Bulk API version to use, e.g. `52.0`. We support API version >= 47.0, as Bulk API 2.0 supports: <br>- Ingest Availability: 41.0 and later.<br>- Query Availability: 47.0 and later. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example: Store credentials**
@@ -107,17 +108,15 @@ The following properties are supported for the Salesforce linked service.
 {
     "name": "SalesforceLinkedService",
     "properties": {
-        "type": "Salesforce",
+        "type": "SalesforceV2",
         "typeProperties": {
-            "username": "<username>",
-            "password": {
+            "environmentUrl": "<environmentUrl>",
+            "clientId": "<clientId>",
+            "clientSecret": {
                 "type": "SecureString",
-                "value": "<password>"
+                "value": "<clientSecret>"
             },
-            "securityToken": {
-                "type": "SecureString",
-                "value": "<security token>"
-            }
+            "apiVersion": "<apiVersion>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -133,10 +132,11 @@ The following properties are supported for the Salesforce linked service.
 {
     "name": "SalesforceLinkedService",
     "properties": {
-        "type": "Salesforce",
+        "type": "SalesforceV2",
         "typeProperties": {
-            "username": "<username>",
-            "password": {
+            "environmentUrl": "<environmentUrl>",
+            "clientId": "<clientId>",
+            "clientSecret": {
                 "type": "AzureKeyVaultSecret",
                 "secretName": "<secret name of password in AKV>",
                 "store":{
@@ -144,14 +144,7 @@ The following properties are supported for the Salesforce linked service.
                     "type": "LinkedServiceReference"
                 }
             },
-            "securityToken": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of security token in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
-            }
+            "apiVersion": "<apiVersion>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -161,7 +154,7 @@ The following properties are supported for the Salesforce linked service.
 }
 ```
 
-**Example: Store credentials in Key Vault, as well as environmentUrl and username**
+**Example: Store credentials in Key Vault, as well as environmentUrl and clientId**
 
 Note that by doing so, you will no longer be able to use the UI to edit settings.  The ***Specify dynamic contents in JSON format*** checkbox will be checked, and you will have to edit this configuration entirely by hand.  The advantage is you can derive ALL configuration settings from the Key Vault instead of parameterizing anything here.
 
@@ -169,7 +162,7 @@ Note that by doing so, you will no longer be able to use the UI to edit settings
 {
     "name": "SalesforceLinkedService",
     "properties": {
-        "type": "Salesforce",
+        "type": "SalesforceV2",
         "typeProperties": {
             "environmentUrl": {
                 "type": "AzureKeyVaultSecret",
@@ -179,25 +172,17 @@ Note that by doing so, you will no longer be able to use the UI to edit settings
                     "type": "LinkedServiceReference"
                 },
             },
-            "username": {
+            "clientId": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of username in AKV>",
+                "secretName": "<secret name of clientId in AKV>",
                 "store": {
                     "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 },
             },
-            "password": {
+            "clientSecret": {
                 "type": "AzureKeyVaultSecret",
                 "secretName": "<secret name of password in AKV>",
-                "store":{
-                    "referenceName": "<Azure Key Vault linked service>",
-                    "type": "LinkedServiceReference"
-                }
-            },
-            "securityToken": {
-                "type": "AzureKeyVaultSecret",
-                "secretName": "<secret name of security token in AKV>",
                 "store":{
                     "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
@@ -216,12 +201,13 @@ Note that by doing so, you will no longer be able to use the UI to edit settings
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Salesforce dataset.
 
-To copy data from and to Salesforce, set the type property of the dataset to **SalesforceObject**. The following properties are supported.
+To copy data from and to Salesforce, set the type property of the dataset to **SalesforceV2Object**. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **SalesforceObject**.  | Yes |
-| objectApiName | The Salesforce object name to retrieve data from. | No for source, Yes for sink |
+| type | The type property must be set to **SalesforceV2Object**.  | Yes |
+| objectApiName | The Salesforce object name to retrieve data from. | No for source (if "SOQLQuery" in source is specified), Yes for sink |
+| reportId | The ID of the Salesforce report to retrieve data from. It is not supported in sink. Note that there are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "SOQLQuery" in source is specified) |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -234,7 +220,7 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 {
     "name": "SalesforceDataset",
     "properties": {
-        "type": "SalesforceObject",
+        "type": "SalesforceV2Object",
         "typeProperties": {
             "objectApiName": "MyTable__c"
         },
@@ -247,27 +233,19 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 }
 ```
 
->[!NOTE]
->For backward compatibility: When you copy data from Salesforce, if you use the previous "RelationalTable" type dataset, it keeps working while you see a suggestion to switch to the new "SalesforceObject" type.
-
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **RelationalTable**. | Yes |
-| tableName | Name of the table in Salesforce. | No (if "query" in the activity source is specified) |
-
 ## Copy activity properties
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Salesforce source and sink.
 
 ### Salesforce as a source type
 
-To copy data from Salesforce, set the source type in the copy activity to **SalesforceSource**. The following properties are supported in the copy activity **source** section.
+To copy data from Salesforce, set the source type in the copy activity to **SalesforceV2Source**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to **SalesforceSource**. | Yes |
-| query |Use the custom query to read data. You can use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query or SQL-92 query. See more tips in [query tips](#query-tips) section. If query is not specified, all the data of the Salesforce object specified in "objectApiName" in dataset will be retrieved. | No (if "objectApiName" in the dataset is specified) |
-| readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | No |
+| type | The type property of the copy activity source must be set to **SalesforceV2Source**. | Yes |
+| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations [Understanding Bulk API 2.0 Query](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | Yes |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -295,8 +273,8 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
         ],
         "typeProperties": {
             "source": {
-                "type": "SalesforceSource",
-                "query": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
+                "type": "SalesforceV2Source",
+                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c"
             },
             "sink": {
                 "type": "<sink type>"
@@ -306,19 +284,16 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 ]
 ```
 
->[!NOTE]
->For backward compatibility: When you copy data from Salesforce, if you use the previous "RelationalSource" type copy, the source keeps working while you see a suggestion to switch to the new "SalesforceSource" type.
-
 > [!Note]
 > Salesforce source doesn't support proxy settings in the self-hosted integration runtime, but sink does.
 
 ### Salesforce as a sink type
 
-To copy data to Salesforce, set the sink type in the copy activity to **SalesforceSink**. The following properties are supported in the copy activity **sink** section.
+To copy data to Salesforce, set the sink type in the copy activity to **SalesforceV2Sink**. The following properties are supported in the copy activity **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to **SalesforceSink**. | Yes |
+| type | The type property of the copy activity sink must be set to **SalesforceV2Sink**. | Yes |
 | writeBehavior | The write behavior for the operation.<br/>Allowed values are **Insert** and **Upsert**. | No (default is Insert) |
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce in each batch. | No (default is 5,000) |
@@ -349,7 +324,7 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SalesforceSink",
+                "type": "SalesforceV2Sink",
                 "writeBehavior": "Upsert",
                 "externalIdFieldName": "CustomerId__c",
                 "writeBatchSize": 10000,
