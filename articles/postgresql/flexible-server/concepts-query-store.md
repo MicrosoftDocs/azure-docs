@@ -3,7 +3,7 @@ title: Query Store - Azure Database for PostgreSQL - Flexible Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 12/20/2023
+ms.date: 12/29/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -27,7 +27,7 @@ Query Store is available in all regions with no additional charges. It is an opt
 ### Enable Query Store in Azure portal
 
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
-1. Select **Server Parameters** in the **Settings** section of the menu.
+1. Select **Server parameters** in the **Settings** section of the menu.
 1. Search for the `pg_qs.query_capture_mode` parameter.
 1. Set the value to `TOP` or `ALL` and **Save**.
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.
@@ -44,11 +44,12 @@ Allow up to 20 minutes for the first batch of data to persist in the azure_sys d
 1. A wait stats store for persisting wait statistics information.
 
 #### Common scenarios for using Query Store include:
-- Determining the number of times a query was executed in a given time window
-- Comparing the average execution time of a query across time windows to see large deltas
-- Identifying longest running queries in the past few hours
-- Identifying top N queries that are waiting on resources
-- Understanding waits nature for a particular query
+- Determining the number of times a query was executed in a given time window.
+- Comparing the average execution time of a query across time windows to see large deltas.
+- Identifying longest running queries in the past few hours.
+- Identifying top N queries that are waiting on resources.
+- Understanding waits nature for a particular query.
+
 To minimize space usage, the runtime execution statistics in the runtime stats store are aggregated over a fixed, configurable time window. The information in these stores can be queried using views.
 
 ## Access Query Store information
@@ -79,25 +80,29 @@ Here are some examples of how you can gain more insights into your workload usin
 
 ## Configuration options
 
-When Query Store is enabled it saves data in 15-minute aggregation windows, up to 500 distinct queries per window.
-The following options are available for configuring Query Store parameters.
+When Query Store is enabled it saves data in aggregation windows whose length is determined by the `pg_qs.interval_length_minutes` server parameter (defaults to 15 minutes). For each window it stores the 500 distinct queries per window.
+The following options are available for configuring Query Store parameters:
 
 | **Parameter** | **Description** | **Default** | **Range** |
 | --- | --- | --- | --- |
 | pg_qs.query_capture_mode | Sets which statements are tracked. | none | none, top, all |
-| pg_qs.store_query_plans | Turns saving query plans on or off for pg_qs | off | on, off |
+| pg_qs.interval_length_minutes (*) | Sets the query_store capture interval in minutes for pg_qs - this is the frequency of data persistence. | 15 | 1 - 30 |
+| pg_qs.store_query_plans | Turns saving query plans on or off for pg_qs. | off | on, off |
 | pg_qs.max_plan_size | Sets the maximum number of bytes that will be saved for query plan text for pg_qs; longer plans will be truncated. | 7500 | 100 - 10k |
-| pg_qs.max_query_text_length | Sets the maximum query length that can be saved. Longer queries will be truncated. | 6000 | 100 - 10K |
-| pg_qs.retention_period_in_days | Sets the retention period. | 7 | 1 - 30 |
-| pg_qs.index_generation_interval | Sets the index recommendation generating frequency for all databases when query store enabled. | 15 | 15 - 10080 |
-| pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |
+| pg_qs.max_query_text_length | Sets the maximum query length that can be saved; longer queries will be truncated. | 6000 | 100 - 10K |
+| pg_qs.retention_period_in_days | Sets the retention period window in days for pg_qs - after this time data will be deleted. | 7 | 1 - 30 |
+| pg_qs.index_generation_interval (*) | Sets the query_store index auto generation interval in minutes for pg_qs. | 720 | 15 - 10080 |
+| pg_qs.index_recommendations | Enables or disables index recommendations. pg_qs.query_capture_mode must also be 'TOP' or 'ALL'. | off | off, recommend |
+| pg_qs.track_utility | Sets whether utility commands are tracked by pg_qs. | on | on, off |
 
-The following options apply specifically to wait statistics.
+(*) These are static server parameters and, as such, they require a server restart for a change in its values to take effect. 
+
+The following options apply specifically to wait statistics:
 
 | **Parameter** | **Description** | **Default** | **Range** |
 | --- | --- | --- | --- |
-| pgms_wait_sampling.query_capture_mode | Sets which statements are tracked for wait stats. | none | none, all |
-| Pgms_wait_sampling.history_period | Set the frequency, in milliseconds, at which wait events are sampled. | 100 | 1-600000 |
+| pgms_wait_sampling.query_capture_mode | Selects which statements are tracked by the pgms_wait_sampling extension. | none | none, all |
+| Pgms_wait_sampling.history_period | Sets the frequency, in milliseconds, at which wait events are sampled. | 100 | 1-600000 |
 
 > [!NOTE]  
 > **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
@@ -107,7 +112,52 @@ Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get
 ## Views and functions
 
 View and manage Query Store using the following views and functions. Anyone in the PostgreSQL public role can use these views to see the data in Query Store. These views are only available in the **azure_sys** database.
-Queries are normalized by looking at their structure after removing literals and constants. If two queries are identical except for literal values, they'll have the same queryId.
+
+Queries are normalized by looking at their structure and ignoring anything not semantically significant, like literals, constants, aliases, or differences in casing.
+
+If two queries are semantically identical, even if they use different aliasing for the same referenced columns and tables, or if they just differ in the literal values used in the query, they'll be identified with the same query_id, and the sql_query_text will be that of the query which executed first since Query Store started recording activity.
+
+Following are some examples to try to illustrate how this normalization works:
+
+Say that you create a table with the following statement:
+
+```sql
+create table tableOne (columnOne int, columnTwo int);
+```
+
+You enable Query Store data collection, and a single or multiple users execute the following queries, in this exact order:
+
+```sql
+select * from tableOne;
+select columnOne, columnTwo from tableOne;
+select columnOne as c1, columnTwo as c2 from tableOne as t1;
+select columnOne as "column one", columnTwo as "column two" from tableOne as "table one";
+```
+
+All the previous queries share the same query_id. And the text that is kept by Query Store is that of the first query executed after enabling collection. Therefore, it would be `select * from tableOne;`.
+
+The following set of queries, once normalized, don't match the previous set of queries because the WHERE clause makes them semantically different:
+
+```sql
+select columnOne as c1, columnTwo as c2 from tableOne as t1 where columnOne = 1 and columnTwo = 1;
+select * from tableOne where columnOne = 3 and columnTwo = 3;
+select columnOne, columnTwo from tableOne where columnOne = 5 and columnTwo = 5;
+select columnOne as "column one", columnTwo as "column two" from tableOne as "table one" where columnOne = 7 and columnTwo = 7;
+```
+
+However, all queries in this last set share the same query_id and the text used to identify them all is that of the first query in the batch `select columnOne as c1, columnTwo as c2 from tableOne as t1 where columnOne = 1 and columnTwo = 1;`.
+
+Finally, the following table shows some queries which don't match the query_id of those in the previous batch, and the reason why they don't:
+
+| Query | Reason why doesn't match |
+| ----- | ------------------------ |
+| select columnTwo as c2, columnOne as c1 from tableOne as t1 where columnOne = 1 and columnTwo = 1; | fff |
+
+select * from tableOne where columnOne = 3 and columnTwo = 3;
+select columnOne, columnTwo from tableOne where columnOne = 5 and columnTwo = 5;
+select columnOne as "column one", columnTwo as "column two" from tableOne as "table one" where columnOne = 7 and columnTwo = 7;
+
+
 
 ### query_store.qs_view
 
@@ -150,7 +200,8 @@ This view returns query text data in Query Store. There's one row for each disti
 | **Name** | **Type** | **Description** |
 |--| -- | -- |
 | query_text_id | bigint | ID for the query_texts table |
-| query_sql_text | Varchar(10000) | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
+| query_sql_text | varchar(10000) | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
+| query_type | smallint | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
 
 ### query_store.pgms_wait_sampling_view
 
