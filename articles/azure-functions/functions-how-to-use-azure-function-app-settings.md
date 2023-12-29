@@ -86,7 +86,7 @@ When you develop a function app locally, you must maintain local copies of these
 
 ## FTPS deployment settings
 
-Azure Functions supports deploying project code to your function app by using FTPS. Because this deployment method requires you to [sync triggers](functions-deployment-technologies.md#trigger-syncing), it's not recommended. To securely transfer project files, always use FTPS and not FTP.
+Azure Functions supports deploying project code to your function app by using FTPS. Because this deployment method requires you to [sync triggers](functions-deployment-technologies.md#trigger-syncing), this method isn't recommended. To securely transfer project files, always use FTPS and not FTP.
 
 You can get the credentials required for FTPS deployment using one of these methods:
 
@@ -241,7 +241,7 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
     ```
 
-1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Note that if the plan isn't deleted, you'll still be charged for the Premium plan. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
+1. If you no longer need your previous Premium function app plan, delete your original function app plan after confirming you have successfully migrated to the new one. Until the Premium plan is deleted, you continue to be charged for it. Run the [az functionapp plan list](/cli/azure/functionapp/plan#az-functionapp-plan-list) command as follows to get a list of all Premium plans in your resource group.
 
     ```azurecli-interactive
     az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
@@ -307,13 +307,13 @@ Consider the following limitations on developing your functions in the [Azure po
 + Python in-portal editing is only supported when running in the Consumption plan and using the Python v1 programming model.   
 + In-portal editing is currently only supported for functions that were created or last modified in the portal.
 + When you deploy code to a function app from outside the portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md). 
-+ For compiled C# functions, Java functions, and other Python functions, you can create the function app in the portal, but you must also create the functions code project locally and then publish it to Azure.
++ For compiled C# functions, Java functions, and other Python functions, you can create the function app in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, you should develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
 
 ## Manually install extensions
 
-C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, you should [use extension bundles](functions-bindings-register.md#extension-bundles). If you must manually install extensions you can do this by [using Azure Functions Core Tools](./functions-core-tools-reference.md#func-extensions-install) locally. If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
+C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, you should [use extension bundles](functions-bindings-register.md#extension-bundles). If you must manually install extensions, you can do so by [using Azure Functions Core Tools](./functions-core-tools-reference.md#func-extensions-install) locally. If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the host.json file.
 
 This same process works for any other file you need to add to your app. 
 
@@ -401,7 +401,7 @@ When you configure the **Allowed origins** list for your function app, the `Acce
 
 ![Configure function app's CORS list](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-The wildcard (\*) is ignored if there is another domain entry.
+The wildcard (\*) is ignored if there's another domain entry.
 
 Use the [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) command to add a domain to the allowed origins list. The following example adds the contoso.com domain:
 
