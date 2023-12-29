@@ -28,7 +28,7 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
 ## Create a timer triggered function
 
-1. In your function app, select **Functions**, and then select **+ Create**.
+1. In your function app, select **Overview**, and then select **Create function**.
 
    :::image type="content" source="./media/functions-create-scheduled-function/function-create-function.png" alt-text="Screenshot of adding a function in the Azure portal." border="true":::
 
