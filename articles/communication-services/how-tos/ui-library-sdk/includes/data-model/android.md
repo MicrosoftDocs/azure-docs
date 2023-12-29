@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on Android to customize the Participant Avatars and Display Names
+description: Learn how to use the Calling composite on Android to customize participant avatars and display names.
 author: garchiro7
 
 ms.author: jorgegarc

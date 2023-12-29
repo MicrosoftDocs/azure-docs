@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on Web
+description: Learn how to use the Calling composite in the Web UI Library.
 author: garchiro7
 
 ms.author: jorgegarc

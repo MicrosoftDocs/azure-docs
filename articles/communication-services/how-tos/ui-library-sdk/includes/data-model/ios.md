@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on iOS
+description: Learn how to use the Calling composite on iOS.
 author: garchiro7
 
 ms.author: jorgegarc
