@@ -55,7 +55,7 @@ The following table provides detailed information on enablement method for each 
 | Runtime threat protection | Control plane threat detection | Detection of suspicious activity for Kubernetes based on Kubernetes audit trail | Enabled with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Runtime threat protection | Workload threat detection | Detection of suspicious activity for Kubernetes for cluster level, node level, and workload level | Enable **Defender Agent in Azure** toggle **OR** deploy Defender agent on individual clusters | Defender agent | Commercial clouds |
 | Deployment & monitoring | Discovery of unprotected clusters | Discovering Kubernetes clusters missing Defender agents| Enabled with plan | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Deployment & monitoring | Defender agent auto provisioning | Automatic deployment of Defender agent | Enable **Defender Daemonset** toggle | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Deployment & monitoring | Defender agent auto provisioning | Automatic deployment of Defender agent | Enable **Defender Agent in Azure** toggle | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 | Deployment & monitoring | Azure Policy for Kubernetes auto provisioning | Automatic deployment of Azure policy agent for Kubernetes | Enable **Azure policy for Kubernetes** toggle | Agentless | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
 ### Roles and permissions
