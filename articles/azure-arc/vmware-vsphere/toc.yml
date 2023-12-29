@@ -5,7 +5,11 @@
   - name: About Azure Arc-enabled VMware vSphere
     href: overview.md
   - name: Switch to the new version
-    href: switch-to-new-preview-version.md
+    href: switch-to-new-version.md
+- name: Concepts
+  items:   
+  - name: Azure Arc agent
+    href: azure-arc-agent.md
 - name: Quickstarts
   items:
   - name: Connect vCenter to Azure Arc
@@ -14,10 +18,6 @@
   items:
   - name: Create a virtual machine on VMware vCenter
     href: quick-start-create-a-vm.md
-- name: Concepts
-  items:   
-  - name: Azure Arc agent
-    href: azure-arc-agent.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -26,6 +26,8 @@
       href: support-matrix-for-arc-enabled-vmware-vsphere.md
     - name: Enable VMware vCenter resources in Azure
       href: browse-and-enable-vcenter-resources-in-azure.md
+    - name: Enable virtual hardware and VM CRUD capabilities in a machine with Arc agent installed
+      href: enable-virtual-hardware.md
   - name: Use Azure Management services for VMware VMs
     items: 
     - name: Install Arc agent at scale for your VMware VMs
@@ -36,6 +38,10 @@
         href: setup-and-manage-self-service-access.md
       - name: Perform VM operations on VMware VMs through Azure
         href: perform-vm-ops-through-azure.md
+  - name: Enable Extended Security Updates
+    items:
+      - name: Deliver ESUs for VMware VMs through Arc
+        href: deliver-extended-security-updates-for-vmware-vms-through-arc.md
   - name: Administer
     items: 
     - name: Administer Arc-enabled VMware vSphere
@@ -60,4 +66,4 @@
 - name: Resources
   items:
    - name: Azure Arc Jumpstart
-     href: https://azurearcjumpstart.io
+     href: https://aka.ms/AzureArcJumpstart

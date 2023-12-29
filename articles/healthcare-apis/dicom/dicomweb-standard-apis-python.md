@@ -3,7 +3,7 @@ title:  Use Python and DICOMweb Standard APIs in Azure Health Data Services
 description: Use Python and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
 author: mmitrik
 ms.service: healthcare-apis
-ms.subservice: fhir
+ms.subservice: dicom
 ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 02/15/2022
@@ -34,14 +34,14 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 ## Prerequisites
 
-To use the DICOMweb Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb Standard APIs, you must have an instance of the DICOM service deployed. For more information, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
 After you deploy an instance of the DICOM service, retrieve the URL for your App service:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service. 
-2. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
+2. If you don't have a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
 For this code, you access a Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
@@ -53,7 +53,7 @@ The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combi
 
 First, import the necessary Python libraries.
 
-We've chosen to implement this example using the synchronous `requests` library. For asynchronous support, consider using `httpx` or another async library. Additionally, we're importing two supporting functions from `urllib3` to support working with `multipart/related` requests.
+We implement this example by using the synchronous `requests` library. For asynchronous support, consider using `httpx` or another async library. Additionally, we're importing two supporting functions from `urllib3` to support working with `multipart/related` requests.
 
 Additionally, we're importing `DefaultAzureCredential` to log into Azure and get a token.
 
@@ -82,7 +82,7 @@ instance_uid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395
 
 ### Authenticate to Azure and get a token
 
-`DefaultAzureCredential` allows us to use various ways to get tokens to log into the service. In this example, use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. In order to use the AzureCliCredential, you must have logged into Azure from the CLI prior to running this code. (For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).) Alternatively, you can copy and paste the token retrieved while logging in from the CLI.
+`DefaultAzureCredential` allows us to use various ways to get tokens to log into the service. In this example, use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. To use the AzureCliCredential, you need to sign in to Azure from the CLI before running this code. For more information, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). Alternatively, copy and paste the token retrieved while signing in from the CLI.
 
 > [!NOTE]
 > `DefaultAzureCredential` returns several different Credential objects. We reference the `AzureCliCredential` as the 5th item in the returned collection. This may not be consistent. If so, uncomment the `print(credential.credential)` line. This will list all the items. Find the correct index, recalling that Python uses zero-based indexing.
@@ -158,7 +158,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For example, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For example, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. These languages and tools can be used successfully.
 * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
@@ -553,7 +553,7 @@ response = client.get(url, headers=headers, params=params) #, verify=False)
 > [!NOTE]
 > Delete is not part of the DICOM standard, but it has been added for convenience.
 
-A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) has never existed or it's already been deleted.
+A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) never existed or are already deleted.
 
 ### Delete a specific instance within a study and series
 

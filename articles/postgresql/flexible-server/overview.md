@@ -24,6 +24,9 @@ ms.custom:
 - [Single Server](../overview-single-server.md)
 
 This article provides an overview and introduction to the core concepts of flexible server deployment model.
+Whether you're just starting out or looking to refresh your knowledge, this introductory video offers a comprehensive overview of Azure Database for PostgreSQL - Flexible Server, helping you get acquainted with its key features and capabilities.
+
+>[!Video https://www.youtube.com/embed/NSEmJfUgNzE?si=8Ku9Z53PP455dICZ&amp;start=121]
 
 ## Overview
 
@@ -31,11 +34,11 @@ Azure Database for PostgreSQL - Flexible Server is a fully managed database serv
 
 :::image type="content" source="./media/overview/overview-flexible-server.png" alt-text="Diagram of Flexible Server - Overview." lightbox="./media/overview/overview-flexible-server.png":::
 
-Flexible servers are best suited for
+Flexible servers are best suited for:
 
 - Application developments requiring better control and customizations.
-- Zone redundant high availability
-- Managed maintenance windows
+- Zone redundant high availability.
+- Managed maintenance windows.
 
 ## Architecture and high availability
 
@@ -97,8 +100,8 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | East US 2 | :heavy_check_mark: (v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | France South | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Germany West Central | :heavy_check_mark:  (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| Japan East | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: (v3 only) | :x: | :heavy_check_mark: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :heavy_check_mark: |
@@ -110,13 +113,13 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | Qatar Central | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South Central US | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South India | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| South Central US | :heavy_check_mark: (v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
+| South India | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark:(v3/v4 only) | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
 | Sweden Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland West | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| UAE North | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UAE North | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | US Gov Arizona | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | US Gov Texas | :heavy_check_mark: (v3/v4 only) | :x: | :heavy_check_mark: | :x: |
 | US Gov Virginia | :heavy_check_mark: (v3/v4 only) | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -125,14 +128,14 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :x: $ | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :x: $ | :x: $ | :heavy_check_mark: |
+| West US 2 | :heavy_check_mark: (v3/v4 only) | :x: $ | :x: $ | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported.
 
 $$ New server deployments are temporarily blocked in these regions. Already provisioned servers are fully supported.
 
-** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Any existing servers deployed in AZ with *no preference* (which you can check on the Azure portal) before the region started to support AZ, even when you enable zone-redundant HA, the standby is provisioned in the same AZ (same-zone HA) as the primary server. To enable zone-redundant high availability, [follow the steps.](how-to-manage-high-availability-portal.md#enabling-zone-redundant-ha-after-the-region-supports-az).
+** Zone-redundant high availability can now be deployed when you provision new servers in these regions. Any existing servers deployed in AZ with *no preference* (which you can check on the Azure portal) before the region started to support AZ, even when you enable zone-redundant HA, the standby is provisioned in the same AZ (same-zone HA) as the primary server. To enable zone-redundant high availability, [follow the steps](how-to-manage-high-availability-portal.md#enabling-zone-redundant-ha-after-the-region-supports-az).
 
 <!-- We continue to add more regions for flexible servers. -->
 > [!NOTE]  
@@ -154,7 +157,7 @@ We continue to support Single Server and encourage you to adopt Flexible Server 
 
 ### What is Microsoft's policy to address PostgreSQL engine defects?
 
-Refer to  Microsoft's current policy [here](../../postgresql/flexible-server/concepts-supported-versions.md#managing-postgresql-engine-defects)
+Refer to  Microsoft's current policy [here](../../postgresql/flexible-server/concepts-supported-versions.md#managing-postgresql-engine-defects).
 
 ## Contacts
 
@@ -171,4 +174,4 @@ In addition, consider the following points of contact as appropriate:
 
 ## Next steps
 
-Now that you've read an introduction to Azure Database for PostgreSQL flexible server deployment mode, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md)
+Now that you've read an introduction to Azure Database for PostgreSQL flexible server deployment mode, you're ready to create your first server: [Create an Azure Database for PostgreSQL - Flexible Server using Azure portal](./quickstart-create-server-portal.md).

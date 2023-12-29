@@ -288,7 +288,7 @@ A time series whose moments (mean and variance) change over time is called a **n
 
 :::image type="content" source="../media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a non-stationary time series.":::
 
-Next, let's examine the image below, which plots the the original series in first differences, $x_t = y_t - y_{t-1}$ where $x_t$ is the change in retail sales and $y_t$ and $y_{t-1}$ represent the original series and its first lag, respectively. The mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a first order stationary times series. The reason we added the first order term is because the first moment (mean) does not change with time interval, the same cannot be said about the variance, which is a second moment.
+Next, let's examine the image below, which plots the original series in first differences, $x_t = y_t - y_{t-1}$ where $x_t$ is the change in retail sales and $y_t$ and $y_{t-1}$ represent the original series and its first lag, respectively. The mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a first order stationary times series. The reason we added the first order term is because the first moment (mean) does not change with time interval, the same cannot be said about the variance, which is a second moment.
 
 
 :::image type="content" source="../media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series.":::

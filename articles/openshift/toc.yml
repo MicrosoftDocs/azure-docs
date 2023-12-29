@@ -46,10 +46,13 @@
       items:
         - name: Create a private Azure Red Hat OpenShift cluster
           href: howto-create-private-cluster-4x.md
+        - name: Configure multiple IPs per cluster load balancer
+          href: howto-multiple-ips.md
         - name: Configure custom DNS
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
+
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
@@ -98,6 +101,8 @@
               href : ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
             - name: Disable Azure Monitor container insights in Azure Red Hat OpenShift 4 
               href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md#delete-extension-instance
+            - name: Configure Azure Monitor managed service for prometheus remote write   
+              href: howto-remotewrite-prometheus.md
     - name: Develop and run applications
       items:
         - name: Deploy an application from source code

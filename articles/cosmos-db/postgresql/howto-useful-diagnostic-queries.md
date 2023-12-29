@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 10/01/2023
 ---
 
 # Useful diagnostic queries in Azure Cosmos DB for PostgreSQL
@@ -15,7 +15,7 @@ ms.date: 01/30/2023
 
 ## Finding which node contains data for a specific tenant
 
-In the multi-tenant use case, we can determine which worker node contains the
+In the multitenant use case, we can determine which worker node contains the
 rows for a specific tenant.  Azure Cosmos DB for PostgreSQL groups the rows of distributed
 tables into shards, and places each shard on a worker node in the cluster. 
 
@@ -44,13 +44,54 @@ The output contains the host and port of the worker database.
 └─────────┴────────────┴─────────────┴───────────┴──────────┴─────────────┘
 ```
 
+## Finding which node hosts a distributed schema
+
+Distributed schemas are automatically associated with individual colocation groups such that the tables created in those schemas are converted to colocated distributed tables without a shard key. You can find where a distributed schema resides by joining `citus_shards` with `citus_schemas`:
+
+```postgresql
+select schema_name, nodename, nodeport
+  from citus_shards
+  join citus_schemas cs
+    on cs.colocation_id = citus_shards.colocation_id
+ group by 1,2,3;
+```
+
+```
+ schema_name | nodename  | nodeport
+-------------+-----------+----------
+ a           | localhost |     9701
+ b           | localhost |     9702
+ with_data   | localhost |     9702
+```
+
+You can also query `citus_shards` directly filtering down to schema table type to have a detailed listing for all tables.
+
+```postgresql
+select * from citus_shards where citus_table_type = 'schema';
+```
+
+```
+   table_name   | shardid |      shard_name       | citus_table_type | colocation_id | nodename  | nodeport | shard_size | schema_name | colocation_id | schema_size | schema_owner
+----------------+---------+-----------------------+------------------+---------------+-----------+----------+------------+-------------+---------------+-------------+--------------
+ a.cities       |  102080 | a.cities_102080       | schema           |             4 | localhost |     9701 |       8192 | a           |             4 | 128 kB      | citus
+ a.map_tags     |  102145 | a.map_tags_102145     | schema           |             4 | localhost |     9701 |      32768 | a           |             4 | 128 kB      | citus
+ a.measurement  |  102047 | a.measurement_102047  | schema           |             4 | localhost |     9701 |          0 | a           |             4 | 128 kB      | citus
+ a.my_table     |  102179 | a.my_table_102179     | schema           |             4 | localhost |     9701 |      16384 | a           |             4 | 128 kB      | citus
+ a.people       |  102013 | a.people_102013       | schema           |             4 | localhost |     9701 |      32768 | a           |             4 | 128 kB      | citus
+ a.test         |  102008 | a.test_102008         | schema           |             4 | localhost |     9701 |       8192 | a           |             4 | 128 kB      | citus
+ a.widgets      |  102146 | a.widgets_102146      | schema           |             4 | localhost |     9701 |      32768 | a           |             4 | 128 kB      | citus
+ b.test         |  102009 | b.test_102009         | schema           |             5 | localhost |     9702 |       8192 | b           |             5 | 32 kB       | citus
+ b.test_col     |  102012 | b.test_col_102012     | schema           |             5 | localhost |     9702 |      24576 | b           |             5 | 32 kB       | citus
+ with_data.test |  102180 | with_data.test_102180 | schema           |            11 | localhost |     9702 |     647168 | with_data   |            11 | 632 kB      | citus
+```
+
 ## Finding the distribution column for a table
 
 Each distributed table has a "distribution column." (For
 more information, see [Distributed Data
 Modeling](howto-choose-distribution-column.md).) It can be
 important to know which column it is. For instance, when joining or filtering
-tables, you may see error messages with hints like, "add a filter to the
+tables, you might see error messages with hints like, "add a filter to the
 distribution column."
 
 The `pg_dist_*` tables on the coordinator node contain diverse metadata about

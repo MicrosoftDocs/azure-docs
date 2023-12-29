@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2023
+ms.date: 12/15/2023
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,6 +26,9 @@ The app limits customizability. If you want to modify and extend the default fil
 - A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) is required to install and use the app.
 - To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account. The Enterprise Administrator (read only) role is supported.
 
+>[!NOTE]
+> When you convert an EA enrollment to a Microsoft Customer Agreement (MCA), you can’t use the Cost Management Power BI template app any longer because the app doesn’t support MCA. However, the [Azure Cost Management connector for Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) supports MCA accounts.
+
 ## Installation steps
 
 To install the app:
@@ -39,9 +42,7 @@ To install the app:
 1. Select the app that you installed.
 1. On the Getting started page, select **Connect your data**.
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" alt-text="Screenshot highlighting the Connect your data link." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-your-data.png" :::
-1. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
-    >[!NOTE]
-    > The default value for Scope is `Enrollment Number`. Do not change the value, otherwise the initial data connection will fail.  
+1. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Enter "Enrollment Number" for **Scope**, then select **Next**.  
 
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Screenshot showing where you enter your E A enrollment information." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
 1. The next installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Leave all the default values. Select **Sign in and continue**.  

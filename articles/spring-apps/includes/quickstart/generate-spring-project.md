@@ -10,7 +10,7 @@ ms.date: 08/09/2023
 <!--
 For clarity of structure, a separate markdown file is used to describe how to prepare event-driven project.
 
-[!INCLUDE [generate-spring-project](../../includes/quickstart/generate-spring-project.md)]
+[!INCLUDE [generate-spring-project](generate-spring-project.md)]
 
 -->
 

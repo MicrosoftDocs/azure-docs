@@ -89,7 +89,7 @@ To use Active Directory accounts for the share permissions of your file share, y
    ```
 
    > [!IMPORTANT]
-   > This module requires requires the [PowerShell Gallery](/powershell/gallery/overview) and [Azure PowerShell](/powershell/azure/what-is-azure-powershell). You may be prompted to install these if they are not already installed or they need updating. If you are prompted for these, install them, then close all instances of PowerShell. Re-open an elevated PowerShell prompt and import the `AzFilesHybrid` module again before continuing.
+   > This module requires the [PowerShell Gallery](/powershell/gallery/overview) and [Azure PowerShell](/powershell/azure/what-is-azure-powershell). You may be prompted to install these if they are not already installed or they need updating. If you are prompted for these, install them, then close all instances of PowerShell. Re-open an elevated PowerShell prompt and import the `AzFilesHybrid` module again before continuing.
 
 1. Sign in to Azure by running the command below. You will need to use an account that has one of the following role-based access control (RBAC) roles:
 

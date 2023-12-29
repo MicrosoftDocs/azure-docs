@@ -11,7 +11,26 @@ ms.author: kesheth
 
 
 # Import Operation
-Import operation enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput using the $import operation. Import supports both initial and incremental data load into FHIR server. 
+Import operation enables loading Fast Healthcare Interoperability Resources (FHIR&#174;) data to the FHIR server at high throughput. Import supports both initial and incremental data load into FHIR server. 
+
+
+There are two modes of $import supported today- 
+* Initial mode
+1. Initial mode is intended to load FHIR resources into an empty FHIR server.
+1. Initial mode only supports CREATE operations and, when enabled, blocks API writes to the FHIR server.
+* Incremental mode
+1. Incremental mode is optimized to load data into FHIR server periodically and doesn't block writes via API.
+1. Incremental mode allows you to load lastUpdated and versionId from resource Meta (if present in resource JSON).
+   Incase
+   * Import files don't have `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in FHIR service.
+   * Import files have resources with duplicate `version` and `lastUpdated` field values, then only one resource is ingested in the FHIR service.
+1. Incremental mode allows you to ingest soft deleted resources. This capability is beneficial in case you would like to migrate from Azure API for FHIR to Azure Health Data Services, FHIR service.
+
+
+Note: 
+* Import operation does not support conditional references in resources. 
+* During import operation, If multiple resources share the same resource ID, then only one of those resources is imported at random. There is an error logged for the resources sharing the same resource ID.
+
 
 ## Using $import operation
 
@@ -25,10 +44,6 @@ For import operation, ensure
 * All the resources in a file must be of the same type. You may have multiple files per resource type.
 * The data to be imported must be in the same Tenant as of the FHIR service.
 * Maximum number of files to be imported per operation is 10,000.
-
-Note: 
-* Import operation does not support conditional references in resources. 
-* During import operation, If multiple resources share the same resource ID, then only one of those resources is imported at random. There is an error logged for the resources sharing the same resource ID.
 
 
 ### Calling $import
@@ -47,7 +62,7 @@ Content-Type:application/fhir+json
 | Parameter Name      | Description | Card. |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
 | inputFormat      | String representing the name of the data source format. Currently only FHIR NDJSON files are supported. | 1..1 | ```application/fhir+ndjson``` |
-| mode      | Import mode value | 1..1 | For initial import use ```InitialLoad``` mode value. For incremental import mode use ```IncrementalLoad``` mode value. If no mode value is provided, IncrementalLoad mode value is considered by default. |
+| mode      | Import mode value | 1..1 | For initial mode import,  use ```InitialLoad``` mode value. For incremental mode import, use ```IncrementalLoad``` mode value. If no mode value is provided, IncrementalLoad mode value is considered by default. |
 | input   | Details of the input files. | 1..* | A JSON array with three parts described in the table below. |
 
 | Input part name   | Description | Card. |  Accepted values |
@@ -56,7 +71,7 @@ Content-Type:application/fhir+json
 |URL   |  Azure storage url of input file   | 1..1 | URL value of the input file that can't be modified. |
 | etag   |  Etag of the input file on Azure storage used to verify the file content hasn't changed. | 0..1 |  Etag value of the input file that can't be modified. |
 
-**Sample body for Initial load import:**
+**Sample body for import:**
 
 ```json
 {
@@ -68,7 +83,7 @@ Content-Type:application/fhir+json
         },
         {
             "name": "mode",
-            "valueString": "InitialLoad"
+            "valueString": "<Use "InitialLoad" for initial mode import / Use "IncrementalLoad" for incremental mode import>",
         },
         {
             "name": "input",
@@ -155,6 +170,29 @@ Table below provides some of the important fields in the response body:
     ]
 }
 ```
+### Ingestion of soft deleted resources
+Incremental mode import supports ingestion of soft deleted resources. You need to use the extension to ingest soft deleted resources in FHIR service.
+
+**Sample import file with soft deleted resources:**
+Extension needs to be added to the resource to inform FHIR service, if it is soft deleted. Below is an example of the extension.
+
+```ndjson
+{"resourceType": "Patient", "id": "example10", "meta": { "lastUpdated": "2023-10-27T04:00:00.000Z", "versionId": 4, "extension": [ { "url": "http://azurehealthcareapis.com/data-extensions/deleted-state", "valueString": "soft-deleted" } ] } }
+```
+
+**Validate ingestion of soft deleted resources:**
+After import operation is successfully completed, to validate soft deleted resources in FHIR service, you need to perform history search on the resource. 
+If the ID of the resource that was deleted is known, use the following URL pattern:
+
+```json
+<FHIR_URL>/<resource-type>/<resource-id>/_history
+```
+
+Incase the ID of the resource isn't known, do a history search on the entire resource type:
+```json
+<FHIR_URL>/<resource-type>/_history
+```
+
 ## Troubleshooting
 
 Lets walk-through solutions to some error codes you may encounter during the import operation.

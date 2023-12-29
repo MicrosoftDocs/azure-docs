@@ -1,25 +1,25 @@
 ---
-title: Query data from AWS S3 and with Glue
-description: How to configure HDInsight on AKS Trino catalogs with Glue as metastore
+title: Query data from AWS S3 and with AWS Glue
+description: How to configure Trino catalogs for HDInsight on AKS with AWS Glue as metastore
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 10/19/2023
 ---
 
 
-# Query data from AWS S3 and with Glue
+# Query data from AWS S3 using AWS Glue
 
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-This article provides examples of how you can add catalogs to an HDInsight on AKS Trino cluster where catalogs are using AWS Glue as metastore and S3 as storage.
+This article provides examples of how you can add catalogs to a Trino cluster with HDInsight on AKS where catalogs are using AWS Glue as metastore and AWS S3 as storage.
 
 ## Prerequisites
 
-* [Understanding of HDInsight on AKS Trino cluster configurations](./trino-service-configuration.md).
+* [Understanding of Trino cluster configurations for HDInsight on AKS](./trino-service-configuration.md).
 * [How to add catalogs to an existing cluster](./trino-add-catalogs.md).
 * [AWS account with Glue and S3](./trino-catalog-glue.md#quickstart-with-aws-glue-and-s3).
 
-## Trino catalogs with S3 and Glue as metastore
+## Trino catalogs with AWS S3 and AWS Glue as metastore
 Several Trino connectors support AWS Glue. More details on catalogs Glue configuration properties can be found in [Trino documentation](https://trino.io/docs/410/connector/hive.html#aws-glue-catalog-configuration-properties).
 
 Refer to [Quickstart with AWS Glue and S3](./trino-catalog-glue.md#quickstart-with-aws-glue-and-s3) for setting up AWS resources.
@@ -32,7 +32,7 @@ Refer to [Quickstart with AWS Glue and S3](./trino-catalog-glue.md#quickstart-wi
 
 ### Add Hive catalog
 
-You can add the following sample JSON in your HDInsight on AKS Trino cluster under `clusterProfile` section in the ARM template. 
+You can add the following sample JSON in your Trino cluster under `clusterProfile` section in the ARM template. 
 <br>Update the values as per your requirement.
 
 ```json
@@ -67,7 +67,7 @@ You can add the following sample JSON in your HDInsight on AKS Trino cluster und
 
 ### Add Delta Lake catalog
 
-You can add the following sample JSON in your HDInsight on AKS Trino cluster under `clusterProfile` section in the ARM template. 
+You can add the following sample JSON in your Trino cluster under `clusterProfile` section in the ARM template. 
 <br>Update the values as per your requirement.
 
 ```json
@@ -100,7 +100,7 @@ You can add the following sample JSON in your HDInsight on AKS Trino cluster und
 ```
 
 ### Add Iceberg catalog
-You can add the following sample JSON in your HDInsight on AKS Trino cluster under `clusterProfile` section in the ARM template. 
+You can add the following sample JSON in your Trino cluster under `clusterProfile` section in the ARM template. 
 <br>Update the values as per your requirement.
 
 ```json
@@ -156,7 +156,7 @@ Catalog examples in the previous code  refer to access keys stored as secrets in
 
 ## Quickstart with AWS Glue and S3
 ### 1. Create AWS user and save access keys to Azure Key Vault.
-Use existing or create new user in AWS IAM - this user is used by Trino connector to read data from Glue/S3. Create and retrieve access keys on Security Credentials tab and save them as secrets into [Azure Key Vault](/azure/key-vault/secrets/about-secrets) linked to your HDInsight on AKS Trino cluster. Refer to [Add catalogs to existing cluster](./trino-add-catalogs.md) for details on how to link Key Vault to your Trino cluster.
+Use existing or create new user in AWS IAM - this user is used by Trino connector to read data from Glue/S3. Create and retrieve access keys on Security Credentials tab and save them as secrets into [Azure Key Vault](/azure/key-vault/secrets/about-secrets) linked to your Trino cluster. Refer to [Add catalogs to existing cluster](./trino-add-catalogs.md) for details on how to link Key Vault to your Trino cluster.
 
 ### 2. Create AWS S3 bucket
 Use existing or create new S3 bucket, it's used in Glue database as location to store data.
@@ -165,7 +165,7 @@ Use existing or create new S3 bucket, it's used in Glue database as location to 
 In AWS Glue, create new database, for example, "trinodb" and configure location, which points to your S3 bucket from previous step, for example, `s3://trinoglues3/`
 
 ### 4. Configure Trino catalog
-Configure a Trino catalog using examples above [Trino catalogs with S3 and Glue as metastore](./trino-catalog-glue.md#trino-catalogs-with-s3-and-glue-as-metastore).
+Configure a Trino catalog using examples above [Trino catalogs with S3 and Glue as metastore](./trino-catalog-glue.md#trino-catalogs-with-aws-s3-and-aws-glue-as-metastore).
 
 ### 5. Create and query sample table
 Here are few sample queries to test connectivity to AWS reading and writing data. Schema name is AWS Glue database name you created earlier.

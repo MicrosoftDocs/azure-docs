@@ -28,14 +28,24 @@ The Log Ingestion API provides the following advantages over the Data Collector 
 The migration procedure described in this article assumes you have:
 
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
-- [Permissions to create data collection rules](../essentials/data-collection-rule-overview.md#permissions) in the Log Analytics workspace.
+- [Permissions to create data collection rules](../essentials/data-collection-rule-create-edit.md#permissions) in the Log Analytics workspace.
 - [A Microsoft Entra application to authenticate API calls](../logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application) or any other Resource Manager authentication scheme.
+
+## Permissions required
+
+| Action | Permissions required |
+|:---|:---|
+| Create a data collection endpoint. | `Microsoft.Insights/dataCollectionEndpoints/write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
+| Create or modify a data collection rule. | `Microsoft.Insights/DataCollectionRules/Write` permissions as provided by the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), for example. |
+| Convert a table that uses the Data Collector API to data collection rules and the Log Ingestion API. | `Microsoft.OperationalInsights/workspaces/tables/migrate/action` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Create new tables or modify table schemas. | `microsoft.operationalinsights/workspaces/tables/write` permissions as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
+| Call the Log Ingestion API. | See [Assign permissions to a DCR](./tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr). |
 
 ## Create new resources required for the Log ingestion API
 
 The Log Ingestion API requires you to create two new types of resources, which the HTTP Data Collector API doesn't require: 
 
-- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the the data you collect is ingested into the pipeline for processing.
+- [Data collection endpoints](../essentials/data-collection-endpoint-overview.md), from which the data you collect is ingested into the pipeline for processing.
 - [Data collection rules](../essentials/data-collection-rule-overview.md), which define [data transformations](../essentials/data-collection-transformations.md) and the destination table to which the data is ingested.
 
 ## Migrate existing custom tables or create new tables

@@ -2,8 +2,6 @@
   href: index.yml
 - name: Overview
   href: overview.md
-- name: What's new
-  href: whats-new.md
 - name: Quickstarts
   items:
   - name: Create a Linux VM
@@ -145,8 +143,8 @@
       href: ./linux/openshift-azure-stack.md
   - name: SAP on Azure
     href: ../sap/index.yml
-  - name: Oracle
-    href: ./workloads/oracle/index.yml
+  - name: Oracle on Azure
+    href: ../oracle/index.yml
   - name: Azure for Gaming
     href: /gaming/azure/
   - name: Elasticsearch
@@ -227,6 +225,8 @@
         href: dcasv5-dcadsv5-series.md
       - name: DCas_cc_v5 and DCads_cc_v5-series
         href: dcasccv5-dcadsccv5-series.md
+      - name: DCesv5 and DCedsv5-series
+        href: dcesv5-dcedsv5-series.md
       - name: Dpsv5 and Dpdsv5-series
         href: dpsv5-dpdsv5-series.md
       - name: Dplsv5 and Dpldsv5-series
@@ -260,12 +260,7 @@
       - name: Ev5 and Esv5-series
         href: ev5-esv5-series.md
       - name: Ebdsv5 and Ebsv5 series
-        href: ebdsv5-ebsv5-series.md
-        items:
-        - name: Enable NVMe and SCSI interface
-          href: enable-nvme-interface.md  
-        - name: Enable NVMe FAQ
-          href: enable-nvme-faqs.yml   
+        href: ebdsv5-ebsv5-series.md   
       - name: Edv5 and Edsv5-series
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
@@ -274,6 +269,8 @@
         href: ecasv5-ecadsv5-series.md
       - name: ECas_cc_v5 and ECads_cc_v5-series
         href: ecasccv5-ecadsccv5-series.md
+      - name: ECesv5 and ECedsv5-series
+        href: ecesv5-ecedsv5-series.md
       - name: Epsv5 and Epdsv5-series
         href: epsv5-epdsv5-series.md
       - name: M-series
@@ -312,6 +309,8 @@
         href: sizes-gpu.md
       - name: NC-series
         href: nc-series.md
+      - name: NCads_H100_v5-series
+        href: ncads-h100-v5.md
       - name: NCv2-series
         href: ncv2-series.md
       - name: NCv3-series
@@ -328,9 +327,9 @@
         href: nd-series.md
       - name: NDv2-series
         href: ndv2-series.md
-      - name: NDm-H100-v5-series
+      - name: ND-H100-v5-series
         href: nd-h100-v5-series.md
-      - name: NGads V620-series (preview)
+      - name: NGads V620-series
         href: ngads-v-620-series.md
       - name: NV-series
         href: nv-series.md
@@ -440,6 +439,12 @@
         href: setup-mpi.md
       - name: Scaling HPC applications
         href: compiling-scaling-applications.md
+    - name: Enable NVMe
+      items:
+      - name: Enable NVMe and SCSI interface
+        href: enable-nvme-interface.md  
+      - name: Enable NVMe FAQ
+        href: enable-nvme-faqs.yml
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -657,6 +662,9 @@
           href: ./windows/image-builder-virtual-desktop.md
       - name: Security
         items:
+        - name: Security mechanisms
+          displayName: Image builder, images, building
+          href: ./security-isolated-image-builds-image-builder.md
         - name: Security controls by Azure Policy
           displayName: Image builder, images, building
           href: ./security-controls-policy-image-builder.md
@@ -787,6 +795,9 @@
       displayName: pre-empt, preempt, spot, low priority, low-priority
       href: /azure/architecture/guide/spot/spot-eviction
       maintainContext: true
+  - name: Azure Boost
+    displayname: Boost, Azure Boost, boost vm, boost virtual machine
+    href: ../azure-boost/overview.md
   - name: Azure Hybrid Benefit
     items:
     - name: Linux
@@ -869,8 +880,14 @@
     - name: Create from an existing OS disk or VHD
       displayName: attach
       href: attach-os-disk.md
-  - name: Auto-shutdown the VM
+  - name: Auto-shutdown a VM
     href: auto-shutdown-vm.md
+  - name: Hibernating Virtual Machines
+    items:
+      - name: Hibernate a VM
+        href: hibernate-resume.md
+      - name: Troubleshoot VM hibernation
+        href: hibernate-resume-troubleshooting.md
   - name: Delete a VM and its resources
     href: delete.md
   - name: Connect to Virtual Machines
@@ -1042,9 +1059,6 @@
     - name: PowerShell DSC
       href: ./extensions/dsc-overview.md
       items:
-      - name: DSC and Linux
-        displayName: Desired state configuration, dsc
-        href: ./extensions/dsc-linux.md
       - name: DSC and Windows
         displayName: Desired state configuration, dsc
         href: ./extensions/dsc-windows.md
@@ -1054,8 +1068,8 @@
       - name: Use templates
         displayName: Desired state configuration, dsc
         href: ./extensions/dsc-template.md
-    - name: Virtual machine access
-      href: ./extensions/vmaccess.md
+    - name: VMAccess for Linux
+      href: ./extensions/vmaccess-linux.md
     - name: Third-party extensions
       items:
       - name: Chef
@@ -1645,9 +1659,7 @@
       href: ./windows/multiple-nics.md
   - name: Assign public DNS name
     href: create-fqdn.md
-  - name: Assign public DNS name
-    href: create-fqdn.md
-  - name: DNS resolution
+  - name: DNS resolution for Linux Azure VMs
     href: ./linux/azure-dns.md
   - name: Use internal DNS
     href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
@@ -1778,27 +1790,27 @@
     items:
     - name: Portal
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: CLI
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: PowerShell
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: Azure Resource Manager Template
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/toc.json
     - name: REST
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/toc.json
     - name: Azure SDKs
       displayName: Configured managed identies
-      href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/toc.json
+      href: /entra/identity/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/toc.json
   - name: Linux VMs SSH with Microsoft Entra ID
     displayName: aad, ssh, active directory
-    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md?toc=/azure/virtual-machines/toc.json
+    href: /entra/identity/devices/howto-vm-sign-in-azure-ad-linux?toc=/azure/virtual-machines/toc.json
   - name: Windows VMs and Microsoft Entra ID
-    href: ../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md?toc=/azure/virtual-machines/toc.json
+    href: /entra/identity/devices/howto-vm-sign-in-azure-ad-windows?toc=/azure/virtual-machines/toc.json
     displayname: aad, active directory
 - name: Updates and maintenance
   items:
@@ -1857,6 +1869,9 @@
       - name: Portal
         displayName: Maintenance configurations
         href: maintenance-configurations-portal.md
+      - name: Troubleshoot
+        displayName: Troubleshoot
+        href: troubleshoot-maintenance-configurations.md
       - name: Maintenance control for OS image upgrade
         items:
         - name: Overview
@@ -2011,6 +2026,10 @@
       items:
       - name: Create VM restore points
         href: create-restore-points.md
+      - name: VMSnapshot extension
+        href: virtual-machines-restore-points-vm-snapshot-extension.md
+      - name: Cross-region copy
+        href: virtual-machines-restore-points-copy.md        
     - name: Manage VM restore points
       href: manage-restore-points.md
     - name: Tutorials
@@ -2021,6 +2040,8 @@
         href: virtual-machines-create-restore-points-powershell.md
       - name: Portal
         href: virtual-machines-create-restore-points-portal.md
+      - name: How to copy VM restore points to another region
+        href: virtual-machines-copy-restore-points-how-to.md        
     - name: Support matrix
       href: concepts-restore-points.md
     - name: Troubleshooting

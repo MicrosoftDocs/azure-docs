@@ -112,7 +112,7 @@ All on-premises VMs replicated to Azure must meet the Azure VM requirements summ
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.
 Data disk count | 16 or less. | Check fails if unsupported.
-Data disk size | Up to 4,095 GB | Check fails if unsupported.
+Data disk size | Up to 32 TB | Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.

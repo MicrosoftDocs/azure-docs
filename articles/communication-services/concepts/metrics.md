@@ -165,7 +165,7 @@ The following operations are available on Rooms API request metrics:
 | DeleteRoom                    | Deletes a Room. |
 | GetRoom                       | Gets a Room by Room ID. |
 | PatchRoom                     | Updates a Room by Room ID. |
-| ListRooms                     | Lists all the Rooms for an ACS Resource. |
+| ListRooms                     | Lists all the Rooms for an Azure Communication Services Resource. |
 | AddParticipants               | Adds participants to a Room.|
 | RemoveParticipants            | Removes participants from a Room. |
 | GetParticipants               | Gets list of participants for a Room. |

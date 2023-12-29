@@ -44,12 +44,12 @@ Azure Disk Encryption is also not available on [Basic, A-series VMs](https://azu
 | Virtual machine | Minimum memory requirement |
 |--|--|
 | Linux VMs when only encrypting data volumes| 2 GB |
-| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4GB or less | 8 GB |
-| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is greater than 4GB | The root file system usage * 2. For instance, a 16 GB of root file system usage requires at least 32GB of RAM |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4 GB or less | 8 GB |
+| Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is greater than 4 GB | The root file system usage * 2. For instance, a 16 GB of root file system usage requires at least 32 GB of RAM |
 
 Once the OS disk encryption process is complete on Linux virtual machines, the VM can be configured to run with less memory.
 
-For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-linux.md#unsupported-scenarios).
+For more exceptions, see [Azure Disk Encryption: Restrictions](disk-encryption-linux.md#restrictions).
 
 ### Supported operating systems
 
@@ -75,7 +75,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | OpenLogic | CentOS 8.4 | 8_4 | OpenLogic:CentOS:8_4:latest | OS and data disk |
 | OpenLogic | CentOS 8.3 | 8_3 | OpenLogic:CentOS:8_3:latest | OS and data disk |
 | OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS and data disk |
-| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS and data disk |
 | OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | OS and data disk |
 | OpenLogic | CentOS 7.9 | 7_9 | OpenLogic:CentOS:7_9:latest | OS and data disk |
 | OpenLogic | CentOS 7.8 | 7_8 | OpenLogic:CentOS:7_8:latest | OS and data disk |
@@ -90,12 +89,12 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Oracle | Oracle Linux 8.5 Gen 2 | 8.5 | Oracle:Oracle-Linux:ol85-lvm-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 | 9.2 | RedHat:RHEL:9_2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.2 Gen 2 | 9.2 | RedHat:RHEL:92-gen2:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 | 9.1 | RedHat:RHEL:9_1:latest | OS and data disk (see note below) |
-| RedHat | RHEL 9.1 Gen 2 | 9.1 | RedHat:RHEL:91-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 | 9.0 | RedHat:RHEL:9_0:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9.0 Gen 2 | 9.0 | RedHat:RHEL:90-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9-lvm | 9-lvm | RedHat:RHEL:9-lvm:latest | OS and data disk (see note below) |
 | RedHat | RHEL 9-lvm Gen 2 | 9-lvm-gen2 | RedHat:RHEL:9-lvm-gen2:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.9 | 8.9 | RedHat:RHEL:8_9:latest | OS and data disk (see note below) |
+| RedHat | RHEL 8.9 Gen 2 | 8.9 | RedHat:RHEL:89-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.8 | 8.8 | RedHat:RHEL:8_8:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.8 Gen 2 | 8.8 | RedHat:RHEL:88-gen2:latest | OS and data disk (see note below) |
 | RedHat | RHEL 8.7 | 8.7 | RedHat:RHEL:8_7:latest | OS and data disk (see note below) |
@@ -132,7 +131,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 > 
 > All distros:
 > - ADE support for a particular offer type does not extend beyond the end-of-life date provided by the publisher. 
-> - The legacy ADE solution (using Microsoft Entra credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Phyton 3 as default.
+> - The legacy ADE solution (using Microsoft Entra credentials) is not recommended for new VMs and is not compatible with RHEL versions later than RHEL 7.8 or with Python 3 as default.
 
 ## Additional VM requirements
 

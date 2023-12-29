@@ -53,6 +53,8 @@ Your classic resource data persists and is subject to the retention settings on 
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource, see the [Workspace-based resource creation guide](create-workspace-resource.md).
 
+> [!NOTE]
+> The migration process shouldn't introduce any application downtime or restarts nor change your existing instrumentation key or connection string.
 ## Prerequisites
 
 - A Log Analytics workspace with the access control mode set to the **Use resource or workspace permissions** setting:
@@ -365,7 +367,7 @@ The structure of a Log Analytics workspace is described in [Log Analytics worksp
 > [!NOTE]
 > The classic Application Insights experience includes backward compatibility for your resource queries, workbooks, and log-based alerts. To query or view against the [new workspace-based table structure or schema](#table-structure), first go to your Log Analytics workspace. During the preview, selecting **Logs** in the Application Insights pane gives you access to the classic Application Insights query experience. For more information, see [Query scope](../logs/scope.md).
 
-[:::image type="content" source="../logs/media/data-platform-logs/logs-structure-ai.png" lightbox="../logs/media/data-platform-logs/logs-structure-ai.png" alt-text="Diagram that shows the Azure Monitor Logs structure for Application Insights.":::
+:::image type="content" source="../logs/media/data-platform-logs/logs-structure-ai.png" lightbox="../logs/media/data-platform-logs/logs-structure-ai.png" alt-text="Diagram that shows the Azure Monitor Logs structure for Application Insights.":::
 
 ### Table structure
 
@@ -822,3 +824,4 @@ Legacy table: traces
 
 * [Explore metrics](../essentials/metrics-charts.md)
 * [Write Log Analytics queries](../logs/log-query-overview.md)
+

@@ -364,7 +364,7 @@ CSS for styling the loading spinner over the remote video stream.
 
 ### Remote video quality
 
-The ACS WebJS SDK, starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18), provides a feature called Optimal Video Count (OVC). This feature can be used to inform applications at run-time how many incoming videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Applications should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10s), between updates that to avoid too frequent of changes.
+The Azure Communication Services WebJS SDK, starting in version [1.15.1](https://github.com/Azure/Communication/blob/master/releasenotes/acs-javascript-calling-library-release-notes.md#1153-stable-2023-08-18), provides a feature called Optimal Video Count (OVC). This feature can be used to inform applications at run-time how many incoming videos from different participants can be optimally rendered at a given moment in a group call (2+ participants). This feature exposes a property `optimalVideoCount` that is dynamically changing during the call based on the network and hardware capabilities of a local endpoint. The value of `optimalVideoCount` details how many videos from different participants application should render at a given moment. Applications should handle these changes and update number of rendered videoes accordingly to the recommendation. There's a cooldown period (around 10s), between updates that to avoid too frequent of changes.
 
 **Usage**
 The `optimalVideoCount` feature is a call feature
@@ -414,7 +414,7 @@ const isAvailable: boolean = remoteVideoStream.isAvailable;
         - I'm viewing the video of a Remote participant who is On macOS/iOS Safari, and from their address bar, they click on "Pause" / "Resume" camera. I see a black/frozen video since they paused their camera and I see the RemoteVideoStream.isReceiving flag goes to false. Once they resume playing the camera, then I see the RemoteVideoStream.isReceiving flag goes to true.
         - I'm viewing the video of a remote participant who in on whatever platform. And for whatever reason their network disconnects. This will actually leave the remote participant in the call for a little while and I see their video frozen/black frame, and see RemoteVideoStream.isReceiving flag goes to false. The remote participant can get network back and reconnect and their audio/video should start flowing normally and I see the RemoteVideoStream.isReceiving flag to true.
         - I'm viewing the video of a remote participant who is on mobile browser. The remote participant terminates/kills the mobile browser. Since that remote participant was on mobile, this will actually leave the participant in the call for a little while and I will still see them on the call and their video will be frozen, and so I  see the RemoteVideoStream.isReceiving flag goes to false. At some point, service will kick participant out of the call and I would just see that the participant disconnected from the call.
-        - I'm viewing the video of a remote participant who is on mobile browser and they lock the device. I see the RemoteVideoStream.isReceiving flag goes to false. Once the remote participant unlocks the device and navigates to the acs call, then ill see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
+        - I'm viewing the video of a remote participant who is on mobile browser and they lock the device. I see the RemoteVideoStream.isReceiving flag goes to false. Once the remote participant unlocks the device and navigates to the Azure Communication Services call, then I'll see the flag go back to true. Same behavior when remote participant is on desktop and the desktop locks/sleeps
     - This feature improves the user experience for rendering remote video streams.
     - You can display a loading spinner over the remote video stream when isReceiving flag changes to false. You don't have to do a loading spinner, you can do anything you desire, but a loading spinner is the most common usage for better user experience.
 ```js
@@ -495,7 +495,7 @@ Limitations:
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
 Sending and receiving of reactions is in public preview and available as part of versions 1.18.1-beta.1 or higher.
 
-Within ACS you can send and receive reactions when on a group call:
+Within Azure Communication Services you can send and receive reactions when on a group call:
 - Like :+1:
 - Love :heart:
 - Applause :clap:

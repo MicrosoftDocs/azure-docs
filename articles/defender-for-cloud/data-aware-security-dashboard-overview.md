@@ -4,7 +4,7 @@ description: Learn about the capabilities and functions of the data-aware securi
 author: AlizaBernstein
 ms.author: v-bernsteina
 ms.topic: conceptual
-ms.date: 10/17/2023
+ms.date: 12/18/2023
 ---
 
 # Data security dashboard
@@ -38,15 +38,15 @@ The feature is turned on at the subscription level.
 
 ## Required permissions and roles
 
-- To view the dashboard you must have either one of the following scenarios:
+- To view the dashboard you must have either one of the following:
 
-  - **all of the following permissions**:
+  - permissions:
 
     - Microsoft.Security/assessments/read
     - Microsoft.Security/assessments/subassessments/read
     - Microsoft.Security/alerts/read
 
-  - **the minimum required privileged RBAC role** of **Security Reader**.
+  - the minimum required privileged RBAC role of **Security Reader**.
 
 - Each Azure subscription must be registered for the **Microsoft.Security** resource provider:
 

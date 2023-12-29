@@ -1,6 +1,6 @@
 ---
-title: Use the REST APIs to manage Azure Chaos Studio Preview experiments
-description: Run and manage a chaos experiment with Azure Chaos Studio Preview by using REST APIs.
+title: Use the REST APIs to manage Azure Chaos Studio experiments
+description: Run and manage a chaos experiment with Azure Chaos Studio by using REST APIs.
 services: chaos-studio
 author: prasha-microsoft 
 ms.topic: article
@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 > [!WARNING]
 > Injecting faults can affect your application or service. Be careful not to disrupt customers.
 
-The Azure Chaos Studio Preview API provides support for starting experiments programmatically. You can also use the Azure Resource Manager client and the Azure CLI to execute these commands from the console. The examples in this article are for the Azure CLI.
+The Azure Chaos Studio REST API provides support for starting experiments programmatically. You can also use the Azure Resource Manager client and the Azure CLI to execute these commands from the console. The examples in this article are for the Azure CLI.
 
 > [!Warning]
 > These APIs are still under development and subject to change.

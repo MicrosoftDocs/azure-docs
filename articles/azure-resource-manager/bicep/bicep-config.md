@@ -53,7 +53,7 @@ You can enable preview features by adding:
 The preceding sample enables 'userDefineTypes' and 'extensibility`. The available experimental features include:
 
 - **assertions**: Should be enabled in tandem with `testFramework` experimental feature flag for expected functionality. Allows you to author boolean assertions using the `assert` keyword comparing the actual value of a parameter, variable, or resource name to an expected value. Assert statements can only be written directly within the Bicep file whose resources they reference. For more information, see [Bicep Experimental Test Framework](https://github.com/Azure/bicep/issues/11967).
-- **compileTimeImports**: Allows you to use symbols defined in another template. See [Import user-defined data types](./bicep-import.md#import-user-defined-data-types-preview).
+- **compileTimeImports**: Allows you to use symbols defined in another Bicep file. See [Import types, variables and functions](./bicep-import.md#import-types-variables-and-functions-preview).
 - **extensibility**: Allows Bicep to use a provider model to deploy non-ARM resources. Currently, we only support a Kubernetes provider. See [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
 - **sourceMapping**: Enables basic source mapping to map an error location returned in the ARM template layer back to the relevant location in the Bicep file.
 - **resourceTypedParamsAndOutputs**: Enables the type for a parameter or output to be of type resource to make it easier to pass resource references between modules. This feature is only partially implemented. See [Simplifying resource referencing](https://github.com/azure/bicep/issues/2245).

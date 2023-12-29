@@ -11,52 +11,52 @@ ms.date: 10/17/2023
 
 # CI/CD Patterns with Azure Managed Airflow
 
-Azure Data Factory's Managed Airflow service is a simple and efficient way to create and manage Apache Airflow environments, enabling you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Azure Managed Airflow. You can either upload the DAG files in your blob storage and link it with the Airflow environment or you can use the Git-sync feature to automatically sync your DAG-based Git repository with the Airflow environment. 
+Azure Data Factory's Managed Airflow service is a simple and efficient way to create and manage Apache Airflow environments, enabling you to run data pipelines at scale with ease. There are two primary methods to run directed acyclic graphs (DAGs) in Azure Managed Airflow. You can either upload the DAG files in your blob storage and link them with the Airflow environment.
+Alternatively, you can use the Git-sync feature to automatically sync your Git repository with the Airflow environment.
 
-Working with data pipelines requires you to create or update your DAGs, plugins and requirement files frequently, based upon your workflow needs. While Airflow developers can manually create or update their DAG files in blob storage, many organizations prefer to use a CI/CD approach for code deployment. Therefore, this guide walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with the Azure Managed Airflow service. 
+Working with data pipelines in Airflow requires you to create or update your DAGs, plugins and requirement files frequently, based upon your workflow needs. While developers can manually upload or edit DAG files in blob storage, many organizations prefer to use a CI/CD approach for code deployment. Therefore, this guide walks you through the recommended deployment patterns to seamlessly integrate and deploy your Apache Airflow DAGs with the Azure Managed Airflow service. 
 
 ## Understanding CI/CD 
 
 ### Continuous Integration (CI) 
 
-Continuous Integration (CI) is a software development practice that emphasizes frequent and automated integration of code changes into a shared repository. It involves developers regularly committing their code, and upon each commit, an automated CI pipeline builds the code, runs tests, and performs validation checks. The primary goal is to detect and address integration issues early in the development process, providing rapid feedback to developers. CI ensures that the codebase remains in a constantly testable and deployable state. This leads to enhanced code quality, collaboration, and the ability to catch and fix bugs before they become significant problems. 
+Continuous Integration (CI) is a software development practice that emphasizes frequent and automated integration of code changes into a shared repository. It involves developers regularly committing their code, and upon each commit, an automated CI pipeline builds the code, runs tests, and performs validation checks. The primary goal is to detect and address integration issues early in the development process, providing rapid feedback to developers. CI ensures that the codebase remains in a constantly testable and deployable state. This practice leads to enhanced code quality, collaboration, and the ability to catch and fix bugs before they become significant problems. 
 
-### Continuous Deployment 
+### Continuous Deployment (CD)
 
-Continuous Deployment (CD) is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice enables organizations to release software updates rapidly and reliably, reducing manual deployment errors and ensuring that tested and approved code changes are swiftly delivered to end-users. 
+Continuous Deployment (CD) is an extension of CI that takes the automation one step further. While CI focuses on automating the integration and testing phases, CD automates the deployment of code changes to production or other target environments. This practice helps organizations release software updates quickly and reliably. It reduces mistakes in manual deployment and ensures that approved code changes are delivered to end-users swiftly. 
 
-### CI/CD Workflow Within Azure Managed Airflow: 
+## CI/CD Workflow Within Azure Managed Airflow: 
 :::image type="content" source="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png" alt-text="Screenshot showing ci cd pattern that can be used in Managed Airflow." lightbox="media/ci-cd-with-airflow/ci-cd-workflow-airflow.png":::
 
-#### Git-sync with Dev IR: Map your Managed Airflow environment with your Git repository’s Dev branch. 
+#### Git-sync with Dev/QA IR: Map your Managed Airflow environment with your Git repository’s Development/QA branch. 
 
-**CI Pipeline with Dev IR:** 
+**CI Pipeline with Dev/QA IR:**
 
-When a pull request (PR) is made from a feature branch to the Dev branch, it triggers a PR pipeline. This pipeline is designed to efficiently perform quality checks on your feature branches, ensuring code integrity and reliability. The following types of checks can be included in the pipeline: 
-1. **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
-2. **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
-3. **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
-4. **Unit Tests for Airflow custom operators, hooks, sensors and triggers**  
+When a pull request (PR) is made from a feature branch to the Development branch, it triggers a PR pipeline. This pipeline is designed to efficiently perform quality checks on your feature branches, ensuring code integrity and reliability. The following types of checks can be included in the pipeline: 
+- **Python Dependencies Testing**: These tests install and verify the correctness of Python dependencies to ensure that the project's dependencies are properly configured. 
+- **Code Analysis and Linting:** Tools for static code analysis and linting are applied to evaluate code quality and adherence to coding standards. 
+- **Airflow DAG’s Tests:** These tests execute validation tests, including tests for the DAG definition and unit tests designed for Airflow DAGs. 
+- **Unit Tests for Airflow custom operators, hooks, sensors and triggers.**
+
 If any of these checks fail, the pipeline terminates, signaling that the developer needs to address the issues identified. 
 
-#### Git-sync with Prod IR: Map your Managed Airflow environment with your Git repository’s Production branch. 
+#### Git-sync with Production IR: Map your Managed Airflow environment with your Git repository’s Production branch. 
 
 **PR pipeline with Prod IR:** 
 
 It's considered a best practice to maintain a separate production environment to prevent every development feature from becoming publicly accessible. 
-Once the Feature branch successfully merges with the Dev branch, you can create a pull request to the production branch in order to make your newly merged feature public. triggers a PR pipeline. This pull request triggers the PR pipeline that conducts rapid quality checks on the development branch to ensure that all features have been integrated correctly and that there are no errors in the production environment.
+Once the Feature branch successfully merges into Development branch, you can create a pull request to the production branch in order to make your newly merged feature public. This pull request triggers the PR pipeline that conducts rapid quality checks on the Development branch to ensure that all features have been integrated correctly and there are no errors in the production environment.
 
 ### Benefits of using CI/CD workflow in Managed Airflow 
 
-It allows you to continuously deploy the DAGs/ code into Managed Airflow environment.  
+- **Fail-fast approach:** Without the integration of CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with Managed Airflow and throws an `Import Error`. Meanwhile the other developer can unknowingly pull the faulty code from the repository, potentially leading to inefficiencies down the line. 
 
-1. **Fail-fast approach:** Without the integration of CI/CD process, the first time you know DAG contains errors is likely when it's pushed to GitHub, synchronized with managed airflow and throws an Import Error. Meanwhile the other developer can unknowingly pull the faulty code from the repository, potentially leading to inefficiencies down the line. 
-
-2. **Code quality improvement:** Neglecting fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, can increase the likelihood of delivering subpar code. 
+- **Code quality improvement:** Neglecting fundamental checks like syntax verification, necessary imports, and checks for other best coding practices, can increase the likelihood of delivering subpar code. 
 
 ## Deployment Patterns in Azure Managed Airflow: 
 
-### Pattern 1: Develop data pipelines directly on Managed Airflow. 
+### Pattern 1: Develop data pipelines directly in Azure Managed Airflow. 
 
 ### Prerequisites: 
 
@@ -66,19 +66,18 @@ It allows you to continuously deploy the DAGs/ code into Managed Airflow environ
 
 ### Advantages: 
 
-1. **No Local Development Environment Required:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. The service allows you to focus on building and managing workflows rather than managing infrastructure. 
+- **No Local Development Environment Required:** Managed Airflow handles the underlying infrastructure, updates, and maintenance, reducing the operational overhead of managing Airflow clusters. The service allows you to focus on building and managing workflows rather than managing infrastructure. 
 
-2. **Scalability:** Managed Airflow provides auto scaling capability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
+- **Scalability:** Managed Airflow provides auto scaling capability to scale resources as needed, ensuring that your data pipelines can handle increasing workloads or bursts of activity without manual intervention. 
 
-3. **Monitoring and Logging:** Managed Airflow includes Diagnostic logs and monitoring, making it easier to track the execution of your workflows, diagnose issues, and optimize performance. 
+- **Monitoring and Logging:** Managed Airflow includes Diagnostic logs and monitoring, making it easier to track the execution of your workflows, diagnose issues, setting up alerts and optimize performance. 
 
-4. **Git Integration**: Managed Airflow supports Git-sync feature, allowing you to store your DAGs in Git repository, making it easier to manage changes and collaborate with the team.  
 
 ### Workflow: 
 
 1. **Leverage Git-sync feature:** 
 
-In this workflow, there's no requirement for you to establish your own local environment. Instead, you can start by using the Git-sync feature offered by the Managed Airflow service. This feature automatically synchronizes your DAG files with Airflow webservers, schedulers, and workers, allowing you to develop, test, and execute your data pipelines directly through the Managed Airflow UI. 
+In this workflow, there's no requirement to establish your own local environment. Instead, you can start by using the Git-sync feature offered by the Managed Airflow service. This feature automatically synchronizes your DAG files with Airflow webservers, schedulers, and workers, allowing you to develop, test, and execute your data pipelines directly through the Managed Airflow UI. 
 
 Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-sync-github-repository.md).
 
@@ -100,15 +99,15 @@ Proceed to submit a Pull Request (PR) to the Airflow Development Environment (DE
 
 ### Advantages: 
 
-**Limited Access:** Not every developer needs to have access to Azure resources. You can limit access to Azure resources to admin only. 
+**Limited Access:** You can limit access to Azure resources to admin only. 
 
 ### Workflow: 
 
-- **Local Environment Setup** 
+1. **Local Environment Setup** 
 
 Begin by setting up a local development environment for Apache Airflow on your development machine. In this environment, you can develop and test your Airflow code, including DAGs and tasks. This approach allows you to develop pipelines without relying on direct access to Azure resources.
 
-- **Leverage Git-sync feature:** 
+2. **Leverage Git-sync feature:** 
 
 Synchronize your GitHub repository’s branch with Azure Managed Airflow Service. 
 
@@ -116,88 +115,135 @@ Learn more about how to use Azure Managed Airflow's [Git-sync feature](airflow-s
 
 3. **Utilize Managed Airflow Service as Production environment:** 
 
-You can raise a Pull Request (PR) to the branch that is sync with the Managed Airflow Service after successfully developing and testing data pipelines on local development setup. Once the branch is merged you can utilize the Managed Airflow service's features like auto-scaling and monitoring and logging at production level. 
+After successfully developing and testing data pipelines on your local setup, you can raise a Pull Request (PR) to the branch synchronized with the Managed Airflow Service. Once the branch is merged, utilize the Managed Airflow service's features like autoscaling and monitoring and logging at production level. 
 
-### Sample CI/CD Pipeline using [GitHub Actions](https://github.com/features/actions).
+## Sample CI/CD Pipeline
+- [Azure Devops](https://azure.microsoft.com/products/devops)
+- [GitHub Actions](https://github.com/features/actions)
 
-**Step 1:** Copy the code for sample DAG deployed in Managed Airflow IR.
+**Step 1:** Copy the code of a DAG deployed in Managed Airflow IR using the Git-sync feature.
 ```python
-from datetime import datetime 
-from airflow import DAG 
-from airflow.operators.bash import BashOperator 
+from datetime import datetime
+from airflow import DAG
+from airflow.operators.bash import BashOperator
 
-with DAG( 
-    dag_id="airflow-ci-cd-tutorial", 
-    start_date=datetime(2023, 8, 15), 
-    schedule="0 0 * * *", 
-    tags=["tutorial", "CI/CD"] 
-) as dag: 
-    # Tasks are represented as operators 
-    task1 = BashOperator(task_id="hello", bash_command="echo task1") 
-    task2 = BashOperator(task_id="task2", bash_command="echo task2") 
-    task3 = BashOperator(task_id="task3", bash_command="echo task3") 
-    task4 = BashOperator(task_id="task4", bash_command="echo task4") 
+with DAG(
+    dag_id="airflow-ci-cd-tutorial",
+    start_date=datetime(2023, 8, 15),
+    schedule="0 0 * * *",
+    tags=["tutorial", "CI/CD"]
+) as dag:
+    # Tasks are represented as operators
+    task1 = BashOperator(task_id="task1", bash_command="echo task1")
+    task2 = BashOperator(task_id="task2", bash_command="echo task2")
+    task3 = BashOperator(task_id="task3", bash_command="echo task3")
+    task4 = BashOperator(task_id="task4", bash_command="echo task4")
 
-    # Set dependencies between tasks 
-    task1 >> task2 >> task3 >> task4 
+    # Set dependencies between tasks
+    task1 >> task2 >> task3 >> task4
 ```
 
-**Step 2:** Create a `.github/workflows` directory in your GitHub repository. 
+**Step 2:** Create a CI/CD pipeline.
 
-**Step 3:** In the `.github/workflows` directory, create a file named `ci-cd-demo.yml` 
-
-**Step 4:** Copy the code for CI/CD Pipeline with GitHub Actions: The pipeline triggers whenever there's pull request or push request to dev branch:
+### Using Azure Devops
+**Step 2.1:** Create a file `azure-devops-ci-cd.yaml` and copy the following code. The pipeline triggers on pull request or push request to dev branch:
 ```python
-name: Test DAGs 
+trigger:
+- dev
 
-on: 
-  pull_request: 
-    branches: 
-      - "dev" 
-  push: 
-    branches: 
+pr:
+- dev
+
+pool:
+  vmImage: ubuntu-latest
+strategy:
+  matrix:
+    Python3.11:
+      python.version: '3.11.5'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    airflow webserver &
+    airflow db init
+    airflow scheduler &
+    pytest
+  displayName: 'Pytest'
+```
+
+For more information, See [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up)
+
+### Using GitHub Actions
+
+**Step 2.1:** Create a `.github/workflows` directory in your GitHub repository. 
+
+**Step 2.2:** In the `.github/workflows` directory, create a file named `github-actions-ci-cd.yml` 
+
+**Step 2.3:** Copy the following code: The pipeline triggers whenever there's pull request or push request to dev branch:
+```python
+name: GitHub Actions CI/CD
+
+on:
+  pull_request:
+    branches:
+      - "dev"
+  push:
+    branches:
       - "dev"
 
-jobs: 
-  flake8: 
-    strategy: 
-      matrix: 
-        python-version: [3.11.5] 
-    runs-on: ubuntu-latest 
-    steps: 
-      - name: Check out source repository 
-        uses: actions/checkout@v4 
-      - name: Setup Python 
-        uses: actions/setup-python@v4 
-        with: 
-          python-version: ${{matrix.python-version}} 
-      - name: flake8 Lint 
-        uses: py-actions/flake8@v1 
-        with: 
-          max-line-length: 120  
-  tests: 
-    strategy: 
-      matrix: 
-        python-version: [3.11.5] 
-    runs-on: ubuntu-latest 
-    needs: [flake8] 
-    steps: 
-      - uses: actions/checkout@v4 
-      - name: Setup Python 
-        uses: actions/setup-python@v4 
-        with: 
-          python-version: ${{matrix.python-version}} 
-      - name: Install dependencies 
-        run: | 
-          python -m pip install --upgrade pip 
-          pip install -r requirements.txt 
-      - name: Pytest 
-        run: pytest tests/
+jobs:
+  flake8:
+    strategy:
+      matrix:
+        python-version: [3.11.5]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{matrix.python-version}}
+      - name: flake8 Lint
+        uses: py-actions/flake8@v1
+        with:
+          max-line-length: 120
+  tests:
+    strategy:
+      matrix:
+        python-version: [3.11.5]
+    runs-on: ubuntu-latest
+    needs: [flake8]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{matrix.python-version}}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Pytest
+        run: |
+          airflow webserver &
+          airflow db init
+          airflow scheduler &
+          pytest tests/
 ```
 
-**Step 5:** In the tests folder, create the tests for Airflow DAGs. Following are the few examples: 
+**Step 3:** In the tests folder, create the tests for Airflow DAGs. Following are the few examples: 
 
-1. At the least, it's crucial to conduct initial testing using `import_errors` to ensure the DAG's integrity and correctness.   
+* At the least, it's crucial to conduct initial testing using `import_errors` to ensure the DAG's integrity and correctness. 
 This test ensures: 
 
 - **Your DAG does not contain cyclicity:** Cyclicity, where a task forms a loop or circular dependency within  the workflow, can lead to unexpected and infinite execution loops. 
@@ -205,54 +251,56 @@ This test ensures: 
 - **There are no import errors:** Import errors can arise due to issues like missing dependencies, incorrect module paths, or coding errors.  
 
 - **Tasks are defined correctly:** Confirm that the tasks within your DAG are correctly defined.
+
 ```python
-@pytest.fixture() 
+@pytest.fixture()
 
-def dagbag(): 
-    return DagBag(dag_folder="dags") 
+def dagbag():
+    return DagBag(dag_folder="dags")
 
-def test_no_import_errors(dagbag): 
-    """ 
-    Test Dags to contain no import errors. 
-    """ 
-    assert not dagbag.import_errors 
+def test_no_import_errors(dagbag):
+    """
+    Test Dags to contain no import errors.
+    """
+    assert not dagbag.import_errors
 ```
- 
 
-1. Test to ensure specific Dag IDs to be present in your feature branch before merging it into the development (dev) branch. 
+* Test to ensure specific Dag IDs to be present in your feature branch before merging it into the development (dev) branch. 
+
 ```python
-def test_expected_dags(dagbag): 
-    """ 
+def test_expected_dags(dagbag):
+    """
     Test whether expected dag Ids are present.
-    """ 
-    expected_dag_ids = ["airflow-ci-cd-tutorial"] 
+    """
+    expected_dag_ids = ["airflow-ci-cd-tutorial"]
 
-    for dag_id in expected_dag_ids: 
-        dag = dagbag.get_dag(dag_id) 
+    for dag_id in expected_dag_ids:
+        dag = dagbag.get_dag(dag_id)
 
-        assert dag is not None 
-        assert dag_id == dag.dag_id 
+        assert dag is not None
+        assert dag_id == dag.dag_id
 ```
 
-2. Test to ensure only approved tags are associated with your DAGs. This test helps to enforce the approved tag usage. 
+* Test to ensure only approved tags are associated with your DAGs. This test helps to enforce the approved tag usage. 
+
 ```python
-def test_requires_approved_tag(dagbag): 
-    """ 
-    Test if DAGS contain one or more tags from list of approved tags only. 
-    """ 
-    Expected_tags = {"tutorial", "CI/CD"} 
-    dagIds = dagbag.dag_ids 
+def test_requires_approved_tag(dagbag):
+    """
+    Test if DAGS contain one or more tags from list of approved tags only.
+    """
+    Expected_tags = {"tutorial", "CI/CD"}
+    dagIds = dagbag.dag_ids
 
-    for id in dagIds: 
-        dag = dagbag.get_dag(id) 
-        assert dag.tags 
-        if Expected_tags: 
-            assert not set(dag.tags) - Expected_tags 
+    for id in dagIds:
+        dag = dagbag.get_dag(id)
+        assert dag.tags
+        if Expected_tags:
+            assert not set(dag.tags) - Expected_tags
 ```
 
-**Step 6:** Now, when you raise pull request to dev branch, GitHub Actions triggers the CI pipeline, to run all the tests. 
+**Step 4:** Now, when you raise pull request to dev branch, GitHub Actions triggers the CI pipeline to run all the tests. 
 
-#### For information: 
+#### For more information:
 
 - [https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html](https://airflow.apache.org/docs/apache-airflow/stable/_modules/airflow/models/dagbag.html) 
 

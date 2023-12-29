@@ -25,4 +25,4 @@ To create or edit a lab in the Azure Lab Services website ([https://labs.azure.c
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 > [!WARNING]
-> When you create a lab, you are automatically granted Owner permissions of the lab. If you have the Lab Creator role on the lab plan level, you may notice a short delay in being able to access the newly created lab. This delay is because the Owner permissions need to propagate. To overcome this issue, you might assign a role that allows you to view labs, such as Lab Creator, on the resource group that contains the the lab plan.
+> When you create a lab, you are automatically granted Owner permissions of the lab. If you have the Lab Creator role on the lab plan level, you may notice a short delay in being able to access the newly created lab. This delay is because the Owner permissions need to propagate. To overcome this issue, you might assign a role that allows you to view labs, such as Lab Creator, on the resource group that contains the lab plan.

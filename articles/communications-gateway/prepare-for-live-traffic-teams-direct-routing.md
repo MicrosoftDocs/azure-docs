@@ -15,10 +15,7 @@ Before you can launch your Microsoft Teams Direct Routing service, you and your 
 - Test your service.
 - Prepare for launch.
 
-In this article, you learn about the steps you and your onboarding team must take.
-
-> [!TIP]
-> In many cases, your onboarding team is from Microsoft, provided through the [Included Benefits](onboarding.md) or through a separate arrangement.
+In this article, you learn about the steps that you and your Azure Communications Gateway onboarding team must take.
 
 > [!IMPORTANT]
 > Some steps can require days or weeks to complete. We recommend that you read through these steps in advance to work out a timeline.

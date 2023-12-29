@@ -7,7 +7,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/31/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 ---
 
@@ -18,7 +18,8 @@ This article describes some common solutions when you exceed the limits in Azure
 ## Prerequisites
 
 - [Reader](./built-in-roles.md#reader) role to run Azure Resource Graph queries.
-- [User Access Administrator](./built-in-roles.md#user-access-administrator) or [Owner](./built-in-roles.md#owner) role to add role assignments, remove role assignments, or delete custom roles.
+- [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) role to add or remove role assignments.
+- [User Access Administrator](./built-in-roles.md#user-access-administrator) role to add role assignments, remove role assignments, or delete custom roles.
 - [Groups Administrator](../active-directory/roles/permissions-reference.md#groups-administrator) or [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) role to create groups.
 
 > [!NOTE]

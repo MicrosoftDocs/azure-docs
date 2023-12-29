@@ -71,7 +71,7 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
 
     | Data source | Destinations | Description |
     |:---|:---|:---|
-    | Performance | Azure Monitor Metrics (Public preview)<sup>1</sup> - Insights.virtualmachine namespace<br>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table | Numerical values measuring performance of different aspects of operating system and workloads |
+    | Performance | <ul><li>Azure Monitor Metrics (Public preview):<ul><li>For Windows - Virtual Machine Guest namespace</li><li>For Linux<sup>1</sup> - azure.vm.linux.guestmetrics namespace</li></ul></li><li>Log Analytics workspace - [Perf](/azure/azure-monitor/reference/tables/perf) table</li></ul> | Numerical values measuring performance of different aspects of operating system and workloads |
     | Windows event logs (including sysmon events) | Log Analytics workspace - [Event](/azure/azure-monitor/reference/tables/Event) table | Information sent to the Windows event logging system |
     | Syslog | Log Analytics workspace - [Syslog](/azure/azure-monitor/reference/tables/syslog)<sup>2</sup> table | Information sent to the Linux event logging system. [Collect syslog with Azure Monitor Agent](data-collection-syslog.md) |
     |	Text logs and Windows IIS logs	|	Log Analytics workspace - custom table(s) created manually |	[Collect text logs with Azure Monitor Agent](data-collection-text-log.md)	|
@@ -123,17 +123,17 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|	✓ (Public preview)	|
-|		|	Azure Storage	|		|		| ✓ |
-|		|	Event Hubs	|		|		| ✓ |
+|		|	Azure Storage - for Azure VMs only	|	✓ (Preview)	|		| ✓ |
+|		|	Event Hubs - for Azure VMs only   	|	✓ (Preview)	|		| ✓ |
 |	**Services and features supported**	|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	|	✓ | ✓ |		|
-|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
-|		|	Automation Update Management	|	| ✓ |		|
+|		|	Microsoft Defender for Cloud - Only uses MDE agent	|		|  |		|
+|		|	Automation Update Management - Moved to Azure Update Manager	| ✓	| ✓ |		|
 |   | Azure Stack HCI | ✓ |  |  |
-|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
-|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
-|       |   SQL Best Practices Assessment | ✓ |     |       |
+|		|	Update Manager - no longer uses agents	|	|		|		|
+|		|	Change Tracking	| ✓ | ✓ |		|
+|   | SQL Best Practices Assessment | ✓ |     |       |
 
 ### Linux agents
 
@@ -150,15 +150,15 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	| ✓ | ✓ |		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	✓ (Public preview)	|		|		|	✓ (Public preview)	|
-|		|	Azure Storage	|		|		| ✓ |		|
-|		|	Event Hubs	|		|		| ✓ |		|
+|		|	Azure Storage - for Azrue VMs only	|	✓ (Preview)	|		| ✓ |		|
+|		|	Event Hubs - for azure VMs only   	|	✓ (Preview)	|		| ✓ |		|
 |	**Services and features supported**	|		|		|		|		|		|
 |		|	Microsoft Sentinel 	|	✓ ([View scope](./azure-monitor-agent-migration.md#migrate-additional-services-and-features))	| ✓ |		|
 |		|	VM Insights	| ✓ |	✓ 	|		|
-|		|	Microsoft Defender for Cloud	|	✓ (Public preview)	| ✓ |		|
-|		|	Automation Update Management	|		| ✓ |		|
-|		|	Update Manager	|	N/A (Public preview, independent of monitoring agents)	|		|		|
-|		|	Change Tracking	| ✓ (Public preview) | ✓ |		|
+|		|	Microsoft Defender for Cloud - Only use MDE agent	| 	|  |	|
+|		|	Automation Update Management - Moved to Azure Update Manager	|	✓	| ✓ |		|
+|		|	Update Manager - no longer uses agents	|	|		|		|
+|		|	Change Tracking	| ✓ | ✓ |		|
 
 <sup>1</sup> To review other limitations of using Azure Monitor Metrics, see [quotas and limits](../essentials/metrics-custom-overview.md#quotas-and-limits). On Linux, using Azure Monitor Metrics as the only destination is supported in v.1.10.9.0 or higher.
 
@@ -186,7 +186,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Windows 11 Enterprise<br>(including multi-session)       | ✓ |  |  |
 | Windows 10 1803 (RS4) and higher                         | ✓<sup>2</sup> |  |  |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | ✓ | ✓ | ✓ | 
-| Windows 8 Enterprise and Pro<br>(Server scenarios only   |   | ✓<sup>1</sup> |   |
+| Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | ✓<sup>1</sup> |   |
 | Windows 7 SP1<br>(Server scenarios only)                 |   | ✓<sup>1</sup> |   |
 | Azure Stack HCI                                          | ✓ | ✓ |   |
 | Windows IoT Enterprise                                          | ✓ |   |   |
@@ -199,6 +199,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent (legacy) <sup>1</sup> | Diagnostics extension <sup>2</sup>|
 |:---|:---:|:---:|:---:|
+| AlmaLinux 9                                                 | ✓<sup>3</sup> | ✓ |   |
 | AlmaLinux 8                                                 | ✓<sup>3</sup> | ✓ |   |
 | Amazon Linux 2017.09                                        |  | ✓ |   |
 | Amazon Linux 2                                              | ✓ | ✓ |   |
@@ -210,14 +211,16 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Debian 9                                                    | ✓ | ✓ | ✓ |
 | Debian 8                                                    |   | ✓ |   |
 | OpenSUSE 15                                                 | ✓ |   |   |
+| Oracle Linux 9                                              | ✓ |  |   |
 | Oracle Linux 8                                              | ✓ | ✓ |   |
 | Oracle Linux 7                                              | ✓ | ✓ | ✓ |
 | Oracle Linux 6.4+                                           |   |  | ✓ |
 | Red Hat Enterprise Linux Server 9+                          | ✓ |  |   |
-| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓<sup>2</sup> | ✓<sup>2</sup> |
-| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓<sup>2</sup> | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.6+                        | ✓<sup>3</sup> | ✓ | ✓<sup>2</sup> |
+| Red Hat Enterprise Linux Server 8.0-8.5                     | ✓ | ✓ | ✓<sup>2</sup> |
 | Red Hat Enterprise Linux Server 7                           | ✓ | ✓ | ✓ |
-| Red Hat Enterprise Linux Server 6.7+                        |   |  | ✓ |
+| Red Hat Enterprise Linux Server 6.7+                        |   |  |  |
+| Rocky Linux 9                                               | ✓ | ✓ |   |
 | Rocky Linux 8                                               | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15 SP4                         | ✓<sup>3</sup> |   |   |
 | SUSE Linux Enterprise Server 15 SP3                         | ✓ |   |   |
@@ -225,7 +228,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | SUSE Linux Enterprise Server 15 SP1                         | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 15                             | ✓ | ✓ |   |
 | SUSE Linux Enterprise Server 12                             | ✓ | ✓ | ✓ |
-| Ubuntu 22.04 LTS                                            | ✓ |   |   |
+| Ubuntu 22.04 LTS                                            | ✓ | ✓ |   |
 | Ubuntu 20.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
 | Ubuntu 18.04 LTS                                            | ✓<sup>3</sup> | ✓ | ✓ |
 | Ubuntu 16.04 LTS                                            | ✓ | ✓ | ✓ |
@@ -299,7 +302,7 @@ You might see more extensions getting installed for the solution or service to c
           
 The following diagram explains the new extensibility architecture.
           
-![Diagram that shows extensions architecture.](./media/azure-monitor-agent/extensibility-arch-new.png)
+:::image type="content" source="./media/azure-monitor-agent/extensibility-arch-new.png" lightbox="./media/azure-monitor-agent/extensibility-arch-new.png" alt-text="Diagram that shows extensions architecture.":::
 
 ### Is Azure Monitor Agent at parity with the Log Analytics agents?
 
@@ -316,10 +319,6 @@ Yes, but you need to [onboard to Defender for Cloud](./azure-monitor-agent-overv
 ### Why do I need to install the Azure Arc Connected Machine agent to use Azure Monitor Agent?
 
 Azure Monitor Agent authenticates to your workspace via managed identity, which is created when you install the Connected Machine agent. Managed Identity is a more secure and manageable authentication solution from Azure. The legacy Log Analytics agent authenticated by using the workspace ID and key instead, so it didn't need Azure Arc.
-
-### Does the new Azure Monitor Agent have hardening support for Linux?
-
-Hardening support for Linux isn't available yet.
 
 ## Next steps
 

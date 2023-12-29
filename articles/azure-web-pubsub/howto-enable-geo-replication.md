@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# Geo-replication (Preview) in Azure Web PubSub 
+# Geo-replication in Azure Web PubSub 
 
 Mission critical apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communication across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
 
@@ -114,12 +114,17 @@ Update **webpubsub** extension to the latest version, then run:
    ```azurecli
   az webpubsub replica create --sku Premium_P1 -l eastus --replica-name MyReplica --name MyWebPubSub -g MyResourceGroup
    ```
+
+----
+
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 
 Replica is a feature of [Premium tier](https://azure.microsoft.com/pricing/details/web-pubsub/) of Azure Web PubSub Service. Each replica is billed **separately** according to its own unit and outbound traffic. Free message quota is also calculated separately.
 
 In the preceding example, Contoso added one replica in Canada Central. Contoso would pay for the replica in Canada Central according to its unit and message in Premium Price.
+
+There will be egress fees for cross region outbound traffic. If a message is transferred across replicas **and** successfully sent to a client or server after the transfer, it will be billed as an outbound message.
 
 ## Delete a replica
 After you've created a replica for a Web PubSub resource, you can delete it at any time if it's no longer needed. 

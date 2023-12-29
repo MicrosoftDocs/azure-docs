@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
+ms.date: 10/31/2023
 ms.author: wchi
 ---
 
@@ -10,58 +10,58 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies
-```bash
-dotnet add package CassandraCSharpDriver --version 3.19.3
-```
+    ```bash
+    dotnet add package CassandraCSharpDriver --version 3.19.3
+    ```
 
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
-```csharp
-using System;
-using System.Security.Authentication;
-using System.Net.Security;
-using System.Security.Authentication;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
-using Cassandra;
-
-public class Program
-{
-	public static async Task Main()
-	{
-        var cassandraContactPoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONTACTPOINT");
-        var userName = Environment.GetEnvironmentVariable("AZURE_COSMOS_USERNAME");
-        var password = Environment.GetEnvironmentVariable("AZURE_COSMOS_PASSWORD");
-        var cassandraPort = Int32.Parse(Environment.GetEnvironmentVariable("AZURE_COSMOS_PORT"));
-        var cassandraKeyspace = Environment.GetEnvironmentVariable("AZURE_COSMOS_KEYSPACE");
-        
-        var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
-        options.SetHostNameResolver((ipAddress) => cassandraContactPoint);
-        Cluster cluster = Cluster
-            .Builder()
-            .WithCredentials(userName, password)
-            .WithPort(cassandraPort)
-            .AddContactPoint(cassandraContactPoint).WithSSL(options).Build();
-        ISession session = await cluster.ConnectAsync();
-    }
-
-    public static bool ValidateServerCertificate
-	(
-        object sender,
-        X509Certificate certificate,
-        X509Chain chain,
-        SslPolicyErrors sslPolicyErrors
-    )
+2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+    ```csharp
+    using System;
+    using System.Security.Authentication;
+    using System.Net.Security;
+    using System.Security.Authentication;
+    using System.Security.Cryptography.X509Certificates;
+    using System.Threading.Tasks;
+    using Cassandra;
+    
+    public class Program
     {
-        if (sslPolicyErrors == SslPolicyErrors.None)
-            return true;
-
-        Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
-        // Do not allow this client to communicate with unauthenticated servers.
-        return false;
+    	public static async Task Main()
+    	{
+            var cassandraContactPoint = Environment.GetEnvironmentVariable("AZURE_COSMOS_CONTACTPOINT");
+            var userName = Environment.GetEnvironmentVariable("AZURE_COSMOS_USERNAME");
+            var password = Environment.GetEnvironmentVariable("AZURE_COSMOS_PASSWORD");
+            var cassandraPort = Int32.Parse(Environment.GetEnvironmentVariable("AZURE_COSMOS_PORT"));
+            var cassandraKeyspace = Environment.GetEnvironmentVariable("AZURE_COSMOS_KEYSPACE");
+            
+            var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);
+            options.SetHostNameResolver((ipAddress) => cassandraContactPoint);
+            Cluster cluster = Cluster
+                .Builder()
+                .WithCredentials(userName, password)
+                .WithPort(cassandraPort)
+                .AddContactPoint(cassandraContactPoint).WithSSL(options).Build();
+            ISession session = await cluster.ConnectAsync();
+        }
+    
+        public static bool ValidateServerCertificate
+    	(
+            object sender,
+            X509Certificate certificate,
+            X509Chain chain,
+            SslPolicyErrors sslPolicyErrors
+        )
+        {
+            if (sslPolicyErrors == SslPolicyErrors.None)
+                return true;
+    
+            Console.WriteLine("Certificate error: {0}", sslPolicyErrors);
+            // Do not allow this client to communicate with unauthenticated servers.
+            return false;
+        }
     }
-}
-
-```
+    
+    ```
 
 For more information, see [Build an Apache Cassandra app with .NET SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-dotnet).
 
@@ -86,7 +86,7 @@ For more information, see [Build an Apache Cassandra app with .NET SDK and Azure
     </dependency>
     ```
 
-1. Get the connection string from the environment variable, and add the plugin name to connect to Cosmos DB for Cassandra:
+1. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
 
     ```java
     import com.datastax.oss.driver.api.core.CqlSession;
@@ -108,7 +108,7 @@ For more information, see [Build an Apache Cassandra app with .NET SDK and Azure
 
 For more information, see [Build a Java app to manage Azure Cosmos DB for Apache Cassandra data](/azure/cosmos-db/cassandra/manage-data-java-v4-sdk).
 
-### [SpringBoot](#tab/spring)
+### [SpringBoot](#tab/springBoot)
 Set up your Spring App application according to [How to use Spring Data with Azure Cosmos DB for Apache Cassandra](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db). The connection configuration properties are added to Spring Apps by Service Connector.
 
 
@@ -119,7 +119,7 @@ Set up your Spring App application according to [How to use Spring Data with Azu
     pip install pyopenssl
     ```
 
-1. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+1. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
     ```python
     from cassandra.cluster import Cluster
     from ssl import PROTOCOL_TLSv1_2, SSLContext, CERT_NONE
@@ -145,7 +145,7 @@ For more information, see [Build a Cassandra app with Python SDK and Azure Cosmo
    ```bash
    go get github.com/gocql/gocql
    ```
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
     ```go
     import (
         "fmt"
@@ -195,14 +195,14 @@ For more information, refer to [Build a Go app with the gocql client to manage A
    ```bash
    npm install cassandra-driver
    ```
-2. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Cassandra.
+2. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra.
    ```javascript
    const cassandra = require("cassandra-driver");
 
    let username = process.env.AZURE_COSMOS_USERNAME;
    let password = process.env.AZURE_COSMOS_PASSWORD;
    let contactPoint = process.env.AZURE_COSMOS_CONTACTPOINT;
-   let port = process.env.AZURE_COSMOS_PASSWORD;
+   let port = process.env.AZURE_COSMOS_PORT;
    let keyspace = process.env.AZURE_COSMOS_KEYSPACE;
 
    let authProvider = new cassandra.auth.PlainTextAuthProvider(
@@ -225,5 +225,5 @@ For more information, refer to [Build a Go app with the gocql client to manage A
 For more details, refer to [Build a Cassandra app with Node.js SDK and Azure Cosmos DB](/azure/cosmos-db/cassandra/manage-data-nodejs)
 
 
-### [Other](#tab/other)
-For other languages, you can use the blob storage account url and other properties that Service Connector set to the environment variables to connect the blob storage. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).
+### [Other](#tab/none)
+For other languages, you can use the Cassandra contact point and other properties that Service Connector sets to the environment variables to connect to Azure Cosmos DB for Cassandra resource. For environment variable details, see [Integrate Azure Cosmos DB for Cassandra with Service Connector](../how-to-integrate-cosmos-cassandra.md).

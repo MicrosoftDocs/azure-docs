@@ -2,7 +2,7 @@
 title: Add, modify, and filter Azure Monitor OpenTelemetry for .NET, Java, Node.js, and Python applications
 description: This article provides guidance on how to add, modify, and filter OpenTelemetry for applications using Azure Monitor.
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.date: 12/15/2023
 ms.devlang: csharp, javascript, typescript, python
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.reviewer: mmcc
@@ -91,7 +91,7 @@ Logs
 Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 * [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
-* [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
+* [Azure AI Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
 * [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
@@ -230,9 +230,14 @@ You can collect more data automatically when you include instrumentation librari
 
 ### [ASP.NET Core](#tab/aspnetcore)
 
-To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTracerProvider` methods.
+To add a community library, use the `ConfigureOpenTelemetryMeterProvider` or `ConfigureOpenTelemetryTracerProvider` methods,
+after adding the nuget package for the library.
 
 The following example demonstrates how the [Runtime Instrumentation](https://www.nuget.org/packages/OpenTelemetry.Instrumentation.Runtime) can be added to collect extra metrics.
+
+```dotnetcli
+dotnet add package OpenTelemetry.Instrumentation.Runtime 
+```
 
 ```csharp
 // Create a new ASP.NET Core web application builder.
@@ -373,8 +378,6 @@ The following table represents the currently supported custom telemetry types:
 
 > [!NOTE]
 > Custom Metrics are under preview in Azure Monitor Application Insights. Custom metrics without dimensions are available by default. To view and alert on dimensions, you need to [opt-in](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
-Consider collecting more metrics beyond what's provided by the instrumentation libraries.
 
 The OpenTelemetry API offers six metric "instruments" to cover various metric scenarios and you need to pick the correct "Aggregation Type" when visualizing metrics in Metrics Explorer. This requirement is true when using the OpenTelemetry Metric API to send metrics and when using an instrumentation library.
 
@@ -1196,13 +1199,13 @@ The simplest way to add your own spans is by using OpenTelemetry's `@WithSpan` a
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
-1. Add `opentelemetry-instrumentation-annotations-1.21.0.jar` (or later) to your application:
+1. Add `opentelemetry-instrumentation-annotations-1.32.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry.instrumentation</groupId>
      <artifactId>opentelemetry-instrumentation-annotations</artifactId>
-     <version>1.21.0</version>
+     <version>1.32.0</version>
    </dependency>
    ```
 
@@ -1380,15 +1383,51 @@ Currently unavailable.
   
 ### Send custom telemetry using the Application Insights Classic API
 
-We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md)s.
+We recommend you use the OpenTelemetry APIs whenever possible, but there might be some scenarios when you have to use the Application Insights [Classic API](api-custom-events-metrics.md).
   
 #### [ASP.NET Core](#tab/aspnetcore)
   
-Not available in .NET.
+##### Events
+
+1. Add `Microsoft.ApplicationInsights` to your application.
+
+2. Create a `TelemetryClient` instance.
+
+> [!NOTE]
+> It's important to only create once instance of the TelemetryClient per application.
+
+```csharp
+var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+var telemetryClient = new TelemetryClient(telemetryConfiguration);
+```
+
+3. Use the client to send custom telemetry.
+
+```csharp
+telemetryClient.TrackEvent("testEvent");
+```
 
 #### [.NET](#tab/net)
 
-Not available in .NET.
+##### Events
+
+1. Add `Microsoft.ApplicationInsights` to your application.
+
+2. Create a `TelemetryClient` instance.
+
+> [!NOTE]
+> It's important to only create once instance of the TelemetryClient per application.
+
+```csharp
+var telemetryConfiguration = new TelemetryConfiguration { ConnectionString = "" };
+var telemetryClient = new TelemetryClient(telemetryConfiguration);
+```
+
+3. Use the client to send custom telemetry.
+
+```csharp
+telemetryClient.TrackEvent("testEvent");
+```
 
 #### [Java](#tab/java)
 
@@ -1398,7 +1437,7 @@ Not available in .NET.
     <dependency>
       <groupId>com.microsoft.azure</groupId>
       <artifactId>applicationinsights-core</artifactId>
-      <version>3.4.14</version>
+      <version>3.4.18</version>
     </dependency>
     ```
 
@@ -1915,7 +1954,7 @@ Attaching custom dimensions to logs can be accomplished using a [message templat
 
 Logback, Log4j, and java.util.logging are [autoinstrumented](#logs). Attaching custom dimensions to your logs can be accomplished in these ways:
 
-* [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
+* [Log4j 2.0 MapMessage](https://logging.apache.org/log4j/2.0/javadoc/log4j-api/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` is captured as the log message)
 * [Log4j 2.0 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
 * [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
