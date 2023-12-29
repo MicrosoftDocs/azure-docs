@@ -16,7 +16,7 @@ ms.date: 12/28/2023
 
 In this article, you learn how to fine tune, evaluate and deploy foundation models in the Model Catalog. 
 
-You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, fine-tuning and evaluation of the model.
+You can quickly test out any pre-trained model using the Sample Inference form on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, fine-tuning and evaluation of the model.
 
 ## How to evaluate foundation models using your own test data
 
