@@ -140,22 +140,42 @@ The following set of queries, once normalized, don't match the previous set of q
 
 ```sql
 select columnOne as c1, columnTwo as c2 from tableOne as t1 where columnOne = 1 and columnTwo = 1;
-select * from tableOne where columnOne = 3 and columnTwo = 3;
-select columnOne, columnTwo from tableOne where columnOne = 5 and columnTwo = 5;
+select * from tableOne where columnOne = 3.0 and columnTwo = 3;
+select columnOne, columnTwo from tableOne where columnOne = 5 and columnTwo = '5';
 select columnOne as "column one", columnTwo as "column two" from tableOne as "table one" where columnOne = 7 and columnTwo = 7;
 ```
 
 However, all queries in this last set share the same query_id and the text used to identify them all is that of the first query in the batch `select columnOne as c1, columnTwo as c2 from tableOne as t1 where columnOne = 1 and columnTwo = 1;`.
 
-Finally, the following table shows some queries which don't match the query_id of those in the previous batch, and the reason why they don't:
+Finally, find below some queries which don't match the query_id of those in the previous batch, and the reason why they don't:
 
-| Query | Reason why doesn't match |
-| ----- | ------------------------ |
-| select columnTwo as c2, columnOne as c1 from tableOne as t1 where columnOne = 1 and columnTwo = 1; | fff |
+**Query**:
+```sql
+select columnTwo as c2, columnOne as c1 from tableOne as t1 where columnOne = 1 and columnTwo = 1;
+```
+**Reason for not matching**:
+List of columns refers to the same two columns (columnOne and ColumnTwo), but the order in which they are referred has been reversed, from `columnOne, ColumnTwo` in the previous batch to `ColumnTwo, columnOne` in this query.
 
-select * from tableOne where columnOne = 3 and columnTwo = 3;
-select columnOne, columnTwo from tableOne where columnOne = 5 and columnTwo = 5;
-select columnOne as "column one", columnTwo as "column two" from tableOne as "table one" where columnOne = 7 and columnTwo = 7;
+**Query**:
+```sql
+select * from tableOne where columnTwo = 25 and columnOne = 25;
+```
+**Reason for not matching**:
+Order in which the expressions evaluated in the WHERE clause are referred has been reversed from `columnOne = ? and ColumnTwo = ?` in the previous batch to `ColumnTwo = ? and columnOne = ?` in this query.
+
+**Query**:
+```sql
+select abs(columnOne), columnTwo from tableOne where columnOne = 12 and columnTwo = 21;
+```
+**Reason for not matching**:
+The first expression in the column list is not `columnOne` anymore, but function `abs` evaluated over `columnOne` (`abs(columnOne)`), which is not semantically equivalent.
+
+**Query**:
+```sql
+select columnOne as "column one", columnTwo as "column two" from tableOne as "table one" where columnOne = ceiling(16) and columnTwo = 16;
+```
+**Reason for not matching**:
+The first expression in the WHERE clause doesn't evaluate the equality of `columnOne` with a literal anymore, but with the result of function `ceiling`ealuated over a literal, which is not semantically equivalent.
 
 
 
