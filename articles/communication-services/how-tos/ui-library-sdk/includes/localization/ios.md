@@ -106,7 +106,7 @@ The following example shows right-to-left layout mirroring. If you don't specify
 
 ### Customizing translations
 
-There are two options to customize the language translations that we provide. To override a particular string, you can use the [list of localization keys](https://github.com/Azure/communication-ui-library-ios/blob/main/AzureCommunicationUI/AzureCommunicationUIDemoApp/Sources/Views/en.lproj/Localizable.strings) for the key/value pair. You can specify `locale` as one of the supported languages. When a key isn't provided, it will fall back to a supported translation string. If you specify an unsupported language, you should provide translations for all the keys for that language (by using the `Localizable.strings` file) and then fall back to English strings when a key isn't provided.
+There are two options to customize the language translations that we provide. To override a particular string, you can use the [list of localization keys](https://github.com/Azure/communication-ui-library-ios/blob/main/AzureCommunicationUI/AzureCommunicationUIDemoApp/Sources/Views/en.lproj/Localizable.strings) for the key/value pair. You can specify `locale` as one of the supported languages. When a key isn't provided, it falls back to a supported translation string. If you specify an unsupported language, you should provide translations for all the keys for that language (by using the `Localizable.strings` file) and then fall back to English strings when a key isn't provided.
 
 Let's say you want to have the control bar use strings from the English (US) locale, but you want to change the label of the **Join Call** button to **Start Meeting** in setup view. Enable localization in the project for the `locale` instance that you want to override. Create a `Localizable.strings` file (or another file name with the extension `.strings`) with the key/value pair for selected keys that you want to override. The following example overrides the key `AzureCommunicationUI.SetupView.Button.JoinCall`.
 
@@ -114,7 +114,7 @@ Let's say you want to have the control bar use strings from the English (US) loc
 
 :::image type="content" source="media/ios-custom-string.png" alt-text="Screenshot that shows an iOS custom string.":::
 
-To specify that you're overriding with `Localizable.strings`, create a `LocalizationOptions` object to specify `locale` and `localizationFilename`. Or when you're using the `locale` initializer, it will look at keys in `Localizable.strings` for `locale.collatorIdentifier` as the language in your project.
+To specify that you're overriding with `Localizable.strings`, create a `LocalizationOptions` object to specify `locale` and `localizationFilename`. Or when you're using the `locale` initializer, it looks at keys in `Localizable.strings` for `locale.collatorIdentifier` as the language in your project.
 
 ```swift
 let localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr"),
@@ -125,6 +125,6 @@ let callComposite = CallComposite(withOptions: callCompositeOptions)
 
 ### Accessibility voiceover for localization
 
-For voiceover to work properly for a localization, make sure the language is added into your app's localizations. The voiceover will then detect that the app supports the language specified in `LocalizationOptions` for `locale`. It will select the speech voice for the language by using the voice found in **Settings** > **Accessibility** > **Speech** on the device. You can verify if the language is added to your project as shown in the following example.
+For voiceover to work properly for a localization, make sure the language is added into your app's localizations. The voiceover then detects that the app supports the language specified in `LocalizationOptions` for `locale`. It selects the speech voice for the language by using the voice found in **Settings** > **Accessibility** > **Speech** on the device. You can verify if the language is added to your project, as shown in the following example.
 
 :::image type="content" source="media/ios-xcode-project-localizations.png" alt-text="Screenshot that shows iOS Xcode project localizations.":::
