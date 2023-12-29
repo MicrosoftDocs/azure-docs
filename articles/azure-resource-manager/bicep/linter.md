@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/27/2023
+ms.date: 12/29/2023
 ---
 
 # Use Bicep linter
@@ -22,7 +22,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [artifacts-parameters](./linter-rule-artifacts-parameters.md)
 - [decompiler-cleanup](./linter-rule-decompiler-cleanup.md)
 - [explicit-values-for-loc-params](./linter-rule-explicit-values-for-loc-params.md)
-- [max-asserts](./linter-rule-max-asserrts.md)
+- [max-asserts](./linter-rule-max-asserts.md)
 - [max-outputs](./linter-rule-max-outputs.md)
 - [max-params](./linter-rule-max-parameters.md)
 - [max-resources](./linter-rule-max-resources.md)
