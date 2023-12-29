@@ -33,7 +33,7 @@ The following table lists `CallCompositeSupportedLocale` IDs for out-of-the-box 
 
 ### Localization provider
 
-`CallCompositeLocalizationOptions` is an options wrapper that sets all the strings for UI Library for Android components by using `CallCompositeSupportedLocale`. By default, all text labels use English strings. You can use `CallCompositeLocalizationOptions` to set a different language by passing a `Locale` object from `CallCompositeSupportedLocale`. Out of the box, the UI Library includes a set of `Locale` objects that are usable with the UI components and composites.
+`CallCompositeLocalizationOptions` is an options wrapper that sets all the strings for Android UI Library components by using `CallCompositeSupportedLocale`. By default, all text labels use English strings. You can use `CallCompositeLocalizationOptions` to set a different language by passing a `Locale` object from `CallCompositeSupportedLocale`. Out of the box, the UI Library includes a set of `Locale` objects that are usable with the UI components and composites.
 
 You can also get a list of `Locale` objects by using the static function `CallCompositeSupportedLocale.getSupportedLocales()`.
 
