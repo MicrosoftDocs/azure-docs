@@ -411,7 +411,7 @@ Deploy the template with the parameter file by using any valid method for deploy
 - You must get the existing Azure Monitor workspace integrations for a Grafana instance and update the ARM template with it. Otherwise, the ARM deployment gets over-written, which removes existing integrations.
 ---
 
-## Enable Windows metrics collection
+## Enable Windows metrics collection (preview)
 
 > [!NOTE]
 > There is no CPU/Memory limit in windows-exporter-daemonset.yaml so it may over-provision the Windows nodes  
