@@ -12,11 +12,11 @@ ms.custom: devx-track-csharp, ignite-2022, devx-track-dotnet
 # Get SQL query execution metrics and analyze query performance using .NET SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-This article presents how to profile SQL query performance on Azure Cosmos DB using [ServerSideCumulativeMetrics](/dotnet/api/microsoft.azure.cosmos.serversidecumulativemetrics) retrieved from the .NET SDK. `ServerSideCumulativeMetrics` is a strongly typed object with information about the backend query execution. It contains cumulative metrics which are aggregated across all physical partitions for the request, and a list of metrics for each physical partition. These metrics are documented in more detail in the [Tune Query Performance](./query-metrics.md#query-execution-metrics) article.
+This article presents how to profile SQL query performance on Azure Cosmos DB using [ServerSideCumulativeMetrics](/dotnet/api/microsoft.azure.cosmos.serversidecumulativemetrics) retrieved from the .NET SDK. `ServerSideCumulativeMetrics` is a strongly typed object with information about the backend query execution. It contains cumulative metrics that are aggregated across all physical partitions for the request, and a list of metrics for each physical partition. These metrics are documented in more detail in the [Tune Query Performance](./query-metrics.md#query-execution-metrics) article.
 
 ## Get query metrics
 
-Query metrics are available as a strongly typed object in the .NET SDK beginning in [version 3.36.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.36.0). Prior to this version or if you are using a different SDK language, you can retrieve query metrics by parsing the `Diagnostics`. The following code sample shows how to retrieve `ServerSideCumulativeMetrics` from the `Diagnostics` in a [FeedResponse](/dotnet/api/microsoft.azure.cosmos.feedresponse-1):
+Query metrics are available as a strongly typed object in the .NET SDK beginning in [version 3.36.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.36.0). Prior to this version or if you're using a different SDK language, you can retrieve query metrics by parsing the `Diagnostics`. The following code sample shows how to retrieve `ServerSideCumulativeMetrics` from the `Diagnostics` in a [FeedResponse](/dotnet/api/microsoft.azure.cosmos.feedresponse-1):
 
 ```csharp
 CosmosClient client = new CosmosClient(myCosmosEndpoint, myCosmosKey);
@@ -51,7 +51,7 @@ while (feedIterator.HasMoreResults)
 
 ### Cumulative Metrics
 
-`ServerSideCumulativeMetrics` contains a `CumulativeMetrics` property which represents the query metric aggregated over all partitions for the single round trip.
+`ServerSideCumulativeMetrics` contains a `CumulativeMetrics` property that represents the query metric aggregated over all partitions for the single round trip.
 
 ```csharp
 // Retrieve the ServerSideCumulativeMetrics object from the FeedResponse
@@ -63,7 +63,7 @@ ServerSideMetrics cumulativeMetrics = metrics.CumulativeMetrics;
 
 ### Partitioned Metrics
 
-`ServerSideCumulativeMetrics` contains a `PartitionedMetrics` property which is a list of per-partition metrics for the round trip. If multiple physical partitions are reached in a single round trip, then they will all appear in the list. Partitioned metrics are represented as [ServerSidePartitionedMetrics](/dotnet/api/microsoft.azure.cosmos.serversidepartitionedmetrics) with a unique identifier for each physical partition. These, when accumulated over all round trips, allow you to see if a specific partition is causing performance issues when compared to others.
+`ServerSideCumulativeMetrics` contains a `PartitionedMetrics` property that is a list of per-partition metrics for the round trip. If multiple physical partitions are reached in a single round trip, then they all appear in the list. Partitioned metrics are represented as [ServerSidePartitionedMetrics](/dotnet/api/microsoft.azure.cosmos.serversidepartitionedmetrics) with a unique identifier for each physical partition. When accumulated over all round trips, they allow you to see if a specific partition is causing performance issues when compared to others.
 
 ```csharp
 // Retrieve the ServerSideCumulativeMetrics object from the FeedResponse
@@ -75,7 +75,7 @@ List<ServerSidePartitionedMetrics> partitionedMetrics = metrics.PartitionedMetri
 
 ## Get the query request charge
 
-You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the request charge by using the [RequestCharge](microsoft.azure.cosmos.feedresponse-1.requestcharge) property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
+You can capture the request units consumed by each query to investigate expensive queries or queries that consume high throughput. You can get the request charge by using the `RequestCharge` property in `FeedResponse`. To learn more about how to get the request charge using the Azure portal and different SDKs, see [find the request unit charge](find-request-unit-charge.md) article.
 
 ```csharp
 QueryDefinition query = new QueryDefinition("SELECT TOP 5 * FROM c");
@@ -117,7 +117,7 @@ DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 
 Looking at the index utilization can help you debug slow queries. Queries that can't use the index result in a full scan of all documents in a container before returning the result set.
 
-Below is an example of a scan query:
+Here's an example of a scan query:
 
 ```sql
 SELECT VALUE c.description 
@@ -166,7 +166,7 @@ FROM   c
 WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
 ```
 
-This query is now able to be served from the index. Alternatively, you can use [computed properties](query/computed-properties.md) to index the results of system functions or complex calcuations that would otherwise result in a full scan.
+This query is now able to be served from the index. Alternatively, you can use [computed properties](query/computed-properties.md) to index the results of system functions or complex calculations that would otherwise result in a full scan.
 
 To learn more about tuning query performance, see the [Tune Query Performance](./query-metrics.md) article.
 
