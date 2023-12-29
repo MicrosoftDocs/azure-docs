@@ -795,6 +795,8 @@ items:
       href: https://azure.microsoft.com/pricing/details/communication-services/
     - name: Government clouds
       href: concepts/chat/government-cloud.md
+    - name: Translating Chats
+      href: how-tos/chat-sdk/translating-chats.md
     - name: Events
       items:
       - name: Overview
