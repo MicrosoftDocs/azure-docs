@@ -67,67 +67,39 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 ## Create an interactive shell connection to a node using private IP
 
-In the event that you do not have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agentpool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node , you need to be in the cluster's virtual network, refer more information [here][Vnet-Integration]. The below steps apply for both Linux and Windows machines. 
+In the event that you do not have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agentpool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node , you need to be in the cluster's virtual network. 
 
 1. To get the private IP via CLI use az cli version 2.53 or above with aks-preview extension installed.
 
 ```bash
-    az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster -nodepool-name nodepool1
+    az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
    
  ```
 
 The following example resembles output from the command:
+
  ```output
-   [
-  {
-    "id": "/subscriptions/1234/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003",
-    "name": "aks-nodepool1-19409214-vmss000003",
-    "properties": {
-      "network": {
-        "ipAddresses": [
-          {
-            "family": "IPv4",
-            "ip": "10.224.0.8"
-          }
-        ]
-      },
-      "resourceId": "/subscriptions/1234/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
-    },
-    "resourceGroup": "myResourceGroup",
-    "type": "Microsoft.ContainerService/managedClusters/agentPools/machines"
-  }
-]                  
+   Name                               Ip 
+---------------------------------  --------------------------
+aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
+aks-nodepool1-33555069-vmss000001  10.224.0.6,family:IPv4;
+aks-nodepool1-33555069-vmss000002  10.224.0.4,family:IPv4;            
 ```
 To target a specific node inside the nodepool , use this command:
 
 ```bash
-    az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-19409214-vmss000003
+    az aks machine show --cluster-name myAKScluster --nodepool-name nodepool1 -g myResourceGroup --machine-name aks-nodepool1-33555069-vmss000000 -o table
    
  ```
  The following example resembles output from the command:
+
 ```output
-   [
-    {
-  "id": "/subscriptions/1234/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/nodepool1/machines/aks-nodepool1-19409214-vmss000003/aks-nodepool1-19409214-vmss000003",
-  "name": "aks-nodepool1-19409214-vmss000003",
-  "properties": {
-    "network": {
-      "ipAddresses": [
-        {
-          "family": "IPv4",
-          "ip": "10.224.0.8"
-        }
-      ]
-    },
-    "resourceId": "/subscriptions/1234/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus2/providers/Microsoft.Compute/virtualMachineScaleSets/aks-nodepool1-19409214-vmss/virtualMachines/3"
-  },
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.ContainerService/managedClusters/agentPools/machines"
-}
-   ]
+    Name                               Ip 
+---------------------------------  --------------------------
+aks-nodepool1-33555069-vmss000000  10.224.0.5,family:IPv4;
    ```
 
-2. Use the private IP to SSH into the node. [Azure Bastion][azure-bastion] also provides you information for securely connecting to virtual machines via private IP address.
+2. Use the private IP to SSH into the node. [Azure Bastion][azure-bastion] also provides you information for securely connecting to virtual machines via private IP address. Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides.
 
 ```bash
 ssh azureuser@10.224.0.33
@@ -229,9 +201,8 @@ See [Manage SSH configuration][manage-ssh-node-access] to learn about managing t
 [view-master-logs]: monitor-aks-reference.md#resource-logs
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-windows-rdp]: rdp.md
-[azure-bastion]: /bastion/bastion-overview 
+[azure-bastion]: ../bastion/bastion-overview 
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
 [agentpool-rest-api]: /rest/api/aks/agent-pools/get#agentpool
 [manage-ssh-node-access]: manage-ssh-node-access.md
-[Vnet-Integration]:api-server-vnet-integration.md#create-an-aks-cluster-with-api-server-vnet-integration-using-managed-vnet
