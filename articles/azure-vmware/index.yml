@@ -24,6 +24,7 @@ highlightedContent:
     - title: Plan and get started 
       itemType: concept
       url: /azure/azure-vmware/plan-private-cloud-deployment
+
     - title: Tutorials 
       itemType: tutorial
       url: /azure/azure-vmware/tutorial-network-checklist
@@ -41,7 +42,7 @@ highlightedContent:
       url: /azure/azure-vmware/ecosystem-os-vms
     - title: videos
       itemType: video
-      url: https://info.microsoft.com/www-extend-to-the-cloud-with-azure-vmware-solution-on-demand-registration.html
+      url: https://www.youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
     
 
 # additionalContent section (optional)
@@ -278,4 +279,4 @@ additionalContent:
             url: fix-deployment-failures.md
           - text: VMware tools vix error code = 21009
             url: https://kb.vmware.com/s/article/2129927
- 
+

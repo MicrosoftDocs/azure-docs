@@ -76,7 +76,7 @@ This tutorial requires Azure PowerShell version 5.9.0 or later. Run `Get-Install
 
 ## Autoscale pods
 
-To use the horizontal pod autoscaler, all containers and pods must have defined CPU requests and limits. In the `aks-store-quickstart` deployment, the *front-end* container requests 1m CPU with a limit of 1000m CPU.
+To use the horizontal pod autoscaler, All containers must have defined CPU requests and limits, and pads have specified requests. In the `aks-store-quickstart` deployment, the *front-end* container requests 1m CPU with a limit of 1000m CPU.
 
 These resource requests and limits are defined for each container, as shown in the following condensed example YAML:
 
@@ -114,7 +114,7 @@ These resource requests and limits are defined for each container, as shown in t
         apiVersion: apps/v1
         kind: Deployment
         name: store-front
-      targetCPUUtilizationPercentage: 50 # target CPU utilization
+        metrics: 50 # target CPU utilization
     ```
 
 2. Apply the autoscaler manifest file using the `kubectl apply` command.

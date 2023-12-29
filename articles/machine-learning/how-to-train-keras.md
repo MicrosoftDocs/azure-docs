@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: training
 ms.author: balapv
 author: balapv
-ms.reviewer: mopeakande
+ms.reviewer: sgilley
 ms.date: 10/05/2022
 ms.topic: how-to
 ms.custom: sdkv2, event-tier1-build-2022

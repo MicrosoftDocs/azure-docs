@@ -5,10 +5,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
-ms.reviewer: erd
+ms.reviewer: jushiman
 author: GabstaMSFT
 ms.collection: windows
-ms.date: 03/13/2023 
+ms.date: 03/13/2023
 ---
 
 # Azure Backup for SQL Server running in Azure VM
