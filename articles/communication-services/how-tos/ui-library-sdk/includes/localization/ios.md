@@ -18,7 +18,7 @@ If your application supports localization, the UI Library is displayed based on 
 
 The following table lists out-of-the-box translations for `locale`. If you want to localize the composite, pass `locale` into `LocalizationOptions` as options into `CallComposite`.
 
-|         Language         | SupportedLocale       |    identifier  |
+|         Language         | SupportedLocale       |    Identifier  |
 |:------------------------:|:------------------:|:------------:|
 | Chinese, Simplified | `zh` | `zh` |
 | Chinese, Simplified | `zhHans` | `zh-Hans` |
@@ -125,6 +125,6 @@ let callComposite = CallComposite(withOptions: callCompositeOptions)
 
 ### Accessibility voiceover for localization
 
-For voiceover to work properly for a localization, make sure the language is added into your app's localizations. The voiceover then detects that the app supports the language specified in `LocalizationOptions` for `locale`. It selects the speech voice for the language by using the voice found in **Settings** > **Accessibility** > **Speech** on the device. You can verify if the language is added to your project, as shown in the following example.
+For voiceover to work properly for a localization, make sure the language is added into your app's localizations. The voiceover then detects that the app supports the language specified in `LocalizationOptions` for `locale`. It selects the speech voice for the language by using the voice found in **Settings** > **Accessibility** > **Speech** on the device. You can verify that the language is added to your project, as shown in the following example.
 
 :::image type="content" source="media/ios-xcode-project-localizations.png" alt-text="Screenshot that shows iOS Xcode project localizations.":::

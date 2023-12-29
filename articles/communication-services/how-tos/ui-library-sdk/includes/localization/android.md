@@ -99,11 +99,11 @@ CallComposite callComposite =
         .build();
 ```
 
+-----
+
 |`LayoutDirection.RTL` | `LayoutDirection.LTR`     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="media/android-rtl.png" alt-text="Screenshot of Android right-to-left layout."::: | :::image type="content" source="media/android-ltr.png" alt-text="Screenshot of Android left-to-right layout.":::  |
-
------
 
 ### Customizing translations
 
