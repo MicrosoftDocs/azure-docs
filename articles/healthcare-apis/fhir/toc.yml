@@ -40,7 +40,7 @@ items:
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Enable single sign-on (B2C)
-      href: b2c-setup.
+      href: b2c-setup.md
     - name: Configure multiple service identity providers
       href: configure-identity-providers.md
     - name: Troubleshoot B2C identity provider configuration

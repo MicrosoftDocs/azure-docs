@@ -44,12 +44,12 @@ Add the `smartIdentityProviders` element to the FHIR service `authenticationConf
 
 | **Element** | **Type** | **Description** |
 |---|---|---|
-| [smartIdentityProviders](#smartidentityproviders) | array | An array containing up to two identity provider configurations. This element is optional. |
-| [authority](#authority) | string | The identity provider token authority. |
-| [applications](#applications) | array | An array of identity provider resource application configurations. |
-| [clientId](#clientid) | string | The identity provider resource application (client) ID. |
-| [audience](#audience) | string | Used to validate the access token `aud` claim. |
-| [allowedDataActions](#alloweddataactions) | array | An array of permissions the identity provider resource application is allowed to perform. |
+| [smartIdentityProviders](#configurethesmartidentityprovidersarray) | array | An array containing up to two identity provider configurations. This element is optional. |
+| [authority](#specifytheauthority) | string | The identity provider token authority. |
+| [applications](#configuretheapplicationsarray) | array | An array of identity provider resource application configurations. |
+| [clientId](#identifytheapplicationwiththeclientidstring) | string | The identity provider resource application (client) ID. |
+| [audience](#validatetheaccesstokenwiththeaudiencestring) | string | Used to validate the access token `aud` claim. |
+| [allowedDataActions](#specifythepermissionswiththealloweddataactionsarray) | array | An array of permissions the identity provider resource application is allowed to perform. |
 
 #### Configure the `smartIdentityProviders` array
 
@@ -73,13 +73,13 @@ You must include at least one application configuration and at most two in the `
 
 #### Identify the application with the `clientId` string
 
-The identity provider defines the application with a unique identifier called the `clientId` string (or application ID). The FHIR service validates the access token by checking the `authorized party` (azp) or `application id` (appId) claim against the `clientId` string. The FHIR service rejects requests with a `401 Unauthorized` error code if the `clientId` string and the token claim do not match exactly.
+The identity provider defines the application with a unique identifier called the `clientId` string (or application ID). The FHIR service validates the access token by checking the `authorized party` (azp) or `application id` (appId) claim against the `clientId` string. The FHIR service rejects requests with a `401 Unauthorized` error code if the `clientId` string and the token claim don't match exactly.
 
 #### Validate the access token with the `audience` string
 
-The `aud` claim in an access token identifies the intended recipient of the token. The `audience` string is the unique identifier for the recipient. The FHIR service validates the access token by checking the `audience` string against the `aud` claim. The FHIR service rejects requests with a `401 Unauthorized` error code if the `audience` string and the `aud` claim do not match exactly.
+The `aud` claim in an access token identifies the intended recipient of the token. The `audience` string is the unique identifier for the recipient. The FHIR service validates the access token by checking the `audience` string against the `aud` claim. The FHIR service rejects requests with a `401 Unauthorized` error code if the `audience` string and the `aud` claim don't match exactly.
 
-#### Specify the permissions with `allowedDataActions`
+#### Specify the permissions with the `allowedDataActions` array
 
 Include at least one permission string in the `allowedDataActions` array. You can include any valid permission strings, but avoid duplicates.
 
