@@ -282,7 +282,7 @@ This function discards all statistics gathered in-memory by Query Store (that is
 
 ## Limitations and known issues
 
-- If a PostgreSQL server has the parameter `default_transaction_read_only` on, Query Store won't capture any data.
+- If a PostgreSQL server has the parameter `default_transaction_read_only` set to `on`, Query Store won't capture any data.
 
 ## Related content
 
