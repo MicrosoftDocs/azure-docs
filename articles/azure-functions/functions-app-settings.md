@@ -114,11 +114,11 @@ Configures the runtime [hosting environment](/dotnet/api/microsoft.extensions.ho
 
 | Value | Description |
 | --- | --- | 
-| `Production` | This is the default when `AZURE_FUNCTIONS_ENVIRONMENT` isn't set or is set to an unsupported value.  | 
-| `Staging` | Represents a staging enviromnment, such as a [staging slot](functions-deployment-slots.md). |
-| `Development` | A development environment supports more verbose logging and can remove other optimizations. The Azure Functions Core Tools sets `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on a local computer, and this setting can't be overridden in the local.settings.json file.  | 
+| `Production` | Represents a production environment, with reduced logging and full performance optimizations. This is the default when `AZURE_FUNCTIONS_ENVIRONMENT` either isn't set or is set to an unsupported value.  | 
+| `Staging` | Represents a staging enviromnment, such as when running in a [staging slot](functions-deployment-slots.md). |
+| `Development` | A development environment supports more verbose logging and other reduced performance optimizations. The Azure Functions Core Tools sets `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on your local computer. This setting can't be overridden in the local.settings.json file.  | 
 
-Use this setting instead of `ASPNETCORE_ENVIRONMENT` when you need to change the runtime environment in Azure to something other than `Production`.  For more information, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environments).
+Use this setting instead of `ASPNETCORE_ENVIRONMENT` when you need to change the runtime environment in Azure to something other than `Production`. For more information, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environments).
 
 This setting isn't available in version 1.x of the Functions runtime.
 
