@@ -51,7 +51,7 @@ To sync your GitHub repository by using the Managed Airflow UI:
      - **Git repo url** (required): The clone URL for the GitHub repository you want.
      - **Git branch** (required): The current branch, where the Git repository you want is located.
    - **Git personal access token**:
-     After you select this option, fill out the remaining fields based on the selected **Git service type**:
+     After you select this option for a personal access token (PAT), fill out the remaining fields based on the selected **Git service type**:
      - GitHub personal access token
      - ADO personal access token
      - GitLab personal access token
