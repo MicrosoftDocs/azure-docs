@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-extended-java
   - devx-track-python
   - ignite-2023
-ms.date: 11/08/2023
+ms.date: 12/28/2023
 ---
 
 # App settings reference for Azure Functions
@@ -110,7 +110,17 @@ When `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` is set to `true`, the URL
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
-In version 2.x and later versions of the Functions runtime, configures app behavior based on the runtime environment. This value is read during initialization, and can be set to any value. Only the values of `Development`, `Staging`, and `Production` are honored by the runtime. When this application setting isn't present when running in Azure, the environment is assumed to be `Production`. Use this setting instead of `ASPNETCORE_ENVIRONMENT` if you need to change the runtime environment in Azure to something other than `Production`. The Azure Functions Core Tools set `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on a local computer, and this setting can't be overridden in the local.settings.json file. To learn more, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environment-based-startup-class-and-methods).
+Configures the runtime [hosting environment](/dotnet/api/microsoft.extensions.hosting.environments) of the function app when running in Azure. This value is read during initialization, and only these values are honored by the runtime:
+
+| Value | Description |
+| --- | --- | 
+| `Production` | This is the default when `AZURE_FUNCTIONS_ENVIRONMENT` isn't set or is set to an unsupported value.  | 
+| `Staging` | Represents a staging enviromnment, such as a [staging slot](functions-deployment-slots.md). |
+| `Development` | A development environment supports more verbose logging and can remove other optimizations. The Azure Functions Core Tools sets `AZURE_FUNCTIONS_ENVIRONMENT` to `Development` when running on a local computer, and this setting can't be overridden in the local.settings.json file.  | 
+
+Use this setting instead of `ASPNETCORE_ENVIRONMENT` when you need to change the runtime environment in Azure to something other than `Production`.  For more information, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environments).
+
+This setting isn't available in version 1.x of the Functions runtime.
 
 ## AzureFunctionsJobHost__\*
 
