@@ -177,10 +177,13 @@ The first expression in the column list is not `columnOne` anymore, but function
 select columnOne as "column one", columnTwo as "column two" from tableOne as "table one" where columnOne = ceiling(16) and columnTwo = 16;
 ```
 **Reason for not matching**:
-The first expression in the WHERE clause doesn't evaluate the equality of `columnOne` with a literal anymore, but with the result of function `ceiling`ealuated over a literal, which is not semantically equivalent.
+The first expression in the WHERE clause doesn't evaluate the equality of `columnOne` with a literal anymore, but with the result of function `ceiling` evaluated over a literal, which is not semantically equivalent.
 
 
-### query_store.qs_view
+### Views
+
+
+#### query_store.qs_view
 
 This view returns all the data which has already been persisted in the supporting tables of Query Store. Data which is being tracked during the currently active time window, is not visible until the time window comes to an end and its in-memory volatile data is collected and persisted to tables stored in disk. This view returns a different row for each distinct database (db_id), user (user_id), and query (query_id).
 
@@ -213,46 +216,68 @@ This view returns all the data which has already been persisted in the supportin
 | temp_blks_written | bigint | | Total number of temp blocks written by the statement. |
 | blk_read_time | double precision | | Total time the statement spent reading blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
 | blk_write_time | double precision | | Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
+| is_system_query | boolean | | Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
+| query_type | text | | Type of operation represented by the query. Possible values are `unknown`, `select`, `update`, `insert`, `delete`, `merge`, `utility`, `nothing`, `undefined`. |
 
-### query_store.query_texts_view
 
-This view returns query text data in Query Store. There's one row for each distinct query_text.
+> [!NOTE]  
+> If you have pg_qs enabled and collecting data on an instance of PostgreSQL running a major version <= 14, and perform an [in-place major version upgrade](./concepts-major-version-upgrade.md) to any version >= 15, know that the values returned in the query_type column of query_store.qs_view for any newly created time windows can be considered correct. However, for all the time windows which were created when the version of the engine was <= 14, where it reports `merge` it corresponds to `utility`, and when it reports `nothing` it corresponds to `utility`. The reason for that inconsistency has to do with the way [MERGE statement was implemented in PostgreSQL](https://github.com/postgres/postgres/commit/7103ebb7aae8ab8076b7e85f335ceb8fe799097c), which, instead of appending a new item to the existing ones in the CmdType enum, interleaved an item for MERGE between DELETE and UTILITY.
+
+
+## query_store.query_texts_view
+
+This view returns query text data in Query Store. There's one row for each distinct query_sql_text.
 
 | **Name** | **Type** | **Description** |
 |--| -- | -- |
 | query_text_id | bigint | ID for the query_texts table |
 | query_sql_text | varchar(10000) | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
-| query_type | smallint | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. |
+| query_type | smallint | Type of operation represented by the query. In version of PostgreSQL <= 14, possible values are `0` (unknown), `1` (select), `2` (update), `3` (insert), `4` (delete), `5` (utility), `6` (nothing). In version of PostgreSQL >= 15, possible values are `0` (unknown), `1` (select), `2` (update), `3` (insert), `4` (delete), `5` (merge), `6` (utility), `7` (nothing). |
 
-### query_store.pgms_wait_sampling_view
 
-This view returns wait events data in Query Store. There's one row for each distinct database ID, user ID, query ID, and event.
+#### query_store.pgms_wait_sampling_view
+
+This view returns wait events data in Query Store. This view returns a different row for each distinct database (db_id), user (user_id), query (query_id), and event (event).
 
 | **Name** | **Type** | **References** | **Description** |
 | -- |--| -- |--|
-| user_id | oid | pg_authid.oid | OID of user who executed the statement |
-| db_id | oid | pg_database.oid | OID of database in which the statement was executed |
-| query_id | bigint | | Internal hash code, computed from the statement's parse tree |
-| event_type | text | | The type of event for which the backend is waiting |
-| event | text | | The wait event name if backend is currently waiting |
-| calls | Integer | | Number of the same event captured |
+| start_time | timestamp | | Queries are aggregated by time windows, whose time span is defined by the server parameter `pg_qs.interval_length_minutes` (default is 15 minutes). This is the start time corresponding to the time window for this entry. |
+| end_time | timestamp | | End time corresponding to the time window for this entry. |
+| user_id | oid | pg_authid.oid | OID of user who executed the statement. |
+| db_id | oid | pg_database.oid | OID of database in which the statement was executed. |
+| query_id | bigint | | Internal hash code, computed from the statement's parse tree. |
+| event_type | text | | The type of event for which the backend is waiting. |
+| event | text | | The wait event name if backend is currently waiting. |  
+| calls | integer | | Number of times the same event has been captured. |
 
-### query_store.query_plans_view
+> [!NOTE]  
+> For a list of possible values in the **event_type** and **event** columns of the **query_store.pgms_wait_sampling_view** view, refer to the official documentation of [pg_stat_activity](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW) and look for the information referring to columns with the same names.
+
+
+#### query_store.query_plans_view
 
 This view returns the query plan that was used to execute a query. There's one row per each distinct database ID, and query ID. This will only store query plans for nonutility queries.
 
 | **plan_id** | **db_id** | **query_id** | **plan_text** |
 | -- |--| -- |--|
-| plan_id | bigint | | The hash value from the query_text |
-| db_id | oid | pg_database.oid | OID of database in which the statement was executed |
-| query_id | bigint | | Internal hash code, computed from the statement's parse tree |
-| plan_text | varchar(10000) | Execution plan of the statement given costs=false, buffers=false, and format=false. This is the same output given by EXPLAIN. |
+| plan_id | bigint | | The hash value from the normalized query plan produced by [EXPLAIN](https://www.postgresql.org/docs/current/sql-explain.html). It is considered normalized because it excludes the estimated costs of plan nodes and usage of buffers. |
+| db_id | oid | pg_database.oid | OID of database in which the statement was executed. |
+| query_id | bigint | | Internal hash code, computed from the statement's parse tree. |
+| plan_text | varchar(10000) | Execution plan of the statement given costs=false, buffers=false, and format=text. This is the same output given by [EXPLAIN](https://www.postgresql.org/docs/current/sql-explain.html). |
+
 
 ### Functions
 
-`qs_reset` discards all statistics gathered so far by Query Store. This function can only be executed by the server admin role.
 
-`staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that hasn't been flushed yet to the database). This function can only be executed by the server admin role.
+#### query_store.qs_reset
+
+This function discards all statistics gathered so far by Query Store. It discards both the statistics for already closed time windows, which have been persisted to on disk tables, and those for the current time window, which are still kept in-memory. This function can only be executed by the server admin role (**azure_pg_admin**).
+
+
+#### query_store.staging_data_reset
+
+This function discards all statistics gathered in-memory by Query Store (that is, the data in memory that hasn't been flushed yet to the on disk tables supporting persistence of collected data for Query Store). This function can only be executed by the server admin role (**azure_pg_admin**).
+
 
 ## Limitations and known issues
 
