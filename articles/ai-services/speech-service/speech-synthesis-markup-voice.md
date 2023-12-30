@@ -233,7 +233,7 @@ The following SSML example uses the `<mstts:ttsembedding>` element with a voice 
 
 ## Adjust speaking languages
 
-By default, multilingual voices can autodetect the language of the input text and speak in the language in primary locale of the input text without using SSML. However, you can still use the `lang` element to adjust the speaking language for these voices to set preferred accent with non-primary locales such as British accent (`en-GB`) for English. You can adjust the speaking language at both the sentence level and word level. For information about the supported languages for multilingual voice, see [Multilingual voices with the lang element](#multilingual-voices-with-the-lang-element) for a table showing the <lang> syntax and attribute definitions. 
+By default, multilingual voices can autodetect the language of the input text and speak in the language in primary locale of the input text without using SSML. However, you can still use the `<lang xml:lang>` element to adjust the speaking language for these voices to set preferred accent with non-primary locales such as British accent (`en-GB`) for English. You can adjust the speaking language at both the sentence level and word level. For information about the supported languages for multilingual voice, see [Multilingual voices with the lang element](#multilingual-voices-with-the-lang-element) for a table showing the <lang> syntax and attribute definitions. 
 
 The following table describes the usage of the `<lang xml:lang>` element's attributes:
 
@@ -246,7 +246,7 @@ The following table describes the usage of the `<lang xml:lang>` element's attri
 
 ### Multilingual voices with the lang element
 
-Use the [multilingual voices section](includes/language-support/multilingual-voices.md) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the example table below. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
+Use the [multilingual voices section](language-support.md?tabs=tts#multilingual-voices) to determine which speaking languages the Speech service supports for each neural voice, as demonstrated in the example table below. If the voice doesn't speak the language of the input text, the Speech service doesn't output synthesized audio.
 
 | Voice | Supported language number | Supported languages | Supported locales |
 |-------------|---------------------------|-----------------------|----------------|
