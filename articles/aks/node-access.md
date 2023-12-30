@@ -67,9 +67,9 @@ kubectl delete pod node-debugger-aks-nodepool1-37663765-vmss000000-bkmmx
 ```
 ## Create an interactive shell connection to a node using private IP
 
-If, you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agentpool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node, you need to be in the cluster's virtual network. 
+If you don't have access to the Kubernetes API, you can get access to properties such as ```Node IP``` and ```Node Name``` through the AKS Agentpool Preview API(preview version 07-02-2023 or above) to troubleshoot node-specific issues in your AKS node pools. For convenience, we also expose the public IP if the node has a public IP assigned. However in order to SSH into the node, you need to be in the cluster's virtual network. 
 
-1. To get the private IP via CLI use az cli version 2.53 or above with aks-preview extension installed.
+1. To get the private IP via CLI, use az cli version 2.53 or above with aks-preview extension installed.
 
 ```bash
     az aks machine list --resource-group myResourceGroup  --cluster-name myAKSCluster --nodepool-name nodepool1 -o table
