@@ -10,6 +10,8 @@ ms.custom: mvc, cc996988-fb4f-47
 
 Learn how to create a function triggered when files are uploaded to or updated in a Blob storage container.
 
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
+
 ## Prerequisites
 
 + An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
