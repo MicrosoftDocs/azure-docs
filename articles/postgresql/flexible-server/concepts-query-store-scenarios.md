@@ -3,7 +3,7 @@ title: Query Store scenarios - Azure Database for PostgreSQL - Flex Server
 description: This article describes some scenarios for Query Store in Azure Database for PostgreSQL - Flex Server.
 author: markingmyname
 ms.author: maghan
-ms.date: 11/30/2023
+ms.date: 12/31/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -14,10 +14,10 @@ ms.topic: conceptual
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 You can use Query Store in a wide variety of scenarios in which tracking and maintaining predictable workload performance is critical. Consider the following examples:
-- Identifying and tuning top expensive queries
-- A/B testing
-- Keeping performance stable during upgrades
-- Identifying and improving improvised workloads
+- Identifying and tuning top expensive queries.
+- A/B testing.
+- Keeping performance stable during upgrades.
+- Identifying and improving improvised workloads.
 
 ## Identify and tune expensive queries
 
@@ -27,29 +27,30 @@ Use Query Store views on the azure_sys database of your server to quickly identi
 
 ### Target queries with performance deltas
 
-Query Store slices the performance data into time windows, so you can track a query's performance over time. This helps you identify exactly which queries are contributing to an increase in overall time spent. As a result you can do targeted troubleshooting of your workload.
+Query Store slices the performance data into time windows, so you can track the performance of a query over time. This helps you identify exactly which queries are contributing to an increase in overall time spent. As a result you can do targeted troubleshooting of your workload.
 
 ### Tune expensive queries
 
-When you identify a query with suboptimal performance, the action you take depends on the nature of the problem:
+When you identify a query with suboptimal performance, the action you take depends on the nature of the problem. Some of these actions might be:
 - Make sure that the statistics are up-to-date for the underlying tables used by the query.
-- Consider rewriting expensive queries. For example, take advantage of query parameterization and reduce the use of dynamic SQL. Implement optimal logic when reading data like applying data filtering on database side, not on application side.
+- Consider rewriting expensive queries. For example, take advantage of query parameterization and reduce the use of dynamic SQL. Implement optimal logic when reading data, like applying data filtering on database side, instead of doing it on application side.
 
 ## A/B testing
 
-Use Query Store to compare workload performance before and after an application change you plan to introduce or before and after migration. Example scenarios for using Query Store to assess the impact of changes to workload performance:
-- Migration between PostgreSQL versions.
+Use Query Store to compare workload performance before and after an application change you plan to introduce, or before and after migration. Example scenarios for using Query Store to assess the impact of changes to workload performance:
+- Migrating between major versions of PostgreSQL.
 - Rolling out a new version of an application.
-- Adding additional resources to the server.
+- Modifying the amount of resources granted to the server.
+- Changing any of the server parameters that affect the behavior of the server.
 - Creating missing indexes on tables referenced by expensive queries.
-- Migration from Single Server to Flex Server.
+- Migrating from Single Server to Flexible Server.
 
 In any of these scenarios, apply the following workflow:
-1. Run your workload with Query Store before the planned change to generate a performance baseline.
-1. Apply application change(s) at the controlled moment in time.
-1. Continue running the workload long enough to generate performance image of the system after the change.
-1. Compare results from before and after the change.
-1. Decide whether to keep the change or rollback.
+1. Run your workload with Query Store before the planned change, to generate a performance baseline.
+1. Apply the desired changes at a controlled moment in time.
+1. Continue running the workload, long enough to generate performance image of the system after the change.
+1. Compare the results from before and after the change.
+1. Decide whether to keep the change or roll it back.
 
 ## Identify and improve improvised workloads
 
