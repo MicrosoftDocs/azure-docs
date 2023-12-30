@@ -116,7 +116,7 @@ View and manage Query Store using the following views and functions. Anyone in t
 
 Queries are normalized by looking at their structure and ignoring anything not semantically significant, like literals, constants, aliases, or differences in casing.
 
-If two queries are semantically identical, even if they use different aliases for the same referenced columns and tables, they are identified with the same query_id. If two queries only differ in the literal values used in them, they are also identified with the same query_id. For all queries identified with the same query_id, their sql_query_text will be that of the query that executed first since Query Store started recording activity, or since the last time the persisted data was discarded because the function [query_store.qs_reset](#query_store.qs_reset) was executed.
+If two queries are semantically identical, even if they use different aliases for the same referenced columns and tables, they are identified with the same query_id. If two queries only differ in the literal values used in them, they are also identified with the same query_id. For all queries identified with the same query_id, their sql_query_text will be that of the query that executed first since Query Store started recording activity, or since the last time the persisted data was discarded because the function [query_store.qs_reset](#query_storeqs_reset) was executed.
 
 ### How query normalization works
 
