@@ -80,7 +80,7 @@ Here are some examples of how you can gain more insights into your workload usin
 
 ## Configuration options
 
-When Query Store is enabled it saves data in aggregation windows whose length is determined by the `pg_qs.interval_length_minutes` server parameter (defaults to 15 minutes). For each window it stores the 500 distinct queries per window.
+When Query Store is enabled, it saves data in aggregation windows of length determined by the `pg_qs.interval_length_minutes` server parameter (defaults to 15 minutes). For each window, it stores the 500 distinct queries per window.
 The following options are available for configuring Query Store parameters:
 
 | **Parameter** | **Description** | **Default** | **Range** |
@@ -95,7 +95,7 @@ The following options are available for configuring Query Store parameters:
 | pg_qs.index_recommendations | Enables or disables index recommendations. pg_qs.query_capture_mode must also be 'TOP' or 'ALL'. | off | off, recommend |
 | pg_qs.track_utility | Sets whether utility commands are tracked by pg_qs. | on | on, off |
 
-(*) These are static server parameters and, as such, they require a server restart for a change in its values to take effect. 
+(*) Static server parameter which requires a server restart for a change in its value to take effect. 
 
 
 The following options apply specifically to wait statistics:
@@ -116,7 +116,7 @@ View and manage Query Store using the following views and functions. Anyone in t
 
 Queries are normalized by looking at their structure and ignoring anything not semantically significant, like literals, constants, aliases, or differences in casing.
 
-If two queries are semantically identical, even if they use different aliasing for the same referenced columns and tables, or if they just differ in the literal values used in the query, they'll be identified with the same query_id, and the sql_query_text will be that of the query which executed first since Query Store started recording activity.
+If two queries are semantically identical, even if they use different aliases for the same referenced columns and tables, they are identified with the same query_id. If two queries only differ in the literal values used in them, they are also identified with the same query_id. For all queries identified with the same query_id, their sql_query_text will be that of the query that executed first since Query Store started recording activity, or since the last time the persisted data was discarded because the function [query_store.qs_reset](#query_store.qs_reset) was executed.
 
 ### How query normalization works
 
@@ -137,7 +137,7 @@ select columnOne as c1, columnTwo as c2 from tableOne as t1;
 select columnOne as "column one", columnTwo as "column two" from tableOne as "table one";
 ```
 
-All the previous queries share the same query_id. And the text that is kept by Query Store is that of the first query executed after enabling collection. Therefore, it would be `select * from tableOne;`.
+All the previous queries share the same query_id. And the text that Query Store keeps is that of the first query executed after enabling data collection. Therefore, it would be `select * from tableOne;`.
 
 The following set of queries, once normalized, don't match the previous set of queries because the WHERE clause makes them semantically different:
 
@@ -150,21 +150,21 @@ select columnOne as "column one", columnTwo as "column two" from tableOne as "ta
 
 However, all queries in this last set share the same query_id and the text used to identify them all is that of the first query in the batch `select columnOne as c1, columnTwo as c2 from tableOne as t1 where columnOne = 1 and columnTwo = 1;`.
 
-Finally, find below some queries which don't match the query_id of those in the previous batch, and the reason why they don't:
+Finally, find below some queries not matching the query_id of those in the previous batch, and the reason why they don't:
 
 **Query**:
 ```sql
 select columnTwo as c2, columnOne as c1 from tableOne as t1 where columnOne = 1 and columnTwo = 1;
 ```
 **Reason for not matching**:
-List of columns refers to the same two columns (columnOne and ColumnTwo), but the order in which they are referred has been reversed, from `columnOne, ColumnTwo` in the previous batch to `ColumnTwo, columnOne` in this query.
+List of columns refers to the same two columns (columnOne and ColumnTwo), but the order in which they are referred is reversed, from `columnOne, ColumnTwo` in the previous batch to `ColumnTwo, columnOne` in this query.
 
 **Query**:
 ```sql
 select * from tableOne where columnTwo = 25 and columnOne = 25;
 ```
 **Reason for not matching**:
-Order in which the expressions evaluated in the WHERE clause are referred has been reversed from `columnOne = ? and ColumnTwo = ?` in the previous batch to `ColumnTwo = ? and columnOne = ?` in this query.
+Order in which the expressions evaluated in the WHERE clause are referred is reversed from `columnOne = ? and ColumnTwo = ?` in the previous batch to `ColumnTwo = ? and columnOne = ?` in this query.
 
 **Query**:
 ```sql
@@ -186,7 +186,7 @@ The first expression in the WHERE clause doesn't evaluate the equality of `colum
 
 #### query_store.qs_view
 
-This view returns all the data which has already been persisted in the supporting tables of Query Store. Data which is being tracked during the currently active time window, is not visible until the time window comes to an end and its in-memory volatile data is collected and persisted to tables stored in disk. This view returns a different row for each distinct database (db_id), user (user_id), and query (query_id).
+This view returns all the data that has already been persisted in the supporting tables of Query Store. Data that is being recorded in-memory for the currently active time window, is not visible until the time window comes to an end, and its in-memory volatile data is collected and persisted to tables stored on disk. This view returns a different row for each distinct database (db_id), user (user_id), and query (query_id).
 
 | **Name** | **Type** | **References** | **Description** |
 | --- | --- | --- | --- |
@@ -198,13 +198,13 @@ This view returns all the data which has already been persisted in the supportin
 | plan_id | bigint | | ID of the plan corresponding to this query. |
 | start_time | timestamp | | Queries are aggregated by time windows, whose time span is defined by the server parameter `pg_qs.interval_length_minutes` (default is 15 minutes). This is the start time corresponding to the time window for this entry. |
 | end_time | timestamp | | End time corresponding to the time window for this entry. |
-| calls | bigint | | Number of times the query executed in this time window. Notice that for parallel queries, the number of calls for each execution corresponds to 1 for the backend process driving the execution of the query, plus as many additional units for each backend worker process launched to collaborate executing the parallel branches of the execution tree. |
+| calls | bigint | | Number of times the query executed in this time window. Notice that for parallel queries, the number of calls for each execution corresponds to 1 for the backend process driving the execution of the query, plus as many other units for each backend worker process, launched to collaborate executing the parallel branches of the execution tree. |
 | total_time | double precision | | Total query execution time, in milliseconds. |
 | min_time | double precision | | Minimum query execution time, in milliseconds. |
 | max_time | double precision | | Maximum query execution time, in milliseconds. |
 | mean_time | double precision | | Mean query execution time, in milliseconds. |
 | stddev_time | double precision | | Standard deviation of the query execution time, in milliseconds. |
-| rows | bigint | | Total number of rows retrieved or affected by the statement.  Notice that for parallel queries, the number of rows for each execution corresponds to the number of rows returned to the client by the backend process driving the execution of the query, plus the sum of all each backend worker process launched to collaborate executing the parallel branches of the execution tree returns to the driving backend process. |
+| rows | bigint | | Total number of rows retrieved or affected by the statement.  Notice that for parallel queries, the number of rows for each execution corresponds to the number of rows returned to the client by the backend process driving the execution of the query, plus the sum of all rows that each backend worker process, launched to collaborate executing the parallel branches of the execution tree, returns to the driving backend process. |
 | shared_blks_hit | bigint | | Total number of shared block cache hits by the statement. |
 | shared_blks_read | bigint | | Total number of shared blocks read by the statement. |
 | shared_blks_dirtied | bigint | | Total number of shared blocks dirtied by the statement. |
