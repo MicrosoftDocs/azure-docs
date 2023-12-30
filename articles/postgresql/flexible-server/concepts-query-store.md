@@ -3,7 +3,7 @@ title: Query Store - Azure Database for PostgreSQL - Flexible Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 12/29/2023
+ms.date: 12/30/2023
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -117,7 +117,7 @@ Queries are normalized by looking at their structure and ignoring anything not s
 
 If two queries are semantically identical, even if they use different aliasing for the same referenced columns and tables, or if they just differ in the literal values used in the query, they'll be identified with the same query_id, and the sql_query_text will be that of the query which executed first since Query Store started recording activity.
 
-## How query normalization works
+### How query normalization works
 
 Following are some examples to try to illustrate how this normalization works:
 
@@ -180,10 +180,9 @@ select columnOne as "column one", columnTwo as "column two" from tableOne as "ta
 The first expression in the WHERE clause doesn't evaluate the equality of `columnOne` with a literal anymore, but with the result of function `ceiling`ealuated over a literal, which is not semantically equivalent.
 
 
-
 ### query_store.qs_view
 
-This view returns all the data which has already been persisted in the supporting tables of Query Store. There's one row for each distinct database (db_id), user (user_id), and query (query_id).
+This view returns all the data which has already been persisted in the supporting tables of Query Store. Data which is being tracked during the currently active time window, is not visible until the time window comes to an end and its in-memory volatile data is collected and persisted to tables stored in disk. This view returns a different row for each distinct database (db_id), user (user_id), and query (query_id).
 
 | **Name** | **Type** | **References** | **Description** |
 | --- | --- | --- | --- |
