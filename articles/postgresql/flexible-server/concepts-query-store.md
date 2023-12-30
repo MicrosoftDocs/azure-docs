@@ -97,6 +97,7 @@ The following options are available for configuring Query Store parameters:
 
 (*) These are static server parameters and, as such, they require a server restart for a change in its values to take effect. 
 
+
 The following options apply specifically to wait statistics:
 
 | **Parameter** | **Description** | **Default** | **Range** |
