@@ -117,6 +117,8 @@ Queries are normalized by looking at their structure and ignoring anything not s
 
 If two queries are semantically identical, even if they use different aliasing for the same referenced columns and tables, or if they just differ in the literal values used in the query, they'll be identified with the same query_id, and the sql_query_text will be that of the query which executed first since Query Store started recording activity.
 
+## How query normalization works
+
 Following are some examples to try to illustrate how this normalization works:
 
 Say that you create a table with the following statement:
@@ -140,8 +142,8 @@ The following set of queries, once normalized, don't match the previous set of q
 
 ```sql
 select columnOne as c1, columnTwo as c2 from tableOne as t1 where columnOne = 1 and columnTwo = 1;
-select * from tableOne where columnOne = 3.0 and columnTwo = 3;
-select columnOne, columnTwo from tableOne where columnOne = 5 and columnTwo = '5';
+select * from tableOne where columnOne = -3 and columnTwo = -3;
+select columnOne, columnTwo from tableOne where columnOne = '5' and columnTwo = '5';
 select columnOne as "column one", columnTwo as "column two" from tableOne as "table one" where columnOne = 7 and columnTwo = 7;
 ```
 
@@ -181,37 +183,37 @@ The first expression in the WHERE clause doesn't evaluate the equality of `colum
 
 ### query_store.qs_view
 
-This view returns all the data in Query Store. There's one row for each distinct database ID, user ID, and query ID.
+This view returns all the data which has already been persisted in the supporting tables of Query Store. There's one row for each distinct database (db_id), user (user_id), and query (query_id).
 
 | **Name** | **Type** | **References** | **Description** |
 | --- | --- | --- | --- |
-| runtime_stats_entry_id | bigint | | ID from the runtime_stats_entries table |
-| user_id | oid | pg_authid.oid | OID of user who executed the statement |
-| db_id | oid | pg_database.oid | OID of database in which the statement was executed |
-| query_id | bigint | | Internal hash code, computed from the statement's parse tree |
-| query_sql_text | varchar(10000) | | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. The default query text length is 6000 and can be modified using query store parameter `pg_qs.max_query_text_length`. |
-| plan_id | bigint | | ID of the plan corresponding to this query |
-| start_time | timestamp | | Queries are aggregated by time buckets - the time span of a bucket is 15 minutes by default. This is the start time corresponding to the time bucket for this entry. |
-| end_time | timestamp | | End time corresponding to the time bucket for this entry. |
-| calls | bigint | | Number of times the query executed |
-| total_time | double precision | | Total query execution time, in milliseconds |
-| min_time | double precision | | Minimum query execution time, in milliseconds |
-| max_time | double precision | | Maximum query execution time, in milliseconds |
-| mean_time | double precision | | Mean query execution time, in milliseconds |
-| stddev_time | double precision | | Standard deviation of the query execution time, in milliseconds |
-| rows | bigint | | Total number of rows retrieved or affected by the statement |
-| shared_blks_hit | bigint | | Total number of shared block cache hits by the statement |
-| shared_blks_read | bigint | | Total number of shared blocks read by the statement |
-| shared_blks_dirtied | bigint | | Total number of shared blocks dirtied by the statement |
-| shared_blks_written | bigint | | Total number of shared blocks written by the statement |
-| local_blks_hit | bigint | | Total number of local block cache hits by the statement |
-| local_blks_read | bigint | | Total number of local blocks read by the statement |
-| local_blks_dirtied | bigint | | Total number of local blocks dirtied by the statement |
-| local_blks_written | bigint | | Total number of local blocks written by the statement |
-| temp_blks_read | bigint | | Total number of temp blocks read by the statement |
-| temp_blks_written | bigint | | Total number of temp blocks written by the statement |
-| blk_read_time | double precision | | Total time the statement spent reading blocks, in milliseconds (if track_io_timing is enabled, otherwise zero) |
-| blk_write_time | double precision | | Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero) |
+| runtime_stats_entry_id | bigint | | ID from the runtime_stats_entries table. |
+| user_id | oid | pg_authid.oid | OID of user who executed the statement. |
+| db_id | oid | pg_database.oid | OID of database in which the statement was executed. |
+| query_id | bigint | | Internal hash code, computed from the statement's parse tree. |
+| query_sql_text | varchar(10000) | | Text of a representative statement. Different queries with the same structure are clustered together; this text is the text for the first of the queries in the cluster. The default value for the maximum query text length is 6000, and can be modified using query store parameter `pg_qs.max_query_text_length`. If the text of the query exceeds this maximum value, it is truncated to the first `pg_qs.max_query_text_length` characters. |
+| plan_id | bigint | | ID of the plan corresponding to this query. |
+| start_time | timestamp | | Queries are aggregated by time windows, whose time span is defined by the server parameter `pg_qs.interval_length_minutes` (default is 15 minutes). This is the start time corresponding to the time window for this entry. |
+| end_time | timestamp | | End time corresponding to the time window for this entry. |
+| calls | bigint | | Number of times the query executed in this time window. Notice that for parallel queries, the number of calls for each execution corresponds to 1 for the backend process driving the execution of the query, plus as many additional units for each backend worker process launched to collaborate executing the parallel branches of the execution tree. |
+| total_time | double precision | | Total query execution time, in milliseconds. |
+| min_time | double precision | | Minimum query execution time, in milliseconds. |
+| max_time | double precision | | Maximum query execution time, in milliseconds. |
+| mean_time | double precision | | Mean query execution time, in milliseconds. |
+| stddev_time | double precision | | Standard deviation of the query execution time, in milliseconds. |
+| rows | bigint | | Total number of rows retrieved or affected by the statement.  Notice that for parallel queries, the number of rows for each execution corresponds to the number of rows returned to the client by the backend process driving the execution of the query, plus the sum of all each backend worker process launched to collaborate executing the parallel branches of the execution tree returns to the driving backend process. |
+| shared_blks_hit | bigint | | Total number of shared block cache hits by the statement. |
+| shared_blks_read | bigint | | Total number of shared blocks read by the statement. |
+| shared_blks_dirtied | bigint | | Total number of shared blocks dirtied by the statement. |
+| shared_blks_written | bigint | | Total number of shared blocks written by the statement. |
+| local_blks_hit | bigint | | Total number of local block cache hits by the statement. |
+| local_blks_read | bigint | | Total number of local blocks read by the statement. |
+| local_blks_dirtied | bigint | | Total number of local blocks dirtied by the statement. |
+| local_blks_written | bigint | | Total number of local blocks written by the statement. |
+| temp_blks_read | bigint | | Total number of temp blocks read by the statement. |
+| temp_blks_written | bigint | | Total number of temp blocks written by the statement. |
+| blk_read_time | double precision | | Total time the statement spent reading blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
+| blk_write_time | double precision | | Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero). |
 
 ### query_store.query_texts_view
 
