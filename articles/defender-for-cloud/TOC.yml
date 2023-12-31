@@ -89,7 +89,7 @@
               href: tutorial-enable-container-aws.md
             - name: Protect your Google Cloud Platform (GCP) project containers
               href: tutorial-enable-container-gcp.md
-            - name: Enable Defender for Containers components
+            - name: Configure Defender for Containers components
               displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises,
                 azure arc, multicloud
               href: defender-for-containers-enable.md

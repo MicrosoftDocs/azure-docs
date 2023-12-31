@@ -72,12 +72,12 @@ assignment on the resource group.
 
    1. Change **Type** to **Built-in**. In **Search**, enter **tag**.
 
-   1. Change focus out of **Search** for the filtering to occur. Select **Append tag and its
+   1. Change focus out of **Search** for the filtering to occur. Select **Append a tag and its
       value to resource groups**.
 
    1. Select **Add** to add this artifact to the blueprint.
 
-1. Select the row of the policy assignment **Append tag and its value to resource groups**.
+1. Select the row of the policy assignment **Append a tag and its value to resource groups**.
 
 1. The window to provide parameters to the artifact as part of the blueprint definition opens. You can set the parameters for all assignments (static parameters) based on this blueprint, instead of during assignment (dynamic parameters). This example uses dynamic parameters during blueprint assignment, so leave the defaults and select **Cancel**.
 
