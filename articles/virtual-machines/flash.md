@@ -79,7 +79,7 @@ This event denotes the latest availability status of a VM, based on the health c
 To poll the latest VM availability state, refer to the properties field which contains the below details:
 
 #### Sample
-
+```
 {
  "targetResourceType": "Microsoft.Compute/virtualMachines",
  "previousAvailabilityState": "Available",
@@ -87,6 +87,7 @@ To poll the latest VM availability state, refer to the properties field which co
  "occurredTime": "2022-10-11T11:13:59.9570000Z",
  "availabilityState": "Unavailable"
  }
+```
 
 #### Property description
 
@@ -112,7 +113,7 @@ This event contextualizes any changes to VM availability, by detailing necessary
 To poll the associated VM health annotations for a resource, if any, refer to the properties field which contains the following details:
 
 #### Sample
-
+```
 {
  "targetResourceType": "Microsoft.Compute/virtualMachines", "targetResourceId": "/subscriptions//resourceGroups//providers/Microsoft.Compute/virtualMachines/",
  "annotationName": "VirtualMachineHostRebootedForRepair",
@@ -122,6 +123,7 @@ To poll the associated VM health annotations for a resource, if any, refer to th
  "context": "Platform Initiated",
  "reason": "Unexpected host failure"
  }
+```
 
 #### Property description
 
@@ -159,7 +161,7 @@ As you start subscribing to events from the HealthResources system topic, consid
 Looking ahead to 2024, we have plans to transition the preview into a fully-fledged general availability feature. As part of the preview, we'll emit events scoped to changes in VM availability states, with the sample [schema](https://learn.microsoft.com/azure/event-grid/event-schema) below:
 
 #### Sample
-
+```
 {
  "id": "4c70abbc-4aeb-4cac-b0eb-ccf06c7cd102",
  "topic": "/subscriptions/,
@@ -182,6 +184,7 @@ Looking ahead to 2024, we have plans to transition the preview into a fully-fled
  "metadataVersion": "1",
  "eventTime": "2022-09-25T20:21:37.5280000Z"
  }
+```
 
 The properties field is fully consistent with the _microsoft.resourcehealth/availabilitystatuses_ event in ARG. The event grid solution offers near-real-time alerting capabilities on the data present in ARG.
 
