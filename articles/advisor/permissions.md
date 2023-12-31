@@ -38,7 +38,7 @@ When you attempt to configure subscriptions or resource groups in Advisor, you m
 
 ### Unable to postpone or dismiss a recommendation
 
-If you receive an error when trying to postpone or dismiss a recommendation, you may not have sufficient permissions. Make sure that you have at least contributor access to the impacted resource of the recommendation you are postponing or dismissing. To resolve this issue, learn how to [grant a user access](../role-based-access-control/quickstart-assign-role-user-portal.md).
+If you receive an error when trying to postpone or dismiss a recommendation, you might not have sufficient permissions. Dismissing a recommendation means you can't see it again unless manually reactivated, so you might potentially overlook important advice for optimizing Azure deployments. Therefore, it’s crucial that only users with sufficient permissions can dismiss recommendations. Make sure that you have at least contributor access to the impacted resource of the recommendation you're postponing or dismissing. To resolve this issue, learn how to [grant a user access](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 ## Next steps
 
