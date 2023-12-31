@@ -21,7 +21,7 @@ Collecting this data can be important to building AI systems that work for all u
 The best practices in this article will help you conduct manual data collection projects from volunteers where everyone involved is treated with respect, and potential harms—especially those faced by vulnerable groups—are anticipated and mitigated. This means that:
 
 - People contributing data aren't coerced or exploited in any way, and they have control over what personal data is collected.
-- People collecting and labeling data have adequate training. 
+- People collecting and labeling data have adequate training.
 
 These practices can also help ensure more-balanced and higher-quality datasets and better stewardship of human data.
 
