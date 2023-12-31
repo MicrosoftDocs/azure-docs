@@ -21,27 +21,27 @@ An Azure Automation account in supported public region (except Central India, Ge
 
 ## Switch between Runtime environment and old experience
 
-To try Runtime environment experience:
+### Runtime environment experience
 
-Select **Overview** and then select **Try Runtime environment experience**.
+1. Select **Overview** and then select **Try Runtime environment experience**.
 
-:::image type="content" source="./media/manage-runtime-environment/runtime-environment-experience.png" alt-text="Screenshot shows how to try the runtime environment experience." lightbox="./media/manage-runtime-environment/runtime-environment-experience.png":::
+    :::image type="content" source="./media/manage-runtime-environment/runtime-environment-experience.png" alt-text="Screenshot shows how to try the runtime environment experience." lightbox="./media/manage-runtime-environment/runtime-environment-experience.png":::
 
-Here, you will find the **Runtime environments (preview)** under **Process Automation**. The **Modules** and **Python packages** under **Shared resources** are removed as the Runtime environment allows management of Packages required during Runbook execution.
+1. Here, under **Process Automation**, you have the **Runtime Environments (Preview)** and the **Modules** and **Python packages** under **Shared resources** are removed as the Runtime environment allows management of Packages required during Runbook execution.
 
-:::image type="content" source="./media/manage-runtime-environment/view-menu-options.png" alt-text="Screenshot shows how the menu options when you switch to runtime environmet experience" lightbox="./media/manage-runtime-environment/view-menu-options.png":::
+    :::image type="content" source="./media/manage-runtime-environment/view-menu-options.png" alt-text="Screenshot shows how the menu options when you switch to runtime environmet experience" lightbox="./media/manage-runtime-environment/view-menu-options.png":::
 
-To revert to the old experience for managing Modules and Packages, select **Overview** in the left pane on Azure portal and select **Switch to old experience**.
+1. To revert to the old experience for managing Modules and Packages, select **Overview** in the left pane and then select **Switch to Old Experience**.
 
-:::image type="content" source="./media/manage-runtime-environment/old-experience-view.png" alt-text="Screenshot shows how to navigate to the previous experience." lightbox="./media/manage-runtime-environment/old-experience-view.png":::
+    :::image type="content" source="./media/manage-runtime-environment/old-experience-view.png" alt-text="Screenshot shows how to navigate to the previous experience." lightbox="./media/manage-runtime-environment/old-experience-view.png":::
 
-In this experience:
+### Old experience
 
-You will find that under **Process Automation**, the **Runtime environments (preview)** is removed and under **Shared resources**, **Modules** and **Python packages** can be seen.
+1. Go to your Automation account, under **Process Automation**, the **Runtime environments (preview)** is removed and under **Shared resources**, **Modules** and **Python packages** can be seen.
 
-:::image type="content" source="./media/manage-runtime-environment/view-menu-options-old-experience.png" alt-text="Screenshot shows the menu options when the default settings are restored." lightbox="./media/manage-runtime-environment/view-menu-options-old-experience.png":::
+    :::image type="content" source="./media/manage-runtime-environment/view-menu-options-old-experience.png" alt-text="Screenshot shows the menu options when the default settings are restored." lightbox="./media/manage-runtime-environment/view-menu-options-old-experience.png":::
 
-   
+
 ## Manage Runtime environment
 
 ### Create Runtime environment
@@ -371,6 +371,7 @@ To test runbook execution before publishing Runtime environment changes, follow 
 
 1. In the **Edit runbook** page, select **Edit in Portal** to open the text editor.
 1. The Runtime environment field shows the existing configuration. Select the new Runtime environment from the dropdown.
+
    :::image type="content" source="./media/manage-runtime-environment/edit-runbook.png" alt-text="Screenshot shows how to select new Runtime environment." lightbox="./media/manage-runtime-environment/edit-runbook.png":::
 1. Select **Test pane** to test runbook execution with the updated Runtime environment. Select **Start** to begin the test run.
 1. Close the test pane and make the required changes in Runbook code or Runtime environment if necessary.
