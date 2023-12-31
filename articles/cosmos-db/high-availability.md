@@ -181,6 +181,9 @@ Multiple-region accounts experience different behaviors depending on the followi
 
 * After the previously affected write region recovers, it will show as "online" in Azure portal, and become available as a read region. At this point, it is safe to switch back to the recovered region as the write region by using [PowerShell, the Azure CLI, or the Azure portal](how-to-manage-database-account.md#manual-failover). There is *no data or availability loss* before, while, or after you switch the write region. Your application continues to be highly available.
 
+> [!WARNING]
+>  In the event of a write region outage, where the Azure Cosmos DB account promotes a secondary region to be the new primary write region via *service-managed failover*, the original write region will **not be be promoted back as the write region automatically** once it is recovered. It is your responsibility to switch back to the recovered region as the write region using [PowerShell, the Azure CLI, or the Azure portal](how-to-manage-database-account.md#manual-failover) (once safe to do so, as described above).  
+
 ## SLAs
 
 The following table summarizes the high-availability capabilities of various account configurations.

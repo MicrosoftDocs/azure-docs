@@ -20,10 +20,8 @@ items:
 - name: Tutorials
   items: 
     - name: Identify performance bottlenecks
+      displayName: Azure Pipelines, CI/CD, continuous integration, performance, bottleneck, issues, analyze
       href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Automate regression tests with CI/CD
-      displayName: Azure Pipelines, CI/CD, continuous integration, Azure DevOps, GitHub Actions, automation, automated testing, regression testing
-      href: tutorial-identify-performance-regression-with-cicd.md
 - name: Concepts
   items: 
     - name: Key concepts

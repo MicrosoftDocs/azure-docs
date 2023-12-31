@@ -26,7 +26,7 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 |  ----------------- |  :--------------------------: | :------------------------------: | :------------------------: |
 | Copyright service | 10 | 10 | 10 |
 | Creator - Alias, TilesetDetails | 10 | Not Available | Not Available |
-| Creator - Conversion, Dataset, Feature State, WFS | 50 | Not Available | Not Available |
+| Creator - Conversion, Dataset, Feature State, Features, Map Configuration, Style, Routeset, Wayfinding | 50 | Not Available | Not Available |
 | Data service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
 | Data registry service | 50 | 50 |  Not Available  |
 | Geolocation service | 50 | 50 | 50 |

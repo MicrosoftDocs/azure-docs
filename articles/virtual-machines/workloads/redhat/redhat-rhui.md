@@ -1,7 +1,7 @@
 ---
 title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure.
-author: mamccrea
+author: ju-shim
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.custom: devx-track-linux
@@ -9,7 +9,7 @@ ms.collection: linux
 ms.topic: article
 ms.date: 04/06/2023
 ms.reviewer: cynthn
-ms.author: mamccrea
+ms.author: jushiman
 ---
 # Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux VMs in Azure
 
@@ -263,7 +263,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9.config' install rhui-azure-rhel8
+   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel9.config' install rhui-azure-rhel9
    ```
 
 1. Update your RHEL VM.
@@ -284,19 +284,18 @@ If you're using a network configuration (custom Firewall or UDR configurations) 
 ```output
 # Azure Global
 RHUI 3 
-13.91.47.76
-40.85.190.91
-52.187.75.218
-52.174.163.213
-52.237.203.198
+West US - 13.91.47.76
+East Us - 40.85.190.91
+South East Asia - 52.187.75.218
+West Europe - 52.174.163.213
+Austraila East - 52.237.203.198
 
-# For RHUI 4 connections, You are required to allow all IPs in your firewall/UDR configuration as updates are delivered from the nearest healthy region.
 RHUI 4
-westeurope - 52.136.197.163
-southcentralus - 20.225.226.182
-eastus - 52.142.4.99
-australiaeast - 20.248.180.252
-southeastasia - 20.24.186.80
+West Europe - 52.136.197.163
+South Central US - 20.225.226.182
+East US - 52.142.4.99
+Australia East - 20.248.180.252
+Southeast Asia - 20.24.186.80
 
 # Azure US Government.
 # To be deprecated after 10th April 2023.

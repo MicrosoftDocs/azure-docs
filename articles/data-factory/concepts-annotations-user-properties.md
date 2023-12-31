@@ -51,6 +51,6 @@ You can remove some from the view if you select the Bookmark sign:
 
 ![Screenshot showing how to remove User Properties.](./media/concepts-annotations-user-properties/remove-user-properties.png "Remove User Properties")
 
-## Next steps
+## Related content
 
 To learn more about monitoring see [Visually monitor Azure Data Factory.](./monitor-visually.md)

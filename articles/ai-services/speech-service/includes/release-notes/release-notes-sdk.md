@@ -11,6 +11,45 @@ ms.author: eur
 * With the End of Life for **OpenSSL 1.1.1** on September 11th, we are working on changes to support OpenSSL 3.0 that will release soon. This streamlines usage on Linux Distributions that only have OpenSSL 3.0 pre-installed (such as Ubuntu 22.04).
 * **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04 soon.
 
+### Speech SDK 1.34.0: November 2023 release
+
+#### Breaking changes
+
+* SpeechRecognizer has been updated to use a new endpoint by default (i.e. when not explicitly specifying a URL) which no longer supports query string parameters for most of the properties. Instead of setting query string parameters directly with ServicePropertyChannel.UriQueryParameter, please use the corresponding API functions.
+
+#### New features
+
+* Compatibility with .NET 8 (Fix for https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/2170 except for warning about centos7-x64)
+* Support for embedded speech performance metrics which can be used to evaluate the capability of a device to run embedded speech.
+* Support for source language identification in embedded multi-lingual translation.
+* Support for embedded speech-to-text, text-to-speech and translation for iOS and Swift/Objective-C released in preview.
+* Embedded support is provided in MicrosoftCognitiveServicesSpeechEmbedded-iOS Cocoapod.
+
+#### Bug fixes
+
+* Fix for iOS SDK x2 times binary size growth · Issue #2113 · Azure-Samples/cognitive-services-speech-sdk (github.com)
+* Fix for Unable to get word level time stamps from azure speech to text api · Issue #2156 · Azure-Samples/cognitive-services-speech-sdk (github.com)
+* Fix for DialogServiceConnector destruction phase to disconnect events correctly. This was causing crashes occasionally.
+* Fix for exception during creation of a recognizer when MAS is used.
+* FPIEProcessor.dll from Microsoft.CognitiveServices.Speech.Extension.MAS NuGet package for Windows UWP x64 and ARM64 had dependency on VC runtime libraries for native C++. The issue has been rectified by updating the dependency to correct VC runtime libraries (for UWP).
+* Fix for [MAS] Recurrent calls to recognizeOnceAsync lead to SPXERR_ALREADY_INITIALIZED when using MAS · Issue #2124 · Azure-Samples/cognitive-services-speech-sdk (github.com)
+* Fix for embedded speech recognition crash when phrase lists are used.
+
+#### Samples
+
+* Embedded iOS samples for speech-to-text, text-to-speech and translation.
+
+
+### Speech CLI 1.34.0: November 2023 release
+#### New features
+
+* Support word boundary events output when synthesizing speech.
+
+#### Bug fixes
+
+* Updated JMESPath dependency to the latest release, improves string evaluations
+
+
 ### Speech SDK 1.33.0: October 2023 release
 
 #### Breaking change notice

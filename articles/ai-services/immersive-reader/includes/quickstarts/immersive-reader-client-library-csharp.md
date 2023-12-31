@@ -239,7 +239,7 @@ At the bottom of _Views\Home\Index.cshtml_, add the following code:
 ```html
 @section Scripts
 {
-    <script src="https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js"></script>
+    <script src="https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.4.0.js"></script>
     <script>
         function getTokenAndSubdomainAsync() {
             return new Promise(function (resolve, reject) {

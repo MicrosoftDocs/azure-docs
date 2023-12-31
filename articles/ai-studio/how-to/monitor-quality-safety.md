@@ -9,6 +9,7 @@ ms.custom:
   - ignite-2023
 ms.topic: how-to
 ms.date: 11/15/2023
+ms.reviewer: eur
 ms.author: eur
 ---
 
@@ -22,7 +23,7 @@ Capabilities and integrations include:
 - Collect production data using Model data collector from a prompt flow deployment.
 - Apply Responsible AI evaluation metrics such as groundedness, coherence, fluency, relevance, and similarity, which are interoperable with prompt flow evaluation metrics. 
 - Preconfigured alerts and defaults to run monitoring on a recurring basis.
-- Consume result and configure advanced behavior in Azure AI studio.
+- Consume result and configure advanced behavior in Azure AI Studio.
 
 ## Evaluation metrics 
 

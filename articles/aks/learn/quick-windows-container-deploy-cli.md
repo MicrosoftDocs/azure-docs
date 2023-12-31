@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster and deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: article
 ms.custom: event-tier1-build-2022, devx-track-azurecli
-ms.date: 07/11/2023
+ms.date: 12/27/2023
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
@@ -11,57 +11,27 @@ ms.date: 07/11/2023
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you use Azure CLI to deploy an AKS cluster that runs Windows Server containers. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
 
-:::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
+## Before you begin
 
 This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)](../concepts-clusters-workloads.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
-
-- This article requires version 2.0.64 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-- The identity you use to create your cluster must have the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
-- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [`az account`](/cli/azure/account) command.
-- Verify the *Microsoft.OperationsManagement* and *Microsoft.OperationalInsights* providers are registered on your subscription. Check the registration status using the following [`az provider show`][az-provider-show] commands:
-
-  ```sh
-  az provider show -n Microsoft.OperationsManagement -o table
-  az provider show -n Microsoft.OperationalInsights -o table
-  ```
-
-  If they're not registered, register them using the following [`az provider register`][az-provider-register] commands:
-  
-  ```sh
-  az provider register --namespace Microsoft.OperationsManagement
-  az provider register --namespace Microsoft.OperationalInsights
-  ```
-  
-  > [!NOTE]
-  > Run the commands with administrative privileges if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
-
-## Limitations
-
-The following limitations apply when you create and manage AKS clusters that support multiple node pools:
-
-- You can't delete the first node pool.
-
-The following limitations apply to *Windows Server node pools*:
-
-- The AKS cluster can have a maximum of 10 node pools.
-- The AKS cluster can have a maximum of 100 nodes in each node pool.
-- The Windows Server node pool name has a limit of six characters.
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+- This article requires version 2.0.64 or later of the Azure CLI. If you are using Azure Cloud Shell, then the latest version is already installed.
+- Make sure that the identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
+- If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the [az account](/cli/azure/account) command.
 
 ## Create a resource group
 
 An [Azure resource group](../../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're asked to specify a location. This location is where resource group metadata is stored and where your resources run in Azure if you don't specify another region during resource creation.
 
-- Create a resource group using the [`az group create`][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+- Create a resource group using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
-    ```azurecli-interactive
+    ```azurecli
     az group create --name myResourceGroup --location eastus
     ```
 
-    The following example output shows the resource group created successfully:
+  The following sample output shows the resource group created successfully:
 
     ```output
     {
@@ -90,19 +60,19 @@ In this section, we create an AKS cluster with the following configuration:
 
 1. Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it to *WINDOWS_USERNAME* for use in a later command (remember the commands in this article are entered into a BASH shell).
 
-    ```azurecli-interactive
+    ```azurecli
     echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
     ```
 
-2. Create a password for the administrator username you created in the previous step.
+1. Create a password for the administrator username you created in the previous step.
 
-    ```azurecli-interactive
+    ```azurecli
     echo "Please enter the password to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_PASSWORD
     ```
 
-3. Create your cluster using the [`az aks create`][az-aks-create] command and specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively, you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
+1. Create your cluster using the [az aks create][az-aks-create] command and specify the `--windows-admin-username` and `--windows-admin-password` parameters. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively, you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks create \
         --resource-group myResourceGroup \
         --name myAKSCluster \
@@ -115,34 +85,38 @@ In this section, we create an AKS cluster with the following configuration:
         --network-plugin azure
     ```
 
-    > [!NOTE]
-    >
-    > - If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
-    > - If you don't specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
-    > - The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more information, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
+    If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. Also see [What are the password requirements when creating a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-). If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+
+    If you don't specify an administrator username and password when creating the node pool, the username is set to *azureuser* and the password is set to a random value. For more information, see [How do I change the administrator password for Windows Server nodes on my cluster?](../windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster).
+
+    The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more information, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
 
     After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally, the cluster can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
 ## Add a node pool
 
-### [Add a Windows node pool](#tab/add-windows-node-pool)
+By default, an AKS cluster is created with a node pool that can run Linux containers. You must add another node pool that can run Windows Server containers alongside the Linux node pool.
 
-By default, an AKS cluster is created with a node pool that can run Linux containers. You have to add another node pool that can run Windows Server containers alongside the Linux node pool.
+Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. If you don't specify a particular OS SKU, Azure creates the new node pool with the default SKU for the version of Kubernetes used by the cluster.
 
-- Add a Windows node pool using the `az aks nodepool add` command. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `az aks create`. An OS SKU isn't specified, so the node pool is set to the default operating system based on the Kubernetes version of the cluster.
+### [Add a Windows node pool (default SKU)](#tab/add-windows-node-pool)
 
-    ```azurecli-interactive
-    az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --os-type Windows \
-        --name npwin \
-        --node-count 1
-    ```
+To use the default OS SKU, create the node pool without specifying an OS SKU. The node pool is configured for the default operating system based on the Kubernetes version of the cluster.
+
+Add a Windows node pool using the `az aks nodepool add` command. The following command creates a new node pool named *npwin* and adds it to *myAKSCluster*. The command also uses the default subnet in the default virtual network created when running `az aks create`. An OS SKU isn't specified, so the node pool is set to the default operating system based on the Kubernetes version of the cluster:
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --name npwin \
+    --node-count 1
+```
 
 ### [Add a Windows Server 2019 node pool](#tab/add-windows-server-2019-node-pool)
 
-Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2019, you need to specify the following parameters:
+To use Windows Server 2019, specify the following parameters:
 
 - `os-type` set to `Windows`
 - `os-sku` set to `Windows2019`
@@ -150,21 +124,21 @@ Windows Server 2022 is the default operating system for Kubernetes versions 1.25
 > [!NOTE]
 > Windows Server 2019 is being retired after Kubernetes version 1.32 reaches end of life (EOL) and won't be supported in future releases. For more information about this retirement, see the [AKS release notes][aks-release-notes].
 
-- Add a Windows Server 2019 node pool using the `az aks nodepool add` command.
+Add a Windows Server 2019 node pool using the `az aks nodepool add` command:
 
-    ```azurecli-interactive
-    az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --os-type Windows \
-        --os-sku Windows2019 \
-        --name npwin \
-        --node-count 1
-    ```
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --os-sku Windows2019 \
+    --name npwin \
+    --node-count 1
+```
 
 ### [Add a Windows Server 2022 node pool](#tab/add-windows-server-2022-node-pool)
 
-Windows Server 2022 is the default operating system for Kubernetes versions 1.25.0 and higher. Windows Server 2019 is the default OS for earlier versions. To use Windows Server 2022, you need to specify the following parameters:
+To use Windows Server 2022, specify the following parameters:
 
 - `os-type` set to `Windows`
 - `os-sku` set to `Windows2022`
@@ -172,37 +146,37 @@ Windows Server 2022 is the default operating system for Kubernetes versions 1.25
 > [!NOTE]
 > Windows Server 2022 requires Kubernetes version 1.23.0 or higher.
 
-- Add a Windows Server 2022 node pool using the `az aks nodepool add` command.
+Add a Windows Server 2022 node pool using the `az aks nodepool add` command:
 
-    ```azurecli-interactive
-    az aks nodepool add \
-        --resource-group myResourceGroup \
-        --cluster-name myAKSCluster \
-        --os-type Windows \
-        --os-sku Windows2022 \
-        --name npwin \
-        --node-count 1
-    ```
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --os-sku Windows2022 \
+    --name npwin \
+    --node-count 1
+```
 
 ---
 
 ## Connect to the cluster
 
-You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the [`az aks install-cli`][az-aks-install-cli] command.
+You use [kubectl][kubectl], the Kubernetes command-line client, to manage your Kubernetes clusters. If you use Azure Cloud Shell, `kubectl` is already installed. To you want to install `kubectl` locally, you can use the [az aks install-cli][az-aks-install-cli] command.
 
-1. Configure `kubectl` to connect to your Kubernetes cluster using the [`az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
+1. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli-interactive
+    ```azurecli
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
 
-2. Verify the connection to your cluster using the [`kubectl get`][kubectl-get] command, which returns a list of the cluster nodes.
+1. Verify the connection to your cluster using the [kubectl get][kubectl-get] command, which returns a list of the cluster nodes.
 
     ```console
     kubectl get nodes -o wide
     ```
 
-    The following example output shows all nodes in the cluster. Make sure the status of all nodes is *Ready*:
+    The following sample output shows all nodes in the cluster. Make sure the status of all nodes is *Ready*:
 
     ```output
     NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION      CONTAINER-RUNTIME
@@ -267,13 +241,13 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
     For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../concepts-clusters-workloads.md#deployments-and-yaml-manifests).
 
-2. Deploy the application using the [`kubectl apply`][kubectl-apply] command and specify the name of your YAML manifest.
+1. Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest.
 
     ```console
     kubectl apply -f sample.yaml
     ```
 
-    The following example output shows the deployment and service created successfully:
+    The following sample output shows the deployment and service created successfully:
 
     ```output
     deployment.apps/sample created
@@ -284,7 +258,7 @@ The ASP.NET sample application is provided as part of the [.NET Framework Sample
 
 When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally, the service can take longer than a few minutes to provision. Allow up to 10 minutes for provisioning.
 
-1. Monitor progress using the [`kubectl get service`][kubectl-get] command with the `--watch` argument.
+1. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
     ```console
     kubectl get service sample --watch
@@ -297,13 +271,13 @@ When the application runs, a Kubernetes service exposes the application front en
     sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
     ```
 
-    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
+    When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following sample output shows a valid public IP address assigned to the service:
 
     ```output
     sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
     ```
 
-2. See the sample app in action by opening a web browser to the external IP address of your service.
+1. See the sample app in action by opening a web browser to the external IP address of your service.
 
     :::image type="content" source="media/quick-windows-container-deploy-cli/asp-net-sample-app.png" alt-text="Screenshot of browsing to ASP.NET sample application.":::
 
@@ -314,20 +288,20 @@ When the application runs, a Kubernetes service exposes the application front en
 
 If you don't plan on going through the following tutorials, you should delete your cluster to avoid incurring Azure charges.
 
-- Delete your resource group, container service, and all related resources using the [`az group delete`][az-group-delete] command.
+Delete your resource group, container service, and all related resources using the [az group delete](/cli/azure/group#az_group_delete) command.
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroup --yes --no-wait
-    ```
+```azurecli
+az group delete --name myResourceGroup --yes --no-wait
+```
 
-    > [!NOTE]
-    > The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart). The Azure platform manages this identity, so it doesn't require removal.
+> [!NOTE]
+> The AKS cluster was created with system-assigned managed identity (the default identity option used in this quickstart). The Azure platform manages this identity, so it doesn't require removal.
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it.
+In this quickstart, you deployed a Kubernetes cluster and then deployed an ASP.NET sample application in a Windows Server container to it. This sample application is for demo purposes only and doesn't represent all the best practices for Kubernetes applications. For guidance on creating full solutions with AKS for production, see [AKS solution guidance][aks-solution-guidance].
 
-To learn more about AKS, and walk through a complete code to deployment example, continue to the following Kubernetes cluster tutorial.
+To learn more about AKS, and to walk through a complete code-to-deployment example, continue to the Kubernetes cluster tutorial.
 
 > [!div class="nextstepaction"]
 > [AKS tutorial][aks-tutorial]
@@ -349,6 +323,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE
 [kubernetes-deployment]: ../concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: ../concepts-network.md#services
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference

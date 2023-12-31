@@ -13,7 +13,7 @@ ms.date: 09/29/2022
 
 # What's happening to Azure Database for MySQL - Single Server?
 
-[!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
 Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path** and Azure Database for MySQL - Single Server is scheduled for retirement by **September 16, 2024**.
 

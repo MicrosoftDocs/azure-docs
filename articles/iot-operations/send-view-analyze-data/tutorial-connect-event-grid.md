@@ -86,7 +86,7 @@ example.region-1.ts.eventgrid.azure.net
 
 ## Create an MQTT bridge connector and topic map resources
 
-In a new file named `bridge.yaml`, specify the MQTT bridge connector and topic map configuration. Replace the placeholder value in `endpoint` with the Event Grid MQTT hostname from the previous step.
+In a new file named `bridge.yaml`, specify the MQTT bridge connector and topic map configuration. Replace the example placeholder value in *remoteBrokerConnection* `endpoint` with the Event Grid MQTT hostname from the previous step. Include the port number 8883.
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -265,15 +265,10 @@ In the subscriber shell, you see the messages you published.
 
 ```output
 23:17:50.802 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
-23:17:51.086 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:51.803 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
-23:17:51.888 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:52.804 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
-23:17:52.888 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:53.805 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
-23:17:53.895 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 23:17:54.807 QoS:AtMostOnce  tutorial/local     Payload( 52): This message goes all the way to the cloud and back!
-23:17:54.881 QoS:AtMostOnce  tutorial/cloud     Payload( 52): This message goes all the way to the cloud and back!
 ```
 
 Here, you see the messages are published to the local IoT MQ broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local IoT MQ broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80 ms.

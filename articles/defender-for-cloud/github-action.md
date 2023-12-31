@@ -102,8 +102,9 @@ Microsoft Security DevOps uses the following Open Source tools:
             name: alerts
             path: ${{ steps.msdo.outputs.sarifFile }}
     ```
+    > [!NOTE]
+    >  For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
-    For additional configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
 1. Select **Start commit**
 

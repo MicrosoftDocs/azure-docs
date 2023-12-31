@@ -113,7 +113,7 @@ If you don't have access to install the extension, you must request access from 
     ```
 
     > [!NOTE]
-    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud.
+    > The artifactName 'CodeAnalysisLogs' is required for integration with Defender for Cloud. For additional tool configuration options, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)
 
 1. To commit the pipeline, select **Save and run**.
 

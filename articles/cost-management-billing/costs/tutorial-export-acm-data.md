@@ -283,7 +283,7 @@ Each export creates a new file, so older exports aren't overwritten.
 
 You can use a management group to aggregate subscription cost information in a single container. Exports support management group scope for Enterprise Agreement but not for Microsoft Customer Agreement or other subscription types. Multiple currencies are also not supported in management group exports.
 
-Exports at the management group scope support only usage charges, purchases (including reservations and savings plans). Amortized cost reports aren't supported. When you create an export from the Azure portal for a management group scope, the metric field isn't shown because it defaults to the usage type. When you create a management group scope export using the REST API, choose [ExportType](/rest/api/cost-management/exports/create-or-update#exporttype) as `Usage`.
+Exports at the management group scope support only usage charges. Purchases, including reservations and savings plans aren't supported. Amortized cost reports are also not supported. When you create an export from the Azure portal for a management group scope, the metric field isn't shown because it defaults to the usage type. When you create a management group scope export using the REST API, choose [ExportType](/rest/api/cost-management/exports/create-or-update#exporttype) as `Usage`.
 
 1. Create one management group and assign subscriptions to it, if you haven't already.
 1. In cost analysis, set the scope to your management group and select **Select this management group**.

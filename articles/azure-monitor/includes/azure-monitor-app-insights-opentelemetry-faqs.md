@@ -3,7 +3,7 @@ author: AaronMaxwell
 ms.author: aaronmax
 ms.service: azure-monitor
 ms.topic: include
-ms.date: 10/13/2023
+ms.date: 12/15/2023
 ---
 
 ## Frequently asked questions
@@ -46,9 +46,9 @@ There are several advantages to using the Azure Monitor OpenTelemetry Distro ove
    - Detect resource metadata to autopopulate [Cloud Role Name](../app/app-map.md#understand-the-cloud-role-name-within-the-context-of-an-application-map) on Azure
    - [Live Metrics](../app/live-stream.md) (future)
           
-In the spirit of OpenTelemetry, we've designed the distro to be open and extensible. For example, you can add:
+In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
 - An OTLP exporter and send to a second destination simultaneously
-- Community instrumentation libraries beyond what's bundled in with the package
+- Other instrumentation libraries not included in the distro
 
 ### How can I test out the Azure Monitor OpenTelemetry Distro?
 
@@ -58,9 +58,11 @@ Check out our enablement docs for [.NET, Java, JavaScript (Node.js), and Python]
 
 We recommend using the OpenTelemetry Distro unless you require a feature that is only available with formal support in the Application Insights SDK.
 
+Adopting OpenTelemetry now prevents having to migrate at a later date.
+
 ### When should I use the Azure Monitor OpenTelemetry exporter?
 
-For .NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
+For ASP..NET Core, Java, Node.js, and Python, we recommend using the OpenTelemetry distro. It's one line of code to get started.
 
 For all other .NET scenarios, we recommend using our exporter: `Azure.Monitor.OpenTelemetry.Exporter`.
 
@@ -80,7 +82,7 @@ The following chart breaks out OpenTelemetry feature support for each language.
 | [Custom Events](../app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
 | [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Live metrics](../app/live-stream.md)                                                                                 | :x:                | :x:                | :x:                | :white_check_mark: |
-| Detect Resource Context for VM/VMSS and App Svc                                                                       | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
+| Detect Resource Context for VM/VMSS and App Service                                                                   | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
 | Detect Resource Context for AKS and Functions                                                                         | :x:                | :x:                | :x:                | :white_check_mark: |           
 | Availability Testing Span Filtering                                                                                   | :x:                | :x:                | :x:                | :white_check_mark: |
 | Autopopulation of user ID, authenticated user ID, and user IP                                                         | :x:                | :x:                | :x:                | :white_check_mark: |
@@ -100,11 +102,11 @@ Yes, but we don't recommend it and Azure doesn't support it. OpenTelemetry JavaS
 
 ### When can we expect the OpenTelemetry SDK to be available for use in web browsers?
 
-The availability timeline for the OpenTelemetry web SDK hasn't been determined yet. We're likely several years away from a browser SDK that will be a viable alternative to the Application Insights JavaScript SDK.
+The OpenTelemetry web SDK doesn't have a determined availability timeline. We're likely several years away from a browser SDK that is a viable alternative to the Application Insights JavaScript SDK.
 
 ### Can I test OpenTelemetry in a web browser today?
 
-The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights. The SDK doesn't currently have defined general client events.
+The [OpenTelemetry web sandbox](https://github.com/open-telemetry/opentelemetry-sandbox-web-js) is a fork designed to make OpenTelemetry work in a browser. It's not yet possible to send telemetry to Application Insights. The SDK doesn't define general client events.
 
 ### Is running Application Insights alongside competitor agents like AppDynamics, DataDog, and NewRelic supported?
 
@@ -114,20 +116,14 @@ No. This practice isn't something we plan to test or support, although our Distr
 
 We don't recommend it. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-### Can I use the Azure Monitor Exporter as a standalone component?
-
-Yes, we understand some customers might want to instrument using a "piecemeal approach". However, the distro provides easiest way to get started with the best experience on Azure.
-
-### What's the difference between manual and auto-instrumentation?
+### What's the difference between manual and automatic instrumentation?
 
 See the [OpenTelemetry Overview](../app/opentelemetry-overview.md#instrumentation-options).
 
 ### Can I use the OpenTelemetry Collector?
 
-Some customers have begun to use the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community has contributed an [OpenTelemetry Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights.
-          
-We plan to support an agent-based approach in the future, but the details and timeline aren't available yet. Our objective is to provide a path for any OpenTelemetry-supported language to send to Azure Monitor via the [OpenTelemetry Protocol (OTLP)](https://github.com/open-telemetry/opentelemetry-proto/blob/main/docs/README.md). This approach enables customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages). 
+Some customers use the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/design.md) as an agent alternative, even though Microsoft doesn't officially support an agent-based approach for application monitoring yet. In the meantime, the open-source community contributed an [OpenTelemetry Collector Azure Monitor Exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/azuremonitorexporter) that some customers are using to send data to Azure Monitor Application Insights. **This is not supported by Microsoft.**
 
 ### What's the difference between OpenCensus and OpenTelemetry?
 
-[OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor is based on OpenCensus. Eventually, all Azure Monitor SDKs will be based on OpenTelemetry.
+[OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor is based on OpenCensus. Microsoft is committed to making Azure Monitor based on OpenTelemetry.

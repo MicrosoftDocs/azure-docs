@@ -48,7 +48,7 @@ If you would like to use Text-To-Speech capabilities, then it's required for you
 By this point you should be familiar with starting calls, if you need to learn more about making a call, follow our [quickstart](../../../quickstarts/call-automation/callflows-for-customer-interactions.md). In this quickstart, we answer an incoming call.
 
 ``` csharp
-var callAutomationClient = new CallAutomationClient("<ACS connection string>");
+var callAutomationClient = new CallAutomationClient("<Azure Communication Services connection string>");
 
 var answerCallOptions = new AnswerCallOptions("<Incoming call context once call is connected>", new Uri("<https://sample-callback-uri>"))
     {
