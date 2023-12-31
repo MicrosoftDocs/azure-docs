@@ -36,11 +36,11 @@ Defender for Cloud's recommendations allow you to:
 
 ## Detect an Endpoint Detection and Response solution
 
-Defender for Cloud offers various recommendation that harden and remediate threats to your environments. The following three recommendations will detect if an Endpoint Detection and Response solution exists on your Azure virtual machines (VM), AWS EC2 instances and GCP VM instances respectively.
+Defender for Cloud offers various recommendation that harden and remediate threats to your environments. The following three recommendations will detect if an Endpoint Detection and Response solution exists on your Azure virtual machines (VM), AWS EC2 instances and GCP VM instances.
 
-- `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
-- `Endpoint Detection and Response (EDR) solution should be installed on EC2s`
-- `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
+- [Azure VM](#detect-endpoint-detection-and-response-solution-on-azure-vm) -`Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
+- [AWS  EC2 instances](#detect-endpoint-detection-and-response-solution-on-aws-ec2-instances) -`Endpoint Detection and Response (EDR) solution should be installed on EC2s`
+- [GCP VM instances](#detect-endpoint-detection-and-response-solution-on-gcp-vm-instances) -`Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
 
 The following EDR solutions are supported and can be enabled through Defender for Cloud
 
@@ -53,6 +53,8 @@ The following EDR solutions are supported and can be enabled through Defender fo
 <sup><a name="footnote1"></a>1</sup>: If the Defender for Endpoint integrations are configured correctly on your subscriptions but the Defender for Endpoint extension is not found on the resource, a manual troubleshooting reference will appear as a fix.
 
 <sup><a name="footnote2"></a>2</sup>: Defender for Servers plan 1 includes Defender for Endpoint agent provisioning. However, on the assessments next check, the machines will be classified as `Not Applicable` because the discovery assessment is only available as part of agentless scanning in Defender for Servers plan 2.
+
+## Fix option
 
 The Fix option that is available through the Defender for Cloud portal for machines that don't have an EDR installed, include the enablement of Defender for Endpoint integration. 
 
@@ -98,11 +100,11 @@ After the fix process is completed, it can take up to 24 hours until your resour
 
 ## Configure an Endpoint Detection and Response solution
 
-Defender for Cloud offers various recommendation that harden and remediate threats to your environments. The following three recommendations will assist you in the configuration of the Endpoint Detection and Response solution that exists on your Azure virtual machines (VM), AWS EC2 instances and GCP VM instances respectively.
+Defender for Cloud offers various recommendation that harden and remediate threats to your environments. The following three recommendations will assist you in the configuration of the Endpoint Detection and Response solution that exists on your Azure VM, AWS EC2 instances and GCP VM instances.
 
-- `Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines`
-- `Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s`
-- `Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines`
+- [Azure VM](#configure-an-endpoint-detection-and-response-solution-on-azure-vm) -`Endpoint Detection and Response (EDR) configuration issues should be resolved on virtual machines`
+- [AWS EC2 instances](#configure-an-endpoint-detection-and-response-solution-on-aws-ec2-instances) - `Endpoint Detection and Response (EDR) configuration issues should be resolved on EC2s`
+- [GCP VM instances](#configure-an-endpoint-detection-and-response-solution-on-gcp-vm-instances) - `Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines`
 
 ### Configure an Endpoint Detection and Response solution on Azure VM
 
