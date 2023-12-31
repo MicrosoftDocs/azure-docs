@@ -1,0 +1,82 @@
+Microsoft Entra ID is Microsoft's cloud-based identity and access management solution. Learn about Microsoft Entra services and identity principals, secure authentication, access management capabilities, as well as identity protection and governance.
+
+At 8x8, we help companies get their employees, customers and applications talking to make people more connected and productive no matter where they are in the world. At 8x8 we value security and recognize the importance of ensuring the integrity and confidentiality of global communications. If you believe you've found a security issue in our product or service, we encourage you to notify us. This program serves as the default contact portal for issues not in-scope for our incentivized bounty programs.
+
+&nbsp;
+Response Targets
+---------
+8x8 will make a best effort to meet the following response targets for hackers participating in our program:
+
+* Time to first response (from report submit) - 1 business days
+* Time to triage (from report submit) - 2 business days
+
+&nbsp;
+
+Testing Identification
+---------
+Please utilize your [username]@wearehackerone.com alias when submitting information within the applications. To help us identify and classify researcher traffic, 8x8 requests you to include your HackerOne username value to each and every HTTP request made by yourself or any tooling you use. Please use the format below appended to User-Agent:
+`X-HackerOne: [H1 username]`
+
+&nbsp;
+Authentication
+--------
+We are not currently providing accounts for testing.
+
+&nbsp;  
+Disclosure Policy 
+---------
+* Let us know as soon as possible upon discovery of a potential security issue, and we'll make every effort to quickly resolve the issue. 
+* Please do not discuss vulnerabilities outside of the program without proper coordination and express consent from 8x8.
+* Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our service.
+* Only interact with accounts you own or with explicit permission of the account holder. Please notify us immediately if you encounter exposure of information.
+* Follow HackerOne's [disclosure guidelines](https://www.hackerone.com/disclosure-guidelines).
+
+&nbsp;  
+Exclusions
+---------
+While researching, we'd like to ask you to refrain from: 
+* **Any form of automation**
+* Any activity that could lead to the disruption of our service (DoS)
+* Spamming 
+* Social engineering (including phishing) of 8x8 staff or contractors
+* Any physical attempts against 8x8 property or data centers
+* Missing Security Headers (eg. HSTS, CSP, SPF, DMARC)
+* Missing Flags on Cookies
+* SSL/TLS issues (weak ciphers/key-size/BEAST/CRIME) *-- Will consider **expired** certs on case-by-case basis*
+* Cross-Site Request Forgery (CSRF) on unauthenticated forms or forms with no security impact
+* Clickjacking
+* Rate Limiting (unless it constitutes a significant risk)
+* General low severity issues reported by automated scanners
+* Attacks requiring MITM or physical access to a user's device
+* Vulnerable libraries or dependencies absent a working **Proof of Concept**
+* Comma Separated Values (CSV) injection
+* Rate limiting or brute-force issues on non-authentication endpoints
+* Vulnerabilities only affecting users of outdated or unpatched browsers [Less than 2 stable versions behind the latest released stable version]
+* Software version disclosure / Banner identification issues / Descriptive error messages or headers (e.g. stack traces, application or server errors).
+* Public Zero-day vulnerabilities that have had an official patch for less than 1 month will be awarded on a case by case basis.
+* Tab-nabbing
+
+&nbsp;
+8x8 IP Ranges & Domains
+---------
+https://support.8x8.com/cloud-phone-service/voice/network-setup-voice/x-series-technical-requirements#IP_Ranges
+
+&nbsp;
+8x8 subsidiaries and acquisitions
+---------
+* Contactual
+* Fuze
+* DXI Ltd (ContactNow)
+* Jitsi
+* SameRoom
+* Wavecell
+
+&nbsp;  
+---------
+---------
+&nbsp;  
+Safe Harbor
+---------
+Any activities conducted in a manner consistent with this policy will be considered authorized conduct and we will not initiate legal action against you. If legal action is initiated by a third party against you in connection with activities conducted under this policy, we will take steps to make it known that your actions were conducted in compliance with this policy. 
+
+Thank you for helping keep 8x8 and our users safe!
