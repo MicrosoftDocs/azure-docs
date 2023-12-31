@@ -1060,6 +1060,26 @@ items:
             href: logs/log-excel.md
     - name: Migrate from Splunk to Azure Monitor Logs
       href: logs/migrate-splunk-to-azure-monitor-logs.md 
+- name: Health models
+  items:
+  - name: Getting started
+    href: health-models/getting-started.md
+  - name: Designer view
+    href: health-models/designer-view.md
+  - name: Code view
+    href: health-models/code-view.md
+  - name: Configure identity
+    href: health-models/configure-identity.md
+  - name: Create a health model
+    href: health-models/create-model.md
+  - name: Health state
+    href: health-models/health-state.md
+  - name: Service levels
+    href: health-models/service-levels.md
+  - name: Nested health models
+    href: health-models/nested-health-model.md
+  - name: Prometheus remote write
+    href: health-models/prometheus-remote-write.md
 - name: Insights
   items:
   - name: Overview
