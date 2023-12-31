@@ -2,11 +2,11 @@
  title: include
  description: include
  services: virtual-machines-windows
- author: cynthn
+author: jushiman
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 04/18/2023
- ms.author: cynthn
+ms.author: jushiman
  ms.custom: include
 ---
 
@@ -74,4 +74,3 @@ For Windows Server 2012 R2:
 
 
 For links to all previous Nvidia GRID driver versions, visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json).
-
