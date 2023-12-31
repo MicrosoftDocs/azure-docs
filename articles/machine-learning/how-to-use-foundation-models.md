@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: ssalgado
 author: swatig007
 ms.author: swatig
-ms.date: 12/05/2023
+ms.date: 12/28/2023
 ---
 
 # How to use Open Source foundation models curated by Azure Machine Learning 
 
 In this article, you learn how to fine tune, evaluate and deploy foundation models in the Model Catalog. 
 
-You can quickly test out any pre-trained model using the Sample Inference widget on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, fine-tuning and evaluation of the model.
+You can quickly test out any pre-trained model using the Sample Inference form on the model card, providing your own sample input to test the result. Additionally, the model card for each model includes a brief description of the model and links to samples for code based inferencing, fine-tuning and evaluation of the model.
 
 ## How to evaluate foundation models using your own test data
 
@@ -28,12 +28,12 @@ You can invoke the Evaluate model form by selecting the **Evaluate** button on t
 
 :::image type="content" source="./media/how-to-use-foundation-models/evaluate-quick-wizard.png" alt-text="Screenshot showing the evaluation settings form after the user selects the evaluate button on a model card for a foundation model.":::
 
-Each model can be evaluated for the specific inference task that the model can be used for.
+Each model can be evaluated for the specific inference task that the model will be used for.
 
 **Test Data:**
 
 1. Pass in the test data you would like to use to evaluate your model. You can choose to either upload a local file (in JSONL format) or select an existing registered dataset from your workspace.
-1. Once you've selected the dataset, you need to map the columns from your input data, based on the schema needed for the task. For example, map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
+1. Once you selected the dataset, you need to map the columns from your input data, based on the schema needed for the task. For example, map the column names that correspond to the 'sentence' and 'label' keys for Text Classification
 
 :::image type="content" source="./media/how-to-use-foundation-models/evaluate-map-data-columns.png" lightbox="./media/how-to-use-foundation-models/evaluate-map-data-columns.png"  alt-text="Screenshot showing the evaluation map in the foundation models evaluate form.":::
 
@@ -143,8 +143,12 @@ The model import notebook is also included in the azureml-examples git repo [her
 
 In order to import the model, you need to pass in the `MODEL_ID` of the model you wish to import from Hugging Face. Browse models on Hugging Face hub and identify the model to import. Make sure the task type of the model is among the supported task types. Copy the model ID, which is available in the URI of the page or can be copied using the copy icon next to the model name. Assign it to the variable 'MODEL_ID' in the Model import notebook. For example:
 
-:::image type="content" source="./media/how-to-use-foundation-models/hugging-face-model-id.png" alt-text="Screenshot showing an example of a hugging face model ID ('bert-base-uncased') as it is displayed in the hugging face model documentation page.":::
+:::image type="content" source="./media/how-to-use-foundation-models/hugging-face-model-id.png" alt-text="Screenshot showing an example of a hugging face model ID ('bert-base-uncased') as it's displayed in the hugging face model documentation page.":::
 
 You need to provide compute for the Model import to run. Running the Model Import results in the specified model being imported from Hugging Face and registered to your Azure Machine Learning workspace. You can then fine-tune this model or deploy it to an endpoint for inferencing.
 
+## Learn more
+
+* Explore the [Model Catalog in Azure Machine Learning studio](https://ml.azure.com/model/catalog). You need an [Azure Machine Learning workspace](./quickstart-create-resources.md) to explore the catalog.
+* [Explore the Model Catalog and Collections](./concept-model-catalog.md)
 
