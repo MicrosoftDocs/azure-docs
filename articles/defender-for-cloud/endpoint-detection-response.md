@@ -4,7 +4,7 @@ description: Learn how to identify if an Endpoint Detection and Response solutio
 author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
-ms.date: 12/27/2023
+ms.date: 12/31/2023
 ---
 
 # Manage Endpoint Detection and Response solution 
@@ -12,13 +12,13 @@ ms.date: 12/27/2023
 > [!NOTE]
 > As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features that currently depend on it, including those described on the [Endpoint protection assessment and recommendations in Microsoft Defender for Cloud](endpoint-protection-recommendations-technical.md) page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
 >
-> The process on this page will replace the current configuration and can be used starting today.
+> The process on this page is the current configuration process and should be used to .
 
 Microsoft Defender for Cloud offers security recommendations that assist you in the process of reducing a machine's [attack surface](concept-attack-path.md) allowing the machine to avoid known risks. Defender for Cloud has several recommendations that ensure an Endpoint Detection and Response (EDR) solution is installed and configured securely and according to compliance standards across all of your environments. 
 
-Defender for Cloud allows you to: 
+Defender for Cloud's recommendations allow you to: 
 
-- Identify whether an EDR is installed on your machines.  
+- Identify if an EDR solution is installed on your machines.  
 
 - Identify gaps in your security configurations on any of the discovered EDRs.
 
@@ -28,7 +28,7 @@ Defender for Cloud allows you to:
 
 - [Defender for Cloud](connect-azure-subscription.md) enabled on your Azure account.
 
-- Enable either of the following plans on Defender for Cloud:
+- Enable either of the following plans enabled on Defender for Cloud:
     - [Defender for Servers Plan 2](tutorial-enable-servers-plan.md)
     - [Defender CSPM](tutorial-enable-cspm-plan.md)
 
@@ -41,6 +41,24 @@ Defender for Cloud offers various recommendation that harden and remediate threa
 - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines`
 - `Endpoint Detection and Response (EDR) solution should be installed on EC2s`
 - `Endpoint Detection and Response (EDR) solution should be installed on Virtual Machines (GCP)`
+
+The following EDR solutions are supported and can be enabled through Defender for Cloud
+
+| EDR solution | Supported platforms | 
+|--|--|
+| Microsoft Defender for Endpoint for Windows | Windows |
+| Microsoft Defender for Endpoint for Linux <sup>[1](#footnote1)</sup> | Linux | 
+| Microsoft Defender for Endpoint Unified Solution <sup>[2](#footnote2)</sup>| Windows Server 2012 R2 <br> Windows 2016 |
+
+<sup><a name="footnote1"></a>1</sup>: If the Defender for Endpoint integrations are configured correctly on your subscriptions but the Defender for Endpoint extension is not found on the resource, a manual troubleshooting reference will appear as a fix.
+
+<sup><a name="footnote2"></a>2</sup>: Defender for Servers plan 1 includes Defender for Endpoint agent provisioning. However, on the assessments next check, the machines will be classified as `Not Applicable` because the discovery assessment is only available as part of agentless scanning in Defender for Servers plan 2.
+
+The Fix option that is available through the Defender for Cloud portal for machines that don't have an EDR installed, include the enablement of Defender for Endpoint integration. 
+
+By performing the Fix the Defender for Endpoint integration will be enabled on your subscription. Defender for Endpoint is included with both Defender for Servers plan 1 and plan 2. If your resource is not covered by either of the Defender for Servers plans, the fix will ask you to enable one of the Defender for Servers plans. For pricing information on Defender for Servers, see the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
+
+After the fix process is completed, it can take up to 24 hours until your resources move to the `Healthy resources` tab.
 
 ### Detect Endpoint Detection and Response solution on Azure VM
 
