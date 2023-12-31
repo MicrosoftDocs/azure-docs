@@ -22,7 +22,7 @@ View all current recommendations for your organization on the Defender for IoT *
 The **Active recommendations** widget indicates the number of recommendations that represent actionable steps you can currently take on unhealthy devices. We recommend reviewing unhealthy devices regularly, taking recommended actions, and keeping the number of active recommendations as low as possible.
 
 > [!NOTE]
-> Only **relevant** recommendations for your network are shown. 
+> Only recommendations that are relevant to your environment are shown in the grid, with at least one healthy or unhealthy device found. You won't see recommendations that aren't related to any devices in your network.
 
 Recommendations are shown in a grid with details in the following columns:
 
