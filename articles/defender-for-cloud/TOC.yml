@@ -16,7 +16,7 @@
       displayName: release notes, changelog, news  
       href: upcoming-changes.md
       items:
-        - name: Prepare for Log Analytics defender-deprecation
+        - name: Prepare for deprecation of the Log Analytics agent
           href: prepare-deprecation-log-analytics-mma-agent.md
     - name: Common questions
       items:
