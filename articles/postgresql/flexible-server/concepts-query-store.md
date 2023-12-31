@@ -29,7 +29,7 @@ Query Store is available in all regions with no additional charges. It is an opt
 1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
 1. Select **Server parameters** in the **Settings** section of the menu.
 1. Search for the `pg_qs.query_capture_mode` parameter.
-1. Set the value to `TOP` or `ALL` and **Save**.
+1. Set the value to `TOP` or `ALL`, depending on whether you want to track top-level queries or also nested queries (those executed inside a function or procedure), and click on **Save**.
 Allow up to 20 minutes for the first batch of data to persist in the azure_sys database.
 
 ### Enable Query Store Wait Sampling
