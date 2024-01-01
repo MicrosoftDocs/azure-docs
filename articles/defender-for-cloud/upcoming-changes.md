@@ -25,6 +25,7 @@ If you're looking for the latest release notes, you can find them in the [What's
 
 | Planned change | Announcement date | Estimated date for change |
 |--|--|--|
+| [Upcoming change for the Defender for Cloud’s multi-cloud network requirements](#upcoming-change-for-the-defender-for-clouds-multi-cloud-network-requirements) | January 1, 2024 | May 2024 |
 | [Deprecation and severity changes to security alerts](#deprecation-and-severity-changes-to-security-alerts) | December 27, 2023 | January 2024 |
 | [Deprecation of two DevOps security recommendations](#deprecation-of-two-devops-security-recommendations) | November 30, 2023 | January 2024 |
 | [Consolidation of Defender for Cloud's Service Level 2 names](#consolidation-of-defender-for-clouds-service-level-2-names) | November 1, 2023 | December 2023 |
@@ -35,6 +36,32 @@ If you're looking for the latest release notes, you can find them in the [What's
 | [DevOps Resource Deduplication for Defender for DevOps](#devops-resource-deduplication-for-defender-for-devops) |  | November 2023 |
 | [Deprecating two security incidents](#deprecating-two-security-incidents) |  | November 2023 |
 | [Defender for Cloud plan and strategy for the Log Analytics agent deprecation](#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation) |  | August 2024 |
+
+## Upcoming change for the Defender for Cloud’s multi-cloud network requirements
+
+**Announcement date: January 1, 2024**
+
+**Estimated date for change: May 2024** 
+
+Beginning May 2024, we will be retiring the old IP addresses associated with our multi-cloud discovery services to accommodate improvements and ensure a more secure and efficient experience for all users.
+
+To ensure uninterrupted access to our services, you should update your IP allowlist with the new ranges provided below. Please make the necessary adjustments in your firewall settings, security groups, or any other configurations that may be applicable to your environment.
+
+The list is applicable to all plans and sufficient for full capability of the CSPM foundational (free) offering.
+
+**IP addresses to be retired**:
+
+- Discovery GCP: 104.208.29.200, 52.232.56.127
+- Discovery AWS: 52.165.47.219, 20.107.8.204
+- Onboarding: 13.67.139.3
+
+**New region-specific IP ranges to be added**:
+
+- West Europe (weu): 52.178.17.48/28
+- North Europe (neu): 13.69.233.80/28
+- Central US (cus): 20.44.10.240/28
+- East US 2 (eus2): 20.44.19.128/28
+
 
 ## Deprecation and severity changes to security alerts
 
