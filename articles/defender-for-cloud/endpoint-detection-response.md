@@ -50,17 +50,9 @@ The following EDR solutions are supported and can be enabled through Defender fo
 | Microsoft Defender for Endpoint for Linux <sup>[1](#footnote1)</sup> | Linux | 
 | Microsoft Defender for Endpoint Unified Solution <sup>[2](#footnote2)</sup>| Windows Server 2012 R2 <br> Windows 2016 |
 
-<sup><a name="footnote1"></a>1</sup>: If the Defender for Endpoint integrations are configured correctly on your subscriptions but the Defender for Endpoint extension is not found on the resource, a manual troubleshooting reference will appear as a fix.
+<sup><a name="footnote1"></a>1</sup>: A Linux machine that has Microsoft Defender for Endpoint enabled, will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is disabled to avoid clashes with other anti-virus software.
 
-<sup><a name="footnote2"></a>2</sup>: Defender for Servers plan 1 includes Defender for Endpoint agent provisioning. However, on the assessments next check, the machines will be classified as `Not Applicable` because the discovery assessment is only available as part of agentless scanning in Defender for Servers plan 2.
-
-## Fix option
-
-The Fix option that is available through the Defender for Cloud portal for machines that don't have an EDR installed, include the enablement of Defender for Endpoint integration. 
-
-By performing the Fix the Defender for Endpoint integration will be enabled on your subscription. Defender for Endpoint is included with both Defender for Servers plan 1 and plan 2. If your resource is not covered by either of the Defender for Servers plans, the fix will ask you to enable one of the Defender for Servers plans. For pricing information on Defender for Servers, see the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
-
-After the fix process is completed, it can take up to 24 hours until your resources move to the `Healthy resources` tab.
+<sup><a name="footnote2"></a>2</sup>: The Defender for Endpoint unified solution on Server 2012 R2 automatically installs Microsoft Defender Antivirus in `Active mode`. For Windows Server 2016, Microsoft Defender Antivirus is built into the operating system.
 
 ### Detect Endpoint Detection and Response solution on Azure VM
 
@@ -141,5 +133,17 @@ Defender for Cloud offers various recommendation that harden and remediate threa
 1. Select the recommendation `Endpoint Detection and Response (EDR) configuration issues should be resolved on GCP virtual machines`.
 
 1. 
+
+## Using the fix option
+
+Defender for Cloud includes an option that allows you to `Fix` machines that don't have an EDR installed on them using the fix option. The fix option enables Defender for Endpoint on your machines through the Defender for Cloud portal on your subscription. Defender for Endpoint is included with both Defender for Servers plan 1 and plan 2. 
+
+If your resource is not covered by either of the Defender for Servers plans, the fix will ask you to enable one of the Defender for Servers plans. For pricing information on Defender for Servers, see the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/?v=17.23h).
+
+If the Defender for Endpoint integrations are configured correctly on your subscriptions but the Defender for Endpoint extension is not found on the resource, a manual troubleshooting reference will appear as a fix.
+
+Defender for Servers plan 1 includes the Defender for Endpoint agent provisioning feature. However, on the assessment's next check, the machines will be classified as `Not Applicable` due to the discovery assessment only being available as part of agentless scanning in Defender for Servers plan 2.
+
+After the fix process is completed, it can take up to 24 hours until your resources move to the `Healthy resources` tab.
 
 ## Next steps
