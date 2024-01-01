@@ -53,7 +53,7 @@
   - name: Paginate query results with Azure PowerShell
     displayName: queries, powershell, Az.ResourceGraph
     href: ./paginate-powershell.md
-  - name: Create alerts query
+  - name: Create alert on ARG query
     displayName: alerts, portal, resource graph, monitor, log analytics, query
     href: ./alerts-query-quickstart.md
 - name: Tutorials

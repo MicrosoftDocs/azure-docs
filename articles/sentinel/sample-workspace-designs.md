@@ -196,7 +196,7 @@ Adventure Works needs to collect the following data sources for each sub-entity:
 
 -	Microsoft Entra sign-in and audit logs
 -	Office 365 logs
--	Microsoft 365 Defender for Endpoint raw logs
+-	Microsoft Defender XDR for Endpoint raw logs
 -	Azure Activity
 -	Microsoft Defender for Cloud
 -	Azure PaaS resources, such as from Azure Firewall, Azure Storage, Azure SQL, and Azure WAF

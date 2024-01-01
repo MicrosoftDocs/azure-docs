@@ -37,7 +37,11 @@
     - name: Migration options
       href: migration-options.md 
     - name: Security
-      href: security.md
+      items: 
+        - name: Security Overview
+          href: security.md
+        - name: Data encryption
+          href: database-encryption-at-rest.md
 - name: How to
   items:
     - name: Use community tools

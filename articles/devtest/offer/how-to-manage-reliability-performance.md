@@ -1,8 +1,8 @@
 ---
 title: Manage reliability and performance with Azure Dev/Test subscriptions
 description: Build reliability into your applications with Dev/Test subscriptions. 
-author: ntrogh
-ms.author: nicktrog
+ms.author: amast
+author: rigel512
 ms.prod: visual-studio-family
 ms.technology: vs-subscriptions
 ms.topic: how-to

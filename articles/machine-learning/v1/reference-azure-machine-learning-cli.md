@@ -17,7 +17,7 @@ ms.custom: UpdateFrequency5, seodec18, devx-track-azurecli, cliv1
 [!INCLUDE [cli v1](../includes/machine-learning-cli-v1.md)]
 
 
-[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-v1-deprecation.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
 
@@ -170,7 +170,8 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 For more information, see [az ml computetarget create amlcompute](/cli/azure/ml(v1)/computetarget/create#az-ml-computetarget-create-amlcompute).
 
-[!INCLUDE [aml-clone-in-azure-notebook](../includes/aml-managed-identity-note.md)]
+> [!NOTE]
+> Azure Machine Learning compute clusters support only **one system-assigned identity** or **multiple user-assigned identities**, not both concurrently.
 
 <a id="computeinstance"></a>
 
@@ -549,15 +550,117 @@ az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal -
 
 ### Local deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../includes/machine-learning-service-local-deploy-config.md)]
+The entries in the `deploymentconfig.json` document map to the parameters for [LocalWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+| JSON entity | Method parameter | Description |
+| ----- | ----- | ----- |
+| `computeType` | NA | The compute target. For local targets, the value must be `local`. |
+| `port` | `port` | The local port on which to expose the service's HTTP endpoint. |
+
+This JSON is an example deployment configuration for use with the CLI:
+
+
+:::code language="json" source="~/azureml-examples-archive/v1/python-sdk/tutorials/deploy-local/deploymentconfig.json":::
+
+Save this JSON as a file called `deploymentconfig.json`.
 
 ### Azure Container Instance deployment configuration schema 
 
-[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aci-deploy-config.md)]
+The entries in the `deploymentconfig.json` document map to the parameters for [AciWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+| JSON entity | Method parameter | Description |
+| ----- | ----- | ----- |
+| `computeType` | NA | The compute target. For ACI, the value must be `ACI`. |
+| `containerResourceRequirements` | NA | Container for the CPU and memory entities. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate. Defaults, `0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
+| `location` | `location` | The Azure region to deploy this Webservice to. If not specified the Workspace location will be used. More details on available regions can be found here: [ACI Regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+| `authEnabled` | `auth_enabled` | Whether to enable auth for this Webservice. Defaults to False |
+| `sslEnabled` | `ssl_enabled` | Whether to enable SSL for this Webservice. Defaults to False. |
+| `appInsightsEnabled` | `enable_app_insights` | Whether to enable AppInsights for this Webservice. Defaults to False |
+| `sslCertificate` | `ssl_cert_pem_file` | The cert file needed if SSL is enabled |
+| `sslKey` | `ssl_key_pem_file` | The key file needed if SSL is enabled |
+| `cname` | `ssl_cname` | The cname for if SSL is enabled |
+| `dnsNameLabel` | `dns_name_label` | The dns name label for the scoring endpoint. If not specified a unique dns name label will be generated for the scoring endpoint. |
+
+The following JSON is an example deployment configuration for use with the CLI:
+
+```json
+{
+    "computeType": "aci",
+    "containerResourceRequirements":
+    {
+        "cpu": 0.5,
+        "memoryInGB": 1.0
+    },
+    "authEnabled": true,
+    "sslEnabled": false,
+    "appInsightsEnabled": false
+}
+```
 
 ### Azure Kubernetes Service deployment configuration schema
 
-[!INCLUDE [deploymentconfig](../includes/machine-learning-service-aks-deploy-config.md)]
+The entries in the `deploymentconfig.json` document map to the parameters for [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+| JSON entity | Method parameter | Description |
+| ----- | ----- | ----- |
+| `computeType` | NA | The compute target. For AKS, the value must be `aks`. |
+| `autoScaler` | NA | Contains configuration elements for autoscale. See the autoscaler table. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Whether to enable autoscaling for the web service. If `numReplicas` = `0`, `True`; otherwise, `False`. |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | The minimum number of containers to use when autoscaling this web service. Default, `1`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | The maximum number of containers to use when autoscaling this web service. Default, `10`. |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | How often the autoscaler attempts to scale this web service. Default, `1`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
+| `dataCollection` | NA | Contains configuration elements for data collection. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether to enable model data collection for the web service. Default, `False`. |
+| `authEnabled` | `auth_enabled` | Whether or not to enable key authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Whether or not to enable token authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `False`. |
+| `containerResourceRequirements` | NA | Container for the CPU and memory entities. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
+| `appInsightsEnabled` | `enable_app_insights` | Whether to enable Application Insights logging for the web service. Default, `False`. |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | A timeout to enforce for scoring calls to the web service. Default, `60000`. |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | The maximum concurrent requests per node for this web service. Default, `1`. |
+| `maxQueueWaitMs` | `max_request_wait_time` | The maximum time a request will stay in thee queue (in milliseconds) before a 503 error is returned. Default, `500`. |
+| `numReplicas` | `num_replicas` | The number of containers to allocate for this web service. No default value. If this parameter is not set, the autoscaler is enabled by default. |
+| `keys` | NA | Contains configuration elements for keys. |
+| &emsp;&emsp;`primaryKey` | `primary_key` | A primary auth key to use for this Webservice |
+| &emsp;&emsp;`secondaryKey` | `secondary_key` | A secondary auth key to use for this Webservice |
+| `gpuCores` | `gpu_cores` | The number of GPU cores (per-container replica) to allocate for this Webservice. Default is 1. Only supports whole number values. |
+| `livenessProbeRequirements` | NA | Contains configuration elements for liveness probe requirements. |
+| &emsp;&emsp;`periodSeconds` | `period_seconds` | How often (in seconds) to perform the liveness probe. Default to 10 seconds. Minimum value is 1. |
+| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Number of seconds after the container has started before liveness probes are initiated. Defaults to 310 |
+| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Number of seconds after which the liveness probe times out. Defaults to 2 seconds. Minimum value is 1 |
+| &emsp;&emsp;`successThreshold` | `success_threshold` | Minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
+| &emsp;&emsp;`failureThreshold` | `failure_threshold` | When a Pod starts and the liveness probe fails, Kubernetes will try failureThreshold times before giving up. Defaults to 3. Minimum value is 1. |
+| `namespace` | `namespace` | The Kubernetes namespace that the webservice is deployed into. Up to 63 lowercase alphanumeric ('a'-'z', '0'-'9') and hyphen ('-') characters. The first and last characters can't be hyphens. |
+
+The following JSON is an example deployment configuration for use with the CLI:
+
+```json
+{
+    "computeType": "aks",
+    "autoScaler":
+    {
+        "autoscaleEnabled": true,
+        "minReplicas": 1,
+        "maxReplicas": 3,
+        "refreshPeriodInSeconds": 1,
+        "targetUtilization": 70
+    },
+    "dataCollection":
+    {
+        "storageEnabled": true
+    },
+    "authEnabled": true,
+    "containerResourceRequirements":
+    {
+        "cpu": 0.5,
+        "memoryInGB": 1.0
+    }
+}
+```
 
 ## Next steps
 

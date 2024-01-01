@@ -83,7 +83,7 @@ Create a new [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=visual_features)]
 
-
+<!--
 ### Set model name when using a custom model
 
 You can also do image analysis with a custom trained model. To create and train a model, see [Create a custom Image Analysis model](/azure/ai-services/computer-vision/how-to/model-customization). Once your model is trained, all you need is the model's name.
@@ -91,7 +91,7 @@ You can also do image analysis with a custom trained model. To create and train 
 To use a custom model, create the [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object and call the [setModelName](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setmodelname(java-lang-string)) method. You don't need to set any other properties on **ImageAnalysisOptions**. There's no need to call [setFeatures](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions#com-azure-ai-vision-imageanalysis-imageanalysisoptions-setfeatures(java-util-enumset(com-azure-ai-vision-imageanalysis-imageanalysisfeature))), as you do with the standard model, since your custom model already implies the visual features the service extracts.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/custom-model/ImageAnalysis.java?name=model_name)]
-
+-->
 
 ### Specify languages
 
@@ -143,7 +143,7 @@ This section shows you how to make an analysis call to the service using the sta
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/how-to/ImageAnalysis.java?name=analyze)]
 
-
+<!--
 ### Get results using custom model
 
 This section shows you how to make an analysis call to the service, when using a custom model. 
@@ -152,7 +152,7 @@ This section shows you how to make an analysis call to the service, when using a
 The code is similar to the standard model case. The only difference is that results from the custom model are available by calling **getCustomTags** and/or **getCustomObjects** methods on the [ImageAnalysisResult](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisresult) object.
 
 [!code-java[](~/azure-ai-vision-sdk/docs/learn.microsoft.com/java/image-analysis/custom-model/ImageAnalysis.java?name=analyze)]
-
+-->
 
 ## Error codes
 
