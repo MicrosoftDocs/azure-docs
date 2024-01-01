@@ -5,7 +5,7 @@ ms.topic: reference
 ms.date: 01/01/2024
 author: AbbyMSFT
 ms.author: abbyweisberg
-ms.reviewer:nolavime
+ms.reviewer: nolavime
 ---
 
 # Sample log alert rule queries
