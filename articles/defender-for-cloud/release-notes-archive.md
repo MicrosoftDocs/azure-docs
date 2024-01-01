@@ -3460,7 +3460,7 @@ To apply the standard to your subscriptions and continuously monitor your compli
 
 :::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="The NIST SP 800 171 R2 standard in Security Center's regulatory compliance dashboard":::
 
-For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
+For more information about this compliance standard, see [NIST SP 800-171 R2](https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final).
 
 ### Recommendations list now includes filters
 
