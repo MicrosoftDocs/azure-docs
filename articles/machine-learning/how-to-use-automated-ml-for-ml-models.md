@@ -132,6 +132,16 @@ Otherwise, you see a list of your recent automated  ML experiments, including th
 
     ![Screenshot shows the Select task type dialog box with View featurization settings called out.](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
 
+1. The **[Optional] Limits** form allows you to do the following.
+| Feature | Description |
+|---|-----|
+|**Max trials**| Maximum number of trials, each with different combination of algorithm and hyperparameters to try during the AutoML job. Must be an integer between 1 and 1000.
+|**Max concurrent trials**| Maximum number of trial jobs that can be executed in parallel. Must be an integer between 1 and 1000.
+|**Max nodes**| Maximum number of nodes this job can use from selected compute target.
+|**Metric score threshold**| When this threshold value will be reached for an iteration metric the training job will terminate. Keep in mind that meaningful models have correlation > 0, otherwise they are as good as guessing the average Metric threshold should be between bounds [0, 10].
+|**Experiment timeout (minutes)**| Maximum time in minutes the entire experiment is allowed to run. Once this limit is reached the system will cancel the AutoML job, including all its trials (children jobs).
+|**Iteration timeout (minutes)**| Maximum time in minutes each trial job is allowed to run. Once this limit is reached the system will cancel the trial.
+|**Enable early termination**| Select to end the job if the score is not improving in the short term.
 
 1. The **[Optional] Validate and test** form allows you to do the following. 
 
