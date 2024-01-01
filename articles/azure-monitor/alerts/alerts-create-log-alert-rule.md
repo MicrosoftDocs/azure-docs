@@ -49,9 +49,10 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
         | where type =~ 'Microsoft.Compute/virtualMachines'
         | project _ResourceId=tolower(id), tags
     ```
-    
+
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-logs-conditions-tab.png" alt-text="Screenshot that shows the Condition tab when creating a new log alert rule.":::
 
+    For sample log alert queries that query ARG or ADX, see [log alert query samples](./alerts-log-alert-query-samples.md) 
 1. Select **Run** to run the alert.
 1. The **Preview** section shows you the query results. When you're finished editing your query, select **Continue Editing Alert**.
 1. The **Condition** tab opens populated with your log query. By default, the rule counts the number of results in the last five minutes. If the system detects summarized query results, the rule is automatically updated with that information.
@@ -109,6 +110,7 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
     > * The query uses the **adx** pattern
     > * The query calls a function that calls other tables
 
+    For sample log alert queries that query ARG or ADX, see [log alert query samples](./alerts-log-alert-query-samples.md)
 
 1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. Your application business policy determines this setting.
 
@@ -187,4 +189,5 @@ Alerts triggered by these alert rules contain a payload that uses the [common al
 
 
 ## Next steps
- [View and manage your alert instances](alerts-manage-alert-instances.md)
+- [Log alert query samples](./alerts-log-alert-query-samples.md) 
+- [View and manage your alert instances](alerts-manage-alert-instances.md)

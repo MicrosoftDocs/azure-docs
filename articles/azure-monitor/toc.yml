@@ -1479,6 +1479,8 @@ items:
     items:
       - name: Alerts payloads
         href: alerts/alerts-payload-samples.md
+      - name: Log alert rule queries
+        href: alerts/alerts-log-alert-query-samples.md
       - name: Log alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
   - name: Data collection rules
