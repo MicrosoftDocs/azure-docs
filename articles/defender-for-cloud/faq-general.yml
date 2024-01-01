@@ -107,6 +107,13 @@ sections:
           If the user's info isn't listed in the **Event initiated by** column, explore the event's JSON for the relevant details.
 
           :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Screenshot of Azure Activity log JSON explorer.":::
+    
+      - question: |
+          How can I track AWS costs incurred for agentless scanning?
+        answer: |
+         Disk snapshots are created with the 'CreatedBy' tag key, and the 'Microsoft Defender for Cloud' tag value. The 'CreatedBy' tag tracks who created the resource. Learn how to [activate the 'CreatedBy' tag in AWS](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activate-built-in-tags.html). 
+
+ 
 
 
       - question: |
