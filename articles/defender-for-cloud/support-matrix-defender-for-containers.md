@@ -15,27 +15,44 @@ This article summarizes support information for Container capabilities in Micros
 > [!NOTE]
 > Specific features are in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Azure 
+## Azure
 
-| Domain | Feature | Supported Resources | Linux release state | Windows release state   | Agentless/Agent-based | Plans | Azure clouds availability |
-|--|--|--|--|--|--|--|--|
-| Security posture management  | [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#security-posture-management) | AKS | GA | GA | Agentless  | Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
-| Security posture management  | Comprehensive inventory capabilities | ACR, AKS | GA | GA | Agentless| Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
-| Security posture management  | Attack path analysis | ACR, AKS | GA | - | Agentless | Defender CSPM | Azure commercial clouds |
-| Security posture management  | Enhanced risk-hunting | ACR, AKS | GA | - | Agentless | Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
-| Security posture management  | [Control plane hardening](defender-for-containers-architecture.md) | ACR, AKS | GA | Preview | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Security posture management  | [Kubernetes data plane hardening](kubernetes-workload-protections.md) |AKS | GA | - | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Security posture management | Docker CIS | VM, Virtual Machine Scale Set | GA | - | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet  |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) | Agentless registry scan (powered by Qualys) <BR> [Supported OS packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys) | ACR, Private ACR | GA | Preview | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) | Agentless registry scan (powered by Qualys) <BR> [Supported language packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys) | ACR, Private ACR | Preview | - | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| [Vulnerability assessment](defender-for-containers-vulnerability-assessment-azure.md) | Agentless/agent-based runtime scan(powered by Qualys) [OS packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys) | AKS | GA | Preview | Defender agent | Defender for Containers | Commercial clouds |
-| [Vulnerability assessment](agentless-vulnerability-assessment-azure.md) | Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| ACR, Private ACR | GA | Preview | Agentless | Defender for Containers or Defender CSPM | Commercial clouds<br/><br/> National clouds: Azure Government, Azure operated by 21Vianet |
-| [Vulnerability assessment](agentless-vulnerability-assessment-azure.md) | Agentless/agent-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| AKS | GA | Preview | Agentless **OR/AND** Defender agent | Defender for Containers or Defender CSPM | Commercial clouds<br/><br/> National clouds: Azure Government, Azure operated by 21Vianet |
-| Runtime threat protection | [Control plane](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) | AKS | GA | GA | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Runtime threat protection | Workload | AKS | GA | - | Defender agent | Defender for Containers | Commercial clouds |
-| Deployment & monitoring | Discovery of unprotected clusters | AKS | GA | GA | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Deployment & monitoring | Defender agent auto provisioning | AKS | GA | - | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
-| Deployment & monitoring | Azure Policy for Kubernetes auto provisioning | AKS | GA | - | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+### Security posture management
+
+| Feature | Description | Supported resources | Linux release state | Windows release state   | Enablement method | Agent | Plans | Azure clouds availability |
+|--|--|--|--|--|--|--|--|--|
+| [Agentless discovery for Kubernetes](defender-for-containers-introduction.md#security-posture-management) | Provides zero footprint, API-based discovery of Kubernetes clusters, their configurations and deployments. | AKS | GA | GA | Enable **Agentless discovery on Kubernetes** toggle | Agentless  | Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
+| Comprehensive inventory capabilities | Enables you to explore resources, pods, services, repositories, images, and configurations through [security explorer](..\how-to-manage-cloud-security-explorer.md#build-a-query-with-the-cloud-security-explorer) to easily monitor and manage your assets. | ACR, AKS | GA | GA | Enable **Agentless discovery on Kubernetes** toggle | Agentless| Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
+| Attack path analysis |  | ACR, AKS | GA | - |  | Agentless | Defender CSPM | Azure commercial clouds |
+| Enhanced risk-hunting | Enables security admins to actively hunt for posture issues in their containerized assets through queries (built-in and custom) and [security insights](..\attack-path-reference.md#insights) in the [security explorer](..\how-to-manage-cloud-security-explorer.md). | ACR, AKS | GA | - | Enable **Agentless discovery on Kubernetes** toggle | Agentless | Defender for Containers **OR** Defender CSPM | Azure commercial clouds |
+| [Control plane hardening](defender-for-containers-architecture.md) | Continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations that are available on Defender for Cloud's Recommendations page. The recommendations let you investigate and remediate issues. | ACR, AKS | GA | Preview | Activated with plan | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| [Kubernetes data plane hardening](kubernetes-workload-protections.md) |Protect workloads of your Kubernetes containers with best practice recommendations. |AKS | GA | - | Enable **Azure Policy for Kubernetes** toggle | Azure Policy | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Docker CIS |  | VM, Virtual Machine Scale Set | GA | - |  | Log Analytics agent | Defender for Servers Plan 2 | Commercial clouds<br><br> National clouds: Azure Government, Microsoft Azure operated by 21Vianet  |
+
+### Vulnerability assessment
+
+| Feature | Description | Supported resources | Linux release state | Windows release state   | Enablement method | Agent | Plans | Azure clouds availability |
+|--|--|--|--|--|--|--|--|--|
+| Agentless registry scan (powered by Qualys) <BR> [Supported OS packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys) | Vulnerability assessment for images in ACR | ACR, Private ACR | GA | Preview | Activated with plan | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Agentless registry scan (powered by Qualys) <BR> [Supported language packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys) | Vulnerability assessment for images in ACR | ACR, Private ACR | Preview | - | Activated with plan | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Agentless/agent-based runtime scan(powered by Qualys) [OS packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-qualys) | Vulnerability assessment for running images in AKS | AKS | GA | Preview | Activated with plan | Defender agent | Defender for Containers | Commercial clouds |
+| Agentless registry scan (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| Vulnerability assessment for images in ACR | ACR, Private ACR | GA | Preview | Enable **Agentless container vulnerability assessment** toggle | Agentless | Defender for Containers or Defender CSPM | Commercial clouds<br/><br/> National clouds: Azure Government, Azure operated by 21Vianet |
+| Agentless/agent-based runtime (powered by Microsoft Defender Vulnerability Management) [supported packages](#registries-and-images-support-for-azure---vulnerability-assessment-powered-by-microsoft-defender-vulnerability-management)| Vulnerability assessment for running images in AKS | AKS | GA | Preview | Enable **Agentless container vulnerability assessment** toggle | Agentless **OR/AND** Defender agent | Defender for Containers or Defender CSPM | Commercial clouds<br/><br/> National clouds: Azure Government, Azure operated by 21Vianet |
+
+### Runtime threat protection
+
+| Feature | Description | Supported resources | Linux release state | Windows release state   | Enablement method | Agent | Plans | Azure clouds availability |
+|--|--|--|--|--|--|--|--|--|
+| [Control plane](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters) | Detection of suspicious activity for Kubernetes based on Kubernetes audit trail | AKS | GA | GA | Enabled with plan | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Workload | Detection of suspicious activity for Kubernetes for cluster level, node level, and workload level | AKS | GA | - | Enable **Defender Agent in Azure** toggle **OR** deploy Defender agent on individual clusters | Defender agent | Defender for Containers | Commercial clouds |
+
+### Deployment & monitoring
+
+| Feature | Description | Supported resources | Linux release state | Windows release state   | Enablement method | Agent | Plans | Azure clouds availability |
+|--|--|--|--|--|--|--|--|--|
+| Discovery of unprotected clusters | Discovering Kubernetes clusters missing Defender agents | AKS | GA | GA | Enabled with plan | AAgentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Defender agent auto provisioning | Automatic deployment of Defender agent | AKS | GA | - | Enable **Defender Agent in Azure** toggle | Agentless | Defender for Containers | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
+| Azure Policy for Kubernetes auto provisioning | Automatic deployment of Azure policy agent for Kubernetes | AKS | GA | - | Enable **Azure policy for Kubernetes** toggle | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure operated by 21Vianet |
 
 ### Registries and images support for Azure - vulnerability assessment powered by Qualys
 
@@ -76,7 +93,7 @@ Allowing data ingestion to occur only through Private Link Scope on your workspa
 
 Learn how to [use Azure Private Link to connect networks to Azure Monitor](../azure-monitor/logs/private-link-security.md).
 
-## AWS 
+## AWS
 
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state   | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --|
@@ -117,11 +134,11 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 > [!NOTE]
 > For additional requirements for Kubernetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-### Outbound proxy support
+### Outbound proxy support - AWS
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
-## GCP 
+## GCP
 
 | Domain | Feature | Supported Resources | Linux release state  | Windows release state  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --|
@@ -149,7 +166,7 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 > [!NOTE]
 > For additional requirements for Kubernetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
 
-### Outbound proxy support
+### Outbound proxy support - GCP
 
 Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
