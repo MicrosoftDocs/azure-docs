@@ -57,7 +57,9 @@
   - name: Back up PostgreSQL databases
     href: tutorial-postgresql-backup.md
   - name: Configure item level backup of an AKS cluster
-    href: tutorial-configure-backup-aks.md  
+    href: tutorial-configure-backup-aks.md
+  - name: Restore vaulted backups for AKS clusters in a secondary region
+    href: tutorial-restore-aks-backups-across-regions.md 
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server

@@ -1,13 +1,13 @@
 ---
 title: Delete a VM and attached resources
 description: Learn how to delete a VM and the resources attached to the VM.
-author: cynthn
+author: ju-shim
 ms.service: virtual-machines
-ms.subservice: 
+ms.subservice:
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/09/2022
-ms.author: cynthn
+ms.author: jushiman
 ms.custom: template-how-to, devx-track-azurecli, devx-track-linux, devx-track-azurepowershell
 ---
 

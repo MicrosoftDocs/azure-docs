@@ -65,9 +65,7 @@ sections:
       - question: |
          Will tenant application data ever go to Azure?
         answer: |
-              When replicating between service provider-owned sites, application data never goes to Azure. Data is encrypted in-transit (HTTPS), and replicated directly between the service provider sites.
-
-              If you're replicating to Azure, application data is sent to Azure storage but not to the Site Recovery service. Data is encrypted in-transit, and remains encrypted in Azure.
+              When you're replicating to Azure, application data is sent to Azure storage but not to the Site Recovery service. Data is encrypted in-transit (HTTPS), and remains encrypted in Azure.
 
       - question: |
          Will my tenants receive a bill for any Azure services?
@@ -92,7 +90,7 @@ sections:
       - question: |
          Do you support single Azure Pack and single VMM server deployments?
         answer: |
-             Yes, you can replicate Hyper-V virtual machines to Azure, or between service provider sites.  Note that if you replicate between service provider sites, Azure runbook integration isn't available.
+             No, you can replicate Hyper-V virtual machines only to Azure.
 
   - name: Pricing
     questions:
@@ -147,7 +145,7 @@ sections:
       - question: |
          Does Site Recovery encrypt replication?
         answer: |
-              For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](../storage/common/storage-service-encryption.md) are supported.
+              For virtual machines and physical servers replicating to Azure, both encryption-in-transit and [encryption-at-rest (in Azure)](../storage/common/storage-service-encryption.md) are supported.
 
       - question: |
          Does Azure-to-Azure Site Recovery use TLS 1.2 for all communications across microservices of Azure?
