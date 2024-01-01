@@ -2,7 +2,7 @@
 title: Release notes
 description: This page is updated frequently with the latest updates in Defender for Cloud.
 ms.topic: overview
-ms.date: 12/26/2023
+ms.date: 01/01/2024
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -48,7 +48,8 @@ See the full [list of security recommendations](recommendations-reference.md).
 
 ## December 2023
 
-
+| Date | Update |
+|--|--|
 | December 24 | [Defender for Servers at the resource level available as GA](#defender-for-servers-at-the-resource-level-available-as-ga) |
 | December 21 | [Retirement of Classic connectors for multicloud](#retirement-of-classic-connectors-for-multicloud) |
 | December 21 | [Release of the Coverage workbook](#release-of-the-coverage-workbook) |
