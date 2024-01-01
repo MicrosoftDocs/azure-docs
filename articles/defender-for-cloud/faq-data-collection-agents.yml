@@ -223,6 +223,10 @@ sections:
           > [!NOTE]
           > AWS charges for retention of disk snapshots. The Defender for Cloud scanning process actively tries to minimize the period during which a snapshot is stored in your account (typically up to a few minutes). AWS might charge an overhead cost for the disk snapshots storage. Check with AWS to see what costs apply to you.
 
+      - question: |
+          How can I track AWS costs incurred for agentless scanning?
+        answer: | 
+          Disk snapshots are created with the 'CreatedBy' tag key, and the 'Microsoft Defender for Cloud' tag value. The 'CreatedBy' tag tracks who created the resource. Learn how to [activate the 'CreatedBy' tag in AWS](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activate-built-in-tags.html).
 
   - name: Workspaces
     questions:

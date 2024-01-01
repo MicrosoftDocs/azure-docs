@@ -109,14 +109,6 @@ sections:
           :::image type="content" source="media/faq-general/tracking-pricing-changes-in-activity-log.png" alt-text="Screenshot of Azure Activity log JSON explorer.":::
     
       - question: |
-          How can I track AWS costs incurred for agentless scanning?
-        answer: |
-         Disk snapshots are created with the 'CreatedBy' tag key, and the 'Microsoft Defender for Cloud' tag value. The 'CreatedBy' tag tracks who created the resource. Learn how to [activate the 'CreatedBy' tag in AWS](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activate-built-in-tags.html). 
-
- 
-
-
-      - question: |
           What happens when one recommendation is in multiple policy initiatives?
         answer: |
           Sometimes, a security recommendation appears in more than one policy initiative. If you've got multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it will affect all of the initiatives that you have permission to edit.
