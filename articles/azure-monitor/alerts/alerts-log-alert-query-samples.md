@@ -14,7 +14,7 @@ You can use Azure Data Explorer and Azure Resource Graph in log alert rule queri
 
 ## Query using an ARG Resources table
 
-This query finds virtual machines that are marked as critical and that had a heartbeat more than 24 hours ago, but have not had a heartbeat in the last 2 minutes.
+This query finds virtual machines that are marked as critical and that had a heartbeat more than 24 hours ago, but haven't had a heartbeat in the last 2 minutes.
 
 ```json
 {
@@ -66,7 +66,7 @@ This query finds resources with certificates that are going to expire within 30 
 
 ## Query using a join between an ARG table and a Log Analytics table
 
-This query finds virtual machines that are marked as critical and that had a heartbeat more than 24 hours ago, but have not had a heartbeat in the last 2 minutes.
+This query finds virtual machines that are marked as critical and that had a heartbeat more than 24 hours ago, but haven't had a heartbeat in the last 2 minutes.
 
 ```json
 {
