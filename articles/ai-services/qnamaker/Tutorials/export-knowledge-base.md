@@ -7,7 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/19/2023
 ms.custom: ignite-fall-2021
 ---
 # Move a knowledge base using export-import

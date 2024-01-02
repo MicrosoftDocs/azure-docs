@@ -12,4 +12,4 @@ See the speech translation [overview](../../../speech-translation.md) for more i
 
 * Translating speech to text
 * Translating speech to multiple target languages
-* Performing direct speech-to-speech translation
+* Performing direct speech to speech translation

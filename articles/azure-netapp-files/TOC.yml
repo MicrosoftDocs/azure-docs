@@ -183,30 +183,6 @@
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
-  - name: FAQs
-    items:
-          - name: Networking FAQs
-            href: faq-networking.md
-          - name: Capacity management FAQs
-            href: faq-capacity-management.md
-          - name: NFS FAQs
-            href: faq-nfs.md
-          - name: SMB FAQs
-            href: faq-smb.md
-          - name: Performance FAQs
-            href: faq-performance.md
-          - name: Application resilience FAQs
-            href: faq-application-resilience.md
-          - name: Data migration and protection FAQs
-            href: faq-data-migration-protection.md
-          - name: Application volume group FAQs
-            href: faq-application-volume-group.md
-          - name: Azure NetApp Files backup FAQs
-            href: faq-backup.md
-          - name: Security FAQs
-            href: faq-security.md
-          - name: Integration FAQs
-            href: faq-integration.md
   - name: Security
     items:
     - name: Security baseline
@@ -415,6 +391,30 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+- name: FAQs
+  items:
+  - name: Networking FAQs
+    href: faq-networking.md
+  - name: Capacity management FAQs
+    href: faq-capacity-management.md
+  - name: NFS FAQs
+    href: faq-nfs.md
+  - name: SMB FAQs
+    href: faq-smb.md
+  - name: Performance FAQs
+    href: faq-performance.md
+  - name: Application resilience FAQs
+    href: faq-application-resilience.md
+  - name: Data migration and protection FAQs
+    href: faq-data-migration-protection.md
+  - name: Application volume group FAQs
+    href: faq-application-volume-group.md
+  - name: Azure NetApp Files backup FAQs
+    href: faq-backup.md
+  - name: Security FAQs
+    href: faq-security.md
+  - name: Integration FAQs
+    href: faq-integration.md
 - name: Reference
   items:
   - name: REST

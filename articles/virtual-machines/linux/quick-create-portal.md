@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 10/16/2023
 ms.author: cynthn
-ms.reviewer: erd
+ms.reviewer: jushiman
 ms.custom: mvc, mode-ui, devx-track-linux
 ---
 

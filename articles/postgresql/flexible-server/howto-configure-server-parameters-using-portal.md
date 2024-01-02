@@ -1,5 +1,5 @@
 ---
-title: Configure server parameters - Azure portal - Azure Database for PostgreSQL - Flexible Server
+title: Configure server parameters - Azure portal
 description: This article describes how to configure the Postgres parameters in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
 author: varun-dhawan
 ms.author: varundhawan
