@@ -23,14 +23,6 @@
   items:
   - name: Establish a private connection to a virtual network
     href: configure-expressroute-private-peering.md
-  - name: Link a virtual network to an ExpressRoute circuit
-    items:
-    - name: Azure portal
-      href: expressroute-howto-linkvnet-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-linkvnet-arm.md
-    - name: Azure CLI
-      href: expressroute-howto-linkvnet-cli.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal
@@ -135,6 +127,14 @@
         href: expressroute-howto-add-gateway-portal-resource-manager.md
       - name: Azure PowerShell
         href: expressroute-howto-add-gateway-resource-manager.md
+    - name: Link a virtual network to an ExpressRoute circuit
+      items:
+      - name: Azure portal
+        href: expressroute-howto-linkvnet-portal-resource-manager.md
+      - name: Azure PowerShell
+        href: expressroute-howto-linkvnet-arm.md
+      - name: Azure CLI
+        href: expressroute-howto-linkvnet-cli.md
   - name: Configuring ExpressRoute Direct
     items:
     - name: Configure ExpressRoute Direct
