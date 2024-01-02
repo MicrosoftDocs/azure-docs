@@ -3,7 +3,7 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/28/2023
+ms.date: 12/20/2023
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -215,6 +215,9 @@ If you want the runbook to execute with the system-assigned managed identity, le
 1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
 1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
 1. Enter the Client ID.
+
+> [!NOTE]
+> For PowerShell 7.2 hybrid jobs, make changes in line 28. Replace `$PSPrivateMetadata.JobId.Guid` with `$env:PSPrivateMetaData`.
 
 ## Handle transient errors in a time-dependent script
 

@@ -86,7 +86,7 @@
               href: tutorial-enable-container-aws.md
             - name: Protect your Google Cloud Platform (GCP) project containers
               href: tutorial-enable-container-gcp.md
-            - name: Enable Defender for Containers components
+            - name: Configure Defender for Containers components
               displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises,
                 azure arc, multicloud
               href: defender-for-containers-enable.md
@@ -109,9 +109,6 @@
     - name: Protect VMs
       displayName: manage, access, harden
       href: tutorial-protect-resources.md
-    - name: Investigate and respond to security alerts
-      displayName: triage, security, alerts, investigate,
-      href: tutorial-security-incident.md
     - name: Investigate the health of your resources
       displayName: health, resources, outstanding, security, issues,
       href: investigate-resource-health.md
@@ -367,7 +364,7 @@
           displayName: map, network map
           href: protect-network-resources.md
         - name: Lock down logins with multifactor authentication
-          displayName: identity, access, AAD, active directory, multi-factor,
+          displayName: identity, access, AAD, active directory, multifactor,
             authentication, multifactor, users, passwords
           href: multi-factor-authentication-enforcement.md
         - name: Other threat protections
@@ -394,7 +391,7 @@
           href: powershell-onboarding.md
     - name: Alerts, incidents, and threat reports
       items:
-        - name: Respond to security alerts
+        - name: Manage and respond to security alerts
           displayName: security alerts, alerts
           href: managing-and-responding-alerts.md
         - name: Create and manage alerts suppression rules
@@ -530,6 +527,12 @@
             - name: Automatically enable a vulnerability assessment solution
               displayName: qualys, rapid7, vulnerability, auto provision
               href: auto-deploy-vulnerability-assessment.md
+            - name: Transition to the integrated Microsoft Defender Vulnerability Management vulnerability assessment solution
+              displayName: qualys, rapid7, vulnerability, migrate, transition, Microsoft Defender Vulnerability Management, mdvm
+              href: how-to-transition-to-built-in.md
+            - name: Common questions 
+              displayName: questions, common, MDVM, Qualys, BYOL, bring your own license, agent, consolidated, vulnerability, management, faq, frequently asked questions
+              href: faq-scanner-detection.yml
         - name: Enable just-in-time access on VMs
           displayName: jit, management, ports
           href: just-in-time-access-usage.md
@@ -615,6 +618,10 @@
             href: disable-vulnerability-findings-containers.md
           - name: REST API
             href: subassessment-rest-api.md
+          - name: Transition to Defender Vulnerability Management
+            href: transition-to-defender-vulnerability-management.md
+          - name: Common questions 
+            href: common-questions-microsoft-defender-vulnerability-management.md
       - name: Vulnerability assessment for AWS powered by Trivy (deprecated)
         displayName: AWS, ECR, registry, images, qualys
         href: defender-for-containers-vulnerability-assessment-elastic.md

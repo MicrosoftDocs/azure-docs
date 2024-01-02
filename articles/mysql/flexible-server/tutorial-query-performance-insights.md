@@ -67,32 +67,27 @@ Alternatively, you can enable and configure slow query logs for your Azure Datab
 > [!IMPORTANT]
 > To ensure that your Azure Database for MySQL flexible server instance's performance is not heavily affected, we recommend that you log only the event types and users that are required for your auditing purposes.
 
+- Enable slow query logs.
+
 ```azurecli
-# Turn on statement level log.
-
-az mysql flexible-server parameter set \
---name log_statement \
---resource-group myresourcegroup \
---server-name mydemoserver \
---value all
-
-
-# Set log_min_duration_statement time to 10 seconds. This setting will log all queries that execute for more than 10 seconds. Adjust this threshold based on your definition for slow queries.
-
-az mysql server configuration set \
---name log_min_duration_statement \
---resource-group myresourcegroup \
---server mydemoserver \
---value 10000
-
-# Enable slow query logs.
-
 az mysql flexible-server parameter set \
 --name slow_query_log \
 --resource-group myresourcegroup \
 --server-name mydemoserver \
 --value ON
 ```
+
+- Set long_query_time time to 10 seconds. This setting will log all queries that execute for more than 10 seconds. Adjust this threshold based on your definition for slow queries.
+
+```azurecli
+az mysql server configuration set \
+--name long_query_time \
+--resource-group myresourcegroup \
+--server mydemoserver \
+--value 10
+```
+
+
 
 ## Set up diagnostics
 

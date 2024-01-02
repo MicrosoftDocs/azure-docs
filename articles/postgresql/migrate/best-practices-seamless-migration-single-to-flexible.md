@@ -23,19 +23,30 @@ This article explains common pitfalls encountered, and best practices to ensure 
 
 As a first step in the migration, run the pre-migration validation before you perform a migration. You can do this using the **Validate** and **Validate and Migrate** options in the migration setup page. Pre-migration validation conducts thorough checks against a predefined rule set. The goal is to identify any potential problems and provide actionable insights for remedial actions. Keep running pre migration validation until it results in **Succeeded** state. Click [Pre-migration validations](./concepts-single-to-flexible.md#pre-migration-validations) to know more.
 
-## Target Flexible server storage configuration
+## Target Flexible server configuration
 
-During initial base copy of data, multiple insert statements are executed on the target, which in-turn generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target in addition to the storage required by the Database. Hence, It's advisable to allocate sufficient storage on the Flexible server, equivalent to 1.25 times or 25% more storage than the Single server. To get an idea of the storage required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. Monitoring the **PITR** migration gives a good estimate of the required storage. [Storage Autogrow](../flexible-server/how-to-auto-grow-storage-portal.md) can also be used.
+During initial base copy of data, multiple insert statements are executed on the target, which in-turn generates WALs (Write Ahead Logs). Until these WALs are archived, the logs consume storage at the target in addition to the storage required by the Database. To calculate the number,
+
+1. Log in to the Single server and execute this command for all the Database(s) to be migrated: `SELECT pg_size_pretty( pg_database_size('dbname') );`
+2. Check the **Storage used** metric under the Monitoring tab in the Single server
+
+It's advisable to allocate sufficient storage on the Flexible server, equivalent to 1.25 times or 25% more storage than what is being used in the points #1 or #2, **whichever is higher**.  [Storage Autogrow](../flexible-server/how-to-auto-grow-storage-portal.md) can also be used.
 
 > [!IMPORTANT]  
 > In both manual configuration and Storage Autogrow, storage size can't be reduced. Each step in the Storage configuration spectrum doubles in size so it's prudent to estimate the required storage beforehand.
 
-A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration. Additionally, it's recommended to enable or provision Read replicas and High Availability (HA) after the migration is complete. This precaution ensures that the migration process completes seamlessly.
+A good place to begin is the quickstart to [Create an Azure Database for PostgreSQL flexible server using the portal](../flexible-server/quickstart-create-server-portal.md). [Compute and storage options in Azure Database for PostgreSQL - Flexible Server](../flexible-server/concepts-compute-storage.md) also gives detailed information about each server configuration.
+
+### Calculate downtime
+
+To get an idea of the downtime required for migrating your server, we strongly recommend taking a **PITR (point in time restore)** of your single server and running it against the single to flex migration tool. Monitoring the **PITR** migration gives a good estimate of the required downtime. Additionally, if Read replicas (RR) or High Availability (HA) is used, they should be enabled or provisioned **after** the migration is complete. When the migration starts, there's a lot of data copied to the target. If HA or RR is enabled, every transaction has to be acknowledged and it increases the lag between the primary and the backups. The lag in turn impacts cost in terms of extra storage and time required to complete the migration and hence should be avoided. This precaution ensures that the migration process completes seamlessly.
 
 ## Set up Online migration parameters
 
 > [!NOTE]  
-> Online migration is currently supported in limited regions - India Central, India South, Australia Southeast and South East Asia. For Onlone migrations using Single servers running PostgreSQL 9.5 and 9.6 we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11.
+> For Online migrations using Single servers running PostgreSQL 9.5 and 9.6, we explicitly have to allow replication connection. To enable that, add a firewall entry to allowlist connection from target. Make sure the firewall rule name has `_replrule` suffix. The suffic isn't required for Single servers running PostgreSQL 10 and 11. Support for **Online** migrations is currently available in UK South, South Africa North, UAE North, and all regions across Asia and Australia. In other regions, Online migration can be enabled by the user at a subscription-level by registering for the **Online PostgreSQL migrations to Azure PostgreSQL Flexible server** preview feature as shown in the image.
+
+:::image type="content" source="./media/concepts-single-to-flexible/online-migration-feature-switch.png" alt-text="Screenshot of online PostgreSQL migrations to Azure PostgreSQL Flexible server." lightbox="./media/concepts-single-to-flexible/online-migration-feature-switch.png":::
 
 For Online migration, the Azure replication support should be set to Logical under the Replication settings of the Single server page in the Azure portal. In addition, the server parameters `max_wal_senders` and `max_replication_slots` values should be equal to the number of Databases that need to be migrated. They can also be configured in the command line using the following commands:
 
@@ -45,9 +56,12 @@ For Online migration, the Azure replication support should be set to Logical und
 
 You'll need to restart the source Single server after completing all the Online migration prerequisites.
 
+Online migration makes use of logical replication, which has a few [restrictions](https://www.postgresql.org/docs/current/logical-replication-restrictions.html).
+In addition, it's recommended to have a primary key in all the tables of a database undergoing Online migration. If primary key is absent, the deficiency may result in only insert operations being reflected during migration, excluding updates or deletes. Add a temporary primary key to the relevant tables before proceeding with the online migration. Another option is to use the [REPLICA IDENTIY](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-ALTERTABLE-REPLICA-IDENTITY) action with `ALTER TABLE`. If none of these options work, perform an offline migration as an alternative.
+
 ## Migration timeline
 
-Each migration has a lifecycle of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifecycle of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there is no data loss. Similarly, for Online migration, it's recommended to keep traffic low throughout the migration.
+Each migration has a maximum lifetime of seven days (168 hours) once the migration starts and will time out after seven days. You can plan to complete your migration and application cutover once the data validation and all checks are complete to avoid the migration from timing out. In Online migrations, after the initial base copy is complete, the cutover window has a lifetime of three days (72 hours) before timing out. In Offline migrations, the applications should stop writing to the Database so that there's no data loss. Similarly, for Online migration, keep traffic low throughout the migration.
 
 In most cases, the non-prod servers (dev, UAT, test, staging) are migrated using offline migrations. Since these servers have less data than the production servers, the migration completes fast. For migration of production server, you need to know the time it would take to complete the migration to plan for it in advance.
 
@@ -65,7 +79,7 @@ For calculating the total downtime to perform migration of production server, th
     * Comparing max or min IDs of key application related columns
 
 > [!NOTE]  
-> The size of databases is not the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It's completely normal to have size differences between source and target servers. If there's an issue in the first three steps of validation, it indicates a problem with the migration.
+> The size of databases isn't the right metric for validation.The source server might have bloats/dead tuples which can bump up the size on the source server. Also, the storage containers used in single and flexible servers are completely different. It's completely normal to have size differences between source and target servers. If there's an issue in the first three steps of validation, it indicates a problem with the migration.
 
 - **Migration of server settings** - The server parameters, firewall rules (if applicable), tags, alerts need to be manually copied from single server to flexible server.
 
@@ -137,7 +151,7 @@ In summary, the Single to Flexible migration tool migrates a table in parallel t
 
 ## Vacuum bloat in the PostgreSQL database
 
-Over time, as data is added, updated, and deleted, PostgreSQL may accumulate dead rows and wasted storage space. This can lead to increased storage requirements and decreased query performance. Vacuuming is a crucial maintenance task that helps reclaim this wasted space and ensures the database operates efficiently. Vacuuming addresses issues such as dead rows and table bloat, ensuring efficient use of storage. More importantly, it helps ensure a quicker migration as the migration time taken is a function of the Database size.
+Over time, as data is added, updated, and deleted, PostgreSQL may accumulate dead rows and wasted storage space. This bloat can lead to increased storage requirements and decreased query performance. Vacuuming is a crucial maintenance task that helps reclaim this wasted space and ensures the database operates efficiently. Vacuuming addresses issues such as dead rows and table bloat, ensuring efficient use of storage. More importantly, it helps ensure a quicker migration as the migration time taken is a function of the Database size.
 
 PostgreSQL provides the VACUUM command to reclaim storage occupied by dead rows. Additionally, the `ANALYZE` option gathers statistics, further optimizing query planning. For tables with heavy write activity, the `VACUUM` process can be more aggressive by using `VACUUM FULL`, but it requires more time to execute.
 
@@ -166,6 +180,33 @@ VACUUMLO;
 ```
 
 Regularly incorporating these vacuuming strategies ensures a well-maintained PostgreSQL database.
+
+## Special consideration
+
+### Database with postgres_fdw extension
+
+The [postgres_fdw module](https://www.postgresql.org/docs/current/postgres-fdw.html) provides the foreign-data wrapper postgres_fdw, which can be used to access data stored in external PostgreSQL servers. In case, your database uses this extension, the following steps have to be performed to ensure a successful migration.
+
+> [!NOTE]  
+> Steps 2 and 4 should be executed only if the [Migration of users/roles, ownerships and privileges](./concepts-single-to-flexible.md#migration-of-usersroles-ownerships-and-privileges) is not enabled for your server.
+
+1. Temporarily remove (unlink) Foreign data wrapper on the source.
+2. Remove foreign roles/users on source.
+3. Perform data migration of rest using the Migration Tool.
+4. Migrate User/Roles to target using [this script](https://github.com/cpj2195/sterlingtomerumigrations/blob/main/migrate_roles_users.py)
+5. Restore the Foreign data wrapper roles, user and Links to the target after migration is complete.
+
+### Database with postGIS extension
+
+The postgis extension has breaking changes/compat issues between different versions. Hence, the migration tool disallows migration if there's a version incompatibility. If you migrate to a Flexible server with PostgreSQL 11, this is not a problem, because FSPG11 supports same version of postGIS, which is available on Single server as well. So the migration goes ahead in this case. If you migrate to a Flexible server with PostgreSQL 12 or higher, the application should be checked against the newer postGIS version to ensure that the application isn't impacted or the necessary changes have to be made to the Application. The [postGIS news](https://postgis.net/news/) and [release notes](https://postgis.net/docs/release_notes.html#idm45191) are a good starting point to understand the breaking changes across versions. Once the changes are taken care of, raise a support request to allow-list migration for your Flexible server to a higher PostgreSQL version.
+
+### Database connection clean-up
+
+Sometimes you may encounter this error when starting a migration:
+
+`CL003:Target database cleanup failed in pre-migration step. Reason: Unable to kill active connections on target database created by other users. Please add pg_signal_backend role to migration user using the command 'GRANT pg_signal_backend to <migrationuser>' and try a new migration.`
+
+In this case, you can grant permissions to the `migrationuser` to close all active connections to the database or you can close the connections manually before retrying the migration.
 
 ## Conclusion
 
