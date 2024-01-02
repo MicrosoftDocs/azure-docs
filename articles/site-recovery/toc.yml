@@ -6,12 +6,10 @@
     href: site-recovery-overview.md
   - name: What's new in Site Recovery
     href: site-recovery-whats-new.md
-  - name: Archieve for What's new
+  - name: Archive for What's new
     href: site-recovery-whats-new-archive.md
   - name: Site Recovery - FAQ
     href: site-recovery-faq.yml
-  - name: Disaster recovery for VMware
-    href: vmware-azure-about-disaster-recovery.md
 - name: Quickstarts
   expanded: true
   items:
@@ -179,7 +177,7 @@
       href: deploy-vmware-azure-replication-appliance-modernized.md
     - name: Failover and failback - Modernized
       href: failover-failback-overview-modernized.md
-    - name: Vmware to Azure architecture - Modernized
+    - name: VMware to Azure architecture - Modernized
       href: vmware-azure-architecture-modernized.md      
   - name: About Hyper-V VM disaster recovery
     items:

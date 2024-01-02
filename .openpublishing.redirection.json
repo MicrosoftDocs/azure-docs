@@ -1107,7 +1107,7 @@
         },
         {
             "source_path": "articles/site-recovery/vmware-azure-about-disaster-recovery.md",
-            "redirect_url": "/azure/site-recovery/ite-recovery-overview",
+            "redirect_url": "/azure/site-recovery/site-recovery-overview",
             "redirect_document_id": false
         },
         {
