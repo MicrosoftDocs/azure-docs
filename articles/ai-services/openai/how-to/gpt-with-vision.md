@@ -287,7 +287,7 @@ GPT-4 Turbo with Vision provides exclusive access to Azure AI Services tailored 
 > To use Vision enhancement, you need a Computer Vision resource, and it must be in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 > [!CAUTION]
-> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges.
+> Azure AI enhancements for GPT-4 Turbo with Vision will be billed separately from the core functionalities. Each specific Azure AI enhancement for GPT-4 Turbo with Vision has its own distinct charges. For details, see the [special pricing information](../concepts/gpt-with-vision.md#special-pricing-information).
 
 Follow these steps to set up a video retrieval system and integrate it with your AI chat model:
 1. Get an Azure AI Vision resource in the same region as the Azure OpenAI resource you're using.
