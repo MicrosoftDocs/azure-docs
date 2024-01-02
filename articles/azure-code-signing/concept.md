@@ -51,8 +51,9 @@ Azure Code Signing has the following resource types:
 *Certificate Profile – Template with the information that is used in the issued certificates, and a sub-resource to a Code Signing Account resource. 
 
  
-
 In the below example structure you’ll notice that an Azure Subscription has a resource group and under that resource group you can have one or many Code Signing Account resources with one or many Certificate Profiles. This ability to have multiple Code Signing Accounts and Certificate Profiles will be useful as Azure Code Signing expands the types of signing scenarios and types of certificates offered. For now, we recommend you create a single Code Signing Account with a single Certificate Profile.
+
+![Diagram of Azure Code Signing resource group and cert profiles](./media/acs-cert-diagram.png)
 
 ## [Section 2 heading]
 <!-- add your content here -->
