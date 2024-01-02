@@ -4,7 +4,7 @@ description: Learn how to transition from Storage Analytics metrics (classic met
 author: normesta
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 01/03/2024
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
@@ -13,7 +13,7 @@ ms.custom: monitoring
 
 # Transition to metrics in Azure Monitor
 
-On **August 31, 2023** Storage Analytics metrics, also referred to as *classic metrics* will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). If you use classic metrics, make sure to transition to metrics in Azure Monitor prior to that date. This article helps you make the transition.
+On **January 9, 2024** Storage Analytics metrics, also referred to as *classic metrics* will be retired. If you use classic metrics, make sure to transition to metrics in Azure Monitor prior to that date. This article helps you make the transition.
 
 ## Steps to complete the transition
 
