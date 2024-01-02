@@ -4,7 +4,7 @@ description: Use the Azure CLI to create and manage APIs, API versions, and API 
 author: dlepow
 ms.service: api-center
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 01/02/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to automate processes to register and manage APIs in my Azure API center.
@@ -12,7 +12,7 @@ ms.custom:
 
 # Use the Azure CLI to manage the API inventory
 
-This article shows how to use common [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md). You can use the Azure CLI to script operations to manage your API inventory.  
+This article shows how to use [`az apic api`](/cli/azure/apic/api) commands in the Azure CLI to add and configure APIs in your [API center](overview.md). You can use commands in the Azure CLI to script operations to manage your API inventory and other aspects of your API center.  
 
 [!INCLUDE [api-center-preview-feedback](includes/api-center-preview-feedback.md)]
 
@@ -24,11 +24,11 @@ This article shows how to use common [`az apic api`](/cli/azure/apic/api) comman
     [!INCLUDE [include](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
     > [!NOTE]
-    > `az apic` commands require the `apic-extension` extension to the Azure CLI. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command.
+    > `az apic` commands require the `apic-extension` extension to the Azure CLI. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
 
 ## Register API, API version, and definition
 
-The following steps show how to create an API and associate a single version and API definition. For background about the data model in API Center, see [Key concepts](key-concepts.md).
+The following steps show how to create an API and associate a single API version and API definition. For background about the data model in API Center, see [Key concepts](key-concepts.md).
 
 ### 1. Create an API
 
@@ -42,7 +42,7 @@ az apic api create  --resource-group myGroup
     --title "Petstore API" --kind "rest"
 ```
 
-You can set more API properties with other command parameters. For example, set [metadata properties](key-concepts.md#metadata-properties) you've defined for APIs by passing them using the `--custom-properties` parameter:
+You can set more API properties using other command parameters. For example, set [metadata properties](key-concepts.md#metadata-properties) you've defined for APIs by passing values using the `--custom-properties` parameter:
 
 <!-- Need to find out how metadata works and whether custom metadata covers just the custom properties or also built-in  
 
@@ -61,7 +61,7 @@ az apic api create \
 
 Use the [az apic api version create](/cli/azure/apic/api/version#az_apic_api_version_create) command to create a version for your API. 
 
-The following example creates an API version named *v1-0-0* for the *petstore-api* API in the *myGroup* resource group and *myAPICenter* API center. 
+The following example creates an API version named *v1-0-0* for the *petstore-api* API that you created in the previous section. 
 
 ```azurecli-interactive
 az apic api version create --resource-group myResourceGroup \
@@ -70,9 +70,11 @@ az apic api version create --resource-group myResourceGroup \
 ```
 <!-- title param is supposed to be optional but command fails without it -->
 
-### 3. Create an API definition
+### 3. Create API definition and add specification file 
 
 Use the [az apic api definition](/cli/azure/apic/api/definition) commands to add a definition and an accompanying specification file for an API version.
+
+#### Create a definition
 
 The following example uses the [az apic api definition create](/cli/azure/apic/api/definition#az_apic_api_definition_create) command to create a definition named *openapi* for the *petstore-api* API version that you created in the previous section. 
 
@@ -81,6 +83,8 @@ az apic api definition create --resource-group myResourceGroup \
     --service myAPICenter --api-name petstore-api \
     --version v1-0-0 --name "openapi" --title "OpenAPI"
 ```
+
+#### Import a specification file
 
 Import a specification file to the definition using the [az apic api definition import-specification](/cli/azure/apic/api/definition#az_apic_api_definition_import_specification) command.
 
@@ -99,7 +103,7 @@ az apic api definition import-specification \
 
 ## Register an API from a specification file - single step
 
-You can register an API from a local specification file in a single step by using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command. With this option, an API version and definition are created automatically.
+You can register an API from a local specification file in a single step by using the [az apic api register](/cli/azure/apic/api#az-apic-api-register) command. With this option, a default API version and definition are created automatically for the API.
 
 The following example registers an API in the *myAPICenter* API center from a local OpenAPI definition file named *specificationFile.json*.
 

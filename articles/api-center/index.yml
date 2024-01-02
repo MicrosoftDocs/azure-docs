@@ -42,3 +42,7 @@ landingContent:
             url: register-apis.md
           - text: 3 - Add environments and deployments
             url: configure-environments-deployments.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage inventory - Azure CLI
+            url: manage-apis-azure-cli.md
