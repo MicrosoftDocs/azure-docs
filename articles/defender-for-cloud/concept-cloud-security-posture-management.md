@@ -77,14 +77,14 @@ You can choose which ticketing system to integrate. For preview, only ServiceNow
     | AWS Service | Resource types | Exclusions |
     |---|---|---|
     | Compute | EC2 instances |  Deallocated VMs |
-    | Storage | S3 Buckets | ---|
-    | DBs | RDS instances | ---|
+    | Storage | S3 Buckets | --- |
+    | DBs | RDS instances | --- |
 
     | GCP Service | Resource types | Exclusions |
     |---|---|---|
     | Compute |  1. Google Compute instances<br/> 2. Google Instance Group | Instances with non-running states |
     | Storage | Storage buckets | - Buckets from classes: ‘nearline’, ‘coldline’, ‘archive’<br/>- Buckets from regions other than: europe-west1, us-east1, us-west1, us-central1, us-east4, asia-south1, northamerica-northeast1 |
-    |DBs | Cloud SQL Instances | --- |
+    | DBs | Cloud SQL Instances | --- |
 
 ## Azure cloud support
 
