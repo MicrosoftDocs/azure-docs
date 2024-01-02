@@ -24,6 +24,10 @@ This article provides details about the features and enhancements made to Azure 
 
 ### Azure Health Data Services
 
+**Additional capabilities added to the Export operation**
+
+$export operation now supports exporting versioned resources and soft deleted resources. For more information, see [Export query parameters](fhir/export-data.md).
+
 **Encryption with customer-managed keys is generally available for the FHIR and DICOM services**
 
 Data stored in Azure Health Data Services is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. You can enable data encryption with customer-managed keys (CMK) for new and existing FHIR® and DICOM® services, providing your organization with improved flexibility to manage access controls.
