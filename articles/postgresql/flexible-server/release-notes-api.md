@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL - Flexible Server API Release notes
-description: API Release notes of Azure Database for PostgreSQL - Flexible Server.
+title: API release notes
+description: API release notes for Azure Database for PostgreSQL - Flexible Server.
 author: techieari
 ms.author: arianap
 ms.custom: references_regions, build-2023
@@ -10,7 +10,7 @@ ms.topic: overview
 ms.date: 06/06/2023
 ---
 
-# API Release notes - Azure Database for PostgreSQL - Flexible Server
+# API release notes - Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

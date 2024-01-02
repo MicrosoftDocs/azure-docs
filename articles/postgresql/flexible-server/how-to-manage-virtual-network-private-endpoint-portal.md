@@ -1,6 +1,6 @@
 ---
-title: Manage virtual networks - Azure portal with Private Link- Azure Database for PostgreSQL - Flexible Server
-description: Create and manage virtual networks for Azure Database with Private Link for PostgreSQL - Flexible Server using the Azure portal
+title: Manage virtual networks with Private Link - Azure portal
+description: Create and manage virtual networks for Azure Database with Private Link for PostgreSQL - Flexible Server using the Azure portal.
 author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql

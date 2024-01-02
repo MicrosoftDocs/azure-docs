@@ -1,6 +1,6 @@
 ---
-title: Manage virtual networks - Azure CLI - Azure Database for PostgreSQL - Flexible Server
-description: Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure CLI
+title: Manage virtual networks - Azure CLI
+description: Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure CLI.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql

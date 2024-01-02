@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL - Flexible Server
+title: Overview
 description: Provides an overview of Azure Database for PostgreSQL - Flexible Server.
 author: sunilagarwal
 ms.author: sunila

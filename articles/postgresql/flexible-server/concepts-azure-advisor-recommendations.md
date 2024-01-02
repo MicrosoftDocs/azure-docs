@@ -1,6 +1,6 @@
 ---
-title: Azure Advisor for PostgreSQL - Flexible Server
-description: Learn about Azure Advisor recommendations for PostgreSQL - Flexible Server.
+title: Azure Advisor
+description: Learn about Azure Advisor recommendations for Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.custom: ignite-2022
@@ -10,7 +10,7 @@ ms.author: nathanwisner
 ms.date: 11/16/2021
 ---
 
-# Azure Advisor for PostgreSQL - Flexible Server
+# Azure Advisor for Azure Database for PostgreSQL - Flexible Server
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 

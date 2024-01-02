@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect with C# - Azure Database for PostgreSQL - Flexible Server'
+title: 'Quickstart: Connect with C#'
 description: "This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL - Flexible Server."
 ms.service: postgresql
 ms.subservice: flexible-server

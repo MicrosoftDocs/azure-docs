@@ -1,6 +1,6 @@
 ---
-title: How to enable and use pgvector - Azure Database for PostgreSQL - Flexible Server
-description: How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server
+title: How to enable and use pgvector
+description: How to enable and use pgvector on Azure Database for PostgreSQL - Flexible Server.
 ms.author: avijitgupta
 author: AvijitkGupta
 ms.reviewer: kabharati

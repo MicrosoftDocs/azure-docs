@@ -1,5 +1,5 @@
 ---
-title: Canceling statement due to conflict with recovery - Azure Database for PostgreSQL - Flexible Server
+title: Canceling statement due to conflict with recovery
 description: Provides resolutions for a read replica error - Canceling statement due to conflict with recovery.
 ms.service: postgresql
 ms.subservice: flexible-server
