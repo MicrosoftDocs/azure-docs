@@ -107,13 +107,16 @@ client = AzureOpenAI(
     azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
     )
     
-deployment_name='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+deployment_name='gpt-35-turbo' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
     
 # Send a completion call to generate an answer
 print('Sending a test completion job')
 start_phrase = 'Write a tagline for an ice cream shop. '
-response = client.chat.completions.create(model=deployment_name, prompt=start_phrase, max_tokens=10)
-print(response.choices[0].text)
+response = client.chat.completions.create(model=deployment_name, max_tokens=10, messages=[
+    {"role": "user", "content": 'Write a tagline for an ice cream shop.'}
+  ],
+)
+print(start_phrase + response.choices[0].message.content)
 ```
 
 ---
