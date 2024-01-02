@@ -23,12 +23,6 @@
   items:
   - name: Establish a private connection to a virtual network
     href: configure-expressroute-private-peering.md
-  - name: Configure a virtual network gateway for ExpressRoute
-    items:
-    - name: Azure portal
-      href: expressroute-howto-add-gateway-portal-resource-manager.md
-    - name: Azure PowerShell
-      href: expressroute-howto-add-gateway-resource-manager.md
   - name: Link a virtual network to an ExpressRoute circuit
     items:
     - name: Azure portal
@@ -135,6 +129,12 @@
         href: expressroute-howto-routing-arm.md
       - name: Azure CLI
         href: howto-routing-cli.md
+    - name: Configure a virtual network gateway for ExpressRoute
+      items:
+      - name: Azure portal
+        href: expressroute-howto-add-gateway-portal-resource-manager.md
+      - name: Azure PowerShell
+        href: expressroute-howto-add-gateway-resource-manager.md
   - name: Configuring ExpressRoute Direct
     items:
     - name: Configure ExpressRoute Direct
