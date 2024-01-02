@@ -119,4 +119,4 @@ Recovery Services vault | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVa
 
 ## Next steps
 
-Learn how to add more [assessment](how-to-assess.md) and [migration](how-to-migrate.md) tools. 
+Learn how to add additional [assessment](how-to-assess.md) and [migration](how-to-migrate.md) tools. 
