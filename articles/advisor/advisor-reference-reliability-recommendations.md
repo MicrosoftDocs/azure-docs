@@ -645,6 +645,23 @@ In active-active configuration, both instances of the VPN gateway establish S2S 
 
 Learn more about [Virtual network gateway - VNetGatewayActiveActive (Enable Active-Active gateways for redundancy)](https://aka.ms/aa_vpnha_learnmore).
 
+### Use HEAD health probes
+
+Front Door Health probes can use either the GET or HEAD HTTP method. It’s a good practice to use the HEAD method for health probes, which reduces the amount of traffic load on your origins.
+
+Learn more about [Use HEAD health probes](https://aka.ms/afd-use-health-probes).
+
+### Use managed TLS certificates
+
+When Front Door manages your TLS certificates, it reduces your operational costs, and helps you to avoid costly outages caused by forgetting to renew a certificate. Front Door automatically issues and rotates the managed TLS certificates.
+
+Learn more about [Use managed TLS certificates](https://aka.ms/afd-use-managed-tls).
+
+### Disable health probes when there is only one origin in an origin group
+
+If you only have a single origin, Front Door always routes traffic to that origin even if its health probe reports an unhealthy status. The status of the health probe doesn't do anything to change Front Door's behavior. In this scenario, health probes don't provide a benefit and you should disable them to reduce the traffic on your origin.
+
+Learn more about [Health probe best practices](https://aka.ms/afd-disable-health-probes).
 
 ## SAP for Azure
 
