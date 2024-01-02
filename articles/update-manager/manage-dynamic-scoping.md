@@ -91,17 +91,19 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 
 1. In [Azure portal](https://portal.azure.com), go to **+Create a resource** > **Virtual machine** > **Create**. 
 1. In **Create a virtual machine**, select **Management** tab and under the **Guest OS Updates**, in **Patch orchestration options**, select **Azure-orchestrated**. It sets the following properties:
+
    - Patch mode is set to *AutomaticByPlatform* 
    - Set the BypassPlatformSafetyChecksOnUserSchedule = *True*
+
 1. Complete the details under **Monitoring**, **Advanced** and **Tags** tabs.
-1. Select **Review + Create** and under the **Management** you can view the values as **Periodic assessment** - *Off* and **Patch orchestration options** - *Azure-orchestrated with user managed schedules (Preview)*.
+1. Select **Review + Create** and under the **Management** you can view the values as **Periodic assessment** - *Off* and **Patch orchestration options** - *Azure-orchestrated*.
 1. Select **Create**.
    
 
 #### [From Schedule updates tab](#tab/sc)
 
 1. Follow the steps from 1 to 5 listed in [Add a Dynamic scope](#add-a-dynamic-scope).
-1. In **Configure Azure VMs for schedule updates**, page select **Change the required options to ensure schedule supportability** option to confirm that:
+1. In **Configure Azure VMs for schedule updates**, page select **Change the required options to ensure schedule supportability** option to confirm that **patch orchestration** is set as **Customer Managed Schedules**. It sets the following properties:
 
     - Patch mode is set to *AutomaticByPlatform*
     - Set the BypassPlatformSafetyChecksOnUserSchedule = *True*.
@@ -114,10 +116,11 @@ Obtaining consent to apply updates is an important step in the workflow of dynam
 
 1. In **Azure Update Manager**, go to **Overview** > **Settings** > **Update settings**.
 1. In **Change Update settings**, select **+Add machine** to add the machines.
-1. In the list of machines sorted as per the operating system, go to the **Patch orchestration** option and select **Customer Managed Schedules** to confirm that:
+1. In the list of machines sorted as per the operating system, go to the **Patch orchestration** option and select **Customer Managed Schedules**. It sets the following properties:
 
    - Patch mode is set to *AutomaticByPlatform* 
    - Set the BypassPlatformSafetyChecksOnUserSchedule = *True*
+
 1. Select **Save**.
 
    The selection made in this workflow automatically applies the update settings and no consent is explicitly obtained.  
