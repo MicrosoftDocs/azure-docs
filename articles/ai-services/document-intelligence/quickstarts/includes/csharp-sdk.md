@@ -635,7 +635,7 @@ using Azure.AI.DocumentIntelligence;
 string endpoint = "<your-endpoint>";
 string key = "<your-key>";
 AzureKeyCredential credential = new AzureKeyCredential(key);
-DocumentAIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
+DocumentIntelligenceClient client = new DocumentIntelligenceClient(new Uri(endpoint), credential);
 
 //sample invoice document
 
