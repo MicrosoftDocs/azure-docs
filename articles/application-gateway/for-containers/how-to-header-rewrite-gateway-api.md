@@ -212,7 +212,7 @@ EOF
 
 Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 ```bash
-kubectl get httproute http-route -n test-infra -o yaml
+kubectl get httproute header-rewrite-route -n test-infra -o yaml
 ```
 
 Verify the status of the Application Gateway for Containers resource has been successfully updated.
