@@ -2,7 +2,7 @@
 title: View Azure Advisor recommendations that matter to you
 description: View and filter Azure Advisor recommendations to reduce noise.
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 01/02/2024
 ---
 
 # View Azure Advisor recommendations that matter to you
