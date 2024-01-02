@@ -17,7 +17,7 @@ ms.date: 01/02/2024
 > [!IMPORTANT]
 > **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true).
 
-Get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal. This wizard calls an Azure OpenAI text embedding model to vectorize content during indexing.
+Get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal. This wizard calls an Azure OpenAI text embedding model to vectorize content during indexing and for queries.
 
 In this preview version of the wizard:
 
@@ -145,13 +145,15 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 
 1. Select your index.
 
-1. Make sure the API version is **2023-10-01-preview**.
-
 1. Optionally, select **Query options** and hide vector values in search results. This step makes your search results easier to read.
 
    :::image type="content" source="media/search-get-started-portal-import-vectors/query-options.png" alt-text="Screenshot of the query options button.":::
 
-1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter. This wizard offers a default query that issues a vector query on the "vector" field, returning the 5 nearest neighbors. If you opted to hide vector values, your default query includes a "select" statement that excludes the vector field from search results.
+1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter. 
+
+   :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
+
+   This wizard offers a default query that issues a vector query on the "vector" field, returning the 5 nearest neighbors. If you opted to hide vector values, your default query includes a "select" statement that excludes the vector field from search results.
 
    ```json
    {
@@ -171,9 +173,7 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 
 1. Select **Search** to run the query.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
-
-You should see 5 matches, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
+   You should see 5 matches, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
 
 1. To see all of the chunks from a specific document, add a filter for the title field for a specific PDF:
 
