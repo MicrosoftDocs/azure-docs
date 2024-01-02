@@ -42,7 +42,7 @@ To create an interactive shell connection to a Linux node, use the `kubectl debu
 2. Use the `kubectl debug` command to run a container image on the node to connect to it. The following command starts a privileged container on your node and connects to it.
 
     ```bash
-    kubectl debug node/aks-nodepool1-37663765-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
+    kubectl debug node/aks-nodepool1-37663765-vmss000000 -it --image=mcr.microsoft.com/cbl-mariner/busybox:2.0
     ```
 
     The following example resembles output from the command:
