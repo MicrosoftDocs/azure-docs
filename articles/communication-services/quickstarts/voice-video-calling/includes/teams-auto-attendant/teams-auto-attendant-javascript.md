@@ -26,11 +26,11 @@ mkdir calling-quickstart && cd calling-quickstart
 
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `latest`.
+> This quickstart uses the Azure Communication Services Calling SDK version `next`.
 
 ```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling@latest --save
+npm install @azure/communication-common@next --save
+npm install @azure/communication-calling@next --save
 ```
 
 ### Set up the app framework
@@ -38,7 +38,7 @@ npm install @azure/communication-calling@latest --save
 This quickstart uses webpack to bundle the application assets. Run the following command to install the `webpack`, `webpack-cli` and `webpack-dev-server` npm packages and list them as development dependencies in your `package.json`:
 
 ```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
+npm install copy-webpack-plugin@^11.0.0 webpack@^5.88.2 webpack-cli@^5.1.4 webpack-dev-server@^4.15.1 --save-dev
 ```
 
 Create an `index.html` file in the root directory of your project. We'll use this file to configure a basic layout that will allow the user to place a 1:1 video call.
@@ -63,7 +63,7 @@ Here's the code:
         <br>
         <input id="application-object-id"
             type="text"
-            placeholder="Enter application objectId identity in format: '28:orgid:USER_GUID'"
+            placeholder="Enter application objectId identity in format: 'APP_GUID'"
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-call-button" type="button" disabled="true">Start Call</button>
         <button id="hangup-call-button" type="button" disabled="true">Hang up Call</button>
@@ -78,7 +78,7 @@ Here's the code:
         <br>
         <div id="localVideoContainer" style="width: 30%;" hidden>Local video stream:</div>
         <!-- points to the bundle generated from client.js -->
-        <script src="./bundle.js"></script>
+        <script src="./main.js"></script>
     </body>
 </html>
 ```
@@ -119,7 +119,7 @@ let localVideoStreamRenderer;
 // UI widgets
 let userAccessToken = document.getElementById('user-access-token');
 let applicationObjectId = document.getElementById('application-object-id');
-let initializeCallAgentButton = document.getElementById('initialize-call-agent');
+let initializeCallAgentButton = document.getElementById('initialize-teams-call-agent');
 let startCallButton = document.getElementById('start-call-button');
 let hangUpCallButton = document.getElementById('hangup-call-button');
 let acceptCallButton = document.getElementById('accept-call-button');
@@ -169,7 +169,7 @@ startCallButton.onclick = async () => {
     try {
         const localVideoStream = await createLocalVideoStream();
         const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
-        call = teamsCallAgent.startCall([{ botId: applicationObjectId.value.trim() }], { videoOptions: videoOptions });
+        call = callAgent.startCall([{ teamsAppId: applicationObjectId.value.trim(), cloud:"public" }], { videoOptions: videoOptions });
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
@@ -224,6 +224,11 @@ subscribeToCall = (call) => {
                 console.log(`Call ended, call end reason={code=${call.callEndReason.code}, subCode=${call.callEndReason.subCode}}`);
             }   
         });
+
+        call.on('isLocalVideoStartedChanged', () => {
+            console.log(`isLocalVideoStarted changed: ${call.isLocalVideoStarted}`);
+        });
+        console.log(`isLocalVideoStarted: ${call.isLocalVideoStarted}`);
         call.localVideoStreams.forEach(async (lvs) => {
             localVideoStream = lvs;
             await displayLocalVideoStream();
@@ -387,12 +392,41 @@ hangUpCallButton.addEventListener("click", async () => {
 });
 ```                                                          
 
+## Add the webpack local server code
+
+Create a file in the root directory of your project called **webpack.config.js** to contain the local server logic for this quickstart. Add the following code to **webpack.config.js**:
+```javascript
+const path = require('path');
+const CopyPlugin = require("copy-webpack-plugin");
+
+module.exports = {
+    mode: 'development',
+    entry: './index.js',
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, './')
+        },
+    },
+    plugins: [
+        new CopyPlugin({
+            patterns: [
+                './index.html'
+            ]
+        }),
+    ]
+};
+```
+
 ## Run the code
 
 Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host in a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npx webpack serve --config webpack.config.js
 ```
 
 Manual steps to setup the call:

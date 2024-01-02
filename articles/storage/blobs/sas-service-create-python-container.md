@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to create a service shared access signature (SAS) for a container using the Azure Blob Storage client library for Python.
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: pauljewell
@@ -14,6 +14,8 @@ ms.custom: devx-track-python, devguide-python, engagement-fy23
 ---
 
 # Create a service SAS for a container with Python
+
+[!INCLUDE [storage-dev-guide-selector-service-sas-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-service-sas-container.md)]
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
@@ -35,13 +37,13 @@ The storage account access key used to sign the SAS is passed to the method as t
 
 The following code example shows how to create a service SAS with read permissions for a container resource:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_service_sas_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py" id="Snippet_create_service_sas_container":::
 
 ## Use a service SAS to authorize a client object
 
 The following code example shows how to use the service SAS created in the earlier example to authorize a [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_service_sas_container":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py" id="Snippet_use_service_sas_container":::
 
 ## Resources
 
@@ -49,7 +51,7 @@ To learn more about using the Azure Blob Storage client library for Python, see 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

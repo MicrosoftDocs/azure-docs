@@ -1,11 +1,11 @@
 ---
 title: Create a user delegation SAS for a container with Java
 titleSuffix: Azure Storage
-description: Learn how to create a user delegation SAS for a container with Azure Active Directory credentials by using the Java client library for Blob Storage.
+description: Learn how to create a user delegation SAS for a container with Microsoft Entra credentials by using the Java client library for Blob Storage.
 services: storage
 author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/12/2023
 ms.author: pauljewell
@@ -16,15 +16,17 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 # Create a user delegation SAS for a container with Java
 
+[!INCLUDE [storage-dev-guide-selector-user-delegation-sas-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-user-delegation-sas-container.md)]
+
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
+This article shows how to use Microsoft Entra credentials to create a user delegation SAS for a container using the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## Assign Azure roles for access to data
 
-When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
+When a Microsoft Entra security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or a Microsoft Entra user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
 [!INCLUDE [storage-dev-guide-user-delegation-sas-java](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-java.md)]
 

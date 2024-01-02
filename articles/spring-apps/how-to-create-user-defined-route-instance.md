@@ -209,30 +209,14 @@ The following example shows how to add rules to your firewall. For more informat
 az network firewall network-rule create \
     --resource-group $RG \
     --firewall-name $FWNAME \
-    --collection-name 'asafwnr' -n 'apiudp' \
-    --protocols 'UDP' \
-    --source-addresses '*' \
-    --destination-addresses "AzureCloud" \
-    --destination-ports 1194 \
-    --action allow \
-    --priority 100
-az network firewall network-rule create \
-    --resource-group $RG \
-    --firewall-name $FWNAME \
-    --collection-name 'asafwnr' -n 'springcloudtcp' \
+    --collection-name 'asafwnr' \
+    --name 'springcloudtcp' \
     --protocols 'TCP' \
     --source-addresses '*' \
     --destination-addresses "AzureCloud" \
-    --destination-ports 443 445
-az network firewall network-rule create \
-    --resource-group $RG \
-    --firewall-name $FWNAME \
-    --collection-name 'asafwnr' \
-    --name 'time' \
-    --protocols 'UDP' \
-    --source-addresses '*' \
-    --destination-fqdns 'ntp.ubuntu.com' \
-    --destination-ports 123
+    --destination-ports 443 445 \
+    --action allow \
+    --priority 100
 
 # Add firewall application rules.
 
@@ -242,9 +226,10 @@ az network firewall application-rule create \
     --collection-name 'aksfwar'\
     --name 'fqdn' \
     --source-addresses '*' \
-    --protocols 'http=80' 'https=443' \
+    --protocols 'https=443' \
     --fqdn-tags "AzureKubernetesService" \
-    --action allow --priority 100
+    --action allow \
+    --priority 100
 ```
 
 ### Associate route tables with subnets

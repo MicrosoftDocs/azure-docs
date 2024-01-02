@@ -51,7 +51,7 @@ Starting from agent version 1.13.27, the Linux agent will support both Python 2 
 
 If you're using an older version of the agent, you must have the virtual machine use Python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default, then you must install it. The following sample commands will install Python 2 on different distros:
 
- - **Red Hat, CentOS, Oracle**: 
+- **Red Hat, CentOS, Oracle**: 
  
  ```bash
     sudo yum install -y python2
@@ -118,7 +118,10 @@ For the network requirements for the Linux agent, see [Log Analytics agent overv
 
 Regardless of the installation method used, you need the workspace ID and key for the Log Analytics workspace that the agent will connect to. Select the workspace from the **Log Analytics workspaces** menu in the Azure portal. Under the **Settings** section, select **Agents**.
 
-[![Screenshot that shows workspace details.](media/log-analytics-agent/workspace-details.png)](media/log-analytics-agent/workspace-details.png#lightbox)
+:::image type="content" source="media/log-analytics-agent/workspace-details.png" lightbox="media/log-analytics-agent/workspace-details.png" alt-text="Screenshot that shows workspace details.":::
+
+>[!NOTE]
+>While regenerating the [Log Analytics Workspace shared keys](/rest/api/loganalytics/workspace-shared-keys) is possible, the intention for this is **not** to immediately restrict access to any agents currently using those keys. Agents use the key to generate a certificate that expires after three months. Regenerating the shared keys will only prevent agents from renewing their certificates, not continuing to use those certificates until they expire.
 
 ## Agent install package
 
@@ -222,7 +225,7 @@ The Log Analytics agent for Linux is provided in a self-extracting and installab
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government or Azure China cloud, run the following command that provides the workspace ID and primary key copied earlier, substituting `opinsights.azure.us` or `opinsights.azure.cn` respectively for the domain name:
+1. To configure the Linux computer to connect to a Log Analytics workspace in Azure Government or Microsoft Azure operated by 21Vianet cloud, run the following command that provides the workspace ID and primary key copied earlier, substituting `opinsights.azure.us` or `opinsights.azure.cn` respectively for the domain name:
 
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d <domain name>
@@ -239,6 +242,7 @@ To extract the agent packages from the bundle without installing the agent, run:
 ```
 sudo sh ./omsagent-*.universal.x64.sh --extract
 ```
+
 
 ---
 
@@ -261,3 +265,4 @@ The default cache size is 10 MB but can be modified in the [omsagent.conf file](
 - Review [Managing and maintaining the Log Analytics agent for Windows and Linux](agent-manage.md) to learn about how to reconfigure, upgrade, or remove the agent from the virtual machine.
 - Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while you're installing or managing the agent.
 - Review [Agent data sources](./agent-data-sources.md) to learn about data source configuration.
+

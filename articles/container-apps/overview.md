@@ -5,21 +5,23 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: overview
-ms.date: 03/29/2023
+ms.date: 11/14/2023
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022, build-2023
 ---
 
 # Azure Container Apps overview
 
-Azure Container Apps is a fully managed environment that enables you to run microservices and containerized applications on a serverless platform. Common uses of Azure Container Apps include:
+Azure Container Apps is a serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. Instead of worrying about server configuration, container orchestration, and deployment details, Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
+
+Common uses of Azure Container Apps include:
 
 - Deploying API endpoints
-- Hosting background processing applications
+- Hosting background processing jobs
 - Handling event-driven processing
 - Running microservices
 
-Applications built on Azure Container Apps can dynamically scale based on the following characteristics:
+Additionally, applications built on Azure Container Apps can dynamically scale based on the following characteristics:
 
 - HTTP traffic
 - Event-driven processing
@@ -28,7 +30,12 @@ Applications built on Azure Container Apps can dynamically scale based on the fo
 
 :::image type="content" source="media/overview/azure-container-apps-example-scenarios.png" alt-text="Example scenarios for Azure Container Apps.":::
 
-Azure Container Apps enables executing application code packaged in any container and is unopinionated about runtime or programming model. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of managing cloud infrastructure and complex container orchestrators.
+To begin working with Container Apps, select the description that best describes your situation.
+
+| | Description | Resource |
+|---|---|---|
+| **I'm new to containers**| Start here if you have yet to build your first container, but are curious how containers can serve your development needs. | [Learn more about containers](start-containers.md) |
+| **I'm using serverless containers** | Container Apps provides automatic scaling, reduces operational complexity, and allows you to focus on your application rather than infrastructure.<br><br>Start here if you're interested in management, scalability, and pay-per-use features of cloud computing. | [Learn more about serverless containers](start-serverless-containers.md) |
 
 ## Features
 
@@ -39,6 +46,8 @@ With Azure Container Apps, you can:
 - [**Enable HTTPS or TCP ingress**](ingress.md) without having to manage other Azure infrastructure.
 
 - [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
+
+- [**Run jobs**](jobs.md) on-demand, on a schedule, or based on events.
 
 - Add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 

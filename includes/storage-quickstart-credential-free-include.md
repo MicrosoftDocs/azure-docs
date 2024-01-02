@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: storage
 author: alexwolfmsft
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 09/09/2022
 ms.author: alexwolf
@@ -22,7 +22,9 @@ The order and locations in which `DefaultAzureCredential` looks for credentials 
 
 For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
-### Assign roles to your Azure AD user account
+<a name='assign-roles-to-your-azure-ad-user-account'></a>
+
+### Assign roles to your Microsoft Entra user account
 
 [!INCLUDE [assign-roles](assign-roles.md)]
 

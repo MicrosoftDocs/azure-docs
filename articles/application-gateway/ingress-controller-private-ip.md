@@ -15,7 +15,7 @@ ms.author: greglin
 This feature exposes the ingress endpoint within the `Virtual Network` using a private IP.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md), currently in public preview.
+> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
 
 ## Prerequisites  
 Application Gateway with a [Private IP configuration](./configure-application-gateway-with-private-frontend-ip.md)

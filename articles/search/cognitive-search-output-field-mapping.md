@@ -1,16 +1,17 @@
 ---
 title: Map enrichments in indexers
-titleSuffix: Azure Cognitive Search
+titleSuffix: Azure AI Search
 description: Export the enriched content created by a skillset by mapping its output fields to fields in a search index.
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.custom: ignite-2022
+ms.custom:
+  - ignite-2023
 ms.topic: conceptual
 ms.date: 09/14/2022
 ---
 
-# Map enriched output to fields in a search index in Azure Cognitive Search
+# Map enriched output to fields in a search index in Azure AI Search
 
 ![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
@@ -57,7 +58,7 @@ Output field mappings are added to the `outputFieldMappings` array in an indexer
 
 | Property | Description |
 |----------|-------------|
-| sourceFieldName | Required. Specifies a path to enriched content. An example might be `/document/content`. See [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax and examples. |
+| sourceFieldName | Required. Specifies a path to enriched content. An example might be `/document/content`. See [Reference annotations in an Azure AI Search skillset](cognitive-search-concept-annotations-syntax.md) for path syntax and examples. |
 | targetFieldName | Optional. Specifies the search field that receives the enriched content. Target fields must be top-level simple fields or collections. It can't be a path to a subfield in a complex type. If you want to retrieve specific nodes in a complex structure, you can [flatten individual nodes](#flattening-information-from-complex-types) in memory, and then send the output to a string collection in your index. |
 | mappingFunction | Optional. Adds extra processing provided by [mapping functions](search-indexer-field-mappings.md#mappingFunctions) supported by indexers. In the case of enrichment nodes, encoding and decoding are the most commonly used functions. |
 
@@ -257,9 +258,9 @@ The result is the following sample search document, similar to the original in A
 
 An alternative rendering in a search index is to flatten individual nodes in the source's nested structure into a string collection in a search index.
 
-To accomplish this task, you'll need an `outputFieldMapping` that maps an in-memory node to a string collection in the index. Although output field mappings primarily apply to skill outputs, you can also use them to address nodes after ["document cracking"](search-indexer-overview.md#stage-1-document-cracking) where the indexer opens a source document and reads it into memory.
+To accomplish this task, you'll need an `outputFieldMappings` that maps an in-memory node to a string collection in the index. Although output field mappings primarily apply to skill outputs, you can also use them to address nodes after ["document cracking"](search-indexer-overview.md#stage-1-document-cracking) where the indexer opens a source document and reads it into memory.
 
-Below is a sample index definition in Cognitive Search, using string collections to receive flattened output:
+Below is a sample index definition, using string collections to receive flattened output:
 
 ```json
 {

@@ -34,7 +34,7 @@ Azure Spot VMs and Batch low-priority VMs are similar but have a few differences
 |-|-|-|
 | **Supported Batch accounts** | User-subscription Batch accounts | Batch-managed Batch accounts |
 | **Supported Batch pool configurations** | Virtual Machine Configuration | Virtual Machine Configuration and Cloud Service Configuration (deprecated) |
-| **Available regions** | All regions that support [Spot VMs](../virtual-machines/spot-vms.md) | All regions except Microsoft Azure China 21Vianet |
+| **Available regions** | All regions that support [Spot VMs](../virtual-machines/spot-vms.md) | All regions except Microsoft Azure operated by 21Vianet |
 | **Customer eligibility** | Not available for some subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations). | Available for all Batch customers |
 | **Possible reasons for eviction** | Capacity | Capacity |
 | **Pricing Model** | Variable discounts relative to standard VM prices | Fixed discounts relative to standard VM prices |

@@ -4,7 +4,7 @@ description: Learn about the Azure cloud environments where Defender for Cloud c
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 04/13/2023
+ms.date: 12/21/2023
 ---
 
 # Support matrices for Defender for Cloud
@@ -23,7 +23,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 |Azure Blob Storage|✔|✔|-|
 |Azure Cache for Redis|✔|-|-|
 |Azure Cloud Services|✔|-|-|
-|Azure Cognitive Search|✔|-|-|
+|Azure AI Search|✔|-|-|
 |Azure Container Registry|✔|✔|[Defender for Containers](defender-for-containers-introduction.md)|
 |Azure Cosmos DB*|✔|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
@@ -47,7 +47,7 @@ Defender for Cloud provides recommendations, security alerts, and vulnerability 
 
 \* These features are currently supported in preview.
 
-\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
+\*\* Microsoft Entra recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).
 
 
 
@@ -74,7 +74,7 @@ To learn more about the specific Defender for Cloud features available on Window
 
 ## Next steps
 
-This article explained how Microsoft Defender for Cloud is supported in the Azure, Azure Government, and Azure China 21Vianet clouds. Now that you're familiar with the Defender for Cloud capabilities supported in your cloud, learn how to:
+This article explained how Microsoft Defender for Cloud is supported in the Azure, Azure Government, and Microsoft Azure operated by 21Vianet clouds. Now that you're familiar with the Defender for Cloud capabilities supported in your cloud, learn how to:
 
 - [Manage security recommendations in Defender for Cloud](review-security-recommendations.md)
 - [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)

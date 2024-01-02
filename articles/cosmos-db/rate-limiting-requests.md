@@ -149,12 +149,14 @@ For more information, see: [Cache-Aside pattern](/azure/architecture/patterns/ca
 
 ### Materialized View pattern
 
-You might pre-populate views into other collections after storing the data in Azure Cosmos DB when the data isn't ideally formatted for required query operations. This pattern can help support efficient querying and data extraction, and improve application performance.
+You might prepopulate views into other collections after storing the data in Azure Cosmos DB when the data isn't ideally formatted for required query operations. This pattern can help support efficient querying and data extraction, and improve application performance.
 
 For more information, see [Materialized View pattern](/azure/architecture/patterns/materialized-view).
 
 ## Next steps
 
+* Explore an example implemented in Go, available on [GitHub](https://github.com/mspnp/go-batcher).
+* Learn more about the [Rate Limiting pattern](/azure/architecture/patterns/rate-limiting-pattern) in the Azure Architecture Center.
 * Learn how to [troubleshoot TooManyRequests errors](troubleshoot-request-rate-too-large.md) in Azure Cosmos DB.
 * Learn how to [troubleshoot Timeout errors](troubleshoot-request-timeout.md) in Azure Cosmos DB.
 * Learn how to [troubleshoot ServiceUnavailable errors](troubleshoot-service-unavailable.md) in Azure Cosmos DB.
@@ -163,5 +165,5 @@ For more information, see [Materialized View pattern](/azure/architecture/patter
 * Learn about [Indexing policies](index-policy.md) in Azure Cosmos DB.
 * Learn about [Autoscaling](provision-throughput-autoscale.md) in Azure Cosmos DB.
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

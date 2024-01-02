@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 03/21/2023
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript
 ms.custom: devx-track-ts, devguide-ts, devx-track-js
@@ -14,14 +14,23 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 # Use blob index tags to manage and find data with TypeScript
 
-This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob). 
+[!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
+
+This article shows how to use blob index tags to manage and find data using the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob).
+
+## Prerequisites
+
+- The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
+- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with blob index tags. To learn more, see the authorization guidance for the following REST API operations:
+    - [Get Blob Tags](/rest/api/storageservices/get-blob-tags#authorization)
+    - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
+    - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags#authorization)
+
+## About blob index tags
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
 
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
-
-> [!NOTE]
-> The examples in this article assume that you've created a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object by using the guidance in the [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md) article. Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. To learn how to create a container, see [Create a container in Azure Storage with TypeScript](storage-blob-container-create-typescript.md). 
 
 ## Set tags
 
@@ -48,8 +57,7 @@ You can delete all tags by passing an empty JSON object into the setTags method.
 
 To get tags, create a [BlobClient](storage-blob-typescript-get-started.md#create-a-blobclient-object) then use the following method: 
 
-- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags
-)
+- [BlobClient.getTags](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-gettags)
 
 The following example shows how to get and iterate over the blob's tags.
 

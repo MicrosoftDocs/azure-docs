@@ -4,15 +4,22 @@ description: Learn how to view DDoS protection diagnostic logs in Log Analytics 
 services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
-ms.topic: how-to
+ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 05/11/2023
+ms.date: 08/08/2023
 ms.author: abell
 ---
 
 # View Azure DDoS Protection logs in Log Analytics workspace
 
-In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, including notifications, mitigation reports and mitigation flow logs.
+DDoS Protection diagnostic logs provide you with the ability to view DDoS Protection notifications, mitigation reports and mitigation flow logs after a DDoS attack. You can view these logs in your Log Analytics workspace.
+
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * view Azure DDoS Protection diagnostic logs including notifications, mitigation reports and mitigation flow logs.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -40,8 +47,8 @@ In this guide, you'll learn how to view Azure DDoS Protection diagnostic logs, i
 Notifications will notify you anytime a public IP resource is under attack, and when attack mitigation is over.
 
 ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSProtectionNotifications"
+AzureDiagnostics
+| where Category == "DDoSProtectionNotifications"
 ```
 
 
@@ -66,8 +73,8 @@ The following table lists the field names and descriptions:
 Attack mitigation flow logs allow you to review the dropped traffic, forwarded traffic and other interesting data-points during an active DDoS attack in near-real time. You can ingest the constant stream of this data into Microsoft Sentinel or to your third-party SIEM systems via event hub for near-real time monitoring, take potential actions and address the need of your defense operations.
 
 ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSMitigationFlowLogs"
+AzureDiagnostics
+| where Category == "DDoSMitigationFlowLogs"
 ```
 
 The following table lists the field names and descriptions:
@@ -94,8 +101,8 @@ The following table lists the field names and descriptions:
 Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 
 ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSMitigationReports"
+AzureDiagnostics
+| where Category == "DDoSMitigationReports"
 ```
 
 The following table lists the field names and descriptions:
@@ -113,18 +120,24 @@ The following table lists the field names and descriptions:
 | **ReportType** | Possible values are `Incremental` and `PostMitigation`. |
 | **MitigationPeriodStart** | The date and time in UTC when the mitigation started. |
 | **MitigationPeriodEnd** | The date and time in UTC when the mitigation ended. |
-| **IPAddress**  | Your public IP Address. | 
+| **IPAddress**  | Your public IP Address. |
 | **AttackVectors** | Degradation of attack types. The keys include `TCP SYN flood`, `TCP flood`, `UDP flood`, `UDP reflection`, and `Other packet flood`. |
-| **TrafficOverview** | Degradation of attack traffic. The keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, and `Total Other packets dropped`. | 
-| **Protocols**  | Breakdown of protocols included. The keys include `TCP`, `UDP`, and `Other`.   |  
+| **TrafficOverview** | Degradation of attack traffic. The keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, and `Total Other packets dropped`. |
+| **Protocols**  | Breakdown of protocols included. The keys include `TCP`, `UDP`, and `Other`.   |
 | **DropReasons** | Analysis of causes of dropped packets. The keys include `Protocol violation invalid TCP`. `syn Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood Rate limit exceeded`, and `Packet was forwarded to service`. Protocol violation invalid drop reasons refer to malformed packets. |
 | **TopSourceCountries** | Breakdown of the top 10 source countries into inbound traffic. |
 | **TopSourceCountriesForDroppedPackets** | Analysis of the top 10 source countries for attack traffic that have been throttled. |
-| **TopSourceASNs** | Analysis of the top 10 sources of autonomous system numbers (ASNs) of incoming traffic.  | 
+| **TopSourceASNs** | Analysis of the top 10 sources of autonomous system numbers (ASNs) of incoming traffic.  |
 | **SourceContinents** | Analysis of the source continent for inbound traffic. |
 | **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |
 
 
 ## Next steps
 
-* [Engage DDoS Rapid Response](ddos-rapid-response.md)
+In this tutorial, you learned how to view DDoS Protection diagnostic logs in a Log Analytics workspace. To learn more about the recommended steps to take when you receive a DDoS attack, see these next steps.
+
+> [!div class="nextstepaction"]
+> [Engage with Azure DDoS Rapid Response](ddos-rapid-response.md)
+
+> [!div class="nextstepaction"]
+> [components of a DDoS Rapid Response Strategy](ddos-response-strategy.md)

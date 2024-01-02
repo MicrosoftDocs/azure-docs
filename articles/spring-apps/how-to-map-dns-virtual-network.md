@@ -100,7 +100,7 @@ Both approaches require the IP address for each application in the Azure Spring 
 Use the following steps to create a private DNS zone for an application in the private network.
 
 > [!NOTE]
-> If you're using Azure China, replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> If you're using Microsoft Azure operated by 21Vianet, replace `private.azuremicroservices.io` with `private.microservices.azure.cn` in this article. For more information, see [Check Endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 #### [Azure portal](#tab/azure-portal)
 
@@ -255,7 +255,7 @@ Repeat these steps as needed to add a DNS record for other applications.
 
 ## DNS mapping with a custom domain
 
-Using this approach, you only need to add a DNS record for each Azure Spring Apps instance, but you must configure the custom domain for each application. For a core understanding of this process, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
+Using this approach, you only need to add a DNS record for each Azure Spring Apps instance, but you must configure the custom domain for each application. For a core understanding of this process, see [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
 
 This example reuses the private DNS zone `private.azuremicroservices.io` to add a custom domain related DNS record. The private FQDN has the format `<app-name>.<service-name>.private.azuremicroservices.io`.
 
@@ -309,7 +309,7 @@ When the custom domain is successfully mapped to the app, it appears in the cust
 
 ### Add TLS/SSL binding
 
-Before doing this step, make sure you've prepared your certificates and imported them into Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](tutorial-custom-domain.md).
+Before doing this step, make sure you've prepared your certificates and imported them into Azure Spring Apps. For more information, see [Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
 
 #### [Azure portal](#tab/Azure-portal)
 

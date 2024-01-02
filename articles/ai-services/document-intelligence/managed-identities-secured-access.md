@@ -4,22 +4,23 @@ titleSuffix: Azure AI services
 description: Learn how to configure secure communications between Document Intelligence and other Azure Services.
 author: laujan
 manager: nitinme
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
+ms.custom:
+  - ignite-2023
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.author: vikurpad
-monikerRange: '<=doc-intel-3.0.0'
+monikerRange: '<=doc-intel-4.0.0'
 ---
 
 
 # Configure secure access with managed identities and private endpoints
 
-[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-v2-1.md)]
+[!INCLUDE [applies to v4.0, v3.1, v3.0, and v2.1](includes/applies-to-v40-v31-v30-v21.md)]
 
 This how-to guide walks you through the process of enabling secure connections for your Document Intelligence resource. You can secure the following connections:
 
-* Communication between a client application within a Virtual Network (VNET) and your Document Intelligence Resource.
+* Communication between a client application within a Virtual Network (`VNET`) and your Document Intelligence Resource.
 
 * Communication between Document Intelligence Studio and your Document Intelligence resource.
 
@@ -59,7 +60,7 @@ Configure each of the resources to ensure that the resources can communicate wit
 
 * If you have the required permissions, the Studio sets the CORS setting required to access the storage account. If you don't have the permissions, you need to ensure that the CORS settings are configured on the Storage account before you can proceed.
 
-* Validate that the Studio is configured to access your training data, if you can see your documents in the labeling experience, all the required connections have been established.
+* Validate that the Studio is configured to access your training data, if you can see your documents in the labeling experience, all the required connections are established.
 
 You now have a working implementation of all the components needed to build a Document Intelligence solution with the default security model:
 
@@ -133,7 +134,7 @@ To ensure that the Document Intelligence resource can access the training datase
 
 1. Finally, select **Review + assign** to save your changes.
 
-Great! You've configured your Document Intelligence resource to use a managed identity to connect to a storage account.
+Great! You configured your Document Intelligence resource to use a managed identity to connect to a storage account.
 
 > [!TIP]
 >
@@ -141,6 +142,14 @@ Great! You've configured your Document Intelligence resource to use a managed id
   > You can enable storage access by selecting **Add your client IP address** from the **Networking** tab of the storage account to configure your machine to access the storage account via IP allowlisting.
 
 ## Configure private endpoints for access from VNETs
+
+> [!NOTE]
+>
+> * The resources are only accessible from the virtual network.
+>
+> * Some Document Intelligence features in the Studio like auto label require the Document Intelligence Studio to have access to your storage account.
+>
+> * Add our Studio IP address, 20.3.165.95, to the firewall allowlist for both Document Intelligence and Storage Account resources. This is Document Intelligence Studio's dedicated IP address and can be safely allowed.
 
 When you connect to resources from a virtual network, adding private endpoints ensures both the storage account, and the Document Intelligence resource are accessible from the virtual network.
 
@@ -261,19 +270,19 @@ That's it! You can now configure secure access for your Document Intelligence re
 
   :::image type="content" source="media/managed-identities/auth-failure.png" alt-text="Screenshot of authorization failure error.":::
 
-  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the Document Intelligence Studio and the storage account. For example, you may need  to add the client IP address in the storage account's networking tab.
+  **Resolution**: Ensure that there's a network line-of-sight between the computer accessing the Document Intelligence Studio and the storage account. For example, you can add the client IP address in the storage account's networking tab.
 
 * **ContentSourceNotAccessible**:
 
    :::image type="content" source="media/managed-identities/content-source-error.png" alt-text="Screenshot of content source not accessible error.":::
 
-    **Resolution**: Make sure you've given your Document Intelligence managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
+    **Resolution**: Make sure you grant your Document Intelligence managed identity the role of **Storage Blob Data Reader** and enabled **Trusted services** access or **Resource instance** rules on the networking tab.
 
 * **AccessDenied**:
 
   :::image type="content" source="media/managed-identities/access-denied.png" alt-text="Screenshot of an access denied error.":::
 
-  **Resolution**: Check to make sure there's connectivity between the computer accessing the Document Intelligence Studio and the Document Intelligence service. For example, you may need to add the client IP address to the Document Intelligence service's networking tab.
+  **Resolution**: Check to make sure there's connectivity between the computer accessing the Document Intelligence Studio and the Document Intelligence service. For example, you might need to add the client IP address to the Document Intelligence service's networking tab.
 
 ## Next steps
 

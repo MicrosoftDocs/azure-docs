@@ -6,17 +6,17 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/13/2023
+ms.date: 11/20/2023
 
 ---
 
 # Tutorial: Create and manage a VPN gateway using the Azure portal
 
-This tutorial helps you create and manage a virtual network gateway (VPN gateway) using the Azure portal. The VPN gateway is just one part of a connection architecture to help you securely access resources within a VNet.
+This tutorial helps you create and manage a virtual network gateway (VPN gateway) using the Azure portal. The VPN gateway is just one part of a connection architecture to help you securely access resources within a virtual network (VNet).
 
-:::image type="content" source="./media/tutorial-create-gateway-portal/gateway.png" alt-text="Diagram of VNet and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
+:::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram of virtual network and VPN gateway." lightbox="./media/tutorial-create-gateway-portal/gateway-diagram-expand.png":::
 
-* The left side of the diagram shows the virtual network and the VPN gateway that you create using the steps in this article.
+* The left side of the diagram shows the VNet and the VPN gateway that you create using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [Site-to-Site](tutorial-site-to-site-portal.md) and [Point-to-site](point-to-site-about.md) connections. See [VPN Gateway design](design.md) to view different design architectures that you can build.
 
 If you want to learn more about the configuration settings used in this tutorial, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md). For more information about VPN Gateway, see [What is VPN Gateway?](vpn-gateway-about-vpngateways.md)
@@ -24,7 +24,7 @@ If you want to learn more about the configuration settings used in this tutorial
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a virtual network
+> * Create a VNet
 > * Create a VPN gateway
 > * View the gateway public IP address
 > * Resize a VPN gateway (resize SKU)
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 An Azure account with an active subscription. If you don't have one, [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-## <a name="CreatVNet"></a>Create a virtual network
+## <a name="CreatVNet"></a>Create a VNet
 
 Create a VNet using the following values:
 
@@ -45,7 +45,9 @@ Create a VNet using the following values:
 * **Subnet name:** FrontEnd
 * **Subnet address space:** 10.1.0.0/24
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+[!INCLUDE [Create a VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+
+After you create your VNet, you can optionally configure Azure DDos Protection. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
 
 ## <a name="VNetGateway"></a>Create a VPN gateway
 
@@ -56,7 +58,6 @@ Create a virtual network gateway using the following values:
 * **Name:** VNet1GW
 * **Region:** East US
 * **Gateway type:** VPN
-* **VPN type:** Route-based
 * **SKU:** VpnGw2
 * **Generation:** Generation 2
 * **Virtual network:** VNet1
@@ -69,7 +70,7 @@ For this exercise, we won't be selecting a zone redundant SKU. If you want to le
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
 
-A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+A gateway can take 45 minutes or more to fully create and deploy. You can see the deployment status on the **Overview** page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the VNet in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -83,7 +84,7 @@ To see additional information about the public IP address object, select the nam
 
 ## <a name="resize"></a>Resize a gateway SKU
 
-There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Gateway settings - resizing and changing SKUs](vpn-gateway-about-vpn-gateway-settings.md#resizechange).
+There are specific rules regarding resizing vs. changing a gateway SKU. In this section, we'll resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
 
 [!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
 

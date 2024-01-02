@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/29/2023
+ms.date: 10/3/2023
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -50,6 +50,8 @@ Azure Digital Twins also supports using a mix of v2 and v3 models within the sam
 *	[Relationships](#relationships) can point in either direction, from a v2 model source to a v3 model target, or vice-versa from a v3 model source to a v2 model target.
 
 You can also migrate existing v2 models to v3. For instructions on how to do this, see [Convert v2 models to v3](how-to-manage-model.md#convert-v2-models-to-v3).
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 ## Model overview
 
@@ -334,11 +336,13 @@ While designing models to reflect the entities in your environment, it can be us
 
 Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. 
 
-You can upload many models in a single API call using the [Jobs API](concepts-apis-sdks.md#bulk-import-with-the-jobs-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples that use this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets-with-the-jobs-api). 
+You can upload many models in a single API call using the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api). The API can simultaneously accept up to the [Azure Digital Twins limit for number of models in an instance](reference-service-limits.md), and it automatically reorders models if needed to resolve dependencies between them. For detailed instructions and examples that use this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets-with-the-import-jobs-api). 
 
-An alternative to the Jobs API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
+An alternative to the Import Jobs API is the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which uses the individual model APIs to upload multiple model files at once. The sample also implements automatic reordering to resolve model dependencies. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 
 If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model Deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. It currently only works with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
+
+Or, if you want to clear out the data in an instance by deleting all the models **along with** all twins and relationships, you can use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
 
 ### Visualize models
 

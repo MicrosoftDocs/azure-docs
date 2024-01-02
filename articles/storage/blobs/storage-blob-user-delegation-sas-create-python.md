@@ -1,14 +1,13 @@
 ---
 title: Create a user delegation SAS for a blob with Python
 titleSuffix: Azure Storage
-description: Learn how to create a user delegation SAS for a blob with Azure Active Directory credentials by using the Python client library for Blob Storage.
+description: Learn how to create a user delegation SAS for a blob with Microsoft Entra credentials by using the Python client library for Blob Storage.
 services: storage
 author: pauljewellmsft
-
-ms.service: storage
+ms.author: pauljewell
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/06/2023
-ms.author: pauljewell
 ms.reviewer: dineshm
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -16,15 +15,17 @@ ms.custom: devx-track-python, devguide-python
 
 # Create a user delegation SAS for a blob with Python
 
+[!INCLUDE [storage-dev-guide-selector-user-delegation-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-user-delegation-sas.md)]
+
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+This article shows how to use Microsoft Entra credentials to create a user delegation SAS for a blob using the [Azure Storage client library for Python](/python/api/overview/azure/storage).
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## Assign Azure roles for access to data
 
-When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
+When a Microsoft Entra security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or a Microsoft Entra user account running code in the development environment, the security principal must be assigned an Azure role that grants access to blob data. For information about assigning permissions via Azure RBAC, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
 [!INCLUDE [storage-dev-guide-user-delegation-sas-python](../../../includes/storage-dev-guides/storage-dev-guide-user-delegation-sas-python.md)]
 
@@ -38,13 +39,13 @@ The user delegation key to sign the SAS is passed to the method as the `user_del
 
 The following code example shows how to create a user delegation SAS for a blob:
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_create_user_delegation_sas_blob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py" id="Snippet_create_user_delegation_sas_blob":::
 
 ## Use a user delegation SAS to authorize a client object
 
 The following code example shows how to use the user delegation SAS created in the earlier example to authorize a [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
 
-:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py" id="Snippet_use_user_delegation_sas_blob":::
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py" id="Snippet_use_user_delegation_sas_blob":::
 
 ## Resources
 
@@ -58,7 +59,7 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob-devguide-create-sas.py)
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 

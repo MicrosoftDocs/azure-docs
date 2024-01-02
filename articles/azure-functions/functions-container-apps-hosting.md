@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Container Apps to host containerized function apps in Azure Functions.
-ms.date: 05/04/2023
+ms.date: 11/15/2023
 ms.topic: conceptual
 ms.custom: references_regions, build-2023
 # Customer intent: As a cloud developer, I want to learn more about hosting my function apps in Linux containers by using Azure Container Apps.
@@ -19,7 +19,7 @@ This integration also means that you can use existing Functions client tools and
 
 ## Deploying Azure Functions to Container Apps
 
-In the current preview, you must deploy your functions code in a Linux container that you create. Functions maintains a set of [lanuage-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a Dockerfile that you can use to create your container from the correct base image. 
+In the current preview, you must deploy your functions code in a Linux container that you create. Functions maintains a set of [language-specific base images](https://mcr.microsoft.com/catalog?search=functions) that you can use to generate your containerized function apps. When you create a Functions project using [Azure Functions Core Tools](./functions-run-local.md) and include the [`--docker` option](./functions-core-tools-reference.md#func-init), Core Tools also generates a Dockerfile that you can use to create your container from the correct base image. 
 
 Azure Functions currently supports the following methods of deployment to Azure Container Apps:
 
@@ -29,7 +29,7 @@ Azure Functions currently supports the following methods of deployment to Azure 
 + Azure Pipeline tasks
 + ARM templates
 + [Bicep templates](https://github.com/Azure/azure-functions-on-container-apps/tree/main/samples/Biceptemplates)
-+ Azure Functions core tools
++ [Azure Functions Core Tools](functions-run-local.md#deploy-containers)
 
 To learn how to create and deploy a function app container to Container Apps using the Azure CLI, see [Create your first containerized functions on Azure Container Apps](functions-deploy-container-apps.md). 
 
@@ -59,12 +59,12 @@ Keep in mind the following considerations when deploying your function app conta
     + Australia East
     + Central US 
     + East US 
-    + East Us 2 
+    + East US 2 
     + North Europe 
     + South Central US 
     + UK South 
     + West Europe 
-    + West US3 
+    + West US 3 
 + When your container is hosted in a [Consumption + Dedicated plan structure](../container-apps/plans.md#consumption-dedicated), only the default Consumption plan is currently supported. Dedicated plans in this structure aren't yet supported for Functions. When running functions on Container Apps, you're charged only for the Container Apps usage. For more information, see the [Azure Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/). 
 + While all triggers can be used, only the following triggers can dynamically scale (from zero instances) when running on Container Apps:
     + HTTP 
@@ -73,12 +73,10 @@ Keep in mind the following considerations when deploying your function app conta
     + Azure Event Hubs 
     + Kafka*  
     \*The protocol value of `ssl` isn't supported when hosted on Container Apps. Use a [different protocol value](functions-bindings-kafka-trigger.md?pivots=programming-language-csharp#attributes).  
-+ Dapr is currently enabled by default in the preview release. In a later release, Dapr loading should be configurable. 
 + For the built-in Container Apps [policy definitions](../container-apps/policy-reference.md#policy-definitions), currently only environment-level policies apply to Azure Functions containers.
 + When using Container Apps, you don't have direct access to the lower-level Kubernetes APIs. 
-+ Use of user-assigned managed identities is currently supported, and is preferred for accessing Azure Container Registry. For more information, see [Add a user-assigned identity](../app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json#add-a-user-assigned-identity).
 + The `containerapp` extension conflicts with the `appservice-kube` extension in Azure CLI. If you have previously published apps to Azure Arc, run `az extension list` and make sure that `appservice-kube` isn't installed. If it is, you can remove it by running `az extension remove -n appservice-kube`.  
-+ To invoke DAPR APIs or to run the [Functions Dapr extension](https://github.com/Azure/azure-functions-dapr-extension), make sure the minimum replica count is set to at least `1`. This enables the DAPR sidecar to run in the background to handle DAPR requests. The Functions Dapr extension is also in preview, with help provided [in the repository](https://github.com/Azure/azure-functions-dapr-extension/issues).
++ The Functions Dapr extension is also in preview, with help provided [in the repository](https://github.com/Azure/azure-functions-dapr-extension/issues).
 
 ## Next steps
 

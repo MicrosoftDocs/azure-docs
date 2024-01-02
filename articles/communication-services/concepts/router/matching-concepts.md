@@ -16,15 +16,13 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # How jobs are matched to workers
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 This document describes the registration of workers, the submission of jobs and how they're matched to each other.
 
 ## Worker Registration
 
-Before a worker can receive offers to service a job, it must be registered first by setting `availableForOffers` to true.  Next, we need to specify which queues the worker listens on and which channels it can handle.  Once registered, you receive a [RouterWorkerRegistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered) event from Event Grid.
+Before a worker can receive offers to service a job, it must be registered first by setting `availableForOffers` to true.  Next, we need to specify which queues the worker listens on and which channels it can handle.  Once registered, you receive a [RouterWorkerRegistered](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered) event from Event Grid and the worker's status is changed to `active`.
 
-In the following example, we register a worker to
+In the following example, we register a worker to:
 
 - Listen on `queue-1` and `queue-2`
 - Be able to handle both the voice and chat channels.  In this case, the worker could either take a single `voice` job at one time or two `chat` jobs at the same time.  This setting is configured by specifying the total capacity of the worker and assigning a cost per job for each channel.
@@ -33,21 +31,21 @@ In the following example, we register a worker to
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", totalCapacity: 2)
+var worker = await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", capacity: 2)
 {
     AvailableForOffers = true,
-    QueueAssignments = { ["queue1"] = new RouterQueueAssignment(), ["queue2"] = new RouterQueueAssignment() },
-    ChannelConfigurations =
+    Queues = { "queue1", "queue2" },
+    Channels =
     {
-        ["voice"] = new ChannelConfiguration(capacityCostPerJob: 2),
-        ["chat"] = new ChannelConfiguration(capacityCostPerJob: 1)
+        new RouterChannel(channelId: "voice", capacityCostPerJob: 2),
+        new RouterChannel(channelId: "chat", capacityCostPerJob: 1)
     },
     Labels =
     {
-        ["Skill"] = new LabelValue(11),
-        ["English"] = new LabelValue(true),
-        ["French"] = new LabelValue(false),
-        ["Vendor"] = new LabelValue("Acme")
+        ["Skill"] = new RouterValue(11),
+        ["English"] = new RouterValue(true),
+        ["French"] = new RouterValue(false),
+        ["Vendor"] = new RouterValue("Acme")
     }
 });
 ```
@@ -57,20 +55,23 @@ await client.CreateWorkerAsync(new CreateWorkerOptions(workerId: "worker-1", tot
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createWorker("worker-1", {
-    availableForOffers = true,
-    totalCapacity: 2,
-    queueAssignments: { queue1: {}, queue2: {} },
-    channelConfigurations: {
-        voice: { capacityCostPerJob: 2 },
-        chat: { capacityCostPerJob: 1 },
+let worker = await client.path("/routing/workers/{workerId}", "worker-1").patch({
+    body: {
+        availableForOffers: true,
+        capacity: 2,
+        queues: ["queue1", "queue2"],
+        channels: [
+            { channelId: "voice", capacityCostPerJob: 2 },
+            { channelId: "chat", capacityCostPerJob: 1 }
+        ],
+        labels: {
+            Skill: 11,
+            English: true,
+            French: false,
+            Vendor: "Acme"
+        }
     },
-    labels: {
-        Skill: 11,
-        English: true,
-        French: false,
-        Vendor: "Acme"
-    }
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -79,23 +80,22 @@ await client.createWorker("worker-1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_worker(worker_id = "worker-1", router_worker = RouterWorker(
+worker = client.upsert_worker(
+    worker_id = "worker-1",
     available_for_offers = True,
-    total_capacity = 2,
-    queue_assignments = {
-        "queue2": RouterQueueAssignment()
-    },
-    channel_configurations = {
-        "voice": ChannelConfiguration(capacity_cost_per_job = 2),
-        "chat": ChannelConfiguration(capacity_cost_per_job = 1)
-    },
+    capacity = 2,
+    queues = ["queue1", "queue2"],
+    channels = [
+        RouterChannel(channel_id = "voice", capacity_cost_per_job = 2),
+        RouterChannel(channel_id = "chat", capacity_cost_per_job = 1)
+    ],
     labels = {
         "Skill": 11,
         "English": True,
         "French": False,
         "Vendor": "Acme"
     }
-))
+)
 ```
 
 ::: zone-end
@@ -103,19 +103,17 @@ client.create_worker(worker_id = "worker-1", router_worker = RouterWorker(
 ::: zone pivot="programming-language-java"
 
 ```java
-client.createWorker(new CreateWorkerOptions("worker-1", 2)
+RouterWorker worker = client.createWorker(new CreateWorkerOptions("worker-1", 2)
     .setAvailableForOffers(true)
-    .setQueueAssignments(Map.of(
-        "queue1", new RouterQueueAssignment(),
-        "queue2", new RouterQueueAssignment()))
-    .setChannelConfigurations(Map.of(
-        "voice", new ChannelConfiguration(2),
-        "chat", new ChannelConfiguration(1)))
+    .setQueues(List.of("queue1", "queue2"))
+    .setChannels(List.of(
+        new RouterChannel("voice", 2),
+        new RouterChannel("chat", 1)))
     .setLabels(Map.of(
-        "Skill", new LabelValue(11),
-        "English", new LabelValue(true),
-        "French", new LabelValue(false),
-        "Vendor", new LabelValue("Acme"))));
+        "Skill", new RouterValue(11),
+        "English", new RouterValue(true),
+        "French", new RouterValue(false),
+        "Vendor", new RouterValue("Acme"))));
 ```
 
 ::: zone-end
@@ -137,11 +135,11 @@ await client.CreateJobAsync(new CreateJobOptions("job1", "chat", "queue1")
 {
     RequestedWorkerSelectors =
     {
-        new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.Equal, value: new LabelValue(true)),
-        new RouterWorkerSelector(key: "Skill", labelOperator: LabelOperator.GreaterThan, value: new LabelValue(10))
+        new RouterWorkerSelector(key: "English", labelOperator: LabelOperator.Equal, value: new RouterValue(true)),
+        new RouterWorkerSelector(key: "Skill", labelOperator: LabelOperator.GreaterThan, value: new RouterValue(10))
             { ExpiresAfter = TimeSpan.FromMinutes(5) }
     },
-    Labels = { ["name"] = new LabelValue("John") }
+    Labels = { ["name"] = new RouterValue("John") }
 });
 ```
 
@@ -150,17 +148,18 @@ await client.CreateJobAsync(new CreateJobOptions("job1", "chat", "queue1")
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createJob("job1", {
-  channelId: "chat",
-  queueId: "queue1",
-  requestedWorkerSelectors: [
-      { key: "English", labelOperator: "equal", value: true },
-      { key: "Skill", labelOperator: "greaterThan", value: 10, expiresAfterSeconds: 60 },        
-  ],
-  labels: {
-      name: "John"
-  }
-});
+await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        channelId: "chat",
+        queueId: "queue1",
+        requestedWorkerSelectors: [
+            { key: "English", labelOperator: "equal", value: true },
+            { key: "Skill", labelOperator: "greaterThan", value: 10, expiresAfterSeconds: 300 },
+        ],
+        labels: { name: "John" }
+    },
+    contentType: "application/merge-patch+json"
+})
 ```
 
 ::: zone-end
@@ -168,7 +167,8 @@ await client.createJob("job1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_job(job_id = "job1", router_job = RouterJob(
+client.upsert_job(
+    job_id = "job1",
     channel_id = "chat",
     queue_id = "queue1",
     requested_worker_selectors = [
@@ -180,11 +180,12 @@ client.create_job(job_id = "job1", router_job = RouterJob(
         RouterWorkerSelector(
           key = "Skill",
           label_operator = LabelOperator.GREATER_THAN,
-          value = True
+          value = True,
+          expires_after_seconds = 300
         )
     ],
     labels = { "name": "John" }
-))
+)
 ```
 
 ::: zone-end
@@ -194,9 +195,10 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 ```java
 client.createJob(new CreateJobOptions("job1", "chat", "queue1")
     .setRequestedWorkerSelectors(List.of(
-        new RouterWorkerSelector("English", LabelOperator.EQUAL, new LabelValue(true)),
-        new RouterWorkerSelector("Skill", LabelOperator.GREATER_THAN, new LabelValue(10))))
-    .setLabels(Map.of("name", new LabelValue("John"))));
+        new RouterWorkerSelector("English", LabelOperator.EQUAL, new RouterValue(true)),
+        new RouterWorkerSelector("Skill", LabelOperator.GREATER_THAN, new RouterValue(10))
+            .setExpiresAfter(Duration.ofMinutes(5))))
+    .setLabels(Map.of("name", new RouterValue("John"))));
 ```
 
 ::: zone-end
@@ -232,7 +234,8 @@ If a worker would like to stop receiving offers, it can be deregistered by setti
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.UpdateWorkerAsync(new UpdateWorkerOptions(workerId: "worker-1") { AvailableForOffers = false });
+worker.AvailableForOffers = false;
+worker = await client.UpdateWorkerAsync(worker);
 ```
 
 ::: zone-end
@@ -240,7 +243,10 @@ await client.UpdateWorkerAsync(new UpdateWorkerOptions(workerId: "worker-1") { A
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.updateWorker("worker-1", { availableForOffers = false });
+worker = await client.path("/routing/workers/{workerId}", worker.body.id).patch({
+    body: { availableForOffers: false },
+    contentType: "application/merge-patch+json"
+});
 ```
 
 ::: zone-end
@@ -248,7 +254,7 @@ await client.updateWorker("worker-1", { availableForOffers = false });
 ::: zone pivot="programming-language-python"
 
 ```python
-client.update_worker(worker_id = "worker-1", router_worker = RouterWorker(available_for_offers = False))
+worker = client.upsert_worker(worker_id = worker.id, available_for_offers = False)
 ```
 
 ::: zone-end
@@ -256,13 +262,13 @@ client.update_worker(worker_id = "worker-1", router_worker = RouterWorker(availa
 ::: zone pivot="programming-language-java"
 
 ```java
-client.updateWorker(new UpdateWorkerOptions("worker-1").setAvailableForOffers(true));
+worker = client.updateWorkerWithResponse(worker.getId(), worker.setAvailableForOffers(false));
 ```
 
 ::: zone-end
 
 > [!NOTE]
-> If a worker is registered and idle for more than 7 days, it'll be automatically deregistered.
+> If a worker is registered and idle for more than 7 days, it'll be automatically deregistered. Once deregistered, the worker's status is `draining` if one or more jobs are still assigned, or `inactive` if no jobs are assigned.
 
 <!-- LINKS -->
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md

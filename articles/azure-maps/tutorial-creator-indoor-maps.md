@@ -29,6 +29,7 @@ You can also create a dataset from a GeoJSON package. For more information, see 
 * An [Azure Maps account]
 * A [subscription key]
 * A [Creator resource]
+* An [Azure storage account]
 * The [sample drawing package] downloaded
 
 This tutorial uses the [Postman] application, but you can use a different API development environment.
@@ -40,108 +41,10 @@ This tutorial uses the [Postman] application, but you can use a different API de
 
 ## Upload a drawing package
 
-Use the [Data Upload API] to upload the drawing package to Azure Maps resources. The Data Upload API is a long-running transaction that implements the pattern defined in [Creator Long-Running Operation API V2].
+Follow the steps outlined in the [How to create data registry] article to upload the GeoJSON package into your Azure storage account then register it in your Azure Maps account.
 
-To upload the drawing package:
-
-1. In the Postman app, select **New**.
-
-2. In the **Create New** window, select **HTTP Request**.
-
-3. For **Request name**, enter a name for the request, such as **POST Data Upload**.
-
-4. Select the **POST** HTTP method.
-
-5. Enter the following URL to the [Data Upload API]:
-
-    ```http
-    https://us.atlas.microsoft.com/mapData?api-version=2.0&dataFormat=dwgzippackage&subscription-key={Your-Azure-Maps-Subscription-key}
-    ```
-
-6. Select the **Headers** tab.
-
-7. In the **KEY** field, select **Content-Type**.
-
-8. In the **VALUE** field, select **application/octet-stream**.
-
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-header.png"alt-text="Screenshot of Postman that shows information on the Headers tab, including key and value.":::
-
-9. Select the **Body** tab.
-
-10. Select the **binary** option.
-
-11. Choose **Select File**, and then select a drawing package.
-
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-body.png" alt-text="Screenshot of Postman that shows the Body tab in the POST window, with the button for selecting a file.":::
-
-12. Select **Send**.
-
-13. In the response window, select the **Headers** tab.
-
-14. Copy the value of the **Operation-Location** key. This key is also known as the *status URL*. You need it to check the status of the drawing package upload in the next section.
-
-     :::image type="content" source="./media/tutorial-creator-indoor-maps/data-upload-response-header.png" alt-text="Screenshot of Postman that shows the Operation-Location key on the Headers tab in the response window.":::
-
-### Check the upload status of the drawing package
-
-To check the status of the drawing package and retrieve its unique ID (`udid`):
-
-1. In the Postman app, select **New**.
-
-2. In the **Create New** window, select **HTTP Request**.
-
-3. For **Request name**, enter a name for the request, such as **GET Data Upload Status**.
-
-4. Select the **GET** HTTP method.
-
-5. Enter the status URL that you copied as the last step in the previous section. The request should look like the following URL:
-
-    ```http
-    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
-    ```
-
-6. Select **Send**.
-
-7. In the response window, select the **Headers** tab.
-
-8. Copy the value of the **Resource-Location** key, which is the resource location URL. The resource location URL contains the unique identifier (`udid`) of the drawing package resource.
-
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/resource-location-url.png" alt-text="Screenshot of Postman that shows the resource location URL in the response header.":::
-
-### (Optional) Retrieve metadata from the drawing package
-
-You can retrieve metadata from the drawing package resource. The metadata contains information like the resource location URL, creation date, updated date, size, and upload status.
-
-To retrieve content metadata:
-
-1. In the Postman app, select **New**.
-
-2. In the **Create New** window, select **HTTP Request**.
-
-3. For **Request name**, enter a name for the request, such as **GET Data Upload Metadata**.
-
-4. Select the **GET** HTTP method.
-
-5. Enter the resource location URL that you copied as the last step in the previous section:
-
-    ```http
-    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}
-    ```
-
-6. Select **Send**.
-
-7. In the response window, select the **Body** tab. The metadata should look like the following JSON fragment:
-
-    ```json
-    {
-        "udid": "{udid}",
-        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
-        "created": "5/18/2021 8:10:32 PM +00:00",
-        "updated": "5/18/2021 8:10:37 PM +00:00",
-        "sizeInBytes": 946901,
-        "uploadStatus": "Completed"
-    }
-    ```
+> [!IMPORTANT]
+> Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the GeoJSON package you uploaded into your Azure storage account from your source code and HTTP requests.
 
 ## Convert a drawing package
 
@@ -349,7 +252,7 @@ After you create a tileset, you can get the `mapConfigurationId` value by using 
 5. Enter the following URL to the [Tileset service]. Pass in the tileset ID that you obtained in the previous step.
 
     ```http
-    https://us.atlas.microsoft.com/tilesets/{tilesetId}?api-version=2022-09-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets/{tilesetId}?api-version=2023-03-01-preview&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -365,17 +268,23 @@ For more information, see [Map configuration] in the article about indoor map co
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [What is Azure Maps Creator?]
+
+> [!div class="nextstepaction"]
+> [Creator for indoor maps]
+
+> [!div class="nextstepaction"]
 > [Use the Azure Maps Indoor Maps module with custom styles](how-to-use-indoor-module.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Creator resource]: how-to-manage-creator.md
 [Sample drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip
 [Postman]: https://www.postman.com
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
 [Create a dataset using a GeoJSON package (Preview)]: how-to-dataset-geojson.md
-[Data Upload API]: /rest/api/maps/data-v2/upload
-[Creator Long-Running Operation API V2]: creator-long-running-operation-v2.md
+[How to create data registry]: how-to-create-data-registries.md
 [Conversion API]: /rest/api/maps/v2/conversion
 [Conversion service]: /rest/api/maps/v2/conversion/convert
 [Creator Long-Running Operation]: creator-long-running-operation-v2.md
@@ -383,6 +292,8 @@ For more information, see [Map configuration] in the article about indoor map co
 [Drawing conversion errors and warnings]: drawing-conversion-error-codes.md
 [Dataset Create API]: /rest/api/maps/v2/dataset/create
 [Dataset service]: /rest/api/maps/v2/dataset
-[Tileset service]: /rest/api/maps/v20220901preview/tileset
-[tileset get]: /rest/api/maps/v20220901preview/tileset/get
+[Tileset service]: /rest/api/maps/2023-03-01-preview/tileset
+[tileset get]: /rest/api/maps/2023-03-01-preview/tileset/get
 [Map configuration]: creator-indoor-maps.md#map-configuration
+[What is Azure Maps Creator?]: about-creator.md
+[Creator for indoor maps]: creator-indoor-maps.md

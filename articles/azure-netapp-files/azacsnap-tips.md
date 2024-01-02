@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 09/20/2023
 ms.author: phjensen
 ---
 
@@ -26,12 +26,12 @@ AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be l
 
 Settings, which can be controlled by adding/editing the global settings file are:
 
-- **MAINLOG_LOCATION** which sets the location of the "mainlog" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
+- **MAINLOG_LOCATION** which sets the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths, for example:
   - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
 
-## Mainlog parsing
+## Main-log parsing
 
-AzAcSnap 8 introduced a new "mainlog" to provide simpler parsing of runs of AzAcSnap.  The inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap, this idea has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
+AzAcSnap 8 introduced a new "main-log" to provide simpler parsing of runs of AzAcSnap.  The inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap, this idea has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
 
 ```output
 DATE_TIME,OPERATION_NAME,STATUS,SID,DATABASE_TYPE,DURATION,SNAPSHOT_NAME,AZACSNAP_VERSION,AZACSNAP_CONFIG_FILE,VOLUME
@@ -57,7 +57,18 @@ This format makes the file parse-able with the Linux commands `watch`, `grep`, `
 # Monitor execution of AzAcSnap backup commands
 #
 # These values can be modified as appropriate.
-HEADER_VALUES_TO_EXCLUDE="AZACSNAP_VERSION,VOLUME,AZACSNAP_CONFIG_FILE"
+# Mainlog header fields:
+#       1. DATE_TIME,
+#       2. OPERATION_NAME,
+#       3. STATUS,
+#       4. SID,
+#       5. DATABASE_TYPE,
+#       6. DURATION,
+#       7. SNAPSHOT_NAME,
+#       8. AZACSNAP_VERSION,
+#       9. AZACSNAP_CONFIG_FILE,
+#       10. VOLUME
+FIELDS_TO_INCLUDE="1,2,3,5,4,6,7"
 SCREEN_REFRESH_SECS=2
 #
 # Use AzAcSnap global settings file (.azacsnaprc) if available,
@@ -72,45 +83,51 @@ cd ${MAINLOG_LOCATION}
 echo "Changing current working directory to ${MAINLOG_LOCATION}"
 #
 # Default MAINLOG filename.
+HOSTNAME=$(hostname)
 MAINLOG_FILENAME="azacsnap.log"
 #
 # High-level explanation of how commands used.
 # `watch` - continuously monitoring the command output.
-# `column` - provide pretty output.
 # `grep` - filter only backup runs.
 # `head` and `tail` - add/remove column headers.
+# `sed` to remove millisecs from date.
+# `awk` format output for `column`.
+# `column` - provide pretty output.
+FIELDS_FOR_AWK=$(echo "${FIELDS_TO_INCLUDE}" | sed 's/^/\\\$/g' | sed 's/,/,\\\$/g')
+PRINTOUT="{OFS=\\\",\\\";print ${FIELDS_FOR_AWK}}"
+#
+echo -n "Parsing '${MAINLOG_FILENAME}' for field #s ${FIELDS_TO_INCLUDE} = "
+bash -c "cat ${MAINLOG_FILENAME} | grep -e \"DATE\" | head -n1 -  | awk -F\",\" \"${PRINTOUT}\" "
+#
 watch -t -n ${SCREEN_REFRESH_SECS} \
   "\
-  echo -n "Monitoring AzAcSnap @  "; \
+  echo -n \"Monitoring AzAcSnap on '${HOSTNAME}' @ \" ; \
   date ; \
   echo ; \
-  column -N"$(head -n1 ${MAINLOG_FILENAME})" \
-      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
-      -s"," -t ${MAINLOG_FILENAME} \
-    | head -n1 ; \
-  grep -e "DATE" -e "backup" ${MAINLOG_FILENAME} \
-    | column -N"$(head -n1 ${MAINLOG_FILENAME})" \
-      -d -H "${HEADER_VALUES_TO_EXCLUDE}" \
-      -s"," -t \
-    | tail -n +2 \
-    | tail -n 12 \
+  cat ${MAINLOG_FILENAME} \
+    | grep -e \"DATE\" -e \",backup,\" \
+    | ( sleep 1; head -n1 - ; sleep 1; tail -n+2 - | tail -n20 \
+      | sed 's/\(:[0-9][0-9]\)\.[0-9]\{7\}/\1/' ; sleep 1 ) \
+    | awk -F\",\" \"${PRINTOUT}\" \
+    | column -s\",\" -t \
   "
+exit 0
 ```
 
 Produces the following output refreshed every two seconds.
 
 ```output
-Monitoring AzAcSnap @Fri May  5 11:26:36 NZST 2023
+Monitoring AzAcSnap on 'azacsnap' @ Thu Sep 21 11:27:40 NZST 2023
 
-DATE_TIME                          OPERATION_NAME  STATUS   SID  DATABASE_TYPE  DURATION         SNAPSHOT_NAME
-2023-05-05T00:00:03.5705791+12:00  backup          started  PR1  Hana                            daily_archive__F4F02562F6B
-2023-05-05T00:02:11.5495104+12:00  backup          SUCCESS  PR1  Hana           0:02:08.2778958  daily_archive__F4F02562F6B
-2023-05-05T03:00:02.8123179+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F08C604CD
-2023-05-05T03:01:08.6609302+12:00  backup          SUCCESS  PR1  Hana           0:01:06.1536665  pr1_hourly__F4F08C604CD
-2023-05-05T06:00:02.8871149+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F0F35FAB9
-2023-05-05T06:01:09.0608121+12:00  backup          SUCCESS  PR1  Hana           0:01:06.4537885  pr1_hourly__F4F0F35FAB9
-2023-05-05T09:00:03.1769836+12:00  backup          started  PR1  Hana                            pr1_hourly__F4F15A5F8E2
-2023-05-05T09:01:08.6898938+12:00  backup          SUCCESS  PR1  Hana           0:01:05.8221419  pr1_hourly__F4F15A5F8E2
+DATE_TIME                  OPERATION_NAME  STATUS   DATABASE_TYPE  SID       DURATION         SNAPSHOT_NAME
+2023-09-21T07:00:02+12:00  backup          started  Oracle         ORATEST1                   all-volumes__F6B07A2D77A
+2023-09-21T07:02:10+12:00  backup          SUCCESS  Oracle         ORATEST1  0:02:08.0338537  all-volumes__F6B07A2D77A
+2023-09-21T08:00:03+12:00  backup          started  Oracle         ORATEST1                   all-volumes__F6B09C83210
+2023-09-21T08:02:12+12:00  backup          SUCCESS  Oracle         ORATEST1  0:02:09.9954439  all-volumes__F6B09C83210
+2023-09-21T09:00:03+12:00  backup          started  Oracle         ORATEST1                   all-volumes__F6B0BED814B
+2023-09-21T09:00:03+12:00  backup          started  Hana           PR1                        pr1_hourly__F6B0BED817F
+2023-09-21T09:01:10+12:00  backup          SUCCESS  Hana           PR1       0:01:07.8575664  pr1_hourly__F6B0BED817F
+2023-09-21T09:02:12+12:00  backup          SUCCESS  Oracle         ORATEST1  0:02:09.4572157  all-volumes__F6B0BED814B
 ```
 
 
@@ -232,7 +249,7 @@ compress
 }
 ```
 
-After creating the `logrotate.conf` file, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following output is one line of the azacsnap user's crontab, this example runs logrotate daily using the configuration file `~/logrotate.conf`.
+After the `logrotate.conf` file has been created, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following output is one line of the azacsnap user's crontab, this example runs logrotate daily using the configuration file `~/logrotate.conf`.
 
 ```output
 @daily /usr/sbin/logrotate -s ~/logrotate.state ~/logrotate.conf >> ~/logrotate.log
@@ -263,7 +280,7 @@ ls -ltra ~/bin/logs
 The following conditions should be monitored to ensure a healthy system:
 
 1. Available disk space. Snapshots slowly consume disk space based on the block-level change rate, as keeping older disk blocks are retained in the snapshot.
-    1. To help automate disk space management, use the `--retention` and `--trim` options to automatically cleanup the old snapshots and database log files.
+    1. To help automate disk space management, use the `--retention` and `--trim` options to automatically clean up the old snapshots and database log files.
 1. Successful execution of the snapshot tools
     1. Check the `*.result` file for the success or failure of the latest running of `azacsnap`.
     1. Check `/var/log/messages` for output from the `azacsnap` command.
@@ -447,7 +464,7 @@ A 'boot' snapshot can be recovered as follows:
 1. The customer needs to shut down the server.
 1. After the Server is shut down, the customer will need to open a service request that contains the Machine ID and Snapshot to restore.
     > Customers can open a service request via the [Azure portal](https://portal.azure.com).
-1. Microsoft restores the Operating System LUN using the specified Machine ID and Snapshot, and then boot the Server.
+1. Microsoft restores the Operating System LUN using the specified Machine ID and Snapshot, and then boots the Server.
 1. The customer then needs to confirm Server is booted and healthy.
 
 No other steps to be performed after the restore.

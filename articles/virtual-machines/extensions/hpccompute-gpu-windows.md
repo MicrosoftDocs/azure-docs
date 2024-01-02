@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Windows VMs 
+title: NVIDIA GPU Driver Extension - Azure Windows VMs
 description: Learn how to install the NVIDIA GPU Driver Extension on N-series virtual machines running Windows from the Azure portal or by using an ARM template.
 services: virtual-machines
 ms.service: virtual-machines
@@ -10,8 +10,8 @@ ms.tgt_pltfrm: vm-windows
 ms.custom: devx-track-arm-template
 ms.workload: infrastructure-services
 ms.date: 04/06/2023
-ms.author: mamccrea
-author: mamccrea
+ms.author: jushiman
+author: ju-shim
 ---
 
 # NVIDIA GPU Driver Extension for Windows
@@ -21,6 +21,10 @@ The NVIDIA GPU Driver Extension for Windows installs NVIDIA GPU drivers on Windo
 The instructions for manual installation of the drivers, and the list of current supported versions are available for review. For more information, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup).
 
 The NVIDIA GPU Driver Extension can also be deployed on Linux N-series VMs. For more information, see [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md).
+
+> [!Note]
+> The GPU driver extensions do not automatically update the driver after the extension is installed. If you need to move to a newer driver version then either manually download and install the driver or remove and add the extension again.
+>
 
 ## Prerequisites
 

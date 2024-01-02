@@ -1,10 +1,9 @@
 ---
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 07/19/2023
+ms.date: 12/19/2023
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---

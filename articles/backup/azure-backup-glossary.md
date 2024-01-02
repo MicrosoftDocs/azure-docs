@@ -296,7 +296,7 @@ Backs up operating system files. This backup allows you to recover when a comput
 
 ## Tenant
 
-A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
+A tenant is a representation of an organization. It's a dedicated instance of Microsoft Entra ID that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft, like signing up for Azure, Microsoft Intune, or Microsoft 365.
 
 ## Tier
 

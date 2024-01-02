@@ -1,11 +1,9 @@
 ---
 title: Tutorial - use parameter file to deploy template
 description: Use parameter files that contain the values to use for deploying your Azure Resource Manager template (ARM template).
-author: mumian
-ms.date: 08/22/2022
+ms.date: 07/28/2023
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
-ms.author: jgao 
 ---
 
 # Tutorial: Use parameter files to deploy your ARM template
@@ -82,7 +80,7 @@ templateFile="{path-to-the-template-file}"
 devParameterFile="{path-to-azuredeploy.parameters.dev.json}"
 az group create \
   --name myResourceGroupDev \
-  --location "East US"
+  --location 'East US'
 az deployment group create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
@@ -141,7 +139,7 @@ You can verify the deployment by exploring the resource groups from the Azure po
 1. From the Azure portal, select **Resource groups** from the left menu.
 1. Select the hyperlinked resource group name next to the check box. If you complete this series, you have three resource groups to delete - **myResourceGroup**, **myResourceGroupDev**, and **myResourceGroupProd**.
 1. Select the **Delete resource group** icon from the top menu.
- 
+
    > [!CAUTION]
    > Deleting a resource group is irreversible.
 

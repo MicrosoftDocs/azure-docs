@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot custom policies and user flows in Azure Active Directory B2C
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: troubleshooting
-ms.date: 12/30/2022
+ms.date: 11/20/2023
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-docs-improvements
@@ -29,12 +29,12 @@ This error occurs when the [self-service password reset experience](add-password
 
 There are 2 solutions to this problem:  
   - Respond back with a new authentication request using Azure AD B2C password reset user flow.
-  - Use recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended).  
+  - Use recommended [self service password reset (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended).  
 
 
 ## User canceled the operation
 Azure AD B2C service can also return an error to your application when a user cancels an operation. The following are examples of scenarios where a user performs a cancel operation: 
--  A user policy uses the recommended [self service password resect (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link , and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
+-  A user policy uses the recommended [self service password reset (SSPR) experience](add-password-reset-policy.md#self-service-password-reset-recommended) with a consumer local account. The user selects the **Forgot your password?** link, and then selects **Cancel** button before the user flow experience completes. In this case, Azure AD B2C service returns error code `AADB2C90091` to your application. 
 - A user chooses to authenticate with an external identity provider such as [LinkedIn](identity-provider-linkedin.md). The user select **Cancel** button before authenticating to the identity provider itself. In this case, Azure AD B2C service returns error code `AADB2C90273` to your application. Learn more about [error codes Azure Active Directory B2C service return](error-codes.md).
 
 To handle this error, fetch the **error description** for the user and respond back with a new authentication request using the same user flow. 
@@ -111,13 +111,13 @@ You can include the correlation ID in your Azure AD B2C tokens. To include the c
 
 ## Troubleshooting with Application Insights
 
-To diagnose problems with your custom policies, use [Application Insights](troubleshoot-with-application-insights.md). Application Insights traces the activity of your custom policy user journey. It provides a way to diagnose exceptions and observe the exchange of claims between Azure AD B2C and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services.  
+To diagnose problems with your custom policies, use [Application Insights](troubleshoot-with-application-insights.md). Application Insights traces the activity of your custom policy user journey. It provides a way to diagnose exceptions and observe the exchange of claims between Azure AD B2C and the various claims providers. The  claims providers are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services.  
 
 We recommend installing the [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for [VS Code](https://code.visualstudio.com/). With the Azure AD B2C extension, the logs are organized for you by policy name, correlation ID (Application Insights presents the first digit of the correlation ID), and the log timestamp. This feature helps you find the relevant log based on the local timestamp and see the user journey as executed by Azure AD B2C. 
 
 > [!NOTE]
-> - There is a short delay, typically less than five minutes, before you can see new logs in Application Insights.
-> - The community has developed the Visual Studio Code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft and is made available strictly as-is.
+> - There's a short delay, typically less than five minutes, before you can see new logs in Application Insights.
+> - The community has developed the Visual Studio Code extension for Azure AD B2C to help identity developers. The extension isn't supported by Microsoft and is made available strictly as-is.
 
 A single sign-in flow can issue more than one Azure Application Insights trace. In the following screenshot, the *B2C_1A_signup_signin* policy has three logs. Each log represents part of the sign-in flow.
 
@@ -127,11 +127,11 @@ The following screenshot shows the Azure AD B2C extension for VS Code with Azure
 
 ### Filter the trace log
 
-With the focus on the Azure AD B2C trace explorer, start to type the first digit of the correlation ID, or a time you want to find. You'll see a filter box in the top-right of the Azure AD B2C trace explorer showing what you have typed so far, and matching trace logs will be highlighted.  
+With the focus on the Azure AD B2C trace explorer, start to type the first digit of the correlation ID, or a time you want to find. You see a filter box in the top-right of the Azure AD B2C trace explorer showing what you have typed so far, and matching trace logs are highlighted.  
 
 ![Screenshot of Azure AD B2C extension Azure AD B2C trace explorer filter highlighting.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-highlight.png)
 
-Hovering over the filter box and selecting **Enable Filter on Type** will show only matching trace logs. Use the **'X' Clear button** to clear the filter.
+Hovering over the filter box and selecting **Enable Filter on Type** shows only matching trace logs. Use the **'X' Clear button** to clear the filter.
 
 ![Screenshot of Azure AD B2C extension Azure AD B2C trace explorer filter.](./media/troubleshoot-custom-policies/vscode-extension-application-insights-filter.png)
 
@@ -157,7 +157,7 @@ For JWT token validation and debugging purposes, your can decode JWTs using a si
 
 ![Screenshot of JWT token preview.](./media/troubleshoot-custom-policies/jwt-token-preview.png)
 
-Use **Run now** and `https://jwt.ms` to test your policies independently of your web or mobile application. This website acts like a relying party application. It displays the contents of the JSON web token (JWT) that is generated by your Azure AD B2C policy.
+Use **Run now** and `https://jwt.ms` to test your policies independently of your web or mobile application. This website acts like a relying party application. It displays the contents of the JSON web token (JWT) that your Azure AD B2C policy generates.
 
 ## Troubleshoot SAML protocol
 
@@ -180,7 +180,7 @@ You can also trace the exchange of messages between your client browser and Azur
 
 After you finish developing your policy, you upload the policy to Azure AD B2C. There might be some issues with your policy, but you can validity your policy before you upload it.
 
-The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. It displays XML natively, color-codes content, pre-fills common terms, keeps XML elements indexed, and can validate against an XML schema.
+The most common error in setting up custom policies is improperly formatted XML. A good XML editor is nearly essential. It displays XML natively, color-codes content, prefills common terms, keeps XML elements indexed, and can validate against an XML schema.
 
 We recommend using [Visual Studio Code](https://code.visualstudio.com/). Then install an XML extension, such as [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml). The XML extension let's you validate the XML schema before you upload your XML file, using custom policy [XSD](https://raw.githubusercontent.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/master/TrustFrameworkPolicy_0.3.0.0.xsd) schema definition.
 
@@ -213,7 +213,7 @@ In the following case, the `DisplayName` element is correct. But, in the wrong o
 
 ## Upload policies and policy validation
 
-Validation of the XML policy file is performed automatically on upload. Most errors cause the upload to fail. Validation includes the policy file that you are uploading. It also includes the chain of files the upload file refers to (the relying party policy file, the extensions file, and the base file).
+Validation of the XML policy file is performed automatically on upload. Most errors cause the upload to fail. Validation includes the policy file that you want to upload. It also includes the chain of files the upload file refers to (the relying party policy file, the extensions file, and the base file).
 
 > [!TIP]
 > Azure AD B2C runs additional validation for relying party policy. When having an issue with your policy, even if you edit only the extension policy, it's a good practice to upload the relying party policy as well. 
@@ -231,7 +231,7 @@ A user [journey](userjourneys.md) or [sub journey](subjourneys.md) consist of an
 > [!TIP]
 > You can use the [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for [VS Code](https://code.visualstudio.com/) `(Shift+Ctrl+r)` command to renumber all of the user journeys and sub journeys orchestration steps in your policy.
 
-### ...was expected to have step with order "{number}" but it was not found...
+### ...was expected to have step with order "{number}", but it was not found...
 
 Check the previous error.
 
@@ -380,7 +380,7 @@ To fix this type of error, change the eighth orchestration steps' claims exchang
 
 ### ...makes a reference to ClaimType with id "{claim name}" but neither the policy nor any of its base policies contain such an element
 
-This type of error happens when your policy makes a reference to a claim that is not declared in the [claims schema](claimsschema.md). Claims must be defined in at least one of the files in the policy. 
+This type of error happens when your policy makes a reference to a claim that isn't declared in the [claims schema](claimsschema.md). Claims must be defined in at least one of the files in the policy. 
 
 For example, a technical profile with the *schoolId* output claim. But the output claim *schoolId* is never declared in the policy, or in an ancestor  policy.
 
@@ -391,7 +391,7 @@ For example, a technical profile with the *schoolId* output claim. But the outpu
 </OutputClaims>
 ```
 
-To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or does not exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's used in, or in an upper level policy.
+To fix this type of error, check whether the `ClaimTypeReferenceId` value is misspelled, or doesn't exist in the schema. If the claim is defined in the extensions policy, but it's also being used in the base policy. Make sure the claim is defined in the policy it's used in, or in an upper level policy.
 
 Adding the claim to the claims schema solves this type of error.
 
@@ -416,7 +416,7 @@ The cause for this error is similar to the one for the claim error. Check the pr
 
 ### User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant...
 
-You login with an account from a tenant that is different than the policy you try to upload. For example, your sign-in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
+You sign in with an account from a tenant that is different than the policy you try to upload. For example, your sign in with admin@contoso.onmicrosoft.com, while your policy `TenantId` is set to `fabrikam.onmicrosoft.com`.
 
 ```xml
 <TrustFrameworkPolicy ...
@@ -436,9 +436,9 @@ You login with an account from a tenant that is different than the policy you tr
 
 ### Claim type "{name}" is the output claim of the relying party's technical profile, but it is not an output claim in any of the steps of user journey...
 
-In a relying party policy, you added an output claim, but the output claim is not an output claim in any of the steps of user journey. Azure AD B2C can't read the claim value from the claims bag.
+In a relying party policy, you added an output claim, but the output claim isn't an output claim in any of the steps of user journey. Azure AD B2C can't read the claim value from the claims bag.
 
-In the following example, the *schoolId* claim is an output claim of the relying party's technical profile, but it is not an output claim in any of the steps of *SignUpOrSignIn* user journey.
+In the following example, the *schoolId* claim is an output claim of the relying party's technical profile, but it isn't an output claim in any of the steps of *SignUpOrSignIn* user journey.
 
 ```xml
 <RelyingParty>

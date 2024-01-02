@@ -2,8 +2,8 @@
 title: Add a simple data layer
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/19/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -118,7 +118,7 @@ This sample code renders the point feature using the simple data layer, and appe
 > &emsp; "coordinates": [0, 0]
 
 <!------------------------------------
-<iframe height="500" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------>
 
 The real power of the simple data layer comes when:
@@ -132,7 +132,7 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 :::image type="content" source="./media/spatial-io-add-simple-data-layer/simple-data-layer-options.png"alt-text="A screenshot of map with a panel on the left showing the different simple data layer options.":::
 
 <!------------------------------------
-<iframe height="700" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result]
 ------------------------------------>
 
 > [!NOTE]

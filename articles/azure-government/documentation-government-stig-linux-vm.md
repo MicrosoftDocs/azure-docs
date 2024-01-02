@@ -1,8 +1,8 @@
 ---
 title: Deploy STIG-compliant Linux Virtual Machines (Preview)
 description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from the Azure portal or Azure Government portal.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: quickstart
 ms.custom: mode-other, kr2b-contr-experiment

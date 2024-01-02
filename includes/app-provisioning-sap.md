@@ -5,42 +5,43 @@ The following video provides an overview of on-premises provisioning.
 ## Capabilities supported
 
 > [!div class="checklist"]
-> - Create users in SAP ECC 7.0
-> - Remove users in SAP ECC 7.0 when they don't need access anymore.
-> - Keep user attributes synchronized between Azure AD and SAP ECC 7.0.
-> - Discover the schema for SAP ECC 7.0.
+> - Create users in SAP ECC. 
+> - Remove users in SAP ECC when they don't need access anymore.
+> - Keep user attributes synchronized between Microsoft Entra ID and SAP ECC.
+> - Discover the schema for SAP ECC.
 
 ## Out of scope
 * Other object types including local activity groups, roles, and profiles are not supported. Please use the Microsoft Identity Manager if these objects are required. 
 * Password operations are not supported. Please use the Microsoft Identity Manager if password management is required.
 
-## Prerequisites for provisioning to SAP ECC 7.0
+## Prerequisites for provisioning to SAP ECC with NetWeaver AS ABAP 7.51
 
 ### On-premises prerequisites
 
 The computer that runs the provisioning agent should have:
 
-- Connectivity to SAP ECC 7.0 with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
+- Connectivity to SAP ECC NetWeaver AS ABAP 7.51 with outbound connectivity to login.microsoftonline.com, [other Microsoft Online Services](/microsoft-365/enterprise/urls-and-ip-address-ranges) and [Azure](../articles/azure-portal/azure-portal-safelist-urls.md) domains. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. 
 - At least 3 GB of RAM, to host a provisioning agent. 
 - .NET Framework 4.7.2 
 - A Windows Server 2016 or a later version. 
 
 Prior to configuring provisioning, ensure that you:
-- Expose the necessary APIs in SAP ECC 7.0 to create, update, and delete users. The [guide](https://www.microsoft.com/download/details.aspx?id=51495) here walks through how you can expose the necessary APIs.
-- Create a web services connector template for the ECMA host. You can use the template provided [here](https://www.microsoft.com/download/details.aspx?id=51495) as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment.  
+- Expose the necessary APIs in SAP ECC NetWeaver 7.51 to create, update, and delete users. The [guide](https://www.microsoft.com/download/details.aspx?id=51495) `Deploying SAP NetWeaver AS ABAP 7.pdf` walks through how you can expose the necessary APIs.
+- Create a web services connector template for the ECMA host. You can use the [guide](https://www.microsoft.com/download/details.aspx?id=51495) `Authoring SAP ECC 7 Template for ECMA2Host.pdf` as a reference to build your template. The download center provides a template `sapecc.wsconfig` as a reference. Before deploying in production, you will need to customize the template to meet the needs of your specific environment. Make sure that the ServiceName, EndpointName, and the OperationName are correct. 
 
-
-Configuration of the connection to SAP ECC 7.0 is done using a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
+Configuration of the connection to SAP ECC is done using a wizard. Depending on the options you select, some of the wizard screens might not be available and the information might be slightly different. Use the following information to guide you in your configuration.
 
 ### Cloud requirements
 
- - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
+ - A Microsoft Entra tenant with Microsoft Entra ID P1 or Premium P2 (or EMS E3 or E5). 
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
  - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
- - The Azure AD users to be provisioned to SAP ECC 7.0 must already be populated with any attributes that will be required by SAP ECC 7.0. 
+ - The Microsoft Entra users to be provisioned to SAP ECC must already be populated with any attributes that will be required by SAP ECC. 
 
-## 1. Install and configure the Azure AD Connect Provisioning Agent
+<a name='1-install-and-configure-the-azure-ad-connect-provisioning-agent'></a>
+
+## 1. Install and configure the Microsoft Entra Connect Provisioning Agent
 
 If you have already downloaded the provisioning agent and configured it for another on-premises application, then continue reading in the next section.
 
@@ -61,8 +62,8 @@ If you have already downloaded the provisioning agent and configured it for anot
 
  :::image type="content" source="./media/app-provisioning-sql/sync-agent-select-on-premises.png" alt-text="Screenshot that shows how to select on premises provisioning." lightbox="./media/app-provisioning-sql/sync-agent-select-on-premises.png":::
     
- 11. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Azure AD, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
- 12. Provide credentials for an Azure AD administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
+ 11. The provisioning agent will use the operating system's web browser to display a popup window for you to authenticate to Microsoft Entra ID, and potentially also your organization's identity provider.  If you are using Internet Explorer as the browser on Windows Server, then you may need to add Microsoft web sites to your browser's trusted site list to allow JavaScript to run correctly.
+ 12. Provide credentials for a Microsoft Entra administrator when you're prompted to authorize. The user is required to have the Hybrid Identity Administrator or Global Administrator role.
  13. Select **Confirm** to confirm the setting. Once installation is successful, you can select **Exit**, and also close the Provisioning Agent Package installer.
  
 ## 4. Configure the On-premises ECMA app
@@ -74,7 +75,9 @@ If you have already downloaded the provisioning agent and configured it for anot
  2. Keep this browser window open, as you complete the next step of configuration using the configuration wizard.
 
   
- ## 5. Configure the Azure AD ECMA Connector Host certificate
+ <a name='5-configure-the-azure-ad-ecma-connector-host-certificate'></a>
+
+## 5. Configure the Microsoft Entra ECMA Connector Host certificate
 
  1. On the Windows Server where the provisioning agent is installed, right click the **Microsoft ECMA2Host Configuration Wizard** from the start menu, and run as administrator.  Running as a Windows administrator is necessary for the wizard to create the necessary Windows event logs.
  
@@ -86,14 +89,14 @@ If you have already downloaded the provisioning agent and configured it for anot
 
 ## 5. Configure the generic web services connector
 
-In this section, you will create the connector configuration for SAP ECC 7.0.
+In this section, you will create the connector configuration for SAP ECC.
 
-### 5.1 Connect the provisioning agent to SAP ECC 7.0
+### 5.1 Connect the provisioning agent to SAP ECC
 
-To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
+To connect the Microsoft Entra provisioning agent with SAP ECC, follow these steps:
 
 1. Copy your web service connector [template](https://www.microsoft.com/download/details.aspx?id=51495) sapecc.wsconfig into `C:\Program Files\Microsoft ECMA2Host\Service\ECMA` folder. 
-1. Generate a secret token that will be used for authenticating Azure AD to the connector. It should be 12 characters minimum and unique for each application.
+1. Generate a secret token that will be used for authenticating Microsoft Entra ID to the connector. It should be 12 characters minimum and unique for each application.
 1. If you haven't already done so, launch the **Microsoft ECMA2Host Configuration Wizard** from the Windows Start menu.
 
 1. Select **New Connector**.
@@ -154,7 +157,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 1. On the **Partitions** page, select **Next**.
 
-1. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**. The **Export** run profile will be used when the ECMA Connector host needs to send changes from Azure AD to SAP ECC 7, to insert, update and delete records.  The **Full Import** run profile will be used when the ECMA Connector host service starts, to read in the current content of SAP ECC 7.  
+1. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**. The **Export** run profile will be used when the ECMA Connector host needs to send changes from Microsoft Entra ID to SAP ECC, to insert, update and delete records.  The **Full Import** run profile will be used when the ECMA Connector host service starts, to read in the current content of SAP ECC.  
 
     
     | Property | Value |
@@ -165,8 +168,8 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 1. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.   
 
-    - **Anchor** : The values of this attribute should be unique for each object in the target system. The Azure AD provisioning service will query the ECMA connector host by using this attribute after the initial cycle. This value is defined in the web services connector template.
-    - **DN** : The Autogenerated option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType. For more information on anchors and the DN, see [About anchor attributes and distinguished names](/azure/active-directory/app-provisioning/on-premises-application-provisioning-architecture#about-anchor-attributes-and-distinguished-names).
+    - **Anchor** : The values of this attribute should be unique for each object in the target system. The Microsoft Entra provisioning service will query the ECMA connector host by using this attribute after the initial cycle. This value is defined in the web services connector template.
+    - **DN** : The Autogenerated option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Microsoft Entra ID that stores the DN in this format: CN = anchorValue, Object = objectType. For more information on anchors and the DN, see [About anchor attributes and distinguished names](/azure/active-directory/app-provisioning/on-premises-application-provisioning-architecture#about-anchor-attributes-and-distinguished-names).
 
      
         | Property | Value |
@@ -177,7 +180,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
         | Autogenerated | Checked |
    
 
- 1. The ECMA connector host discovers the attributes supported by SAP ECC 7.0. You can then choose which of the discovered attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time. The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC 7.0 and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
+ 1. The ECMA connector host discovers the attributes supported by SAP ECC. You can then choose which of the discovered attributes you want to expose to Microsoft Entra ID. These attributes can then be configured in the Azure portal for provisioning. On the **Select Attributes** page, add all the attributes in the dropdown list one at a time. The **Attribute** dropdown list shows any attribute that was discovered in SAP ECC and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  
      [![Screenshot that shows the Select Attributes page.](.\media\app-provisioning-SAP\sap-select-attributes-1.png)](.\media\app-provisioning-SAP\sap-select-attributes-1.png#lightbox)
@@ -191,7 +194,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 ## 6. Ensure the ECMA2Host service is running
 
- 1. On the server running the Azure AD ECMA Connector Host, select **Start**.
+ 1. On the server running the Microsoft Entra ECMA Connector Host, select **Start**.
  2. Enter **run** and enter **services.msc** in the box.
  3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If not, select **Start**.
 
@@ -199,7 +202,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 
 
- 1. If you have recently started the service, and have many user objects in the SAP ECC 7.0, then wait several minutes for the connector to establish a connection with SAP ECC 7.0.
+ 1. If you have recently started the service, and have many user objects in the SAP ECC, then wait several minutes for the connector to establish a connection with SAP ECC.
 
 ## 7. Configure the application connection in the Azure portal
 
@@ -221,7 +224,7 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
  5. Enter the **Secret Token** value that you defined when you created the connector.
      >[!NOTE]
-     >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
+     >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Microsoft Entra Connect Provisioning Agent Service**, right-click the service, and restart.
  1. Select **Test Connection**, and wait one minute.
 
  1. After the connection test is successful and indicates that the supplied credentials are authorized to enable provisioning, select **Save**.
@@ -230,19 +233,19 @@ To connect the Azure AD provisioning agent with SAP ECC 7.0, follow these steps:
 
 ## 8. Configure attribute mappings
 
-Now you will map attributes between the representation of the user in Azure AD and the representation of the user in SAP ECC 7.0.
+Now you will map attributes between the representation of the user in Microsoft Entra ID and the representation of the user in SAP ECC.
 
-You'll use the Azure portal to configure the mapping between the Azure AD user's attributes and the attributes that you previously selected in the ECMA Host configuration wizard.
+You'll use the Azure portal to configure the mapping between the Microsoft Entra user's attributes and the attributes that you previously selected in the ECMA Host configuration wizard.
 
- 1. Ensure that the Azure AD schema includes the attributes that are required by SAP ECC 7.0. If it requires users to have an attribute, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
- 1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
+ 1. Ensure that the Microsoft Entra schema includes the attributes that are required by SAP ECC. If it requires users to have an attribute, and that attribute is not already part of your Microsoft Entra schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
+ 1. In the Microsoft Entra admin center, under **Enterprise applications**, select the **On-premises ECMA app** application, and then the **Provisioning** page.
  1. Select **Edit provisioning**, and wait 10 seconds.
- 1. Expand **Mappings** and select **Provision Azure Active Directory Users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
+ 1. Expand **Mappings** and select **Provision Microsoft Entra users**. If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
 
 
      ![Screenshot that shows provisioning a user.](.\\media\app-provisioning-sql\configure-10.png)
 
- 5. To confirm that the schema of SAP ECC 7.0 is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
+ 5. To confirm that the schema of SAP ECC is available in Microsoft Entra ID, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
  6. Now, click on the **userPrincipalName** PLACEHOLDER mapping.  This mapping is added by default when you first configure on-premises provisioning.  
  
 :::image type="content" source="./media/app-provisioning-sql/configure-11.png" alt-text="Screenshot of placeholder." lightbox="./media/app-provisioning-sql/configure-11.png":::
@@ -260,46 +263,36 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  8. Specify the source and target attributes for each of the mappings in the following table.
 
      
-    | Azure Active Directory Attribute | ScimOnPremises Attribute | Matching precedence | Apply this mapping |
+    | Microsoft Entra Attribute | ScimOnPremises Attribute | Matching precedence | Apply this mapping |
     | --- | --- | --- | --- |
     | ToUpper(Word([userPrincipalName], 1, "@"), ) | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userName | 1 | Only during object creation |
-    | Redact("Pass@w0rd1") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:export\_password |
-    | Only during object creation |
-    | city | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:city |
-    | Always |
-    | companyName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:company |
-    | Always |
-    | department | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:department |
-    | Always |
-    | mail | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:email |
-    | Always |
-    | Switch([IsSoftDeleted], , "False", "9999-12-31", "True", "1990-01-01") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:expirationTime |
-    | Always |
-    | givenName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:firstName |
-    | Always |
-    | surname | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:lastName |
-    | Always |
-    | telephoneNumber | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:telephoneNumber |
-    | Always |
-    | jobTitle | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:jobTitle |
-    | Always |
+    | Redact("Pass@w0rd1") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:export\_password|| Only during object creation |
+    | city | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:city || Always |
+    | companyName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:company || Always |
+    | department | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:department || Always |
+    | mail | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:email || Always |
+    | Switch([IsSoftDeleted], , "False", "9999-12-31", "True", "1990-01-01") | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:expirationTime || Always |
+    | givenName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:firstName || Always |
+    | surname | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:lastName || Always |
+    | telephoneNumber | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:telephoneNumber ||Always |
+    | jobTitle | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:jobTitle || Always |
 
  
  9. Once all of the mappings have been added, select **Save**.
 
 ## 9. Assign users to the application
 
-Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning.
+Now that you have the Microsoft Entra ECMA Connector Host talking with Microsoft Entra ID, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning.
 
 >[!IMPORTANT]
 >If you were signed in using a Hybrid Identity Administrator role, you need to sign-out and sign-in with an account that has the Application Administrator, Cloud Application Administrator or Global Administrator role, for this section.  The Hybrid Identity Administrator role does not have permissions to assign users to applications.
 
 
-If there are existing users in the SAP ECC 7.0, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Azure AD](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
+If there are existing users in the SAP ECC, then you should create application role assignments for those existing users. To learn more about how to create application role assignments in bulk, see [governing an application's existing users in Microsoft Entra ID](../articles/active-directory/governance/identity-governance-applications-existing-users.md).
 
-Otherwise, if there are no current users of the application, then select a test user from Azure AD who will be provisioned to the application.
+Otherwise, if there are no current users of the application, then select a test user from Microsoft Entra who will be provisioned to the application.
 
- 1. Ensure that the user you will select has all the properties that will be mapped to the required attributes of SAP ECC 7.0.
+ 1. Ensure that the user you will select has all the properties that will be mapped to the required attributes of SAP ECC.
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.
  3. On the left, under **Manage**, select **Users and groups**.

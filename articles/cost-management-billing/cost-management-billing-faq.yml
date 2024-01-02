@@ -362,7 +362,7 @@ sections:
 
       - question: Can I associate my existing Azure account to Azure EA enrollment?
         answer: |
-          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, Microsoft Cloud Partner Program, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
+          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, Microsoft Cloud Partner Program, and more. You will lose monthly credit when converting such subscriptions.
       - question: How many Azure account owners can you have per subscription?
         answer: |
           Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
@@ -381,7 +381,7 @@ sections:
           No, an account owner can only be associated to a single department. The policy helps ensure accurate monitoring and apportioning of costs and spending associated to the department it's aligned with under the EA enrollment in the Azure EA Portal.
       - question: Can an Azure account owner be listed as a security group?
         answer: |
-          No, a subscription owner must be a unique Microsoft account (MSA) or Azure Active Directory (Azure AD) authentication. To account for succession within your organization, you may consider creating generic accounts and using Azure AD to manage subscription access.
+          No, a subscription owner must be a unique Microsoft account (MSA) or Microsoft Entra authentication. To account for succession within your organization, you may consider creating generic accounts and using Microsoft Entra ID to manage subscription access.
       - question: Can an individual user own multiple subscriptions?
         answer: |
           An Azure account owner can create and manage an unlimited number of subscriptions.

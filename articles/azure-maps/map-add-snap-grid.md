@@ -1,8 +1,8 @@
 ---
 title: Add snap grid to the map | Microsoft Azure Maps
 description: How to add a snap grid to a map using Azure Maps Web SDK
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/08/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -23,11 +23,7 @@ The [Use a snapping grid] sample snaps an HTML marker to a grid when it's dragge
 :::image type="content" source="./media/map-add-snap-grid/use-snapping-grid.png"alt-text="A screenshot that shows the snap grid on map.":::
 
 <!--------------------------------------------------
-<iframe height="500" scrolling="no" title="Use a snapping grid" src="https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/azuremaps/pen/rNmzvXO">
-  Use a snapping grid</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/rNmzvXO?default-tab=js%2Cresult]
 --------------------------------------------------->
 
 ## Snap grid options
@@ -37,11 +33,7 @@ The [Snap grid options] sample shows the different customization options availab
 :::image type="content" source="./media/map-add-snap-grid/snap-grid-options.png"alt-text="A screenshot of map with snap grid enabled and an options panel on the left where you can set various options and see the results in the map.":::
 
 <!--------------------------------------------------
-<iframe height="700" scrolling="no" title="Snap grid options" src="https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/azuremaps/pen/RwVZJry">
-  Snap grid options</a> by Azure Maps (<a href="https://codepen.io/azuremaps">@azuremaps</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/RwVZJry?default-tab=result]
 --------------------------------------------------->
 
 ## Next steps

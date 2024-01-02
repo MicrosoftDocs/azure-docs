@@ -1,8 +1,8 @@
 ---
 title: Add an Image layer to a map | Microsoft Azure Maps
 description: Learn how to add images to a map. See how to use the Azure Maps Web SDK to customize image layers and overlay images on fixed sets of coordinates.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/06/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -50,8 +50,7 @@ For a fully functional sample that shows how to overlay an image of a map of New
 :::image type="content" source="./media/map-add-image-layer/simple-image-layer.png" alt-text="A screenshot showing a map with an image of a map of Newark New Jersey from 1922 as an Image layer.":::
 
 <!-----------------------------------------------------------------------------------------------
-<iframe height='500' scrolling='no' title='Simple Image Layer' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/eQodRo/'>Simple Image Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 ## Import a KML file as ground overlay
@@ -65,8 +64,7 @@ For a fully functional sample that shows how to use a KML Ground Overlay as Imag
 :::image type="content" source="./media/map-add-image-layer/kml-ground-overlay-as-image-layer.png" alt-text="A screenshot showing a map with a KML Ground Overlay appearing as Image Layer.":::
 
 <!-----------------------------------------------------------------------------------------------
-<iframe height='500' scrolling='no' title='KML Ground Overlay as Image Layer' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>KML Ground Overlay as Image Layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------------------------------------------------------->
 
 > [!TIP]
@@ -79,8 +77,7 @@ The image layer has many styling options. For a fully functional sample that sho
 :::image type="content" source="./media/map-add-image-layer/image-layer-options.png" alt-text="A screenshot showing a map with a panel that has the different options of the image layer that affect rendering. In this sample, you can change styling options and see the effect it has on the map.":::
 
 <!-----------------------------------------------------------------------------------------------
-<iframe height='700' scrolling='no' title='Image Layer Options' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>Image Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result]
 ----------------------------------------------------------------------------------------------->
 
 ## Next steps

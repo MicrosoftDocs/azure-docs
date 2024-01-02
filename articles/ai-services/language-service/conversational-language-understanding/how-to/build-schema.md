@@ -2,13 +2,12 @@
 title: How to build a Conversational Language Understanding project schema
 titleSuffix: Azure AI services
 description: Use this article to start building a Conversational Language Understanding project schema
-services: cognitive-services
+#services: cognitive-services
 author: aahill
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 12/19/2023
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---

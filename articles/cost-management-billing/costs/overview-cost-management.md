@@ -6,7 +6,7 @@ keywords:
 author: bandersmsft
 ms.author: banders
 ms.reviewer: micfaln
-ms.date: 06/12/2023
+ms.date: 08/07/2023
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -29,9 +29,9 @@ To understand how Cost Management works, you should first understand the Commerc
 
 :::image type="content" source="./media/overview-cost-management/commerce-pipeline.svg" alt-text="Diagram showing the Commerce data pipeline." border="false" lightbox="./media/overview-cost-management/commerce-pipeline.svg":::
 
-From the left, your Azure, Microsoft 365, Dynamics 365, and Power Platform services are all pushing data into the Commerce data pipeline. Each service publishes data on a different cadence. In general, if data for one service is slower than another, it's due to how frequently those services are publishing their usage and charges.
+From the left, your Azure, Microsoft 365, Dynamics 365, and Power Platform services are measuring the products and services you use and purchase at the most granular level. Each service pushes the measured usage and purchase quantities into the Commerce data pipeline on a different cadence. In general, if data for one service is slower than another, it's due to how frequently those services are publishing their usage and charges.
 
-As the data makes its way through the pipeline, the rating system applies discounts based on your specific price sheet and generates “rated usage,” which includes price and quantity for each cost record. It's the basis for what you see in Cost Management and it's covered later. At the end of the month, credits are applied and the invoice is published. This process starts 72 hours after your billing period ends, which is usually the last day of the calendar month for most accounts. For example, if your billing period ends on March 31, charges will be finalized on April 4 at midnight.
+As data makes its way through the pipeline, the rating system applies discounts based on your specific price sheet and generates “rated usage,” which includes a price and quantity for each cost record. It's important to note that measured usage and purchase quantities and pricing quantities may differ due to different pricing models, like block pricing which rates usage in "blocks" of units (e.g., "100 hours"). Usage and purchase quantities are often provided in the lower-level measurement unit while pricing quantities can be in a higher-level pricing unit. Cost Management shows quantity in the measurement unit while the price sheet and invoices show quantity in the pricing unit. At the end of the month, credits are applied and the invoice is published. This process starts 72 hours after your billing period ends, which is usually the last day of the calendar month for most accounts. For example, if your billing period ends on March 31, charges will be finalized on April 4 at midnight.
 
 >[!IMPORTANT]
 >Credits are applied like a gift card or other payment instrument before the invoice is generated. While credit status is tracked as new charges flow into the data pipeline, credits aren’t explicitly applied to these charges until the end of the month.
@@ -107,18 +107,17 @@ Once your resources and subscriptions are organized using the subscription hiera
 
 How you organize and allocate costs plays a huge role in how people within your organization can manage and optimize costs. Be sure to plan ahead and revisit your allocation strategy yearly.
 
-
 ## Monitor costs with alerts
 
 Cost Management and Billing offer many different types of emails and alerts to keep you informed and help you proactively manage your account and incurred costs.
 
 - [**Budget alerts**](tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in cost analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
-- [**Anomaly alerts**](../understand/analyze-unexpected-charges.md)notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within the cost analysis preview. Anomaly alerts can be configured from the cost alerts page.
+- [**Anomaly alerts**](../understand/analyze-unexpected-charges.md) notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within Cost analysis smart views. Anomaly alerts can be configured from the cost alerts page.
 - [**Scheduled alerts**](save-share-views.md#subscribe-to-scheduled-alerts) notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost in order to view the email, chart, or linked CSV.
 - **EA commitment balance alerts** are automatically sent to any notification contacts configured on the EA billing account when the balance is 90% or 100% used.
 - **Invoice alerts** can be configured for MCA billing profiles and Microsoft Online Services Program (MOSP) subscriptions. For details, see [View and download your Azure invoice](../understand/download-azure-invoice.md).
 
-For for information, see [Monitor usage and spending with cost alerts](cost-mgt-alerts-monitor-usage-spending.md).
+For more information, see [Monitor usage and spending with cost alerts](cost-mgt-alerts-monitor-usage-spending.md).
 
 ## Optimize costs
 
@@ -127,7 +126,7 @@ Microsoft offers a wide range of tools for optimizing your costs. Some of these 
 - There are many [**free services**](https://azure.microsoft.com/pricing/free-services/) available in Azure. Be sure to pay close attention to the constraints. Different services are free indefinitely, for 12 months, or 30 days. Some are free up to a specific amount of usage and some may have dependencies on other services that aren't free.
 - [**Azure Advisor cost recommendations**](tutorial-acm-opt-recommendations.md) should be your first stop when interested in optimizing existing resources. Advisor recommendations are updated daily and are based on your usage patterns. Advisor is available for subscriptions and resource groups. Management group users can also see recommendations but they need to select the desired subscriptions. Billing users can only see recommendations for subscriptions they have resource access to.
 - [**Azure savings plans**](../savings-plan/index.yml) save you money when you have consistent usage of Azure compute resources. A savings plan can significantly reduce your resource costs by up to 65% from pay-as-you-go prices.
-- [**Azure reservations**](https://azure.microsoft.com/reservations/) help you save up to 72% compared to pay-as-you-go rates by precommitting to specific usage amounts for a set time duration.
+- **[Azure reservations](https://azure.microsoft.com/reservations/)** help you save up to 72% compared to pay-as-you-go rates by pre-committing to specific usage amounts for a set time duration.
 - [**Azure Hybrid Benefit**](https://azure.microsoft.com/pricing/hybrid-benefit/) helps you significantly reduce costs by using on-premises Windows Server and SQL Server licenses or RedHat and SUSE Linux subscriptions on Azure.
 
 For other options, see [Azure benefits and incentives](https://azure.microsoft.com/pricing/offers/#cloud).

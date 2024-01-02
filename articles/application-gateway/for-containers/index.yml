@@ -28,6 +28,18 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
+          - text: Components
+            url: application-gateway-for-containers-components.md
+          - text: Custom health probe
+            url: custom-health-probe.md
+          - text: Session Affinity
+            url: session-affinity.md
+          - text: TLS policy
+            url: tls-policy.md
+          - text: Backend health and metrics
+            url: alb-controller-backend-health-metrics.md
+          - text: Metrics
+            url: application-gateway-for-containers-metrics.md
           - text: Frequently asked questions
             url: faq.yml
       - linkListType: whats-new
@@ -58,14 +70,6 @@ landingContent:
             url: how-to-backend-mtls-gateway-api.md
 
 # Card
-  - title: Application Gateway for Containers Kubernetes Reference
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: API Specification
-            url: api-specification-kubernetes.md
-
-# Card
   - title: Troubleshoot Application Gateway for Containers
     linkLists:
       - linkListType: overview
@@ -74,3 +78,31 @@ landingContent:
             url: troubleshooting-guide.md
           - text: Diagnostic Logs
             url: diagnostics.md
+      - linkListType: concept
+        links:
+          - text: API Specification for Kubernetes
+            url: api-specification-kubernetes.md
+
+  # Card
+  - title: Gateway API
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Multi-site hosting
+            url: how-to-multiple-site-hosting-gateway-api.md
+          - text: Path, header, and query string routing
+            url: how-to-path-header-query-string-routing-gateway-api.md
+          - text: Traffic splitting
+            url: how-to-traffic-splitting-gateway-api.md
+          - text: URL Rewrite
+            url: how-to-url-rewrite-gateway-api.md
+
+  # Card
+  - title: Ingress API
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Multi-site hosting
+            url: how-to-multiple-site-hosting-ingress-api.md
+          - text: SSL offloading
+            url: how-to-ssl-offloading-ingress-api.md

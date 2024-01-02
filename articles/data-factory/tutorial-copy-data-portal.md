@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 08/10/2023
 ms.author: jianleishen
 ---
 
@@ -246,7 +246,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. Verify that two rows per minute (for each pipeline run) are inserted into the **emp** table until the specified end time.
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another location in Blob storage. You learned how to:
 
 > [!div class="checklist"]

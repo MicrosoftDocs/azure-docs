@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-extended-java, event-tier1-build-2022, pa
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
@@ -63,6 +63,9 @@ spring.datasource.url=jdbc:sqlserver://$AZ_DATABASE_NAME.database.windows.net:14
 
 #### [Service Connector](#tab/service-connector)
 
+> [!NOTE]
+> Service Connectors are created at the deployment level. So, if another deployment is created, you need to create the connections again.
+
 Configure your app deployed to Azure Spring Apps to connect to an Azure SQL Database with a system-assigned managed identity using the `az spring connection create` command, as shown in the following example.
 
 1. Use the following command to install the Service Connector passwordless extension for the Azure CLI:
@@ -110,7 +113,7 @@ Rebuild the app and deploy it to the Azure Spring Apps provisioned in the second
 
 ## Next steps
 
-* [How to access Storage blob with managed identity in Azure Spring Apps](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/managed-identity-storage-blob)
+* [How to access Storage blob with managed identity in Azure Spring Apps](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/managed-identity-storage-blob)
 * [How to enable system-assigned managed identity for applications in Azure Spring Apps](./how-to-enable-system-assigned-managed-identity.md)
 * [Learn more about managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 * [Authenticate Azure Spring Apps with Key Vault in GitHub Actions](./github-actions-key-vault.md)

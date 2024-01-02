@@ -6,6 +6,9 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 07/30/2023
 ms.custom: fasttrack-edit, devx-track-azurepowershell, devx-track-azurecli
+author: cephalin
+ms.author: cephalin
+
 ---
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
@@ -83,7 +86,7 @@ For more information, see [New-AzWebAppSlot](/powershell/module/az.websites/new-
 
 The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.  Get publish profile [from Azure App Service](/visualstudio/azure/how-to-get-publish-profile-from-azure-app-service) can provide required information to deploy to the slot.  The profile can be imported by Visual Studio to deploy contents to the slot.
 
-The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the combined site name and slot name must be fewer than 59 characters.
+The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name will be truncated at 40 characters, and the combined site name and slot name must be fewer than 59 characters.
 
 <a name="AboutConfiguration"></a>
 
@@ -93,12 +96,12 @@ The slot's URL has the format `http://sitename-slotname.azurewebsites.net`. To k
 
 When you swap two slots (usually from a staging slot into the production slot), App Service does the following to ensure that the target slot doesn't experience downtime:
 
-1. Apply the following settings from the target slot (for example, the production slot) to all instances of the source slot: 
+1. Apply the following settings from the source slot (for example, the production slot) to all instances of the target slot: 
     - [Slot-specific](#which-settings-are-swapped) app settings and connection strings, if applicable.
     - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled.
     - [App Service authentication](overview-authentication-authorization.md) settings, if enabled.
     
-    Any of these cases trigger all instances in the source slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
+    Any of these cases trigger all instances in the target slot to restart. During [swap with preview](#Multi-Phase), this marks the end of the first phase. The swap operation is paused, and you can validate that the source slot works correctly with the target slot's settings.
 
 1. Wait for every instance in the source slot to complete its restart. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 

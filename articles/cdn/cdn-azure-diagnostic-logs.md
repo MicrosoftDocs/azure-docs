@@ -222,11 +222,11 @@ Here's how you can use the tool:
 
 ## Log data delays
 
-The following table shows log data delays for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**.
+The following table shows log data delays for **Azure CDN Standard from Microsoft**, and **Azure CDN Standard/Premium from Edgio**.
 
-Microsoft log data delays | Verizon log data delays | Akamai log data delays
---- | --- | ---
-Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appearing after endpoint propagation completion. | Delayed by 24 hours; if it was created more than 24 hours ago, it takes up to 2 hours to start appearing. If it was recently created, it can take up to 25 hours for the logs to start appearing.
+| Microsoft log data delays | Edgio log data delays |
+| --- | --- |
+| Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appearing after endpoint propagation completion. |
 
 ## Diagnostic log types for CDN core analytics
 
@@ -236,41 +236,40 @@ Microsoft currently offers core analytics logs only, which contain metrics showi
 The following table shows a list of metrics available in the core analytics logs for:
 
 * **Azure CDN Standard from Microsoft**
-* **Azure CDN Standard from Akamai**
-* **Azure CDN Standard/Premium from Verizon**
+* **Azure CDN Standard/Premium from Edgio**
 
 Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those CDN endpoints that have traffic on them.
 
 
-|Metric                     | Description | Microsoft | Verizon | Akamai |
-|---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Total number of request hits during this period. | Yes | Yes |Yes |
-| RequestCountHttpStatus2xx | Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202). | Yes | Yes |Yes |
-| RequestCountHttpStatus3xx | Count of all requests that resulted in a 3xx HTTP code (for example, 300, 302). | Yes | Yes |Yes |
-| RequestCountHttpStatus4xx | Count of all requests that resulted in a 4xx HTTP code (for example, 400, 404). | Yes | Yes |Yes |
-| RequestCountHttpStatus5xx | Count of all requests that resulted in a 5xx HTTP code (for example, 500, 504). | Yes | Yes |Yes |
-| RequestCountHttpStatusOthers | Count of all other HTTP codes (outside of 2xx-5xx). | Yes | Yes |Yes |
-| RequestCountHttpStatus200 | Count of all requests that resulted in a 200 HTTP code response. | Yes | No  |Yes |
-| RequestCountHttpStatus206 | Count of all requests that resulted in a 206 HTTP code response. | Yes | No  |Yes |
-| RequestCountHttpStatus302 | Count of all requests that resulted in a 302 HTTP code response. | Yes | No  |Yes |
-| RequestCountHttpStatus304 | Count of all requests that resulted in a 304 HTTP code response. | Yes | No  |Yes |
-| RequestCountHttpStatus404 | Count of all requests that resulted in a 404 HTTP code response. | Yes | No  |Yes |
-| RequestCountCacheHit | Count of all requests that resulted in a Cache hit. The asset was served directly from the POP to the client. | Yes | Yes | No  |
-| RequestCountCacheMiss | Count of all requests that resulted in a Cache miss. A Cache miss means the asset wasn't found on the POP closest to the client, and was retrieved from the origin. | Yes | Yes | No |
-| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
-| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from getting cached by the asset's Cache-Control and Expires headers. This count indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
-| RequestCountCacheOthers | Count of all requests with cache status not covered by metrics listed previously. | No | Yes | No  |
-| EgressTotal | Outbound data transfer in GB | Yes |Yes |Yes |
-| EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB. | Yes | Yes | No  |
-| EgressHttpStatus3xx | Outbound data transfer for responses with 3xx HTTP status codes in GB. | Yes | Yes | No  |
-| EgressHttpStatus4xx | Outbound data transfer for responses with 4xx HTTP status codes in GB. | Yes | Yes | No  |
-| EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB. | Yes | Yes | No |
-| EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB. | Yes | Yes | No  |
-| EgressCacheHit | Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges. | Yes | Yes | No |
-| EgressCacheMiss. | Outbound data transfer for responses that weren't found on the nearest POP server, and retrieved from the origin server. | Yes | Yes | No |
-| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
-| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from getting cached by the asset's Cache-Control and, or Expires headers. Indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
-| EgressCacheOthers | Outbound data transfers for other cache scenarios. | No | Yes | No |
+| Metric | Description | Microsoft | Edgio |
+|--|--|--|--|
+| RequestCountTotal | Total number of request hits during this period. | Yes | Yes |
+| RequestCountHttpStatus2xx | Count of all requests that resulted in a 2xx HTTP code (for example, 200, 202). | Yes | Yes |
+| RequestCountHttpStatus3xx | Count of all requests that resulted in a 3xx HTTP code (for example, 300, 302). | Yes | Yes |
+| RequestCountHttpStatus4xx | Count of all requests that resulted in a 4xx HTTP code (for example, 400, 404). | Yes | Yes |
+| RequestCountHttpStatus5xx | Count of all requests that resulted in a 5xx HTTP code (for example, 500, 504). | Yes | Yes |
+| RequestCountHttpStatusOthers | Count of all other HTTP codes (outside of 2xx-5xx). | Yes | Yes |
+| RequestCountHttpStatus200 | Count of all requests that resulted in a 200 HTTP code response. | Yes | No |
+| RequestCountHttpStatus206 | Count of all requests that resulted in a 206 HTTP code response. | Yes | No |
+| RequestCountHttpStatus302 | Count of all requests that resulted in a 302 HTTP code response. | Yes | No |
+| RequestCountHttpStatus304 | Count of all requests that resulted in a 304 HTTP code response. | Yes | No |
+| RequestCountHttpStatus404 | Count of all requests that resulted in a 404 HTTP code response. | Yes | No |
+| RequestCountCacheHit | Count of all requests that resulted in a Cache hit. The asset was served directly from the POP to the client. | Yes | Yes |
+| RequestCountCacheMiss | Count of all requests that resulted in a Cache miss. A Cache miss means the asset wasn't found on the POP closest to the client, and was retrieved from the origin. | Yes | Yes |
+| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached because of a user configuration on the edge. | Yes | Yes |
+| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from getting cached by the asset's Cache-Control and Expires headers. This count indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes |
+| RequestCountCacheOthers | Count of all requests with cache status not covered by metrics listed previously. | No | Yes |
+| EgressTotal | Outbound data transfer in GB | Yes | Yes |
+| EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB. | Yes | Yes |
+| EgressHttpStatus3xx | Outbound data transfer for responses with 3xx HTTP status codes in GB. | Yes | Yes |
+| EgressHttpStatus4xx | Outbound data transfer for responses with 4xx HTTP status codes in GB. | Yes | Yes |
+| EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB. | Yes | Yes |
+| EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB. | Yes | Yes |
+| EgressCacheHit | Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges. | Yes | Yes |
+| EgressCacheMiss. | Outbound data transfer for responses that weren't found on the nearest POP server, and retrieved from the origin server. | Yes | Yes |
+| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached because of a user configuration on the edge. | Yes | Yes |
+| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from getting cached by the asset's Cache-Control and, or Expires headers. Indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes |
+| EgressCacheOthers | Outbound data transfers for other cache scenarios. | No | Yes |
 
 *Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
 
@@ -328,7 +327,7 @@ Example properties:
 
 ```json
 {
-     "DomainName": "manlingakamaitest2.azureedge.net",
+     "DomainName": "azurecdntest.azureedge.net",
      "RequestCountTotal": 480,
      "RequestCountHttpStatus2xx": 480,
      "RequestCountHttpStatus3xx": 0,

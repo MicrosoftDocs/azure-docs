@@ -4,7 +4,7 @@ description: Learn how to install and use JavaScript framework extensions for th
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/10/2023
+ms.date: 11/15/2023
 ms.devlang: javascript
 ms.custom: devx-track-js
 ms.reviewer: mmcc
@@ -16,22 +16,22 @@ In addition to the core SDK, there are also plugins available for specific frame
 
 These plugins provide extra functionality and integration with the specific framework.
 
-> [!IMPORTANT]
-> If you haven't already, you need to first [enable Azure Monitor Application Insights Real User Monitoring](./javascript-sdk.md) before you enable a framework extension.
-
 ## Prerequisites
+
+- Install the [JavaScript SDK](./javascript-sdk.md).
 
 ### [React](#tab/react)
 
-None.
+- Make sure the version of the React plugin that you want to install is compatible with your version of Application Insights. For more information, see [Compatibility Matrix for the React plugin](https://github.com/microsoft/applicationinsights-react-js#compatibility-matrix). 
 
 ### [React Native](#tab/reactnative)
 
-You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
+- You must be using a version >= 2.0.0 of `@microsoft/applicationinsights-web`. This plugin only works in react-native apps. It doesn't work with [apps using the Expo framework](https://docs.expo.io/) or Create React Native App, which is based on the Expo framework.
 
 ### [Angular](#tab/angular)
 
-None.
+- The Angular plugin is NOT ECMAScript 3 (ES3) compatible.
+- When we add support for a new Angular version, our npm package becomes incompatible with down-level Angular versions. Continue to use older npm packages until you're ready to upgrade your Angular version.
 
 ---
 
@@ -71,19 +71,13 @@ The Angular plugin for the Application Insights JavaScript SDK enables:
 - Track exceptions
 - Chain more custom exception handlers
 
-> [!WARNING]
-> Angular plugin is NOT ECMAScript 3 (ES3) compatible.
-
-> [!IMPORTANT]
-> When we add support for a new Angular version, our NPM package becomes incompatible with down-level Angular versions. Continue to use older NPM packages until you're ready to upgrade your Angular version.
-
 ---
 
 ## Add a plug-in
 
 To add a plug-in, follow the steps in this section.
 
-### 1. Install the package
+### Install the package
 
 #### [React](#tab/react)
 
@@ -129,16 +123,13 @@ npm install @microsoft/applicationinsights-angularplugin-js
 
 ---
 
-### 2. Add the extension to your code
+### Add the extension to your code
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 #### [React](#tab/react)
 
 Initialize a connection to Application Insights:
-
-> [!TIP]
-> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [reactPlugin],`.
 
 ```javascript
 import React from 'react';
@@ -147,7 +138,7 @@ import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
 import { createBrowserHistory } from "history";
 const browserHistory = createBrowserHistory({ basename: '' });
 var reactPlugin = new ReactPlugin();
-// Add the Click Analytics plug-in.
+// *** Add the Click Analytics plug-in. ***
 /* var clickPluginInstance = new ClickAnalyticsPlugin();
    var clickPluginConfig = {
      autoCapture: true
@@ -155,13 +146,13 @@ var reactPlugin = new ReactPlugin();
 var appInsights = new ApplicationInsights({
     config: {
         connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-        // If you're adding the Click Analytics plug-in, delete the next line.
+        // *** If you're adding the Click Analytics plug-in, delete the next line. ***
         extensions: [reactPlugin],
-     // Add the Click Analytics plug-in.
+     // *** Add the Click Analytics plug-in. ***
      // extensions: [reactPlugin, clickPluginInstance],
         extensionConfig: {
           [reactPlugin.identifier]: { history: browserHistory }
-       // Add the Click Analytics plug-in.
+       // *** Add the Click Analytics plug-in. ***
        // [clickPluginInstance.identifier]: clickPluginConfig
         }
     }
@@ -169,25 +160,19 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 ```
 
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
-
 #### [React Native](#tab/reactnative)
 
 - **React Native Plug-in**
 
   To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
 
-  > [!TIP]
-  > If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [RNPlugin]`.
-
   ```typescript
   import { ApplicationInsights } from '@microsoft/applicationinsights-web';
   import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
-  // Add the Click Analytics plug-in.
+  // *** Add the Click Analytics plug-in. ***
   // import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
   var RNPlugin = new ReactNativePlugin();
-  // Add the Click Analytics plug-in.
+  // *** Add the Click Analytics plug-in. ***
   /* var clickPluginInstance = new ClickAnalyticsPlugin();
   var clickPluginConfig = {
   autoCapture: true
@@ -195,9 +180,9 @@ appInsights.loadAppInsights();
   var appInsights = new ApplicationInsights({
       config: {
           connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-          // If you're adding the Click Analytics plug-in, delete the next line.
+          // *** If you're adding the Click Analytics plug-in, delete the next line. ***
           extensions: [RNPlugin]
-       // Add the Click Analytics plug-in.
+       // *** Add the Click Analytics plug-in. ***
        /* extensions: [RNPlugin, clickPluginInstance],
                extensionConfig: {
                    [clickPluginInstance.identifier]: clickPluginConfig
@@ -207,10 +192,6 @@ appInsights.loadAppInsights();
   appInsights.loadAppInsights();
 
   ```
-
-  > [!TIP]
-  > If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
-
 
 - **React Native Manual Device Plugin**
 
@@ -283,14 +264,11 @@ Set up an instance of Application Insights in the entry component in your app:
 > [!IMPORTANT]
 > When using the ErrorService, there is an implicit dependency on the `@microsoft/applicationinsights-analytics-js` extension. you MUST include either the `'@microsoft/applicationinsights-web'` or include the `@microsoft/applicationinsights-analytics-js` extension. Otherwise, unhandled exceptions caught by the error service will not be sent.
 
-> [!TIP]
-> If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md), uncomment the lines for Click Analytics and delete `extensions: [angularPlugin],`.
-
 ```js
 import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
-// Add the Click Analytics plug-in.
+// *** Add the Click Analytics plug-in. ***
 // import { ClickAnalyticsPlugin } from '@microsoft/applicationinsights-clickanalytics-js';
 import { Router } from '@angular/router';
 
@@ -304,7 +282,7 @@ export class AppComponent {
         private router: Router
     ){
         var angularPlugin = new AngularPlugin();
-     // Add the Click Analytics plug-in.
+     // *** Add the Click Analytics plug-in. ***
      /* var clickPluginInstance = new ClickAnalyticsPlugin();
         var clickPluginConfig = {
           autoCapture: true
@@ -312,13 +290,13 @@ export class AppComponent {
         const appInsights = new ApplicationInsights({
             config: {
                 connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
-                // If you're adding the Click Analytics plug-in, delete the next line.        
+                // *** If you're adding the Click Analytics plug-in, delete the next line. ***  
                 extensions: [angularPlugin],
-             // Add the Click Analytics plug-in.
+             // *** Add the Click Analytics plug-in. ***
              // extensions: [angularPlugin, clickPluginInstance],
                 extensionConfig: {
                     [angularPlugin.identifier]: { router: this.router }
-                 // Add the Click Analytics plug-in.
+                 // *** Add the Click Analytics plug-in. ***
                  // [clickPluginInstance.identifier]: clickPluginConfig
                 }
             } 
@@ -328,10 +306,20 @@ export class AppComponent {
 }
 ```
 
-> [!TIP]
-> If you're adding the Click Analytics plug-in, see [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
-
 ---
+
+### (Optional) Add the Click Analytics plug-in
+   
+If you want to add the [Click Analytics plug-in](./javascript-feature-extensions.md):
+ 
+1. Uncomment the lines for Click Analytics.
+1. Do one of the following, depending on which plug-in you're adding:
+
+   - For React, delete `extensions: [reactPlugin],`.
+   - For React Native, delete `extensions: [RNPlugin]`.
+   - For Angular, delete `extensions: [angularPlugin],`.
+
+1. See [Use the Click Analytics plug-in](./javascript-feature-extensions.md#use-the-plug-in) to continue with the setup process.
 
 ## Configuration
 
@@ -501,10 +489,7 @@ To chain more custom exception handlers:
 
 #### [React](#tab/react)
 
-N/A
-
-> [!NOTE]
-> The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
+The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
 
 #### [React Native](#tab/reactnative)
 
@@ -515,10 +500,7 @@ N/A
 
 #### [Angular](#tab/angular)
 
-N/A
-
-> [!NOTE]
-> The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
+The device information, which includes Browser, OS, version, and language, is already being collected by the Application Insights web package.
 
 ---
 
@@ -554,7 +536,7 @@ It measures time from the [`ComponentDidMount`](https://react.dev/reference/reac
 
 ##### Explore your data
 
-Use  [Metrics Explorer](../essentials/metrics-getting-started.md) to plot a chart for the custom metric name `React Component Engaged Time (seconds)` and [split](../essentials/metrics-getting-started.md#apply-dimension-filters-and-splitting) this custom metric by `Component Name`.
+Use [Azure Monitor metrics explorer](../essentials/analyze-metrics.md) to plot a chart for the custom metric name `React Component Engaged Time (seconds)` and [split](../essentials/analyze-metrics.md#use-dimension-filters-and-splitting) this custom metric by `Component Name`.
 
 :::image type="content" source="./media/javascript-react-plugin/chart.png" lightbox="./media/javascript-react-plugin/chart.png" alt-text="Screenshot that shows a chart that displays the custom metric React Component Engaged Time (seconds) split by Component Name":::
 
@@ -566,8 +548,7 @@ customMetrics
 | summarize avg(value), count() by tostring(customDimensions["Component Name"])
 ```
 
-> [!NOTE]
-> It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
+It can take up to 10 minutes for new custom metrics to appear in the Azure portal.
 
 #### Use Application Insights with React Context
 
@@ -782,6 +763,16 @@ Check out the [Application Insights Angular demo](https://github.com/microsoft/a
 
 ---
 
+## Frequently asked questions
+
+This section provides answers to common questions.
+
+### How does Application Insights generate device information like browser, OS, language, and model?
+
+The browser passes the User Agent string in the HTTP header of the request. The Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
+          
+Occasionally, this data might be missing or inaccurate if the user or enterprise disables sending User Agent in browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) might not include all device information. Or Application Insights might not have adopted the latest updates.
+
 ## Next steps
 
-- [Confirm data is flowing](javascript-sdk.md#5-confirm-data-is-flowing).
+- [Confirm data is flowing](javascript-sdk.md#confirm-data-is-flowing).

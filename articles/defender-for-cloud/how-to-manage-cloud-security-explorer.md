@@ -1,10 +1,9 @@
 ---
-title: Build queries with cloud security explorer
-
-description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
+title: Build queries with cloud security explorer in Microsoft Defender for Cloud
+description: Learn how to build queries with cloud security explorer in Microsoft Defender for Cloud
 ms.topic: how-to
 ms.custom: ignite-2022
-ms.date: 05/16/2023
+ms.date: 11/01/2023
 ---
 
 # Build queries with cloud security explorer
@@ -13,25 +12,34 @@ Defender for Cloud's contextual security capabilities assists security teams in 
 
 Use the cloud security explorer, to proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
-With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, and lateral movement between resources and across multiple clouds (Azure and AWS).
+With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, and lateral movement between resources and across multiple clouds (Azure AWS, and GCP).
 
 Learn more about [the cloud security graph, attack path analysis, and the cloud security explorer](concept-attack-path.md).
+
+## Availability
+
+| Aspect | Details |
+|--|--|
+| Release state | GA (General Availability) |
+| Required plans | - Defender Cloud Security Posture Management (CSPM) enabled<br>- Defender for Servers P2 customers can use the explorer UI to query for keys and secrets, but must have Defender CSPM enabled to get the full value of the Explorer. |
+| Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS, GCP) <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet) |
 
 ## Prerequisites
 
 - You must [enable Defender CSPM](enable-enhanced-security.md).
-    - For Agentless Container Posture, you must enable the following extensions:
-        - Agentless discovery for Kubernetes (preview)
-        - Container registries vulnerability assessments (preview)
+  - For agentless container posture, you must enable the following extensions:
+    - Agentless discovery for Kubernetes (preview)
+    - Container registries vulnerability assessments (preview)
 
 - You must [enable agentless scanning](enable-vulnerability-assessment-agentless.md).
 
-- Required roles and permissions: 
-    - Security Reader
-    - Security Admin
-    - Reader
-    - Contributor
-    - Owner
+- Required roles and permissions:
+  - Security Reader
+  - Security Admin
+  - Reader
+  - Contributor
+  - Owner
 
 Check the [cloud availability tables](supported-machines-endpoint-solutions-clouds-servers.md) to see which government and cloud environments are supported.
 
@@ -91,4 +99,4 @@ Use the query link to share a query with other people. After creating a query, s
 
 View the [reference list of attack paths and cloud security graph components](attack-path-reference.md).
 
-Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md#defender-cspm-plan-options).
+Learn about the [Defender CSPM plan options](concept-cloud-security-posture-management.md).

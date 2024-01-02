@@ -203,19 +203,27 @@ You can optionally choose to load the MLTable object into Pandas, using:
 ```
 
 #### Save the data loading steps
-Next, save all your data loading steps into an MLTable file. If you save your data loading steps, you can reproduce your Pandas data frame at a later point in time, and you don't need to redefine the data loading steps in your code.
+Next, save all your data loading steps into an MLTable file. Saving your data loading steps in an MLTable file allows you to reproduce your Pandas data frame at a later point in time, without need to redefine the code each time.
 
+You can choose to save the MLTable yaml file to a cloud storage, or you can also save it to local paths.
 ```python
-# serialize the data loading steps into an MLTable file
-tbl.save("./nyc_taxi")
+# save the data loading steps in an MLTable file to a cloud storage
+# NOTE: the tbl object was defined in the previous snippet.
+tbl.save(path="azureml://subscriptions/<subid>/resourcegroups/<rgname>/workspaces/<wsname>/datastores/<name>/paths/titanic", colocated=True, show_progress=True, overwrite=True)
 ```
 
-You can optionally view the contents of the MLTable file, to understand how the data loading steps are serialized into a file:
-
 ```python
-with open("./nyc_taxi/MLTable", "r") as f:
-    print(f.read())
+# save the data loading steps in an MLTable file to local
+# NOTE: the tbl object was defined in the previous snippet.
+tbl.save("./titanic")
 ```
+
+> [!IMPORTANT]
+> - If colocated == True, then we will copy the data to the same folder with MLTable yaml file if they are not currently colocated, and we will use relative paths in MLTable yaml.
+> - If colocated == False, we will not move the data and we will use absolute paths for cloud data and use relative paths for local data.
+> - We don’t support this parameter combination: data is in local, colocated == False, `path` targets a cloud directory. Please upload your local data to cloud and use the cloud data paths for MLTable instead.
+>
+
 
 ### Reproduce data loading steps
 Now that the data loading steps have been serialized into a file, you can reproduce them at any point in time, with the load() method. This way, you don't need to redefine your data loading steps in code, and you can more easily share the file.
@@ -772,7 +780,7 @@ ml_client = MLClient(
 )
 
 # get the latest version of the data asset
-# Note: the variable VERSION is set in the previous code code
+# Note: the variable VERSION is set in the previous code
 data_asset = ml_client.data.get(name="pets-mltable-example", version=VERSION)
 
 # the table from the data asset id

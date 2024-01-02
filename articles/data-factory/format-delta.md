@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 08/10/2023
 ms.author: makromer
 ---
 
@@ -151,7 +151,7 @@ In Settings tab, you find three more options to optimize delta sink transformati
 
 When you write to a delta sink, there's a known limitation where the numbers of rows written won't show-up in the monitoring output.
 
-## Next steps
+## Related content
 
 * Create a [source transformation](data-flow-source.md) in mapping data flow.
 * Create a [sink transformation](data-flow-sink.md) in mapping data flow.

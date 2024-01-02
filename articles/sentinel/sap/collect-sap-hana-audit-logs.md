@@ -1,8 +1,8 @@
 ---
 title: Collect SAP HANA audit logs in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to collect audit logs from your SAP HANA database.
-author: msftandrelom
-ms.author: andrelom
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
 ms.date: 05/24/2023
 ---

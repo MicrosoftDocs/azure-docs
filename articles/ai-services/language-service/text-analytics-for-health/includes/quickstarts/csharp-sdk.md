@@ -1,10 +1,9 @@
 ---
 author: jboback
 manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-service
+ms.service: azure-ai-language
 ms.topic: include
-ms.date: 02/17/2023
+ms.date: 12/19/2023
 ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
@@ -58,8 +57,8 @@ namespace Example
     class Program
     {
         // This example requires environment variables named "LANGUAGE_KEY" and "LANGUAGE_ENDPOINT"
-        private static readonly AzureKeyCredential credentials = Environment.GetEnvironmentVariable("LANGUAGE_KEY");
-        private static readonly Uri endpoint = Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT");
+        private static readonly AzureKeyCredential credentials = new (Environment.GetEnvironmentVariable("LANGUAGE_KEY"));
+        private static readonly Uri endpoint = new (Environment.GetEnvironmentVariable("LANGUAGE_ENDPOINT"));
         
         // Example method for extracting information from healthcare-related text 
         static async Task healthExample(TextAnalyticsClient client)

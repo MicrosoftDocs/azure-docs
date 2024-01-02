@@ -5,7 +5,7 @@ ms.topic: install-set-up-deploy
 ms.date: 06/29/2023
 ---
 
-# Protect your Amazon Web Service (AWS) accounts containers with Defender for Containers
+# Protect your Amazon Web Service (AWS) containers with Defender for Containers
 
 Defender for Containers in Microsoft Defender for Cloud is the cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
@@ -19,15 +19,9 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
+- [Connect your AWS account to Microsoft Defender for Cloud](quickstart-onboard-aws.md#connect-your-aws-account)
 
-- Validate the following domains only if you're using a relevant OS. For example, if you have EKS clusters running in AWS, then you would only need to apply the `Amazon Linux 2 (Eks): Domain: "amazonlinux.*.amazonaws.com/2/extras/*"` domain.
-
-    | Domain                     | Port | Host operating systems |
-    | -------------------------- | ---- |--|
-    | amazonlinux.*.amazonaws.com/2/extras/\* | 443 | Amazon Linux 2 |
-    | yum default repositories | - | RHEL / Centos |
-    | apt default repositories | - | Debian |
+- Verify your Kubernetes nodes can access source repositories of your package manager. For information about the requirements, see [Network requirements](defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-eks&preserve-view=true#network-requirements).
 
 - Ensure the following [Azure Arc-enabled Kubernetes network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md) are validated.
 
@@ -51,20 +45,28 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 
     :::image type="content" source="media/tutorial-enable-containers-aws/aws-containers-enabled.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector." lightbox="media/tutorial-enable-containers-aws/aws-containers-enabled.png":::
 
-1. (Optional) To change the retention period for your audit logs, select **Settings**, enter the required time frame, and select **Save**.
+1. To change optional configurations for the plan, select **Settings**.
 
-    :::image type="content" source="media/tutorial-enable-containers-aws/retention-period.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="media/tutorial-enable-containers-aws/retention-period.png":::
+    :::image type="content" source="media/tutorial-enable-containers-aws/containers-settings.png" alt-text="Screenshot of Defender for Cloud's environment settings page showing the settings for the Containers plan." lightbox="media/tutorial-enable-containers-aws/containers-settings.png":::
 
-    > [!Note]
-    > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+    - Defender for Containers requires control plane audit logs to provide [runtime threat protection](defender-for-containers-introduction.md#run-time-protection-for-kubernetes-nodes-and-clusters). To send Kubernetes audit logs to Microsoft Defender, toggle the setting to **On.** To change the retention period for your audit logs, enter the required time frame.
+
+        > [!NOTE]
+        > If you disable this configuration, then the `Threat detection (control plane)` feature will be disabled. Learn more about [features availability](supported-machines-endpoint-solutions-clouds-containers.md).
+
+    - [Agentless discovery for Kubernetes](defender-for-containers-architecture.md#how-does-agentless-discovery-for-kubernetes-work) provides API-based discovery of your Kubernetes clusters. To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
+    - The [Agentless Container Vulnerability Assessment](agentless-vulnerability-assessment-aws.md) provides vulnerability management for images stored in ECR and running images on your EKS clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
 
 1. Select **Next: Review and generate**.
 
 1. Select **Update**.
 
-## Deploy the Defender extension in Azure
+> [!NOTE]
+> To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
-Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
+## Deploy the Defender agent in EKS clusters
+
+Azure Arc-enabled Kubernetes, the Defender agent, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
 
 - `EKS clusters should have Microsoft Defender's extension for Azure Arc installed`
 

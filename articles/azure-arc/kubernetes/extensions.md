@@ -101,7 +101,7 @@ The following parameters are required when using `az k8s-extension create` to cr
 | `--cluster-type` | The cluster type on which the extension instance has to be created. For most scenarios, use `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes clusters. |
 
 > [!NOTE]
-> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview, you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview), you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ### Optional parameters
 
@@ -261,7 +261,7 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 |--------------|------------|
 | `--auto-upgrade-minor-version` | Boolean property that specifies whether the extension minor version is automatically upgraded. The default setting is `true`.  If this parameter is set to true, you can't set the `version` parameter, as the version will be dynamically updated. If set to `false`, the extension won't be automatically upgraded, even for patch versions. |
 | `--version` | Version of the extension to be installed (specific version to pin the extension instance to). Must not be supplied if auto-upgrade-minor-version is set to `true`. |
-| `--configuration-settings` | Settings that can be passed into the extension to control its functionality.These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-settings-file` can't be used in the same command.  Only the settings that require an update need to be provided. The provided settings will be replaced with the specified values. |
+| `--configuration-settings` | Settings that can be passed into the extension to control its functionality. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-settings-file` can't be used in the same command.  Only the settings that require an update need to be provided. The provided settings will be replaced with the specified values. |
 | `--configuration-settings-file` | Path to the JSON file with `key=value` pairs to be used for passing in configuration settings to the extension. If this parameter is used in the command, then `--configuration-settings` can't be used in the same command. |
 | `--configuration-protected-settings` | Settings that aren't retrievable using `GET` API calls or `az k8s-extension show` commands. Typically used to pass in sensitive settings. These are passed in as space-separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. When you update a protected setting, all of the protected settings are expected to be specified. If any of these settings are omitted, those settings will be considered obsolete and deleted.  |
 | `--configuration-protected-settings-file` | Path to a JSON file with `key=value` pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
@@ -326,3 +326,4 @@ az extension update --name k8s-extension
 * Review the [az k8s-extension CLI reference](/cli/azure/k8s-extension) for a comprehensive list of commands and parameters.
 * Learn more about [how extensions work with Arc-enabled Kubernetes clusters](conceptual-extensions.md).
 * Review the [cluster extensions currently available for Azure Arc-enabled Kubernetes](extensions-release.md).
+* Get help [troubleshooting extension issues](extensions-troubleshooting.md).

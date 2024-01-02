@@ -191,17 +191,17 @@ Any errors received from the QGIS framework are displayed in the **Python Logs**
 
 If you have question related to Azure Maps, see [MICROSOFT Q&A]. Be sure and tag your questions with "Azure Maps".
 
-[Creator concepts]: creator-indoor-maps.md
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[QGIS]: https://qgis.org/en/site/
-[geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
-[datasets]: creator-indoor-maps.md#datasets
-[dataset]: creator-indoor-maps.md#datasets
-[Download QGIS]: https://qgis.org/en/site/forusers/download.html
-[layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
 [Advanced digitizing]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#advanced-digitizing
 [Azure Maps QGIS Plugin]: https://plugins.qgis.org/plugins/AzureMapsCreator/
-[Installing New Plugins]: https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html#basic-fa-installing-new-plugins
+[Creator concepts]: creator-indoor-maps.md
+[dataset]: creator-indoor-maps.md#datasets
+[datasets]: creator-indoor-maps.md#datasets
 [Digitizing an existing layer]: https://docs.qgis.org/3.28/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html?highlight=digitizing%20toolbar#digitizing-an-existing-layer
+[Download QGIS]: https://qgis.org/en/site/forusers/download.html
+[geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
+[Installing New Plugins]: https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html#basic-fa-installing-new-plugins
+[layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
 [MICROSOFT Q&A]: /answers/questions/ask
+[QGIS]: https://qgis.org/en/site/
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md

@@ -8,13 +8,15 @@ ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 02/03/2023
+ms.date: 11/17/2023
 ms.author: banders
 ---
 
 # Choose an Azure saving plan commitment amount
 
 You should purchase savings plans based on consistent base usage. Committing to a greater spend than your historical usage could result in an underutilized commitment, which should be avoided when possible. Unused commitment doesn't carry over from one hour to the next. Usage exceeding the savings plan commitment is charged using more expensive pay-as-you-go rates.
+
+Software costs aren't covered by savings plans. For more information, see [Software costs not included in saving plans](software-costs-not-included.md).
 
 ## Savings plan purchase recommendations
 

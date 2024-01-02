@@ -3,7 +3,7 @@ title: Using return value from an Azure Function
 description: Learn to manage return values for Azure Functions
 ms.topic: reference
 ms.devlang: csharp, fsharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 07/25/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -22,7 +22,11 @@ Set the `name` property in *function.json* to `$return`. If there are multiple o
 
 How return values are used depends on the C# mode you're using in your function app: 
 
-# [In-process](#tab/in-process)
+# [Isolated worker model](#tab/isolated-process)
+
+See [Output bindings in the .NET worker guide](./dotnet-isolated-process-guide.md#output-bindings) for details and examples.
+
+# [In-process model](#tab/in-process)
 
 
 In a C# class library, apply the output binding attribute to the method return value. In C# and C# script, alternative ways to send data to an output binding are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
@@ -50,10 +54,6 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
     return Task.FromResult(json);
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-See [Output bindings in the .NET worker guide](./dotnet-isolated-process-guide.md#output-bindings) for details and examples.
 
 ---
 

@@ -2,11 +2,11 @@
 title: Enable authentication in your own Python web application using Azure Active Directory B2C
 description: This article explains how to enable authentication in your own Python web application using Azure AD B2C 
 titleSuffix: Azure AD B2C
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.custom: devx-track-python, devx-track-linux
 ms.topic: how-to
 ms.date: 06/28/2022
@@ -190,7 +190,7 @@ In the root folder of your web app, create the `templates` folder. In the templa
 
 Add the following templates under the templates folder. These templates extend the `base.html` template:
 
-- **index.html**: the home page of the web app. The templates use the following logic: if a user doesn't sign-in, it renders the sing-in button. If users sings-in, it renders the access token's claims, link to edit profile, and call a Graph API.
+- **index.html**: the home page of the web app. The templates use the following logic: if a user doesn't sign in, it renders the sign-in button. If a user signs in, it renders the access token's claims, link to edit profile, and call a Graph API.
 
     ```html
     {% extends "base.html" %}

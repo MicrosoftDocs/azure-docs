@@ -8,6 +8,7 @@ ms.topic: article
 ms.date: 12/01/2022
 ms.author: danlep
 ---
+
 # API Management policy reference
 This section provides links to reference articles for all API Management policies.
 
@@ -16,19 +17,20 @@ More information about policies:
 + [Policy overview](api-management-howto-policies.md)
 + [Set or edit policies](set-edit-policies.md)
 + [Policy expressions](api-management-policy-expressions.md)
++ [Author policies using Microsoft Copilot for Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 > [!IMPORTANT]
 >  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
 
 ## Access restriction policies
 -   [Check HTTP header](check-header-policy.md) - Enforces existence and/or value of an HTTP Header.
-- [Get authorization context](get-authorization-context-policy.md) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.
+- [Get authorization context](get-authorization-context-policy.md) - Gets the authorization context of a specified [connection](credentials-overview.md) to a credential provider configured in the API Management instance.
 -   [Limit call rate by subscription](rate-limit-policy.md) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
 -   [Limit call rate by key](rate-limit-by-key-policy.md) - Prevents API usage spikes by limiting call rate, on a per key basis.
 -   [Restrict caller IPs](ip-filter-policy.md) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 -   [Set usage quota by subscription](quota-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
 -   [Set usage quota by key](quota-by-key-policy.md) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
--    [Validate Azure Active Directory token](validate-azure-ad-token-policy.md) - Enforces existence and validity of an Azure Active Directory JWT extracted from either a specified HTTP header, query parameter, or token value.
+-    [Validate Microsoft Entra token](validate-azure-ad-token-policy.md) - Enforces existence and validity of a Microsoft Entra JWT extracted from either a specified HTTP header, query parameter, or token value.
 -   [Validate JWT](validate-jwt-policy.md) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header, query parameter, or token value.
 -   [Validate client certificate](validate-client-certificate-policy.md) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 
@@ -85,7 +87,7 @@ More information about policies:
 -   [Find and replace string in body](find-and-replace-policy.md) - Finds a request or response substring and replaces it with a different substring.
 -   [Mask URLs in content](redirect-content-urls-policy.md) - Rewrites (masks) links in the response body so that they point to the equivalent link via the gateway.
 -   [Set backend service](set-backend-service-policy.md) - Changes the backend service for an incoming request.
--   [Set body](set-body-policy.md) - Sets the message body for incoming and outgoing requests.
+- [Set body](set-body-policy.md) - Sets the message body for a request or response.
 -   [Set HTTP header](set-header-policy.md) - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 -   [Set query string parameter](set-query-parameter-policy.md) - Adds, replaces value of, or deletes request query string parameter.
 -   [Rewrite URL](rewrite-uri-policy.md) - Converts a request URL from its public form to the form expected by the web service.
@@ -99,10 +101,5 @@ More information about policies:
 - [Validate parameters](validate-parameters-policy.md) - Validates the request header, query, or path parameters against the API schema.
 - [Validate headers](validate-headers-policy.md) - Validates the response headers against the API schema.
 - [Validate status code](validate-status-code-policy.md) - Validates the HTTP status codes in responses against the API schema.
-## Next steps
 
-For more information about working with policies, see:
-
-+ [Tutorial: Transform and protect your API](transform-api.md)
-+ [Set or edit policies](set-edit-policies.md)
-+ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]	

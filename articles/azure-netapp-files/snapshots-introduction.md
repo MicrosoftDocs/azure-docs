@@ -131,7 +131,7 @@ The following diagram shows volume restoration (cloning) by using DR target volu
 
 [![Diagram that shows volume restoration using DR target volume snapshot](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png)](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png#lightbox)
 
-See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
+When you restore a snapshot to a new volume, the Volume overview page displays the name of the snapshot used to create the new volume in the **Originated from** field. See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
 
 ### Restoring (reverting) an online snapshot in-place
 

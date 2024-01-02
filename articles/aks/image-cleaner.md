@@ -5,235 +5,243 @@ ms.author: nickoman
 author: nickomang
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/02/2023
+ms.date: 10/22/2023
 ---
 
-# Use Image Cleaner to clean up stale images on your Azure Kubernetes Service cluster (preview)
+# Use Image Cleaner to clean up stale images on your Azure Kubernetes Service (AKS) cluster
 
-It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images can present security issues as they may contain vulnerabilities. By cleaning these unreferenced images, you can remove an area of risk in your clusters. When done manually, this process can be time intensive, which Image Cleaner can mitigate via automatic image identification and removal.
+It's common to use pipelines to build and deploy images on Azure Kubernetes Service (AKS) clusters. While great for image creation, this process often doesn't account for the stale images left behind and can lead to image bloat on cluster nodes. These images might contain vulnerabilities, which might create security issues. To remove security risks in your clusters, you can clean these unreferenced images. Manually cleaning images can be time intensive. Image Cleaner performs automatic image identification and removal, which mitigates the risk of stale images and reduces the time required to clean them up.
 
 > [!NOTE]
-> Image Cleaner is a feature based on [Eraser](https://azure.github.io/eraser).
-> On an AKS cluster, the feature name and property name is `Image Cleaner` while the relevant Image Cleaner pods' names contain `Eraser`.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+> Image Cleaner is a feature based on [Eraser](https://eraser-dev.github.io/eraser).
+> On an AKS cluster, the feature name and property name is `Image Cleaner`, while the relevant Image Cleaner pods' names contain `Eraser`.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI][azure-cli-install] or [Azure PowerShell][azure-powershell-install] and the `aks-preview` 0.5.96 or later CLI extension installed.
-* The `EnableImageCleanerPreview` feature flag registered on your subscription:
-
-### [Azure CLI](#tab/azure-cli)
-
-First, install the aks-preview extension by running the following command:
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Run the following command to update to the latest version of the extension released:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-Then register the `EnableImageCleanerPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableImageCleanerPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
-
-```azurecli-interactive
-az feature show --namespace "Microsoft.ContainerService" --name "EnableImageCleanerPreview"
-```
-
-When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-Register the `EnableImageCleanerPreview` feature flag by using the [Register-AzProviderPreviewFeature][register-azproviderpreviewfeature] cmdlet, as shown in the following example:
-
-```azurepowershell-interactive
-Register-AzProviderPreviewFeature -ProviderNamespace Microsoft.ContainerService -Name EnableImageCleanerPreview
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [Get-AzProviderPreviewFeature][get-azproviderpreviewfeature] cmdlet:
-
-```azurepowershell-interactive
-Get-AzProviderPreviewFeature -ProviderNamespace Microsoft.ContainerService -Name EnableImageCleanerPreview |
- Format-Table -Property Name, @{name='State'; expression={$_.Properties.State}}
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [Register-AzResourceProvider][register-azresourceprovider] command:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
-```
-
----
+* Azure CLI version 2.49.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Limitations
 
-Image Cleaner does not support the following:
-
-* ARM64 node pools. For more information, see [Azure Virtual Machines with ARM-based processors][arm-vms].
-* Windows node pools.
+Image Cleaner doesn't yet support Windows node pools or AKS virtual nodes.
 
 ## How Image Cleaner works
 
-When enabled, an `eraser-controller-manager` pod is deployed, which generates an `ImageList` CRD. The eraser pods running on each nodes will clean up the unreferenced and vulnerable images according to the ImageList. Vulnerability is determined based on a [trivy][trivy] scan, after which images with a `LOW`, `MEDIUM`, `HIGH`, or `CRITICAL` classification are flagged. An updated `ImageList` will be automatically generated by Image Cleaner based on a set time interval, and can also be supplied manually.
+After you enable Image Cleaner, there will be a controller manager pod named `eraser-controller-manager` deployed to your cluster.
 
+:::image type="content" source="./media/image-cleaner/Image-cleaner-1015.png" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
 
-
-Once an `ImageList` is generated, Image Cleaner will remove all the images in the list from node VMs.
-
-:::image type="content" source="./media/image-cleaner/image-cleaner.jpg" alt-text="Screenshot of a diagram showing ImageCleaner's workflow. The ImageCleaner pods running on the cluster can generate an ImageList, or manual input can be provided.":::
+With Image Cleaner, you can choose between manual and automatic mode and the following configuration options:
 
 ## Configuration options
 
-In addition to choosing between manual and automatic mode, there are several options for Image Cleaner:
-
 |Name|Description|Required|
 |----|-----------|--------|
-|--enable-image-cleaner|Enable the Image Cleaner feature for an AKS cluster|Yes, unless disable is specified|
-|--disable-image-cleaner|Disable the Image Cleaner feature for an AKS cluster|Yes, unless enable is specified|
-|--image-cleaner-interval-hours|This parameter determines the interval time (in hours) Image Cleaner will use to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
+|`--enable-image-cleaner`|Enable the Image Cleaner feature for an AKS cluster|Yes, unless disable is specified|
+|`--disable-image-cleaner`|Disable the Image Cleaner feature for an AKS cluster|Yes, unless enable is specified|
+|`--image-cleaner-interval-hours`|This parameter determines the interval time (in hours) Image Cleaner uses to run. The default value for Azure CLI is one week, the minimum value is 24 hours and the maximum is three months.|Not required for Azure CLI, required for ARM template or other clients|
+
+### Automatic mode
+Once `eraser-controller-manager` is deployed,
+
+  - it will start first time's clean up immediately and create worker pods per node named like `eraser-aks-xxxxx`
+  - inside each worker pod, there are 3 containers:
+    - collector: collect unused images
+    - trivy-scanner: leverage [trivy](https://github.com/aquasecurity/trivy) to scan image vulnerabilities
+    - remover: remove unused images with vulnerabilities 
+  - after clean up, worker pod will be deleted and its next schedule up is after the `--image-cleaner-interval-hours` you have set
+
+### Manual mode
+
+You can also manually trigger the clean up by defining a CRD object `ImageList`. Then `eraser-contoller-manager` will create worker pod per node as well to finish manual removal.
 
 > [!NOTE]
-> After disabling Image Cleaner, the old configuration still exists. This means that if you enable the feature again without explicitly passing configuration, the existing value will be used rather than the default.
+> After disabling Image Cleaner, the old configuration still exists. This means if you enable the feature again without explicitly passing configuration, the existing value is used instead of the default.
 
 ## Enable Image Cleaner on your AKS cluster
 
-To create a new AKS cluster using the default interval, use [az aks create][az-aks-create]:
+### Enable Image Cleaner on a new cluster
 
-```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster \ 
-  --enable-image-cleaner 
-```
+* Enable Image Cleaner on a new AKS cluster using the [`az aks create`][az-aks-create] command with the `--enable-image-cleaner` parameter.
 
-To enable on an existing AKS cluster, use [az aks update][az-aks-update]:
+    ```azurecli-interactive
+    az aks create \
+      --resource-group myResourceGroup \
+      --name myManagedCluster \
+      --enable-image-cleaner
+    ```
 
-```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster \ 
-  --enable-image-cleaner 
-```
+### Enable Image Cleaner on an existing cluster
 
-The `--image-cleaner-interval-hours` parameter can be specified at creation time or for an existing cluster. For example, the following command updates the interval for a cluster with Image Cleaner already enabled:
+* Enable Image Cleaner on an existing AKS cluster using the [`az aks update`][az-aks-update] command.
 
-```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster \
-  --image-cleaner-interval-hours 48
-```
+    ```azurecli-interactive
+    az aks update \
+      --resource-group myResourceGroup \
+      --name myManagedCluster \
+      --enable-image-cleaner
+    ```
 
-After the feature is enabled, the `eraser-controller-manager-xxx` pod and `collector-aks-xxx` pod will be deployed.
-Based on your configuration, Image Cleaner will generate an `ImageList` containing non-running and vulnerable images at the desired interval. Image Cleaner will automatically remove these images from cluster nodes.
+### Update the Image Cleaner interval on a new or existing cluster
 
-## Manually remove images
+* Update the Image Cleaner interval on a new or existing AKS cluster using the  `--image-cleaner-interval-hours` parameter.
 
-To manually remove images from your cluster using Image Cleaner, first create an `ImageList`. For example, save the following as `image-list.yml`:
+    ```azurecli-interactive
+    # Create a new cluster with specifying the interval
+    az aks create \
+      --resource-group myResourceGroup \
+      --name myManagedCluster \
+      --enable-image-cleaner \
+      --image-cleaner-interval-hours 48
 
-```yml
-apiVersion: eraser.sh/v1alpha1
-kind: ImageList
-metadata:
-  name: imagelist
-spec:
-  images:
-    - docker.io/library/alpine:3.7.3   # You can also use "*" to specify all non-running images
-```
+    # Update the interval on an existing cluster
+    az aks update \
+      --resource-group myResourceGroup \
+      --name myManagedCluster \
+      --enable-image-cleaner \
+      --image-cleaner-interval-hours 48
+    ```
 
-And apply it to the cluster:
+## Manually remove images using Image Cleaner
 
-```bash
-kubectl apply -f image-list.yml
-```
+* Example to manually remove image `docker.io/library/alpine:3.7.3` if it is unused.
 
-A job named `eraser-aks-xxx`will be triggered which causes Image Cleaner to remove the desired images from all nodes.
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: eraser.sh/v1
+    kind: ImageList
+    metadata:
+      name: imagelist
+    spec:
+      images:
+        - docker.io/library/alpine:3.7.3
+    EOF
+    ```
+
+## Image exclusion list
+
+Images specified in the exclusion list aren't removed from the cluster. Image Cleaner supports system and user-defined exclusion lists. It's not supported to edit the system exclusion list.
+
+### Check the system exclusion list
+
+* Check the system exclusion list using the following `kubectl get` command.
+
+     ```bash
+    kubectl get -n kube-system configmap eraser-system-exclusion -o yaml
+    ```
+
+### Create a user-defined exclusion list
+
+1. Create a sample JSON file to contain excluded images.
+
+    ```bash
+    cat > sample.json <<EOF
+    {"excluded": ["excluded-image-name"]}
+    EOF
+    ```
+
+2. Create a `configmap` using the sample JSON file using the following `kubectl create` and `kubectl label` command.
+
+    ```bash
+    kubectl create configmap excluded --from-file=sample.json --namespace=kube-system
+    kubectl label configmap excluded eraser.sh/exclude.list=true -n kube-system
+    ```
 
 ## Disable Image Cleaner
 
-To stop using Image Cleaner, you can disable it via the `--disable-image-cleaner` flag:
+* Disable Image Cleaner on your cluster using the [`az aks update`][az-aks-update] command with the `--disable-image-cleaner` parameter.
 
-```azurecli-interactive
-az aks update -g MyResourceGroup -n MyManagedCluster
-  --disable-image-cleaner
+    ```azurecli-interactive
+    az aks update \
+      --resource-group myResourceGroup \
+      --name myManagedCluster \
+      --disable-image-cleaner
+    ```
+
+## FAQ
+
+### How to check eraser version is using?
+```
+kubectl get configmap -n kube-system eraser-manager-config | grep tag -C 3
 ```
 
-## Logging
+### Does Image Cleaner support other vulnerability scanners besides trivy-scanner?
+No.
 
-Deletion image logs are stored in `eraser-aks-nodepool-xxx` pods for manually deleted images, and in `collector-aks-nodes-xxx` pods for automatically deleted images.
+### Can I specify vulnerability levels for images to clean?
+Currently no. The default settings for vulnerablity levels are:
+- `LOW`
+- `MEDIUM`
+- `HIGH`
+- `CRITICAL`
 
-You can view these logs by running `kubectl logs <pod name> -n kubesystem`. However, this command may return only the most recent logs, since older logs are routinely deleted. To view all logs, follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table.
+And they cannot be customized.
 
-1. Ensure that Azure monitoring is enabled on the cluster. For detailed steps, see [Enable Container Insights for AKS cluster](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
+### How to review images were cleaned up by Image Cleaner?
 
-1. Get the Log Analytics resource ID:
+Image logs are stored in worker pod - `eraser-aks-xxxxx` and
 
-   ```azurecli
-   az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
-   ```
+- when `eraser-aks-xxxxx` is alive, you can run below commands to view deletion logs.
+```bash
+kubectl logs -n kube-system <worker-pod-name> -c collector
+kubectl logs -n kube-system <worker-pod-name> -c trivy-scanner
+kubectl logs -n kube-system <worker-pod-name> -c remover
+```
 
-   After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID:
+- when `eraser-aks-xxxxx` was deleted, you can follow these steps to enable the [Azure Monitor add-on](./monitor-aks.md) and use the Container Insights pod log table to view historical pod logs.
+  1. Ensure Azure Monitoring is enabled on your cluster. For detailed steps, see [Enable Container Insights on AKS clusters](../azure-monitor/containers/container-insights-enable-aks.md#existing-aks-cluster).
 
-   ```json
-   "addonProfiles": {
-    "omsagent": {
-      "config": {
-        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
-      },
-      "enabled": true
-    }
-   }
-   ```
+  2. Get the Log Analytics resource ID using the [`az aks show`][az-aks-show] command.
 
-1. In the Azure portal, search for the workspace resource ID, then select **Logs**.
+     ```azurecli
+     az aks show -g myResourceGroup -n myManagedCluster
+     ```
 
-1. Copy this query into the table, replacing `name` with either `eraser-aks-nodepool-xxx` (for manual mode) or `collector-aks-nodes-xxx` (for automatic mode).
+     After a few minutes, the command returns JSON-formatted information about the solution, including the workspace resource ID.
 
-   ```kusto
-      let startTimestamp = ago(1h);
-   KubePodInventory
-   | where TimeGenerated > startTimestamp
-   | project ContainerID, PodName=Name, Namespace
-   | where PodName contains "name" and Namespace startswith "kube-system"
-   | distinct ContainerID, PodName
-   | join
-   (
-       ContainerLog
-       | where TimeGenerated > startTimestamp
-   )
-   on ContainerID
-   // at this point before the next pipe, columns from both tables are available to be "projected". Due to both
-   // tables having a "Name" column, we assign an alias as PodName to one column which we actually want
-   | project TimeGenerated, PodName, LogEntry, LogEntrySource
-   | summarize by TimeGenerated, LogEntry
-   | order by TimeGenerated desc
-   ```
+     ```json
+     "addonProfiles": {
+       "omsagent": {
+         "config": {
+           "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+         },
+         "enabled": true
+       }
+     }
+     ```
 
-1. Select **Run**. Any deleted image logs will appear in the **Results** area.
+  3. In the Azure portal, search for the workspace resource ID, then select **Logs**.
 
-   :::image type="content" source="media/image-cleaner/eraser-log-analytics.png" alt-text="Screenshot showing deleted image logs in the Azure portal." lightbox="media/image-cleaner/eraser-log-analytics.png":::
+  4. Copy this query into the table, replacing `name` with `eraser-aks-xxxxx` (worker pod name).
+
+     ```kusto
+     let startTimestamp = ago(1h);
+     KubePodInventory
+     | where TimeGenerated > startTimestamp
+     | project ContainerID, PodName=Name, Namespace
+     | where PodName contains "name" and Namespace startswith "kube-system"
+     | distinct ContainerID, PodName
+     | join
+     (
+         ContainerLog
+         | where TimeGenerated > startTimestamp
+     )
+     on ContainerID
+     // at this point before the next pipe, columns from both tables are available to be "projected". Due to both
+     // tables having a "Name" column, we assign an alias as PodName to one column which we actually want
+     | project TimeGenerated, PodName, LogEntry, LogEntrySource
+     | summarize by TimeGenerated, LogEntry
+     | order by TimeGenerated desc
+     ```
+
+  5. Select **Run**. Any deleted image logs appear in the **Results** area.
+
+     :::image type="content" source="media/image-cleaner/eraser-log-analytics.png" alt-text="Screenshot showing deleted image logs in the Azure portal." lightbox="media/image-cleaner/eraser-log-analytics.png":::
 
 <!-- LINKS -->
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[azure-powershell-install]: /powershell/azure/install-az-ps
-
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[register-azproviderpreviewfeature]: /powershell/module/az.resources/register-azproviderpreviewfeature
-[az-feature-show]: /cli/azure/feature#az-feature-show
-[get-azproviderpreviewfeature]: /powershell/module/az.resources/get-azproviderpreviewfeature
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[register-azresourceprovider]: /powershell/module/az.resources/register-azresourceprovider
-
-[arm-vms]: https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/
 [trivy]: https://github.com/aquasecurity/trivy
+[az-aks-show]: /cli/azure/aks#az_aks_show

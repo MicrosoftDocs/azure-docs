@@ -421,32 +421,12 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $res
 
 ---
 
-## Validate the deployment
-
-# [Azure CLI](#tab/azure-cli)
-
-You can verify that the payment HSM was created with the Azure CLI [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. You will find the output easier to read if you format the results as a table:
-
-```azurecli-interactive
-az dedicated-hsm list -o table
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-You can verify that the payment HSM was created with the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
-
-```azurepowershell-interactive
-Get-AzDedicatedHsm
-```
----
-
-You should see the name of your newly created payment HSM.
-
 ## Next steps
 
-Advance to the next article to learn how to access the payShield manager for your payment HSM
+Advance to the next article to learn how to view your payment HSM.
 > [!div class="nextstepaction"]
-> [Access the payShield manager](access-payshield-manager.md)
+> [View your payment HSMs](view-payment-hsms.md)
+
 
 More resources:
 

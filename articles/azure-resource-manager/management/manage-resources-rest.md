@@ -13,7 +13,7 @@ Learn how to use the REST API for [Azure Resource Manager](overview.md) to manag
 ## Obtain an access token
 To make a REST API call to Azure, you first need to obtain an access token. Include this access token in the headers of your Azure REST API calls using the "Authorization" header and setting the value to "Bearer {access-token}".
 
-If you need to programatically retrieve new tokens as part of your application, you can obtain an access token by [Registering your client application with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
+If you need to programatically retrieve new tokens as part of your application, you can obtain an access token by [Registering your client application with Microsoft Entra ID](/rest/api/azure/#register-your-client-application-with-azure-ad).
 
 If you are getting started and want to test Azure REST APIs using your individual token, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
 

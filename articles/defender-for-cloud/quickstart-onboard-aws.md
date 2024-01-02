@@ -3,14 +3,14 @@ title: Connect your AWS account
 description: Defend your AWS resources by using Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.custom: devx-track-linux
-ms.date: 06/28/2023
+ms.date: 11/23/2023
 ---
 
 # Connect your AWS account to Microsoft Defender for Cloud
 
 Workloads commonly span multiple cloud platforms. Cloud security services must do the same. Microsoft Defender for Cloud helps protect workloads in Amazon Web Services (AWS), but you need to set up the connection between them and Defender for Cloud.
 
-If you're connecting an AWS account that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account that's connected by both the classic and native connectors can produce duplicate recommendations.
+If you're connecting an AWS account that you previously connected by using the classic connector, you must [remove it](how-to-use-the-classic-connector.md#remove-classic-aws-connectors) first. Using an AWS account connected by both the classic and native connectors can produce duplicate recommendations.
 
 The following screenshot shows AWS accounts displayed in the Defender for Cloud [overview dashboard](overview-page.md).
 
@@ -19,6 +19,34 @@ The following screenshot shows AWS accounts displayed in the Defender for Cloud 
 You can learn more by watching the [New AWS connector in Defender for Cloud](episode-one.md) video from the *Defender for Cloud in the Field* video series.
 
 For a reference list of all the recommendations that Defender for Cloud can provide for AWS resources, see [Security recommendations for AWS resources - a reference guide](recommendations-reference-aws.md).
+
+## **AWS authentication process**
+
+Federated authentication is used between Microsoft Defender for Cloud and AWS. All of the resources related to the authentication are created as a part of the CloudFormation template deployment, including:
+
+- An identity provider (OpenID connect)
+
+- Identity and Access Management (IAM) roles with a federated principal (connected to the identity providers).
+
+The architecture of the authentication process across clouds is as follows:
+
+:::image type="content" source="media/quickstart-onboard-aws/architecture-authentication-across-clouds.png" alt-text="Diagram showing architecture of authentication process across clouds.":::
+
+Microsoft Defender for Cloud CSPM service acquires a Microsoft Entra token with a validity life time of 1 hour that is signed by the Microsoft Entra ID using the RS256 algorithm.
+
+The Microsoft Entra token is exchanged with AWS short living credentials and Defender for Cloud's CSPM service assumes the CSPM IAM role (assumed with web identity).
+
+Since the principle of the role is a federated identity as defined in a trust relationship policy, the AWS identity provider validates the Microsoft Entra token against the Microsoft Entra ID through a process that includes:
+
+- audience validation
+
+- signing of the token
+
+- certificate thumbprint
+
+The Microsoft Defender for Cloud CSPM role is assumed only after the validation conditions defined at the trust relationship have been met. The conditions defined for the role level are used for validation within AWS and allows only the Microsoft Defender for Cloud CSPM application (validated audience) access to the specific role (and not any other Microsoft token).
+
+After the Microsoft Entra token validated by the AWS identity provider, the AWS STS exchanges the token with AWS short-living credentials which CSPM service uses to scan the AWS account.
 
 ## Prerequisites
 
@@ -33,7 +61,11 @@ To complete the procedures in this article, you need:
 - **Contributor** permission for the relevant Azure subscription, and **Administrator** permission on the AWS account.
 
 > [!NOTE]
-> The AWS connector is not available on the national government clouds (Azure Government, Azure China 21Vianet).
+> The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).
+
+## Native connector plan requirements
+
+Each plan has its own requirements for the native connector.
 
 ### Defender for Containers
 
@@ -50,9 +82,9 @@ If you choose the Microsoft Defender for SQL plan, you need:
 - An active AWS account, with EC2 instances running SQL Server or RDS Custom for SQL Server.
 - Azure Arc for servers installed on your EC2 instances or RDS Custom for SQL Server.
 
-We recommend that you use the auto-provisioning process to install Azure Arc on all of your existing and future EC2 instances. To enable the Azure Arc auto-provisioning, you need **Owner** permission on the relevant Azure subscription.
+We recommend that you use the autoprovisioning process to install Azure Arc on all of your existing and future EC2 instances. To enable the Azure Arc autoprovisioning, you need **Owner** permission on the relevant Azure subscription.
 
-AWS Systems Manager (SSM) manages auto-provisioning by using the SSM Agent. Some Amazon Machine Images already have the [SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html). If your EC2 instances don't have the SSM Agent, install it by using these instructions from Amazon: [Install SSM Agent for a hybrid and multicloud environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html).
+AWS Systems Manager (SSM) manages autoprovisioning by using the SSM Agent. Some Amazon Machine Images already have the [SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html). If your EC2 instances don't have the SSM Agent, install it by using these instructions from Amazon: [Install SSM Agent for a hybrid and multicloud environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html).
 
 Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html). It enables core functionality for the AWS Systems Manager service.
 
@@ -74,14 +106,19 @@ If you choose the Microsoft Defender for Servers plan, you need:
 - An active AWS account, with EC2 instances.
 - Azure Arc for servers installed on your EC2 instances.
 
-We recommend that you use the auto-provisioning process to install Azure Arc on all of your existing and future EC2 instances. To enable the Azure Arc auto-provisioning, you need **Owner** permission on the relevant Azure subscription.
+We recommend that you use the autoprovisioning process to install Azure Arc on all of your existing and future EC2 instances. To enable the Azure Arc autoprovisioning, you need **Owner** permission on the relevant Azure subscription.
 
-AWS Systems Manager manages auto-provisioning by using the SSM Agent. Some Amazon Machine Images already have the [SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html). If your EC2 instances don't have the SSM Agent, install it by using either of the following instructions from Amazon:
+AWS Systems Manager manages autoprovisioning by using the SSM Agent. Some Amazon Machine Images already have the [SSM Agent preinstalled](https://docs.aws.amazon.com/systems-manager/latest/userguide/ami-preinstalled-agent.html). If your EC2 instances don't have the SSM Agent, install it by using either of the following instructions from Amazon:
 
 - [Install SSM Agent for a hybrid and multicloud environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
 - [Install SSM Agent for a hybrid and multicloud environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
 
 Ensure that your SSM Agent has the managed policy [AmazonSSMManagedInstanceCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.html), which enables core functionality for the AWS Systems Manager service.
+
+**You must have the SSM Agent for auto provisioning Arc agent on EC2 machines. If the SSM doesn't exist, or is removed from the EC2, the Arc provisioning won’t be able to proceed.**
+
+> [!NOTE]
+> As part of the cloud formation template that is run during the onboarding process, an automation process is created and triggered every 30 days, over all the EC2s that existed during the initial run of the cloud formation. The goal of this scheduled scan is to ensure that all the relevant EC2s have an IAM profile with the required IAM policy that allows Defender for Cloud to access, manage, and provide the relevant security features (including the Arc agent provisioning). The scan does not apply to EC2s that were created after the run of the cloud formation.
 
 If you want to manually install Azure Arc on your existing and future EC2 instances, use the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation to identify instances that don't have Azure Arc installed.
 
@@ -95,7 +132,21 @@ Make sure the selected Log Analytics workspace has a security solution installed
 
 [Learn more about monitoring components](monitoring-components.md) for Defender for Cloud.
 
-Defender for Servers assigns tags to your AWS resources to manage the auto-provisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage them: `AccountId`, `Cloud`, `InstanceId`, and `MDFCSecurityConnector`.
+> [!NOTE]
+> As the Log Analytics agent (also known as MMA) is set to retire in [August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/), all Defender for Servers features and security capabilities that currently depend on it, including those described on this page, will be available through either [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) or [agentless scanning](concept-agentless-data-collection.md), before the retirement date. For more information about the roadmap for each of the features that are currently rely on Log Analytics Agent, see [this announcement](upcoming-changes.md#defender-for-cloud-plan-and-strategy-for-the-log-analytics-agent-deprecation).
+
+Defender for Servers assigns tags to your Azure ARC resources on top of your EC2 instances to manage the autoprovisioning process. You must have these tags properly assigned to your resources so that Defender for Cloud can manage them: `AccountId`, `Cloud`, `InstanceId`, and `MDFCSecurityConnector`.
+
+### Defender CSPM
+
+If you choose the Microsoft Defender CSPM plan, you need:
+
+- a Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
+- You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
+- Connect your [non-Azure machines](quickstart-onboard-machines.md), [AWS accounts](quickstart-onboard-aws.md).
+- In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+
+Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
 
 ## Connect your AWS account
 
@@ -113,7 +164,14 @@ To connect your AWS to Defender for Cloud by using a native connector:
 
     :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-details.png" alt-text="Screenshot that shows the tab for entering account details for an AWS account." lightbox="media/quickstart-onboard-aws/add-aws-account-details.png":::
 
-    Optionally, select **Management account** to create a connector to a management account. Connectors are created for each member account discovered under the provided management account. Auto-provisioning is enabled for all of the newly onboarded accounts.
+> [!NOTE]
+> (Optional) Select **Management account** to create a connector to a management account. Connectors are then created for each member account discovered under the provided management account. Auto-provisioning is also enabled for all of the newly onboarded accounts.
+>
+> (Optional) Use the AWS regions dropdown menu to select specific AWS regions to be scanned. All regions are selected by default.
+
+## Select Defender plans
+
+In this section of the wizard, you select the Defender for Cloud plans that you want to enable.
 
 1. Select **Next: Select plans**.
 
@@ -126,40 +184,37 @@ To connect your AWS to Defender for Cloud by using a native connector:
     >
     > As explained in [the AWS documentation](https://aws.amazon.com/cloudtrail/pricing/), there are no additional charges for keeping one trail. If you're exporting the data out of AWS (for example, to an external SIEM system), this increased volume of calls might also increase ingestion costs. In such cases, we recommend filtering out the read-only calls from the Defender for Cloud user or ARN role: `arn:aws:iam::[accountId]:role/CspmMonitorAws`. (This is the default role name. Confirm the role name configured on your account.)
 
-1. By default, the **Servers** plan is set to **On**. This setting is necessary to extend the coverage of Defender for Servers to AWS EC2. Ensure that you've fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
+1. By default, the **Servers** plan is set to **On**. This setting is necessary to extend the coverage of Defender for Servers to AWS EC2. Ensure that you fulfilled the [network requirements for Azure Arc](../azure-arc/servers/network-requirements.md?tabs=azure-cloud).
 
     Optionally, select **Configure** to edit the configuration as required.
 
     > [!NOTE]
     > The respective Azure Arc servers for EC2 instances or GCP virtual machines that no longer exist (and the respective Azure Arc servers with a status of [Disconnected or Expired](/azure/azure-arc/servers/overview)) are removed after 7 days. This process removes irrelevant Azure Arc entities to ensure that only Azure Arc servers related to existing instances are displayed.
 
-1. By default, the **Containers** plan is set to **On**. This setting is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure that you've fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
+1. By default, the **Containers** plan is set to **On**. This setting is necessary to have Defender for Containers protect your AWS EKS clusters. Ensure that you fulfilled the [network requirements](./defender-for-containers-enable.md?pivots=defender-for-container-eks&source=docs&tabs=aks-deploy-portal%2ck8s-deploy-asc%2ck8s-verify-asc%2ck8s-remove-arc%2caks-removeprofile-api#network-requirements) for the Defender for Containers plan.
 
     > [!NOTE]
-    > Azure Arc-enabled Kubernetes, the Azure Arc extension for Microsoft Defender, and the Azure Arc extension for Azure Policy should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
+    > Azure Arc-enabled Kubernetes, the Azure Arc extensions for Defender agent, and Azure Policy for Kubernetes should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Azure Arc, if necessary), as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
 
     Optionally, select **Configure** to edit the configuration as required. If you choose to turn off this configuration, the **Threat detection (control plane)** feature is also disabled. [Learn more about feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
 
 1. By default, the **Databases** plan is set to **On**. This setting is necessary to extend coverage of Defender for SQL to AWS EC2 and RDS Custom for SQL Server.
 
-    Optionally, select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
+    (Optional) Select **Configure** to edit the configuration as required. We recommend that you leave it set to the default configuration.
 
-1. Select **Next: Configure access**.
+1. Select **Configure access** and select the following:
 
-1. On the **Configure access** tab, select **Click to download the CloudFormation template** to download the CloudFormation template.
-
-   :::image type="content" source="media/quickstart-onboard-aws/download-cloudformation-template.png" alt-text="Screenshot that shows the button to download the CloudFormation template." lightbox="media/quickstart-onboard-aws/download-cloudformation-template.png":::
-
-1. Continue to configure access by making the following selections:
-
-    a. Choose a deployment type:
+    a. Select a deployment type:
 
     - **Default access**: Allows Defender for Cloud to scan your resources and automatically include future capabilities.
     - **Least privilege access**: Grants Defender for Cloud access only to the current permissions needed for the selected plans. If you select the least privileged permissions, you'll receive notifications on any new roles and permissions that are required to get full functionality for connector health.
 
-    b. Choose a deployment method: **AWS CloudFormation** or **Terraform**.
+    b. Select a deployment method: **AWS CloudFormation** or **Terraform**.
 
-    :::image type="content" source="media/quickstart-onboard-aws/aws-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access.":::
+    :::image type="content" source="media/quickstart-onboard-aws/add-aws-account-configure-access.png" alt-text="Screenshot that shows deployment options and instructions for configuring access." lightbox="media/quickstart-onboard-aws/add-aws-account-configure-access.png":::
+
+    > [!NOTE]
+    > If you select **Management account** to create a connector to a management account, then the tab to onboard with Terraform is not visible in the UI, but you can still onboard using Terraform, similar to what's covered at [Onboarding your AWS/GCP environment to Microsoft Defender for Cloud with Terraform - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/onboarding-your-aws-gcp-environment-to-microsoft-defender-for/ba-p/3798664).
 
 1. Follow the on-screen instructions for the selected deployment method to complete the required dependencies on AWS. If you're onboarding a management account, you need to run the CloudFormation template both as Stack and as StackSet. Connectors are created for the member accounts up to 24 hours after the onboarding.
 
@@ -205,6 +260,14 @@ Deploy the CloudFormation template by using Stack (or StackSet if you have a man
     }  
     ```
 
+    > [!NOTE]
+    > When running the CloudFormation StackSets when onboarding an AWS management account, you might encounter the following error message:
+    > `You must enable organizations access to operate a service managed stack set`
+    >
+    > This error indicates that you have noe enabled [the trusted access for AWS Organizations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-activate-trusted-access.html).
+    >
+    > To remediate this error message, your CloudFormation StackSets page has a prompt with a button that you can select to enable trusted access. After trusted access is enabled, the CloudFormation Stack must be run again.
+
 ## Monitor your AWS resources
 
 The security recommendations page in Defender for Cloud displays your AWS resources. You can use the environments filter to enjoy multicloud capabilities in Defender for Cloud.
@@ -212,6 +275,14 @@ The security recommendations page in Defender for Cloud displays your AWS resour
 To view all the active recommendations for your resources by resource type, use the asset inventory page in Defender for Cloud and filter to the AWS resource type that you're interested in.
 
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Screenshot of AWS options in the asset inventory page's resource type filter." lightbox="media/quickstart-onboard-aws/aws-resource-types-in-inventory.png":::
+
+## Integrate with Microsoft Defender XDR (Preview)
+
+When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
+
+The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface.
+
+Learn more about Defender for Cloud's [alerts in Microsoft Defender XDR](concept-integration-365.md).
 
 ## Learn more
 

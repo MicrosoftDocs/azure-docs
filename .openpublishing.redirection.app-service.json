@@ -39,6 +39,111 @@
       "source_path_from_root": "/articles/app-service/app-service-web-restore-snapshots.md",
       "redirect_url": "/azure/app-service/manage-backup",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/networking/app-gateway-with-service-endpoints.md",
+      "redirect_url": "/azure/app-service/overview-app-gateway-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/networking/nat-gateway-integration.md",
+      "redirect_url": "/azure/app-service/overview-nat-gateway-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/networking/private-endpoint.md",
+      "redirect_url": "/azure/app-service/overview-private-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-ftp.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/deploy-ftp/deploy-ftp.sh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-github.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/deploy-github/deploy-github.sh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-continuous-deployment-github.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/deploy-github/deploy-github.sh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-local-git.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/deploy-github/deploy-github.sh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-staging-environment.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/deploy-deployment-slot/deploy-deployment-slot.sh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-linux-docker-aspnetcore.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/deploy-linux-docker/deploy-linux-docker-webapp-only.sh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-deploy-privateendpoint.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/integrate-with-app-gateway/integrate-with-app-gateway.sh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-configure-custom-domain.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/configure-custom-domain/configure-custom-domain-webapp-only.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-configure-ssl-certificate.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/configure-ssl-certificate/configure-ssl-certificate-webapp-only.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-scale-manual.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/scale-manual/scale-manual.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-scale-high-availability.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/scale-geographic/scale-geographic.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-integrate-app-service-with-application-gateway.md",
+      "redirect_url": "/azure/app-service/samples-cli",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-sql.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/connect-to-sql/connect-to-sql.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-storage.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/connect-to-storage/connect-to-storage.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-redis.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/connect-to-redis/connect-to-redis.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-connect-to-documentdb.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/connect-to-documentdb/connect-to-documentdb.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-backup-schedule-restore.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/backup-one-time-schedule-restore/backup-restore.sh",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/scripts/cli-monitor.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-cli-samples/blob/master/app-service/monitor-with-logs/monitor-with-logs.sh",
+      "redirect_document_id": false
     }
   ]
 }

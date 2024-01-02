@@ -28,6 +28,21 @@ Make sure the [ImageAnalysisOptions](/python/api/azure-ai-vision/azure.ai.vision
 
 To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new.
 
+# [Java](#tab/java)
+
+The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/java/api/com.azure.ai.vision.imageanalysis.imageanalysiserrordetails) object that contains the error information. The error information includes:
+
+* Error reason. See enum [ImageAnalysisErrorReason](/java/api/com.azure.ai.vision.imageanalysis.imageanalysiserrorreason).
+* Error code and error message. Select the **REST API** tab to see a list of some common error codes and messages.
+
+In addition to those errors, the SDK has a few other error messages, including:
+  * `Missing Image Analysis options: You must set at least one visual feature (or model name) for the 'analyze' operation. Or set segmentation mode for the 'segment' operation`
+  * `Invalid combination of Image Analysis options: You cannot set both visual features (or model name), and segmentation mode`
+
+Make sure the [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisoptions) object is set correctly to fix these errors. 
+
+To help resolve issues, look at the [Image Analysis Samples](https://github.com/Azure-Samples/azure-ai-vision-sdk) repository and run the closest sample to your scenario. Search the [GitHub issues](https://github.com/Azure-Samples/azure-ai-vision-sdk/issues) to see if your issue was already address. If not, create a new.
+
 # [C++](#tab/cpp)
 
 The sample code for getting analysis results shows how to handle errors and get the [ImageAnalysisErrorDetails](/cpp/cognitive-services/vision/imageanalysis-imageanalysiserrordetails) object that contains the error information. The error information includes:
@@ -73,7 +88,7 @@ List of common errors:
 * `400 Bad Request`
   * `InvalidRequest - Image URL is badly formatted or not accessible`. Make sure the image URL is valid and publicly accessible.
   * `InvalidRequest - The image size is not allowed to be zero or larger than 20971520 bytes`. Reduce the size of the image by compressing it and/or resizing, and resubmit your request.
-  * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only support in specific Azure regions. See [Quickstart prerequisites](../quickstarts-sdk/image-analysis-client-library-40.md#prerequisites) for the list of supported Azure regions.
+  * `InvalidRequest - The feature 'Caption' is not supported in this region`. The feature is only supported in specific Azure regions. See [Quickstart prerequisites](../quickstarts-sdk/image-analysis-client-library-40.md#prerequisites) for the list of supported Azure regions.
   * `InvalidRequest - The provided image content type ... is not supported`. The HTTP header **Content-Type** in the request isn't an allowed type:
     * For an image URL, **Content-Type** should be `application/json`
     * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
@@ -98,6 +113,7 @@ List of common errors:
     * `Timeout` - Image processing timed out.
     * `InternalServerError`
 -->
+---
 
 > [!TIP]
 > While working with Azure AI Vision, you might encounter transient failures caused by [rate limits](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern](/azure/architecture/patterns/retry) in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).

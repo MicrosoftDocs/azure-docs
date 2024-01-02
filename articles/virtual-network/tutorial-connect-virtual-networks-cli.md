@@ -126,7 +126,7 @@ Create a VM with [az vm create](/cli/azure/vm). The following example creates a 
 az vm create \
   --resource-group myResourceGroup \
   --name myVm1 \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork1 \
   --subnet Subnet1 \
   --generate-ssh-keys \
@@ -141,7 +141,7 @@ Create a VM in the *myVirtualNetwork2* virtual network.
 az vm create \
   --resource-group myResourceGroup \
   --name myVm2 \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --vnet-name myVirtualNetwork2 \
   --subnet Subnet1 \
   --generate-ssh-keys

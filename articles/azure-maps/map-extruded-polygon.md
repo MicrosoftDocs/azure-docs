@@ -2,8 +2,8 @@
 title: Add a polygon extrusion layer to a map
 titleSuffix: Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Web SDK.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/15/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -102,11 +102,10 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer.png"alt-text="A screenshot of a map showing New York City with a polygon extrusion layer covering central park with what looks like a rectangular red box. The maps angle is set to 45 degrees giving it a 3d appearance.":::
+:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer.png" lightbox="./media/map-extruded-polygon/polygon-extrusion-layer.png" alt-text="A screenshot of a map showing New York City with a polygon extrusion layer covering central park with what looks like a rectangular red box. The maps angle is set to 45 degrees giving it a 3d appearance.":::
 
 <!------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Extruded polygon" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>Extruded polygon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------>
 
 ## Add data driven polygons
@@ -115,11 +114,10 @@ A choropleth map can be rendered using the polygon extrusion layer. Set the `hei
 
 The [Create a Choropleth Map] sample shows an extruded choropleth map of the United States based on the measurement of the population density by state. For the source code for this sample, see [Create a Choropleth Map source code].
 
-:::image type="content" source="./media/map-extruded-polygon/choropleth-map.png"alt-text="A screenshot of a map showing a choropleth map rendered using the polygon extrusion layer.":::
+:::image type="content" source="./media/map-extruded-polygon/choropleth-map.png" lightbox="./media/map-extruded-polygon/choropleth-map.png" alt-text="A screenshot of a map showing a choropleth map rendered using the polygon extrusion layer.":::
 
 <!------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Extruded choropleth map" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Extruded choropleth map</a> by Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true]
 ------------------------------------------------------------>
 
 ## Add a circle to the map
@@ -187,18 +185,16 @@ function InitMap()
 :::image type="content" source="./media/map-extruded-polygon/add-circle-to-map.png"alt-text="A screenshot of a map showing a green circle.":::
 
 <!------------------------------------------------------------
-<iframe height="500" scrolling="no" title="Drone airspace polygon" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Drone airspace polygon</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true]
 ------------------------------------------------------------>
 
 ## Customize a polygon extrusion layer
 
 The Polygon Extrusion layer has several styling options. The [Polygon Extrusion Layer Options] sample is a tool to try them out. For the source code for this sample, see [Polygon Extrusion Layer Options source code].
 
-:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer-options.png"alt-text="A screenshot of the Azure Maps code sample that shows how the different options of the polygon extrusion layer affect rendering.":::
+:::image type="content" source="./media/map-extruded-polygon/polygon-extrusion-layer-options.png" lightbox="./media/map-extruded-polygon/polygon-extrusion-layer-options.png" alt-text="A screenshot of the Azure Maps code sample that shows how the different options of the polygon extrusion layer affect rendering.":::
 <!------------------------------------------------------------
-<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a></iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result]
 ------------------------------------------------------------>
 
 ## Next steps

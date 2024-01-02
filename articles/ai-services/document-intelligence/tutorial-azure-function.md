@@ -5,8 +5,7 @@ description: This guide shows you how to use an Azure function to trigger the pr
 author: laujan
 manager: nitinme
 
-ms.service: applied-ai-services
-ms.subservice: forms-recognizer
+ms.service: azure-ai-document-intelligence
 ms.topic: tutorial
 ms.date: 07/18/2023
 ms.author: lajanuar
@@ -37,7 +36,7 @@ In this tutorial, you learn how to:
 
   * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Document Intelligence API. You'll paste your key and endpoint into the code below later in the tutorial:
 
-      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+      :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 * [**Python 3.6.x, 3.7.x, 3.8.x or 3.9.x**](https://www.python.org/downloads/) (Python 3.10.x isn't supported for this project).
 
@@ -231,7 +230,7 @@ Next, you'll add your own code to the Python script to call the Document Intelli
     The following code parses the returned Document Intelligence response, constructs a .csv file, and uploads it to the **output** container.
 
     > [!IMPORTANT]
-    > You will likely need to edit this code to match the structure of your own form documents.
+    > You will likely need to edit this code to match the structure of your own documents.
 
     ```python
         # The code below extracts the json format into tabular data.

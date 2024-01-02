@@ -9,16 +9,14 @@ ms.date: 04/27/2023
 # AWS ECR Coverage in Defender for Containers | Defender for Cloud in the field
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Tomer Spivak joins Yuri Diogenes to talk about the new AWS ECR coverage in Defender for Containers. Tomer explains how Defender for Containers performs vulnerability assessment for ECR workloads in AWS and how to enable this capability. Tomer demonstrates the user experience in Defender for Cloud, showing the vulnerability findings in the dashboard and the onboarding process.
-<br>
-<br>
-<iframe src="https://aka.ms/docs/player?id=919f847f-4b19-4440-aede-a0917e1d7019" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
+
+> [!VIDEO https://aka.ms/docs/player?id=919f847f-4b19-4440-aede-a0917e1d7019]
 
 - [00:00](/shows/mdc-in-the-field/aws-ecr#time=00m00s) - Intro
 - [01:44](/shows/mdc-in-the-field/aws-ecr#time=01m44s) - Introducing AWS ECR coverage
 - [03:38](/shows/mdc-in-the-field/aws-ecr#time=03m38s) -  How new repos or images are discovered after the initial assessment
 - [04:22](/shows/mdc-in-the-field/aws-ecr#time=04m22s) - Scanning frequency
 - [07:33](/shows/mdc-in-the-field/aws-ecr#time=07m33s) - Demonstration
-
 
 ## Recommended resources
   - [Learn more](defender-for-containers-vulnerability-assessment-elastic.md) about AWS ECR Coverage in Defender for Containers.

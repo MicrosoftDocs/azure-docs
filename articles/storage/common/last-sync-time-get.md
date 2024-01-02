@@ -3,12 +3,12 @@ title: Check the Last Sync Time property for a storage account
 titleSuffix: Azure Storage
 description: Learn how to check the Last Sync Time property for a geo-replicated storage account. The Last Sync Time property indicates the last time at which all writes from the primary region were successfully written to the secondary region.
 services: storage
-author: jimmart-dev
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 05/28/2020
-ms.author: jammart
+ms.date: 07/20/2023
+ms.author: shaas
 ms.reviewer: artek
 ms.subservice: storage-common-concepts
 ---
@@ -23,7 +23,7 @@ This article describes how to check the **Last Sync Time** property for your sto
 
 ## About the Last Sync Time property
 
-Because geo-replication is asynchronous, it is possible that data written to the primary region has not yet been written to the secondary region at the time an outage occurs. The **Last Sync Time** property indicates the last time that data from the primary region was written successfully to the secondary region. All writes made to the primary region before the last sync time are available to be read from the secondary location. Writes made to the primary region after the last sync time property may or may not be available for reads yet.
+Because geo-replication is asynchronous, it is possible that data written to the primary region has not yet been written to the secondary region at the time an outage occurs. The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. For accounts that have a hierarchical namespace, the same **Last Sync Time** property also applies to the metadata managed by the hierarchical namespace, including ACLs. All data and metadata written prior to the last sync time  is available on the secondary, while data and metadata written after the last sync time may not have been written to the secondary, and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating an account failover.
 
 The **Last Sync Time** property is a GMT date/time value.
 

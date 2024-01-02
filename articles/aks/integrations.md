@@ -12,7 +12,7 @@ Azure Kubernetes Service (AKS) provides extra functionality for your clusters us
 
 ## Add-ons
 
-Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. The installation, configuration, and lifecycle of add-ons is managed by AKS. You can use the [`az aks enable-addons`][az-aks-enable-addons] command to install an add-on or manage the add-ons for your cluster.
+Add-ons are a fully supported way to provide extra capabilities for your AKS cluster. The installation, configuration, and lifecycle of add-ons are managed on AKS. You can use the [`az aks enable-addons`][az-aks-enable-addons] command to install an add-on or manage the add-ons for your cluster.
 
 AKS uses the following rules for applying updates to installed add-ons:
 
@@ -24,21 +24,21 @@ AKS uses the following rules for applying updates to installed add-ons:
 ### Exceptions
 
 - Add-ons are upgraded to a new major/minor version (or breaking change) within a Kubernetes minor version if either the cluster's Kubernetes version or the add-on version are in preview.
-- There may be unavoidable circumstances, such as CVE security patches or critical bug fixes, when you need to update an add-on within a GA minor version.
+- There can be unavoidable circumstances, such as CVE security patches or critical bug fixes, when you need to update an add-on within a GA minor version.
 
 ### Available add-ons
 
-| Name | Description | More details |
-|---|---|---|
-| http_application_routing | Configure ingress with automatic public DNS name creation for your AKS cluster. | [HTTP application routing add-on on Azure Kubernetes Service (AKS)][http-app-routing] |
-| monitoring | Use Container Insights monitoring with your AKS cluster. | [Container insights overview][container-insights] |
-| virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] |
-| azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] |
-| ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] |
-| open-service-mesh | Use Open Service Mesh with your AKS cluster. | [Open Service Mesh AKS add-on][osm] |
-| azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
-| web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] |
-| keda | Use event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda]|
+| Name | Description | Articles | GitHub |
+|---|---|---| --- |
+| web_application_routing | Use a managed NGINX ingress controller with your AKS cluster.| [Application Routing Overview][app-routing] | [GitHub][app-routing-repo] |
+| ingress-appgw | Use Application Gateway Ingress Controller with your AKS cluster. | [What is Application Gateway Ingress Controller?][agic] | [GitHub][agic-repo] |
+| keda | Use event-driven autoscaling for the applications on your AKS cluster. | [Simplified application autoscaling with Kubernetes Event-driven Autoscaling (KEDA) add-on][keda] | [GitHub][keda-repo] |
+| monitoring | Use Container Insights monitoring with your AKS cluster. | [Container insights overview][container-insights] | [GitHub][aks-repo] |
+| azure-policy | Use Azure Policy for AKS, which enables at-scale enforcements and safeguards on your clusters in a centralized, consistent manner. | [Understand Azure Policy for Kubernetes clusters][azure-policy-aks] | [GitHub][azure-policy-repo] |
+| azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] | [GitHub][keyvault-secret-provider-repo] |
+| virtual-node | Use virtual nodes with your AKS cluster. | [Use virtual nodes][virtual-nodes] | [GitHub][virtual-nodes-oss-repo] |
+| http_application_routing | Configure ingress with automatic public DNS name creation for your AKS cluster (retired). | [HTTP application routing add-on on Azure Kubernetes Service (AKS) (retired)][http-app-routing] | [GitHub][app-routing-repo] |
+| open-service-mesh | Use Open Service Mesh with your AKS cluster (retired). | [Open Service Mesh AKS add-on (retired)][osm] | [GitHub][osm-repo] |
 
 ## Extensions
 
@@ -53,7 +53,7 @@ Extensions and add-ons are both supported ways to add functionality to your AKS 
 
 ## GitHub Actions
 
-GitHub Actions helps you automate your software development workflows from within GitHub.
+GitHub Actions help you automate your software development workflows from within GitHub.
 
 - For more information on using GitHub Actions with Azure, see [GitHub Actions for Azure][github-actions].
 - For an example of using GitHub Actions with an AKS cluster, see [Build, test, and deploy containers to Azure Kubernetes Service using GitHub Actions][github-actions-aks].
@@ -69,19 +69,32 @@ There are many open-source and third-party integrations you can install on your 
 | [Grafana][grafana] | An open-source dashboard for observability.  | [Deploy Grafana on Kubernetes][grafana-install] or use [Managed Grafana][managed-grafana]|
 | [Couchbase][couchdb] | A distributed NoSQL cloud database. | [Install Couchbase and the Operator on AKS][couchdb-install] |
 | [OpenFaaS][open-faas]| An open-source framework for building serverless functions by using containers. | [Use OpenFaaS with AKS][open-faas-aks] |
-| [Apache Spark][apache-spark] | An open-source, fast engine for large-scale data processing. | Running Apache Spark jobs requires a minimum node size of *Standard_D3_v2*. See [running Spark on Kubernetes][spark-kubernetes] for more details on running Spark jobs on Kubernetes. |
+| [Apache Spark][apache-spark] | An open-source, fast engine for large-scale data processing. | Running Apache Spark jobs requires a minimum node size of *Standard_D3_v2*. For more information on running Spark jobs on Kubernetes, see the [running Spark on Kubernetes][spark-kubernetes] guide. |
 | [Istio][istio] | An open-source service mesh. | [Istio Installation Guides][istio-install] |
 | [Linkerd][linkerd] | An open-source service mesh. | [Linkerd Getting Started][linkerd-install] |
 | [Consul][consul] | An open-source, identity-based networking solution. | [Getting Started with Consul Service Mesh for Kubernetes][consul-install] |
 
+### Third-party integrations for Windows containers
+
+Microsoft collaborates with partners to ensure the build, test, deployment, configuration, and monitoring of your applications perform optimally with Windows containers on AKS.
+
+For more information, see [Windows AKS partner solutions][windows-aks-partner-solutions].
+
 <!-- LINKS -->
+[aks-repo]: https://github.com/Azure/AKS
 [http-app-routing]: http-application-routing.md
+[app-routing-repo]: https://github.com/Azure/aks-app-routing-operator
 [container-insights]: ../azure-monitor/containers/container-insights-overview.md
 [virtual-nodes]: virtual-nodes.md
+[virtual-nodes-oss-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 [azure-policy-aks]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
+[azure-policy-repo]: https://github.com/Azure/azure-policy
 [agic]: ../application-gateway/ingress-controller-overview.md
+[agic-repo]: https://github.com/Azure/application-gateway-kubernetes-ingress
 [osm]: open-service-mesh-about.md
+[osm-repo]: https://github.com/Azure/osm-azure
 [keyvault-secret-provider]: csi-secrets-store-driver.md
+[keyvault-secret-provider-repo]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
 [cluster-extensions]: cluster-extensions.md?tabs=azure-cli
 [cluster-extensions-current]: cluster-extensions.md?tabs=azure-cli#currently-available-extensions
 [aks-support-policy]: support-policies.md
@@ -89,7 +102,7 @@ There are many open-source and third-party integrations you can install on your 
 [helm-qs]: quickstart-helm.md
 [prometheus]: https://prometheus.io/
 [prometheus-helm-chart]: https://github.com/prometheus-community/helm-charts#usage
-[prometheus-az-monitor]: monitor-aks.md#container-insights
+[prometheus-az-monitor]: monitor-aks.md#integrations
 [istio]: https://istio.io/
 [istio-install]: https://istio.io/latest/docs/setup/install/
 [linkerd]: https://linkerd.io/
@@ -99,16 +112,18 @@ There are many open-source and third-party integrations you can install on your 
 [grafana]: https://grafana.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/kubernetes/
 [couchdb]: https://www.couchbase.com/
-[couchdb-install]: https://docs.couchbase.com/operator/current/tutorial-aks.html
+[couchdb-install]: https://docs.couchbase.com/operator/2.4/tutorial-aks.html
 [open-faas]: https://www.openfaas.com/
 [open-faas-aks]: openfaas.md
 [apache-spark]: https://spark.apache.org/
 [spark-kubernetes]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [managed-grafana]: ../managed-grafana/overview.md
 [keda]: keda-about.md
-[web-app-routing]: web-app-routing.md
+[keda-repo]: https://github.com/Azure-Samples/aks-keda-addon-workload-identity
+[app-routing]: app-routing.md
 [maintenance-windows]: planned-maintenance.md
 [release-tracker]: release-tracker.md
 [github-actions]: /azure/developer/github/github-actions
 [github-actions-aks]: kubernetes-action.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
+[windows-aks-partner-solutions]: windows-aks-partner-solutions.md

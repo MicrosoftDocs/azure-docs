@@ -2,7 +2,7 @@
 title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 ms.topic: article
-ms.date: 11/22/2022
+ms.date: 12/26/2023
 ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -38,7 +38,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## System and user node pools
 
-For a system node pool, AKS automatically assigns the label **kubernetes.azure.com/mode: system** to its nodes. This causes AKS to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods.
+For a system node pool, AKS automatically assigns the label **kubernetes.azure.com/mode: system** to its nodes. This causes AKS to prefer scheduling system pods on node pools that contain this label. This label doesn't prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally deleting system pods.
 
 You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
 
@@ -106,7 +106,7 @@ New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCoun
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally killing system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
+You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. This prevents rogue application pods from accidentally deleting system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
 
 The following command adds a dedicated node pool of mode type system with a default count of three nodes.
 
@@ -122,7 +122,7 @@ az aks nodepool add \
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Adding more system node pools prevents rogue application pods from accidentally killing system pods. Enforce the behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
+You can add one or more system node pools to existing AKS clusters. It's recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Adding more system node pools prevents rogue application pods from accidentally deleting system pods. Enforce the behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
 
 The following command adds a dedicated node pool of mode type system with a default count of three nodes.
 
@@ -326,7 +326,7 @@ In this article, you learned how to create and manage system node pools in an AK
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
-[aks-taints]: use-multiple-node-pools.md#setting-node-pool-taints
+[aks-taints]: manage-node-pools.md#set-node-pool-taints
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -352,8 +352,8 @@ In this article, you learned how to create and manage system node pools in an AK
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/sizes.md
-[use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node
+[use-multiple-node-pools]: create-node-pools.md
+[maximum-pods]: azure-cni-overview.md#maximum-pods-per-node
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [start-stop-nodepools]: ./start-stop-nodepools.md
 [node-affinity]: operator-best-practices-advanced-scheduler.md#node-affinity

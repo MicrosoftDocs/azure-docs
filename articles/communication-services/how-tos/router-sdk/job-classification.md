@@ -14,8 +14,6 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Classifying a job
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 Learn to use a classification policy in Job Router to dynamically resolve the queue and priority while also attaching worker selectors to a Job.
 
 ## Prerequisites
@@ -26,7 +24,7 @@ Learn to use a classification policy in Job Router to dynamically resolve the qu
 
 ## Create a classification policy
 
-The following example will leverage [PowerFx Expressions](https://powerapps.microsoft.com/blog/what-is-microsoft-power-fx/) to select both the queue and priority. The expression will attempt to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE`.  Otherwise, the job will be sent to the fallback queue `XBOX_DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority will be `10` if a label called `Hardware_VIP` was matched, otherwise it will be `1`.
+The following example leverages [PowerFx Expressions](https://powerapps.microsoft.com/blog/what-is-microsoft-power-fx/) to select both the queue and priority. The expression attempts to match the Job label called `Region` equal to `NA` resulting in the Job being put in the `XBOX_NA_QUEUE`.  Otherwise, the job is sent to the fallback queue `XBOX_DEFAULT_QUEUE` as defined by `fallbackQueueId`.  Additionally, the priority is `10` if a label called `Hardware_VIP` was matched, otherwise it is `1`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -35,12 +33,12 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
     new CreateClassificationPolicyOptions(classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10")
     {
         Name = "Select XBOX Queue and set priority to 1 or 10",
-        QueueSelectors =
+        QueueSelectorAttachments =
         {
             new ConditionalQueueSelectorAttachment(condition: new ExpressionRouterRule("job.Region = \"NA\""),
                 queueSelectors: new List<RouterQueueSelector>
                 {
-                    new(key: "Id", labelOperator: LabelOperator.Equal, value: new LabelValue("XBOX_NA_QUEUE"))
+                    new(key: "Id", labelOperator: LabelOperator.Equal, value: new RouterValue("XBOX_NA_QUEUE"))
                 })
         },
         FallbackQueueId = "XBOX_DEFAULT_QUEUE",
@@ -53,25 +51,30 @@ var classificationPolicy = await administrationClient.CreateClassificationPolicy
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-var classificationPolicy = await administrationClient.createClassificationPolicy("XBOX_NA_QUEUE_Priority_1_10", {
-    name: "Select XBOX Queue and set priority to 1 or 10",
-    queueSelectors: [{            
-        kind: "conditional",
-        condition: {
-            kind: "expression-rule",
-            expression: 'job.Region = "NA"'
-        },
-        queueSelectors: [{
-            key: "Id",
-            labelOperator: "equal",
-            value: "XBOX_NA_QUEUE"
-        }]
-    }],
-    fallbackQueueId: "XBOX_DEFAULT_QUEUE",
-    prioritizationRule: {
-        kind: "expression-rule",
-        expression: "If(job.Hardware_VIP = true, 10, 1)"
-    }});
+var classificationPolicy = await client.path("/routing/classificationPolicies/{classificationPolicyId}", 
+        "XBOX_NA_QUEUE_Priority_1_10").patch({
+    body: {
+        name: "Select XBOX Queue and set priority to 1 or 10",
+        queueSelectorAttachments: [{            
+            kind: "conditional",
+            condition: {
+                kind: "expression",
+                expression: 'job.Region = "NA"'
+            },
+            queueSelectors: [{
+                key: "Id",
+                labelOperator: "equal",
+                value: "XBOX_NA_QUEUE"
+            }]
+        }],
+        fallbackQueueId: "XBOX_DEFAULT_QUEUE",
+        prioritizationRule: {
+            kind: "expression",
+            expression: "If(job.Hardware_VIP = true, 10, 1)"
+        }
+    },
+    contentType: "application/merge-patch+json"
+});
 ```
 
 ::: zone-end
@@ -79,20 +82,19 @@ var classificationPolicy = await administrationClient.createClassificationPolicy
 ::: zone pivot="programming-language-python"
 
 ```python
-classification_policy: ClassificationPolicy = administration_client.create_classification_policy(
+classification_policy: ClassificationPolicy = administration_client.upsert_classification_policy(
     classification_policy_id = "XBOX_NA_QUEUE_Priority_1_10",
-    classification_policy = ClassificationPolicy(
-        name = "Select XBOX Queue and set priority to 1 or 10",
-        queue_selectors = [
-            ConditionalQueueSelectorAttachment(
-                condition = ExpressionRouterRule(expression = 'job.Region = "NA"'),
-                queue_selectors = [
-                    RouterQueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_NA_QUEUE")
-                ]
-            )
-        ],
-        fallback_queue_id = "XBOX_DEFAULT_QUEUE",
-        prioritization_rule = ExpressionRouterRule(expression = "If(job.Hardware_VIP = true, 10, 1)")))
+    name = "Select XBOX Queue and set priority to 1 or 10",
+    queue_selector_attachments = [
+        ConditionalQueueSelectorAttachment(
+            condition = ExpressionRouterRule(expression = 'job.Region = "NA"'),
+            queue_selectors = [
+                RouterQueueSelector(key = "Id", label_operator = LabelOperator.EQUAL, value = "XBOX_NA_QUEUE")
+            ]
+        )
+    ],
+    fallback_queue_id = "XBOX_DEFAULT_QUEUE",
+    prioritization_rule = ExpressionRouterRule(expression = "If(job.Hardware_VIP = true, 10, 1)")))
 ```
 
 ::: zone-end
@@ -105,7 +107,7 @@ ClassificationPolicy classificationPolicy = administrationClient.createClassific
         .setName("Select XBOX Queue and set priority to 1 or 10")
         .setQueueSelectors(List.of(new ConditionalQueueSelectorAttachment(
             new ExpressionRouterRule("job.Region = \"NA\""),
-            List.of(new RouterQueueSelector("Id", LabelOperator.EQUAL, new LabelValue("XBOX_NA_QUEUE"))))))
+            List.of(new RouterQueueSelector("Id", LabelOperator.EQUAL, new RouterValue("XBOX_NA_QUEUE"))))))
         .setFallbackQueueId("XBOX_DEFAULT_QUEUE")
         .setPrioritizationRule(new ExpressionRouterRule().setExpression("If(job.Hardware_VIP = true, 10, 1)")));
 ```
@@ -114,22 +116,22 @@ ClassificationPolicy classificationPolicy = administrationClient.createClassific
 
 ## Submit the job
 
-The following example will cause the classification policy to evaluate the Job labels. The outcome will place the Job in the queue called `XBOX_NA_QUEUE` and set the priority to `1`.
+The following example causes the classification policy to evaluate the Job labels.  The outcome places the Job in the queue called `XBOX_NA_QUEUE` and sets the priority to `1`.  Before the classification policy is evaluated, the job's state is `pendingClassification`.  Once the classification policy is evaluated, the job's state is updated to `queued`.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.CreateJobWithClassificationPolicyAsync(new CreateJobWithClassificationPolicyOptions(
+var job = await client.CreateJobWithClassificationPolicyAsync(new CreateJobWithClassificationPolicyOptions(
     jobId: "job1",
     channelId: "voice",
     classificationPolicyId: classificationPolicy.Value.Id)
 {
     Labels =
     {
-        ["Region"] = new LabelValue("NA"),
-        ["Caller_Id"] = new LabelValue("7805551212"),
-        ["Caller_NPA_NXX"] = new LabelValue("780555"),
-        ["XBOX_Hardware"] = new LabelValue(7)
+        ["Region"] = new RouterValue("NA"),
+        ["Caller_Id"] = new RouterValue("7805551212"),
+        ["Caller_NPA_NXX"] = new RouterValue("780555"),
+        ["XBOX_Hardware"] = new RouterValue(7)
     }
 });
 ```
@@ -139,15 +141,18 @@ await client.CreateJobWithClassificationPolicyAsync(new CreateJobWithClassificat
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.createJob("job1", {
-    channelId: "voice",
-    classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10",
-    labels: {
-        Region: "NA",
-        Caller_Id: "7805551212",
-        Caller_NPA_NXX: "780555",
-        XBOX_Hardware: 7
+var job = await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        channelId: "voice",
+        classificationPolicyId: "XBOX_NA_QUEUE_Priority_1_10",
+        labels: {
+            Region: "NA",
+            Caller_Id: "7805551212",
+            Caller_NPA_NXX: "780555",
+            XBOX_Hardware: 7
+        }
     },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -156,7 +161,8 @@ await client.createJob("job1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.create_job(job_id = "job1", router_job = RouterJob(
+job = client.upsert_job(
+    job_id = "job1",
     channel_id = "voice",
     classification_policy_id = "XBOX_NA_QUEUE_Priority_1_10",
     labels = {
@@ -164,8 +170,8 @@ client.create_job(job_id = "job1", router_job = RouterJob(
         "Caller_Id": "7805551212",
         "Caller_NPA_NXX": "780555",
         "XBOX_Hardware": 7
-    }    
-))
+    }
+)
 ```
 
 ::: zone-end
@@ -173,12 +179,12 @@ client.create_job(job_id = "job1", router_job = RouterJob(
 ::: zone pivot="programming-language-java"
 
 ```java
-client.createJob(new CreateJobWithClassificationPolicyOptions("job1", "voice", "XBOX_NA_QUEUE_Priority_1_10")
+RouterJob job = client.createJob(new CreateJobWithClassificationPolicyOptions("job1", "voice", "XBOX_NA_QUEUE_Priority_1_10")
     .setLabels(Map.of(
-        "Region", new LabelValue("NA"),
-        "Caller_Id": new LabelValue("7805551212"),
-        "Caller_NPA_NXX": new LabelValue("780555"),
-        "XBOX_Hardware": new LabelValue(7)
+        "Region", new RouterValue("NA"),
+        "Caller_Id": new RouterValue("7805551212"),
+        "Caller_NPA_NXX": new RouterValue("780555"),
+        "XBOX_Hardware": new RouterValue(7)
     )));
 ```
 
@@ -186,11 +192,11 @@ client.createJob(new CreateJobWithClassificationPolicyOptions("job1", "voice", "
 
 ## Attaching Worker Selectors
 
-You can use the classification policy to attach additional worker selectors to a job.
+You can use the classification policy to attach more worker selectors to a job.
 
 ### Static Attachments
 
-In this example, the Classification Policy is configured with a static attachment, which will always attach the specified label selector to a job.
+In this example, the Classification Policy is configured with a static attachment, which always attaches the specified label selector to a job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -198,10 +204,10 @@ In this example, the Classification Policy is configured with a static attachmen
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors =
+        WorkerSelectorAttachments =
         {
             new StaticWorkerSelectorAttachment(new RouterWorkerSelector(
-                key: "Foo", labelOperator: LabelOperator.Equal, value: new LabelValue("Bar")))
+                key: "Foo", labelOperator: LabelOperator.Equal, value: new RouterValue("Bar")))
         }
     });
 ```
@@ -211,11 +217,14 @@ await administrationClient.CreateClassificationPolicyAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createClassificationPolicy("policy-1", {
-    workerSelectors: [{
-        kind: "static",
-        workerSelector: { key: "Foo", labelOperator: "equal", value: "Bar" }
-    }]
+await client.path("/routing/classificationPolicies/{classificationPolicyId}", "policy-1").patch({
+    body: {
+        workerSelectorAttachments: [{
+            kind: "static",
+            workerSelector: { key: "Foo", labelOperator: "equal", value: "Bar" }
+        }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -224,14 +233,13 @@ await administrationClient.createClassificationPolicy("policy-1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_classification_policy(
+administration_client.upsert_classification_policy(
     classification_policy_id = "policy-1",
-    classification_policy = ClassificationPolicy(
-        worker_selectors = [
-            StaticWorkerSelectorAttachment(
-                worker_selector = RouterWorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
-            )
-        ]))
+    worker_selector_attachments = [
+        StaticWorkerSelectorAttachment(
+            worker_selector = RouterWorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
+        )
+    ])
 ```
 
 ::: zone-end
@@ -240,15 +248,15 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(
-        new StaticWorkerSelectorAttachment(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new LabelValue("Bar"))))));
+    .setWorkerSelectorAttachments(List.of(
+        new StaticWorkerSelectorAttachment(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new RouterValue("Bar"))))));
 ```
 
 ::: zone-end
 
 ### Conditional Attachments
 
-In this example, the Classification Policy is configured with a conditional attachment. So it will evaluate a condition against the job labels to determine if the said label selectors should be attached to the job.
+In this example, the Classification Policy is configured with a conditional attachment. So it evaluates a condition against the job labels to determine if the said label selectors should be attached to the job.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -256,13 +264,13 @@ In this example, the Classification Policy is configured with a conditional atta
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors =
+        WorkerSelectorAttachments =
         {
             new ConditionalRouterWorkerSelectorAttachment(
                 condition: new ExpressionRouterRule("job.Urgent = true"),
                 workerSelectors: new List<RouterWorkerSelector>
                 {
-                    new(key: "Foo", labelOperator: LabelOperator.Equal, value: new LabelValue("Bar"))
+                    new(key: "Foo", labelOperator: LabelOperator.Equal, value: new RouterValue("Bar"))
                 })
         }
     });
@@ -273,14 +281,16 @@ await administrationClient.CreateClassificationPolicyAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createClassificationPolicy("policy-1", {
-    workerSelectors: [{
-        kind: "conditional",
-        condition: { kind: "expression-rule", expression: "job.Urgent = true" },
-        workerSelectors: [{ key: "Foo", labelOperator: "equal", value: "Bar" }]
-    }]
+await client.path("/routing/classificationPolicies/{classificationPolicyId}", "policy-1").patch({
+    body: {
+        workerSelectorAttachments: [{
+            kind: "conditional",
+            condition: { kind: "expression", expression: "job.Urgent = true" },
+            workerSelectors: [{ key: "Foo", labelOperator: "equal", value: "Bar" }]
+        }]
+    },
+    contentType: "application/merge-patch+json"
 });
-
 ```
 
 ::: zone-end
@@ -288,17 +298,16 @@ await administrationClient.createClassificationPolicy("policy-1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_classification_policy(
+administration_client.upsert_classification_policy(
     classification_policy_id = "policy-1",
-    classification_policy = ClassificationPolicy(
-        worker_selectors = [
-            ConditionalWorkerSelectorAttachment(
-                condition = ExpressionRouterRule(expression = "job.Urgent = true"),
-                worker_selectors = [
-                    RouterWorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
-                ]
-            )
-        ]))
+    worker_selector_attachments = [
+        ConditionalWorkerSelectorAttachment(
+            condition = ExpressionRouterRule(expression = "job.Urgent = true"),
+            worker_selectors = [
+                RouterWorkerSelector(key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
+            ]
+        )
+    ])
 ```
 
 ::: zone-end
@@ -307,9 +316,9 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new ConditionalRouterWorkerSelectorAttachment(
+    .setWorkerSelectorAttachments(List.of(new ConditionalRouterWorkerSelectorAttachment(
         new ExpressionRouterRule("job.Urgent = true"),
-        List.of(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new LabelValue("Bar")))))));
+        List.of(new RouterWorkerSelector("Foo", LabelOperator.EQUAL, new RouterValue("Bar")))))));
 ```
 
 ::: zone-end
@@ -324,7 +333,7 @@ In this example, the Classification Policy is configured to attach a worker sele
 await administrationClient.CreateClassificationPolicyAsync(
     new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors =
+        WorkerSelectorAttachments =
         {
             new PassThroughWorkerSelectorAttachment(key: "Foo", labelOperator: LabelOperator.Equal)
         }
@@ -336,14 +345,11 @@ await administrationClient.CreateClassificationPolicyAsync(
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createClassificationPolicy("policy-1", {
-    workerSelectors: [
-        {
-            kind: "pass-through",
-            key: "Foo",
-            labelOperator: "equal"
-        }
-    ]
+await client.path("/routing/classificationPolicies/{classificationPolicyId}", "policy-1").patch({
+    body: {
+        workerSelectorAttachments: [{ kind: "passThrough", key: "Foo", labelOperator: "equal" }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -352,13 +358,12 @@ await administrationClient.createClassificationPolicy("policy-1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_classification_policy(
+administration_client.upsert_classification_policy(
     classification_policy_id = "policy-1",
-    classification_policy = ClassificationPolicy(
-        worker_selectors = [
-            PassThroughWorkerSelectorAttachment(
-                key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
-        ]))
+    worker_selector_attachments = [
+        PassThroughWorkerSelectorAttachment(
+            key = "Foo", label_operator = LabelOperator.EQUAL, value = "Bar")
+    ])
 ```
 
 ::: zone-end
@@ -367,31 +372,31 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new PassThroughWorkerSelectorAttachment("Foo", LabelOperator.EQUAL))));
+    .setWorkerSelectorAttachments(List.of(new PassThroughWorkerSelectorAttachment("Foo", LabelOperator.EQUAL))));
 ```
 
 ::: zone-end
 
 ### Weighted Allocation Attachments
 
-In this example, the Classification Policy is configured with a weighted allocation attachment. This will divide up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
+In this example, the Classification Policy is configured with a weighted allocation attachment. This policy divides up jobs according to the weightings specified and attach different selectors accordingly.  Here, 30% of jobs should go to workers with the label `Vendor` set to `A` and 70% should go to workers with the label `Vendor` set to `B`.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
 await administrationClient.CreateClassificationPolicyAsync(new CreateClassificationPolicyOptions("policy-1")
     {
-        WorkerSelectors =
+        WorkerSelectorAttachments =
         {
             new WeightedAllocationWorkerSelectorAttachment(new List<WorkerWeightedAllocation>
             {
                 new (weight: 0.3, workerSelectors: new List<RouterWorkerSelector>
                 {
-                    new (key: "Vendor", labelOperator: LabelOperator.Equal, value: new LabelValue("A"))
+                    new (key: "Vendor", labelOperator: LabelOperator.Equal, value: new RouterValue("A"))
                 }),
                 new (weight: 0.7, workerSelectors: new List<RouterWorkerSelector>
                 {
-                    new (key: "Vendor", labelOperator: LabelOperator.Equal, value: new LabelValue("B"))
+                    new (key: "Vendor", labelOperator: LabelOperator.Equal, value: new RouterValue("B"))
                 })
             })
         }
@@ -403,19 +408,22 @@ await administrationClient.CreateClassificationPolicyAsync(new CreateClassificat
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await administrationClient.createClassificationPolicy("policy-1", {
-    workerSelectors: [{
-        kind: "weighted-allocation-worker-selector",
-        allocations: [
-        { 
-            weight: 0.3,
-            workerSelectors: [{ key: "Vendor", labelOperator: "equal", value: "A" }]
-        },
-        { 
-            weight: 0.7,
-            workerSelectors: [{ key: "Vendor", labelOperator: "equal", value: "B" }]
+await client.path("/routing/classificationPolicies/{classificationPolicyId}", "policy-1").patch({
+    body: {
+        workerSelectorAttachments: [{
+            kind: "weightedAllocation",
+            allocations: [
+            { 
+                weight: 0.3,
+                workerSelectors: [{ key: "Vendor", labelOperator: "equal", value: "A" }]
+            },
+            { 
+                weight: 0.7,
+                workerSelectors: [{ key: "Vendor", labelOperator: "equal", value: "B" }]
+            }]
         }]
-    }]
+    },
+    contentType: "application/merge-patch+json"
 });
 ```
 
@@ -424,19 +432,18 @@ await administrationClient.createClassificationPolicy("policy-1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-administration_client.create_classification_policy(
+administration_client.upsert_classification_policy(
     classification_policy_id = "policy-1",
-    classification_policy = ClassificationPolicy(
-        worker_selectors = [ 
-            WeightedAllocationWorkerSelectorAttachment(allocations = [
-                WorkerWeightedAllocation(weight = 0.3, worker_selectors = [
-                    RouterWorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "A")
-                ]),
-                WorkerWeightedAllocation(weight = 0.7, worker_selectors = [
-                    RouterWorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "B")
-                ])
+    worker_selector_attachments = [ 
+        WeightedAllocationWorkerSelectorAttachment(allocations = [
+            WorkerWeightedAllocation(weight = 0.3, worker_selectors = [
+                RouterWorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "A")
+            ]),
+            WorkerWeightedAllocation(weight = 0.7, worker_selectors = [
+                RouterWorkerSelector(key = "Vendor", label_operator = LabelOperator.EQUAL, value = "B")
             ])
-        ]))
+        ])
+    ])
 ```
 
 ::: zone-end
@@ -445,10 +452,10 @@ administration_client.create_classification_policy(
 
 ```java
 administrationClient.createClassificationPolicy(new CreateClassificationPolicyOptions("policy-1")
-    .setWorkerSelectors(List.of(new WeightedAllocationWorkerSelectorAttachment(
+    .setWorkerSelectorAttachments(List.of(new WeightedAllocationWorkerSelectorAttachment(
         List.of(new WorkerWeightedAllocation(0.3, List.of(
-            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new LabelValue("A")),
-            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new LabelValue("B"))
+            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new RouterValue("A")),
+            new RouterWorkerSelector("Vendor", LabelOperator.EQUAL, new RouterValue("B"))
         )))))));
 ```
 
@@ -456,14 +463,14 @@ administrationClient.createClassificationPolicy(new CreateClassificationPolicyOp
 
 ## Reclassify a job after submission
 
-Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way to increase the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
+Once the Job Router has received, and classified a Job using a policy, you have the option of reclassifying it using the SDK. The following example illustrates one way of increasing the priority of the Job to `10`, simply by specifying the **Job ID**, calling the `UpdateJobAsync` method, and updating the classificationPolicyId and including the `Hardware_VIP` label.
 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-await client.UpdateJobAsync(new UpdateJobOptions("job1") {
+await client.UpdateJobAsync(new RouterJob("job1") {
     ClassificationPolicyId = classificationPolicy.Value.Id,
-    Labels = { ["Hardware_VIP"] = new LabelValue(true) }});
+    Labels = { ["Hardware_VIP"] = new RouterValue(true) }});
 ```
 
 ::: zone-end
@@ -471,9 +478,13 @@ await client.UpdateJobAsync(new UpdateJobOptions("job1") {
 ::: zone pivot="programming-language-javascript"
 
 ```typescript
-await client.updateJob("job1", {
-    classificationPolicyId: classificationPolicy.Value.Id,
-    labels: { Hardware_VIP: true }});
+var job = await client.path("/routing/jobs/{jobId}", "job1").patch({
+    body: {
+        classificationPolicyId: classificationPolicy.body.id,
+        labels: { Hardware_VIP: true }
+    },
+    contentType: "application/merge-patch+json"
+});
 ```
 
 ::: zone-end
@@ -481,7 +492,8 @@ await client.updateJob("job1", {
 ::: zone pivot="programming-language-python"
 
 ```python
-client.update_job(job_id = "job1",
+client.upsert_job(
+    job_id = "job1",
     classification_policy_id = classification_policy.id,
     labels = { "Hardware_VIP": True }
 )
@@ -492,12 +504,12 @@ client.update_job(job_id = "job1",
 ::: zone pivot="programming-language-java"
 
 ```java
-client.updateJob(new UpdateJobOptions("job1")
+client.updateJob(new RouterJob("job1")
     .setClassificationPolicyId(classificationPolicy.getId())
-    .setLabels(Map.of("Hardware_VIP", new LabelValue(true))));
+    .setLabels(Map.of("Hardware_VIP", new RouterValue(true))));
 ```
 
 ::: zone-end
 
 > [!NOTE]
-> If the job labels, queueId, channelId or worker selectors are updated, any existing offers on the job are revoked and you'll receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer from EventGrid.  The job will be re-queued and you'll receive a [RouterJobQueued](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued) event.  Job offers may also be revoked when a worker's total capacity is reduced, or the channel configurations are updated.
+> If the job labels, queueId, channelId or worker selectors are updated, any existing offers on the job are revoked and you receive a [RouterWorkerOfferRevoked](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerofferrevoked) event for each offer from EventGrid.  The job is re-queued and you receive a [RouterJobQueued](../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterjobqueued) event.  Job offers may also be revoked when a worker's total capacity is reduced, or the channels are updated.

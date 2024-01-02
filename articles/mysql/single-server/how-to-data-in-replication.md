@@ -4,8 +4,8 @@ description: This article describes how to set up Data-in Replication for Azure 
 ms.service: mysql
 ms.subservice: single-server
 ms.custom: devx-track-linux
-author: savjani
-ms.author: pariks
+author: SudheeshGH
+ms.author: sunaray
 ms.topic: how-to
 ms.date: 05/03/2023
 ---

@@ -6,7 +6,7 @@ ms.date: 07/14/2022
 ms.author: dacurwin
 author: dcurwin
 ---
-## Remove the Defender extension
+## Remove the Defender agent
 
 ::: zone pivot="defender-for-container-arc"
 To remove this - or any - Defender for Cloud extension, it's not enough to turn off auto provisioning:
@@ -32,7 +32,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
 
 ### [**Azure CLI**](#tab/k8s-remove-cli)
 
-### Use Azure CLI to remove the Defender extension
+### Use Azure CLI to remove the Defender agent
 
 1. Remove the Microsoft Defender for Kubernetes Arc extension with the following commands:
 
@@ -42,7 +42,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
     az k8s-extension delete --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-rg> --name microsoft.azuredefender.kubernetes --yes
     ```
 
-    Removing the extension may take a few minutes. We recommend you wait before you try to verify that it was successful.
+    Removing the extension might take a few minutes. We recommend you wait before you try to verify that it was successful.
 
 1. To verify that the extension was successfully removed, run the following commands:
 
@@ -60,7 +60,7 @@ You can remove the extension using Azure portal, Azure CLI, or REST API as expla
 
 ### [**REST API**](#tab/k8s-remove-api)
 
-### Use REST API to remove the Defender extension
+### Use REST API to remove the Defender agent
 
 To remove the extension using the REST API, run the following DELETE command:
 
@@ -80,6 +80,6 @@ For **Authentication**, your header must have a Bearer token (as with other Azur
 az account get-access-token --subscription <your-subscription-id>
 ```
 
-The request may take several minutes to complete.
+The request might take several minutes to complete.
 
 ---

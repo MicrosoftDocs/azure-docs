@@ -1,3 +1,4 @@
+items:
 - name: Azure Migrate Documentation
   href: index.yml
 - name: Overview
@@ -38,6 +39,8 @@
       href: tutorial-discover-aws.md
     - name: Discover GCP instances
       href: tutorial-discover-gcp.md
+    - name: Discover Spring Boot apps
+      href: tutorial-discover-spring-boot.md
   - name: Decide
     items:
     - name: Build a business case
@@ -50,8 +53,6 @@
         href: tutorial-assess-vmware-azure-vm.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps.md
       - name: Assess servers for migration to AVS
         href: tutorial-assess-vmware-azure-vmware-solution.md
     - name: Assess servers in Hyper-V environment 
@@ -60,20 +61,22 @@
         href: tutorial-assess-hyper-v.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps-hyper-v.md
     - name: Assess physical servers
       items:
       - name: Assess servers for migration to Azure VMs
         href: tutorial-assess-physical.md
       - name: Assess SQL instances for migration to Azure SQL
         href: tutorial-assess-sql.md 
-      - name: Assess ASP.NET web apps for migration to App Service
-        href: tutorial-assess-webapps-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
     - name: Assess GCP instances for migration to Azure
       href: tutorial-assess-gcp.md
+    - name: Assess ASP.NET web apps for migration to Azure Kubernetes Service (AKS)
+      href: tutorial-assess-aspnet-aks.md
+    - name: Assess ASP.NET web apps for migration to Azure App Service
+      href: tutorial-assess-webapps.md
+    - name: Assess Spring Boot web apps for migration
+      href: tutorial-assess-spring-boot.md
     - name: Build business case or assess imported servers for migration to Azure
       href: tutorial-discover-import.md
   - name: Migrate
@@ -148,6 +151,8 @@
       href: concepts-azure-sql-assessment-calculation.md
     - name: Assessments overview (migrate to App Service)
       href: concepts-azure-webapps-assessment-calculation.md
+    - name: Assessments overview (migrate to Azure Spring Apps)
+      href: concepts-azure-spring-apps-assessment-calculation.md
     - name: Assessments overview (migrate to AVS)
       href: concepts-azure-vmware-solution-assessment-calculation.md
     - name: Assessment best practices
@@ -207,11 +212,13 @@
         href: deploy-appliance-script-government.md
     - name: Limit discovery scope for servers in VMware environment
       href: set-discovery-scope.md
+    - name: Create least privilege credentials for SQL Server discovery
+      href: least-privilege-credentials.md  
     - name: How to add server credentials
       href: add-server-credentials.md
     - name: Discover applications/roles/features
       href: how-to-discover-applications.md
-    - name: Discover SQL instances and ASP.NET web apps in an existing project
+    - name: Discover SQL instances and web apps in an existing project
       href: how-to-discover-sql-existing-project.md
     - name: Analyze machine dependencies (agent-based)
       href: how-to-create-group-machine-dependencies.md
@@ -225,6 +232,8 @@
       href: how-to-view-a-business-case.md
   - name: Assess
     items:
+    - name: Azure Migrate application and code assessment
+      href: appcat/index.yml
     - name: Add assessment tools
       href: how-to-assess.md
     - name: Group machines for assessment
@@ -235,6 +244,8 @@
       href: how-to-create-azure-sql-assessment.md
     - name: Create an Azure App Service assessment
       href: how-to-create-azure-app-service-assessment.md
+    - name: Create an Azure Spring Apps assessment
+      href: how-to-create-azure-spring-apps-assessment.md
     - name: Create an AVS assessment
       href: how-to-create-azure-vmware-solution-assessment.md
     - name: Assess a SQL Server database
@@ -299,6 +310,8 @@
       href: troubleshoot-appliance.md
     - name: Troubleshoot with appliance diagnostics
       href: troubleshoot-appliance-diagnostic.md
+    - name: Troubleshoot Spring Boot discovery and assessment
+      href: troubleshoot-spring-boot-discovery.md
     - name: Troubleshoot discovery
       href: troubleshoot-discovery.md
     - name: Troubleshoot dependency visualization

@@ -2,8 +2,8 @@
 title: Add a tile layer to a map
 titleSuffix: Microsoft Azure Maps
 description: Learn how to superimpose images on maps. See an example that uses the Azure Maps Web SDK to add a tile layer containing a weather radar overlay to a map.
-author: dubiety
-ms.author: yuchungchen
+author: sinnypan
+ms.author: sipa
 ms.date: 06/08/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -49,11 +49,10 @@ map.layers.add(new atlas.layer.TileLayer({
 
 For a fully functional sample that shows how to create a tile layer that points to a set of tiles using the x, y, zoom tiling system, see the [Tile Layer using X, Y, and Z] sample in the [Azure Maps Samples]. The source of the tile layer in this sample is a nautical chart from the [OpenSeaMap project], an OpenStreetMaps project licensed under ODbL. For the source code for this sample, see [Tile Layer using X, Y, and Z source code].
 
-:::image type="content" source="./media/map-add-tile-layer/tile-layer.png"alt-text="A screenshot of map with a tile layer that points to a set of tiles using the x, y, zoom tiling system. The source of this tile layer is the OpenSeaMap project.":::
+:::image type="content" source="./media/map-add-tile-layer/tile-layer.png" lightbox="./media/map-add-tile-layer/tile-layer.png" alt-text="A screenshot of map with a tile layer that points to a set of tiles using the x, y, zoom tiling system. The source of this tile layer is the OpenSeaMap project.":::
 
 <!--------------------------------------------------
-<iframe height='500' scrolling='no' title='Tile Layer using X, Y, and Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>Tile Layer using X, Y, and Z</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------->
 
 ## Add an OGC web-mapping service (WMS)
@@ -64,13 +63,10 @@ For a fully functional sample that shows how to create a tile layer that points 
 
 The following screenshot shows the [WMS Tile Layer] sample that overlays a web-mapping service of geological data from the [U.S. Geological Survey (USGS)] on top of the map and below the labels.
 
-:::image type="content" source="./media/map-add-tile-layer/wms-tile-layer.png"alt-text="A screenshot of a world map with a tile layer that points to a Web Mapping Service (WMS).":::
+:::image type="content" source="./media/map-add-tile-layer/wms-tile-layer.png" lightbox="./media/map-add-tile-layer/wms-tile-layer.png" alt-text="A screenshot of a world map with a tile layer that points to a Web Mapping Service (WMS).":::
 
 <!--------------------------------------------------
-<iframe height="500" scrolling="no" title="WMS Tile Layer" src="https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/BapjZqr'>WMS Tile Layer</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------->
 
 ## Add an OGC web-mapping tile service (WMTS)
@@ -85,24 +81,20 @@ For a fully functional sample that shows how to create a tile layer that points 
 
 The following screenshot shows the WMTS Tile Layer sample overlaying a web-mapping tile service of imagery from the U.S. Geological Survey (USGS) National Map on top of a map, below roads and labels.
 
-:::image type="content" source="./media/map-add-tile-layer/wmts-tile-layer.png"alt-text="A screenshot of a map with a tile layer that points to a Web Mapping Tile Service (WMTS) overlay.":::
+:::image type="content" source="./media/map-add-tile-layer/wmts-tile-layer.png" lightbox="./media/map-add-tile-layer/wmts-tile-layer.png" alt-text="A screenshot of a map with a tile layer that points to a Web Mapping Tile Service (WMTS) overlay.":::
 
 <!--------------------------------------------------
-<iframe height="500" scrolling="no" title="WMTS tile layer" src="https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/BapjZVY'>WMTS tile layer</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ----------------------------------------------->
 
 ## Customize a tile layer
 
 The tile layer class has many styling options. The [Tile Layer Options] sample is a tool to try them out. For the source code for this sample, see [Tile Layer Options source code].
 
-:::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png"alt-text="A screenshot of Tile Layer Options sample.":::
+:::image type="content" source="./media/map-add-tile-layer/tile-layer-options.png" lightbox="./media/map-add-tile-layer/tile-layer-options.png" alt-text="A screenshot of Tile Layer Options sample.":::
 
 <!--------------------------------------------------
-<iframe height='700' scrolling='no' title='Tile Layer Options' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>Tile Layer Options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result]
 ----------------------------------------------->
 
 ## Next steps

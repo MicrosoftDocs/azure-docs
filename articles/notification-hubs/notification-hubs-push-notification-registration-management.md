@@ -86,17 +86,16 @@ An installation can contain the following properties. For a complete listing of 
 
 Registrations and installations must contain a valid PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end.
 
+When the push is made to a handle that has been expired by the PNS, Azure Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
+
 > [!NOTE]
 > The Installations API does not support the Baidu service (although the Registrations API does). 
 
 ### Templates
 
-> [!NOTE]
-> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
-
 If you want to use [Templates](notification-hubs-templates-cross-platform-push-messages.md), the device installation also holds all templates associated with that device in a JSON format (see sample above). The template names help target different templates for the same device.
 
-Each template name maps to a template body and an optional set of tags. Moreover, each platform can have additional template properties. For Windows Store (using WNS) and Windows Phone 8 (using MPNS), an additional set of headers can be part of the template. In the case of APNs, you can set an expiry property to either a constant or to a template expression. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](/rest/api/notificationhubs/create-overwrite-installation) topic.
+Each template name maps to a template body and an optional set of tags. Moreover, each platform can have additional template properties. For Windows Store (using WNS), an additional set of headers can be part of the template. In the case of APNs, you can set an expiry property to either a constant or to a template expression. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](/rest/api/notificationhubs/create-overwrite-installation) topic.
 
 ### Secondary Tiles for Windows Store Apps
 
@@ -286,9 +285,6 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
     switch (deviceUpdate.Platform)
     {
-        case "mpns":
-            installation.Platform = NotificationPlatform.Mpns;
-            break;
         case "wns":
             installation.Platform = NotificationPlatform.Wns;
             break;

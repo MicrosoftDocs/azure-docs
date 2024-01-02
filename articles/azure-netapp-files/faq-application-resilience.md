@@ -14,7 +14,7 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files 
 
 ## What do you recommend for handling potential application disruptions due to storage service maintenance events?
 
-Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are non-disruptive, as long as the application can handle the IO pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds. The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle IO pauses for as long as 30-45 seconds. As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events. For human interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. 
+Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are nondisruptive, as long as the application can handle the IO pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds. The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle IO pauses for as long as 30-45 seconds. As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events. For human interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. 
 
 >[!IMPORTANT]
 >To ensure a resilient architecture, it is crucial to recognize that the cloud operates under a _shared responsibility_ model. This model encompasses the Azure cloud platform, its infrastructure services, the OS-layer, and application vendors. Each of these components plays a vital role in gracefully handling potential application disruptions that may arise during storage service maintenance events.
@@ -22,9 +22,12 @@ Azure NetApp Files might undergo occasional planned maintenance (for example, pl
 ## Do I need to take special precautions for SMB-based applications?
 
 Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover for specific applications, Azure NetApp Files now supports the [SMB Continuous Availability shares option](azure-netapp-files-create-volumes-smb.md#continuous-availability). Using SMB Continuous Availability is only supported for workloads on:
-* Citrix App Laying
+* Citrix App Layering
 * [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
+* FSLogix ODFC containers
 * Microsoft SQL Server (not Linux SQL Server)
+* [MSIX app attach](../virtual-desktop/create-netapp-files.md)
+
 
 >[!CAUTION]
 >Custom applications are not supported with SMB Continuous Availability and cannot be used with SMB Continuous Availability enabled volumes.
@@ -45,12 +48,9 @@ The scale-out architecture would be comprised of multiple IBM MQ multi-instance 
 
 ## I'm running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the *NFS* protocol?
 
->[!NOTE]
-> This section contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 If you're running the Apache ActiveMQ, it's recommended to deploy [ActiveMQ High Availability with Pluggable Storage Lockers](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq). 
 
-ActiveMQ high availability (HA) models ensure that a broker instance is always online and able to process message traffic. The two most common ActiveMQ HA models involve sharing a filesystem over a network. The purpose is to provide either LevelDB or KahaDB to the active and passive broker instances. These HA models require that an OS-level lock be obtained and maintained on a file in the LevelDB or KahaDB directories, called "lock". There are some problems with this ActiveMQ HA model. They can lead to  a "no-master" situation, where the "slave" isn’t aware that it can lock the file.  They can also lead to a "master-master" configuration that results in index or journal corruption and ultimately message loss. Most of these problems stem from factors outside of ActiveMQ's control. For instance, a poorly optimized NFS client can cause locking data to become stale under load, leading to “no-master” downtime during failover. 
+ActiveMQ high availability (HA) models ensure that a broker instance is always online and able to process message traffic. The two most common ActiveMQ HA models involve sharing a filesystem over a network. The purpose is to provide either LevelDB or KahaDB to the active and passive broker instances. These HA models require that an OS-level lock be obtained and maintained on a file in the LevelDB or KahaDB directories, called "lock." There are some problems with this ActiveMQ HA model. They can lead to  a "no-master" situation, where the replica isn’t aware that it can lock the file.  They can also lead to a "master-master" configuration that results in index or journal corruption and ultimately message loss. Most of these problems stem from factors outside of ActiveMQ's control. For instance, a poorly optimized NFS client can cause locking data to become stale under load, leading to “no-master” downtime during failover. 
 
 Because most problems with this HA solution stem from inaccurate OS-level file locking, the ActiveMQ community [introduced the concept of a pluggable storage locker](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq) in version 5.7 of the broker. This approach allows a user to take advantage of a different means of the shared lock, using a row-level JDBC database lock as opposed to an OS-level filesystem lock. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
 

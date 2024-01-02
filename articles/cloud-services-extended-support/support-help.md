@@ -15,7 +15,7 @@ Here are suggestions for where you can get help when developing your Azure Cloud
 
 ## Self help troubleshooting
 
-For common issues and and workarounds, see [Azure Cloud Services troubleshooting documentation](/troubleshoot/azure/cloud-services/welcome-cloud-services) and [Frequently asked questions](faq.yml)
+For common issues and workarounds, see [Azure Cloud Services troubleshooting documentation](/troubleshoot/azure/cloud-services/welcome-cloud-services) and [Frequently asked questions](faq.yml)
 
 
 ## Post a question on Microsoft Q&A

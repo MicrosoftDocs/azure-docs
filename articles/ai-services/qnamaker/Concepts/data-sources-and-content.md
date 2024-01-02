@@ -1,13 +1,13 @@
 ---
 title: Data sources and content types - QnA Maker
 description: Learn how to import question and answer pairs from data sources and supported content types, which include many standard structured documents such as PDF, DOCX, and TXT - QnA Maker.
-ms.service: cognitive-services
+ms.service: azure-ai-language
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.subservice: qna-maker
+ms.subservice: azure-ai-qna-maker
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 12/19/2023
 ---
 
 # Importing from data sources

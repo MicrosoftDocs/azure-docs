@@ -31,12 +31,18 @@ landingContent:
         links:
           - text: Hierarchy model
             url: concepts-hierarchy-model.md
+          - text: Farm Machinery data ingestion
+            url: concepts-farm-operations-data.md
           - text: Satellite data ingestion
             url: concepts-ingest-satellite-imagery.md
           - text: Weather forecast data ingestion
             url: concepts-ingest-weather-data.md
           - text: Sensor data ingestion
             url: concepts-ingest-sensor-data.md
+          - text: Understanding ISV solutions
+            url: concepts-isv-solutions.md
+          - text: Using LLM APIs
+            url: concepts-llm-apis.md
       - linkListType: whats-new
         links:
           - text: Release notes
@@ -51,6 +57,18 @@ landingContent:
         links:
           - text: Use ISV APIs
             url: how-to-set-up-isv-solution.md
+  - title: Working with Farm Operations data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Farm Machinery data ingestion 
+            url: concepts-farm-operations-data.md
+      - linkListType: how-to-guide
+        links:
+          - text: Integrate with Farm Machinery data provider
+            url: how-to-integrate-with-farm-ops-data-provider.md
+          - text: Ingest and egress Farm Machinery data
+            url: how-to-ingest-and-egress-farm-operations-data.md
   - title: Using sensors
     linkLists:
       - linkListType: concept
@@ -81,6 +99,8 @@ landingContent:
         links:
           - text: Using events
             url: how-to-use-events.md
+          - text: Create an Azure support request
+            url: how-to-create-azure-support-request.md  
       - linkListType: concept
         links:
           - text: Understanding throttling

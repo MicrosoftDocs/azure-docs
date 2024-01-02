@@ -161,7 +161,10 @@ Select the machines on which you want to install the AMA. These machines are VMs
     ```python
     sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py
     ```
-    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.
+    The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the     
+    Syslog daemon configuration file according to the daemon type running on the machine:
+        - Rsyslog: `/etc/rsyslog.conf`
+        - Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
     > [!NOTE] 
     > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
@@ -369,7 +372,7 @@ This example collects events for:
 1. To capture messages sent from a logger or a connected device, run this command in the background:
 
     ```
-    tcpdump -i any port 514 -A vv &
+    tcpdump -i any port 514 -A -vv &
     ```
 1. After you complete the validation, we recommend that you stop the `tcpdump`: Type `fg` and then select <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 1. To send demo messages, do one of the following: 
@@ -406,7 +409,7 @@ This example collects events for:
 
 ## Next steps
 
-In this article, you learned how to set up the Windows CEF via AMA connector to upload data from appliances that support CEF over Syslog. To learn more about Microsoft Sentinel, see the following articles:
+In this article, you learned how to set up the CEF via AMA connector to upload data from appliances that support CEF over Syslog. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

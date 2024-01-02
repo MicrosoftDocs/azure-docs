@@ -5,7 +5,7 @@ ms.topic: sample
 ms.custom: devx-track-azurepowershell, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 02/02/2022
+ms.date: 09/30/2023
 ---
 
 # Azure PowerShell samples for Azure Lab Services
@@ -42,7 +42,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Retries the user object from Azure active directory. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Retries the user object from Microsoft Entra ID. |
 | [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Assigns the specified role to the specified principal, at the specified scope. |
 
 ## Add a marketplace image to a lab

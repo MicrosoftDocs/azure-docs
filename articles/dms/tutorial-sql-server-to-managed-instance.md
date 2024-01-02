@@ -4,7 +4,7 @@ titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service (classic).
 author: abhims14
 ms.author: abhishekum
-ms.reviewer: craigg
+ms.reviewer: randolphwest
 ms.date: 02/08/2023
 ms.service: dms
 ms.topic: tutorial
@@ -12,6 +12,7 @@ ms.custom:
   - seo-lt-2019
   - fasttrack-edit
   - ignite-2022
+  - sql-migration-content
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using DMS (classic)

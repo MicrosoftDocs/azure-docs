@@ -16,7 +16,7 @@ ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
 
-[!INCLUDE [cli-version-info](../includes/machine-learning-cli-version-1-only.md)]
+[!INCLUDE [cli-version-info](../includes/machine-learning-cli-v1-deprecation.md)]
 
 
 > [!IMPORTANT]
@@ -99,7 +99,7 @@ The following are the parameters you can use to control the tiling feature.
 
 ## Example notebooks
 
-See the [object detection sample notebook](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) for detailed code examples of setting up and training an object detection model.
+See the [object detection sample notebook](https://github.com/Azure/azureml-examples/tree/v1-archive/v1/python-sdk/tutorials/automl-with-azureml/image-object-detection/auto-ml-image-object-detection.ipynb) for detailed code examples of setting up and training an object detection model.
 
 >[!NOTE]
 > All images in this article are made available in accordance with the permitted use section of the [MIT licensing agreement](https://choosealicense.com/licenses/mit/).

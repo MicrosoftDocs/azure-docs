@@ -2,8 +2,8 @@
 title: Packet core dashboards
 titleSuffix: Azure Private 5G Core
 description: Information on the packet core dashboards, which can be used to monitor key statistics in an Azure Private 5G Core deployment. 
-author: djrmetaswitch
-ms.author: drichards
+author: robswain
+ms.author: robswain
 ms.service: private-5g-core
 ms.topic: conceptual
 ms.date: 01/19/2022
@@ -19,11 +19,13 @@ The packet core dashboards are powered by *Grafana*, an open-source, metric anal
 ## Access the packet core dashboards
 
 > [!TIP]
-> When signing in, if you see a warning in your browser that the connection isn't secure, you may be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
+> When signing in, if you see a warning in your browser that the connection isn't secure, you might be using a self-signed certificate to attest access to your local monitoring tools. We recommend following [Modify the local access configuration in a site](modify-local-access-configuration.md) to configure a custom HTTPS certificate signed by a globally known and trusted certificate authority.
 
-### Azure Active Directory
+<a name='azure-active-directory'></a>
 
-To sign in to the packet core dashboards if you enabled Azure Active Directory authentication:
+### Microsoft Entra ID
+
+To sign in to the packet core dashboards if you enabled Microsoft Entra authentication:
 
 1. In your browser, enter https://*\<local monitoring domain\>*/grafana, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](enable-azure-active-directory.md#configure-domain-system-name-dns-for-local-monitoring-ip).
 1. Follow the prompts to sign in with your account credentials.
@@ -54,11 +56,13 @@ We'll go through the common concepts and operations you'll need to understand be
 You can access the following packet core dashboards:
 
 > [!TIP]
-> Some packet core dashboards display different panels depending on whether the packet core instance supports 5G or 4G user equipment (UEs).
+> Some packet core dashboards display different panels depending on whether the packet core instance supports 5G, 4G, or combined 4G and 5G user equipment (UEs).
 
 - The **Overview dashboard** displays important *key performance indicators* (KPIs), including the number of connected devices, throughput, and any alerts firing in the system.
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-overview-dashboard.png" alt-text="Screenshot of the packet core Overview dashboard." lightbox="media/packet-core-dashboards/packet-core-overview-dashboard.png":::
+
+    If you have configured 4G and 5G on a single packet core, the **Overview dashboard** displays 4G and 5G KPIs individually and combined.
 
     Each panel on the overview dashboard links to another dashboard with detailed statistics about the KPI shown. You can access the link by hovering your cursor over the upper-left corner of the panel. You can then select the link in the pop-up.
     
@@ -74,7 +78,7 @@ You can access the following packet core dashboards:
 
 - The **Uplink and Downlink Statistics dashboard** provides detailed statistics on the user plane traffic being handled by the packet core instance. 
 
-    :::image type="content" source="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png" alt-text="Screenshot of the Uplink and Downlink Statistics dashboard. Panels related to throughput, packet rates, and packet size are shown." lightbox="media/packet-core-dashboards/packet-core-device-session-stats-dashboard.png":::
+    :::image type="content" source="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png" alt-text="Screenshot of the Uplink and Downlink Statistics dashboard. Panels related to throughput, packet rates, and packet size are shown." lightbox="media/packet-core-dashboards/packet-core-uplink-downlink-stats-dashboard.png":::
 
 - The **Debug** dashboards show detailed breakdowns of the request and response statistics for the packet core instance's interfaces.
 
@@ -114,7 +118,7 @@ The packet core dashboards use the following types of panel. For all panels, you
 
     :::image type="content" source="media/packet-core-dashboards/packet-core-graph-panel.png" alt-text="Screenshot of a graph panel in the packet core dashboards. The panel displays information on total throughput statistics.":::
 
-- **Single stat** panels (called "Singlestat" panels in the Grafana documentation) display a single statistic. The statistic may be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold by their color.
+- **Single stat** panels (called "Singlestat" panels in the Grafana documentation) display a single statistic. The statistic might be presented as a simple count or as a gauge. These panels indicate whether a single statistic has exceeded a threshold by their color.
 
     - The value displayed on a gauge single stat panel is shown in green at normal operational levels, amber when approaching a threshold, and red when the threshold has been breached. 
     - The entirety of a count single stat panel will turn red if a threshold is breached.

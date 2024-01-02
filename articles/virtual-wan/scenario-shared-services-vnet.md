@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 08/24/2023
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
@@ -32,9 +32,9 @@ We can use a connectivity matrix to summarize the requirements of this scenario:
 
 Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) communicates with a destination (the "To" side of the flow, the column headers in italics). In this scenario there are no firewalls or Network Virtual Appliances, so communication flows directly over Virtual WAN (hence the word "Direct" in the table).
 
-Similarly to the [Isolated VNet scenario](scenario-isolate-vnets.md), this connectivity matrix gives us two different row patterns, which translate to two route tables (the shared services VNets and the branches have the same connectivity requirements). Virtual WAN already has a Default route table, so we will need another custom route table, which we will call **RT_SHARED** in this example.
+Similarly to the [Isolated VNet scenario](scenario-isolate-vnets.md), this connectivity matrix gives us two different row patterns, which translate to two route tables (the shared services VNets and the branches have the same connectivity requirements). Virtual WAN already has a Default route table, so we'll need another custom route table, which we will call **RT_SHARED** in this example.
 
-VNets will be associated to the **RT_SHARED** route table. Because they need connectivity to branches and to the shared service VNets, the shared service VNet and branches will need to propagate to **RT_SHARED** (otherwise the VNets would not learn the branch and shared VNet prefixes). Because the branches are always associated to the Default route table, and the connectivity requirements are the same for shared services VNets, we will associate the shared service VNets to the Default route table too.
+VNets will be associated to the **RT_SHARED** route table. Because they need connectivity to branches and to the shared service VNets, the shared service VNet and branches will need to propagate to **RT_SHARED** (otherwise the VNets wouldn't learn the branch and shared VNet prefixes). Because the branches are always associated to the Default route table, and the connectivity requirements are the same for shared services VNets, we'll associate the shared service VNets to the Default route table too.
 
 As a result, this is the final design:
 
@@ -61,13 +61,13 @@ To configure the scenario, consider the following steps:
 2. Create a custom route table. In the example, we refer to the route table as **RT_SHARED**. For steps to create a route table, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md). Use the following values as a guideline:
 
    * **Association**
-     * For **VNets *except* the shared services VNet**, select the VNets to isolate. This will imply that all these VNets (except the shared services VNet) will be able to reach destination based on the routes of RT_SHARED route table.
+     * For **VNets *except* the shared services VNet**, select the VNets to isolate. This implies that all these VNets (except the shared services VNet) will be able to reach destination based on the routes of RT_SHARED route table.
 
    * **Propagation**
       * For **Branches**, propagate routes to this route table, in addition to any other route tables you may have already selected. Because of this step, the RT_SHARED route table will learn routes from all branch connections (VPN/ER/User VPN).
       * For **VNets**, select the **shared services VNet**. Because of this step, RT_SHARED route table will learn routes from the shared services VNet connection.
 
-This will result in the routing configuration shown in the following figure:
+This results in the routing configuration shown in the following figure:
 
    :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Diagram for shared services VNet." lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 

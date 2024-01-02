@@ -4,7 +4,7 @@ description: Review support requirements for the Defender for Servers plan in Mi
 ms.topic: limits-and-quotas
 author: dcurwin
 ms.author: dacurwin
-ms.date: 06/11/2023
+ms.date: 12/21/2023
 ---
 
 # Defender for Servers support
@@ -36,7 +36,7 @@ Validate the following endpoints are configured for outbound access so that Azur
 
 This table summarizes Azure cloud support for Defender for Servers features.
 
-**Feature/Plan** | **Azure** | **Azure Government** | **Azure China**<br/>**21Vianet**
+**Feature/Plan** | **Azure** | **Azure Government** | **Microsoft Azure operated by 21Vianet**<br/>**21Vianet**
 --- | --- | --- | ---
 [Microsoft Defender for Endpoint integration](./integration-defender-for-endpoint.md) | GA | GA | NA
 [Compliance standards](./regulatory-compliance-dashboard.md)<br/>Compliance standards might differ depending on the cloud type.| GA | GA | GA
@@ -49,7 +49,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA
 [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA
 [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA 
-[Agentless secret scanning](secret-scanning.md) | Preview | NA | NA
+[Agentless secrets scanning](secret-scanning.md) | GA | NA | NA
 
 ## Windows machine support
 
@@ -72,7 +72,7 @@ The following table shows feature support for Windows machines in Azure, Azure A
 | Missing OS patches assessment                                                                                                     |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Security misconfigurations assessment                                                                                             |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
 | [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
-| Disk encryption assessment                                                                                                        |                                                 ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))                                                 |               -                |                   No                    |
+| Disk encryption assessment                                                                                                        |                                                 ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md))                                                 |               -                |                   No                    |
 | Third-party vulnerability assessment (BYOL)                                                                                              |                                                                                                        ✔                                                                                                        |               -               |                   No                    |
 | [Network security assessment](protect-network-resources.md)                                                                       |                                                                                                        ✔                                                                                                        |               -                |                   No                    |
 
@@ -97,7 +97,7 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 | Missing OS patches assessment                                                                                                     |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Security misconfigurations assessment                                                                                             |                                                                                                        ✔                                                                                                        |               ✔               | Azure: No<br><br>Azure Arc-enabled: Yes |
 | [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) |                                                                                                        -                                                                                                         |               -                |                   No                    |
-| Disk encryption assessment                                                                                                        |                                                 ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))                                                 |               -                |                   No                    |
+| Disk encryption assessment                                                                                                        |                                                 ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md))                                                 |               -                |                   No                    |
 | Third-party vulnerability assessment (BYOL)                                                                                             |                                                                                                        ✔                                                                                                        |               -               |                   No                    |
 | [Network security assessment](protect-network-resources.md)                                                                       |                                                                                                        ✔                                                                                                        |               -                |                   No                    |
 
@@ -122,11 +122,11 @@ The following table shows feature support for AWS and GCP machines.
 | Missing OS patches assessment | ✔ | ✔ |
 | Security misconfigurations assessment | ✔ | ✔ |
 | [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) | ✔ | ✔ |
-| Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
+| Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md)) |
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
-| [Agentless secret scanning](secret-scanning.md) | ✔ | - |
+| [Agentless secrets scanning](secret-scanning.md) | ✔ | ✔ |
 
 ## Endpoint protection support
 
@@ -146,7 +146,7 @@ The following table provides a matrix of supported endpoint protection solutions
 
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
-<sup><a name="footnote2"></a>2</sup> With the MDE unified solution on Server 2012 R2, it automatically installs Microsoft Defender Antivirus in Active mode. For Windows Server 2016, Microsoft Defender Antivirus is built into the OS.
+<sup><a name="footnote2"></a>2</sup> With the Defender for Endpoint unified solution on Server 2012 R2, it automatically installs Microsoft Defender Antivirus in Active mode. For Windows Server 2016, Microsoft Defender Antivirus is built into the OS.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/09/2022
+ms.date: 12/21/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
@@ -12,12 +12,9 @@ ms.custom: devx-track-azurepowershell, devx-track-arm-template
 
 A webhook allows an external service to start a particular runbook in Azure Automation through a single HTTP request. External services include Azure DevOps Services, GitHub, Azure Monitor logs, and custom applications. Such a service can use a webhook to start a runbook without implementing the full Azure Automation API. You can compare webhooks to other methods of starting a runbook in [Starting a runbook in Azure Automation](./start-runbooks.md).
 
-> [!NOTE]
-> Using a webhook to start a Python runbook is not supported.
-
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
-To understand client requirements for TLS 1.2 with webhooks, see [TLS 1.2 for Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher with webhooks, see [TLS 1.2 or higher for Azure Automation](automation-managing-data.md#tls-12-or-higher-for-azure-automation).
 
 ## Webhook properties
 
@@ -43,7 +40,7 @@ The `WebhookData` parameter has the following properties:
 | Property | Description |
 |:--- |:--- |
 | WebhookName | Name of the webhook. |
-| RequestHeader | Hashtable containing the headers of the incoming POST request. |
+| RequestHeader | PSCustomObject containing the headers of the incoming POST request. |
 | RequestBody | Body of the incoming POST request. This body keeps any data formatting, such as string, JSON, XML, or form-encoded. The runbook must be written to work with the data format that is expected. |
 
 There's no configuration of the webhook required to support the `WebhookData` parameter, and the runbook isn't required to accept it. If the runbook doesn't define the parameter, any details of the request sent from the client are ignored.

@@ -70,7 +70,7 @@ items:
       href: concepts-control-access-dps.md
     - name: Control access to DPS with SAS
       href: how-to-control-access.md
-    - name: Control access to DPS with Azure AD (preview)
+    - name: Control access to DPS with Microsoft Entra ID (preview)
       href: concepts-control-access-dps-azure-ad.md
   - name: Roles and operations
     href: concepts-roles-operations.md

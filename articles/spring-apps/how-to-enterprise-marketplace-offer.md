@@ -49,9 +49,7 @@ To purchase the Tanzu component license successfully, the [billing account](../c
 
 The extra license fees apply only to the Enterprise plan. In the Azure Spring Apps Standard plan, there are no extra license fees because the managed Spring components use the OSS config server and Eureka server. No other third-party license fees are required.
 
-On the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) offer page in Azure Marketplace, you can review the Tanzu component license pricing as shown in the following image.
-
-:::image type="content" source="media/how-to-enterprise-marketplace-offer/enterprise-plan.png" alt-text="Screenshot of Azure Marketplace showing the Azure Spring Apps Enterprise plan VMware Tanzu offering." lightbox="media/how-to-enterprise-marketplace-offer/enterprise-plan.png":::
+On the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) offer page in Azure Marketplace, you can review the Tanzu component license pricing.
 
 You can use the Azure portal or the Azure CLI to provision an Azure Spring Apps Enterprise plan service instance. You can also select **Subscribe** on the Azure Marketplace offer page to create the service instance. Azure Marketplace redirects you to the Azure Spring Apps creation page.
 
@@ -88,10 +86,13 @@ The following table lists each supported geographic location and its [ISO 3166 
 
 | Country/Region Name  |ISO-2|
 |----------------------|-----|
+| Argentina            | AR  |
 | Armenia              | AM  |
+| Australia            | AU  |
 | Austria              | AT  |
 | Belarus              | BY  |
 | Belgium              | BE  |
+| Brazil               | BR  |
 | Bulgaria             | BG  |
 | Canada               | CA  |
 | Chile                | CL  |
@@ -105,11 +106,13 @@ The following table lists each supported geographic location and its [ISO 3166 
 | France               | FR  |
 | Germany              | DE  |
 | Greece               | GR  |
+| Hong Kong SAR        | HK  |
 | Hungary              | HU  |
 | Iceland              | IS  |
 | India                | IN  |
 | Indonesia            | ID  |
 | Ireland              | IE  |
+| Israel<sup>1</sup>   | IL  |
 | Italy                | IT  |
 | Korea                | KE  |
 | Latvia               | LV  |
@@ -118,6 +121,7 @@ The following table lists each supported geographic location and its [ISO 3166 
 | Luxembourg           | LU  |
 | Malaysia             | MY  |
 | Malta                | MT  |
+| Mexico               | MX  |
 | Monaco               | MC  |
 | Netherlands          | NL  |
 | New Zealand          | NZ  |
@@ -126,8 +130,8 @@ The following table lists each supported geographic location and its [ISO 3166 
 | Poland               | PL  |
 | Portugal             | PT  |
 | Puerto Rico          | PR  |
+| Qatar                | QA  |
 | Romania              | RO  |
-| Russia               | RU  |
 | Saudi Arabia         | SA  |
 | Serbia               | RS  |
 | Singapore            | SG  |
@@ -143,6 +147,8 @@ The following table lists each supported geographic location and its [ISO 3166 
 | United Arab Emirates | AE  |
 | United Kingdom       | GB  |
 | United States        | US  |
+
+<sup>1</sup> Israel requires reaching out to asa-e-contact@vmware.com with Tax ID (TIN) information to unlock.
 
 ## Troubleshoot errors
 
@@ -166,7 +172,7 @@ The following list shows the errors you might encounter when you create an Azure
 
 - `Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement.`
 
-  You haven't accepted the marketplace legal terms and privacy statements while provisioning the tier. Use the following command to accept the terms:
+  You haven't accepted the marketplace legal terms and privacy statements while provisioning the plan. Use the following command to accept the terms:
 
   ```azurecli
   az term accept \

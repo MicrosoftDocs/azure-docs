@@ -7,7 +7,7 @@ ms.collection: linux
 ms.workload: infrastructure-services
 ms.custom: devx-track-linux
 ms.topic: how-to
-ms.date: 04/11/2023
+ms.date: 01/02/2024
 ms.author: mattmcinnes
 ms.reviewer: jamesser
 ---
@@ -45,7 +45,7 @@ ssh-keygen -m PEM -t rsa -b 4096
 If you use the [Azure CLI](/cli/azure) to create your VM with the [az vm create](/cli/azure/vm#az-vm-create) command, you can optionally generate SSH public and private key files using the `--generate-ssh-keys` option. The key files are stored in the ~/.ssh directory unless specified otherwise with the `--ssh-dest-key-path` option. If an ssh key pair already exists and the  `--generate-ssh-keys` option is used, a new key pair won't be generated but instead the existing key pair will be used. In the following command, replace *VMname*, *RGname* and *UbuntuLTS* with your own values:
 
 ```azurecli-interactive
-az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-ssh-keys 
+az vm create --name VMname --resource-group RGname --image Ubuntu2204 --generate-ssh-keys 
 ```
 
 ## Provide an SSH public key when deploying a VM
@@ -76,12 +76,12 @@ The public key that you place on your Linux VM in Azure is by default stored in 
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username azureuser \
   --ssh-key-values mysshkey.pub
 ```
 
-If you want to use multiple SSH keys with your VM, you can enter them in a space-separated list, like this `--ssh-key-values sshkey-desktop.pub, sshkey-laptop.pub`.
+If you want to use multiple SSH keys with your VM, you can enter them in a comma-separated list, like this `--ssh-key-values sshkey-desktop.pub, sshkey-laptop.pub`.
 
 ## SSH into your VM
 

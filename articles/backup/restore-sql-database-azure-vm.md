@@ -2,7 +2,7 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/03/2023
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -124,7 +124,7 @@ To restore the backup data as .bak files instead of a database, choose **Restore
 
 1. Select **Restore Point**, and select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
 
-1. All the backup files associated with the selected recovery point are dumped into the destination path. You can restore the files as a database on any machine they're present on using SQL Server Management Studio.
+1. When doing SQL database point-in-time restore using **Restore as files**, it'll store all the recovery points from the *Full backup* to the *selected point-in-time*. Then you can restore using these files as a database on any machine they're present using SQL Server Management Studio.
 
     ![Restored Backup Files in Destination Path](./media/backup-azure-sql-database/sql-backup-files.png)
 
@@ -257,7 +257,7 @@ The secondary region restore user experience will be similar to the primary regi
 
 >[!NOTE]
 >- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
->- The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _ Backup reader_ is the minimum premission required in the subscription.
+>- The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _Backup reader_ is the minimum permission required in the subscription.
 >- The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
 
 ### Monitoring secondary region restore jobs

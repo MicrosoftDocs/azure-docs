@@ -2,18 +2,18 @@
 title: Add a dual-stack network to an existing virtual machine - Azure PowerShell
 titleSuffix: Azure Virtual Network
 description: Learn how to add a dual-stack network to an existing virtual machine using Azure PowerShell.
-author: asudbring
-ms.author: allensu
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 08/24/2023
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
 
 # Add a dual-stack network to an existing virtual machine using Azure PowerShell
 
-In this article, you'll add IPv6 support to an existing virtual network. You'll configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network will support private IPv6 addresses. The existing virtual machine network configuration will contain a public and private IPv4 and IPv6 address. 
+In this article, you add IPv6 support to an existing virtual network. You configure an existing virtual machine with both IPv4 and IPv6 addresses. When completed, the existing virtual network supports private IPv6 addresses. The existing virtual machine network configuration contains a public and private IPv4 and IPv6 address. 
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Add IPv6 to virtual network
 
-In this section, you'll add an IPv6 address space and subnet to your existing virtual network.
+In this section, you add an IPv6 address space and subnet to your existing virtual network.
 
 Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to update the virtual network.
 
@@ -79,7 +79,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 ## Create IPv6 public IP address
 
-In this section, you'll create a IPv6 public IP address for the virtual machine.
+In this section, you create a IPv6 public IP address for the virtual machine.
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address.
 

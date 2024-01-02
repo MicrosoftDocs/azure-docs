@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy LAMP and WordPress on a VM
 description: In this tutorial, you learn how to install the LAMP stack, and WordPress, on a Linux virtual machine in Azure.
-author: cynthn
+author: ju-shim
 ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -53,7 +53,7 @@ The following example creates a VM named *myVM* and creates SSH keys if they don
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --generate-ssh-keys
 ```

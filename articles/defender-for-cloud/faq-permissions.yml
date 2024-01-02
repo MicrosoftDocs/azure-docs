@@ -18,7 +18,7 @@ sections:
         answer: |
           Microsoft Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
           
-          Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
+          Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you only see information related to a resource when you're assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
           
           See [Permissions in Microsoft Defender for Cloud](permissions.md) to learn more about roles and allowed actions in Defender for Cloud.
           
@@ -34,7 +34,7 @@ sections:
       - question: |
           Which permissions are used by agentless scanning?
         answer: |
-          The roles and permissions used by Defender for Cloud to perform agentless scanning on your Azure and AWS environments are listed here. In Azure, these permissions are automatically added to your subscriptions when you enable agentless scanning. In AWS, these permissions are [added to the CloudFormation stack in your AWS connector](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws).
+          The roles and permissions used by Defender for Cloud to perform agentless scanning on your Azure, AWS, and GCP environments are listed here. In Azure, these permissions are automatically added to your subscriptions when you enable agentless scanning. In AWS, these permissions are [added to the CloudFormation stack in your AWS connector](enable-vulnerability-assessment-agentless.md#agentless-vulnerability-assessment-on-aws) and in GCP permissions are added to the onboarding script in your GCP connector.
 
           - Azure permissions - The built-in role “VM scanner operator” has read-only permissions for VM disks that are required for the snapshot process. The detailed list of permissions is:
 
@@ -96,9 +96,12 @@ sections:
             | Conditions | None |
             | Resources | arn:aws:kms::${AWS::AccountId}:key/ |
             | Effect | Allow |
-
+            
+          - GCP permissions: during onboarding - a new custom role is created with minimal permissions required to get instances status and create snapshots. on top of that permissions to an existing GCP KMS role are granted to support scanning disks that are encrypted with CMEK. The roles are:
+            - roles/MDCAgentlessScanningRole granted to Defender for Cloud’s service account with permissions: compute.disks.createSnapshot, compute.instances.get
+            - roles/cloudkms.cryptoKeyEncrypterDecrypter granted to Defender for Cloud’s compute engine service agent
 
       - question: |
           What is the minimum SAS policy permissions required when exporting data to Azure Event Hubs?
         answer: |
-          **Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1. Create an Event Hubs namespace and event hub with send permissions** in [this article](./export-to-splunk-or-qradar.md#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).
+          **Send** is the minimum SAS policy permissions required. For step-by-step instructions, see **Step 1: Create an Event Hubs namespace and event hub with send permissions** in [this article](./export-to-splunk-or-qradar.md#step-1-create-an-event-hubs-namespace-and-event-hub-with-send-permissions).

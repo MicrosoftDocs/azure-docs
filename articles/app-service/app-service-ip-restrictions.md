@@ -5,7 +5,7 @@ author: madsd
 
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 10/05/2022
 ms.author: madsd
 ---

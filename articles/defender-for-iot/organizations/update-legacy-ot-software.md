@@ -22,7 +22,7 @@ For more information, see [Versioning and support for on-premises software versi
 
 **To update a legacy OT sensor version**
 
-1. In [Defender for IoT](https://ms.portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** and then select the legacy OT sensor you want to update.
+1. In [Defender for IoT](https://portal.azure.com/#view/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/~/Getting_started) on the Azure portal, select **Sites and sensors** and then select the legacy OT sensor you want to update.
 
 1. Select the **Prepare to update to 22.X** option from the toolbar or from the options (**...**) from the sensor row.
 
@@ -91,6 +91,6 @@ For more information, see:
 
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Manage individual OT sensors](how-to-manage-individual-sensors.md)
-- [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md)
+- [Manage the on-premises management console](legacy-central-management/how-to-manage-the-on-premises-management-console.md)
 - [Troubleshoot the sensor](how-to-troubleshoot-sensor.md)
-- [Troubleshoot the on-premises management console](how-to-troubleshoot-on-premises-management-console.md)
+- [Troubleshoot the on-premises management console](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md)

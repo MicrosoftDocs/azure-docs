@@ -2,10 +2,9 @@
 title: Workbooks gallery 
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
 ms.topic: conceptual
-ms.custom: ignite-2022
 ms.author: dacurwin
 author: dcurwin
-ms.date: 02/02/2023
+ms.date: 12/06/2023
 ---
 
 # Create rich, interactive reports of Defender for Cloud data
@@ -24,12 +23,13 @@ For pricing, check out the [pricing page](https://azure.microsoft.com/pricing/de
 
 **Required roles and permissions**: To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group
 
-**Cloud availability**: :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)
+**Cloud availability**: :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds :::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Microsoft Azure operated by 21Vianet)
 
 ## Workbooks gallery in Microsoft Defender for Cloud
 
 With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud makes it straightforward to build your own custom, interactive workbooks. Defender for Cloud also includes a gallery with the following workbooks ready for your customization:
 
+- ['Coverage' workbook](#use-the-coverage-workbook) - Track the coverage of Defender for Cloud plans and extensions across your environments and subscriptions.
 - ['Secure Score Over Time' workbook](#use-the-secure-score-over-time-workbook) - Track your subscriptions' scores and changes to recommendations for your resources
 - ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
 - ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
@@ -37,7 +37,7 @@ With the integrated Azure Workbooks functionality, Microsoft Defender for Cloud 
 - ['Active Alerts' workbook](#use-the-active-alerts-workbook) - View active alerts by severity, type, tag, MITRE ATT&CK tactics, and location.
 - Price Estimation workbook - View monthly consolidated price estimations for Microsoft Defender for Cloud plans based on the resource telemetry in your own environment. These numbers are estimates based on retail prices and don't provide actual billing data.
 - Governance workbook -  The governance report in the governance rules settings lets you track progress of the rules effective in the organization.
-- ['DevOps Security (Preview)' workbook](#use-the-devops-security-preview-workbook) - View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you've configured.
+- ['DevOps Security (Preview)' workbook](#use-the-devops-security-workbook) - View a customizable foundation that helps you visualize the state of your DevOps posture for the connectors you've configured.
 
 In addition to the built-in workbooks, you can also find other useful workbooks found under the “Community" category, which is provided as is with no SLA or support. Choose one of the supplied workbooks or create your own.
 
@@ -47,6 +47,23 @@ In addition to the built-in workbooks, you can also find other useful workbooks 
 > Use the **Edit** button to customize any of the supplied workbooks to your satisfaction. When you're done editing, select **Save** and your changes will be saved to a new workbook.
 >
 > :::image type="content" source="media/custom-dashboards-azure-workbooks/editing-supplied-workbooks.png" alt-text="Editing the supplied workbooks to customize them for your particular needs.":::
+
+### Use the 'Coverage' workbook
+
+Enabling Defender for Cloud across multiple subscriptions and environments (Azure, AWS, and GCP) can make it hard to keep track of which plans are active. This is especially true if you have multiple subscriptions and environments.
+
+The Coverage workbook allows you to keep track of which Defender for Cloud plans are active on which parts of your environments. This workbook can help you to ensure that your environments and subscriptions are fully protected. By having access to detailed coverage information, you can also identify any areas that might need other protection and take action to address those areas.
+
+:::image type="content" source="media/custom-dashboards-azure-workbooks/coverage.png" alt-text="Screenshot of the Coverage workbook showing which plans and extensions are enabled over various subscriptions and environments." lightbox="media/custom-dashboards-azure-workbooks/coverage.png":::
+
+This workbook allows you to select a subscription (or all subscriptions) from the dropdown menu and view:
+
+- **Additional information**: Shows release notes and an explanation of each toggle.
+- **Relative coverage**: Shows the percentage of subscriptions/connectors that have a particular Defender for Cloud plan enabled.
+- **Absolute coverage**: Shows each plan's status per subscription.
+- **Detailed coverage** - Shows additional settings that can/need to be enabled on relevant plans in order to get each plan's full value.
+
+You can also select which environment (Azure, AWS or GCP) under each or all subscriptions to see which plans and extensions  are enabled under that environment.
 
 ### Use the 'Secure Score Over Time' workbook
 
@@ -170,14 +187,14 @@ Select a location on the map to view all of the alerts for that location.
 
 You can see the details for that alert with the Open Alert View button.
 
-### Use the 'DevOps Security (Preview)' workbook
+### Use the 'DevOps Security' workbook
 
-This workbook provides a customizable data analysis and gives you the ability to create visual reports. You can use this workbook to view insights into your DevOps security posture in coordination with Defender for DevOps. This workbook allows you to visualize the state of your DevOps posture for the connectors you've configured in Defender for Cloud, code, dependencies, and hardening. You can then investigate credential exposure, including types of credentials and repository locations.
+This workbook provides a customizable visual report of your DevOps security posture. You can use this workbook to view insights into your repositories with the highest number of CVEs and weaknesses, active repositories that have Advanced Security disabled, security posture assessments of your DevOps environment configurations, and much more. Customize and add your own visual reports using the rich set of data in Azure Resource Graph to fit the business needs of your security team.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/devops-workbook.png" alt-text="A screenshot that shows a sample results page once you've selected the DevOps workbook." lightbox="media/custom-dashboards-azure-workbooks/devops-workbook.png":::
 
 > [!NOTE]
-> You must have a [GitHub connector](quickstart-onboard-github.md) or a [DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
+> You must have a [GitHub connector](quickstart-onboard-github.md), [GitLab connector](quickstart-onboard-gitlab.md), or an [Azure DevOps connector](quickstart-onboard-devops.md), connected to your environment in order to utilize this workbook
 
 **To deploy the workbook**:
 

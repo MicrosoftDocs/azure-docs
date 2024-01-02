@@ -33,8 +33,8 @@ The sample is forked from this [repository](https://github.com/StackAbuse/spring
 Clone the sample repository to your develop environment:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples.git
-cd Azure-Spring-Cloud-Samples/hystrix-turbine-sample
+git clone https://github.com/Azure-Samples/azure-spring-apps-samples.git
+cd azure-spring-apps-samples/hystrix-turbine-sample
 ```
 
 Build the three applications that are in this tutorial:
@@ -51,7 +51,7 @@ mvn clean package -D skipTests -f hystrix-turbine/pom.xml
 
 ## Provision your Azure Spring Apps instance
 
-Follow the steps in the [Provision an instance of Azure Spring Apps](./quickstart.md#provision-an-instance-of-azure-spring-apps) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
+Follow the steps in the [Provision an instance of Azure Spring Apps](./quickstart.md#32-create-an-azure-spring-apps-instance) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
 
 ## Deploy your applications to Azure Spring Apps
 
@@ -112,5 +112,5 @@ As a web app, Hystrix dashboard should be working on `test-endpoint`. If it isn'
 
 ## Next steps
 
-* [Provision an instance of Azure Spring Apps](./quickstart.md#provision-an-instance-of-azure-spring-apps) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
+* [Provision an instance of Azure Spring Apps](./quickstart.md#32-create-an-azure-spring-apps-instance) section of [Quickstart: Deploy your first application to Azure Spring Apps](quickstart.md).
 * [Prepare a Java Spring application for deployment in Azure Spring Apps](how-to-prepare-app-deployment.md)

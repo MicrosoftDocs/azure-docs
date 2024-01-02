@@ -130,7 +130,7 @@ Validate that the Custom Health Probe is configured correctly, as shown in the p
 
 ### Cause
 
-When a user request is received, the application gateway applies the configured rules to the request and routes it to a backend pool instance. It waits for a configurable interval of time for a response from the backend instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway doesn't receive a response from backend application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway doesn't receive a response from the backend application in this interval, the request will be tried against a second backend pool member.  If the second request fails the user request gets a 502 error.
+When a user request is received, the application gateway applies the configured rules to the request and routes it to a backend pool instance. It waits for a configurable interval of time for a response from the backend instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway doesn't receive a response from backend application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway doesn't receive a response from the backend application in this interval, the request will be tried against a second backend pool member.  If the second request fails the user request gets a 504 error.
 
 ### Solution
 

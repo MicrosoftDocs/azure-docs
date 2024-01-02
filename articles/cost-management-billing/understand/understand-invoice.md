@@ -51,7 +51,7 @@ first page and shows information about your profile and subscription.
 | Invoice date |Date that the invoice was generated, typically on the same day of the month that the Azure account was created. However, they sometimes get generated a day or two later than day of the month that the Azure account was created.|
 | Payment method |Type of payment used on the account (invoice or credit card) |
 | Bill to |Billing address that is listed for the account |
-| Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased (Pay-As-You-Go, BizSpark Plus, Azure Pass, etc.). For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |
+| Subscription offer (“Pay-As-You-Go”) |Type of subscription offer that was purchased, such as Pay-As-You-Go and Azure Pass. For more information, see [Azure offer types](https://azure.microsoft.com/support/legal/offer-details/). |
 | Account owner email | The account email address that the Microsoft Azure account is registered under. <br /><br />To change the email address, see [How to change profile information of your Azure account such as contact email, address, and phone number](../manage/change-azure-account-profile.md). |
 
 ### Understand the invoice summary

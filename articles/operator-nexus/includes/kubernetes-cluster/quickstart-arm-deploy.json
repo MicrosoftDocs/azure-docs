@@ -208,7 +208,7 @@
         "metadata": {
           "description": "The size of the control plane nodes"
         },
-        "defaultValue": "NC_G2_v1"
+        "defaultValue": "NC_G6_28_v1"
       },
       "systemPoolNodeCount": {
         "type": "int",
@@ -222,7 +222,7 @@
         "metadata": {
           "description": "The size of the worker nodes"
         },
-        "defaultValue": "NC_M4_v1"
+        "defaultValue": "NC_P10_56_v1"
       },
       "initialPoolAgentOptions": {
         "type": "object",
@@ -271,7 +271,7 @@
     "resources": [
       {
         "type": "Microsoft.NetworkCloud/kubernetesClusters",
-        "apiVersion": "2023-05-01-preview",
+        "apiVersion": "2023-07-01",
         "name": "[parameters('kubernetesClusterName')]",
         "location": "[parameters('location')]",
         "tags": "[parameters('tags')]",
@@ -299,6 +299,7 @@
           "initialAgentPoolConfigurations": [
             {
               "name": "[concat(parameters('kubernetesClusterName'), '-nodepool-1')]",
+              "administratorConfiguration": {},
               "count": "[parameters('systemPoolNodeCount')]",
               "vmSkuName": "[parameters('workerVmSkuName')]",
               "mode": "System",
@@ -317,6 +318,7 @@
             }
           ],
           "controlPlaneNodeConfiguration": {
+            "administratorConfiguration": {},
             "count": "[parameters('controlPlaneCount')]",
             "vmSkuName": "[parameters('controlPlaneVmSkuName')]",
             "availabilityZones": "[if(empty(parameters('controlPlaneZones')), json('null'), parameters('controlPlaneZones'))]"

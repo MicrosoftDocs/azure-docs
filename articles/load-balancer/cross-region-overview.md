@@ -33,7 +33,7 @@ The frontend IP configuration of your cross-region load balancer is static and a
 
 ### Regional redundancy
 
-Configure regional redundancy by adding a global frontend public IP address to your existing load balancers. 
+Configure regional redundancy by seamlessly linking a cross-region load balancer to your existing regional load balancers. 
 
 If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
@@ -79,6 +79,8 @@ Cross-region load balancer is a Layer-4 pass-through network load balancer. This
 ### Floating IP
 
 Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
+
+It is important to note that floating IP configured on the Azure cross-region Load Balancer operates independently of floating IP configurations on backend regional load balancers. If floating IP is enabled on the cross-region load balancer, the appropriate loopback interface needs to be added to the backend VMs. 
 
 ### Health Probes
 
@@ -152,10 +154,12 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * UDP traffic isn't supported on Cross-region Load Balancer for IPv6.
 
+* UDP traffic on port 3 isn't supported on Cross-Region Load Balancer
+
 * Outbound rules aren't supported on Cross-region Load Balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
 
 ## Pricing and SLA
-Cross-region load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) of standard load balancer.
+Cross-region load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) of standard load balancer.
 
  ## Next steps
 

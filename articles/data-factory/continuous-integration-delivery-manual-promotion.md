@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/20/2022 
+ms.date: 08/10/2023 
 ms.custom:
 ---
 
@@ -35,7 +35,7 @@ Use the steps below to promote a Resource Manager template to each environment f
 
    :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image5.png" alt-text="Settings section":::
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

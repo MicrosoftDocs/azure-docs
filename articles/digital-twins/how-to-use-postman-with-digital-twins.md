@@ -52,7 +52,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-2. Next, use the [az account get-access-token](/cli/azure/account#az-account-get-access-token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
+2. Next, use the [az account get-access-token](/cli/azure/account#az-account-get-access-token()) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
     The required context for the token depends on which set of APIs you're using, so use the following tabs to select between [data plane](concepts-apis-sdks.md#data-plane-apis) and [control plane](concepts-apis-sdks.md#control-plane-apis) APIs.
 
@@ -74,7 +74,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     ---
 
     >[!NOTE]
-    > If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different Azure Active Directory tenant from the instance, you'll need to request a token from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
+    > If you need to access your Azure Digital Twins instance using a service principal or user account that belongs to a different Microsoft Entra tenant from the instance, you'll need to request a token from the Azure Digital Twins instance's "home" tenant. For more information on this process, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This value is your **token value** that you'll provide to Postman to authorize your requests.
 

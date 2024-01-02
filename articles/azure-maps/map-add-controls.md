@@ -1,8 +1,8 @@
 ---
 title: Add controls to a map | Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps.
-author: dubiety
-ms.author: yuchungchen 
+author: sinnypan
+ms.author: sipa
 ms.date: 05/15/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -26,8 +26,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 
 <!----------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='Adding a zoom control' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adding a zoom control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------------->
 
 ## Add pitch control
@@ -43,8 +42,7 @@ map.controls.add(new atlas.control.PitchControl(), {
 
 <!----------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='Adding a pitch control' src='//codepen.io/azuremaps/embed/xJrwaP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/xJrwaP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------------->
 
 ## Add compass control
@@ -60,8 +58,7 @@ map.controls.add(new atlas.control.CompassControl(), {
 
 <!----------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='Adding a rotate control' src='//codepen.io/azuremaps/embed/GBEoRb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adding a rotate control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/GBEoRb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------------->
 
 ## A Map with all controls
@@ -81,12 +78,11 @@ map.controls.add([
 
 The following image shows a map with the zoom, compass, pitch, and style picker controls in the top-right corner of the map. Notice how they automatically stack. The order of the control objects in the script dictates the order in which they appear on the map. To change the order of the controls on the map, you can change their order in the array.
 
-:::image type="content" source="./media/map-add-controls/map-with-all-controls.png" alt-text="Screenshot showing a map displaying zoom, compass, pitch and style controls.":::
+:::image type="content" source="./media/map-add-controls/map-with-all-controls.png" lightbox="./media/map-add-controls/map-with-all-controls.png" alt-text="Screenshot showing a map displaying zoom, compass, pitch and style controls.":::
 
 <!----------------------------------------------------------
 <br/>
-<iframe height='500' scrolling='no' title='A map with all the controls' src='//codepen.io/azuremaps/embed/qyjbOM/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/qyjbOM/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
 ---------------------------------------------------------->
 
 The style picker control is defined by the [StyleControl] class. For more information on using the style picker control, see [choose a map style].
@@ -95,14 +91,11 @@ The style picker control is defined by the [StyleControl] class. For more inform
 
 The [Navigation Control Options] sample is a tool to test out the various options for customizing the controls. For the source code for this sample, see [Navigation Control Options source code].
 
-:::image type="content" source="./media/map-add-controls/map-navigation-control-options.png" alt-text="Screenshot showing the Map Navigation Control Options sample, which contains a map displaying zoom, compass, pitch and style controls and options on the left side of the screen that enable you to change the Control Position, Control Style, Zoom Delta, Pitch Delta, Compass Rotation Delta, Picker Styles, and Style Picker Layout properties.":::
+:::image type="content" source="./media/map-add-controls/map-navigation-control-options.png" lightbox="./media/map-add-controls/map-navigation-control-options.png" alt-text="Screenshot showing the Map Navigation Control Options sample, which contains a map displaying zoom, compass, pitch and style controls and options on the left side of the screen that enable you to change the Control Position, Control Style, Zoom Delta, Pitch Delta, Compass Rotation Delta, Picker Styles, and Style Picker Layout properties.":::
 
 <!----------------------------------------------------------
 <br/>
-<iframe height="700" scrolling="no" title="Navigation control options" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Navigation control options</a> by Azure Maps
-  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+> [!VIDEO //codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result]
 ---------------------------------------------------------->
 
 If you want to create customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. Have this UI control call the maps `setCamera` function to move the map.

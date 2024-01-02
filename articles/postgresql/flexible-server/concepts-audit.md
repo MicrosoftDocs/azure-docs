@@ -70,8 +70,7 @@ Using the [Azure portal](https://portal.azure.com):
 
 pgAudit allows you to configure session or object audit logging. [Session audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#session-audit-logging) emits detailed logs of executed statements. [Object audit logging](https://github.com/pgaudit/pgaudit/blob/master/README.md#object-audit-logging) is audit scoped to specific relations. You can choose to set up one or both types of logging. 
 
-> [!NOTE]
-> pgAudit settings are specified globally and cannot be specified at a database or role level.
+
 
 Once you have [enabled pgAudit](#installing-pgaudit), you can configure its parameters to start logging. 
 To configure pgAudit you can follow below instructions. 
@@ -79,7 +78,7 @@ Using the [Azure portal](https://portal.azure.com):
 
    1. Select your Azure Database for PostgreSQL server.
    2. On the sidebar, select **Server Parameters**.
-   3. Search for the `pg_audit` parameters.
+   3. Search for the `pgaudit` parameters.
    4. Pick appropriate settings parameter to edit. For example to start logging set `pgaudit.log` to `WRITE`
        :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="Screenshot showing Azure Database for PostgreSQL - configuring logging with pgaudit ":::
    5. Click **Save** button to save changes
