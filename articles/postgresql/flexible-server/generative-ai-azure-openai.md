@@ -87,7 +87,7 @@ CREATE TABLE conference_session_embeddings(
 INSERT INTO conference_sessions
     (title,session_abstract,duration_minutes,publish_date) 
 VALUES
-    ('Gen AI with Azure Database for PostgreSQL'
+    ('Gen AI with Azure Database for PostgreSQL flexible server'
     ,'Learn about building intelligent applications with azure_ai extension and pg_vector' 
     , 60, current_timestamp)
     ,('Deep Dive: PostgreSQL database storage engine internals'

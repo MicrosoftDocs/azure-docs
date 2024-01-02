@@ -42,7 +42,7 @@ Use Query Store to compare workload performance before and after an application 
 - Rolling out a new version of an application.
 - Adding additional resources to the server.
 - Creating missing indexes on tables referenced by expensive queries.
-- Migration from Single Server to Flex Server.
+- Migration from Azure Database for PostgreSQL single server to Azure Database for PostgreSQL flexible server.
 
 In any of these scenarios, apply the following workflow:
 1. Run your workload with Query Store before the planned change to generate a performance baseline.
@@ -60,4 +60,4 @@ If you are in control of the application code, you might consider rewriting the 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [best practices for using Query Store](concepts-query-store-best-practices.md)
+> [Best practices for using Query Store](concepts-query-store-best-practices.md)
