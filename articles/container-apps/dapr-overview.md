@@ -35,7 +35,7 @@ Azure Container Apps offers fully managed versions of the following _stable_ Dap
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. [See known limitations for Dapr service invocation in Azure Container Apps.](#limitations)                                     |
 | [**State management**][dapr-statemgmt]                | Provides state management capabilities for transactions and CRUD operations.                                                                                    |
-| [**Pub/sub**][dapr-pubsub]                            | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker.                                                          |
+| [**Pub/sub**][dapr-pubsub]                            | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. You can also create [declarative subscriptions][dapr-subscriptions] to a topic using an external component JSON file. [Learn more about the declarative pub/sub API.][declarative-pubsub]                                                         |
 | [**Bindings**][dapr-bindings]                         | Trigger your applications based on events                                                                                                                       |
 | [**Actors**][dapr-actors]                             | Dapr actors are message-driven, single-threaded, units of work designed to quickly scale. For example, in burst-heavy workload situations. |
 | [**Observability**](./observability.md)               | Send tracing information to an Application Insights backend.                                                                                                    |
@@ -60,6 +60,7 @@ Azure Container Apps offers fully managed versions of the following _stable_ Dap
 [dapr-faq]: ./faq.yml#dapr
 [dapr-enable]: ./enable-dapr.md
 [dapr-components]: ./dapr-components.md
+[declarative-pubsub]: /rest/api/containerapps/dapr-subscriptions/create-or-update
 
 <!-- Links External -->
 
@@ -71,3 +72,4 @@ Azure Container Apps offers fully managed versions of the following _stable_ Dap
 [dapr-actors]: https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
 [dapr-secrets]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
 [dapr-config]: https://docs.dapr.io/developing-applications/building-blocks/configuration/
+[dapr-subscriptions]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/subscription-methods/#declarative-subscriptions
