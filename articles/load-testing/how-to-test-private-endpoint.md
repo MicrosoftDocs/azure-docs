@@ -34,7 +34,7 @@ When you start the load test, Azure Load Testing service injects the following A
 - A network security group (NSG). 
 - An Azure Load Balancer.
 
-These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
+These resources are ephemeral and exist only during the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-virtual-network) to enable communication between these Azure Load Testing and the injected VMs. If you have restrictions on the deployment of Public IP, Azure Load Balancer or Network Security Group, see [Configure your load test](#configure-your-load-test).
 
 ## Prerequisites
 
@@ -143,6 +143,8 @@ You can specify the virtual network configuration settings in the load test crea
     > [!IMPORTANT]
     > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
 
+1. If you do not want to allow the deployment of Public IP, Load Balancer and Network Security Group in the subnet during the load test run, check the setting 'Disable Public IP deployment'. When you select this option, ensure that there is an alternative mechanism in place to enable outbound traffic routing from the subnet. 
+   
 1. Review or fill the load test information. Follow these steps to [create or manage a test](./how-to-create-manage-test.md).
 
 1. Select **Review + create** and then **Create** (or **Apply**, when updating an existing test).
@@ -176,9 +178,10 @@ To configure the load test with your virtual network settings, update the [YAML 
     description: 'Load test the website home page'
     engineInstances: 1
     subnetId: <your-subnet-id>
+    publicIPDisabled: False
     ```
 
-    For more information about the YAML configuration, see [test configuration YAML reference](./reference-test-config-yaml.md).
+    Optionally, you can set the 'publicIPDisabled' property to True. For more information about the YAML configuration, see [test configuration YAML reference](./reference-test-config-yaml.md).
 
     > [!IMPORTANT]
     > Make sure you have sufficient permissions for managing virtual networks. You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role.
