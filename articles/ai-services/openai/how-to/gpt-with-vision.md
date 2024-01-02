@@ -400,40 +400,7 @@ Base Pricing for GPT-4 Turbo with Vision is:
   
 Video prompt integration with Video Retrieval Add-on:
 - Ingestion: $0.05 per minute of video
-- Transactions: $0.25 per 1000 queries of the Video Retrieval index
-
-Processing videos will involve the use of extra tokens to identify key frames for analysis. The number of these additional tokens will be roughly equivalent to the sum of the tokens in the text input plus 700 tokens.
-
-#### Calculation
-For a typical use case let's imagine that I have use a 3-minute video with a 100-token prompt input. The section of video has a transcript that's 100-tokens long and when I process the prompt, I generate 100-tokens of output. The pricing for this transaction would be as follows:
-
-| Item                                      | Detail                                                        | Total Cost   |
-|-------------------------------------------|---------------------------------------------------------------|--------------|
-| GPT-4 Turbo with Vision Input Tokens      | 100 text tokens                                               | $0.001       |
-| Additional Cost to identify frames        | 100 input tokens + 700 tokens + 1 Video Retrieval txn         | $0.00825     |
-| Image Inputs and Transcript Input         | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
-| Output Tokens                             | 100 tokens (assumed)                                          | $0.003       |
-| **Total Cost**                            |                                                               | **$0.03025** |
-
-Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute segment of video. This index can be reused across any number of Video Retrieval and GPT-4 Turbo with Vision calls.
-
-## Limitations
-
-### Image support
-
-- **Limitation on image enhancements per chat session**: Enhancements cannot be applied to multiple images within a single chat call.
-- **Maximum input image size**: The maximum size for input images is restricted to 20 MB.
-- **Object grounding in enhancement API**: When the enhancement API is used for object grounding, and the model detects duplicates of an object, it will generate one bounding box and label for all the duplicates instead of separate ones for each.
-- **Low resolution accuracy**: When images are analyzed using the "low resolution" setting, it allows for faster responses and uses fewer input tokens for certain use cases. However, this could impact the accuracy of object and text recognition within the image.
-- **Image chat restriction**: When uploading images in the chat playground or the API, there is a limit of 10 images per chat call.
-
-### Video support
-
-- **Low resolution**: Video frames are analyzed using GPT-4 Turbo with Vision's "low resolution" setting, which may affect the accuracy of small object and text recognition in the video.
-- **Video file limits**: Both MP4 and MOV file types are supported. In the Azure AI Playground, videos must be less than 3 minutes long. When you use the API there is no such limitation.
-- **Prompt limits**: Video prompts only contain one video and no images. In Playground, you can clear the session to try another video or images.
-- **Limited frame selection**: The service selects 20 frames from the entire video, which might not capture all the critical moments or details. Frame selection can be approximately evenly spread through the video or focused by a specific video retrieval query, depending on the prompt.
-- **Language support**: The service primarily supports English for grounding with transcripts. Transcripts don't provide accurate information on lyrics in songs.
+- Transactions: $0.25 per 1000 queries of the Video Retrieval indexer
 
 ## Next steps
 
