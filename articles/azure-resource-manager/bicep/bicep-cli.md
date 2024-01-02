@@ -93,6 +93,14 @@ az bicep decompile-params --file azuredeploy.parameters.json --bicep-file ./dir/
 
 This command decompiles a _azuredeploy.parameters.json_ parameters file into a _azuredeploy.parameters.bicepparam_ file. `--bicep-file` specifies the path to the Bicep file (relative to the .bicepparam file) that is referenced in the `using` declaration.
 
+## format
+
+The `format` command format a Bicep file. It has the same function as the `SHIFT+ALT+F` shortcut in Visual Studio Code.
+
+```azurecli
+az bicep format --file main.bicep
+```
+
 ## generate-params
 
 The `generate-params` command builds a parameters file from the given Bicep file, updates if there's an existing parameters file.
