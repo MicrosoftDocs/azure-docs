@@ -209,6 +209,9 @@ The final step is to give the application permission to use the DCR. Any applica
 
 The following PowerShell script generates sample data to configure the custom table and sends sample data to the logs ingestion API to test the configuration.
 
+> [!NOTE]
+> This sample script requires PowerShell v7.2 or later.
+
 1. Run the following PowerShell command, which adds a required assembly for the script:
 
     ```powershell
