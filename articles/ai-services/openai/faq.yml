@@ -215,7 +215,7 @@ sections:
       - question: |
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
-          See the [limitations](./how-to/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision how-to guide.
+          See the [limitations](./concepts/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision concepts guide.
 
   - name: Web app
     questions:
