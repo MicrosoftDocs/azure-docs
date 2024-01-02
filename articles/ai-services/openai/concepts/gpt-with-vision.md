@@ -38,6 +38,13 @@ Enhancements let you incorporate other Azure AI services to add new functionalit
 
 :::image type="content" source="../media/concepts/gpt-v/ocr-response.png" alt-text="Screenshot of the JSON response of an OCR call.":::
 
+**Video prompt**: The **video prompt** enhancement lets you use video clips as input for AI chat, enabling the model to generate summaries and answers about video content. It uses Azure AI Vision Video Retrieval to sample a set of frames from a video and create a transcript of the speech in the video.
+
+In order to use the video prompt enhancement, you need both an Azure AI Vison resource and an Azure Video Indexer resource, in addition to your Azure OpenAI resource.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1eHRf]
+
+
 ## Special pricing information
 
 GPT-4 Turbo with Vision accrues charges like other Azure OpenAI chat models. You pay a per-token rate for the prompts and completions, detailed on the [Pricing page](/pricing/details/cognitive-services/openai-service/). The base charges and additional features are outlined here:
