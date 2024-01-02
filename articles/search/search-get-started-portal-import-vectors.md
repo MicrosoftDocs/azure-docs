@@ -9,22 +9,22 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 11/29/2023
+ms.date: 01/02/2024
 ---
 
 # Quickstart: Integrated vectorization (preview)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It targets the [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true).
 
-Get started with [integrated vectorization](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal.
+Get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) using the **Import and vectorize data** wizard in the Azure portal. This wizard calls an Azure OpenAI text embedding model to vectorize content during indexing.
 
 In this preview version of the wizard:
 
 + Source data is blob only, using the default parsing mode (one search document per blob).
-+ Index schema is non-configurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key.
-+ Vectorization is Azure OpenAI only, using the [HNSW](vector-search-ranking.md) algorithm with defaults.
-+ Chunking is non-configurable. The effective settings are:
++ Index schema is nonconfigurable. Source fields include `content` (chunked and vectorized), `metadata_storage_name` for title, and a `metadata_storage_path` for the document key.
++ Vectorization is Azure OpenAI only (text-embedding-ada-002), using the [HNSW](vector-search-ranking.md) algorithm with defaults.
++ Chunking is nonconfigurable. The effective settings are:
 
   ```json
   textSplitMode: "pages",
@@ -36,7 +36,7 @@ In this preview version of the wizard:
 
 + An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 
-+ Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields will fail on creation. In this situation, a new service must be created.
++ Azure AI Search, in any region and on any tier. Most existing services support vector search. For a small subset of services created prior to January 2019, an index containing vector fields fails on creation. In this situation, a new service must be created.
 
 + [Azure OpenAI](https://aka.ms/oai/access) endpoint with a deployment of **text-embedding-ada-002** and an API key or [**Cognitive Services OpenAI User**](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions to upload data. You can only choose one vectorizer in this preview, and the vectorizer must be Azure OpenAI.
 
@@ -49,6 +49,12 @@ In this preview version of the wizard:
 ## Check for space
 
 Many customers start with the free service. The free tier is limited to three indexes, three data sources, three skillsets, and three indexers. Make sure you have room for extra items before you begin. This quickstart creates one of each object.
+
+## Check for semantic ranking
+
+This wizard supports semantic ranking, but only on Basic tier and above, and only if semantic ranking is already [enabled on your search service](semantic-how-to-enable-disable.md). If you're using a billable tier, check to see if semantic ranking is enabled.
+
+:::image type="content" source="media/search-get-started-portal-import-vectors/semantic-ranker-enabled.png" alt-text="Screenshot of the semantic ranker configuration page.":::
 
 ## Prepare sample data
 
@@ -91,7 +97,7 @@ To get started, browse to your Azure AI Search service in the Azure portal and o
 
 The next step is to connect to a data source to use for the search index.
 
-1. In the **Import data** wizard on the **Connect to your data** tab, expand the **Data Source** dropdown list and select **Azure Blob Storage**.
+1. In the **Import and vectorize data** wizard on the **Connect to your data** tab, expand the **Data Source** dropdown list and select **Azure Blob Storage**.
 
 1. Specify the Azure subscription, storage account, and container that provides the data.
 
@@ -141,15 +147,50 @@ Search explorer accepts text strings as input and then vectorizes the text for v
 
 1. Make sure the API version is **2023-10-01-preview**.
 
-1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter.
+1. Optionally, select **Query options** and hide vector values in search results. This step makes your search results easier to read.
 
-1. Select **Search**.
+   :::image type="content" source="media/search-get-started-portal-import-vectors/query-options.png" alt-text="Screenshot of the query options button.":::
+
+1. Select **JSON view** so that you can enter text for your vector query in the **text** vector query parameter. This wizard offers a default query that issues a vector query on the "vector" field, returning the 5 nearest neighbors. If you opted to hide vector values, your default query includes a "select" statement that excludes the vector field from search results.
+
+   ```json
+   {
+      "select": "chunk_id,parent_id,chunk,title",
+      "vectorQueries": [
+          {
+             "kind": "text",
+             "text": "*",
+             "k": 5,
+             "fields": "vector"
+          }
+       ]
+   }
+   ```
+
+1. Replace the text `"*"` with a question related to health plans, such as *"which plan has the lowest deductible"*.
+
+1. Select **Search** to run the query.
 
    :::image type="content" source="media/search-get-started-portal-import-vectors/search-results.png" alt-text="Screenshot of search results.":::
 
-You should see 84 documents, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
+You should see 5 matches, where each document is a chunk of the original PDF. The title field shows which PDF the chunk comes from.
 
-The index definition isn't configurable so you can't filter by "title". To work around this limitation, you could define an index manually, making "title" filterable to get all of the chunks for a single document.
+1. To see all of the chunks from a specific document, add a filter for the title field for a specific PDF:
+
+   ```json
+   {
+      "select": "chunk_id,parent_id,chunk,title",
+      "filter": "title eq 'Benefit_Options.pdf'",
+      "count": true,
+      "vectorQueries": [
+          {
+             "kind": "text",
+             "text": "*",
+             "k": 5,
+             "fields": "vector"
+          }
+       ]
+   }
 
 ## Clean up
 
