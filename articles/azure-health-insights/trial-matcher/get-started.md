@@ -177,7 +177,7 @@ An example response:
 }
 ```
 
-You can also find a full view of the [respone parameters here](/rest/api/cognitiveservices/healthinsights/trial-matcher/get-job)
+You can also find a full view of the [response parameters here](/rest/api/cognitiveservices/healthinsights/trial-matcher/get-job)
 
 ## Data limits
 

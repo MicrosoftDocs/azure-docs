@@ -42,7 +42,7 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 
 ## Configure private endpoints
 
-With private endpoints, the network traffic between the clients on the VNet and the Azure AI services account run over the VNet and a private link on the Microsoft backbone network. This eliminates exposure from the public internet.
+With private endpoints, the network traffic between the clients on the VNet and the Azure AI services account run over the VNet and a private link on the Microsoft backbone network. Using private endpoints as described eliminates exposure from the public internet.
 
 Once the Azure AI services account is successfully created, configure private endpoints from the Networking page under Resource Management. 
 
