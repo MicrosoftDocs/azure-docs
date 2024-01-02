@@ -79,7 +79,7 @@ To create a virtual device, you need:
 
 Perform the following steps to provision a virtual device in your hypervisor.
 
-1. Copy the virtual device image to a location on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the image's location for use in a subsequent step.
+1. Copy the virtual device image to a location on your system. You downloaded this virtual image through the Azure portal. Make a note of the image's location for use in a subsequent step.
 1. Sign in to the ESXi server via a browser at this URL: `https://<IP address of the ESXi server>`. You need to have administrator privileges to create a virtual machine.
 
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image1-sml.png" alt-text="Screenshot of the sign in page." lightbox="media/data-box-gateway-deploy-provision-vmware/image1.png":::
@@ -109,7 +109,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Browse and point to the VMDK files that you downloaded. Select the file to upload.
 
-   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image7-sml.png" alt-text="Screenshot of a user selecting the file to upload."  lightbox="media/data-box-gateway-deploy-provision-vmware/image7.png":::
+   :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image7.png" alt-text="Screenshot of a user selecting the file to upload.":::
 
 1. Select **Open**. The upload of the VMDK file to the specified datastore starts. It might take several minutes for the file to upload.
 1. After the upload is complete, you see the file in the datastore in the folder you created. 
@@ -144,7 +144,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
      :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-sml.png" alt-text="Screenshot of the Customize Settings region highlighting the options to configure a new hard disk."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk.png":::
 
-1. On the **Customize settings** page, select **VM options**. Expand **Boot options**. Ensure that the **Firmware** field's drop-down list value is set to **EFI** for ESXi 7.0 or 8.0, and set Do not change it to BIOS.
+1. On the **Customize settings** page, select **VM options**. Expand **Boot options**. Ensure that the **Firmware** field's drop-down list value is set to **EFI** for ESXi 7.0 or 8.0.
  Select **Next**.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi-sml.png" alt-text="Screenshot of the Customize Settings page when the user is running VMware ESXi Server 6.7."  lightbox="media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png":::
@@ -170,11 +170,11 @@ Perform the following steps to start your virtual device and connect to it.
 
 ### To start the virtual device
 
-1. Start the virtual device. In the right pane, select your device from the list of VMs and right-click to bring up the context menu. To power on your VM, select **Power**, then **Power on**. You can view the status in the bottom pane of the web client.
+1. In the right pane, select your device from the list of VMs and right-click to bring up the context menu. To Start the virtual device, select **Power**, then **Power on**. You can view the status in the bottom pane of the web client.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image19-sml.png" alt-text="Screenshot illustrating the process of powering on a virtual device."  lightbox="media/data-box-gateway-deploy-provision-vmware/image19.png":::
 
-1. Again, select your VM. Right-click and select **Console** and then select **Open in a new window**.
+1. Again, select your VM. Right-click, select **Console**, and then select **Open in a new window**.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image20-sml.png" alt-text="Screenshot illustrating the process of creating a virtual device session."  lightbox="media/data-box-gateway-deploy-provision-vmware/image20.png":::
 
@@ -182,7 +182,7 @@ Perform the following steps to start your virtual device and connect to it.
 
     :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image21-sml.png" alt-text="Screenshot showing a virtual device console." lightbox="media/data-box-gateway-deploy-provision-vmware/image21.png":::
 
-1. Once the device is running, point and click the cursor on the tab in the upper middle part of the console window. Select **Guest OS > Send keys > Ctrl+Alt+Delete** to unlock the VM.
+1. After the device is running, drag the cursor to the tab in the upper middle part of the console window and click. Select **Guest OS > Send keys > Ctrl+Alt+Delete** to unlock the VM.
 
    :::image type="content" source="media/data-box-gateway-deploy-provision-vmware/image22-sml.png" alt-text="Screenshot illustrating the process of unlocking a virtual device."  lightbox="media/data-box-gateway-deploy-provision-vmware/image22.png":::
 
