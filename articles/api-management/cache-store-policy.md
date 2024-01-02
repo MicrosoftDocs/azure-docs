@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 01/02/2024
 ms.author: danlep
 ---
 
@@ -75,10 +75,10 @@ This example shows how to configure API Management response caching duration tha
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->
 
 <!-- Copy this snippet into the inbound section -->
-<cache-store vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >
+<cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >
   <vary-by-header>Accept</vary-by-header>
   <vary-by-header>Accept-Charset</vary-by-header>
-</cache-store>
+</cache-lookup>
 
 <!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->
 <cache-store duration="@{
