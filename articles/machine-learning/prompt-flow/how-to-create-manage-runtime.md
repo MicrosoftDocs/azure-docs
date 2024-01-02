@@ -134,22 +134,22 @@ You can also customize environment used to run this flow.
 
 If you want to use a private feed in Azure DevOps,  you need follow these steps:
 
-- Create user assigned managed identity and add this user assigned managed identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
+1. Create user assigned managed identity and add this user assigned managed identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
 
     > [!NOTE]
     >  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
     
-- [Add or update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+1. [Add or update user assigned identities to workspace](../how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
 
-- You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+1. You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
 
 ```txt
 -i https://{private}@{test_feed_url_in_azure_devops}
 test_package
 ``` 
 
-- Specify the user assigned managed identity if `start with advanced setting` or **reset** automatic runtime in `edit`.
+1. Specify the user assigned managed identity if `start with advanced setting` or **reset** automatic runtime in `edit`.
 
     :::image type="content" source="./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot of specify user assigned managed identity. " lightbox = "./media/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
 

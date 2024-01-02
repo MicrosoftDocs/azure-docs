@@ -117,22 +117,22 @@ You can also customize the environment used to run this flow.
 
 If you want to use a private feed in Azure DevOps,  you need follow these steps:
 
-- Create user assigned managed identity and add this user assigned managed identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
+1. Create user assigned managed identity and add this user assigned managed identity in the Azure DevOps organization. To learn more, see [Use service principals & managed identities](/azure/devops/integrate/get-started/authentication/service-principal-managed-identity).
 
     > [!NOTE]
     >  If the 'Add Users' button isn't visible, it's likely you don't have the necessary permissions to perform this action.
     
-- [Add or update user assigned identities to project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
+1. [Add or update user assigned identities to project](../../machine-learning/how-to-identity-based-service-authentication.md#to-create-a-workspace-with-multiple-user-assigned-identities-use-one-of-the-following-methods).
 
 
-- You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
+1. You need to add `{private}` to your private feed URL. For example, if you want to install `test_package` from `test_feed` in Azure devops, add `-i https://{private}@{test_feed_url_in_azure_devops}` in `requirements.txt`.
 
 ```txt
 -i https://{private}@{test_feed_url_in_azure_devops}
 test_package
 ``` 
 
-- Specify the user assigned managed identity in `start with advanced setting` if automatic runtime is not running or `edit` button if automatic runtime is running.
+1. Specify the user assigned managed identity in `start with advanced setting` if automatic runtime is not running or `edit` button if automatic runtime is running.
 
     :::image type="content" source="../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png" alt-text="Screenshot of specify user assigned managed identity. " lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-advanced-setting-msi.png":::
 
